@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "5c8c7c74a45d478cc1c385db14d48843a558104722bf162b562c3158bb24df4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14177891053259373,
+      "alignment_seconds": 0.00040082819759845734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Capulet in Paris.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6321614583333334
+            },
+            {
+              "text": " Capulet",
+              "start": 0.79,
+              "end": 1.21,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " in",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Paris.",
+              "start": 1.37,
+              "end": 1.63,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Capulet",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "raw": "in",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "Paris.",
+          "start": 1.37,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Capulet",
+        "and",
+        "Paris.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Capulet",
+          "start": 0.79,
+          "end": 1.21,
+          "key": "capulet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Paris.",
+          "start": 1.37,
+          "end": 1.63,
+          "key": "paris",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Capulet",
+          "start": 0.79,
+          "end": 1.21
+        },
+        {
+          "text": "and",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "Paris.]",
+          "start": 1.37,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14232928305864334
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3c93d321284d071ea0a198085d7096439b91ccc7518a2400d6d3ffaf2c4b15ab",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

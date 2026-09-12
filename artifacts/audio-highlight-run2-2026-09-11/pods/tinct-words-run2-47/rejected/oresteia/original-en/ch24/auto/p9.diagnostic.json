@@ -1,0 +1,1056 @@
+{
+  "complete": true,
+  "signature": "52e5b5f83b80a23973b6246b65757f6386f4a9a52e027bf356731e95fc671c80",
+  "attempts": [
+    {
+      "asr_seconds": 0.2757148689997848,
+      "alignment_seconds": 0.0005117800028529018,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Orestes. Thou vauntest thee—but o'er no final fall.",
+        "hotwords": "Orestes, Thou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Orestes, Thou vauntest thee—but o'er no final fall.",
+          "start": 0.08,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Orestes,",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.8416341145833334
+            },
+            {
+              "text": " Thou",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.0265655517578125
+            },
+            {
+              "text": " vauntest",
+              "start": 1.48,
+              "end": 1.92,
+              "probability": 0.145416259765625
+            },
+            {
+              "text": " thee—but",
+              "start": 1.92,
+              "end": 2.7,
+              "probability": 0.5521513621012369
+            },
+            {
+              "text": " o",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.40576171875
+            },
+            {
+              "text": "'er",
+              "start": 2.84,
+              "end": 2.94,
+              "probability": 0.963134765625
+            },
+            {
+              "text": " no",
+              "start": 2.94,
+              "end": 3.1,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " final",
+              "start": 3.1,
+              "end": 3.44,
+              "probability": 0.96875
+            },
+            {
+              "text": " fall.",
+              "start": 3.44,
+              "end": 3.8,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orestes,",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "Thou",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "vauntest",
+          "start": 1.48,
+          "end": 1.92
+        },
+        {
+          "raw": "thee—but",
+          "start": 1.92,
+          "end": 2.7
+        },
+        {
+          "raw": "o",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "'er",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "raw": "no",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "raw": "final",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "raw": "fall.",
+          "start": 3.44,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "Orestes.",
+        "Thou",
+        "vauntest",
+        "thee—but",
+        "o'er",
+        "no",
+        "final",
+        "fall."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orestes,",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "orestes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vauntest",
+          "start": 1.48,
+          "end": 1.92,
+          "key": "vauntest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee—but",
+          "start": 1.92,
+          "end": 2.7,
+          "key": "theebut",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.84,
+          "end": 2.94,
+          "key": "er",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.94,
+          "end": 3.1,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "final",
+          "start": 3.1,
+          "end": 3.44,
+          "key": "final",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fall.",
+          "start": 3.44,
+          "end": 3.8,
+          "key": "fall",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orestes.",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "text": "Thou",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "vauntest",
+          "start": 1.48,
+          "end": 1.92
+        },
+        {
+          "text": "thee—but",
+          "start": 1.92,
+          "end": 2.7
+        },
+        {
+          "text": "o'er",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "no",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "text": "final",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "text": "fall.",
+          "start": 3.44,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2764122939843219
+    },
+    {
+      "asr_seconds": 0.2120217540068552,
+      "alignment_seconds": 0.0004600160173140466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Orestes, Thou"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " vontest thee, but o'er no final fall.",
+          "start": 1.36,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " vontest",
+              "start": 1.36,
+              "end": 1.96,
+              "probability": 0.2620809276898702
+            },
+            {
+              "text": " thee,",
+              "start": 1.96,
+              "end": 2.22,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " but",
+              "start": 2.56,
+              "end": 2.7,
+              "probability": 0.892578125
+            },
+            {
+              "text": " o",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.6025390625
+            },
+            {
+              "text": "'er",
+              "start": 2.84,
+              "end": 2.94,
+              "probability": 0.929443359375
+            },
+            {
+              "text": " no",
+              "start": 2.94,
+              "end": 3.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " final",
+              "start": 3.1,
+              "end": 3.44,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " fall.",
+              "start": 3.44,
+              "end": 3.8,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "vontest",
+          "start": 1.36,
+          "end": 1.96
+        },
+        {
+          "raw": "thee,",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "raw": "but",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "raw": "o",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "'er",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "raw": "no",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "raw": "final",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "raw": "fall.",
+          "start": 3.44,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "Orestes.",
+        "Thou",
+        "vauntest",
+        "thee—but",
+        "o'er",
+        "no",
+        "final",
+        "fall."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "vontest",
+          "start": 1.36,
+          "end": 1.96,
+          "key": "vontest",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.96,
+          "end": 2.22,
+          "key": "thee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.56,
+          "end": 2.7,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.84,
+          "end": 2.94,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.94,
+          "end": 3.1,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "final",
+          "start": 3.1,
+          "end": 3.44,
+          "key": "final",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fall.",
+          "start": 3.44,
+          "end": 3.8,
+          "key": "fall",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orestes.",
+          "start": 0.0,
+          "end": 1.47
+        },
+        {
+          "text": "Thou",
+          "start": 1.47,
+          "end": 2.205
+        },
+        {
+          "text": "vauntest",
+          "start": 2.205,
+          "end": 2.572
+        },
+        {
+          "text": "thee—but",
+          "start": 2.572,
+          "end": 2.756
+        },
+        {
+          "text": "o'er",
+          "start": 2.756,
+          "end": 2.848
+        },
+        {
+          "text": "no",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "text": "final",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "text": "fall.",
+          "start": 3.44,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 3
+      },
+      "match_ratio": 0.375,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21263571400777437
+    },
+    {
+      "asr_seconds": 0.26128476700978354,
+      "alignment_seconds": 0.0005006489809602499,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Orestes, thou vauntest thee, but o'er no final fall.",
+          "start": 0.08,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Orestes,",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.8416341145833334
+            },
+            {
+              "text": " thou",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " vauntest",
+              "start": 1.48,
+              "end": 1.96,
+              "probability": 0.5992024739583334
+            },
+            {
+              "text": " thee,",
+              "start": 1.96,
+              "end": 2.24,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " but",
+              "start": 2.56,
+              "end": 2.7,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " o",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.66748046875
+            },
+            {
+              "text": "'er",
+              "start": 2.84,
+              "end": 2.92,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " no",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " final",
+              "start": 3.1,
+              "end": 3.44,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " fall.",
+              "start": 3.44,
+              "end": 3.8,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orestes,",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "thou",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "vauntest",
+          "start": 1.48,
+          "end": 1.96
+        },
+        {
+          "raw": "thee,",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "raw": "but",
+          "start": 2.56,
+          "end": 2.7
+        },
+        {
+          "raw": "o",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "'er",
+          "start": 2.84,
+          "end": 2.92
+        },
+        {
+          "raw": "no",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "final",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "raw": "fall.",
+          "start": 3.44,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "Orestes.",
+        "Thou",
+        "vauntest",
+        "thee—but",
+        "o'er",
+        "no",
+        "final",
+        "fall."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          7
+        ],
+        [
+          "equal",
+          5,
+          8,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orestes,",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "orestes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vauntest",
+          "start": 1.48,
+          "end": 1.96,
+          "key": "vauntest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.96,
+          "end": 2.24,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.56,
+          "end": 2.7,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.84,
+          "end": 2.92,
+          "key": "er",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "final",
+          "start": 3.1,
+          "end": 3.44,
+          "key": "final",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fall.",
+          "start": 3.44,
+          "end": 3.8,
+          "key": "fall",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orestes.",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "text": "Thou",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "vauntest",
+          "start": 1.48,
+          "end": 1.96
+        },
+        {
+          "text": "thee—but",
+          "start": 1.96,
+          "end": 2.44
+        },
+        {
+          "text": "o'er",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "text": "no",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "final",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "text": "fall.",
+          "start": 3.44,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 10,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2619508269999642
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "341d7038bef6659abaa9c0b8ebd0f8d9e57fc43c930f79449606940fc6ab38c9",
+  "selected_reasons": []
+}

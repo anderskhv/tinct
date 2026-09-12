@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "a37318056ba67c70037767b5c0a19c7d722e5e4dab5157f94fc0878c281665a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.0880742029985413,
+      "alignment_seconds": 0.00010162102989852428,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clever very",
+          "start": 0.08,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Clever",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " very",
+              "start": 0.68,
+              "end": 1.14,
+              "probability": 0.1484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clever",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "very",
+          "start": 0.68,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "Clever,",
+        "Very"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clever",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clever",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 0.68,
+          "end": 1.14,
+          "key": "very",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clever,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Very",
+          "start": 0.68,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08821117301704362
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "37510b9f5414301895a0cab74f6bcee742958dda6b83eee029bb15d8d48dde13",
+  "selected_reasons": []
+}

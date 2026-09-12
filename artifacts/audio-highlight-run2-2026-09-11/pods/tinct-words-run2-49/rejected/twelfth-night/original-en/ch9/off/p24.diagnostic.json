@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "d277c2b41c6cfe05e8a9eb9f56f460c8054f15414e4f0de0a911e16d5ee42c87",
+  "attempts": [
+    {
+      "asr_seconds": 0.12755287811160088,
+      "alignment_seconds": 0.0003186427056789398,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The clown song.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.67578125
+            },
+            {
+              "text": " clown",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " song.",
+              "start": 0.72,
+              "end": 1.1,
+              "probability": 0.79150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "clown",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "song.",
+          "start": 0.72,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Clown's",
+        "song."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clown",
+          "start": 0.48,
+          "end": 0.72,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "song.",
+          "start": 0.72,
+          "end": 1.1,
+          "key": "song",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Clown's",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "song.",
+          "start": 0.72,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12799614667892456
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cb70d5c48483424b36d9c59871893c9877a83a19cbf514147ce68ffd087e8ea1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

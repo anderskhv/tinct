@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "ce9ae60dda0cadbbbfe24061c43cd0b059f648d114db834f7b84bfbe4e2d8a7f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19687987864017487,
+      "alignment_seconds": 0.00028351321816444397,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. Ay, good fool.",
+        "hotwords": "Malvolio, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, Ay, good fool.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.8502604166666666
+            },
+            {
+              "text": " Ay,",
+              "start": 1.37,
+              "end": 1.43,
+              "probability": 0.0003390312194824219
+            },
+            {
+              "text": " good",
+              "start": 1.63,
+              "end": 1.63,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " fool.",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.95947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "raw": "good",
+          "start": 1.63,
+          "end": 1.63
+        },
+        {
+          "raw": "fool.",
+          "start": 1.63,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Ay,",
+        "good",
+        "fool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.37,
+          "end": 1.43,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.63,
+          "end": 1.63,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fool.",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "fool",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Ay,",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "text": "good",
+          "start": 1.63,
+          "end": 1.63
+        },
+        {
+          "text": "fool.",
+          "start": 1.63,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19727319851517677
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0374fa0ec0172de1f28bdf8816866717972bd88140f33a9c13f97cdfd65ce830",
+  "selected_reasons": []
+}

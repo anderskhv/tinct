@@ -1,0 +1,537 @@
+{
+  "complete": true,
+  "signature": "ad73cba96d97cdbd4583d4c8d9e37d2ef5f0ac89ce4606f3a6245e0233ab2ade",
+  "attempts": [
+    {
+      "asr_seconds": 0.23922102386131883,
+      "alignment_seconds": 0.0003994039725512266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " could buy one of those silk petticoats for Molly,",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " could",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.43310546875
+            },
+            {
+              "text": " buy",
+              "start": 0.49,
+              "end": 0.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " one",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " those",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " silk",
+              "start": 1.15,
+              "end": 1.47,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " petticoats",
+              "start": 1.47,
+              "end": 2.09,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " for",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.475830078125
+            },
+            {
+              "text": " Molly,",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.91748046875
+            }
+          ]
+        },
+        {
+          "text": " color of her new garters.",
+          "start": 3.21,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " color",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " of",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 3.53,
+              "end": 3.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " new",
+              "start": 3.63,
+              "end": 3.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " garters.",
+              "start": 3.79,
+              "end": 4.27,
+              "probability": 0.875732421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "could",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "buy",
+          "start": 0.49,
+          "end": 0.67
+        },
+        {
+          "raw": "one",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "those",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "silk",
+          "start": 1.15,
+          "end": 1.47
+        },
+        {
+          "raw": "petticoats",
+          "start": 1.47,
+          "end": 2.09
+        },
+        {
+          "raw": "for",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "Molly,",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "color",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "of",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "her",
+          "start": 3.53,
+          "end": 3.63
+        },
+        {
+          "raw": "new",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "raw": "garters.",
+          "start": 3.79,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "Could",
+        "buy",
+        "one",
+        "of",
+        "those",
+        "silk",
+        "petticoats",
+        "for",
+        "Molly,",
+        "colour",
+        "of",
+        "her",
+        "new",
+        "garters."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          14,
+          10,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "could",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "could",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "buy",
+          "start": 0.49,
+          "end": 0.67,
+          "key": "buy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "one",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 0.97,
+          "end": 1.15,
+          "key": "those",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "silk",
+          "start": 1.15,
+          "end": 1.47,
+          "key": "silk",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "petticoats",
+          "start": 1.47,
+          "end": 2.09,
+          "key": "petticoats",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Molly,",
+          "start": 2.27,
+          "end": 2.63,
+          "key": "molly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "color",
+          "start": 3.21,
+          "end": 3.35,
+          "key": "color",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.35,
+          "end": 3.53,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.53,
+          "end": 3.63,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 3.63,
+          "end": 3.79,
+          "key": "new",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "garters.",
+          "start": 3.79,
+          "end": 4.27,
+          "key": "garters",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Could",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "buy",
+          "start": 0.49,
+          "end": 0.67
+        },
+        {
+          "text": "one",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "of",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "those",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "silk",
+          "start": 1.15,
+          "end": 1.47
+        },
+        {
+          "text": "petticoats",
+          "start": 1.47,
+          "end": 2.09
+        },
+        {
+          "text": "for",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "Molly,",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "colour",
+          "start": 2.63,
+          "end": 2.99
+        },
+        {
+          "text": "of",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "her",
+          "start": 3.53,
+          "end": 3.63
+        },
+        {
+          "text": "new",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "text": "garters.",
+          "start": 3.79,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.23977272491902113
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7e32fc3241788ab99d1d12aa24418e114e3c784f7a6c61d88bb2c6cd3a36d101",
+  "selected_reasons": []
+}

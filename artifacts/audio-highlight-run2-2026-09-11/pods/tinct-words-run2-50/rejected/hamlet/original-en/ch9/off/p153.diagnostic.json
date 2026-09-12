@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "ffd29ba533ecbea185ae0d15cb59f2f92f2f29fef3e9326b0e8a1346c9ea7513",
+  "attempts": [
+    {
+      "asr_seconds": 0.105399489402771,
+      "alignment_seconds": 0.000210663303732872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Polonius.",
+          "start": 0.08,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Polonius.",
+              "start": 0.64,
+              "end": 1.22,
+              "probability": 0.8502604166666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Polonius.",
+          "start": 0.64,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Polonius]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Polonius.",
+          "start": 0.64,
+          "end": 1.22,
+          "key": "polonius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Polonius]",
+          "start": 0.64,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10567837953567505
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a365e51878f642bcab460952be78eed97579a1bac1dc8b5b97950af32f530eab",
+  "selected_reasons": []
+}

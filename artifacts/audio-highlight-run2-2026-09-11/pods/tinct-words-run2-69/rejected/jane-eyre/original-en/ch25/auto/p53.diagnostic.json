@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "369c41809c1b866ce5ce3e635c0604d9c21daa744dee414dbf37de24d63a5447",
+  "attempts": [
+    {
+      "asr_seconds": 0.26502511464059353,
+      "alignment_seconds": 0.000430181622505188,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Then, sir, listen. You were from home last night?\"",
+        "hotwords": "Then, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then, sir, listen. You were from home last night.",
+          "start": 0.02,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " sir,",
+              "start": 0.9,
+              "end": 0.9,
+              "probability": 0.748046875
+            },
+            {
+              "text": " listen.",
+              "start": 1.2,
+              "end": 1.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " You",
+              "start": 1.7,
+              "end": 1.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " were",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " from",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.990234375
+            },
+            {
+              "text": " home",
+              "start": 2.02,
+              "end": 2.22,
+              "probability": 0.994140625
+            },
+            {
+              "text": " last",
+              "start": 2.22,
+              "end": 2.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " night.",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "sir,",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "raw": "listen.",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "raw": "You",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "raw": "were",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "from",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "home",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "raw": "last",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "raw": "night.",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "\"Then,",
+        "sir,",
+        "listen.",
+        "You",
+        "were",
+        "from",
+        "home",
+        "last",
+        "night?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.9,
+          "end": 0.9,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "listen.",
+          "start": 1.2,
+          "end": 1.2,
+          "key": "listen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.7,
+          "end": 1.78,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "home",
+          "start": 2.02,
+          "end": 2.22,
+          "key": "home",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 2.22,
+          "end": 2.48,
+          "key": "last",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "night.",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "night",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "sir,",
+          "start": 0.9,
+          "end": 0.9
+        },
+        {
+          "text": "listen.",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "text": "You",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "text": "were",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "from",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "home",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "last",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "text": "night?\"",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2656104313209653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9217595b543d9268d3a7413143899e89d590b86cdb17e5b52491e5b540642eaf",
+  "selected_reasons": []
+}

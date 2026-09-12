@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "a250fce4cad869648777e9697635913b2e34c067811507febb03d2bb7f54555e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3171127731911838,
+      "alignment_seconds": 0.0004574637860059738,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The youngster will be all right, Martin Cunningham said, as they passed out of the Castleyard gate.",
+          "start": 0.02,
+          "end": 5.54,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.141845703125
+            },
+            {
+              "text": " youngster",
+              "start": 0.52,
+              "end": 0.9,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " will",
+              "start": 0.9,
+              "end": 1.14,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " be",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.51171875
+            },
+            {
+              "text": " right,",
+              "start": 1.48,
+              "end": 1.88,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Martin",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Cunningham",
+              "start": 2.44,
+              "end": 2.82,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " said,",
+              "start": 2.82,
+              "end": 3.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " as",
+              "start": 3.58,
+              "end": 3.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " passed",
+              "start": 4.0,
+              "end": 4.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " out",
+              "start": 4.28,
+              "end": 4.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.5,
+              "end": 4.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.58,
+              "end": 4.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Castleyard",
+              "start": 4.74,
+              "end": 5.24,
+              "probability": 0.23822021484375
+            },
+            {
+              "text": " gate.",
+              "start": 5.24,
+              "end": 5.54,
+              "probability": 0.796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "youngster",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "raw": "will",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "raw": "be",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "right,",
+          "start": 1.48,
+          "end": 1.88
+        },
+        {
+          "raw": "Martin",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "Cunningham",
+          "start": 2.44,
+          "end": 2.82
+        },
+        {
+          "raw": "said,",
+          "start": 2.82,
+          "end": 3.26
+        },
+        {
+          "raw": "as",
+          "start": 3.58,
+          "end": 3.84
+        },
+        {
+          "raw": "they",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "passed",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "raw": "out",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "raw": "of",
+          "start": 4.5,
+          "end": 4.58
+        },
+        {
+          "raw": "the",
+          "start": 4.58,
+          "end": 4.74
+        },
+        {
+          "raw": "Castleyard",
+          "start": 4.74,
+          "end": 5.24
+        },
+        {
+          "raw": "gate.",
+          "start": 5.24,
+          "end": 5.54
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "youngster",
+        "will",
+        "be",
+        "all",
+        "right,",
+        "Martin",
+        "Cunningham",
+        "said,",
+        "as",
+        "they",
+        "passed",
+        "out",
+        "of",
+        "the",
+        "Castleyard",
+        "gate."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "youngster",
+          "start": 0.52,
+          "end": 0.9,
+          "key": "youngster",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.9,
+          "end": 1.14,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 1.48,
+          "end": 1.88,
+          "key": "right",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 2.28,
+          "end": 2.44,
+          "key": "martin",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 2.44,
+          "end": 2.82,
+          "key": "cunningham",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.82,
+          "end": 3.26,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.58,
+          "end": 3.84,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.84,
+          "end": 4.0,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 4.0,
+          "end": 4.28,
+          "key": "passed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.28,
+          "end": 4.5,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.5,
+          "end": 4.58,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.58,
+          "end": 4.74,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Castleyard",
+          "start": 4.74,
+          "end": 5.24,
+          "key": "castleyard",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "gate.",
+          "start": 5.24,
+          "end": 5.54,
+          "key": "gate",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "youngster",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "text": "will",
+          "start": 0.9,
+          "end": 1.14
+        },
+        {
+          "text": "be",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "all",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "right,",
+          "start": 1.48,
+          "end": 1.88
+        },
+        {
+          "text": "Martin",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "Cunningham",
+          "start": 2.44,
+          "end": 2.82
+        },
+        {
+          "text": "said,",
+          "start": 2.82,
+          "end": 3.26
+        },
+        {
+          "text": "as",
+          "start": 3.58,
+          "end": 3.84
+        },
+        {
+          "text": "they",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "passed",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "text": "out",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "text": "of",
+          "start": 4.5,
+          "end": 4.58
+        },
+        {
+          "text": "the",
+          "start": 4.58,
+          "end": 4.74
+        },
+        {
+          "text": "Castleyard",
+          "start": 4.74,
+          "end": 5.24
+        },
+        {
+          "text": "gate.",
+          "start": 5.24,
+          "end": 5.54
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3177751014009118
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1f4ebfe66a28b2f26d43eb7522eb1915fbdf5f4a09770b61a340e4c15543fa8f",
+  "selected_reasons": []
+}

@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "e8c7d8538120c877f6282589f55d978dc24df3a875d53299bea0c62f5d31f5f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.16870024614036083,
+      "alignment_seconds": 0.00028128689154982567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, how shall I murder him, Yego?",
+          "start": 0.24,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.9,
+              "probability": 0.9215494791666666
+            },
+            {
+              "text": " how",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " shall",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " I",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.96875
+            },
+            {
+              "text": " murder",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him,",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Yego?",
+              "start": 2.2,
+              "end": 2.48,
+              "probability": 0.6066080729166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "raw": "how",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "shall",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "I",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "murder",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "him,",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "Yego?",
+          "start": 2.2,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "How",
+        "shall",
+        "I",
+        "murder",
+        "him,",
+        "Iago?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "murder",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "murder",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Yego?",
+          "start": 2.2,
+          "end": 2.48,
+          "key": "yego",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.9
+        },
+        {
+          "text": "How",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "shall",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "I",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "murder",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "him,",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "Iago?",
+          "start": 1.98,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.16908421088010073
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9598df51ffd478e89deae2d54a2d8b9b9d260f54ace6e57a23a08679c8470c41",
+  "selected_reasons": []
+}

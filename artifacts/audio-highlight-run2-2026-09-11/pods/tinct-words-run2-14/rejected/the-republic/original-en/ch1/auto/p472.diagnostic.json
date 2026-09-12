@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "a8a4dc4d625b15ec71d1115496c6c1882f7b17d3070b302e5328be9c99e1c076",
+  "attempts": [
+    {
+      "asr_seconds": 0.13859868049621582,
+      "alignment_seconds": 0.0002919882535934448,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Assuredly, he said.",
+        "hotwords": "Assuredly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Assuredly, he said.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " Assuredly,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.9283854166666666
+            },
+            {
+              "text": " he",
+              "start": 1.09,
+              "end": 1.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " said.",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Assuredly,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "he",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "raw": "said.",
+          "start": 1.17,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "Assuredly,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Assuredly,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "assuredly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.09,
+          "end": 1.17,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Assuredly,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "he",
+          "start": 1.09,
+          "end": 1.17
+        },
+        {
+          "text": "said.",
+          "start": 1.17,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.138998631387949
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e58cfe0d28af0def9c1db06a2f78095454f8f8c228cbc9635087a4ce065018d3",
+  "selected_reasons": []
+}

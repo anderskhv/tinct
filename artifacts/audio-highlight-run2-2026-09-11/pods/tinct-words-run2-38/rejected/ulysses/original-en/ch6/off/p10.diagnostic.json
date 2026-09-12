@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "33f34f38b6ddcec53274e96c8101c635abcec3898075548067bb50989c8409f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.13383068004623055,
+      "alignment_seconds": 0.00021898094564676285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What way is he taking us? Mr. Power asked through both windows",
+          "start": 0.02,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " way",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " is",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 0.8,
+              "end": 0.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " taking",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " us?",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mr.",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Power",
+              "start": 2.34,
+              "end": 2.34,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " asked",
+              "start": 2.34,
+              "end": 2.72,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " through",
+              "start": 2.72,
+              "end": 2.98,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " both",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " windows",
+              "start": 3.22,
+              "end": 3.64,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "way",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "is",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "he",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "raw": "taking",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "us?",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "Power",
+          "start": 2.34,
+          "end": 2.34
+        },
+        {
+          "raw": "asked",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "raw": "through",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "raw": "both",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "windows",
+          "start": 3.22,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "—What",
+        "way",
+        "is",
+        "he",
+        "taking",
+        "us?",
+        "Mr",
+        "Power",
+        "asked",
+        "through",
+        "both",
+        "windows."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "way",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.8,
+          "end": 0.92,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "taking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us?",
+          "start": 1.16,
+          "end": 1.48,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "mr",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 2.34,
+          "end": 2.34,
+          "key": "power",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.34,
+          "end": 2.72,
+          "key": "asked",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 2.72,
+          "end": 2.98,
+          "key": "through",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "both",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "windows",
+          "start": 3.22,
+          "end": 3.64,
+          "key": "windows",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "way",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "is",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "he",
+          "start": 0.8,
+          "end": 0.92
+        },
+        {
+          "text": "taking",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "us?",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "Mr",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "Power",
+          "start": 2.34,
+          "end": 2.34
+        },
+        {
+          "text": "asked",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "text": "through",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "text": "both",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "windows.",
+          "start": 3.22,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13413793104700744
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8b605a2c68f7af66e75aa4ba3b26be63b8d20ecf2af61dd529e2f38a3987505",
+  "selected_reasons": []
+}

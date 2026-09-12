@@ -1,0 +1,628 @@
+{
+  "complete": true,
+  "signature": "ffd0b583e7968bf01b9d133dc0878becc50a5dcbfb3e0f8eb2bcef85114010c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.31312869396060705,
+      "alignment_seconds": 0.0007010232657194138,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 69. One has regarded life carelessly if one has failed to see the hand that kills with leniency.",
+          "start": 0.0,
+          "end": 6.46,
+          "words": [
+            {
+              "text": " 69.",
+              "start": 0.0,
+              "end": 0.96,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " One",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " has",
+              "start": 1.88,
+              "end": 2.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " regarded",
+              "start": 2.08,
+              "end": 2.46,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " life",
+              "start": 2.46,
+              "end": 2.8,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " carelessly",
+              "start": 2.8,
+              "end": 3.42,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " if",
+              "start": 3.42,
+              "end": 3.9,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " one",
+              "start": 3.9,
+              "end": 4.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " has",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " failed",
+              "start": 4.2,
+              "end": 4.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 4.42,
+              "end": 4.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 4.62,
+              "end": 4.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.76,
+              "end": 4.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hand",
+              "start": 4.9,
+              "end": 5.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 5.1,
+              "end": 5.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kills",
+              "start": 5.34,
+              "end": 5.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 5.62,
+              "end": 5.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " leniency.",
+              "start": 5.92,
+              "end": 6.46,
+              "probability": 0.998779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "69.",
+          "start": 0.0,
+          "end": 0.96
+        },
+        {
+          "raw": "One",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "has",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "raw": "regarded",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "raw": "life",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "raw": "carelessly",
+          "start": 2.8,
+          "end": 3.42
+        },
+        {
+          "raw": "if",
+          "start": 3.42,
+          "end": 3.9
+        },
+        {
+          "raw": "one",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "raw": "has",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "failed",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "raw": "to",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "raw": "see",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "raw": "the",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "raw": "hand",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "raw": "that",
+          "start": 5.1,
+          "end": 5.34
+        },
+        {
+          "raw": "kills",
+          "start": 5.34,
+          "end": 5.62
+        },
+        {
+          "raw": "with",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "raw": "leniency.",
+          "start": 5.92,
+          "end": 6.46
+        }
+      ],
+      "expected_tokens": [
+        "69.",
+        "One",
+        "has",
+        "regarded",
+        "life",
+        "carelessly,",
+        "if",
+        "one",
+        "has",
+        "failed",
+        "to",
+        "see",
+        "the",
+        "hand",
+        "that--kills",
+        "with",
+        "leniency."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "69.",
+          "start": 0.0,
+          "end": 0.96,
+          "key": "sixtynine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.88,
+          "end": 2.08,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "regarded",
+          "start": 2.08,
+          "end": 2.46,
+          "key": "regarded",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 2.46,
+          "end": 2.8,
+          "key": "life",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "carelessly",
+          "start": 2.8,
+          "end": 3.42,
+          "key": "carelessly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.42,
+          "end": 3.9,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.9,
+          "end": 4.04,
+          "key": "one",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "has",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "failed",
+          "start": 4.2,
+          "end": 4.42,
+          "key": "failed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.42,
+          "end": 4.62,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.62,
+          "end": 4.76,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.76,
+          "end": 4.9,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 4.9,
+          "end": 5.1,
+          "key": "hand",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that kills",
+          "start": 5.1,
+          "end": 5.62,
+          "key": "thatkills",
+          "pieces": [
+            14,
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.62,
+          "end": 5.92,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "leniency.",
+          "start": 5.92,
+          "end": 6.46,
+          "key": "leniency",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "that--kills",
+          "heard": "that kills",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 5.1,
+          "end": 5.62
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "69.",
+          "start": 0.0,
+          "end": 0.96
+        },
+        {
+          "text": "One",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "has",
+          "start": 1.88,
+          "end": 2.08
+        },
+        {
+          "text": "regarded",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "text": "life",
+          "start": 2.46,
+          "end": 2.8
+        },
+        {
+          "text": "carelessly,",
+          "start": 2.8,
+          "end": 3.42
+        },
+        {
+          "text": "if",
+          "start": 3.42,
+          "end": 3.9
+        },
+        {
+          "text": "one",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "text": "has",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "failed",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "to",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "text": "see",
+          "start": 4.62,
+          "end": 4.76
+        },
+        {
+          "text": "the",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "text": "hand",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "text": "that--kills",
+          "start": 5.1,
+          "end": 5.62
+        },
+        {
+          "text": "with",
+          "start": 5.62,
+          "end": 5.92
+        },
+        {
+          "text": "leniency.",
+          "start": 5.92,
+          "end": 6.46
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.314093055203557
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1855f09e33b895adc2537e32302673bd2295802461857b9e3b8e108fe02c7a75",
+  "selected_reasons": []
+}

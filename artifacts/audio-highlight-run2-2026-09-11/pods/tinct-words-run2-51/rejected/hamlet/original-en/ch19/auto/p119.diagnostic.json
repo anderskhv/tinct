@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "3c7eab360e1a63b40d6bfc040168202834d7bd90e410160ee387cbe14c4a38b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.19269451312720776,
+      "alignment_seconds": 0.0005456684157252312,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[The Attendants part them, and they come out of the grave.]",
+        "hotwords": "Attendants"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Attendants part them, and they come out of the grave.",
+          "start": 0.08,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.08,
+              "end": 0.48,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " Attendants",
+              "start": 0.48,
+              "end": 0.92,
+              "probability": 0.4870798587799072
+            },
+            {
+              "text": " part",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " them,",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " they",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " come",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.38,
+              "end": 2.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " grave.",
+              "start": 2.58,
+              "end": 2.84,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.08,
+          "end": 0.48
+        },
+        {
+          "raw": "Attendants",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "raw": "part",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "them,",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "they",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "come",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "out",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "grave.",
+          "start": 2.58,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "[The",
+        "Attendants",
+        "part",
+        "them,",
+        "and",
+        "they",
+        "come",
+        "out",
+        "of",
+        "the",
+        "grave.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.08,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Attendants",
+          "start": 0.48,
+          "end": 0.92,
+          "key": "attendants",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "part",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "them",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "they",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "out",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.48,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "grave.",
+          "start": 2.58,
+          "end": 2.84,
+          "key": "grave",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[The",
+          "start": 0.08,
+          "end": 0.48
+        },
+        {
+          "text": "Attendants",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "text": "part",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "them,",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "and",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "they",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "come",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "out",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "of",
+          "start": 2.38,
+          "end": 2.48
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "grave.]",
+          "start": 2.58,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1934721488505602
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "08877f2a32a08f95526d0ee2d2be2d0d4ecfb7717ecfdc84a88588e4aa73d235",
+  "selected_reasons": []
+}

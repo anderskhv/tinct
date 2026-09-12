@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "d04381d6e1bdaf79bf818012079311b752ede1d13216223e6435f36611ff0dc7",
+  "attempts": [
+    {
+      "asr_seconds": 0.09116355562582612,
+      "alignment_seconds": 9.347870945930481e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. Where are they?",
+        "hotwords": "Cassio, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, Where are they?",
+          "start": 0.53,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.53,
+              "end": 0.89,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " Where",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.0110626220703125
+            },
+            {
+              "text": " are",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.6201171875
+            },
+            {
+              "text": " they?",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.90673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "raw": "Where",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "are",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "they?",
+          "start": 1.35,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Where",
+        "are",
+        "they?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.53,
+          "end": 0.89,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they?",
+          "start": 1.35,
+          "end": 1.51,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "text": "Where",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "are",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "they?",
+          "start": 1.35,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09128823457285762
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b0acdd423bc07af39486c6da397fedde64e4c1b55fcc56c69acc9d18a9dd73f2",
+  "selected_reasons": []
+}

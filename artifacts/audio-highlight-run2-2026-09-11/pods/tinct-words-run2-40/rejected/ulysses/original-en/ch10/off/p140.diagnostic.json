@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "2c755c25ae28322615340d8dc91103e288618965c47f7608139a94e584bdcae8",
+  "attempts": [
+    {
+      "asr_seconds": 0.12894525611773133,
+      "alignment_seconds": 0.0003174571320414543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, sir, she said.",
+          "start": 0.36,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.36,
+              "end": 0.64,
+              "probability": 0.287109375
+            },
+            {
+              "text": " sir,",
+              "start": 0.78,
+              "end": 0.82,
+              "probability": 0.405517578125
+            },
+            {
+              "text": " she",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " said.",
+              "start": 1.0,
+              "end": 1.24,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.36,
+          "end": 0.64
+        },
+        {
+          "raw": "sir,",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "raw": "she",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "said.",
+          "start": 1.0,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "—Yes,",
+        "sir,",
+        "she",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.36,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.78,
+          "end": 0.82,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.0,
+          "end": 1.24,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Yes,",
+          "start": 0.36,
+          "end": 0.64
+        },
+        {
+          "text": "sir,",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "text": "she",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "said.",
+          "start": 1.0,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12937049893662333
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "472a24be959be560a702f941b9cc3a50a8fa902a8270271ae215fca5131d4e36",
+  "selected_reasons": []
+}

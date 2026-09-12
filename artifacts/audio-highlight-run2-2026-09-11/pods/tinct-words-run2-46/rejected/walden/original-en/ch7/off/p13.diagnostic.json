@@ -1,0 +1,501 @@
+{
+  "complete": true,
+  "signature": "8c12f42731483917f4302cc02cb17369dd5a5c3d4599054b39806dc79c41ec5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.37151732854545116,
+      "alignment_seconds": 0.00021123141050338745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My income was Patrim Familias Vendesum, non emasum esse opertète, from",
+          "start": 0.05,
+          "end": 5.67,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " income",
+              "start": 0.59,
+              "end": 0.95,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " was",
+              "start": 0.95,
+              "end": 1.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Patrim",
+              "start": 1.25,
+              "end": 2.07,
+              "probability": 0.40576171875
+            },
+            {
+              "text": " Familias",
+              "start": 2.07,
+              "end": 2.59,
+              "probability": 0.6470540364583334
+            },
+            {
+              "text": " Vendesum,",
+              "start": 2.59,
+              "end": 3.25,
+              "probability": 0.5435791015625
+            },
+            {
+              "text": " non",
+              "start": 3.77,
+              "end": 3.85,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " emasum",
+              "start": 3.85,
+              "end": 4.43,
+              "probability": 0.4049886067708333
+            },
+            {
+              "text": " esse",
+              "start": 4.43,
+              "end": 4.73,
+              "probability": 0.510009765625
+            },
+            {
+              "text": " opertète,",
+              "start": 4.73,
+              "end": 5.45,
+              "probability": 0.532501220703125
+            },
+            {
+              "text": " from",
+              "start": 5.45,
+              "end": 5.67,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "income",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "raw": "was",
+          "start": 0.95,
+          "end": 1.25
+        },
+        {
+          "raw": "Patrim",
+          "start": 1.25,
+          "end": 2.07
+        },
+        {
+          "raw": "Familias",
+          "start": 2.07,
+          "end": 2.59
+        },
+        {
+          "raw": "Vendesum,",
+          "start": 2.59,
+          "end": 3.25
+        },
+        {
+          "raw": "non",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "raw": "emasum",
+          "start": 3.85,
+          "end": 4.43
+        },
+        {
+          "raw": "esse",
+          "start": 4.43,
+          "end": 4.73
+        },
+        {
+          "raw": "opertète,",
+          "start": 4.73,
+          "end": 5.45
+        },
+        {
+          "raw": "from",
+          "start": 5.45,
+          "end": 5.67
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "income",
+        "was",
+        "(patrem",
+        "familias",
+        "vendacem,",
+        "non",
+        "emacem",
+        "esse",
+        "oportet),",
+        "from"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "income",
+          "start": 0.59,
+          "end": 0.95,
+          "key": "income",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.95,
+          "end": 1.25,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Patrim",
+          "start": 1.25,
+          "end": 2.07,
+          "key": "patrim",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Familias",
+          "start": 2.07,
+          "end": 2.59,
+          "key": "familias",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Vendesum,",
+          "start": 2.59,
+          "end": 3.25,
+          "key": "vendesum",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "non",
+          "start": 3.77,
+          "end": 3.85,
+          "key": "non",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "emasum",
+          "start": 3.85,
+          "end": 4.43,
+          "key": "emasum",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "esse",
+          "start": 4.43,
+          "end": 4.73,
+          "key": "esse",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "opertète,",
+          "start": 4.73,
+          "end": 5.45,
+          "key": "opertète",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.45,
+          "end": 5.67,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "income",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "text": "was",
+          "start": 0.95,
+          "end": 1.25
+        },
+        {
+          "text": "(patrem",
+          "start": 1.25,
+          "end": 1.66
+        },
+        {
+          "text": "familias",
+          "start": 2.07,
+          "end": 2.59
+        },
+        {
+          "text": "vendacem,",
+          "start": 2.59,
+          "end": 3.18
+        },
+        {
+          "text": "non",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "text": "emacem",
+          "start": 3.85,
+          "end": 4.14
+        },
+        {
+          "text": "esse",
+          "start": 4.43,
+          "end": 4.73
+        },
+        {
+          "text": "oportet),",
+          "start": 4.73,
+          "end": 5.09
+        },
+        {
+          "text": "from",
+          "start": 5.45,
+          "end": 5.67
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 7
+      },
+      "match_ratio": 0.6363636363636364,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3717949539422989
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fc62af748ee0fcf499e0f3f817d09ea61c75b2af32d9b39c4ae8375f981b5243",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

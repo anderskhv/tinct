@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "181bb594d64892672c5901ef6d14214e8e75ed7e51ba99d819b2e37d7b7aa64a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14183435309678316,
+      "alignment_seconds": 0.0002434779889881611,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lords, hold, hold, hold, hold.",
+          "start": 0.14,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Lords,",
+              "start": 0.14,
+              "end": 0.8,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " hold,",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " hold,",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hold,",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hold.",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lords,",
+          "start": 0.14,
+          "end": 0.8
+        },
+        {
+          "raw": "hold,",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "hold,",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "hold,",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "hold.",
+          "start": 2.16,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "Lords.",
+        "Hold,",
+        "hold,",
+        "hold,",
+        "hold!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lords,",
+          "start": 0.14,
+          "end": 0.8,
+          "key": "lords",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hold,",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "hold",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hold,",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "hold",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hold,",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "hold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold.",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lords.",
+          "start": 0.14,
+          "end": 0.8
+        },
+        {
+          "text": "Hold,",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "hold,",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "hold,",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "text": "hold!",
+          "start": 2.16,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14216111321002245
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "08e1502ca28a5605183a99c1708456f5f2dca9f8634f0d5e321a546081bfc249",
+  "selected_reasons": []
+}

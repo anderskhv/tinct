@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "f3f4cf93735f2771d3e84ce2c1ffacbf8dc655dfd7a78ed98e72ca77b1d245f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.07382147386670113,
+      "alignment_seconds": 9.772181510925293e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester, know truly.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.859619140625
+            },
+            {
+              "text": " know",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " truly.",
+              "start": 1.31,
+              "end": 1.67,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "know",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "truly.",
+          "start": 1.31,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "No,",
+        "truly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "truly.",
+          "start": 1.31,
+          "end": 1.67,
+          "key": "truly",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "No,",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "truly.",
+          "start": 1.31,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07395031303167343
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bd5cf1e22cd88887f5beab936f50ba054244762e8629e23875d5010fe493977a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

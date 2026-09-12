@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "e66f7585ab298e2cbb3f3351406d355f8b6afeebc4b463a2b5f2774cc97f0ae4",
+  "attempts": [
+    {
+      "asr_seconds": 0.22501806542277336,
+      "alignment_seconds": 0.00039135944098234177,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second soldier, room ho, tell Antony Brutus is tan.",
+          "start": 0.08,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " soldier,",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " room",
+              "start": 1.76,
+              "end": 1.8,
+              "probability": 0.49560546875
+            },
+            {
+              "text": " ho,",
+              "start": 1.8,
+              "end": 2.12,
+              "probability": 0.465576171875
+            },
+            {
+              "text": " tell",
+              "start": 2.5,
+              "end": 2.58,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Antony",
+              "start": 2.58,
+              "end": 3.06,
+              "probability": 0.771728515625
+            },
+            {
+              "text": " Brutus",
+              "start": 3.06,
+              "end": 3.52,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " is",
+              "start": 3.52,
+              "end": 3.64,
+              "probability": 0.9375
+            },
+            {
+              "text": " tan.",
+              "start": 3.64,
+              "end": 3.96,
+              "probability": 0.931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "room",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "raw": "ho,",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "raw": "tell",
+          "start": 2.5,
+          "end": 2.58
+        },
+        {
+          "raw": "Antony",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "raw": "Brutus",
+          "start": 3.06,
+          "end": 3.52
+        },
+        {
+          "raw": "is",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "raw": "tan.",
+          "start": 3.64,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Soldier.",
+        "Room,",
+        "ho!",
+        "Tell",
+        "Antony,",
+        "Brutus",
+        "is",
+        "ta'en."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 1.76,
+          "end": 1.8,
+          "key": "room",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ho,",
+          "start": 1.8,
+          "end": 2.12,
+          "key": "ho",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.5,
+          "end": 2.58,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Antony",
+          "start": 2.58,
+          "end": 3.06,
+          "key": "antony",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 3.06,
+          "end": 3.52,
+          "key": "brutus",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.52,
+          "end": 3.64,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tan.",
+          "start": 3.64,
+          "end": 3.96,
+          "key": "tan",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "text": "Room,",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "text": "ho!",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "text": "Tell",
+          "start": 2.5,
+          "end": 2.58
+        },
+        {
+          "text": "Antony,",
+          "start": 2.58,
+          "end": 3.06
+        },
+        {
+          "text": "Brutus",
+          "start": 3.06,
+          "end": 3.52
+        },
+        {
+          "text": "is",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "text": "ta'en.",
+          "start": 3.64,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22554535884410143
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1acd23dc6bf715e66f8a3d47e4f5d7e6bd148992e81acf7fdfa19cc90500265",
+  "selected_reasons": []
+}

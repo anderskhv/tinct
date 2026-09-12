@@ -1,0 +1,385 @@
+{
+  "complete": true,
+  "signature": "b739bd255cc1120fa97a03c96a1a26ad041e7147e6369b56c13b5727fde52482",
+  "attempts": [
+    {
+      "asr_seconds": 0.23691416531801224,
+      "alignment_seconds": 0.0005295835435390472,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The Parsee!\" cried Stubb—\"he must have been caught in——\"",
+        "hotwords": "The, Parsee, Stubb—\"he"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The, Parsee, cried Stubb—\"he must have been caught in——!\"",
+          "start": 0.02,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " The,",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.369384765625
+            },
+            {
+              "text": " Parsee,",
+              "start": 0.6,
+              "end": 1.02,
+              "probability": 0.18212890625
+            },
+            {
+              "text": " cried",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " Stubb—\"he",
+              "start": 1.48,
+              "end": 2.34,
+              "probability": 0.3065541982650757
+            },
+            {
+              "text": " must",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " been",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " caught",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in——",
+              "start": 2.94,
+              "end": 3.46,
+              "probability": 0.49853554368019104
+            },
+            {
+              "text": "!\"",
+              "start": 3.46,
+              "end": 3.8,
+              "probability": 0.008544921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The,",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Parsee,",
+          "start": 0.6,
+          "end": 1.02
+        },
+        {
+          "raw": "cried",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "Stubb—\"he",
+          "start": 1.48,
+          "end": 2.34
+        },
+        {
+          "raw": "must",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "have",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "been",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "caught",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "in——",
+          "start": 2.94,
+          "end": 3.46
+        },
+        {
+          "raw": "!\"",
+          "start": 3.46,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "Parsee!\"",
+        "cried",
+        "Stubb—\"he",
+        "must",
+        "have",
+        "been",
+        "caught",
+        "in——\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "insert",
+          9,
+          9,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          9,
+          9,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The,",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Parsee,",
+          "start": 0.6,
+          "end": 1.02,
+          "key": "parsee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Stubb—\"he",
+          "start": 1.48,
+          "end": 2.34,
+          "key": "stubbhe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "caught",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "caught",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in——",
+          "start": 2.94,
+          "end": 3.46,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.46,
+          "end": 3.8,
+          "key": "",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Parsee!\"",
+          "start": 0.6,
+          "end": 1.02
+        },
+        {
+          "text": "cried",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "Stubb—\"he",
+          "start": 1.48,
+          "end": 2.34
+        },
+        {
+          "text": "must",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "have",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "been",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "caught",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "in——\"",
+          "start": 2.94,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23767030239105225
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d6334474ad0eb5903e8e85461bb1aa4b6e9b122ff98e8ada34f17b9dbe6bea2c",
+  "selected_reasons": []
+}

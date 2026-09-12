@@ -1,0 +1,1535 @@
+{
+  "complete": true,
+  "signature": "d646287f0c4cabfd440d1f4cc035d209c5560c74819dbcf8e6206134d02d6de8",
+  "attempts": [
+    {
+      "asr_seconds": 0.28101783199235797,
+      "alignment_seconds": 0.0006647612899541855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That of saying of any strange, unsanctioned line of action,—'Let it be right.'\"",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That of saying of any strange, unsanctioned line of action,—'Let it be right.'\"",
+          "start": 0.14,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.14,
+              "end": 0.52,
+              "probability": 0.66015625
+            },
+            {
+              "text": " of",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " saying",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " any",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " strange,",
+              "start": 1.28,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " unsanctioned",
+              "start": 2.2,
+              "end": 2.9,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " line",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " action,—",
+              "start": 3.16,
+              "end": 4.12,
+              "probability": 0.4992712438106537
+            },
+            {
+              "text": "'Let",
+              "start": 4.12,
+              "end": 4.2,
+              "probability": 0.366074800491333
+            },
+            {
+              "text": " it",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.953125
+            },
+            {
+              "text": " be",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " right.'\"",
+              "start": 4.42,
+              "end": 5.0,
+              "probability": 0.524505615234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "raw": "of",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "saying",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "raw": "of",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "any",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "strange,",
+          "start": 1.28,
+          "end": 1.82
+        },
+        {
+          "raw": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9
+        },
+        {
+          "raw": "line",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "action,—",
+          "start": 3.16,
+          "end": 4.12
+        },
+        {
+          "raw": "'Let",
+          "start": 4.12,
+          "end": 4.2
+        },
+        {
+          "raw": "it",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "be",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "right.'\"",
+          "start": 4.42,
+          "end": 5.0
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "of",
+        "saying",
+        "of",
+        "any",
+        "strange,",
+        "unsanctioned",
+        "line",
+        "of",
+        "action,—'Let",
+        "it",
+        "be",
+        "right.'\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          13,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.14,
+          "end": 0.52,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 0.62,
+          "end": 0.9,
+          "key": "saying",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "any",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 1.28,
+          "end": 1.82,
+          "key": "strange",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9,
+          "key": "unsanctioned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "line",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "line",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "action,—",
+          "start": 3.16,
+          "end": 4.12,
+          "key": "action",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'Let",
+          "start": 4.12,
+          "end": 4.2,
+          "key": "let",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.2,
+          "end": 4.3,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "right.'\"",
+          "start": 4.42,
+          "end": 5.0,
+          "key": "right",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "of",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "saying",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "text": "of",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "any",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "strange,",
+          "start": 1.28,
+          "end": 1.82
+        },
+        {
+          "text": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9
+        },
+        {
+          "text": "line",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "of",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "action,—'Let",
+          "start": 3.16,
+          "end": 3.68
+        },
+        {
+          "text": "it",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "be",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "right.'\"",
+          "start": 4.42,
+          "end": 5.0
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.2819289583712816
+    },
+    {
+      "asr_seconds": 0.298230635933578,
+      "alignment_seconds": 0.00038422876968979836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "That"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " of saying of any strange, unsanctioned line of action, let it be right.",
+          "start": 0.14,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " of",
+              "start": 0.14,
+              "end": 0.58,
+              "probability": 0.025604248046875
+            },
+            {
+              "text": " saying",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.67724609375
+            },
+            {
+              "text": " of",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " any",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " strange,",
+              "start": 1.28,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " unsanctioned",
+              "start": 2.2,
+              "end": 2.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " line",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " action,",
+              "start": 3.16,
+              "end": 3.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " let",
+              "start": 4.1,
+              "end": 4.2,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " it",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " right.",
+              "start": 4.42,
+              "end": 4.66,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "of",
+          "start": 0.14,
+          "end": 0.58
+        },
+        {
+          "raw": "saying",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "raw": "of",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "any",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "strange,",
+          "start": 1.28,
+          "end": 1.82
+        },
+        {
+          "raw": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9
+        },
+        {
+          "raw": "line",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "action,",
+          "start": 3.16,
+          "end": 3.58
+        },
+        {
+          "raw": "let",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "raw": "it",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "be",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "right.",
+          "start": 4.42,
+          "end": 4.66
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "of",
+        "saying",
+        "of",
+        "any",
+        "strange,",
+        "unsanctioned",
+        "line",
+        "of",
+        "action,—'Let",
+        "it",
+        "be",
+        "right.'\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          9,
+          0,
+          8
+        ],
+        [
+          "replace",
+          9,
+          10,
+          8,
+          10
+        ],
+        [
+          "equal",
+          10,
+          13,
+          10,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          9,
+          10,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "of",
+          "start": 0.14,
+          "end": 0.58,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 0.58,
+          "end": 0.88,
+          "key": "saying",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "any",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 1.28,
+          "end": 1.82,
+          "key": "strange",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9,
+          "key": "unsanctioned",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "line",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "line",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "action,",
+          "start": 3.16,
+          "end": 3.58,
+          "key": "action",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 4.1,
+          "end": 4.2,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.2,
+          "end": 4.3,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 4.42,
+          "end": 4.66,
+          "key": "right",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.0,
+          "end": 0.07
+        },
+        {
+          "text": "of",
+          "start": 0.14,
+          "end": 0.58
+        },
+        {
+          "text": "saying",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "text": "of",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "any",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "strange,",
+          "start": 1.28,
+          "end": 1.82
+        },
+        {
+          "text": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9
+        },
+        {
+          "text": "line",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "of",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "action,—'Let",
+          "start": 3.16,
+          "end": 3.68
+        },
+        {
+          "text": "it",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "be",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "right.'\"",
+          "start": 4.42,
+          "end": 4.66
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2987359929829836
+    },
+    {
+      "asr_seconds": 0.3009316436946392,
+      "alignment_seconds": 0.00036294804885983467,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That of saying of any strange, unsanctioned line of action, let it be right.",
+          "start": 0.14,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.14,
+              "end": 0.52,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " of",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " saying",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " any",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " strange,",
+              "start": 1.28,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " unsanctioned",
+              "start": 2.2,
+              "end": 2.9,
+              "probability": 0.9940185546875
+            },
+            {
+              "text": " line",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " action,",
+              "start": 3.16,
+              "end": 3.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " let",
+              "start": 4.1,
+              "end": 4.2,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " it",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " right.",
+              "start": 4.42,
+              "end": 4.68,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "raw": "of",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "saying",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "raw": "of",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "any",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "strange,",
+          "start": 1.28,
+          "end": 1.82
+        },
+        {
+          "raw": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9
+        },
+        {
+          "raw": "line",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "action,",
+          "start": 3.16,
+          "end": 3.58
+        },
+        {
+          "raw": "let",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "raw": "it",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "be",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "right.",
+          "start": 4.42,
+          "end": 4.68
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "of",
+        "saying",
+        "of",
+        "any",
+        "strange,",
+        "unsanctioned",
+        "line",
+        "of",
+        "action,—'Let",
+        "it",
+        "be",
+        "right.'\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          13,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.14,
+          "end": 0.52,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 0.62,
+          "end": 0.9,
+          "key": "saying",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "any",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 1.28,
+          "end": 1.82,
+          "key": "strange",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9,
+          "key": "unsanctioned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "line",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "line",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "action,",
+          "start": 3.16,
+          "end": 3.58,
+          "key": "action",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 4.1,
+          "end": 4.2,
+          "key": "let",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.2,
+          "end": 4.3,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 4.42,
+          "end": 4.68,
+          "key": "right",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "of",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "saying",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "text": "of",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "any",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "strange,",
+          "start": 1.28,
+          "end": 1.82
+        },
+        {
+          "text": "unsanctioned",
+          "start": 2.2,
+          "end": 2.9
+        },
+        {
+          "text": "line",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "of",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "action,—'Let",
+          "start": 3.16,
+          "end": 3.68
+        },
+        {
+          "text": "it",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "be",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "right.'\"",
+          "start": 4.42,
+          "end": 4.68
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.3014230546541512
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c58c8883842d314b056d0eeca3ac6b19808e3e33474499bc295161a5e88a3861",
+  "selected_reasons": []
+}

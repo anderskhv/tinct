@@ -1,0 +1,731 @@
+{
+  "complete": true,
+  "signature": "4ec5dc9bbb44ae80d96aea77769bb2a3754276949d39e26c2396a2f7476334dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.31757235573604703,
+      "alignment_seconds": 0.0004885750822722912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yea go, why then?",
+          "start": 0.08,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Yea",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.57958984375
+            },
+            {
+              "text": " go,",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.489990234375
+            },
+            {
+              "text": " why",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " then?",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.9501953125
+            }
+          ]
+        },
+        {
+          "text": " Tease hers, my lord, and being hers.",
+          "start": 2.3,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 2.3,
+              "end": 2.46,
+              "probability": 0.55023193359375
+            },
+            {
+              "text": " hers,",
+              "start": 2.46,
+              "end": 2.68,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " my",
+              "start": 2.92,
+              "end": 2.98,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " lord,",
+              "start": 2.98,
+              "end": 3.2,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " and",
+              "start": 3.36,
+              "end": 3.42,
+              "probability": 0.828125
+            },
+            {
+              "text": " being",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " hers.",
+              "start": 3.62,
+              "end": 3.94,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " She may, I think, bestowed on any man.",
+          "start": 4.46,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " She",
+              "start": 4.46,
+              "end": 4.54,
+              "probability": 0.9765625
+            },
+            {
+              "text": " may,",
+              "start": 4.54,
+              "end": 4.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 4.76,
+              "end": 4.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " think,",
+              "start": 4.88,
+              "end": 5.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bestowed",
+              "start": 5.5,
+              "end": 5.5,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " on",
+              "start": 5.5,
+              "end": 5.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " any",
+              "start": 5.7,
+              "end": 5.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man.",
+              "start": 5.84,
+              "end": 6.18,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yea",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "go,",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "why",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "then?",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "Tease",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "raw": "hers,",
+          "start": 2.46,
+          "end": 2.68
+        },
+        {
+          "raw": "my",
+          "start": 2.92,
+          "end": 2.98
+        },
+        {
+          "raw": "lord,",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.42
+        },
+        {
+          "raw": "being",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "hers.",
+          "start": 3.62,
+          "end": 3.94
+        },
+        {
+          "raw": "She",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "raw": "may,",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "raw": "I",
+          "start": 4.76,
+          "end": 4.88
+        },
+        {
+          "raw": "think,",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "raw": "bestowed",
+          "start": 5.5,
+          "end": 5.5
+        },
+        {
+          "raw": "on",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "raw": "any",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "raw": "man.",
+          "start": 5.84,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Why",
+        "then,",
+        "'tis",
+        "hers,",
+        "my",
+        "lord,",
+        "and",
+        "being",
+        "hers,",
+        "She",
+        "may,",
+        "I",
+        "think,",
+        "bestow't",
+        "on",
+        "any",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          3,
+          4,
+          4,
+          5
+        ],
+        [
+          "equal",
+          4,
+          14,
+          5,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          16
+        ],
+        [
+          "equal",
+          15,
+          18,
+          16,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          4,
+          5
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yea",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "yea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 2.3,
+          "end": 2.46,
+          "key": "tease",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hers,",
+          "start": 2.46,
+          "end": 2.68,
+          "key": "hers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.92,
+          "end": 2.98,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.98,
+          "end": 3.2,
+          "key": "lord",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.42,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "being",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hers.",
+          "start": 3.62,
+          "end": 3.94,
+          "key": "hers",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 4.46,
+          "end": 4.54,
+          "key": "she",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "may,",
+          "start": 4.54,
+          "end": 4.72,
+          "key": "may",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.76,
+          "end": 4.88,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 4.88,
+          "end": 5.08,
+          "key": "think",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bestowed",
+          "start": 5.5,
+          "end": 5.5,
+          "key": "bestowed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.5,
+          "end": 5.7,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 5.7,
+          "end": 5.84,
+          "key": "any",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 5.84,
+          "end": 6.18,
+          "key": "man",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "Why",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "then,",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "'tis",
+          "start": 1.68,
+          "end": 2.07
+        },
+        {
+          "text": "hers,",
+          "start": 2.46,
+          "end": 2.68
+        },
+        {
+          "text": "my",
+          "start": 2.92,
+          "end": 2.98
+        },
+        {
+          "text": "lord,",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "text": "and",
+          "start": 3.36,
+          "end": 3.42
+        },
+        {
+          "text": "being",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "hers,",
+          "start": 3.62,
+          "end": 3.94
+        },
+        {
+          "text": "She",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "text": "may,",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "text": "I",
+          "start": 4.76,
+          "end": 4.88
+        },
+        {
+          "text": "think,",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "text": "bestow't",
+          "start": 5.08,
+          "end": 5.29
+        },
+        {
+          "text": "on",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "text": "any",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "text": "man.",
+          "start": 5.84,
+          "end": 6.18
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31828256882727146
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69a36f32c6be2238902f594faece66b386943fedabb2251e99e5317e3e6f0ae8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

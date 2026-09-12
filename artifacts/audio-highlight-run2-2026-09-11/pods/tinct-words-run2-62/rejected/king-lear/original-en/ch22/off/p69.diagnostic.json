@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "99a3bcec5fed9c13b7fd1ebe5916f1f16358723986f5ea71c0f2b08e3995a8a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.07568991184234619,
+      "alignment_seconds": 9.054318070411682e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, good sir.",
+          "start": 0.02,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.873046875
+            },
+            {
+              "text": " good",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.94921875
+            },
+            {
+              "text": " sir.",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.83447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "good",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "sir.",
+          "start": 1.3,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "Good",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "Good",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "sir.",
+          "start": 1.3,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07580780982971191
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f2927a122b51324421f858452035d6a253328f2f111181b84c27fcc0e887371",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

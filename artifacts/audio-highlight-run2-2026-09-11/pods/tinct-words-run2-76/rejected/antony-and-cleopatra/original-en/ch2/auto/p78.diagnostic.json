@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e7e8187063a586060abc8b469f54b903b12bce691a4616e9798071ba20d60204",
+  "attempts": [
+    {
+      "asr_seconds": 0.32372988434508443,
+      "alignment_seconds": 0.0005469159223139286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "These strong Egyptian fetters I must break, Or lose myself in dotage.",
+        "hotwords": "These, Egyptian, I, Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " These strong Egyptian fetters I must break, Or lose myself in dotage.",
+          "start": 0.05,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " These",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.8203125
+            },
+            {
+              "text": " strong",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Egyptian",
+              "start": 0.95,
+              "end": 1.31,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " fetters",
+              "start": 1.31,
+              "end": 1.81,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " I",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " must",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " break,",
+              "start": 2.13,
+              "end": 2.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Or",
+              "start": 2.99,
+              "end": 3.13,
+              "probability": 0.06622314453125
+            },
+            {
+              "text": " lose",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " myself",
+              "start": 3.39,
+              "end": 3.87,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " in",
+              "start": 3.87,
+              "end": 4.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dotage.",
+              "start": 4.11,
+              "end": 4.59,
+              "probability": 0.708984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "These",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "strong",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "Egyptian",
+          "start": 0.95,
+          "end": 1.31
+        },
+        {
+          "raw": "fetters",
+          "start": 1.31,
+          "end": 1.81
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "must",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "break,",
+          "start": 2.13,
+          "end": 2.51
+        },
+        {
+          "raw": "Or",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "raw": "lose",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "myself",
+          "start": 3.39,
+          "end": 3.87
+        },
+        {
+          "raw": "in",
+          "start": 3.87,
+          "end": 4.11
+        },
+        {
+          "raw": "dotage.",
+          "start": 4.11,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "These",
+        "strong",
+        "Egyptian",
+        "fetters",
+        "I",
+        "must",
+        "break,",
+        "Or",
+        "lose",
+        "myself",
+        "in",
+        "dotage."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "These",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "these",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 0.57,
+          "end": 0.95,
+          "key": "strong",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Egyptian",
+          "start": 0.95,
+          "end": 1.31,
+          "key": "egyptian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fetters",
+          "start": 1.31,
+          "end": 1.81,
+          "key": "fetters",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "break,",
+          "start": 2.13,
+          "end": 2.51,
+          "key": "break",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 2.99,
+          "end": 3.13,
+          "key": "or",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "lose",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 3.39,
+          "end": 3.87,
+          "key": "myself",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.87,
+          "end": 4.11,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dotage.",
+          "start": 4.11,
+          "end": 4.59,
+          "key": "dotage",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "These",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "strong",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "text": "Egyptian",
+          "start": 0.95,
+          "end": 1.31
+        },
+        {
+          "text": "fetters",
+          "start": 1.31,
+          "end": 1.81
+        },
+        {
+          "text": "I",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "must",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "break,",
+          "start": 2.13,
+          "end": 2.51
+        },
+        {
+          "text": "Or",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "text": "lose",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "myself",
+          "start": 3.39,
+          "end": 3.87
+        },
+        {
+          "text": "in",
+          "start": 3.87,
+          "end": 4.11
+        },
+        {
+          "text": "dotage.",
+          "start": 4.11,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3244980722665787
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8d09d7ef76d7ecc9bb3aa7eb332baa6249520a7116542db9748e4f2ecc901dc",
+  "selected_reasons": []
+}

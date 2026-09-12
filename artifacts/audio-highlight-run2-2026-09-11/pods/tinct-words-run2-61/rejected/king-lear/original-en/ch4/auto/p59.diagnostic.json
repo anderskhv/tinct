@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "47002db413352d0efecc6256a24d1ca0f0e88d3c72bfbf3e81e59bcb09687eed",
+  "attempts": [
+    {
+      "asr_seconds": 0.13025775365531445,
+      "alignment_seconds": 0.00030508823692798615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Pushes Oswald out._]",
+        "hotwords": "Oswald"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pushes Oswald out.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Pushes",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.60223388671875
+            },
+            {
+              "text": " Oswald",
+              "start": 0.67,
+              "end": 1.09,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " out.",
+              "start": 1.09,
+              "end": 1.43,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pushes",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Oswald",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "raw": "out.",
+          "start": 1.09,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "[_Pushes",
+        "Oswald",
+        "out._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pushes",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "pushes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oswald",
+          "start": 0.67,
+          "end": 1.09,
+          "key": "oswald",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 1.09,
+          "end": 1.43,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Pushes",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Oswald",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "text": "out._]",
+          "start": 1.09,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13066917285323143
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0efb716d6400e417d49034fd19c6bf694763406cfcc39b67225412c42c9a02de",
+  "selected_reasons": []
+}

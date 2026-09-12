@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "8e4d52a6053c5f9d34c0d30a638e248f9a0bcfe13eed0a8abe6c65e9307e6f5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09809446195140481,
+      "alignment_seconds": 0.0001771850511431694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter second serving men.",
+          "start": 0.08,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " second",
+              "start": 0.66,
+              "end": 1.06,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " serving",
+              "start": 1.06,
+              "end": 1.36,
+              "probability": 0.931640625
+            },
+            {
+              "text": " men.",
+              "start": 1.36,
+              "end": 1.64,
+              "probability": 0.5498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "second",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "raw": "serving",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "raw": "men.",
+          "start": 1.36,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Second",
+        "Servingman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 0.66,
+          "end": 1.06,
+          "key": "second",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "serving",
+          "start": 1.06,
+          "end": 1.36,
+          "key": "serving",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 1.36,
+          "end": 1.64,
+          "key": "men",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Second",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "text": "Servingman.",
+          "start": 1.06,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09833697928115726
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a64cc9cc8afedc047792c506dcec3aedb42f34915bc3cf9419b0456aa1e076f9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

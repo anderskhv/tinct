@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "3468ed5bf4789326f6a049c81d40aad64f327dd19f654e9fd3c3851807255ef1",
+  "attempts": [
+    {
+      "asr_seconds": 0.08607060462236404,
+      "alignment_seconds": 0.00019728019833564758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edmund, save the curin.",
+          "start": 0.08,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " Edmund,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " save",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " curin.",
+              "start": 1.62,
+              "end": 2.06,
+              "probability": 0.5213623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edmund,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "save",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "curin.",
+          "start": 1.62,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "Edmund.",
+        "Save",
+        "thee,",
+        "Curan."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edmund,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "edmund",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "save",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "curin.",
+          "start": 1.62,
+          "end": 2.06,
+          "key": "curin",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edmund.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Save",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "thee,",
+          "start": 1.36,
+          "end": 1.71
+        },
+        {
+          "text": "Curan.",
+          "start": 1.71,
+          "end": 1.885
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08633644878864288
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7c59175784388021bda0a69e8cab914b2cb4eb2416de7db98870f5ab83cf762",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

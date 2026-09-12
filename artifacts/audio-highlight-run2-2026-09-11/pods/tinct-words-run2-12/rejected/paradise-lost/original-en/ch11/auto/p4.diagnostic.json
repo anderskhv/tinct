@@ -1,0 +1,1534 @@
+{
+  "complete": true,
+  "signature": "953ccd646635e3385a6a3681563404291da033dd7f2d7adb15f1a3e88c5b3430",
+  "attempts": [
+    {
+      "asr_seconds": 0.45538018783554435,
+      "alignment_seconds": 0.0006612790748476982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Made one with me, as I with thee am one. To whom the Father, without cloud, serene. All thy request for Man, accepted Son, Obtain; all thy request was my decree: But, longer in that Paradise to dwell, The law I gave to Nature him forbids:",
+        "hotwords": "Made, I, Father, Man, Son, Obtain, But, Paradise, Nature"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Made one with me, as I with thee am one. To whom the Father, without cloud, serene. All thy request for Man, accepted Son, Obtain. All thy request was my decree. But, longer in that Paradise to dwell, The law I gave to Nature him forbids.",
+          "start": 0.02,
+          "end": 15.12,
+          "words": [
+            {
+              "text": " Made",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.3515625
+            },
+            {
+              "text": " one",
+              "start": 0.58,
+              "end": 0.82,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " with",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me,",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " as",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " with",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thee",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.003757476806640625
+            },
+            {
+              "text": " am",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " one.",
+              "start": 2.04,
+              "end": 2.32,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " To",
+              "start": 2.84,
+              "end": 3.0,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " whom",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " the",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Father,",
+              "start": 3.38,
+              "end": 3.66,
+              "probability": 0.446533203125
+            },
+            {
+              "text": " without",
+              "start": 3.84,
+              "end": 4.02,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " cloud,",
+              "start": 4.02,
+              "end": 4.48,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " serene.",
+              "start": 4.84,
+              "end": 5.12,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " All",
+              "start": 5.86,
+              "end": 5.98,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " thy",
+              "start": 5.98,
+              "end": 6.1,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " request",
+              "start": 6.1,
+              "end": 6.44,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " for",
+              "start": 6.44,
+              "end": 6.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Man,",
+              "start": 6.7,
+              "end": 7.06,
+              "probability": 0.0372314453125
+            },
+            {
+              "text": " accepted",
+              "start": 7.28,
+              "end": 7.58,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " Son,",
+              "start": 7.58,
+              "end": 8.02,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " Obtain.",
+              "start": 8.28,
+              "end": 8.66,
+              "probability": 0.4770679473876953
+            },
+            {
+              "text": " All",
+              "start": 9.16,
+              "end": 9.32,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " thy",
+              "start": 9.32,
+              "end": 9.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " request",
+              "start": 9.48,
+              "end": 9.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " was",
+              "start": 9.88,
+              "end": 10.08,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " my",
+              "start": 10.08,
+              "end": 10.3,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " decree.",
+              "start": 10.3,
+              "end": 10.66,
+              "probability": 0.740234375
+            },
+            {
+              "text": " But,",
+              "start": 11.3,
+              "end": 11.44,
+              "probability": 0.990234375
+            },
+            {
+              "text": " longer",
+              "start": 11.64,
+              "end": 11.7,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " in",
+              "start": 11.7,
+              "end": 11.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " that",
+              "start": 11.94,
+              "end": 12.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Paradise",
+              "start": 12.14,
+              "end": 12.54,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " to",
+              "start": 12.54,
+              "end": 12.82,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " dwell,",
+              "start": 12.82,
+              "end": 13.04,
+              "probability": 0.98046875
+            },
+            {
+              "text": " The",
+              "start": 13.5,
+              "end": 13.6,
+              "probability": 0.4658203125
+            },
+            {
+              "text": " law",
+              "start": 13.6,
+              "end": 13.78,
+              "probability": 0.48193359375
+            },
+            {
+              "text": " I",
+              "start": 13.78,
+              "end": 13.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " gave",
+              "start": 13.98,
+              "end": 14.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 14.1,
+              "end": 14.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Nature",
+              "start": 14.3,
+              "end": 14.5,
+              "probability": 0.49072265625
+            },
+            {
+              "text": " him",
+              "start": 14.5,
+              "end": 14.78,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " forbids.",
+              "start": 14.78,
+              "end": 15.12,
+              "probability": 0.93017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Made",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "one",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "raw": "with",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "me,",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "raw": "as",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "thee",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "am",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "one.",
+          "start": 2.04,
+          "end": 2.32
+        },
+        {
+          "raw": "To",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "raw": "whom",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "Father,",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "raw": "without",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "raw": "cloud,",
+          "start": 4.02,
+          "end": 4.48
+        },
+        {
+          "raw": "serene.",
+          "start": 4.84,
+          "end": 5.12
+        },
+        {
+          "raw": "All",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "raw": "thy",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "raw": "request",
+          "start": 6.1,
+          "end": 6.44
+        },
+        {
+          "raw": "for",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "raw": "Man,",
+          "start": 6.7,
+          "end": 7.06
+        },
+        {
+          "raw": "accepted",
+          "start": 7.28,
+          "end": 7.58
+        },
+        {
+          "raw": "Son,",
+          "start": 7.58,
+          "end": 8.02
+        },
+        {
+          "raw": "Obtain.",
+          "start": 8.28,
+          "end": 8.66
+        },
+        {
+          "raw": "All",
+          "start": 9.16,
+          "end": 9.32
+        },
+        {
+          "raw": "thy",
+          "start": 9.32,
+          "end": 9.48
+        },
+        {
+          "raw": "request",
+          "start": 9.48,
+          "end": 9.88
+        },
+        {
+          "raw": "was",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "raw": "my",
+          "start": 10.08,
+          "end": 10.3
+        },
+        {
+          "raw": "decree.",
+          "start": 10.3,
+          "end": 10.66
+        },
+        {
+          "raw": "But,",
+          "start": 11.3,
+          "end": 11.44
+        },
+        {
+          "raw": "longer",
+          "start": 11.64,
+          "end": 11.7
+        },
+        {
+          "raw": "in",
+          "start": 11.7,
+          "end": 11.94
+        },
+        {
+          "raw": "that",
+          "start": 11.94,
+          "end": 12.14
+        },
+        {
+          "raw": "Paradise",
+          "start": 12.14,
+          "end": 12.54
+        },
+        {
+          "raw": "to",
+          "start": 12.54,
+          "end": 12.82
+        },
+        {
+          "raw": "dwell,",
+          "start": 12.82,
+          "end": 13.04
+        },
+        {
+          "raw": "The",
+          "start": 13.5,
+          "end": 13.6
+        },
+        {
+          "raw": "law",
+          "start": 13.6,
+          "end": 13.78
+        },
+        {
+          "raw": "I",
+          "start": 13.78,
+          "end": 13.98
+        },
+        {
+          "raw": "gave",
+          "start": 13.98,
+          "end": 14.1
+        },
+        {
+          "raw": "to",
+          "start": 14.1,
+          "end": 14.3
+        },
+        {
+          "raw": "Nature",
+          "start": 14.3,
+          "end": 14.5
+        },
+        {
+          "raw": "him",
+          "start": 14.5,
+          "end": 14.78
+        },
+        {
+          "raw": "forbids.",
+          "start": 14.78,
+          "end": 15.12
+        }
+      ],
+      "expected_tokens": [
+        "Made",
+        "one",
+        "with",
+        "me,",
+        "as",
+        "I",
+        "with",
+        "thee",
+        "am",
+        "one.",
+        "To",
+        "whom",
+        "the",
+        "Father,",
+        "without",
+        "cloud,",
+        "serene.",
+        "All",
+        "thy",
+        "request",
+        "for",
+        "Man,",
+        "accepted",
+        "Son,",
+        "Obtain;",
+        "all",
+        "thy",
+        "request",
+        "was",
+        "my",
+        "decree:",
+        "But,",
+        "longer",
+        "in",
+        "that",
+        "Paradise",
+        "to",
+        "dwell,",
+        "The",
+        "law",
+        "I",
+        "gave",
+        "to",
+        "Nature",
+        "him",
+        "forbids:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Made",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "made",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.58,
+          "end": 0.82,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "am",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 2.04,
+          "end": 2.32,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.84,
+          "end": 3.0,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "whom",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Father,",
+          "start": 3.38,
+          "end": 3.66,
+          "key": "father",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 3.84,
+          "end": 4.02,
+          "key": "without",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cloud,",
+          "start": 4.02,
+          "end": 4.48,
+          "key": "cloud",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "serene.",
+          "start": 4.84,
+          "end": 5.12,
+          "key": "serene",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 5.86,
+          "end": 5.98,
+          "key": "all",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.98,
+          "end": 6.1,
+          "key": "thy",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "request",
+          "start": 6.1,
+          "end": 6.44,
+          "key": "request",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.44,
+          "end": 6.7,
+          "key": "for",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Man,",
+          "start": 6.7,
+          "end": 7.06,
+          "key": "man",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "accepted",
+          "start": 7.28,
+          "end": 7.58,
+          "key": "accepted",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Son,",
+          "start": 7.58,
+          "end": 8.02,
+          "key": "son",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Obtain.",
+          "start": 8.28,
+          "end": 8.66,
+          "key": "obtain",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 9.16,
+          "end": 9.32,
+          "key": "all",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 9.32,
+          "end": 9.48,
+          "key": "thy",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "request",
+          "start": 9.48,
+          "end": 9.88,
+          "key": "request",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.88,
+          "end": 10.08,
+          "key": "was",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 10.08,
+          "end": 10.3,
+          "key": "my",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "decree.",
+          "start": 10.3,
+          "end": 10.66,
+          "key": "decree",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 11.3,
+          "end": 11.44,
+          "key": "but",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "longer",
+          "start": 11.64,
+          "end": 11.7,
+          "key": "longer",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.7,
+          "end": 11.94,
+          "key": "in",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.94,
+          "end": 12.14,
+          "key": "that",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Paradise",
+          "start": 12.14,
+          "end": 12.54,
+          "key": "paradise",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.54,
+          "end": 12.82,
+          "key": "to",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "dwell,",
+          "start": 12.82,
+          "end": 13.04,
+          "key": "dwell",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 13.5,
+          "end": 13.6,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "law",
+          "start": 13.6,
+          "end": 13.78,
+          "key": "law",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.78,
+          "end": 13.98,
+          "key": "i",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 13.98,
+          "end": 14.1,
+          "key": "gave",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 14.1,
+          "end": 14.3,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Nature",
+          "start": 14.3,
+          "end": 14.5,
+          "key": "nature",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 14.5,
+          "end": 14.78,
+          "key": "him",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "forbids.",
+          "start": 14.78,
+          "end": 15.12,
+          "key": "forbids",
+          "pieces": [
+            45
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Made",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "one",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "text": "with",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "me,",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "text": "as",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "I",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "with",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "thee",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "am",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "one.",
+          "start": 2.04,
+          "end": 2.32
+        },
+        {
+          "text": "To",
+          "start": 2.84,
+          "end": 3.0
+        },
+        {
+          "text": "whom",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "the",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "Father,",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "text": "without",
+          "start": 3.84,
+          "end": 4.02
+        },
+        {
+          "text": "cloud,",
+          "start": 4.02,
+          "end": 4.48
+        },
+        {
+          "text": "serene.",
+          "start": 4.84,
+          "end": 5.12
+        },
+        {
+          "text": "All",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "text": "thy",
+          "start": 5.98,
+          "end": 6.1
+        },
+        {
+          "text": "request",
+          "start": 6.1,
+          "end": 6.44
+        },
+        {
+          "text": "for",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "text": "Man,",
+          "start": 6.7,
+          "end": 7.06
+        },
+        {
+          "text": "accepted",
+          "start": 7.28,
+          "end": 7.58
+        },
+        {
+          "text": "Son,",
+          "start": 7.58,
+          "end": 8.02
+        },
+        {
+          "text": "Obtain;",
+          "start": 8.28,
+          "end": 8.66
+        },
+        {
+          "text": "all",
+          "start": 9.16,
+          "end": 9.32
+        },
+        {
+          "text": "thy",
+          "start": 9.32,
+          "end": 9.48
+        },
+        {
+          "text": "request",
+          "start": 9.48,
+          "end": 9.88
+        },
+        {
+          "text": "was",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "text": "my",
+          "start": 10.08,
+          "end": 10.3
+        },
+        {
+          "text": "decree:",
+          "start": 10.3,
+          "end": 10.66
+        },
+        {
+          "text": "But,",
+          "start": 11.3,
+          "end": 11.44
+        },
+        {
+          "text": "longer",
+          "start": 11.64,
+          "end": 11.7
+        },
+        {
+          "text": "in",
+          "start": 11.7,
+          "end": 11.94
+        },
+        {
+          "text": "that",
+          "start": 11.94,
+          "end": 12.14
+        },
+        {
+          "text": "Paradise",
+          "start": 12.14,
+          "end": 12.54
+        },
+        {
+          "text": "to",
+          "start": 12.54,
+          "end": 12.82
+        },
+        {
+          "text": "dwell,",
+          "start": 12.82,
+          "end": 13.04
+        },
+        {
+          "text": "The",
+          "start": 13.5,
+          "end": 13.6
+        },
+        {
+          "text": "law",
+          "start": 13.6,
+          "end": 13.78
+        },
+        {
+          "text": "I",
+          "start": 13.78,
+          "end": 13.98
+        },
+        {
+          "text": "gave",
+          "start": 13.98,
+          "end": 14.1
+        },
+        {
+          "text": "to",
+          "start": 14.1,
+          "end": 14.3
+        },
+        {
+          "text": "Nature",
+          "start": 14.3,
+          "end": 14.5
+        },
+        {
+          "text": "him",
+          "start": 14.5,
+          "end": 14.78
+        },
+        {
+          "text": "forbids:",
+          "start": 14.78,
+          "end": 15.12
+        }
+      ],
+      "stats": {
+        "expected_words": 46,
+        "heard_words": 46,
+        "matched_words": 46
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45633840188384056
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "463170a89abcbf6ada05efa1fda85b1fcd3e2411ac424d60ad6dfc8625f79b05",
+  "selected_reasons": []
+}

@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "b755e5a7e2da0b8da9c861a69ca1fbd177a0cf2aa2ca4c065bdbc5bba79ced56",
+  "attempts": [
+    {
+      "asr_seconds": 0.22188403084874153,
+      "alignment_seconds": 0.0004516690969467163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Where have you wasted your time?\" she demanded. \"You have been out for hours.\"",
+        "hotwords": "Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Where have you wasted your time?\" she demanded. You have been out for hours.",
+          "start": 0.02,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.212646484375
+            },
+            {
+              "text": " have",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wasted",
+              "start": 0.76,
+              "end": 1.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " time?\"",
+              "start": 1.26,
+              "end": 1.84,
+              "probability": 0.543487548828125
+            },
+            {
+              "text": " she",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " demanded.",
+              "start": 2.06,
+              "end": 2.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " You",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.039337158203125
+            },
+            {
+              "text": " have",
+              "start": 3.14,
+              "end": 3.22,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " been",
+              "start": 3.22,
+              "end": 3.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 3.48,
+              "end": 3.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hours.",
+              "start": 3.66,
+              "end": 4.02,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "have",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "wasted",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "raw": "your",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "time?\"",
+          "start": 1.26,
+          "end": 1.84
+        },
+        {
+          "raw": "she",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "demanded.",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "raw": "You",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "have",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "raw": "been",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "raw": "out",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "raw": "for",
+          "start": 3.48,
+          "end": 3.66
+        },
+        {
+          "raw": "hours.",
+          "start": 3.66,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "have",
+        "you",
+        "wasted",
+        "your",
+        "time?\"",
+        "she",
+        "demanded.",
+        "\"You",
+        "have",
+        "been",
+        "out",
+        "for",
+        "hours.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wasted",
+          "start": 0.76,
+          "end": 1.04,
+          "key": "wasted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "time?\"",
+          "start": 1.26,
+          "end": 1.84,
+          "key": "time",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "demanded.",
+          "start": 2.06,
+          "end": 2.42,
+          "key": "demanded",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.14,
+          "end": 3.22,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.22,
+          "end": 3.32,
+          "key": "been",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.32,
+          "end": 3.48,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.48,
+          "end": 3.66,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hours.",
+          "start": 3.66,
+          "end": 4.02,
+          "key": "hours",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "have",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "you",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "wasted",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "text": "your",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "time?\"",
+          "start": 1.26,
+          "end": 1.84
+        },
+        {
+          "text": "she",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "demanded.",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "text": "\"You",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "text": "have",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "text": "been",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "text": "out",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "for",
+          "start": 3.48,
+          "end": 3.66
+        },
+        {
+          "text": "hours.\"",
+          "start": 3.66,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22251900285482407
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db1d33428c748bb327c07602adbabac5a0f0a4beb7152f0d7a9f7132aa66bd53",
+  "selected_reasons": []
+}

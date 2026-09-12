@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d25db97fdc75f427cf6cec616a644b330122e6f5771de15fb9b60f5b360a4e54",
+  "attempts": [
+    {
+      "asr_seconds": 0.13196497038006783,
+      "alignment_seconds": 0.00011811032891273499,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duke. How can that be?",
+        "hotwords": "Duke, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, How can that be?",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " How",
+              "start": 0.98,
+              "end": 1.1,
+              "probability": 0.02838134765625
+            },
+            {
+              "text": " can",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " that",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " be?",
+              "start": 1.42,
+              "end": 1.66,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "How",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "raw": "can",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "that",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "be?",
+          "start": 1.42,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "How",
+        "can",
+        "that",
+        "be?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 0.98,
+          "end": 1.1,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be?",
+          "start": 1.42,
+          "end": 1.66,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "How",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "text": "can",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "that",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "be?",
+          "start": 1.42,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13212307542562485
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7f72e8dc63f786b39ca565277d3b32957f16fa5cf18e60cca21d0123c2ac04ab",
+  "selected_reasons": []
+}

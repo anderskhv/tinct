@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "62f176a8d4fc45b3983295944aa5cb0935e6f19b445df2bf5ce0f286f3cfa92b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2107362113893032,
+      "alignment_seconds": 0.00042220577597618103,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Let us assume that she retains her power",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " us",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " assume",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 0.99,
+              "end": 1.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " she",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " retains",
+              "start": 1.43,
+              "end": 1.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " power",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "us",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "assume",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "raw": "that",
+          "start": 0.99,
+          "end": 1.29
+        },
+        {
+          "raw": "she",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "retains",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "raw": "her",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "power",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Let",
+        "us",
+        "assume",
+        "that",
+        "she",
+        "retains",
+        "her",
+        "power."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "us",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "assume",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "assume",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.99,
+          "end": 1.29,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "retains",
+          "start": 1.43,
+          "end": 1.79,
+          "key": "retains",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "power",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Let",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "us",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "assume",
+          "start": 0.65,
+          "end": 0.99
+        },
+        {
+          "text": "that",
+          "start": 0.99,
+          "end": 1.29
+        },
+        {
+          "text": "she",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "retains",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "text": "her",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "power.",
+          "start": 1.99,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21132255345582962
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e19b8bd1f65137ef992b8d89b31df0cd93c8816dad11aaa45e3e2b19b67fe29",
+  "selected_reasons": []
+}

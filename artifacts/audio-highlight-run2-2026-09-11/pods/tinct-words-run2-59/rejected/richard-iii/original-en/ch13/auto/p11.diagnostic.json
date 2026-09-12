@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "49fb7944100cdd8a78e4008a38129291a3e909646a7a55e9df9776bb7ed38ced",
+  "attempts": [
+    {
+      "asr_seconds": 0.2324679030571133,
+      "alignment_seconds": 0.0007011198904365301,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. God and our innocence defend and guard us!",
+        "hotwords": "Buckingham, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham, God and our innocence defend and guard us!",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " God",
+              "start": 1.61,
+              "end": 1.63,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " our",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " innocence",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " defend",
+              "start": 2.23,
+              "end": 2.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " guard",
+              "start": 2.95,
+              "end": 3.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us!",
+              "start": 3.17,
+              "end": 3.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "God",
+          "start": 1.61,
+          "end": 1.63
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "our",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "innocence",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "raw": "defend",
+          "start": 2.23,
+          "end": 2.75
+        },
+        {
+          "raw": "and",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "guard",
+          "start": 2.95,
+          "end": 3.17
+        },
+        {
+          "raw": "us!",
+          "start": 3.17,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "God",
+        "and",
+        "our",
+        "innocence",
+        "defend",
+        "and",
+        "guard",
+        "us!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.61,
+          "end": 1.63,
+          "key": "god",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "innocence",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "innocence",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "defend",
+          "start": 2.23,
+          "end": 2.75,
+          "key": "defend",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.75,
+          "end": 2.95,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "guard",
+          "start": 2.95,
+          "end": 3.17,
+          "key": "guard",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us!",
+          "start": 3.17,
+          "end": 3.49,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "God",
+          "start": 1.61,
+          "end": 1.63
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "our",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "innocence",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "text": "defend",
+          "start": 2.23,
+          "end": 2.75
+        },
+        {
+          "text": "and",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "guard",
+          "start": 2.95,
+          "end": 3.17
+        },
+        {
+          "text": "us!",
+          "start": 3.17,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2334538260474801
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2caf9901f3ef43a1cf956572ab12799316748a6af017e4eed922a81e18cf6ec8",
+  "selected_reasons": []
+}

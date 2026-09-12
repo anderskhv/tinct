@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "b67190fe385f655bd39d2acdd07151307c5adb259ac700483219885cf9ad0104",
+  "attempts": [
+    {
+      "asr_seconds": 0.19148726668208838,
+      "alignment_seconds": 0.00037216488271951675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ismene. Father, care for thee.",
+        "hotwords": "Ismene, Father"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ismene, Father, care for thee.",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.4775390625
+            },
+            {
+              "text": " Father,",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " care",
+              "start": 1.66,
+              "end": 1.7,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " for",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thee.",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Father,",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "care",
+          "start": 1.66,
+          "end": 1.7
+        },
+        {
+          "raw": "for",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "thee.",
+          "start": 1.9,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Father,",
+        "care",
+        "for",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ismene,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "ismene",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Father,",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "father",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 1.66,
+          "end": 1.7,
+          "key": "care",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Father,",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "care",
+          "start": 1.66,
+          "end": 1.7
+        },
+        {
+          "text": "for",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "thee.",
+          "start": 1.9,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19198380503803492
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca7aca1b1eb9c39d26a8c22da9599ae9454b3eca49f4481fdf364769db138f23",
+  "selected_reasons": []
+}

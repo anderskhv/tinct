@@ -1,0 +1,575 @@
+{
+  "complete": true,
+  "signature": "a02c161ecc2405bf7923c3ad97aa52dfae4ba8c1456a0a278b7ff5a3ffae93b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.4167012507095933,
+      "alignment_seconds": 0.0004693828523159027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ecolo, Olmedano Artifoni said in friendly haste.",
+          "start": 0.02,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Ecolo,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.4361572265625
+            },
+            {
+              "text": " Olmedano",
+              "start": 1.1,
+              "end": 1.58,
+              "probability": 0.5024210611979166
+            },
+            {
+              "text": " Artifoni",
+              "start": 1.58,
+              "end": 2.06,
+              "probability": 0.6790364583333334
+            },
+            {
+              "text": " said",
+              "start": 2.06,
+              "end": 2.32,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " in",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " friendly",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.798828125
+            },
+            {
+              "text": " haste.",
+              "start": 2.74,
+              "end": 3.12,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Venga atravermi eci pensi.",
+          "start": 3.88,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Venga",
+              "start": 3.88,
+              "end": 4.08,
+              "probability": 0.9215494791666666
+            },
+            {
+              "text": " atravermi",
+              "start": 4.08,
+              "end": 4.72,
+              "probability": 0.5628662109375
+            },
+            {
+              "text": " eci",
+              "start": 4.72,
+              "end": 5.24,
+              "probability": 0.6602783203125
+            },
+            {
+              "text": " pensi.",
+              "start": 5.24,
+              "end": 5.92,
+              "probability": 0.678955078125
+            }
+          ]
+        },
+        {
+          "text": " Adio, Caro.",
+          "start": 6.36,
+          "end": 7.14,
+          "words": [
+            {
+              "text": " Adio,",
+              "start": 6.36,
+              "end": 6.62,
+              "probability": 0.624755859375
+            },
+            {
+              "text": " Caro.",
+              "start": 6.86,
+              "end": 7.14,
+              "probability": 0.623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ecolo,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "Olmedano",
+          "start": 1.1,
+          "end": 1.58
+        },
+        {
+          "raw": "Artifoni",
+          "start": 1.58,
+          "end": 2.06
+        },
+        {
+          "raw": "said",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "raw": "in",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "friendly",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "haste.",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "raw": "Venga",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "raw": "atravermi",
+          "start": 4.08,
+          "end": 4.72
+        },
+        {
+          "raw": "eci",
+          "start": 4.72,
+          "end": 5.24
+        },
+        {
+          "raw": "pensi.",
+          "start": 5.24,
+          "end": 5.92
+        },
+        {
+          "raw": "Adio,",
+          "start": 6.36,
+          "end": 6.62
+        },
+        {
+          "raw": "Caro.",
+          "start": 6.86,
+          "end": 7.14
+        }
+      ],
+      "expected_tokens": [
+        "_—Eccolo,_",
+        "Almidano",
+        "Artifoni",
+        "said",
+        "in",
+        "friendly",
+        "haste.",
+        "_Venga",
+        "a",
+        "trovarmi",
+        "e",
+        "ci",
+        "pensi.",
+        "Addio,",
+        "caro._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          "replace",
+          8,
+          12,
+          8,
+          10
+        ],
+        [
+          "equal",
+          12,
+          13,
+          10,
+          11
+        ],
+        [
+          "replace",
+          13,
+          14,
+          11,
+          12
+        ],
+        [
+          "equal",
+          14,
+          15,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          8,
+          12,
+          8,
+          10
+        ],
+        [
+          "replace",
+          13,
+          14,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ecolo,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "ecolo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Olmedano",
+          "start": 1.1,
+          "end": 1.58,
+          "key": "olmedano",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Artifoni",
+          "start": 1.58,
+          "end": 2.06,
+          "key": "artifoni",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.06,
+          "end": 2.32,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friendly",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "friendly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "haste.",
+          "start": 2.74,
+          "end": 3.12,
+          "key": "haste",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Venga",
+          "start": 3.88,
+          "end": 4.08,
+          "key": "venga",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "atravermi",
+          "start": 4.08,
+          "end": 4.72,
+          "key": "atravermi",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "eci",
+          "start": 4.72,
+          "end": 5.24,
+          "key": "eci",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pensi.",
+          "start": 5.24,
+          "end": 5.92,
+          "key": "pensi",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Adio,",
+          "start": 6.36,
+          "end": 6.62,
+          "key": "adio",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Caro.",
+          "start": 6.86,
+          "end": 7.14,
+          "key": "caro",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Eccolo,_",
+          "start": 0.0,
+          "end": 0.79
+        },
+        {
+          "text": "Almidano",
+          "start": 0.79,
+          "end": 1.185
+        },
+        {
+          "text": "Artifoni",
+          "start": 1.58,
+          "end": 2.06
+        },
+        {
+          "text": "said",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "text": "in",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "friendly",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "haste.",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "text": "_Venga",
+          "start": 3.88,
+          "end": 4.08
+        },
+        {
+          "text": "a",
+          "start": 4.08,
+          "end": 4.66
+        },
+        {
+          "text": "trovarmi",
+          "start": 4.66,
+          "end": 4.95
+        },
+        {
+          "text": "e",
+          "start": 4.95,
+          "end": 5.095
+        },
+        {
+          "text": "ci",
+          "start": 5.095,
+          "end": 5.168
+        },
+        {
+          "text": "pensi.",
+          "start": 5.24,
+          "end": 5.92
+        },
+        {
+          "text": "Addio,",
+          "start": 5.92,
+          "end": 6.39
+        },
+        {
+          "text": "caro._",
+          "start": 6.86,
+          "end": 7.14
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 13,
+        "matched_words": 8
+      },
+      "match_ratio": 0.5333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4173158537596464
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a72e16dc506ad699ec3f150bf21c94c1d68810fc5781f538e6e7a2a4b8794a9f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

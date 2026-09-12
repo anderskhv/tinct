@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "37f3212bfdf6df00ffcfaa01770501ad631ddf5379167ed03d2abb1d06559d19",
+  "attempts": [
+    {
+      "asr_seconds": 0.10193156101740897,
+      "alignment_seconds": 0.00011018398799933493,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, I. Lepidus.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.893798828125
+            },
+            {
+              "text": " I.",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.434326171875
+            },
+            {
+              "text": " Lepidus.",
+              "start": 1.55,
+              "end": 1.95,
+              "probability": 0.773193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "I.",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "Lepidus.",
+          "start": 1.55,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Ay,",
+        "Lepidus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.31,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lepidus.",
+          "start": 1.55,
+          "end": 1.95,
+          "key": "lepidus",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Ay,",
+          "start": 0.93,
+          "end": 1.24
+        },
+        {
+          "text": "Lepidus.",
+          "start": 1.55,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10207301599439234
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e79b2dea5d372f64a571590a1e436e823bb790b4ee1707ccccac2730cf242326",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

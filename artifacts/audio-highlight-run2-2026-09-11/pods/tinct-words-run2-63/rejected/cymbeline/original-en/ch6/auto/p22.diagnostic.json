@@ -1,0 +1,8140 @@
+{
+  "complete": true,
+  "signature": "91efed759c105fead1bf43a1e74c14928a19f04f743b6276d06f307a14a0ace4",
+  "attempts": [
+    {
+      "asr_seconds": 2.1443316359072924,
+      "alignment_seconds": 0.0027735624462366104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Strange ling'ring poisons. I do know her spirit, And will not trust one of her malice with A drug of such damn'd nature. Those she has Will stupefy and dull the sense awhile, Which first perchance she'll prove on cats and dogs, Then afterward up higher; but there is No danger in what show of death it makes, More than the locking up the spirits a time, To be more fresh, reviving. She is fool'd With a most false effect; and I the truer So to be false with her.",
+        "hotwords": "Strange, I, Those, Which, Then, No, So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Strange, I, Those, Which,",
+          "start": 0.11,
+          "end": 8.59,
+          "words": [
+            {
+              "text": " Strange,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.0124359130859375
+            },
+            {
+              "text": " I,",
+              "start": 0.87,
+              "end": 1.01,
+              "probability": 5.245208740234375e-06
+            },
+            {
+              "text": " Those,",
+              "start": 1.27,
+              "end": 4.89,
+              "probability": 9.834766387939453e-06
+            },
+            {
+              "text": " Which,",
+              "start": 8.11,
+              "end": 8.59,
+              "probability": 0.01593017578125
+            }
+          ]
+        },
+        {
+          "text": " So much, I, Those, Will, Which, How, Where, Where, Where, Where, Where, Where, Where, Where,",
+          "start": 9.03,
+          "end": 20.75,
+          "words": [
+            {
+              "text": " So",
+              "start": 9.03,
+              "end": 9.43,
+              "probability": 0.0030651092529296875
+            },
+            {
+              "text": " much,",
+              "start": 9.43,
+              "end": 9.69,
+              "probability": 0.0267791748046875
+            },
+            {
+              "text": " I,",
+              "start": 9.69,
+              "end": 9.91,
+              "probability": 0.05841064453125
+            },
+            {
+              "text": " Those,",
+              "start": 9.91,
+              "end": 9.91,
+              "probability": 5.900859832763672e-06
+            },
+            {
+              "text": " Will,",
+              "start": 9.91,
+              "end": 9.91,
+              "probability": 0.0024623870849609375
+            },
+            {
+              "text": " Which,",
+              "start": 9.91,
+              "end": 9.91,
+              "probability": 0.000698089599609375
+            },
+            {
+              "text": " How,",
+              "start": 9.91,
+              "end": 11.11,
+              "probability": 0.007625579833984375
+            },
+            {
+              "text": " Where,",
+              "start": 11.11,
+              "end": 13.49,
+              "probability": 0.027587890625
+            },
+            {
+              "text": " Where,",
+              "start": 13.49,
+              "end": 13.55,
+              "probability": 0.1549072265625
+            },
+            {
+              "text": " Where,",
+              "start": 13.55,
+              "end": 13.59,
+              "probability": 0.401611328125
+            },
+            {
+              "text": " Where,",
+              "start": 13.59,
+              "end": 13.79,
+              "probability": 0.59033203125
+            },
+            {
+              "text": " Where,",
+              "start": 13.79,
+              "end": 13.85,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " Where,",
+              "start": 13.85,
+              "end": 14.05,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " Where,",
+              "start": 14.05,
+              "end": 20.63,
+              "probability": 0.80859375
+            },
+            {
+              "text": " Where,",
+              "start": 20.73,
+              "end": 20.75,
+              "probability": 0.837890625
+            }
+          ]
+        },
+        {
+          "text": " She is fooled with a most false effect, and I the truer so to be false with her.",
+          "start": 20.75,
+          "end": 25.63,
+          "words": [
+            {
+              "text": " She",
+              "start": 20.75,
+              "end": 21.59,
+              "probability": 0.61376953125
+            },
+            {
+              "text": " is",
+              "start": 21.59,
+              "end": 21.73,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " fooled",
+              "start": 21.73,
+              "end": 22.03,
+              "probability": 0.908203125
+            },
+            {
+              "text": " with",
+              "start": 22.03,
+              "end": 22.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 22.27,
+              "end": 22.37,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " most",
+              "start": 22.37,
+              "end": 22.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " false",
+              "start": 22.59,
+              "end": 22.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " effect,",
+              "start": 22.91,
+              "end": 23.31,
+              "probability": 0.982421875
+            },
+            {
+              "text": " and",
+              "start": 23.87,
+              "end": 23.95,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " I",
+              "start": 23.95,
+              "end": 24.01,
+              "probability": 0.927734375
+            },
+            {
+              "text": " the",
+              "start": 24.01,
+              "end": 24.11,
+              "probability": 0.984375
+            },
+            {
+              "text": " truer",
+              "start": 24.11,
+              "end": 24.39,
+              "probability": 0.927734375
+            },
+            {
+              "text": " so",
+              "start": 24.39,
+              "end": 24.67,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 24.67,
+              "end": 24.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 24.81,
+              "end": 24.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " false",
+              "start": 24.95,
+              "end": 25.21,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " with",
+              "start": 25.21,
+              "end": 25.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her.",
+              "start": 25.45,
+              "end": 25.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Strange,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "I,",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "raw": "Those,",
+          "start": 1.27,
+          "end": 4.89
+        },
+        {
+          "raw": "Which,",
+          "start": 8.11,
+          "end": 8.59
+        },
+        {
+          "raw": "So",
+          "start": 9.03,
+          "end": 9.43
+        },
+        {
+          "raw": "much,",
+          "start": 9.43,
+          "end": 9.69
+        },
+        {
+          "raw": "I,",
+          "start": 9.69,
+          "end": 9.91
+        },
+        {
+          "raw": "Those,",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "raw": "Will,",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "raw": "Which,",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "raw": "How,",
+          "start": 9.91,
+          "end": 11.11
+        },
+        {
+          "raw": "Where,",
+          "start": 11.11,
+          "end": 13.49
+        },
+        {
+          "raw": "Where,",
+          "start": 13.49,
+          "end": 13.55
+        },
+        {
+          "raw": "Where,",
+          "start": 13.55,
+          "end": 13.59
+        },
+        {
+          "raw": "Where,",
+          "start": 13.59,
+          "end": 13.79
+        },
+        {
+          "raw": "Where,",
+          "start": 13.79,
+          "end": 13.85
+        },
+        {
+          "raw": "Where,",
+          "start": 13.85,
+          "end": 14.05
+        },
+        {
+          "raw": "Where,",
+          "start": 14.05,
+          "end": 20.63
+        },
+        {
+          "raw": "Where,",
+          "start": 20.73,
+          "end": 20.75
+        },
+        {
+          "raw": "She",
+          "start": 20.75,
+          "end": 21.59
+        },
+        {
+          "raw": "is",
+          "start": 21.59,
+          "end": 21.73
+        },
+        {
+          "raw": "fooled",
+          "start": 21.73,
+          "end": 22.03
+        },
+        {
+          "raw": "with",
+          "start": 22.03,
+          "end": 22.27
+        },
+        {
+          "raw": "a",
+          "start": 22.27,
+          "end": 22.37
+        },
+        {
+          "raw": "most",
+          "start": 22.37,
+          "end": 22.59
+        },
+        {
+          "raw": "false",
+          "start": 22.59,
+          "end": 22.91
+        },
+        {
+          "raw": "effect,",
+          "start": 22.91,
+          "end": 23.31
+        },
+        {
+          "raw": "and",
+          "start": 23.87,
+          "end": 23.95
+        },
+        {
+          "raw": "I",
+          "start": 23.95,
+          "end": 24.01
+        },
+        {
+          "raw": "the",
+          "start": 24.01,
+          "end": 24.11
+        },
+        {
+          "raw": "truer",
+          "start": 24.11,
+          "end": 24.39
+        },
+        {
+          "raw": "so",
+          "start": 24.39,
+          "end": 24.67
+        },
+        {
+          "raw": "to",
+          "start": 24.67,
+          "end": 24.81
+        },
+        {
+          "raw": "be",
+          "start": 24.81,
+          "end": 24.95
+        },
+        {
+          "raw": "false",
+          "start": 24.95,
+          "end": 25.21
+        },
+        {
+          "raw": "with",
+          "start": 25.21,
+          "end": 25.45
+        },
+        {
+          "raw": "her.",
+          "start": 25.45,
+          "end": 25.63
+        }
+      ],
+      "expected_tokens": [
+        "Strange",
+        "ling'ring",
+        "poisons.",
+        "I",
+        "do",
+        "know",
+        "her",
+        "spirit,",
+        "And",
+        "will",
+        "not",
+        "trust",
+        "one",
+        "of",
+        "her",
+        "malice",
+        "with",
+        "A",
+        "drug",
+        "of",
+        "such",
+        "damn'd",
+        "nature.",
+        "Those",
+        "she",
+        "has",
+        "Will",
+        "stupefy",
+        "and",
+        "dull",
+        "the",
+        "sense",
+        "awhile,",
+        "Which",
+        "first",
+        "perchance",
+        "she'll",
+        "prove",
+        "on",
+        "cats",
+        "and",
+        "dogs,",
+        "Then",
+        "afterward",
+        "up",
+        "higher;",
+        "but",
+        "there",
+        "is",
+        "No",
+        "danger",
+        "in",
+        "what",
+        "show",
+        "of",
+        "death",
+        "it",
+        "makes,",
+        "More",
+        "than",
+        "the",
+        "locking",
+        "up",
+        "the",
+        "spirits",
+        "a",
+        "time,",
+        "To",
+        "be",
+        "more",
+        "fresh,",
+        "reviving.",
+        "She",
+        "is",
+        "fool'd",
+        "With",
+        "a",
+        "most",
+        "false",
+        "effect;",
+        "and",
+        "I",
+        "the",
+        "truer",
+        "So",
+        "to",
+        "be",
+        "false",
+        "with",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          9,
+          2,
+          8
+        ],
+        [
+          "equal",
+          9,
+          10,
+          8,
+          9
+        ],
+        [
+          "delete",
+          10,
+          33,
+          9,
+          9
+        ],
+        [
+          "equal",
+          33,
+          34,
+          9,
+          10
+        ],
+        [
+          "replace",
+          34,
+          72,
+          10,
+          19
+        ],
+        [
+          "equal",
+          72,
+          74,
+          19,
+          21
+        ],
+        [
+          "replace",
+          74,
+          75,
+          21,
+          22
+        ],
+        [
+          "equal",
+          75,
+          90,
+          22,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "replace",
+          4,
+          9,
+          2,
+          8
+        ],
+        [
+          "delete",
+          10,
+          33,
+          9,
+          9
+        ],
+        [
+          "replace",
+          34,
+          72,
+          10,
+          19
+        ],
+        [
+          "replace",
+          74,
+          75,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Strange,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "strange",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 0.87,
+          "end": 1.01,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Those,",
+          "start": 1.27,
+          "end": 4.89,
+          "key": "those",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Which,",
+          "start": 8.11,
+          "end": 8.59,
+          "key": "which",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 9.03,
+          "end": 9.43,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much,",
+          "start": 9.43,
+          "end": 9.69,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 9.69,
+          "end": 9.91,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Those,",
+          "start": 9.91,
+          "end": 9.91,
+          "key": "those",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Will,",
+          "start": 9.91,
+          "end": 9.91,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Which,",
+          "start": 9.91,
+          "end": 9.91,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "How,",
+          "start": 9.91,
+          "end": 11.11,
+          "key": "how",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 11.11,
+          "end": 13.49,
+          "key": "where",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 13.49,
+          "end": 13.55,
+          "key": "where",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 13.55,
+          "end": 13.59,
+          "key": "where",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 13.59,
+          "end": 13.79,
+          "key": "where",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 13.79,
+          "end": 13.85,
+          "key": "where",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 13.85,
+          "end": 14.05,
+          "key": "where",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 14.05,
+          "end": 20.63,
+          "key": "where",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Where,",
+          "start": 20.73,
+          "end": 20.75,
+          "key": "where",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 20.75,
+          "end": 21.59,
+          "key": "she",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 21.59,
+          "end": 21.73,
+          "key": "is",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fooled",
+          "start": 21.73,
+          "end": 22.03,
+          "key": "fooled",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 22.03,
+          "end": 22.27,
+          "key": "with",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.27,
+          "end": 22.37,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 22.37,
+          "end": 22.59,
+          "key": "most",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 22.59,
+          "end": 22.91,
+          "key": "false",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "effect,",
+          "start": 22.91,
+          "end": 23.31,
+          "key": "effect",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.87,
+          "end": 23.95,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 23.95,
+          "end": 24.01,
+          "key": "i",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.01,
+          "end": 24.11,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "truer",
+          "start": 24.11,
+          "end": 24.39,
+          "key": "truer",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 24.39,
+          "end": 24.67,
+          "key": "so",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.67,
+          "end": 24.81,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 24.81,
+          "end": 24.95,
+          "key": "be",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 24.95,
+          "end": 25.21,
+          "key": "false",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 25.21,
+          "end": 25.45,
+          "key": "with",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 25.45,
+          "end": 25.63,
+          "key": "her",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Strange",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "ling'ring",
+          "start": 0.77,
+          "end": 0.82
+        },
+        {
+          "text": "poisons.",
+          "start": 0.82,
+          "end": 0.845
+        },
+        {
+          "text": "I",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "text": "do",
+          "start": 1.01,
+          "end": 5.46
+        },
+        {
+          "text": "know",
+          "start": 5.46,
+          "end": 7.685
+        },
+        {
+          "text": "her",
+          "start": 7.685,
+          "end": 8.797
+        },
+        {
+          "text": "spirit,",
+          "start": 8.797,
+          "end": 9.354
+        },
+        {
+          "text": "And",
+          "start": 9.354,
+          "end": 9.632
+        },
+        {
+          "text": "will",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "not",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "trust",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "one",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "of",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "her",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "malice",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "with",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "A",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "drug",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "of",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "such",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "damn'd",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "nature.",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "Those",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "she",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "has",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "Will",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "stupefy",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "and",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "dull",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "the",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "sense",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "awhile,",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "Which",
+          "start": 9.91,
+          "end": 9.91
+        },
+        {
+          "text": "first",
+          "start": 9.91,
+          "end": 15.33
+        },
+        {
+          "text": "perchance",
+          "start": 15.33,
+          "end": 18.04
+        },
+        {
+          "text": "she'll",
+          "start": 18.04,
+          "end": 19.395
+        },
+        {
+          "text": "prove",
+          "start": 19.395,
+          "end": 20.072
+        },
+        {
+          "text": "on",
+          "start": 20.072,
+          "end": 20.411
+        },
+        {
+          "text": "cats",
+          "start": 20.411,
+          "end": 20.581
+        },
+        {
+          "text": "and",
+          "start": 20.581,
+          "end": 20.666
+        },
+        {
+          "text": "dogs,",
+          "start": 20.666,
+          "end": 20.708
+        },
+        {
+          "text": "Then",
+          "start": 20.708,
+          "end": 20.729
+        },
+        {
+          "text": "afterward",
+          "start": 20.729,
+          "end": 20.739
+        },
+        {
+          "text": "up",
+          "start": 20.739,
+          "end": 20.745
+        },
+        {
+          "text": "higher;",
+          "start": 20.745,
+          "end": 20.748
+        },
+        {
+          "text": "but",
+          "start": 20.748,
+          "end": 20.749
+        },
+        {
+          "text": "there",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "is",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "No",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "danger",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "in",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "what",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "show",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "of",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "death",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "it",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "makes,",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "More",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "than",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "the",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "locking",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "up",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "the",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "spirits",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "a",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "time,",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "To",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "be",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "more",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "fresh,",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "reviving.",
+          "start": 20.749,
+          "end": 20.749
+        },
+        {
+          "text": "She",
+          "start": 20.75,
+          "end": 21.59
+        },
+        {
+          "text": "is",
+          "start": 21.59,
+          "end": 21.73
+        },
+        {
+          "text": "fool'd",
+          "start": 21.73,
+          "end": 21.88
+        },
+        {
+          "text": "With",
+          "start": 22.03,
+          "end": 22.27
+        },
+        {
+          "text": "a",
+          "start": 22.27,
+          "end": 22.37
+        },
+        {
+          "text": "most",
+          "start": 22.37,
+          "end": 22.59
+        },
+        {
+          "text": "false",
+          "start": 22.59,
+          "end": 22.91
+        },
+        {
+          "text": "effect;",
+          "start": 22.91,
+          "end": 23.31
+        },
+        {
+          "text": "and",
+          "start": 23.87,
+          "end": 23.95
+        },
+        {
+          "text": "I",
+          "start": 23.95,
+          "end": 24.01
+        },
+        {
+          "text": "the",
+          "start": 24.01,
+          "end": 24.11
+        },
+        {
+          "text": "truer",
+          "start": 24.11,
+          "end": 24.39
+        },
+        {
+          "text": "So",
+          "start": 24.39,
+          "end": 24.67
+        },
+        {
+          "text": "to",
+          "start": 24.67,
+          "end": 24.81
+        },
+        {
+          "text": "be",
+          "start": 24.81,
+          "end": 24.95
+        },
+        {
+          "text": "false",
+          "start": 24.95,
+          "end": 25.21
+        },
+        {
+          "text": "with",
+          "start": 25.21,
+          "end": 25.45
+        },
+        {
+          "text": "her.",
+          "start": 25.45,
+          "end": 25.63
+        }
+      ],
+      "stats": {
+        "expected_words": 90,
+        "heard_words": 37,
+        "matched_words": 21
+      },
+      "match_ratio": 0.23333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.1476646717637777
+    },
+    {
+      "asr_seconds": 0.7750172559171915,
+      "alignment_seconds": 0.0014836117625236511,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Strange, I, Those, Which, Then, No, So"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Strange, Lingering Poisons. I do know her spirit, and will not trust one of her malice with a drug of such damned nature.",
+          "start": 0.11,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " Strange,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.0126953125
+            },
+            {
+              "text": " Lingering",
+              "start": 0.91,
+              "end": 1.21,
+              "probability": 0.46663665771484375
+            },
+            {
+              "text": " Poisons.",
+              "start": 1.21,
+              "end": 1.73,
+              "probability": 0.643310546875
+            },
+            {
+              "text": " I",
+              "start": 2.37,
+              "end": 2.45,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " do",
+              "start": 2.45,
+              "end": 2.53,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " know",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " her",
+              "start": 2.67,
+              "end": 2.83,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " spirit,",
+              "start": 2.83,
+              "end": 3.19,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " and",
+              "start": 3.49,
+              "end": 3.57,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " will",
+              "start": 3.57,
+              "end": 3.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not",
+              "start": 3.67,
+              "end": 3.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " trust",
+              "start": 3.87,
+              "end": 4.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " one",
+              "start": 4.09,
+              "end": 4.27,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " of",
+              "start": 4.27,
+              "end": 4.37,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " her",
+              "start": 4.37,
+              "end": 4.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " malice",
+              "start": 4.49,
+              "end": 4.77,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " with",
+              "start": 4.77,
+              "end": 4.95,
+              "probability": 0.97265625
+            },
+            {
+              "text": " a",
+              "start": 4.95,
+              "end": 5.07,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " drug",
+              "start": 5.07,
+              "end": 5.25,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " of",
+              "start": 5.25,
+              "end": 5.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " such",
+              "start": 5.39,
+              "end": 5.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " damned",
+              "start": 5.57,
+              "end": 5.93,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " nature.",
+              "start": 5.93,
+              "end": 6.37,
+              "probability": 0.97509765625
+            }
+          ]
+        },
+        {
+          "text": " Those she has will stupefy and dull the sense a while, which first perchance she'll prove on cats and dogs, then afterward up higher.",
+          "start": 7.09,
+          "end": 13.89,
+          "words": [
+            {
+              "text": " Those",
+              "start": 7.09,
+              "end": 7.25,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " she",
+              "start": 7.25,
+              "end": 7.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 7.41,
+              "end": 7.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " will",
+              "start": 7.63,
+              "end": 7.77,
+              "probability": 0.986328125
+            },
+            {
+              "text": " stupefy",
+              "start": 7.77,
+              "end": 8.37,
+              "probability": 0.8077799479166666
+            },
+            {
+              "text": " and",
+              "start": 8.37,
+              "end": 8.55,
+              "probability": 0.96875
+            },
+            {
+              "text": " dull",
+              "start": 8.55,
+              "end": 8.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 8.71,
+              "end": 8.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sense",
+              "start": 8.89,
+              "end": 9.07,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " a",
+              "start": 9.07,
+              "end": 9.25,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " while,",
+              "start": 9.25,
+              "end": 9.49,
+              "probability": 0.875
+            },
+            {
+              "text": " which",
+              "start": 9.91,
+              "end": 10.11,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " first",
+              "start": 10.11,
+              "end": 10.45,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " perchance",
+              "start": 10.45,
+              "end": 10.83,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " she'll",
+              "start": 10.83,
+              "end": 11.13,
+              "probability": 0.888671875
+            },
+            {
+              "text": " prove",
+              "start": 11.13,
+              "end": 11.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on",
+              "start": 11.31,
+              "end": 11.53,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cats",
+              "start": 11.53,
+              "end": 11.83,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " and",
+              "start": 11.83,
+              "end": 12.09,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " dogs,",
+              "start": 12.09,
+              "end": 12.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " then",
+              "start": 12.87,
+              "end": 13.01,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " afterward",
+              "start": 13.01,
+              "end": 13.43,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " up",
+              "start": 13.43,
+              "end": 13.65,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " higher.",
+              "start": 13.65,
+              "end": 13.89,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " But there is no danger in what show of death it makes, more than the locking up the spirits a time, to be more fresh, reviving.",
+          "start": 14.49,
+          "end": 20.69,
+          "words": [
+            {
+              "text": " But",
+              "start": 14.49,
+              "end": 14.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " there",
+              "start": 14.67,
+              "end": 14.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " is",
+              "start": 14.79,
+              "end": 14.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 14.91,
+              "end": 15.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " danger",
+              "start": 15.13,
+              "end": 15.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 15.43,
+              "end": 15.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 15.69,
+              "end": 15.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " show",
+              "start": 15.87,
+              "end": 16.11,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 16.11,
+              "end": 16.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " death",
+              "start": 16.29,
+              "end": 16.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it",
+              "start": 16.43,
+              "end": 16.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " makes,",
+              "start": 16.57,
+              "end": 16.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " more",
+              "start": 17.19,
+              "end": 17.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " than",
+              "start": 17.39,
+              "end": 17.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 17.53,
+              "end": 17.63,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " locking",
+              "start": 17.63,
+              "end": 17.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up",
+              "start": 17.85,
+              "end": 18.05,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " the",
+              "start": 18.05,
+              "end": 18.21,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " spirits",
+              "start": 18.21,
+              "end": 18.47,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " a",
+              "start": 18.47,
+              "end": 18.67,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " time,",
+              "start": 18.67,
+              "end": 18.95,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " to",
+              "start": 19.25,
+              "end": 19.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 19.33,
+              "end": 19.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " more",
+              "start": 19.45,
+              "end": 19.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fresh,",
+              "start": 19.63,
+              "end": 20.03,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " reviving.",
+              "start": 20.31,
+              "end": 20.69,
+              "probability": 0.993408203125
+            }
+          ]
+        },
+        {
+          "text": " She is fooled with a most false effect, and I the truer so to be false with her.",
+          "start": 21.39,
+          "end": 25.65,
+          "words": [
+            {
+              "text": " She",
+              "start": 21.39,
+              "end": 21.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 21.61,
+              "end": 21.77,
+              "probability": 0.951171875
+            },
+            {
+              "text": " fooled",
+              "start": 21.77,
+              "end": 22.01,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " with",
+              "start": 22.01,
+              "end": 22.27,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " a",
+              "start": 22.27,
+              "end": 22.37,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " most",
+              "start": 22.37,
+              "end": 22.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " false",
+              "start": 22.59,
+              "end": 22.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " effect,",
+              "start": 22.91,
+              "end": 23.33,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 23.83,
+              "end": 23.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 23.95,
+              "end": 24.01,
+              "probability": 0.91015625
+            },
+            {
+              "text": " the",
+              "start": 24.01,
+              "end": 24.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " truer",
+              "start": 24.11,
+              "end": 24.39,
+              "probability": 0.880859375
+            },
+            {
+              "text": " so",
+              "start": 24.39,
+              "end": 24.67,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " to",
+              "start": 24.67,
+              "end": 24.81,
+              "probability": 0.98046875
+            },
+            {
+              "text": " be",
+              "start": 24.81,
+              "end": 24.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " false",
+              "start": 24.97,
+              "end": 25.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " with",
+              "start": 25.23,
+              "end": 25.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her.",
+              "start": 25.45,
+              "end": 25.65,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Strange,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "Lingering",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "raw": "Poisons.",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "raw": "I",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "raw": "do",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "raw": "know",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "her",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "raw": "spirit,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.57
+        },
+        {
+          "raw": "will",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "raw": "not",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "raw": "trust",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "raw": "one",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "raw": "of",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "raw": "her",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "raw": "malice",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "raw": "with",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "raw": "a",
+          "start": 4.95,
+          "end": 5.07
+        },
+        {
+          "raw": "drug",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "raw": "of",
+          "start": 5.25,
+          "end": 5.39
+        },
+        {
+          "raw": "such",
+          "start": 5.39,
+          "end": 5.57
+        },
+        {
+          "raw": "damned",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "raw": "nature.",
+          "start": 5.93,
+          "end": 6.37
+        },
+        {
+          "raw": "Those",
+          "start": 7.09,
+          "end": 7.25
+        },
+        {
+          "raw": "she",
+          "start": 7.25,
+          "end": 7.41
+        },
+        {
+          "raw": "has",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "raw": "will",
+          "start": 7.63,
+          "end": 7.77
+        },
+        {
+          "raw": "stupefy",
+          "start": 7.77,
+          "end": 8.37
+        },
+        {
+          "raw": "and",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "raw": "dull",
+          "start": 8.55,
+          "end": 8.71
+        },
+        {
+          "raw": "the",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "raw": "sense",
+          "start": 8.89,
+          "end": 9.07
+        },
+        {
+          "raw": "a",
+          "start": 9.07,
+          "end": 9.25
+        },
+        {
+          "raw": "while,",
+          "start": 9.25,
+          "end": 9.49
+        },
+        {
+          "raw": "which",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "raw": "first",
+          "start": 10.11,
+          "end": 10.45
+        },
+        {
+          "raw": "perchance",
+          "start": 10.45,
+          "end": 10.83
+        },
+        {
+          "raw": "she'll",
+          "start": 10.83,
+          "end": 11.13
+        },
+        {
+          "raw": "prove",
+          "start": 11.13,
+          "end": 11.31
+        },
+        {
+          "raw": "on",
+          "start": 11.31,
+          "end": 11.53
+        },
+        {
+          "raw": "cats",
+          "start": 11.53,
+          "end": 11.83
+        },
+        {
+          "raw": "and",
+          "start": 11.83,
+          "end": 12.09
+        },
+        {
+          "raw": "dogs,",
+          "start": 12.09,
+          "end": 12.45
+        },
+        {
+          "raw": "then",
+          "start": 12.87,
+          "end": 13.01
+        },
+        {
+          "raw": "afterward",
+          "start": 13.01,
+          "end": 13.43
+        },
+        {
+          "raw": "up",
+          "start": 13.43,
+          "end": 13.65
+        },
+        {
+          "raw": "higher.",
+          "start": 13.65,
+          "end": 13.89
+        },
+        {
+          "raw": "But",
+          "start": 14.49,
+          "end": 14.67
+        },
+        {
+          "raw": "there",
+          "start": 14.67,
+          "end": 14.79
+        },
+        {
+          "raw": "is",
+          "start": 14.79,
+          "end": 14.91
+        },
+        {
+          "raw": "no",
+          "start": 14.91,
+          "end": 15.13
+        },
+        {
+          "raw": "danger",
+          "start": 15.13,
+          "end": 15.43
+        },
+        {
+          "raw": "in",
+          "start": 15.43,
+          "end": 15.69
+        },
+        {
+          "raw": "what",
+          "start": 15.69,
+          "end": 15.87
+        },
+        {
+          "raw": "show",
+          "start": 15.87,
+          "end": 16.11
+        },
+        {
+          "raw": "of",
+          "start": 16.11,
+          "end": 16.29
+        },
+        {
+          "raw": "death",
+          "start": 16.29,
+          "end": 16.43
+        },
+        {
+          "raw": "it",
+          "start": 16.43,
+          "end": 16.57
+        },
+        {
+          "raw": "makes,",
+          "start": 16.57,
+          "end": 16.89
+        },
+        {
+          "raw": "more",
+          "start": 17.19,
+          "end": 17.39
+        },
+        {
+          "raw": "than",
+          "start": 17.39,
+          "end": 17.53
+        },
+        {
+          "raw": "the",
+          "start": 17.53,
+          "end": 17.63
+        },
+        {
+          "raw": "locking",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "raw": "up",
+          "start": 17.85,
+          "end": 18.05
+        },
+        {
+          "raw": "the",
+          "start": 18.05,
+          "end": 18.21
+        },
+        {
+          "raw": "spirits",
+          "start": 18.21,
+          "end": 18.47
+        },
+        {
+          "raw": "a",
+          "start": 18.47,
+          "end": 18.67
+        },
+        {
+          "raw": "time,",
+          "start": 18.67,
+          "end": 18.95
+        },
+        {
+          "raw": "to",
+          "start": 19.25,
+          "end": 19.33
+        },
+        {
+          "raw": "be",
+          "start": 19.33,
+          "end": 19.45
+        },
+        {
+          "raw": "more",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "raw": "fresh,",
+          "start": 19.63,
+          "end": 20.03
+        },
+        {
+          "raw": "reviving.",
+          "start": 20.31,
+          "end": 20.69
+        },
+        {
+          "raw": "She",
+          "start": 21.39,
+          "end": 21.61
+        },
+        {
+          "raw": "is",
+          "start": 21.61,
+          "end": 21.77
+        },
+        {
+          "raw": "fooled",
+          "start": 21.77,
+          "end": 22.01
+        },
+        {
+          "raw": "with",
+          "start": 22.01,
+          "end": 22.27
+        },
+        {
+          "raw": "a",
+          "start": 22.27,
+          "end": 22.37
+        },
+        {
+          "raw": "most",
+          "start": 22.37,
+          "end": 22.59
+        },
+        {
+          "raw": "false",
+          "start": 22.59,
+          "end": 22.91
+        },
+        {
+          "raw": "effect,",
+          "start": 22.91,
+          "end": 23.33
+        },
+        {
+          "raw": "and",
+          "start": 23.83,
+          "end": 23.95
+        },
+        {
+          "raw": "I",
+          "start": 23.95,
+          "end": 24.01
+        },
+        {
+          "raw": "the",
+          "start": 24.01,
+          "end": 24.11
+        },
+        {
+          "raw": "truer",
+          "start": 24.11,
+          "end": 24.39
+        },
+        {
+          "raw": "so",
+          "start": 24.39,
+          "end": 24.67
+        },
+        {
+          "raw": "to",
+          "start": 24.67,
+          "end": 24.81
+        },
+        {
+          "raw": "be",
+          "start": 24.81,
+          "end": 24.97
+        },
+        {
+          "raw": "false",
+          "start": 24.97,
+          "end": 25.23
+        },
+        {
+          "raw": "with",
+          "start": 25.23,
+          "end": 25.45
+        },
+        {
+          "raw": "her.",
+          "start": 25.45,
+          "end": 25.65
+        }
+      ],
+      "expected_tokens": [
+        "Strange",
+        "ling'ring",
+        "poisons.",
+        "I",
+        "do",
+        "know",
+        "her",
+        "spirit,",
+        "And",
+        "will",
+        "not",
+        "trust",
+        "one",
+        "of",
+        "her",
+        "malice",
+        "with",
+        "A",
+        "drug",
+        "of",
+        "such",
+        "damn'd",
+        "nature.",
+        "Those",
+        "she",
+        "has",
+        "Will",
+        "stupefy",
+        "and",
+        "dull",
+        "the",
+        "sense",
+        "awhile,",
+        "Which",
+        "first",
+        "perchance",
+        "she'll",
+        "prove",
+        "on",
+        "cats",
+        "and",
+        "dogs,",
+        "Then",
+        "afterward",
+        "up",
+        "higher;",
+        "but",
+        "there",
+        "is",
+        "No",
+        "danger",
+        "in",
+        "what",
+        "show",
+        "of",
+        "death",
+        "it",
+        "makes,",
+        "More",
+        "than",
+        "the",
+        "locking",
+        "up",
+        "the",
+        "spirits",
+        "a",
+        "time,",
+        "To",
+        "be",
+        "more",
+        "fresh,",
+        "reviving.",
+        "She",
+        "is",
+        "fool'd",
+        "With",
+        "a",
+        "most",
+        "false",
+        "effect;",
+        "and",
+        "I",
+        "the",
+        "truer",
+        "So",
+        "to",
+        "be",
+        "false",
+        "with",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          21,
+          2,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "equal",
+          22,
+          32,
+          22,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          74,
+          34,
+          75
+        ],
+        [
+          "replace",
+          74,
+          75,
+          75,
+          76
+        ],
+        [
+          "equal",
+          75,
+          90,
+          76,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "replace",
+          74,
+          75,
+          75,
+          76
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Strange,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "strange",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lingering",
+          "start": 0.91,
+          "end": 1.21,
+          "key": "lingering",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Poisons.",
+          "start": 1.21,
+          "end": 1.73,
+          "key": "poisons",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.37,
+          "end": 2.45,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.45,
+          "end": 2.53,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "know",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.67,
+          "end": 2.83,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "spirit,",
+          "start": 2.83,
+          "end": 3.19,
+          "key": "spirit",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.57,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.57,
+          "end": 3.67,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.67,
+          "end": 3.87,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 3.87,
+          "end": 4.09,
+          "key": "trust",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.09,
+          "end": 4.27,
+          "key": "one",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.27,
+          "end": 4.37,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.37,
+          "end": 4.49,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "malice",
+          "start": 4.49,
+          "end": 4.77,
+          "key": "malice",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.77,
+          "end": 4.95,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.95,
+          "end": 5.07,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "drug",
+          "start": 5.07,
+          "end": 5.25,
+          "key": "drug",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.25,
+          "end": 5.39,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 5.39,
+          "end": 5.57,
+          "key": "such",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "damned",
+          "start": 5.57,
+          "end": 5.93,
+          "key": "damned",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "nature.",
+          "start": 5.93,
+          "end": 6.37,
+          "key": "nature",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Those",
+          "start": 7.09,
+          "end": 7.25,
+          "key": "those",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 7.25,
+          "end": 7.41,
+          "key": "she",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 7.41,
+          "end": 7.63,
+          "key": "has",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.63,
+          "end": 7.77,
+          "key": "will",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "stupefy",
+          "start": 7.77,
+          "end": 8.37,
+          "key": "stupefy",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.37,
+          "end": 8.55,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "dull",
+          "start": 8.55,
+          "end": 8.71,
+          "key": "dull",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.71,
+          "end": 8.89,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sense",
+          "start": 8.89,
+          "end": 9.07,
+          "key": "sense",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.07,
+          "end": 9.25,
+          "key": "a",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "while,",
+          "start": 9.25,
+          "end": 9.49,
+          "key": "while",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 9.91,
+          "end": 10.11,
+          "key": "which",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 10.11,
+          "end": 10.45,
+          "key": "first",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "perchance",
+          "start": 10.45,
+          "end": 10.83,
+          "key": "perchance",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "she'll",
+          "start": 10.83,
+          "end": 11.13,
+          "key": "shell",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 11.13,
+          "end": 11.31,
+          "key": "prove",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 11.31,
+          "end": 11.53,
+          "key": "on",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "cats",
+          "start": 11.53,
+          "end": 11.83,
+          "key": "cats",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.83,
+          "end": 12.09,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "dogs,",
+          "start": 12.09,
+          "end": 12.45,
+          "key": "dogs",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 12.87,
+          "end": 13.01,
+          "key": "then",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "afterward",
+          "start": 13.01,
+          "end": 13.43,
+          "key": "afterward",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 13.43,
+          "end": 13.65,
+          "key": "up",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "higher.",
+          "start": 13.65,
+          "end": 13.89,
+          "key": "higher",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 14.49,
+          "end": 14.67,
+          "key": "but",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 14.67,
+          "end": 14.79,
+          "key": "there",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.79,
+          "end": 14.91,
+          "key": "is",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 14.91,
+          "end": 15.13,
+          "key": "no",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "danger",
+          "start": 15.13,
+          "end": 15.43,
+          "key": "danger",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.43,
+          "end": 15.69,
+          "key": "in",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 15.69,
+          "end": 15.87,
+          "key": "what",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 15.87,
+          "end": 16.11,
+          "key": "show",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.11,
+          "end": 16.29,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 16.29,
+          "end": 16.43,
+          "key": "death",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 16.43,
+          "end": 16.57,
+          "key": "it",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "makes,",
+          "start": 16.57,
+          "end": 16.89,
+          "key": "makes",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 17.19,
+          "end": 17.39,
+          "key": "more",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 17.39,
+          "end": 17.53,
+          "key": "than",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.53,
+          "end": 17.63,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "locking",
+          "start": 17.63,
+          "end": 17.85,
+          "key": "locking",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 17.85,
+          "end": 18.05,
+          "key": "up",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.05,
+          "end": 18.21,
+          "key": "the",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "spirits",
+          "start": 18.21,
+          "end": 18.47,
+          "key": "spirits",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.47,
+          "end": 18.67,
+          "key": "a",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 18.67,
+          "end": 18.95,
+          "key": "time",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.25,
+          "end": 19.33,
+          "key": "to",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.33,
+          "end": 19.45,
+          "key": "be",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 19.45,
+          "end": 19.63,
+          "key": "more",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "fresh,",
+          "start": 19.63,
+          "end": 20.03,
+          "key": "fresh",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "reviving.",
+          "start": 20.31,
+          "end": 20.69,
+          "key": "reviving",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 21.39,
+          "end": 21.61,
+          "key": "she",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 21.61,
+          "end": 21.77,
+          "key": "is",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "fooled",
+          "start": 21.77,
+          "end": 22.01,
+          "key": "fooled",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 22.01,
+          "end": 22.27,
+          "key": "with",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.27,
+          "end": 22.37,
+          "key": "a",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 22.37,
+          "end": 22.59,
+          "key": "most",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 22.59,
+          "end": 22.91,
+          "key": "false",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "effect,",
+          "start": 22.91,
+          "end": 23.33,
+          "key": "effect",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.83,
+          "end": 23.95,
+          "key": "and",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 23.95,
+          "end": 24.01,
+          "key": "i",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.01,
+          "end": 24.11,
+          "key": "the",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "truer",
+          "start": 24.11,
+          "end": 24.39,
+          "key": "truer",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 24.39,
+          "end": 24.67,
+          "key": "so",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.67,
+          "end": 24.81,
+          "key": "to",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 24.81,
+          "end": 24.97,
+          "key": "be",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 24.97,
+          "end": 25.23,
+          "key": "false",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 25.23,
+          "end": 25.45,
+          "key": "with",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 25.45,
+          "end": 25.65,
+          "key": "her",
+          "pieces": [
+            90
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Strange",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "ling'ring",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "text": "poisons.",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "text": "I",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "text": "do",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "text": "know",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "her",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "text": "spirit,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "text": "And",
+          "start": 3.49,
+          "end": 3.57
+        },
+        {
+          "text": "will",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "text": "not",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "text": "trust",
+          "start": 3.87,
+          "end": 4.09
+        },
+        {
+          "text": "one",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "text": "of",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "text": "her",
+          "start": 4.37,
+          "end": 4.49
+        },
+        {
+          "text": "malice",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "text": "with",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "text": "A",
+          "start": 4.95,
+          "end": 5.07
+        },
+        {
+          "text": "drug",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "text": "of",
+          "start": 5.25,
+          "end": 5.39
+        },
+        {
+          "text": "such",
+          "start": 5.39,
+          "end": 5.57
+        },
+        {
+          "text": "damn'd",
+          "start": 5.57,
+          "end": 5.75
+        },
+        {
+          "text": "nature.",
+          "start": 5.93,
+          "end": 6.37
+        },
+        {
+          "text": "Those",
+          "start": 7.09,
+          "end": 7.25
+        },
+        {
+          "text": "she",
+          "start": 7.25,
+          "end": 7.41
+        },
+        {
+          "text": "has",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "text": "Will",
+          "start": 7.63,
+          "end": 7.77
+        },
+        {
+          "text": "stupefy",
+          "start": 7.77,
+          "end": 8.37
+        },
+        {
+          "text": "and",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "text": "dull",
+          "start": 8.55,
+          "end": 8.71
+        },
+        {
+          "text": "the",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "text": "sense",
+          "start": 8.89,
+          "end": 9.07
+        },
+        {
+          "text": "awhile,",
+          "start": 9.07,
+          "end": 9.49
+        },
+        {
+          "text": "Which",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "text": "first",
+          "start": 10.11,
+          "end": 10.45
+        },
+        {
+          "text": "perchance",
+          "start": 10.45,
+          "end": 10.83
+        },
+        {
+          "text": "she'll",
+          "start": 10.83,
+          "end": 11.13
+        },
+        {
+          "text": "prove",
+          "start": 11.13,
+          "end": 11.31
+        },
+        {
+          "text": "on",
+          "start": 11.31,
+          "end": 11.53
+        },
+        {
+          "text": "cats",
+          "start": 11.53,
+          "end": 11.83
+        },
+        {
+          "text": "and",
+          "start": 11.83,
+          "end": 12.09
+        },
+        {
+          "text": "dogs,",
+          "start": 12.09,
+          "end": 12.45
+        },
+        {
+          "text": "Then",
+          "start": 12.87,
+          "end": 13.01
+        },
+        {
+          "text": "afterward",
+          "start": 13.01,
+          "end": 13.43
+        },
+        {
+          "text": "up",
+          "start": 13.43,
+          "end": 13.65
+        },
+        {
+          "text": "higher;",
+          "start": 13.65,
+          "end": 13.89
+        },
+        {
+          "text": "but",
+          "start": 14.49,
+          "end": 14.67
+        },
+        {
+          "text": "there",
+          "start": 14.67,
+          "end": 14.79
+        },
+        {
+          "text": "is",
+          "start": 14.79,
+          "end": 14.91
+        },
+        {
+          "text": "No",
+          "start": 14.91,
+          "end": 15.13
+        },
+        {
+          "text": "danger",
+          "start": 15.13,
+          "end": 15.43
+        },
+        {
+          "text": "in",
+          "start": 15.43,
+          "end": 15.69
+        },
+        {
+          "text": "what",
+          "start": 15.69,
+          "end": 15.87
+        },
+        {
+          "text": "show",
+          "start": 15.87,
+          "end": 16.11
+        },
+        {
+          "text": "of",
+          "start": 16.11,
+          "end": 16.29
+        },
+        {
+          "text": "death",
+          "start": 16.29,
+          "end": 16.43
+        },
+        {
+          "text": "it",
+          "start": 16.43,
+          "end": 16.57
+        },
+        {
+          "text": "makes,",
+          "start": 16.57,
+          "end": 16.89
+        },
+        {
+          "text": "More",
+          "start": 17.19,
+          "end": 17.39
+        },
+        {
+          "text": "than",
+          "start": 17.39,
+          "end": 17.53
+        },
+        {
+          "text": "the",
+          "start": 17.53,
+          "end": 17.63
+        },
+        {
+          "text": "locking",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "text": "up",
+          "start": 17.85,
+          "end": 18.05
+        },
+        {
+          "text": "the",
+          "start": 18.05,
+          "end": 18.21
+        },
+        {
+          "text": "spirits",
+          "start": 18.21,
+          "end": 18.47
+        },
+        {
+          "text": "a",
+          "start": 18.47,
+          "end": 18.67
+        },
+        {
+          "text": "time,",
+          "start": 18.67,
+          "end": 18.95
+        },
+        {
+          "text": "To",
+          "start": 19.25,
+          "end": 19.33
+        },
+        {
+          "text": "be",
+          "start": 19.33,
+          "end": 19.45
+        },
+        {
+          "text": "more",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "text": "fresh,",
+          "start": 19.63,
+          "end": 20.03
+        },
+        {
+          "text": "reviving.",
+          "start": 20.31,
+          "end": 20.69
+        },
+        {
+          "text": "She",
+          "start": 21.39,
+          "end": 21.61
+        },
+        {
+          "text": "is",
+          "start": 21.61,
+          "end": 21.77
+        },
+        {
+          "text": "fool'd",
+          "start": 21.77,
+          "end": 21.89
+        },
+        {
+          "text": "With",
+          "start": 22.01,
+          "end": 22.27
+        },
+        {
+          "text": "a",
+          "start": 22.27,
+          "end": 22.37
+        },
+        {
+          "text": "most",
+          "start": 22.37,
+          "end": 22.59
+        },
+        {
+          "text": "false",
+          "start": 22.59,
+          "end": 22.91
+        },
+        {
+          "text": "effect;",
+          "start": 22.91,
+          "end": 23.33
+        },
+        {
+          "text": "and",
+          "start": 23.83,
+          "end": 23.95
+        },
+        {
+          "text": "I",
+          "start": 23.95,
+          "end": 24.01
+        },
+        {
+          "text": "the",
+          "start": 24.01,
+          "end": 24.11
+        },
+        {
+          "text": "truer",
+          "start": 24.11,
+          "end": 24.39
+        },
+        {
+          "text": "So",
+          "start": 24.39,
+          "end": 24.67
+        },
+        {
+          "text": "to",
+          "start": 24.67,
+          "end": 24.81
+        },
+        {
+          "text": "be",
+          "start": 24.81,
+          "end": 24.97
+        },
+        {
+          "text": "false",
+          "start": 24.97,
+          "end": 25.23
+        },
+        {
+          "text": "with",
+          "start": 25.23,
+          "end": 25.45
+        },
+        {
+          "text": "her.",
+          "start": 25.45,
+          "end": 25.65
+        }
+      ],
+      "stats": {
+        "expected_words": 90,
+        "heard_words": 91,
+        "matched_words": 86
+      },
+      "match_ratio": 0.9555555555555556,
+      "rejection_reasons": [],
+      "seconds": 0.7771542351692915
+    },
+    {
+      "asr_seconds": 0.8880898244678974,
+      "alignment_seconds": 0.0029254350811243057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Strange, lingering poisons.",
+          "start": 0.11,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Strange,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.0123748779296875
+            },
+            {
+              "text": " lingering",
+              "start": 0.87,
+              "end": 1.15,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " poisons.",
+              "start": 1.15,
+              "end": 1.65,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " I do know her spirit, and will not trust one of her malice with a drug of such damned nature.",
+          "start": 2.31,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.31,
+              "end": 2.45,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " do",
+              "start": 2.45,
+              "end": 2.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " her",
+              "start": 2.67,
+              "end": 2.83,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " spirit,",
+              "start": 2.83,
+              "end": 3.21,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " and",
+              "start": 3.49,
+              "end": 3.57,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " will",
+              "start": 3.57,
+              "end": 3.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 3.67,
+              "end": 3.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " trust",
+              "start": 3.89,
+              "end": 4.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 4.09,
+              "end": 4.27,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 4.27,
+              "end": 4.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 4.39,
+              "end": 4.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " malice",
+              "start": 4.49,
+              "end": 4.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " with",
+              "start": 4.77,
+              "end": 4.95,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 4.95,
+              "end": 5.07,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " drug",
+              "start": 5.07,
+              "end": 5.25,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 5.25,
+              "end": 5.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " such",
+              "start": 5.39,
+              "end": 5.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " damned",
+              "start": 5.57,
+              "end": 5.93,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " nature.",
+              "start": 5.93,
+              "end": 6.37,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " Those she has will stupefy and dull the sense a while, which first perchance she'll prove",
+          "start": 7.07,
+          "end": 11.31,
+          "words": [
+            {
+              "text": " Those",
+              "start": 7.07,
+              "end": 7.25,
+              "probability": 0.61328125
+            },
+            {
+              "text": " she",
+              "start": 7.25,
+              "end": 7.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " has",
+              "start": 7.41,
+              "end": 7.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 7.63,
+              "end": 7.77,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " stupefy",
+              "start": 7.77,
+              "end": 8.37,
+              "probability": 0.8299153645833334
+            },
+            {
+              "text": " and",
+              "start": 8.37,
+              "end": 8.55,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " dull",
+              "start": 8.55,
+              "end": 8.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.71,
+              "end": 8.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sense",
+              "start": 8.89,
+              "end": 9.07,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " a",
+              "start": 9.07,
+              "end": 9.25,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " while,",
+              "start": 9.25,
+              "end": 9.49,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " which",
+              "start": 9.91,
+              "end": 10.11,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " first",
+              "start": 10.11,
+              "end": 10.45,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " perchance",
+              "start": 10.45,
+              "end": 10.83,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " she'll",
+              "start": 10.83,
+              "end": 11.13,
+              "probability": 0.891357421875
+            },
+            {
+              "text": " prove",
+              "start": 11.13,
+              "end": 11.31,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " on cats and dogs, then afterward up higher.",
+          "start": 11.31,
+          "end": 13.91,
+          "words": [
+            {
+              "text": " on",
+              "start": 11.31,
+              "end": 11.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " cats",
+              "start": 11.53,
+              "end": 11.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 11.85,
+              "end": 12.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " dogs,",
+              "start": 12.09,
+              "end": 12.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " then",
+              "start": 12.87,
+              "end": 13.01,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " afterward",
+              "start": 13.01,
+              "end": 13.43,
+              "probability": 0.98046875
+            },
+            {
+              "text": " up",
+              "start": 13.43,
+              "end": 13.65,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " higher.",
+              "start": 13.65,
+              "end": 13.91,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " But there is no danger in what show of death it makes, more than the locking up the spirits",
+          "start": 14.49,
+          "end": 18.47,
+          "words": [
+            {
+              "text": " But",
+              "start": 14.49,
+              "end": 14.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " there",
+              "start": 14.67,
+              "end": 14.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 14.79,
+              "end": 14.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " no",
+              "start": 14.91,
+              "end": 15.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " danger",
+              "start": 15.13,
+              "end": 15.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 15.45,
+              "end": 15.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 15.69,
+              "end": 15.87,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " show",
+              "start": 15.87,
+              "end": 16.11,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 16.11,
+              "end": 16.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " death",
+              "start": 16.29,
+              "end": 16.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 16.43,
+              "end": 16.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " makes,",
+              "start": 16.57,
+              "end": 16.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " more",
+              "start": 17.19,
+              "end": 17.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " than",
+              "start": 17.39,
+              "end": 17.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 17.53,
+              "end": 17.63,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " locking",
+              "start": 17.63,
+              "end": 17.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up",
+              "start": 17.85,
+              "end": 18.05,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " the",
+              "start": 18.05,
+              "end": 18.21,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " spirits",
+              "start": 18.21,
+              "end": 18.47,
+              "probability": 0.93212890625
+            }
+          ]
+        },
+        {
+          "text": " a time, to be more fresh, reviving.",
+          "start": 18.47,
+          "end": 20.71,
+          "words": [
+            {
+              "text": " a",
+              "start": 18.47,
+              "end": 18.67,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " time,",
+              "start": 18.67,
+              "end": 18.95,
+              "probability": 0.9609375
+            },
+            {
+              "text": " to",
+              "start": 19.25,
+              "end": 19.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 19.33,
+              "end": 19.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " more",
+              "start": 19.45,
+              "end": 19.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fresh,",
+              "start": 19.63,
+              "end": 20.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " reviving.",
+              "start": 20.31,
+              "end": 20.71,
+              "probability": 0.994384765625
+            }
+          ]
+        },
+        {
+          "text": " She is fooled with a most false effect, and I the truer so to be false with her.",
+          "start": 20.71,
+          "end": 25.63,
+          "words": [
+            {
+              "text": " She",
+              "start": 20.71,
+              "end": 21.59,
+              "probability": 0.45703125
+            },
+            {
+              "text": " is",
+              "start": 21.59,
+              "end": 21.71,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " fooled",
+              "start": 21.71,
+              "end": 22.03,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " with",
+              "start": 22.03,
+              "end": 22.27,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 22.27,
+              "end": 22.37,
+              "probability": 0.677734375
+            },
+            {
+              "text": " most",
+              "start": 22.37,
+              "end": 22.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " false",
+              "start": 22.57,
+              "end": 22.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " effect,",
+              "start": 22.91,
+              "end": 23.31,
+              "probability": 0.982421875
+            },
+            {
+              "text": " and",
+              "start": 23.87,
+              "end": 23.95,
+              "probability": 0.9296875
+            },
+            {
+              "text": " I",
+              "start": 23.95,
+              "end": 24.01,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " the",
+              "start": 24.01,
+              "end": 24.11,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " truer",
+              "start": 24.11,
+              "end": 24.39,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " so",
+              "start": 24.39,
+              "end": 24.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 24.67,
+              "end": 24.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 24.81,
+              "end": 24.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " false",
+              "start": 24.95,
+              "end": 25.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " with",
+              "start": 25.21,
+              "end": 25.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her.",
+              "start": 25.45,
+              "end": 25.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Strange,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "lingering",
+          "start": 0.87,
+          "end": 1.15
+        },
+        {
+          "raw": "poisons.",
+          "start": 1.15,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "raw": "do",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "raw": "know",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "her",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "raw": "spirit,",
+          "start": 2.83,
+          "end": 3.21
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.57
+        },
+        {
+          "raw": "will",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "raw": "not",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "raw": "trust",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "raw": "one",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "raw": "of",
+          "start": 4.27,
+          "end": 4.39
+        },
+        {
+          "raw": "her",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "raw": "malice",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "raw": "with",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "raw": "a",
+          "start": 4.95,
+          "end": 5.07
+        },
+        {
+          "raw": "drug",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "raw": "of",
+          "start": 5.25,
+          "end": 5.39
+        },
+        {
+          "raw": "such",
+          "start": 5.39,
+          "end": 5.57
+        },
+        {
+          "raw": "damned",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "raw": "nature.",
+          "start": 5.93,
+          "end": 6.37
+        },
+        {
+          "raw": "Those",
+          "start": 7.07,
+          "end": 7.25
+        },
+        {
+          "raw": "she",
+          "start": 7.25,
+          "end": 7.41
+        },
+        {
+          "raw": "has",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "raw": "will",
+          "start": 7.63,
+          "end": 7.77
+        },
+        {
+          "raw": "stupefy",
+          "start": 7.77,
+          "end": 8.37
+        },
+        {
+          "raw": "and",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "raw": "dull",
+          "start": 8.55,
+          "end": 8.71
+        },
+        {
+          "raw": "the",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "raw": "sense",
+          "start": 8.89,
+          "end": 9.07
+        },
+        {
+          "raw": "a",
+          "start": 9.07,
+          "end": 9.25
+        },
+        {
+          "raw": "while,",
+          "start": 9.25,
+          "end": 9.49
+        },
+        {
+          "raw": "which",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "raw": "first",
+          "start": 10.11,
+          "end": 10.45
+        },
+        {
+          "raw": "perchance",
+          "start": 10.45,
+          "end": 10.83
+        },
+        {
+          "raw": "she'll",
+          "start": 10.83,
+          "end": 11.13
+        },
+        {
+          "raw": "prove",
+          "start": 11.13,
+          "end": 11.31
+        },
+        {
+          "raw": "on",
+          "start": 11.31,
+          "end": 11.53
+        },
+        {
+          "raw": "cats",
+          "start": 11.53,
+          "end": 11.85
+        },
+        {
+          "raw": "and",
+          "start": 11.85,
+          "end": 12.09
+        },
+        {
+          "raw": "dogs,",
+          "start": 12.09,
+          "end": 12.45
+        },
+        {
+          "raw": "then",
+          "start": 12.87,
+          "end": 13.01
+        },
+        {
+          "raw": "afterward",
+          "start": 13.01,
+          "end": 13.43
+        },
+        {
+          "raw": "up",
+          "start": 13.43,
+          "end": 13.65
+        },
+        {
+          "raw": "higher.",
+          "start": 13.65,
+          "end": 13.91
+        },
+        {
+          "raw": "But",
+          "start": 14.49,
+          "end": 14.67
+        },
+        {
+          "raw": "there",
+          "start": 14.67,
+          "end": 14.79
+        },
+        {
+          "raw": "is",
+          "start": 14.79,
+          "end": 14.91
+        },
+        {
+          "raw": "no",
+          "start": 14.91,
+          "end": 15.13
+        },
+        {
+          "raw": "danger",
+          "start": 15.13,
+          "end": 15.45
+        },
+        {
+          "raw": "in",
+          "start": 15.45,
+          "end": 15.69
+        },
+        {
+          "raw": "what",
+          "start": 15.69,
+          "end": 15.87
+        },
+        {
+          "raw": "show",
+          "start": 15.87,
+          "end": 16.11
+        },
+        {
+          "raw": "of",
+          "start": 16.11,
+          "end": 16.29
+        },
+        {
+          "raw": "death",
+          "start": 16.29,
+          "end": 16.43
+        },
+        {
+          "raw": "it",
+          "start": 16.43,
+          "end": 16.57
+        },
+        {
+          "raw": "makes,",
+          "start": 16.57,
+          "end": 16.89
+        },
+        {
+          "raw": "more",
+          "start": 17.19,
+          "end": 17.39
+        },
+        {
+          "raw": "than",
+          "start": 17.39,
+          "end": 17.53
+        },
+        {
+          "raw": "the",
+          "start": 17.53,
+          "end": 17.63
+        },
+        {
+          "raw": "locking",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "raw": "up",
+          "start": 17.85,
+          "end": 18.05
+        },
+        {
+          "raw": "the",
+          "start": 18.05,
+          "end": 18.21
+        },
+        {
+          "raw": "spirits",
+          "start": 18.21,
+          "end": 18.47
+        },
+        {
+          "raw": "a",
+          "start": 18.47,
+          "end": 18.67
+        },
+        {
+          "raw": "time,",
+          "start": 18.67,
+          "end": 18.95
+        },
+        {
+          "raw": "to",
+          "start": 19.25,
+          "end": 19.33
+        },
+        {
+          "raw": "be",
+          "start": 19.33,
+          "end": 19.45
+        },
+        {
+          "raw": "more",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "raw": "fresh,",
+          "start": 19.63,
+          "end": 20.03
+        },
+        {
+          "raw": "reviving.",
+          "start": 20.31,
+          "end": 20.71
+        },
+        {
+          "raw": "She",
+          "start": 20.71,
+          "end": 21.59
+        },
+        {
+          "raw": "is",
+          "start": 21.59,
+          "end": 21.71
+        },
+        {
+          "raw": "fooled",
+          "start": 21.71,
+          "end": 22.03
+        },
+        {
+          "raw": "with",
+          "start": 22.03,
+          "end": 22.27
+        },
+        {
+          "raw": "a",
+          "start": 22.27,
+          "end": 22.37
+        },
+        {
+          "raw": "most",
+          "start": 22.37,
+          "end": 22.57
+        },
+        {
+          "raw": "false",
+          "start": 22.57,
+          "end": 22.91
+        },
+        {
+          "raw": "effect,",
+          "start": 22.91,
+          "end": 23.31
+        },
+        {
+          "raw": "and",
+          "start": 23.87,
+          "end": 23.95
+        },
+        {
+          "raw": "I",
+          "start": 23.95,
+          "end": 24.01
+        },
+        {
+          "raw": "the",
+          "start": 24.01,
+          "end": 24.11
+        },
+        {
+          "raw": "truer",
+          "start": 24.11,
+          "end": 24.39
+        },
+        {
+          "raw": "so",
+          "start": 24.39,
+          "end": 24.67
+        },
+        {
+          "raw": "to",
+          "start": 24.67,
+          "end": 24.81
+        },
+        {
+          "raw": "be",
+          "start": 24.81,
+          "end": 24.95
+        },
+        {
+          "raw": "false",
+          "start": 24.95,
+          "end": 25.21
+        },
+        {
+          "raw": "with",
+          "start": 25.21,
+          "end": 25.45
+        },
+        {
+          "raw": "her.",
+          "start": 25.45,
+          "end": 25.63
+        }
+      ],
+      "expected_tokens": [
+        "Strange",
+        "ling'ring",
+        "poisons.",
+        "I",
+        "do",
+        "know",
+        "her",
+        "spirit,",
+        "And",
+        "will",
+        "not",
+        "trust",
+        "one",
+        "of",
+        "her",
+        "malice",
+        "with",
+        "A",
+        "drug",
+        "of",
+        "such",
+        "damn'd",
+        "nature.",
+        "Those",
+        "she",
+        "has",
+        "Will",
+        "stupefy",
+        "and",
+        "dull",
+        "the",
+        "sense",
+        "awhile,",
+        "Which",
+        "first",
+        "perchance",
+        "she'll",
+        "prove",
+        "on",
+        "cats",
+        "and",
+        "dogs,",
+        "Then",
+        "afterward",
+        "up",
+        "higher;",
+        "but",
+        "there",
+        "is",
+        "No",
+        "danger",
+        "in",
+        "what",
+        "show",
+        "of",
+        "death",
+        "it",
+        "makes,",
+        "More",
+        "than",
+        "the",
+        "locking",
+        "up",
+        "the",
+        "spirits",
+        "a",
+        "time,",
+        "To",
+        "be",
+        "more",
+        "fresh,",
+        "reviving.",
+        "She",
+        "is",
+        "fool'd",
+        "With",
+        "a",
+        "most",
+        "false",
+        "effect;",
+        "and",
+        "I",
+        "the",
+        "truer",
+        "So",
+        "to",
+        "be",
+        "false",
+        "with",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          21,
+          2,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "equal",
+          22,
+          32,
+          22,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          74,
+          34,
+          75
+        ],
+        [
+          "replace",
+          74,
+          75,
+          75,
+          76
+        ],
+        [
+          "equal",
+          75,
+          90,
+          76,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          22
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "replace",
+          74,
+          75,
+          75,
+          76
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Strange,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "strange",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lingering",
+          "start": 0.87,
+          "end": 1.15,
+          "key": "lingering",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "poisons.",
+          "start": 1.15,
+          "end": 1.65,
+          "key": "poisons",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.31,
+          "end": 2.45,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.45,
+          "end": 2.53,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "know",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.67,
+          "end": 2.83,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "spirit,",
+          "start": 2.83,
+          "end": 3.21,
+          "key": "spirit",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.57,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.57,
+          "end": 3.67,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.67,
+          "end": 3.89,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 3.89,
+          "end": 4.09,
+          "key": "trust",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.09,
+          "end": 4.27,
+          "key": "one",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.27,
+          "end": 4.39,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.39,
+          "end": 4.49,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "malice",
+          "start": 4.49,
+          "end": 4.77,
+          "key": "malice",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.77,
+          "end": 4.95,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.95,
+          "end": 5.07,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "drug",
+          "start": 5.07,
+          "end": 5.25,
+          "key": "drug",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.25,
+          "end": 5.39,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 5.39,
+          "end": 5.57,
+          "key": "such",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "damned",
+          "start": 5.57,
+          "end": 5.93,
+          "key": "damned",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "nature.",
+          "start": 5.93,
+          "end": 6.37,
+          "key": "nature",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Those",
+          "start": 7.07,
+          "end": 7.25,
+          "key": "those",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 7.25,
+          "end": 7.41,
+          "key": "she",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 7.41,
+          "end": 7.63,
+          "key": "has",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.63,
+          "end": 7.77,
+          "key": "will",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "stupefy",
+          "start": 7.77,
+          "end": 8.37,
+          "key": "stupefy",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.37,
+          "end": 8.55,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "dull",
+          "start": 8.55,
+          "end": 8.71,
+          "key": "dull",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.71,
+          "end": 8.89,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sense",
+          "start": 8.89,
+          "end": 9.07,
+          "key": "sense",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.07,
+          "end": 9.25,
+          "key": "a",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "while,",
+          "start": 9.25,
+          "end": 9.49,
+          "key": "while",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 9.91,
+          "end": 10.11,
+          "key": "which",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 10.11,
+          "end": 10.45,
+          "key": "first",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "perchance",
+          "start": 10.45,
+          "end": 10.83,
+          "key": "perchance",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "she'll",
+          "start": 10.83,
+          "end": 11.13,
+          "key": "shell",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 11.13,
+          "end": 11.31,
+          "key": "prove",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 11.31,
+          "end": 11.53,
+          "key": "on",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "cats",
+          "start": 11.53,
+          "end": 11.85,
+          "key": "cats",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.85,
+          "end": 12.09,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "dogs,",
+          "start": 12.09,
+          "end": 12.45,
+          "key": "dogs",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 12.87,
+          "end": 13.01,
+          "key": "then",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "afterward",
+          "start": 13.01,
+          "end": 13.43,
+          "key": "afterward",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 13.43,
+          "end": 13.65,
+          "key": "up",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "higher.",
+          "start": 13.65,
+          "end": 13.91,
+          "key": "higher",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 14.49,
+          "end": 14.67,
+          "key": "but",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 14.67,
+          "end": 14.79,
+          "key": "there",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.79,
+          "end": 14.91,
+          "key": "is",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 14.91,
+          "end": 15.13,
+          "key": "no",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "danger",
+          "start": 15.13,
+          "end": 15.45,
+          "key": "danger",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.45,
+          "end": 15.69,
+          "key": "in",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 15.69,
+          "end": 15.87,
+          "key": "what",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 15.87,
+          "end": 16.11,
+          "key": "show",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.11,
+          "end": 16.29,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 16.29,
+          "end": 16.43,
+          "key": "death",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 16.43,
+          "end": 16.57,
+          "key": "it",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "makes,",
+          "start": 16.57,
+          "end": 16.89,
+          "key": "makes",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 17.19,
+          "end": 17.39,
+          "key": "more",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 17.39,
+          "end": 17.53,
+          "key": "than",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.53,
+          "end": 17.63,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "locking",
+          "start": 17.63,
+          "end": 17.85,
+          "key": "locking",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 17.85,
+          "end": 18.05,
+          "key": "up",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.05,
+          "end": 18.21,
+          "key": "the",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "spirits",
+          "start": 18.21,
+          "end": 18.47,
+          "key": "spirits",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.47,
+          "end": 18.67,
+          "key": "a",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 18.67,
+          "end": 18.95,
+          "key": "time",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.25,
+          "end": 19.33,
+          "key": "to",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 19.33,
+          "end": 19.45,
+          "key": "be",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 19.45,
+          "end": 19.63,
+          "key": "more",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "fresh,",
+          "start": 19.63,
+          "end": 20.03,
+          "key": "fresh",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "reviving.",
+          "start": 20.31,
+          "end": 20.71,
+          "key": "reviving",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 20.71,
+          "end": 21.59,
+          "key": "she",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 21.59,
+          "end": 21.71,
+          "key": "is",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "fooled",
+          "start": 21.71,
+          "end": 22.03,
+          "key": "fooled",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 22.03,
+          "end": 22.27,
+          "key": "with",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.27,
+          "end": 22.37,
+          "key": "a",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 22.37,
+          "end": 22.57,
+          "key": "most",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 22.57,
+          "end": 22.91,
+          "key": "false",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "effect,",
+          "start": 22.91,
+          "end": 23.31,
+          "key": "effect",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.87,
+          "end": 23.95,
+          "key": "and",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 23.95,
+          "end": 24.01,
+          "key": "i",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.01,
+          "end": 24.11,
+          "key": "the",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "truer",
+          "start": 24.11,
+          "end": 24.39,
+          "key": "truer",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 24.39,
+          "end": 24.67,
+          "key": "so",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 24.67,
+          "end": 24.81,
+          "key": "to",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 24.81,
+          "end": 24.95,
+          "key": "be",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 24.95,
+          "end": 25.21,
+          "key": "false",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 25.21,
+          "end": 25.45,
+          "key": "with",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 25.45,
+          "end": 25.63,
+          "key": "her",
+          "pieces": [
+            90
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Strange",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "ling'ring",
+          "start": 0.77,
+          "end": 0.96
+        },
+        {
+          "text": "poisons.",
+          "start": 1.15,
+          "end": 1.65
+        },
+        {
+          "text": "I",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "text": "do",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "text": "know",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "her",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "text": "spirit,",
+          "start": 2.83,
+          "end": 3.21
+        },
+        {
+          "text": "And",
+          "start": 3.49,
+          "end": 3.57
+        },
+        {
+          "text": "will",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "text": "not",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "text": "trust",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "text": "one",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "text": "of",
+          "start": 4.27,
+          "end": 4.39
+        },
+        {
+          "text": "her",
+          "start": 4.39,
+          "end": 4.49
+        },
+        {
+          "text": "malice",
+          "start": 4.49,
+          "end": 4.77
+        },
+        {
+          "text": "with",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "text": "A",
+          "start": 4.95,
+          "end": 5.07
+        },
+        {
+          "text": "drug",
+          "start": 5.07,
+          "end": 5.25
+        },
+        {
+          "text": "of",
+          "start": 5.25,
+          "end": 5.39
+        },
+        {
+          "text": "such",
+          "start": 5.39,
+          "end": 5.57
+        },
+        {
+          "text": "damn'd",
+          "start": 5.57,
+          "end": 5.75
+        },
+        {
+          "text": "nature.",
+          "start": 5.93,
+          "end": 6.37
+        },
+        {
+          "text": "Those",
+          "start": 7.07,
+          "end": 7.25
+        },
+        {
+          "text": "she",
+          "start": 7.25,
+          "end": 7.41
+        },
+        {
+          "text": "has",
+          "start": 7.41,
+          "end": 7.63
+        },
+        {
+          "text": "Will",
+          "start": 7.63,
+          "end": 7.77
+        },
+        {
+          "text": "stupefy",
+          "start": 7.77,
+          "end": 8.37
+        },
+        {
+          "text": "and",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "text": "dull",
+          "start": 8.55,
+          "end": 8.71
+        },
+        {
+          "text": "the",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "text": "sense",
+          "start": 8.89,
+          "end": 9.07
+        },
+        {
+          "text": "awhile,",
+          "start": 9.07,
+          "end": 9.49
+        },
+        {
+          "text": "Which",
+          "start": 9.91,
+          "end": 10.11
+        },
+        {
+          "text": "first",
+          "start": 10.11,
+          "end": 10.45
+        },
+        {
+          "text": "perchance",
+          "start": 10.45,
+          "end": 10.83
+        },
+        {
+          "text": "she'll",
+          "start": 10.83,
+          "end": 11.13
+        },
+        {
+          "text": "prove",
+          "start": 11.13,
+          "end": 11.31
+        },
+        {
+          "text": "on",
+          "start": 11.31,
+          "end": 11.53
+        },
+        {
+          "text": "cats",
+          "start": 11.53,
+          "end": 11.85
+        },
+        {
+          "text": "and",
+          "start": 11.85,
+          "end": 12.09
+        },
+        {
+          "text": "dogs,",
+          "start": 12.09,
+          "end": 12.45
+        },
+        {
+          "text": "Then",
+          "start": 12.87,
+          "end": 13.01
+        },
+        {
+          "text": "afterward",
+          "start": 13.01,
+          "end": 13.43
+        },
+        {
+          "text": "up",
+          "start": 13.43,
+          "end": 13.65
+        },
+        {
+          "text": "higher;",
+          "start": 13.65,
+          "end": 13.91
+        },
+        {
+          "text": "but",
+          "start": 14.49,
+          "end": 14.67
+        },
+        {
+          "text": "there",
+          "start": 14.67,
+          "end": 14.79
+        },
+        {
+          "text": "is",
+          "start": 14.79,
+          "end": 14.91
+        },
+        {
+          "text": "No",
+          "start": 14.91,
+          "end": 15.13
+        },
+        {
+          "text": "danger",
+          "start": 15.13,
+          "end": 15.45
+        },
+        {
+          "text": "in",
+          "start": 15.45,
+          "end": 15.69
+        },
+        {
+          "text": "what",
+          "start": 15.69,
+          "end": 15.87
+        },
+        {
+          "text": "show",
+          "start": 15.87,
+          "end": 16.11
+        },
+        {
+          "text": "of",
+          "start": 16.11,
+          "end": 16.29
+        },
+        {
+          "text": "death",
+          "start": 16.29,
+          "end": 16.43
+        },
+        {
+          "text": "it",
+          "start": 16.43,
+          "end": 16.57
+        },
+        {
+          "text": "makes,",
+          "start": 16.57,
+          "end": 16.89
+        },
+        {
+          "text": "More",
+          "start": 17.19,
+          "end": 17.39
+        },
+        {
+          "text": "than",
+          "start": 17.39,
+          "end": 17.53
+        },
+        {
+          "text": "the",
+          "start": 17.53,
+          "end": 17.63
+        },
+        {
+          "text": "locking",
+          "start": 17.63,
+          "end": 17.85
+        },
+        {
+          "text": "up",
+          "start": 17.85,
+          "end": 18.05
+        },
+        {
+          "text": "the",
+          "start": 18.05,
+          "end": 18.21
+        },
+        {
+          "text": "spirits",
+          "start": 18.21,
+          "end": 18.47
+        },
+        {
+          "text": "a",
+          "start": 18.47,
+          "end": 18.67
+        },
+        {
+          "text": "time,",
+          "start": 18.67,
+          "end": 18.95
+        },
+        {
+          "text": "To",
+          "start": 19.25,
+          "end": 19.33
+        },
+        {
+          "text": "be",
+          "start": 19.33,
+          "end": 19.45
+        },
+        {
+          "text": "more",
+          "start": 19.45,
+          "end": 19.63
+        },
+        {
+          "text": "fresh,",
+          "start": 19.63,
+          "end": 20.03
+        },
+        {
+          "text": "reviving.",
+          "start": 20.31,
+          "end": 20.71
+        },
+        {
+          "text": "She",
+          "start": 20.71,
+          "end": 21.59
+        },
+        {
+          "text": "is",
+          "start": 21.59,
+          "end": 21.71
+        },
+        {
+          "text": "fool'd",
+          "start": 21.71,
+          "end": 21.87
+        },
+        {
+          "text": "With",
+          "start": 22.03,
+          "end": 22.27
+        },
+        {
+          "text": "a",
+          "start": 22.27,
+          "end": 22.37
+        },
+        {
+          "text": "most",
+          "start": 22.37,
+          "end": 22.57
+        },
+        {
+          "text": "false",
+          "start": 22.57,
+          "end": 22.91
+        },
+        {
+          "text": "effect;",
+          "start": 22.91,
+          "end": 23.31
+        },
+        {
+          "text": "and",
+          "start": 23.87,
+          "end": 23.95
+        },
+        {
+          "text": "I",
+          "start": 23.95,
+          "end": 24.01
+        },
+        {
+          "text": "the",
+          "start": 24.01,
+          "end": 24.11
+        },
+        {
+          "text": "truer",
+          "start": 24.11,
+          "end": 24.39
+        },
+        {
+          "text": "So",
+          "start": 24.39,
+          "end": 24.67
+        },
+        {
+          "text": "to",
+          "start": 24.67,
+          "end": 24.81
+        },
+        {
+          "text": "be",
+          "start": 24.81,
+          "end": 24.95
+        },
+        {
+          "text": "false",
+          "start": 24.95,
+          "end": 25.21
+        },
+        {
+          "text": "with",
+          "start": 25.21,
+          "end": 25.45
+        },
+        {
+          "text": "her.",
+          "start": 25.45,
+          "end": 25.63
+        }
+      ],
+      "stats": {
+        "expected_words": 90,
+        "heard_words": 91,
+        "matched_words": 86
+      },
+      "match_ratio": 0.9555555555555556,
+      "rejection_reasons": [],
+      "seconds": 0.8923001103103161
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "1cee2a638c5f42b0c95a61cff18366113d39d8ae06ff33cec626f2f8522d20f8",
+  "selected_reasons": []
+}

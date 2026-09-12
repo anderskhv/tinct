@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1df75697422f561bed3b36c108a77700786677637e7e4d3eafffbc4614e54a8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20837929099798203,
+      "alignment_seconds": 0.00036456016823649406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brakenbury. What, so brief?",
+        "hotwords": "Brakenbury, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brakenbury, What, so brief?",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Brakenbury,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.3207244873046875
+            },
+            {
+              "text": " What,",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.11572265625
+            },
+            {
+              "text": " so",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.402099609375
+            },
+            {
+              "text": " brief?",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.7099609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brakenbury,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "What,",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "so",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "brief?",
+          "start": 1.63,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Brakenbury.",
+        "What,",
+        "so",
+        "brief?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brakenbury,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "brakenbury",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.51,
+          "end": 1.63,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brief?",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "brief",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brakenbury.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "What,",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "so",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "brief?",
+          "start": 1.63,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20885877613909543
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41418db83418db690b8db655f1fc814176bd7c87ec23cc6e980637eb77abe08f",
+  "selected_reasons": []
+}

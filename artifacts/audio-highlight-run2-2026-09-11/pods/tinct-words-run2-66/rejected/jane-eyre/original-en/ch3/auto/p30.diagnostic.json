@@ -1,0 +1,591 @@
+{
+  "complete": true,
+  "signature": "bc11c5912a30a79b182f3df398f95a2f2dff9b1c2964ecfea8bdcde93b1433d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2998424591496587,
+      "alignment_seconds": 0.0006808442994952202,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What, already up!\" said he, as he entered the nursery. \"Well, nurse, how is she?\"",
+        "hotwords": "What, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What, already up!\" said he, as he entered the nursery.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " What,",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.076171875
+            },
+            {
+              "text": " already",
+              "start": 0.59,
+              "end": 0.83,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " up",
+              "start": 0.83,
+              "end": 1.19,
+              "probability": 0.98193359375
+            },
+            {
+              "text": "!\"",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.002803802490234375
+            },
+            {
+              "text": " said",
+              "start": 1.41,
+              "end": 1.67,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he,",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " as",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " entered",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.41,
+              "end": 2.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nursery.",
+              "start": 2.55,
+              "end": 2.87,
+              "probability": 0.982421875
+            }
+          ]
+        },
+        {
+          "text": " Well, nurse, how is she?",
+          "start": 3.37,
+          "end": 4.69,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 3.37,
+              "end": 3.75,
+              "probability": 0.62109375
+            },
+            {
+              "text": " nurse,",
+              "start": 3.89,
+              "end": 4.01,
+              "probability": 0.473876953125
+            },
+            {
+              "text": " how",
+              "start": 4.27,
+              "end": 4.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 4.31,
+              "end": 4.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she?",
+              "start": 4.49,
+              "end": 4.69,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What,",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "already",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "raw": "up",
+          "start": 0.83,
+          "end": 1.19
+        },
+        {
+          "raw": "!\"",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "said",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "raw": "he,",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "as",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "entered",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "raw": "nursery.",
+          "start": 2.55,
+          "end": 2.87
+        },
+        {
+          "raw": "Well,",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "raw": "nurse,",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "raw": "how",
+          "start": 4.27,
+          "end": 4.31
+        },
+        {
+          "raw": "is",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "raw": "she?",
+          "start": 4.49,
+          "end": 4.69
+        }
+      ],
+      "expected_tokens": [
+        "\"What,",
+        "already",
+        "up!\"",
+        "said",
+        "he,",
+        "as",
+        "he",
+        "entered",
+        "the",
+        "nursery.",
+        "\"Well,",
+        "nurse,",
+        "how",
+        "is",
+        "she?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          15,
+          4,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What,",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 0.59,
+          "end": 0.83,
+          "key": "already",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.83,
+          "end": 1.19,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.41,
+          "end": 1.67,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.21,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "entered",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.55,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "nursery.",
+          "start": 2.55,
+          "end": 2.87,
+          "key": "nursery",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 3.37,
+          "end": 3.75,
+          "key": "well",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "nurse,",
+          "start": 3.89,
+          "end": 4.01,
+          "key": "nurse",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 4.27,
+          "end": 4.31,
+          "key": "how",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.31,
+          "end": 4.49,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "she?",
+          "start": 4.49,
+          "end": 4.69,
+          "key": "she",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What,",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "already",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "text": "up!\"",
+          "start": 0.83,
+          "end": 1.19
+        },
+        {
+          "text": "said",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "text": "he,",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "as",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "he",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "entered",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "the",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "text": "nursery.",
+          "start": 2.55,
+          "end": 2.87
+        },
+        {
+          "text": "\"Well,",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "text": "nurse,",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "text": "how",
+          "start": 4.27,
+          "end": 4.31
+        },
+        {
+          "text": "is",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "text": "she?\"",
+          "start": 4.49,
+          "end": 4.69
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30079541355371475
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "385043ab3d89b978ac043ce43e982acb9489e3c7727766356655f6a48eff4a59",
+  "selected_reasons": []
+}

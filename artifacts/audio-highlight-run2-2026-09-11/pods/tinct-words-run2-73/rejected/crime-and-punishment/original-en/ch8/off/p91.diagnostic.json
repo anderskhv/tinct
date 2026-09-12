@@ -1,0 +1,631 @@
+{
+  "complete": true,
+  "signature": "03e2c5b42481fce42b3c4aad41cc89236b361b0bd53c9507beb2322567d5c1ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.3021123567596078,
+      "alignment_seconds": 0.0004468439146876335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " he trembled with joy. He felt sudden intense indescribable relief. A load was lifted from his back.",
+          "start": 0.08,
+          "end": 6.94,
+          "words": [
+            {
+              "text": " he",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.09014892578125
+            },
+            {
+              "text": " trembled",
+              "start": 0.6,
+              "end": 1.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " joy.",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " He",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " felt",
+              "start": 2.28,
+              "end": 2.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sudden",
+              "start": 2.46,
+              "end": 2.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " intense",
+              "start": 2.84,
+              "end": 3.4,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " indescribable",
+              "start": 3.4,
+              "end": 4.26,
+              "probability": 0.9649658203125
+            },
+            {
+              "text": " relief.",
+              "start": 4.26,
+              "end": 4.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " A",
+              "start": 5.2,
+              "end": 5.38,
+              "probability": 0.984375
+            },
+            {
+              "text": " load",
+              "start": 5.38,
+              "end": 5.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 5.7,
+              "end": 5.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lifted",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 6.2,
+              "end": 6.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 6.48,
+              "end": 6.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " back.",
+              "start": 6.62,
+              "end": 6.94,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "he",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "trembled",
+          "start": 0.6,
+          "end": 1.1
+        },
+        {
+          "raw": "with",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "joy.",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "He",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "felt",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "raw": "sudden",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "raw": "intense",
+          "start": 2.84,
+          "end": 3.4
+        },
+        {
+          "raw": "indescribable",
+          "start": 3.4,
+          "end": 4.26
+        },
+        {
+          "raw": "relief.",
+          "start": 4.26,
+          "end": 4.66
+        },
+        {
+          "raw": "A",
+          "start": 5.2,
+          "end": 5.38
+        },
+        {
+          "raw": "load",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "raw": "was",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "raw": "lifted",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "from",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "raw": "his",
+          "start": 6.48,
+          "end": 6.62
+        },
+        {
+          "raw": "back.",
+          "start": 6.62,
+          "end": 6.94
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "he",
+        "trembled",
+        "with",
+        "joy.",
+        "He",
+        "felt",
+        "sudden",
+        "intense",
+        "indescribable",
+        "relief.",
+        "A",
+        "load",
+        "was",
+        "lifted",
+        "from",
+        "his",
+        "back."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          18,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "he",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "trembled",
+          "start": 0.6,
+          "end": 1.1,
+          "key": "trembled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "joy.",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "joy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "felt",
+          "start": 2.28,
+          "end": 2.46,
+          "key": "felt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sudden",
+          "start": 2.46,
+          "end": 2.84,
+          "key": "sudden",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "intense",
+          "start": 2.84,
+          "end": 3.4,
+          "key": "intense",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "indescribable",
+          "start": 3.4,
+          "end": 4.26,
+          "key": "indescribable",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "relief.",
+          "start": 4.26,
+          "end": 4.66,
+          "key": "relief",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 5.2,
+          "end": 5.38,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "load",
+          "start": 5.38,
+          "end": 5.7,
+          "key": "load",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.7,
+          "end": 5.9,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lifted",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "lifted",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 6.2,
+          "end": 6.48,
+          "key": "from",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.48,
+          "end": 6.62,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "back.",
+          "start": 6.62,
+          "end": 6.94,
+          "key": "back",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "he",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "trembled",
+          "start": 0.6,
+          "end": 1.1
+        },
+        {
+          "text": "with",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "joy.",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "He",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "felt",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "text": "sudden",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "text": "intense",
+          "start": 2.84,
+          "end": 3.4
+        },
+        {
+          "text": "indescribable",
+          "start": 3.4,
+          "end": 4.26
+        },
+        {
+          "text": "relief.",
+          "start": 4.26,
+          "end": 4.66
+        },
+        {
+          "text": "A",
+          "start": 5.2,
+          "end": 5.38
+        },
+        {
+          "text": "load",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "text": "was",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "text": "lifted",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "from",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "text": "his",
+          "start": 6.48,
+          "end": 6.62
+        },
+        {
+          "text": "back.",
+          "start": 6.62,
+          "end": 6.94
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.30276782158762217
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f578dab454bca93e8b681b52affd63ba3ecb3c3c40e143b4250aff83e61506f",
+  "selected_reasons": []
+}

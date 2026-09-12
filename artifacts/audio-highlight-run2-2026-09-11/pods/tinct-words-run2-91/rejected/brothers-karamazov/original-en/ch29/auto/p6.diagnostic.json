@@ -1,0 +1,965 @@
+{
+  "complete": true,
+  "signature": "35992cb8b01a28e358f2bd4a46628dadd67c0b2ad4452c1340baf894f0c7325c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4602024797350168,
+      "alignment_seconds": 0.001025201752781868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Her voice quivered, and tears glittered on her eyelashes. Alyosha shuddered inwardly. \"That girl is truthful and sincere,\" he thought, \"and she does not love Dmitri any more.\"",
+        "hotwords": "Alyosha, That, Dmitri"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Her voice quivered, and tears glittered on her eyelashes. Alyosha shuddered inwardly.",
+          "start": 0.05,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " Her",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " voice",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quivered,",
+              "start": 0.77,
+              "end": 1.17,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tears",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " glittered",
+              "start": 1.93,
+              "end": 2.29,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " on",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eyelashes.",
+              "start": 2.63,
+              "end": 3.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Alyosha",
+              "start": 4.13,
+              "end": 4.53,
+              "probability": 0.9083658854166666
+            },
+            {
+              "text": " shuddered",
+              "start": 4.53,
+              "end": 4.95,
+              "probability": 0.9708658854166666
+            },
+            {
+              "text": " inwardly.",
+              "start": 4.95,
+              "end": 5.51,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " That girl is truthful and sincere, he thought, and she does not love Dmitri any more.",
+          "start": 5.51,
+          "end": 11.21,
+          "words": [
+            {
+              "text": " That",
+              "start": 5.51,
+              "end": 6.31,
+              "probability": 0.468505859375
+            },
+            {
+              "text": " girl",
+              "start": 6.31,
+              "end": 6.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 6.57,
+              "end": 6.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " truthful",
+              "start": 6.83,
+              "end": 7.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 7.21,
+              "end": 7.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sincere,",
+              "start": 7.55,
+              "end": 8.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 8.45,
+              "end": 8.61,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " thought,",
+              "start": 8.61,
+              "end": 8.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 9.39,
+              "end": 9.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she",
+              "start": 9.47,
+              "end": 9.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " does",
+              "start": 9.61,
+              "end": 9.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 9.75,
+              "end": 9.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " love",
+              "start": 9.99,
+              "end": 10.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Dmitri",
+              "start": 10.25,
+              "end": 10.73,
+              "probability": 0.537445068359375
+            },
+            {
+              "text": " any",
+              "start": 10.73,
+              "end": 10.91,
+              "probability": 0.075439453125
+            },
+            {
+              "text": " more.",
+              "start": 10.91,
+              "end": 11.21,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "voice",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "quivered,",
+          "start": 0.77,
+          "end": 1.17
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "tears",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "glittered",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "raw": "on",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": "her",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "eyelashes.",
+          "start": 2.63,
+          "end": 3.31
+        },
+        {
+          "raw": "Alyosha",
+          "start": 4.13,
+          "end": 4.53
+        },
+        {
+          "raw": "shuddered",
+          "start": 4.53,
+          "end": 4.95
+        },
+        {
+          "raw": "inwardly.",
+          "start": 4.95,
+          "end": 5.51
+        },
+        {
+          "raw": "That",
+          "start": 5.51,
+          "end": 6.31
+        },
+        {
+          "raw": "girl",
+          "start": 6.31,
+          "end": 6.57
+        },
+        {
+          "raw": "is",
+          "start": 6.57,
+          "end": 6.83
+        },
+        {
+          "raw": "truthful",
+          "start": 6.83,
+          "end": 7.21
+        },
+        {
+          "raw": "and",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "raw": "sincere,",
+          "start": 7.55,
+          "end": 8.05
+        },
+        {
+          "raw": "he",
+          "start": 8.45,
+          "end": 8.61
+        },
+        {
+          "raw": "thought,",
+          "start": 8.61,
+          "end": 8.91
+        },
+        {
+          "raw": "and",
+          "start": 9.39,
+          "end": 9.47
+        },
+        {
+          "raw": "she",
+          "start": 9.47,
+          "end": 9.61
+        },
+        {
+          "raw": "does",
+          "start": 9.61,
+          "end": 9.75
+        },
+        {
+          "raw": "not",
+          "start": 9.75,
+          "end": 9.99
+        },
+        {
+          "raw": "love",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "raw": "Dmitri",
+          "start": 10.25,
+          "end": 10.73
+        },
+        {
+          "raw": "any",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "raw": "more.",
+          "start": 10.91,
+          "end": 11.21
+        }
+      ],
+      "expected_tokens": [
+        "Her",
+        "voice",
+        "quivered,",
+        "and",
+        "tears",
+        "glittered",
+        "on",
+        "her",
+        "eyelashes.",
+        "Alyosha",
+        "shuddered",
+        "inwardly.",
+        "\"That",
+        "girl",
+        "is",
+        "truthful",
+        "and",
+        "sincere,\"",
+        "he",
+        "thought,",
+        "\"and",
+        "she",
+        "does",
+        "not",
+        "love",
+        "Dmitri",
+        "any",
+        "more.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Her",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "her",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "voice",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quivered,",
+          "start": 0.77,
+          "end": 1.17,
+          "key": "quivered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "tears",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "glittered",
+          "start": 1.93,
+          "end": 2.29,
+          "key": "glittered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "eyelashes.",
+          "start": 2.63,
+          "end": 3.31,
+          "key": "eyelashes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 4.13,
+          "end": 4.53,
+          "key": "alyosha",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "shuddered",
+          "start": 4.53,
+          "end": 4.95,
+          "key": "shuddered",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "inwardly.",
+          "start": 4.95,
+          "end": 5.51,
+          "key": "inwardly",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 5.51,
+          "end": 6.31,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "girl",
+          "start": 6.31,
+          "end": 6.57,
+          "key": "girl",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.57,
+          "end": 6.83,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "truthful",
+          "start": 6.83,
+          "end": 7.21,
+          "key": "truthful",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.21,
+          "end": 7.55,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sincere,",
+          "start": 7.55,
+          "end": 8.05,
+          "key": "sincere",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.45,
+          "end": 8.61,
+          "key": "he",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 8.61,
+          "end": 8.91,
+          "key": "thought",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.39,
+          "end": 9.47,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 9.47,
+          "end": 9.61,
+          "key": "she",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 9.61,
+          "end": 9.75,
+          "key": "does",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 9.75,
+          "end": 9.99,
+          "key": "not",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 9.99,
+          "end": 10.25,
+          "key": "love",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Dmitri",
+          "start": 10.25,
+          "end": 10.73,
+          "key": "dmitri",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 10.73,
+          "end": 10.91,
+          "key": "any",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 10.91,
+          "end": 11.21,
+          "key": "more",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Her",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "voice",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "quivered,",
+          "start": 0.77,
+          "end": 1.17
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "tears",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "glittered",
+          "start": 1.93,
+          "end": 2.29
+        },
+        {
+          "text": "on",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "text": "her",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "text": "eyelashes.",
+          "start": 2.63,
+          "end": 3.31
+        },
+        {
+          "text": "Alyosha",
+          "start": 4.13,
+          "end": 4.53
+        },
+        {
+          "text": "shuddered",
+          "start": 4.53,
+          "end": 4.95
+        },
+        {
+          "text": "inwardly.",
+          "start": 4.95,
+          "end": 5.51
+        },
+        {
+          "text": "\"That",
+          "start": 5.51,
+          "end": 6.31
+        },
+        {
+          "text": "girl",
+          "start": 6.31,
+          "end": 6.57
+        },
+        {
+          "text": "is",
+          "start": 6.57,
+          "end": 6.83
+        },
+        {
+          "text": "truthful",
+          "start": 6.83,
+          "end": 7.21
+        },
+        {
+          "text": "and",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "text": "sincere,\"",
+          "start": 7.55,
+          "end": 8.05
+        },
+        {
+          "text": "he",
+          "start": 8.45,
+          "end": 8.61
+        },
+        {
+          "text": "thought,",
+          "start": 8.61,
+          "end": 8.91
+        },
+        {
+          "text": "\"and",
+          "start": 9.39,
+          "end": 9.47
+        },
+        {
+          "text": "she",
+          "start": 9.47,
+          "end": 9.61
+        },
+        {
+          "text": "does",
+          "start": 9.61,
+          "end": 9.75
+        },
+        {
+          "text": "not",
+          "start": 9.75,
+          "end": 9.99
+        },
+        {
+          "text": "love",
+          "start": 9.99,
+          "end": 10.25
+        },
+        {
+          "text": "Dmitri",
+          "start": 10.25,
+          "end": 10.73
+        },
+        {
+          "text": "any",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "text": "more.\"",
+          "start": 10.91,
+          "end": 11.21
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46167349722236395
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c72c5db109b12dc026314dcaa0c2aaf3ba57dfc7fe9549b25ed18717e100e9b",
+  "selected_reasons": []
+}

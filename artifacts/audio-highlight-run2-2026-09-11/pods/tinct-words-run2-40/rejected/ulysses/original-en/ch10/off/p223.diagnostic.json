@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "d37e52a05f5f25ffbd1dc3918424ad936b97883306c770b71327c33e46a693aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.2070819870568812,
+      "alignment_seconds": 0.0004498139023780823,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He followed Emcoi out across the tiny square of Crampton Court.",
+          "start": 0.05,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " followed",
+              "start": 0.49,
+              "end": 0.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Emcoi",
+              "start": 0.83,
+              "end": 1.39,
+              "probability": 0.4745279947916667
+            },
+            {
+              "text": " out",
+              "start": 1.39,
+              "end": 1.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " across",
+              "start": 1.67,
+              "end": 2.05,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tiny",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " square",
+              "start": 2.49,
+              "end": 2.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Crampton",
+              "start": 3.03,
+              "end": 3.37,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " Court.",
+              "start": 3.37,
+              "end": 3.69,
+              "probability": 0.86376953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "followed",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "raw": "Emcoi",
+          "start": 0.83,
+          "end": 1.39
+        },
+        {
+          "raw": "out",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "raw": "across",
+          "start": 1.67,
+          "end": 2.05
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "tiny",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "square",
+          "start": 2.49,
+          "end": 2.83
+        },
+        {
+          "raw": "of",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "Crampton",
+          "start": 3.03,
+          "end": 3.37
+        },
+        {
+          "raw": "Court.",
+          "start": 3.37,
+          "end": 3.69
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "followed",
+        "M'Coy",
+        "out",
+        "across",
+        "the",
+        "tiny",
+        "square",
+        "of",
+        "Crampton",
+        "court."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          11,
+          3,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 0.49,
+          "end": 0.83,
+          "key": "followed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Emcoi",
+          "start": 0.83,
+          "end": 1.39,
+          "key": "emcoi",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.39,
+          "end": 1.67,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "across",
+          "start": 1.67,
+          "end": 2.05,
+          "key": "across",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tiny",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "tiny",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "square",
+          "start": 2.49,
+          "end": 2.83,
+          "key": "square",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Crampton",
+          "start": 3.03,
+          "end": 3.37,
+          "key": "crampton",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Court.",
+          "start": 3.37,
+          "end": 3.69,
+          "key": "court",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "followed",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "text": "M'Coy",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "text": "out",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "text": "across",
+          "start": 1.67,
+          "end": 2.05
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "tiny",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "square",
+          "start": 2.49,
+          "end": 2.83
+        },
+        {
+          "text": "of",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "Crampton",
+          "start": 3.03,
+          "end": 3.37
+        },
+        {
+          "text": "court.",
+          "start": 3.37,
+          "end": 3.69
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.20769735425710678
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "78ca5aa7327a74c48bdab32d423f81629a91f2d0887299f61727aab449c1b6ca",
+  "selected_reasons": []
+}

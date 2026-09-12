@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "3c37ee5e30224dc8e2bd934368bd499158c64b13345183bde9954befebd2983a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12092333199689165,
+      "alignment_seconds": 0.00012806401355192065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " D. Ohms, where's Antony?",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " D.",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.357177734375
+            },
+            {
+              "text": " Ohms,",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " where's",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " Antony?",
+              "start": 1.49,
+              "end": 1.83,
+              "probability": 0.797119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "D.",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Ohms,",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "raw": "where's",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "Antony?",
+          "start": 1.49,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Diomedes.",
+        "Where's",
+        "Antony?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "D.",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "d",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ohms,",
+          "start": 0.71,
+          "end": 0.97,
+          "key": "ohms",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where's",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "wheres",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antony?",
+          "start": 1.49,
+          "end": 1.83,
+          "key": "antony",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Diomedes.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "Where's",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "Antony?",
+          "start": 1.49,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12109701801091433
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "56518c8bb59a77998867b216f6ef17ae2bc1fa9ee91e87f0350b060cf88bb1d6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

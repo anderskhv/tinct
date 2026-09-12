@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "9619ec51f24e043cf1cda96eb7a88413ff4ec2df9b0b1764b914e5744d186125",
+  "attempts": [
+    {
+      "asr_seconds": 0.17086460161954165,
+      "alignment_seconds": 0.000461050309240818,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " On the double, shouted Midia furiously.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " On",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " double,",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " shouted",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Midia",
+              "start": 1.65,
+              "end": 2.01,
+              "probability": 0.673583984375
+            },
+            {
+              "text": " furiously.",
+              "start": 2.01,
+              "end": 2.43,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "On",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "double,",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "shouted",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "Midia",
+          "start": 1.65,
+          "end": 2.01
+        },
+        {
+          "raw": "furiously.",
+          "start": 2.01,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "\"On",
+        "the",
+        "double!\"",
+        "shouted",
+        "Mitya",
+        "furiously."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "On",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "on",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "double,",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "double",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "shouted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Midia",
+          "start": 1.65,
+          "end": 2.01,
+          "key": "midia",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "furiously.",
+          "start": 2.01,
+          "end": 2.43,
+          "key": "furiously",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"On",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "double!\"",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "text": "shouted",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "Mitya",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "furiously.",
+          "start": 2.01,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1714680101722479
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0284eb0f94f4005176b6e06889f4a339e14aae884d007f787decba5034953ee2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

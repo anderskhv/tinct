@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "82e303e27ba2d49d2e5bfb52c93a38800c86683d61c7b39340107883e4655042",
+  "attempts": [
+    {
+      "asr_seconds": 0.1131246630102396,
+      "alignment_seconds": 0.00019453605636954308,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. Sir, sir—",
+        "hotwords": "Menenius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius, sir, sir—",
+          "start": 0.02,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.02,
+              "end": 1.06,
+              "probability": 0.6485188802083334
+            },
+            {
+              "text": " sir,",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.009674072265625
+            },
+            {
+              "text": " sir—",
+              "start": 1.48,
+              "end": 2.04,
+              "probability": 0.4839547872543335
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.02,
+          "end": 1.06
+        },
+        {
+          "raw": "sir,",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "sir—",
+          "start": 1.48,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Sir,",
+        "sir—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.02,
+          "end": 1.06,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir—",
+          "start": 1.48,
+          "end": 2.04,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.02,
+          "end": 1.06
+        },
+        {
+          "text": "Sir,",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "sir—",
+          "start": 1.48,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11337700113654137
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d264e14a84b71b7593dc178aa82041dff0656ac6f1bf90f49cbb0fa07ddf33fe",
+  "selected_reasons": []
+}

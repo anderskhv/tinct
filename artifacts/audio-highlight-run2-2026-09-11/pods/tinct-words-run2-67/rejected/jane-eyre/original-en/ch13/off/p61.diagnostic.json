@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "7e3f60e9d1d4ab9a9c076c121113abb789718b1db179b6e370b9d0f210e3c0e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20690646301954985,
+      "alignment_seconds": 0.00031359679996967316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miss Eyre, have you ever lived in a town?",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.60693359375
+            },
+            {
+              "text": " Eyre,",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.7491455078125
+            },
+            {
+              "text": " have",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " you",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ever",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lived",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " town?",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Eyre,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "have",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "you",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "ever",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "lived",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "in",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "town?",
+          "start": 2.07,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "\"Miss",
+        "Eyre,",
+        "have",
+        "you",
+        "ever",
+        "lived",
+        "in",
+        "a",
+        "town?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Eyre,",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "eyre",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "ever",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "lived",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.97,
+          "end": 2.07,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "town?",
+          "start": 2.07,
+          "end": 2.31,
+          "key": "town",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Miss",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Eyre,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "have",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "you",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "ever",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "lived",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "in",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "a",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "town?\"",
+          "start": 2.07,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2073575695976615
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "94e5d9fcec8d277f03281962b0ac33ce57a447e4853bc11b520ca8fafd05d2ec",
+  "selected_reasons": []
+}

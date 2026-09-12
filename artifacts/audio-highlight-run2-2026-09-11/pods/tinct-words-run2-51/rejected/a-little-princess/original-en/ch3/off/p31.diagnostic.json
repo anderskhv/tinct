@@ -1,0 +1,404 @@
+{
+  "complete": true,
+  "signature": "ee7f5e961480be1c1abd40b0b7db074afc4a6fb7d676a1a9913eed3ebdcd4407",
+  "attempts": [
+    {
+      "asr_seconds": 0.2588720042258501,
+      "alignment_seconds": 0.000654599629342556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They jumped down from the window seat together and went upstairs.",
+          "start": 0.08,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " jumped",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " down",
+              "start": 0.78,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " window",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.974609375
+            },
+            {
+              "text": " seat",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " together",
+              "start": 1.92,
+              "end": 2.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 2.24,
+              "end": 2.84,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " went",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " upstairs.",
+              "start": 2.96,
+              "end": 3.4,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "jumped",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "raw": "down",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "raw": "from",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "window",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "seat",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "raw": "together",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.84
+        },
+        {
+          "raw": "went",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "upstairs.",
+          "start": 2.96,
+          "end": 3.4
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "jumped",
+        "down",
+        "from",
+        "the",
+        "window-seat",
+        "together,",
+        "and",
+        "went",
+        "upstairs."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "jumped",
+          "start": 0.54,
+          "end": 0.78,
+          "key": "jumped",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.78,
+          "end": 1.12,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "window seat",
+          "start": 1.42,
+          "end": 1.92,
+          "key": "windowseat",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "together",
+          "start": 1.92,
+          "end": 2.24,
+          "key": "together",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.84,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "went",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upstairs.",
+          "start": 2.96,
+          "end": 3.4,
+          "key": "upstairs",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "window-seat",
+          "heard": "window seat",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 1.42,
+          "end": 1.92
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "jumped",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "text": "down",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "text": "from",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "window-seat",
+          "start": 1.42,
+          "end": 1.92
+        },
+        {
+          "text": "together,",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "text": "and",
+          "start": 2.24,
+          "end": 2.84
+        },
+        {
+          "text": "went",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "upstairs.",
+          "start": 2.96,
+          "end": 3.4
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25973604805767536
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "80f0cbadb6cee4b7fbf57e4cab9c1255dfea9aea06ba841578f3e7132089e05b",
+  "selected_reasons": []
+}

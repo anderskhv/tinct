@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "70cd12fb39866f3d9216d8eac5cafd8d6a8c8753b54f3c9c73781884ccb4e85a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13790610805153847,
+      "alignment_seconds": 0.00021595880389213562,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Fetch me the handkerchief! My mind misgives.",
+        "hotwords": "Othello, Fetch, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Fetch me the handkerchief! My mind misgives.",
+          "start": 0.08,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Fetch",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.5076370239257812
+            },
+            {
+              "text": " me",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " the",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " handkerchief!",
+              "start": 1.58,
+              "end": 2.04,
+              "probability": 0.9669596354166666
+            },
+            {
+              "text": " My",
+              "start": 2.34,
+              "end": 2.44,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " mind",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.951171875
+            },
+            {
+              "text": " misgives.",
+              "start": 2.7,
+              "end": 3.24,
+              "probability": 0.9049479166666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Fetch",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "me",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "handkerchief!",
+          "start": 1.58,
+          "end": 2.04
+        },
+        {
+          "raw": "My",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "raw": "mind",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "misgives.",
+          "start": 2.7,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Fetch",
+        "me",
+        "the",
+        "handkerchief!",
+        "My",
+        "mind",
+        "misgives."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fetch",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "fetch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "handkerchief!",
+          "start": 1.58,
+          "end": 2.04,
+          "key": "handkerchief",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.34,
+          "end": 2.44,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 2.44,
+          "end": 2.7,
+          "key": "mind",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "misgives.",
+          "start": 2.7,
+          "end": 3.24,
+          "key": "misgives",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Fetch",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "me",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "the",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "handkerchief!",
+          "start": 1.58,
+          "end": 2.04
+        },
+        {
+          "text": "My",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "text": "mind",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "misgives.",
+          "start": 2.7,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1381929568015039
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe4d823fec483578dcc2e0e5d4608f73482de26227e6604223b7fe89857cc8e5",
+  "selected_reasons": []
+}

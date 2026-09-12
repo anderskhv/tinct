@@ -1,0 +1,1150 @@
+{
+  "complete": true,
+  "signature": "3f1d488d97e32cfed8fecd32f6cadb77e678f788e15f0efb355838cbc9c13b0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4290204190183431,
+      "alignment_seconds": 0.0009430940262973309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"We'll go wherever you like,\" he said. \"I'll have Tonie come over and help me patch and trim my boat. We shall not need Beaudelet nor any one. Are you afraid of the pirogue?\"",
+        "hotwords": "We'll, I'll, Tonie, We, Beaudelet, Are"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We'll go wherever you like,\" he said. \"'I'll have Tonie come over and help me patch and trim my boat. We shall not need Beaudelet nor any one. Are you afraid of the pirogue?'\"",
+          "start": 0.02,
+          "end": 10.12,
+          "words": [
+            {
+              "text": " We'll",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.6385498046875
+            },
+            {
+              "text": " go",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wherever",
+              "start": 0.76,
+              "end": 0.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you",
+              "start": 0.98,
+              "end": 1.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like,\"",
+              "start": 1.28,
+              "end": 1.82,
+              "probability": 0.6912841796875
+            },
+            {
+              "text": " he",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " said.",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " \"'I'll",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.6176961263020834
+            },
+            {
+              "text": " have",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Tonie",
+              "start": 3.2,
+              "end": 3.54,
+              "probability": 0.3479924201965332
+            },
+            {
+              "text": " come",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " over",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " help",
+              "start": 4.1,
+              "end": 4.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 4.26,
+              "end": 4.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " patch",
+              "start": 4.44,
+              "end": 4.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 4.74,
+              "end": 4.98,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " trim",
+              "start": 4.98,
+              "end": 5.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 5.24,
+              "end": 5.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " boat.",
+              "start": 5.46,
+              "end": 5.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " We",
+              "start": 6.22,
+              "end": 6.32,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " shall",
+              "start": 6.32,
+              "end": 6.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 6.46,
+              "end": 6.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " need",
+              "start": 6.66,
+              "end": 6.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Beaudelet",
+              "start": 6.88,
+              "end": 7.3,
+              "probability": 0.3469200134277344
+            },
+            {
+              "text": " nor",
+              "start": 7.3,
+              "end": 7.52,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " any",
+              "start": 7.52,
+              "end": 7.76,
+              "probability": 0.016632080078125
+            },
+            {
+              "text": " one.",
+              "start": 7.76,
+              "end": 8.02,
+              "probability": 0.91796875
+            },
+            {
+              "text": " Are",
+              "start": 8.38,
+              "end": 8.5,
+              "probability": 0.982421875
+            },
+            {
+              "text": " you",
+              "start": 8.5,
+              "end": 8.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " afraid",
+              "start": 8.66,
+              "end": 8.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 8.96,
+              "end": 9.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.16,
+              "end": 9.26,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " pirogue?'\"",
+              "start": 9.26,
+              "end": 10.12,
+              "probability": 0.6704821586608887
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We'll",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "go",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "wherever",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "raw": "you",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "raw": "like,\"",
+          "start": 1.28,
+          "end": 1.82
+        },
+        {
+          "raw": "he",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "said.",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "\"'I'll",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "have",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "Tonie",
+          "start": 3.2,
+          "end": 3.54
+        },
+        {
+          "raw": "come",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "over",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "help",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "raw": "me",
+          "start": 4.26,
+          "end": 4.44
+        },
+        {
+          "raw": "patch",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "raw": "and",
+          "start": 4.74,
+          "end": 4.98
+        },
+        {
+          "raw": "trim",
+          "start": 4.98,
+          "end": 5.24
+        },
+        {
+          "raw": "my",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "raw": "boat.",
+          "start": 5.46,
+          "end": 5.76
+        },
+        {
+          "raw": "We",
+          "start": 6.22,
+          "end": 6.32
+        },
+        {
+          "raw": "shall",
+          "start": 6.32,
+          "end": 6.46
+        },
+        {
+          "raw": "not",
+          "start": 6.46,
+          "end": 6.66
+        },
+        {
+          "raw": "need",
+          "start": 6.66,
+          "end": 6.88
+        },
+        {
+          "raw": "Beaudelet",
+          "start": 6.88,
+          "end": 7.3
+        },
+        {
+          "raw": "nor",
+          "start": 7.3,
+          "end": 7.52
+        },
+        {
+          "raw": "any",
+          "start": 7.52,
+          "end": 7.76
+        },
+        {
+          "raw": "one.",
+          "start": 7.76,
+          "end": 8.02
+        },
+        {
+          "raw": "Are",
+          "start": 8.38,
+          "end": 8.5
+        },
+        {
+          "raw": "you",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "raw": "afraid",
+          "start": 8.66,
+          "end": 8.96
+        },
+        {
+          "raw": "of",
+          "start": 8.96,
+          "end": 9.16
+        },
+        {
+          "raw": "the",
+          "start": 9.16,
+          "end": 9.26
+        },
+        {
+          "raw": "pirogue?'\"",
+          "start": 9.26,
+          "end": 10.12
+        }
+      ],
+      "expected_tokens": [
+        "\"We'll",
+        "go",
+        "wherever",
+        "you",
+        "like,\"",
+        "he",
+        "said.",
+        "\"I'll",
+        "have",
+        "Tonie",
+        "come",
+        "over",
+        "and",
+        "help",
+        "me",
+        "patch",
+        "and",
+        "trim",
+        "my",
+        "boat.",
+        "We",
+        "shall",
+        "not",
+        "need",
+        "Beaudelet",
+        "nor",
+        "any",
+        "one.",
+        "Are",
+        "you",
+        "afraid",
+        "of",
+        "the",
+        "pirogue?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We'll",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.58,
+          "end": 0.76,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wherever",
+          "start": 0.76,
+          "end": 0.98,
+          "key": "wherever",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.98,
+          "end": 1.28,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like,\"",
+          "start": 1.28,
+          "end": 1.82,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.06,
+          "end": 2.34,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "\"'I'll",
+          "start": 2.9,
+          "end": 3.06,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Tonie",
+          "start": 3.2,
+          "end": 3.54,
+          "key": "tonie",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.54,
+          "end": 3.68,
+          "key": "come",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 3.68,
+          "end": 3.92,
+          "key": "over",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 4.1,
+          "end": 4.26,
+          "key": "help",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.26,
+          "end": 4.44,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "patch",
+          "start": 4.44,
+          "end": 4.74,
+          "key": "patch",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.74,
+          "end": 4.98,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "trim",
+          "start": 4.98,
+          "end": 5.24,
+          "key": "trim",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.24,
+          "end": 5.46,
+          "key": "my",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "boat.",
+          "start": 5.46,
+          "end": 5.76,
+          "key": "boat",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 6.22,
+          "end": 6.32,
+          "key": "we",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 6.32,
+          "end": 6.46,
+          "key": "shall",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.46,
+          "end": 6.66,
+          "key": "not",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 6.66,
+          "end": 6.88,
+          "key": "need",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Beaudelet",
+          "start": 6.88,
+          "end": 7.3,
+          "key": "beaudelet",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 7.3,
+          "end": 7.52,
+          "key": "nor",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 7.52,
+          "end": 7.76,
+          "key": "any",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 7.76,
+          "end": 8.02,
+          "key": "one",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 8.38,
+          "end": 8.5,
+          "key": "are",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.5,
+          "end": 8.66,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 8.66,
+          "end": 8.96,
+          "key": "afraid",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.96,
+          "end": 9.16,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.16,
+          "end": 9.26,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "pirogue?'\"",
+          "start": 9.26,
+          "end": 10.12,
+          "key": "pirogue",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We'll",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "go",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "wherever",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "text": "you",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "text": "like,\"",
+          "start": 1.28,
+          "end": 1.82
+        },
+        {
+          "text": "he",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "said.",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "text": "\"I'll",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "have",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "Tonie",
+          "start": 3.2,
+          "end": 3.54
+        },
+        {
+          "text": "come",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "over",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "and",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "help",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "text": "me",
+          "start": 4.26,
+          "end": 4.44
+        },
+        {
+          "text": "patch",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "text": "and",
+          "start": 4.74,
+          "end": 4.98
+        },
+        {
+          "text": "trim",
+          "start": 4.98,
+          "end": 5.24
+        },
+        {
+          "text": "my",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "text": "boat.",
+          "start": 5.46,
+          "end": 5.76
+        },
+        {
+          "text": "We",
+          "start": 6.22,
+          "end": 6.32
+        },
+        {
+          "text": "shall",
+          "start": 6.32,
+          "end": 6.46
+        },
+        {
+          "text": "not",
+          "start": 6.46,
+          "end": 6.66
+        },
+        {
+          "text": "need",
+          "start": 6.66,
+          "end": 6.88
+        },
+        {
+          "text": "Beaudelet",
+          "start": 6.88,
+          "end": 7.3
+        },
+        {
+          "text": "nor",
+          "start": 7.3,
+          "end": 7.52
+        },
+        {
+          "text": "any",
+          "start": 7.52,
+          "end": 7.76
+        },
+        {
+          "text": "one.",
+          "start": 7.76,
+          "end": 8.02
+        },
+        {
+          "text": "Are",
+          "start": 8.38,
+          "end": 8.5
+        },
+        {
+          "text": "you",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "text": "afraid",
+          "start": 8.66,
+          "end": 8.96
+        },
+        {
+          "text": "of",
+          "start": 8.96,
+          "end": 9.16
+        },
+        {
+          "text": "the",
+          "start": 9.16,
+          "end": 9.26
+        },
+        {
+          "text": "pirogue?\"",
+          "start": 9.26,
+          "end": 10.12
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 34
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4303726879879832
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4fd4090064effe1d37bcf961f4538b8ee7d319540de33472751d1cbf1015437",
+  "selected_reasons": []
+}

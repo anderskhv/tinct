@@ -1,0 +1,2229 @@
+{
+  "complete": true,
+  "signature": "b52c86024b877f6adb467dbd20d13e13926ee756c695afc264f07153b4614550",
+  "attempts": [
+    {
+      "asr_seconds": 0.3461843617260456,
+      "alignment_seconds": 0.0007953792810440063,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Nay, I'll ne'er believe a madman till I see his brains. I will fetch you light, and paper, and ink.",
+        "hotwords": "Clown, Nay, I'll, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Nay, I'll ne'er believe a madman till I see his brains. I will fetch you light, and paper, and ink.",
+          "start": 0.0,
+          "end": 6.48,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.486572265625
+            },
+            {
+              "text": " Nay,",
+              "start": 1.38,
+              "end": 1.42,
+              "probability": 0.43212890625
+            },
+            {
+              "text": " I'll",
+              "start": 1.54,
+              "end": 1.58,
+              "probability": 0.913330078125
+            },
+            {
+              "text": " ne",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.9306640625
+            },
+            {
+              "text": "'er",
+              "start": 1.72,
+              "end": 1.8,
+              "probability": 0.942138671875
+            },
+            {
+              "text": " believe",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.86328125
+            },
+            {
+              "text": " a",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " madman",
+              "start": 2.18,
+              "end": 2.64,
+              "probability": 0.897705078125
+            },
+            {
+              "text": " till",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " I",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " see",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " his",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " brains.",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " I",
+              "start": 4.46,
+              "end": 4.54,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " will",
+              "start": 4.54,
+              "end": 4.64,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " fetch",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 4.8,
+              "end": 5.04,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " light,",
+              "start": 5.04,
+              "end": 5.28,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " and",
+              "start": 5.54,
+              "end": 5.62,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " paper,",
+              "start": 5.62,
+              "end": 5.86,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 6.14,
+              "end": 6.2,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " ink.",
+              "start": 6.2,
+              "end": 6.48,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.38,
+          "end": 1.42
+        },
+        {
+          "raw": "I'll",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "raw": "ne",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.8
+        },
+        {
+          "raw": "believe",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "a",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "madman",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "raw": "till",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "see",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "his",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "brains.",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "I",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "raw": "will",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "raw": "fetch",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "raw": "light,",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "raw": "and",
+          "start": 5.54,
+          "end": 5.62
+        },
+        {
+          "raw": "paper,",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "raw": "and",
+          "start": 6.14,
+          "end": 6.2
+        },
+        {
+          "raw": "ink.",
+          "start": 6.2,
+          "end": 6.48
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Nay,",
+        "I'll",
+        "ne'er",
+        "believe",
+        "a",
+        "madman",
+        "till",
+        "I",
+        "see",
+        "his",
+        "brains.",
+        "I",
+        "will",
+        "fetch",
+        "you",
+        "light,",
+        "and",
+        "paper,",
+        "and",
+        "ink."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          21,
+          5,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.38,
+          "end": 1.42,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.54,
+          "end": 1.58,
+          "key": "ill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "ne",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.8,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "believe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "madman",
+          "start": 2.18,
+          "end": 2.64,
+          "key": "madman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 2.64,
+          "end": 2.82,
+          "key": "till",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "brains.",
+          "start": 3.34,
+          "end": 3.68,
+          "key": "brains",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.46,
+          "end": 4.54,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.54,
+          "end": 4.64,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "fetch",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 5.04,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "light,",
+          "start": 5.04,
+          "end": 5.28,
+          "key": "light",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.54,
+          "end": 5.62,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "paper,",
+          "start": 5.62,
+          "end": 5.86,
+          "key": "paper",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.14,
+          "end": 6.2,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "ink.",
+          "start": 6.2,
+          "end": 6.48,
+          "key": "ink",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "Nay,",
+          "start": 1.38,
+          "end": 1.42
+        },
+        {
+          "text": "I'll",
+          "start": 1.54,
+          "end": 1.58
+        },
+        {
+          "text": "ne'er",
+          "start": 1.58,
+          "end": 1.69
+        },
+        {
+          "text": "believe",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "a",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "madman",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "text": "till",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "I",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "see",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "his",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "brains.",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "I",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "text": "will",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "text": "fetch",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "you",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "light,",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "text": "and",
+          "start": 5.54,
+          "end": 5.62
+        },
+        {
+          "text": "paper,",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "text": "and",
+          "start": 6.14,
+          "end": 6.2
+        },
+        {
+          "text": "ink.",
+          "start": 6.2,
+          "end": 6.48
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3472973667085171
+    },
+    {
+      "asr_seconds": 2.6787219382822514,
+      "alignment_seconds": 0.0008036233484745026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Clown, Nay, I'll, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " d'believe a madman till I see his brains. I will fetch you light and paper and ink.",
+          "start": 0.0,
+          "end": 6.5,
+          "words": [
+            {
+              "text": " d",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 2.3245811462402344e-06
+            },
+            {
+              "text": "'believe",
+              "start": 0.62,
+              "end": 2.06,
+              "probability": 0.2989991505940755
+            },
+            {
+              "text": " a",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " madman",
+              "start": 2.16,
+              "end": 2.64,
+              "probability": 0.931884765625
+            },
+            {
+              "text": " till",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " I",
+              "start": 2.82,
+              "end": 2.96,
+              "probability": 0.580078125
+            },
+            {
+              "text": " see",
+              "start": 2.96,
+              "end": 3.18,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " his",
+              "start": 3.18,
+              "end": 3.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " brains.",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.95703125
+            },
+            {
+              "text": " I",
+              "start": 4.42,
+              "end": 4.54,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " will",
+              "start": 4.54,
+              "end": 4.64,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " fetch",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 4.8,
+              "end": 5.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " light",
+              "start": 5.04,
+              "end": 5.3,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " and",
+              "start": 5.3,
+              "end": 5.6,
+              "probability": 0.900390625
+            },
+            {
+              "text": " paper",
+              "start": 5.6,
+              "end": 5.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 5.88,
+              "end": 6.2,
+              "probability": 0.9921875
+            },
+            {
+              "text": " ink.",
+              "start": 6.2,
+              "end": 6.5,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "d",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "'believe",
+          "start": 0.62,
+          "end": 2.06
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "madman",
+          "start": 2.16,
+          "end": 2.64
+        },
+        {
+          "raw": "till",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "raw": "see",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "raw": "his",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "raw": "brains.",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "I",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "raw": "will",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "raw": "fetch",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "raw": "light",
+          "start": 5.04,
+          "end": 5.3
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.6
+        },
+        {
+          "raw": "paper",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 6.2
+        },
+        {
+          "raw": "ink.",
+          "start": 6.2,
+          "end": 6.5
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Nay,",
+        "I'll",
+        "ne'er",
+        "believe",
+        "a",
+        "madman",
+        "till",
+        "I",
+        "see",
+        "his",
+        "brains.",
+        "I",
+        "will",
+        "fetch",
+        "you",
+        "light,",
+        "and",
+        "paper,",
+        "and",
+        "ink."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          1
+        ],
+        [
+          "equal",
+          4,
+          21,
+          1,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "d",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "d",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'believe",
+          "start": 0.62,
+          "end": 2.06,
+          "key": "believe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.06,
+          "end": 2.16,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madman",
+          "start": 2.16,
+          "end": 2.64,
+          "key": "madman",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 2.64,
+          "end": 2.82,
+          "key": "till",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 2.96,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.96,
+          "end": 3.18,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.18,
+          "end": 3.34,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "brains.",
+          "start": 3.34,
+          "end": 3.68,
+          "key": "brains",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.42,
+          "end": 4.54,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.54,
+          "end": 4.64,
+          "key": "will",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "fetch",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 5.04,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 5.04,
+          "end": 5.3,
+          "key": "light",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.6,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "paper",
+          "start": 5.6,
+          "end": 5.88,
+          "key": "paper",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 6.2,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ink.",
+          "start": 6.2,
+          "end": 6.5,
+          "key": "ink",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.31
+        },
+        {
+          "text": "Nay,",
+          "start": 0.31,
+          "end": 0.465
+        },
+        {
+          "text": "I'll",
+          "start": 0.465,
+          "end": 0.542
+        },
+        {
+          "text": "ne'er",
+          "start": 0.542,
+          "end": 0.581
+        },
+        {
+          "text": "believe",
+          "start": 0.62,
+          "end": 2.06
+        },
+        {
+          "text": "a",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "madman",
+          "start": 2.16,
+          "end": 2.64
+        },
+        {
+          "text": "till",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "I",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "text": "see",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "text": "his",
+          "start": 3.18,
+          "end": 3.34
+        },
+        {
+          "text": "brains.",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "I",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "text": "will",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "text": "fetch",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "you",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "light,",
+          "start": 5.04,
+          "end": 5.3
+        },
+        {
+          "text": "and",
+          "start": 5.3,
+          "end": 5.6
+        },
+        {
+          "text": "paper,",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "text": "and",
+          "start": 5.88,
+          "end": 6.2
+        },
+        {
+          "text": "ink.",
+          "start": 6.2,
+          "end": 6.5
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8095238095238095,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.679826408624649
+    },
+    {
+      "asr_seconds": 0.32387249544262886,
+      "alignment_seconds": 0.0007361136376857758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, nay I'll ne'er believe a madman till I see his brains.",
+          "start": 0.0,
+          "end": 3.7,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.486572265625
+            },
+            {
+              "text": " nay",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.6903076171875
+            },
+            {
+              "text": " I'll",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.89453125
+            },
+            {
+              "text": " ne",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.92236328125
+            },
+            {
+              "text": "'er",
+              "start": 1.72,
+              "end": 1.8,
+              "probability": 0.947509765625
+            },
+            {
+              "text": " believe",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " a",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " madman",
+              "start": 2.18,
+              "end": 2.64,
+              "probability": 0.906494140625
+            },
+            {
+              "text": " till",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " I",
+              "start": 2.82,
+              "end": 3.0,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " see",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " his",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " brains.",
+              "start": 3.34,
+              "end": 3.7,
+              "probability": 0.97509765625
+            }
+          ]
+        },
+        {
+          "text": " I will fetch you light and paper and ink.",
+          "start": 4.46,
+          "end": 6.48,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.46,
+              "end": 4.54,
+              "probability": 0.98828125
+            },
+            {
+              "text": " will",
+              "start": 4.54,
+              "end": 4.64,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " fetch",
+              "start": 4.64,
+              "end": 4.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 4.8,
+              "end": 5.04,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " light",
+              "start": 5.04,
+              "end": 5.28,
+              "probability": 0.939453125
+            },
+            {
+              "text": " and",
+              "start": 5.28,
+              "end": 5.6,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " paper",
+              "start": 5.6,
+              "end": 5.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " ink.",
+              "start": 6.2,
+              "end": 6.48,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "raw": "nay",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "I'll",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "ne",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.8
+        },
+        {
+          "raw": "believe",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "a",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "madman",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "raw": "till",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "raw": "see",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "his",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "brains.",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "raw": "I",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "raw": "will",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "raw": "fetch",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "raw": "light",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.6
+        },
+        {
+          "raw": "paper",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "raw": "and",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "ink.",
+          "start": 6.2,
+          "end": 6.48
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Nay,",
+        "I'll",
+        "ne'er",
+        "believe",
+        "a",
+        "madman",
+        "till",
+        "I",
+        "see",
+        "his",
+        "brains.",
+        "I",
+        "will",
+        "fetch",
+        "you",
+        "light,",
+        "and",
+        "paper,",
+        "and",
+        "ink."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          21,
+          5,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "ill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "ne",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.72,
+          "end": 1.8,
+          "key": "er",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "believe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "madman",
+          "start": 2.18,
+          "end": 2.64,
+          "key": "madman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 2.64,
+          "end": 2.82,
+          "key": "till",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.82,
+          "end": 3.0,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "brains.",
+          "start": 3.34,
+          "end": 3.7,
+          "key": "brains",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.46,
+          "end": 4.54,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.54,
+          "end": 4.64,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 4.64,
+          "end": 4.8,
+          "key": "fetch",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 5.04,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 5.04,
+          "end": 5.28,
+          "key": "light",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.28,
+          "end": 5.6,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "paper",
+          "start": 5.6,
+          "end": 5.9,
+          "key": "paper",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "ink.",
+          "start": 6.2,
+          "end": 6.48,
+          "key": "ink",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.68
+        },
+        {
+          "text": "Nay,",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "I'll",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "ne'er",
+          "start": 1.58,
+          "end": 1.69
+        },
+        {
+          "text": "believe",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "a",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "madman",
+          "start": 2.18,
+          "end": 2.64
+        },
+        {
+          "text": "till",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "text": "I",
+          "start": 2.82,
+          "end": 3.0
+        },
+        {
+          "text": "see",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "his",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "brains.",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "text": "I",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "text": "will",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "text": "fetch",
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "text": "you",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "text": "light,",
+          "start": 5.04,
+          "end": 5.28
+        },
+        {
+          "text": "and",
+          "start": 5.28,
+          "end": 5.6
+        },
+        {
+          "text": "paper,",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "text": "and",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "ink.",
+          "start": 6.2,
+          "end": 6.48
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.32498205453157425
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3b226224a96fe63ebe8aa5b2ac8f0ce03f8ffdde08939eb8de5c9305a55003b5",
+  "selected_reasons": []
+}

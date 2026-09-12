@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "eba63baf1ea948845564535e48f1391823d4c36d80179c0397dd4dd785d80c05",
+  "attempts": [
+    {
+      "asr_seconds": 0.16614477708935738,
+      "alignment_seconds": 0.000276908278465271,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Montano. Good faith, a little one, not past a pint as I am a soldier.",
+          "start": 0.05,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " Montano.",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " Good",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.900390625
+            },
+            {
+              "text": " faith,",
+              "start": 1.69,
+              "end": 2.03,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " a",
+              "start": 2.23,
+              "end": 2.25,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " little",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.984375
+            },
+            {
+              "text": " one,",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 2.85,
+              "end": 2.93,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " past",
+              "start": 2.93,
+              "end": 3.23,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " a",
+              "start": 3.23,
+              "end": 3.39,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " pint",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " as",
+              "start": 3.65,
+              "end": 3.93,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " I",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " am",
+              "start": 4.09,
+              "end": 4.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " soldier.",
+              "start": 4.33,
+              "end": 4.57,
+              "probability": 0.962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montano.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Good",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "faith,",
+          "start": 1.69,
+          "end": 2.03
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.25
+        },
+        {
+          "raw": "little",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "one,",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "not",
+          "start": 2.85,
+          "end": 2.93
+        },
+        {
+          "raw": "past",
+          "start": 2.93,
+          "end": 3.23
+        },
+        {
+          "raw": "a",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "raw": "pint",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "raw": "as",
+          "start": 3.65,
+          "end": 3.93
+        },
+        {
+          "raw": "I",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "am",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "raw": "a",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "soldier.",
+          "start": 4.33,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "Montano.",
+        "Good",
+        "faith,",
+        "a",
+        "little",
+        "one;",
+        "not",
+        "past",
+        "a",
+        "pint,",
+        "as",
+        "I",
+        "am",
+        "a",
+        "soldier."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montano.",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "montano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "faith,",
+          "start": 1.69,
+          "end": 2.03,
+          "key": "faith",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.23,
+          "end": 2.25,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.25,
+          "end": 2.35,
+          "key": "little",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "one",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.85,
+          "end": 2.93,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 2.93,
+          "end": 3.23,
+          "key": "past",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.23,
+          "end": 3.39,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pint",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "pint",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.65,
+          "end": 3.93,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.93,
+          "end": 4.09,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.09,
+          "end": 4.19,
+          "key": "am",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.19,
+          "end": 4.33,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "soldier.",
+          "start": 4.33,
+          "end": 4.57,
+          "key": "soldier",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montano.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Good",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "faith,",
+          "start": 1.69,
+          "end": 2.03
+        },
+        {
+          "text": "a",
+          "start": 2.23,
+          "end": 2.25
+        },
+        {
+          "text": "little",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "one;",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "not",
+          "start": 2.85,
+          "end": 2.93
+        },
+        {
+          "text": "past",
+          "start": 2.93,
+          "end": 3.23
+        },
+        {
+          "text": "a",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "text": "pint,",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "text": "as",
+          "start": 3.65,
+          "end": 3.93
+        },
+        {
+          "text": "I",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "am",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "text": "a",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "text": "soldier.",
+          "start": 4.33,
+          "end": 4.57
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1665354948490858
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9cd12f24e1fd19b9a354d1789332d0a836ffb41def7434e048a35352a67c574e",
+  "selected_reasons": []
+}

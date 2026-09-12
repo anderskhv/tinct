@@ -1,0 +1,181 @@
+{
+  "complete": true,
+  "signature": "4cb0580df4d6a236a5022aa1801cb4132e1beb0b38f4d6d685cf9122a56f0e9b",
+  "attempts": [
+    {
+      "asr_seconds": 4.154852411709726,
+      "alignment_seconds": 0.00029439711943268776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Hush!",
+        "hotwords": "Charmian, Hush"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Hush Charmian, Hush",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.7261962890625
+            },
+            {
+              "text": " Hush",
+              "start": 0.97,
+              "end": 1.35,
+              "probability": 0.6580810546875
+            },
+            {
+              "text": " Charmian,",
+              "start": 1.35,
+              "end": 1.93,
+              "probability": 0.4995117485523224
+            },
+            {
+              "text": " Hush",
+              "start": 1.93,
+              "end": 1.93,
+              "probability": 0.989501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Hush",
+          "start": 0.97,
+          "end": 1.35
+        },
+        {
+          "raw": "Charmian,",
+          "start": 1.35,
+          "end": 1.93
+        },
+        {
+          "raw": "Hush",
+          "start": 1.93,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Hush!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hush",
+          "start": 0.97,
+          "end": 1.35,
+          "key": "hush",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Charmian,",
+          "start": 1.35,
+          "end": 1.93,
+          "key": "charmian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hush",
+          "start": 1.93,
+          "end": 1.93,
+          "key": "hush",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Hush!",
+          "start": 0.97,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.155259897001088
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9baa067bb1b9182acaa63d35980b67bae2652d5d01710d6710bf30ce479767cc",
+  "selected_reasons": []
+}

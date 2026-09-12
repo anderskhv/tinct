@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "c0db1fb7695ca364e02f9ef5aa356cbfa472df02e220f36cefc4af98db985dfe",
+  "attempts": [
+    {
+      "asr_seconds": 0.21728528290987015,
+      "alignment_seconds": 0.00023587234318256378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ladies. We did, so please your Highness.",
+        "hotwords": "Ladies, We, Highness"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ladies, We did, so please your Highness.",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Ladies,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.849609375
+            },
+            {
+              "text": " We",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.01113128662109375
+            },
+            {
+              "text": " did,",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.927734375
+            },
+            {
+              "text": " so",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " please",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.9140625
+            },
+            {
+              "text": " your",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " Highness.",
+              "start": 2.11,
+              "end": 2.51,
+              "probability": 0.6922607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ladies,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "We",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "did,",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "raw": "so",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "please",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "your",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "Highness.",
+          "start": 2.11,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Ladies.",
+        "We",
+        "did,",
+        "so",
+        "please",
+        "your",
+        "Highness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ladies,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "ladies",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did,",
+          "start": 1.35,
+          "end": 1.51,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "please",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Highness.",
+          "start": 2.11,
+          "end": 2.51,
+          "key": "highness",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ladies.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "We",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "did,",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "text": "so",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "please",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "your",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "Highness.",
+          "start": 2.11,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21761190798133612
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d8079f74e989320238e33471360c5478957cc4fd19470d4d1ab728772c79966",
+  "selected_reasons": []
+}

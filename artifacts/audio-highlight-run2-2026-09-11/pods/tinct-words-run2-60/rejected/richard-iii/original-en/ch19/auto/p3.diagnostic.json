@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6ad0c9fc399894b9947253256019b576e2a8b2714edfa6a0cdc196ca8632fdb8",
+  "attempts": [
+    {
+      "asr_seconds": 0.13992103561758995,
+      "alignment_seconds": 0.0003677941858768463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Duchess of York and Queen Elizabeth.",
+        "hotwords": "Enter, Duchess, York, Queen, Elizabeth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Duchess of York and Queen Elizabeth.",
+          "start": 0.14,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.68,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " Duchess",
+              "start": 0.68,
+              "end": 0.96,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " of",
+              "start": 0.96,
+              "end": 1.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " York",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 1.44,
+              "end": 1.9,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Queen",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Elizabeth.",
+              "start": 2.16,
+              "end": 2.6,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "raw": "Duchess",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "raw": "of",
+          "start": 0.96,
+          "end": 1.18
+        },
+        {
+          "raw": "York",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "and",
+          "start": 1.44,
+          "end": 1.9
+        },
+        {
+          "raw": "Queen",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 2.16,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Duchess",
+        "of",
+        "York",
+        "and",
+        "Queen",
+        "Elizabeth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Duchess",
+          "start": 0.68,
+          "end": 0.96,
+          "key": "duchess",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.96,
+          "end": 1.18,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "York",
+          "start": 1.18,
+          "end": 1.44,
+          "key": "york",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.44,
+          "end": 1.9,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "queen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 2.16,
+          "end": 2.6,
+          "key": "elizabeth",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "text": "Duchess",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "text": "of",
+          "start": 0.96,
+          "end": 1.18
+        },
+        {
+          "text": "York",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "and",
+          "start": 1.44,
+          "end": 1.9
+        },
+        {
+          "text": "Queen",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 2.16,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1404249705374241
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "192337674036baed84e72c45426a6fae1874f97e13350b012e09471d591d0599",
+  "selected_reasons": []
+}

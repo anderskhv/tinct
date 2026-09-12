@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "29816fd8b4529ee9e180ead2cf8a9beae7342ffef5683b9d3309170bdc1b2b2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2545078471302986,
+      "alignment_seconds": 0.0004637688398361206,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gonzalo. How lush and lusty the grass looks! how green!",
+        "hotwords": "Gonzalo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gonzalo! How lush and lusty the grass looks! how green!",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Gonzalo!",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.924560546875
+            },
+            {
+              "text": " How",
+              "start": 1.19,
+              "end": 1.23,
+              "probability": 0.693359375
+            },
+            {
+              "text": " lush",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " lusty",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " grass",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " looks!",
+              "start": 2.33,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " how",
+              "start": 3.07,
+              "end": 3.19,
+              "probability": 0.0221405029296875
+            },
+            {
+              "text": " green!",
+              "start": 3.19,
+              "end": 3.53,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gonzalo!",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "How",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "raw": "lush",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "lusty",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "grass",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "raw": "looks!",
+          "start": 2.33,
+          "end": 2.73
+        },
+        {
+          "raw": "how",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "raw": "green!",
+          "start": 3.19,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Gonzalo.",
+        "How",
+        "lush",
+        "and",
+        "lusty",
+        "the",
+        "grass",
+        "looks!",
+        "how",
+        "green!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gonzalo!",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "gonzalo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.19,
+          "end": 1.23,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lush",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "lush",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lusty",
+          "start": 1.65,
+          "end": 1.97,
+          "key": "lusty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.07,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "grass",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "grass",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "looks!",
+          "start": 2.33,
+          "end": 2.73,
+          "key": "looks",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.07,
+          "end": 3.19,
+          "key": "how",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "green!",
+          "start": 3.19,
+          "end": 3.53,
+          "key": "green",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gonzalo.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "How",
+          "start": 1.19,
+          "end": 1.23
+        },
+        {
+          "text": "lush",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "lusty",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "grass",
+          "start": 2.07,
+          "end": 2.33
+        },
+        {
+          "text": "looks!",
+          "start": 2.33,
+          "end": 2.73
+        },
+        {
+          "text": "how",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "text": "green!",
+          "start": 3.19,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2551451288163662
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6f192f8cf4231022823f663689a815ff5615adb588ad12261482c4329fcc0bc",
+  "selected_reasons": []
+}

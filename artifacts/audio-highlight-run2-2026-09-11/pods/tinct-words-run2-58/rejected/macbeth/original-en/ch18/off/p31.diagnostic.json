@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "98ced57671d96bedd7e930eeeb73f93ebd6610921b5b417a48bd0c06fd4711fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.10735058598220348,
+      "alignment_seconds": 0.00018172059208154678,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " DeSans",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " DeSans",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.424072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "DeSans",
+          "start": 0.05,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "[Descends.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "DeSans",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "desans",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Descends.]",
+          "start": 0.0,
+          "end": 0.455
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10759617667645216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3a8c2f3367b8463254b39564a1e64e3fca55c29c2c9eab9babb00813301d0c96",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

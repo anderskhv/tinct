@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "c1e3933c419fd33dbe8b105265692537b24792f57dd07fd0800410f10e6f88d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.15746371680870652,
+      "alignment_seconds": 0.000395837239921093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, cook; go on, go on.\"",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No cook, go on, go on.",
+          "start": 0.02,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.8671875
+            },
+            {
+              "text": " cook,",
+              "start": 0.58,
+              "end": 0.82,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " go",
+              "start": 1.08,
+              "end": 1.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on,",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " go",
+              "start": 1.36,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on.",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "cook,",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "raw": "go",
+          "start": 1.08,
+          "end": 1.12
+        },
+        {
+          "raw": "on,",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "go",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "raw": "on.",
+          "start": 1.44,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "cook;",
+        "go",
+        "on,",
+        "go",
+        "on.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cook,",
+          "start": 0.58,
+          "end": 0.82,
+          "key": "cook",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.08,
+          "end": 1.12,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 1.12,
+          "end": 1.28,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.36,
+          "end": 1.44,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "cook;",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "text": "go",
+          "start": 1.08,
+          "end": 1.12
+        },
+        {
+          "text": "on,",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "go",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "text": "on.\"",
+          "start": 1.44,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15799425868317485
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a35c5b8f6fb821dfc30bacac4e0bbe2c93d82697d1608bb9dd313afc33c9f7b9",
+  "selected_reasons": []
+}

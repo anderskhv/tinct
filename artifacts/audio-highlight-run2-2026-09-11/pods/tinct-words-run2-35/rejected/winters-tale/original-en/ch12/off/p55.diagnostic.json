@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "656b730166bba1ba63f6d9e973599f3f4dd641ed495723d3879086a20f10bee2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1912687700241804,
+      "alignment_seconds": 0.0004997719079256058,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Perdita, I, good brother, or go about to think.",
+          "start": 0.59,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Perdita,",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.8914388020833334
+            },
+            {
+              "text": " I,",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " good",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " brother,",
+              "start": 1.83,
+              "end": 2.13,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " or",
+              "start": 2.27,
+              "end": 2.37,
+              "probability": 0.900390625
+            },
+            {
+              "text": " go",
+              "start": 2.37,
+              "end": 2.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " think.",
+              "start": 2.89,
+              "end": 3.13,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perdita,",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "raw": "I,",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "good",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "brother,",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "raw": "or",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "raw": "go",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "raw": "about",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "think.",
+          "start": 2.89,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Perdita.",
+        "Ay,",
+        "good",
+        "brother,",
+        "or",
+        "go",
+        "about",
+        "to",
+        "think."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perdita,",
+          "start": 0.59,
+          "end": 0.91,
+          "key": "perdita",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brother,",
+          "start": 1.83,
+          "end": 2.13,
+          "key": "brother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.27,
+          "end": 2.37,
+          "key": "or",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.37,
+          "end": 2.49,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "about",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "think.",
+          "start": 2.89,
+          "end": 3.13,
+          "key": "think",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perdita.",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "text": "Ay,",
+          "start": 0.91,
+          "end": 1.29
+        },
+        {
+          "text": "good",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "brother,",
+          "start": 1.83,
+          "end": 2.13
+        },
+        {
+          "text": "or",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "text": "go",
+          "start": 2.37,
+          "end": 2.49
+        },
+        {
+          "text": "about",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "to",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "think.",
+          "start": 2.89,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.19194721058011055
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10509061818dd38f2658b55b301a73fe7b21deafa2343018199e610d646818ef",
+  "selected_reasons": []
+}

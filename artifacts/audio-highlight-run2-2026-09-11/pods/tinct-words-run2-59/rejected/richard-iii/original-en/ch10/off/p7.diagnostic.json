@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "c276860f29821ac6eba8989c6be0303b815a46984b516803b8f149d903549863",
+  "attempts": [
+    {
+      "asr_seconds": 0.1798283711541444,
+      "alignment_seconds": 0.0003814261872321367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Within, what is to clock?",
+          "start": 0.02,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Within,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.6728515625
+            },
+            {
+              "text": " what",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.8984375
+            },
+            {
+              "text": " is",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " clock?",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.95947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Within,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "what",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "to",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "clock?",
+          "start": 1.56,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "[_Within_.]",
+        "What",
+        "is't",
+        "o'clock?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Within,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "within",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "clock?",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "clock",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Within_.]",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "What",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "is't",
+          "start": 1.28,
+          "end": 1.57
+        },
+        {
+          "text": "o'clock?",
+          "start": 1.57,
+          "end": 1.715
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18032144103199244
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "405ea47dd3bd2d56cef8d1ddcf78500d55baf9dbb682249e9196cb5865c52de7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

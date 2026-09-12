@@ -1,0 +1,394 @@
+{
+  "complete": true,
+  "signature": "4760b7235ab58b4ea79c1ab12ca434c3aebb1ec74cedfa9958db87514e017c00",
+  "attempts": [
+    {
+      "asr_seconds": 0.2145560160279274,
+      "alignment_seconds": 0.0004681963473558426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mopsa, or thou goest a T.H., Grange, or Mill.",
+          "start": 0.61,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Mopsa,",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.6858723958333334
+            },
+            {
+              "text": " or",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " thou",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " goest",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.879150390625
+            },
+            {
+              "text": " a",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " T",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.45751953125
+            },
+            {
+              "text": ".H.,",
+              "start": 2.11,
+              "end": 2.57,
+              "probability": 0.7648111979166666
+            },
+            {
+              "text": " Grange,",
+              "start": 2.57,
+              "end": 2.85,
+              "probability": 0.833984375
+            },
+            {
+              "text": " or",
+              "start": 2.99,
+              "end": 3.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mill.",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.91455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "or",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "thou",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "goest",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "raw": "a",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "T",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": ".H.,",
+          "start": 2.11,
+          "end": 2.57
+        },
+        {
+          "raw": "Grange,",
+          "start": 2.57,
+          "end": 2.85
+        },
+        {
+          "raw": "or",
+          "start": 2.99,
+          "end": 3.07
+        },
+        {
+          "raw": "Mill.",
+          "start": 3.07,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "Mopsa.",
+        "Or",
+        "thou",
+        "goest",
+        "to",
+        "th'",
+        "grange",
+        "or",
+        "mill."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          7
+        ],
+        [
+          "equal",
+          6,
+          9,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.61,
+          "end": 0.97,
+          "key": "mopsa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "or",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "goest",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "goest",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "t",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".H.,",
+          "start": 2.11,
+          "end": 2.57,
+          "key": "h",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Grange,",
+          "start": 2.57,
+          "end": 2.85,
+          "key": "grange",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.99,
+          "end": 3.07,
+          "key": "or",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Mill.",
+          "start": 3.07,
+          "end": 3.25,
+          "key": "mill",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mopsa.",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "Or",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "thou",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "goest",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "text": "to",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "text": "th'",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "grange",
+          "start": 2.57,
+          "end": 2.85
+        },
+        {
+          "text": "or",
+          "start": 2.99,
+          "end": 3.07
+        },
+        {
+          "text": "mill.",
+          "start": 3.07,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2151952814310789
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e480479f93648ec8f331546a730840ca4b55231e16e3f9d4081974a59d3ebe61",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

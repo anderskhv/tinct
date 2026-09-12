@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "46d5fb62b7cc945dafb5b634ef03402557a1e886b882589398838e9fefe09c87",
+  "attempts": [
+    {
+      "asr_seconds": 0.0986065873876214,
+      "alignment_seconds": 0.0002268301323056221,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Further.",
+          "start": 0.08,
+          "end": 0.72,
+          "words": [
+            {
+              "text": " Further.",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Further.",
+          "start": 0.08,
+          "end": 0.72
+        }
+      ],
+      "expected_tokens": [
+        "Further!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Further.",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "further",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Further!",
+          "start": 0.08,
+          "end": 0.72
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0989041905850172
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a8c9db8ba174f277c066bad71e6948ddb34e0f2072a0dcbb93a09c6089ba65e0",
+  "selected_reasons": []
+}

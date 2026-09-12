@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "15ae234618caf5f00fec678ffe3c6e01053b0344e1becae85d6554233b1162b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.200151395983994,
+      "alignment_seconds": 0.00037545617669820786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. The worser that you give me the addition Whose want even kills me.",
+        "hotwords": "Cassio, Whose"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, The worser that you give me the addition Whose want even kills me.",
+          "start": 0.02,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.72265625
+            },
+            {
+              "text": " The",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.01904296875
+            },
+            {
+              "text": " worser",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.710693359375
+            },
+            {
+              "text": " that",
+              "start": 1.88,
+              "end": 2.06,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " you",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " give",
+              "start": 2.22,
+              "end": 2.38,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.90625
+            },
+            {
+              "text": " addition",
+              "start": 2.74,
+              "end": 3.12,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " Whose",
+              "start": 3.12,
+              "end": 3.42,
+              "probability": 0.478759765625
+            },
+            {
+              "text": " want",
+              "start": 3.42,
+              "end": 3.6,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " even",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " kills",
+              "start": 3.86,
+              "end": 4.16,
+              "probability": 0.986328125
+            },
+            {
+              "text": " me.",
+              "start": 4.16,
+              "end": 4.52,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "The",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "worser",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "raw": "that",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "raw": "you",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "give",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "raw": "me",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "addition",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "raw": "Whose",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "raw": "want",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "raw": "even",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "raw": "kills",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "raw": "me.",
+          "start": 4.16,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "The",
+        "worser",
+        "that",
+        "you",
+        "give",
+        "me",
+        "the",
+        "addition",
+        "Whose",
+        "want",
+        "even",
+        "kills",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "worser",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "worser",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.88,
+          "end": 2.06,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.22,
+          "end": 2.38,
+          "key": "give",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "addition",
+          "start": 2.74,
+          "end": 3.12,
+          "key": "addition",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 3.12,
+          "end": 3.42,
+          "key": "whose",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 3.42,
+          "end": 3.6,
+          "key": "want",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "even",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "kills",
+          "start": 3.86,
+          "end": 4.16,
+          "key": "kills",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.16,
+          "end": 4.52,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "The",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "worser",
+          "start": 1.54,
+          "end": 1.88
+        },
+        {
+          "text": "that",
+          "start": 1.88,
+          "end": 2.06
+        },
+        {
+          "text": "you",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "give",
+          "start": 2.22,
+          "end": 2.38
+        },
+        {
+          "text": "me",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "the",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "addition",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "text": "Whose",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "text": "want",
+          "start": 3.42,
+          "end": 3.6
+        },
+        {
+          "text": "even",
+          "start": 3.6,
+          "end": 3.86
+        },
+        {
+          "text": "kills",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "text": "me.",
+          "start": 4.16,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20067977998405695
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0d0081e956b8cd86122894c75ed93dae2b524599bcbc8abd3abc09705608fd02",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "1fa448bd9394100eff83236defef220078a0ab2527cca54aabff9339dca06252",
+  "attempts": [
+    {
+      "asr_seconds": 0.2139276321977377,
+      "alignment_seconds": 0.00034148991107940674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cordelia, nothing my lord.",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Cordelia,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " nothing",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " my",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " lord.",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.78857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "nothing",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "my",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "lord.",
+          "start": 1.77,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "Nothing,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Nothing,",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "my",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "lord.",
+          "start": 1.77,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21438897214829922
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f95d670b627e2e7f3b15944dc33881932be9f593541876d32086e80e3bb0598d",
+  "selected_reasons": []
+}

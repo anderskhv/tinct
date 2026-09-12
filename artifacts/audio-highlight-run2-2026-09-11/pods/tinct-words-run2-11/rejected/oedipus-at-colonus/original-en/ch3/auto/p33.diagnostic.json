@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "717b8a51ac8f8d5363363725722e4a70dd3d3c78ffd2497c64d6e91842035126",
+  "attempts": [
+    {
+      "asr_seconds": 0.19290238246321678,
+      "alignment_seconds": 0.0004073353484272957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. Thy tomb, If disappointed, brings on them a curse.",
+        "hotwords": "Oedipus, Thy, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, Thy tomb, If disappointed, brings on them a curse.",
+          "start": 0.08,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.9346923828125
+            },
+            {
+              "text": " Thy",
+              "start": 1.44,
+              "end": 1.48,
+              "probability": 0.0254974365234375
+            },
+            {
+              "text": " tomb,",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " If",
+              "start": 1.98,
+              "end": 2.08,
+              "probability": 0.01739501953125
+            },
+            {
+              "text": " disappointed,",
+              "start": 2.08,
+              "end": 2.62,
+              "probability": 0.92578125
+            },
+            {
+              "text": " brings",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.658203125
+            },
+            {
+              "text": " on",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " them",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.91015625
+            },
+            {
+              "text": " a",
+              "start": 3.44,
+              "end": 3.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " curse.",
+              "start": 3.56,
+              "end": 3.78,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Thy",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "raw": "tomb,",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "If",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "raw": "disappointed,",
+          "start": 2.08,
+          "end": 2.62
+        },
+        {
+          "raw": "brings",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "on",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "them",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "a",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "raw": "curse.",
+          "start": 3.56,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "Thy",
+        "tomb,",
+        "If",
+        "disappointed,",
+        "brings",
+        "on",
+        "them",
+        "a",
+        "curse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "oedipus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 1.44,
+          "end": 1.48,
+          "key": "thy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tomb,",
+          "start": 1.48,
+          "end": 1.8,
+          "key": "tomb",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.98,
+          "end": 2.08,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "disappointed,",
+          "start": 2.08,
+          "end": 2.62,
+          "key": "disappointed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "brings",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "brings",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "them",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.44,
+          "end": 3.56,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "curse.",
+          "start": 3.56,
+          "end": 3.78,
+          "key": "curse",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Thy",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "text": "tomb,",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "If",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "text": "disappointed,",
+          "start": 2.08,
+          "end": 2.62
+        },
+        {
+          "text": "brings",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "on",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "them",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "text": "a",
+          "start": 3.44,
+          "end": 3.56
+        },
+        {
+          "text": "curse.",
+          "start": 3.56,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1934682996943593
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "20316f930180e0684c7584959506532cea573c90b682f19ebe377ce85a523078",
+  "selected_reasons": []
+}

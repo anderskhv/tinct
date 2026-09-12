@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "e6db94e86f4c3ff73ffee8dc7b0395b594e0419061ebeff53689f321f0099161",
+  "attempts": [
+    {
+      "asr_seconds": 0.18220895098056644,
+      "alignment_seconds": 0.00041203806176781654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agave. Echion, whom men named the Child of Earth.",
+        "hotwords": "Agave, Echion, Child, Earth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agave, Echion, whom men named the Child of Earth.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Agave,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.414794921875
+            },
+            {
+              "text": " Echion,",
+              "start": 1.17,
+              "end": 1.65,
+              "probability": 0.1432170867919922
+            },
+            {
+              "text": " whom",
+              "start": 1.81,
+              "end": 1.91,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " men",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.990234375
+            },
+            {
+              "text": " named",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.49,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Child",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " of",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Earth.",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Echion,",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "raw": "whom",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "raw": "men",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "named",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "raw": "Child",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "Earth.",
+          "start": 2.91,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Echion,",
+        "whom",
+        "men",
+        "named",
+        "the",
+        "Child",
+        "of",
+        "Earth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Echion,",
+          "start": 1.17,
+          "end": 1.65,
+          "key": "echion",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 1.81,
+          "end": 1.91,
+          "key": "whom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "men",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "named",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "named",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Child",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "child",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Earth.",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "earth",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Echion,",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "text": "whom",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "men",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "named",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "text": "Child",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "of",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "Earth.",
+          "start": 2.91,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18278844200540334
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e925b61bd48234aa6c4aeaf00a8a37d8118252dbe232c02256d8d8bc072e6c80",
+  "selected_reasons": []
+}

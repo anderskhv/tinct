@@ -1,0 +1,202 @@
+{
+  "complete": true,
+  "signature": "f23f0d368b85e3449590dc28e96962ed728d99bae647d05eae1dba5663987e64",
+  "attempts": [
+    {
+      "asr_seconds": 0.10473030293360353,
+      "alignment_seconds": 0.0002283756621181965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No sand-amount tram.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " sand",
+              "start": 0.61,
+              "end": 0.89,
+              "probability": 0.6142578125
+            },
+            {
+              "text": "-amount",
+              "start": 0.89,
+              "end": 1.07,
+              "probability": 0.42529296875
+            },
+            {
+              "text": " tram.",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.88916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "sand",
+          "start": 0.61,
+          "end": 0.89
+        },
+        {
+          "raw": "-amount",
+          "start": 0.89,
+          "end": 1.07
+        },
+        {
+          "raw": "tram.",
+          "start": 1.07,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "No",
+        "Sandymount",
+        "tram."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sand",
+          "start": 0.61,
+          "end": 0.89,
+          "key": "sand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-amount",
+          "start": 0.89,
+          "end": 1.07,
+          "key": "amount",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tram.",
+          "start": 1.07,
+          "end": 1.43,
+          "key": "tram",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "No",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Sandymount",
+          "start": 0.61,
+          "end": 0.84
+        },
+        {
+          "text": "tram.",
+          "start": 1.07,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10506273759528995
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e663ddd2dbc5bda917044874ac6c4eeac70b323908a86259bc83435b2ecc587",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

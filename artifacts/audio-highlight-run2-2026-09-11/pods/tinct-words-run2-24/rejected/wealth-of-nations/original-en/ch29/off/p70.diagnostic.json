@@ -1,0 +1,751 @@
+{
+  "complete": true,
+  "signature": "68915a2bc13dfffe043d2e9117d0ec61ac7f33ad3142bd42fa5be9b9595e0ba9",
+  "attempts": [
+    {
+      "asr_seconds": 0.30531804100610316,
+      "alignment_seconds": 0.0005495520017575473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is to be observed that the bushel of foreign salt weighs 48 pounds, that of British weighs 56 pounds, only.",
+          "start": 0.02,
+          "end": 7.8,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " is",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " observed",
+              "start": 0.88,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 1.26,
+              "end": 1.72,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bushel",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.922607421875
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " foreign",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.9296875
+            },
+            {
+              "text": " salt",
+              "start": 2.64,
+              "end": 3.02,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " weighs",
+              "start": 3.02,
+              "end": 3.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " 48",
+              "start": 3.26,
+              "end": 3.9,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " pounds,",
+              "start": 3.9,
+              "end": 4.44,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " that",
+              "start": 4.9,
+              "end": 5.12,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 5.12,
+              "end": 5.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " British",
+              "start": 5.24,
+              "end": 5.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " weighs",
+              "start": 5.46,
+              "end": 5.88,
+              "probability": 0.9453125
+            },
+            {
+              "text": " 56",
+              "start": 5.88,
+              "end": 6.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pounds,",
+              "start": 6.42,
+              "end": 6.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " only.",
+              "start": 7.42,
+              "end": 7.8,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "to",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "be",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "observed",
+          "start": 0.88,
+          "end": 1.26
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "bushel",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "foreign",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "salt",
+          "start": 2.64,
+          "end": 3.02
+        },
+        {
+          "raw": "weighs",
+          "start": 3.02,
+          "end": 3.26
+        },
+        {
+          "raw": "48",
+          "start": 3.26,
+          "end": 3.9
+        },
+        {
+          "raw": "pounds,",
+          "start": 3.9,
+          "end": 4.44
+        },
+        {
+          "raw": "that",
+          "start": 4.9,
+          "end": 5.12
+        },
+        {
+          "raw": "of",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "raw": "British",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "raw": "weighs",
+          "start": 5.46,
+          "end": 5.88
+        },
+        {
+          "raw": "56",
+          "start": 5.88,
+          "end": 6.42
+        },
+        {
+          "raw": "pounds,",
+          "start": 6.42,
+          "end": 6.98
+        },
+        {
+          "raw": "only.",
+          "start": 7.42,
+          "end": 7.8
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "is",
+        "to",
+        "be",
+        "observed,",
+        "that",
+        "the",
+        "bushel",
+        "of",
+        "foreign",
+        "salt",
+        "weighs",
+        "48lbs.,",
+        "that",
+        "of",
+        "British",
+        "weighs",
+        "56lbs.",
+        "only."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          17,
+          14,
+          18
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          20
+        ],
+        [
+          "equal",
+          18,
+          19,
+          20,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          17,
+          18,
+          18,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 0.88,
+          "end": 1.26,
+          "key": "observed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.72,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bushel",
+          "start": 1.86,
+          "end": 2.14,
+          "key": "bushel",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "foreign",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "foreign",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "salt",
+          "start": 2.64,
+          "end": 3.02,
+          "key": "salt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "weighs",
+          "start": 3.02,
+          "end": 3.26,
+          "key": "weighs",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "48",
+          "start": 3.26,
+          "end": 3.9,
+          "key": "fortyeight",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pounds,",
+          "start": 3.9,
+          "end": 4.44,
+          "key": "pounds",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.9,
+          "end": 5.12,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.12,
+          "end": 5.24,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "British",
+          "start": 5.24,
+          "end": 5.46,
+          "key": "british",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "weighs",
+          "start": 5.46,
+          "end": 5.88,
+          "key": "weighs",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "56",
+          "start": 5.88,
+          "end": 6.42,
+          "key": "fiftysix",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pounds,",
+          "start": 6.42,
+          "end": 6.98,
+          "key": "pounds",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "only.",
+          "start": 7.42,
+          "end": 7.8,
+          "key": "only",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "to",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "be",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "observed,",
+          "start": 0.88,
+          "end": 1.26
+        },
+        {
+          "text": "that",
+          "start": 1.26,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "bushel",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "foreign",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "salt",
+          "start": 2.64,
+          "end": 3.02
+        },
+        {
+          "text": "weighs",
+          "start": 3.02,
+          "end": 3.26
+        },
+        {
+          "text": "48lbs.,",
+          "start": 3.26,
+          "end": 4.08
+        },
+        {
+          "text": "that",
+          "start": 4.9,
+          "end": 5.12
+        },
+        {
+          "text": "of",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "text": "British",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "text": "weighs",
+          "start": 5.46,
+          "end": 5.88
+        },
+        {
+          "text": "56lbs.",
+          "start": 5.88,
+          "end": 6.65
+        },
+        {
+          "text": "only.",
+          "start": 7.42,
+          "end": 7.8
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 21,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.3060792460164521
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5bce22bdac3b661e4c888acecf59484e6858432b47364b9957a5d7b6bc29c73d",
+  "selected_reasons": []
+}

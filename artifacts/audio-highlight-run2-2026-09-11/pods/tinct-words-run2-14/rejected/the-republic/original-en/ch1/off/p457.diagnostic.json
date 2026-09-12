@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "cc09c3859f347e9d1e2c5666b9817d2c86eb723a399708309cb7bdf5c787df1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.197685357183218,
+      "alignment_seconds": 0.0003754757344722748,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And the ear has an end and an excellence also.",
+          "start": 0.08,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.61181640625
+            },
+            {
+              "text": " the",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.98828125
+            },
+            {
+              "text": " ear",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " has",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " an",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " end",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.5,
+              "end": 1.92,
+              "probability": 0.5810546875
+            },
+            {
+              "text": " an",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " excellence",
+              "start": 2.02,
+              "end": 2.4,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " also.",
+              "start": 2.4,
+              "end": 2.86,
+              "probability": 0.853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "ear",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "has",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "an",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "end",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.92
+        },
+        {
+          "raw": "an",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "excellence",
+          "start": 2.02,
+          "end": 2.4
+        },
+        {
+          "raw": "also.",
+          "start": 2.4,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "ear",
+        "has",
+        "an",
+        "end",
+        "and",
+        "an",
+        "excellence",
+        "also?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ear",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "ear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "an",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 1.18,
+          "end": 1.5,
+          "key": "end",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.5,
+          "end": 1.92,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.92,
+          "end": 2.02,
+          "key": "an",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "excellence",
+          "start": 2.02,
+          "end": 2.4,
+          "key": "excellence",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "also.",
+          "start": 2.4,
+          "end": 2.86,
+          "key": "also",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "the",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "ear",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "has",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "an",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "end",
+          "start": 1.18,
+          "end": 1.5
+        },
+        {
+          "text": "and",
+          "start": 1.5,
+          "end": 1.92
+        },
+        {
+          "text": "an",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "excellence",
+          "start": 2.02,
+          "end": 2.4
+        },
+        {
+          "text": "also?",
+          "start": 2.4,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1982024945318699
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0cf44a3948356215f8708fcd53ddaab726f259bd279a6e32b553a3c57806963c",
+  "selected_reasons": []
+}

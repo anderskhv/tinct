@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "4ab875f9fc4b2616f436d2475b22882048042fd4056deedc9d7c5b8cdc9aa03f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2191051933914423,
+      "alignment_seconds": 0.0003990437835454941,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius. That's very true, my lord.",
+          "start": 0.53,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Polonius.",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.8312174479166666
+            },
+            {
+              "text": " That's",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.984375
+            },
+            {
+              "text": " very",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " true,",
+              "start": 1.73,
+              "end": 1.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " lord.",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.78173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius.",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "That's",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "very",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "true,",
+          "start": 1.73,
+          "end": 1.99
+        },
+        {
+          "raw": "my",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "lord.",
+          "start": 2.21,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "That's",
+        "very",
+        "true,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius.",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "very",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 1.73,
+          "end": 1.99,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.11,
+          "end": 2.21,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.21,
+          "end": 2.43,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "text": "That's",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "very",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "true,",
+          "start": 1.73,
+          "end": 1.99
+        },
+        {
+          "text": "my",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "lord.",
+          "start": 2.21,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2196632493287325
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0fadadd477a400b946c6b523ee47055b8d528e8a451e8b7ca9db6809fc437103",
+  "selected_reasons": []
+}

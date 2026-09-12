@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "665f626d15d12c79a41c79b9281c4d54b5860b6e21df27ff00ea4d03eac4befa",
+  "attempts": [
+    {
+      "asr_seconds": 0.1685981433838606,
+      "alignment_seconds": 0.00019080750644207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leontes. Tongue-tied, our queen? Speak you.",
+        "hotwords": "Leontes, Tongue-tied, Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leontes, Tongue-tied, our queen? Speak you.",
+          "start": 0.05,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Leontes,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.1005096435546875
+            },
+            {
+              "text": " Tongue",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.55877685546875
+            },
+            {
+              "text": "-tied,",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.6842447916666666
+            },
+            {
+              "text": " our",
+              "start": 1.63,
+              "end": 1.67,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " queen?",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.31787109375
+            },
+            {
+              "text": " Speak",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.853515625
+            },
+            {
+              "text": " you.",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.8740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leontes,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Tongue",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "-tied,",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "our",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "raw": "queen?",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "Speak",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "you.",
+          "start": 2.43,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Tongue-tied,",
+        "our",
+        "queen?",
+        "Speak",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leontes,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "leontes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tongue -tied,",
+          "start": 1.19,
+          "end": 1.51,
+          "key": "tonguetied",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.63,
+          "end": 1.67,
+          "key": "our",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "queen?",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "queen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "speak",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "Tongue-tied,",
+          "heard": "Tongue -tied,",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.19,
+          "end": 1.51
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Tongue-tied,",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "text": "our",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "text": "queen?",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "Speak",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "you.",
+          "start": 2.43,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16884188167750835
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4559912be4e554154949ba6558e877f3ac27fe424c15c1f5919ae6b9deb36d15",
+  "selected_reasons": []
+}

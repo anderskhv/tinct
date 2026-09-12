@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "dc012443731711b363605fae74f998688dac10cba60450169e25240f1abe2cfc",
+  "attempts": [
+    {
+      "asr_seconds": 0.12334073707461357,
+      "alignment_seconds": 0.0002006571739912033,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.6255696614583334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt._]",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12360899709165096
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c17044868120670ce2474b7254b75f9db1ccb9449409adb04d6f4a7f8780ce42",
+  "selected_reasons": []
+}

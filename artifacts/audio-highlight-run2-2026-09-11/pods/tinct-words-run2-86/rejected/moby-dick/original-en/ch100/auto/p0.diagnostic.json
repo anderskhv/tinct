@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "babbbb0bfc512b194b612eaa6359df485e071564bb427583fabc6ee6320dc815",
+  "attempts": [
+    {
+      "asr_seconds": 0.19289692491292953,
+      "alignment_seconds": 0.0002441219985485077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Pequod, of Nantucket, Meets the Samuel Enderby, of London.",
+        "hotwords": "Pequod, Nantucket, Meets, Samuel, Enderby, London"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Pequod, of Nantucket, Meets the Samuel Enderby, of London.",
+          "start": 0.02,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " Pequod,",
+              "start": 0.5,
+              "end": 0.96,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " of",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.96875
+            },
+            {
+              "text": " Nantucket,",
+              "start": 1.18,
+              "end": 1.64,
+              "probability": 0.9925130208333334
+            },
+            {
+              "text": " Meets",
+              "start": 2.06,
+              "end": 2.34,
+              "probability": 0.4781651496887207
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Samuel",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Enderby,",
+              "start": 2.9,
+              "end": 3.4,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " of",
+              "start": 3.54,
+              "end": 3.62,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " London.",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Pequod,",
+          "start": 0.5,
+          "end": 0.96
+        },
+        {
+          "raw": "of",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "Nantucket,",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "raw": "Meets",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "Samuel",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "Enderby,",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "raw": "of",
+          "start": 3.54,
+          "end": 3.62
+        },
+        {
+          "raw": "London.",
+          "start": 3.62,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Pequod,",
+        "of",
+        "Nantucket,",
+        "Meets",
+        "the",
+        "Samuel",
+        "Enderby,",
+        "of",
+        "London."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pequod,",
+          "start": 0.5,
+          "end": 0.96,
+          "key": "pequod",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nantucket,",
+          "start": 1.18,
+          "end": 1.64,
+          "key": "nantucket",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Meets",
+          "start": 2.06,
+          "end": 2.34,
+          "key": "meets",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Samuel",
+          "start": 2.54,
+          "end": 2.9,
+          "key": "samuel",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Enderby,",
+          "start": 2.9,
+          "end": 3.4,
+          "key": "enderby",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.54,
+          "end": 3.62,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "London.",
+          "start": 3.62,
+          "end": 3.92,
+          "key": "london",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Pequod,",
+          "start": 0.5,
+          "end": 0.96
+        },
+        {
+          "text": "of",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "Nantucket,",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "text": "Meets",
+          "start": 2.06,
+          "end": 2.34
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "Samuel",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "text": "Enderby,",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "text": "of",
+          "start": 3.54,
+          "end": 3.62
+        },
+        {
+          "text": "London.",
+          "start": 3.62,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19324152916669846
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c3640aae189e18a6cc3de9d3ebc4a642965fee9a360f7178153518053b4c55da",
+  "selected_reasons": []
+}

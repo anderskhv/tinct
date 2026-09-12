@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "a4cab3903e80141c70cf0e97af10f2344e33992e3d2162e521f2db7c981b4bd8",
+  "attempts": [
+    {
+      "asr_seconds": 0.22131464816629887,
+      "alignment_seconds": 0.0005355402827262878,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Beatrice. Against my will I am sent to bid you come in to dinner.",
+        "hotwords": "Beatrice, Against, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beatrice, Against my will I am sent to bid you come in to dinner.",
+          "start": 0.71,
+          "end": 3.85,
+          "words": [
+            {
+              "text": " Beatrice,",
+              "start": 0.71,
+              "end": 1.07,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Against",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.042205810546875
+            },
+            {
+              "text": " my",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " will",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " I",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " am",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sent",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " bid",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 2.97,
+              "end": 3.15,
+              "probability": 0.982421875
+            },
+            {
+              "text": " come",
+              "start": 3.15,
+              "end": 3.33,
+              "probability": 0.9765625
+            },
+            {
+              "text": " in",
+              "start": 3.33,
+              "end": 3.47,
+              "probability": 0.75390625
+            },
+            {
+              "text": " to",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " dinner.",
+              "start": 3.65,
+              "end": 3.85,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "raw": "Against",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "will",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "am",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "sent",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "to",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "bid",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "you",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "raw": "come",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "raw": "in",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "raw": "to",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "dinner.",
+          "start": 3.65,
+          "end": 3.85
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "Against",
+        "my",
+        "will",
+        "I",
+        "am",
+        "sent",
+        "to",
+        "bid",
+        "you",
+        "come",
+        "in",
+        "to",
+        "dinner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.71,
+          "end": 1.07,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Against",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "against",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "sent",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "bid",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.97,
+          "end": 3.15,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.15,
+          "end": 3.33,
+          "key": "come",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.33,
+          "end": 3.47,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.47,
+          "end": 3.65,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dinner.",
+          "start": 3.65,
+          "end": 3.85,
+          "key": "dinner",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "text": "Against",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "my",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "will",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "text": "I",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "am",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "sent",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "to",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "bid",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "you",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "text": "come",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "text": "in",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "text": "to",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "dinner.",
+          "start": 3.65,
+          "end": 3.85
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22207077220082283
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f3fad1833441857f65b40af93e2db9f31277d44ee46b7333118509793d5f4ef",
+  "selected_reasons": []
+}

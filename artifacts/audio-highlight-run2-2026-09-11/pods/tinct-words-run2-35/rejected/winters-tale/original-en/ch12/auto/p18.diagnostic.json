@@ -1,0 +1,2576 @@
+{
+  "complete": true,
+  "signature": "6c9d81261640fb7b56aeb96a2f26898b1b2b02dfecd46e9b980aa061b72e58b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.9075495284050703,
+      "alignment_seconds": 0.0019702445715665817,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Perdita. Sir, the year growing ancient, Not yet on summer's death nor on the birth Of trembling winter, the fairest flowers o' th' season Are our carnations and streak'd gillyvors, Which some call nature's bastards: of that kind Our rustic garden's barren; and I care not To get slips of them.",
+        "hotwords": "Perdita, Sir, Are, Which, I, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perdita, Sir, the year growing ancient, Not yet on summer's death nor on the birth Of trembling winter, The fairest flowers o' th' season Are our carnations and streak'd gillyvors, Which some call nature's bastards. Of that kind our rustic garden's barren, And I care not to get slips of them.",
+          "start": 0.02,
+          "end": 19.06,
+          "words": [
+            {
+              "text": " Perdita,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Sir,",
+              "start": 1.44,
+              "end": 1.54,
+              "probability": 0.61181640625
+            },
+            {
+              "text": " the",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " year",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " growing",
+              "start": 2.08,
+              "end": 2.46,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " ancient,",
+              "start": 2.46,
+              "end": 2.9,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Not",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.392333984375
+            },
+            {
+              "text": " yet",
+              "start": 3.46,
+              "end": 3.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 3.62,
+              "end": 3.86,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " summer's",
+              "start": 3.86,
+              "end": 4.28,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " death",
+              "start": 4.28,
+              "end": 4.5,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " nor",
+              "start": 4.5,
+              "end": 4.74,
+              "probability": 0.6728515625
+            },
+            {
+              "text": " on",
+              "start": 4.74,
+              "end": 4.92,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " the",
+              "start": 4.92,
+              "end": 5.0,
+              "probability": 0.98828125
+            },
+            {
+              "text": " birth",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Of",
+              "start": 5.16,
+              "end": 5.38,
+              "probability": 0.2861328125
+            },
+            {
+              "text": " trembling",
+              "start": 5.38,
+              "end": 5.74,
+              "probability": 0.953125
+            },
+            {
+              "text": " winter,",
+              "start": 5.74,
+              "end": 6.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " The",
+              "start": 6.68,
+              "end": 6.82,
+              "probability": 0.311279296875
+            },
+            {
+              "text": " fairest",
+              "start": 6.82,
+              "end": 7.32,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " flowers",
+              "start": 7.32,
+              "end": 7.62,
+              "probability": 0.9609375
+            },
+            {
+              "text": " o'",
+              "start": 7.62,
+              "end": 8.06,
+              "probability": 0.238525390625
+            },
+            {
+              "text": " th'",
+              "start": 8.26,
+              "end": 8.52,
+              "probability": 0.458251953125
+            },
+            {
+              "text": " season",
+              "start": 9.34,
+              "end": 9.52,
+              "probability": 0.199462890625
+            },
+            {
+              "text": " Are",
+              "start": 9.52,
+              "end": 9.9,
+              "probability": 0.794921875
+            },
+            {
+              "text": " our",
+              "start": 9.9,
+              "end": 10.04,
+              "probability": 0.904296875
+            },
+            {
+              "text": " carnations",
+              "start": 10.04,
+              "end": 10.54,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " and",
+              "start": 10.54,
+              "end": 10.9,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " streak'd",
+              "start": 10.9,
+              "end": 11.36,
+              "probability": 0.35633087158203125
+            },
+            {
+              "text": " gillyvors,",
+              "start": 11.36,
+              "end": 11.92,
+              "probability": 0.12392616271972656
+            },
+            {
+              "text": " Which",
+              "start": 12.16,
+              "end": 12.38,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " some",
+              "start": 12.38,
+              "end": 12.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " call",
+              "start": 12.62,
+              "end": 12.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " nature's",
+              "start": 12.94,
+              "end": 13.48,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " bastards.",
+              "start": 13.48,
+              "end": 14.04,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " Of",
+              "start": 14.52,
+              "end": 14.72,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " that",
+              "start": 14.72,
+              "end": 14.96,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " kind",
+              "start": 14.96,
+              "end": 15.26,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " our",
+              "start": 15.26,
+              "end": 15.5,
+              "probability": 0.11962890625
+            },
+            {
+              "text": " rustic",
+              "start": 15.5,
+              "end": 15.94,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " garden's",
+              "start": 15.94,
+              "end": 16.44,
+              "probability": 0.537078857421875
+            },
+            {
+              "text": " barren,",
+              "start": 16.44,
+              "end": 16.74,
+              "probability": 0.96875
+            },
+            {
+              "text": " And",
+              "start": 17.24,
+              "end": 17.42,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " I",
+              "start": 17.42,
+              "end": 17.56,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " care",
+              "start": 17.56,
+              "end": 17.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 17.76,
+              "end": 18.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 18.02,
+              "end": 18.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " get",
+              "start": 18.16,
+              "end": 18.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " slips",
+              "start": 18.3,
+              "end": 18.58,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " of",
+              "start": 18.58,
+              "end": 18.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " them.",
+              "start": 18.82,
+              "end": 19.06,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Perdita, Sir, the year growing ancient, The fairest flowers o' th' season Are our carnations and streak'd gillyvors, Which some call nature's bastards, Which some call nature's bastards, Which some call nature's bastards, Which some call nature's bastards, Which some call nature's bastards.",
+          "start": 19.06,
+          "end": 19.64,
+          "words": [
+            {
+              "text": " Perdita,",
+              "start": 19.06,
+              "end": 19.64,
+              "probability": 0.020590245723724365
+            },
+            {
+              "text": " Sir,",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 1.6808509826660156e-05
+            },
+            {
+              "text": " the",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0291290283203125
+            },
+            {
+              "text": " year",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0007147789001464844
+            },
+            {
+              "text": " growing",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 4.26173210144043e-05
+            },
+            {
+              "text": " ancient,",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 1.3113021850585938e-06
+            },
+            {
+              "text": " The",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.004932403564453125
+            },
+            {
+              "text": " fairest",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.47754594683647156
+            },
+            {
+              "text": " flowers",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 2.6941299438476562e-05
+            },
+            {
+              "text": " o'",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.00035643577575683594
+            },
+            {
+              "text": " th'",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0017499923706054688
+            },
+            {
+              "text": " season",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0023593902587890625
+            },
+            {
+              "text": " Are",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0017490386962890625
+            },
+            {
+              "text": " our",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.01092529296875
+            },
+            {
+              "text": " carnations",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.024408012628555298
+            },
+            {
+              "text": " and",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0253448486328125
+            },
+            {
+              "text": " streak'd",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 7.82310962677002e-05
+            },
+            {
+              "text": " gillyvors,",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0028432458639144897
+            },
+            {
+              "text": " Which",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0017290115356445312
+            },
+            {
+              "text": " some",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0003676414489746094
+            },
+            {
+              "text": " call",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0108642578125
+            },
+            {
+              "text": " nature's",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.11224591732025146
+            },
+            {
+              "text": " bastards,",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.4558197855949402
+            },
+            {
+              "text": " Which",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.0307159423828125
+            },
+            {
+              "text": " some",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.07550048828125
+            },
+            {
+              "text": " call",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " nature's",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.471435546875
+            },
+            {
+              "text": " bastards,",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.6953125
+            },
+            {
+              "text": " Which",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.5146484375
+            },
+            {
+              "text": " some",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " call",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " nature's",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.815673828125
+            },
+            {
+              "text": " bastards,",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " Which",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.5732421875
+            },
+            {
+              "text": " some",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " call",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " nature's",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " bastards,",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " Which",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " some",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " call",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " nature's",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " bastards.",
+              "start": 19.64,
+              "end": 19.64,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perdita,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "raw": "year",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "growing",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "raw": "ancient,",
+          "start": 2.46,
+          "end": 2.9
+        },
+        {
+          "raw": "Not",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "yet",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "raw": "on",
+          "start": 3.62,
+          "end": 3.86
+        },
+        {
+          "raw": "summer's",
+          "start": 3.86,
+          "end": 4.28
+        },
+        {
+          "raw": "death",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "raw": "nor",
+          "start": 4.5,
+          "end": 4.74
+        },
+        {
+          "raw": "on",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "raw": "the",
+          "start": 4.92,
+          "end": 5.0
+        },
+        {
+          "raw": "birth",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "Of",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "raw": "trembling",
+          "start": 5.38,
+          "end": 5.74
+        },
+        {
+          "raw": "winter,",
+          "start": 5.74,
+          "end": 6.2
+        },
+        {
+          "raw": "The",
+          "start": 6.68,
+          "end": 6.82
+        },
+        {
+          "raw": "fairest",
+          "start": 6.82,
+          "end": 7.32
+        },
+        {
+          "raw": "flowers",
+          "start": 7.32,
+          "end": 7.62
+        },
+        {
+          "raw": "o'",
+          "start": 7.62,
+          "end": 8.06
+        },
+        {
+          "raw": "th'",
+          "start": 8.26,
+          "end": 8.52
+        },
+        {
+          "raw": "season",
+          "start": 9.34,
+          "end": 9.52
+        },
+        {
+          "raw": "Are",
+          "start": 9.52,
+          "end": 9.9
+        },
+        {
+          "raw": "our",
+          "start": 9.9,
+          "end": 10.04
+        },
+        {
+          "raw": "carnations",
+          "start": 10.04,
+          "end": 10.54
+        },
+        {
+          "raw": "and",
+          "start": 10.54,
+          "end": 10.9
+        },
+        {
+          "raw": "streak'd",
+          "start": 10.9,
+          "end": 11.36
+        },
+        {
+          "raw": "gillyvors,",
+          "start": 11.36,
+          "end": 11.92
+        },
+        {
+          "raw": "Which",
+          "start": 12.16,
+          "end": 12.38
+        },
+        {
+          "raw": "some",
+          "start": 12.38,
+          "end": 12.62
+        },
+        {
+          "raw": "call",
+          "start": 12.62,
+          "end": 12.94
+        },
+        {
+          "raw": "nature's",
+          "start": 12.94,
+          "end": 13.48
+        },
+        {
+          "raw": "bastards.",
+          "start": 13.48,
+          "end": 14.04
+        },
+        {
+          "raw": "Of",
+          "start": 14.52,
+          "end": 14.72
+        },
+        {
+          "raw": "that",
+          "start": 14.72,
+          "end": 14.96
+        },
+        {
+          "raw": "kind",
+          "start": 14.96,
+          "end": 15.26
+        },
+        {
+          "raw": "our",
+          "start": 15.26,
+          "end": 15.5
+        },
+        {
+          "raw": "rustic",
+          "start": 15.5,
+          "end": 15.94
+        },
+        {
+          "raw": "garden's",
+          "start": 15.94,
+          "end": 16.44
+        },
+        {
+          "raw": "barren,",
+          "start": 16.44,
+          "end": 16.74
+        },
+        {
+          "raw": "And",
+          "start": 17.24,
+          "end": 17.42
+        },
+        {
+          "raw": "I",
+          "start": 17.42,
+          "end": 17.56
+        },
+        {
+          "raw": "care",
+          "start": 17.56,
+          "end": 17.76
+        },
+        {
+          "raw": "not",
+          "start": 17.76,
+          "end": 18.02
+        },
+        {
+          "raw": "to",
+          "start": 18.02,
+          "end": 18.16
+        },
+        {
+          "raw": "get",
+          "start": 18.16,
+          "end": 18.3
+        },
+        {
+          "raw": "slips",
+          "start": 18.3,
+          "end": 18.58
+        },
+        {
+          "raw": "of",
+          "start": 18.58,
+          "end": 18.82
+        },
+        {
+          "raw": "them.",
+          "start": 18.82,
+          "end": 19.06
+        },
+        {
+          "raw": "Perdita,",
+          "start": 19.06,
+          "end": 19.64
+        },
+        {
+          "raw": "Sir,",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "the",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "year",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "growing",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "ancient,",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "The",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "fairest",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "flowers",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "o'",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "th'",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "season",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "Are",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "our",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "carnations",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "and",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "streak'd",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "gillyvors,",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "bastards,",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "bastards,",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "bastards,",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "bastards,",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64
+        },
+        {
+          "raw": "bastards.",
+          "start": 19.64,
+          "end": 19.64
+        }
+      ],
+      "expected_tokens": [
+        "Perdita.",
+        "Sir,",
+        "the",
+        "year",
+        "growing",
+        "ancient,",
+        "Not",
+        "yet",
+        "on",
+        "summer's",
+        "death",
+        "nor",
+        "on",
+        "the",
+        "birth",
+        "Of",
+        "trembling",
+        "winter,",
+        "the",
+        "fairest",
+        "flowers",
+        "o'",
+        "th'",
+        "season",
+        "Are",
+        "our",
+        "carnations",
+        "and",
+        "streak'd",
+        "gillyvors,",
+        "Which",
+        "some",
+        "call",
+        "nature's",
+        "bastards:",
+        "of",
+        "that",
+        "kind",
+        "Our",
+        "rustic",
+        "garden's",
+        "barren;",
+        "and",
+        "I",
+        "care",
+        "not",
+        "To",
+        "get",
+        "slips",
+        "of",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ],
+        [
+          "insert",
+          51,
+          51,
+          51,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          51,
+          51,
+          51,
+          94
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perdita,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "perdita",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.44,
+          "end": 1.54,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.82,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "year",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "year",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "growing",
+          "start": 2.08,
+          "end": 2.46,
+          "key": "growing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ancient,",
+          "start": 2.46,
+          "end": 2.9,
+          "key": "ancient",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 3.34,
+          "end": 3.46,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 3.46,
+          "end": 3.62,
+          "key": "yet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.62,
+          "end": 3.86,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "summer's",
+          "start": 3.86,
+          "end": 4.28,
+          "key": "summers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 4.28,
+          "end": 4.5,
+          "key": "death",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 4.5,
+          "end": 4.74,
+          "key": "nor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.74,
+          "end": 4.92,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.92,
+          "end": 5.0,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "birth",
+          "start": 5.0,
+          "end": 5.16,
+          "key": "birth",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 5.16,
+          "end": 5.38,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "trembling",
+          "start": 5.38,
+          "end": 5.74,
+          "key": "trembling",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "winter,",
+          "start": 5.74,
+          "end": 6.2,
+          "key": "winter",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.68,
+          "end": 6.82,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fairest",
+          "start": 6.82,
+          "end": 7.32,
+          "key": "fairest",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "flowers",
+          "start": 7.32,
+          "end": 7.62,
+          "key": "flowers",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 7.62,
+          "end": 8.06,
+          "key": "o",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 8.26,
+          "end": 8.52,
+          "key": "th",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "season",
+          "start": 9.34,
+          "end": 9.52,
+          "key": "season",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 9.52,
+          "end": 9.9,
+          "key": "are",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 9.9,
+          "end": 10.04,
+          "key": "our",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "carnations",
+          "start": 10.04,
+          "end": 10.54,
+          "key": "carnations",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.54,
+          "end": 10.9,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "streak'd",
+          "start": 10.9,
+          "end": 11.36,
+          "key": "streakd",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "gillyvors,",
+          "start": 11.36,
+          "end": 11.92,
+          "key": "gillyvors",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 12.16,
+          "end": 12.38,
+          "key": "which",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 12.38,
+          "end": 12.62,
+          "key": "some",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 12.62,
+          "end": 12.94,
+          "key": "call",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 12.94,
+          "end": 13.48,
+          "key": "natures",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "bastards.",
+          "start": 13.48,
+          "end": 14.04,
+          "key": "bastards",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 14.52,
+          "end": 14.72,
+          "key": "of",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 14.72,
+          "end": 14.96,
+          "key": "that",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 14.96,
+          "end": 15.26,
+          "key": "kind",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 15.26,
+          "end": 15.5,
+          "key": "our",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "rustic",
+          "start": 15.5,
+          "end": 15.94,
+          "key": "rustic",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "garden's",
+          "start": 15.94,
+          "end": 16.44,
+          "key": "gardens",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "barren,",
+          "start": 16.44,
+          "end": 16.74,
+          "key": "barren",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 17.24,
+          "end": 17.42,
+          "key": "and",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.42,
+          "end": 17.56,
+          "key": "i",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 17.56,
+          "end": 17.76,
+          "key": "care",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 17.76,
+          "end": 18.02,
+          "key": "not",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.02,
+          "end": 18.16,
+          "key": "to",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 18.16,
+          "end": 18.3,
+          "key": "get",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "slips",
+          "start": 18.3,
+          "end": 18.58,
+          "key": "slips",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.58,
+          "end": 18.82,
+          "key": "of",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 18.82,
+          "end": 19.06,
+          "key": "them",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Perdita,",
+          "start": 19.06,
+          "end": 19.64,
+          "key": "perdita",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "sir",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "year",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "year",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "growing",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "growing",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "ancient,",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "ancient",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "fairest",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "fairest",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "flowers",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "flowers",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "o",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "th",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "season",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "season",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "are",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "our",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "carnations",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "carnations",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "and",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "streak'd",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "streakd",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "gillyvors,",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "gillyvors",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "which",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "some",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "call",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "natures",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "bastards,",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "bastards",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "which",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "some",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "call",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "natures",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "bastards,",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "bastards",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "which",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "some",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "call",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "natures",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "bastards,",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "bastards",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "which",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "some",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "call",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "natures",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "bastards,",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "bastards",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "which",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "some",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "call",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "nature's",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "natures",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "bastards.",
+          "start": 19.64,
+          "end": 19.64,
+          "key": "bastards",
+          "pieces": [
+            93
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perdita.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "Sir,",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "the",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "text": "year",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "growing",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "text": "ancient,",
+          "start": 2.46,
+          "end": 2.9
+        },
+        {
+          "text": "Not",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "yet",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "text": "on",
+          "start": 3.62,
+          "end": 3.86
+        },
+        {
+          "text": "summer's",
+          "start": 3.86,
+          "end": 4.28
+        },
+        {
+          "text": "death",
+          "start": 4.28,
+          "end": 4.5
+        },
+        {
+          "text": "nor",
+          "start": 4.5,
+          "end": 4.74
+        },
+        {
+          "text": "on",
+          "start": 4.74,
+          "end": 4.92
+        },
+        {
+          "text": "the",
+          "start": 4.92,
+          "end": 5.0
+        },
+        {
+          "text": "birth",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "Of",
+          "start": 5.16,
+          "end": 5.38
+        },
+        {
+          "text": "trembling",
+          "start": 5.38,
+          "end": 5.74
+        },
+        {
+          "text": "winter,",
+          "start": 5.74,
+          "end": 6.2
+        },
+        {
+          "text": "the",
+          "start": 6.68,
+          "end": 6.82
+        },
+        {
+          "text": "fairest",
+          "start": 6.82,
+          "end": 7.32
+        },
+        {
+          "text": "flowers",
+          "start": 7.32,
+          "end": 7.62
+        },
+        {
+          "text": "o'",
+          "start": 7.62,
+          "end": 8.06
+        },
+        {
+          "text": "th'",
+          "start": 8.26,
+          "end": 8.52
+        },
+        {
+          "text": "season",
+          "start": 9.34,
+          "end": 9.52
+        },
+        {
+          "text": "Are",
+          "start": 9.52,
+          "end": 9.9
+        },
+        {
+          "text": "our",
+          "start": 9.9,
+          "end": 10.04
+        },
+        {
+          "text": "carnations",
+          "start": 10.04,
+          "end": 10.54
+        },
+        {
+          "text": "and",
+          "start": 10.54,
+          "end": 10.9
+        },
+        {
+          "text": "streak'd",
+          "start": 10.9,
+          "end": 11.36
+        },
+        {
+          "text": "gillyvors,",
+          "start": 11.36,
+          "end": 11.92
+        },
+        {
+          "text": "Which",
+          "start": 12.16,
+          "end": 12.38
+        },
+        {
+          "text": "some",
+          "start": 12.38,
+          "end": 12.62
+        },
+        {
+          "text": "call",
+          "start": 12.62,
+          "end": 12.94
+        },
+        {
+          "text": "nature's",
+          "start": 12.94,
+          "end": 13.48
+        },
+        {
+          "text": "bastards:",
+          "start": 13.48,
+          "end": 14.04
+        },
+        {
+          "text": "of",
+          "start": 14.52,
+          "end": 14.72
+        },
+        {
+          "text": "that",
+          "start": 14.72,
+          "end": 14.96
+        },
+        {
+          "text": "kind",
+          "start": 14.96,
+          "end": 15.26
+        },
+        {
+          "text": "Our",
+          "start": 15.26,
+          "end": 15.5
+        },
+        {
+          "text": "rustic",
+          "start": 15.5,
+          "end": 15.94
+        },
+        {
+          "text": "garden's",
+          "start": 15.94,
+          "end": 16.44
+        },
+        {
+          "text": "barren;",
+          "start": 16.44,
+          "end": 16.74
+        },
+        {
+          "text": "and",
+          "start": 17.24,
+          "end": 17.42
+        },
+        {
+          "text": "I",
+          "start": 17.42,
+          "end": 17.56
+        },
+        {
+          "text": "care",
+          "start": 17.56,
+          "end": 17.76
+        },
+        {
+          "text": "not",
+          "start": 17.76,
+          "end": 18.02
+        },
+        {
+          "text": "To",
+          "start": 18.02,
+          "end": 18.16
+        },
+        {
+          "text": "get",
+          "start": 18.16,
+          "end": 18.3
+        },
+        {
+          "text": "slips",
+          "start": 18.3,
+          "end": 18.58
+        },
+        {
+          "text": "of",
+          "start": 18.58,
+          "end": 18.82
+        },
+        {
+          "text": "them.",
+          "start": 18.82,
+          "end": 19.06
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 94,
+        "matched_words": 51
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9108599331229925
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca76e3ebeba3a74d8a0bd00e8727b979d42219dfdee72bf2bbc78da8afc544af",
+  "selected_reasons": []
+}

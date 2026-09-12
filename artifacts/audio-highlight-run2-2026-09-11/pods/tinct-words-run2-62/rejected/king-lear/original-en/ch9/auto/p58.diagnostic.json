@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "6cbb6d7a2d37537fd6ba9fdfaae5ce2d82f6bba1fec99ef4e91bd65bd66d6421",
+  "attempts": [
+    {
+      "asr_seconds": 0.20944422855973244,
+      "alignment_seconds": 0.0001951940357685089,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Age is unnecessary: on my knees I beg That you'll vouchsafe me raiment, bed, and food.'",
+        "hotwords": "Age, I, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Age is unnecessary. On my knees I beg That you'll vouchsafe me raiment, bed, and food.",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Age",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " is",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " unnecessary.",
+              "start": 0.89,
+              "end": 1.57,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " On",
+              "start": 2.31,
+              "end": 2.35,
+              "probability": 0.990234375
+            },
+            {
+              "text": " my",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " knees",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.69,
+              "end": 2.93,
+              "probability": 0.47802734375
+            },
+            {
+              "text": " beg",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " That",
+              "start": 3.11,
+              "end": 3.29,
+              "probability": 0.00016129016876220703
+            },
+            {
+              "text": " you'll",
+              "start": 3.29,
+              "end": 3.47,
+              "probability": 0.922607421875
+            },
+            {
+              "text": " vouchsafe",
+              "start": 3.47,
+              "end": 3.89,
+              "probability": 0.8102213541666666
+            },
+            {
+              "text": " me",
+              "start": 3.89,
+              "end": 4.11,
+              "probability": 0.927734375
+            },
+            {
+              "text": " raiment,",
+              "start": 4.11,
+              "end": 4.57,
+              "probability": 0.8072102864583334
+            },
+            {
+              "text": " bed,",
+              "start": 4.93,
+              "end": 5.05,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " and",
+              "start": 5.25,
+              "end": 5.31,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " food.",
+              "start": 5.31,
+              "end": 5.59,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Age",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "unnecessary.",
+          "start": 0.89,
+          "end": 1.57
+        },
+        {
+          "raw": "On",
+          "start": 2.31,
+          "end": 2.35
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "knees",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "I",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "raw": "beg",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "That",
+          "start": 3.11,
+          "end": 3.29
+        },
+        {
+          "raw": "you'll",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "raw": "vouchsafe",
+          "start": 3.47,
+          "end": 3.89
+        },
+        {
+          "raw": "me",
+          "start": 3.89,
+          "end": 4.11
+        },
+        {
+          "raw": "raiment,",
+          "start": 4.11,
+          "end": 4.57
+        },
+        {
+          "raw": "bed,",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "raw": "and",
+          "start": 5.25,
+          "end": 5.31
+        },
+        {
+          "raw": "food.",
+          "start": 5.31,
+          "end": 5.59
+        }
+      ],
+      "expected_tokens": [
+        "Age",
+        "is",
+        "unnecessary:",
+        "on",
+        "my",
+        "knees",
+        "I",
+        "beg",
+        "That",
+        "you'll",
+        "vouchsafe",
+        "me",
+        "raiment,",
+        "bed,",
+        "and",
+        "food.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Age",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "age",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.89,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unnecessary.",
+          "start": 0.89,
+          "end": 1.57,
+          "key": "unnecessary",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "On",
+          "start": 2.31,
+          "end": 2.35,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.47,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knees",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "knees",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.69,
+          "end": 2.93,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "beg",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "beg",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.11,
+          "end": 3.29,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 3.29,
+          "end": 3.47,
+          "key": "youll",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "vouchsafe",
+          "start": 3.47,
+          "end": 3.89,
+          "key": "vouchsafe",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.89,
+          "end": 4.11,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "raiment,",
+          "start": 4.11,
+          "end": 4.57,
+          "key": "raiment",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "bed,",
+          "start": 4.93,
+          "end": 5.05,
+          "key": "bed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.25,
+          "end": 5.31,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "food.",
+          "start": 5.31,
+          "end": 5.59,
+          "key": "food",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Age",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "is",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "text": "unnecessary:",
+          "start": 0.89,
+          "end": 1.57
+        },
+        {
+          "text": "on",
+          "start": 2.31,
+          "end": 2.35
+        },
+        {
+          "text": "my",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "knees",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "I",
+          "start": 2.69,
+          "end": 2.93
+        },
+        {
+          "text": "beg",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "That",
+          "start": 3.11,
+          "end": 3.29
+        },
+        {
+          "text": "you'll",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "text": "vouchsafe",
+          "start": 3.47,
+          "end": 3.89
+        },
+        {
+          "text": "me",
+          "start": 3.89,
+          "end": 4.11
+        },
+        {
+          "text": "raiment,",
+          "start": 4.11,
+          "end": 4.57
+        },
+        {
+          "text": "bed,",
+          "start": 4.93,
+          "end": 5.05
+        },
+        {
+          "text": "and",
+          "start": 5.25,
+          "end": 5.31
+        },
+        {
+          "text": "food.'",
+          "start": 5.31,
+          "end": 5.59
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2097315900027752
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "187a6552407f564da3e1bfc08160631697ba61841fd5bc236ea421c25579a5f7",
+  "selected_reasons": []
+}

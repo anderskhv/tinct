@@ -1,0 +1,807 @@
+{
+  "complete": true,
+  "signature": "0c68ba76bff6b1f485ba7f5d101047ceb9937c457bab828db4872f77e1381fe3",
+  "attempts": [
+    {
+      "asr_seconds": 0.30401433631777763,
+      "alignment_seconds": 0.00035323016345500946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Horatio, well, my lord, if you steal out the whilst this play is playing and scape detecting I will pay the theft",
+          "start": 0.05,
+          "end": 7.05,
+          "words": [
+            {
+              "text": " Horatio,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " well,",
+              "start": 1.41,
+              "end": 1.67,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " my",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lord,",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.85546875
+            },
+            {
+              "text": " if",
+              "start": 2.83,
+              "end": 2.93,
+              "probability": 0.970703125
+            },
+            {
+              "text": " you",
+              "start": 2.93,
+              "end": 3.03,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " steal",
+              "start": 3.03,
+              "end": 3.27,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " out",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " the",
+              "start": 3.41,
+              "end": 3.53,
+              "probability": 0.986328125
+            },
+            {
+              "text": " whilst",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.299072265625
+            },
+            {
+              "text": " this",
+              "start": 3.75,
+              "end": 4.07,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " play",
+              "start": 4.07,
+              "end": 4.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is",
+              "start": 4.31,
+              "end": 4.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " playing",
+              "start": 4.51,
+              "end": 4.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.91,
+              "end": 5.21,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " scape",
+              "start": 5.21,
+              "end": 5.57,
+              "probability": 0.753173828125
+            },
+            {
+              "text": " detecting",
+              "start": 5.57,
+              "end": 5.99,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " I",
+              "start": 5.99,
+              "end": 6.29,
+              "probability": 0.4267578125
+            },
+            {
+              "text": " will",
+              "start": 6.29,
+              "end": 6.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pay",
+              "start": 6.41,
+              "end": 6.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.57,
+              "end": 6.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " theft",
+              "start": 6.75,
+              "end": 7.05,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "well,",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "lord,",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "raw": "if",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "raw": "you",
+          "start": 2.93,
+          "end": 3.03
+        },
+        {
+          "raw": "steal",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "raw": "out",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "raw": "whilst",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "raw": "this",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "raw": "play",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "raw": "is",
+          "start": 4.31,
+          "end": 4.51
+        },
+        {
+          "raw": "playing",
+          "start": 4.51,
+          "end": 4.91
+        },
+        {
+          "raw": "and",
+          "start": 4.91,
+          "end": 5.21
+        },
+        {
+          "raw": "scape",
+          "start": 5.21,
+          "end": 5.57
+        },
+        {
+          "raw": "detecting",
+          "start": 5.57,
+          "end": 5.99
+        },
+        {
+          "raw": "I",
+          "start": 5.99,
+          "end": 6.29
+        },
+        {
+          "raw": "will",
+          "start": 6.29,
+          "end": 6.41
+        },
+        {
+          "raw": "pay",
+          "start": 6.41,
+          "end": 6.57
+        },
+        {
+          "raw": "the",
+          "start": 6.57,
+          "end": 6.75
+        },
+        {
+          "raw": "theft",
+          "start": 6.75,
+          "end": 7.05
+        }
+      ],
+      "expected_tokens": [
+        "Horatio.",
+        "Well,",
+        "my",
+        "lord.",
+        "If",
+        "he",
+        "steal",
+        "aught",
+        "the",
+        "whilst",
+        "this",
+        "play",
+        "is",
+        "playing,",
+        "And",
+        "'scape",
+        "detecting,",
+        "I",
+        "will",
+        "pay",
+        "the",
+        "theft."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          22,
+          8,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Horatio,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "horatio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.41,
+          "end": 1.67,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.83,
+          "end": 2.93,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.93,
+          "end": 3.03,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "steal",
+          "start": 3.03,
+          "end": 3.27,
+          "key": "steal",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.27,
+          "end": 3.41,
+          "key": "out",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.53,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "whilst",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "whilst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.75,
+          "end": 4.07,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 4.07,
+          "end": 4.31,
+          "key": "play",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.31,
+          "end": 4.51,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 4.51,
+          "end": 4.91,
+          "key": "playing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.91,
+          "end": 5.21,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "scape",
+          "start": 5.21,
+          "end": 5.57,
+          "key": "scape",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "detecting",
+          "start": 5.57,
+          "end": 5.99,
+          "key": "detecting",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.99,
+          "end": 6.29,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.29,
+          "end": 6.41,
+          "key": "will",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 6.41,
+          "end": 6.57,
+          "key": "pay",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.57,
+          "end": 6.75,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "theft",
+          "start": 6.75,
+          "end": 7.05,
+          "key": "theft",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Horatio.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Well,",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "text": "my",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "lord.",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "text": "If",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "text": "he",
+          "start": 2.93,
+          "end": 2.98
+        },
+        {
+          "text": "steal",
+          "start": 3.03,
+          "end": 3.27
+        },
+        {
+          "text": "aught",
+          "start": 3.27,
+          "end": 3.34
+        },
+        {
+          "text": "the",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "text": "whilst",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "text": "this",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "text": "play",
+          "start": 4.07,
+          "end": 4.31
+        },
+        {
+          "text": "is",
+          "start": 4.31,
+          "end": 4.51
+        },
+        {
+          "text": "playing,",
+          "start": 4.51,
+          "end": 4.91
+        },
+        {
+          "text": "And",
+          "start": 4.91,
+          "end": 5.21
+        },
+        {
+          "text": "'scape",
+          "start": 5.21,
+          "end": 5.57
+        },
+        {
+          "text": "detecting,",
+          "start": 5.57,
+          "end": 5.99
+        },
+        {
+          "text": "I",
+          "start": 5.99,
+          "end": 6.29
+        },
+        {
+          "text": "will",
+          "start": 6.29,
+          "end": 6.41
+        },
+        {
+          "text": "pay",
+          "start": 6.41,
+          "end": 6.57
+        },
+        {
+          "text": "the",
+          "start": 6.57,
+          "end": 6.75
+        },
+        {
+          "text": "theft.",
+          "start": 6.75,
+          "end": 7.05
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.30455187149345875
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2ed8f453f1a9adec3180ec5b5b5b1d549036b9df22aca4a32aedf8666f1629e6",
+  "selected_reasons": []
+}

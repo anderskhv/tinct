@@ -1,0 +1,871 @@
+{
+  "complete": true,
+  "signature": "bf65427c92e50f3c4315c2e2a613d9da1ef1427a443a64abba82752b70910cba",
+  "attempts": [
+    {
+      "asr_seconds": 0.37948103062808514,
+      "alignment_seconds": 0.0008995756506919861,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, thou dost lie int to be int and say it is thine.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " thou",
+              "start": 1.18,
+              "end": 1.22,
+              "probability": 0.95703125
+            },
+            {
+              "text": " dost",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.960693359375
+            },
+            {
+              "text": " lie",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " int",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.485595703125
+            },
+            {
+              "text": " to",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " be",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " int",
+              "start": 2.26,
+              "end": 2.52,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " and",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " say",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " is",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thine.",
+              "start": 3.22,
+              "end": 3.64,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " Tease for the dead, not for the quick, therefore thou least.",
+          "start": 4.36,
+          "end": 6.96,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 4.36,
+              "end": 4.54,
+              "probability": 0.836669921875
+            },
+            {
+              "text": " for",
+              "start": 4.54,
+              "end": 4.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 4.66,
+              "end": 4.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " dead,",
+              "start": 4.78,
+              "end": 5.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 5.28,
+              "end": 5.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 5.32,
+              "end": 5.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 5.5,
+              "end": 5.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quick,",
+              "start": 5.6,
+              "end": 5.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " therefore",
+              "start": 6.16,
+              "end": 6.4,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thou",
+              "start": 6.4,
+              "end": 6.7,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " least.",
+              "start": 6.7,
+              "end": 6.96,
+              "probability": 0.411865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "thou",
+          "start": 1.18,
+          "end": 1.22
+        },
+        {
+          "raw": "dost",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "lie",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "int",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "be",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "int",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "say",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "it",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "is",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "thine.",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "raw": "Tease",
+          "start": 4.36,
+          "end": 4.54
+        },
+        {
+          "raw": "for",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.78
+        },
+        {
+          "raw": "dead,",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "raw": "not",
+          "start": 5.28,
+          "end": 5.32
+        },
+        {
+          "raw": "for",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "raw": "the",
+          "start": 5.5,
+          "end": 5.6
+        },
+        {
+          "raw": "quick,",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "raw": "therefore",
+          "start": 6.16,
+          "end": 6.4
+        },
+        {
+          "raw": "thou",
+          "start": 6.4,
+          "end": 6.7
+        },
+        {
+          "raw": "least.",
+          "start": 6.7,
+          "end": 6.96
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Thou",
+        "dost",
+        "lie",
+        "in't,",
+        "to",
+        "be",
+        "in't",
+        "and",
+        "say",
+        "it",
+        "is",
+        "thine.",
+        "'Tis",
+        "for",
+        "the",
+        "dead,",
+        "not",
+        "for",
+        "the",
+        "quick;",
+        "therefore",
+        "thou",
+        "liest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          23,
+          14,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.18,
+          "end": 1.22,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "dost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lie",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "lie",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "int",
+          "start": 1.68,
+          "end": 1.94,
+          "key": "int",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "int",
+          "start": 2.26,
+          "end": 2.52,
+          "key": "int",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "say",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.06,
+          "end": 3.22,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thine.",
+          "start": 3.22,
+          "end": 3.64,
+          "key": "thine",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 4.36,
+          "end": 4.54,
+          "key": "tease",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.54,
+          "end": 4.66,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.78,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 4.78,
+          "end": 5.04,
+          "key": "dead",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.28,
+          "end": 5.32,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.32,
+          "end": 5.5,
+          "key": "for",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.5,
+          "end": 5.6,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "quick,",
+          "start": 5.6,
+          "end": 5.84,
+          "key": "quick",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 6.16,
+          "end": 6.4,
+          "key": "therefore",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 6.4,
+          "end": 6.7,
+          "key": "thou",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "least.",
+          "start": 6.7,
+          "end": 6.96,
+          "key": "least",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Thou",
+          "start": 1.18,
+          "end": 1.22
+        },
+        {
+          "text": "dost",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "lie",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "text": "in't,",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "text": "to",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "be",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "in't",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "text": "and",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "say",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "it",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "is",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "thine.",
+          "start": 3.22,
+          "end": 3.64
+        },
+        {
+          "text": "'Tis",
+          "start": 3.64,
+          "end": 4.09
+        },
+        {
+          "text": "for",
+          "start": 4.54,
+          "end": 4.66
+        },
+        {
+          "text": "the",
+          "start": 4.66,
+          "end": 4.78
+        },
+        {
+          "text": "dead,",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "text": "not",
+          "start": 5.28,
+          "end": 5.32
+        },
+        {
+          "text": "for",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "text": "the",
+          "start": 5.5,
+          "end": 5.6
+        },
+        {
+          "text": "quick;",
+          "start": 5.6,
+          "end": 5.84
+        },
+        {
+          "text": "therefore",
+          "start": 6.16,
+          "end": 6.4
+        },
+        {
+          "text": "thou",
+          "start": 6.4,
+          "end": 6.7
+        },
+        {
+          "text": "liest.",
+          "start": 6.7,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.38072232250124216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c2bea1f6973140ec1eb7c20f8f7fbdf9e301315cc134d3ff37e670cb60d54802",
+  "selected_reasons": []
+}

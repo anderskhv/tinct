@@ -1,0 +1,884 @@
+{
+  "complete": true,
+  "signature": "03e9349e3f919d2bf0c61447b6dc8d54482cb72af5590da9549f11c95c44a8c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.4158494994044304,
+      "alignment_seconds": 0.0005422048270702362,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, my captain, my captain, noble heart, go not, go not.",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.2073974609375
+            },
+            {
+              "text": " my",
+              "start": 0.65,
+              "end": 0.79,
+              "probability": 0.98828125
+            },
+            {
+              "text": " captain,",
+              "start": 0.79,
+              "end": 1.11,
+              "probability": 0.623046875
+            },
+            {
+              "text": " my",
+              "start": 1.33,
+              "end": 1.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " captain,",
+              "start": 1.37,
+              "end": 1.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " noble",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " heart,",
+              "start": 2.51,
+              "end": 2.81,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " go",
+              "start": 3.03,
+              "end": 3.09,
+              "probability": 0.98828125
+            },
+            {
+              "text": " not,",
+              "start": 3.09,
+              "end": 3.27,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " go",
+              "start": 3.41,
+              "end": 3.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not.",
+              "start": 3.47,
+              "end": 3.79,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " See it's a brave man that weeps.",
+          "start": 4.47,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " See",
+              "start": 4.47,
+              "end": 4.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it's",
+              "start": 4.61,
+              "end": 4.79,
+              "probability": 0.550689697265625
+            },
+            {
+              "text": " a",
+              "start": 4.79,
+              "end": 4.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " brave",
+              "start": 4.89,
+              "end": 5.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " man",
+              "start": 5.13,
+              "end": 5.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 5.43,
+              "end": 5.69,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " weeps.",
+              "start": 5.69,
+              "end": 6.11,
+              "probability": 0.9736328125
+            }
+          ]
+        },
+        {
+          "text": " How great the agony of the persuasion then.",
+          "start": 6.39,
+          "end": 8.39,
+          "words": [
+            {
+              "text": " How",
+              "start": 6.39,
+              "end": 6.51,
+              "probability": 0.990234375
+            },
+            {
+              "text": " great",
+              "start": 6.51,
+              "end": 6.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.75,
+              "end": 6.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " agony",
+              "start": 6.91,
+              "end": 7.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 7.25,
+              "end": 7.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.45,
+              "end": 7.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " persuasion",
+              "start": 7.55,
+              "end": 7.93,
+              "probability": 0.982421875
+            },
+            {
+              "text": " then.",
+              "start": 7.93,
+              "end": 8.39,
+              "probability": 0.69287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "my",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "raw": "captain,",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "raw": "my",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "raw": "captain,",
+          "start": 1.37,
+          "end": 1.77
+        },
+        {
+          "raw": "noble",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "heart,",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "raw": "go",
+          "start": 3.03,
+          "end": 3.09
+        },
+        {
+          "raw": "not,",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "raw": "go",
+          "start": 3.41,
+          "end": 3.47
+        },
+        {
+          "raw": "not.",
+          "start": 3.47,
+          "end": 3.79
+        },
+        {
+          "raw": "See",
+          "start": 4.47,
+          "end": 4.61
+        },
+        {
+          "raw": "it's",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "raw": "a",
+          "start": 4.79,
+          "end": 4.89
+        },
+        {
+          "raw": "brave",
+          "start": 4.89,
+          "end": 5.13
+        },
+        {
+          "raw": "man",
+          "start": 5.13,
+          "end": 5.43
+        },
+        {
+          "raw": "that",
+          "start": 5.43,
+          "end": 5.69
+        },
+        {
+          "raw": "weeps.",
+          "start": 5.69,
+          "end": 6.11
+        },
+        {
+          "raw": "How",
+          "start": 6.39,
+          "end": 6.51
+        },
+        {
+          "raw": "great",
+          "start": 6.51,
+          "end": 6.75
+        },
+        {
+          "raw": "the",
+          "start": 6.75,
+          "end": 6.91
+        },
+        {
+          "raw": "agony",
+          "start": 6.91,
+          "end": 7.25
+        },
+        {
+          "raw": "of",
+          "start": 7.25,
+          "end": 7.45
+        },
+        {
+          "raw": "the",
+          "start": 7.45,
+          "end": 7.55
+        },
+        {
+          "raw": "persuasion",
+          "start": 7.55,
+          "end": 7.93
+        },
+        {
+          "raw": "then.",
+          "start": 7.93,
+          "end": 8.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "my",
+        "captain,",
+        "my",
+        "captain!—noble",
+        "heart—go",
+        "not—go",
+        "not!—see,",
+        "it's",
+        "a",
+        "brave",
+        "man",
+        "that",
+        "weeps;",
+        "how",
+        "great",
+        "the",
+        "agony",
+        "of",
+        "the",
+        "persuasion",
+        "then!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          8,
+          4,
+          12
+        ],
+        [
+          "equal",
+          8,
+          22,
+          12,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          8,
+          4,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.65,
+          "end": 0.79,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "captain,",
+          "start": 0.79,
+          "end": 1.11,
+          "key": "captain",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.33,
+          "end": 1.37,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "captain,",
+          "start": 1.37,
+          "end": 1.77,
+          "key": "captain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "noble",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heart,",
+          "start": 2.51,
+          "end": 2.81,
+          "key": "heart",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.03,
+          "end": 3.09,
+          "key": "go",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 3.09,
+          "end": 3.27,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.41,
+          "end": 3.47,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 3.47,
+          "end": 3.79,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 4.47,
+          "end": 4.61,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 4.61,
+          "end": 4.79,
+          "key": "its",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.79,
+          "end": 4.89,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "brave",
+          "start": 4.89,
+          "end": 5.13,
+          "key": "brave",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 5.13,
+          "end": 5.43,
+          "key": "man",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.43,
+          "end": 5.69,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "weeps.",
+          "start": 5.69,
+          "end": 6.11,
+          "key": "weeps",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 6.39,
+          "end": 6.51,
+          "key": "how",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 6.51,
+          "end": 6.75,
+          "key": "great",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.75,
+          "end": 6.91,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "agony",
+          "start": 6.91,
+          "end": 7.25,
+          "key": "agony",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.25,
+          "end": 7.45,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.45,
+          "end": 7.55,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "persuasion",
+          "start": 7.55,
+          "end": 7.93,
+          "key": "persuasion",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 7.93,
+          "end": 8.39,
+          "key": "then",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "my",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "text": "captain,",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "text": "my",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "text": "captain!—noble",
+          "start": 1.37,
+          "end": 2.99
+        },
+        {
+          "text": "heart—go",
+          "start": 2.99,
+          "end": 3.8
+        },
+        {
+          "text": "not—go",
+          "start": 3.8,
+          "end": 4.205
+        },
+        {
+          "text": "not!—see,",
+          "start": 4.205,
+          "end": 4.408
+        },
+        {
+          "text": "it's",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "text": "a",
+          "start": 4.79,
+          "end": 4.89
+        },
+        {
+          "text": "brave",
+          "start": 4.89,
+          "end": 5.13
+        },
+        {
+          "text": "man",
+          "start": 5.13,
+          "end": 5.43
+        },
+        {
+          "text": "that",
+          "start": 5.43,
+          "end": 5.69
+        },
+        {
+          "text": "weeps;",
+          "start": 5.69,
+          "end": 6.11
+        },
+        {
+          "text": "how",
+          "start": 6.39,
+          "end": 6.51
+        },
+        {
+          "text": "great",
+          "start": 6.51,
+          "end": 6.75
+        },
+        {
+          "text": "the",
+          "start": 6.75,
+          "end": 6.91
+        },
+        {
+          "text": "agony",
+          "start": 6.91,
+          "end": 7.25
+        },
+        {
+          "text": "of",
+          "start": 7.25,
+          "end": 7.45
+        },
+        {
+          "text": "the",
+          "start": 7.45,
+          "end": 7.55
+        },
+        {
+          "text": "persuasion",
+          "start": 7.55,
+          "end": 7.93
+        },
+        {
+          "text": "then!\"",
+          "start": 7.93,
+          "end": 8.39
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 26,
+        "matched_words": 18
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.41665229573845863
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d4ed7c32c8e718ed2fd08176f5d7df847d5f24614952b2dfd6d612ec9a1b570",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

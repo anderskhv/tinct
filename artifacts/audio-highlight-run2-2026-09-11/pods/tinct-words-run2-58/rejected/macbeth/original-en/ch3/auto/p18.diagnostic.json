@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "80c5de1b742b9849f502be5bd53fb6d2b80fc82ae124bf9d2c459d4df0d6de59",
+  "attempts": [
+    {
+      "asr_seconds": 0.22978456784039736,
+      "alignment_seconds": 0.0005096076056361198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Witch. All hail, Macbeth! hail to thee, Thane of Glamis!",
+        "hotwords": "First, Witch, All, Macbeth, Thane, Glamis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Witch. All hail, Macbeth! hail to thee, Thane of Glamis!",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.6982421875
+            },
+            {
+              "text": " Witch.",
+              "start": 0.67,
+              "end": 0.97,
+              "probability": 0.2039794921875
+            },
+            {
+              "text": " All",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " hail,",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " Macbeth!",
+              "start": 1.81,
+              "end": 2.27,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " hail",
+              "start": 2.65,
+              "end": 2.67,
+              "probability": 0.0178070068359375
+            },
+            {
+              "text": " to",
+              "start": 2.67,
+              "end": 2.87,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " thee,",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Thane",
+              "start": 3.23,
+              "end": 3.47,
+              "probability": 0.70703125
+            },
+            {
+              "text": " of",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Glamis!",
+              "start": 3.61,
+              "end": 4.05,
+              "probability": 0.7777506510416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Witch.",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "raw": "All",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "hail,",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "Macbeth!",
+          "start": 1.81,
+          "end": 2.27
+        },
+        {
+          "raw": "hail",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "raw": "to",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "raw": "thee,",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "Thane",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "raw": "of",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "Glamis!",
+          "start": 3.61,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "All",
+        "hail,",
+        "Macbeth!",
+        "hail",
+        "to",
+        "thee,",
+        "Thane",
+        "of",
+        "Glamis!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch.",
+          "start": 0.67,
+          "end": 0.97,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hail,",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "hail",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Macbeth!",
+          "start": 1.81,
+          "end": 2.27,
+          "key": "macbeth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hail",
+          "start": 2.65,
+          "end": 2.67,
+          "key": "hail",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.67,
+          "end": 2.87,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Thane",
+          "start": 3.23,
+          "end": 3.47,
+          "key": "thane",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Glamis!",
+          "start": 3.61,
+          "end": 4.05,
+          "key": "glamis",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Witch.",
+          "start": 0.67,
+          "end": 0.97
+        },
+        {
+          "text": "All",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "hail,",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "text": "Macbeth!",
+          "start": 1.81,
+          "end": 2.27
+        },
+        {
+          "text": "hail",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "text": "to",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "text": "thee,",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "Thane",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "text": "of",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "text": "Glamis!",
+          "start": 3.61,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23049806524068117
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bb0483d97205a8b6998044b9084800ea3d783a1e1c46b5e2d8fb4cbe6d3d23a4",
+  "selected_reasons": []
+}

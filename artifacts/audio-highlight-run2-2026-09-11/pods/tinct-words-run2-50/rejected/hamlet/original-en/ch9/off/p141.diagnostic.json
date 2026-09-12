@@ -1,0 +1,244 @@
+{
+  "complete": true,
+  "signature": "76b04c739cb8d4469d9f0e5675238d5e99c07d6290bc3bdbdceda8de8c041707",
+  "attempts": [
+    {
+      "asr_seconds": 0.20435766130685806,
+      "alignment_seconds": 0.0004735086113214493,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Re-enter the players with recorders.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.978515625
+            },
+            {
+              "text": "-enter",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " the",
+              "start": 0.73,
+              "end": 0.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " players",
+              "start": 0.91,
+              "end": 1.23,
+              "probability": 0.9609375
+            },
+            {
+              "text": " with",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " recorders.",
+              "start": 1.49,
+              "end": 2.11,
+              "probability": 0.963134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-enter",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "the",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "raw": "players",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "raw": "with",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "recorders.",
+          "start": 1.49,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "[Re-enter",
+        "the",
+        "Players",
+        "with",
+        "recorders]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Re -enter",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.73,
+          "end": 0.91,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "players",
+          "start": 0.91,
+          "end": 1.23,
+          "key": "players",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "recorders.",
+          "start": 1.49,
+          "end": 2.11,
+          "key": "recorders",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "[Re-enter",
+          "heard": "Re -enter",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "[Re-enter",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "the",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "text": "Players",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "text": "with",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "recorders]",
+          "start": 1.49,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20497224479913712
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c43610783bd730f5dad21e0caf22471096ac888dd616882dab6fd4c0fd2e930d",
+  "selected_reasons": []
+}

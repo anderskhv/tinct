@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "871781cf16323b18731ca7fd1a16cd473c535aa84d9da3a23eadba57d60807b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1457701027393341,
+      "alignment_seconds": 0.0001501450315117836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Everything is well.",
+        "hotwords": "Brutus, Everything"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Everything is well.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Everything",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.018798828125
+            },
+            {
+              "text": " is",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " well.",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.38720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Everything",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "well.",
+          "start": 1.63,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Everything",
+        "is",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Everything",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "everything",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Everything",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "is",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "well.",
+          "start": 1.63,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1459746826440096
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "304306a3e8aaf10798ad7e2ea4b91b9aabf1415a172d79d886202541222a0991",
+  "selected_reasons": []
+}

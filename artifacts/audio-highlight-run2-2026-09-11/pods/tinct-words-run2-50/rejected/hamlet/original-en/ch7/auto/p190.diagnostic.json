@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "27a5af1ef182663cb91d859eaa94f35d03035d3dbc76086b0143151742d53af3",
+  "attempts": [
+    {
+      "asr_seconds": 0.13412711955606937,
+      "alignment_seconds": 0.00031877122819423676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exit First Player.]",
+        "hotwords": "Exit, First, Player"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit, First, Player",
+          "start": 0.05,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " Exit,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " First,",
+              "start": 0.89,
+              "end": 0.89,
+              "probability": 0.1248779296875
+            },
+            {
+              "text": " Player",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "First,",
+          "start": 0.89,
+          "end": 0.89
+        },
+        {
+          "raw": "Player",
+          "start": 0.99,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "First",
+        "Player.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "First,",
+          "start": 0.89,
+          "end": 0.89,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Player",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "player",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "First",
+          "start": 0.89,
+          "end": 0.89
+        },
+        {
+          "text": "Player.]",
+          "start": 0.99,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13454934395849705
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7089c0aec929eaa56f7b5c15b446e4abf33b9d7e507a810fb092c3d083d3f8df",
+  "selected_reasons": []
+}

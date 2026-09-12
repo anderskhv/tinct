@@ -1,0 +1,675 @@
+{
+  "complete": true,
+  "signature": "c51ed1817d93cc817b7ce6907b3caef172cc387b1e4b95ac8d210729357e5a0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3830428896471858,
+      "alignment_seconds": 0.0004900610074400902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messala, then like a Roman, bear the truth, I tell, for certain she is dead, and by strange",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " Messala,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.57989501953125
+            },
+            {
+              "text": " then",
+              "start": 1.27,
+              "end": 1.67,
+              "probability": 0.64404296875
+            },
+            {
+              "text": " like",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.8515625
+            },
+            {
+              "text": " a",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Roman,",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " bear",
+              "start": 2.43,
+              "end": 2.51,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " the",
+              "start": 2.51,
+              "end": 2.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " truth,",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I",
+              "start": 3.07,
+              "end": 3.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tell,",
+              "start": 3.07,
+              "end": 3.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 3.79,
+              "end": 3.87,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " certain",
+              "start": 3.87,
+              "end": 4.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " she",
+              "start": 4.21,
+              "end": 4.41,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " is",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dead,",
+              "start": 4.59,
+              "end": 4.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 5.15,
+              "end": 5.23,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " by",
+              "start": 5.23,
+              "end": 5.39,
+              "probability": 0.986328125
+            },
+            {
+              "text": " strange",
+              "start": 5.39,
+              "end": 5.79,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " manner.",
+          "start": 5.79,
+          "end": 6.19,
+          "words": [
+            {
+              "text": " manner.",
+              "start": 5.79,
+              "end": 6.19,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "then",
+          "start": 1.27,
+          "end": 1.67
+        },
+        {
+          "raw": "like",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "Roman,",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "raw": "bear",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.69
+        },
+        {
+          "raw": "truth,",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "I",
+          "start": 3.07,
+          "end": 3.07
+        },
+        {
+          "raw": "tell,",
+          "start": 3.07,
+          "end": 3.33
+        },
+        {
+          "raw": "for",
+          "start": 3.79,
+          "end": 3.87
+        },
+        {
+          "raw": "certain",
+          "start": 3.87,
+          "end": 4.21
+        },
+        {
+          "raw": "she",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "raw": "is",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "dead,",
+          "start": 4.59,
+          "end": 4.85
+        },
+        {
+          "raw": "and",
+          "start": 5.15,
+          "end": 5.23
+        },
+        {
+          "raw": "by",
+          "start": 5.23,
+          "end": 5.39
+        },
+        {
+          "raw": "strange",
+          "start": 5.39,
+          "end": 5.79
+        },
+        {
+          "raw": "manner.",
+          "start": 5.79,
+          "end": 6.19
+        }
+      ],
+      "expected_tokens": [
+        "Messala.",
+        "Then",
+        "like",
+        "a",
+        "Roman",
+        "bear",
+        "the",
+        "truth",
+        "I",
+        "tell,",
+        "For",
+        "certain",
+        "she",
+        "is",
+        "dead,",
+        "and",
+        "by",
+        "strange",
+        "manner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "messala",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.27,
+          "end": 1.67,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Roman,",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "roman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 2.43,
+          "end": 2.51,
+          "key": "bear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.69,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "truth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.07,
+          "end": 3.07,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tell,",
+          "start": 3.07,
+          "end": 3.33,
+          "key": "tell",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.79,
+          "end": 3.87,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "certain",
+          "start": 3.87,
+          "end": 4.21,
+          "key": "certain",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.21,
+          "end": 4.41,
+          "key": "she",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.41,
+          "end": 4.59,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 4.59,
+          "end": 4.85,
+          "key": "dead",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.15,
+          "end": 5.23,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.23,
+          "end": 5.39,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 5.39,
+          "end": 5.79,
+          "key": "strange",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "manner.",
+          "start": 5.79,
+          "end": 6.19,
+          "key": "manner",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messala.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Then",
+          "start": 1.27,
+          "end": 1.67
+        },
+        {
+          "text": "like",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "Roman",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "text": "bear",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "text": "the",
+          "start": 2.51,
+          "end": 2.69
+        },
+        {
+          "text": "truth",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "I",
+          "start": 3.07,
+          "end": 3.07
+        },
+        {
+          "text": "tell,",
+          "start": 3.07,
+          "end": 3.33
+        },
+        {
+          "text": "For",
+          "start": 3.79,
+          "end": 3.87
+        },
+        {
+          "text": "certain",
+          "start": 3.87,
+          "end": 4.21
+        },
+        {
+          "text": "she",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "text": "is",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "dead,",
+          "start": 4.59,
+          "end": 4.85
+        },
+        {
+          "text": "and",
+          "start": 5.15,
+          "end": 5.23
+        },
+        {
+          "text": "by",
+          "start": 5.23,
+          "end": 5.39
+        },
+        {
+          "text": "strange",
+          "start": 5.39,
+          "end": 5.79
+        },
+        {
+          "text": "manner.",
+          "start": 5.79,
+          "end": 6.19
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3837446868419647
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "948019e9427f5b6b8358a04c9201965eef8a17d864bc28a0ec92dfc1e3b4c2b5",
+  "selected_reasons": []
+}

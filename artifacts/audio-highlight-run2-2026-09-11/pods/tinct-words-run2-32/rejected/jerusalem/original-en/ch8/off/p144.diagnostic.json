@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "d5e4fb74612bb6c4cbbfbad1d48786ed0b73cfe041114cc4406a08a65f42aa97",
+  "attempts": [
+    {
+      "asr_seconds": 0.0697767585515976,
+      "alignment_seconds": 9.389594197273254e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He is to have it if you resist God,\" Haver declared.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 0.83,
+              "end": 0.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 0.99,
+              "end": 1.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " if",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " you",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " resist",
+              "start": 1.33,
+              "end": 1.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " God,\"",
+              "start": 1.65,
+              "end": 2.71,
+              "probability": 0.6890869140625
+            },
+            {
+              "text": " Haver",
+              "start": 2.71,
+              "end": 2.77,
+              "probability": 0.758056640625
+            },
+            {
+              "text": " declared.",
+              "start": 2.77,
+              "end": 3.17,
+              "probability": 0.9287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "to",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "have",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "raw": "it",
+          "start": 0.99,
+          "end": 1.09
+        },
+        {
+          "raw": "if",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "you",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "resist",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "raw": "God,\"",
+          "start": 1.65,
+          "end": 2.71
+        },
+        {
+          "raw": "Haver",
+          "start": 2.71,
+          "end": 2.77
+        },
+        {
+          "raw": "declared.",
+          "start": 2.77,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "is",
+        "to",
+        "have",
+        "it",
+        "if",
+        "you",
+        "resist",
+        "God,\"",
+        "Halvor",
+        "declared."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.83,
+          "end": 0.99,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.99,
+          "end": 1.09,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.09,
+          "end": 1.21,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "resist",
+          "start": 1.33,
+          "end": 1.65,
+          "key": "resist",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "God,\"",
+          "start": 1.65,
+          "end": 2.71,
+          "key": "god",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Haver",
+          "start": 2.71,
+          "end": 2.77,
+          "key": "haver",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "declared.",
+          "start": 2.77,
+          "end": 3.17,
+          "key": "declared",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "to",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "have",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "text": "it",
+          "start": 0.99,
+          "end": 1.09
+        },
+        {
+          "text": "if",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "text": "you",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "resist",
+          "start": 1.33,
+          "end": 1.65
+        },
+        {
+          "text": "God,\"",
+          "start": 1.65,
+          "end": 2.71
+        },
+        {
+          "text": "Halvor",
+          "start": 2.71,
+          "end": 2.74
+        },
+        {
+          "text": "declared.",
+          "start": 2.77,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.06990497000515461
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3f71c14ea2e8de3966df2ca91d6db01bd28fdc07d298f161632d8eaf7701a840",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b12b094b73404826f5323ba2f3a20cf031abb67089656f079ea86bda61a411ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.18103794567286968,
+      "alignment_seconds": 0.0003834255039691925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edmund. My services to your lordship.",
+        "hotwords": "Edmund, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edmund, My services to your lordship.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Edmund,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " My",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.041839599609375
+            },
+            {
+              "text": " services",
+              "start": 1.35,
+              "end": 1.67,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " to",
+              "start": 1.67,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " lordship.",
+              "start": 2.15,
+              "end": 2.63,
+              "probability": 0.765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edmund,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "My",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "services",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "raw": "to",
+          "start": 1.67,
+          "end": 2.03
+        },
+        {
+          "raw": "your",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "lordship.",
+          "start": 2.15,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Edmund.",
+        "My",
+        "services",
+        "to",
+        "your",
+        "lordship."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edmund,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "edmund",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "services",
+          "start": 1.35,
+          "end": 1.67,
+          "key": "services",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.67,
+          "end": 2.03,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lordship.",
+          "start": 2.15,
+          "end": 2.63,
+          "key": "lordship",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edmund.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "My",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "services",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "text": "to",
+          "start": 1.67,
+          "end": 2.03
+        },
+        {
+          "text": "your",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "lordship.",
+          "start": 2.15,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18156232684850693
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "11e60cf586d2fa9cfbb41924c13d8eab12c6ed67716ccbf16558297bd0c5ff30",
+  "selected_reasons": []
+}

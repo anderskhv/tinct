@@ -1,0 +1,383 @@
+{
+  "complete": true,
+  "signature": "033a4342bee71f50516818b5c524af7487a506bba47a51b33865675a667cb6c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.14861246896907687,
+      "alignment_seconds": 0.0002827730495482683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A fortnight.\"",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A Fortnite.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7001953125
+            },
+            {
+              "text": " Fortnite.",
+              "start": 0.51,
+              "end": 1.13,
+              "probability": 0.8287760416666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Fortnite.",
+          "start": 0.51,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "fortnight.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fortnite.",
+          "start": 0.51,
+          "end": 1.13,
+          "key": "fortnite",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "fortnight.\"",
+          "start": 0.51,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14897761982865632
+    },
+    {
+      "asr_seconds": 0.12660804810002446,
+      "alignment_seconds": 0.0002504591830074787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "A"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Fortnite",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Fortnite",
+              "start": 0.05,
+              "end": 1.25,
+              "probability": 0.5631001790364584
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fortnite",
+          "start": 0.05,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "fortnight.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fortnite",
+          "start": 0.05,
+          "end": 1.25,
+          "key": "fortnite",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "fortnight.\"",
+          "start": 0.625,
+          "end": 0.938
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1269287068862468
+    },
+    {
+      "asr_seconds": 0.13394318311475217,
+      "alignment_seconds": 0.0001364171039313078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A Fortnite",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7001953125
+            },
+            {
+              "text": " Fortnite",
+              "start": 0.51,
+              "end": 1.13,
+              "probability": 0.8287760416666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Fortnite",
+          "start": 0.51,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "fortnight.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fortnite",
+          "start": 0.51,
+          "end": 1.13,
+          "key": "fortnite",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "fortnight.\"",
+          "start": 0.51,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1341195001732558
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "80718c18bb160383e7e202409cba6816d2ad80f25363ca2ab1e5e09cc7cdd902",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

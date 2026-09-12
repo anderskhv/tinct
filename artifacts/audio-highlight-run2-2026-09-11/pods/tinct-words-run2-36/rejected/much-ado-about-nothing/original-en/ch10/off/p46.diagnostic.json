@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "f489157e3f8eb37f24101e09b1f4fbc3aa635b12691c11667d0896cc41d6dded",
+  "attempts": [
+    {
+      "asr_seconds": 0.1243668682873249,
+      "alignment_seconds": 0.0002200976014137268,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.6197916666666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt.]",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1246739886701107
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ea0c1612fb4154c29fd3f4af3014fdaa4ca8fa7b9966533a9afc294e3348b54f",
+  "selected_reasons": []
+}

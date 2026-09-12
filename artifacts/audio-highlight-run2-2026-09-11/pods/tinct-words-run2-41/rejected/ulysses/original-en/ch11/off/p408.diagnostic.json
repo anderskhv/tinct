@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "cbed0f88f03c4c4bb330aa0497f54a503a1f33bf7a1cf92f04dd094a43fd1a33",
+  "attempts": [
+    {
+      "asr_seconds": 0.18421946000307798,
+      "alignment_seconds": 0.000468243844807148,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Words, music, know it's what's behind.",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " Words,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " music,",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " know",
+              "start": 1.77,
+              "end": 2.01,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " it's",
+              "start": 2.01,
+              "end": 2.25,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " what's",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " behind.",
+              "start": 2.43,
+              "end": 2.79,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Words,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "music,",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "know",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "raw": "it's",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "raw": "what's",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "behind.",
+          "start": 2.43,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "Words?",
+        "Music?",
+        "No:",
+        "it's",
+        "what's",
+        "behind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Words,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "words",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "music,",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "music",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.77,
+          "end": 2.01,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 2.01,
+          "end": 2.25,
+          "key": "its",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "whats",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "behind.",
+          "start": 2.43,
+          "end": 2.79,
+          "key": "behind",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Words?",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Music?",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "No:",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "it's",
+          "start": 2.01,
+          "end": 2.25
+        },
+        {
+          "text": "what's",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "behind.",
+          "start": 2.43,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18483546981588006
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0e54d54305f1dc01803e790ff370cd3a5b516d2018d2b105437dda6cfe8da3ad",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

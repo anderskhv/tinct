@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "b3f22b92e38bbe7d925eb2f14491df1439ba5c3df35c083877199e45c82bde84",
+  "attempts": [
+    {
+      "asr_seconds": 0.17874523578211665,
+      "alignment_seconds": 0.0004075784236192703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You have been resident in my house three months",
+          "start": 0.02,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " have",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.984375
+            },
+            {
+              "text": " been",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " resident",
+              "start": 0.74,
+              "end": 1.06,
+              "probability": 0.98828125
+            },
+            {
+              "text": " in",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " house",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " three",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " months",
+              "start": 1.88,
+              "end": 2.18,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "have",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "been",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "resident",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "raw": "in",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "house",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "three",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "months",
+          "start": 1.88,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "have",
+        "been",
+        "resident",
+        "in",
+        "my",
+        "house",
+        "three",
+        "months?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "been",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "resident",
+          "start": 0.74,
+          "end": 1.06,
+          "key": "resident",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "house",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "three",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "months",
+          "start": 1.88,
+          "end": 2.18,
+          "key": "months",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "have",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "been",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "resident",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "text": "in",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "my",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "house",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "three",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "months?\"",
+          "start": 1.88,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17931827204301953
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "23ba3c76fa6b23e81366b9de6aa608edcb92e7377d69a6bd08b6d4d581af4215",
+  "selected_reasons": []
+}

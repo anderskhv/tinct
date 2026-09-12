@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "84b1878aa337ac85322a268631308e6370e3109460bad973bbc6393dcfa6476a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1834799237549305,
+      "alignment_seconds": 0.00012877210974693298,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Valerius, and shalt be ever.",
+          "start": 0.61,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Valerius,",
+              "start": 0.61,
+              "end": 1.05,
+              "probability": 0.583984375
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " shalt",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.681640625
+            },
+            {
+              "text": " be",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ever.",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.93896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Valerius,",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "shalt",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "be",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "ever.",
+          "start": 1.71,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "And",
+        "shalt",
+        "be",
+        "ever."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Valerius,",
+          "start": 0.61,
+          "end": 1.05,
+          "key": "valerius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "shalt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ever.",
+          "start": 1.71,
+          "end": 1.97,
+          "key": "ever",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "And",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "shalt",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "be",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "ever.",
+          "start": 1.71,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1836494877934456
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "88eaa0c0b7628ff07a54bb99bb22ea926d482b91cc9b137af47eb61a33fe6ab7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

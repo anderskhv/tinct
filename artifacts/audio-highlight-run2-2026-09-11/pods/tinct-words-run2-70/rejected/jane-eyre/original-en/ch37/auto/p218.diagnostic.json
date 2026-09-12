@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "23d5eb0b131e438242133e543fdfff1f5687d61f4b023c5224a6e81129164607",
+  "attempts": [
+    {
+      "asr_seconds": 0.21846577990800142,
+      "alignment_seconds": 0.00043126801028847694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That depends on circumstances, sir—on your choice.\"",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That depends on circumstances, sir—on your choice.",
+          "start": 0.21,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.21,
+              "end": 0.55,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " depends",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " on",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " circumstances,",
+              "start": 1.05,
+              "end": 1.59,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " sir—on",
+              "start": 2.25,
+              "end": 2.81,
+              "probability": 0.5919850667317709
+            },
+            {
+              "text": " your",
+              "start": 2.81,
+              "end": 2.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " choice.",
+              "start": 2.93,
+              "end": 3.25,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.21,
+          "end": 0.55
+        },
+        {
+          "raw": "depends",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "on",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "circumstances,",
+          "start": 1.05,
+          "end": 1.59
+        },
+        {
+          "raw": "sir—on",
+          "start": 2.25,
+          "end": 2.81
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "raw": "choice.",
+          "start": 2.93,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "depends",
+        "on",
+        "circumstances,",
+        "sir—on",
+        "your",
+        "choice.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.21,
+          "end": 0.55,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "depends",
+          "start": 0.55,
+          "end": 0.81,
+          "key": "depends",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.81,
+          "end": 1.05,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "circumstances,",
+          "start": 1.05,
+          "end": 1.59,
+          "key": "circumstances",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir—on",
+          "start": 2.25,
+          "end": 2.81,
+          "key": "siron",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.81,
+          "end": 2.93,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "choice.",
+          "start": 2.93,
+          "end": 3.25,
+          "key": "choice",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.21,
+          "end": 0.55
+        },
+        {
+          "text": "depends",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "on",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "circumstances,",
+          "start": 1.05,
+          "end": 1.59
+        },
+        {
+          "text": "sir—on",
+          "start": 2.25,
+          "end": 2.81
+        },
+        {
+          "text": "your",
+          "start": 2.81,
+          "end": 2.93
+        },
+        {
+          "text": "choice.\"",
+          "start": 2.93,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21904986398294568
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eaf1f68fdfb4ea6957d6020fbe24403112ec65da830dcb4ce6c443c0d3b237f1",
+  "selected_reasons": []
+}

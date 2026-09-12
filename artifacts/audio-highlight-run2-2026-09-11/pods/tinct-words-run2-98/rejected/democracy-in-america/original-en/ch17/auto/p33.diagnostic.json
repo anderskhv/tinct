@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "fa2c9d1905667d26412cd8533da8f188998412bbd051353f87933745e37bc2a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.28739004395902157,
+      "alignment_seconds": 0.0002611447125673294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Trial By Jury In The United States Considered As A Political Institution",
+        "hotwords": "Trial, By, Jury, In, The, United, States, Considered, As, A, Political, Institution"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trial By Jury In The United States Considered As A Political Institution",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Trial",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.5712890625
+            },
+            {
+              "text": " By",
+              "start": 0.69,
+              "end": 0.97,
+              "probability": 0.002140045166015625
+            },
+            {
+              "text": " Jury",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " In",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.10546875
+            },
+            {
+              "text": " The",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " United",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " States",
+              "start": 1.87,
+              "end": 2.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Considered",
+              "start": 2.45,
+              "end": 3.29,
+              "probability": 0.6424560546875
+            },
+            {
+              "text": " As",
+              "start": 3.29,
+              "end": 3.63,
+              "probability": 0.91796875
+            },
+            {
+              "text": " A",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Political",
+              "start": 3.77,
+              "end": 4.13,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Institution",
+              "start": 4.13,
+              "end": 4.73,
+              "probability": 0.94873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trial",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "By",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "raw": "Jury",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "raw": "In",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "raw": "The",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "United",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "States",
+          "start": 1.87,
+          "end": 2.45
+        },
+        {
+          "raw": "Considered",
+          "start": 2.45,
+          "end": 3.29
+        },
+        {
+          "raw": "As",
+          "start": 3.29,
+          "end": 3.63
+        },
+        {
+          "raw": "A",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "Political",
+          "start": 3.77,
+          "end": 4.13
+        },
+        {
+          "raw": "Institution",
+          "start": 4.13,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "Trial",
+        "By",
+        "Jury",
+        "In",
+        "The",
+        "United",
+        "States",
+        "Considered",
+        "As",
+        "A",
+        "Political",
+        "Institution"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Trial",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "trial",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 0.69,
+          "end": 0.97,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jury",
+          "start": 0.97,
+          "end": 1.27,
+          "key": "jury",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "united",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 1.87,
+          "end": 2.45,
+          "key": "states",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Considered",
+          "start": 2.45,
+          "end": 3.29,
+          "key": "considered",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 3.29,
+          "end": 3.63,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Political",
+          "start": 3.77,
+          "end": 4.13,
+          "key": "political",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Institution",
+          "start": 4.13,
+          "end": 4.73,
+          "key": "institution",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Trial",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "By",
+          "start": 0.69,
+          "end": 0.97
+        },
+        {
+          "text": "Jury",
+          "start": 0.97,
+          "end": 1.27
+        },
+        {
+          "text": "In",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "text": "The",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "United",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "States",
+          "start": 1.87,
+          "end": 2.45
+        },
+        {
+          "text": "Considered",
+          "start": 2.45,
+          "end": 3.29
+        },
+        {
+          "text": "As",
+          "start": 3.29,
+          "end": 3.63
+        },
+        {
+          "text": "A",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "Political",
+          "start": 3.77,
+          "end": 4.13
+        },
+        {
+          "text": "Institution",
+          "start": 4.13,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2877502851188183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd950e2c36343064a40edc258171f32c9e58146284c6331ebbb71c72a34ae146",
+  "selected_reasons": []
+}

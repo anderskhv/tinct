@@ -1,0 +1,373 @@
+{
+  "complete": true,
+  "signature": "4003b580edd2b205ee41b36848d6201cb7b8e396b7b6c2231402d5786c9f1989",
+  "attempts": [
+    {
+      "asr_seconds": 0.24782617017626762,
+      "alignment_seconds": 0.0005749617703258991,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Daichi, omadano artifoni said, scusi a tant belkos",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " Daichi,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.500732421875
+            },
+            {
+              "text": " omadano",
+              "start": 1.39,
+              "end": 1.81,
+              "probability": 0.3347574869791667
+            },
+            {
+              "text": " artifoni",
+              "start": 1.81,
+              "end": 2.29,
+              "probability": 0.5965169270833334
+            },
+            {
+              "text": " said,",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.873046875
+            },
+            {
+              "text": " scusi",
+              "start": 2.75,
+              "end": 3.15,
+              "probability": 0.4160970052083333
+            },
+            {
+              "text": " a",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.546875
+            },
+            {
+              "text": " tant",
+              "start": 3.35,
+              "end": 3.91,
+              "probability": 0.3189697265625
+            },
+            {
+              "text": " belkos",
+              "start": 3.91,
+              "end": 4.49,
+              "probability": 0.4424641927083333
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Daichi,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "omadano",
+          "start": 1.39,
+          "end": 1.81
+        },
+        {
+          "raw": "artifoni",
+          "start": 1.81,
+          "end": 2.29
+        },
+        {
+          "raw": "said,",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "raw": "scusi",
+          "start": 2.75,
+          "end": 3.15
+        },
+        {
+          "raw": "a",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "tant",
+          "start": 3.35,
+          "end": 3.91
+        },
+        {
+          "raw": "belkos",
+          "start": 3.91,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "—_Di",
+        "che?_",
+        "Almidano",
+        "Artifoni",
+        "said.",
+        "_Scusi,",
+        "eh?",
+        "Tante",
+        "belle",
+        "cose!_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          6,
+          2,
+          5
+        ],
+        [
+          "replace",
+          6,
+          10,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          10,
+          5,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Daichi,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "daichi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "omadano",
+          "start": 1.39,
+          "end": 1.81,
+          "key": "omadano",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "artifoni",
+          "start": 1.81,
+          "end": 2.29,
+          "key": "artifoni",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.29,
+          "end": 2.55,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "scusi",
+          "start": 2.75,
+          "end": 3.15,
+          "key": "scusi",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tant",
+          "start": 3.35,
+          "end": 3.91,
+          "key": "tant",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "belkos",
+          "start": 3.91,
+          "end": 4.49,
+          "key": "belkos",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Di",
+          "start": 0.0,
+          "end": 0.905
+        },
+        {
+          "text": "che?_",
+          "start": 0.905,
+          "end": 1.357
+        },
+        {
+          "text": "Almidano",
+          "start": 1.357,
+          "end": 1.583
+        },
+        {
+          "text": "Artifoni",
+          "start": 1.81,
+          "end": 2.29
+        },
+        {
+          "text": "said.",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "text": "_Scusi,",
+          "start": 2.75,
+          "end": 3.15
+        },
+        {
+          "text": "eh?",
+          "start": 3.15,
+          "end": 3.82
+        },
+        {
+          "text": "Tante",
+          "start": 3.82,
+          "end": 4.155
+        },
+        {
+          "text": "belle",
+          "start": 4.155,
+          "end": 4.322
+        },
+        {
+          "text": "cose!_",
+          "start": 4.322,
+          "end": 4.406
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 8,
+        "matched_words": 3
+      },
+      "match_ratio": 0.3,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24856762820854783
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "45b9cd6b2e81a54dd115578b0798affbfcf30e48fa28145582ec0b6983d8ef50",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

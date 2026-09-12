@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "ee2223e9a899f5028f82dfb9ea5e6cf111bda74dc13000ea9281d87f8f1f98cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.22783881425857544,
+      "alignment_seconds": 0.00043244799599051476,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They were made for a man in his health, Ben Anyhow.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " were",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " made",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 0.77,
+              "end": 0.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " man",
+              "start": 1.07,
+              "end": 1.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " his",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " health,",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Ben",
+              "start": 2.35,
+              "end": 2.43,
+              "probability": 0.763671875
+            },
+            {
+              "text": " Anyhow.",
+              "start": 2.43,
+              "end": 3.09,
+              "probability": 0.727294921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "were",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "made",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "for",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "man",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "raw": "in",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "his",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "health,",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "raw": "Ben",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "raw": "Anyhow.",
+          "start": 2.43,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "—They",
+        "were",
+        "made",
+        "for",
+        "a",
+        "man",
+        "in",
+        "his",
+        "health,",
+        "Ben,",
+        "anyhow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "made",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.77,
+          "end": 0.97,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.97,
+          "end": 1.07,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.07,
+          "end": 1.23,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "health,",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "health",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ben",
+          "start": 2.35,
+          "end": 2.43,
+          "key": "ben",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Anyhow.",
+          "start": 2.43,
+          "end": 3.09,
+          "key": "anyhow",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—They",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "were",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "made",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "for",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "text": "a",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "man",
+          "start": 1.07,
+          "end": 1.23
+        },
+        {
+          "text": "in",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "his",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "health,",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "text": "Ben,",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "text": "anyhow.",
+          "start": 2.43,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22843747911974788
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9db9aace5f200b31d5b52336b171932aef5441ca83814cdc0c388e60d11ad140",
+  "selected_reasons": []
+}

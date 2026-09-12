@@ -1,0 +1,212 @@
+{
+  "complete": true,
+  "signature": "11ee5780070c4926e7a0edde24dc078794b6006a077e54e606b2efc2972cf77e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1331263897009194,
+      "alignment_seconds": 0.00045149214565753937,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Co-ome, thou lost one.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Co",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.76611328125
+            },
+            {
+              "text": "-ome,",
+              "start": 0.57,
+              "end": 0.83,
+              "probability": 0.490966796875
+            },
+            {
+              "text": " thou",
+              "start": 1.05,
+              "end": 1.13,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " lost",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " one.",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Co",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-ome,",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "raw": "thou",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "raw": "lost",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "one.",
+          "start": 1.35,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "—_Co-ome,",
+        "thou",
+        "lost",
+        "one!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Co -ome,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "coome",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.05,
+          "end": 1.13,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "lost",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "one",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "—_Co-ome,",
+          "heard": "Co -ome,",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "—_Co-ome,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "thou",
+          "start": 1.05,
+          "end": 1.13
+        },
+        {
+          "text": "lost",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "one!",
+          "start": 1.35,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13369342498481274
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d07f2160b2834a3c394296b1208ae6ba7cbce19ac2a3308c45ba78be4564232d",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1e50ed75fce13050a7ce45ab39e4d6a47e4e25383c02e1cdddc1883eabb9b10e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09659725707024336,
+      "alignment_seconds": 0.00012630876153707504,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Montano is led off.]",
+        "hotwords": "Montano"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Montano is led off.",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " Montano",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " is",
+              "start": 0.93,
+              "end": 1.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " led",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.10345458984375
+            },
+            {
+              "text": " off.",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montano",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "is",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "raw": "led",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "off.",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "[Montano",
+        "is",
+        "led",
+        "off.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montano",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "montano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.93,
+          "end": 1.09,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "led",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "led",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "off",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Montano",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "is",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "text": "led",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "off.]",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09676254587247968
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "92d36f31bdfcae10b5c8758caabbbacde3f99ce0cb0d8369f8e5f3b7d711f136",
+  "selected_reasons": []
+}

@@ -1,0 +1,687 @@
+{
+  "complete": true,
+  "signature": "9f9e469bbfba3264af0c050f6c595f4a50e602c053bd8b60466c3f1a2296138c",
+  "attempts": [
+    {
+      "asr_seconds": 4.1407839534804225,
+      "alignment_seconds": 0.0005152970552444458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Seleucus. Enough to purchase what you have made known.",
+        "hotwords": "Seleucus, Enough"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Seleucus, Enough Seleucus, Enough Seleucus, Enough Seleucus, Enough",
+          "start": 0.11,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " Seleucus,",
+              "start": 0.11,
+              "end": 1.09,
+              "probability": 0.6990280151367188
+            },
+            {
+              "text": " Enough",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.043670654296875
+            },
+            {
+              "text": " Seleucus,",
+              "start": 1.65,
+              "end": 3.77,
+              "probability": 0.7196045070886612
+            },
+            {
+              "text": " Enough",
+              "start": 3.77,
+              "end": 3.77,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Seleucus,",
+              "start": 3.77,
+              "end": 3.77,
+              "probability": 0.761322021484375
+            },
+            {
+              "text": " Enough",
+              "start": 3.77,
+              "end": 3.77,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Seleucus,",
+              "start": 3.77,
+              "end": 3.77,
+              "probability": 0.784881591796875
+            },
+            {
+              "text": " Enough",
+              "start": 3.77,
+              "end": 3.77,
+              "probability": 0.9462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seleucus,",
+          "start": 0.11,
+          "end": 1.09
+        },
+        {
+          "raw": "Enough",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "raw": "Seleucus,",
+          "start": 1.65,
+          "end": 3.77
+        },
+        {
+          "raw": "Enough",
+          "start": 3.77,
+          "end": 3.77
+        },
+        {
+          "raw": "Seleucus,",
+          "start": 3.77,
+          "end": 3.77
+        },
+        {
+          "raw": "Enough",
+          "start": 3.77,
+          "end": 3.77
+        },
+        {
+          "raw": "Seleucus,",
+          "start": 3.77,
+          "end": 3.77
+        },
+        {
+          "raw": "Enough",
+          "start": 3.77,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "Seleucus.",
+        "Enough",
+        "to",
+        "purchase",
+        "what",
+        "you",
+        "have",
+        "made",
+        "known."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          9,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          9,
+          2,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Seleucus,",
+          "start": 0.11,
+          "end": 1.09,
+          "key": "seleucus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enough",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "enough",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Seleucus,",
+          "start": 1.65,
+          "end": 3.77,
+          "key": "seleucus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enough",
+          "start": 3.77,
+          "end": 3.77,
+          "key": "enough",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Seleucus,",
+          "start": 3.77,
+          "end": 3.77,
+          "key": "seleucus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Enough",
+          "start": 3.77,
+          "end": 3.77,
+          "key": "enough",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Seleucus,",
+          "start": 3.77,
+          "end": 3.77,
+          "key": "seleucus",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Enough",
+          "start": 3.77,
+          "end": 3.77,
+          "key": "enough",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Seleucus.",
+          "start": 0.11,
+          "end": 1.09
+        },
+        {
+          "text": "Enough",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "text": "to",
+          "start": 1.65,
+          "end": 2.71
+        },
+        {
+          "text": "purchase",
+          "start": 2.71,
+          "end": 3.24
+        },
+        {
+          "text": "what",
+          "start": 3.24,
+          "end": 3.505
+        },
+        {
+          "text": "you",
+          "start": 3.505,
+          "end": 3.638
+        },
+        {
+          "text": "have",
+          "start": 3.638,
+          "end": 3.704
+        },
+        {
+          "text": "made",
+          "start": 3.704,
+          "end": 3.737
+        },
+        {
+          "text": "known.",
+          "start": 3.737,
+          "end": 3.753
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2222222222222222,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.1414822386577725
+    },
+    {
+      "asr_seconds": 0.22041387390345335,
+      "alignment_seconds": 0.00045761559158563614,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Seleucus, Enough"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Seleucus, Enough to purchase what you have made known.",
+          "start": 0.61,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Seleucus,",
+              "start": 0.61,
+              "end": 1.09,
+              "probability": 0.6990280151367188
+            },
+            {
+              "text": " Enough",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.043670654296875
+            },
+            {
+              "text": " to",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " purchase",
+              "start": 1.91,
+              "end": 2.19,
+              "probability": 0.857421875
+            },
+            {
+              "text": " what",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " you",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 2.55,
+              "end": 2.63,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " made",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " known.",
+              "start": 2.79,
+              "end": 3.13,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seleucus,",
+          "start": 0.61,
+          "end": 1.09
+        },
+        {
+          "raw": "Enough",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "to",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "purchase",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "raw": "what",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "you",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "have",
+          "start": 2.55,
+          "end": 2.63
+        },
+        {
+          "raw": "made",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "known.",
+          "start": 2.79,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Seleucus.",
+        "Enough",
+        "to",
+        "purchase",
+        "what",
+        "you",
+        "have",
+        "made",
+        "known."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Seleucus,",
+          "start": 0.61,
+          "end": 1.09,
+          "key": "seleucus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enough",
+          "start": 1.57,
+          "end": 1.67,
+          "key": "enough",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "purchase",
+          "start": 1.91,
+          "end": 2.19,
+          "key": "purchase",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.55,
+          "end": 2.63,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "made",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "known.",
+          "start": 2.79,
+          "end": 3.13,
+          "key": "known",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Seleucus.",
+          "start": 0.61,
+          "end": 1.09
+        },
+        {
+          "text": "Enough",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "to",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "purchase",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "text": "what",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "you",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "have",
+          "start": 2.55,
+          "end": 2.63
+        },
+        {
+          "text": "made",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "known.",
+          "start": 2.79,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22106394916772842
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "9117100e1953ca8474bc96f4039d06d655437f5321118dbf5b7e8336927f0a03",
+  "selected_reasons": []
+}

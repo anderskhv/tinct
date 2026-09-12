@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "e4f1af1fc3740cea1f5f1a1cfe5ca0349df0230c618fd30b3856f454f72320f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.24409491894766688,
+      "alignment_seconds": 0.00046301004476845264,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hastings. Cannot my Lord Stanley sleep these tedious nights?",
+        "hotwords": "Hastings, Cannot, Lord, Stanley"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hastings, Cannot my Lord Stanley sleep these tedious nights?",
+          "start": 0.05,
+          "end": 3.79,
+          "words": [
+            {
+              "text": " Hastings,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Cannot",
+              "start": 1.65,
+              "end": 1.65,
+              "probability": 0.0015392303466796875
+            },
+            {
+              "text": " my",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " Lord",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.450927734375
+            },
+            {
+              "text": " Stanley",
+              "start": 2.09,
+              "end": 2.55,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sleep",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " these",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " tedious",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " nights?",
+              "start": 3.39,
+              "end": 3.79,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hastings,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Cannot",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "raw": "my",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "Lord",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "raw": "Stanley",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "raw": "sleep",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "raw": "these",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "raw": "tedious",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "raw": "nights?",
+          "start": 3.39,
+          "end": 3.79
+        }
+      ],
+      "expected_tokens": [
+        "Hastings.",
+        "Cannot",
+        "my",
+        "Lord",
+        "Stanley",
+        "sleep",
+        "these",
+        "tedious",
+        "nights?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hastings,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hastings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cannot",
+          "start": 1.65,
+          "end": 1.65,
+          "key": "cannot",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.65,
+          "end": 1.91,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Stanley",
+          "start": 2.09,
+          "end": 2.55,
+          "key": "stanley",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "sleep",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "these",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tedious",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "tedious",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nights?",
+          "start": 3.39,
+          "end": 3.79,
+          "key": "nights",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hastings.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Cannot",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "text": "my",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "Lord",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "text": "Stanley",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "text": "sleep",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "text": "these",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "text": "tedious",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "text": "nights?",
+          "start": 3.39,
+          "end": 3.79
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24473857204429805
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ad711b4a1bab9fc40212fbfd63fc12e16a60ed2d87f08f2607b4b4704def35c9",
+  "selected_reasons": []
+}

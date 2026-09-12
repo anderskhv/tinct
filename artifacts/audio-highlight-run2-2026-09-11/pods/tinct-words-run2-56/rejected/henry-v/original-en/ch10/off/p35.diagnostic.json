@@ -1,0 +1,421 @@
+{
+  "complete": true,
+  "signature": "9c1a07638847404bff9a329e1ed0eaa9647b63d01659933f80dd1692164f95a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.24266719911247492,
+      "alignment_seconds": 0.0005832472816109657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catherine, c'est sez pour une foise, Allens News, a Diner.",
+          "start": 0.05,
+          "end": 4.07,
+          "words": [
+            {
+              "text": " Catherine,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.49560546875
+            },
+            {
+              "text": " c",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.07501220703125
+            },
+            {
+              "text": "'est",
+              "start": 1.53,
+              "end": 1.59,
+              "probability": 0.864013671875
+            },
+            {
+              "text": " sez",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.43194580078125
+            },
+            {
+              "text": " pour",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " une",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.880859375
+            },
+            {
+              "text": " foise,",
+              "start": 2.17,
+              "end": 2.67,
+              "probability": 0.714111328125
+            },
+            {
+              "text": " Allens",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.622314453125
+            },
+            {
+              "text": " News,",
+              "start": 3.29,
+              "end": 3.51,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " a",
+              "start": 3.67,
+              "end": 3.71,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " Diner.",
+              "start": 3.71,
+              "end": 4.07,
+              "probability": 0.841064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catherine,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "c",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "'est",
+          "start": 1.53,
+          "end": 1.59
+        },
+        {
+          "raw": "sez",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "pour",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "une",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "foise,",
+          "start": 2.17,
+          "end": 2.67
+        },
+        {
+          "raw": "Allens",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "News,",
+          "start": 3.29,
+          "end": 3.51
+        },
+        {
+          "raw": "a",
+          "start": 3.67,
+          "end": 3.71
+        },
+        {
+          "raw": "Diner.",
+          "start": 3.71,
+          "end": 4.07
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_C'est",
+        "assez",
+        "pour",
+        "une",
+        "fois.",
+        "Allons-nous",
+        "à",
+        "dîner._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          5,
+          9,
+          6,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          4
+        ],
+        [
+          "replace",
+          5,
+          9,
+          6,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catherine,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "catherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "c",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "c",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 1.53,
+          "end": 1.59,
+          "key": "est",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sez",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "sez",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "pour",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "une",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "une",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "foise,",
+          "start": 2.17,
+          "end": 2.67,
+          "key": "foise",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Allens",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "allens",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "News,",
+          "start": 3.29,
+          "end": 3.51,
+          "key": "news",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.67,
+          "end": 3.71,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Diner.",
+          "start": 3.71,
+          "end": 4.07,
+          "key": "diner",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 0.905
+        },
+        {
+          "text": "_C'est",
+          "start": 0.905,
+          "end": 1.357
+        },
+        {
+          "text": "assez",
+          "start": 1.357,
+          "end": 1.583
+        },
+        {
+          "text": "pour",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "une",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "fois.",
+          "start": 2.17,
+          "end": 3.12
+        },
+        {
+          "text": "Allons-nous",
+          "start": 3.12,
+          "end": 3.595
+        },
+        {
+          "text": "à",
+          "start": 3.595,
+          "end": 3.833
+        },
+        {
+          "text": "dîner._",
+          "start": 3.833,
+          "end": 3.952
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 11,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2222222222222222,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24347538873553276
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fffb123ce6eab04b125f4b2200f8bc4422f9901d2e54f10cdcb1a25625be75fa",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

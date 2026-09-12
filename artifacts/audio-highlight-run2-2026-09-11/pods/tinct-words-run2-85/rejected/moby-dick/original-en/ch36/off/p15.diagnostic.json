@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "17385f06309aff43e9d432c8ed5ed332e76577e3bc55a44bb2ee5db8d48785b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11328415293246508,
+      "alignment_seconds": 0.0003140154294669628,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And what tune is it you pull to, Men?",
+          "start": 0.11,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " what",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.978515625
+            },
+            {
+              "text": " tune",
+              "start": 0.67,
+              "end": 0.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 0.93,
+              "end": 1.07,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " it",
+              "start": 1.07,
+              "end": 1.15,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " you",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " pull",
+              "start": 1.25,
+              "end": 1.41,
+              "probability": 0.61328125
+            },
+            {
+              "text": " to,",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Men?",
+              "start": 1.75,
+              "end": 1.83,
+              "probability": 0.359130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "tune",
+          "start": 0.67,
+          "end": 0.93
+        },
+        {
+          "raw": "is",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "raw": "it",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "raw": "you",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "pull",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "raw": "to,",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "Men?",
+          "start": 1.75,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "what",
+        "tune",
+        "is",
+        "it",
+        "ye",
+        "pull",
+        "to,",
+        "men?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tune",
+          "start": 0.67,
+          "end": 0.93,
+          "key": "tune",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.93,
+          "end": 1.07,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.07,
+          "end": 1.15,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pull",
+          "start": 1.25,
+          "end": 1.41,
+          "key": "pull",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to,",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Men?",
+          "start": 1.75,
+          "end": 1.83,
+          "key": "men",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "what",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "tune",
+          "start": 0.67,
+          "end": 0.93
+        },
+        {
+          "text": "is",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "text": "it",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "text": "ye",
+          "start": 1.15,
+          "end": 1.2
+        },
+        {
+          "text": "pull",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "text": "to,",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "men?\"",
+          "start": 1.75,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.11374212568625808
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5b55b9d0a4c788d2d29717e27fd793ea122e4528ff466123b3cc3832a465338a",
+  "selected_reasons": []
+}

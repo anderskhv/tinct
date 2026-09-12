@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "23bfd397930ea999121c5d470ce46887d9eab01c5104b2453afe5cc357159c64",
+  "attempts": [
+    {
+      "asr_seconds": 0.23037397488951683,
+      "alignment_seconds": 0.0005975998938083649,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I asked you to go with me yesterday because you are all I have left.",
+          "start": 0.08,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " asked",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " go",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yesterday",
+              "start": 1.64,
+              "end": 2.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " because",
+              "start": 2.02,
+              "end": 2.74,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " you",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " all",
+              "start": 3.12,
+              "end": 3.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 3.34,
+              "end": 3.52,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " have",
+              "start": 3.52,
+              "end": 3.62,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " left.",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "asked",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "you",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "raw": "go",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "with",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "me",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "yesterday",
+          "start": 1.64,
+          "end": 2.02
+        },
+        {
+          "raw": "because",
+          "start": 2.02,
+          "end": 2.74
+        },
+        {
+          "raw": "you",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "are",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "all",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "raw": "I",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "raw": "have",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "raw": "left.",
+          "start": 3.62,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "asked",
+        "you",
+        "to",
+        "go",
+        "with",
+        "me",
+        "yesterday",
+        "because",
+        "you",
+        "are",
+        "all",
+        "I",
+        "have",
+        "left.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "asked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "yesterday",
+          "start": 1.64,
+          "end": 2.02,
+          "key": "yesterday",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 2.02,
+          "end": 2.74,
+          "key": "because",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.74,
+          "end": 2.96,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.96,
+          "end": 3.12,
+          "key": "are",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.12,
+          "end": 3.34,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.34,
+          "end": 3.52,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.52,
+          "end": 3.62,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "left.",
+          "start": 3.62,
+          "end": 3.92,
+          "key": "left",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "asked",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "you",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "to",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "text": "go",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "with",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "me",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "yesterday",
+          "start": 1.64,
+          "end": 2.02
+        },
+        {
+          "text": "because",
+          "start": 2.02,
+          "end": 2.74
+        },
+        {
+          "text": "you",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "are",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "all",
+          "start": 3.12,
+          "end": 3.34
+        },
+        {
+          "text": "I",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "text": "have",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "text": "left.\"",
+          "start": 3.62,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23124364018440247
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26d91e13406ff23429558bf8adb7654afb6c06b9161526820e834f0601d09ba7",
+  "selected_reasons": []
+}

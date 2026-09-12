@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "413fa9ed36b1b91852f5708c35771bd850307a0202657ad3475dff0652449dd9",
+  "attempts": [
+    {
+      "asr_seconds": 0.1444704905152321,
+      "alignment_seconds": 0.00027225539088249207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Throws them down.]",
+        "hotwords": "Throws"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Throws them down.",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Throws",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7244873046875
+            },
+            {
+              "text": " them",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " down.",
+              "start": 0.85,
+              "end": 1.17,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Throws",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "them",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "down.",
+          "start": 0.85,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "[Throws",
+        "them",
+        "down.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Throws",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "throws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "them",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 0.85,
+          "end": 1.17,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Throws",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "them",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "down.]",
+          "start": 0.85,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.144825030118227
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e16564400bf855dab3232a0d09c7c34c4a0f073bf96b53746ae8ab6a594cd11c",
+  "selected_reasons": []
+}

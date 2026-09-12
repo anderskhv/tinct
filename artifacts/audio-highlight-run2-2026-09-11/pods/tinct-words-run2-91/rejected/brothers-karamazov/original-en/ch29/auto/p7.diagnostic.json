@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "f334c38462193fb1ba86dbc3729d3b4962de487ebdf1fa16e0e5ad7b15b4fad0",
+  "attempts": [
+    {
+      "asr_seconds": 0.23105673864483833,
+      "alignment_seconds": 0.00021956581622362137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That's true, that's true,\" cried Madame Hohlakov.",
+        "hotwords": "Madame, Hohlakov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That's true, that's true,\" cried Madame Hohlakov.",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.7266845703125
+            },
+            {
+              "text": " true,",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that's",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " true,\"",
+              "start": 1.25,
+              "end": 2.07,
+              "probability": 0.5872802734375
+            },
+            {
+              "text": " cried",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Madame",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " Hohlakov.",
+              "start": 2.37,
+              "end": 2.83,
+              "probability": 0.010568618774414062
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "true,",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "that's",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "true,\"",
+          "start": 1.25,
+          "end": 2.07
+        },
+        {
+          "raw": "cried",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "raw": "Madame",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "raw": "Hohlakov.",
+          "start": 2.37,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "true,",
+        "that's",
+        "true,\"",
+        "cried",
+        "Madame",
+        "Hohlakov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 0.71,
+          "end": 0.89,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "thats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true,\"",
+          "start": 1.25,
+          "end": 2.07,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.07,
+          "end": 2.07,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Madame",
+          "start": 2.07,
+          "end": 2.37,
+          "key": "madame",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Hohlakov.",
+          "start": 2.37,
+          "end": 2.83,
+          "key": "hohlakov",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "true,",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "that's",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "true,\"",
+          "start": 1.25,
+          "end": 2.07
+        },
+        {
+          "text": "cried",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "text": "Madame",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "text": "Hohlakov.",
+          "start": 2.37,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23135548643767834
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d45bd3f01ab2c32e44daeac693af817d83c56638a82cac8113eaf4bf702c515",
+  "selected_reasons": []
+}

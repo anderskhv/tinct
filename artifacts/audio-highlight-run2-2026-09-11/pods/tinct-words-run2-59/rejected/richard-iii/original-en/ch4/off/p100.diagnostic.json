@@ -1,0 +1,774 @@
+{
+  "complete": true,
+  "signature": "79489c922ef7e6835db8956172b984b1c9c600c71139171171b96b713084115f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3242884299252182,
+      "alignment_seconds": 0.0005864950362592936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First murderer take that and that stabs him if all this will not do I'll drown you in the momsy butt within",
+          "start": 0.05,
+          "end": 7.05,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " murderer",
+              "start": 0.67,
+              "end": 1.09,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " take",
+              "start": 1.09,
+              "end": 1.65,
+              "probability": 0.335205078125
+            },
+            {
+              "text": " that",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.9609375
+            },
+            {
+              "text": " that",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stabs",
+              "start": 2.35,
+              "end": 3.15,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " him",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " if",
+              "start": 3.39,
+              "end": 4.07,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " all",
+              "start": 4.07,
+              "end": 4.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 4.59,
+              "end": 4.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 4.83,
+              "end": 5.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I'll",
+              "start": 5.15,
+              "end": 5.47,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " drown",
+              "start": 5.47,
+              "end": 5.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 5.69,
+              "end": 5.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 5.95,
+              "end": 6.05,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " the",
+              "start": 6.05,
+              "end": 6.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " momsy",
+              "start": 6.17,
+              "end": 6.55,
+              "probability": 0.3936767578125
+            },
+            {
+              "text": " butt",
+              "start": 6.55,
+              "end": 6.73,
+              "probability": 0.418212890625
+            },
+            {
+              "text": " within",
+              "start": 6.73,
+              "end": 7.05,
+              "probability": 0.9296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "murderer",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "raw": "take",
+          "start": 1.09,
+          "end": 1.65
+        },
+        {
+          "raw": "that",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "and",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "that",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "stabs",
+          "start": 2.35,
+          "end": 3.15
+        },
+        {
+          "raw": "him",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "raw": "if",
+          "start": 3.39,
+          "end": 4.07
+        },
+        {
+          "raw": "all",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "raw": "this",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "will",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "not",
+          "start": 4.59,
+          "end": 4.83
+        },
+        {
+          "raw": "do",
+          "start": 4.83,
+          "end": 5.15
+        },
+        {
+          "raw": "I'll",
+          "start": 5.15,
+          "end": 5.47
+        },
+        {
+          "raw": "drown",
+          "start": 5.47,
+          "end": 5.69
+        },
+        {
+          "raw": "you",
+          "start": 5.69,
+          "end": 5.95
+        },
+        {
+          "raw": "in",
+          "start": 5.95,
+          "end": 6.05
+        },
+        {
+          "raw": "the",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "raw": "momsy",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "raw": "butt",
+          "start": 6.55,
+          "end": 6.73
+        },
+        {
+          "raw": "within",
+          "start": 6.73,
+          "end": 7.05
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "Take",
+        "that,",
+        "and",
+        "that!",
+        "[_Stabs",
+        "him._]",
+        "If",
+        "all",
+        "this",
+        "will",
+        "not",
+        "do,",
+        "I'll",
+        "drown",
+        "you",
+        "in",
+        "the",
+        "malmsey-butt",
+        "within."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          21
+        ],
+        [
+          "equal",
+          20,
+          21,
+          21,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer",
+          "start": 0.67,
+          "end": 1.09,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.09,
+          "end": 1.65,
+          "key": "take",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "stabs",
+          "start": 2.35,
+          "end": 3.15,
+          "key": "stabs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.15,
+          "end": 3.39,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.39,
+          "end": 4.07,
+          "key": "if",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.07,
+          "end": 4.23,
+          "key": "all",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.23,
+          "end": 4.41,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.41,
+          "end": 4.59,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.59,
+          "end": 4.83,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.83,
+          "end": 5.15,
+          "key": "do",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 5.15,
+          "end": 5.47,
+          "key": "ill",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "drown",
+          "start": 5.47,
+          "end": 5.69,
+          "key": "drown",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.69,
+          "end": 5.95,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.95,
+          "end": 6.05,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.05,
+          "end": 6.17,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "momsy",
+          "start": 6.17,
+          "end": 6.55,
+          "key": "momsy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "butt",
+          "start": 6.55,
+          "end": 6.73,
+          "key": "butt",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 6.73,
+          "end": 7.05,
+          "key": "within",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.67,
+          "end": 1.09
+        },
+        {
+          "text": "Take",
+          "start": 1.09,
+          "end": 1.65
+        },
+        {
+          "text": "that,",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "and",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "that!",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "[_Stabs",
+          "start": 2.35,
+          "end": 3.15
+        },
+        {
+          "text": "him._]",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "text": "If",
+          "start": 3.39,
+          "end": 4.07
+        },
+        {
+          "text": "all",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "text": "this",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "will",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "not",
+          "start": 4.59,
+          "end": 4.83
+        },
+        {
+          "text": "do,",
+          "start": 4.83,
+          "end": 5.15
+        },
+        {
+          "text": "I'll",
+          "start": 5.15,
+          "end": 5.47
+        },
+        {
+          "text": "drown",
+          "start": 5.47,
+          "end": 5.69
+        },
+        {
+          "text": "you",
+          "start": 5.69,
+          "end": 5.95
+        },
+        {
+          "text": "in",
+          "start": 5.95,
+          "end": 6.05
+        },
+        {
+          "text": "the",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "text": "malmsey-butt",
+          "start": 6.17,
+          "end": 6.45
+        },
+        {
+          "text": "within.",
+          "start": 6.73,
+          "end": 7.05
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.325100113870576
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "071d444c7a6c9f653ec4aa0bcc9cd96d1c1eb35e01f48c18ba3d52e2b9f9ec8a",
+  "selected_reasons": []
+}

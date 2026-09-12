@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "377101d9ceb174b8452eb15d98e2c2f8fafdc23b7af2145e75fb8396fc4540fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.07947052642703056,
+      "alignment_seconds": 0.00010288134217262268,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You don't mean to tell me that even the children preached,\" said Ingmar doubtingly.",
+          "start": 0.02,
+          "end": 4.36,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.1937255859375
+            },
+            {
+              "text": " don't",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " mean",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tell",
+              "start": 0.88,
+              "end": 1.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " even",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " children",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " preached,\"",
+              "start": 2.1,
+              "end": 3.1,
+              "probability": 0.874755859375
+            },
+            {
+              "text": " said",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Ingmar",
+              "start": 3.32,
+              "end": 3.8,
+              "probability": 0.921142578125
+            },
+            {
+              "text": " doubtingly.",
+              "start": 3.8,
+              "end": 4.36,
+              "probability": 0.779052734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "mean",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "tell",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "raw": "me",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "that",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "even",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "children",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "raw": "preached,\"",
+          "start": 2.1,
+          "end": 3.1
+        },
+        {
+          "raw": "said",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "Ingmar",
+          "start": 3.32,
+          "end": 3.8
+        },
+        {
+          "raw": "doubtingly.",
+          "start": 3.8,
+          "end": 4.36
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "don't",
+        "mean",
+        "to",
+        "tell",
+        "me",
+        "that",
+        "even",
+        "the",
+        "children",
+        "preached,\"",
+        "said",
+        "Ingmar",
+        "doubtingly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.64,
+          "end": 0.76,
+          "key": "mean",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 0.88,
+          "end": 1.06,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "even",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "children",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "preached,\"",
+          "start": 2.1,
+          "end": 3.1,
+          "key": "preached",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 3.32,
+          "end": 3.8,
+          "key": "ingmar",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "doubtingly.",
+          "start": 3.8,
+          "end": 4.36,
+          "key": "doubtingly",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "don't",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "mean",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "tell",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "text": "me",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "that",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "even",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "children",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "text": "preached,\"",
+          "start": 2.1,
+          "end": 3.1
+        },
+        {
+          "text": "said",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "Ingmar",
+          "start": 3.32,
+          "end": 3.8
+        },
+        {
+          "text": "doubtingly.",
+          "start": 3.8,
+          "end": 4.36
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07961239106953144
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25f980464024d7f5c2e08b43fbc2a8b28ea4475efa24c3b285bfc39fcd3673b9",
+  "selected_reasons": []
+}

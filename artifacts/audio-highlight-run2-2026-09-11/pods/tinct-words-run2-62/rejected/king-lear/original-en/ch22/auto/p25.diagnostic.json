@@ -1,0 +1,1747 @@
+{
+  "complete": true,
+  "signature": "53680d8e0432b831ab0d21a6e9d4a734a890c17b2cbff845009cc8d0dda1733d",
+  "attempts": [
+    {
+      "asr_seconds": 0.42331238090991974,
+      "alignment_seconds": 0.00037397444248199463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. Hadst thou been aught but gossamer, feathers, air, So many fathom down precipitating, Thou'dst shiver'd like an egg: but thou dost breathe; Hast heavy substance; bleed'st not; speak'st; art sound. Ten masts at each make not the altitude Which thou hast perpendicularly fell. Thy life is a miracle. Speak yet again.",
+        "hotwords": "Edgar, Hadst, So, Thou'dst, Ten, Which, Thy, Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, Hadst thou been aught but gossamer, feathers, air, So many fathom down precipitating, Thou'dst",
+          "start": 0.05,
+          "end": 6.07,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " Hadst",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " thou",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " been",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " aught",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " but",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.888671875
+            },
+            {
+              "text": " gossamer,",
+              "start": 1.99,
+              "end": 2.53,
+              "probability": 0.9041341145833334
+            },
+            {
+              "text": " feathers,",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.720703125
+            },
+            {
+              "text": " air,",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.708984375
+            },
+            {
+              "text": " So",
+              "start": 3.77,
+              "end": 3.89,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " many",
+              "start": 3.89,
+              "end": 4.07,
+              "probability": 0.990234375
+            },
+            {
+              "text": " fathom",
+              "start": 4.07,
+              "end": 4.39,
+              "probability": 0.5562744140625
+            },
+            {
+              "text": " down",
+              "start": 4.39,
+              "end": 4.71,
+              "probability": 0.7734375
+            },
+            {
+              "text": " precipitating,",
+              "start": 4.71,
+              "end": 5.43,
+              "probability": 0.946533203125
+            },
+            {
+              "text": " Thou'dst",
+              "start": 5.75,
+              "end": 6.07,
+              "probability": 0.5180867513020834
+            }
+          ]
+        },
+        {
+          "text": " shiver'd like an egg. But thou dost breathe. Hast heavy substance, bleed'st not, speak'st,",
+          "start": 6.07,
+          "end": 11.91,
+          "words": [
+            {
+              "text": " shiver'd",
+              "start": 6.07,
+              "end": 6.47,
+              "probability": 0.5906880696614584
+            },
+            {
+              "text": " like",
+              "start": 6.47,
+              "end": 6.57,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " an",
+              "start": 6.57,
+              "end": 6.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " egg.",
+              "start": 6.69,
+              "end": 7.01,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " But",
+              "start": 7.55,
+              "end": 7.67,
+              "probability": 0.962890625
+            },
+            {
+              "text": " thou",
+              "start": 7.67,
+              "end": 7.83,
+              "probability": 0.517578125
+            },
+            {
+              "text": " dost",
+              "start": 7.83,
+              "end": 8.05,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " breathe.",
+              "start": 8.05,
+              "end": 8.39,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " Hast",
+              "start": 8.93,
+              "end": 8.99,
+              "probability": 0.810546875
+            },
+            {
+              "text": " heavy",
+              "start": 8.99,
+              "end": 9.35,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " substance,",
+              "start": 9.35,
+              "end": 9.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " bleed'st",
+              "start": 10.51,
+              "end": 10.81,
+              "probability": 0.2322998046875
+            },
+            {
+              "text": " not,",
+              "start": 10.81,
+              "end": 11.05,
+              "probability": 0.1453857421875
+            },
+            {
+              "text": " speak'st,",
+              "start": 11.47,
+              "end": 11.91,
+              "probability": 0.79541015625
+            }
+          ]
+        },
+        {
+          "text": " art sound. Ten masts at each make not the altitude Which thou hast perpendicularly fell. Thy life",
+          "start": 12.25,
+          "end": 18.61,
+          "words": [
+            {
+              "text": " art",
+              "start": 12.25,
+              "end": 12.41,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " sound.",
+              "start": 12.41,
+              "end": 12.87,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " Ten",
+              "start": 13.61,
+              "end": 13.75,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " masts",
+              "start": 13.75,
+              "end": 14.11,
+              "probability": 0.843017578125
+            },
+            {
+              "text": " at",
+              "start": 14.11,
+              "end": 14.27,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " each",
+              "start": 14.27,
+              "end": 14.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " make",
+              "start": 14.49,
+              "end": 14.71,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " not",
+              "start": 14.71,
+              "end": 14.95,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " the",
+              "start": 14.95,
+              "end": 15.11,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " altitude",
+              "start": 15.11,
+              "end": 15.59,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Which",
+              "start": 15.59,
+              "end": 15.89,
+              "probability": 0.385009765625
+            },
+            {
+              "text": " thou",
+              "start": 15.89,
+              "end": 16.09,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " hast",
+              "start": 16.09,
+              "end": 16.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " perpendicularly",
+              "start": 16.43,
+              "end": 17.15,
+              "probability": 0.560546875
+            },
+            {
+              "text": " fell.",
+              "start": 17.15,
+              "end": 17.55,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Thy",
+              "start": 18.25,
+              "end": 18.37,
+              "probability": 0.94140625
+            },
+            {
+              "text": " life",
+              "start": 18.37,
+              "end": 18.61,
+              "probability": 0.9755859375
+            }
+          ]
+        },
+        {
+          "text": " is a miracle. Speak yet again.",
+          "start": 18.61,
+          "end": 20.63,
+          "words": [
+            {
+              "text": " is",
+              "start": 18.61,
+              "end": 18.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 18.79,
+              "end": 18.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " miracle.",
+              "start": 18.93,
+              "end": 19.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Speak",
+              "start": 19.79,
+              "end": 20.01,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " yet",
+              "start": 20.01,
+              "end": 20.25,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " again.",
+              "start": 20.25,
+              "end": 20.63,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Hadst",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "thou",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "been",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "aught",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "but",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "gossamer,",
+          "start": 1.99,
+          "end": 2.53
+        },
+        {
+          "raw": "feathers,",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "air,",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "raw": "So",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "raw": "many",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "raw": "fathom",
+          "start": 4.07,
+          "end": 4.39
+        },
+        {
+          "raw": "down",
+          "start": 4.39,
+          "end": 4.71
+        },
+        {
+          "raw": "precipitating,",
+          "start": 4.71,
+          "end": 5.43
+        },
+        {
+          "raw": "Thou'dst",
+          "start": 5.75,
+          "end": 6.07
+        },
+        {
+          "raw": "shiver'd",
+          "start": 6.07,
+          "end": 6.47
+        },
+        {
+          "raw": "like",
+          "start": 6.47,
+          "end": 6.57
+        },
+        {
+          "raw": "an",
+          "start": 6.57,
+          "end": 6.69
+        },
+        {
+          "raw": "egg.",
+          "start": 6.69,
+          "end": 7.01
+        },
+        {
+          "raw": "But",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "raw": "thou",
+          "start": 7.67,
+          "end": 7.83
+        },
+        {
+          "raw": "dost",
+          "start": 7.83,
+          "end": 8.05
+        },
+        {
+          "raw": "breathe.",
+          "start": 8.05,
+          "end": 8.39
+        },
+        {
+          "raw": "Hast",
+          "start": 8.93,
+          "end": 8.99
+        },
+        {
+          "raw": "heavy",
+          "start": 8.99,
+          "end": 9.35
+        },
+        {
+          "raw": "substance,",
+          "start": 9.35,
+          "end": 9.89
+        },
+        {
+          "raw": "bleed'st",
+          "start": 10.51,
+          "end": 10.81
+        },
+        {
+          "raw": "not,",
+          "start": 10.81,
+          "end": 11.05
+        },
+        {
+          "raw": "speak'st,",
+          "start": 11.47,
+          "end": 11.91
+        },
+        {
+          "raw": "art",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "raw": "sound.",
+          "start": 12.41,
+          "end": 12.87
+        },
+        {
+          "raw": "Ten",
+          "start": 13.61,
+          "end": 13.75
+        },
+        {
+          "raw": "masts",
+          "start": 13.75,
+          "end": 14.11
+        },
+        {
+          "raw": "at",
+          "start": 14.11,
+          "end": 14.27
+        },
+        {
+          "raw": "each",
+          "start": 14.27,
+          "end": 14.49
+        },
+        {
+          "raw": "make",
+          "start": 14.49,
+          "end": 14.71
+        },
+        {
+          "raw": "not",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "raw": "the",
+          "start": 14.95,
+          "end": 15.11
+        },
+        {
+          "raw": "altitude",
+          "start": 15.11,
+          "end": 15.59
+        },
+        {
+          "raw": "Which",
+          "start": 15.59,
+          "end": 15.89
+        },
+        {
+          "raw": "thou",
+          "start": 15.89,
+          "end": 16.09
+        },
+        {
+          "raw": "hast",
+          "start": 16.09,
+          "end": 16.43
+        },
+        {
+          "raw": "perpendicularly",
+          "start": 16.43,
+          "end": 17.15
+        },
+        {
+          "raw": "fell.",
+          "start": 17.15,
+          "end": 17.55
+        },
+        {
+          "raw": "Thy",
+          "start": 18.25,
+          "end": 18.37
+        },
+        {
+          "raw": "life",
+          "start": 18.37,
+          "end": 18.61
+        },
+        {
+          "raw": "is",
+          "start": 18.61,
+          "end": 18.79
+        },
+        {
+          "raw": "a",
+          "start": 18.79,
+          "end": 18.93
+        },
+        {
+          "raw": "miracle.",
+          "start": 18.93,
+          "end": 19.21
+        },
+        {
+          "raw": "Speak",
+          "start": 19.79,
+          "end": 20.01
+        },
+        {
+          "raw": "yet",
+          "start": 20.01,
+          "end": 20.25
+        },
+        {
+          "raw": "again.",
+          "start": 20.25,
+          "end": 20.63
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Hadst",
+        "thou",
+        "been",
+        "aught",
+        "but",
+        "gossamer,",
+        "feathers,",
+        "air,",
+        "So",
+        "many",
+        "fathom",
+        "down",
+        "precipitating,",
+        "Thou'dst",
+        "shiver'd",
+        "like",
+        "an",
+        "egg:",
+        "but",
+        "thou",
+        "dost",
+        "breathe;",
+        "Hast",
+        "heavy",
+        "substance;",
+        "bleed'st",
+        "not;",
+        "speak'st;",
+        "art",
+        "sound.",
+        "Ten",
+        "masts",
+        "at",
+        "each",
+        "make",
+        "not",
+        "the",
+        "altitude",
+        "Which",
+        "thou",
+        "hast",
+        "perpendicularly",
+        "fell.",
+        "Thy",
+        "life",
+        "is",
+        "a",
+        "miracle.",
+        "Speak",
+        "yet",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          52,
+          0,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hadst",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "hadst",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "aught",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "aught",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gossamer,",
+          "start": 1.99,
+          "end": 2.53,
+          "key": "gossamer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "feathers,",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "feathers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "air,",
+          "start": 3.37,
+          "end": 3.47,
+          "key": "air",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 3.77,
+          "end": 3.89,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 3.89,
+          "end": 4.07,
+          "key": "many",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fathom",
+          "start": 4.07,
+          "end": 4.39,
+          "key": "fathom",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 4.39,
+          "end": 4.71,
+          "key": "down",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "precipitating,",
+          "start": 4.71,
+          "end": 5.43,
+          "key": "precipitating",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Thou'dst",
+          "start": 5.75,
+          "end": 6.07,
+          "key": "thoudst",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shiver'd",
+          "start": 6.07,
+          "end": 6.47,
+          "key": "shiverd",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 6.47,
+          "end": 6.57,
+          "key": "like",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 6.57,
+          "end": 6.69,
+          "key": "an",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "egg.",
+          "start": 6.69,
+          "end": 7.01,
+          "key": "egg",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 7.55,
+          "end": 7.67,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 7.67,
+          "end": 7.83,
+          "key": "thou",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 7.83,
+          "end": 8.05,
+          "key": "dost",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "breathe.",
+          "start": 8.05,
+          "end": 8.39,
+          "key": "breathe",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Hast",
+          "start": 8.93,
+          "end": 8.99,
+          "key": "hast",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "heavy",
+          "start": 8.99,
+          "end": 9.35,
+          "key": "heavy",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "substance,",
+          "start": 9.35,
+          "end": 9.89,
+          "key": "substance",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "bleed'st",
+          "start": 10.51,
+          "end": 10.81,
+          "key": "bleedst",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 10.81,
+          "end": 11.05,
+          "key": "not",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "speak'st,",
+          "start": 11.47,
+          "end": 11.91,
+          "key": "speakst",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 12.25,
+          "end": 12.41,
+          "key": "art",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "sound.",
+          "start": 12.41,
+          "end": 12.87,
+          "key": "sound",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Ten",
+          "start": 13.61,
+          "end": 13.75,
+          "key": "ten",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "masts",
+          "start": 13.75,
+          "end": 14.11,
+          "key": "masts",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 14.11,
+          "end": 14.27,
+          "key": "at",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 14.27,
+          "end": 14.49,
+          "key": "each",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 14.49,
+          "end": 14.71,
+          "key": "make",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 14.71,
+          "end": 14.95,
+          "key": "not",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.95,
+          "end": 15.11,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "altitude",
+          "start": 15.11,
+          "end": 15.59,
+          "key": "altitude",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 15.59,
+          "end": 15.89,
+          "key": "which",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 15.89,
+          "end": 16.09,
+          "key": "thou",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 16.09,
+          "end": 16.43,
+          "key": "hast",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "perpendicularly",
+          "start": 16.43,
+          "end": 17.15,
+          "key": "perpendicularly",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "fell.",
+          "start": 17.15,
+          "end": 17.55,
+          "key": "fell",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 18.25,
+          "end": 18.37,
+          "key": "thy",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 18.37,
+          "end": 18.61,
+          "key": "life",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 18.61,
+          "end": 18.79,
+          "key": "is",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.79,
+          "end": 18.93,
+          "key": "a",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "miracle.",
+          "start": 18.93,
+          "end": 19.21,
+          "key": "miracle",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 19.79,
+          "end": 20.01,
+          "key": "speak",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 20.01,
+          "end": 20.25,
+          "key": "yet",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 20.25,
+          "end": 20.63,
+          "key": "again",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Hadst",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "thou",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "been",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "aught",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "but",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "gossamer,",
+          "start": 1.99,
+          "end": 2.53
+        },
+        {
+          "text": "feathers,",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "air,",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "text": "So",
+          "start": 3.77,
+          "end": 3.89
+        },
+        {
+          "text": "many",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "text": "fathom",
+          "start": 4.07,
+          "end": 4.39
+        },
+        {
+          "text": "down",
+          "start": 4.39,
+          "end": 4.71
+        },
+        {
+          "text": "precipitating,",
+          "start": 4.71,
+          "end": 5.43
+        },
+        {
+          "text": "Thou'dst",
+          "start": 5.75,
+          "end": 6.07
+        },
+        {
+          "text": "shiver'd",
+          "start": 6.07,
+          "end": 6.47
+        },
+        {
+          "text": "like",
+          "start": 6.47,
+          "end": 6.57
+        },
+        {
+          "text": "an",
+          "start": 6.57,
+          "end": 6.69
+        },
+        {
+          "text": "egg:",
+          "start": 6.69,
+          "end": 7.01
+        },
+        {
+          "text": "but",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "text": "thou",
+          "start": 7.67,
+          "end": 7.83
+        },
+        {
+          "text": "dost",
+          "start": 7.83,
+          "end": 8.05
+        },
+        {
+          "text": "breathe;",
+          "start": 8.05,
+          "end": 8.39
+        },
+        {
+          "text": "Hast",
+          "start": 8.93,
+          "end": 8.99
+        },
+        {
+          "text": "heavy",
+          "start": 8.99,
+          "end": 9.35
+        },
+        {
+          "text": "substance;",
+          "start": 9.35,
+          "end": 9.89
+        },
+        {
+          "text": "bleed'st",
+          "start": 10.51,
+          "end": 10.81
+        },
+        {
+          "text": "not;",
+          "start": 10.81,
+          "end": 11.05
+        },
+        {
+          "text": "speak'st;",
+          "start": 11.47,
+          "end": 11.91
+        },
+        {
+          "text": "art",
+          "start": 12.25,
+          "end": 12.41
+        },
+        {
+          "text": "sound.",
+          "start": 12.41,
+          "end": 12.87
+        },
+        {
+          "text": "Ten",
+          "start": 13.61,
+          "end": 13.75
+        },
+        {
+          "text": "masts",
+          "start": 13.75,
+          "end": 14.11
+        },
+        {
+          "text": "at",
+          "start": 14.11,
+          "end": 14.27
+        },
+        {
+          "text": "each",
+          "start": 14.27,
+          "end": 14.49
+        },
+        {
+          "text": "make",
+          "start": 14.49,
+          "end": 14.71
+        },
+        {
+          "text": "not",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "text": "the",
+          "start": 14.95,
+          "end": 15.11
+        },
+        {
+          "text": "altitude",
+          "start": 15.11,
+          "end": 15.59
+        },
+        {
+          "text": "Which",
+          "start": 15.59,
+          "end": 15.89
+        },
+        {
+          "text": "thou",
+          "start": 15.89,
+          "end": 16.09
+        },
+        {
+          "text": "hast",
+          "start": 16.09,
+          "end": 16.43
+        },
+        {
+          "text": "perpendicularly",
+          "start": 16.43,
+          "end": 17.15
+        },
+        {
+          "text": "fell.",
+          "start": 17.15,
+          "end": 17.55
+        },
+        {
+          "text": "Thy",
+          "start": 18.25,
+          "end": 18.37
+        },
+        {
+          "text": "life",
+          "start": 18.37,
+          "end": 18.61
+        },
+        {
+          "text": "is",
+          "start": 18.61,
+          "end": 18.79
+        },
+        {
+          "text": "a",
+          "start": 18.79,
+          "end": 18.93
+        },
+        {
+          "text": "miracle.",
+          "start": 18.93,
+          "end": 19.21
+        },
+        {
+          "text": "Speak",
+          "start": 19.79,
+          "end": 20.01
+        },
+        {
+          "text": "yet",
+          "start": 20.01,
+          "end": 20.25
+        },
+        {
+          "text": "again.",
+          "start": 20.25,
+          "end": 20.63
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 52
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4238486625254154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6428d17ad01609d59d57a59d60aa69da01952302ded047f23571b745e7e36020",
+  "selected_reasons": []
+}

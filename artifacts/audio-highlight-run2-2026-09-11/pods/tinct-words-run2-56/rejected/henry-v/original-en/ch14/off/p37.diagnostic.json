@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "ac32ae7efd9d2b5f617960b4f4f8ccd329fd14c3e180a105ea48fe1b6a95c043",
+  "attempts": [
+    {
+      "asr_seconds": 0.14345136284828186,
+      "alignment_seconds": 0.0003261733800172806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gower, Captain Flulan.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Gower,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.857421875
+            },
+            {
+              "text": " Captain",
+              "start": 1.01,
+              "end": 1.19,
+              "probability": 0.849609375
+            },
+            {
+              "text": " Flulan.",
+              "start": 1.19,
+              "end": 1.75,
+              "probability": 0.71533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gower,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Captain",
+          "start": 1.01,
+          "end": 1.19
+        },
+        {
+          "raw": "Flulan.",
+          "start": 1.19,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Gower.",
+        "Captain",
+        "Fluellen!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gower,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "gower",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 1.01,
+          "end": 1.19,
+          "key": "captain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Flulan.",
+          "start": 1.19,
+          "end": 1.75,
+          "key": "flulan",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gower.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Captain",
+          "start": 1.01,
+          "end": 1.19
+        },
+        {
+          "text": "Fluellen!",
+          "start": 1.19,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14388332795351744
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a5971cfa80f12ba3704d5a1826c6bee8d827c9982dec1db3027f136a0db6f76",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

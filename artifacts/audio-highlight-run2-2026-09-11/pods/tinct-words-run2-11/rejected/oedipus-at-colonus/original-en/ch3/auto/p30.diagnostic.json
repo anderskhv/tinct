@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "03dafdaabe0c07ed7b6e886377b11eccc78fcaa5be44d3edce6b636b5974e922",
+  "attempts": [
+    {
+      "asr_seconds": 0.22511742264032364,
+      "alignment_seconds": 0.00043903011828660965,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. With what intent, my daughter? Tell me plainly.",
+        "hotwords": "Oedipus, With, Tell"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, With what intent, my daughter? Tell me plainly.",
+          "start": 0.02,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.8828125
+            },
+            {
+              "text": " With",
+              "start": 1.18,
+              "end": 1.3,
+              "probability": 0.0093536376953125
+            },
+            {
+              "text": " what",
+              "start": 1.3,
+              "end": 1.44,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " intent,",
+              "start": 1.44,
+              "end": 1.74,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " my",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.916015625
+            },
+            {
+              "text": " daughter?",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Tell",
+              "start": 2.72,
+              "end": 2.8,
+              "probability": 0.880859375
+            },
+            {
+              "text": " me",
+              "start": 2.8,
+              "end": 2.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " plainly.",
+              "start": 2.96,
+              "end": 3.26,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "With",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "raw": "what",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "raw": "intent,",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "raw": "my",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "daughter?",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "Tell",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "raw": "me",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "raw": "plainly.",
+          "start": 2.96,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "With",
+        "what",
+        "intent,",
+        "my",
+        "daughter?",
+        "Tell",
+        "me",
+        "plainly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "oedipus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 1.18,
+          "end": 1.3,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.3,
+          "end": 1.44,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "intent,",
+          "start": 1.44,
+          "end": 1.74,
+          "key": "intent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "daughter?",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "daughter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Tell",
+          "start": 2.72,
+          "end": 2.8,
+          "key": "tell",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.8,
+          "end": 2.96,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "plainly.",
+          "start": 2.96,
+          "end": 3.26,
+          "key": "plainly",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "With",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "text": "what",
+          "start": 1.3,
+          "end": 1.44
+        },
+        {
+          "text": "intent,",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "text": "my",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "daughter?",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "Tell",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "text": "me",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "text": "plainly.",
+          "start": 2.96,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22571790125221014
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a32c384df78cf4ce8d137442336308b8287fc3862c1b86adc2d2e9c81e7d214",
+  "selected_reasons": []
+}

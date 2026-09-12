@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "5a634dfe54e64e0ad0065f9ae4b06cd48b63b5cb5fc004f4522d5c955c7ed77a",
+  "attempts": [
+    {
+      "asr_seconds": 0.16695322841405869,
+      "alignment_seconds": 0.0004313495010137558,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In despair, he hit his face and his hands.",
+          "start": 0.11,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.955078125
+            },
+            {
+              "text": " despair,",
+              "start": 0.53,
+              "end": 0.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 1.21,
+              "end": 1.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hit",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.71923828125
+            },
+            {
+              "text": " his",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " face",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " his",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.9609375
+            },
+            {
+              "text": " hands.",
+              "start": 2.01,
+              "end": 2.31,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "despair,",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.25
+        },
+        {
+          "raw": "hit",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "his",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "face",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "and",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "his",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "hands.",
+          "start": 2.01,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "despair",
+        "he",
+        "hid",
+        "his",
+        "face",
+        "in",
+        "his",
+        "hands."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "despair,",
+          "start": 0.53,
+          "end": 0.85,
+          "key": "despair",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.25,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hit",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "hit",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "face",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.71,
+          "end": 1.91,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 2.01,
+          "end": 2.31,
+          "key": "hands",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "despair",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "text": "he",
+          "start": 1.21,
+          "end": 1.25
+        },
+        {
+          "text": "hid",
+          "start": 1.25,
+          "end": 1.31
+        },
+        {
+          "text": "his",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "face",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "in",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "his",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "hands.",
+          "start": 2.01,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16752028837800026
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ec75a02a84e4b364a938bf6ed4c6e23c4678af07e447c06a8885325a20be291c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

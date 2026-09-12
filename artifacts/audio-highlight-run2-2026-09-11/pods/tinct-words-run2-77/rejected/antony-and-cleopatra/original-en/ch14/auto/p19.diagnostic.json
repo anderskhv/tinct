@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "887fbacd040f21fffe5f5dc1bbb3b80ef6145b19e29f6b120c98db119122f601",
+  "attempts": [
+    {
+      "asr_seconds": 0.12939503201050684,
+      "alignment_seconds": 0.00012649499694816768,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. No further, sir.",
+        "hotwords": "Antony, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, no further, sir.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.821533203125
+            },
+            {
+              "text": " no",
+              "start": 1.05,
+              "end": 1.25,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " further,",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sir.",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "no",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "raw": "further,",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "sir.",
+          "start": 1.67,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "No",
+        "further,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.05,
+          "end": 1.25,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "further,",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "further",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.67,
+          "end": 1.77,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "No",
+          "start": 1.05,
+          "end": 1.25
+        },
+        {
+          "text": "further,",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "sir.",
+          "start": 1.67,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12956644801306538
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "19a1f8ae65bf82cc0dfa73e66bbb0bda51ad974556f806d685a77fc51699d6fa",
+  "selected_reasons": []
+}

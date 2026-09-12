@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "e822a01669e382bc25c32246710c694d4e5a87004d245ae95458bb4e40899886",
+  "attempts": [
+    {
+      "asr_seconds": 0.11665642587468028,
+      "alignment_seconds": 0.0002725832164287567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Go on, Simon.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " on,",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Simon.",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "on,",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "Simon.",
+          "start": 0.91,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "—Go",
+        "on,",
+        "Simon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 0.55,
+          "end": 0.77,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Simon.",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "simon",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Go",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "on,",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "Simon.",
+          "start": 0.91,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11702615907415748
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db79cab93563670b79b5b6e63de41d14d9c17c1870a1ca5d4f7d2e379cdbc86a",
+  "selected_reasons": []
+}

@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "636f7c9e467de47fb14b3258fcd579cada268a2b9c4a0945a3e72c541b8e72e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.17753058898961172,
+      "alignment_seconds": 0.0004964529944118112,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, will you go see the order of the course?",
+          "start": 0.55,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.955322265625
+            },
+            {
+              "text": " will",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " go",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " see",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " order",
+              "start": 2.05,
+              "end": 2.21,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " of",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.39,
+              "end": 2.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " course?",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "will",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "go",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "see",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "order",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "raw": "course?",
+          "start": 2.51,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Will",
+        "you",
+        "go",
+        "see",
+        "the",
+        "order",
+        "of",
+        "the",
+        "course?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.55,
+          "end": 0.89,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "order",
+          "start": 2.05,
+          "end": 2.21,
+          "key": "order",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "course?",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "course",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "Will",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "you",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "go",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "see",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "the",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "order",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "text": "of",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "the",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "text": "course?",
+          "start": 2.51,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17821777099743485
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "739a5ff54402cf98b0bcc341edffdf986cd7929c18fcefbbbaff68576c61ba42",
+  "selected_reasons": []
+}

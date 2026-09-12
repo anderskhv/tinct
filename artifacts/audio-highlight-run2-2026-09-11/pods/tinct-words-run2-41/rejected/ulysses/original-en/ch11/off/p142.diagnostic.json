@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "07438feb4bfc981c0424e4a1a17896c192774eef1352d4fcc745cba7010cbc05",
+  "attempts": [
+    {
+      "asr_seconds": 0.10690516093745828,
+      "alignment_seconds": 0.00012450199574232101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bronze Whiteness",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " Bronze",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " Whiteness",
+              "start": 0.67,
+              "end": 1.23,
+              "probability": 0.7880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bronze",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Whiteness",
+          "start": 0.67,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "Bronze",
+        "whiteness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bronze",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "bronze",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Whiteness",
+          "start": 0.67,
+          "end": 1.23,
+          "key": "whiteness",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bronze",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "whiteness.",
+          "start": 0.67,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10706915566697717
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d4a358743db958c3fa80573713a7f3139e01615b2d8d27933b929e2d49b17c04",
+  "selected_reasons": []
+}

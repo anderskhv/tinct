@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "24f08c332f6c3f3ceebb4946495e118fb08fcf1d140838048241a0f63df95c6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1499754823744297,
+      "alignment_seconds": 9.10777598619461e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polixenes. On, good Camillo.",
+        "hotwords": "Polixenes, On, Camillo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polixenes, On, good Camillo.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Polixenes,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.3617095947265625
+            },
+            {
+              "text": " On,",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.02215576171875
+            },
+            {
+              "text": " good",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.07061767578125
+            },
+            {
+              "text": " Camillo.",
+              "start": 1.73,
+              "end": 2.23,
+              "probability": 0.8046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "On,",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "good",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "Camillo.",
+          "start": 1.73,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "On,",
+        "good",
+        "Camillo."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "polixenes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "On,",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Camillo.",
+          "start": 1.73,
+          "end": 2.23,
+          "key": "camillo",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "On,",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "good",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "Camillo.",
+          "start": 1.73,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15009512193500996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d088e57652e52c31d37772220b64a465bbdc4166e30fde84d21209a89de98d15",
+  "selected_reasons": []
+}

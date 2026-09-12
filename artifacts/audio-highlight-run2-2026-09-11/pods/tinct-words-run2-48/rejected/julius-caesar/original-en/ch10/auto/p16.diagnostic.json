@@ -1,0 +1,329 @@
+{
+  "complete": true,
+  "signature": "47b17eaf3462dc082444af4075d0c32cddf7c2b6abbdfaa43af5701b236d9e59",
+  "attempts": [
+    {
+      "asr_seconds": 0.18358969409018755,
+      "alignment_seconds": 0.00041472073644399643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fourth Citizen. For your dwelling, briefly.",
+        "hotwords": "Fourth, Citizen, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fourth, Citizen, For Fourth Citizen. For your dwelling, briefly.",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Fourth,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " Citizen,",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.454345703125
+            },
+            {
+              "text": " For",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.013153076171875
+            },
+            {
+              "text": " Fourth",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 5.960464477539063e-08
+            },
+            {
+              "text": " Citizen.",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.1494140625
+            },
+            {
+              "text": " For",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.703125
+            },
+            {
+              "text": " your",
+              "start": 1.72,
+              "end": 1.72,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " dwelling,",
+              "start": 1.72,
+              "end": 2.04,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " briefly.",
+              "start": 2.26,
+              "end": 2.44,
+              "probability": 0.92919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fourth,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "For",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "Fourth",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "Citizen.",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "For",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "your",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "raw": "dwelling,",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "raw": "briefly.",
+          "start": 2.26,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "Fourth",
+        "Citizen.",
+        "For",
+        "your",
+        "dwelling,",
+        "briefly."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          6,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fourth,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "fourth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen,",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fourth",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "fourth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Citizen.",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "citizen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.72,
+          "end": 1.72,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dwelling,",
+          "start": 1.72,
+          "end": 2.04,
+          "key": "dwelling",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "briefly.",
+          "start": 2.26,
+          "end": 2.44,
+          "key": "briefly",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fourth",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "Citizen.",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "text": "For",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "text": "your",
+          "start": 1.72,
+          "end": 1.72
+        },
+        {
+          "text": "dwelling,",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "text": "briefly.",
+          "start": 2.26,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1841858346015215
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32d4b70a024268e3451f52522c7e6c0507c96080deae974cd8be73f15c426c4d",
+  "selected_reasons": []
+}

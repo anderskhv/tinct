@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "b9fe7e92b55701825fed30f064a8c93ba0722a05dfdcc405c1e5eb04a74081a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3108711503446102,
+      "alignment_seconds": 0.0008116923272609711,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " If you could but be persuaded to think no more of it, aunt, and to regard me with kindness and forgiveness.",
+          "start": 0.05,
+          "end": 5.97,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " you",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " could",
+              "start": 0.71,
+              "end": 0.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " be",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " persuaded",
+              "start": 1.31,
+              "end": 1.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 1.67,
+              "end": 1.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " think",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " no",
+              "start": 2.13,
+              "end": 2.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more",
+              "start": 2.39,
+              "end": 2.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it,",
+              "start": 2.75,
+              "end": 2.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " aunt,",
+              "start": 3.23,
+              "end": 3.29,
+              "probability": 0.335205078125
+            },
+            {
+              "text": " and",
+              "start": 3.77,
+              "end": 3.87,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " regard",
+              "start": 3.99,
+              "end": 4.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 4.29,
+              "end": 4.55,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " with",
+              "start": 4.55,
+              "end": 4.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kindness",
+              "start": 4.75,
+              "end": 5.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 5.19,
+              "end": 5.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forgiveness.",
+              "start": 5.53,
+              "end": 5.97,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "could",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "raw": "but",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "be",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "persuaded",
+          "start": 1.31,
+          "end": 1.67
+        },
+        {
+          "raw": "to",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "raw": "think",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "no",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "raw": "more",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "raw": "of",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "it,",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "raw": "aunt,",
+          "start": 3.23,
+          "end": 3.29
+        },
+        {
+          "raw": "and",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "raw": "to",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "regard",
+          "start": 3.99,
+          "end": 4.29
+        },
+        {
+          "raw": "me",
+          "start": 4.29,
+          "end": 4.55
+        },
+        {
+          "raw": "with",
+          "start": 4.55,
+          "end": 4.75
+        },
+        {
+          "raw": "kindness",
+          "start": 4.75,
+          "end": 5.19
+        },
+        {
+          "raw": "and",
+          "start": 5.19,
+          "end": 5.53
+        },
+        {
+          "raw": "forgiveness.",
+          "start": 5.53,
+          "end": 5.97
+        }
+      ],
+      "expected_tokens": [
+        "\"If",
+        "you",
+        "could",
+        "but",
+        "be",
+        "persuaded",
+        "to",
+        "think",
+        "no",
+        "more",
+        "of",
+        "it,",
+        "aunt,",
+        "and",
+        "to",
+        "regard",
+        "me",
+        "with",
+        "kindness",
+        "and",
+        "forgiveness——\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 0.71,
+          "end": 0.93,
+          "key": "could",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.93,
+          "end": 1.15,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "persuaded",
+          "start": 1.31,
+          "end": 1.67,
+          "key": "persuaded",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.67,
+          "end": 1.95,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "think",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.13,
+          "end": 2.39,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.39,
+          "end": 2.61,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 2.75,
+          "end": 2.95,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "aunt,",
+          "start": 3.23,
+          "end": 3.29,
+          "key": "aunt",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.77,
+          "end": 3.87,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "regard",
+          "start": 3.99,
+          "end": 4.29,
+          "key": "regard",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.29,
+          "end": 4.55,
+          "key": "me",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.55,
+          "end": 4.75,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "kindness",
+          "start": 4.75,
+          "end": 5.19,
+          "key": "kindness",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.19,
+          "end": 5.53,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "forgiveness.",
+          "start": 5.53,
+          "end": 5.97,
+          "key": "forgiveness",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"If",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "you",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "could",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "text": "but",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "be",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "persuaded",
+          "start": 1.31,
+          "end": 1.67
+        },
+        {
+          "text": "to",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "text": "think",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "no",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "text": "more",
+          "start": 2.39,
+          "end": 2.61
+        },
+        {
+          "text": "of",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "text": "it,",
+          "start": 2.75,
+          "end": 2.95
+        },
+        {
+          "text": "aunt,",
+          "start": 3.23,
+          "end": 3.29
+        },
+        {
+          "text": "and",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "text": "to",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "regard",
+          "start": 3.99,
+          "end": 4.29
+        },
+        {
+          "text": "me",
+          "start": 4.29,
+          "end": 4.55
+        },
+        {
+          "text": "with",
+          "start": 4.55,
+          "end": 4.75
+        },
+        {
+          "text": "kindness",
+          "start": 4.75,
+          "end": 5.19
+        },
+        {
+          "text": "and",
+          "start": 5.19,
+          "end": 5.53
+        },
+        {
+          "text": "forgiveness——\"",
+          "start": 5.53,
+          "end": 5.97
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31200655177235603
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3423b7e2a1c6a92d1c7b637cb852676f221bbdda51cf4a4a8195a9e02c83e731",
+  "selected_reasons": []
+}

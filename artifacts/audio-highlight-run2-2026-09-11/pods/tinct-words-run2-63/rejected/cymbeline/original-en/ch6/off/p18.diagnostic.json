@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "32f46015d47cc15865cfe372d0525de38aa3d26418375788887f062227e164ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.11934171430766582,
+      "alignment_seconds": 9.605288505554199e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen",
+          "start": 0.08,
+          "end": 0.62,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.72802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.62
+        }
+      ],
+      "expected_tokens": [
+        "Queen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.62
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11946006491780281
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8bca0b5b2515b0854143e1aa7d4f4f95158386e1d8734146bca6c83135956afb",
+  "selected_reasons": []
+}

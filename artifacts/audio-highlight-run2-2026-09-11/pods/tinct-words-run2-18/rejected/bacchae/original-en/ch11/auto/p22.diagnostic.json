@@ -1,0 +1,218 @@
+{
+  "complete": true,
+  "signature": "b4e9ff1ece9b97d5249298a76a6297c1d46cf9d0796ed641370ca27fa9dea9ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.2658028280129656,
+      "alignment_seconds": 0.0003436189144849777,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agave. Kithaeron. . . .",
+        "hotwords": "Agave, Kithaeron"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agave, Kithaeron. . .",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Agave,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.5379638671875
+            },
+            {
+              "text": " Kithaeron.",
+              "start": 1.08,
+              "end": 1.62,
+              "probability": 0.46746355295181274
+            },
+            {
+              "text": " .",
+              "start": 2.2,
+              "end": 2.22,
+              "probability": 0.002506256103515625
+            },
+            {
+              "text": " .",
+              "start": 2.22,
+              "end": 2.22,
+              "probability": 0.6005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "Kithaeron.",
+          "start": 1.08,
+          "end": 1.62
+        },
+        {
+          "raw": ".",
+          "start": 2.2,
+          "end": 2.22
+        },
+        {
+          "raw": ".",
+          "start": 2.22,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Kithaeron.",
+        ".",
+        ".",
+        "."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "unspoken",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [
+        2,
+        3,
+        4
+      ],
+      "compared_heard": [
+        {
+          "raw": "Agave,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kithaeron.",
+          "start": 1.08,
+          "end": 1.62,
+          "key": "kithaeron",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 2.2,
+          "end": 2.22,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 2.22,
+          "end": 2.22,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Kithaeron.",
+          "start": 1.08,
+          "end": 1.62
+        },
+        {
+          "text": ".",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "text": ".",
+          "start": 1.92,
+          "end": 2.07
+        },
+        {
+          "text": ".",
+          "start": 2.07,
+          "end": 2.145
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2662676729960367
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66677bedbbf33e76420234c4a9464793097a1e06a060fafd911ed69910269c48",
+  "selected_reasons": []
+}

@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "bd5680b1c21611f6a346e69837a94327f4ac6d5f1b03fe7703dc8f0d9dc297fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.5638234876096249,
+      "alignment_seconds": 0.00016833096742630005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Edgar._]",
+        "hotwords": "Edgar._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Edgar._",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " Edgar._",
+              "start": 0.65,
+              "end": 1.67,
+              "probability": 0.44580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Edgar._",
+          "start": 0.65,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Edgar._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Edgar._",
+          "start": 0.65,
+          "end": 1.67,
+          "key": "edgar_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Edgar._]",
+          "start": 0.65,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5640929527580738
+    },
+    {
+      "asr_seconds": 0.08688068762421608,
+      "alignment_seconds": 7.700175046920776e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Edgar._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Edgar._",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " Edgar._",
+              "start": 0.65,
+              "end": 1.67,
+              "probability": 0.44580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Edgar._",
+          "start": 0.65,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Edgar._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Edgar._",
+          "start": 0.65,
+          "end": 1.67,
+          "key": "edgar_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Edgar._]",
+          "start": 0.65,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08698002994060516
+    },
+    {
+      "asr_seconds": 0.05846346169710159,
+      "alignment_seconds": 7.560104131698608e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Edgar.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " Edgar.",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.8916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Edgar.",
+          "start": 0.65,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Edgar._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Edgar.",
+          "start": 0.65,
+          "end": 0.99,
+          "key": "edgar",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Edgar._]",
+          "start": 0.65,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0585651732981205
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d33619a05bd546407fc00bf57b1529fbc0a91eae42fec731fcc0dc8d0a71ad47",
+  "selected_reasons": []
+}

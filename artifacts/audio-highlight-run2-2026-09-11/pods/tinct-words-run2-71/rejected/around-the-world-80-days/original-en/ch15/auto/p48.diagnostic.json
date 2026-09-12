@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "797902a945ea610475a8441e340efdda0a343dcdd6bcaac3fb7c6881c8989d90",
+  "attempts": [
+    {
+      "asr_seconds": 0.16093325708061457,
+      "alignment_seconds": 0.000296873040497303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Bombay?\" cried Passepartout.",
+        "hotwords": "Bombay, Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bombay cried Passepartout.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Bombay",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.466064453125
+            },
+            {
+              "text": " cried",
+              "start": 0.77,
+              "end": 1.35,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " Passepartout.",
+              "start": 1.35,
+              "end": 2.19,
+              "probability": 0.42650413513183594
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bombay",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "cried",
+          "start": 0.77,
+          "end": 1.35
+        },
+        {
+          "raw": "Passepartout.",
+          "start": 1.35,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "\"Bombay?\"",
+        "cried",
+        "Passepartout."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bombay",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "bombay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 0.77,
+          "end": 1.35,
+          "key": "cried",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Passepartout.",
+          "start": 1.35,
+          "end": 2.19,
+          "key": "passepartout",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Bombay?\"",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "cried",
+          "start": 0.77,
+          "end": 1.35
+        },
+        {
+          "text": "Passepartout.",
+          "start": 1.35,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16133644990622997
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d0cd357d31438db589a268a14356c6a109cd00091f3a0ffd850ce24ccaaa04fb",
+  "selected_reasons": []
+}

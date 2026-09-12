@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1aba9d18e45fd20d994bbfe4ec708d4ea1816f8423c14fb498009b241e2399fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.11467990092933178,
+      "alignment_seconds": 0.0001896638423204422,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Claudio. That.",
+        "hotwords": "Claudio, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Claudio, That.",
+          "start": 0.05,
+          "end": 1.19,
+          "words": [
+            {
+              "text": " Claudio,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.879638671875
+            },
+            {
+              "text": " That.",
+              "start": 0.83,
+              "end": 1.19,
+              "probability": 0.10015869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "That.",
+          "start": 0.83,
+          "end": 1.19
+        }
+      ],
+      "expected_tokens": [
+        "Claudio.",
+        "That."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That.",
+          "start": 0.83,
+          "end": 1.19,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "That.",
+          "start": 0.83,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11492925882339478
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1bb953e3b2b876613e27e93469b41a84505fb83ff12c306a3d620efdf33655ba",
+  "selected_reasons": []
+}

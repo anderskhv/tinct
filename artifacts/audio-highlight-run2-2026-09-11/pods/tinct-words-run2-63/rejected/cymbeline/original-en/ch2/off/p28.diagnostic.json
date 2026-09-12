@@ -1,0 +1,612 @@
+{
+  "complete": true,
+  "signature": "2207ea30c6defa427e6cef6cb9f80da7e2218525b03084b5a9e038938535f019",
+  "attempts": [
+    {
+      "asr_seconds": 0.3111433070152998,
+      "alignment_seconds": 0.0007115192711353302,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen, oh bless that I might not. I chose an eagle and did avoid a puttic.",
+          "start": 0.02,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.895751953125
+            },
+            {
+              "text": " oh",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " bless",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " that",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " I",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " might",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not.",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 2.96,
+              "end": 3.06,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " chose",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " an",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " eagle",
+              "start": 3.5,
+              "end": 3.8,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " and",
+              "start": 3.8,
+              "end": 4.08,
+              "probability": 0.962890625
+            },
+            {
+              "text": " did",
+              "start": 4.08,
+              "end": 4.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " avoid",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 4.48,
+              "end": 4.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " puttic.",
+              "start": 4.62,
+              "end": 5.0,
+              "probability": 0.6458740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "oh",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "bless",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "that",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "I",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "might",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "not.",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "raw": "chose",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "an",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "eagle",
+          "start": 3.5,
+          "end": 3.8
+        },
+        {
+          "raw": "and",
+          "start": 3.8,
+          "end": 4.08
+        },
+        {
+          "raw": "did",
+          "start": 4.08,
+          "end": 4.24
+        },
+        {
+          "raw": "avoid",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "raw": "puttic.",
+          "start": 4.62,
+          "end": 5.0
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "O",
+        "blessed",
+        "that",
+        "I",
+        "might",
+        "not!",
+        "I",
+        "chose",
+        "an",
+        "eagle,",
+        "And",
+        "did",
+        "avoid",
+        "a",
+        "puttock."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          15,
+          3,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "bless",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "might",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 2.14,
+          "end": 2.44,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.06,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chose",
+          "start": 3.06,
+          "end": 3.3,
+          "key": "chose",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "eagle",
+          "start": 3.5,
+          "end": 3.8,
+          "key": "eagle",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.8,
+          "end": 4.08,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 4.08,
+          "end": 4.24,
+          "key": "did",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "avoid",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "avoid",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.62,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "puttic.",
+          "start": 4.62,
+          "end": 5.0,
+          "key": "puttic",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "O",
+          "start": 0.82,
+          "end": 1.23
+        },
+        {
+          "text": "blessed",
+          "start": 1.23,
+          "end": 1.435
+        },
+        {
+          "text": "that",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "I",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "might",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "not!",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "text": "I",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "text": "chose",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "an",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "eagle,",
+          "start": 3.5,
+          "end": 3.8
+        },
+        {
+          "text": "And",
+          "start": 3.8,
+          "end": 4.08
+        },
+        {
+          "text": "did",
+          "start": 4.08,
+          "end": 4.24
+        },
+        {
+          "text": "avoid",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "a",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "text": "puttock.",
+          "start": 4.62,
+          "end": 4.81
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31212919391691685
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a03d552357d5d29df587770c9dd3ae65e06686048765e34a93426ad8e41d46f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

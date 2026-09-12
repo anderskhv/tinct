@@ -1,0 +1,650 @@
+{
+  "complete": true,
+  "signature": "4850a12a950507c47620c0568309057756f099067638551539d9f491dae7693d",
+  "attempts": [
+    {
+      "asr_seconds": 0.17743130400776863,
+      "alignment_seconds": 0.00020559877157211304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leontes. One seve'night longer.",
+        "hotwords": "Leontes, One"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leontes, One Seve'night Longer.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Leontes,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.11000569661458333
+            },
+            {
+              "text": " One",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.040130615234375
+            },
+            {
+              "text": " Seve",
+              "start": 1.37,
+              "end": 1.69,
+              "probability": 0.021411895751953125
+            },
+            {
+              "text": "'night",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.032928466796875
+            },
+            {
+              "text": " Longer.",
+              "start": 1.83,
+              "end": 2.35,
+              "probability": 0.8330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leontes,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "One",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "Seve",
+          "start": 1.37,
+          "end": 1.69
+        },
+        {
+          "raw": "'night",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "Longer.",
+          "start": 1.83,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "One",
+        "seve'night",
+        "longer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leontes,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "leontes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Seve",
+          "start": 1.37,
+          "end": 1.69,
+          "key": "seve",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'night",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "night",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Longer.",
+          "start": 1.83,
+          "end": 2.35,
+          "key": "longer",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "One",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "seve'night",
+          "start": 1.37,
+          "end": 1.6
+        },
+        {
+          "text": "longer.",
+          "start": 1.83,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1777006108313799
+    },
+    {
+      "asr_seconds": 0.10658866539597511,
+      "alignment_seconds": 0.00011849962174892426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Leontes, One"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Seven Night Longer.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Seven",
+              "start": 0.05,
+              "end": 1.33,
+              "probability": 7.152557373046875e-07
+            },
+            {
+              "text": " Night",
+              "start": 1.33,
+              "end": 1.83,
+              "probability": 0.238525390625
+            },
+            {
+              "text": " Longer.",
+              "start": 1.83,
+              "end": 2.37,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seven",
+          "start": 0.05,
+          "end": 1.33
+        },
+        {
+          "raw": "Night",
+          "start": 1.33,
+          "end": 1.83
+        },
+        {
+          "raw": "Longer.",
+          "start": 1.83,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "One",
+        "seve'night",
+        "longer."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Seven",
+          "start": 0.05,
+          "end": 1.33,
+          "key": "seven",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Night",
+          "start": 1.33,
+          "end": 1.83,
+          "key": "night",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Longer.",
+          "start": 1.83,
+          "end": 2.37,
+          "key": "longer",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.915
+        },
+        {
+          "text": "One",
+          "start": 0.915,
+          "end": 1.373
+        },
+        {
+          "text": "seve'night",
+          "start": 1.373,
+          "end": 1.602
+        },
+        {
+          "text": "longer.",
+          "start": 1.83,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10673914290964603
+    },
+    {
+      "asr_seconds": 0.19600802846252918,
+      "alignment_seconds": 0.00016707181930541992,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leance, one seven-night longer.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Leance,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.50909423828125
+            },
+            {
+              "text": " one",
+              "start": 1.29,
+              "end": 1.35,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " seven",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.67138671875
+            },
+            {
+              "text": "-night",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " longer.",
+              "start": 1.83,
+              "end": 2.23,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leance,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "one",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "raw": "seven",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "-night",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "longer.",
+          "start": 1.83,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "One",
+        "seve'night",
+        "longer."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leance,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "leance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.29,
+          "end": 1.35,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "seven",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-night",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "night",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "longer.",
+          "start": 1.83,
+          "end": 2.23,
+          "key": "longer",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "One",
+          "start": 1.29,
+          "end": 1.35
+        },
+        {
+          "text": "seve'night",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "longer.",
+          "start": 1.83,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19622891955077648
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2449cd49e75517d7ef52a1e25f7f920269791c74ed0665d66df6dcc70ae02f7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

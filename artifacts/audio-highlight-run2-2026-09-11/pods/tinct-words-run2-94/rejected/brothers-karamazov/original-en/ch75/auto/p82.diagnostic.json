@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "6e269842627a72af27e4b406a2c4d26c0bfbc55aa07d9a9840a06ea125893e8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.35281647741794586,
+      "alignment_seconds": 0.0006840545684099197,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Forgive me, I did think that, too, at the time,\" whispered Alyosha, and he did not add one softening phrase.",
+        "hotwords": "Forgive, I, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Forgive me, I did think that, too, at the time,\" whispered Alyosha, and he did not add one softening phrase.",
+          "start": 0.08,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " Forgive",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.5125732421875
+            },
+            {
+              "text": " me,",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " did",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " think",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that,",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too,",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 2.32,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " time,\"",
+              "start": 2.56,
+              "end": 3.34,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " whispered",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Alyosha,",
+              "start": 3.68,
+              "end": 4.4,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " and",
+              "start": 4.86,
+              "end": 4.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 4.94,
+              "end": 5.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " did",
+              "start": 5.04,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 5.14,
+              "end": 5.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " add",
+              "start": 5.32,
+              "end": 5.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 5.54,
+              "end": 5.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " softening",
+              "start": 5.78,
+              "end": 6.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " phrase.",
+              "start": 6.3,
+              "end": 6.66,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Forgive",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "me,",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "did",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "think",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "that,",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "too,",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "at",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "raw": "the",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "time,\"",
+          "start": 2.56,
+          "end": 3.34
+        },
+        {
+          "raw": "whispered",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 3.68,
+          "end": 4.4
+        },
+        {
+          "raw": "and",
+          "start": 4.86,
+          "end": 4.94
+        },
+        {
+          "raw": "he",
+          "start": 4.94,
+          "end": 5.04
+        },
+        {
+          "raw": "did",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "raw": "not",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "raw": "add",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "raw": "one",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "raw": "softening",
+          "start": 5.78,
+          "end": 6.3
+        },
+        {
+          "raw": "phrase.",
+          "start": 6.3,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Forgive",
+        "me,",
+        "I",
+        "did",
+        "think",
+        "that,",
+        "too,",
+        "at",
+        "the",
+        "time,\"",
+        "whispered",
+        "Alyosha,",
+        "and",
+        "he",
+        "did",
+        "not",
+        "add",
+        "one",
+        "softening",
+        "phrase."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Forgive",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "forgive",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "did",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "too",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.32,
+          "end": 2.44,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "time,\"",
+          "start": 2.56,
+          "end": 3.34,
+          "key": "time",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "whispered",
+          "start": 3.34,
+          "end": 3.68,
+          "key": "whispered",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Alyosha,",
+          "start": 3.68,
+          "end": 4.4,
+          "key": "alyosha",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.86,
+          "end": 4.94,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.94,
+          "end": 5.04,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.04,
+          "end": 5.14,
+          "key": "did",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.14,
+          "end": 5.32,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "add",
+          "start": 5.32,
+          "end": 5.54,
+          "key": "add",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.54,
+          "end": 5.78,
+          "key": "one",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "softening",
+          "start": 5.78,
+          "end": 6.3,
+          "key": "softening",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "phrase.",
+          "start": 6.3,
+          "end": 6.66,
+          "key": "phrase",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Forgive",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "me,",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "I",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "did",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "think",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "that,",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "too,",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "at",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "text": "the",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "time,\"",
+          "start": 2.56,
+          "end": 3.34
+        },
+        {
+          "text": "whispered",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "Alyosha,",
+          "start": 3.68,
+          "end": 4.4
+        },
+        {
+          "text": "and",
+          "start": 4.86,
+          "end": 4.94
+        },
+        {
+          "text": "he",
+          "start": 4.94,
+          "end": 5.04
+        },
+        {
+          "text": "did",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "text": "not",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "text": "add",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "text": "one",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "text": "softening",
+          "start": 5.78,
+          "end": 6.3
+        },
+        {
+          "text": "phrase.",
+          "start": 6.3,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35383695736527443
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6251016b868f033f879f8065256153a55fb12da8d9cf3bdc094828b7d01f289",
+  "selected_reasons": []
+}

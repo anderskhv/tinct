@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "e03a5c9fd8d241979310bf01a536ce5417a697e4bb6ab1ede848eed35a359cbc",
+  "attempts": [
+    {
+      "asr_seconds": 0.20659340731799603,
+      "alignment_seconds": 0.0004946105182170868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I saw Mr. Lloyd smile and frown at the same time.",
+        "hotwords": "I, Mr, Lloyd"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I saw Mr. Lloyd smile and frown at the same time.",
+          "start": 0.08,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " saw",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Mr.",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Lloyd",
+              "start": 1.16,
+              "end": 1.2,
+              "probability": 0.931640625
+            },
+            {
+              "text": " smile",
+              "start": 1.2,
+              "end": 1.62,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " and",
+              "start": 1.62,
+              "end": 2.04,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " frown",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " same",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " time.",
+              "start": 2.78,
+              "end": 3.18,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "saw",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "Lloyd",
+          "start": 1.16,
+          "end": 1.2
+        },
+        {
+          "raw": "smile",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 2.04
+        },
+        {
+          "raw": "frown",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "raw": "at",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "same",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "time.",
+          "start": 2.78,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "saw",
+        "Mr.",
+        "Lloyd",
+        "smile",
+        "and",
+        "frown",
+        "at",
+        "the",
+        "same",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "saw",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.7,
+          "end": 0.96,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lloyd",
+          "start": 1.16,
+          "end": 1.2,
+          "key": "lloyd",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "smile",
+          "start": 1.2,
+          "end": 1.62,
+          "key": "smile",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 2.04,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "frown",
+          "start": 2.04,
+          "end": 2.3,
+          "key": "frown",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.3,
+          "end": 2.48,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 2.58,
+          "end": 2.78,
+          "key": "same",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 2.78,
+          "end": 3.18,
+          "key": "time",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "saw",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "Mr.",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "Lloyd",
+          "start": 1.16,
+          "end": 1.2
+        },
+        {
+          "text": "smile",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "text": "and",
+          "start": 1.62,
+          "end": 2.04
+        },
+        {
+          "text": "frown",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "text": "at",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "same",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "time.",
+          "start": 2.78,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2072898568585515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5cbcaf18df7599a8d1b75e017e98b3249823d6cbef9e09bbcd2276d88be387b8",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "4c5ae17868f5a607fe855feb2b5b2fe29f55aedbf8c4ef399416aad6a718992d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1935960166156292,
+      "alignment_seconds": 0.00032851193100214005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Banquo, thanks sir, the like to you.",
+          "start": 0.21,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.21,
+              "end": 0.97,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " thanks",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " sir,",
+              "start": 1.31,
+              "end": 1.63,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " the",
+              "start": 1.87,
+              "end": 1.93,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " like",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.951171875
+            },
+            {
+              "text": " to",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.21,
+          "end": 0.97
+        },
+        {
+          "raw": "thanks",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "sir,",
+          "start": 1.31,
+          "end": 1.63
+        },
+        {
+          "raw": "the",
+          "start": 1.87,
+          "end": 1.93
+        },
+        {
+          "raw": "like",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "you.",
+          "start": 2.29,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "Thanks,",
+        "sir:",
+        "the",
+        "like",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.21,
+          "end": 0.97,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thanks",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "thanks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.31,
+          "end": 1.63,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.87,
+          "end": 1.93,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.21,
+          "end": 0.97
+        },
+        {
+          "text": "Thanks,",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "sir:",
+          "start": 1.31,
+          "end": 1.63
+        },
+        {
+          "text": "the",
+          "start": 1.87,
+          "end": 1.93
+        },
+        {
+          "text": "like",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "to",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "you.",
+          "start": 2.29,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19404618442058563
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6b549f86d1682e4d7227677c5bb83d0ea1cfe071968ec6f06145a437cf67d3c3",
+  "selected_reasons": []
+}

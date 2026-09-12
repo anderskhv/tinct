@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "7f40e6996ad6804e9a8ec96045f09bb898f2e2e61ed9b2758d4e8c551d07f468",
+  "attempts": [
+    {
+      "asr_seconds": 0.12359440000727773,
+      "alignment_seconds": 0.00010012881830334663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Signior Lodovico?",
+        "hotwords": "Iago, Signior, Lodovico"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Signior, Lodovico",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.13494110107421875
+            },
+            {
+              "text": " Signior,",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.276824951171875
+            },
+            {
+              "text": " Lodovico",
+              "start": 1.55,
+              "end": 2.07,
+              "probability": 0.6392491658528646
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Signior,",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "Lodovico",
+          "start": 1.55,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Signior",
+        "Lodovico?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Signior,",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "signior",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lodovico",
+          "start": 1.55,
+          "end": 2.07,
+          "key": "lodovico",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Signior",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "Lodovico?",
+          "start": 1.55,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12374140787869692
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b0b7204963e879a673bdf95d930931dd21977af7acdd25043f119f62c56e493b",
+  "selected_reasons": []
+}

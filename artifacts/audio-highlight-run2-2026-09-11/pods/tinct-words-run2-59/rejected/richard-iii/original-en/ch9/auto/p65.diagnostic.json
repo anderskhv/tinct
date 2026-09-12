@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "d2d3a1685ae3f6dfea6c839098c5253c19b879cf5a6912c3217770b41c50da76",
+  "attempts": [
+    {
+      "asr_seconds": 0.3023747419938445,
+      "alignment_seconds": 0.0005232440307736397,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Prince. My lord of York will still be cross in talk. Uncle, your Grace knows how to bear with him.",
+        "hotwords": "Prince, My, York, Uncle, Grace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Prince, my lord of York will still be cross in talk. Uncle, your Grace knows how to bear with him.",
+          "start": 0.02,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " Prince,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " my",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.96484375
+            },
+            {
+              "text": " lord",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.37255859375
+            },
+            {
+              "text": " of",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " York",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.86328125
+            },
+            {
+              "text": " will",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " still",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " be",
+              "start": 2.12,
+              "end": 2.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cross",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " in",
+              "start": 2.56,
+              "end": 2.84,
+              "probability": 0.1904296875
+            },
+            {
+              "text": " talk.",
+              "start": 2.84,
+              "end": 3.18,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Uncle,",
+              "start": 4.1,
+              "end": 4.1,
+              "probability": 0.974609375
+            },
+            {
+              "text": " your",
+              "start": 4.54,
+              "end": 4.64,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Grace",
+              "start": 4.64,
+              "end": 4.96,
+              "probability": 0.12408447265625
+            },
+            {
+              "text": " knows",
+              "start": 4.96,
+              "end": 5.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " how",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 5.44,
+              "end": 5.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bear",
+              "start": 5.54,
+              "end": 5.7,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " with",
+              "start": 5.7,
+              "end": 5.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 5.9,
+              "end": 6.12,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prince,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "my",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "lord",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "of",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "York",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "will",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "still",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "be",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "raw": "cross",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "in",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "raw": "talk.",
+          "start": 2.84,
+          "end": 3.18
+        },
+        {
+          "raw": "Uncle,",
+          "start": 4.1,
+          "end": 4.1
+        },
+        {
+          "raw": "your",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "raw": "Grace",
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "raw": "knows",
+          "start": 4.96,
+          "end": 5.22
+        },
+        {
+          "raw": "how",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "to",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "raw": "bear",
+          "start": 5.54,
+          "end": 5.7
+        },
+        {
+          "raw": "with",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "raw": "him.",
+          "start": 5.9,
+          "end": 6.12
+        }
+      ],
+      "expected_tokens": [
+        "Prince.",
+        "My",
+        "lord",
+        "of",
+        "York",
+        "will",
+        "still",
+        "be",
+        "cross",
+        "in",
+        "talk.",
+        "Uncle,",
+        "your",
+        "Grace",
+        "knows",
+        "how",
+        "to",
+        "bear",
+        "with",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Prince,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "prince",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 1.18,
+          "end": 1.4,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "York",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "york",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "still",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.12,
+          "end": 2.3,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cross",
+          "start": 2.3,
+          "end": 2.56,
+          "key": "cross",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.56,
+          "end": 2.84,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "talk.",
+          "start": 2.84,
+          "end": 3.18,
+          "key": "talk",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Uncle,",
+          "start": 4.1,
+          "end": 4.1,
+          "key": "uncle",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.54,
+          "end": 4.64,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Grace",
+          "start": 4.64,
+          "end": 4.96,
+          "key": "grace",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 4.96,
+          "end": 5.22,
+          "key": "knows",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "how",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.44,
+          "end": 5.54,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 5.54,
+          "end": 5.7,
+          "key": "bear",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.7,
+          "end": 5.9,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.9,
+          "end": 6.12,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Prince.",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "My",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "lord",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "of",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "York",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "will",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "still",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "be",
+          "start": 2.12,
+          "end": 2.3
+        },
+        {
+          "text": "cross",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "text": "in",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "text": "talk.",
+          "start": 2.84,
+          "end": 3.18
+        },
+        {
+          "text": "Uncle,",
+          "start": 4.1,
+          "end": 4.1
+        },
+        {
+          "text": "your",
+          "start": 4.54,
+          "end": 4.64
+        },
+        {
+          "text": "Grace",
+          "start": 4.64,
+          "end": 4.96
+        },
+        {
+          "text": "knows",
+          "start": 4.96,
+          "end": 5.22
+        },
+        {
+          "text": "how",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "to",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "text": "bear",
+          "start": 5.54,
+          "end": 5.7
+        },
+        {
+          "text": "with",
+          "start": 5.7,
+          "end": 5.9
+        },
+        {
+          "text": "him.",
+          "start": 5.9,
+          "end": 6.12
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30315733212046325
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5677a6a9d339244cbd0a751574f6e4a0d894d98b069640c63a46d44c0955a3d8",
+  "selected_reasons": []
+}

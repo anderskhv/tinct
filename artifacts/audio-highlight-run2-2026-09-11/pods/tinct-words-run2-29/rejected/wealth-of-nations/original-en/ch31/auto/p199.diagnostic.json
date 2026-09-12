@@ -1,0 +1,2581 @@
+{
+  "complete": true,
+  "signature": "7c4b19358735ab38bb976175600bcf2e73c2059c50c4ef5e837beda9d1d688cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.6172562493011355,
+      "alignment_seconds": 0.0016508186236023903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A greater revenue than what is at present drawn from all the heavy taxes upon malt, beer, and ale, might be raised, it has frequently been said, by a much lighter tax upon malt; the opportunities of defrauding the revenue being much greater in a brewery than in a malt-house; and those who brew for private use being exempted from all duties or composition for duties, which is not the case with those who malt for private use."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A greater revenue than what is at present drawn from all the heavy taxes upon malt, beer, and ale, might be raised, it has frequently been said, by a much lighter tax upon malt, the opportunities of defrauding the revenue being much greater in a brewery than in a malt-house, and those who brew for private use being exempted from all duties or composition for duties, which is not the case with those who malt for private use.",
+          "start": 0.05,
+          "end": 25.41,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " greater",
+              "start": 0.49,
+              "end": 0.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " revenue",
+              "start": 0.79,
+              "end": 1.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.984375
+            },
+            {
+              "text": " what",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " present",
+              "start": 1.95,
+              "end": 2.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " drawn",
+              "start": 2.21,
+              "end": 2.59,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " from",
+              "start": 2.59,
+              "end": 2.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 2.89,
+              "end": 3.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " heavy",
+              "start": 3.27,
+              "end": 3.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " taxes",
+              "start": 3.47,
+              "end": 4.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " upon",
+              "start": 4.01,
+              "end": 4.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " malt,",
+              "start": 4.39,
+              "end": 4.65,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " beer,",
+              "start": 5.19,
+              "end": 5.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 5.89,
+              "end": 5.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " ale,",
+              "start": 5.97,
+              "end": 6.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " might",
+              "start": 6.67,
+              "end": 6.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 6.93,
+              "end": 7.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " raised,",
+              "start": 7.11,
+              "end": 7.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it",
+              "start": 8.03,
+              "end": 8.19,
+              "probability": 0.98046875
+            },
+            {
+              "text": " has",
+              "start": 8.19,
+              "end": 8.29,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " frequently",
+              "start": 8.29,
+              "end": 8.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " been",
+              "start": 8.63,
+              "end": 8.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said,",
+              "start": 8.91,
+              "end": 9.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 9.67,
+              "end": 9.89,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " a",
+              "start": 9.89,
+              "end": 10.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " much",
+              "start": 10.01,
+              "end": 10.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lighter",
+              "start": 10.17,
+              "end": 10.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " tax",
+              "start": 10.45,
+              "end": 10.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " upon",
+              "start": 10.85,
+              "end": 11.19,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " malt,",
+              "start": 11.19,
+              "end": 11.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 12.09,
+              "end": 12.25,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " opportunities",
+              "start": 12.25,
+              "end": 12.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 12.67,
+              "end": 13.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " defrauding",
+              "start": 13.07,
+              "end": 13.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 13.59,
+              "end": 13.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " revenue",
+              "start": 13.69,
+              "end": 14.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " being",
+              "start": 14.03,
+              "end": 14.31,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " much",
+              "start": 14.31,
+              "end": 14.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " greater",
+              "start": 14.61,
+              "end": 14.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 14.95,
+              "end": 15.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 15.21,
+              "end": 15.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " brewery",
+              "start": 15.33,
+              "end": 15.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 15.57,
+              "end": 15.93,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " in",
+              "start": 15.93,
+              "end": 16.05,
+              "probability": 0.982421875
+            },
+            {
+              "text": " a",
+              "start": 16.05,
+              "end": 16.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " malt",
+              "start": 16.15,
+              "end": 16.33,
+              "probability": 0.9921875
+            },
+            {
+              "text": "-house,",
+              "start": 16.33,
+              "end": 16.67,
+              "probability": 0.5031623840332031
+            },
+            {
+              "text": " and",
+              "start": 17.43,
+              "end": 17.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " those",
+              "start": 17.55,
+              "end": 17.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " who",
+              "start": 17.73,
+              "end": 17.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " brew",
+              "start": 17.95,
+              "end": 18.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 18.15,
+              "end": 18.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " private",
+              "start": 18.37,
+              "end": 18.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " use",
+              "start": 18.69,
+              "end": 19.01,
+              "probability": 0.97265625
+            },
+            {
+              "text": " being",
+              "start": 19.01,
+              "end": 19.29,
+              "probability": 0.98828125
+            },
+            {
+              "text": " exempted",
+              "start": 19.29,
+              "end": 19.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 19.75,
+              "end": 20.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 20.05,
+              "end": 20.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " duties",
+              "start": 20.37,
+              "end": 20.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " or",
+              "start": 20.67,
+              "end": 20.97,
+              "probability": 0.970703125
+            },
+            {
+              "text": " composition",
+              "start": 20.97,
+              "end": 21.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " for",
+              "start": 21.47,
+              "end": 21.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " duties,",
+              "start": 21.85,
+              "end": 22.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " which",
+              "start": 22.67,
+              "end": 22.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 22.91,
+              "end": 23.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 23.07,
+              "end": 23.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 23.25,
+              "end": 23.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " case",
+              "start": 23.41,
+              "end": 23.59,
+              "probability": 1.0
+            },
+            {
+              "text": " with",
+              "start": 23.59,
+              "end": 23.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " those",
+              "start": 23.85,
+              "end": 24.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " who",
+              "start": 24.05,
+              "end": 24.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " malt",
+              "start": 24.29,
+              "end": 24.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " for",
+              "start": 24.51,
+              "end": 24.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " private",
+              "start": 24.75,
+              "end": 25.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " use.",
+              "start": 25.05,
+              "end": 25.41,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "greater",
+          "start": 0.49,
+          "end": 0.79
+        },
+        {
+          "raw": "revenue",
+          "start": 0.79,
+          "end": 1.25
+        },
+        {
+          "raw": "than",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "what",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "is",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "at",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "present",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "raw": "drawn",
+          "start": 2.21,
+          "end": 2.59
+        },
+        {
+          "raw": "from",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "raw": "all",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "raw": "the",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "heavy",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "raw": "taxes",
+          "start": 3.47,
+          "end": 4.01
+        },
+        {
+          "raw": "upon",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "raw": "malt,",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "raw": "beer,",
+          "start": 5.19,
+          "end": 5.47
+        },
+        {
+          "raw": "and",
+          "start": 5.89,
+          "end": 5.97
+        },
+        {
+          "raw": "ale,",
+          "start": 5.97,
+          "end": 6.31
+        },
+        {
+          "raw": "might",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "raw": "be",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "raw": "raised,",
+          "start": 7.11,
+          "end": 7.59
+        },
+        {
+          "raw": "it",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "raw": "has",
+          "start": 8.19,
+          "end": 8.29
+        },
+        {
+          "raw": "frequently",
+          "start": 8.29,
+          "end": 8.63
+        },
+        {
+          "raw": "been",
+          "start": 8.63,
+          "end": 8.91
+        },
+        {
+          "raw": "said,",
+          "start": 8.91,
+          "end": 9.27
+        },
+        {
+          "raw": "by",
+          "start": 9.67,
+          "end": 9.89
+        },
+        {
+          "raw": "a",
+          "start": 9.89,
+          "end": 10.01
+        },
+        {
+          "raw": "much",
+          "start": 10.01,
+          "end": 10.17
+        },
+        {
+          "raw": "lighter",
+          "start": 10.17,
+          "end": 10.45
+        },
+        {
+          "raw": "tax",
+          "start": 10.45,
+          "end": 10.85
+        },
+        {
+          "raw": "upon",
+          "start": 10.85,
+          "end": 11.19
+        },
+        {
+          "raw": "malt,",
+          "start": 11.19,
+          "end": 11.55
+        },
+        {
+          "raw": "the",
+          "start": 12.09,
+          "end": 12.25
+        },
+        {
+          "raw": "opportunities",
+          "start": 12.25,
+          "end": 12.67
+        },
+        {
+          "raw": "of",
+          "start": 12.67,
+          "end": 13.07
+        },
+        {
+          "raw": "defrauding",
+          "start": 13.07,
+          "end": 13.59
+        },
+        {
+          "raw": "the",
+          "start": 13.59,
+          "end": 13.69
+        },
+        {
+          "raw": "revenue",
+          "start": 13.69,
+          "end": 14.03
+        },
+        {
+          "raw": "being",
+          "start": 14.03,
+          "end": 14.31
+        },
+        {
+          "raw": "much",
+          "start": 14.31,
+          "end": 14.61
+        },
+        {
+          "raw": "greater",
+          "start": 14.61,
+          "end": 14.95
+        },
+        {
+          "raw": "in",
+          "start": 14.95,
+          "end": 15.21
+        },
+        {
+          "raw": "a",
+          "start": 15.21,
+          "end": 15.33
+        },
+        {
+          "raw": "brewery",
+          "start": 15.33,
+          "end": 15.57
+        },
+        {
+          "raw": "than",
+          "start": 15.57,
+          "end": 15.93
+        },
+        {
+          "raw": "in",
+          "start": 15.93,
+          "end": 16.05
+        },
+        {
+          "raw": "a",
+          "start": 16.05,
+          "end": 16.15
+        },
+        {
+          "raw": "malt",
+          "start": 16.15,
+          "end": 16.33
+        },
+        {
+          "raw": "-house,",
+          "start": 16.33,
+          "end": 16.67
+        },
+        {
+          "raw": "and",
+          "start": 17.43,
+          "end": 17.55
+        },
+        {
+          "raw": "those",
+          "start": 17.55,
+          "end": 17.73
+        },
+        {
+          "raw": "who",
+          "start": 17.73,
+          "end": 17.95
+        },
+        {
+          "raw": "brew",
+          "start": 17.95,
+          "end": 18.15
+        },
+        {
+          "raw": "for",
+          "start": 18.15,
+          "end": 18.37
+        },
+        {
+          "raw": "private",
+          "start": 18.37,
+          "end": 18.69
+        },
+        {
+          "raw": "use",
+          "start": 18.69,
+          "end": 19.01
+        },
+        {
+          "raw": "being",
+          "start": 19.01,
+          "end": 19.29
+        },
+        {
+          "raw": "exempted",
+          "start": 19.29,
+          "end": 19.75
+        },
+        {
+          "raw": "from",
+          "start": 19.75,
+          "end": 20.05
+        },
+        {
+          "raw": "all",
+          "start": 20.05,
+          "end": 20.37
+        },
+        {
+          "raw": "duties",
+          "start": 20.37,
+          "end": 20.67
+        },
+        {
+          "raw": "or",
+          "start": 20.67,
+          "end": 20.97
+        },
+        {
+          "raw": "composition",
+          "start": 20.97,
+          "end": 21.47
+        },
+        {
+          "raw": "for",
+          "start": 21.47,
+          "end": 21.85
+        },
+        {
+          "raw": "duties,",
+          "start": 21.85,
+          "end": 22.19
+        },
+        {
+          "raw": "which",
+          "start": 22.67,
+          "end": 22.91
+        },
+        {
+          "raw": "is",
+          "start": 22.91,
+          "end": 23.07
+        },
+        {
+          "raw": "not",
+          "start": 23.07,
+          "end": 23.25
+        },
+        {
+          "raw": "the",
+          "start": 23.25,
+          "end": 23.41
+        },
+        {
+          "raw": "case",
+          "start": 23.41,
+          "end": 23.59
+        },
+        {
+          "raw": "with",
+          "start": 23.59,
+          "end": 23.85
+        },
+        {
+          "raw": "those",
+          "start": 23.85,
+          "end": 24.05
+        },
+        {
+          "raw": "who",
+          "start": 24.05,
+          "end": 24.29
+        },
+        {
+          "raw": "malt",
+          "start": 24.29,
+          "end": 24.51
+        },
+        {
+          "raw": "for",
+          "start": 24.51,
+          "end": 24.75
+        },
+        {
+          "raw": "private",
+          "start": 24.75,
+          "end": 25.05
+        },
+        {
+          "raw": "use.",
+          "start": 25.05,
+          "end": 25.41
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "greater",
+        "revenue",
+        "than",
+        "what",
+        "is",
+        "at",
+        "present",
+        "drawn",
+        "from",
+        "all",
+        "the",
+        "heavy",
+        "taxes",
+        "upon",
+        "malt,",
+        "beer,",
+        "and",
+        "ale,",
+        "might",
+        "be",
+        "raised,",
+        "it",
+        "has",
+        "frequently",
+        "been",
+        "said,",
+        "by",
+        "a",
+        "much",
+        "lighter",
+        "tax",
+        "upon",
+        "malt;",
+        "the",
+        "opportunities",
+        "of",
+        "defrauding",
+        "the",
+        "revenue",
+        "being",
+        "much",
+        "greater",
+        "in",
+        "a",
+        "brewery",
+        "than",
+        "in",
+        "a",
+        "malt-house;",
+        "and",
+        "those",
+        "who",
+        "brew",
+        "for",
+        "private",
+        "use",
+        "being",
+        "exempted",
+        "from",
+        "all",
+        "duties",
+        "or",
+        "composition",
+        "for",
+        "duties,",
+        "which",
+        "is",
+        "not",
+        "the",
+        "case",
+        "with",
+        "those",
+        "who",
+        "malt",
+        "for",
+        "private",
+        "use."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          78,
+          0,
+          78
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 0.49,
+          "end": 0.79,
+          "key": "greater",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "revenue",
+          "start": 0.79,
+          "end": 1.25,
+          "key": "revenue",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "than",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 1.95,
+          "end": 2.21,
+          "key": "present",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drawn",
+          "start": 2.21,
+          "end": 2.59,
+          "key": "drawn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.59,
+          "end": 2.89,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.89,
+          "end": 3.13,
+          "key": "all",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "heavy",
+          "start": 3.27,
+          "end": 3.47,
+          "key": "heavy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "taxes",
+          "start": 3.47,
+          "end": 4.01,
+          "key": "taxes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 4.01,
+          "end": 4.39,
+          "key": "upon",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "malt,",
+          "start": 4.39,
+          "end": 4.65,
+          "key": "malt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "beer,",
+          "start": 5.19,
+          "end": 5.47,
+          "key": "beer",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.89,
+          "end": 5.97,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ale,",
+          "start": 5.97,
+          "end": 6.31,
+          "key": "ale",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 6.67,
+          "end": 6.93,
+          "key": "might",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.93,
+          "end": 7.11,
+          "key": "be",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "raised,",
+          "start": 7.11,
+          "end": 7.59,
+          "key": "raised",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.03,
+          "end": 8.19,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 8.19,
+          "end": 8.29,
+          "key": "has",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "frequently",
+          "start": 8.29,
+          "end": 8.63,
+          "key": "frequently",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 8.63,
+          "end": 8.91,
+          "key": "been",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 8.91,
+          "end": 9.27,
+          "key": "said",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 9.67,
+          "end": 9.89,
+          "key": "by",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.89,
+          "end": 10.01,
+          "key": "a",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 10.01,
+          "end": 10.17,
+          "key": "much",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "lighter",
+          "start": 10.17,
+          "end": 10.45,
+          "key": "lighter",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "tax",
+          "start": 10.45,
+          "end": 10.85,
+          "key": "tax",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.85,
+          "end": 11.19,
+          "key": "upon",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "malt,",
+          "start": 11.19,
+          "end": 11.55,
+          "key": "malt",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.09,
+          "end": 12.25,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "opportunities",
+          "start": 12.25,
+          "end": 12.67,
+          "key": "opportunities",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.67,
+          "end": 13.07,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "defrauding",
+          "start": 13.07,
+          "end": 13.59,
+          "key": "defrauding",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.59,
+          "end": 13.69,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "revenue",
+          "start": 13.69,
+          "end": 14.03,
+          "key": "revenue",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 14.03,
+          "end": 14.31,
+          "key": "being",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 14.31,
+          "end": 14.61,
+          "key": "much",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "greater",
+          "start": 14.61,
+          "end": 14.95,
+          "key": "greater",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 14.95,
+          "end": 15.21,
+          "key": "in",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.21,
+          "end": 15.33,
+          "key": "a",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "brewery",
+          "start": 15.33,
+          "end": 15.57,
+          "key": "brewery",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 15.57,
+          "end": 15.93,
+          "key": "than",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.93,
+          "end": 16.05,
+          "key": "in",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.05,
+          "end": 16.15,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "malt -house,",
+          "start": 16.15,
+          "end": 16.67,
+          "key": "malthouse",
+          "pieces": [
+            49,
+            50
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.43,
+          "end": 17.55,
+          "key": "and",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 17.55,
+          "end": 17.73,
+          "key": "those",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 17.73,
+          "end": 17.95,
+          "key": "who",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "brew",
+          "start": 17.95,
+          "end": 18.15,
+          "key": "brew",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 18.15,
+          "end": 18.37,
+          "key": "for",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "private",
+          "start": 18.37,
+          "end": 18.69,
+          "key": "private",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 18.69,
+          "end": 19.01,
+          "key": "use",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 19.01,
+          "end": 19.29,
+          "key": "being",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "exempted",
+          "start": 19.29,
+          "end": 19.75,
+          "key": "exempted",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 19.75,
+          "end": 20.05,
+          "key": "from",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 20.05,
+          "end": 20.37,
+          "key": "all",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "duties",
+          "start": 20.37,
+          "end": 20.67,
+          "key": "duties",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 20.67,
+          "end": 20.97,
+          "key": "or",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "composition",
+          "start": 20.97,
+          "end": 21.47,
+          "key": "composition",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 21.47,
+          "end": 21.85,
+          "key": "for",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "duties,",
+          "start": 21.85,
+          "end": 22.19,
+          "key": "duties",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 22.67,
+          "end": 22.91,
+          "key": "which",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 22.91,
+          "end": 23.07,
+          "key": "is",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 23.07,
+          "end": 23.25,
+          "key": "not",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.25,
+          "end": 23.41,
+          "key": "the",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 23.41,
+          "end": 23.59,
+          "key": "case",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 23.59,
+          "end": 23.85,
+          "key": "with",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 23.85,
+          "end": 24.05,
+          "key": "those",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 24.05,
+          "end": 24.29,
+          "key": "who",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "malt",
+          "start": 24.29,
+          "end": 24.51,
+          "key": "malt",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 24.51,
+          "end": 24.75,
+          "key": "for",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "private",
+          "start": 24.75,
+          "end": 25.05,
+          "key": "private",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "use.",
+          "start": 25.05,
+          "end": 25.41,
+          "key": "use",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 49,
+          "text": "malt-house;",
+          "heard": "malt -house,",
+          "heard_indexes": [
+            49,
+            50
+          ],
+          "start": 16.15,
+          "end": 16.67
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "greater",
+          "start": 0.49,
+          "end": 0.79
+        },
+        {
+          "text": "revenue",
+          "start": 0.79,
+          "end": 1.25
+        },
+        {
+          "text": "than",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "what",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "is",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "at",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "present",
+          "start": 1.95,
+          "end": 2.21
+        },
+        {
+          "text": "drawn",
+          "start": 2.21,
+          "end": 2.59
+        },
+        {
+          "text": "from",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "text": "all",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "text": "the",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "heavy",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "text": "taxes",
+          "start": 3.47,
+          "end": 4.01
+        },
+        {
+          "text": "upon",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "text": "malt,",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "text": "beer,",
+          "start": 5.19,
+          "end": 5.47
+        },
+        {
+          "text": "and",
+          "start": 5.89,
+          "end": 5.97
+        },
+        {
+          "text": "ale,",
+          "start": 5.97,
+          "end": 6.31
+        },
+        {
+          "text": "might",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "text": "be",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "text": "raised,",
+          "start": 7.11,
+          "end": 7.59
+        },
+        {
+          "text": "it",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "text": "has",
+          "start": 8.19,
+          "end": 8.29
+        },
+        {
+          "text": "frequently",
+          "start": 8.29,
+          "end": 8.63
+        },
+        {
+          "text": "been",
+          "start": 8.63,
+          "end": 8.91
+        },
+        {
+          "text": "said,",
+          "start": 8.91,
+          "end": 9.27
+        },
+        {
+          "text": "by",
+          "start": 9.67,
+          "end": 9.89
+        },
+        {
+          "text": "a",
+          "start": 9.89,
+          "end": 10.01
+        },
+        {
+          "text": "much",
+          "start": 10.01,
+          "end": 10.17
+        },
+        {
+          "text": "lighter",
+          "start": 10.17,
+          "end": 10.45
+        },
+        {
+          "text": "tax",
+          "start": 10.45,
+          "end": 10.85
+        },
+        {
+          "text": "upon",
+          "start": 10.85,
+          "end": 11.19
+        },
+        {
+          "text": "malt;",
+          "start": 11.19,
+          "end": 11.55
+        },
+        {
+          "text": "the",
+          "start": 12.09,
+          "end": 12.25
+        },
+        {
+          "text": "opportunities",
+          "start": 12.25,
+          "end": 12.67
+        },
+        {
+          "text": "of",
+          "start": 12.67,
+          "end": 13.07
+        },
+        {
+          "text": "defrauding",
+          "start": 13.07,
+          "end": 13.59
+        },
+        {
+          "text": "the",
+          "start": 13.59,
+          "end": 13.69
+        },
+        {
+          "text": "revenue",
+          "start": 13.69,
+          "end": 14.03
+        },
+        {
+          "text": "being",
+          "start": 14.03,
+          "end": 14.31
+        },
+        {
+          "text": "much",
+          "start": 14.31,
+          "end": 14.61
+        },
+        {
+          "text": "greater",
+          "start": 14.61,
+          "end": 14.95
+        },
+        {
+          "text": "in",
+          "start": 14.95,
+          "end": 15.21
+        },
+        {
+          "text": "a",
+          "start": 15.21,
+          "end": 15.33
+        },
+        {
+          "text": "brewery",
+          "start": 15.33,
+          "end": 15.57
+        },
+        {
+          "text": "than",
+          "start": 15.57,
+          "end": 15.93
+        },
+        {
+          "text": "in",
+          "start": 15.93,
+          "end": 16.05
+        },
+        {
+          "text": "a",
+          "start": 16.05,
+          "end": 16.15
+        },
+        {
+          "text": "malt-house;",
+          "start": 16.15,
+          "end": 16.67
+        },
+        {
+          "text": "and",
+          "start": 17.43,
+          "end": 17.55
+        },
+        {
+          "text": "those",
+          "start": 17.55,
+          "end": 17.73
+        },
+        {
+          "text": "who",
+          "start": 17.73,
+          "end": 17.95
+        },
+        {
+          "text": "brew",
+          "start": 17.95,
+          "end": 18.15
+        },
+        {
+          "text": "for",
+          "start": 18.15,
+          "end": 18.37
+        },
+        {
+          "text": "private",
+          "start": 18.37,
+          "end": 18.69
+        },
+        {
+          "text": "use",
+          "start": 18.69,
+          "end": 19.01
+        },
+        {
+          "text": "being",
+          "start": 19.01,
+          "end": 19.29
+        },
+        {
+          "text": "exempted",
+          "start": 19.29,
+          "end": 19.75
+        },
+        {
+          "text": "from",
+          "start": 19.75,
+          "end": 20.05
+        },
+        {
+          "text": "all",
+          "start": 20.05,
+          "end": 20.37
+        },
+        {
+          "text": "duties",
+          "start": 20.37,
+          "end": 20.67
+        },
+        {
+          "text": "or",
+          "start": 20.67,
+          "end": 20.97
+        },
+        {
+          "text": "composition",
+          "start": 20.97,
+          "end": 21.47
+        },
+        {
+          "text": "for",
+          "start": 21.47,
+          "end": 21.85
+        },
+        {
+          "text": "duties,",
+          "start": 21.85,
+          "end": 22.19
+        },
+        {
+          "text": "which",
+          "start": 22.67,
+          "end": 22.91
+        },
+        {
+          "text": "is",
+          "start": 22.91,
+          "end": 23.07
+        },
+        {
+          "text": "not",
+          "start": 23.07,
+          "end": 23.25
+        },
+        {
+          "text": "the",
+          "start": 23.25,
+          "end": 23.41
+        },
+        {
+          "text": "case",
+          "start": 23.41,
+          "end": 23.59
+        },
+        {
+          "text": "with",
+          "start": 23.59,
+          "end": 23.85
+        },
+        {
+          "text": "those",
+          "start": 23.85,
+          "end": 24.05
+        },
+        {
+          "text": "who",
+          "start": 24.05,
+          "end": 24.29
+        },
+        {
+          "text": "malt",
+          "start": 24.29,
+          "end": 24.51
+        },
+        {
+          "text": "for",
+          "start": 24.51,
+          "end": 24.75
+        },
+        {
+          "text": "private",
+          "start": 24.75,
+          "end": 25.05
+        },
+        {
+          "text": "use.",
+          "start": 25.05,
+          "end": 25.41
+        }
+      ],
+      "stats": {
+        "expected_words": 78,
+        "heard_words": 78,
+        "matched_words": 78
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6195676447823644
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dad70f01c2a4df992ec5c0f2317f8b6a15fcb43366950e3ad47482610eaa2850",
+  "selected_reasons": []
+}

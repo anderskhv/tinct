@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "62ac232fac4e0bbb80c8b5c6c161eefc9f8305e4157d21dbc2b6fad1aa1a63df",
+  "attempts": [
+    {
+      "asr_seconds": 0.14730059914290905,
+      "alignment_seconds": 0.0003766808658838272,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First Lord, day my Lord.",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Lord,",
+              "start": 0.62,
+              "end": 0.96,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " day",
+              "start": 1.52,
+              "end": 1.56,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " my",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " Lord.",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.7578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "raw": "day",
+          "start": 1.52,
+          "end": 1.56
+        },
+        {
+          "raw": "my",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "Lord.",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Lord.",
+        "Day,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.62,
+          "end": 0.96,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 1.52,
+          "end": 1.56,
+          "key": "day",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.56,
+          "end": 1.78,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lord.",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Lord.",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "text": "Day,",
+          "start": 1.52,
+          "end": 1.56
+        },
+        {
+          "text": "my",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "text": "lord.",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14780293591320515
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c7772bb688362e635da0878befeb939c5ada7b8e607db7c4c5f2c3efc4b841e7",
+  "selected_reasons": []
+}

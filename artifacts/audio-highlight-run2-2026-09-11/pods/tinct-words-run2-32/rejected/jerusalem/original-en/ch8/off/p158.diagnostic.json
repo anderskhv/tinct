@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "1b72833f9a4021d7e033270d748c0d728d23bc710aaa3c8b9af0eed392a1fa68",
+  "attempts": [
+    {
+      "asr_seconds": 0.1052631102502346,
+      "alignment_seconds": 0.00012048706412315369,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gertrude looked at him as much as to say that she did not see how this could affect her.",
+          "start": 0.08,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Gertrude",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.974609375
+            },
+            {
+              "text": " looked",
+              "start": 0.86,
+              "end": 1.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " much",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " say",
+              "start": 2.2,
+              "end": 2.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 2.46,
+              "end": 2.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " she",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " did",
+              "start": 2.94,
+              "end": 3.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 3.08,
+              "end": 3.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 3.26,
+              "end": 3.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " how",
+              "start": 3.54,
+              "end": 3.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " could",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " affect",
+              "start": 4.06,
+              "end": 4.32,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " her.",
+              "start": 4.32,
+              "end": 4.56,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gertrude",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "looked",
+          "start": 0.86,
+          "end": 1.08
+        },
+        {
+          "raw": "at",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "him",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "as",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "much",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "as",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "to",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "say",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "raw": "that",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "raw": "she",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "raw": "did",
+          "start": 2.94,
+          "end": 3.08
+        },
+        {
+          "raw": "not",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "raw": "see",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "raw": "how",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "raw": "this",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "could",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "affect",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "raw": "her.",
+          "start": 4.32,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "Gertrude",
+        "looked",
+        "at",
+        "him",
+        "as",
+        "much",
+        "as",
+        "to",
+        "say",
+        "that",
+        "she",
+        "did",
+        "not",
+        "see",
+        "how",
+        "this",
+        "could",
+        "affect",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gertrude",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "gertrude",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.86,
+          "end": 1.08,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.04,
+          "end": 2.2,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.2,
+          "end": 2.46,
+          "key": "say",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.46,
+          "end": 2.72,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.94,
+          "end": 3.08,
+          "key": "did",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.08,
+          "end": 3.26,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.26,
+          "end": 3.54,
+          "key": "see",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.54,
+          "end": 3.72,
+          "key": "how",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 3.92,
+          "end": 4.06,
+          "key": "could",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "affect",
+          "start": 4.06,
+          "end": 4.32,
+          "key": "affect",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 4.32,
+          "end": 4.56,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gertrude",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "looked",
+          "start": 0.86,
+          "end": 1.08
+        },
+        {
+          "text": "at",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "him",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "as",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "text": "much",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "as",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "to",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "say",
+          "start": 2.2,
+          "end": 2.46
+        },
+        {
+          "text": "that",
+          "start": 2.46,
+          "end": 2.72
+        },
+        {
+          "text": "she",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "text": "did",
+          "start": 2.94,
+          "end": 3.08
+        },
+        {
+          "text": "not",
+          "start": 3.08,
+          "end": 3.26
+        },
+        {
+          "text": "see",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "text": "how",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "text": "this",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "could",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "affect",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "text": "her.",
+          "start": 4.32,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10543431900441647
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25eb8c554825a6bdb70b2cd3f1bdc3874ff3b1ed5e32572c97d6a3ee5b602b51",
+  "selected_reasons": []
+}

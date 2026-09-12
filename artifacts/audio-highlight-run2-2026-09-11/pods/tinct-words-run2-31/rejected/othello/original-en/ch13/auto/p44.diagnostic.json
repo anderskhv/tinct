@@ -1,0 +1,6572 @@
+{
+  "complete": true,
+  "signature": "9caa5b185b3219a691e99bd59457ff7ea2e9423a86e47ca2fe465ba5fe4f3a0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.6295790928415954,
+      "alignment_seconds": 0.0009225001558661461,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. In troth, I think I should, and undo't when I had done. Marry, I would not do such a thing for a joint-ring, nor for measures of lawn, nor for gowns, petticoats, nor caps, nor any petty exhibition; but, for the whole world—why, who would not make her husband a cuckold to make him a monarch? I should venture purgatory for 't.",
+        "hotwords": "Emilia, In, I, Marry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, In troth, I think I should, and undo't when I had done. Marry, I would not do such",
+          "start": 0.45,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.45,
+              "end": 0.81,
+              "probability": 0.546112060546875
+            },
+            {
+              "text": " In",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.08807373046875
+            },
+            {
+              "text": " troth,",
+              "start": 1.45,
+              "end": 1.95,
+              "probability": 0.6998291015625
+            },
+            {
+              "text": " I",
+              "start": 2.07,
+              "end": 2.13,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " think",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.98828125
+            },
+            {
+              "text": " should,",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 3.01,
+              "end": 3.07,
+              "probability": 0.408203125
+            },
+            {
+              "text": " undo't",
+              "start": 3.07,
+              "end": 3.43,
+              "probability": 0.007648468017578125
+            },
+            {
+              "text": " when",
+              "start": 3.43,
+              "end": 3.53,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " I",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " had",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " done.",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Marry,",
+              "start": 4.93,
+              "end": 5.07,
+              "probability": 0.48876953125
+            },
+            {
+              "text": " I",
+              "start": 5.15,
+              "end": 5.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " would",
+              "start": 5.25,
+              "end": 5.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 5.35,
+              "end": 5.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do",
+              "start": 5.53,
+              "end": 5.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " such",
+              "start": 5.69,
+              "end": 5.87,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " a thing for a joint-ring, nor for measures of lawn, nor for gowns, petticoats, nor caps,",
+          "start": 5.87,
+          "end": 11.13,
+          "words": [
+            {
+              "text": " a",
+              "start": 5.87,
+              "end": 6.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " thing",
+              "start": 6.05,
+              "end": 6.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 6.19,
+              "end": 6.37,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " a",
+              "start": 6.37,
+              "end": 6.53,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " joint",
+              "start": 6.53,
+              "end": 6.75,
+              "probability": 0.8193359375
+            },
+            {
+              "text": "-ring,",
+              "start": 6.75,
+              "end": 7.11,
+              "probability": 0.55072021484375
+            },
+            {
+              "text": " nor",
+              "start": 7.47,
+              "end": 7.59,
+              "probability": 0.5966796875
+            },
+            {
+              "text": " for",
+              "start": 7.59,
+              "end": 7.79,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " measures",
+              "start": 7.79,
+              "end": 8.05,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 8.05,
+              "end": 8.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " lawn,",
+              "start": 8.33,
+              "end": 8.63,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " nor",
+              "start": 8.99,
+              "end": 9.07,
+              "probability": 0.962890625
+            },
+            {
+              "text": " for",
+              "start": 9.07,
+              "end": 9.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " gowns,",
+              "start": 9.33,
+              "end": 9.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " petticoats,",
+              "start": 9.95,
+              "end": 10.51,
+              "probability": 0.8687744140625
+            },
+            {
+              "text": " nor",
+              "start": 10.67,
+              "end": 10.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " caps,",
+              "start": 10.73,
+              "end": 11.13,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " nor any petty exhibition. But, for the whole world—why, who would not make her husband",
+          "start": 11.49,
+          "end": 16.09,
+          "words": [
+            {
+              "text": " nor",
+              "start": 11.49,
+              "end": 11.53,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " any",
+              "start": 11.53,
+              "end": 11.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " petty",
+              "start": 11.79,
+              "end": 12.03,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " exhibition.",
+              "start": 12.03,
+              "end": 12.59,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " But,",
+              "start": 13.25,
+              "end": 13.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " for",
+              "start": 13.51,
+              "end": 13.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 13.59,
+              "end": 13.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " whole",
+              "start": 13.69,
+              "end": 13.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " world—why,",
+              "start": 13.91,
+              "end": 14.93,
+              "probability": 0.5707778930664062
+            },
+            {
+              "text": " who",
+              "start": 15.07,
+              "end": 15.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " would",
+              "start": 15.15,
+              "end": 15.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 15.27,
+              "end": 15.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " make",
+              "start": 15.45,
+              "end": 15.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 15.63,
+              "end": 15.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " husband",
+              "start": 15.77,
+              "end": 16.09,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " a cuckold to make him a monarch? I should venture purgatory for tea.",
+          "start": 16.09,
+          "end": 19.87,
+          "words": [
+            {
+              "text": " a",
+              "start": 16.09,
+              "end": 16.29,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " cuckold",
+              "start": 16.29,
+              "end": 16.59,
+              "probability": 0.9510091145833334
+            },
+            {
+              "text": " to",
+              "start": 16.59,
+              "end": 16.75,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " make",
+              "start": 16.75,
+              "end": 16.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him",
+              "start": 16.89,
+              "end": 17.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 17.03,
+              "end": 17.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " monarch?",
+              "start": 17.15,
+              "end": 17.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 18.03,
+              "end": 18.25,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " should",
+              "start": 18.25,
+              "end": 18.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " venture",
+              "start": 18.39,
+              "end": 18.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " purgatory",
+              "start": 18.71,
+              "end": 19.19,
+              "probability": 0.9928385416666666
+            },
+            {
+              "text": " for",
+              "start": 19.19,
+              "end": 19.55,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " tea.",
+              "start": 19.55,
+              "end": 19.87,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.45,
+          "end": 0.81
+        },
+        {
+          "raw": "In",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "troth,",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "raw": "think",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "should,",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "raw": "undo't",
+          "start": 3.07,
+          "end": 3.43
+        },
+        {
+          "raw": "when",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "raw": "I",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "had",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "done.",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "raw": "Marry,",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "raw": "I",
+          "start": 5.15,
+          "end": 5.25
+        },
+        {
+          "raw": "would",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "raw": "not",
+          "start": 5.35,
+          "end": 5.53
+        },
+        {
+          "raw": "do",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "raw": "such",
+          "start": 5.69,
+          "end": 5.87
+        },
+        {
+          "raw": "a",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "raw": "thing",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "raw": "for",
+          "start": 6.19,
+          "end": 6.37
+        },
+        {
+          "raw": "a",
+          "start": 6.37,
+          "end": 6.53
+        },
+        {
+          "raw": "joint",
+          "start": 6.53,
+          "end": 6.75
+        },
+        {
+          "raw": "-ring,",
+          "start": 6.75,
+          "end": 7.11
+        },
+        {
+          "raw": "nor",
+          "start": 7.47,
+          "end": 7.59
+        },
+        {
+          "raw": "for",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "raw": "measures",
+          "start": 7.79,
+          "end": 8.05
+        },
+        {
+          "raw": "of",
+          "start": 8.05,
+          "end": 8.33
+        },
+        {
+          "raw": "lawn,",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "raw": "nor",
+          "start": 8.99,
+          "end": 9.07
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.33
+        },
+        {
+          "raw": "gowns,",
+          "start": 9.33,
+          "end": 9.89
+        },
+        {
+          "raw": "petticoats,",
+          "start": 9.95,
+          "end": 10.51
+        },
+        {
+          "raw": "nor",
+          "start": 10.67,
+          "end": 10.73
+        },
+        {
+          "raw": "caps,",
+          "start": 10.73,
+          "end": 11.13
+        },
+        {
+          "raw": "nor",
+          "start": 11.49,
+          "end": 11.53
+        },
+        {
+          "raw": "any",
+          "start": 11.53,
+          "end": 11.79
+        },
+        {
+          "raw": "petty",
+          "start": 11.79,
+          "end": 12.03
+        },
+        {
+          "raw": "exhibition.",
+          "start": 12.03,
+          "end": 12.59
+        },
+        {
+          "raw": "But,",
+          "start": 13.25,
+          "end": 13.43
+        },
+        {
+          "raw": "for",
+          "start": 13.51,
+          "end": 13.59
+        },
+        {
+          "raw": "the",
+          "start": 13.59,
+          "end": 13.69
+        },
+        {
+          "raw": "whole",
+          "start": 13.69,
+          "end": 13.91
+        },
+        {
+          "raw": "world—why,",
+          "start": 13.91,
+          "end": 14.93
+        },
+        {
+          "raw": "who",
+          "start": 15.07,
+          "end": 15.15
+        },
+        {
+          "raw": "would",
+          "start": 15.15,
+          "end": 15.27
+        },
+        {
+          "raw": "not",
+          "start": 15.27,
+          "end": 15.45
+        },
+        {
+          "raw": "make",
+          "start": 15.45,
+          "end": 15.63
+        },
+        {
+          "raw": "her",
+          "start": 15.63,
+          "end": 15.77
+        },
+        {
+          "raw": "husband",
+          "start": 15.77,
+          "end": 16.09
+        },
+        {
+          "raw": "a",
+          "start": 16.09,
+          "end": 16.29
+        },
+        {
+          "raw": "cuckold",
+          "start": 16.29,
+          "end": 16.59
+        },
+        {
+          "raw": "to",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "raw": "make",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "raw": "him",
+          "start": 16.89,
+          "end": 17.03
+        },
+        {
+          "raw": "a",
+          "start": 17.03,
+          "end": 17.15
+        },
+        {
+          "raw": "monarch?",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "raw": "I",
+          "start": 18.03,
+          "end": 18.25
+        },
+        {
+          "raw": "should",
+          "start": 18.25,
+          "end": 18.39
+        },
+        {
+          "raw": "venture",
+          "start": 18.39,
+          "end": 18.71
+        },
+        {
+          "raw": "purgatory",
+          "start": 18.71,
+          "end": 19.19
+        },
+        {
+          "raw": "for",
+          "start": 19.19,
+          "end": 19.55
+        },
+        {
+          "raw": "tea.",
+          "start": 19.55,
+          "end": 19.87
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "In",
+        "troth,",
+        "I",
+        "think",
+        "I",
+        "should,",
+        "and",
+        "undo't",
+        "when",
+        "I",
+        "had",
+        "done.",
+        "Marry,",
+        "I",
+        "would",
+        "not",
+        "do",
+        "such",
+        "a",
+        "thing",
+        "for",
+        "a",
+        "joint-ring,",
+        "nor",
+        "for",
+        "measures",
+        "of",
+        "lawn,",
+        "nor",
+        "for",
+        "gowns,",
+        "petticoats,",
+        "nor",
+        "caps,",
+        "nor",
+        "any",
+        "petty",
+        "exhibition;",
+        "but,",
+        "for",
+        "the",
+        "whole",
+        "world—why,",
+        "who",
+        "would",
+        "not",
+        "make",
+        "her",
+        "husband",
+        "a",
+        "cuckold",
+        "to",
+        "make",
+        "him",
+        "a",
+        "monarch?",
+        "I",
+        "should",
+        "venture",
+        "purgatory",
+        "for",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          62,
+          0,
+          62
+        ],
+        [
+          "replace",
+          62,
+          63,
+          62,
+          63
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          62,
+          63,
+          62,
+          63
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.45,
+          "end": 0.81,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "troth,",
+          "start": 1.45,
+          "end": 1.95,
+          "key": "troth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.13,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "should,",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "should",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.07,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "undo't",
+          "start": 3.07,
+          "end": 3.43,
+          "key": "undot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.43,
+          "end": 3.53,
+          "key": "when",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.53,
+          "end": 3.67,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.67,
+          "end": 3.83,
+          "key": "had",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "done",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 4.93,
+          "end": 5.07,
+          "key": "marry",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.15,
+          "end": 5.25,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.25,
+          "end": 5.35,
+          "key": "would",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.35,
+          "end": 5.53,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.53,
+          "end": 5.69,
+          "key": "do",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 5.69,
+          "end": 5.87,
+          "key": "such",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.87,
+          "end": 6.05,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 6.05,
+          "end": 6.19,
+          "key": "thing",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.19,
+          "end": 6.37,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.37,
+          "end": 6.53,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "joint -ring,",
+          "start": 6.53,
+          "end": 7.11,
+          "key": "jointring",
+          "pieces": [
+            23,
+            24
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 7.47,
+          "end": 7.59,
+          "key": "nor",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.59,
+          "end": 7.79,
+          "key": "for",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "measures",
+          "start": 7.79,
+          "end": 8.05,
+          "key": "measures",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.05,
+          "end": 8.33,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "lawn,",
+          "start": 8.33,
+          "end": 8.63,
+          "key": "lawn",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 8.99,
+          "end": 9.07,
+          "key": "nor",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.33,
+          "key": "for",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "gowns,",
+          "start": 9.33,
+          "end": 9.89,
+          "key": "gowns",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "petticoats,",
+          "start": 9.95,
+          "end": 10.51,
+          "key": "petticoats",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 10.67,
+          "end": 10.73,
+          "key": "nor",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "caps,",
+          "start": 10.73,
+          "end": 11.13,
+          "key": "caps",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 11.49,
+          "end": 11.53,
+          "key": "nor",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 11.53,
+          "end": 11.79,
+          "key": "any",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "petty",
+          "start": 11.79,
+          "end": 12.03,
+          "key": "petty",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "exhibition.",
+          "start": 12.03,
+          "end": 12.59,
+          "key": "exhibition",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 13.25,
+          "end": 13.43,
+          "key": "but",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 13.51,
+          "end": 13.59,
+          "key": "for",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.59,
+          "end": 13.69,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 13.69,
+          "end": 13.91,
+          "key": "whole",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "world—why,",
+          "start": 13.91,
+          "end": 14.93,
+          "key": "worldwhy",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 15.07,
+          "end": 15.15,
+          "key": "who",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 15.15,
+          "end": 15.27,
+          "key": "would",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.27,
+          "end": 15.45,
+          "key": "not",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 15.45,
+          "end": 15.63,
+          "key": "make",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 15.63,
+          "end": 15.77,
+          "key": "her",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 15.77,
+          "end": 16.09,
+          "key": "husband",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.09,
+          "end": 16.29,
+          "key": "a",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "cuckold",
+          "start": 16.29,
+          "end": 16.59,
+          "key": "cuckold",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.59,
+          "end": 16.75,
+          "key": "to",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 16.75,
+          "end": 16.89,
+          "key": "make",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 16.89,
+          "end": 17.03,
+          "key": "him",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.03,
+          "end": 17.15,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "monarch?",
+          "start": 17.15,
+          "end": 17.39,
+          "key": "monarch",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 18.03,
+          "end": 18.25,
+          "key": "i",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.25,
+          "end": 18.39,
+          "key": "should",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "venture",
+          "start": 18.39,
+          "end": 18.71,
+          "key": "venture",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "purgatory",
+          "start": 18.71,
+          "end": 19.19,
+          "key": "purgatory",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 19.19,
+          "end": 19.55,
+          "key": "for",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "tea.",
+          "start": 19.55,
+          "end": 19.87,
+          "key": "tea",
+          "pieces": [
+            63
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 23,
+          "text": "joint-ring,",
+          "heard": "joint -ring,",
+          "heard_indexes": [
+            23,
+            24
+          ],
+          "start": 6.53,
+          "end": 7.11
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.45,
+          "end": 0.81
+        },
+        {
+          "text": "In",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "troth,",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "text": "I",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "text": "think",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "I",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "should,",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "and",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "text": "undo't",
+          "start": 3.07,
+          "end": 3.43
+        },
+        {
+          "text": "when",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "text": "I",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "had",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "done.",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "text": "Marry,",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "text": "I",
+          "start": 5.15,
+          "end": 5.25
+        },
+        {
+          "text": "would",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "text": "not",
+          "start": 5.35,
+          "end": 5.53
+        },
+        {
+          "text": "do",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "text": "such",
+          "start": 5.69,
+          "end": 5.87
+        },
+        {
+          "text": "a",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "text": "thing",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "text": "for",
+          "start": 6.19,
+          "end": 6.37
+        },
+        {
+          "text": "a",
+          "start": 6.37,
+          "end": 6.53
+        },
+        {
+          "text": "joint-ring,",
+          "start": 6.53,
+          "end": 7.11
+        },
+        {
+          "text": "nor",
+          "start": 7.47,
+          "end": 7.59
+        },
+        {
+          "text": "for",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "text": "measures",
+          "start": 7.79,
+          "end": 8.05
+        },
+        {
+          "text": "of",
+          "start": 8.05,
+          "end": 8.33
+        },
+        {
+          "text": "lawn,",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "text": "nor",
+          "start": 8.99,
+          "end": 9.07
+        },
+        {
+          "text": "for",
+          "start": 9.07,
+          "end": 9.33
+        },
+        {
+          "text": "gowns,",
+          "start": 9.33,
+          "end": 9.89
+        },
+        {
+          "text": "petticoats,",
+          "start": 9.95,
+          "end": 10.51
+        },
+        {
+          "text": "nor",
+          "start": 10.67,
+          "end": 10.73
+        },
+        {
+          "text": "caps,",
+          "start": 10.73,
+          "end": 11.13
+        },
+        {
+          "text": "nor",
+          "start": 11.49,
+          "end": 11.53
+        },
+        {
+          "text": "any",
+          "start": 11.53,
+          "end": 11.79
+        },
+        {
+          "text": "petty",
+          "start": 11.79,
+          "end": 12.03
+        },
+        {
+          "text": "exhibition;",
+          "start": 12.03,
+          "end": 12.59
+        },
+        {
+          "text": "but,",
+          "start": 13.25,
+          "end": 13.43
+        },
+        {
+          "text": "for",
+          "start": 13.51,
+          "end": 13.59
+        },
+        {
+          "text": "the",
+          "start": 13.59,
+          "end": 13.69
+        },
+        {
+          "text": "whole",
+          "start": 13.69,
+          "end": 13.91
+        },
+        {
+          "text": "world—why,",
+          "start": 13.91,
+          "end": 14.93
+        },
+        {
+          "text": "who",
+          "start": 15.07,
+          "end": 15.15
+        },
+        {
+          "text": "would",
+          "start": 15.15,
+          "end": 15.27
+        },
+        {
+          "text": "not",
+          "start": 15.27,
+          "end": 15.45
+        },
+        {
+          "text": "make",
+          "start": 15.45,
+          "end": 15.63
+        },
+        {
+          "text": "her",
+          "start": 15.63,
+          "end": 15.77
+        },
+        {
+          "text": "husband",
+          "start": 15.77,
+          "end": 16.09
+        },
+        {
+          "text": "a",
+          "start": 16.09,
+          "end": 16.29
+        },
+        {
+          "text": "cuckold",
+          "start": 16.29,
+          "end": 16.59
+        },
+        {
+          "text": "to",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "text": "make",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "text": "him",
+          "start": 16.89,
+          "end": 17.03
+        },
+        {
+          "text": "a",
+          "start": 17.03,
+          "end": 17.15
+        },
+        {
+          "text": "monarch?",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "text": "I",
+          "start": 18.03,
+          "end": 18.25
+        },
+        {
+          "text": "should",
+          "start": 18.25,
+          "end": 18.39
+        },
+        {
+          "text": "venture",
+          "start": 18.39,
+          "end": 18.71
+        },
+        {
+          "text": "purgatory",
+          "start": 18.71,
+          "end": 19.19
+        },
+        {
+          "text": "for",
+          "start": 19.19,
+          "end": 19.55
+        },
+        {
+          "text": "'t.",
+          "start": 19.55,
+          "end": 19.71
+        }
+      ],
+      "stats": {
+        "expected_words": 63,
+        "heard_words": 63,
+        "matched_words": 62
+      },
+      "match_ratio": 0.9841269841269841,
+      "rejection_reasons": [],
+      "seconds": 0.6308684889227152
+    },
+    {
+      "asr_seconds": 0.6848579179495573,
+      "alignment_seconds": 0.0007127122953534126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Emilia, In, I, Marry"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Emilia, In Troth, I think I should, And undot when I had done.",
+          "start": 0.05,
+          "end": 4.07,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.546112060546875
+            },
+            {
+              "text": " In",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.08807373046875
+            },
+            {
+              "text": " Troth,",
+              "start": 1.45,
+              "end": 1.95,
+              "probability": 0.576416015625
+            },
+            {
+              "text": " I",
+              "start": 2.05,
+              "end": 2.13,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " think",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " should,",
+              "start": 2.49,
+              "end": 2.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " And",
+              "start": 3.01,
+              "end": 3.07,
+              "probability": 0.54638671875
+            },
+            {
+              "text": " undot",
+              "start": 3.07,
+              "end": 3.37,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " when",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.98046875
+            },
+            {
+              "text": " I",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " done.",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Marry, I would not do such a thing for a joint ring, Nor for measures of lawn, Nor for gowns,",
+          "start": 4.81,
+          "end": 9.87,
+          "words": [
+            {
+              "text": " Marry,",
+              "start": 4.81,
+              "end": 5.07,
+              "probability": 0.49219512939453125
+            },
+            {
+              "text": " I",
+              "start": 5.13,
+              "end": 5.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " would",
+              "start": 5.25,
+              "end": 5.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 5.35,
+              "end": 5.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 5.53,
+              "end": 5.71,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " such",
+              "start": 5.71,
+              "end": 5.87,
+              "probability": 0.92578125
+            },
+            {
+              "text": " a",
+              "start": 5.87,
+              "end": 6.05,
+              "probability": 0.982421875
+            },
+            {
+              "text": " thing",
+              "start": 6.05,
+              "end": 6.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " for",
+              "start": 6.19,
+              "end": 6.37,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " a",
+              "start": 6.37,
+              "end": 6.53,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " joint",
+              "start": 6.53,
+              "end": 6.75,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " ring,",
+              "start": 6.75,
+              "end": 7.15,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " Nor",
+              "start": 7.45,
+              "end": 7.57,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " for",
+              "start": 7.57,
+              "end": 7.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " measures",
+              "start": 7.79,
+              "end": 8.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 8.03,
+              "end": 8.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lawn,",
+              "start": 8.35,
+              "end": 8.63,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Nor",
+              "start": 8.97,
+              "end": 9.07,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " for",
+              "start": 9.07,
+              "end": 9.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " gowns,",
+              "start": 9.31,
+              "end": 9.87,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " petty coats, Nor caps, Nor any petty exhibition.",
+          "start": 9.95,
+          "end": 12.55,
+          "words": [
+            {
+              "text": " petty",
+              "start": 9.95,
+              "end": 10.09,
+              "probability": 0.2127685546875
+            },
+            {
+              "text": " coats,",
+              "start": 10.09,
+              "end": 10.47,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " Nor",
+              "start": 10.63,
+              "end": 10.71,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " caps,",
+              "start": 10.71,
+              "end": 11.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Nor",
+              "start": 11.43,
+              "end": 11.53,
+              "probability": 0.121826171875
+            },
+            {
+              "text": " any",
+              "start": 11.53,
+              "end": 11.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " petty",
+              "start": 11.79,
+              "end": 12.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " exhibition.",
+              "start": 12.05,
+              "end": 12.55,
+              "probability": 0.98095703125
+            }
+          ]
+        },
+        {
+          "text": " But for the whole world, Why, who would not make her husband a cuckold",
+          "start": 13.23,
+          "end": 16.61,
+          "words": [
+            {
+              "text": " But",
+              "start": 13.23,
+              "end": 13.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " for",
+              "start": 13.43,
+              "end": 13.59,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " the",
+              "start": 13.59,
+              "end": 13.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " whole",
+              "start": 13.69,
+              "end": 13.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " world,",
+              "start": 13.89,
+              "end": 14.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Why,",
+              "start": 14.71,
+              "end": 14.93,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " who",
+              "start": 15.07,
+              "end": 15.15,
+              "probability": 0.921875
+            },
+            {
+              "text": " would",
+              "start": 15.15,
+              "end": 15.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 15.27,
+              "end": 15.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " make",
+              "start": 15.45,
+              "end": 15.63,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " her",
+              "start": 15.63,
+              "end": 15.77,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " husband",
+              "start": 15.77,
+              "end": 16.07,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " a",
+              "start": 16.07,
+              "end": 16.29,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " cuckold",
+              "start": 16.29,
+              "end": 16.61,
+              "probability": 0.9549153645833334
+            }
+          ]
+        },
+        {
+          "text": " to make him a monarch?",
+          "start": 16.61,
+          "end": 17.41,
+          "words": [
+            {
+              "text": " to",
+              "start": 16.61,
+              "end": 16.75,
+              "probability": 0.50732421875
+            },
+            {
+              "text": " make",
+              "start": 16.75,
+              "end": 16.89,
+              "probability": 0.98046875
+            },
+            {
+              "text": " him",
+              "start": 16.89,
+              "end": 17.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 17.03,
+              "end": 17.15,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " monarch?",
+              "start": 17.15,
+              "end": 17.41,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " I should venture purgatory for tea.",
+          "start": 18.03,
+          "end": 19.87,
+          "words": [
+            {
+              "text": " I",
+              "start": 18.03,
+              "end": 18.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " should",
+              "start": 18.25,
+              "end": 18.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " venture",
+              "start": 18.39,
+              "end": 18.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " purgatory",
+              "start": 18.71,
+              "end": 19.19,
+              "probability": 0.9923502604166666
+            },
+            {
+              "text": " for",
+              "start": 19.19,
+              "end": 19.55,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " tea.",
+              "start": 19.55,
+              "end": 19.87,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "In",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "Troth,",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "raw": "I",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "raw": "think",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "should,",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "raw": "And",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "raw": "undot",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "raw": "when",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "I",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "had",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "done.",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "raw": "Marry,",
+          "start": 4.81,
+          "end": 5.07
+        },
+        {
+          "raw": "I",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "raw": "would",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "raw": "not",
+          "start": 5.35,
+          "end": 5.53
+        },
+        {
+          "raw": "do",
+          "start": 5.53,
+          "end": 5.71
+        },
+        {
+          "raw": "such",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "raw": "a",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "raw": "thing",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "raw": "for",
+          "start": 6.19,
+          "end": 6.37
+        },
+        {
+          "raw": "a",
+          "start": 6.37,
+          "end": 6.53
+        },
+        {
+          "raw": "joint",
+          "start": 6.53,
+          "end": 6.75
+        },
+        {
+          "raw": "ring,",
+          "start": 6.75,
+          "end": 7.15
+        },
+        {
+          "raw": "Nor",
+          "start": 7.45,
+          "end": 7.57
+        },
+        {
+          "raw": "for",
+          "start": 7.57,
+          "end": 7.79
+        },
+        {
+          "raw": "measures",
+          "start": 7.79,
+          "end": 8.03
+        },
+        {
+          "raw": "of",
+          "start": 8.03,
+          "end": 8.35
+        },
+        {
+          "raw": "lawn,",
+          "start": 8.35,
+          "end": 8.63
+        },
+        {
+          "raw": "Nor",
+          "start": 8.97,
+          "end": 9.07
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.31
+        },
+        {
+          "raw": "gowns,",
+          "start": 9.31,
+          "end": 9.87
+        },
+        {
+          "raw": "petty",
+          "start": 9.95,
+          "end": 10.09
+        },
+        {
+          "raw": "coats,",
+          "start": 10.09,
+          "end": 10.47
+        },
+        {
+          "raw": "Nor",
+          "start": 10.63,
+          "end": 10.71
+        },
+        {
+          "raw": "caps,",
+          "start": 10.71,
+          "end": 11.13
+        },
+        {
+          "raw": "Nor",
+          "start": 11.43,
+          "end": 11.53
+        },
+        {
+          "raw": "any",
+          "start": 11.53,
+          "end": 11.79
+        },
+        {
+          "raw": "petty",
+          "start": 11.79,
+          "end": 12.05
+        },
+        {
+          "raw": "exhibition.",
+          "start": 12.05,
+          "end": 12.55
+        },
+        {
+          "raw": "But",
+          "start": 13.23,
+          "end": 13.43
+        },
+        {
+          "raw": "for",
+          "start": 13.43,
+          "end": 13.59
+        },
+        {
+          "raw": "the",
+          "start": 13.59,
+          "end": 13.69
+        },
+        {
+          "raw": "whole",
+          "start": 13.69,
+          "end": 13.89
+        },
+        {
+          "raw": "world,",
+          "start": 13.89,
+          "end": 14.25
+        },
+        {
+          "raw": "Why,",
+          "start": 14.71,
+          "end": 14.93
+        },
+        {
+          "raw": "who",
+          "start": 15.07,
+          "end": 15.15
+        },
+        {
+          "raw": "would",
+          "start": 15.15,
+          "end": 15.27
+        },
+        {
+          "raw": "not",
+          "start": 15.27,
+          "end": 15.45
+        },
+        {
+          "raw": "make",
+          "start": 15.45,
+          "end": 15.63
+        },
+        {
+          "raw": "her",
+          "start": 15.63,
+          "end": 15.77
+        },
+        {
+          "raw": "husband",
+          "start": 15.77,
+          "end": 16.07
+        },
+        {
+          "raw": "a",
+          "start": 16.07,
+          "end": 16.29
+        },
+        {
+          "raw": "cuckold",
+          "start": 16.29,
+          "end": 16.61
+        },
+        {
+          "raw": "to",
+          "start": 16.61,
+          "end": 16.75
+        },
+        {
+          "raw": "make",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "raw": "him",
+          "start": 16.89,
+          "end": 17.03
+        },
+        {
+          "raw": "a",
+          "start": 17.03,
+          "end": 17.15
+        },
+        {
+          "raw": "monarch?",
+          "start": 17.15,
+          "end": 17.41
+        },
+        {
+          "raw": "I",
+          "start": 18.03,
+          "end": 18.25
+        },
+        {
+          "raw": "should",
+          "start": 18.25,
+          "end": 18.39
+        },
+        {
+          "raw": "venture",
+          "start": 18.39,
+          "end": 18.71
+        },
+        {
+          "raw": "purgatory",
+          "start": 18.71,
+          "end": 19.19
+        },
+        {
+          "raw": "for",
+          "start": 19.19,
+          "end": 19.55
+        },
+        {
+          "raw": "tea.",
+          "start": 19.55,
+          "end": 19.87
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "In",
+        "troth,",
+        "I",
+        "think",
+        "I",
+        "should,",
+        "and",
+        "undo't",
+        "when",
+        "I",
+        "had",
+        "done.",
+        "Marry,",
+        "I",
+        "would",
+        "not",
+        "do",
+        "such",
+        "a",
+        "thing",
+        "for",
+        "a",
+        "joint-ring,",
+        "nor",
+        "for",
+        "measures",
+        "of",
+        "lawn,",
+        "nor",
+        "for",
+        "gowns,",
+        "petticoats,",
+        "nor",
+        "caps,",
+        "nor",
+        "any",
+        "petty",
+        "exhibition;",
+        "but,",
+        "for",
+        "the",
+        "whole",
+        "world—why,",
+        "who",
+        "would",
+        "not",
+        "make",
+        "her",
+        "husband",
+        "a",
+        "cuckold",
+        "to",
+        "make",
+        "him",
+        "a",
+        "monarch?",
+        "I",
+        "should",
+        "venture",
+        "purgatory",
+        "for",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          43,
+          34,
+          44
+        ],
+        [
+          "replace",
+          43,
+          44,
+          44,
+          46
+        ],
+        [
+          "equal",
+          44,
+          62,
+          46,
+          64
+        ],
+        [
+          "replace",
+          62,
+          63,
+          64,
+          65
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "replace",
+          43,
+          44,
+          44,
+          46
+        ],
+        [
+          "replace",
+          62,
+          63,
+          64,
+          65
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Troth,",
+          "start": 1.45,
+          "end": 1.95,
+          "key": "troth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.05,
+          "end": 2.13,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "should,",
+          "start": 2.49,
+          "end": 2.71,
+          "key": "should",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.01,
+          "end": 3.07,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "undot",
+          "start": 3.07,
+          "end": 3.37,
+          "key": "undot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.37,
+          "end": 3.53,
+          "key": "when",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.53,
+          "end": 3.67,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.67,
+          "end": 3.83,
+          "key": "had",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "done",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 4.81,
+          "end": 5.07,
+          "key": "marry",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.13,
+          "end": 5.25,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.25,
+          "end": 5.35,
+          "key": "would",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.35,
+          "end": 5.53,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.53,
+          "end": 5.71,
+          "key": "do",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 5.71,
+          "end": 5.87,
+          "key": "such",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.87,
+          "end": 6.05,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 6.05,
+          "end": 6.19,
+          "key": "thing",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.19,
+          "end": 6.37,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.37,
+          "end": 6.53,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "joint ring,",
+          "start": 6.53,
+          "end": 7.15,
+          "key": "jointring",
+          "pieces": [
+            23,
+            24
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 7.45,
+          "end": 7.57,
+          "key": "nor",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.57,
+          "end": 7.79,
+          "key": "for",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "measures",
+          "start": 7.79,
+          "end": 8.03,
+          "key": "measures",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.03,
+          "end": 8.35,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "lawn,",
+          "start": 8.35,
+          "end": 8.63,
+          "key": "lawn",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 8.97,
+          "end": 9.07,
+          "key": "nor",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.31,
+          "key": "for",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "gowns,",
+          "start": 9.31,
+          "end": 9.87,
+          "key": "gowns",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "petty",
+          "start": 9.95,
+          "end": 10.09,
+          "key": "petty",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "coats,",
+          "start": 10.09,
+          "end": 10.47,
+          "key": "coats",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 10.63,
+          "end": 10.71,
+          "key": "nor",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "caps,",
+          "start": 10.71,
+          "end": 11.13,
+          "key": "caps",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 11.43,
+          "end": 11.53,
+          "key": "nor",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 11.53,
+          "end": 11.79,
+          "key": "any",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "petty",
+          "start": 11.79,
+          "end": 12.05,
+          "key": "petty",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "exhibition.",
+          "start": 12.05,
+          "end": 12.55,
+          "key": "exhibition",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 13.23,
+          "end": 13.43,
+          "key": "but",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 13.43,
+          "end": 13.59,
+          "key": "for",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.59,
+          "end": 13.69,
+          "key": "the",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 13.69,
+          "end": 13.89,
+          "key": "whole",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 13.89,
+          "end": 14.25,
+          "key": "world",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 14.71,
+          "end": 14.93,
+          "key": "why",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 15.07,
+          "end": 15.15,
+          "key": "who",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 15.15,
+          "end": 15.27,
+          "key": "would",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.27,
+          "end": 15.45,
+          "key": "not",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 15.45,
+          "end": 15.63,
+          "key": "make",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 15.63,
+          "end": 15.77,
+          "key": "her",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 15.77,
+          "end": 16.07,
+          "key": "husband",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.07,
+          "end": 16.29,
+          "key": "a",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "cuckold",
+          "start": 16.29,
+          "end": 16.61,
+          "key": "cuckold",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.61,
+          "end": 16.75,
+          "key": "to",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 16.75,
+          "end": 16.89,
+          "key": "make",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 16.89,
+          "end": 17.03,
+          "key": "him",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.03,
+          "end": 17.15,
+          "key": "a",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "monarch?",
+          "start": 17.15,
+          "end": 17.41,
+          "key": "monarch",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 18.03,
+          "end": 18.25,
+          "key": "i",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.25,
+          "end": 18.39,
+          "key": "should",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "venture",
+          "start": 18.39,
+          "end": 18.71,
+          "key": "venture",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "purgatory",
+          "start": 18.71,
+          "end": 19.19,
+          "key": "purgatory",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 19.19,
+          "end": 19.55,
+          "key": "for",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "tea.",
+          "start": 19.55,
+          "end": 19.87,
+          "key": "tea",
+          "pieces": [
+            65
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 23,
+          "text": "joint-ring,",
+          "heard": "joint ring,",
+          "heard_indexes": [
+            23,
+            24
+          ],
+          "start": 6.53,
+          "end": 7.15
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "In",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "troth,",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "text": "I",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "text": "think",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "I",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "should,",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "text": "and",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "text": "undo't",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "text": "when",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "I",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "had",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "done.",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "text": "Marry,",
+          "start": 4.81,
+          "end": 5.07
+        },
+        {
+          "text": "I",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "text": "would",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "text": "not",
+          "start": 5.35,
+          "end": 5.53
+        },
+        {
+          "text": "do",
+          "start": 5.53,
+          "end": 5.71
+        },
+        {
+          "text": "such",
+          "start": 5.71,
+          "end": 5.87
+        },
+        {
+          "text": "a",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "text": "thing",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "text": "for",
+          "start": 6.19,
+          "end": 6.37
+        },
+        {
+          "text": "a",
+          "start": 6.37,
+          "end": 6.53
+        },
+        {
+          "text": "joint-ring,",
+          "start": 6.53,
+          "end": 7.15
+        },
+        {
+          "text": "nor",
+          "start": 7.45,
+          "end": 7.57
+        },
+        {
+          "text": "for",
+          "start": 7.57,
+          "end": 7.79
+        },
+        {
+          "text": "measures",
+          "start": 7.79,
+          "end": 8.03
+        },
+        {
+          "text": "of",
+          "start": 8.03,
+          "end": 8.35
+        },
+        {
+          "text": "lawn,",
+          "start": 8.35,
+          "end": 8.63
+        },
+        {
+          "text": "nor",
+          "start": 8.97,
+          "end": 9.07
+        },
+        {
+          "text": "for",
+          "start": 9.07,
+          "end": 9.31
+        },
+        {
+          "text": "gowns,",
+          "start": 9.31,
+          "end": 9.87
+        },
+        {
+          "text": "petticoats,",
+          "start": 9.87,
+          "end": 10.25
+        },
+        {
+          "text": "nor",
+          "start": 10.63,
+          "end": 10.71
+        },
+        {
+          "text": "caps,",
+          "start": 10.71,
+          "end": 11.13
+        },
+        {
+          "text": "nor",
+          "start": 11.43,
+          "end": 11.53
+        },
+        {
+          "text": "any",
+          "start": 11.53,
+          "end": 11.79
+        },
+        {
+          "text": "petty",
+          "start": 11.79,
+          "end": 12.05
+        },
+        {
+          "text": "exhibition;",
+          "start": 12.05,
+          "end": 12.55
+        },
+        {
+          "text": "but,",
+          "start": 13.23,
+          "end": 13.43
+        },
+        {
+          "text": "for",
+          "start": 13.43,
+          "end": 13.59
+        },
+        {
+          "text": "the",
+          "start": 13.59,
+          "end": 13.69
+        },
+        {
+          "text": "whole",
+          "start": 13.69,
+          "end": 13.89
+        },
+        {
+          "text": "world—why,",
+          "start": 13.89,
+          "end": 14.48
+        },
+        {
+          "text": "who",
+          "start": 15.07,
+          "end": 15.15
+        },
+        {
+          "text": "would",
+          "start": 15.15,
+          "end": 15.27
+        },
+        {
+          "text": "not",
+          "start": 15.27,
+          "end": 15.45
+        },
+        {
+          "text": "make",
+          "start": 15.45,
+          "end": 15.63
+        },
+        {
+          "text": "her",
+          "start": 15.63,
+          "end": 15.77
+        },
+        {
+          "text": "husband",
+          "start": 15.77,
+          "end": 16.07
+        },
+        {
+          "text": "a",
+          "start": 16.07,
+          "end": 16.29
+        },
+        {
+          "text": "cuckold",
+          "start": 16.29,
+          "end": 16.61
+        },
+        {
+          "text": "to",
+          "start": 16.61,
+          "end": 16.75
+        },
+        {
+          "text": "make",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "text": "him",
+          "start": 16.89,
+          "end": 17.03
+        },
+        {
+          "text": "a",
+          "start": 17.03,
+          "end": 17.15
+        },
+        {
+          "text": "monarch?",
+          "start": 17.15,
+          "end": 17.41
+        },
+        {
+          "text": "I",
+          "start": 18.03,
+          "end": 18.25
+        },
+        {
+          "text": "should",
+          "start": 18.25,
+          "end": 18.39
+        },
+        {
+          "text": "venture",
+          "start": 18.39,
+          "end": 18.71
+        },
+        {
+          "text": "purgatory",
+          "start": 18.71,
+          "end": 19.19
+        },
+        {
+          "text": "for",
+          "start": 19.19,
+          "end": 19.55
+        },
+        {
+          "text": "'t.",
+          "start": 19.55,
+          "end": 19.71
+        }
+      ],
+      "stats": {
+        "expected_words": 63,
+        "heard_words": 65,
+        "matched_words": 60
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.6858352171257138
+    },
+    {
+      "asr_seconds": 0.6722958530299366,
+      "alignment_seconds": 0.000688313040882349,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, in troth I think I should, and undot when I had done.",
+          "start": 0.05,
+          "end": 4.07,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.233642578125
+            },
+            {
+              "text": " in",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " troth",
+              "start": 1.45,
+              "end": 1.93,
+              "probability": 0.746337890625
+            },
+            {
+              "text": " I",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " think",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " should,",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 3.01,
+              "end": 3.07,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " undot",
+              "start": 3.07,
+              "end": 3.37,
+              "probability": 0.834716796875
+            },
+            {
+              "text": " when",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " had",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " done.",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Mary, I would not do such a thing for a joint ring, nor for measures of lawn, nor for gowns,",
+          "start": 4.93,
+          "end": 9.89,
+          "words": [
+            {
+              "text": " Mary,",
+              "start": 4.93,
+              "end": 4.97,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " I",
+              "start": 5.15,
+              "end": 5.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " would",
+              "start": 5.25,
+              "end": 5.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 5.35,
+              "end": 5.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do",
+              "start": 5.53,
+              "end": 5.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " such",
+              "start": 5.69,
+              "end": 5.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.87,
+              "end": 6.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thing",
+              "start": 6.05,
+              "end": 6.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 6.19,
+              "end": 6.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 6.39,
+              "end": 6.53,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " joint",
+              "start": 6.53,
+              "end": 6.77,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " ring,",
+              "start": 6.77,
+              "end": 7.15,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " nor",
+              "start": 7.45,
+              "end": 7.59,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " for",
+              "start": 7.59,
+              "end": 7.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " measures",
+              "start": 7.79,
+              "end": 8.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 8.07,
+              "end": 8.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lawn,",
+              "start": 8.33,
+              "end": 8.63,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " nor",
+              "start": 8.97,
+              "end": 9.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 9.07,
+              "end": 9.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gowns,",
+              "start": 9.33,
+              "end": 9.89,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " petticoats, nor caps, nor any petty exhibition.",
+          "start": 9.95,
+          "end": 12.59,
+          "words": [
+            {
+              "text": " petticoats,",
+              "start": 9.95,
+              "end": 10.51,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " nor",
+              "start": 10.65,
+              "end": 10.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " caps,",
+              "start": 10.73,
+              "end": 11.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nor",
+              "start": 11.47,
+              "end": 11.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " any",
+              "start": 11.53,
+              "end": 11.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " petty",
+              "start": 11.79,
+              "end": 12.03,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " exhibition.",
+              "start": 12.03,
+              "end": 12.59,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " But for the whole world, why, who would not make her husband a cuckold to make him a monarch?",
+          "start": 13.25,
+          "end": 17.39,
+          "words": [
+            {
+              "text": " But",
+              "start": 13.25,
+              "end": 13.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 13.43,
+              "end": 13.59,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " the",
+              "start": 13.59,
+              "end": 13.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whole",
+              "start": 13.69,
+              "end": 13.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " world,",
+              "start": 13.91,
+              "end": 14.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " why,",
+              "start": 14.69,
+              "end": 14.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " who",
+              "start": 15.09,
+              "end": 15.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " would",
+              "start": 15.15,
+              "end": 15.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 15.27,
+              "end": 15.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " make",
+              "start": 15.45,
+              "end": 15.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 15.63,
+              "end": 15.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " husband",
+              "start": 15.77,
+              "end": 16.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 16.11,
+              "end": 16.29,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " cuckold",
+              "start": 16.29,
+              "end": 16.59,
+              "probability": 0.9436848958333334
+            },
+            {
+              "text": " to",
+              "start": 16.59,
+              "end": 16.75,
+              "probability": 0.98828125
+            },
+            {
+              "text": " make",
+              "start": 16.75,
+              "end": 16.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 16.89,
+              "end": 17.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 17.03,
+              "end": 17.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " monarch?",
+              "start": 17.15,
+              "end": 17.39,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " I should venture purgatory for tea.",
+          "start": 18.03,
+          "end": 19.85,
+          "words": [
+            {
+              "text": " I",
+              "start": 18.03,
+              "end": 18.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " should",
+              "start": 18.25,
+              "end": 18.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " venture",
+              "start": 18.39,
+              "end": 18.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " purgatory",
+              "start": 18.71,
+              "end": 19.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " for",
+              "start": 19.19,
+              "end": 19.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " tea.",
+              "start": 19.55,
+              "end": 19.85,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "in",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "troth",
+          "start": 1.45,
+          "end": 1.93
+        },
+        {
+          "raw": "I",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "think",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "should,",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "raw": "undot",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "raw": "when",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "I",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "had",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "done.",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "raw": "Mary,",
+          "start": 4.93,
+          "end": 4.97
+        },
+        {
+          "raw": "I",
+          "start": 5.15,
+          "end": 5.25
+        },
+        {
+          "raw": "would",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "raw": "not",
+          "start": 5.35,
+          "end": 5.53
+        },
+        {
+          "raw": "do",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "raw": "such",
+          "start": 5.69,
+          "end": 5.87
+        },
+        {
+          "raw": "a",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "raw": "thing",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "raw": "for",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "raw": "a",
+          "start": 6.39,
+          "end": 6.53
+        },
+        {
+          "raw": "joint",
+          "start": 6.53,
+          "end": 6.77
+        },
+        {
+          "raw": "ring,",
+          "start": 6.77,
+          "end": 7.15
+        },
+        {
+          "raw": "nor",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "raw": "for",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "raw": "measures",
+          "start": 7.79,
+          "end": 8.07
+        },
+        {
+          "raw": "of",
+          "start": 8.07,
+          "end": 8.33
+        },
+        {
+          "raw": "lawn,",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "raw": "nor",
+          "start": 8.97,
+          "end": 9.07
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.33
+        },
+        {
+          "raw": "gowns,",
+          "start": 9.33,
+          "end": 9.89
+        },
+        {
+          "raw": "petticoats,",
+          "start": 9.95,
+          "end": 10.51
+        },
+        {
+          "raw": "nor",
+          "start": 10.65,
+          "end": 10.73
+        },
+        {
+          "raw": "caps,",
+          "start": 10.73,
+          "end": 11.13
+        },
+        {
+          "raw": "nor",
+          "start": 11.47,
+          "end": 11.53
+        },
+        {
+          "raw": "any",
+          "start": 11.53,
+          "end": 11.79
+        },
+        {
+          "raw": "petty",
+          "start": 11.79,
+          "end": 12.03
+        },
+        {
+          "raw": "exhibition.",
+          "start": 12.03,
+          "end": 12.59
+        },
+        {
+          "raw": "But",
+          "start": 13.25,
+          "end": 13.43
+        },
+        {
+          "raw": "for",
+          "start": 13.43,
+          "end": 13.59
+        },
+        {
+          "raw": "the",
+          "start": 13.59,
+          "end": 13.69
+        },
+        {
+          "raw": "whole",
+          "start": 13.69,
+          "end": 13.91
+        },
+        {
+          "raw": "world,",
+          "start": 13.91,
+          "end": 14.31
+        },
+        {
+          "raw": "why,",
+          "start": 14.69,
+          "end": 14.93
+        },
+        {
+          "raw": "who",
+          "start": 15.09,
+          "end": 15.15
+        },
+        {
+          "raw": "would",
+          "start": 15.15,
+          "end": 15.27
+        },
+        {
+          "raw": "not",
+          "start": 15.27,
+          "end": 15.45
+        },
+        {
+          "raw": "make",
+          "start": 15.45,
+          "end": 15.63
+        },
+        {
+          "raw": "her",
+          "start": 15.63,
+          "end": 15.77
+        },
+        {
+          "raw": "husband",
+          "start": 15.77,
+          "end": 16.11
+        },
+        {
+          "raw": "a",
+          "start": 16.11,
+          "end": 16.29
+        },
+        {
+          "raw": "cuckold",
+          "start": 16.29,
+          "end": 16.59
+        },
+        {
+          "raw": "to",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "raw": "make",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "raw": "him",
+          "start": 16.89,
+          "end": 17.03
+        },
+        {
+          "raw": "a",
+          "start": 17.03,
+          "end": 17.15
+        },
+        {
+          "raw": "monarch?",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "raw": "I",
+          "start": 18.03,
+          "end": 18.25
+        },
+        {
+          "raw": "should",
+          "start": 18.25,
+          "end": 18.39
+        },
+        {
+          "raw": "venture",
+          "start": 18.39,
+          "end": 18.71
+        },
+        {
+          "raw": "purgatory",
+          "start": 18.71,
+          "end": 19.19
+        },
+        {
+          "raw": "for",
+          "start": 19.19,
+          "end": 19.55
+        },
+        {
+          "raw": "tea.",
+          "start": 19.55,
+          "end": 19.85
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "In",
+        "troth,",
+        "I",
+        "think",
+        "I",
+        "should,",
+        "and",
+        "undo't",
+        "when",
+        "I",
+        "had",
+        "done.",
+        "Marry,",
+        "I",
+        "would",
+        "not",
+        "do",
+        "such",
+        "a",
+        "thing",
+        "for",
+        "a",
+        "joint-ring,",
+        "nor",
+        "for",
+        "measures",
+        "of",
+        "lawn,",
+        "nor",
+        "for",
+        "gowns,",
+        "petticoats,",
+        "nor",
+        "caps,",
+        "nor",
+        "any",
+        "petty",
+        "exhibition;",
+        "but,",
+        "for",
+        "the",
+        "whole",
+        "world—why,",
+        "who",
+        "would",
+        "not",
+        "make",
+        "her",
+        "husband",
+        "a",
+        "cuckold",
+        "to",
+        "make",
+        "him",
+        "a",
+        "monarch?",
+        "I",
+        "should",
+        "venture",
+        "purgatory",
+        "for",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          13,
+          1,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          43,
+          14,
+          43
+        ],
+        [
+          "replace",
+          43,
+          44,
+          43,
+          45
+        ],
+        [
+          "equal",
+          44,
+          62,
+          45,
+          63
+        ],
+        [
+          "replace",
+          62,
+          63,
+          63,
+          64
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "replace",
+          43,
+          44,
+          43,
+          45
+        ],
+        [
+          "replace",
+          62,
+          63,
+          63,
+          64
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "troth",
+          "start": 1.45,
+          "end": 1.93,
+          "key": "troth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.93,
+          "end": 2.13,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "should,",
+          "start": 2.47,
+          "end": 2.73,
+          "key": "should",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.01,
+          "end": 3.07,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "undot",
+          "start": 3.07,
+          "end": 3.37,
+          "key": "undot",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.37,
+          "end": 3.53,
+          "key": "when",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.53,
+          "end": 3.67,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.67,
+          "end": 3.83,
+          "key": "had",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "done",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Mary,",
+          "start": 4.93,
+          "end": 4.97,
+          "key": "mary",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.15,
+          "end": 5.25,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.25,
+          "end": 5.35,
+          "key": "would",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.35,
+          "end": 5.53,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.53,
+          "end": 5.69,
+          "key": "do",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 5.69,
+          "end": 5.87,
+          "key": "such",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.87,
+          "end": 6.05,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 6.05,
+          "end": 6.19,
+          "key": "thing",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.19,
+          "end": 6.39,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.39,
+          "end": 6.53,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "joint ring,",
+          "start": 6.53,
+          "end": 7.15,
+          "key": "jointring",
+          "pieces": [
+            23,
+            24
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 7.45,
+          "end": 7.59,
+          "key": "nor",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.59,
+          "end": 7.79,
+          "key": "for",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "measures",
+          "start": 7.79,
+          "end": 8.07,
+          "key": "measures",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.07,
+          "end": 8.33,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "lawn,",
+          "start": 8.33,
+          "end": 8.63,
+          "key": "lawn",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 8.97,
+          "end": 9.07,
+          "key": "nor",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.33,
+          "key": "for",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "gowns,",
+          "start": 9.33,
+          "end": 9.89,
+          "key": "gowns",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "petticoats,",
+          "start": 9.95,
+          "end": 10.51,
+          "key": "petticoats",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 10.65,
+          "end": 10.73,
+          "key": "nor",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "caps,",
+          "start": 10.73,
+          "end": 11.13,
+          "key": "caps",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 11.47,
+          "end": 11.53,
+          "key": "nor",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 11.53,
+          "end": 11.79,
+          "key": "any",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "petty",
+          "start": 11.79,
+          "end": 12.03,
+          "key": "petty",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "exhibition.",
+          "start": 12.03,
+          "end": 12.59,
+          "key": "exhibition",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 13.25,
+          "end": 13.43,
+          "key": "but",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 13.43,
+          "end": 13.59,
+          "key": "for",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.59,
+          "end": 13.69,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 13.69,
+          "end": 13.91,
+          "key": "whole",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 13.91,
+          "end": 14.31,
+          "key": "world",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "why,",
+          "start": 14.69,
+          "end": 14.93,
+          "key": "why",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 15.09,
+          "end": 15.15,
+          "key": "who",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 15.15,
+          "end": 15.27,
+          "key": "would",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.27,
+          "end": 15.45,
+          "key": "not",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 15.45,
+          "end": 15.63,
+          "key": "make",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 15.63,
+          "end": 15.77,
+          "key": "her",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 15.77,
+          "end": 16.11,
+          "key": "husband",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 16.11,
+          "end": 16.29,
+          "key": "a",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "cuckold",
+          "start": 16.29,
+          "end": 16.59,
+          "key": "cuckold",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.59,
+          "end": 16.75,
+          "key": "to",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 16.75,
+          "end": 16.89,
+          "key": "make",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 16.89,
+          "end": 17.03,
+          "key": "him",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.03,
+          "end": 17.15,
+          "key": "a",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "monarch?",
+          "start": 17.15,
+          "end": 17.39,
+          "key": "monarch",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 18.03,
+          "end": 18.25,
+          "key": "i",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 18.25,
+          "end": 18.39,
+          "key": "should",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "venture",
+          "start": 18.39,
+          "end": 18.71,
+          "key": "venture",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "purgatory",
+          "start": 18.71,
+          "end": 19.19,
+          "key": "purgatory",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 19.19,
+          "end": 19.55,
+          "key": "for",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "tea.",
+          "start": 19.55,
+          "end": 19.85,
+          "key": "tea",
+          "pieces": [
+            64
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 23,
+          "text": "joint-ring,",
+          "heard": "joint ring,",
+          "heard_indexes": [
+            23,
+            24
+          ],
+          "start": 6.53,
+          "end": 7.15
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "In",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "troth,",
+          "start": 1.45,
+          "end": 1.93
+        },
+        {
+          "text": "I",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "think",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "I",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "should,",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "and",
+          "start": 3.01,
+          "end": 3.07
+        },
+        {
+          "text": "undo't",
+          "start": 3.07,
+          "end": 3.37
+        },
+        {
+          "text": "when",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "I",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "had",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "done.",
+          "start": 3.83,
+          "end": 4.07
+        },
+        {
+          "text": "Marry,",
+          "start": 4.07,
+          "end": 4.61
+        },
+        {
+          "text": "I",
+          "start": 5.15,
+          "end": 5.25
+        },
+        {
+          "text": "would",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "text": "not",
+          "start": 5.35,
+          "end": 5.53
+        },
+        {
+          "text": "do",
+          "start": 5.53,
+          "end": 5.69
+        },
+        {
+          "text": "such",
+          "start": 5.69,
+          "end": 5.87
+        },
+        {
+          "text": "a",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "text": "thing",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "text": "for",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "text": "a",
+          "start": 6.39,
+          "end": 6.53
+        },
+        {
+          "text": "joint-ring,",
+          "start": 6.53,
+          "end": 7.15
+        },
+        {
+          "text": "nor",
+          "start": 7.45,
+          "end": 7.59
+        },
+        {
+          "text": "for",
+          "start": 7.59,
+          "end": 7.79
+        },
+        {
+          "text": "measures",
+          "start": 7.79,
+          "end": 8.07
+        },
+        {
+          "text": "of",
+          "start": 8.07,
+          "end": 8.33
+        },
+        {
+          "text": "lawn,",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "text": "nor",
+          "start": 8.97,
+          "end": 9.07
+        },
+        {
+          "text": "for",
+          "start": 9.07,
+          "end": 9.33
+        },
+        {
+          "text": "gowns,",
+          "start": 9.33,
+          "end": 9.89
+        },
+        {
+          "text": "petticoats,",
+          "start": 9.95,
+          "end": 10.51
+        },
+        {
+          "text": "nor",
+          "start": 10.65,
+          "end": 10.73
+        },
+        {
+          "text": "caps,",
+          "start": 10.73,
+          "end": 11.13
+        },
+        {
+          "text": "nor",
+          "start": 11.47,
+          "end": 11.53
+        },
+        {
+          "text": "any",
+          "start": 11.53,
+          "end": 11.79
+        },
+        {
+          "text": "petty",
+          "start": 11.79,
+          "end": 12.03
+        },
+        {
+          "text": "exhibition;",
+          "start": 12.03,
+          "end": 12.59
+        },
+        {
+          "text": "but,",
+          "start": 13.25,
+          "end": 13.43
+        },
+        {
+          "text": "for",
+          "start": 13.43,
+          "end": 13.59
+        },
+        {
+          "text": "the",
+          "start": 13.59,
+          "end": 13.69
+        },
+        {
+          "text": "whole",
+          "start": 13.69,
+          "end": 13.91
+        },
+        {
+          "text": "world—why,",
+          "start": 13.91,
+          "end": 14.5
+        },
+        {
+          "text": "who",
+          "start": 15.09,
+          "end": 15.15
+        },
+        {
+          "text": "would",
+          "start": 15.15,
+          "end": 15.27
+        },
+        {
+          "text": "not",
+          "start": 15.27,
+          "end": 15.45
+        },
+        {
+          "text": "make",
+          "start": 15.45,
+          "end": 15.63
+        },
+        {
+          "text": "her",
+          "start": 15.63,
+          "end": 15.77
+        },
+        {
+          "text": "husband",
+          "start": 15.77,
+          "end": 16.11
+        },
+        {
+          "text": "a",
+          "start": 16.11,
+          "end": 16.29
+        },
+        {
+          "text": "cuckold",
+          "start": 16.29,
+          "end": 16.59
+        },
+        {
+          "text": "to",
+          "start": 16.59,
+          "end": 16.75
+        },
+        {
+          "text": "make",
+          "start": 16.75,
+          "end": 16.89
+        },
+        {
+          "text": "him",
+          "start": 16.89,
+          "end": 17.03
+        },
+        {
+          "text": "a",
+          "start": 17.03,
+          "end": 17.15
+        },
+        {
+          "text": "monarch?",
+          "start": 17.15,
+          "end": 17.39
+        },
+        {
+          "text": "I",
+          "start": 18.03,
+          "end": 18.25
+        },
+        {
+          "text": "should",
+          "start": 18.25,
+          "end": 18.39
+        },
+        {
+          "text": "venture",
+          "start": 18.39,
+          "end": 18.71
+        },
+        {
+          "text": "purgatory",
+          "start": 18.71,
+          "end": 19.19
+        },
+        {
+          "text": "for",
+          "start": 19.19,
+          "end": 19.55
+        },
+        {
+          "text": "'t.",
+          "start": 19.55,
+          "end": 19.7
+        }
+      ],
+      "stats": {
+        "expected_words": 63,
+        "heard_words": 64,
+        "matched_words": 59
+      },
+      "match_ratio": 0.9365079365079365,
+      "rejection_reasons": [],
+      "seconds": 0.6732341228052974
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b886d70b87de44eb0227d5ae87ef6330c28ad6756752902b461eebf4b8d81ac5",
+  "selected_reasons": []
+}

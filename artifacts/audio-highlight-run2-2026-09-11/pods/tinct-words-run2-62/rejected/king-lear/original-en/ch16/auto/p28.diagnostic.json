@@ -1,0 +1,1221 @@
+{
+  "complete": true,
+  "signature": "67c7da6b679a18f3f77461bd4baf28716f5776697d43960a0957911af12acf36",
+  "attempts": [
+    {
+      "asr_seconds": 0.3864812068641186,
+      "alignment_seconds": 0.0003255382180213928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. Naughty lady, These hairs which thou dost ravish from my chin Will quicken, and accuse thee. I am your host: With robber's hands my hospitable favours You should not ruffle thus. What will you do?",
+        "hotwords": "Gloucester, Naughty, These, I, With, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester, Naughty lady, These hairs which thou dost ravish from my chin Will quicken, and accuse thee.",
+          "start": 0.02,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.7354736328125
+            },
+            {
+              "text": " Naughty",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.53765869140625
+            },
+            {
+              "text": " lady,",
+              "start": 1.52,
+              "end": 1.78,
+              "probability": 0.1568603515625
+            },
+            {
+              "text": " These",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.59375
+            },
+            {
+              "text": " hairs",
+              "start": 2.4,
+              "end": 2.7,
+              "probability": 0.619140625
+            },
+            {
+              "text": " which",
+              "start": 2.7,
+              "end": 2.98,
+              "probability": 0.958984375
+            },
+            {
+              "text": " thou",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " dost",
+              "start": 3.22,
+              "end": 3.54,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " ravish",
+              "start": 3.54,
+              "end": 4.0,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " from",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " my",
+              "start": 4.18,
+              "end": 4.36,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " chin",
+              "start": 4.36,
+              "end": 4.64,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Will",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " quicken,",
+              "start": 4.88,
+              "end": 5.3,
+              "probability": 0.986328125
+            },
+            {
+              "text": " and",
+              "start": 5.42,
+              "end": 5.52,
+              "probability": 0.94921875
+            },
+            {
+              "text": " accuse",
+              "start": 5.52,
+              "end": 5.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thee.",
+              "start": 5.84,
+              "end": 6.18,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " I am your host. With robber's hands my hospitable favours You should not ruffle thus. What will you do?",
+          "start": 6.18,
+          "end": 12.74,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.18,
+              "end": 6.94,
+              "probability": 0.78125
+            },
+            {
+              "text": " am",
+              "start": 6.94,
+              "end": 7.06,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " your",
+              "start": 7.06,
+              "end": 7.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " host.",
+              "start": 7.2,
+              "end": 7.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " With",
+              "start": 8.04,
+              "end": 8.22,
+              "probability": 0.982421875
+            },
+            {
+              "text": " robber's",
+              "start": 8.22,
+              "end": 8.72,
+              "probability": 0.55828857421875
+            },
+            {
+              "text": " hands",
+              "start": 8.72,
+              "end": 8.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " my",
+              "start": 8.96,
+              "end": 9.2,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " hospitable",
+              "start": 9.2,
+              "end": 9.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " favours",
+              "start": 9.74,
+              "end": 10.28,
+              "probability": 0.58526611328125
+            },
+            {
+              "text": " You",
+              "start": 10.28,
+              "end": 10.46,
+              "probability": 0.012939453125
+            },
+            {
+              "text": " should",
+              "start": 10.46,
+              "end": 10.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 10.58,
+              "end": 10.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ruffle",
+              "start": 10.82,
+              "end": 11.12,
+              "probability": 0.927734375
+            },
+            {
+              "text": " thus.",
+              "start": 11.12,
+              "end": 11.4,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " What",
+              "start": 12.08,
+              "end": 12.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " will",
+              "start": 12.2,
+              "end": 12.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 12.3,
+              "end": 12.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do?",
+              "start": 12.46,
+              "end": 12.74,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "Naughty",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "lady,",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "raw": "These",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "hairs",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "raw": "which",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "raw": "thou",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "raw": "dost",
+          "start": 3.22,
+          "end": 3.54
+        },
+        {
+          "raw": "ravish",
+          "start": 3.54,
+          "end": 4.0
+        },
+        {
+          "raw": "from",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "my",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "raw": "chin",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "raw": "Will",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "raw": "quicken,",
+          "start": 4.88,
+          "end": 5.3
+        },
+        {
+          "raw": "and",
+          "start": 5.42,
+          "end": 5.52
+        },
+        {
+          "raw": "accuse",
+          "start": 5.52,
+          "end": 5.84
+        },
+        {
+          "raw": "thee.",
+          "start": 5.84,
+          "end": 6.18
+        },
+        {
+          "raw": "I",
+          "start": 6.18,
+          "end": 6.94
+        },
+        {
+          "raw": "am",
+          "start": 6.94,
+          "end": 7.06
+        },
+        {
+          "raw": "your",
+          "start": 7.06,
+          "end": 7.2
+        },
+        {
+          "raw": "host.",
+          "start": 7.2,
+          "end": 7.58
+        },
+        {
+          "raw": "With",
+          "start": 8.04,
+          "end": 8.22
+        },
+        {
+          "raw": "robber's",
+          "start": 8.22,
+          "end": 8.72
+        },
+        {
+          "raw": "hands",
+          "start": 8.72,
+          "end": 8.96
+        },
+        {
+          "raw": "my",
+          "start": 8.96,
+          "end": 9.2
+        },
+        {
+          "raw": "hospitable",
+          "start": 9.2,
+          "end": 9.74
+        },
+        {
+          "raw": "favours",
+          "start": 9.74,
+          "end": 10.28
+        },
+        {
+          "raw": "You",
+          "start": 10.28,
+          "end": 10.46
+        },
+        {
+          "raw": "should",
+          "start": 10.46,
+          "end": 10.58
+        },
+        {
+          "raw": "not",
+          "start": 10.58,
+          "end": 10.82
+        },
+        {
+          "raw": "ruffle",
+          "start": 10.82,
+          "end": 11.12
+        },
+        {
+          "raw": "thus.",
+          "start": 11.12,
+          "end": 11.4
+        },
+        {
+          "raw": "What",
+          "start": 12.08,
+          "end": 12.2
+        },
+        {
+          "raw": "will",
+          "start": 12.2,
+          "end": 12.3
+        },
+        {
+          "raw": "you",
+          "start": 12.3,
+          "end": 12.46
+        },
+        {
+          "raw": "do?",
+          "start": 12.46,
+          "end": 12.74
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "Naughty",
+        "lady,",
+        "These",
+        "hairs",
+        "which",
+        "thou",
+        "dost",
+        "ravish",
+        "from",
+        "my",
+        "chin",
+        "Will",
+        "quicken,",
+        "and",
+        "accuse",
+        "thee.",
+        "I",
+        "am",
+        "your",
+        "host:",
+        "With",
+        "robber's",
+        "hands",
+        "my",
+        "hospitable",
+        "favours",
+        "You",
+        "should",
+        "not",
+        "ruffle",
+        "thus.",
+        "What",
+        "will",
+        "you",
+        "do?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Naughty",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "naughty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 1.52,
+          "end": 1.78,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "these",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hairs",
+          "start": 2.4,
+          "end": 2.7,
+          "key": "hairs",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.7,
+          "end": 2.98,
+          "key": "which",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 3.22,
+          "end": 3.54,
+          "key": "dost",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ravish",
+          "start": 3.54,
+          "end": 4.0,
+          "key": "ravish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.0,
+          "end": 4.18,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.18,
+          "end": 4.36,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "chin",
+          "start": 4.36,
+          "end": 4.64,
+          "key": "chin",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 4.64,
+          "end": 4.88,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "quicken,",
+          "start": 4.88,
+          "end": 5.3,
+          "key": "quicken",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.42,
+          "end": 5.52,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "accuse",
+          "start": 5.52,
+          "end": 5.84,
+          "key": "accuse",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 5.84,
+          "end": 6.18,
+          "key": "thee",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.18,
+          "end": 6.94,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 6.94,
+          "end": 7.06,
+          "key": "am",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.06,
+          "end": 7.2,
+          "key": "your",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "host.",
+          "start": 7.2,
+          "end": 7.58,
+          "key": "host",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 8.04,
+          "end": 8.22,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "robber's",
+          "start": 8.22,
+          "end": 8.72,
+          "key": "robbers",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 8.72,
+          "end": 8.96,
+          "key": "hands",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.96,
+          "end": 9.2,
+          "key": "my",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "hospitable",
+          "start": 9.2,
+          "end": 9.74,
+          "key": "hospitable",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "favours",
+          "start": 9.74,
+          "end": 10.28,
+          "key": "favours",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 10.28,
+          "end": 10.46,
+          "key": "you",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 10.46,
+          "end": 10.58,
+          "key": "should",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.58,
+          "end": 10.82,
+          "key": "not",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "ruffle",
+          "start": 10.82,
+          "end": 11.12,
+          "key": "ruffle",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "thus.",
+          "start": 11.12,
+          "end": 11.4,
+          "key": "thus",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 12.08,
+          "end": 12.2,
+          "key": "what",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 12.2,
+          "end": 12.3,
+          "key": "will",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 12.3,
+          "end": 12.46,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "do?",
+          "start": 12.46,
+          "end": 12.74,
+          "key": "do",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Naughty",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "lady,",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "text": "These",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "hairs",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "text": "which",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "text": "thou",
+          "start": 2.98,
+          "end": 3.22
+        },
+        {
+          "text": "dost",
+          "start": 3.22,
+          "end": 3.54
+        },
+        {
+          "text": "ravish",
+          "start": 3.54,
+          "end": 4.0
+        },
+        {
+          "text": "from",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "my",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "text": "chin",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "text": "Will",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "text": "quicken,",
+          "start": 4.88,
+          "end": 5.3
+        },
+        {
+          "text": "and",
+          "start": 5.42,
+          "end": 5.52
+        },
+        {
+          "text": "accuse",
+          "start": 5.52,
+          "end": 5.84
+        },
+        {
+          "text": "thee.",
+          "start": 5.84,
+          "end": 6.18
+        },
+        {
+          "text": "I",
+          "start": 6.18,
+          "end": 6.94
+        },
+        {
+          "text": "am",
+          "start": 6.94,
+          "end": 7.06
+        },
+        {
+          "text": "your",
+          "start": 7.06,
+          "end": 7.2
+        },
+        {
+          "text": "host:",
+          "start": 7.2,
+          "end": 7.58
+        },
+        {
+          "text": "With",
+          "start": 8.04,
+          "end": 8.22
+        },
+        {
+          "text": "robber's",
+          "start": 8.22,
+          "end": 8.72
+        },
+        {
+          "text": "hands",
+          "start": 8.72,
+          "end": 8.96
+        },
+        {
+          "text": "my",
+          "start": 8.96,
+          "end": 9.2
+        },
+        {
+          "text": "hospitable",
+          "start": 9.2,
+          "end": 9.74
+        },
+        {
+          "text": "favours",
+          "start": 9.74,
+          "end": 10.28
+        },
+        {
+          "text": "You",
+          "start": 10.28,
+          "end": 10.46
+        },
+        {
+          "text": "should",
+          "start": 10.46,
+          "end": 10.58
+        },
+        {
+          "text": "not",
+          "start": 10.58,
+          "end": 10.82
+        },
+        {
+          "text": "ruffle",
+          "start": 10.82,
+          "end": 11.12
+        },
+        {
+          "text": "thus.",
+          "start": 11.12,
+          "end": 11.4
+        },
+        {
+          "text": "What",
+          "start": 12.08,
+          "end": 12.2
+        },
+        {
+          "text": "will",
+          "start": 12.2,
+          "end": 12.3
+        },
+        {
+          "text": "you",
+          "start": 12.3,
+          "end": 12.46
+        },
+        {
+          "text": "do?",
+          "start": 12.46,
+          "end": 12.74
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3869256004691124
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d483c6d4246ef12510a5ea5ab927237faf2875c510428ed0d71e56ce750c31d",
+  "selected_reasons": []
+}

@@ -1,0 +1,547 @@
+{
+  "complete": true,
+  "signature": "9df8361de78e7c357325385d68bf7f4b4794de30f6cf961ae3236731fcb2ec42",
+  "attempts": [
+    {
+      "asr_seconds": 0.3555812779814005,
+      "alignment_seconds": 0.0005419217050075531,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, believe me, thou talkest of an admirable conceited fellow.",
+          "start": 0.02,
+          "end": 4.4,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.323974609375
+            },
+            {
+              "text": " believe",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " me,",
+              "start": 1.48,
+              "end": 1.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thou",
+              "start": 2.22,
+              "end": 2.26,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " talkest",
+              "start": 2.26,
+              "end": 2.8,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " of",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " an",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " admirable",
+              "start": 3.04,
+              "end": 3.46,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " conceited",
+              "start": 3.46,
+              "end": 4.1,
+              "probability": 0.921875
+            },
+            {
+              "text": " fellow.",
+              "start": 4.1,
+              "end": 4.4,
+              "probability": 0.9853515625
+            }
+          ]
+        },
+        {
+          "text": " Has he any unbraided wares?",
+          "start": 5.08,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " Has",
+              "start": 5.08,
+              "end": 5.18,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " he",
+              "start": 5.18,
+              "end": 5.32,
+              "probability": 0.986328125
+            },
+            {
+              "text": " any",
+              "start": 5.32,
+              "end": 5.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " unbraided",
+              "start": 5.54,
+              "end": 6.1,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " wares?",
+              "start": 6.1,
+              "end": 6.58,
+              "probability": 0.93896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "believe",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "me,",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "raw": "thou",
+          "start": 2.22,
+          "end": 2.26
+        },
+        {
+          "raw": "talkest",
+          "start": 2.26,
+          "end": 2.8
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "an",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "admirable",
+          "start": 3.04,
+          "end": 3.46
+        },
+        {
+          "raw": "conceited",
+          "start": 3.46,
+          "end": 4.1
+        },
+        {
+          "raw": "fellow.",
+          "start": 4.1,
+          "end": 4.4
+        },
+        {
+          "raw": "Has",
+          "start": 5.08,
+          "end": 5.18
+        },
+        {
+          "raw": "he",
+          "start": 5.18,
+          "end": 5.32
+        },
+        {
+          "raw": "any",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "raw": "unbraided",
+          "start": 5.54,
+          "end": 6.1
+        },
+        {
+          "raw": "wares?",
+          "start": 6.1,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Believe",
+        "me,",
+        "thou",
+        "talkest",
+        "of",
+        "an",
+        "admirable",
+        "conceited",
+        "fellow.",
+        "Has",
+        "he",
+        "any",
+        "unbraided",
+        "wares?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.16,
+          "end": 1.48,
+          "key": "believe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.48,
+          "end": 1.86,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.22,
+          "end": 2.26,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "talkest",
+          "start": 2.26,
+          "end": 2.8,
+          "key": "talkest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 2.92,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "admirable",
+          "start": 3.04,
+          "end": 3.46,
+          "key": "admirable",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "conceited",
+          "start": 3.46,
+          "end": 4.1,
+          "key": "conceited",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fellow.",
+          "start": 4.1,
+          "end": 4.4,
+          "key": "fellow",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Has",
+          "start": 5.08,
+          "end": 5.18,
+          "key": "has",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.18,
+          "end": 5.32,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 5.32,
+          "end": 5.54,
+          "key": "any",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "unbraided",
+          "start": 5.54,
+          "end": 6.1,
+          "key": "unbraided",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wares?",
+          "start": 6.1,
+          "end": 6.58,
+          "key": "wares",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Believe",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "me,",
+          "start": 1.48,
+          "end": 1.86
+        },
+        {
+          "text": "thou",
+          "start": 2.22,
+          "end": 2.26
+        },
+        {
+          "text": "talkest",
+          "start": 2.26,
+          "end": 2.8
+        },
+        {
+          "text": "of",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "an",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "admirable",
+          "start": 3.04,
+          "end": 3.46
+        },
+        {
+          "text": "conceited",
+          "start": 3.46,
+          "end": 4.1
+        },
+        {
+          "text": "fellow.",
+          "start": 4.1,
+          "end": 4.4
+        },
+        {
+          "text": "Has",
+          "start": 5.08,
+          "end": 5.18
+        },
+        {
+          "text": "he",
+          "start": 5.18,
+          "end": 5.32
+        },
+        {
+          "text": "any",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "text": "unbraided",
+          "start": 5.54,
+          "end": 6.1
+        },
+        {
+          "text": "wares?",
+          "start": 6.1,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35636308789253235
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ecf4f39d711fab5d255270f13f4f48576af9c977086534dd5d99d2fb4d3a1fb1",
+  "selected_reasons": []
+}

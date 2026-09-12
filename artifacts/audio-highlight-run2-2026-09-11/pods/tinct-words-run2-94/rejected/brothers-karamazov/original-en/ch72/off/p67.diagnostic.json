@@ -1,0 +1,579 @@
+{
+  "complete": true,
+  "signature": "614b6d90f3a9364addbc5add8dfddfb70cf7c41febcb1fc971a1ebf3f890f944",
+  "attempts": [
+    {
+      "asr_seconds": 0.31413232535123825,
+      "alignment_seconds": 0.0005724597722291946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alyosha looked at her in silence.",
+          "start": 0.08,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " Alyosha",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.9554036458333334
+            },
+            {
+              "text": " looked",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " her",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " silence.",
+              "start": 1.5,
+              "end": 1.88,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Her pale, sallow face was suddenly contorted, her eyes burned.",
+          "start": 2.64,
+          "end": 6.26,
+          "words": [
+            {
+              "text": " Her",
+              "start": 2.64,
+              "end": 2.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " pale,",
+              "start": 2.68,
+              "end": 3.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sallow",
+              "start": 3.46,
+              "end": 3.58,
+              "probability": 0.96484375
+            },
+            {
+              "text": " face",
+              "start": 3.58,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suddenly",
+              "start": 4.14,
+              "end": 4.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " contorted,",
+              "start": 4.46,
+              "end": 4.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " her",
+              "start": 5.4,
+              "end": 5.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " eyes",
+              "start": 5.5,
+              "end": 5.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " burned.",
+              "start": 5.82,
+              "end": 6.26,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alyosha",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "looked",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "at",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "her",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "in",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "silence.",
+          "start": 1.5,
+          "end": 1.88
+        },
+        {
+          "raw": "Her",
+          "start": 2.64,
+          "end": 2.68
+        },
+        {
+          "raw": "pale,",
+          "start": 2.68,
+          "end": 3.08
+        },
+        {
+          "raw": "sallow",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "raw": "face",
+          "start": 3.58,
+          "end": 3.96
+        },
+        {
+          "raw": "was",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "suddenly",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "raw": "contorted,",
+          "start": 4.46,
+          "end": 4.98
+        },
+        {
+          "raw": "her",
+          "start": 5.4,
+          "end": 5.5
+        },
+        {
+          "raw": "eyes",
+          "start": 5.5,
+          "end": 5.82
+        },
+        {
+          "raw": "burned.",
+          "start": 5.82,
+          "end": 6.26
+        }
+      ],
+      "expected_tokens": [
+        "Alyosha",
+        "looked",
+        "at",
+        "her",
+        "in",
+        "silence.",
+        "Her",
+        "pale,",
+        "sallow",
+        "face",
+        "was",
+        "suddenly",
+        "contorted,",
+        "her",
+        "eyes",
+        "burned."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alyosha",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "alyosha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "silence.",
+          "start": 1.5,
+          "end": 1.88,
+          "key": "silence",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Her",
+          "start": 2.64,
+          "end": 2.68,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pale,",
+          "start": 2.68,
+          "end": 3.08,
+          "key": "pale",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sallow",
+          "start": 3.46,
+          "end": 3.58,
+          "key": "sallow",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 3.58,
+          "end": 3.96,
+          "key": "face",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.96,
+          "end": 4.14,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 4.14,
+          "end": 4.46,
+          "key": "suddenly",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "contorted,",
+          "start": 4.46,
+          "end": 4.98,
+          "key": "contorted",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.4,
+          "end": 5.5,
+          "key": "her",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 5.5,
+          "end": 5.82,
+          "key": "eyes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "burned.",
+          "start": 5.82,
+          "end": 6.26,
+          "key": "burned",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alyosha",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "looked",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "at",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "her",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "in",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "silence.",
+          "start": 1.5,
+          "end": 1.88
+        },
+        {
+          "text": "Her",
+          "start": 2.64,
+          "end": 2.68
+        },
+        {
+          "text": "pale,",
+          "start": 2.68,
+          "end": 3.08
+        },
+        {
+          "text": "sallow",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "text": "face",
+          "start": 3.58,
+          "end": 3.96
+        },
+        {
+          "text": "was",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "suddenly",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "text": "contorted,",
+          "start": 4.46,
+          "end": 4.98
+        },
+        {
+          "text": "her",
+          "start": 5.4,
+          "end": 5.5
+        },
+        {
+          "text": "eyes",
+          "start": 5.5,
+          "end": 5.82
+        },
+        {
+          "text": "burned.",
+          "start": 5.82,
+          "end": 6.26
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31495000794529915
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8004cfb659ade8b25bf7b689c5b6dcc7ac4611e2c94dbb8c3a917d6e4982c330",
+  "selected_reasons": []
+}

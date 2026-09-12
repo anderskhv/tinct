@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "4b86ecc9ea70c54ea274ae670e87c1f5de8660855b4811c02f5e998df2a51368",
+  "attempts": [
+    {
+      "asr_seconds": 0.2785579115152359,
+      "alignment_seconds": 0.00040442124009132385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I did, and you are right in thinking that the same persons cannot succeed in both.",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " I",
+              "start": 0.91,
+              "end": 1.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " did,",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " right",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thinking",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 3.07,
+              "end": 3.21,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " same",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " persons",
+              "start": 3.47,
+              "end": 3.91,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " cannot",
+              "start": 3.91,
+              "end": 4.31,
+              "probability": 0.96875
+            },
+            {
+              "text": " succeed",
+              "start": 4.31,
+              "end": 4.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 4.81,
+              "end": 5.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " both.",
+              "start": 5.01,
+              "end": 5.25,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "I",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "raw": "did,",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "raw": "and",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "you",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "are",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "right",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "thinking",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "that",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "the",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "raw": "same",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "persons",
+          "start": 3.47,
+          "end": 3.91
+        },
+        {
+          "raw": "cannot",
+          "start": 3.91,
+          "end": 4.31
+        },
+        {
+          "raw": "succeed",
+          "start": 4.31,
+          "end": 4.81
+        },
+        {
+          "raw": "in",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "raw": "both.",
+          "start": 5.01,
+          "end": 5.25
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "did;",
+        "and",
+        "you",
+        "are",
+        "right",
+        "in",
+        "thinking",
+        "that",
+        "the",
+        "same",
+        "persons",
+        "cannot",
+        "succeed",
+        "in",
+        "both."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.91,
+          "end": 1.05,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did,",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "right",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thinking",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "thinking",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.83,
+          "end": 3.07,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.07,
+          "end": 3.21,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "same",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "persons",
+          "start": 3.47,
+          "end": 3.91,
+          "key": "persons",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.91,
+          "end": 4.31,
+          "key": "cannot",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "succeed",
+          "start": 4.31,
+          "end": 4.81,
+          "key": "succeed",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.81,
+          "end": 5.01,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "both.",
+          "start": 5.01,
+          "end": 5.25,
+          "key": "both",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "I",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "text": "did;",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "text": "and",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "you",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "are",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "right",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "thinking",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "that",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "the",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "text": "same",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "persons",
+          "start": 3.47,
+          "end": 3.91
+        },
+        {
+          "text": "cannot",
+          "start": 3.91,
+          "end": 4.31
+        },
+        {
+          "text": "succeed",
+          "start": 4.31,
+          "end": 4.81
+        },
+        {
+          "text": "in",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "text": "both.",
+          "start": 5.01,
+          "end": 5.25
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2791246548295021
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d29a11299db81daf20d7d50ff109b686d32b58a6256c19a18ade0aca277776e",
+  "selected_reasons": []
+}

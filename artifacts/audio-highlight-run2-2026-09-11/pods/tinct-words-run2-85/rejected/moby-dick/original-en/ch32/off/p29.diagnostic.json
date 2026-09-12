@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "013d202f4fe0bcdb63ea5f90d521cafeab57a9d38793fbc0d9ef19c3a4671f85",
+  "attempts": [
+    {
+      "asr_seconds": 0.22979927295818925,
+      "alignment_seconds": 0.0005792193114757538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Thus ends Book I Folio, and now begins Book A. Octavo.",
+          "start": 0.02,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " Thus",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " ends",
+              "start": 0.6,
+              "end": 0.98,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " Book",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.419677734375
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.437744140625
+            },
+            {
+              "text": " Folio,",
+              "start": 1.34,
+              "end": 1.9,
+              "probability": 0.901611328125
+            },
+            {
+              "text": " and",
+              "start": 2.18,
+              "end": 2.22,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " now",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " begins",
+              "start": 2.4,
+              "end": 2.66,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Book",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " A.",
+              "start": 2.9,
+              "end": 3.28,
+              "probability": 0.6728515625
+            },
+            {
+              "text": " Octavo.",
+              "start": 3.88,
+              "end": 4.54,
+              "probability": 0.9332682291666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thus",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "ends",
+          "start": 0.6,
+          "end": 0.98
+        },
+        {
+          "raw": "Book",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "Folio,",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "raw": "and",
+          "start": 2.18,
+          "end": 2.22
+        },
+        {
+          "raw": "now",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "begins",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "raw": "Book",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "raw": "A.",
+          "start": 2.9,
+          "end": 3.28
+        },
+        {
+          "raw": "Octavo.",
+          "start": 3.88,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "Thus",
+        "ends",
+        "Book",
+        "I.",
+        "(_Folio_),",
+        "and",
+        "now",
+        "begins",
+        "Book",
+        "Ii.",
+        "(_Octavo_)."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thus",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "thus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ends",
+          "start": 0.6,
+          "end": 0.98,
+          "key": "ends",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Book",
+          "start": 0.98,
+          "end": 1.14,
+          "key": "book",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Folio,",
+          "start": 1.34,
+          "end": 1.9,
+          "key": "folio",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.18,
+          "end": 2.22,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "now",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "begins",
+          "start": 2.4,
+          "end": 2.66,
+          "key": "begins",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Book",
+          "start": 2.66,
+          "end": 2.9,
+          "key": "book",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "A.",
+          "start": 2.9,
+          "end": 3.28,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Octavo.",
+          "start": 3.88,
+          "end": 4.54,
+          "key": "octavo",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thus",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "ends",
+          "start": 0.6,
+          "end": 0.98
+        },
+        {
+          "text": "Book",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "I.",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "(_Folio_),",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "text": "and",
+          "start": 2.18,
+          "end": 2.22
+        },
+        {
+          "text": "now",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "begins",
+          "start": 2.4,
+          "end": 2.66
+        },
+        {
+          "text": "Book",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "text": "Ii.",
+          "start": 2.9,
+          "end": 3.39
+        },
+        {
+          "text": "(_Octavo_).",
+          "start": 3.88,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.23058548476547003
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce25da82ab5eb09fde95795fd37206331451a92b49c9aba4ea861a32cd8ee46e",
+  "selected_reasons": []
+}

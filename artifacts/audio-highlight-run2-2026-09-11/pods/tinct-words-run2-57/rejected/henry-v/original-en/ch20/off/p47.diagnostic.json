@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "c3b84b54a15be44a1b5006ed5ff3141167876d3cc919c02601092c14fcbed82c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19521741895005107,
+      "alignment_seconds": 0.000431691063567996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, who serves thee thou under.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " Henry,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " who",
+              "start": 1.23,
+              "end": 1.45,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " serves",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " thee",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.33251953125
+            },
+            {
+              "text": " thou",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " under.",
+              "start": 2.11,
+              "end": 2.41,
+              "probability": 0.9453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "who",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "raw": "serves",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "thee",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "thou",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": "under.",
+          "start": 2.11,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Who",
+        "serv'st",
+        "thou",
+        "under?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.23,
+          "end": 1.45,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "serves",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "serves",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.71,
+          "end": 1.91,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "under.",
+          "start": 2.11,
+          "end": 2.41,
+          "key": "under",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Who",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "text": "serv'st",
+          "start": 1.45,
+          "end": 1.68
+        },
+        {
+          "text": "thou",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "under?",
+          "start": 2.11,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1958053729031235
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c505c6bd60a0da24dce69bacab9f54811120a403638966e94de44be5a3455f68",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

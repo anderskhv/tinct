@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f29cb9a7e1bedfbd2d38a6babdba8afc5f048b4f62a46cdc99ec14f3cd296333",
+  "attempts": [
+    {
+      "asr_seconds": 0.14010247960686684,
+      "alignment_seconds": 0.000362589955329895,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Give me your hand, sir.",
+        "hotwords": "Give"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Give me your hand, sir.",
+          "start": 0.05,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " Give",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " me",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 0.65,
+              "end": 0.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hand,",
+              "start": 0.75,
+              "end": 1.05,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " sir.",
+              "start": 1.23,
+              "end": 1.29,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Give",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "me",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "your",
+          "start": 0.65,
+          "end": 0.75
+        },
+        {
+          "raw": "hand,",
+          "start": 0.75,
+          "end": 1.05
+        },
+        {
+          "raw": "sir.",
+          "start": 1.23,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "Give",
+        "me",
+        "your",
+        "hand,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Give",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "give",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.65,
+          "end": 0.75,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 0.75,
+          "end": 1.05,
+          "key": "hand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.23,
+          "end": 1.29,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Give",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "me",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "your",
+          "start": 0.65,
+          "end": 0.75
+        },
+        {
+          "text": "hand,",
+          "start": 0.75,
+          "end": 1.05
+        },
+        {
+          "text": "sir.",
+          "start": 1.23,
+          "end": 1.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14059319347143173
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1e89dc836b646b0e5b77da4a06e01568d0c70348f9d3e97ff1b7ec34384ddd7",
+  "selected_reasons": []
+}

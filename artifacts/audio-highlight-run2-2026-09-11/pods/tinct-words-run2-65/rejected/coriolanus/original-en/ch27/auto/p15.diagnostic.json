@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "888d1a984b43a9703230fbcc8d1c0b4327630340ff76c1f6579e2403cc8495c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.11459328327327967,
+      "alignment_seconds": 0.00018228497356176376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. What's the news?",
+        "hotwords": "Sicinius, What's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, What's the news?",
+          "start": 0.08,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.46408843994140625
+            },
+            {
+              "text": " What's",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.5108642578125
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " news?",
+              "start": 1.58,
+              "end": 1.8,
+              "probability": 0.39404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "What's",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "news?",
+          "start": 1.58,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "What's",
+        "the",
+        "news?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "news?",
+          "start": 1.58,
+          "end": 1.8,
+          "key": "news",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "What's",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "news?",
+          "start": 1.58,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11483999015763402
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2112f9b12b738aa6f4b6f31bbf10ec3ed045a31569a38dc3af76a3d2673a5202",
+  "selected_reasons": []
+}

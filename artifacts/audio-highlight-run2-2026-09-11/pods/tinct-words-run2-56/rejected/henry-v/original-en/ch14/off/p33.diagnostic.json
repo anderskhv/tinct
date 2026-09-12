@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "1866590b94044b5fce2a6a19f5a1e2a9ab21f6216e33a562fee37c95e59300fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.18115577101707458,
+      "alignment_seconds": 0.00041866302490234375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pistol, my name is Pistol called.",
+          "start": 0.05,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " my",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.94140625
+            },
+            {
+              "text": " name",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Pistol",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " called.",
+              "start": 1.83,
+              "end": 2.13,
+              "probability": 0.54150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "my",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "name",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "Pistol",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "raw": "called.",
+          "start": 1.83,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "My",
+        "name",
+        "is",
+        "Pistol",
+        "call'd."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.09,
+          "end": 1.21,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "name",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pistol",
+          "start": 1.53,
+          "end": 1.83,
+          "key": "pistol",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "called.",
+          "start": 1.83,
+          "end": 2.13,
+          "key": "called",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "My",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "text": "name",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "is",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "Pistol",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "text": "call'd.",
+          "start": 1.83,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18171532824635506
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e5adbfb2423702b2f948e2e5c47bac4c3da48f48825d56300c8e52207da208c2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

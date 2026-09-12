@@ -1,0 +1,815 @@
+{
+  "complete": true,
+  "signature": "c64506b5fe9639a3ebb215fc009d2e9fffef6caf7b66a247da9678d451387a6c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1395084448158741,
+      "alignment_seconds": 0.0003377757966518402,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[7] i.e. a chime of bells."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 7 i.e. a chime of bells.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " 7",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.32958984375
+            },
+            {
+              "text": " i",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.03375244140625
+            },
+            {
+              "text": ".e.",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " a",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " chime",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " of",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " bells.",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "7",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "i",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": ".e.",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "a",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "chime",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "bells.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "[7]",
+        "i.e.",
+        "a",
+        "chime",
+        "of",
+        "bells."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          5,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "7",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "seven",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".e.",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "e",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "chime",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "chime",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bells.",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "bells",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[7]",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "i.e.",
+          "start": 0.57,
+          "end": 0.855
+        },
+        {
+          "text": "a",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "chime",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "text": "of",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "bells.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13997168838977814
+    },
+    {
+      "asr_seconds": 0.13695017620921135,
+      "alignment_seconds": 0.00038888677954673767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Seven aye, a chime of bells.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Seven",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.42333984375
+            },
+            {
+              "text": " aye,",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.2625732421875
+            },
+            {
+              "text": " a",
+              "start": 1.12,
+              "end": 1.26,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " chime",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " of",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bells.",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seven",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "aye,",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "raw": "a",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "raw": "chime",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "bells.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "[7]",
+        "i.e.",
+        "a",
+        "chime",
+        "of",
+        "bells."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "Seven",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "seven",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aye,",
+          "start": 0.66,
+          "end": 0.94,
+          "key": "aye",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.12,
+          "end": 1.26,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chime",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "chime",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bells.",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "bells",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[7]",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "i.e.",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "a",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "text": "chime",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "text": "of",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "bells.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13747529312968254
+    },
+    {
+      "asr_seconds": 0.1435326673090458,
+      "alignment_seconds": 0.0003980398178100586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Seven aye, a chime of bells.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Seven",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.42333984375
+            },
+            {
+              "text": " aye,",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.2625732421875
+            },
+            {
+              "text": " a",
+              "start": 1.12,
+              "end": 1.26,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " chime",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " of",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bells.",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seven",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "aye,",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "raw": "a",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "raw": "chime",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "bells.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "[7]",
+        "i.e.",
+        "a",
+        "chime",
+        "of",
+        "bells."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "Seven",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "seven",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aye,",
+          "start": 0.66,
+          "end": 0.94,
+          "key": "aye",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.12,
+          "end": 1.26,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chime",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "chime",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bells.",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "bells",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[7]",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "i.e.",
+          "start": 0.56,
+          "end": 0.84
+        },
+        {
+          "text": "a",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "text": "chime",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "text": "of",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "bells.",
+          "start": 1.62,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1440826877951622
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ced0aa22980cc10438279e76b82c41bca914f9d08cd9b070b8c1424793e17985",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

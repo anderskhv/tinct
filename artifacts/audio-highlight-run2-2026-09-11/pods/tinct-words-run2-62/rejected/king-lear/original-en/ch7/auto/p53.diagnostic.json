@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e374ad19b4b4b5894b09a9684e7c005df9f15e00aa0daaf32c1629c30b0c0d6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11360355094075203,
+      "alignment_seconds": 0.0001675151288509369,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. None of these rogues and cowards But Ajax is their fool.",
+        "hotwords": "Kent, None, But, Ajax"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, None of these rogues and cowards But Ajax is their fool.",
+          "start": 0.05,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " None",
+              "start": 1.07,
+              "end": 1.27,
+              "probability": 0.0230255126953125
+            },
+            {
+              "text": " of",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.978515625
+            },
+            {
+              "text": " these",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " rogues",
+              "start": 1.53,
+              "end": 1.99,
+              "probability": 0.947021484375
+            },
+            {
+              "text": " and",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " cowards",
+              "start": 2.11,
+              "end": 2.55,
+              "probability": 0.983642578125
+            },
+            {
+              "text": " But",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.03167724609375
+            },
+            {
+              "text": " Ajax",
+              "start": 2.75,
+              "end": 3.11,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " is",
+              "start": 3.11,
+              "end": 3.41,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " their",
+              "start": 3.41,
+              "end": 3.61,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " fool.",
+              "start": 3.61,
+              "end": 3.91,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "None",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "raw": "of",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "these",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "rogues",
+          "start": 1.53,
+          "end": 1.99
+        },
+        {
+          "raw": "and",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "cowards",
+          "start": 2.11,
+          "end": 2.55
+        },
+        {
+          "raw": "But",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "Ajax",
+          "start": 2.75,
+          "end": 3.11
+        },
+        {
+          "raw": "is",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "raw": "their",
+          "start": 3.41,
+          "end": 3.61
+        },
+        {
+          "raw": "fool.",
+          "start": 3.61,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "None",
+        "of",
+        "these",
+        "rogues",
+        "and",
+        "cowards",
+        "But",
+        "Ajax",
+        "is",
+        "their",
+        "fool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "None",
+          "start": 1.07,
+          "end": 1.27,
+          "key": "none",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "these",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rogues",
+          "start": 1.53,
+          "end": 1.99,
+          "key": "rogues",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cowards",
+          "start": 2.11,
+          "end": 2.55,
+          "key": "cowards",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ajax",
+          "start": 2.75,
+          "end": 3.11,
+          "key": "ajax",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.11,
+          "end": 3.41,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.41,
+          "end": 3.61,
+          "key": "their",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fool.",
+          "start": 3.61,
+          "end": 3.91,
+          "key": "fool",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "None",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "text": "of",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "these",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "rogues",
+          "start": 1.53,
+          "end": 1.99
+        },
+        {
+          "text": "and",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "cowards",
+          "start": 2.11,
+          "end": 2.55
+        },
+        {
+          "text": "But",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "Ajax",
+          "start": 2.75,
+          "end": 3.11
+        },
+        {
+          "text": "is",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "text": "their",
+          "start": 3.41,
+          "end": 3.61
+        },
+        {
+          "text": "fool.",
+          "start": 3.61,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11383090168237686
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f62ee092bee9f6c8274aa5e70905b350a4be2c8566c1ba9289a414c08114922a",
+  "selected_reasons": []
+}

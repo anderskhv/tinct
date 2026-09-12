@@ -1,0 +1,1334 @@
+{
+  "complete": true,
+  "signature": "499f94fa8c3053c2b96cbee2a04fd05a29850c570d54d1245f3a50ba89292938",
+  "attempts": [
+    {
+      "asr_seconds": 2.7697191331535578,
+      "alignment_seconds": 0.0008568605408072472,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I thought and hoped you could not mean it. You, so young, untried, and beautiful, Estella! Surely it is not in Nature.\"",
+        "hotwords": "I, Estella, Surely, Nature"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I, Estella, Surely, Nature",
+          "start": 0.05,
+          "end": 6.27,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.755859375
+            },
+            {
+              "text": " Estella,",
+              "start": 0.69,
+              "end": 5.17,
+              "probability": 0.48560476303100586
+            },
+            {
+              "text": " Surely,",
+              "start": 5.63,
+              "end": 5.89,
+              "probability": 3.0219554901123047e-05
+            },
+            {
+              "text": " Nature",
+              "start": 6.27,
+              "end": 6.27,
+              "probability": 1.1920928955078125e-06
+            }
+          ]
+        },
+        {
+          "text": " Surely it is not in Nature.\"",
+          "start": 6.27,
+          "end": 7.59,
+          "words": [
+            {
+              "text": " Surely",
+              "start": 6.27,
+              "end": 6.27,
+              "probability": 3.701448440551758e-05
+            },
+            {
+              "text": " it",
+              "start": 6.27,
+              "end": 6.27,
+              "probability": 0.0086212158203125
+            },
+            {
+              "text": " is",
+              "start": 6.27,
+              "end": 6.27,
+              "probability": 0.259765625
+            },
+            {
+              "text": " not",
+              "start": 6.27,
+              "end": 6.47,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " in",
+              "start": 6.47,
+              "end": 6.59,
+              "probability": 0.783203125
+            },
+            {
+              "text": " Nature.\"",
+              "start": 6.59,
+              "end": 7.59,
+              "probability": 0.1764678955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Estella,",
+          "start": 0.69,
+          "end": 5.17
+        },
+        {
+          "raw": "Surely,",
+          "start": 5.63,
+          "end": 5.89
+        },
+        {
+          "raw": "Nature",
+          "start": 6.27,
+          "end": 6.27
+        },
+        {
+          "raw": "Surely",
+          "start": 6.27,
+          "end": 6.27
+        },
+        {
+          "raw": "it",
+          "start": 6.27,
+          "end": 6.27
+        },
+        {
+          "raw": "is",
+          "start": 6.27,
+          "end": 6.27
+        },
+        {
+          "raw": "not",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "raw": "in",
+          "start": 6.47,
+          "end": 6.59
+        },
+        {
+          "raw": "Nature.\"",
+          "start": 6.59,
+          "end": 7.59
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "thought",
+        "and",
+        "hoped",
+        "you",
+        "could",
+        "not",
+        "mean",
+        "it.",
+        "You,",
+        "so",
+        "young,",
+        "untried,",
+        "and",
+        "beautiful,",
+        "Estella!",
+        "Surely",
+        "it",
+        "is",
+        "not",
+        "in",
+        "Nature.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          15,
+          1,
+          1
+        ],
+        [
+          "equal",
+          15,
+          16,
+          1,
+          2
+        ],
+        [
+          "insert",
+          16,
+          16,
+          2,
+          4
+        ],
+        [
+          "equal",
+          16,
+          22,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          15,
+          1,
+          1
+        ],
+        [
+          "insert",
+          16,
+          16,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Estella,",
+          "start": 0.69,
+          "end": 5.17,
+          "key": "estella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Surely,",
+          "start": 5.63,
+          "end": 5.89,
+          "key": "surely",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nature",
+          "start": 6.27,
+          "end": 6.27,
+          "key": "nature",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Surely",
+          "start": 6.27,
+          "end": 6.27,
+          "key": "surely",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.27,
+          "end": 6.27,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.27,
+          "end": 6.27,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.27,
+          "end": 6.47,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.47,
+          "end": 6.59,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Nature.\"",
+          "start": 6.59,
+          "end": 7.59,
+          "key": "nature",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "thought",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "and",
+          "start": 0.61,
+          "end": 0.65
+        },
+        {
+          "text": "hoped",
+          "start": 0.65,
+          "end": 0.67
+        },
+        {
+          "text": "you",
+          "start": 0.67,
+          "end": 0.68
+        },
+        {
+          "text": "could",
+          "start": 0.68,
+          "end": 0.685
+        },
+        {
+          "text": "not",
+          "start": 0.685,
+          "end": 0.688
+        },
+        {
+          "text": "mean",
+          "start": 0.688,
+          "end": 0.689
+        },
+        {
+          "text": "it.",
+          "start": 0.689,
+          "end": 0.69
+        },
+        {
+          "text": "You,",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "so",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "young,",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "untried,",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "and",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "beautiful,",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "Estella!",
+          "start": 0.69,
+          "end": 5.17
+        },
+        {
+          "text": "Surely",
+          "start": 6.27,
+          "end": 6.27
+        },
+        {
+          "text": "it",
+          "start": 6.27,
+          "end": 6.27
+        },
+        {
+          "text": "is",
+          "start": 6.27,
+          "end": 6.27
+        },
+        {
+          "text": "not",
+          "start": 6.27,
+          "end": 6.47
+        },
+        {
+          "text": "in",
+          "start": 6.47,
+          "end": 6.59
+        },
+        {
+          "text": "Nature.\"",
+          "start": 6.59,
+          "end": 7.59
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.36363636363636365,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.7707664612680674
+    },
+    {
+      "asr_seconds": 0.33498503267765045,
+      "alignment_seconds": 0.0007699411362409592,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Estella, Surely, Nature"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I thought and hoped you could not mean it. You, so young, untried, and beautiful, Estella. Surely it is not in Nature.",
+          "start": 0.05,
+          "end": 6.83,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " thought",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " and",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " hoped",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " could",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mean",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 1.75,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " You,",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.98828125
+            },
+            {
+              "text": " so",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " young,",
+              "start": 3.01,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " untried,",
+              "start": 3.69,
+              "end": 4.09,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " and",
+              "start": 4.27,
+              "end": 4.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " beautiful,",
+              "start": 4.35,
+              "end": 4.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Estella.",
+              "start": 4.93,
+              "end": 5.17,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " Surely",
+              "start": 5.77,
+              "end": 5.93,
+              "probability": 0.984375
+            },
+            {
+              "text": " it",
+              "start": 5.93,
+              "end": 6.15,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " is",
+              "start": 6.15,
+              "end": 6.27,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 6.27,
+              "end": 6.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 6.45,
+              "end": 6.59,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Nature.",
+              "start": 6.59,
+              "end": 6.83,
+              "probability": 0.034515380859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "thought",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "and",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "hoped",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "raw": "you",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "could",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "not",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "mean",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "it.",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "raw": "You,",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "so",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "young,",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "raw": "untried,",
+          "start": 3.69,
+          "end": 4.09
+        },
+        {
+          "raw": "and",
+          "start": 4.27,
+          "end": 4.35
+        },
+        {
+          "raw": "beautiful,",
+          "start": 4.35,
+          "end": 4.73
+        },
+        {
+          "raw": "Estella.",
+          "start": 4.93,
+          "end": 5.17
+        },
+        {
+          "raw": "Surely",
+          "start": 5.77,
+          "end": 5.93
+        },
+        {
+          "raw": "it",
+          "start": 5.93,
+          "end": 6.15
+        },
+        {
+          "raw": "is",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "raw": "not",
+          "start": 6.27,
+          "end": 6.45
+        },
+        {
+          "raw": "in",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "raw": "Nature.",
+          "start": 6.59,
+          "end": 6.83
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "thought",
+        "and",
+        "hoped",
+        "you",
+        "could",
+        "not",
+        "mean",
+        "it.",
+        "You,",
+        "so",
+        "young,",
+        "untried,",
+        "and",
+        "beautiful,",
+        "Estella!",
+        "Surely",
+        "it",
+        "is",
+        "not",
+        "in",
+        "Nature.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hoped",
+          "start": 0.95,
+          "end": 1.13,
+          "key": "hoped",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "could",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "mean",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.75,
+          "end": 2.09,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You,",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "young,",
+          "start": 3.01,
+          "end": 3.35,
+          "key": "young",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "untried,",
+          "start": 3.69,
+          "end": 4.09,
+          "key": "untried",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.27,
+          "end": 4.35,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "beautiful,",
+          "start": 4.35,
+          "end": 4.73,
+          "key": "beautiful",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Estella.",
+          "start": 4.93,
+          "end": 5.17,
+          "key": "estella",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Surely",
+          "start": 5.77,
+          "end": 5.93,
+          "key": "surely",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.93,
+          "end": 6.15,
+          "key": "it",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.15,
+          "end": 6.27,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.27,
+          "end": 6.45,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.45,
+          "end": 6.59,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Nature.",
+          "start": 6.59,
+          "end": 6.83,
+          "key": "nature",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "thought",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "and",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "hoped",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "text": "you",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "could",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "not",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "mean",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "it.",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "text": "You,",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "so",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "text": "young,",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "text": "untried,",
+          "start": 3.69,
+          "end": 4.09
+        },
+        {
+          "text": "and",
+          "start": 4.27,
+          "end": 4.35
+        },
+        {
+          "text": "beautiful,",
+          "start": 4.35,
+          "end": 4.73
+        },
+        {
+          "text": "Estella!",
+          "start": 4.93,
+          "end": 5.17
+        },
+        {
+          "text": "Surely",
+          "start": 5.77,
+          "end": 5.93
+        },
+        {
+          "text": "it",
+          "start": 5.93,
+          "end": 6.15
+        },
+        {
+          "text": "is",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "text": "not",
+          "start": 6.27,
+          "end": 6.45
+        },
+        {
+          "text": "in",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "text": "Nature.\"",
+          "start": 6.59,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.336068375967443
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "d9f6a4cc93a063b75bd8bb6cbc53d53660a0579b897ca6185aecae95e79171ba",
+  "selected_reasons": []
+}

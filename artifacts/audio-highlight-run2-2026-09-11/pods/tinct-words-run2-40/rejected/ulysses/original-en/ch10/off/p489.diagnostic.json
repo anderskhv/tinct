@@ -1,0 +1,326 @@
+{
+  "complete": true,
+  "signature": "eadf2eab1980c17a341b497f285ae32b6ac18fcca41941fe565bec0448ae5fd0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1925932988524437,
+      "alignment_seconds": 0.0004645939916372299,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clatter of horse hoofs sounded from the air.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Clatter",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " of",
+              "start": 0.69,
+              "end": 0.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " horse",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " hoofs",
+              "start": 1.03,
+              "end": 1.57,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " sounded",
+              "start": 1.57,
+              "end": 1.87,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " from",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.17,
+              "end": 2.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " air.",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clatter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "of",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "raw": "horse",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "hoofs",
+          "start": 1.03,
+          "end": 1.57
+        },
+        {
+          "raw": "sounded",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "raw": "from",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "raw": "air.",
+          "start": 2.29,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Clatter",
+        "of",
+        "horsehoofs",
+        "sounded",
+        "from",
+        "the",
+        "air."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          7,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clatter",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "clatter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.69,
+          "end": 0.81,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "horse",
+          "start": 0.81,
+          "end": 1.03,
+          "key": "horse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hoofs",
+          "start": 1.03,
+          "end": 1.57,
+          "key": "hoofs",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sounded",
+          "start": 1.57,
+          "end": 1.87,
+          "key": "sounded",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.29,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "air.",
+          "start": 2.29,
+          "end": 2.55,
+          "key": "air",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clatter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "of",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "text": "horsehoofs",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "text": "sounded",
+          "start": 1.57,
+          "end": 1.87
+        },
+        {
+          "text": "from",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "text": "the",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "text": "air.",
+          "start": 2.29,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.193226448725909
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b2f8fd137a1274305f0d4a9527b1cc0052276dd396cd96c320c20495c075168b",
+  "selected_reasons": []
+}

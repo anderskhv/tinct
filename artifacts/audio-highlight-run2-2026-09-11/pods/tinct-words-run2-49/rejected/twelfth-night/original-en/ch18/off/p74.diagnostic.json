@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "6436fddc1a33b56e64511931cf33ced240da85c2f566cc3dbdf7a6d7f28e6b2e",
+  "attempts": [
+    {
+      "asr_seconds": 0.15072141215205193,
+      "alignment_seconds": 0.000353008508682251,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, who has done this, Sir Andrew.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " who",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " has",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.98828125
+            },
+            {
+              "text": " done",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this,",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Sir",
+              "start": 2.03,
+              "end": 2.03,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Andrew.",
+              "start": 2.03,
+              "end": 2.35,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "who",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "has",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "done",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "this,",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "Sir",
+          "start": 2.03,
+          "end": 2.03
+        },
+        {
+          "raw": "Andrew.",
+          "start": 2.03,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Who",
+        "has",
+        "done",
+        "this,",
+        "Sir",
+        "Andrew?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "done",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 2.03,
+          "end": 2.03,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Andrew.",
+          "start": 2.03,
+          "end": 2.35,
+          "key": "andrew",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Who",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "has",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "done",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "this,",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "Sir",
+          "start": 2.03,
+          "end": 2.03
+        },
+        {
+          "text": "Andrew?",
+          "start": 2.03,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.151211217045784
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "00b615bd9e9d860d8dc395e7feed2fe9a32075fd6760fbc5f5b822b857e6abd7",
+  "selected_reasons": []
+}

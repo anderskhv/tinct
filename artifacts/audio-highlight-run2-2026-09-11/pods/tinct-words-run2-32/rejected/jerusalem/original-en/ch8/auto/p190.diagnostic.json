@@ -1,0 +1,1095 @@
+{
+  "complete": true,
+  "signature": "04b1f36207321457beb1444d453cb2198801a704ba7eb94a4e8ae251baefa03d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2182759139686823,
+      "alignment_seconds": 0.00022261589765548706,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ingmar first! Ingmar first!\" Hellgum kept shouting. He was so excited that he raised his axe against her. \"He has fought the would-be murderers and saved my life!\" he said.",
+        "hotwords": "Ingmar, Hellgum"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ingmar first! Ingmar first!\" Hellgum kept shouting. He was so excited that he raised",
+          "start": 0.05,
+          "end": 6.17,
+          "words": [
+            {
+              "text": " Ingmar",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.56829833984375
+            },
+            {
+              "text": " first!",
+              "start": 0.89,
+              "end": 1.23,
+              "probability": 0.775390625
+            },
+            {
+              "text": " Ingmar",
+              "start": 1.71,
+              "end": 2.05,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " first",
+              "start": 2.05,
+              "end": 2.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": "!\"",
+              "start": 2.37,
+              "end": 2.99,
+              "probability": 0.4072265625
+            },
+            {
+              "text": " Hellgum",
+              "start": 2.99,
+              "end": 3.37,
+              "probability": 0.46390024820963544
+            },
+            {
+              "text": " kept",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shouting.",
+              "start": 3.61,
+              "end": 3.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " He",
+              "start": 4.59,
+              "end": 4.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " was",
+              "start": 4.67,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 4.79,
+              "end": 4.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " excited",
+              "start": 4.97,
+              "end": 5.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 5.37,
+              "end": 5.61,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " he",
+              "start": 5.61,
+              "end": 5.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " raised",
+              "start": 5.81,
+              "end": 6.17,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " his axe against her. He has fought the would-be murderers and saved my life, he said.",
+          "start": 6.17,
+          "end": 11.21,
+          "words": [
+            {
+              "text": " his",
+              "start": 6.17,
+              "end": 6.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " axe",
+              "start": 6.37,
+              "end": 6.61,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " against",
+              "start": 6.61,
+              "end": 6.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her.",
+              "start": 6.95,
+              "end": 7.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " He",
+              "start": 7.83,
+              "end": 7.99,
+              "probability": 0.0167999267578125
+            },
+            {
+              "text": " has",
+              "start": 7.99,
+              "end": 8.11,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " fought",
+              "start": 8.11,
+              "end": 8.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 8.29,
+              "end": 8.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " would",
+              "start": 8.45,
+              "end": 8.57,
+              "probability": 0.95068359375
+            },
+            {
+              "text": "-be",
+              "start": 8.57,
+              "end": 8.75,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " murderers",
+              "start": 8.75,
+              "end": 9.15,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " and",
+              "start": 9.15,
+              "end": 9.45,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " saved",
+              "start": 9.45,
+              "end": 9.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 9.77,
+              "end": 10.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life,",
+              "start": 10.03,
+              "end": 10.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 10.77,
+              "end": 10.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said.",
+              "start": 10.95,
+              "end": 11.21,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ingmar",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "first!",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "raw": "Ingmar",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "raw": "first",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "raw": "!\"",
+          "start": 2.37,
+          "end": 2.99
+        },
+        {
+          "raw": "Hellgum",
+          "start": 2.99,
+          "end": 3.37
+        },
+        {
+          "raw": "kept",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "raw": "shouting.",
+          "start": 3.61,
+          "end": 3.99
+        },
+        {
+          "raw": "He",
+          "start": 4.59,
+          "end": 4.67
+        },
+        {
+          "raw": "was",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "raw": "so",
+          "start": 4.79,
+          "end": 4.97
+        },
+        {
+          "raw": "excited",
+          "start": 4.97,
+          "end": 5.37
+        },
+        {
+          "raw": "that",
+          "start": 5.37,
+          "end": 5.61
+        },
+        {
+          "raw": "he",
+          "start": 5.61,
+          "end": 5.81
+        },
+        {
+          "raw": "raised",
+          "start": 5.81,
+          "end": 6.17
+        },
+        {
+          "raw": "his",
+          "start": 6.17,
+          "end": 6.37
+        },
+        {
+          "raw": "axe",
+          "start": 6.37,
+          "end": 6.61
+        },
+        {
+          "raw": "against",
+          "start": 6.61,
+          "end": 6.95
+        },
+        {
+          "raw": "her.",
+          "start": 6.95,
+          "end": 7.25
+        },
+        {
+          "raw": "He",
+          "start": 7.83,
+          "end": 7.99
+        },
+        {
+          "raw": "has",
+          "start": 7.99,
+          "end": 8.11
+        },
+        {
+          "raw": "fought",
+          "start": 8.11,
+          "end": 8.29
+        },
+        {
+          "raw": "the",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "raw": "would",
+          "start": 8.45,
+          "end": 8.57
+        },
+        {
+          "raw": "-be",
+          "start": 8.57,
+          "end": 8.75
+        },
+        {
+          "raw": "murderers",
+          "start": 8.75,
+          "end": 9.15
+        },
+        {
+          "raw": "and",
+          "start": 9.15,
+          "end": 9.45
+        },
+        {
+          "raw": "saved",
+          "start": 9.45,
+          "end": 9.77
+        },
+        {
+          "raw": "my",
+          "start": 9.77,
+          "end": 10.03
+        },
+        {
+          "raw": "life,",
+          "start": 10.03,
+          "end": 10.45
+        },
+        {
+          "raw": "he",
+          "start": 10.77,
+          "end": 10.95
+        },
+        {
+          "raw": "said.",
+          "start": 10.95,
+          "end": 11.21
+        }
+      ],
+      "expected_tokens": [
+        "\"Ingmar",
+        "first!",
+        "Ingmar",
+        "first!\"",
+        "Hellgum",
+        "kept",
+        "shouting.",
+        "He",
+        "was",
+        "so",
+        "excited",
+        "that",
+        "he",
+        "raised",
+        "his",
+        "axe",
+        "against",
+        "her.",
+        "\"He",
+        "has",
+        "fought",
+        "the",
+        "would-be",
+        "murderers",
+        "and",
+        "saved",
+        "my",
+        "life!\"",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ],
+        [
+          "equal",
+          4,
+          30,
+          5,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ingmar",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "ingmar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first!",
+          "start": 0.89,
+          "end": 1.23,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 1.71,
+          "end": 2.05,
+          "key": "ingmar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 2.05,
+          "end": 2.37,
+          "key": "first",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.37,
+          "end": 2.99,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Hellgum",
+          "start": 2.99,
+          "end": 3.37,
+          "key": "hellgum",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "kept",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shouting.",
+          "start": 3.61,
+          "end": 3.99,
+          "key": "shouting",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.59,
+          "end": 4.67,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.67,
+          "end": 4.79,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.79,
+          "end": 4.97,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "excited",
+          "start": 4.97,
+          "end": 5.37,
+          "key": "excited",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.37,
+          "end": 5.61,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.61,
+          "end": 5.81,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "raised",
+          "start": 5.81,
+          "end": 6.17,
+          "key": "raised",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.17,
+          "end": 6.37,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "axe",
+          "start": 6.37,
+          "end": 6.61,
+          "key": "axe",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 6.61,
+          "end": 6.95,
+          "key": "against",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 6.95,
+          "end": 7.25,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 7.83,
+          "end": 7.99,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 7.99,
+          "end": 8.11,
+          "key": "has",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fought",
+          "start": 8.11,
+          "end": 8.29,
+          "key": "fought",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.29,
+          "end": 8.45,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "would -be",
+          "start": 8.45,
+          "end": 8.75,
+          "key": "wouldbe",
+          "pieces": [
+            23,
+            24
+          ]
+        },
+        {
+          "raw": "murderers",
+          "start": 8.75,
+          "end": 9.15,
+          "key": "murderers",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.15,
+          "end": 9.45,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "saved",
+          "start": 9.45,
+          "end": 9.77,
+          "key": "saved",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.77,
+          "end": 10.03,
+          "key": "my",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "life,",
+          "start": 10.03,
+          "end": 10.45,
+          "key": "life",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.77,
+          "end": 10.95,
+          "key": "he",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 10.95,
+          "end": 11.21,
+          "key": "said",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 22,
+          "text": "would-be",
+          "heard": "would -be",
+          "heard_indexes": [
+            23,
+            24
+          ],
+          "start": 8.45,
+          "end": 8.75
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Ingmar",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "first!",
+          "start": 0.89,
+          "end": 1.23
+        },
+        {
+          "text": "Ingmar",
+          "start": 1.71,
+          "end": 2.05
+        },
+        {
+          "text": "first!\"",
+          "start": 2.05,
+          "end": 2.37
+        },
+        {
+          "text": "Hellgum",
+          "start": 2.99,
+          "end": 3.37
+        },
+        {
+          "text": "kept",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "text": "shouting.",
+          "start": 3.61,
+          "end": 3.99
+        },
+        {
+          "text": "He",
+          "start": 4.59,
+          "end": 4.67
+        },
+        {
+          "text": "was",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "text": "so",
+          "start": 4.79,
+          "end": 4.97
+        },
+        {
+          "text": "excited",
+          "start": 4.97,
+          "end": 5.37
+        },
+        {
+          "text": "that",
+          "start": 5.37,
+          "end": 5.61
+        },
+        {
+          "text": "he",
+          "start": 5.61,
+          "end": 5.81
+        },
+        {
+          "text": "raised",
+          "start": 5.81,
+          "end": 6.17
+        },
+        {
+          "text": "his",
+          "start": 6.17,
+          "end": 6.37
+        },
+        {
+          "text": "axe",
+          "start": 6.37,
+          "end": 6.61
+        },
+        {
+          "text": "against",
+          "start": 6.61,
+          "end": 6.95
+        },
+        {
+          "text": "her.",
+          "start": 6.95,
+          "end": 7.25
+        },
+        {
+          "text": "\"He",
+          "start": 7.83,
+          "end": 7.99
+        },
+        {
+          "text": "has",
+          "start": 7.99,
+          "end": 8.11
+        },
+        {
+          "text": "fought",
+          "start": 8.11,
+          "end": 8.29
+        },
+        {
+          "text": "the",
+          "start": 8.29,
+          "end": 8.45
+        },
+        {
+          "text": "would-be",
+          "start": 8.45,
+          "end": 8.75
+        },
+        {
+          "text": "murderers",
+          "start": 8.75,
+          "end": 9.15
+        },
+        {
+          "text": "and",
+          "start": 9.15,
+          "end": 9.45
+        },
+        {
+          "text": "saved",
+          "start": 9.45,
+          "end": 9.77
+        },
+        {
+          "text": "my",
+          "start": 9.77,
+          "end": 10.03
+        },
+        {
+          "text": "life!\"",
+          "start": 10.03,
+          "end": 10.45
+        },
+        {
+          "text": "he",
+          "start": 10.77,
+          "end": 10.95
+        },
+        {
+          "text": "said.",
+          "start": 10.95,
+          "end": 11.21
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 31,
+        "matched_words": 30
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2185784913599491
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "da29dcbbeee0b723b0640ab7071febf2a7c95e6fcc791df7fba626e665e9c105",
+  "selected_reasons": []
+}

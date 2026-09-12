@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "fa11eaa3601cd4a973d8beb6bf2ffbee73e12137d4029a67a8f7de3e7e6ec348",
+  "attempts": [
+    {
+      "asr_seconds": 0.22096392198000103,
+      "alignment_seconds": 0.0002927060122601688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, what was the second noise for?",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " what",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " was",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " second",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.990234375
+            },
+            {
+              "text": " noise",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " for?",
+              "start": 2.05,
+              "end": 2.35,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "what",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "was",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "second",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "noise",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "raw": "for?",
+          "start": 2.05,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "What",
+        "was",
+        "the",
+        "second",
+        "noise",
+        "for?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "second",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "noise",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for?",
+          "start": 2.05,
+          "end": 2.35,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "What",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "was",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "the",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "second",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "noise",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "text": "for?",
+          "start": 2.05,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22136835899436846
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c7835999bd8d23d3aa3bf7e91feb1e41c5e6358611d1e99c8d83daa25626d5d7",
+  "selected_reasons": []
+}

@@ -1,0 +1,834 @@
+{
+  "complete": true,
+  "signature": "be4f2c9aaf94069264656df8064ccc4bdd2b0a9e9af344d7bbab3df13c47383f",
+  "attempts": [
+    {
+      "asr_seconds": 0.35107562877237797,
+      "alignment_seconds": 0.0006827991455793381,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second gentleman, I honor him even out of your report, but pray you tell me, is she",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.52685546875
+            },
+            {
+              "text": " gentleman,",
+              "start": 0.69,
+              "end": 1.11,
+              "probability": 0.381103515625
+            },
+            {
+              "text": " I",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " honor",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " him",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " even",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " out",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.85,
+              "end": 2.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " report,",
+              "start": 2.95,
+              "end": 3.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " but",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " pray",
+              "start": 3.89,
+              "end": 4.09,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " you",
+              "start": 4.09,
+              "end": 4.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " tell",
+              "start": 4.29,
+              "end": 4.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me,",
+              "start": 4.53,
+              "end": 4.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 4.99,
+              "end": 5.03,
+              "probability": 0.955078125
+            },
+            {
+              "text": " she",
+              "start": 5.03,
+              "end": 5.23,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " sole child to T.H. King?",
+          "start": 5.23,
+          "end": 6.83,
+          "words": [
+            {
+              "text": " sole",
+              "start": 5.23,
+              "end": 5.51,
+              "probability": 0.297607421875
+            },
+            {
+              "text": " child",
+              "start": 5.51,
+              "end": 5.81,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 5.81,
+              "end": 6.05,
+              "probability": 0.994140625
+            },
+            {
+              "text": " T",
+              "start": 6.05,
+              "end": 6.21,
+              "probability": 0.54443359375
+            },
+            {
+              "text": ".H.",
+              "start": 6.21,
+              "end": 6.51,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " King?",
+              "start": 6.67,
+              "end": 6.83,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "gentleman,",
+          "start": 0.69,
+          "end": 1.11
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "honor",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "him",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "even",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "out",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "of",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "your",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "raw": "report,",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "pray",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "raw": "you",
+          "start": 4.09,
+          "end": 4.29
+        },
+        {
+          "raw": "tell",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "raw": "me,",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "raw": "is",
+          "start": 4.99,
+          "end": 5.03
+        },
+        {
+          "raw": "she",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "raw": "sole",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "raw": "child",
+          "start": 5.51,
+          "end": 5.81
+        },
+        {
+          "raw": "to",
+          "start": 5.81,
+          "end": 6.05
+        },
+        {
+          "raw": "T",
+          "start": 6.05,
+          "end": 6.21
+        },
+        {
+          "raw": ".H.",
+          "start": 6.21,
+          "end": 6.51
+        },
+        {
+          "raw": "King?",
+          "start": 6.67,
+          "end": 6.83
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Gentleman.",
+        "I",
+        "honour",
+        "him",
+        "Even",
+        "out",
+        "of",
+        "your",
+        "report.",
+        "But",
+        "pray",
+        "you",
+        "tell",
+        "me,",
+        "Is",
+        "she",
+        "sole",
+        "child",
+        "to",
+        "th'",
+        "King?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          20,
+          4,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          22,
+          22,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 0.69,
+          "end": 1.11,
+          "key": "gentleman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "honor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "even",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.85,
+          "end": 2.95,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "report,",
+          "start": 2.95,
+          "end": 3.37,
+          "key": "report",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 3.89,
+          "end": 4.09,
+          "key": "pray",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.09,
+          "end": 4.29,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 4.29,
+          "end": 4.53,
+          "key": "tell",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 4.53,
+          "end": 4.75,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.99,
+          "end": 5.03,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.03,
+          "end": 5.23,
+          "key": "she",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sole",
+          "start": 5.23,
+          "end": 5.51,
+          "key": "sole",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "child",
+          "start": 5.51,
+          "end": 5.81,
+          "key": "child",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.81,
+          "end": 6.05,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 6.05,
+          "end": 6.21,
+          "key": "t",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 6.21,
+          "end": 6.51,
+          "key": "h",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "King?",
+          "start": 6.67,
+          "end": 6.83,
+          "key": "king",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Gentleman.",
+          "start": 0.69,
+          "end": 1.11
+        },
+        {
+          "text": "I",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "honour",
+          "start": 1.89,
+          "end": 2.0
+        },
+        {
+          "text": "him",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "Even",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "text": "out",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "of",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "your",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "text": "report.",
+          "start": 2.95,
+          "end": 3.37
+        },
+        {
+          "text": "But",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "pray",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "text": "you",
+          "start": 4.09,
+          "end": 4.29
+        },
+        {
+          "text": "tell",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "text": "me,",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "text": "Is",
+          "start": 4.99,
+          "end": 5.03
+        },
+        {
+          "text": "she",
+          "start": 5.03,
+          "end": 5.23
+        },
+        {
+          "text": "sole",
+          "start": 5.23,
+          "end": 5.51
+        },
+        {
+          "text": "child",
+          "start": 5.51,
+          "end": 5.81
+        },
+        {
+          "text": "to",
+          "start": 5.81,
+          "end": 6.05
+        },
+        {
+          "text": "th'",
+          "start": 6.05,
+          "end": 6.36
+        },
+        {
+          "text": "King?",
+          "start": 6.67,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.3520304299890995
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3095fc2b1cbea4ebe8f5673952f9be788d413620a06fe633849ed3385cb28c6b",
+  "selected_reasons": []
+}

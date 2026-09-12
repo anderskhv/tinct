@@ -1,0 +1,181 @@
+{
+  "complete": true,
+  "signature": "9d1472f715a76593015596a73a6403f1ba594b98e5ec9cf34cee4fc3b8c95648",
+  "attempts": [
+    {
+      "asr_seconds": 0.13460892206057906,
+      "alignment_seconds": 0.00012947479262948036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. How?",
+        "hotwords": "Richard, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, How Richard. How?",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " How",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.088134765625
+            },
+            {
+              "text": " Richard.",
+              "start": 1.15,
+              "end": 1.79,
+              "probability": 4.351139068603516e-06
+            },
+            {
+              "text": " How?",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.92236328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "How",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "Richard.",
+          "start": 1.15,
+          "end": 1.79
+        },
+        {
+          "raw": "How?",
+          "start": 1.79,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "How?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Richard.",
+          "start": 1.15,
+          "end": 1.79,
+          "key": "richard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "How?",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "How?",
+          "start": 0.79,
+          "end": 1.15
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13478719093836844
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "68cb2a8427258d53419d2bb5a6a67eba379f2a773cea698554fa24536601e96b",
+  "selected_reasons": []
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "00f229c4c9f973e3e3c27f9f230f9056ca5c5fe5b34db8a5cbce205434f17320",
+  "attempts": [
+    {
+      "asr_seconds": 0.19086712133139372,
+      "alignment_seconds": 0.0004107048735022545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Six children and brutes pursue pleasures.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Six",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " children",
+              "start": 0.62,
+              "end": 0.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " brutes",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " pursue",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " pleasures.",
+              "start": 1.84,
+              "end": 2.24,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Six",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "children",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "raw": "and",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "brutes",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "pursue",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "raw": "pleasures.",
+          "start": 1.84,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "6.",
+        "Children",
+        "and",
+        "brutes",
+        "pursue",
+        "Pleasures."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Six",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "six",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 0.62,
+          "end": 0.96,
+          "key": "children",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "brutes",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "brutes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pursue",
+          "start": 1.54,
+          "end": 1.84,
+          "key": "pursue",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pleasures.",
+          "start": 1.84,
+          "end": 2.24,
+          "key": "pleasures",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "6.",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Children",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "text": "and",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "brutes",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "text": "pursue",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "text": "Pleasures.",
+          "start": 1.84,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19141987059265375
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b58966436b913b050f8aa144deca7bf64b59dddf56a28bcb3748428ad72a1be3",
+  "selected_reasons": []
+}

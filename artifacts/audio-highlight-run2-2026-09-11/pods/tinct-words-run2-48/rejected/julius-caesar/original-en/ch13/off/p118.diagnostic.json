@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "89e71a459898068012a086084fbb169a934d75bf3107f5f0e2636ecef7386f4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14040427468717098,
+      "alignment_seconds": 0.00012021791189908981,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Lucius.",
+          "start": 0.08,
+          "end": 1.04,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Lucius.",
+              "start": 0.68,
+              "end": 1.04,
+              "probability": 0.806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Lucius.",
+          "start": 0.68,
+          "end": 1.04
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Lucius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucius.",
+          "start": 0.68,
+          "end": 1.04,
+          "key": "lucius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Lucius.",
+          "start": 0.68,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14056649897247553
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "423df2f24302a7974e66c0a59d7b57b7b49cd9880b13f11c5edc63bf2d856d41",
+  "selected_reasons": []
+}

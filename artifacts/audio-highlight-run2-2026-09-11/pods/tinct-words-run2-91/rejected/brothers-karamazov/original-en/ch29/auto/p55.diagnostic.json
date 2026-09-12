@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "5e4821a601a8e4ce0534275826134bd32529dbadccc08d57a426ff0463fde469",
+  "attempts": [
+    {
+      "asr_seconds": 0.36459636967629194,
+      "alignment_seconds": 0.00023107044398784637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Katerina Ivanovna is ill.... She is crying, struggling ... hysterics.\"",
+        "hotwords": "Katerina, Ivanovna, She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katerina Ivanovna is ill.... She is crying, struggling ... hysterics.",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Katerina",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.7659505208333334
+            },
+            {
+              "text": " Ivanovna",
+              "start": 0.91,
+              "end": 1.53,
+              "probability": 0.790771484375
+            },
+            {
+              "text": " is",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " ill....",
+              "start": 1.69,
+              "end": 2.57,
+              "probability": 0.4956475496292114
+            },
+            {
+              "text": " She",
+              "start": 2.57,
+              "end": 2.61,
+              "probability": 0.289306640625
+            },
+            {
+              "text": " is",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " crying,",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " struggling",
+              "start": 3.41,
+              "end": 3.71,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " ...",
+              "start": 3.71,
+              "end": 4.25,
+              "probability": 0.00666046142578125
+            },
+            {
+              "text": " hysterics.",
+              "start": 4.25,
+              "end": 4.75,
+              "probability": 0.811279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katerina",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Ivanovna",
+          "start": 0.91,
+          "end": 1.53
+        },
+        {
+          "raw": "is",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "ill....",
+          "start": 1.69,
+          "end": 2.57
+        },
+        {
+          "raw": "She",
+          "start": 2.57,
+          "end": 2.61
+        },
+        {
+          "raw": "is",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "crying,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "struggling",
+          "start": 3.41,
+          "end": 3.71
+        },
+        {
+          "raw": "...",
+          "start": 3.71,
+          "end": 4.25
+        },
+        {
+          "raw": "hysterics.",
+          "start": 4.25,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "\"Katerina",
+        "Ivanovna",
+        "is",
+        "ill....",
+        "She",
+        "is",
+        "crying,",
+        "struggling",
+        "...",
+        "hysterics.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katerina",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "katerina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ivanovna",
+          "start": 0.91,
+          "end": 1.53,
+          "key": "ivanovna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ill....",
+          "start": 1.69,
+          "end": 2.57,
+          "key": "ill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.57,
+          "end": 2.61,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "crying,",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "crying",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "struggling",
+          "start": 3.41,
+          "end": 3.71,
+          "key": "struggling",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 3.71,
+          "end": 4.25,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hysterics.",
+          "start": 4.25,
+          "end": 4.75,
+          "key": "hysterics",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Katerina",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Ivanovna",
+          "start": 0.91,
+          "end": 1.53
+        },
+        {
+          "text": "is",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "ill....",
+          "start": 1.69,
+          "end": 2.57
+        },
+        {
+          "text": "She",
+          "start": 2.57,
+          "end": 2.61
+        },
+        {
+          "text": "is",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "crying,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "struggling",
+          "start": 3.41,
+          "end": 3.71
+        },
+        {
+          "text": "...",
+          "start": 3.71,
+          "end": 4.25
+        },
+        {
+          "text": "hysterics.\"",
+          "start": 4.25,
+          "end": 4.75
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3649123040959239
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be13895e5808123d501bdb829e50c2ac400e004407931408ea5fcf48892fc8ea",
+  "selected_reasons": []
+}

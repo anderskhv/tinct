@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "ed8f72b9c38e1a687b8b78ea84feebcebba5f321ff525d74efb625f5df6f3faf",
+  "attempts": [
+    {
+      "asr_seconds": 0.3034512745216489,
+      "alignment_seconds": 0.00043475441634655,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Poles exchanged glances again. The short man's face looked more forbidding.",
+        "hotwords": "The, Poles"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The, Poles exchanged glances again. The short man's face looked more forbidding.",
+          "start": 0.02,
+          "end": 4.84,
+          "words": [
+            {
+              "text": " The,",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Poles",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.11163330078125
+            },
+            {
+              "text": " exchanged",
+              "start": 0.8,
+              "end": 1.4,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " glances",
+              "start": 1.4,
+              "end": 1.84,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " again.",
+              "start": 1.84,
+              "end": 2.26,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " The",
+              "start": 2.78,
+              "end": 2.86,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " short",
+              "start": 2.86,
+              "end": 3.1,
+              "probability": 0.556640625
+            },
+            {
+              "text": " man's",
+              "start": 3.1,
+              "end": 3.54,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " face",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " looked",
+              "start": 3.78,
+              "end": 4.1,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " more",
+              "start": 4.1,
+              "end": 4.38,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " forbidding.",
+              "start": 4.38,
+              "end": 4.84,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The,",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Poles",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "exchanged",
+          "start": 0.8,
+          "end": 1.4
+        },
+        {
+          "raw": "glances",
+          "start": 1.4,
+          "end": 1.84
+        },
+        {
+          "raw": "again.",
+          "start": 1.84,
+          "end": 2.26
+        },
+        {
+          "raw": "The",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "raw": "short",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "raw": "man's",
+          "start": 3.1,
+          "end": 3.54
+        },
+        {
+          "raw": "face",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "looked",
+          "start": 3.78,
+          "end": 4.1
+        },
+        {
+          "raw": "more",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "raw": "forbidding.",
+          "start": 4.38,
+          "end": 4.84
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Poles",
+        "exchanged",
+        "glances",
+        "again.",
+        "The",
+        "short",
+        "man's",
+        "face",
+        "looked",
+        "more",
+        "forbidding."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The,",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Poles",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "poles",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exchanged",
+          "start": 0.8,
+          "end": 1.4,
+          "key": "exchanged",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "glances",
+          "start": 1.4,
+          "end": 1.84,
+          "key": "glances",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 1.84,
+          "end": 2.26,
+          "key": "again",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.78,
+          "end": 2.86,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 2.86,
+          "end": 3.1,
+          "key": "short",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 3.1,
+          "end": 3.54,
+          "key": "mans",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 3.78,
+          "end": 4.1,
+          "key": "looked",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.1,
+          "end": 4.38,
+          "key": "more",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "forbidding.",
+          "start": 4.38,
+          "end": 4.84,
+          "key": "forbidding",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Poles",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "exchanged",
+          "start": 0.8,
+          "end": 1.4
+        },
+        {
+          "text": "glances",
+          "start": 1.4,
+          "end": 1.84
+        },
+        {
+          "text": "again.",
+          "start": 1.84,
+          "end": 2.26
+        },
+        {
+          "text": "The",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "text": "short",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "text": "man's",
+          "start": 3.1,
+          "end": 3.54
+        },
+        {
+          "text": "face",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "looked",
+          "start": 3.78,
+          "end": 4.1
+        },
+        {
+          "text": "more",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "text": "forbidding.",
+          "start": 4.38,
+          "end": 4.84
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3040439058095217
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dbb3bbaace43e20022373d40091777b709ad3de7338e93d298ffc47bdde32039",
+  "selected_reasons": []
+}

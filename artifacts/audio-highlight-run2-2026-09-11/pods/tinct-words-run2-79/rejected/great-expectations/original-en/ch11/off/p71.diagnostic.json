@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "c07fb4a4e47be779c2bd1a13ae3cd2b70fe0d80a2c5afe46efc33dff5dcdfa46",
+  "attempts": [
+    {
+      "asr_seconds": 0.2182742189615965,
+      "alignment_seconds": 0.0002844762057065964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why what's the matter with you asked Miss Havisham with exceeding sharpness",
+          "start": 0.02,
+          "end": 4.58,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.268798828125
+            },
+            {
+              "text": " what's",
+              "start": 0.66,
+              "end": 1.0,
+              "probability": 0.734619140625
+            },
+            {
+              "text": " the",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " matter",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 1.52,
+              "end": 1.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " asked",
+              "start": 1.98,
+              "end": 2.5,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " Miss",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.59228515625
+            },
+            {
+              "text": " Havisham",
+              "start": 2.68,
+              "end": 3.28,
+              "probability": 0.9251302083333334
+            },
+            {
+              "text": " with",
+              "start": 3.28,
+              "end": 3.46,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " exceeding",
+              "start": 3.46,
+              "end": 3.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sharpness",
+              "start": 3.82,
+              "end": 4.58,
+              "probability": 0.981689453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "what's",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "matter",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "with",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 1.98
+        },
+        {
+          "raw": "asked",
+          "start": 1.98,
+          "end": 2.5
+        },
+        {
+          "raw": "Miss",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "Havisham",
+          "start": 2.68,
+          "end": 3.28
+        },
+        {
+          "raw": "with",
+          "start": 3.28,
+          "end": 3.46
+        },
+        {
+          "raw": "exceeding",
+          "start": 3.46,
+          "end": 3.82
+        },
+        {
+          "raw": "sharpness",
+          "start": 3.82,
+          "end": 4.58
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "what's",
+        "the",
+        "matter",
+        "with",
+        "you?\"",
+        "asked",
+        "Miss",
+        "Havisham,",
+        "with",
+        "exceeding",
+        "sharpness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 0.66,
+          "end": 1.0,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "matter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.52,
+          "end": 1.98,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.98,
+          "end": 2.5,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "miss",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 2.68,
+          "end": 3.28,
+          "key": "havisham",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.28,
+          "end": 3.46,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "exceeding",
+          "start": 3.46,
+          "end": 3.82,
+          "key": "exceeding",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sharpness",
+          "start": 3.82,
+          "end": 4.58,
+          "key": "sharpness",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "what's",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "text": "the",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "matter",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "with",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "you?\"",
+          "start": 1.52,
+          "end": 1.98
+        },
+        {
+          "text": "asked",
+          "start": 1.98,
+          "end": 2.5
+        },
+        {
+          "text": "Miss",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "Havisham,",
+          "start": 2.68,
+          "end": 3.28
+        },
+        {
+          "text": "with",
+          "start": 3.28,
+          "end": 3.46
+        },
+        {
+          "text": "exceeding",
+          "start": 3.46,
+          "end": 3.82
+        },
+        {
+          "text": "sharpness.",
+          "start": 3.82,
+          "end": 4.58
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21867879992350936
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3b707df42989fac85be535a63654f167409fd9648077c15919b8807fc19831ba",
+  "selected_reasons": []
+}

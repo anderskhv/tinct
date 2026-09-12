@@ -1,0 +1,642 @@
+{
+  "complete": true,
+  "signature": "2280096512069be11280849ffb9b9da6614517486cc4b67d50f334502dbf6ab0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3236570805311203,
+      "alignment_seconds": 0.00038099009543657303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Volumnia, I know not where to turn.",
+          "start": 0.08,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Volumnia,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.6988932291666666
+            },
+            {
+              "text": " I",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " know",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " where",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " turn.",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Oh, welcome home, and welcome general, and you're welcome all.",
+          "start": 2.66,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 2.66,
+              "end": 2.72,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " welcome",
+              "start": 2.86,
+              "end": 3.1,
+              "probability": 0.970703125
+            },
+            {
+              "text": " home,",
+              "start": 3.1,
+              "end": 3.44,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 3.84,
+              "end": 3.9,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " welcome",
+              "start": 3.9,
+              "end": 4.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " general,",
+              "start": 4.24,
+              "end": 4.68,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " and",
+              "start": 5.16,
+              "end": 5.24,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you're",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " welcome",
+              "start": 5.4,
+              "end": 5.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " all.",
+              "start": 5.68,
+              "end": 6.02,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Volumnia,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "know",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "not",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "where",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "turn.",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.66,
+          "end": 2.72
+        },
+        {
+          "raw": "welcome",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "raw": "home,",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "raw": "and",
+          "start": 3.84,
+          "end": 3.9
+        },
+        {
+          "raw": "welcome",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "raw": "general,",
+          "start": 4.24,
+          "end": 4.68
+        },
+        {
+          "raw": "and",
+          "start": 5.16,
+          "end": 5.24
+        },
+        {
+          "raw": "you're",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "welcome",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "raw": "all.",
+          "start": 5.68,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "Volumnia.",
+        "I",
+        "know",
+        "not",
+        "where",
+        "to",
+        "turn.",
+        "O,",
+        "welcome",
+        "home!",
+        "And",
+        "welcome,",
+        "general.—And",
+        "you're",
+        "welcome",
+        "all."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          12,
+          8,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          16,
+          14,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Volumnia,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "volumnia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "where",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "turn.",
+          "start": 1.84,
+          "end": 2.16,
+          "key": "turn",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.66,
+          "end": 2.72,
+          "key": "oh",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 2.86,
+          "end": 3.1,
+          "key": "welcome",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "home,",
+          "start": 3.1,
+          "end": 3.44,
+          "key": "home",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.84,
+          "end": 3.9,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 3.9,
+          "end": 4.24,
+          "key": "welcome",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "general,",
+          "start": 4.24,
+          "end": 4.68,
+          "key": "general",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.16,
+          "end": 5.24,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "youre",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 5.4,
+          "end": 5.68,
+          "key": "welcome",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 5.68,
+          "end": 6.02,
+          "key": "all",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Volumnia.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "I",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "know",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "not",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "where",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "to",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "turn.",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "text": "O,",
+          "start": 2.16,
+          "end": 2.51
+        },
+        {
+          "text": "welcome",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "text": "home!",
+          "start": 3.1,
+          "end": 3.44
+        },
+        {
+          "text": "And",
+          "start": 3.84,
+          "end": 3.9
+        },
+        {
+          "text": "welcome,",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "text": "general.—And",
+          "start": 4.24,
+          "end": 4.74
+        },
+        {
+          "text": "you're",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "welcome",
+          "start": 5.4,
+          "end": 5.68
+        },
+        {
+          "text": "all.",
+          "start": 5.68,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.3241768581792712
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c34a097f986f97afc3c76343542e9b0b4ddbeb733b821c358bc3304e39ca8f4",
+  "selected_reasons": []
+}

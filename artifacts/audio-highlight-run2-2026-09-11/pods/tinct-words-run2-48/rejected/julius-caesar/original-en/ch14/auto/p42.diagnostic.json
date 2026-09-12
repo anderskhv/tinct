@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "1836a5edaa773b7397ef3f98f2ff6111787ad5e6490f985a8c50d8fbd4173c5a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14967580698430538,
+      "alignment_seconds": 0.0003684917464852333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Even so, Lucilius.",
+        "hotwords": "Brutus, Even, Lucilius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Even so, Lucilius.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Even",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.037200927734375
+            },
+            {
+              "text": " so,",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " Lucilius.",
+              "start": 1.7,
+              "end": 2.24,
+              "probability": 0.9440104166666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Even",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "so,",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "Lucilius.",
+          "start": 1.7,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Even",
+        "so,",
+        "Lucilius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "even",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lucilius.",
+          "start": 1.7,
+          "end": 2.24,
+          "key": "lucilius",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Even",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "so,",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "Lucilius.",
+          "start": 1.7,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15016604587435722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e78ad32b85960500aac5ddac859b6f03ff308d677708a19767a0bd1d417ded8",
+  "selected_reasons": []
+}

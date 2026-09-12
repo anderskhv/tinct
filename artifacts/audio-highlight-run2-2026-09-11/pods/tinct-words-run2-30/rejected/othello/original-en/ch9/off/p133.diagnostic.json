@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "4d145a102012005a1a0aa7fbe1853059d24b71d38010ae31cc163afcb91d050a",
+  "attempts": [
+    {
+      "asr_seconds": 0.09853186598047614,
+      "alignment_seconds": 0.00014932919293642044,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello ha ha falls to me",
+          "start": 0.21,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Othello",
+              "start": 0.21,
+              "end": 0.95,
+              "probability": 0.8597005208333334
+            },
+            {
+              "text": " ha",
+              "start": 0.95,
+              "end": 1.37,
+              "probability": 0.1021728515625
+            },
+            {
+              "text": " ha",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.94140625
+            },
+            {
+              "text": " falls",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " to",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello",
+          "start": 0.21,
+          "end": 0.95
+        },
+        {
+          "raw": "ha",
+          "start": 0.95,
+          "end": 1.37
+        },
+        {
+          "raw": "ha",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "falls",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "me",
+          "start": 2.05,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Ha!",
+        "ha!",
+        "false",
+        "to",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello",
+          "start": 0.21,
+          "end": 0.95,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 0.95,
+          "end": 1.37,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "ha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "falls",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "falls",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.95
+        },
+        {
+          "text": "Ha!",
+          "start": 0.95,
+          "end": 1.37
+        },
+        {
+          "text": "ha!",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "false",
+          "start": 1.59,
+          "end": 1.72
+        },
+        {
+          "text": "to",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "me?",
+          "start": 2.05,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09872702462598681
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20926a5f1b83cab44084dd198fb22bea32e3355df1724aa30977e34f82e776a2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

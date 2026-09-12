@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "bdd623acf55e9d965559259d066f8ebe92a8feb15479aa361bb5011f5e75e845",
+  "attempts": [
+    {
+      "asr_seconds": 0.15330542623996735,
+      "alignment_seconds": 0.0003376957029104233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, said I.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.364990234375
+            },
+            {
+              "text": " said",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.927734375
+            },
+            {
+              "text": " I.",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "said",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "raw": "I.",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "\"No,\"",
+        "said",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.85,
+          "end": 1.09,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,\"",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "said",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "text": "I.",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15375978499650955
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fb1b20d2de762615e78f4e1011bfe6bc84b3a7d5a95eab44b9836bb7579b1106",
+  "selected_reasons": []
+}

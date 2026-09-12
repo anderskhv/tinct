@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "92389a61655873f321e6d5b391d639903d7d51a582cc07a1a76ee6d1181a5770",
+  "attempts": [
+    {
+      "asr_seconds": 0.11481266468763351,
+      "alignment_seconds": 0.00037232041358947754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It is I, Aunt Reed.\"",
+        "hotwords": "It, I, Aunt, Reed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is I, Aunt Reed.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.857421875
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " I,",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Aunt",
+              "start": 1.09,
+              "end": 1.09,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " Reed.",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.80126953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "I,",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "Aunt",
+          "start": 1.09,
+          "end": 1.09
+        },
+        {
+          "raw": "Reed.",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "I,",
+        "Aunt",
+        "Reed.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Aunt",
+          "start": 1.09,
+          "end": 1.09,
+          "key": "aunt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Reed.",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "reed",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "I,",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "Aunt",
+          "start": 1.09,
+          "end": 1.09
+        },
+        {
+          "text": "Reed.\"",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11532813683152199
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba3a8ac38c4d9fb3bfebc580c3921f2a8c2403028120e3675810a8d81f16abda",
+  "selected_reasons": []
+}

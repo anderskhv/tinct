@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "66b20ef34a64f868d00a6ce31b4b548eab820bf8d94800db08696a4a596199b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2612636210396886,
+      "alignment_seconds": 0.0001325514167547226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " As a bird.",
+          "start": 0.08,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " a",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.97265625
+            },
+            {
+              "text": " bird.",
+              "start": 0.66,
+              "end": 0.9,
+              "probability": 0.95654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "a",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "bird.",
+          "start": 0.66,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "\"As",
+        "a",
+        "bird.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bird.",
+          "start": 0.66,
+          "end": 0.9,
+          "key": "bird",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"As",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "a",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "bird.\"",
+          "start": 0.66,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2614364167675376
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "90d2ea2c52bd576a38737d600538b466b7bb89699917f6677acb0d1bde4a8b38",
+  "selected_reasons": []
+}

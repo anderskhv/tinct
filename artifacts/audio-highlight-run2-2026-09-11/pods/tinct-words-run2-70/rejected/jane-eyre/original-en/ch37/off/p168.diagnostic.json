@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "16e7783ee881f86306acafdd2365e0f79293f4bb29da9ebd5b9e3fb08052bc70",
+  "attempts": [
+    {
+      "asr_seconds": 0.12607448105700314,
+      "alignment_seconds": 0.00020230794325470924,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hindustani",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Hindustani",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.7713216145833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hindustani",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "\"Hindostanee.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hindustani",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "hindustani",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Hindostanee.\"",
+          "start": 0.0,
+          "end": 0.475
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12634619185701013
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bd4139576e0223711457edcf4f6e4a1ce676ddc72402618aa23bdd0ecae977f3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "2ad87fce48bd3baee7c04c92a5e18289e6d100b93de14981f49086ac9911ad71",
+  "attempts": [
+    {
+      "asr_seconds": 0.08179037272930145,
+      "alignment_seconds": 8.012261241674423e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What?\"",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What?",
+          "start": 0.02,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " What?",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.6962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What?",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "\"What?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What?",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What?\"",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08189673721790314
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "071144c341db93b0a948e1b9e117454cc938c8e01fac3ec3be579b0247f7bcb9",
+  "selected_reasons": []
+}

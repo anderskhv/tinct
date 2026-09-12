@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e8fa01e4bc2c8d2d1ee70d80264e56649f61a9380d76abc0a67952c98ecd9d9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1508536683395505,
+      "alignment_seconds": 0.00032384973019361496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"To a distance?\"",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To a distance.",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.28564453125
+            },
+            {
+              "text": " a",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " distance.",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 0.95654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "a",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "distance.",
+          "start": 0.61,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "\"To",
+        "a",
+        "distance?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "distance.",
+          "start": 0.61,
+          "end": 0.93,
+          "key": "distance",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "a",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "distance?\"",
+          "start": 0.61,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15128775872290134
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "007d9ef163adeea8801b9a84103c1c7690d996a850eba8de6ddfadae31e403d4",
+  "selected_reasons": []
+}

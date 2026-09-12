@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "a3fb0c70a2c6fdd21d19c17a5c27322b6676f2edded9b76a5fc6647cfc9e38ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.22549309418536723,
+      "alignment_seconds": 0.0005338308401405811,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Murderer. Why, he shall never wake until the great Judgement Day.",
+        "hotwords": "Second, Murderer, Why, Judgement, Day"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Murderer, Why, he shall never wake until the great Judgement Day.",
+          "start": 0.08,
+          "end": 4.36,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.52978515625
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.7,
+              "end": 1.2,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " Why,",
+              "start": 1.94,
+              "end": 1.94,
+              "probability": 0.28466796875
+            },
+            {
+              "text": " he",
+              "start": 2.3,
+              "end": 2.38,
+              "probability": 0.4287109375
+            },
+            {
+              "text": " shall",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " never",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " wake",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.974609375
+            },
+            {
+              "text": " until",
+              "start": 3.02,
+              "end": 3.26,
+              "probability": 0.962890625
+            },
+            {
+              "text": " the",
+              "start": 3.26,
+              "end": 3.4,
+              "probability": 0.935546875
+            },
+            {
+              "text": " great",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " Judgement",
+              "start": 3.62,
+              "end": 4.06,
+              "probability": 0.516876220703125
+            },
+            {
+              "text": " Day.",
+              "start": 4.06,
+              "end": 4.36,
+              "probability": 0.748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "raw": "Why,",
+          "start": 1.94,
+          "end": 1.94
+        },
+        {
+          "raw": "he",
+          "start": 2.3,
+          "end": 2.38
+        },
+        {
+          "raw": "shall",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "never",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "wake",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "raw": "until",
+          "start": 3.02,
+          "end": 3.26
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "raw": "great",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "Judgement",
+          "start": 3.62,
+          "end": 4.06
+        },
+        {
+          "raw": "Day.",
+          "start": 4.06,
+          "end": 4.36
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "Why,",
+        "he",
+        "shall",
+        "never",
+        "wake",
+        "until",
+        "the",
+        "great",
+        "Judgement",
+        "Day."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.7,
+          "end": 1.2,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.94,
+          "end": 1.94,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.3,
+          "end": 2.38,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "shall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "never",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wake",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "wake",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "until",
+          "start": 3.02,
+          "end": 3.26,
+          "key": "until",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.4,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.4,
+          "end": 3.62,
+          "key": "great",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Judgement",
+          "start": 3.62,
+          "end": 4.06,
+          "key": "judgement",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Day.",
+          "start": 4.06,
+          "end": 4.36,
+          "key": "day",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "text": "Why,",
+          "start": 1.94,
+          "end": 1.94
+        },
+        {
+          "text": "he",
+          "start": 2.3,
+          "end": 2.38
+        },
+        {
+          "text": "shall",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "never",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "wake",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "text": "until",
+          "start": 3.02,
+          "end": 3.26
+        },
+        {
+          "text": "the",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "text": "great",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "Judgement",
+          "start": 3.62,
+          "end": 4.06
+        },
+        {
+          "text": "Day.",
+          "start": 4.06,
+          "end": 4.36
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2262645480223
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3705189375fe1b01f990d0eb60f28bde42716a60445f404eafe555c079db411",
+  "selected_reasons": []
+}

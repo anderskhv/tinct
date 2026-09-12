@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d0fa8be8ed6d7ccb267d4b70d9fbce1624625c2f11ab9b031019bc946281938c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11448143795132637,
+      "alignment_seconds": 0.00025030598044395447,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I dare say.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I dare say.",
+          "start": 0.08,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.884765625
+            },
+            {
+              "text": " dare",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " say.",
+              "start": 0.72,
+              "end": 1.02,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "dare",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "say.",
+          "start": 0.72,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "dare",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "dare",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 0.72,
+          "end": 1.02,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "dare",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "say.",
+          "start": 0.72,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11482767760753632
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f6febad2c2f53331df5fd201b5876542eb187156eea08531d1d84f74b1678207",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "2019b694ab608e043c734b4b8c854d1fe070176a341e7ad5bdb8215d9341abae",
+  "attempts": [
+    {
+      "asr_seconds": 0.11252501606941223,
+      "alignment_seconds": 0.0002832487225532532,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, a dollar.",
+          "start": 0.08,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " a",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " dollar.",
+              "start": 1.4,
+              "end": 1.68,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "dollar.",
+          "start": 1.4,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "A",
+        "dollar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dollar.",
+          "start": 1.4,
+          "end": 1.68,
+          "key": "dollar",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "A",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "dollar.",
+          "start": 1.4,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11291877925395966
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8b664aae4abad7e251549f800d57dc27bfcd81d73cc188f0a5ff163337d6dd7f",
+  "selected_reasons": []
+}

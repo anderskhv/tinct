@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "c91aabc2bb1a45d03cdf660680ef46ff0d50e30035aed5555d3a7b57ff713cc8",
+  "attempts": [
+    {
+      "asr_seconds": 0.30004620691761374,
+      "alignment_seconds": 0.0005052336491644382,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. The custom of request you have discharged. The people do admit you, and are summoned To meet anon upon your approbation.",
+        "hotwords": "Sicinius, The, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, The custom of request you have discharged. The people do admit you, and are summoned To meet anon upon your approbation.",
+          "start": 0.08,
+          "end": 8.1,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 1.02,
+              "probability": 0.5174713134765625
+            },
+            {
+              "text": " The",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.08831787109375
+            },
+            {
+              "text": " custom",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " of",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " request",
+              "start": 2.18,
+              "end": 2.54,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " you",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " have",
+              "start": 2.82,
+              "end": 2.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " discharged.",
+              "start": 2.96,
+              "end": 3.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " The",
+              "start": 4.12,
+              "end": 4.2,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " people",
+              "start": 4.2,
+              "end": 4.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 4.46,
+              "end": 4.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " admit",
+              "start": 4.72,
+              "end": 5.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 5.08,
+              "end": 5.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.76,
+              "end": 5.84,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " are",
+              "start": 5.84,
+              "end": 5.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " summoned",
+              "start": 5.96,
+              "end": 6.22,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " To",
+              "start": 6.22,
+              "end": 6.46,
+              "probability": 0.0001533031463623047
+            },
+            {
+              "text": " meet",
+              "start": 6.46,
+              "end": 6.64,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " anon",
+              "start": 6.64,
+              "end": 6.96,
+              "probability": 0.848388671875
+            },
+            {
+              "text": " upon",
+              "start": 6.96,
+              "end": 7.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " your",
+              "start": 7.28,
+              "end": 7.48,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " approbation.",
+              "start": 7.48,
+              "end": 8.1,
+              "probability": 0.9827473958333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "raw": "The",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "custom",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "of",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "request",
+          "start": 2.18,
+          "end": 2.54
+        },
+        {
+          "raw": "you",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "raw": "have",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "raw": "discharged.",
+          "start": 2.96,
+          "end": 3.46
+        },
+        {
+          "raw": "The",
+          "start": 4.12,
+          "end": 4.2
+        },
+        {
+          "raw": "people",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "raw": "do",
+          "start": 4.46,
+          "end": 4.72
+        },
+        {
+          "raw": "admit",
+          "start": 4.72,
+          "end": 5.08
+        },
+        {
+          "raw": "you,",
+          "start": 5.08,
+          "end": 5.42
+        },
+        {
+          "raw": "and",
+          "start": 5.76,
+          "end": 5.84
+        },
+        {
+          "raw": "are",
+          "start": 5.84,
+          "end": 5.96
+        },
+        {
+          "raw": "summoned",
+          "start": 5.96,
+          "end": 6.22
+        },
+        {
+          "raw": "To",
+          "start": 6.22,
+          "end": 6.46
+        },
+        {
+          "raw": "meet",
+          "start": 6.46,
+          "end": 6.64
+        },
+        {
+          "raw": "anon",
+          "start": 6.64,
+          "end": 6.96
+        },
+        {
+          "raw": "upon",
+          "start": 6.96,
+          "end": 7.28
+        },
+        {
+          "raw": "your",
+          "start": 7.28,
+          "end": 7.48
+        },
+        {
+          "raw": "approbation.",
+          "start": 7.48,
+          "end": 8.1
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "The",
+        "custom",
+        "of",
+        "request",
+        "you",
+        "have",
+        "discharged.",
+        "The",
+        "people",
+        "do",
+        "admit",
+        "you,",
+        "and",
+        "are",
+        "summoned",
+        "To",
+        "meet",
+        "anon",
+        "upon",
+        "your",
+        "approbation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.02,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "custom",
+          "start": 1.7,
+          "end": 1.98,
+          "key": "custom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "request",
+          "start": 2.18,
+          "end": 2.54,
+          "key": "request",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.82,
+          "end": 2.96,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "discharged.",
+          "start": 2.96,
+          "end": 3.46,
+          "key": "discharged",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.12,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 4.2,
+          "end": 4.46,
+          "key": "people",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.46,
+          "end": 4.72,
+          "key": "do",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "admit",
+          "start": 4.72,
+          "end": 5.08,
+          "key": "admit",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 5.08,
+          "end": 5.42,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.76,
+          "end": 5.84,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.84,
+          "end": 5.96,
+          "key": "are",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "summoned",
+          "start": 5.96,
+          "end": 6.22,
+          "key": "summoned",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 6.22,
+          "end": 6.46,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 6.46,
+          "end": 6.64,
+          "key": "meet",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "anon",
+          "start": 6.64,
+          "end": 6.96,
+          "key": "anon",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 6.96,
+          "end": 7.28,
+          "key": "upon",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.28,
+          "end": 7.48,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "approbation.",
+          "start": 7.48,
+          "end": 8.1,
+          "key": "approbation",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "text": "The",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "custom",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "of",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "request",
+          "start": 2.18,
+          "end": 2.54
+        },
+        {
+          "text": "you",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "text": "have",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "text": "discharged.",
+          "start": 2.96,
+          "end": 3.46
+        },
+        {
+          "text": "The",
+          "start": 4.12,
+          "end": 4.2
+        },
+        {
+          "text": "people",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "text": "do",
+          "start": 4.46,
+          "end": 4.72
+        },
+        {
+          "text": "admit",
+          "start": 4.72,
+          "end": 5.08
+        },
+        {
+          "text": "you,",
+          "start": 5.08,
+          "end": 5.42
+        },
+        {
+          "text": "and",
+          "start": 5.76,
+          "end": 5.84
+        },
+        {
+          "text": "are",
+          "start": 5.84,
+          "end": 5.96
+        },
+        {
+          "text": "summoned",
+          "start": 5.96,
+          "end": 6.22
+        },
+        {
+          "text": "To",
+          "start": 6.22,
+          "end": 6.46
+        },
+        {
+          "text": "meet",
+          "start": 6.46,
+          "end": 6.64
+        },
+        {
+          "text": "anon",
+          "start": 6.64,
+          "end": 6.96
+        },
+        {
+          "text": "upon",
+          "start": 6.96,
+          "end": 7.28
+        },
+        {
+          "text": "your",
+          "start": 7.28,
+          "end": 7.48
+        },
+        {
+          "text": "approbation.",
+          "start": 7.48,
+          "end": 8.1
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3007648279890418
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4b46de34a85ec76a4d536a7375f0994c36ff3a76c297f2f87a38988f8f3dc7a9",
+  "selected_reasons": []
+}

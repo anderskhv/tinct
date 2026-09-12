@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "e04d61833f9d1564da66945e0b7ff08a0b6fb600ba5f0cd44de090a408eb0198",
+  "attempts": [
+    {
+      "asr_seconds": 0.3030919609591365,
+      "alignment_seconds": 0.000525282695889473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Posthumus. So, if I prove a good repast to the spectators, the dish pays the shot.",
+        "hotwords": "Posthumus, So, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Posthumus, So, if I prove a good repast to the spectators, the dish pays the shot.",
+          "start": 0.63,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " Posthumus,",
+              "start": 0.63,
+              "end": 1.15,
+              "probability": 0.5911458333333334
+            },
+            {
+              "text": " So,",
+              "start": 1.41,
+              "end": 1.81,
+              "probability": 0.00921630859375
+            },
+            {
+              "text": " if",
+              "start": 1.93,
+              "end": 2.03,
+              "probability": 0.880859375
+            },
+            {
+              "text": " I",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.921875
+            },
+            {
+              "text": " prove",
+              "start": 2.17,
+              "end": 2.37,
+              "probability": 0.978515625
+            },
+            {
+              "text": " a",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.9921875
+            },
+            {
+              "text": " good",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " repast",
+              "start": 2.63,
+              "end": 3.07,
+              "probability": 0.43426513671875
+            },
+            {
+              "text": " to",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " the",
+              "start": 3.25,
+              "end": 3.35,
+              "probability": 0.98046875
+            },
+            {
+              "text": " spectators,",
+              "start": 3.35,
+              "end": 3.75,
+              "probability": 0.958984375
+            },
+            {
+              "text": " the",
+              "start": 4.27,
+              "end": 4.37,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " dish",
+              "start": 4.37,
+              "end": 4.63,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " pays",
+              "start": 4.63,
+              "end": 4.95,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " the",
+              "start": 4.95,
+              "end": 5.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shot.",
+              "start": 5.21,
+              "end": 5.53,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.63,
+          "end": 1.15
+        },
+        {
+          "raw": "So,",
+          "start": 1.41,
+          "end": 1.81
+        },
+        {
+          "raw": "if",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "raw": "I",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "prove",
+          "start": 2.17,
+          "end": 2.37
+        },
+        {
+          "raw": "a",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "good",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "repast",
+          "start": 2.63,
+          "end": 3.07
+        },
+        {
+          "raw": "to",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "raw": "the",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "raw": "spectators,",
+          "start": 3.35,
+          "end": 3.75
+        },
+        {
+          "raw": "the",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "raw": "dish",
+          "start": 4.37,
+          "end": 4.63
+        },
+        {
+          "raw": "pays",
+          "start": 4.63,
+          "end": 4.95
+        },
+        {
+          "raw": "the",
+          "start": 4.95,
+          "end": 5.21
+        },
+        {
+          "raw": "shot.",
+          "start": 5.21,
+          "end": 5.53
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "So,",
+        "if",
+        "I",
+        "prove",
+        "a",
+        "good",
+        "repast",
+        "to",
+        "the",
+        "spectators,",
+        "the",
+        "dish",
+        "pays",
+        "the",
+        "shot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus,",
+          "start": 0.63,
+          "end": 1.15,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So,",
+          "start": 1.41,
+          "end": 1.81,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.93,
+          "end": 2.03,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 2.17,
+          "end": 2.37,
+          "key": "prove",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "repast",
+          "start": 2.63,
+          "end": 3.07,
+          "key": "repast",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.07,
+          "end": 3.25,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.25,
+          "end": 3.35,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "spectators,",
+          "start": 3.35,
+          "end": 3.75,
+          "key": "spectators",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.27,
+          "end": 4.37,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dish",
+          "start": 4.37,
+          "end": 4.63,
+          "key": "dish",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pays",
+          "start": 4.63,
+          "end": 4.95,
+          "key": "pays",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.95,
+          "end": 5.21,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shot.",
+          "start": 5.21,
+          "end": 5.53,
+          "key": "shot",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.63,
+          "end": 1.15
+        },
+        {
+          "text": "So,",
+          "start": 1.41,
+          "end": 1.81
+        },
+        {
+          "text": "if",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "text": "I",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "prove",
+          "start": 2.17,
+          "end": 2.37
+        },
+        {
+          "text": "a",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "good",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "text": "repast",
+          "start": 2.63,
+          "end": 3.07
+        },
+        {
+          "text": "to",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "text": "the",
+          "start": 3.25,
+          "end": 3.35
+        },
+        {
+          "text": "spectators,",
+          "start": 3.35,
+          "end": 3.75
+        },
+        {
+          "text": "the",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "text": "dish",
+          "start": 4.37,
+          "end": 4.63
+        },
+        {
+          "text": "pays",
+          "start": 4.63,
+          "end": 4.95
+        },
+        {
+          "text": "the",
+          "start": 4.95,
+          "end": 5.21
+        },
+        {
+          "text": "shot.",
+          "start": 5.21,
+          "end": 5.53
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30382027570158243
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf240f4737cebf57d4e2f0e3664719a9978f776cee21e7984b77225f8c4ccce2",
+  "selected_reasons": []
+}

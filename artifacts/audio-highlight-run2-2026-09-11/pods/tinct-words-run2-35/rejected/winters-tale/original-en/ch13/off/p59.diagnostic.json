@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "7a4f3589418194bb6061cc53bf07bd116a5fe3fde06c97ea431992011d0d2e64",
+  "attempts": [
+    {
+      "asr_seconds": 0.25081893987953663,
+      "alignment_seconds": 0.0004280749708414078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leance, my lord, is this the daughter of a king?",
+          "start": 0.49,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Leance,",
+              "start": 0.49,
+              "end": 0.85,
+              "probability": 0.49285888671875
+            },
+            {
+              "text": " my",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " lord,",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.810546875
+            },
+            {
+              "text": " is",
+              "start": 1.81,
+              "end": 1.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " daughter",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.57,
+              "end": 2.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " king?",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leance,",
+          "start": 0.49,
+          "end": 0.85
+        },
+        {
+          "raw": "my",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "lord,",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "raw": "this",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "daughter",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "of",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "a",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "raw": "king?",
+          "start": 2.67,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "My",
+        "lord,",
+        "Is",
+        "this",
+        "the",
+        "daughter",
+        "of",
+        "a",
+        "king?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leance,",
+          "start": 0.49,
+          "end": 0.85,
+          "key": "leance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 1.89,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "daughter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.57,
+          "end": 2.67,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "king?",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "king",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.575
+        },
+        {
+          "text": "My",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "lord,",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "Is",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "text": "this",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "the",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "daughter",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "of",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "a",
+          "start": 2.57,
+          "end": 2.67
+        },
+        {
+          "text": "king?",
+          "start": 2.67,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2514225244522095
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ac4a7220281a91e3e51c3d4ccf7d8f3ba4b54922de80694ed71c5189170b8380",
+  "selected_reasons": []
+}

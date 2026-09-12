@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "c82d16fb5575c364ec9e546ab6068132f8096918e670bf7f412101dac63ff22c",
+  "attempts": [
+    {
+      "asr_seconds": 0.21691694483160973,
+      "alignment_seconds": 0.00016712956130504608,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Peace, peace! you durst not so have tempted him.",
+        "hotwords": "Brutus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus. Peace, peace! you durst not so have tempted him.",
+          "start": 0.05,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " Brutus.",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.930419921875
+            },
+            {
+              "text": " Peace,",
+              "start": 1.17,
+              "end": 1.35,
+              "probability": 0.58203125
+            },
+            {
+              "text": " peace!",
+              "start": 1.61,
+              "end": 1.69,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " you",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.10223388671875
+            },
+            {
+              "text": " durst",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " not",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " so",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " have",
+              "start": 2.99,
+              "end": 3.09,
+              "probability": 0.44287109375
+            },
+            {
+              "text": " tempted",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " him.",
+              "start": 3.37,
+              "end": 3.69,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "raw": "peace!",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "raw": "you",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "durst",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "raw": "not",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "so",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "have",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "raw": "tempted",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "raw": "him.",
+          "start": 3.37,
+          "end": 3.69
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Peace,",
+        "peace!",
+        "you",
+        "durst",
+        "not",
+        "so",
+        "have",
+        "tempted",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus.",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.17,
+          "end": 1.35,
+          "key": "peace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace!",
+          "start": 1.61,
+          "end": 1.69,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "durst",
+          "start": 2.37,
+          "end": 2.69,
+          "key": "durst",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.69,
+          "end": 2.81,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.99,
+          "end": 3.09,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tempted",
+          "start": 3.09,
+          "end": 3.37,
+          "key": "tempted",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.37,
+          "end": 3.69,
+          "key": "him",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Peace,",
+          "start": 1.17,
+          "end": 1.35
+        },
+        {
+          "text": "peace!",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "text": "you",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "durst",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "text": "not",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "so",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "have",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "text": "tempted",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "text": "him.",
+          "start": 3.37,
+          "end": 3.69
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21714903507381678
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8bc04d06b82514deda474928e389f5adcc6d2f4d3b1b12d9c3102f72e64ce764",
+  "selected_reasons": []
+}

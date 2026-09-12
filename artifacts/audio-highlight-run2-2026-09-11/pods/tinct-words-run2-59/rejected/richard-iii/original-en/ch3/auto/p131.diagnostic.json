@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "425e36b6da864ab0937c1457a6cf4bb2d2bce4c26f148615a350025abb11c601",
+  "attempts": [
+    {
+      "asr_seconds": 0.1902132818941027,
+      "alignment_seconds": 0.0004010561387985945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Both Murderers. We will, my noble lord.",
+        "hotwords": "Both, Murderers, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Both Murderers, We Will, my noble lord.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Both",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " Murderers,",
+              "start": 0.61,
+              "end": 1.13,
+              "probability": 0.48569679260253906
+            },
+            {
+              "text": " We",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.329833984375
+            },
+            {
+              "text": " Will,",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.283447265625
+            },
+            {
+              "text": " my",
+              "start": 1.97,
+              "end": 2.01,
+              "probability": 0.0845947265625
+            },
+            {
+              "text": " noble",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.1917724609375
+            },
+            {
+              "text": " lord.",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.337646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Murderers,",
+          "start": 0.61,
+          "end": 1.13
+        },
+        {
+          "raw": "We",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "Will,",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.01
+        },
+        {
+          "raw": "noble",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "raw": "lord.",
+          "start": 2.29,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Both",
+        "Murderers.",
+        "We",
+        "will,",
+        "my",
+        "noble",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Both",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "both",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderers,",
+          "start": 0.61,
+          "end": 1.13,
+          "key": "murderers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.53,
+          "end": 1.61,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Will,",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.01,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 2.01,
+          "end": 2.29,
+          "key": "noble",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.29,
+          "end": 2.55,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Both",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Murderers.",
+          "start": 0.61,
+          "end": 1.13
+        },
+        {
+          "text": "We",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "will,",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "my",
+          "start": 1.97,
+          "end": 2.01
+        },
+        {
+          "text": "noble",
+          "start": 2.01,
+          "end": 2.29
+        },
+        {
+          "text": "lord.",
+          "start": 2.29,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19076494802720845
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "72552e461b5bc9254a1343e81c6316c985fe20aee1211532ec36503b8dcae542",
+  "selected_reasons": []
+}

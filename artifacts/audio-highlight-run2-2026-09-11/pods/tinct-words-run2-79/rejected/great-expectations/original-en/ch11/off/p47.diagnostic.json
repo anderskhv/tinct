@@ -1,0 +1,715 @@
+{
+  "complete": true,
+  "signature": "ea3d9cb83c5963d103a256ca9c413a4046ff315ea4148c11afb648e1877a2780",
+  "attempts": [
+    {
+      "asr_seconds": 0.34999465197324753,
+      "alignment_seconds": 0.0004405202344059944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They're there there with the impatient movement of her fingers. I don't want to know are you ready to play?",
+          "start": 0.02,
+          "end": 6.34,
+          "words": [
+            {
+              "text": " They're",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.6756591796875
+            },
+            {
+              "text": " there",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.63720703125
+            },
+            {
+              "text": " there",
+              "start": 0.94,
+              "end": 1.32,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " with",
+              "start": 1.32,
+              "end": 2.0,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " the",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " impatient",
+              "start": 2.14,
+              "end": 2.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " movement",
+              "start": 2.58,
+              "end": 3.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.14,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 3.3,
+              "end": 3.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fingers.",
+              "start": 3.44,
+              "end": 3.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 4.06,
+              "end": 4.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " don't",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.999755859375
+            },
+            {
+              "text": " want",
+              "start": 4.7,
+              "end": 4.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 4.8,
+              "end": 4.92,
+              "probability": 1.0
+            },
+            {
+              "text": " know",
+              "start": 4.92,
+              "end": 5.2,
+              "probability": 1.0
+            },
+            {
+              "text": " are",
+              "start": 5.2,
+              "end": 5.54,
+              "probability": 0.693359375
+            },
+            {
+              "text": " you",
+              "start": 5.54,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ready",
+              "start": 5.68,
+              "end": 5.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.84,
+              "end": 6.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " play?",
+              "start": 6.04,
+              "end": 6.34,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They're",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "there",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "there",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "raw": "with",
+          "start": 1.32,
+          "end": 2.0
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "impatient",
+          "start": 2.14,
+          "end": 2.58
+        },
+        {
+          "raw": "movement",
+          "start": 2.58,
+          "end": 3.14
+        },
+        {
+          "raw": "of",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "raw": "her",
+          "start": 3.3,
+          "end": 3.44
+        },
+        {
+          "raw": "fingers.",
+          "start": 3.44,
+          "end": 3.9
+        },
+        {
+          "raw": "I",
+          "start": 4.06,
+          "end": 4.54
+        },
+        {
+          "raw": "don't",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "want",
+          "start": 4.7,
+          "end": 4.8
+        },
+        {
+          "raw": "to",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "raw": "know",
+          "start": 4.92,
+          "end": 5.2
+        },
+        {
+          "raw": "are",
+          "start": 5.2,
+          "end": 5.54
+        },
+        {
+          "raw": "you",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "raw": "ready",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "raw": "to",
+          "start": 5.84,
+          "end": 6.04
+        },
+        {
+          "raw": "play?",
+          "start": 6.04,
+          "end": 6.34
+        }
+      ],
+      "expected_tokens": [
+        "\"There,",
+        "there,",
+        "there!\"",
+        "with",
+        "the",
+        "impatient",
+        "movement",
+        "of",
+        "her",
+        "fingers.",
+        "\"I",
+        "don't",
+        "want",
+        "to",
+        "know.",
+        "Are",
+        "you",
+        "ready",
+        "to",
+        "play?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          20,
+          1,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They're",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "theyre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.74,
+          "end": 0.94,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.94,
+          "end": 1.32,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.32,
+          "end": 2.0,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "impatient",
+          "start": 2.14,
+          "end": 2.58,
+          "key": "impatient",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "movement",
+          "start": 2.58,
+          "end": 3.14,
+          "key": "movement",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.14,
+          "end": 3.3,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.3,
+          "end": 3.44,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fingers.",
+          "start": 3.44,
+          "end": 3.9,
+          "key": "fingers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.06,
+          "end": 4.54,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 4.54,
+          "end": 4.7,
+          "key": "dont",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 4.7,
+          "end": 4.8,
+          "key": "want",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.8,
+          "end": 4.92,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 4.92,
+          "end": 5.2,
+          "key": "know",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.2,
+          "end": 5.54,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.54,
+          "end": 5.68,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 5.68,
+          "end": 5.84,
+          "key": "ready",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.84,
+          "end": 6.04,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "play?",
+          "start": 6.04,
+          "end": 6.34,
+          "key": "play",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"There,",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "there,",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "there!\"",
+          "start": 0.94,
+          "end": 1.32
+        },
+        {
+          "text": "with",
+          "start": 1.32,
+          "end": 2.0
+        },
+        {
+          "text": "the",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "impatient",
+          "start": 2.14,
+          "end": 2.58
+        },
+        {
+          "text": "movement",
+          "start": 2.58,
+          "end": 3.14
+        },
+        {
+          "text": "of",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "text": "her",
+          "start": 3.3,
+          "end": 3.44
+        },
+        {
+          "text": "fingers.",
+          "start": 3.44,
+          "end": 3.9
+        },
+        {
+          "text": "\"I",
+          "start": 4.06,
+          "end": 4.54
+        },
+        {
+          "text": "don't",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "want",
+          "start": 4.7,
+          "end": 4.8
+        },
+        {
+          "text": "to",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "text": "know.",
+          "start": 4.92,
+          "end": 5.2
+        },
+        {
+          "text": "Are",
+          "start": 5.2,
+          "end": 5.54
+        },
+        {
+          "text": "you",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "text": "ready",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "text": "to",
+          "start": 5.84,
+          "end": 6.04
+        },
+        {
+          "text": "play?\"",
+          "start": 6.04,
+          "end": 6.34
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.3506745002232492
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4c4f56f4dde8160b41413164253b07954723ebfb635ea7a2807b05db27000f80",
+  "selected_reasons": []
+}

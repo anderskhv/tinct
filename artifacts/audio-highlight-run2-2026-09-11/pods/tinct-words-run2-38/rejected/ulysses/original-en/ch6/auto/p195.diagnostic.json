@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "9f9e4a759867c93d2b0f892bfe511038e90b846b5b36de097a7728c307207844",
+  "attempts": [
+    {
+      "asr_seconds": 0.14156675798585638,
+      "alignment_seconds": 0.00019948102999478579,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—First round Dunphy's, Mr Dedalus said, nodding. Gordon Bennett cup.",
+        "hotwords": "First, Dunphy's, Mr, Dedalus, Gordon, Bennett"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First round Dunphy's, Mr, Dedalus said, nodding. Gordon Bennett cup.",
+          "start": 0.08,
+          "end": 4.36,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.662109375
+            },
+            {
+              "text": " round",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " Dunphy's,",
+              "start": 0.92,
+              "end": 1.58,
+              "probability": 0.431884765625
+            },
+            {
+              "text": " Mr,",
+              "start": 1.64,
+              "end": 1.8,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Dedalus",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.18732094764709473
+            },
+            {
+              "text": " said,",
+              "start": 2.18,
+              "end": 2.48,
+              "probability": 0.984375
+            },
+            {
+              "text": " nodding.",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Gordon",
+              "start": 3.4,
+              "end": 3.76,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Bennett",
+              "start": 3.76,
+              "end": 4.06,
+              "probability": 0.87890625
+            },
+            {
+              "text": " cup.",
+              "start": 4.06,
+              "end": 4.36,
+              "probability": 0.383056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "round",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "Dunphy's,",
+          "start": 0.92,
+          "end": 1.58
+        },
+        {
+          "raw": "Mr,",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "raw": "Dedalus",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "said,",
+          "start": 2.18,
+          "end": 2.48
+        },
+        {
+          "raw": "nodding.",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "Gordon",
+          "start": 3.4,
+          "end": 3.76
+        },
+        {
+          "raw": "Bennett",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "raw": "cup.",
+          "start": 4.06,
+          "end": 4.36
+        }
+      ],
+      "expected_tokens": [
+        "—First",
+        "round",
+        "Dunphy's,",
+        "Mr",
+        "Dedalus",
+        "said,",
+        "nodding.",
+        "Gordon",
+        "Bennett",
+        "cup."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "round",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dunphy's,",
+          "start": 0.92,
+          "end": 1.58,
+          "key": "dunphys",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr,",
+          "start": 1.64,
+          "end": 1.8,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "dedalus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.18,
+          "end": 2.48,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nodding.",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "nodding",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gordon",
+          "start": 3.4,
+          "end": 3.76,
+          "key": "gordon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bennett",
+          "start": 3.76,
+          "end": 4.06,
+          "key": "bennett",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cup.",
+          "start": 4.06,
+          "end": 4.36,
+          "key": "cup",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "round",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "Dunphy's,",
+          "start": 0.92,
+          "end": 1.58
+        },
+        {
+          "text": "Mr",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "text": "Dedalus",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "said,",
+          "start": 2.18,
+          "end": 2.48
+        },
+        {
+          "text": "nodding.",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "Gordon",
+          "start": 3.4,
+          "end": 3.76
+        },
+        {
+          "text": "Bennett",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "text": "cup.",
+          "start": 4.06,
+          "end": 4.36
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14185469900257885
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a4ba1476cd24d6c0fa3d716e1697d23e7d518bc70209ad902ba6b0302669d67",
+  "selected_reasons": []
+}

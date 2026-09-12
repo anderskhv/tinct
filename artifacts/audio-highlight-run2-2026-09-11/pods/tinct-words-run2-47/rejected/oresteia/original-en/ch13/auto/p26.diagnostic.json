@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "5cd8132d84ab0648988b54d672ee4fe2922ec72650cbe168792506df369ef880",
+  "attempts": [
+    {
+      "asr_seconds": 0.24333917401963845,
+      "alignment_seconds": 0.00046498599112965167,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Chorus. Speak thou; my breast doth palpitate with fear.",
+        "hotwords": "Chorus, Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Chorus, Speak thou, my breast doth palpitate with fear.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " Speak",
+              "start": 1.37,
+              "end": 1.41,
+              "probability": 0.08868408203125
+            },
+            {
+              "text": " thou,",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " my",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " breast",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " doth",
+              "start": 2.39,
+              "end": 2.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " palpitate",
+              "start": 2.63,
+              "end": 3.15,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " with",
+              "start": 3.15,
+              "end": 3.33,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " fear.",
+              "start": 3.33,
+              "end": 3.63,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Speak",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "raw": "thou,",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "my",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "breast",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "doth",
+          "start": 2.39,
+          "end": 2.63
+        },
+        {
+          "raw": "palpitate",
+          "start": 2.63,
+          "end": 3.15
+        },
+        {
+          "raw": "with",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "raw": "fear.",
+          "start": 3.33,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "Speak",
+        "thou;",
+        "my",
+        "breast",
+        "doth",
+        "palpitate",
+        "with",
+        "fear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 1.37,
+          "end": 1.41,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "breast",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "breast",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.39,
+          "end": 2.63,
+          "key": "doth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "palpitate",
+          "start": 2.63,
+          "end": 3.15,
+          "key": "palpitate",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.15,
+          "end": 3.33,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fear.",
+          "start": 3.33,
+          "end": 3.63,
+          "key": "fear",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Speak",
+          "start": 1.37,
+          "end": 1.41
+        },
+        {
+          "text": "thou;",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "text": "my",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "breast",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "doth",
+          "start": 2.39,
+          "end": 2.63
+        },
+        {
+          "text": "palpitate",
+          "start": 2.63,
+          "end": 3.15
+        },
+        {
+          "text": "with",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "text": "fear.",
+          "start": 3.33,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24398447401472367
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "65e95346e4264c1f07d31200b0956830d24121283589179a85d779ceda269682",
+  "selected_reasons": []
+}

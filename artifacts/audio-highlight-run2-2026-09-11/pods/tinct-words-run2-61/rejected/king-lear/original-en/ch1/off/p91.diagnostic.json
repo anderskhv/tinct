@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "58eb7dae7214c19c21f61f6dcb4d885f964e9358f8b21a9e38422b654dd3cc94",
+  "attempts": [
+    {
+      "asr_seconds": 0.1480152290314436,
+      "alignment_seconds": 0.00033924542367458344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt France and Cordelia.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.5677083333333334
+            },
+            {
+              "text": " France",
+              "start": 0.77,
+              "end": 1.09,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " and",
+              "start": 1.09,
+              "end": 1.29,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " Cordelia.",
+              "start": 1.29,
+              "end": 1.75,
+              "probability": 0.962158203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "France",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "raw": "Cordelia.",
+          "start": 1.29,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "France",
+        "and",
+        "Cordelia._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "France",
+          "start": 0.77,
+          "end": 1.09,
+          "key": "france",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.29,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cordelia.",
+          "start": 1.29,
+          "end": 1.75,
+          "key": "cordelia",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "France",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "text": "and",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "Cordelia._]",
+          "start": 1.29,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14851143397390842
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "47fc45f02ae8c22e7fe0a1be9a4e2e882e1af318e7f48bbed9e5f55b9c4a6c21",
+  "selected_reasons": []
+}

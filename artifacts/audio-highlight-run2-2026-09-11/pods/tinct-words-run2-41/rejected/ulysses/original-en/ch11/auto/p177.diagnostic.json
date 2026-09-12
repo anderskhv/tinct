@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "f99014b5c8f46f38166aa57ae19e9ff524e804bbc281179847eb347ba3466c9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20366621296852827,
+      "alignment_seconds": 0.00038890400901436806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Greetings from the famous son of a famous father.",
+        "hotwords": "Greetings"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Greetings from the famous son of a famous father.",
+          "start": 0.02,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Greetings",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " from",
+              "start": 0.74,
+              "end": 1.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " famous",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " son",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " famous",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " father.",
+              "start": 2.24,
+              "end": 2.64,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Greetings",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "from",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "famous",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "son",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "famous",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "raw": "father.",
+          "start": 2.24,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "—Greetings",
+        "from",
+        "the",
+        "famous",
+        "son",
+        "of",
+        "a",
+        "famous",
+        "father."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Greetings",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "greetings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.74,
+          "end": 1.0,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "famous",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "famous",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 1.38,
+          "end": 1.7,
+          "key": "son",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "famous",
+          "start": 2.0,
+          "end": 2.24,
+          "key": "famous",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 2.24,
+          "end": 2.64,
+          "key": "father",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Greetings",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "from",
+          "start": 0.74,
+          "end": 1.0
+        },
+        {
+          "text": "the",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "famous",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "son",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "text": "of",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "a",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "famous",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "text": "father.",
+          "start": 2.24,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20422464096918702
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3d2b2d253bbf5b3858a7375d51cf26a6a2ab03cd6e0ca6423d2bb1f99e017f57",
+  "selected_reasons": []
+}

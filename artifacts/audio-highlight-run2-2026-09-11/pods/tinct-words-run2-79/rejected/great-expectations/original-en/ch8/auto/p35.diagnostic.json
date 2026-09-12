@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "7f776a78a20b467431b264582070a9cb8971df5b1d8b0067fd9412d9389bf9c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11598477372899652,
+      "alignment_seconds": 0.0002894666977226734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Pip?\"",
+        "hotwords": "Pip"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pip",
+          "start": 0.08,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " Pip",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.0199127197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pip",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Pip?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pip",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "pip",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pip?\"",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11635503405705094
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce8971b295fc0b2c4a392c961dd0f43a15681c472aed15f2fef8942c500a1ade",
+  "selected_reasons": []
+}

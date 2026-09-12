@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "8c20950c30af54c18531ca2e118c2a4c2e0c3a9f51026b1c2e7be6cd7ff767f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.20209295395761728,
+      "alignment_seconds": 0.00038522854447364807,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. Which is the Queen of Egypt?",
+        "hotwords": "Caesar, Which, Queen, Egypt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, Which is the Queen of Egypt?",
+          "start": 0.45,
+          "end": 2.13,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.45,
+              "end": 0.77,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Which",
+              "start": 1.23,
+              "end": 1.29,
+              "probability": 0.0019369125366210938
+            },
+            {
+              "text": " is",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " the",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Queen",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " of",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Egypt?",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.45,
+          "end": 0.77
+        },
+        {
+          "raw": "Which",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "Queen",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "of",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "Egypt?",
+          "start": 1.89,
+          "end": 2.13
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Which",
+        "is",
+        "the",
+        "Queen",
+        "of",
+        "Egypt?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.45,
+          "end": 0.77,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 1.23,
+          "end": 1.29,
+          "key": "which",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "queen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Egypt?",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "egypt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.45,
+          "end": 0.77
+        },
+        {
+          "text": "Which",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "text": "is",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "the",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "Queen",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "of",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "Egypt?",
+          "start": 1.89,
+          "end": 2.13
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20262992195785046
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41848ce11ca41aa31777590e53c1b1431d1ae3279d8a8ae9f355665b7f7698e8",
+  "selected_reasons": []
+}

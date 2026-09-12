@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "3c21aa8a04a92d582a6eec5169ca8ab9fc29ca4479e8bf527f99bb6a385a41b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2240758240222931,
+      "alignment_seconds": 0.0004309713840484619,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Spin me the yarn,\" said Ahab; \"how was it?\"",
+        "hotwords": "Spin, Ahab"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Spin me the yarn,\" said Ahab. How was it?",
+          "start": 0.14,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " Spin",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.46533203125
+            },
+            {
+              "text": " me",
+              "start": 0.64,
+              "end": 0.78,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " yarn,\"",
+              "start": 0.9,
+              "end": 1.32,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " said",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Ahab.",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 0.895751953125
+            },
+            {
+              "text": " How",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " was",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it?",
+              "start": 2.62,
+              "end": 2.84,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Spin",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "me",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "yarn,\"",
+          "start": 0.9,
+          "end": 1.32
+        },
+        {
+          "raw": "said",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "Ahab.",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "raw": "How",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "was",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "it?",
+          "start": 2.62,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Spin",
+        "me",
+        "the",
+        "yarn,\"",
+        "said",
+        "Ahab;",
+        "\"how",
+        "was",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Spin",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "spin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.64,
+          "end": 0.78,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "yarn,\"",
+          "start": 0.9,
+          "end": 1.32,
+          "key": "yarn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ahab.",
+          "start": 1.58,
+          "end": 1.9,
+          "key": "ahab",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.3,
+          "end": 2.42,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 2.62,
+          "end": 2.84,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Spin",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "me",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "yarn,\"",
+          "start": 0.9,
+          "end": 1.32
+        },
+        {
+          "text": "said",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "Ahab;",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "text": "\"how",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "was",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "it?\"",
+          "start": 2.62,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2246873639523983
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48565780d9d0495f1090b22ae1c01861f03a250fc40ac1447074c12cc9ee412d",
+  "selected_reasons": []
+}

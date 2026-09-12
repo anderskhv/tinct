@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "e9a1beea4b05f956e339212ccaecb2795241c8140d31e03f290112b564b71b19",
+  "attempts": [
+    {
+      "asr_seconds": 0.1521041952073574,
+      "alignment_seconds": 0.000325910747051239,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, where where Missala doth his body lie.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " where",
+              "start": 1.43,
+              "end": 1.47,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " where",
+              "start": 1.47,
+              "end": 1.73,
+              "probability": 0.2135009765625
+            },
+            {
+              "text": " Missala",
+              "start": 1.73,
+              "end": 2.11,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " doth",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.900634765625
+            },
+            {
+              "text": " his",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " body",
+              "start": 2.53,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lie.",
+              "start": 2.79,
+              "end": 3.11,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "where",
+          "start": 1.43,
+          "end": 1.47
+        },
+        {
+          "raw": "where",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "raw": "Missala",
+          "start": 1.73,
+          "end": 2.11
+        },
+        {
+          "raw": "doth",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "his",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "body",
+          "start": 2.53,
+          "end": 2.79
+        },
+        {
+          "raw": "lie.",
+          "start": 2.79,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Where,",
+        "where,",
+        "Messala,",
+        "doth",
+        "his",
+        "body",
+        "lie?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.43,
+          "end": 1.47,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.47,
+          "end": 1.73,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Missala",
+          "start": 1.73,
+          "end": 2.11,
+          "key": "missala",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "doth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "body",
+          "start": 2.53,
+          "end": 2.79,
+          "key": "body",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lie.",
+          "start": 2.79,
+          "end": 3.11,
+          "key": "lie",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Where,",
+          "start": 1.43,
+          "end": 1.47
+        },
+        {
+          "text": "where,",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "text": "Messala,",
+          "start": 1.73,
+          "end": 1.92
+        },
+        {
+          "text": "doth",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "his",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "body",
+          "start": 2.53,
+          "end": 2.79
+        },
+        {
+          "text": "lie?",
+          "start": 2.79,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.15254481323063374
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6c297a3dce4a96743787a47105a2e43e5c9b48f1388d7c5c1ea4ea18cc56568",
+  "selected_reasons": []
+}

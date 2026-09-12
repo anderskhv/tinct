@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "7529489291b33fb397ef6370857f793db34ba966f86a6279e51b4bc1bf1b7543",
+  "attempts": [
+    {
+      "asr_seconds": 0.1391391078941524,
+      "alignment_seconds": 0.035422081127762794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter a rabble of Plebeians with the Aediles.",
+        "hotwords": "Enter, Plebeians, Aediles"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter a rabble of Plebeians with the Aediles.",
+          "start": 0.08,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " a",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " rabble",
+              "start": 0.82,
+              "end": 1.12,
+              "probability": 0.93359375
+            },
+            {
+              "text": " of",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Plebeians",
+              "start": 1.28,
+              "end": 1.74,
+              "probability": 0.6564076741536459
+            },
+            {
+              "text": " with",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Aediles.",
+              "start": 2.06,
+              "end": 2.54,
+              "probability": 0.32962926228841144
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "rabble",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "raw": "of",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "Plebeians",
+          "start": 1.28,
+          "end": 1.74
+        },
+        {
+          "raw": "with",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "the",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "Aediles.",
+          "start": 2.06,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "rabble",
+        "of",
+        "Plebeians",
+        "with",
+        "the",
+        "Aediles."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.82,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rabble",
+          "start": 0.82,
+          "end": 1.12,
+          "key": "rabble",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.12,
+          "end": 1.28,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Plebeians",
+          "start": 1.28,
+          "end": 1.74,
+          "key": "plebeians",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Aediles.",
+          "start": 2.06,
+          "end": 2.54,
+          "key": "aediles",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "a",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "rabble",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "text": "of",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "Plebeians",
+          "start": 1.28,
+          "end": 1.74
+        },
+        {
+          "text": "with",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "the",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "Aediles.",
+          "start": 2.06,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17465964192524552
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f00b655e58adf25f71f248ebc2e601b763ba669fed4ed74ebfbe96d29b67d27",
+  "selected_reasons": []
+}

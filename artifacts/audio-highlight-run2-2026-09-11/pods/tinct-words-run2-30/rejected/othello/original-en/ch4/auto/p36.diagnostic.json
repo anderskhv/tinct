@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "de4c9a2de5ecc188aea2b6b50614dff9699fd9dd6beef0e6ecb02f8d249c856d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12446739803999662,
+      "alignment_seconds": 0.00013966020196676254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Desdemona, Iago, Roderigo, and Emilia.]",
+        "hotwords": "Enter, Desdemona, Iago, Roderigo, Emilia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Desdemona, Iago, Roderigo, and Emilia.",
+          "start": 0.11,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Desdemona,",
+              "start": 0.67,
+              "end": 1.33,
+              "probability": 0.6337025960286459
+            },
+            {
+              "text": " Iago,",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.1497344970703125
+            },
+            {
+              "text": " Roderigo,",
+              "start": 2.49,
+              "end": 2.81,
+              "probability": 0.17502848307291666
+            },
+            {
+              "text": " and",
+              "start": 2.95,
+              "end": 3.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Emilia.",
+              "start": 3.03,
+              "end": 3.33,
+              "probability": 0.600341796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "Desdemona,",
+          "start": 0.67,
+          "end": 1.33
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "Roderigo,",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.03
+        },
+        {
+          "raw": "Emilia.",
+          "start": 3.03,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Desdemona,",
+        "Iago,",
+        "Roderigo,",
+        "and",
+        "Emilia.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Desdemona,",
+          "start": 0.67,
+          "end": 1.33,
+          "key": "desdemona",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iago,",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "iago",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Roderigo,",
+          "start": 2.49,
+          "end": 2.81,
+          "key": "roderigo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.95,
+          "end": 3.03,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Emilia.",
+          "start": 3.03,
+          "end": 3.33,
+          "key": "emilia",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "Desdemona,",
+          "start": 0.67,
+          "end": 1.33
+        },
+        {
+          "text": "Iago,",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "text": "Roderigo,",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "text": "and",
+          "start": 2.95,
+          "end": 3.03
+        },
+        {
+          "text": "Emilia.]",
+          "start": 3.03,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12466448685154319
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "120ce3996faaba9cadce878eb152eabf016cf2abb1cd48460b4dedd71f01bbf9",
+  "selected_reasons": []
+}

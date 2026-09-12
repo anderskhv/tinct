@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "abbf67244a133523e4019a023e4367cf93648b9915845c5de1bdbf0239db1195",
+  "attempts": [
+    {
+      "asr_seconds": 0.21804023298318498,
+      "alignment_seconds": 0.00018095699488185346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Soldier. Belike 'tis but a rumour. Good night to you.",
+        "hotwords": "Second, Soldier, Belike, Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Soldier, Belike, Tis but a rumour. Good night to you.",
+          "start": 0.08,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.66015625
+            },
+            {
+              "text": " Soldier,",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.10595703125
+            },
+            {
+              "text": " Belike,",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.0409698486328125
+            },
+            {
+              "text": " Tis",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.4339599609375
+            },
+            {
+              "text": " but",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.4658203125
+            },
+            {
+              "text": " a",
+              "start": 2.1,
+              "end": 2.22,
+              "probability": 0.98828125
+            },
+            {
+              "text": " rumour.",
+              "start": 2.22,
+              "end": 2.6,
+              "probability": 0.53765869140625
+            },
+            {
+              "text": " Good",
+              "start": 2.94,
+              "end": 3.02,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " night",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.771484375
+            },
+            {
+              "text": " to",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you.",
+              "start": 3.44,
+              "end": 3.68,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Soldier,",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "Belike,",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "Tis",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "but",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "a",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "raw": "rumour.",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "raw": "Good",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "raw": "night",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "raw": "to",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "you.",
+          "start": 3.44,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Soldier.",
+        "Belike",
+        "'tis",
+        "but",
+        "a",
+        "rumour.",
+        "Good",
+        "night",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soldier,",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Belike,",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "belike",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "tis",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.1,
+          "end": 2.22,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rumour.",
+          "start": 2.22,
+          "end": 2.6,
+          "key": "rumour",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 2.94,
+          "end": 3.02,
+          "key": "good",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 3.02,
+          "end": 3.22,
+          "key": "night",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.44,
+          "end": 3.68,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "Belike",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "'tis",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "but",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "a",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "text": "rumour.",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "text": "Good",
+          "start": 2.94,
+          "end": 3.02
+        },
+        {
+          "text": "night",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "to",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "you.",
+          "start": 3.44,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21828307199757546
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b7f0df48ebb7b1071bf4f7e1858fc0181f448ff857ebb5b283fba91c8377edc1",
+  "selected_reasons": []
+}

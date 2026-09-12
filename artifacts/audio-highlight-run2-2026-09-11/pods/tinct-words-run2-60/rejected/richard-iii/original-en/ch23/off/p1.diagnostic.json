@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "a59480ea25d4e1868aee8f5a4ec6a1d00c9b7131b0d0cc5b8f7c8e325cd1d68a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3111089915037155,
+      "alignment_seconds": 0.00046342983841896057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard, here pitch our tent, even here in Bosworth Field.",
+          "start": 0.0,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.54,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " Richard,",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " here",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " pitch",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " our",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tent,",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " even",
+              "start": 2.78,
+              "end": 2.88,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " here",
+              "start": 2.88,
+              "end": 3.16,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " in",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Bosworth",
+              "start": 3.34,
+              "end": 3.8,
+              "probability": 0.864501953125
+            },
+            {
+              "text": " Field.",
+              "start": 3.8,
+              "end": 4.14,
+              "probability": 0.732421875
+            }
+          ]
+        },
+        {
+          "text": " My lord of Surrey, why look you so sad?",
+          "start": 4.78,
+          "end": 6.6,
+          "words": [
+            {
+              "text": " My",
+              "start": 4.78,
+              "end": 4.88,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " lord",
+              "start": 4.88,
+              "end": 5.1,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " of",
+              "start": 5.1,
+              "end": 5.24,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Surrey,",
+              "start": 5.24,
+              "end": 5.46,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " why",
+              "start": 5.68,
+              "end": 5.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " look",
+              "start": 5.78,
+              "end": 5.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 5.92,
+              "end": 6.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " so",
+              "start": 6.08,
+              "end": 6.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sad?",
+              "start": 6.26,
+              "end": 6.6,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "here",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "pitch",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "our",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "tent,",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "even",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "raw": "here",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "raw": "in",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "Bosworth",
+          "start": 3.34,
+          "end": 3.8
+        },
+        {
+          "raw": "Field.",
+          "start": 3.8,
+          "end": 4.14
+        },
+        {
+          "raw": "My",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "raw": "lord",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "raw": "of",
+          "start": 5.1,
+          "end": 5.24
+        },
+        {
+          "raw": "Surrey,",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "raw": "why",
+          "start": 5.68,
+          "end": 5.78
+        },
+        {
+          "raw": "look",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "raw": "you",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "raw": "so",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "raw": "sad?",
+          "start": 6.26,
+          "end": 6.6
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Here",
+        "pitch",
+        "our",
+        "tent,",
+        "even",
+        "here",
+        "in",
+        "Bosworth",
+        "field.",
+        "My",
+        "Lord",
+        "of",
+        "Surrey,",
+        "why",
+        "look",
+        "you",
+        "so",
+        "sad?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pitch",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "pitch",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.94,
+          "end": 2.1,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tent,",
+          "start": 2.1,
+          "end": 2.4,
+          "key": "tent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 2.78,
+          "end": 2.88,
+          "key": "even",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.88,
+          "end": 3.16,
+          "key": "here",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Bosworth",
+          "start": 3.34,
+          "end": 3.8,
+          "key": "bosworth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Field.",
+          "start": 3.8,
+          "end": 4.14,
+          "key": "field",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 4.78,
+          "end": 4.88,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 4.88,
+          "end": 5.1,
+          "key": "lord",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.1,
+          "end": 5.24,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Surrey,",
+          "start": 5.24,
+          "end": 5.46,
+          "key": "surrey",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 5.68,
+          "end": 5.78,
+          "key": "why",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 5.78,
+          "end": 5.92,
+          "key": "look",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.92,
+          "end": 6.08,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.08,
+          "end": 6.26,
+          "key": "so",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sad?",
+          "start": 6.26,
+          "end": 6.6,
+          "key": "sad",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.54
+        },
+        {
+          "text": "Richard.",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "Here",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "pitch",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "our",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "tent,",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "even",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "text": "here",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "text": "in",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "Bosworth",
+          "start": 3.34,
+          "end": 3.8
+        },
+        {
+          "text": "field.",
+          "start": 3.8,
+          "end": 4.14
+        },
+        {
+          "text": "My",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "text": "Lord",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "text": "of",
+          "start": 5.1,
+          "end": 5.24
+        },
+        {
+          "text": "Surrey,",
+          "start": 5.24,
+          "end": 5.46
+        },
+        {
+          "text": "why",
+          "start": 5.68,
+          "end": 5.78
+        },
+        {
+          "text": "look",
+          "start": 5.78,
+          "end": 5.92
+        },
+        {
+          "text": "you",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "text": "so",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "text": "sad?",
+          "start": 6.26,
+          "end": 6.6
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31180723011493683
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "81085e608f9a443a4f61821f9464ddf5a9898933e84bd2ba2d1d210466383308",
+  "selected_reasons": []
+}

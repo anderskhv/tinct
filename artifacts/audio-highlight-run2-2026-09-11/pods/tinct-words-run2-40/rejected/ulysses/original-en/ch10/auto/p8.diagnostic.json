@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "af80017eb2b73f4622479873dbd3726ef16f610463fbc690f13890b86f6075de",
+  "attempts": [
+    {
+      "asr_seconds": 0.3508679158985615,
+      "alignment_seconds": 0.0006451280787587166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Father Conmee walked and, walking, smiled for he thought on Father Bernard Vaughan's droll eyes and cockney voice.",
+        "hotwords": "Father, Conmee, Bernard, Vaughan's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Father Conmee walked and, walking, smiled for he thought on Father Bernard Vaughan's droll eyes and cockney voice.",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Father",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " Conmee",
+              "start": 0.69,
+              "end": 1.21,
+              "probability": 0.23331705729166666
+            },
+            {
+              "text": " walked",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and,",
+              "start": 1.45,
+              "end": 1.75,
+              "probability": 0.80078125
+            },
+            {
+              "text": " walking,",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " smiled",
+              "start": 3.01,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 3.03,
+              "end": 3.33,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " he",
+              "start": 3.33,
+              "end": 3.45,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thought",
+              "start": 3.45,
+              "end": 3.65,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " on",
+              "start": 3.65,
+              "end": 3.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " Father",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Bernard",
+              "start": 4.19,
+              "end": 4.61,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Vaughan's",
+              "start": 4.61,
+              "end": 5.19,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " droll",
+              "start": 5.19,
+              "end": 5.45,
+              "probability": 0.7265625
+            },
+            {
+              "text": " eyes",
+              "start": 5.45,
+              "end": 5.83,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " and",
+              "start": 5.83,
+              "end": 6.21,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " cockney",
+              "start": 6.21,
+              "end": 6.63,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " voice.",
+              "start": 6.63,
+              "end": 6.93,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Conmee",
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "raw": "walked",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "and,",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "raw": "walking,",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "raw": "smiled",
+          "start": 3.01,
+          "end": 3.03
+        },
+        {
+          "raw": "for",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "raw": "he",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "raw": "thought",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "raw": "on",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "raw": "Father",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "raw": "Bernard",
+          "start": 4.19,
+          "end": 4.61
+        },
+        {
+          "raw": "Vaughan's",
+          "start": 4.61,
+          "end": 5.19
+        },
+        {
+          "raw": "droll",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "raw": "eyes",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "raw": "and",
+          "start": 5.83,
+          "end": 6.21
+        },
+        {
+          "raw": "cockney",
+          "start": 6.21,
+          "end": 6.63
+        },
+        {
+          "raw": "voice.",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "Father",
+        "Conmee",
+        "walked",
+        "and,",
+        "walking,",
+        "smiled",
+        "for",
+        "he",
+        "thought",
+        "on",
+        "Father",
+        "Bernard",
+        "Vaughan's",
+        "droll",
+        "eyes",
+        "and",
+        "cockney",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "father",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Conmee",
+          "start": 0.69,
+          "end": 1.21,
+          "key": "conmee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "walked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 1.45,
+          "end": 1.75,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "walking,",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "walking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "smiled",
+          "start": 3.01,
+          "end": 3.03,
+          "key": "smiled",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.03,
+          "end": 3.33,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.33,
+          "end": 3.45,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 3.45,
+          "end": 3.65,
+          "key": "thought",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.65,
+          "end": 3.89,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Father",
+          "start": 3.89,
+          "end": 4.19,
+          "key": "father",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Bernard",
+          "start": 4.19,
+          "end": 4.61,
+          "key": "bernard",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Vaughan's",
+          "start": 4.61,
+          "end": 5.19,
+          "key": "vaughans",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "droll",
+          "start": 5.19,
+          "end": 5.45,
+          "key": "droll",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 5.45,
+          "end": 5.83,
+          "key": "eyes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.83,
+          "end": 6.21,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cockney",
+          "start": 6.21,
+          "end": 6.63,
+          "key": "cockney",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 6.63,
+          "end": 6.93,
+          "key": "voice",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Father",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Conmee",
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "text": "walked",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "and,",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "text": "walking,",
+          "start": 1.91,
+          "end": 2.23
+        },
+        {
+          "text": "smiled",
+          "start": 3.01,
+          "end": 3.03
+        },
+        {
+          "text": "for",
+          "start": 3.03,
+          "end": 3.33
+        },
+        {
+          "text": "he",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "text": "thought",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "text": "on",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "text": "Father",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "text": "Bernard",
+          "start": 4.19,
+          "end": 4.61
+        },
+        {
+          "text": "Vaughan's",
+          "start": 4.61,
+          "end": 5.19
+        },
+        {
+          "text": "droll",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "text": "eyes",
+          "start": 5.45,
+          "end": 5.83
+        },
+        {
+          "text": "and",
+          "start": 5.83,
+          "end": 6.21
+        },
+        {
+          "text": "cockney",
+          "start": 6.21,
+          "end": 6.63
+        },
+        {
+          "text": "voice.",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.351825671736151
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "464ae3eb2e9212834695b1ce98bce50ea16249d2f58ee0668f64b751ed98a4c6",
+  "selected_reasons": []
+}

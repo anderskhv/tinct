@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "signature": "6491ba468cb152dc14889465adea1b3088432ec6ce4405183f086e01ebf45e51",
+  "attempts": [
+    {
+      "asr_seconds": 0.15796906873583794,
+      "alignment_seconds": 0.00019248807802796364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Graciano, tease some misjants, the cry is very direful.",
+          "start": 0.05,
+          "end": 3.93,
+          "words": [
+            {
+              "text": " Graciano,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.6634521484375
+            },
+            {
+              "text": " tease",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.402587890625
+            },
+            {
+              "text": " some",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " misjants,",
+              "start": 1.97,
+              "end": 2.41,
+              "probability": 0.5885009765625
+            },
+            {
+              "text": " the",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " cry",
+              "start": 2.69,
+              "end": 2.89,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " is",
+              "start": 2.89,
+              "end": 3.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " very",
+              "start": 3.09,
+              "end": 3.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " direful.",
+              "start": 3.35,
+              "end": 3.93,
+              "probability": 0.8671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Graciano,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "tease",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "some",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "misjants,",
+          "start": 1.97,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "cry",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "raw": "is",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "raw": "very",
+          "start": 3.09,
+          "end": 3.35
+        },
+        {
+          "raw": "direful.",
+          "start": 3.35,
+          "end": 3.93
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "'Tis",
+        "some",
+        "mischance;",
+        "the",
+        "cry",
+        "is",
+        "very",
+        "direful."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Graciano,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "graciano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.77,
+          "end": 1.97,
+          "key": "some",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "misjants,",
+          "start": 1.97,
+          "end": 2.41,
+          "key": "misjants",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 2.69,
+          "end": 2.89,
+          "key": "cry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.89,
+          "end": 3.09,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.09,
+          "end": 3.35,
+          "key": "very",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "direful.",
+          "start": 3.35,
+          "end": 3.93,
+          "key": "direful",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.0,
+          "end": 0.885
+        },
+        {
+          "text": "'Tis",
+          "start": 0.885,
+          "end": 1.328
+        },
+        {
+          "text": "some",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "text": "mischance;",
+          "start": 1.97,
+          "end": 2.28
+        },
+        {
+          "text": "the",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "cry",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "text": "is",
+          "start": 2.89,
+          "end": 3.09
+        },
+        {
+          "text": "very",
+          "start": 3.09,
+          "end": 3.35
+        },
+        {
+          "text": "direful.",
+          "start": 3.35,
+          "end": 3.93
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15823293570429087
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "94d3f2c92cb5b2126a60f28dae539a221f82a69f91ef6ce3d68692d0e8847502",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

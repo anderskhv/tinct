@@ -1,0 +1,247 @@
+{
+  "complete": true,
+  "signature": "c3c97db075001a5c75a76fc3ebd5f7d202f9a03e92fcf7ef542400285081865b",
+  "attempts": [
+    {
+      "asr_seconds": 0.17921387194655836,
+      "alignment_seconds": 0.00038441200740635395,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Break and bury what's so brief?",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Break",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.353759765625
+            },
+            {
+              "text": " and",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.3974609375
+            },
+            {
+              "text": " bury",
+              "start": 0.75,
+              "end": 0.99,
+              "probability": 0.396484375
+            },
+            {
+              "text": " what's",
+              "start": 0.99,
+              "end": 1.51,
+              "probability": 0.54931640625
+            },
+            {
+              "text": " so",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " brief?",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Break",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "and",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "bury",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "raw": "what's",
+          "start": 0.99,
+          "end": 1.51
+        },
+        {
+          "raw": "so",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "brief?",
+          "start": 1.63,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Brakenbury.",
+        "What,",
+        "so",
+        "brief?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          4,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Break",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "break",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bury",
+          "start": 0.75,
+          "end": 0.99,
+          "key": "bury",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 0.99,
+          "end": 1.51,
+          "key": "whats",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.51,
+          "end": 1.63,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "brief?",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "brief",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brakenbury.",
+          "start": 0.0,
+          "end": 0.755
+        },
+        {
+          "text": "What,",
+          "start": 0.755,
+          "end": 1.133
+        },
+        {
+          "text": "so",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "brief?",
+          "start": 1.63,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17974181193858385
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41418db83418db690b8db655f1fc814176bd7c87ec23cc6e980637eb77abe08f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

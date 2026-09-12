@@ -1,0 +1,616 @@
+{
+  "complete": true,
+  "signature": "95b8c2c5cb56b282c4fa8f1b8aa310dcb55e9c1cff83192268e66f99afa0985d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2641616929322481,
+      "alignment_seconds": 0.0006184075027704239,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Dear, dear!\" kept exclaiming the captain. Kolya sat down again on the edge of the bed.",
+        "hotwords": "Kolya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dear, dear!\" kept exclaiming the captain. Kolya sat down again on the edge of the bed.",
+          "start": 0.05,
+          "end": 5.45,
+          "words": [
+            {
+              "text": " Dear,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.1446533203125
+            },
+            {
+              "text": " dear",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.8984375
+            },
+            {
+              "text": "!\"",
+              "start": 1.11,
+              "end": 1.49,
+              "probability": 0.0059356689453125
+            },
+            {
+              "text": " kept",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.42236328125
+            },
+            {
+              "text": " exclaiming",
+              "start": 1.71,
+              "end": 2.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " captain.",
+              "start": 2.43,
+              "end": 2.77,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " Kolya",
+              "start": 3.53,
+              "end": 3.79,
+              "probability": 0.4771982828776042
+            },
+            {
+              "text": " sat",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " down",
+              "start": 3.97,
+              "end": 4.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " again",
+              "start": 4.25,
+              "end": 4.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " on",
+              "start": 4.53,
+              "end": 4.73,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " the",
+              "start": 4.73,
+              "end": 4.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " edge",
+              "start": 4.83,
+              "end": 4.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.99,
+              "end": 5.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.13,
+              "end": 5.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " bed.",
+              "start": 5.23,
+              "end": 5.45,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dear,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "dear",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "!\"",
+          "start": 1.11,
+          "end": 1.49
+        },
+        {
+          "raw": "kept",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "exclaiming",
+          "start": 1.71,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "captain.",
+          "start": 2.43,
+          "end": 2.77
+        },
+        {
+          "raw": "Kolya",
+          "start": 3.53,
+          "end": 3.79
+        },
+        {
+          "raw": "sat",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "down",
+          "start": 3.97,
+          "end": 4.25
+        },
+        {
+          "raw": "again",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "raw": "on",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "raw": "the",
+          "start": 4.73,
+          "end": 4.83
+        },
+        {
+          "raw": "edge",
+          "start": 4.83,
+          "end": 4.99
+        },
+        {
+          "raw": "of",
+          "start": 4.99,
+          "end": 5.13
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.23
+        },
+        {
+          "raw": "bed.",
+          "start": 5.23,
+          "end": 5.45
+        }
+      ],
+      "expected_tokens": [
+        "\"Dear,",
+        "dear!\"",
+        "kept",
+        "exclaiming",
+        "the",
+        "captain.",
+        "Kolya",
+        "sat",
+        "down",
+        "again",
+        "on",
+        "the",
+        "edge",
+        "of",
+        "the",
+        "bed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          16,
+          3,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dear,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "dear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.11,
+          "end": 1.49,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kept",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "kept",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "exclaiming",
+          "start": 1.71,
+          "end": 2.31,
+          "key": "exclaiming",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "captain.",
+          "start": 2.43,
+          "end": 2.77,
+          "key": "captain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Kolya",
+          "start": 3.53,
+          "end": 3.79,
+          "key": "kolya",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "sat",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 3.97,
+          "end": 4.25,
+          "key": "down",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 4.25,
+          "end": 4.53,
+          "key": "again",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.53,
+          "end": 4.73,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.73,
+          "end": 4.83,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "edge",
+          "start": 4.83,
+          "end": 4.99,
+          "key": "edge",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.99,
+          "end": 5.13,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.23,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bed.",
+          "start": 5.23,
+          "end": 5.45,
+          "key": "bed",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Dear,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "dear!\"",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "kept",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "exclaiming",
+          "start": 1.71,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "captain.",
+          "start": 2.43,
+          "end": 2.77
+        },
+        {
+          "text": "Kolya",
+          "start": 3.53,
+          "end": 3.79
+        },
+        {
+          "text": "sat",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "down",
+          "start": 3.97,
+          "end": 4.25
+        },
+        {
+          "text": "again",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "text": "on",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "text": "the",
+          "start": 4.73,
+          "end": 4.83
+        },
+        {
+          "text": "edge",
+          "start": 4.83,
+          "end": 4.99
+        },
+        {
+          "text": "of",
+          "start": 4.99,
+          "end": 5.13
+        },
+        {
+          "text": "the",
+          "start": 5.13,
+          "end": 5.23
+        },
+        {
+          "text": "bed.",
+          "start": 5.23,
+          "end": 5.45
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2650350574404001
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ee05ee10039881ba951b7d0d3739627065bf28685bb6f1cc4fb45a1ac92b7866",
+  "selected_reasons": []
+}

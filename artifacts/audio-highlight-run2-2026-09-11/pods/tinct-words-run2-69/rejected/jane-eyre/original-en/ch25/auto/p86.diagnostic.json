@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "477e49dce44d974c12bec44285629fbed1f2fb5b3f244907ce4158e41089a087",
+  "attempts": [
+    {
+      "asr_seconds": 0.12107997573912144,
+      "alignment_seconds": 0.00031461287289857864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Who was with you when you revived?\"",
+        "hotwords": "Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who was with you when you revived?",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " was",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " when",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " revived?",
+              "start": 1.27,
+              "end": 1.59,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "with",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "you",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "when",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "you",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "revived?",
+          "start": 1.27,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Who",
+        "was",
+        "with",
+        "you",
+        "when",
+        "you",
+        "revived?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.03,
+          "end": 1.17,
+          "key": "when",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "revived?",
+          "start": 1.27,
+          "end": 1.59,
+          "key": "revived",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "was",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "with",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "you",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "when",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "you",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "revived?\"",
+          "start": 1.27,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12152042798697948
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "46e2aade0c333bbca2186b91110496aaa216a6897d1753a5a98d4fb1fdd0eaad",
+  "selected_reasons": []
+}

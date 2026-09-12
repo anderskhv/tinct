@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "391e1eadd864feca2a982944a98e817fecb557e44153530bdd26a0311e808861",
+  "attempts": [
+    {
+      "asr_seconds": 0.18139343243092299,
+      "alignment_seconds": 0.0005094427615404129,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter the Archbishop of Canterbury and the Bishop of Ely.",
+          "start": 0.18,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.7,
+              "probability": 0.837890625
+            },
+            {
+              "text": " the",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Archbishop",
+              "start": 0.88,
+              "end": 1.18,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " of",
+              "start": 1.18,
+              "end": 1.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Canterbury",
+              "start": 1.66,
+              "end": 2.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.12,
+              "end": 2.76,
+              "probability": 0.853515625
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Bishop",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.939453125
+            },
+            {
+              "text": " of",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Ely.",
+              "start": 3.38,
+              "end": 3.56,
+              "probability": 0.91943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.7
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "Archbishop",
+          "start": 0.88,
+          "end": 1.18
+        },
+        {
+          "raw": "of",
+          "start": 1.18,
+          "end": 1.66
+        },
+        {
+          "raw": "Canterbury",
+          "start": 1.66,
+          "end": 2.12
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "raw": "Bishop",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "raw": "of",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "raw": "Ely.",
+          "start": 3.38,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Archbishop",
+        "of",
+        "Canterbury",
+        "and",
+        "the",
+        "Bishop",
+        "of",
+        "Ely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Archbishop",
+          "start": 0.88,
+          "end": 1.18,
+          "key": "archbishop",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.18,
+          "end": 1.66,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Canterbury",
+          "start": 1.66,
+          "end": 2.12,
+          "key": "canterbury",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.76,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.88,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bishop",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "bishop",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.12,
+          "end": 3.38,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ely.",
+          "start": 3.38,
+          "end": 3.56,
+          "key": "ely",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.7
+        },
+        {
+          "text": "the",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "text": "Archbishop",
+          "start": 0.88,
+          "end": 1.18
+        },
+        {
+          "text": "of",
+          "start": 1.18,
+          "end": 1.66
+        },
+        {
+          "text": "Canterbury",
+          "start": 1.66,
+          "end": 2.12
+        },
+        {
+          "text": "and",
+          "start": 2.12,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.88
+        },
+        {
+          "text": "Bishop",
+          "start": 2.88,
+          "end": 3.12
+        },
+        {
+          "text": "of",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "text": "Ely.",
+          "start": 3.38,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18211166188120842
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5fad837954eaefdf4b4f5cb99034554144c6cda1b203286a4366502aed5f0d2c",
+  "selected_reasons": []
+}

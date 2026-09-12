@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "f4ec7c238ecf899b4f6403186afbbd5ce9e31cfae4bfcfbc4987be5cb4f8fa8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2354794777929783,
+      "alignment_seconds": 0.00040550902485847473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And what tortures have you in the other world besides the quadrillion kilometers?\" asked Ivan, with a strange eagerness.",
+        "hotwords": "And, Ivan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And what tortures have you in the other world besides the quadrillion kilometers?\" asked Ivan, with a strange eagerness.",
+          "start": 0.05,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.1453857421875
+            },
+            {
+              "text": " what",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.970703125
+            },
+            {
+              "text": " tortures",
+              "start": 0.69,
+              "end": 1.19,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " have",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.97265625
+            },
+            {
+              "text": " the",
+              "start": 1.67,
+              "end": 1.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " other",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " world",
+              "start": 1.97,
+              "end": 2.35,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " besides",
+              "start": 2.35,
+              "end": 2.73,
+              "probability": 0.95703125
+            },
+            {
+              "text": " the",
+              "start": 2.73,
+              "end": 3.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " quadrillion",
+              "start": 3.01,
+              "end": 3.55,
+              "probability": 0.9827473958333334
+            },
+            {
+              "text": " kilometers?\"",
+              "start": 3.55,
+              "end": 4.97,
+              "probability": 0.69921875
+            },
+            {
+              "text": " asked",
+              "start": 4.97,
+              "end": 5.15,
+              "probability": 0.7734375
+            },
+            {
+              "text": " Ivan,",
+              "start": 5.15,
+              "end": 5.51,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " with",
+              "start": 5.93,
+              "end": 6.03,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 6.03,
+              "end": 6.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " strange",
+              "start": 6.13,
+              "end": 6.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eagerness.",
+              "start": 6.57,
+              "end": 7.23,
+              "probability": 0.994384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "what",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "tortures",
+          "start": 0.69,
+          "end": 1.19
+        },
+        {
+          "raw": "have",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "in",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "raw": "other",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "world",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "raw": "besides",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 3.01
+        },
+        {
+          "raw": "quadrillion",
+          "start": 3.01,
+          "end": 3.55
+        },
+        {
+          "raw": "kilometers?\"",
+          "start": 3.55,
+          "end": 4.97
+        },
+        {
+          "raw": "asked",
+          "start": 4.97,
+          "end": 5.15
+        },
+        {
+          "raw": "Ivan,",
+          "start": 5.15,
+          "end": 5.51
+        },
+        {
+          "raw": "with",
+          "start": 5.93,
+          "end": 6.03
+        },
+        {
+          "raw": "a",
+          "start": 6.03,
+          "end": 6.13
+        },
+        {
+          "raw": "strange",
+          "start": 6.13,
+          "end": 6.57
+        },
+        {
+          "raw": "eagerness.",
+          "start": 6.57,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "what",
+        "tortures",
+        "have",
+        "you",
+        "in",
+        "the",
+        "other",
+        "world",
+        "besides",
+        "the",
+        "quadrillion",
+        "kilometers?\"",
+        "asked",
+        "Ivan,",
+        "with",
+        "a",
+        "strange",
+        "eagerness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.51,
+          "end": 0.69,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tortures",
+          "start": 0.69,
+          "end": 1.19,
+          "key": "tortures",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.79,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "other",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 1.97,
+          "end": 2.35,
+          "key": "world",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "besides",
+          "start": 2.35,
+          "end": 2.73,
+          "key": "besides",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 3.01,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quadrillion",
+          "start": 3.01,
+          "end": 3.55,
+          "key": "quadrillion",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "kilometers?\"",
+          "start": 3.55,
+          "end": 4.97,
+          "key": "kilometers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 4.97,
+          "end": 5.15,
+          "key": "asked",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Ivan,",
+          "start": 5.15,
+          "end": 5.51,
+          "key": "ivan",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.93,
+          "end": 6.03,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.03,
+          "end": 6.13,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 6.13,
+          "end": 6.57,
+          "key": "strange",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "eagerness.",
+          "start": 6.57,
+          "end": 7.23,
+          "key": "eagerness",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "what",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "tortures",
+          "start": 0.69,
+          "end": 1.19
+        },
+        {
+          "text": "have",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "you",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "in",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "the",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "text": "other",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "world",
+          "start": 1.97,
+          "end": 2.35
+        },
+        {
+          "text": "besides",
+          "start": 2.35,
+          "end": 2.73
+        },
+        {
+          "text": "the",
+          "start": 2.73,
+          "end": 3.01
+        },
+        {
+          "text": "quadrillion",
+          "start": 3.01,
+          "end": 3.55
+        },
+        {
+          "text": "kilometers?\"",
+          "start": 3.55,
+          "end": 4.97
+        },
+        {
+          "text": "asked",
+          "start": 4.97,
+          "end": 5.15
+        },
+        {
+          "text": "Ivan,",
+          "start": 5.15,
+          "end": 5.51
+        },
+        {
+          "text": "with",
+          "start": 5.93,
+          "end": 6.03
+        },
+        {
+          "text": "a",
+          "start": 6.03,
+          "end": 6.13
+        },
+        {
+          "text": "strange",
+          "start": 6.13,
+          "end": 6.57
+        },
+        {
+          "text": "eagerness.",
+          "start": 6.57,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2360694818198681
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "044c7a337205b3057c0385c268094724ab81f76cec4ab2203f0dbaf57be96781",
+  "selected_reasons": []
+}

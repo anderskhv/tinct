@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "2d38f476e6a3e6279f99de2223e771b415558bb7c166bb7fde95c07a758c4130",
+  "attempts": [
+    {
+      "asr_seconds": 0.160955301951617,
+      "alignment_seconds": 0.00037148897536098957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She took back the card, sighing.",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.943359375
+            },
+            {
+              "text": " took",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " back",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 0.88,
+              "end": 1.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " card,",
+              "start": 1.06,
+              "end": 1.34,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " sighing.",
+              "start": 1.46,
+              "end": 1.94,
+              "probability": 0.89404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "took",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "back",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "raw": "card,",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "raw": "sighing.",
+          "start": 1.46,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "took",
+        "back",
+        "the",
+        "card,",
+        "sighing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "took",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "back",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 1.06,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "card,",
+          "start": 1.06,
+          "end": 1.34,
+          "key": "card",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sighing.",
+          "start": 1.46,
+          "end": 1.94,
+          "key": "sighing",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "took",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "back",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "the",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "text": "card,",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "text": "sighing.",
+          "start": 1.46,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1614593779668212
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "198274b4d455778cdc5029f69a4ba6322ab4d411ab0cbfab6818558be6ef6e47",
+  "selected_reasons": []
+}

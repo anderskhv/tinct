@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "b4e47f1027c591306cb0ce840e4a2386a85f80783991c69a229e8213f487db17",
+  "attempts": [
+    {
+      "asr_seconds": 0.20335744018666446,
+      "alignment_seconds": 0.0005237609148025513,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Snout. Therefore another prologue must tell he is not a lion.",
+        "hotwords": "Snout, Therefore"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Snout, Therefore another prologue must tell he is not a lion.",
+          "start": 0.11,
+          "end": 3.57,
+          "words": [
+            {
+              "text": " Snout,",
+              "start": 0.11,
+              "end": 0.81,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " Therefore",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.004146575927734375
+            },
+            {
+              "text": " another",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " prologue",
+              "start": 1.75,
+              "end": 2.25,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " must",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " tell",
+              "start": 2.43,
+              "end": 2.69,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " he",
+              "start": 2.69,
+              "end": 2.89,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " is",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " not",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " a",
+              "start": 3.19,
+              "end": 3.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lion.",
+              "start": 3.33,
+              "end": 3.57,
+              "probability": 0.8466796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Snout,",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "raw": "Therefore",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "raw": "another",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "raw": "prologue",
+          "start": 1.75,
+          "end": 2.25
+        },
+        {
+          "raw": "must",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "tell",
+          "start": 2.43,
+          "end": 2.69
+        },
+        {
+          "raw": "he",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "raw": "is",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "not",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "a",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "raw": "lion.",
+          "start": 3.33,
+          "end": 3.57
+        }
+      ],
+      "expected_tokens": [
+        "Snout.",
+        "Therefore",
+        "another",
+        "prologue",
+        "must",
+        "tell",
+        "he",
+        "is",
+        "not",
+        "a",
+        "lion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Snout,",
+          "start": 0.11,
+          "end": 0.81,
+          "key": "snout",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Therefore",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "therefore",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "another",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prologue",
+          "start": 1.75,
+          "end": 2.25,
+          "key": "prologue",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.43,
+          "end": 2.69,
+          "key": "tell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.69,
+          "end": 2.89,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.89,
+          "end": 3.03,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.03,
+          "end": 3.19,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.19,
+          "end": 3.33,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lion.",
+          "start": 3.33,
+          "end": 3.57,
+          "key": "lion",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Snout.",
+          "start": 0.11,
+          "end": 0.81
+        },
+        {
+          "text": "Therefore",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "text": "another",
+          "start": 1.43,
+          "end": 1.75
+        },
+        {
+          "text": "prologue",
+          "start": 1.75,
+          "end": 2.25
+        },
+        {
+          "text": "must",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "tell",
+          "start": 2.43,
+          "end": 2.69
+        },
+        {
+          "text": "he",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "text": "is",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "not",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "a",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "text": "lion.",
+          "start": 3.33,
+          "end": 3.57
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20411061006598175
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d9d3d24b53f5108143b2e6332885348b7a8eddeb02dddce6501241418b5836c",
+  "selected_reasons": []
+}

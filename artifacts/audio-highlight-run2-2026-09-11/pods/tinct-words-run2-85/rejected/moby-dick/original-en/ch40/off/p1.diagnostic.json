@@ -1,0 +1,671 @@
+{
+  "complete": true,
+  "signature": "d1fd0921b0b5427e6a00e16eeaf0b75482ed71f0cd250c38b81c0ef5f705fb56",
+  "attempts": [
+    {
+      "asr_seconds": 0.34385543689131737,
+      "alignment_seconds": 0.0006411480717360973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " For sale rises and discovers the watch standing lounging leaning and lying in various attitudes all singing in chorus",
+          "start": 0.05,
+          "end": 8.17,
+          "words": [
+            {
+              "text": " For",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.65673828125
+            },
+            {
+              "text": " sale",
+              "start": 0.59,
+              "end": 0.83,
+              "probability": 0.32177734375
+            },
+            {
+              "text": " rises",
+              "start": 0.83,
+              "end": 1.25,
+              "probability": 0.953125
+            },
+            {
+              "text": " and",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " discovers",
+              "start": 1.57,
+              "end": 1.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.97,
+              "end": 2.23,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " watch",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.96875
+            },
+            {
+              "text": " standing",
+              "start": 2.45,
+              "end": 2.97,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " lounging",
+              "start": 2.97,
+              "end": 4.09,
+              "probability": 0.7532552083333334
+            },
+            {
+              "text": " leaning",
+              "start": 4.09,
+              "end": 4.57,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " and",
+              "start": 4.57,
+              "end": 4.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lying",
+              "start": 4.93,
+              "end": 5.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 5.21,
+              "end": 5.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " various",
+              "start": 5.49,
+              "end": 5.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " attitudes",
+              "start": 5.85,
+              "end": 6.47,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " all",
+              "start": 6.47,
+              "end": 7.19,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " singing",
+              "start": 7.19,
+              "end": 7.57,
+              "probability": 0.978515625
+            },
+            {
+              "text": " in",
+              "start": 7.57,
+              "end": 7.79,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " chorus",
+              "start": 7.79,
+              "end": 8.17,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "For",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "sale",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "raw": "rises",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "raw": "and",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "discovers",
+          "start": 1.57,
+          "end": 1.97
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "raw": "watch",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "standing",
+          "start": 2.45,
+          "end": 2.97
+        },
+        {
+          "raw": "lounging",
+          "start": 2.97,
+          "end": 4.09
+        },
+        {
+          "raw": "leaning",
+          "start": 4.09,
+          "end": 4.57
+        },
+        {
+          "raw": "and",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "raw": "lying",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "raw": "in",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "raw": "various",
+          "start": 5.49,
+          "end": 5.85
+        },
+        {
+          "raw": "attitudes",
+          "start": 5.85,
+          "end": 6.47
+        },
+        {
+          "raw": "all",
+          "start": 6.47,
+          "end": 7.19
+        },
+        {
+          "raw": "singing",
+          "start": 7.19,
+          "end": 7.57
+        },
+        {
+          "raw": "in",
+          "start": 7.57,
+          "end": 7.79
+        },
+        {
+          "raw": "chorus",
+          "start": 7.79,
+          "end": 8.17
+        }
+      ],
+      "expected_tokens": [
+        "(_Foresail",
+        "rises",
+        "and",
+        "discovers",
+        "the",
+        "watch",
+        "standing,",
+        "lounging,",
+        "leaning,",
+        "and",
+        "lying",
+        "in",
+        "various",
+        "attitudes,",
+        "all",
+        "singing",
+        "in",
+        "chorus_.)"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          18,
+          2,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "For",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "for",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sale",
+          "start": 0.59,
+          "end": 0.83,
+          "key": "sale",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rises",
+          "start": 0.83,
+          "end": 1.25,
+          "key": "rises",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "discovers",
+          "start": 1.57,
+          "end": 1.97,
+          "key": "discovers",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.23,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "watch",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "standing",
+          "start": 2.45,
+          "end": 2.97,
+          "key": "standing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lounging",
+          "start": 2.97,
+          "end": 4.09,
+          "key": "lounging",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "leaning",
+          "start": 4.09,
+          "end": 4.57,
+          "key": "leaning",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.57,
+          "end": 4.93,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lying",
+          "start": 4.93,
+          "end": 5.21,
+          "key": "lying",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.21,
+          "end": 5.49,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "various",
+          "start": 5.49,
+          "end": 5.85,
+          "key": "various",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "attitudes",
+          "start": 5.85,
+          "end": 6.47,
+          "key": "attitudes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.47,
+          "end": 7.19,
+          "key": "all",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "singing",
+          "start": 7.19,
+          "end": 7.57,
+          "key": "singing",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.57,
+          "end": 7.79,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "chorus",
+          "start": 7.79,
+          "end": 8.17,
+          "key": "chorus",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "(_Foresail",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "rises",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "text": "and",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "text": "discovers",
+          "start": 1.57,
+          "end": 1.97
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "text": "watch",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "standing,",
+          "start": 2.45,
+          "end": 2.97
+        },
+        {
+          "text": "lounging,",
+          "start": 2.97,
+          "end": 4.09
+        },
+        {
+          "text": "leaning,",
+          "start": 4.09,
+          "end": 4.57
+        },
+        {
+          "text": "and",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "text": "lying",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "text": "in",
+          "start": 5.21,
+          "end": 5.49
+        },
+        {
+          "text": "various",
+          "start": 5.49,
+          "end": 5.85
+        },
+        {
+          "text": "attitudes,",
+          "start": 5.85,
+          "end": 6.47
+        },
+        {
+          "text": "all",
+          "start": 6.47,
+          "end": 7.19
+        },
+        {
+          "text": "singing",
+          "start": 7.19,
+          "end": 7.57
+        },
+        {
+          "text": "in",
+          "start": 7.57,
+          "end": 7.79
+        },
+        {
+          "text": "chorus_.)",
+          "start": 7.79,
+          "end": 8.17
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.3447520611807704
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3eb699294aae47425ee81cbb21cc4e77f389a114d9f2b08d5864328e924b7a61",
+  "selected_reasons": []
+}

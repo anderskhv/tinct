@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "a7323167b0f8926da6f637b781d3fd7b3fd61e369b7d953460ec036a258a6ee6",
+  "attempts": [
+    {
+      "asr_seconds": 0.30713238567113876,
+      "alignment_seconds": 0.00025152042508125305,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Romeo, Tut, I have lost myself. I am not here. This is not Romeo. He's some other where",
+          "start": 0.05,
+          "end": 5.99,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " Tut,",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " I",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " have",
+              "start": 2.03,
+              "end": 2.13,
+              "probability": 0.98046875
+            },
+            {
+              "text": " lost",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " myself.",
+              "start": 2.37,
+              "end": 2.79,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 2.97,
+              "end": 3.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " am",
+              "start": 3.05,
+              "end": 3.13,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " not",
+              "start": 3.13,
+              "end": 3.31,
+              "probability": 0.962890625
+            },
+            {
+              "text": " here.",
+              "start": 3.31,
+              "end": 3.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " This",
+              "start": 4.11,
+              "end": 4.21,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 4.21,
+              "end": 4.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 4.37,
+              "end": 4.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Romeo.",
+              "start": 4.61,
+              "end": 5.03,
+              "probability": 0.98828125
+            },
+            {
+              "text": " He's",
+              "start": 5.25,
+              "end": 5.43,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " some",
+              "start": 5.43,
+              "end": 5.53,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " other",
+              "start": 5.53,
+              "end": 5.73,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " where",
+              "start": 5.73,
+              "end": 5.99,
+              "probability": 0.41015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Tut,",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "have",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "raw": "lost",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "myself.",
+          "start": 2.37,
+          "end": 2.79
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.05
+        },
+        {
+          "raw": "am",
+          "start": 3.05,
+          "end": 3.13
+        },
+        {
+          "raw": "not",
+          "start": 3.13,
+          "end": 3.31
+        },
+        {
+          "raw": "here.",
+          "start": 3.31,
+          "end": 3.59
+        },
+        {
+          "raw": "This",
+          "start": 4.11,
+          "end": 4.21
+        },
+        {
+          "raw": "is",
+          "start": 4.21,
+          "end": 4.37
+        },
+        {
+          "raw": "not",
+          "start": 4.37,
+          "end": 4.61
+        },
+        {
+          "raw": "Romeo.",
+          "start": 4.61,
+          "end": 5.03
+        },
+        {
+          "raw": "He's",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "raw": "some",
+          "start": 5.43,
+          "end": 5.53
+        },
+        {
+          "raw": "other",
+          "start": 5.53,
+          "end": 5.73
+        },
+        {
+          "raw": "where",
+          "start": 5.73,
+          "end": 5.99
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "Tut!",
+        "I",
+        "have",
+        "lost",
+        "myself;",
+        "I",
+        "am",
+        "not",
+        "here.",
+        "This",
+        "is",
+        "not",
+        "Romeo,",
+        "he's",
+        "some",
+        "other",
+        "where."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tut,",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "tut",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.03,
+          "end": 2.13,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "lost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "myself.",
+          "start": 2.37,
+          "end": 2.79,
+          "key": "myself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.97,
+          "end": 3.05,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.05,
+          "end": 3.13,
+          "key": "am",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.13,
+          "end": 3.31,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 3.31,
+          "end": 3.59,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.11,
+          "end": 4.21,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.21,
+          "end": 4.37,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.37,
+          "end": 4.61,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Romeo.",
+          "start": 4.61,
+          "end": 5.03,
+          "key": "romeo",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 5.25,
+          "end": 5.43,
+          "key": "hes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 5.43,
+          "end": 5.53,
+          "key": "some",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 5.53,
+          "end": 5.73,
+          "key": "other",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 5.73,
+          "end": 5.99,
+          "key": "where",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Tut!",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "I",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "have",
+          "start": 2.03,
+          "end": 2.13
+        },
+        {
+          "text": "lost",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "myself;",
+          "start": 2.37,
+          "end": 2.79
+        },
+        {
+          "text": "I",
+          "start": 2.97,
+          "end": 3.05
+        },
+        {
+          "text": "am",
+          "start": 3.05,
+          "end": 3.13
+        },
+        {
+          "text": "not",
+          "start": 3.13,
+          "end": 3.31
+        },
+        {
+          "text": "here.",
+          "start": 3.31,
+          "end": 3.59
+        },
+        {
+          "text": "This",
+          "start": 4.11,
+          "end": 4.21
+        },
+        {
+          "text": "is",
+          "start": 4.21,
+          "end": 4.37
+        },
+        {
+          "text": "not",
+          "start": 4.37,
+          "end": 4.61
+        },
+        {
+          "text": "Romeo,",
+          "start": 4.61,
+          "end": 5.03
+        },
+        {
+          "text": "he's",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "text": "some",
+          "start": 5.43,
+          "end": 5.53
+        },
+        {
+          "text": "other",
+          "start": 5.53,
+          "end": 5.73
+        },
+        {
+          "text": "where.",
+          "start": 5.73,
+          "end": 5.99
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30748953949660063
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "825666853413bbdee29b611553a336c47587d08830c9d6db1112608b5485bd43",
+  "selected_reasons": []
+}

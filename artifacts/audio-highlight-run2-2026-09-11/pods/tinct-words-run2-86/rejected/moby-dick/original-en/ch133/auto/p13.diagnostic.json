@@ -1,0 +1,2293 @@
+{
+  "complete": true,
+  "signature": "c9e7ca3300ab28b72e14ca5ed695316df775cc76174acb13994a2ce1047d884c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3470696806907654,
+      "alignment_seconds": 0.0007877983152866364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Be dumb, man! Stand by the braces! Hard down the helm!—brace up! Shiver her!—shiver her!—So; well that! Boats, boats!\"",
+        "hotwords": "Be, Stand, Hard, Shiver"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Be dumb, man! Stand by the braces! Hard down the helm!—brace up! Shiver her!—shiver her!—so—well that! Boats, boats!",
+          "start": 0.08,
+          "end": 7.24,
+          "words": [
+            {
+              "text": " Be",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.689453125
+            },
+            {
+              "text": " dumb,",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " man!",
+              "start": 1.08,
+              "end": 1.14,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Stand",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " by",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " braces!",
+              "start": 1.8,
+              "end": 2.18,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Hard",
+              "start": 2.5,
+              "end": 2.56,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " down",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " helm",
+              "start": 2.9,
+              "end": 3.18,
+              "probability": 0.978515625
+            },
+            {
+              "text": "!—brace",
+              "start": 3.18,
+              "end": 3.82,
+              "probability": 0.3012485106786092
+            },
+            {
+              "text": " up!",
+              "start": 3.82,
+              "end": 4.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Shiver",
+              "start": 4.32,
+              "end": 4.38,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " her",
+              "start": 4.38,
+              "end": 4.64,
+              "probability": 0.9892578125
+            },
+            {
+              "text": "!—shiver",
+              "start": 4.64,
+              "end": 5.14,
+              "probability": 0.714935302734375
+            },
+            {
+              "text": " her",
+              "start": 5.14,
+              "end": 5.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "!—so—well",
+              "start": 5.44,
+              "end": 6.24,
+              "probability": 0.6271484375
+            },
+            {
+              "text": " that!",
+              "start": 6.24,
+              "end": 6.52,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " Boats,",
+              "start": 6.76,
+              "end": 6.98,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " boats!",
+              "start": 7.24,
+              "end": 7.24,
+              "probability": 0.677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "dumb,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "man!",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "raw": "Stand",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "by",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "braces!",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "raw": "Hard",
+          "start": 2.5,
+          "end": 2.56
+        },
+        {
+          "raw": "down",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "helm",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "raw": "!—brace",
+          "start": 3.18,
+          "end": 3.82
+        },
+        {
+          "raw": "up!",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "raw": "Shiver",
+          "start": 4.32,
+          "end": 4.38
+        },
+        {
+          "raw": "her",
+          "start": 4.38,
+          "end": 4.64
+        },
+        {
+          "raw": "!—shiver",
+          "start": 4.64,
+          "end": 5.14
+        },
+        {
+          "raw": "her",
+          "start": 5.14,
+          "end": 5.44
+        },
+        {
+          "raw": "!—so—well",
+          "start": 5.44,
+          "end": 6.24
+        },
+        {
+          "raw": "that!",
+          "start": 6.24,
+          "end": 6.52
+        },
+        {
+          "raw": "Boats,",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "raw": "boats!",
+          "start": 7.24,
+          "end": 7.24
+        }
+      ],
+      "expected_tokens": [
+        "\"Be",
+        "dumb,",
+        "man!",
+        "Stand",
+        "by",
+        "the",
+        "braces!",
+        "Hard",
+        "down",
+        "the",
+        "helm!—brace",
+        "up!",
+        "Shiver",
+        "her!—shiver",
+        "her!—So;",
+        "well",
+        "that!",
+        "Boats,",
+        "boats!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          13,
+          16,
+          14,
+          18
+        ],
+        [
+          "equal",
+          16,
+          19,
+          18,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          13,
+          16,
+          14,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "be",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dumb,",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "dumb",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man!",
+          "start": 1.08,
+          "end": 1.14,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Stand",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "stand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "braces!",
+          "start": 1.8,
+          "end": 2.18,
+          "key": "braces",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hard",
+          "start": 2.5,
+          "end": 2.56,
+          "key": "hard",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "down",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "helm",
+          "start": 2.9,
+          "end": 3.18,
+          "key": "helm",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "!—brace",
+          "start": 3.18,
+          "end": 3.82,
+          "key": "brace",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "up!",
+          "start": 3.82,
+          "end": 4.1,
+          "key": "up",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Shiver",
+          "start": 4.32,
+          "end": 4.38,
+          "key": "shiver",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.38,
+          "end": 4.64,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "!—shiver",
+          "start": 4.64,
+          "end": 5.14,
+          "key": "shiver",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.14,
+          "end": 5.44,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "!—so—well",
+          "start": 5.44,
+          "end": 6.24,
+          "key": "sowell",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that!",
+          "start": 6.24,
+          "end": 6.52,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Boats,",
+          "start": 6.76,
+          "end": 6.98,
+          "key": "boats",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "boats!",
+          "start": 7.24,
+          "end": 7.24,
+          "key": "boats",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Be",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "dumb,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "man!",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "text": "Stand",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "by",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "the",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "braces!",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "text": "Hard",
+          "start": 2.5,
+          "end": 2.56
+        },
+        {
+          "text": "down",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "helm!—brace",
+          "start": 2.9,
+          "end": 3.36
+        },
+        {
+          "text": "up!",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "text": "Shiver",
+          "start": 4.32,
+          "end": 4.38
+        },
+        {
+          "text": "her!—shiver",
+          "start": 4.38,
+          "end": 5.31
+        },
+        {
+          "text": "her!—So;",
+          "start": 5.31,
+          "end": 5.775
+        },
+        {
+          "text": "well",
+          "start": 5.775,
+          "end": 6.008
+        },
+        {
+          "text": "that!",
+          "start": 6.24,
+          "end": 6.52
+        },
+        {
+          "text": "Boats,",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "text": "boats!\"",
+          "start": 7.24,
+          "end": 7.24
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 21,
+        "matched_words": 15
+      },
+      "match_ratio": 0.7894736842105263,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3481329046189785
+    },
+    {
+      "asr_seconds": 0.3780498839914799,
+      "alignment_seconds": 0.0007432661950588226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Be, Stand, Hard, Shiver"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Be dumb, man. Stand by the braces, hard down the helm. Brace up, shiver her. Shiver her. So well that, boats, boats.",
+          "start": 0.08,
+          "end": 7.28,
+          "words": [
+            {
+              "text": " Be",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.689453125
+            },
+            {
+              "text": " dumb,",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " man.",
+              "start": 1.08,
+              "end": 1.14,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Stand",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " by",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " braces,",
+              "start": 1.8,
+              "end": 2.16,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hard",
+              "start": 2.5,
+              "end": 2.56,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " down",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " helm.",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Brace",
+              "start": 3.76,
+              "end": 3.9,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " up,",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.9921875
+            },
+            {
+              "text": " shiver",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " her.",
+              "start": 4.42,
+              "end": 4.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Shiver",
+              "start": 5.0,
+              "end": 5.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " her.",
+              "start": 5.14,
+              "end": 5.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " So",
+              "start": 5.76,
+              "end": 5.98,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " well",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.61328125
+            },
+            {
+              "text": " that,",
+              "start": 6.24,
+              "end": 6.52,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " boats,",
+              "start": 6.72,
+              "end": 6.9,
+              "probability": 0.833984375
+            },
+            {
+              "text": " boats.",
+              "start": 7.16,
+              "end": 7.28,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "dumb,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "man.",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "raw": "Stand",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "by",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "braces,",
+          "start": 1.8,
+          "end": 2.16
+        },
+        {
+          "raw": "hard",
+          "start": 2.5,
+          "end": 2.56
+        },
+        {
+          "raw": "down",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "helm.",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "Brace",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "raw": "up,",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "shiver",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "her.",
+          "start": 4.42,
+          "end": 4.66
+        },
+        {
+          "raw": "Shiver",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "raw": "her.",
+          "start": 5.14,
+          "end": 5.42
+        },
+        {
+          "raw": "So",
+          "start": 5.76,
+          "end": 5.98
+        },
+        {
+          "raw": "well",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "raw": "that,",
+          "start": 6.24,
+          "end": 6.52
+        },
+        {
+          "raw": "boats,",
+          "start": 6.72,
+          "end": 6.9
+        },
+        {
+          "raw": "boats.",
+          "start": 7.16,
+          "end": 7.28
+        }
+      ],
+      "expected_tokens": [
+        "\"Be",
+        "dumb,",
+        "man!",
+        "Stand",
+        "by",
+        "the",
+        "braces!",
+        "Hard",
+        "down",
+        "the",
+        "helm!—brace",
+        "up!",
+        "Shiver",
+        "her!—shiver",
+        "her!—So;",
+        "well",
+        "that!",
+        "Boats,",
+        "boats!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          13,
+          15,
+          14,
+          18
+        ],
+        [
+          "equal",
+          15,
+          19,
+          18,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          13,
+          15,
+          14,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "be",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dumb,",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "dumb",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 1.08,
+          "end": 1.14,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Stand",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "stand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "braces,",
+          "start": 1.8,
+          "end": 2.16,
+          "key": "braces",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 2.5,
+          "end": 2.56,
+          "key": "hard",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "down",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "helm.",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "helm",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Brace",
+          "start": 3.76,
+          "end": 3.9,
+          "key": "brace",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "up",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shiver",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "shiver",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 4.42,
+          "end": 4.66,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Shiver",
+          "start": 5.0,
+          "end": 5.14,
+          "key": "shiver",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 5.14,
+          "end": 5.42,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 5.76,
+          "end": 5.98,
+          "key": "so",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 5.98,
+          "end": 6.24,
+          "key": "well",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 6.24,
+          "end": 6.52,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "boats,",
+          "start": 6.72,
+          "end": 6.9,
+          "key": "boats",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "boats.",
+          "start": 7.16,
+          "end": 7.28,
+          "key": "boats",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Be",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "dumb,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "man!",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "text": "Stand",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "by",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "the",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "braces!",
+          "start": 1.8,
+          "end": 2.16
+        },
+        {
+          "text": "Hard",
+          "start": 2.5,
+          "end": 2.56
+        },
+        {
+          "text": "down",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "helm!—brace",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "text": "up!",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "Shiver",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "her!—shiver",
+          "start": 4.42,
+          "end": 5.2
+        },
+        {
+          "text": "her!—So;",
+          "start": 5.2,
+          "end": 5.59
+        },
+        {
+          "text": "well",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "text": "that!",
+          "start": 6.24,
+          "end": 6.52
+        },
+        {
+          "text": "Boats,",
+          "start": 6.72,
+          "end": 6.9
+        },
+        {
+          "text": "boats!\"",
+          "start": 7.16,
+          "end": 7.28
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 22,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.37907716259360313
+    },
+    {
+      "asr_seconds": 0.40152182430028915,
+      "alignment_seconds": 0.000585600733757019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Be dumb, man, stand by the braces, hard down the helm.",
+          "start": 0.08,
+          "end": 3.2,
+          "words": [
+            {
+              "text": " Be",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.689453125
+            },
+            {
+              "text": " dumb,",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " man,",
+              "start": 1.1,
+              "end": 1.14,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " stand",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " by",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " braces,",
+              "start": 1.8,
+              "end": 2.18,
+              "probability": 0.9921875
+            },
+            {
+              "text": " hard",
+              "start": 2.5,
+              "end": 2.56,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " down",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " the",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " helm.",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " Brace up, shiver her, shiver her, so well that, boats, boats.",
+          "start": 3.76,
+          "end": 7.3,
+          "words": [
+            {
+              "text": " Brace",
+              "start": 3.76,
+              "end": 3.9,
+              "probability": 0.984375
+            },
+            {
+              "text": " up,",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " shiver",
+              "start": 4.28,
+              "end": 4.42,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " her,",
+              "start": 4.42,
+              "end": 4.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shiver",
+              "start": 4.88,
+              "end": 5.16,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " her,",
+              "start": 5.16,
+              "end": 5.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " so",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " well",
+              "start": 5.98,
+              "end": 6.24,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " that,",
+              "start": 6.24,
+              "end": 6.52,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " boats,",
+              "start": 6.72,
+              "end": 6.9,
+              "probability": 0.8671875
+            },
+            {
+              "text": " boats.",
+              "start": 7.16,
+              "end": 7.3,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "dumb,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "man,",
+          "start": 1.1,
+          "end": 1.14
+        },
+        {
+          "raw": "stand",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "by",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "braces,",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "raw": "hard",
+          "start": 2.5,
+          "end": 2.56
+        },
+        {
+          "raw": "down",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "helm.",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "Brace",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "raw": "up,",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "shiver",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "raw": "her,",
+          "start": 4.42,
+          "end": 4.66
+        },
+        {
+          "raw": "shiver",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "raw": "her,",
+          "start": 5.16,
+          "end": 5.48
+        },
+        {
+          "raw": "so",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "raw": "well",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "raw": "that,",
+          "start": 6.24,
+          "end": 6.52
+        },
+        {
+          "raw": "boats,",
+          "start": 6.72,
+          "end": 6.9
+        },
+        {
+          "raw": "boats.",
+          "start": 7.16,
+          "end": 7.3
+        }
+      ],
+      "expected_tokens": [
+        "\"Be",
+        "dumb,",
+        "man!",
+        "Stand",
+        "by",
+        "the",
+        "braces!",
+        "Hard",
+        "down",
+        "the",
+        "helm!—brace",
+        "up!",
+        "Shiver",
+        "her!—shiver",
+        "her!—So;",
+        "well",
+        "that!",
+        "Boats,",
+        "boats!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          13,
+          15,
+          14,
+          18
+        ],
+        [
+          "equal",
+          15,
+          19,
+          18,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          13,
+          15,
+          14,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Be",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "be",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dumb,",
+          "start": 0.54,
+          "end": 0.8,
+          "key": "dumb",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 1.1,
+          "end": 1.14,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "stand",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "braces,",
+          "start": 1.8,
+          "end": 2.18,
+          "key": "braces",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 2.5,
+          "end": 2.56,
+          "key": "hard",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "down",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "helm.",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "helm",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Brace",
+          "start": 3.76,
+          "end": 3.9,
+          "key": "brace",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "up",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shiver",
+          "start": 4.28,
+          "end": 4.42,
+          "key": "shiver",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 4.42,
+          "end": 4.66,
+          "key": "her",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shiver",
+          "start": 4.88,
+          "end": 5.16,
+          "key": "shiver",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 5.16,
+          "end": 5.48,
+          "key": "her",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.72,
+          "end": 5.98,
+          "key": "so",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 5.98,
+          "end": 6.24,
+          "key": "well",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 6.24,
+          "end": 6.52,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "boats,",
+          "start": 6.72,
+          "end": 6.9,
+          "key": "boats",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "boats.",
+          "start": 7.16,
+          "end": 7.3,
+          "key": "boats",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Be",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "dumb,",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "man!",
+          "start": 1.1,
+          "end": 1.14
+        },
+        {
+          "text": "Stand",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "by",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "the",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "braces!",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "text": "Hard",
+          "start": 2.5,
+          "end": 2.56
+        },
+        {
+          "text": "down",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "the",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "helm!—brace",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "text": "up!",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "Shiver",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "text": "her!—shiver",
+          "start": 4.42,
+          "end": 5.2
+        },
+        {
+          "text": "her!—So;",
+          "start": 5.2,
+          "end": 5.59
+        },
+        {
+          "text": "well",
+          "start": 5.98,
+          "end": 6.24
+        },
+        {
+          "text": "that!",
+          "start": 6.24,
+          "end": 6.52
+        },
+        {
+          "text": "Boats,",
+          "start": 6.72,
+          "end": 6.9
+        },
+        {
+          "text": "boats!\"",
+          "start": 7.16,
+          "end": 7.3
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 22,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.402329258620739
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "055bb62bd8b59d058f6ebbcf114082321730999c2d2ec7306e19b9c9d066869f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

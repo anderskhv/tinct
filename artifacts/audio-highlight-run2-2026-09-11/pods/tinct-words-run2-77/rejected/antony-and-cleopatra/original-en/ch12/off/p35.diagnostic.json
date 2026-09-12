@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "5e0aeef2ba8558d730f1b881976e8d7eeae967affb5ee0169cd7bd0521d3b815",
+  "attempts": [
+    {
+      "asr_seconds": 0.12594555399846286,
+      "alignment_seconds": 0.0001665250165387988,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, tea's so, and the tears of it are wet.",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.896728515625
+            },
+            {
+              "text": " tea's",
+              "start": 1.21,
+              "end": 1.59,
+              "probability": 0.373992919921875
+            },
+            {
+              "text": " so,",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.96484375
+            },
+            {
+              "text": " and",
+              "start": 2.01,
+              "end": 2.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tears",
+              "start": 2.19,
+              "end": 2.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 2.59,
+              "end": 2.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 2.67,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wet.",
+              "start": 2.77,
+              "end": 3.03,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "tea's",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "raw": "so,",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "and",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "raw": "the",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "tears",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "raw": "of",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "it",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "raw": "are",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "raw": "wet.",
+          "start": 2.77,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "'Tis",
+        "so,",
+        "and",
+        "the",
+        "tears",
+        "of",
+        "it",
+        "are",
+        "wet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tea's",
+          "start": 1.21,
+          "end": 1.59,
+          "key": "teas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.01,
+          "end": 2.09,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tears",
+          "start": 2.19,
+          "end": 2.43,
+          "key": "tears",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.59,
+          "end": 2.67,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.67,
+          "end": 2.77,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wet.",
+          "start": 2.77,
+          "end": 3.03,
+          "key": "wet",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "'Tis",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "text": "so,",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "and",
+          "start": 2.01,
+          "end": 2.09
+        },
+        {
+          "text": "the",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "tears",
+          "start": 2.19,
+          "end": 2.43
+        },
+        {
+          "text": "of",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "it",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "text": "are",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "text": "wet.",
+          "start": 2.77,
+          "end": 3.03
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.1261697410081979
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a84aa3800c9fd62ad1d0f195c79e4a8d10dc45d1167e8d4932b72330489eef9b",
+  "selected_reasons": []
+}

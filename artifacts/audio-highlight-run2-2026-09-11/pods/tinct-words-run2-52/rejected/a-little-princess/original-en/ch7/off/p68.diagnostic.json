@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "fd2eb24886ab832f0237eaa35819202ce7bdb0539106e2cacda4cf40d1da0e14",
+  "attempts": [
+    {
+      "asr_seconds": 0.33179130405187607,
+      "alignment_seconds": 0.0004090443253517151,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " birthday presents,\" said Mr. Barrow in the same critical manner,",
+          "start": 0.05,
+          "end": 4.01,
+          "words": [
+            {
+              "text": " birthday",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.0045318603515625
+            },
+            {
+              "text": " presents,\"",
+              "start": 0.83,
+              "end": 1.63,
+              "probability": 0.81640625
+            },
+            {
+              "text": " said",
+              "start": 1.63,
+              "end": 2.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Mr.",
+              "start": 2.05,
+              "end": 2.35,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Barrow",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.9765625
+            },
+            {
+              "text": " in",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " the",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " same",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " critical",
+              "start": 3.17,
+              "end": 3.57,
+              "probability": 0.98828125
+            },
+            {
+              "text": " manner,",
+              "start": 3.57,
+              "end": 4.01,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " to a child eleven years old, mad extravagance, I call it.",
+          "start": 4.47,
+          "end": 8.35,
+          "words": [
+            {
+              "text": " to",
+              "start": 4.47,
+              "end": 4.69,
+              "probability": 0.07049560546875
+            },
+            {
+              "text": " a",
+              "start": 4.69,
+              "end": 4.85,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " child",
+              "start": 4.85,
+              "end": 5.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " eleven",
+              "start": 5.17,
+              "end": 5.49,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " years",
+              "start": 5.49,
+              "end": 5.83,
+              "probability": 0.95703125
+            },
+            {
+              "text": " old,",
+              "start": 5.83,
+              "end": 6.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mad",
+              "start": 6.77,
+              "end": 6.91,
+              "probability": 0.2301025390625
+            },
+            {
+              "text": " extravagance,",
+              "start": 6.91,
+              "end": 7.71,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " I",
+              "start": 7.79,
+              "end": 7.85,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " call",
+              "start": 7.85,
+              "end": 8.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 8.09,
+              "end": 8.35,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "birthday",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "presents,\"",
+          "start": 0.83,
+          "end": 1.63
+        },
+        {
+          "raw": "said",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.05,
+          "end": 2.35
+        },
+        {
+          "raw": "Barrow",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "in",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "the",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "same",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "raw": "critical",
+          "start": 3.17,
+          "end": 3.57
+        },
+        {
+          "raw": "manner,",
+          "start": 3.57,
+          "end": 4.01
+        },
+        {
+          "raw": "to",
+          "start": 4.47,
+          "end": 4.69
+        },
+        {
+          "raw": "a",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "raw": "child",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "raw": "eleven",
+          "start": 5.17,
+          "end": 5.49
+        },
+        {
+          "raw": "years",
+          "start": 5.49,
+          "end": 5.83
+        },
+        {
+          "raw": "old,",
+          "start": 5.83,
+          "end": 6.23
+        },
+        {
+          "raw": "mad",
+          "start": 6.77,
+          "end": 6.91
+        },
+        {
+          "raw": "extravagance,",
+          "start": 6.91,
+          "end": 7.71
+        },
+        {
+          "raw": "I",
+          "start": 7.79,
+          "end": 7.85
+        },
+        {
+          "raw": "call",
+          "start": 7.85,
+          "end": 8.09
+        },
+        {
+          "raw": "it.",
+          "start": 8.09,
+          "end": 8.35
+        }
+      ],
+      "expected_tokens": [
+        "\"Birthday",
+        "presents,\"",
+        "said",
+        "Mr.",
+        "Barrow",
+        "in",
+        "the",
+        "same",
+        "critical",
+        "manner,",
+        "\"to",
+        "a",
+        "child",
+        "eleven",
+        "years",
+        "old!",
+        "Mad",
+        "extravagance,",
+        "I",
+        "call",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "birthday",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "birthday",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "presents,\"",
+          "start": 0.83,
+          "end": 1.63,
+          "key": "presents",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.63,
+          "end": 2.05,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.05,
+          "end": 2.35,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Barrow",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "barrow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.67,
+          "end": 2.79,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.79,
+          "end": 2.91,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "same",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "critical",
+          "start": 3.17,
+          "end": 3.57,
+          "key": "critical",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "manner,",
+          "start": 3.57,
+          "end": 4.01,
+          "key": "manner",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.47,
+          "end": 4.69,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.69,
+          "end": 4.85,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "child",
+          "start": 4.85,
+          "end": 5.17,
+          "key": "child",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "eleven",
+          "start": 5.17,
+          "end": 5.49,
+          "key": "eleven",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 5.49,
+          "end": 5.83,
+          "key": "years",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "old,",
+          "start": 5.83,
+          "end": 6.23,
+          "key": "old",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mad",
+          "start": 6.77,
+          "end": 6.91,
+          "key": "mad",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "extravagance,",
+          "start": 6.91,
+          "end": 7.71,
+          "key": "extravagance",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.79,
+          "end": 7.85,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 7.85,
+          "end": 8.09,
+          "key": "call",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.09,
+          "end": 8.35,
+          "key": "it",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Birthday",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "presents,\"",
+          "start": 0.83,
+          "end": 1.63
+        },
+        {
+          "text": "said",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "text": "Mr.",
+          "start": 2.05,
+          "end": 2.35
+        },
+        {
+          "text": "Barrow",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "in",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "the",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "same",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "text": "critical",
+          "start": 3.17,
+          "end": 3.57
+        },
+        {
+          "text": "manner,",
+          "start": 3.57,
+          "end": 4.01
+        },
+        {
+          "text": "\"to",
+          "start": 4.47,
+          "end": 4.69
+        },
+        {
+          "text": "a",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "text": "child",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "text": "eleven",
+          "start": 5.17,
+          "end": 5.49
+        },
+        {
+          "text": "years",
+          "start": 5.49,
+          "end": 5.83
+        },
+        {
+          "text": "old!",
+          "start": 5.83,
+          "end": 6.23
+        },
+        {
+          "text": "Mad",
+          "start": 6.77,
+          "end": 6.91
+        },
+        {
+          "text": "extravagance,",
+          "start": 6.91,
+          "end": 7.71
+        },
+        {
+          "text": "I",
+          "start": 7.79,
+          "end": 7.85
+        },
+        {
+          "text": "call",
+          "start": 7.85,
+          "end": 8.09
+        },
+        {
+          "text": "it.\"",
+          "start": 8.09,
+          "end": 8.35
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33235466107726097
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4e955a8cc040280848c3d61418ef84cc03d98838c93499e5c2ec7eeecf23fdf3",
+  "selected_reasons": []
+}

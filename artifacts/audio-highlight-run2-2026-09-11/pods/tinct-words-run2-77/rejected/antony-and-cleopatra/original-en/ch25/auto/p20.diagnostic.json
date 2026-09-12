@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "97fa0a701203d7e6d52781811e797b62553aa7e4d528ef3833e8f2e9c71283b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.084060502005741,
+      "alignment_seconds": 0.00013821502216160297,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enobarbus.",
+        "hotwords": "Enobarbus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enobarbus.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Enobarbus.",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 0.2615807851155599
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enobarbus.",
+          "start": 0.02,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enobarbus.",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "enobarbus",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.02,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08423812800901942
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd6ac280325069b0c7c817ceb78ae3aace093b82d35cdc7097e431cfa98cb03a",
+  "selected_reasons": []
+}

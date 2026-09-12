@@ -1,0 +1,232 @@
+{
+  "complete": true,
+  "signature": "715fa6beb6b9bfcf15dea253982b9ec8770d82d6d4835f9255eb855e600689fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.07709747180342674,
+      "alignment_seconds": 8.798390626907349e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ingmar first!\" cried Hellgum.",
+        "hotwords": "Ingmar, Hellgum"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ingmar first!\" cried Hellgum.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Ingmar",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.837158203125
+            },
+            {
+              "text": " first",
+              "start": 0.75,
+              "end": 1.19,
+              "probability": 0.77294921875
+            },
+            {
+              "text": "!\"",
+              "start": 1.19,
+              "end": 1.65,
+              "probability": 0.0005011558532714844
+            },
+            {
+              "text": " cried",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Hellgum.",
+              "start": 1.73,
+              "end": 2.15,
+              "probability": 0.5187555948893229
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ingmar",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "first",
+          "start": 0.75,
+          "end": 1.19
+        },
+        {
+          "raw": "!\"",
+          "start": 1.19,
+          "end": 1.65
+        },
+        {
+          "raw": "cried",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "Hellgum.",
+          "start": 1.73,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "\"Ingmar",
+        "first!\"",
+        "cried",
+        "Hellgum."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ingmar",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "ingmar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 0.75,
+          "end": 1.19,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.19,
+          "end": 1.65,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hellgum.",
+          "start": 1.73,
+          "end": 2.15,
+          "key": "hellgum",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ingmar",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "first!\"",
+          "start": 0.75,
+          "end": 1.19
+        },
+        {
+          "text": "cried",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "Hellgum.",
+          "start": 1.73,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07721695490181446
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e499a558bb32d991004482eb28858cd641bd1bc08c97dc2f45f2877e54bc409a",
+  "selected_reasons": []
+}

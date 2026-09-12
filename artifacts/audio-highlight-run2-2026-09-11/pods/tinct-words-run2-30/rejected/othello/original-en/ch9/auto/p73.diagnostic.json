@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "54ca813abdf072ec94053a10577fefef15c1a77f28eff594eab18e590fa5f2b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08428438613191247,
+      "alignment_seconds": 8.944002911448479e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Ha?",
+        "hotwords": "Othello, Ha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Ha.",
+          "start": 0.05,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.42194513479868573
+            },
+            {
+              "text": " Ha.",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.04461669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Ha.",
+          "start": 1.05,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Ha?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ha.",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Ha?",
+          "start": 1.05,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08440370624884963
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "92fe3da98227e0c676b933ed526e6815007cd166cee60cf6a3969e032d239964",
+  "selected_reasons": []
+}

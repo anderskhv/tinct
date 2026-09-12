@@ -1,0 +1,1710 @@
+{
+  "complete": true,
+  "signature": "3338a31c5fcd7c694a5dce0ef0dddfd4dc406b94273e4ca8341149887463179d",
+  "attempts": [
+    {
+      "asr_seconds": 0.4787408160045743,
+      "alignment_seconds": 0.0009376583620905876,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_A long flourish. They all cry \"Martius, Martius!\" and cast up their caps and lances. Cominius and Lartius stand bare._]",
+        "hotwords": "They, Martius, Cominius, Lartius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They all cry, Martius, Martius, and cast up their caps and lances. Cominius and Lartius stand bare.",
+          "start": 0.08,
+          "end": 8.02,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.133056640625
+            },
+            {
+              "text": " all",
+              "start": 0.6,
+              "end": 0.8,
+              "probability": 0.6015625
+            },
+            {
+              "text": " cry,",
+              "start": 0.8,
+              "end": 2.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Martius,",
+              "start": 2.52,
+              "end": 2.96,
+              "probability": 0.43023681640625
+            },
+            {
+              "text": " Martius,",
+              "start": 3.12,
+              "end": 3.54,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " and",
+              "start": 3.66,
+              "end": 4.1,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " cast",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " up",
+              "start": 4.34,
+              "end": 4.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " their",
+              "start": 4.54,
+              "end": 4.68,
+              "probability": 0.994140625
+            },
+            {
+              "text": " caps",
+              "start": 4.68,
+              "end": 4.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 4.98,
+              "end": 5.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " lances.",
+              "start": 5.2,
+              "end": 5.62,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Cominius",
+              "start": 6.4,
+              "end": 6.78,
+              "probability": 0.5833333333333334
+            },
+            {
+              "text": " and",
+              "start": 6.78,
+              "end": 6.98,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Lartius",
+              "start": 6.98,
+              "end": 7.4,
+              "probability": 0.6263821919759115
+            },
+            {
+              "text": " stand",
+              "start": 7.4,
+              "end": 7.68,
+              "probability": 0.95703125
+            },
+            {
+              "text": " bare.",
+              "start": 7.68,
+              "end": 8.02,
+              "probability": 0.96630859375
+            }
+          ]
+        },
+        {
+          "text": " They all cry, Martius, Lartius, and Lartius. Cominius and Lartius stand bare. Martius and Lartius stand bare.",
+          "start": 8.02,
+          "end": 8.22,
+          "words": [
+            {
+              "text": " They",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.0010013580322265625
+            },
+            {
+              "text": " all",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.0100860595703125
+            },
+            {
+              "text": " cry,",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 7.128715515136719e-05
+            },
+            {
+              "text": " Martius,",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 6.002187728881836e-05
+            },
+            {
+              "text": " Lartius,",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.0005179246266682943
+            },
+            {
+              "text": " and",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.17529296875
+            },
+            {
+              "text": " Lartius.",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.38494873046875
+            },
+            {
+              "text": " Cominius",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.002134223779042562
+            },
+            {
+              "text": " and",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.032623291015625
+            },
+            {
+              "text": " Lartius",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.9513346354166666
+            },
+            {
+              "text": " stand",
+              "start": 8.02,
+              "end": 8.02,
+              "probability": 0.00034928321838378906
+            },
+            {
+              "text": " bare.",
+              "start": 8.02,
+              "end": 8.08,
+              "probability": 0.00023889541625976562
+            },
+            {
+              "text": " Martius",
+              "start": 8.22,
+              "end": 8.22,
+              "probability": 0.49686717987060547
+            },
+            {
+              "text": " and",
+              "start": 8.22,
+              "end": 8.22,
+              "probability": 0.25634765625
+            },
+            {
+              "text": " Lartius",
+              "start": 8.22,
+              "end": 8.22,
+              "probability": 0.9915364583333334
+            },
+            {
+              "text": " stand",
+              "start": 8.22,
+              "end": 8.22,
+              "probability": 0.2388916015625
+            },
+            {
+              "text": " bare.",
+              "start": 8.22,
+              "end": 8.22,
+              "probability": 0.8955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "all",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "raw": "cry,",
+          "start": 0.8,
+          "end": 2.4
+        },
+        {
+          "raw": "Martius,",
+          "start": 2.52,
+          "end": 2.96
+        },
+        {
+          "raw": "Martius,",
+          "start": 3.12,
+          "end": 3.54
+        },
+        {
+          "raw": "and",
+          "start": 3.66,
+          "end": 4.1
+        },
+        {
+          "raw": "cast",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "up",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "raw": "their",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "raw": "caps",
+          "start": 4.68,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 4.98,
+          "end": 5.2
+        },
+        {
+          "raw": "lances.",
+          "start": 5.2,
+          "end": 5.62
+        },
+        {
+          "raw": "Cominius",
+          "start": 6.4,
+          "end": 6.78
+        },
+        {
+          "raw": "and",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "raw": "Lartius",
+          "start": 6.98,
+          "end": 7.4
+        },
+        {
+          "raw": "stand",
+          "start": 7.4,
+          "end": 7.68
+        },
+        {
+          "raw": "bare.",
+          "start": 7.68,
+          "end": 8.02
+        },
+        {
+          "raw": "They",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "all",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "cry,",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "Martius,",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "Lartius,",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "and",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "Lartius.",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "Cominius",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "and",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "Lartius",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "stand",
+          "start": 8.02,
+          "end": 8.02
+        },
+        {
+          "raw": "bare.",
+          "start": 8.02,
+          "end": 8.08
+        },
+        {
+          "raw": "Martius",
+          "start": 8.22,
+          "end": 8.22
+        },
+        {
+          "raw": "and",
+          "start": 8.22,
+          "end": 8.22
+        },
+        {
+          "raw": "Lartius",
+          "start": 8.22,
+          "end": 8.22
+        },
+        {
+          "raw": "stand",
+          "start": 8.22,
+          "end": 8.22
+        },
+        {
+          "raw": "bare.",
+          "start": 8.22,
+          "end": 8.22
+        }
+      ],
+      "expected_tokens": [
+        "[_A",
+        "long",
+        "flourish.",
+        "They",
+        "all",
+        "cry",
+        "\"Martius,",
+        "Martius!\"",
+        "and",
+        "cast",
+        "up",
+        "their",
+        "caps",
+        "and",
+        "lances.",
+        "Cominius",
+        "and",
+        "Lartius",
+        "stand",
+        "bare._]"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          20,
+          0,
+          17
+        ],
+        [
+          "insert",
+          20,
+          20,
+          17,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "insert",
+          20,
+          20,
+          17,
+          34
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.6,
+          "end": 0.8,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 0.8,
+          "end": 2.4,
+          "key": "cry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Martius,",
+          "start": 2.52,
+          "end": 2.96,
+          "key": "martius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Martius,",
+          "start": 3.12,
+          "end": 3.54,
+          "key": "martius",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.66,
+          "end": 4.1,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cast",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "cast",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 4.34,
+          "end": 4.54,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.54,
+          "end": 4.68,
+          "key": "their",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "caps",
+          "start": 4.68,
+          "end": 4.98,
+          "key": "caps",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.98,
+          "end": 5.2,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lances.",
+          "start": 5.2,
+          "end": 5.62,
+          "key": "lances",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Cominius",
+          "start": 6.4,
+          "end": 6.78,
+          "key": "cominius",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.78,
+          "end": 6.98,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Lartius",
+          "start": 6.98,
+          "end": 7.4,
+          "key": "lartius",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 7.4,
+          "end": 7.68,
+          "key": "stand",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bare.",
+          "start": 7.68,
+          "end": 8.02,
+          "key": "bare",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "they",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "all",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "cry",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Martius,",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "martius",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Lartius,",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "lartius",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Lartius.",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "lartius",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Cominius",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "cominius",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Lartius",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "lartius",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 8.02,
+          "end": 8.02,
+          "key": "stand",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "bare.",
+          "start": 8.02,
+          "end": 8.08,
+          "key": "bare",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Martius",
+          "start": 8.22,
+          "end": 8.22,
+          "key": "martius",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.22,
+          "end": 8.22,
+          "key": "and",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Lartius",
+          "start": 8.22,
+          "end": 8.22,
+          "key": "lartius",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 8.22,
+          "end": 8.22,
+          "key": "stand",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "bare.",
+          "start": 8.22,
+          "end": 8.22,
+          "key": "bare",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_A",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "long",
+          "start": 0.04,
+          "end": 0.06
+        },
+        {
+          "text": "flourish.",
+          "start": 0.06,
+          "end": 0.07
+        },
+        {
+          "text": "They",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "all",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "text": "cry",
+          "start": 0.8,
+          "end": 2.4
+        },
+        {
+          "text": "\"Martius,",
+          "start": 2.52,
+          "end": 2.96
+        },
+        {
+          "text": "Martius!\"",
+          "start": 3.12,
+          "end": 3.54
+        },
+        {
+          "text": "and",
+          "start": 3.66,
+          "end": 4.1
+        },
+        {
+          "text": "cast",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "up",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "text": "their",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "text": "caps",
+          "start": 4.68,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 4.98,
+          "end": 5.2
+        },
+        {
+          "text": "lances.",
+          "start": 5.2,
+          "end": 5.62
+        },
+        {
+          "text": "Cominius",
+          "start": 6.4,
+          "end": 6.78
+        },
+        {
+          "text": "and",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "text": "Lartius",
+          "start": 6.98,
+          "end": 7.4
+        },
+        {
+          "text": "stand",
+          "start": 7.4,
+          "end": 7.68
+        },
+        {
+          "text": "bare._]",
+          "start": 7.68,
+          "end": 8.02
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 34,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.4801929984241724
+    },
+    {
+      "asr_seconds": 0.3709828117862344,
+      "alignment_seconds": 0.0010050488635897636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "They, Martius, Cominius, Lartius"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " A long flourish. They all cry, Martius, Martius, and cast up their caps and lances. Cominius and Lartius stand bare.",
+          "start": 0.08,
+          "end": 8.0,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " long",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " flourish.",
+              "start": 0.84,
+              "end": 1.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " They",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " all",
+              "start": 1.86,
+              "end": 2.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cry,",
+              "start": 2.06,
+              "end": 2.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Martius,",
+              "start": 2.56,
+              "end": 2.96,
+              "probability": 0.45001220703125
+            },
+            {
+              "text": " Martius,",
+              "start": 3.12,
+              "end": 3.54,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " and",
+              "start": 3.74,
+              "end": 4.1,
+              "probability": 0.83203125
+            },
+            {
+              "text": " cast",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " up",
+              "start": 4.34,
+              "end": 4.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " their",
+              "start": 4.54,
+              "end": 4.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " caps",
+              "start": 4.68,
+              "end": 4.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 4.98,
+              "end": 5.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " lances.",
+              "start": 5.2,
+              "end": 5.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Cominius",
+              "start": 6.4,
+              "end": 6.78,
+              "probability": 0.5984700520833334
+            },
+            {
+              "text": " and",
+              "start": 6.78,
+              "end": 6.98,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Lartius",
+              "start": 6.98,
+              "end": 7.4,
+              "probability": 0.6267751057942709
+            },
+            {
+              "text": " stand",
+              "start": 7.4,
+              "end": 7.68,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " bare.",
+              "start": 7.68,
+              "end": 8.0,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "long",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "flourish.",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "raw": "They",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "all",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "raw": "cry,",
+          "start": 2.06,
+          "end": 2.4
+        },
+        {
+          "raw": "Martius,",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "raw": "Martius,",
+          "start": 3.12,
+          "end": 3.54
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 4.1
+        },
+        {
+          "raw": "cast",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "up",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "raw": "their",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "raw": "caps",
+          "start": 4.68,
+          "end": 4.98
+        },
+        {
+          "raw": "and",
+          "start": 4.98,
+          "end": 5.2
+        },
+        {
+          "raw": "lances.",
+          "start": 5.2,
+          "end": 5.6
+        },
+        {
+          "raw": "Cominius",
+          "start": 6.4,
+          "end": 6.78
+        },
+        {
+          "raw": "and",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "raw": "Lartius",
+          "start": 6.98,
+          "end": 7.4
+        },
+        {
+          "raw": "stand",
+          "start": 7.4,
+          "end": 7.68
+        },
+        {
+          "raw": "bare.",
+          "start": 7.68,
+          "end": 8.0
+        }
+      ],
+      "expected_tokens": [
+        "[_A",
+        "long",
+        "flourish.",
+        "They",
+        "all",
+        "cry",
+        "\"Martius,",
+        "Martius!\"",
+        "and",
+        "cast",
+        "up",
+        "their",
+        "caps",
+        "and",
+        "lances.",
+        "Cominius",
+        "and",
+        "Lartius",
+        "stand",
+        "bare._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "long",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "flourish.",
+          "start": 0.84,
+          "end": 1.32,
+          "key": "flourish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.86,
+          "end": 2.06,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 2.06,
+          "end": 2.4,
+          "key": "cry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Martius,",
+          "start": 2.56,
+          "end": 2.96,
+          "key": "martius",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Martius,",
+          "start": 3.12,
+          "end": 3.54,
+          "key": "martius",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 4.1,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cast",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "cast",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 4.34,
+          "end": 4.54,
+          "key": "up",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.54,
+          "end": 4.68,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "caps",
+          "start": 4.68,
+          "end": 4.98,
+          "key": "caps",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.98,
+          "end": 5.2,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "lances.",
+          "start": 5.2,
+          "end": 5.6,
+          "key": "lances",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Cominius",
+          "start": 6.4,
+          "end": 6.78,
+          "key": "cominius",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.78,
+          "end": 6.98,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Lartius",
+          "start": 6.98,
+          "end": 7.4,
+          "key": "lartius",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 7.4,
+          "end": 7.68,
+          "key": "stand",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "bare.",
+          "start": 7.68,
+          "end": 8.0,
+          "key": "bare",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_A",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "long",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "flourish.",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "text": "They",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "all",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "text": "cry",
+          "start": 2.06,
+          "end": 2.4
+        },
+        {
+          "text": "\"Martius,",
+          "start": 2.56,
+          "end": 2.96
+        },
+        {
+          "text": "Martius!\"",
+          "start": 3.12,
+          "end": 3.54
+        },
+        {
+          "text": "and",
+          "start": 3.74,
+          "end": 4.1
+        },
+        {
+          "text": "cast",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "up",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "text": "their",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "text": "caps",
+          "start": 4.68,
+          "end": 4.98
+        },
+        {
+          "text": "and",
+          "start": 4.98,
+          "end": 5.2
+        },
+        {
+          "text": "lances.",
+          "start": 5.2,
+          "end": 5.6
+        },
+        {
+          "text": "Cominius",
+          "start": 6.4,
+          "end": 6.78
+        },
+        {
+          "text": "and",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "text": "Lartius",
+          "start": 6.98,
+          "end": 7.4
+        },
+        {
+          "text": "stand",
+          "start": 7.4,
+          "end": 7.68
+        },
+        {
+          "text": "bare._]",
+          "start": 7.68,
+          "end": 8.0
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3725041300058365
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "2f41e43b735a37e7711c5783caef655fdddd6f08f3bea79b96dbbd62b24ac9b0",
+  "selected_reasons": []
+}

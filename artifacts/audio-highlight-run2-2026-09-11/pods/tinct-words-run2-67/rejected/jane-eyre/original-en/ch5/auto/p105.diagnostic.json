@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "4565f2d2e33b53cbb34512860fceb71f69c66e385753cff3d98c2ea9d386a5c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11473007872700691,
+      "alignment_seconds": 0.0002729068510234356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Two years.\"",
+        "hotwords": "Two"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Two years.",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Two",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.541015625
+            },
+            {
+              "text": " years.",
+              "start": 0.57,
+              "end": 0.89,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "years.",
+          "start": 0.57,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Two",
+        "years.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "years.",
+          "start": 0.57,
+          "end": 0.89,
+          "key": "years",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Two",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "years.\"",
+          "start": 0.57,
+          "end": 0.89
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11509458487853408
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8db6ef625689ea1e6c2ac655442e25ee699a8fcaf38ad7e3fc93e3590f4ffb41",
+  "selected_reasons": []
+}

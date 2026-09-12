@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "8545b7737473e21048577c5532f21d8d357d443dfc0c5652cdd4999fba76ad8d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12153821112588048,
+      "alignment_seconds": 0.00018922798335552216,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona with who?",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Distimona",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.61297607421875
+            },
+            {
+              "text": " with",
+              "start": 1.03,
+              "end": 1.43,
+              "probability": 0.386474609375
+            },
+            {
+              "text": " who?",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "with",
+          "start": 1.03,
+          "end": 1.43
+        },
+        {
+          "raw": "who?",
+          "start": 1.43,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "With",
+        "who?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.03,
+          "end": 1.43,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who?",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "With",
+          "start": 1.03,
+          "end": 1.43
+        },
+        {
+          "text": "who?",
+          "start": 1.43,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12178978929296136
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "80812b8fbb1c4f7490d798f15ad09e01e470048082a4f971460d3b22e08aa0a6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,449 @@
+{
+  "complete": true,
+  "signature": "696a8309f21057b2a0472ba7f6383da0149c6bbd6bf2b5173269eea69fd88e99",
+  "attempts": [
+    {
+      "asr_seconds": 0.07706329226493835,
+      "alignment_seconds": 0.0001041516661643982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Draws, and runs at him._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Draws, and runs at him._",
+          "start": 0.59,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Draws,",
+              "start": 0.59,
+              "end": 0.93,
+              "probability": 0.56378173828125
+            },
+            {
+              "text": " and",
+              "start": 0.99,
+              "end": 1.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " runs",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " at",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him._",
+              "start": 1.49,
+              "end": 2.27,
+              "probability": 0.498779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Draws,",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "raw": "and",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "raw": "runs",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "at",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "him._",
+          "start": 1.49,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "[_Draws,",
+        "and",
+        "runs",
+        "at",
+        "him._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Draws,",
+          "start": 0.59,
+          "end": 0.93,
+          "key": "draws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.99,
+          "end": 1.15,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "runs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him._",
+          "start": 1.49,
+          "end": 2.27,
+          "key": "him_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Draws,",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "text": "and",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "text": "runs",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "at",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "him._]",
+          "start": 1.49,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07720065116882324
+    },
+    {
+      "asr_seconds": 0.07317844778299332,
+      "alignment_seconds": 9.742006659507751e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " draws and runs at him.",
+          "start": 0.05,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " draws",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.7109375
+            },
+            {
+              "text": " and",
+              "start": 0.73,
+              "end": 1.13,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " runs",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "draws",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "and",
+          "start": 0.73,
+          "end": 1.13
+        },
+        {
+          "raw": "runs",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "at",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "him.",
+          "start": 1.49,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "[_Draws,",
+        "and",
+        "runs",
+        "at",
+        "him._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "draws",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "draws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.73,
+          "end": 1.13,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "runs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Draws,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "and",
+          "start": 0.73,
+          "end": 1.13
+        },
+        {
+          "text": "runs",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "at",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "him._]",
+          "start": 1.49,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07331010699272156
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "501b81cbdd3154eabe2bdfbea3da5df12d283bafc4078467cc5b68226e0a87f3",
+  "selected_reasons": []
+}

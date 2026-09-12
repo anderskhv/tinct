@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "cbdcb9cd3d7310d80d3e226aeefd6d0925e89eeb3af3d829f9024d638f2bad21",
+  "attempts": [
+    {
+      "asr_seconds": 0.08483674610033631,
+      "alignment_seconds": 9.150896221399307e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exit Iago.]",
+        "hotwords": "Exit, Iago"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Iago.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " Iago.",
+              "start": 0.66,
+              "end": 1.12,
+              "probability": 0.08214187622070312
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Iago.",
+          "start": 0.66,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Iago.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Iago.",
+          "start": 0.66,
+          "end": 1.12,
+          "key": "iago",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Iago.]",
+          "start": 0.66,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08495745481923223
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "603a74469575d13c585136467402149982fd36e282e9a18c82b67fe4e49c36bc",
+  "selected_reasons": []
+}

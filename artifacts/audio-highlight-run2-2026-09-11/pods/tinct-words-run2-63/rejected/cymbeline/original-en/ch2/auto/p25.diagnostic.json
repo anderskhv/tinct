@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "dc4466ba124f8760eba5be3a6b62d3d47b0442378ce9e9ff81cb2fec21efb186",
+  "attempts": [
+    {
+      "asr_seconds": 0.18650695495307446,
+      "alignment_seconds": 0.00030659139156341553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. Past grace? obedience?",
+        "hotwords": "Cymbeline, Past"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, Past grace? obedience?",
+          "start": 0.08,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.3726603190104167
+            },
+            {
+              "text": " Past",
+              "start": 1.1,
+              "end": 1.18,
+              "probability": 0.410888671875
+            },
+            {
+              "text": " grace?",
+              "start": 1.18,
+              "end": 1.62,
+              "probability": 0.01177978515625
+            },
+            {
+              "text": " obedience?",
+              "start": 1.94,
+              "end": 2.26,
+              "probability": 0.1787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Past",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "raw": "grace?",
+          "start": 1.18,
+          "end": 1.62
+        },
+        {
+          "raw": "obedience?",
+          "start": 1.94,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "Past",
+        "grace?",
+        "obedience?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Past",
+          "start": 1.1,
+          "end": 1.18,
+          "key": "past",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "grace?",
+          "start": 1.18,
+          "end": 1.62,
+          "key": "grace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "obedience?",
+          "start": 1.94,
+          "end": 2.26,
+          "key": "obedience",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Past",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "text": "grace?",
+          "start": 1.18,
+          "end": 1.62
+        },
+        {
+          "text": "obedience?",
+          "start": 1.94,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18693789094686508
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8b3dd9b24cc77ff7d76d2f664b38f003affc8d60048adfc8601faf5834a430ff",
+  "selected_reasons": []
+}

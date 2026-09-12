@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "735ec3459086005ca5fd838466821e39793e1fed08cbbcbda62fbea5b1bc3321",
+  "attempts": [
+    {
+      "asr_seconds": 0.1112641179934144,
+      "alignment_seconds": 0.00012224912643432617,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona. No faith, my lord.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Distimona.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.6336669921875
+            },
+            {
+              "text": " No",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " faith,",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " my",
+              "start": 2.07,
+              "end": 2.11,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " lord.",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.60205078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "No",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "faith,",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "my",
+          "start": 2.07,
+          "end": 2.11
+        },
+        {
+          "raw": "lord.",
+          "start": 2.11,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "No,",
+        "faith,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "faith,",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "faith",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.07,
+          "end": 2.11,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "No,",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "faith,",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "my",
+          "start": 2.07,
+          "end": 2.11
+        },
+        {
+          "text": "lord.",
+          "start": 2.11,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1114292168058455
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1ea66d696976d5ab747aadc4c62cad3f49bfdb9246412e30b504eaa250cec70e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

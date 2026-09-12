@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "9f630170624cae397da5d73f18d535ed711252f8259bbe27edd87e845ab2b5cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.10225902404636145,
+      "alignment_seconds": 0.00016415491700172424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, Y.",
+          "start": 0.05,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Y.",
+              "start": 0.97,
+              "end": 1.27,
+              "probability": 0.5615234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Y.",
+          "start": 0.97,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Why?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Y.",
+          "start": 0.97,
+          "end": 1.27,
+          "key": "y",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Why?",
+          "start": 0.95,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10247499076649547
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "57245a131d6b36d73660cd34db7da9bfc2f16228c859d81d6bd18e7362cdc1ec",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

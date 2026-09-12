@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "cbf36cb2b903928cf2d4083675410747b7dac08656dd4c076981d014aa5aae55",
+  "attempts": [
+    {
+      "asr_seconds": 0.11690528388135135,
+      "alignment_seconds": 0.00021513993851840496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caddisbee",
+          "start": 0.05,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " Caddisbee",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.46759033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caddisbee",
+          "start": 0.05,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "Catesby."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caddisbee",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "caddisbee",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Catesby.",
+          "start": 0.0,
+          "end": 0.455
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11718954797834158
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fdfd138c91e245bc1bbdf41bbeadc54eb191ee81e452f4019a22ca8b384b1116",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

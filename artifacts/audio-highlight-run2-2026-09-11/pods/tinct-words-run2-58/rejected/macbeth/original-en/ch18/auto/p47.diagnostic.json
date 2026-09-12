@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "97dd9a0c29f4f0639c0b235ac395bfff39a581b4a4f877af62dfe2a6985d95c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10412734560668468,
+      "alignment_seconds": 0.00031375326216220856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Hautboys.]",
+        "hotwords": "Hautboys"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hautboys",
+          "start": 0.05,
+          "end": 0.87,
+          "words": [
+            {
+              "text": " Hautboys",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.01334985097249349
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hautboys",
+          "start": 0.05,
+          "end": 0.87
+        }
+      ],
+      "expected_tokens": [
+        "[Hautboys.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hautboys",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "hautboys",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Hautboys.]",
+          "start": 0.05,
+          "end": 0.87
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10454552713781595
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb62f5a0240fba9ed1f43c5f8fea00d53b4583810d838c33accb8bb3d3c3de5a",
+  "selected_reasons": []
+}

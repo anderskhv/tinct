@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "aead163e82872f1fc13c32db687794c3483c271f358e0e5e7b25d36b2bbc594c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13325139228254557,
+      "alignment_seconds": 0.0003077695146203041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. Prithee say.",
+        "hotwords": "Cymbeline, Prithee"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, Prithee say.",
+          "start": 0.08,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.4549357096354167
+            },
+            {
+              "text": " Prithee",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.3285929361979167
+            },
+            {
+              "text": " say.",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.20849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Prithee",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "say.",
+          "start": 1.42,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "Prithee",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prithee",
+          "start": 1.18,
+          "end": 1.42,
+          "key": "prithee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Prithee",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "say.",
+          "start": 1.42,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13366729486733675
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1eee480982994bdd734e05fa962ef777e960e54e13ade5d65ba9f40c6016efc",
+  "selected_reasons": []
+}

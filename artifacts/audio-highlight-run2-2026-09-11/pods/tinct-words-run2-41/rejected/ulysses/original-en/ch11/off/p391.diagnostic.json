@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "f6b5ef698f72a6f793131b2c1f9d9d3341e457bf11ebb65e3522b50d9f4c7fdd",
+  "attempts": [
+    {
+      "asr_seconds": 0.10600845701992512,
+      "alignment_seconds": 0.00015060091391205788,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It's Simon.",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.947265625
+            },
+            {
+              "text": " Simon.",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Simon.",
+          "start": 0.64,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "—It,",
+        "Simon."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Simon.",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "simon",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—It,",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "Simon.",
+          "start": 0.64,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10620150389149785
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d011f576f5bf02227b7521214ecf5155f16ae8e634a184bc8fb9cf49f316431a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

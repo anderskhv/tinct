@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d65b02470a03f43f9aa097159e373110d4be740f786e6f0ad2199fabeefd54c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.13913809694349766,
+      "alignment_seconds": 0.00037412019446492195,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Wrinkles forbid!",
+        "hotwords": "Charmian, Wrinkles"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Wrinkles forbid!",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.70703125
+            },
+            {
+              "text": " Wrinkles",
+              "start": 1.19,
+              "end": 1.49,
+              "probability": 0.6805216471354166
+            },
+            {
+              "text": " forbid!",
+              "start": 1.49,
+              "end": 1.73,
+              "probability": 0.57275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Wrinkles",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "raw": "forbid!",
+          "start": 1.49,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Wrinkles",
+        "forbid!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wrinkles",
+          "start": 1.19,
+          "end": 1.49,
+          "key": "wrinkles",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "forbid!",
+          "start": 1.49,
+          "end": 1.73,
+          "key": "forbid",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Wrinkles",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "text": "forbid!",
+          "start": 1.49,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1396697429008782
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c13854881f2ed7b104b92ad16e82765beb0202fd600473de2b06cb2e334a953f",
+  "selected_reasons": []
+}

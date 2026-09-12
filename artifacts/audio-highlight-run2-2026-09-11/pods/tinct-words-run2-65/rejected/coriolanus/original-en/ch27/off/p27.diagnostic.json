@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "f90f024ae04dd6e42427d29332d5b480cd5454c73c89b3d57044078f49b88fc1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1662642741575837,
+      "alignment_seconds": 0.00023295683786273003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Messenger, almost at point to enter.",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " almost",
+              "start": 1.34,
+              "end": 1.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " at",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.896484375
+            },
+            {
+              "text": " point",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " enter.",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.92626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "almost",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "raw": "at",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "point",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "enter.",
+          "start": 2.12,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "Almost",
+        "at",
+        "point",
+        "to",
+        "enter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 1.34,
+          "end": 1.54,
+          "key": "almost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "point",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "point",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enter.",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "enter",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Almost",
+          "start": 1.34,
+          "end": 1.54
+        },
+        {
+          "text": "at",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "point",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "to",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "enter.",
+          "start": 2.12,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16658315435051918
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "18178f9a2e38bd97eb0a7d44f82a86db7d552d0dc6f88aeecfa1abf8e029b5a7",
+  "selected_reasons": []
+}

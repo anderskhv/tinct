@@ -1,0 +1,697 @@
+{
+  "complete": true,
+  "signature": "ffb90ab711a5a5341ec95d2894f593fe14e502535c8ff3ab95b3c2bb0ad85eb7",
+  "attempts": [
+    {
+      "asr_seconds": 0.3890233349520713,
+      "alignment_seconds": 0.0007094689644873142,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cardinal, my lord, you shall aural my mind for once.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Cardinal,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.5205078125
+            },
+            {
+              "text": " my",
+              "start": 1.09,
+              "end": 1.29,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " lord,",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.728515625
+            },
+            {
+              "text": " you",
+              "start": 1.89,
+              "end": 1.97,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " shall",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " aural",
+              "start": 2.11,
+              "end": 2.41,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " my",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " mind",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " once.",
+              "start": 3.11,
+              "end": 3.41,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Come on, Lord Hastings, will you go with me?",
+          "start": 4.09,
+          "end": 6.27,
+          "words": [
+            {
+              "text": " Come",
+              "start": 4.09,
+              "end": 4.19,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " on,",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Lord",
+              "start": 4.75,
+              "end": 4.79,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " Hastings,",
+              "start": 4.79,
+              "end": 5.23,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " will",
+              "start": 5.51,
+              "end": 5.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 5.59,
+              "end": 5.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go",
+              "start": 5.71,
+              "end": 5.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 5.89,
+              "end": 6.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me?",
+              "start": 6.03,
+              "end": 6.27,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cardinal,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "my",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "raw": "lord,",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "you",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "raw": "shall",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "aural",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "mind",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "for",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "once.",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "raw": "Come",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "raw": "on,",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "raw": "Lord",
+          "start": 4.75,
+          "end": 4.79
+        },
+        {
+          "raw": "Hastings,",
+          "start": 4.79,
+          "end": 5.23
+        },
+        {
+          "raw": "will",
+          "start": 5.51,
+          "end": 5.59
+        },
+        {
+          "raw": "you",
+          "start": 5.59,
+          "end": 5.71
+        },
+        {
+          "raw": "go",
+          "start": 5.71,
+          "end": 5.89
+        },
+        {
+          "raw": "with",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "raw": "me?",
+          "start": 6.03,
+          "end": 6.27
+        }
+      ],
+      "expected_tokens": [
+        "Cardinal.",
+        "My",
+        "lord,",
+        "you",
+        "shall",
+        "o'errule",
+        "my",
+        "mind",
+        "for",
+        "once.",
+        "Come",
+        "on,",
+        "Lord",
+        "Hastings,",
+        "will",
+        "you",
+        "go",
+        "with",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          19,
+          6,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cardinal,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "cardinal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.09,
+          "end": 1.29,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.89,
+          "end": 1.97,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "shall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "aural",
+          "start": 2.11,
+          "end": 2.41,
+          "key": "aural",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "mind",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "once.",
+          "start": 3.11,
+          "end": 3.41,
+          "key": "once",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 4.09,
+          "end": 4.19,
+          "key": "come",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 4.75,
+          "end": 4.79,
+          "key": "lord",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Hastings,",
+          "start": 4.79,
+          "end": 5.23,
+          "key": "hastings",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.51,
+          "end": 5.59,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.59,
+          "end": 5.71,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 5.71,
+          "end": 5.89,
+          "key": "go",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.89,
+          "end": 6.03,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 6.03,
+          "end": 6.27,
+          "key": "me",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cardinal.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "My",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "lord,",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "you",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "text": "shall",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "o'errule",
+          "start": 2.11,
+          "end": 2.26
+        },
+        {
+          "text": "my",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "mind",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "for",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "once.",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "text": "Come",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "text": "on,",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "text": "Lord",
+          "start": 4.75,
+          "end": 4.79
+        },
+        {
+          "text": "Hastings,",
+          "start": 4.79,
+          "end": 5.23
+        },
+        {
+          "text": "will",
+          "start": 5.51,
+          "end": 5.59
+        },
+        {
+          "text": "you",
+          "start": 5.59,
+          "end": 5.71
+        },
+        {
+          "text": "go",
+          "start": 5.71,
+          "end": 5.89
+        },
+        {
+          "text": "with",
+          "start": 5.89,
+          "end": 6.03
+        },
+        {
+          "text": "me?",
+          "start": 6.03,
+          "end": 6.27
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3900206759572029
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "12046eaf7e6e09405d7efde6bb079f797e54b9b5022977a52331d531a314ff26",
+  "selected_reasons": []
+}

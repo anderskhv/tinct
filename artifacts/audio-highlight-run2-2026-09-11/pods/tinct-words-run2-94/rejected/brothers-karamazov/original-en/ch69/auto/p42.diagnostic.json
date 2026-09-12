@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "993397434be8f57ce952e2c9495b6d898cfff382cb5b98e2d2b3261799a2fd93",
+  "attempts": [
+    {
+      "asr_seconds": 0.2796259205788374,
+      "alignment_seconds": 0.0004865899682044983,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Good-by, Karamazov? Will you come yourself?\" he cried sharply and angrily to Alyosha.",
+        "hotwords": "Good-by, Karamazov, Will, Alyosha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good-by, Karamazov, Will, you come yourself?\" he cried sharply and angrily to Alyosha.",
+          "start": 0.02,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.0179290771484375
+            },
+            {
+              "text": "-by,",
+              "start": 0.54,
+              "end": 0.84,
+              "probability": 0.2527008056640625
+            },
+            {
+              "text": " Karamazov,",
+              "start": 1.08,
+              "end": 1.62,
+              "probability": 0.8976236979166666
+            },
+            {
+              "text": " Will,",
+              "start": 1.98,
+              "end": 2.08,
+              "probability": 0.01873779296875
+            },
+            {
+              "text": " you",
+              "start": 2.16,
+              "end": 2.18,
+              "probability": 0.83984375
+            },
+            {
+              "text": " come",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.888671875
+            },
+            {
+              "text": " yourself?\"",
+              "start": 2.32,
+              "end": 3.24,
+              "probability": 0.5899658203125
+            },
+            {
+              "text": " he",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.451416015625
+            },
+            {
+              "text": " cried",
+              "start": 3.44,
+              "end": 3.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sharply",
+              "start": 3.66,
+              "end": 4.16,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " and",
+              "start": 4.16,
+              "end": 4.42,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " angrily",
+              "start": 4.42,
+              "end": 4.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 4.76,
+              "end": 5.04,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Alyosha.",
+              "start": 5.04,
+              "end": 5.68,
+              "probability": 0.9109700520833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "-by,",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "raw": "Karamazov,",
+          "start": 1.08,
+          "end": 1.62
+        },
+        {
+          "raw": "Will,",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "raw": "you",
+          "start": 2.16,
+          "end": 2.18
+        },
+        {
+          "raw": "come",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "yourself?\"",
+          "start": 2.32,
+          "end": 3.24
+        },
+        {
+          "raw": "he",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "cried",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "raw": "sharply",
+          "start": 3.66,
+          "end": 4.16
+        },
+        {
+          "raw": "and",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "raw": "angrily",
+          "start": 4.42,
+          "end": 4.76
+        },
+        {
+          "raw": "to",
+          "start": 4.76,
+          "end": 5.04
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 5.04,
+          "end": 5.68
+        }
+      ],
+      "expected_tokens": [
+        "\"Good-by,",
+        "Karamazov?",
+        "Will",
+        "you",
+        "come",
+        "yourself?\"",
+        "he",
+        "cried",
+        "sharply",
+        "and",
+        "angrily",
+        "to",
+        "Alyosha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good -by,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "goodby",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Karamazov,",
+          "start": 1.08,
+          "end": 1.62,
+          "key": "karamazov",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Will,",
+          "start": 1.98,
+          "end": 2.08,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.16,
+          "end": 2.18,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yourself?\"",
+          "start": 2.32,
+          "end": 3.24,
+          "key": "yourself",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 3.44,
+          "end": 3.66,
+          "key": "cried",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sharply",
+          "start": 3.66,
+          "end": 4.16,
+          "key": "sharply",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.16,
+          "end": 4.42,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "angrily",
+          "start": 4.42,
+          "end": 4.76,
+          "key": "angrily",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.76,
+          "end": 5.04,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 5.04,
+          "end": 5.68,
+          "key": "alyosha",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Good-by,",
+          "heard": "Good -by,",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.02,
+          "end": 0.84
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Good-by,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "Karamazov?",
+          "start": 1.08,
+          "end": 1.62
+        },
+        {
+          "text": "Will",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "text": "you",
+          "start": 2.16,
+          "end": 2.18
+        },
+        {
+          "text": "come",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "yourself?\"",
+          "start": 2.32,
+          "end": 3.24
+        },
+        {
+          "text": "he",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "cried",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "text": "sharply",
+          "start": 3.66,
+          "end": 4.16
+        },
+        {
+          "text": "and",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "text": "angrily",
+          "start": 4.42,
+          "end": 4.76
+        },
+        {
+          "text": "to",
+          "start": 4.76,
+          "end": 5.04
+        },
+        {
+          "text": "Alyosha.",
+          "start": 5.04,
+          "end": 5.68
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28028097189962864
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c3af369f4bd9c02d8c3051ce7235529838a71591b655a4c9434ca8afe5a5a0d",
+  "selected_reasons": []
+}

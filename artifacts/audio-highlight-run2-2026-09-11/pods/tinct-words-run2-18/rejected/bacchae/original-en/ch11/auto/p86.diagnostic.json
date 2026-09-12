@@ -1,0 +1,796 @@
+{
+  "complete": true,
+  "signature": "7160a47afafa9c8246627ac1c5a1c176f8919abb637443870f7aa0470fb92d66",
+  "attempts": [
+    {
+      "asr_seconds": 0.36192864703480154,
+      "alignment_seconds": 0.00041033094748854637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Lo, I weep with thee. 'Twas but due reward God sent on Pentheus; but for thee . . . 'Tis hard.",
+        "hotwords": "Leader, Lo, I, Twas, God, Pentheus, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Lo, I weep with thee. Twas but due reward God sent on Pentheus, but for thee . . .",
+          "start": 0.02,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.525390625
+            },
+            {
+              "text": " Lo,",
+              "start": 1.1,
+              "end": 1.14,
+              "probability": 0.167236328125
+            },
+            {
+              "text": " I",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " weep",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " with",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " thee.",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Twas",
+              "start": 2.66,
+              "end": 2.9,
+              "probability": 0.667724609375
+            },
+            {
+              "text": " but",
+              "start": 2.9,
+              "end": 3.12,
+              "probability": 0.4697265625
+            },
+            {
+              "text": " due",
+              "start": 3.12,
+              "end": 3.32,
+              "probability": 0.005695343017578125
+            },
+            {
+              "text": " reward",
+              "start": 3.32,
+              "end": 3.72,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " God",
+              "start": 3.72,
+              "end": 4.08,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " sent",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " on",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Pentheus,",
+              "start": 4.6,
+              "end": 5.2,
+              "probability": 0.9085286458333334
+            },
+            {
+              "text": " but",
+              "start": 5.3,
+              "end": 5.38,
+              "probability": 0.84375
+            },
+            {
+              "text": " for",
+              "start": 5.38,
+              "end": 5.54,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thee",
+              "start": 5.54,
+              "end": 5.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " .",
+              "start": 5.78,
+              "end": 5.96,
+              "probability": 0.0012922286987304688
+            },
+            {
+              "text": " .",
+              "start": 5.96,
+              "end": 5.96,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " .",
+              "start": 5.96,
+              "end": 6.2,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Tis hard.",
+          "start": 6.2,
+          "end": 6.7,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 6.2,
+              "end": 6.44,
+              "probability": 0.11370849609375
+            },
+            {
+              "text": " hard.",
+              "start": 6.44,
+              "end": 6.7,
+              "probability": 0.93408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.1,
+          "end": 1.14
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "weep",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "thee.",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "raw": "Twas",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "raw": "but",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "raw": "due",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "raw": "reward",
+          "start": 3.32,
+          "end": 3.72
+        },
+        {
+          "raw": "God",
+          "start": 3.72,
+          "end": 4.08
+        },
+        {
+          "raw": "sent",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "on",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "Pentheus,",
+          "start": 4.6,
+          "end": 5.2
+        },
+        {
+          "raw": "but",
+          "start": 5.3,
+          "end": 5.38
+        },
+        {
+          "raw": "for",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "raw": "thee",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "raw": ".",
+          "start": 5.78,
+          "end": 5.96
+        },
+        {
+          "raw": ".",
+          "start": 5.96,
+          "end": 5.96
+        },
+        {
+          "raw": ".",
+          "start": 5.96,
+          "end": 6.2
+        },
+        {
+          "raw": "Tis",
+          "start": 6.2,
+          "end": 6.44
+        },
+        {
+          "raw": "hard.",
+          "start": 6.44,
+          "end": 6.7
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Lo,",
+        "I",
+        "weep",
+        "with",
+        "thee.",
+        "'Twas",
+        "but",
+        "due",
+        "reward",
+        "God",
+        "sent",
+        "on",
+        "Pentheus;",
+        "but",
+        "for",
+        "thee",
+        ".",
+        ".",
+        ".",
+        "'Tis",
+        "hard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "insert",
+          17,
+          17,
+          17,
+          20
+        ],
+        [
+          "equal",
+          17,
+          19,
+          20,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          17,
+          17,
+          17,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [
+        17,
+        18,
+        19
+      ],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lo,",
+          "start": 1.1,
+          "end": 1.14,
+          "key": "lo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "weep",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "weep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 1.78,
+          "end": 2.04,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Twas",
+          "start": 2.66,
+          "end": 2.9,
+          "key": "twas",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.9,
+          "end": 3.12,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "due",
+          "start": 3.12,
+          "end": 3.32,
+          "key": "due",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reward",
+          "start": 3.32,
+          "end": 3.72,
+          "key": "reward",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 3.72,
+          "end": 4.08,
+          "key": "god",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "sent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Pentheus,",
+          "start": 4.6,
+          "end": 5.2,
+          "key": "pentheus",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.3,
+          "end": 5.38,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.38,
+          "end": 5.54,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 5.54,
+          "end": 5.78,
+          "key": "thee",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 5.78,
+          "end": 5.96,
+          "key": "",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 5.96,
+          "end": 5.96,
+          "key": "",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 5.96,
+          "end": 6.2,
+          "key": "",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 6.2,
+          "end": 6.44,
+          "key": "tis",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "hard.",
+          "start": 6.44,
+          "end": 6.7,
+          "key": "hard",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Lo,",
+          "start": 1.1,
+          "end": 1.14
+        },
+        {
+          "text": "I",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "weep",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "with",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "thee.",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "text": "'Twas",
+          "start": 2.66,
+          "end": 2.9
+        },
+        {
+          "text": "but",
+          "start": 2.9,
+          "end": 3.12
+        },
+        {
+          "text": "due",
+          "start": 3.12,
+          "end": 3.32
+        },
+        {
+          "text": "reward",
+          "start": 3.32,
+          "end": 3.72
+        },
+        {
+          "text": "God",
+          "start": 3.72,
+          "end": 4.08
+        },
+        {
+          "text": "sent",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "on",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "Pentheus;",
+          "start": 4.6,
+          "end": 5.2
+        },
+        {
+          "text": "but",
+          "start": 5.3,
+          "end": 5.38
+        },
+        {
+          "text": "for",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "text": "thee",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "text": ".",
+          "start": 5.78,
+          "end": 5.99
+        },
+        {
+          "text": ".",
+          "start": 5.99,
+          "end": 6.095
+        },
+        {
+          "text": ".",
+          "start": 6.095,
+          "end": 6.147
+        },
+        {
+          "text": "'Tis",
+          "start": 6.2,
+          "end": 6.44
+        },
+        {
+          "text": "hard.",
+          "start": 6.44,
+          "end": 6.7
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 22,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3625227239681408
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a07f1a38cfea967884ad7e5754fe0fb17d2f7e9a197f85d47ae2c6dd53b73717",
+  "selected_reasons": []
+}

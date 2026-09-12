@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "979901a0382d30dfa6f0a1fc15bf73abca5c03c583e803d1249dd88efe9fdae4",
+  "attempts": [
+    {
+      "asr_seconds": 0.20021651964634657,
+      "alignment_seconds": 0.0005692485719919205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Malcom, well Morhenon, comes the King forth, I pray you.",
+          "start": 0.05,
+          "end": 3.93,
+          "words": [
+            {
+              "text": " Malcom,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " well",
+              "start": 1.27,
+              "end": 1.31,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " Morhenon,",
+              "start": 1.31,
+              "end": 1.91,
+              "probability": 0.5826822916666666
+            },
+            {
+              "text": " comes",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.73388671875
+            },
+            {
+              "text": " the",
+              "start": 2.57,
+              "end": 2.73,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " King",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.55029296875
+            },
+            {
+              "text": " forth,",
+              "start": 2.89,
+              "end": 3.21,
+              "probability": 0.75390625
+            },
+            {
+              "text": " I",
+              "start": 3.41,
+              "end": 3.49,
+              "probability": 0.994140625
+            },
+            {
+              "text": " pray",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you.",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malcom,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "well",
+          "start": 1.27,
+          "end": 1.31
+        },
+        {
+          "raw": "Morhenon,",
+          "start": 1.31,
+          "end": 1.91
+        },
+        {
+          "raw": "comes",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "the",
+          "start": 2.57,
+          "end": 2.73
+        },
+        {
+          "raw": "King",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "forth,",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "raw": "I",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "raw": "pray",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "you.",
+          "start": 3.69,
+          "end": 3.93
+        }
+      ],
+      "expected_tokens": [
+        "Malcolm.",
+        "Well;",
+        "more",
+        "anon.—Comes",
+        "the",
+        "King",
+        "forth,",
+        "I",
+        "pray",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          10,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malcom,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "malcom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.27,
+          "end": 1.31,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Morhenon,",
+          "start": 1.31,
+          "end": 1.91,
+          "key": "morhenon",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "comes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.57,
+          "end": 2.73,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "king",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "forth,",
+          "start": 2.89,
+          "end": 3.21,
+          "key": "forth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.41,
+          "end": 3.49,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "pray",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malcolm.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "Well;",
+          "start": 1.27,
+          "end": 1.31
+        },
+        {
+          "text": "more",
+          "start": 1.31,
+          "end": 1.94
+        },
+        {
+          "text": "anon.—Comes",
+          "start": 1.94,
+          "end": 2.255
+        },
+        {
+          "text": "the",
+          "start": 2.57,
+          "end": 2.73
+        },
+        {
+          "text": "King",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "forth,",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "text": "I",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "text": "pray",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "you?",
+          "start": 3.69,
+          "end": 3.93
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20098607521504164
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cae60d2a2be641d58d91daee45afdbc5c4b4a05bbea088ef9a3546c550b1b965",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

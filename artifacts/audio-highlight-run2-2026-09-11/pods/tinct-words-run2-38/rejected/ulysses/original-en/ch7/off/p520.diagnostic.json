@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "c810c4b4bc1449d1563852a6d649a03a802f415743aadbfa03a1861556f18097",
+  "attempts": [
+    {
+      "asr_seconds": 0.10454723500879481,
+      "alignment_seconds": 0.00013798102736473083,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Poor Penelope, Penelope Rich",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Poor",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.818359375
+            },
+            {
+              "text": " Penelope,",
+              "start": 0.57,
+              "end": 1.03,
+              "probability": 0.968017578125
+            },
+            {
+              "text": " Penelope",
+              "start": 1.41,
+              "end": 1.87,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " Rich",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.86328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Poor",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Penelope,",
+          "start": 0.57,
+          "end": 1.03
+        },
+        {
+          "raw": "Penelope",
+          "start": 1.41,
+          "end": 1.87
+        },
+        {
+          "raw": "Rich",
+          "start": 1.87,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Poor",
+        "Penelope.",
+        "Penelope",
+        "Rich."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Poor",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "poor",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Penelope,",
+          "start": 0.57,
+          "end": 1.03,
+          "key": "penelope",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Penelope",
+          "start": 1.41,
+          "end": 1.87,
+          "key": "penelope",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Rich",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "rich",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Poor",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Penelope.",
+          "start": 0.57,
+          "end": 1.03
+        },
+        {
+          "text": "Penelope",
+          "start": 1.41,
+          "end": 1.87
+        },
+        {
+          "text": "Rich.",
+          "start": 1.87,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10473530599847436
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d31c18f8e4d5f0d3393e7880402efc0570fe16efdd741f449353b7071365c5ad",
+  "selected_reasons": []
+}

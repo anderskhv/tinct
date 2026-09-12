@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "1b8aea5d218c3679ca3df1d2e8477f4520fb87c3c55d331f469e7e5ed65f6abe",
+  "attempts": [
+    {
+      "asr_seconds": 0.12031501485034823,
+      "alignment_seconds": 0.0002276781015098095,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassio, that's one of them.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " that's",
+              "start": 1.11,
+              "end": 1.45,
+              "probability": 0.990234375
+            },
+            {
+              "text": " one",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "that's",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "raw": "one",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "of",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "them.",
+          "start": 1.69,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "That's",
+        "one",
+        "of",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.11,
+          "end": 1.45,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "one",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "That's",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "text": "one",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "of",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "them.",
+          "start": 1.69,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12062625167891383
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1509628fa07507d6c12a92392d9505779df6786394fa64b202ad26a9c5e748bd",
+  "selected_reasons": []
+}

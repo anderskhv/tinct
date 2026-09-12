@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "809a265c675af863f6376b814c464d957dcac88ebc6d63c74039c955de883c17",
+  "attempts": [
+    {
+      "asr_seconds": 0.2058718167245388,
+      "alignment_seconds": 0.00043446198105812073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, heard you all this, her women.",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.778564453125
+            },
+            {
+              "text": " heard",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.9453125
+            },
+            {
+              "text": " you",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " this,",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " her",
+              "start": 2.1,
+              "end": 2.16,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " women.",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "heard",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "you",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "all",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "this,",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "her",
+          "start": 2.1,
+          "end": 2.16
+        },
+        {
+          "raw": "women.",
+          "start": 2.16,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "Heard",
+        "you",
+        "all",
+        "this,",
+        "her",
+        "women?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "heard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.1,
+          "end": 2.16,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "women.",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "women",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Heard",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "you",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "all",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "this,",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "her",
+          "start": 2.1,
+          "end": 2.16
+        },
+        {
+          "text": "women?",
+          "start": 2.16,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20644640736281872
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5469ff684fdaa48af0f1b14234f511d8db909032af4ba4b2d4fa3e269c25be36",
+  "selected_reasons": []
+}

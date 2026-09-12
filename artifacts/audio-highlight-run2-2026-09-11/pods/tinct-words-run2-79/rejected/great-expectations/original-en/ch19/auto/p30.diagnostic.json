@@ -1,0 +1,837 @@
+{
+  "complete": true,
+  "signature": "c921ee0e90fcb8792344cc984f444cc6b4f0dfc34593c82e0f86c19b52eef9cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.4032518109306693,
+      "alignment_seconds": 0.0004956112243235111,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"O! there are many kinds of pride,\" said Biddy, looking full at me and shaking her head; \"pride is not all of one kind—\"",
+        "hotwords": "O, Biddy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O! there are many kinds of pride,\" said Biddy, looking full at me and shaking her head.",
+          "start": 0.34,
+          "end": 5.08,
+          "words": [
+            {
+              "text": " O!",
+              "start": 0.34,
+              "end": 0.64,
+              "probability": 0.0016727447509765625
+            },
+            {
+              "text": " there",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.3876953125
+            },
+            {
+              "text": " are",
+              "start": 0.96,
+              "end": 1.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " many",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kinds",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pride,\"",
+              "start": 1.74,
+              "end": 2.38,
+              "probability": 0.6414794921875
+            },
+            {
+              "text": " said",
+              "start": 2.38,
+              "end": 2.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Biddy,",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " looking",
+              "start": 3.38,
+              "end": 3.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " full",
+              "start": 3.66,
+              "end": 3.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 3.9,
+              "end": 4.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 4.18,
+              "end": 4.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " shaking",
+              "start": 4.36,
+              "end": 4.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 4.58,
+              "end": 4.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " head.",
+              "start": 4.84,
+              "end": 5.08,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Pride is not all of one kind.",
+          "start": 5.74,
+          "end": 7.02,
+          "words": [
+            {
+              "text": " Pride",
+              "start": 5.74,
+              "end": 5.92,
+              "probability": 0.204833984375
+            },
+            {
+              "text": " is",
+              "start": 5.92,
+              "end": 6.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 6.08,
+              "end": 6.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " all",
+              "start": 6.26,
+              "end": 6.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 6.44,
+              "end": 6.54,
+              "probability": 0.986328125
+            },
+            {
+              "text": " one",
+              "start": 6.54,
+              "end": 6.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kind.",
+              "start": 6.72,
+              "end": 7.02,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O!",
+          "start": 0.34,
+          "end": 0.64
+        },
+        {
+          "raw": "there",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "are",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "raw": "many",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "kinds",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "pride,\"",
+          "start": 1.74,
+          "end": 2.38
+        },
+        {
+          "raw": "said",
+          "start": 2.38,
+          "end": 2.74
+        },
+        {
+          "raw": "Biddy,",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "raw": "looking",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "raw": "full",
+          "start": 3.66,
+          "end": 3.9
+        },
+        {
+          "raw": "at",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "raw": "me",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "raw": "and",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "raw": "shaking",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "raw": "her",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "raw": "head.",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "raw": "Pride",
+          "start": 5.74,
+          "end": 5.92
+        },
+        {
+          "raw": "is",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "raw": "not",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "raw": "all",
+          "start": 6.26,
+          "end": 6.44
+        },
+        {
+          "raw": "of",
+          "start": 6.44,
+          "end": 6.54
+        },
+        {
+          "raw": "one",
+          "start": 6.54,
+          "end": 6.72
+        },
+        {
+          "raw": "kind.",
+          "start": 6.72,
+          "end": 7.02
+        }
+      ],
+      "expected_tokens": [
+        "\"O!",
+        "there",
+        "are",
+        "many",
+        "kinds",
+        "of",
+        "pride,\"",
+        "said",
+        "Biddy,",
+        "looking",
+        "full",
+        "at",
+        "me",
+        "and",
+        "shaking",
+        "her",
+        "head;",
+        "\"pride",
+        "is",
+        "not",
+        "all",
+        "of",
+        "one",
+        "kind—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O!",
+          "start": 0.34,
+          "end": 0.64,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.96,
+          "end": 1.08,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "many",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kinds",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "kinds",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pride,\"",
+          "start": 1.74,
+          "end": 2.38,
+          "key": "pride",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.38,
+          "end": 2.74,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Biddy,",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "biddy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.38,
+          "end": 3.66,
+          "key": "looking",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 3.66,
+          "end": 3.9,
+          "key": "full",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.9,
+          "end": 4.04,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.04,
+          "end": 4.18,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.18,
+          "end": 4.36,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shaking",
+          "start": 4.36,
+          "end": 4.58,
+          "key": "shaking",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.58,
+          "end": 4.84,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 4.84,
+          "end": 5.08,
+          "key": "head",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Pride",
+          "start": 5.74,
+          "end": 5.92,
+          "key": "pride",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.92,
+          "end": 6.08,
+          "key": "is",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.08,
+          "end": 6.26,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.26,
+          "end": 6.44,
+          "key": "all",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.44,
+          "end": 6.54,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.54,
+          "end": 6.72,
+          "key": "one",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "kind.",
+          "start": 6.72,
+          "end": 7.02,
+          "key": "kind",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"O!",
+          "start": 0.34,
+          "end": 0.64
+        },
+        {
+          "text": "there",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "are",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "text": "many",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "kinds",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "text": "of",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "pride,\"",
+          "start": 1.74,
+          "end": 2.38
+        },
+        {
+          "text": "said",
+          "start": 2.38,
+          "end": 2.74
+        },
+        {
+          "text": "Biddy,",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "text": "looking",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "text": "full",
+          "start": 3.66,
+          "end": 3.9
+        },
+        {
+          "text": "at",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "text": "me",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "text": "and",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "text": "shaking",
+          "start": 4.36,
+          "end": 4.58
+        },
+        {
+          "text": "her",
+          "start": 4.58,
+          "end": 4.84
+        },
+        {
+          "text": "head;",
+          "start": 4.84,
+          "end": 5.08
+        },
+        {
+          "text": "\"pride",
+          "start": 5.74,
+          "end": 5.92
+        },
+        {
+          "text": "is",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "text": "not",
+          "start": 6.08,
+          "end": 6.26
+        },
+        {
+          "text": "all",
+          "start": 6.26,
+          "end": 6.44
+        },
+        {
+          "text": "of",
+          "start": 6.44,
+          "end": 6.54
+        },
+        {
+          "text": "one",
+          "start": 6.54,
+          "end": 6.72
+        },
+        {
+          "text": "kind—\"",
+          "start": 6.72,
+          "end": 7.02
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.403958753682673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d49bda63ba330e10c8e8bf700855d826ef2fed8c69f51491c5226d74d5a2ac68",
+  "selected_reasons": []
+}

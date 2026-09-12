@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "058b339b2225ee611d7a2d51f58a419c8de045012fe2046db8b486fdee7821c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2135715913027525,
+      "alignment_seconds": 0.00024143606424331665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"This is almost miraculous,\" murmured Nikolay Parfenovitch.",
+        "hotwords": "This, Nikolay, Parfenovitch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This is almost miraculous,\" murmured Nikolay Parfenovitch.",
+          "start": 0.02,
+          "end": 3.88,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.323486328125
+            },
+            {
+              "text": " is",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " almost",
+              "start": 0.76,
+              "end": 1.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " miraculous,\"",
+              "start": 1.12,
+              "end": 2.54,
+              "probability": 0.6417236328125
+            },
+            {
+              "text": " murmured",
+              "start": 2.54,
+              "end": 2.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Nikolay",
+              "start": 2.74,
+              "end": 3.2,
+              "probability": 0.6468505859375
+            },
+            {
+              "text": " Parfenovitch.",
+              "start": 3.2,
+              "end": 3.88,
+              "probability": 0.504486083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "is",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "almost",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "raw": "miraculous,\"",
+          "start": 1.12,
+          "end": 2.54
+        },
+        {
+          "raw": "murmured",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "raw": "Nikolay",
+          "start": 2.74,
+          "end": 3.2
+        },
+        {
+          "raw": "Parfenovitch.",
+          "start": 3.2,
+          "end": 3.88
+        }
+      ],
+      "expected_tokens": [
+        "\"This",
+        "is",
+        "almost",
+        "miraculous,\"",
+        "murmured",
+        "Nikolay",
+        "Parfenovitch."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.58,
+          "end": 0.76,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 0.76,
+          "end": 1.12,
+          "key": "almost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "miraculous,\"",
+          "start": 1.12,
+          "end": 2.54,
+          "key": "miraculous",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "murmured",
+          "start": 2.54,
+          "end": 2.74,
+          "key": "murmured",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Nikolay",
+          "start": 2.74,
+          "end": 3.2,
+          "key": "nikolay",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Parfenovitch.",
+          "start": 3.2,
+          "end": 3.88,
+          "key": "parfenovitch",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"This",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "is",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "almost",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "text": "miraculous,\"",
+          "start": 1.12,
+          "end": 2.54
+        },
+        {
+          "text": "murmured",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "text": "Nikolay",
+          "start": 2.74,
+          "end": 3.2
+        },
+        {
+          "text": "Parfenovitch.",
+          "start": 3.2,
+          "end": 3.88
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21391034126281738
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "126bfdef0a9163c9077da5c98327aa8921b8002681e75ae2201794424996db34",
+  "selected_reasons": []
+}

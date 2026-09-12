@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "2add8e65b95480e359c64a5a2ce67fd675dac2e0b05cb1503e4a509e0959f845",
+  "attempts": [
+    {
+      "asr_seconds": 0.18355748243629932,
+      "alignment_seconds": 0.00014906376600265503,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Servant. I do, Mark Antony.",
+        "hotwords": "Servant, I, Mark, Antony"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Servant, I do, Mark Antony.",
+          "start": 0.08,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " do,",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Mark",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Antony.",
+              "start": 1.64,
+              "end": 2.08,
+              "probability": 0.947021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "do,",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "Mark",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "Antony.",
+          "start": 1.64,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "Servant.",
+        "I",
+        "do,",
+        "Mark",
+        "Antony."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mark",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "mark",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Antony.",
+          "start": 1.64,
+          "end": 2.08,
+          "key": "antony",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Servant.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "do,",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "Mark",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "Antony.",
+          "start": 1.64,
+          "end": 2.08
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18375816196203232
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8ebbf82ff212376dcbf6eb76984e1fb716a9b3f59d88499c9339ae5944ddc62",
+  "selected_reasons": []
+}

@@ -1,0 +1,273 @@
+{
+  "complete": true,
+  "signature": "8db715bc7a0cdbd01e1c27e6b43f22a13b8b57044e5467372c1be1ac62c606f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.21394965192303061,
+      "alignment_seconds": 0.0003199030179530382,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quince, speak Pyramus.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Quince,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.622314453125
+            },
+            {
+              "text": " speak",
+              "start": 0.82,
+              "end": 1.2,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " Pyramus.",
+              "start": 1.2,
+              "end": 1.86,
+              "probability": 0.716064453125
+            }
+          ]
+        },
+        {
+          "text": " Thisp, stand forth.",
+          "start": 2.36,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " Thisp,",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.3743896484375
+            },
+            {
+              "text": " stand",
+              "start": 2.84,
+              "end": 2.94,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " forth.",
+              "start": 2.94,
+              "end": 3.3,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quince,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "speak",
+          "start": 0.82,
+          "end": 1.2
+        },
+        {
+          "raw": "Pyramus.",
+          "start": 1.2,
+          "end": 1.86
+        },
+        {
+          "raw": "Thisp,",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "stand",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "raw": "forth.",
+          "start": 2.94,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "Quince.",
+        "Speak,",
+        "Pyramus.—Thisbe,",
+        "stand",
+        "forth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quince,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "quince",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 0.82,
+          "end": 1.2,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pyramus.",
+          "start": 1.2,
+          "end": 1.86,
+          "key": "pyramus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Thisp,",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "thisp",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 2.84,
+          "end": 2.94,
+          "key": "stand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "forth.",
+          "start": 2.94,
+          "end": 3.3,
+          "key": "forth",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Quince.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Speak,",
+          "start": 0.82,
+          "end": 1.2
+        },
+        {
+          "text": "Pyramus.—Thisbe,",
+          "start": 1.2,
+          "end": 2.02
+        },
+        {
+          "text": "stand",
+          "start": 2.84,
+          "end": 2.94
+        },
+        {
+          "text": "forth.",
+          "start": 2.94,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2143823190126568
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8dd6bd6695fd9f1102f601ee68ac953467a8cd2d296ebe601b79674dc63f78c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

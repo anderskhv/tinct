@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "56fa156958f16562e4255a6bef91e20689eb35aed9292b56c07491bcbb29e720",
+  "attempts": [
+    {
+      "asr_seconds": 0.17680463194847107,
+      "alignment_seconds": 0.00035497918725013733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard infer fair England's peace by this alliance",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Richard",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " infer",
+              "start": 0.97,
+              "end": 1.71,
+              "probability": 0.3125
+            },
+            {
+              "text": " fair",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " England's",
+              "start": 2.03,
+              "end": 2.51,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " peace",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " by",
+              "start": 2.71,
+              "end": 2.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " alliance",
+              "start": 3.17,
+              "end": 3.55,
+              "probability": 0.6005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "infer",
+          "start": 0.97,
+          "end": 1.71
+        },
+        {
+          "raw": "fair",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "England's",
+          "start": 2.03,
+          "end": 2.51
+        },
+        {
+          "raw": "peace",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "by",
+          "start": 2.71,
+          "end": 2.97
+        },
+        {
+          "raw": "this",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "alliance",
+          "start": 3.17,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Infer",
+        "fair",
+        "England's",
+        "peace",
+        "by",
+        "this",
+        "alliance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "infer",
+          "start": 0.97,
+          "end": 1.71,
+          "key": "infer",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "fair",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "England's",
+          "start": 2.03,
+          "end": 2.51,
+          "key": "englands",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "peace",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.71,
+          "end": 2.97,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "alliance",
+          "start": 3.17,
+          "end": 3.55,
+          "key": "alliance",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "text": "Infer",
+          "start": 0.97,
+          "end": 1.71
+        },
+        {
+          "text": "fair",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "England's",
+          "start": 2.03,
+          "end": 2.51
+        },
+        {
+          "text": "peace",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "text": "by",
+          "start": 2.71,
+          "end": 2.97
+        },
+        {
+          "text": "this",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "alliance.",
+          "start": 3.17,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1772889383137226
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fc3ae79df55bdebe41ec21e3711b2d4494559304e82f0aadc3d95958cb1616e3",
+  "selected_reasons": []
+}

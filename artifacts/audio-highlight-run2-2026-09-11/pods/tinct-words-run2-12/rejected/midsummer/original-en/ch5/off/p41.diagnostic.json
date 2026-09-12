@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "07626853e8df1355ef402ae013bd404009b2a884508210fc0e85f1054c3c9090",
+  "attempts": [
+    {
+      "asr_seconds": 0.22036030190065503,
+      "alignment_seconds": 0.0004166041035205126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pyramus, if I were fair, Thisbe, I were only thine.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Pyramus,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.8229166666666666
+            },
+            {
+              "text": " if",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " I",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " were",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fair,",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Thisbe,",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.4932861328125
+            },
+            {
+              "text": " I",
+              "start": 2.55,
+              "end": 2.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " only",
+              "start": 2.73,
+              "end": 2.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thine.",
+              "start": 2.99,
+              "end": 3.39,
+              "probability": 0.958251953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pyramus,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "if",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "I",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "were",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "fair,",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "Thisbe,",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "I",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "raw": "were",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "only",
+          "start": 2.73,
+          "end": 2.99
+        },
+        {
+          "raw": "thine.",
+          "start": 2.99,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Pyramus.",
+        "_If",
+        "I",
+        "were",
+        "fair,",
+        "Thisbe,",
+        "I",
+        "were",
+        "only",
+        "thine._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pyramus,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "pyramus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.17,
+          "end": 1.39,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "were",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fair,",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "fair",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Thisbe,",
+          "start": 2.03,
+          "end": 2.31,
+          "key": "thisbe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.55,
+          "end": 2.61,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.61,
+          "end": 2.73,
+          "key": "were",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.73,
+          "end": 2.99,
+          "key": "only",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thine.",
+          "start": 2.99,
+          "end": 3.39,
+          "key": "thine",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pyramus.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "_If",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "I",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "were",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "fair,",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "Thisbe,",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "I",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "text": "were",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "only",
+          "start": 2.73,
+          "end": 2.99
+        },
+        {
+          "text": "thine._",
+          "start": 2.99,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22093117889016867
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f7d32017538cc6b3e78046e81a6bc6137335a14b44801504775072a4e09133e0",
+  "selected_reasons": []
+}

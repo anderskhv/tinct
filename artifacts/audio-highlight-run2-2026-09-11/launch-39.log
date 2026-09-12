@@ -1,0 +1,39 @@
+[2026-09-12T06:01:30Z] created tbgsw5pt8txdce tinct-words-run2-39 gpu=None $0.49/hr
+[2026-09-12T06:01:31Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T06:01:47Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-12T06:02:03Z] phase model at 0.5 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e"}
+[2026-09-12T06:02:03Z] 0.5 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:02:34Z] 1.1 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:03:04Z] 1.6 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:03:35Z] 2.1 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:04:05Z] 2.6 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:04:35Z] 3.1 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:05:06Z] 3.6 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:05:36Z] 4.1 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:06:07Z] 4.6 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:06:37Z] phase cohort at 5.1 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T06:06:37Z] 5.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:07:07Z] 5.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:07:38Z] 6.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:08:08Z] 6.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:08:39Z] 7.1 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:09:09Z] 7.6 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:09:40Z] 8.2 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:10:10Z] 8.7 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-12T06:10:41Z] snapshot 97747 bytes
+[2026-09-12T06:10:41Z] phase aligning at 9.2 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "f53d744782e3c369fffd2980a013a7f199c0476e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-12T06:10:41Z] 9.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 35}
+[2026-09-12T06:11:11Z] 9.7 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 111}
+[2026-09-12T06:11:42Z] 10.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 149}
+[2026-09-12T06:12:12Z] 10.7 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 219}
+[2026-09-12T06:12:42Z] 11.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 292}
+[2026-09-12T06:13:13Z] 11.7 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 382}
+[2026-09-12T06:13:43Z] 12.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 408}
+[2026-09-12T06:14:14Z] 12.7 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 425}
+[2026-09-12T06:14:47Z] snapshot 1460453 bytes
+[2026-09-12T06:14:47Z] 13.2 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 1, "arm_chapters_running": 1, "paragraph_diagnostics": 485}
+[2026-09-12T06:15:18Z] pod is EXITED (Exited by user: Sat Sep 12 2026 06:15:09 GMT+0000 (Coordinated Universal Time)); using last snapshot
+[2026-09-12T06:15:20Z] final fetch failed (HTTP 404); extracted last snapshot from 2026-09-12T06:14:47Z
+[2026-09-12T06:15:21Z] stop tbgsw5pt8txdce: HTTP 200
+[2026-09-12T06:15:22Z] terminate tbgsw5pt8txdce: HTTP 204
+[2026-09-12T06:15:22Z] pod tbgsw5pt8txdce done: outcome=pod-exited-externally uptime=13.8m est $0.11

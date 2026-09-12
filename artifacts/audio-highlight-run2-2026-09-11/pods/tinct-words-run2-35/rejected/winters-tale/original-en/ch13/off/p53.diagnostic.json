@@ -1,0 +1,482 @@
+{
+  "complete": true,
+  "signature": "fbf2d07a7bb06736ec69c95e58d2b0d9f7c05a6e2df3d3f3b0256a6e33b30b9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2188524268567562,
+      "alignment_seconds": 0.00063369981944561,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lord, lay Tiso to his charge. He's with the king your father.",
+          "start": 0.02,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Lord,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " lay",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Tiso",
+              "start": 1.26,
+              "end": 1.66,
+              "probability": 0.653564453125
+            },
+            {
+              "text": " to",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " charge.",
+              "start": 1.96,
+              "end": 2.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " He's",
+              "start": 2.84,
+              "end": 2.98,
+              "probability": 0.948486328125
+            },
+            {
+              "text": " with",
+              "start": 2.98,
+              "end": 3.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " king",
+              "start": 3.2,
+              "end": 3.34,
+              "probability": 0.5146484375
+            },
+            {
+              "text": " your",
+              "start": 3.34,
+              "end": 3.5,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " father.",
+              "start": 3.5,
+              "end": 3.8,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lord,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "lay",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "Tiso",
+          "start": 1.26,
+          "end": 1.66
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "his",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "charge.",
+          "start": 1.96,
+          "end": 2.34
+        },
+        {
+          "raw": "He's",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "raw": "with",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "king",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "raw": "your",
+          "start": 3.34,
+          "end": 3.5
+        },
+        {
+          "raw": "father.",
+          "start": 3.5,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "Lord.",
+        "Lay",
+        "'t",
+        "so",
+        "to",
+        "his",
+        "charge.",
+        "He's",
+        "with",
+        "the",
+        "king",
+        "your",
+        "father."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          13,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lord,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "lord",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "lay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tiso",
+          "start": 1.26,
+          "end": 1.66,
+          "key": "tiso",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.82,
+          "end": 1.96,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "charge.",
+          "start": 1.96,
+          "end": 2.34,
+          "key": "charge",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 2.84,
+          "end": 2.98,
+          "key": "hes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.98,
+          "end": 3.06,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 3.2,
+          "end": 3.34,
+          "key": "king",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.34,
+          "end": 3.5,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 3.5,
+          "end": 3.8,
+          "key": "father",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lord.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Lay",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "'t",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "so",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "to",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "text": "his",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "charge.",
+          "start": 1.96,
+          "end": 2.34
+        },
+        {
+          "text": "He's",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "text": "with",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "text": "the",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "king",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "text": "your",
+          "start": 3.34,
+          "end": 3.5
+        },
+        {
+          "text": "father.",
+          "start": 3.5,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21970996633172035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f222d4cfaa176abb879704ab83f558f7e866b0ca2c64ac16c1e67bf122cc14a0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

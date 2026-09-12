@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "dd91f6167f168dc119f2a08320a4f11000c79e89b4cc3d010bbd51824c5442ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.19959096610546112,
+      "alignment_seconds": 0.0002138279378414154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What's that? I asked with sudden gravity.",
+          "start": 0.02,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " What's",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.58404541015625
+            },
+            {
+              "text": " that?",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " asked",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.97265625
+            },
+            {
+              "text": " sudden",
+              "start": 1.96,
+              "end": 2.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " gravity.",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "that?",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "asked",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "with",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "sudden",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "raw": "gravity.",
+          "start": 2.26,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "\"What's",
+        "that?\"",
+        "I",
+        "asked,",
+        "with",
+        "sudden",
+        "gravity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What's",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "whats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sudden",
+          "start": 1.96,
+          "end": 2.26,
+          "key": "sudden",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gravity.",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "gravity",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What's",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "that?\"",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "I",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "asked,",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "with",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "sudden",
+          "start": 1.96,
+          "end": 2.26
+        },
+        {
+          "text": "gravity.",
+          "start": 2.26,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19987593404948711
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a2e1d2a25e472b4e9acb06a711ad7ff56b79c8859ca1763f5e1afe84bb26169d",
+  "selected_reasons": []
+}

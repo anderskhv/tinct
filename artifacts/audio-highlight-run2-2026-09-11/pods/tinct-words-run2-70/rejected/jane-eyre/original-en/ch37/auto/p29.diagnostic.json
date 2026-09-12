@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "df7f4b6f4b35cda61f639833c64fada2a405b484519dfe87619ea92bbdb3a89e",
+  "attempts": [
+    {
+      "asr_seconds": 0.23088259203359485,
+      "alignment_seconds": 0.0004187510348856449,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Mary is in the kitchen,\" I answered.",
+        "hotwords": "Mary, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mary is in the kitchen, I answered.",
+          "start": 0.02,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Mary",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.1817626953125
+            },
+            {
+              "text": " is",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 0.84,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " kitchen,",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " answered.",
+              "start": 1.86,
+              "end": 2.24,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mary",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "is",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "in",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "raw": "the",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "kitchen,",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "answered.",
+          "start": 1.86,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "\"Mary",
+        "is",
+        "in",
+        "the",
+        "kitchen,\"",
+        "I",
+        "answered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mary",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "mary",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.84,
+          "end": 0.94,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.94,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kitchen,",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "kitchen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "answered.",
+          "start": 1.86,
+          "end": 2.24,
+          "key": "answered",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mary",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "is",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "in",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "text": "the",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "text": "kitchen,\"",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "I",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "answered.",
+          "start": 1.86,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23146018595434725
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "edc810d35221282fa36d33f4d4b098226b4f60ddc1592433f828449c36e9ae80",
+  "selected_reasons": []
+}

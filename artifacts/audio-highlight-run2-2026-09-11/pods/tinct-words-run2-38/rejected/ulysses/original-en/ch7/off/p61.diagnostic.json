@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "1a86fb6701f95171cb962d70633f30aa5cb4585ce21e42b36c65295f8dfae75a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1963543479796499,
+      "alignment_seconds": 0.00033326202537864447,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But wait, Mr. Bloom said. He wants it changed. Keys, you see. He wants two keys at the top.",
+          "start": 0.08,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.298583984375
+            },
+            {
+              "text": " wait,",
+              "start": 0.52,
+              "end": 0.8,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Mr.",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Bloom",
+              "start": 1.4,
+              "end": 1.4,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " said.",
+              "start": 1.4,
+              "end": 1.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " He",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " wants",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " changed.",
+              "start": 2.56,
+              "end": 2.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Keys,",
+              "start": 3.66,
+              "end": 3.66,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " you",
+              "start": 3.84,
+              "end": 3.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see.",
+              "start": 3.86,
+              "end": 4.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " He",
+              "start": 4.5,
+              "end": 4.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wants",
+              "start": 4.58,
+              "end": 4.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " two",
+              "start": 4.78,
+              "end": 5.0,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " keys",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " at",
+              "start": 5.26,
+              "end": 5.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.46,
+              "end": 5.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " top.",
+              "start": 5.56,
+              "end": 5.78,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "wait,",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.4,
+          "end": 1.4
+        },
+        {
+          "raw": "said.",
+          "start": 1.4,
+          "end": 1.76
+        },
+        {
+          "raw": "He",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "wants",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "it",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "changed.",
+          "start": 2.56,
+          "end": 2.92
+        },
+        {
+          "raw": "Keys,",
+          "start": 3.66,
+          "end": 3.66
+        },
+        {
+          "raw": "you",
+          "start": 3.84,
+          "end": 3.86
+        },
+        {
+          "raw": "see.",
+          "start": 3.86,
+          "end": 4.1
+        },
+        {
+          "raw": "He",
+          "start": 4.5,
+          "end": 4.58
+        },
+        {
+          "raw": "wants",
+          "start": 4.58,
+          "end": 4.78
+        },
+        {
+          "raw": "two",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "raw": "keys",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "raw": "at",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "raw": "the",
+          "start": 5.46,
+          "end": 5.56
+        },
+        {
+          "raw": "top.",
+          "start": 5.56,
+          "end": 5.78
+        }
+      ],
+      "expected_tokens": [
+        "—But",
+        "wait,",
+        "Mr",
+        "Bloom",
+        "said.",
+        "He",
+        "wants",
+        "it",
+        "changed.",
+        "Keyes,",
+        "you",
+        "see.",
+        "He",
+        "wants",
+        "two",
+        "keys",
+        "at",
+        "the",
+        "top."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          19,
+          10,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wait,",
+          "start": 0.52,
+          "end": 0.8,
+          "key": "wait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.98,
+          "end": 1.14,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.4,
+          "end": 1.4,
+          "key": "bloom",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.4,
+          "end": 1.76,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wants",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "wants",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.4,
+          "end": 2.56,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "changed.",
+          "start": 2.56,
+          "end": 2.92,
+          "key": "changed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Keys,",
+          "start": 3.66,
+          "end": 3.66,
+          "key": "keys",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.84,
+          "end": 3.86,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see.",
+          "start": 3.86,
+          "end": 4.1,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.5,
+          "end": 4.58,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wants",
+          "start": 4.58,
+          "end": 4.78,
+          "key": "wants",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 4.78,
+          "end": 5.0,
+          "key": "two",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "keys",
+          "start": 5.0,
+          "end": 5.26,
+          "key": "keys",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.26,
+          "end": 5.46,
+          "key": "at",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.46,
+          "end": 5.56,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "top.",
+          "start": 5.56,
+          "end": 5.78,
+          "key": "top",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "wait,",
+          "start": 0.52,
+          "end": 0.8
+        },
+        {
+          "text": "Mr",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "Bloom",
+          "start": 1.4,
+          "end": 1.4
+        },
+        {
+          "text": "said.",
+          "start": 1.4,
+          "end": 1.76
+        },
+        {
+          "text": "He",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "wants",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "it",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "changed.",
+          "start": 2.56,
+          "end": 2.92
+        },
+        {
+          "text": "Keyes,",
+          "start": 2.92,
+          "end": 3.38
+        },
+        {
+          "text": "you",
+          "start": 3.84,
+          "end": 3.86
+        },
+        {
+          "text": "see.",
+          "start": 3.86,
+          "end": 4.1
+        },
+        {
+          "text": "He",
+          "start": 4.5,
+          "end": 4.58
+        },
+        {
+          "text": "wants",
+          "start": 4.58,
+          "end": 4.78
+        },
+        {
+          "text": "two",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "text": "keys",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "text": "at",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "text": "the",
+          "start": 5.46,
+          "end": 5.56
+        },
+        {
+          "text": "top.",
+          "start": 5.56,
+          "end": 5.78
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.19682051095878705
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0b4de92a777348fdd6809b0365d597677e423b3253077e87a8caf3aa52e1b11b",
+  "selected_reasons": []
+}

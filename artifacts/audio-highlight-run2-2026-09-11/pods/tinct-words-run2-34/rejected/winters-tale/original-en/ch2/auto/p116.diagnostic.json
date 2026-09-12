@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "269be7fc2a3613dab28203ba93acae6954c4084d9195ef968204d24279ced931",
+  "attempts": [
+    {
+      "asr_seconds": 3.6875407341867685,
+      "alignment_seconds": 0.00019892863929271698,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polixenes. For what?",
+        "hotwords": "Polixenes, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polixenes, For what?",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Polixenes,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.3982035319010417
+            },
+            {
+              "text": " For",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.009979248046875
+            },
+            {
+              "text": " what?",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.544921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "For",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "what?",
+          "start": 1.39,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "For",
+        "what?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "polixenes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "For",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "what?",
+          "start": 1.39,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.6877913512289524
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f7543d130c5be22e72847219a2f493383c67674a02ae65abda46370eb7531245",
+  "selected_reasons": []
+}

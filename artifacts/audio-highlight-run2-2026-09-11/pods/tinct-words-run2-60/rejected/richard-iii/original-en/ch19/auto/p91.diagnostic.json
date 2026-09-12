@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "2f03b6bb37e7180c64d3e6aeaae73f5382116be398864da8eb28f64a7c09d809",
+  "attempts": [
+    {
+      "asr_seconds": 0.16139427572488785,
+      "alignment_seconds": 0.00039605796337127686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Then know, that from my soul I love thy daughter.",
+        "hotwords": "King, Richard, Then, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard. Then know, that from my soul I love thy daughter.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " Richard.",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Then",
+              "start": 1.57,
+              "end": 1.65,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " know,",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 2.07,
+              "end": 2.11,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " from",
+              "start": 2.11,
+              "end": 2.27,
+              "probability": 0.56787109375
+            },
+            {
+              "text": " my",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " soul",
+              "start": 2.41,
+              "end": 2.71,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " I",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.6826171875
+            },
+            {
+              "text": " love",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " thy",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " daughter.",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "Then",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "raw": "know,",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "that",
+          "start": 2.07,
+          "end": 2.11
+        },
+        {
+          "raw": "from",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "raw": "my",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "soul",
+          "start": 2.41,
+          "end": 2.71
+        },
+        {
+          "raw": "I",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "raw": "love",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "thy",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "raw": "daughter.",
+          "start": 3.33,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Then",
+        "know,",
+        "that",
+        "from",
+        "my",
+        "soul",
+        "I",
+        "love",
+        "thy",
+        "daughter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard.",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.57,
+          "end": 1.65,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.07,
+          "end": 2.11,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.11,
+          "end": 2.27,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 2.41,
+          "end": 2.71,
+          "key": "soul",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "love",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "thy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "daughter.",
+          "start": 3.33,
+          "end": 3.61,
+          "key": "daughter",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Then",
+          "start": 1.57,
+          "end": 1.65
+        },
+        {
+          "text": "know,",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "that",
+          "start": 2.07,
+          "end": 2.11
+        },
+        {
+          "text": "from",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "text": "my",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "soul",
+          "start": 2.41,
+          "end": 2.71
+        },
+        {
+          "text": "I",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "text": "love",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "thy",
+          "start": 3.11,
+          "end": 3.33
+        },
+        {
+          "text": "daughter.",
+          "start": 3.33,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16196221858263016
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3ce8d5f55865f9891f23374ae38bbf0dc655bca50990988f6aa7444d28a33650",
+  "selected_reasons": []
+}

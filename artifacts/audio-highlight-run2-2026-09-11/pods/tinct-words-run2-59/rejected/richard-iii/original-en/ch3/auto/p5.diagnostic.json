@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "d2018a47834be5bd13f07e9d7a5bdbbbd28fe9cda07bf7620088998302210700",
+  "attempts": [
+    {
+      "asr_seconds": 0.26585671794600785,
+      "alignment_seconds": 0.0005300699267536402,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. The loss of such a lord includes all harms.",
+        "hotwords": "Queen, Elizabeth, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth. The loss of such a lord includes all harms.",
+          "start": 0.08,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Elizabeth.",
+              "start": 0.62,
+              "end": 1.14,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " The",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " loss",
+              "start": 1.78,
+              "end": 2.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " such",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lord",
+              "start": 2.5,
+              "end": 2.72,
+              "probability": 0.744140625
+            },
+            {
+              "text": " includes",
+              "start": 2.72,
+              "end": 3.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 3.08,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " harms.",
+              "start": 3.44,
+              "end": 3.84,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "raw": "The",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "loss",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "raw": "of",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "such",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "raw": "a",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "lord",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "raw": "includes",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "raw": "all",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "raw": "harms.",
+          "start": 3.44,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "The",
+        "loss",
+        "of",
+        "such",
+        "a",
+        "lord",
+        "includes",
+        "all",
+        "harms."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth.",
+          "start": 0.62,
+          "end": 1.14,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "loss",
+          "start": 1.78,
+          "end": 2.0,
+          "key": "loss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "such",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.34,
+          "end": 2.5,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 2.5,
+          "end": 2.72,
+          "key": "lord",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "includes",
+          "start": 2.72,
+          "end": 3.08,
+          "key": "includes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.08,
+          "end": 3.44,
+          "key": "all",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "harms.",
+          "start": 3.44,
+          "end": 3.84,
+          "key": "harms",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.62,
+          "end": 1.14
+        },
+        {
+          "text": "The",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "loss",
+          "start": 1.78,
+          "end": 2.0
+        },
+        {
+          "text": "of",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "such",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "text": "a",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "lord",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "text": "includes",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "text": "all",
+          "start": 3.08,
+          "end": 3.44
+        },
+        {
+          "text": "harms.",
+          "start": 3.44,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2665953610558063
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e844d10226bd8d6a903e721900b3a861ef2376e1ab5a88cd6515cc4fd91f0fa9",
+  "selected_reasons": []
+}

@@ -1,0 +1,233 @@
+{
+  "complete": true,
+  "signature": "78cc84bc105d2a15440eb958adda708f8471be6d522af2a7d3a1b0118447b390",
+  "attempts": [
+    {
+      "asr_seconds": 0.9328104695305228,
+      "alignment_seconds": 0.0003689499571919441,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. O Brutus!",
+        "hotwords": "Cassius, O, Brutus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, O, Brutus Cassius. O, Brutus!",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " O,",
+              "start": 1.17,
+              "end": 1.23,
+              "probability": 0.1868896484375
+            },
+            {
+              "text": " Brutus",
+              "start": 1.27,
+              "end": 1.65,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " Cassius.",
+              "start": 1.65,
+              "end": 2.23,
+              "probability": 0.49853581190109253
+            },
+            {
+              "text": " O,",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.78515625
+            },
+            {
+              "text": " Brutus!",
+              "start": 2.23,
+              "end": 2.23,
+              "probability": 0.997802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "O,",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.27,
+          "end": 1.65
+        },
+        {
+          "raw": "Cassius.",
+          "start": 1.65,
+          "end": 2.23
+        },
+        {
+          "raw": "O,",
+          "start": 2.23,
+          "end": 2.23
+        },
+        {
+          "raw": "Brutus!",
+          "start": 2.23,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "O",
+        "Brutus!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.17,
+          "end": 1.23,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.27,
+          "end": 1.65,
+          "key": "brutus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cassius.",
+          "start": 1.65,
+          "end": 2.23,
+          "key": "cassius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 2.23,
+          "end": 2.23,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Brutus!",
+          "start": 2.23,
+          "end": 2.23,
+          "key": "brutus",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "O",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "text": "Brutus!",
+          "start": 1.27,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9333239207044244
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1bfc346a56f899a8ccc49dd01d616cb218e6864efc120dbc13dc10533275c391",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "f0301feae359cc89e1f1bba188a8c014a2c6df7ce4fcb04d8caaabb34cac7ed4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2237490639090538,
+      "alignment_seconds": 0.00042648613452911377,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is to say, justice is useful when money is useless?",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is to say, justice is useful when money is useless?",
+          "start": 0.14,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.14,
+              "end": 0.54,
+              "probability": 0.931640625
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say,",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " justice",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " is",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " useful",
+              "start": 2.1,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " when",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " money",
+              "start": 2.7,
+              "end": 2.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 2.9,
+              "end": 3.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " useless?",
+              "start": 3.14,
+              "end": 3.52,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "to",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "say,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "justice",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "is",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "useful",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "raw": "when",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "money",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "raw": "is",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "raw": "useless?",
+          "start": 3.14,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "to",
+        "say,",
+        "justice",
+        "is",
+        "useful",
+        "when",
+        "money",
+        "is",
+        "useless?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.14,
+          "end": 0.54,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "justice",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "justice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "useful",
+          "start": 2.1,
+          "end": 2.44,
+          "key": "useful",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.44,
+          "end": 2.7,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 2.7,
+          "end": 2.9,
+          "key": "money",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.9,
+          "end": 3.14,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "useless?",
+          "start": 3.14,
+          "end": 3.52,
+          "key": "useless",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "to",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "say,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "justice",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "is",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "useful",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "text": "when",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "money",
+          "start": 2.7,
+          "end": 2.9
+        },
+        {
+          "text": "is",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "text": "useless?",
+          "start": 3.14,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22434604912996292
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6de4ab6efdd389ad47e9bfa4d2ca0f9b8ded13fab384de0d3ab6b1910e508fb2",
+  "selected_reasons": []
+}

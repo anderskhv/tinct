@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "a7841979f78686bd43820b1caa185b905355fe8f357cf4c6a60d678248960f20",
+  "attempts": [
+    {
+      "asr_seconds": 0.07519007002701983,
+      "alignment_seconds": 7.723004091531038e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " KMA.",
+          "start": 0.0,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " KMA.",
+              "start": 0.0,
+              "end": 0.68,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "KMA.",
+          "start": 0.0,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "K.M.A."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "KMA.",
+          "start": 0.0,
+          "end": 0.68,
+          "key": "kma",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "K.M.A.",
+          "start": 0.0,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07529339101165533
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7c1558326885e89d5c2dcd5e7fb67cbe3b7949d773bcf9ae5a076a156d04ff5",
+  "selected_reasons": []
+}

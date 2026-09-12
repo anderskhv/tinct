@@ -1,0 +1,559 @@
+{
+  "complete": true,
+  "signature": "d6e293d070999622195701f4309a7690e4f86ff3b48391d9c1c33c990b7c96ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.31712794676423073,
+      "alignment_seconds": 0.0006606020033359528,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, now mercury and do thee with leasing, For thou speak'st thee well of fools.",
+          "start": 0.08,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.40576171875
+            },
+            {
+              "text": " now",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " mercury",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.491455078125
+            },
+            {
+              "text": " and",
+              "start": 1.72,
+              "end": 1.98,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " do",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.55224609375
+            },
+            {
+              "text": " thee",
+              "start": 2.1,
+              "end": 2.24,
+              "probability": 0.09515380859375
+            },
+            {
+              "text": " with",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.966796875
+            },
+            {
+              "text": " leasing,",
+              "start": 2.4,
+              "end": 2.74,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " For",
+              "start": 3.14,
+              "end": 3.22,
+              "probability": 0.4912109375
+            },
+            {
+              "text": " thou",
+              "start": 3.22,
+              "end": 3.38,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " speak'st",
+              "start": 3.38,
+              "end": 3.84,
+              "probability": 0.8165690104166666
+            },
+            {
+              "text": " thee",
+              "start": 3.84,
+              "end": 3.92,
+              "probability": 0.763671875
+            },
+            {
+              "text": " well",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 4.1,
+              "end": 4.26,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " fools.",
+              "start": 4.26,
+              "end": 4.52,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "now",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "mercury",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "and",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "raw": "do",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "thee",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "raw": "with",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "leasing,",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "raw": "For",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "raw": "thou",
+          "start": 3.22,
+          "end": 3.38
+        },
+        {
+          "raw": "speak'st",
+          "start": 3.38,
+          "end": 3.84
+        },
+        {
+          "raw": "thee",
+          "start": 3.84,
+          "end": 3.92
+        },
+        {
+          "raw": "well",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "of",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "raw": "fools.",
+          "start": 4.26,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Now",
+        "Mercury",
+        "endue",
+        "thee",
+        "with",
+        "leasing,",
+        "for",
+        "thou",
+        "speak'st",
+        "well",
+        "of",
+        "fools!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ],
+        [
+          "insert",
+          10,
+          10,
+          11,
+          12
+        ],
+        [
+          "equal",
+          10,
+          13,
+          12,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "insert",
+          10,
+          10,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mercury",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "mercury",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.72,
+          "end": 1.98,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.1,
+          "end": 2.24,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "leasing,",
+          "start": 2.4,
+          "end": 2.74,
+          "key": "leasing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.14,
+          "end": 3.22,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.22,
+          "end": 3.38,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "speak'st",
+          "start": 3.38,
+          "end": 3.84,
+          "key": "speakst",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.84,
+          "end": 3.92,
+          "key": "thee",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "well",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.1,
+          "end": 4.26,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fools.",
+          "start": 4.26,
+          "end": 4.52,
+          "key": "fools",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Now",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "Mercury",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "endue",
+          "start": 1.72,
+          "end": 1.91
+        },
+        {
+          "text": "thee",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "text": "with",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "leasing,",
+          "start": 2.4,
+          "end": 2.74
+        },
+        {
+          "text": "for",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "text": "thou",
+          "start": 3.22,
+          "end": 3.38
+        },
+        {
+          "text": "speak'st",
+          "start": 3.38,
+          "end": 3.84
+        },
+        {
+          "text": "well",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "of",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "text": "fools!",
+          "start": 4.26,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.31806621327996254
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8b66690651450efadbb6362fab67bc3abb9520edae5f77dd9962ecbd477b8641",
+  "selected_reasons": []
+}

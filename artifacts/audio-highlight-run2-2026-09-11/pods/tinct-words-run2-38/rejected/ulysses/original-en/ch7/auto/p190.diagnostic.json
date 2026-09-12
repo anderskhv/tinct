@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "f3a6107b97fec2bab41d95a84f3da1c5a127972e260d9de5d20397ef8d197f1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1221394730382599,
+      "alignment_seconds": 0.00021832098718732595,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Twentyeight... No, twenty... Double four... Yes.",
+        "hotwords": "Twentyeight, No, Double, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Twentyeight, No, twenty... Double four... Yes.",
+          "start": 0.08,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Twentyeight,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.03973960876464844
+            },
+            {
+              "text": " No,",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.03515625
+            },
+            {
+              "text": " twenty...",
+              "start": 1.68,
+              "end": 2.16,
+              "probability": 0.14615631103515625
+            },
+            {
+              "text": " Double",
+              "start": 2.16,
+              "end": 2.22,
+              "probability": 0.369384765625
+            },
+            {
+              "text": " four...",
+              "start": 2.22,
+              "end": 3.08,
+              "probability": 0.47344970703125
+            },
+            {
+              "text": " Yes.",
+              "start": 3.08,
+              "end": 3.16,
+              "probability": 0.72265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Twentyeight,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "No,",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "twenty...",
+          "start": 1.68,
+          "end": 2.16
+        },
+        {
+          "raw": "Double",
+          "start": 2.16,
+          "end": 2.22
+        },
+        {
+          "raw": "four...",
+          "start": 2.22,
+          "end": 3.08
+        },
+        {
+          "raw": "Yes.",
+          "start": 3.08,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "—Twentyeight...",
+        "No,",
+        "twenty...",
+        "Double",
+        "four...",
+        "Yes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Twentyeight,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "twentyeight",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "twenty...",
+          "start": 1.68,
+          "end": 2.16,
+          "key": "twenty",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Double",
+          "start": 2.16,
+          "end": 2.22,
+          "key": "double",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "four...",
+          "start": 2.22,
+          "end": 3.08,
+          "key": "four",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Yes.",
+          "start": 3.08,
+          "end": 3.16,
+          "key": "yes",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Twentyeight...",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "No,",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "twenty...",
+          "start": 1.68,
+          "end": 2.16
+        },
+        {
+          "text": "Double",
+          "start": 2.16,
+          "end": 2.22
+        },
+        {
+          "text": "four...",
+          "start": 2.22,
+          "end": 3.08
+        },
+        {
+          "text": "Yes.",
+          "start": 3.08,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12242800404783338
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6876d26f80ac77c3f7358b03d97d729d16d5da7340427712212d83f0ae06fd24",
+  "selected_reasons": []
+}

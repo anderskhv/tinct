@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "654ac65cdb7dc7ecb95a668e7aab10ddbff6c134163bca929e9a93943783c28a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1081989724189043,
+      "alignment_seconds": 0.00021241884678602219,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Poet.",
+        "hotwords": "Poet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Poet.",
+          "start": 0.05,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " Poet.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.81103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Poet.",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "Poet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Poet.",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "poet",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Poet.",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10848427470773458
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "20ea06d5fbe70f130e5815a39ca07d41691331de566a058383dcdd0745370006",
+  "selected_reasons": []
+}

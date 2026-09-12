@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "14b387275f64a110b978e64ea98cb1efb4c549dae727774c29b72027a39c725b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20366477221250534,
+      "alignment_seconds": 0.00038675591349601746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah, how I loved him!\" exclaimed Kolya.",
+        "hotwords": "Ah, I, Kolya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, how I loved him! exclaimed Kolya.",
+          "start": 0.18,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.038055419921875
+            },
+            {
+              "text": " how",
+              "start": 0.66,
+              "end": 0.76,
+              "probability": 0.984375
+            },
+            {
+              "text": " I",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " loved",
+              "start": 0.9,
+              "end": 1.08,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " him!",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.72,
+              "end": 2.04,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Kolya.",
+              "start": 2.04,
+              "end": 2.68,
+              "probability": 0.44167137145996094
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "how",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "loved",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "raw": "him!",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "raw": "Kolya.",
+          "start": 2.04,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah,",
+        "how",
+        "I",
+        "loved",
+        "him!\"",
+        "exclaimed",
+        "Kolya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.66,
+          "end": 0.76,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.76,
+          "end": 0.9,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "loved",
+          "start": 0.9,
+          "end": 1.08,
+          "key": "loved",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 1.08,
+          "end": 1.4,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.72,
+          "end": 2.04,
+          "key": "exclaimed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Kolya.",
+          "start": 2.04,
+          "end": 2.68,
+          "key": "kolya",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah,",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "text": "how",
+          "start": 0.66,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "loved",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "him!\"",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "text": "Kolya.",
+          "start": 2.04,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20419050380587578
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8a33665ca2fbaa9a3c7ac2ce976b0d9bd444e50daa058c2771d5df26f727a458",
+  "selected_reasons": []
+}

@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "745dc14eb029616526997d70e3ae2cbbc8c9de9de1eb1b8c37f4d3163ab9143c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19485965999774635,
+      "alignment_seconds": 0.00033813301706686616,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We will sternly refuse to partake of strong waters will we not yes, we will not by no manner of means",
+          "start": 0.02,
+          "end": 6.82,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " will",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sternly",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " refuse",
+              "start": 1.16,
+              "end": 1.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.52,
+              "end": 1.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " partake",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 2.04,
+              "end": 2.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " strong",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " waters",
+              "start": 2.58,
+              "end": 2.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " will",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.479736328125
+            },
+            {
+              "text": " we",
+              "start": 3.16,
+              "end": 3.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not",
+              "start": 3.3,
+              "end": 3.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yes,",
+              "start": 3.62,
+              "end": 4.42,
+              "probability": 0.556640625
+            },
+            {
+              "text": " we",
+              "start": 4.42,
+              "end": 4.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " will",
+              "start": 4.9,
+              "end": 5.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " not",
+              "start": 5.04,
+              "end": 5.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 5.4,
+              "end": 5.9,
+              "probability": 0.962890625
+            },
+            {
+              "text": " no",
+              "start": 5.9,
+              "end": 6.08,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " manner",
+              "start": 6.08,
+              "end": 6.38,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " of",
+              "start": 6.38,
+              "end": 6.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " means",
+              "start": 6.54,
+              "end": 6.82,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "sternly",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "raw": "refuse",
+          "start": 1.16,
+          "end": 1.52
+        },
+        {
+          "raw": "to",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "raw": "partake",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "of",
+          "start": 2.04,
+          "end": 2.28
+        },
+        {
+          "raw": "strong",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "raw": "waters",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "raw": "will",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "raw": "we",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "raw": "not",
+          "start": 3.3,
+          "end": 3.62
+        },
+        {
+          "raw": "yes,",
+          "start": 3.62,
+          "end": 4.42
+        },
+        {
+          "raw": "we",
+          "start": 4.42,
+          "end": 4.9
+        },
+        {
+          "raw": "will",
+          "start": 4.9,
+          "end": 5.04
+        },
+        {
+          "raw": "not",
+          "start": 5.04,
+          "end": 5.4
+        },
+        {
+          "raw": "by",
+          "start": 5.4,
+          "end": 5.9
+        },
+        {
+          "raw": "no",
+          "start": 5.9,
+          "end": 6.08
+        },
+        {
+          "raw": "manner",
+          "start": 6.08,
+          "end": 6.38
+        },
+        {
+          "raw": "of",
+          "start": 6.38,
+          "end": 6.54
+        },
+        {
+          "raw": "means",
+          "start": 6.54,
+          "end": 6.82
+        }
+      ],
+      "expected_tokens": [
+        "—We",
+        "will",
+        "sternly",
+        "refuse",
+        "to",
+        "partake",
+        "of",
+        "strong",
+        "waters,",
+        "will",
+        "we",
+        "not?",
+        "Yes,",
+        "we",
+        "will",
+        "not.",
+        "By",
+        "no",
+        "manner",
+        "of",
+        "means."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sternly",
+          "start": 0.68,
+          "end": 1.16,
+          "key": "sternly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "refuse",
+          "start": 1.16,
+          "end": 1.52,
+          "key": "refuse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.52,
+          "end": 1.8,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "partake",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "partake",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.04,
+          "end": 2.28,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 2.28,
+          "end": 2.58,
+          "key": "strong",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "waters",
+          "start": 2.58,
+          "end": 2.94,
+          "key": "waters",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.94,
+          "end": 3.16,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.16,
+          "end": 3.3,
+          "key": "we",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.3,
+          "end": 3.62,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 3.62,
+          "end": 4.42,
+          "key": "yes",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 4.42,
+          "end": 4.9,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.9,
+          "end": 5.04,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.04,
+          "end": 5.4,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.4,
+          "end": 5.9,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.9,
+          "end": 6.08,
+          "key": "no",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "manner",
+          "start": 6.08,
+          "end": 6.38,
+          "key": "manner",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.38,
+          "end": 6.54,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 6.54,
+          "end": 6.82,
+          "key": "means",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "will",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "sternly",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "text": "refuse",
+          "start": 1.16,
+          "end": 1.52
+        },
+        {
+          "text": "to",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "text": "partake",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "of",
+          "start": 2.04,
+          "end": 2.28
+        },
+        {
+          "text": "strong",
+          "start": 2.28,
+          "end": 2.58
+        },
+        {
+          "text": "waters,",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "text": "will",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "text": "we",
+          "start": 3.16,
+          "end": 3.3
+        },
+        {
+          "text": "not?",
+          "start": 3.3,
+          "end": 3.62
+        },
+        {
+          "text": "Yes,",
+          "start": 3.62,
+          "end": 4.42
+        },
+        {
+          "text": "we",
+          "start": 4.42,
+          "end": 4.9
+        },
+        {
+          "text": "will",
+          "start": 4.9,
+          "end": 5.04
+        },
+        {
+          "text": "not.",
+          "start": 5.04,
+          "end": 5.4
+        },
+        {
+          "text": "By",
+          "start": 5.4,
+          "end": 5.9
+        },
+        {
+          "text": "no",
+          "start": 5.9,
+          "end": 6.08
+        },
+        {
+          "text": "manner",
+          "start": 6.08,
+          "end": 6.38
+        },
+        {
+          "text": "of",
+          "start": 6.38,
+          "end": 6.54
+        },
+        {
+          "text": "means.",
+          "start": 6.54,
+          "end": 6.82
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1953325920039788
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d4ed65d557d96e3571899fd2772fd8d0886bd59fb3574e8d8759193d55e2bfb3",
+  "selected_reasons": []
+}

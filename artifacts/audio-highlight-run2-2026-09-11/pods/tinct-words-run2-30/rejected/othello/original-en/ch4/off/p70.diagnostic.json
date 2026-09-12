@@ -1,0 +1,699 @@
+{
+  "complete": true,
+  "signature": "25ff06fc2f7daff2fc58ecbea22c38bece3b9b22a45cce58cbd759e2de1a39d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.23456267220899463,
+      "alignment_seconds": 0.00024562887847423553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yego, there's none so foul and foolish thereun too, but does foul pranks which fair and wise",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " Yego,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.5147298177083334
+            },
+            {
+              "text": " there's",
+              "start": 1.13,
+              "end": 1.51,
+              "probability": 0.951171875
+            },
+            {
+              "text": " none",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " so",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " foul",
+              "start": 1.89,
+              "end": 2.23,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " and",
+              "start": 2.23,
+              "end": 2.47,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " foolish",
+              "start": 2.47,
+              "end": 2.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thereun",
+              "start": 2.77,
+              "end": 3.21,
+              "probability": 0.952880859375
+            },
+            {
+              "text": " too,",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.1661376953125
+            },
+            {
+              "text": " but",
+              "start": 3.93,
+              "end": 4.01,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " does",
+              "start": 4.01,
+              "end": 4.23,
+              "probability": 0.986328125
+            },
+            {
+              "text": " foul",
+              "start": 4.23,
+              "end": 4.53,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " pranks",
+              "start": 4.53,
+              "end": 4.95,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " which",
+              "start": 4.95,
+              "end": 5.13,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " fair",
+              "start": 5.13,
+              "end": 5.49,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " and",
+              "start": 5.49,
+              "end": 5.75,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " wise",
+              "start": 5.75,
+              "end": 6.01,
+              "probability": 0.97216796875
+            }
+          ]
+        },
+        {
+          "text": " ones do.",
+          "start": 6.01,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " ones",
+              "start": 6.01,
+              "end": 6.23,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " do.",
+              "start": 6.23,
+              "end": 6.59,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yego,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "there's",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "raw": "none",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "so",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "raw": "foul",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "raw": "foolish",
+          "start": 2.47,
+          "end": 2.77
+        },
+        {
+          "raw": "thereun",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "raw": "too,",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "but",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "raw": "does",
+          "start": 4.01,
+          "end": 4.23
+        },
+        {
+          "raw": "foul",
+          "start": 4.23,
+          "end": 4.53
+        },
+        {
+          "raw": "pranks",
+          "start": 4.53,
+          "end": 4.95
+        },
+        {
+          "raw": "which",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "raw": "fair",
+          "start": 5.13,
+          "end": 5.49
+        },
+        {
+          "raw": "and",
+          "start": 5.49,
+          "end": 5.75
+        },
+        {
+          "raw": "wise",
+          "start": 5.75,
+          "end": 6.01
+        },
+        {
+          "raw": "ones",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "raw": "do.",
+          "start": 6.23,
+          "end": 6.59
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "There's",
+        "none",
+        "so",
+        "foul",
+        "and",
+        "foolish",
+        "thereunto,",
+        "But",
+        "does",
+        "foul",
+        "pranks",
+        "which",
+        "fair",
+        "and",
+        "wise",
+        "ones",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          18,
+          9,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yego,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "yego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 1.13,
+          "end": 1.51,
+          "key": "theres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 1.51,
+          "end": 1.63,
+          "key": "none",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "foul",
+          "start": 1.89,
+          "end": 2.23,
+          "key": "foul",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.23,
+          "end": 2.47,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "foolish",
+          "start": 2.47,
+          "end": 2.77,
+          "key": "foolish",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thereun",
+          "start": 2.77,
+          "end": 3.21,
+          "key": "thereun",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "too",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.93,
+          "end": 4.01,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 4.01,
+          "end": 4.23,
+          "key": "does",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "foul",
+          "start": 4.23,
+          "end": 4.53,
+          "key": "foul",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "pranks",
+          "start": 4.53,
+          "end": 4.95,
+          "key": "pranks",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.95,
+          "end": 5.13,
+          "key": "which",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 5.13,
+          "end": 5.49,
+          "key": "fair",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.49,
+          "end": 5.75,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wise",
+          "start": 5.75,
+          "end": 6.01,
+          "key": "wise",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ones",
+          "start": 6.01,
+          "end": 6.23,
+          "key": "ones",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 6.23,
+          "end": 6.59,
+          "key": "do",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "There's",
+          "start": 1.13,
+          "end": 1.51
+        },
+        {
+          "text": "none",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "so",
+          "start": 1.63,
+          "end": 1.89
+        },
+        {
+          "text": "foul",
+          "start": 1.89,
+          "end": 2.23
+        },
+        {
+          "text": "and",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "text": "foolish",
+          "start": 2.47,
+          "end": 2.77
+        },
+        {
+          "text": "thereunto,",
+          "start": 2.77,
+          "end": 3.35
+        },
+        {
+          "text": "But",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "text": "does",
+          "start": 4.01,
+          "end": 4.23
+        },
+        {
+          "text": "foul",
+          "start": 4.23,
+          "end": 4.53
+        },
+        {
+          "text": "pranks",
+          "start": 4.53,
+          "end": 4.95
+        },
+        {
+          "text": "which",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "text": "fair",
+          "start": 5.13,
+          "end": 5.49
+        },
+        {
+          "text": "and",
+          "start": 5.49,
+          "end": 5.75
+        },
+        {
+          "text": "wise",
+          "start": 5.75,
+          "end": 6.01
+        },
+        {
+          "text": "ones",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "text": "do.",
+          "start": 6.23,
+          "end": 6.59
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.23491467023268342
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "12944194cefd95a8e4bb593c41af0f3d37a4564fbaa97a9deae9469e0889594e",
+  "selected_reasons": []
+}

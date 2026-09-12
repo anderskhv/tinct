@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "1d6e54a8b12b8740d38ebf30dd3db0910e7a7ba69d7a181f833d89d14312482a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1995803639292717,
+      "alignment_seconds": 0.00048779696226119995,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. Wilt thou go to bed, Malvolio?",
+        "hotwords": "Olivia, Wilt, Malvolio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, Wilt thou go to bed, Malvolio?",
+          "start": 0.08,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " Wilt",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.58721923828125
+            },
+            {
+              "text": " thou",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " go",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " to",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " bed,",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Malvolio?",
+              "start": 2.24,
+              "end": 2.72,
+              "probability": 0.91064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Wilt",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "thou",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "go",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "to",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "bed,",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "Malvolio?",
+          "start": 2.24,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Wilt",
+        "thou",
+        "go",
+        "to",
+        "bed,",
+        "Malvolio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wilt",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "wilt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bed,",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "bed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Malvolio?",
+          "start": 2.24,
+          "end": 2.72,
+          "key": "malvolio",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Wilt",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "thou",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "go",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "to",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "text": "bed,",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "Malvolio?",
+          "start": 2.24,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2002488188445568
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "320c8a6b5930b81f2c376a17c7894a023537fc8db6e7f017fbe61cba26413952",
+  "selected_reasons": []
+}

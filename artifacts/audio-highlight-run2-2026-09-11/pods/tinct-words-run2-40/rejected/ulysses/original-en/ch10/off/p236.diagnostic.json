@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "4059875209db14a63485b7bda255145c06247547d4f9b119979bdb7300bca779",
+  "attempts": [
+    {
+      "asr_seconds": 0.28214263590052724,
+      "alignment_seconds": 0.0004112590104341507,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The gates of the drive opened wide to give egress to the viceregal cavalcade.",
+          "start": 0.02,
+          "end": 4.9,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " gates",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.98828125
+            },
+            {
+              "text": " of",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 1.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " drive",
+              "start": 1.02,
+              "end": 1.32,
+              "probability": 0.94140625
+            },
+            {
+              "text": " opened",
+              "start": 1.32,
+              "end": 1.82,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " wide",
+              "start": 1.82,
+              "end": 2.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.3,
+              "end": 2.86,
+              "probability": 0.931640625
+            },
+            {
+              "text": " give",
+              "start": 2.86,
+              "end": 3.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " egress",
+              "start": 3.02,
+              "end": 3.38,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " to",
+              "start": 3.38,
+              "end": 3.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.6,
+              "end": 3.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " viceregal",
+              "start": 3.72,
+              "end": 4.3,
+              "probability": 0.5525309244791666
+            },
+            {
+              "text": " cavalcade.",
+              "start": 4.3,
+              "end": 4.9,
+              "probability": 0.936767578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "gates",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "of",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "raw": "drive",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "raw": "opened",
+          "start": 1.32,
+          "end": 1.82
+        },
+        {
+          "raw": "wide",
+          "start": 1.82,
+          "end": 2.3
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.86
+        },
+        {
+          "raw": "give",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "raw": "egress",
+          "start": 3.02,
+          "end": 3.38
+        },
+        {
+          "raw": "to",
+          "start": 3.38,
+          "end": 3.6
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "raw": "viceregal",
+          "start": 3.72,
+          "end": 4.3
+        },
+        {
+          "raw": "cavalcade.",
+          "start": 4.3,
+          "end": 4.9
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "gates",
+        "of",
+        "the",
+        "drive",
+        "opened",
+        "wide",
+        "to",
+        "give",
+        "egress",
+        "to",
+        "the",
+        "viceregal",
+        "cavalcade."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gates",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "gates",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.02,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drive",
+          "start": 1.02,
+          "end": 1.32,
+          "key": "drive",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "opened",
+          "start": 1.32,
+          "end": 1.82,
+          "key": "opened",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wide",
+          "start": 1.82,
+          "end": 2.3,
+          "key": "wide",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.3,
+          "end": 2.86,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 2.86,
+          "end": 3.02,
+          "key": "give",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "egress",
+          "start": 3.02,
+          "end": 3.38,
+          "key": "egress",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.38,
+          "end": 3.6,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.6,
+          "end": 3.72,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "viceregal",
+          "start": 3.72,
+          "end": 4.3,
+          "key": "viceregal",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cavalcade.",
+          "start": 4.3,
+          "end": 4.9,
+          "key": "cavalcade",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "gates",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "of",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "the",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "text": "drive",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "text": "opened",
+          "start": 1.32,
+          "end": 1.82
+        },
+        {
+          "text": "wide",
+          "start": 1.82,
+          "end": 2.3
+        },
+        {
+          "text": "to",
+          "start": 2.3,
+          "end": 2.86
+        },
+        {
+          "text": "give",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "text": "egress",
+          "start": 3.02,
+          "end": 3.38
+        },
+        {
+          "text": "to",
+          "start": 3.38,
+          "end": 3.6
+        },
+        {
+          "text": "the",
+          "start": 3.6,
+          "end": 3.72
+        },
+        {
+          "text": "viceregal",
+          "start": 3.72,
+          "end": 4.3
+        },
+        {
+          "text": "cavalcade.",
+          "start": 4.3,
+          "end": 4.9
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28271574806421995
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ee5ba808670b31950fd183a46becd07fb0bf431512f2a979b59385636f49077",
+  "selected_reasons": []
+}

@@ -1,0 +1,926 @@
+{
+  "complete": true,
+  "signature": "4793366da2200c71f662723e184f696b01070dce8254c835f01b92110c0212de",
+  "attempts": [
+    {
+      "asr_seconds": 0.4340530773624778,
+      "alignment_seconds": 0.0007362188771367073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cornelius. First, she confess'd she never lov'd you; only Affected greatness got by you, not you; Married your royalty, was wife to your place; Abhorr'd your person.",
+        "hotwords": "Cornelius, First, Affected, Married, Abhorr'd"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cornelius, First, she confess'd she never lov'd you, only Affected greatness got by you, not you, Married your royalty, was wife to your place, Abhorr'd your person.",
+          "start": 0.02,
+          "end": 10.28,
+          "words": [
+            {
+              "text": " Cornelius,",
+              "start": 0.02,
+              "end": 1.12,
+              "probability": 0.7291259765625
+            },
+            {
+              "text": " First,",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.0931396484375
+            },
+            {
+              "text": " she",
+              "start": 2.28,
+              "end": 2.32,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " confess'd",
+              "start": 2.32,
+              "end": 2.84,
+              "probability": 0.0528106689453125
+            },
+            {
+              "text": " she",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.919921875
+            },
+            {
+              "text": " never",
+              "start": 2.96,
+              "end": 3.22,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " lov'd",
+              "start": 3.22,
+              "end": 3.62,
+              "probability": 0.510894775390625
+            },
+            {
+              "text": " you,",
+              "start": 3.62,
+              "end": 3.8,
+              "probability": 0.982421875
+            },
+            {
+              "text": " only",
+              "start": 4.28,
+              "end": 4.46,
+              "probability": 0.48095703125
+            },
+            {
+              "text": " Affected",
+              "start": 4.46,
+              "end": 5.0,
+              "probability": 0.4868481755256653
+            },
+            {
+              "text": " greatness",
+              "start": 5.0,
+              "end": 5.32,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " got",
+              "start": 5.32,
+              "end": 5.62,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " by",
+              "start": 5.62,
+              "end": 5.8,
+              "probability": 0.984375
+            },
+            {
+              "text": " you,",
+              "start": 5.8,
+              "end": 6.08,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 6.3,
+              "end": 6.46,
+              "probability": 0.912109375
+            },
+            {
+              "text": " you,",
+              "start": 6.46,
+              "end": 6.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Married",
+              "start": 7.1,
+              "end": 7.26,
+              "probability": 0.484375
+            },
+            {
+              "text": " your",
+              "start": 7.26,
+              "end": 7.52,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " royalty,",
+              "start": 7.52,
+              "end": 7.86,
+              "probability": 0.9453125
+            },
+            {
+              "text": " was",
+              "start": 8.12,
+              "end": 8.18,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " wife",
+              "start": 8.18,
+              "end": 8.44,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " to",
+              "start": 8.44,
+              "end": 8.64,
+              "probability": 0.405517578125
+            },
+            {
+              "text": " your",
+              "start": 8.64,
+              "end": 8.74,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " place,",
+              "start": 8.74,
+              "end": 9.04,
+              "probability": 0.947265625
+            },
+            {
+              "text": " Abhorr'd",
+              "start": 9.44,
+              "end": 9.78,
+              "probability": 0.3728327751159668
+            },
+            {
+              "text": " your",
+              "start": 9.78,
+              "end": 9.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " person.",
+              "start": 9.88,
+              "end": 10.28,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornelius,",
+          "start": 0.02,
+          "end": 1.12
+        },
+        {
+          "raw": "First,",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "she",
+          "start": 2.28,
+          "end": 2.32
+        },
+        {
+          "raw": "confess'd",
+          "start": 2.32,
+          "end": 2.84
+        },
+        {
+          "raw": "she",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "never",
+          "start": 2.96,
+          "end": 3.22
+        },
+        {
+          "raw": "lov'd",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "raw": "you,",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "raw": "only",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "raw": "Affected",
+          "start": 4.46,
+          "end": 5.0
+        },
+        {
+          "raw": "greatness",
+          "start": 5.0,
+          "end": 5.32
+        },
+        {
+          "raw": "got",
+          "start": 5.32,
+          "end": 5.62
+        },
+        {
+          "raw": "by",
+          "start": 5.62,
+          "end": 5.8
+        },
+        {
+          "raw": "you,",
+          "start": 5.8,
+          "end": 6.08
+        },
+        {
+          "raw": "not",
+          "start": 6.3,
+          "end": 6.46
+        },
+        {
+          "raw": "you,",
+          "start": 6.46,
+          "end": 6.78
+        },
+        {
+          "raw": "Married",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "raw": "your",
+          "start": 7.26,
+          "end": 7.52
+        },
+        {
+          "raw": "royalty,",
+          "start": 7.52,
+          "end": 7.86
+        },
+        {
+          "raw": "was",
+          "start": 8.12,
+          "end": 8.18
+        },
+        {
+          "raw": "wife",
+          "start": 8.18,
+          "end": 8.44
+        },
+        {
+          "raw": "to",
+          "start": 8.44,
+          "end": 8.64
+        },
+        {
+          "raw": "your",
+          "start": 8.64,
+          "end": 8.74
+        },
+        {
+          "raw": "place,",
+          "start": 8.74,
+          "end": 9.04
+        },
+        {
+          "raw": "Abhorr'd",
+          "start": 9.44,
+          "end": 9.78
+        },
+        {
+          "raw": "your",
+          "start": 9.78,
+          "end": 9.88
+        },
+        {
+          "raw": "person.",
+          "start": 9.88,
+          "end": 10.28
+        }
+      ],
+      "expected_tokens": [
+        "Cornelius.",
+        "First,",
+        "she",
+        "confess'd",
+        "she",
+        "never",
+        "lov'd",
+        "you;",
+        "only",
+        "Affected",
+        "greatness",
+        "got",
+        "by",
+        "you,",
+        "not",
+        "you;",
+        "Married",
+        "your",
+        "royalty,",
+        "was",
+        "wife",
+        "to",
+        "your",
+        "place;",
+        "Abhorr'd",
+        "your",
+        "person."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornelius,",
+          "start": 0.02,
+          "end": 1.12,
+          "key": "cornelius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "First,",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.28,
+          "end": 2.32,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "confess'd",
+          "start": 2.32,
+          "end": 2.84,
+          "key": "confessd",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.96,
+          "end": 3.22,
+          "key": "never",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lov'd",
+          "start": 3.22,
+          "end": 3.62,
+          "key": "lovd",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.62,
+          "end": 3.8,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 4.28,
+          "end": 4.46,
+          "key": "only",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Affected",
+          "start": 4.46,
+          "end": 5.0,
+          "key": "affected",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "greatness",
+          "start": 5.0,
+          "end": 5.32,
+          "key": "greatness",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 5.32,
+          "end": 5.62,
+          "key": "got",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.62,
+          "end": 5.8,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 5.8,
+          "end": 6.08,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.3,
+          "end": 6.46,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 6.46,
+          "end": 6.78,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Married",
+          "start": 7.1,
+          "end": 7.26,
+          "key": "married",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.26,
+          "end": 7.52,
+          "key": "your",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "royalty,",
+          "start": 7.52,
+          "end": 7.86,
+          "key": "royalty",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.12,
+          "end": 8.18,
+          "key": "was",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 8.18,
+          "end": 8.44,
+          "key": "wife",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.44,
+          "end": 8.64,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.64,
+          "end": 8.74,
+          "key": "your",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "place,",
+          "start": 8.74,
+          "end": 9.04,
+          "key": "place",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Abhorr'd",
+          "start": 9.44,
+          "end": 9.78,
+          "key": "abhorrd",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 9.78,
+          "end": 9.88,
+          "key": "your",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "person.",
+          "start": 9.88,
+          "end": 10.28,
+          "key": "person",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornelius.",
+          "start": 0.02,
+          "end": 1.12
+        },
+        {
+          "text": "First,",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "she",
+          "start": 2.28,
+          "end": 2.32
+        },
+        {
+          "text": "confess'd",
+          "start": 2.32,
+          "end": 2.84
+        },
+        {
+          "text": "she",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "never",
+          "start": 2.96,
+          "end": 3.22
+        },
+        {
+          "text": "lov'd",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "text": "you;",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "text": "only",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "text": "Affected",
+          "start": 4.46,
+          "end": 5.0
+        },
+        {
+          "text": "greatness",
+          "start": 5.0,
+          "end": 5.32
+        },
+        {
+          "text": "got",
+          "start": 5.32,
+          "end": 5.62
+        },
+        {
+          "text": "by",
+          "start": 5.62,
+          "end": 5.8
+        },
+        {
+          "text": "you,",
+          "start": 5.8,
+          "end": 6.08
+        },
+        {
+          "text": "not",
+          "start": 6.3,
+          "end": 6.46
+        },
+        {
+          "text": "you;",
+          "start": 6.46,
+          "end": 6.78
+        },
+        {
+          "text": "Married",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "text": "your",
+          "start": 7.26,
+          "end": 7.52
+        },
+        {
+          "text": "royalty,",
+          "start": 7.52,
+          "end": 7.86
+        },
+        {
+          "text": "was",
+          "start": 8.12,
+          "end": 8.18
+        },
+        {
+          "text": "wife",
+          "start": 8.18,
+          "end": 8.44
+        },
+        {
+          "text": "to",
+          "start": 8.44,
+          "end": 8.64
+        },
+        {
+          "text": "your",
+          "start": 8.64,
+          "end": 8.74
+        },
+        {
+          "text": "place;",
+          "start": 8.74,
+          "end": 9.04
+        },
+        {
+          "text": "Abhorr'd",
+          "start": 9.44,
+          "end": 9.78
+        },
+        {
+          "text": "your",
+          "start": 9.78,
+          "end": 9.88
+        },
+        {
+          "text": "person.",
+          "start": 9.88,
+          "end": 10.28
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.43510913476347923
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe8cf385bedf397ebd54b3f6e81699e97d23dd8c03633ca373395581c451ef98",
+  "selected_reasons": []
+}

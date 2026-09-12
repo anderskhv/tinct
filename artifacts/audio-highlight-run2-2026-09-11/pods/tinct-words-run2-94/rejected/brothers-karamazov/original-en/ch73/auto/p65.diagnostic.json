@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "7d5f2b4a3d74ab64896a722ddc814dbd801a6b9af242e672991fea07e1e10127",
+  "attempts": [
+    {
+      "asr_seconds": 0.30924039520323277,
+      "alignment_seconds": 0.00034608691930770874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alyosha repeated all Grushenka had said to him that day. Mitya listened, made him repeat things, and seemed pleased.",
+        "hotwords": "Alyosha, Grushenka, Mitya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alyosha repeated all Grushenka had said to him that day. Mitya listened, made him repeat things, and seemed pleased.",
+          "start": 0.05,
+          "end": 7.37,
+          "words": [
+            {
+              "text": " Alyosha",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.9397786458333334
+            },
+            {
+              "text": " repeated",
+              "start": 0.99,
+              "end": 1.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " all",
+              "start": 1.33,
+              "end": 1.73,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Grushenka",
+              "start": 1.73,
+              "end": 2.27,
+              "probability": 0.6683349609375
+            },
+            {
+              "text": " had",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " said",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " him",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " day.",
+              "start": 3.15,
+              "end": 3.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Mitya",
+              "start": 4.25,
+              "end": 4.47,
+              "probability": 0.4995524088541667
+            },
+            {
+              "text": " listened,",
+              "start": 4.47,
+              "end": 4.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " made",
+              "start": 5.23,
+              "end": 5.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 5.43,
+              "end": 5.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " repeat",
+              "start": 5.61,
+              "end": 5.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " things,",
+              "start": 5.91,
+              "end": 6.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 6.57,
+              "end": 6.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seemed",
+              "start": 6.67,
+              "end": 6.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pleased.",
+              "start": 6.93,
+              "end": 7.37,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alyosha",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "repeated",
+          "start": 0.99,
+          "end": 1.33
+        },
+        {
+          "raw": "all",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "raw": "Grushenka",
+          "start": 1.73,
+          "end": 2.27
+        },
+        {
+          "raw": "had",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "said",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "to",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "him",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "that",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "day.",
+          "start": 3.15,
+          "end": 3.53
+        },
+        {
+          "raw": "Mitya",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "raw": "listened,",
+          "start": 4.47,
+          "end": 4.81
+        },
+        {
+          "raw": "made",
+          "start": 5.23,
+          "end": 5.43
+        },
+        {
+          "raw": "him",
+          "start": 5.43,
+          "end": 5.61
+        },
+        {
+          "raw": "repeat",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "raw": "things,",
+          "start": 5.91,
+          "end": 6.37
+        },
+        {
+          "raw": "and",
+          "start": 6.57,
+          "end": 6.67
+        },
+        {
+          "raw": "seemed",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "raw": "pleased.",
+          "start": 6.93,
+          "end": 7.37
+        }
+      ],
+      "expected_tokens": [
+        "Alyosha",
+        "repeated",
+        "all",
+        "Grushenka",
+        "had",
+        "said",
+        "to",
+        "him",
+        "that",
+        "day.",
+        "Mitya",
+        "listened,",
+        "made",
+        "him",
+        "repeat",
+        "things,",
+        "and",
+        "seemed",
+        "pleased."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alyosha",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "alyosha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 0.99,
+          "end": 1.33,
+          "key": "repeated",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.33,
+          "end": 1.73,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Grushenka",
+          "start": 1.73,
+          "end": 2.27,
+          "key": "grushenka",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "had",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.41,
+          "end": 2.61,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.91,
+          "end": 3.15,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "day.",
+          "start": 3.15,
+          "end": 3.53,
+          "key": "day",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Mitya",
+          "start": 4.25,
+          "end": 4.47,
+          "key": "mitya",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "listened,",
+          "start": 4.47,
+          "end": 4.81,
+          "key": "listened",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 5.23,
+          "end": 5.43,
+          "key": "made",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.43,
+          "end": 5.61,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "repeat",
+          "start": 5.61,
+          "end": 5.91,
+          "key": "repeat",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "things,",
+          "start": 5.91,
+          "end": 6.37,
+          "key": "things",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.57,
+          "end": 6.67,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 6.67,
+          "end": 6.93,
+          "key": "seemed",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "pleased.",
+          "start": 6.93,
+          "end": 7.37,
+          "key": "pleased",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alyosha",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "repeated",
+          "start": 0.99,
+          "end": 1.33
+        },
+        {
+          "text": "all",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "text": "Grushenka",
+          "start": 1.73,
+          "end": 2.27
+        },
+        {
+          "text": "had",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "said",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "to",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "text": "him",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "that",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "day.",
+          "start": 3.15,
+          "end": 3.53
+        },
+        {
+          "text": "Mitya",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "text": "listened,",
+          "start": 4.47,
+          "end": 4.81
+        },
+        {
+          "text": "made",
+          "start": 5.23,
+          "end": 5.43
+        },
+        {
+          "text": "him",
+          "start": 5.43,
+          "end": 5.61
+        },
+        {
+          "text": "repeat",
+          "start": 5.61,
+          "end": 5.91
+        },
+        {
+          "text": "things,",
+          "start": 5.91,
+          "end": 6.37
+        },
+        {
+          "text": "and",
+          "start": 6.57,
+          "end": 6.67
+        },
+        {
+          "text": "seemed",
+          "start": 6.67,
+          "end": 6.93
+        },
+        {
+          "text": "pleased.",
+          "start": 6.93,
+          "end": 7.37
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3097220603376627
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59d3f2d5d81afb493faf1e8886a2686492233756660a5a6c28307d1a6a8c6cea",
+  "selected_reasons": []
+}

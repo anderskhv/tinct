@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "038a7b36681800f97a5101e2ea1ad52869aaffeaa47b958d52cfb39e0fb80898",
+  "attempts": [
+    {
+      "asr_seconds": 0.3916708528995514,
+      "alignment_seconds": 0.0003206320106983185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kench",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Kench",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.431976318359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kench",
+          "start": 0.05,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "—Kinch!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kench",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "kench",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Kinch!",
+          "start": 0.0,
+          "end": 0.445
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.39208288863301277
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1db7ab8dad6f2f7d2351fade22da4c18e87867c902ca540c9df5b40900c99ed",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

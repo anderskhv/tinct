@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "d5802bde2fe0ab95bb5d86f865f58133127c5493cd65e439d75badfb004cf8fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.12233889382332563,
+      "alignment_seconds": 0.0002700178883969784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not named.",
+          "start": 0.02,
+          "end": 0.88,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.642578125
+            },
+            {
+              "text": " named.",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "named.",
+          "start": 0.62,
+          "end": 0.88
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "named?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "named.",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "named",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "named?\"",
+          "start": 0.62,
+          "end": 0.88
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12270643282681704
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd3a4869be08f72cfba75f01394b8b07c240a952b9d1b53d14a561d8b6d3417a",
+  "selected_reasons": []
+}

@@ -1,0 +1,1228 @@
+{
+  "complete": true,
+  "signature": "66bbf2cd6cc6114befa077c6557eaa1afa715bfedd1d1da77a5779a070a5d105",
+  "attempts": [
+    {
+      "asr_seconds": 0.2954514239972923,
+      "alignment_seconds": 0.0007770800148136914,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Another. What? e'en for life's sake, bow us to obey These house-defilers and their tyrant sway?",
+        "hotwords": "Another, What, These"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Another, What? e'en for life's sake, bow us to obey These house-defilers and their tyrant sway?",
+          "start": 0.08,
+          "end": 5.8,
+          "words": [
+            {
+              "text": " Another,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " What?",
+              "start": 1.06,
+              "end": 1.34,
+              "probability": 0.08099365234375
+            },
+            {
+              "text": " e",
+              "start": 2.04,
+              "end": 2.08,
+              "probability": 0.01324462890625
+            },
+            {
+              "text": "'en",
+              "start": 2.08,
+              "end": 2.16,
+              "probability": 0.5197296142578125
+            },
+            {
+              "text": " for",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " life's",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.884765625
+            },
+            {
+              "text": " sake,",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " bow",
+              "start": 3.18,
+              "end": 3.22,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " us",
+              "start": 3.22,
+              "end": 3.4,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " to",
+              "start": 3.4,
+              "end": 3.56,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " obey",
+              "start": 3.56,
+              "end": 3.8,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " These",
+              "start": 3.8,
+              "end": 4.04,
+              "probability": 0.0305938720703125
+            },
+            {
+              "text": " house",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.76513671875
+            },
+            {
+              "text": "-defilers",
+              "start": 4.28,
+              "end": 4.78,
+              "probability": 0.6445109049479166
+            },
+            {
+              "text": " and",
+              "start": 4.78,
+              "end": 5.06,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " their",
+              "start": 5.06,
+              "end": 5.18,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " tyrant",
+              "start": 5.18,
+              "end": 5.44,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " sway?",
+              "start": 5.44,
+              "end": 5.8,
+              "probability": 0.9345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Another,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "What?",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "raw": "e",
+          "start": 2.04,
+          "end": 2.08
+        },
+        {
+          "raw": "'en",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "raw": "for",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "life's",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "sake,",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "bow",
+          "start": 3.18,
+          "end": 3.22
+        },
+        {
+          "raw": "us",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "raw": "obey",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "raw": "These",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "raw": "house",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "raw": "-defilers",
+          "start": 4.28,
+          "end": 4.78
+        },
+        {
+          "raw": "and",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "raw": "their",
+          "start": 5.06,
+          "end": 5.18
+        },
+        {
+          "raw": "tyrant",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "raw": "sway?",
+          "start": 5.44,
+          "end": 5.8
+        }
+      ],
+      "expected_tokens": [
+        "Another.",
+        "What?",
+        "e'en",
+        "for",
+        "life's",
+        "sake,",
+        "bow",
+        "us",
+        "to",
+        "obey",
+        "These",
+        "house-defilers",
+        "and",
+        "their",
+        "tyrant",
+        "sway?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          16,
+          4,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Another,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "another",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What?",
+          "start": 1.06,
+          "end": 1.34,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 2.04,
+          "end": 2.08,
+          "key": "e",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'en",
+          "start": 2.08,
+          "end": 2.16,
+          "key": "en",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "life's",
+          "start": 2.3,
+          "end": 2.64,
+          "key": "lifes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sake,",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "sake",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bow",
+          "start": 3.18,
+          "end": 3.22,
+          "key": "bow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.22,
+          "end": 3.4,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.56,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 3.56,
+          "end": 3.8,
+          "key": "obey",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 3.8,
+          "end": 4.04,
+          "key": "these",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "house -defilers",
+          "start": 4.04,
+          "end": 4.78,
+          "key": "housedefilers",
+          "pieces": [
+            12,
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.78,
+          "end": 5.06,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.06,
+          "end": 5.18,
+          "key": "their",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tyrant",
+          "start": 5.18,
+          "end": 5.44,
+          "key": "tyrant",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sway?",
+          "start": 5.44,
+          "end": 5.8,
+          "key": "sway",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "house-defilers",
+          "heard": "house -defilers",
+          "heard_indexes": [
+            12,
+            13
+          ],
+          "start": 4.04,
+          "end": 4.78
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Another.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "What?",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "text": "e'en",
+          "start": 1.34,
+          "end": 1.75
+        },
+        {
+          "text": "for",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "life's",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "sake,",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "bow",
+          "start": 3.18,
+          "end": 3.22
+        },
+        {
+          "text": "us",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "text": "to",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "text": "obey",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "text": "These",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "text": "house-defilers",
+          "start": 4.04,
+          "end": 4.78
+        },
+        {
+          "text": "and",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "text": "their",
+          "start": 5.06,
+          "end": 5.18
+        },
+        {
+          "text": "tyrant",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "text": "sway?",
+          "start": 5.44,
+          "end": 5.8
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.29649172400240786
+    },
+    {
+      "asr_seconds": 0.3074955559859518,
+      "alignment_seconds": 0.0007157200016081333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Another, What, These"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Another, What, Een for life's sake, Bow us to obey these house defilers and their tyrant sway.",
+          "start": 0.08,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " Another,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " What,",
+              "start": 1.06,
+              "end": 1.34,
+              "probability": 0.08099365234375
+            },
+            {
+              "text": " Een",
+              "start": 1.98,
+              "end": 2.16,
+              "probability": 0.386962890625
+            },
+            {
+              "text": " for",
+              "start": 2.16,
+              "end": 2.3,
+              "probability": 0.916015625
+            },
+            {
+              "text": " life's",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.799072265625
+            },
+            {
+              "text": " sake,",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Bow",
+              "start": 3.2,
+              "end": 3.22,
+              "probability": 0.50244140625
+            },
+            {
+              "text": " us",
+              "start": 3.22,
+              "end": 3.4,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " to",
+              "start": 3.4,
+              "end": 3.56,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " obey",
+              "start": 3.56,
+              "end": 3.78,
+              "probability": 0.947265625
+            },
+            {
+              "text": " these",
+              "start": 3.78,
+              "end": 4.04,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " house",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.55859375
+            },
+            {
+              "text": " defilers",
+              "start": 4.28,
+              "end": 4.78,
+              "probability": 0.933349609375
+            },
+            {
+              "text": " and",
+              "start": 4.78,
+              "end": 5.04,
+              "probability": 0.798828125
+            },
+            {
+              "text": " their",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " tyrant",
+              "start": 5.18,
+              "end": 5.44,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " sway.",
+              "start": 5.44,
+              "end": 5.78,
+              "probability": 0.86669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Another,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "What,",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "raw": "Een",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "raw": "for",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "raw": "life's",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "sake,",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "Bow",
+          "start": 3.2,
+          "end": 3.22
+        },
+        {
+          "raw": "us",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "raw": "obey",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "raw": "these",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "raw": "house",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "raw": "defilers",
+          "start": 4.28,
+          "end": 4.78
+        },
+        {
+          "raw": "and",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "raw": "their",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "tyrant",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "raw": "sway.",
+          "start": 5.44,
+          "end": 5.78
+        }
+      ],
+      "expected_tokens": [
+        "Another.",
+        "What?",
+        "e'en",
+        "for",
+        "life's",
+        "sake,",
+        "bow",
+        "us",
+        "to",
+        "obey",
+        "These",
+        "house-defilers",
+        "and",
+        "their",
+        "tyrant",
+        "sway?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Another,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "another",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.06,
+          "end": 1.34,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Een",
+          "start": 1.98,
+          "end": 2.16,
+          "key": "een",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.16,
+          "end": 2.3,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "life's",
+          "start": 2.3,
+          "end": 2.64,
+          "key": "lifes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sake,",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "sake",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Bow",
+          "start": 3.2,
+          "end": 3.22,
+          "key": "bow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.22,
+          "end": 3.4,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.4,
+          "end": 3.56,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "obey",
+          "start": 3.56,
+          "end": 3.78,
+          "key": "obey",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.78,
+          "end": 4.04,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "house defilers",
+          "start": 4.04,
+          "end": 4.78,
+          "key": "housedefilers",
+          "pieces": [
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.78,
+          "end": 5.04,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "their",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tyrant",
+          "start": 5.18,
+          "end": 5.44,
+          "key": "tyrant",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sway.",
+          "start": 5.44,
+          "end": 5.78,
+          "key": "sway",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "house-defilers",
+          "heard": "house defilers",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 4.04,
+          "end": 4.78
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Another.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "What?",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "text": "e'en",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "text": "for",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "life's",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "sake,",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "bow",
+          "start": 3.2,
+          "end": 3.22
+        },
+        {
+          "text": "us",
+          "start": 3.22,
+          "end": 3.4
+        },
+        {
+          "text": "to",
+          "start": 3.4,
+          "end": 3.56
+        },
+        {
+          "text": "obey",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "text": "These",
+          "start": 3.78,
+          "end": 4.04
+        },
+        {
+          "text": "house-defilers",
+          "start": 4.04,
+          "end": 4.78
+        },
+        {
+          "text": "and",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "text": "their",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "tyrant",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "text": "sway?",
+          "start": 5.44,
+          "end": 5.78
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3084638270083815
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "3ffdd89827a311d0f9fd9a7ff0fe45a8b434b633851e4d9d5991a4583b2b3330",
+  "selected_reasons": []
+}

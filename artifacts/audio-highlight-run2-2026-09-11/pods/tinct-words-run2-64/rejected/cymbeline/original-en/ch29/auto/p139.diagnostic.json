@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "23952ef4a6d3bf40b594210d5c70bead7187116c9ad6685f21d59e299f7ad53c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13038318138569593,
+      "alignment_seconds": 0.0002647237852215767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lucius. Happy be you!",
+        "hotwords": "Lucius, Happy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lucius, Happy be you!",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Lucius,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " Happy",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.336669921875
+            },
+            {
+              "text": " be",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.03515625
+            },
+            {
+              "text": " you!",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Happy",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "be",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "you!",
+          "start": 1.55,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Lucius.",
+        "Happy",
+        "be",
+        "you!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "lucius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Happy",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "happy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you!",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucius.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Happy",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "be",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "you!",
+          "start": 1.55,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13074882049113512
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8f6cb0bca1cd974fdeedbc1c894fb1e0d25dc2f2cebbe3c431a7d03b8086aea",
+  "selected_reasons": []
+}

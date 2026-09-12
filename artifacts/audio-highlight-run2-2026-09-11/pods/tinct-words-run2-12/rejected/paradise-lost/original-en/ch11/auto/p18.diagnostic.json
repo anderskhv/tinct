@@ -1,0 +1,1676 @@
+{
+  "complete": true,
+  "signature": "6bc5ccf40a06ab80a47d2494196aea077959da852cdbdf131ccd788554241524",
+  "attempts": [
+    {
+      "asr_seconds": 0.5414784390013665,
+      "alignment_seconds": 0.0007045101374387741,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Which, then not minded in dismay, yet now Assures me that the bitterness of death Is past, and we shall live. Whence hail to thee, Eve rightly called, mother of all mankind, Mother of all things living, since by thee Man is to live; and all things live for Man.",
+        "hotwords": "Which, Assures, Whence, Eve, Man"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Which, then not minded in dismay, yet now Assures me that the bitterness of death Is past, and we shall live.",
+          "start": 0.02,
+          "end": 6.56,
+          "words": [
+            {
+              "text": " Which,",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.6796875
+            },
+            {
+              "text": " then",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " not",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " minded",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " in",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " dismay,",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yet",
+              "start": 2.56,
+              "end": 2.64,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " now",
+              "start": 2.64,
+              "end": 2.88,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Assures",
+              "start": 2.88,
+              "end": 3.26,
+              "probability": 0.4970221519470215
+            },
+            {
+              "text": " me",
+              "start": 3.26,
+              "end": 3.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " the",
+              "start": 3.68,
+              "end": 3.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bitterness",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.9765625
+            },
+            {
+              "text": " of",
+              "start": 4.06,
+              "end": 4.42,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " death",
+              "start": 4.42,
+              "end": 4.64,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Is",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.1138916015625
+            },
+            {
+              "text": " past,",
+              "start": 4.88,
+              "end": 5.28,
+              "probability": 0.734375
+            },
+            {
+              "text": " and",
+              "start": 5.72,
+              "end": 5.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " we",
+              "start": 5.86,
+              "end": 6.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " shall",
+              "start": 6.0,
+              "end": 6.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " live.",
+              "start": 6.2,
+              "end": 6.56,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " Whence hail to thee, Eve rightly called, mother of all mankind,",
+          "start": 7.22,
+          "end": 10.84,
+          "words": [
+            {
+              "text": " Whence",
+              "start": 7.22,
+              "end": 7.56,
+              "probability": 0.837158203125
+            },
+            {
+              "text": " hail",
+              "start": 7.56,
+              "end": 7.72,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " to",
+              "start": 7.72,
+              "end": 7.96,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " thee,",
+              "start": 7.96,
+              "end": 8.26,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Eve",
+              "start": 8.5,
+              "end": 8.7,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " rightly",
+              "start": 8.7,
+              "end": 8.98,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " called,",
+              "start": 8.98,
+              "end": 9.44,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " mother",
+              "start": 9.84,
+              "end": 9.98,
+              "probability": 0.020355224609375
+            },
+            {
+              "text": " of",
+              "start": 9.98,
+              "end": 10.16,
+              "probability": 0.888671875
+            },
+            {
+              "text": " all",
+              "start": 10.16,
+              "end": 10.34,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " mankind,",
+              "start": 10.34,
+              "end": 10.84,
+              "probability": 0.970703125
+            }
+          ]
+        },
+        {
+          "text": " Mother of all things living, since by thee Man is to live, and all things live for Man.",
+          "start": 11.48,
+          "end": 16.02,
+          "words": [
+            {
+              "text": " Mother",
+              "start": 11.48,
+              "end": 11.58,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " of",
+              "start": 11.58,
+              "end": 11.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " all",
+              "start": 11.82,
+              "end": 12.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " things",
+              "start": 12.0,
+              "end": 12.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " living,",
+              "start": 12.28,
+              "end": 12.62,
+              "probability": 0.98046875
+            },
+            {
+              "text": " since",
+              "start": 12.86,
+              "end": 12.98,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " by",
+              "start": 12.98,
+              "end": 13.18,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thee",
+              "start": 13.18,
+              "end": 13.34,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " Man",
+              "start": 13.34,
+              "end": 13.58,
+              "probability": 0.05035400390625
+            },
+            {
+              "text": " is",
+              "start": 13.58,
+              "end": 13.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 13.76,
+              "end": 13.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " live,",
+              "start": 13.94,
+              "end": 14.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 14.66,
+              "end": 14.78,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " all",
+              "start": 14.78,
+              "end": 14.96,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " things",
+              "start": 14.96,
+              "end": 15.26,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " live",
+              "start": 15.26,
+              "end": 15.52,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " for",
+              "start": 15.52,
+              "end": 15.74,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Man.",
+              "start": 15.74,
+              "end": 16.02,
+              "probability": 0.419921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Which,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "then",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "raw": "not",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "minded",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "in",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "dismay,",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "raw": "yet",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "raw": "now",
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "raw": "Assures",
+          "start": 2.88,
+          "end": 3.26
+        },
+        {
+          "raw": "me",
+          "start": 3.26,
+          "end": 3.52
+        },
+        {
+          "raw": "that",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "the",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "raw": "bitterness",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "raw": "of",
+          "start": 4.06,
+          "end": 4.42
+        },
+        {
+          "raw": "death",
+          "start": 4.42,
+          "end": 4.64
+        },
+        {
+          "raw": "Is",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "raw": "past,",
+          "start": 4.88,
+          "end": 5.28
+        },
+        {
+          "raw": "and",
+          "start": 5.72,
+          "end": 5.86
+        },
+        {
+          "raw": "we",
+          "start": 5.86,
+          "end": 6.0
+        },
+        {
+          "raw": "shall",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "raw": "live.",
+          "start": 6.2,
+          "end": 6.56
+        },
+        {
+          "raw": "Whence",
+          "start": 7.22,
+          "end": 7.56
+        },
+        {
+          "raw": "hail",
+          "start": 7.56,
+          "end": 7.72
+        },
+        {
+          "raw": "to",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "raw": "thee,",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "raw": "Eve",
+          "start": 8.5,
+          "end": 8.7
+        },
+        {
+          "raw": "rightly",
+          "start": 8.7,
+          "end": 8.98
+        },
+        {
+          "raw": "called,",
+          "start": 8.98,
+          "end": 9.44
+        },
+        {
+          "raw": "mother",
+          "start": 9.84,
+          "end": 9.98
+        },
+        {
+          "raw": "of",
+          "start": 9.98,
+          "end": 10.16
+        },
+        {
+          "raw": "all",
+          "start": 10.16,
+          "end": 10.34
+        },
+        {
+          "raw": "mankind,",
+          "start": 10.34,
+          "end": 10.84
+        },
+        {
+          "raw": "Mother",
+          "start": 11.48,
+          "end": 11.58
+        },
+        {
+          "raw": "of",
+          "start": 11.58,
+          "end": 11.82
+        },
+        {
+          "raw": "all",
+          "start": 11.82,
+          "end": 12.0
+        },
+        {
+          "raw": "things",
+          "start": 12.0,
+          "end": 12.28
+        },
+        {
+          "raw": "living,",
+          "start": 12.28,
+          "end": 12.62
+        },
+        {
+          "raw": "since",
+          "start": 12.86,
+          "end": 12.98
+        },
+        {
+          "raw": "by",
+          "start": 12.98,
+          "end": 13.18
+        },
+        {
+          "raw": "thee",
+          "start": 13.18,
+          "end": 13.34
+        },
+        {
+          "raw": "Man",
+          "start": 13.34,
+          "end": 13.58
+        },
+        {
+          "raw": "is",
+          "start": 13.58,
+          "end": 13.76
+        },
+        {
+          "raw": "to",
+          "start": 13.76,
+          "end": 13.94
+        },
+        {
+          "raw": "live,",
+          "start": 13.94,
+          "end": 14.22
+        },
+        {
+          "raw": "and",
+          "start": 14.66,
+          "end": 14.78
+        },
+        {
+          "raw": "all",
+          "start": 14.78,
+          "end": 14.96
+        },
+        {
+          "raw": "things",
+          "start": 14.96,
+          "end": 15.26
+        },
+        {
+          "raw": "live",
+          "start": 15.26,
+          "end": 15.52
+        },
+        {
+          "raw": "for",
+          "start": 15.52,
+          "end": 15.74
+        },
+        {
+          "raw": "Man.",
+          "start": 15.74,
+          "end": 16.02
+        }
+      ],
+      "expected_tokens": [
+        "Which,",
+        "then",
+        "not",
+        "minded",
+        "in",
+        "dismay,",
+        "yet",
+        "now",
+        "Assures",
+        "me",
+        "that",
+        "the",
+        "bitterness",
+        "of",
+        "death",
+        "Is",
+        "past,",
+        "and",
+        "we",
+        "shall",
+        "live.",
+        "Whence",
+        "hail",
+        "to",
+        "thee,",
+        "Eve",
+        "rightly",
+        "called,",
+        "mother",
+        "of",
+        "all",
+        "mankind,",
+        "Mother",
+        "of",
+        "all",
+        "things",
+        "living,",
+        "since",
+        "by",
+        "thee",
+        "Man",
+        "is",
+        "to",
+        "live;",
+        "and",
+        "all",
+        "things",
+        "live",
+        "for",
+        "Man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          50,
+          0,
+          50
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Which,",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "which",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 0.56,
+          "end": 0.82,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "minded",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "minded",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dismay,",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "dismay",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 2.56,
+          "end": 2.64,
+          "key": "yet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.64,
+          "end": 2.88,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Assures",
+          "start": 2.88,
+          "end": 3.26,
+          "key": "assures",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.26,
+          "end": 3.52,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.52,
+          "end": 3.68,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.68,
+          "end": 3.82,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bitterness",
+          "start": 3.82,
+          "end": 4.06,
+          "key": "bitterness",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.06,
+          "end": 4.42,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 4.42,
+          "end": 4.64,
+          "key": "death",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 4.64,
+          "end": 4.88,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "past,",
+          "start": 4.88,
+          "end": 5.28,
+          "key": "past",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.72,
+          "end": 5.86,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.86,
+          "end": 6.0,
+          "key": "we",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 6.0,
+          "end": 6.2,
+          "key": "shall",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "live.",
+          "start": 6.2,
+          "end": 6.56,
+          "key": "live",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Whence",
+          "start": 7.22,
+          "end": 7.56,
+          "key": "whence",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "hail",
+          "start": 7.56,
+          "end": 7.72,
+          "key": "hail",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.72,
+          "end": 7.96,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 7.96,
+          "end": 8.26,
+          "key": "thee",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Eve",
+          "start": 8.5,
+          "end": 8.7,
+          "key": "eve",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "rightly",
+          "start": 8.7,
+          "end": 8.98,
+          "key": "rightly",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "called,",
+          "start": 8.98,
+          "end": 9.44,
+          "key": "called",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 9.84,
+          "end": 9.98,
+          "key": "mother",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.98,
+          "end": 10.16,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 10.16,
+          "end": 10.34,
+          "key": "all",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "mankind,",
+          "start": 10.34,
+          "end": 10.84,
+          "key": "mankind",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Mother",
+          "start": 11.48,
+          "end": 11.58,
+          "key": "mother",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.58,
+          "end": 11.82,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 11.82,
+          "end": 12.0,
+          "key": "all",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 12.0,
+          "end": 12.28,
+          "key": "things",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "living,",
+          "start": 12.28,
+          "end": 12.62,
+          "key": "living",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 12.86,
+          "end": 12.98,
+          "key": "since",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 12.98,
+          "end": 13.18,
+          "key": "by",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 13.18,
+          "end": 13.34,
+          "key": "thee",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Man",
+          "start": 13.34,
+          "end": 13.58,
+          "key": "man",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.58,
+          "end": 13.76,
+          "key": "is",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.76,
+          "end": 13.94,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "live,",
+          "start": 13.94,
+          "end": 14.22,
+          "key": "live",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.66,
+          "end": 14.78,
+          "key": "and",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 14.78,
+          "end": 14.96,
+          "key": "all",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 14.96,
+          "end": 15.26,
+          "key": "things",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 15.26,
+          "end": 15.52,
+          "key": "live",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 15.52,
+          "end": 15.74,
+          "key": "for",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Man.",
+          "start": 15.74,
+          "end": 16.02,
+          "key": "man",
+          "pieces": [
+            49
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Which,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "then",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "text": "not",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "minded",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "in",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "dismay,",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "text": "yet",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "now",
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "text": "Assures",
+          "start": 2.88,
+          "end": 3.26
+        },
+        {
+          "text": "me",
+          "start": 3.26,
+          "end": 3.52
+        },
+        {
+          "text": "that",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "the",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "text": "bitterness",
+          "start": 3.82,
+          "end": 4.06
+        },
+        {
+          "text": "of",
+          "start": 4.06,
+          "end": 4.42
+        },
+        {
+          "text": "death",
+          "start": 4.42,
+          "end": 4.64
+        },
+        {
+          "text": "Is",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "text": "past,",
+          "start": 4.88,
+          "end": 5.28
+        },
+        {
+          "text": "and",
+          "start": 5.72,
+          "end": 5.86
+        },
+        {
+          "text": "we",
+          "start": 5.86,
+          "end": 6.0
+        },
+        {
+          "text": "shall",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "text": "live.",
+          "start": 6.2,
+          "end": 6.56
+        },
+        {
+          "text": "Whence",
+          "start": 7.22,
+          "end": 7.56
+        },
+        {
+          "text": "hail",
+          "start": 7.56,
+          "end": 7.72
+        },
+        {
+          "text": "to",
+          "start": 7.72,
+          "end": 7.96
+        },
+        {
+          "text": "thee,",
+          "start": 7.96,
+          "end": 8.26
+        },
+        {
+          "text": "Eve",
+          "start": 8.5,
+          "end": 8.7
+        },
+        {
+          "text": "rightly",
+          "start": 8.7,
+          "end": 8.98
+        },
+        {
+          "text": "called,",
+          "start": 8.98,
+          "end": 9.44
+        },
+        {
+          "text": "mother",
+          "start": 9.84,
+          "end": 9.98
+        },
+        {
+          "text": "of",
+          "start": 9.98,
+          "end": 10.16
+        },
+        {
+          "text": "all",
+          "start": 10.16,
+          "end": 10.34
+        },
+        {
+          "text": "mankind,",
+          "start": 10.34,
+          "end": 10.84
+        },
+        {
+          "text": "Mother",
+          "start": 11.48,
+          "end": 11.58
+        },
+        {
+          "text": "of",
+          "start": 11.58,
+          "end": 11.82
+        },
+        {
+          "text": "all",
+          "start": 11.82,
+          "end": 12.0
+        },
+        {
+          "text": "things",
+          "start": 12.0,
+          "end": 12.28
+        },
+        {
+          "text": "living,",
+          "start": 12.28,
+          "end": 12.62
+        },
+        {
+          "text": "since",
+          "start": 12.86,
+          "end": 12.98
+        },
+        {
+          "text": "by",
+          "start": 12.98,
+          "end": 13.18
+        },
+        {
+          "text": "thee",
+          "start": 13.18,
+          "end": 13.34
+        },
+        {
+          "text": "Man",
+          "start": 13.34,
+          "end": 13.58
+        },
+        {
+          "text": "is",
+          "start": 13.58,
+          "end": 13.76
+        },
+        {
+          "text": "to",
+          "start": 13.76,
+          "end": 13.94
+        },
+        {
+          "text": "live;",
+          "start": 13.94,
+          "end": 14.22
+        },
+        {
+          "text": "and",
+          "start": 14.66,
+          "end": 14.78
+        },
+        {
+          "text": "all",
+          "start": 14.78,
+          "end": 14.96
+        },
+        {
+          "text": "things",
+          "start": 14.96,
+          "end": 15.26
+        },
+        {
+          "text": "live",
+          "start": 15.26,
+          "end": 15.52
+        },
+        {
+          "text": "for",
+          "start": 15.52,
+          "end": 15.74
+        },
+        {
+          "text": "Man.",
+          "start": 15.74,
+          "end": 16.02
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 50,
+        "matched_words": 50
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5425004828721285
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e4cf69a06c5909848a6c37fe92ee9c499b87b68a52e77dbc1c849129480a566",
+  "selected_reasons": []
+}

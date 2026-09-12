@@ -1,0 +1,581 @@
+{
+  "complete": true,
+  "signature": "0dfc941d5268104176f066d404449ba21a51277127d6f6c8ee370f752cc94bb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.42615669406950474,
+      "alignment_seconds": 0.0006932131946086884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. O disloyal thing, That shouldst repair my youth, thou heap'st A year's age on me!",
+        "hotwords": "Cymbeline, O, That, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, O disloyal thing, That shouldst repair my youth, thou heap'st",
+          "start": 0.08,
+          "end": 4.82,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.661865234375
+            },
+            {
+              "text": " O",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " disloyal",
+              "start": 1.64,
+              "end": 2.06,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " thing,",
+              "start": 2.06,
+              "end": 2.42,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " That",
+              "start": 2.66,
+              "end": 2.74,
+              "probability": 0.179931640625
+            },
+            {
+              "text": " shouldst",
+              "start": 2.74,
+              "end": 3.12,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " repair",
+              "start": 3.12,
+              "end": 3.4,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " my",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " youth,",
+              "start": 3.62,
+              "end": 3.96,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thou",
+              "start": 4.4,
+              "end": 4.46,
+              "probability": 0.020111083984375
+            },
+            {
+              "text": " heap'st",
+              "start": 4.46,
+              "end": 4.82,
+              "probability": 0.3511759440104167
+            }
+          ]
+        },
+        {
+          "text": " A year's age on me!",
+          "start": 4.82,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " A",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.03240966796875
+            },
+            {
+              "text": " year's",
+              "start": 5.04,
+              "end": 5.38,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " age",
+              "start": 5.38,
+              "end": 5.54,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " on",
+              "start": 5.54,
+              "end": 5.74,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " me!",
+              "start": 5.74,
+              "end": 5.94,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "O",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "disloyal",
+          "start": 1.64,
+          "end": 2.06
+        },
+        {
+          "raw": "thing,",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "raw": "That",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "raw": "shouldst",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "raw": "repair",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "raw": "my",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "youth,",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "raw": "thou",
+          "start": 4.4,
+          "end": 4.46
+        },
+        {
+          "raw": "heap'st",
+          "start": 4.46,
+          "end": 4.82
+        },
+        {
+          "raw": "A",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "year's",
+          "start": 5.04,
+          "end": 5.38
+        },
+        {
+          "raw": "age",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "raw": "on",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "raw": "me!",
+          "start": 5.74,
+          "end": 5.94
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "O",
+        "disloyal",
+        "thing,",
+        "That",
+        "shouldst",
+        "repair",
+        "my",
+        "youth,",
+        "thou",
+        "heap'st",
+        "A",
+        "year's",
+        "age",
+        "on",
+        "me!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "disloyal",
+          "start": 1.64,
+          "end": 2.06,
+          "key": "disloyal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thing,",
+          "start": 2.06,
+          "end": 2.42,
+          "key": "thing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 2.66,
+          "end": 2.74,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shouldst",
+          "start": 2.74,
+          "end": 3.12,
+          "key": "shouldst",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "repair",
+          "start": 3.12,
+          "end": 3.4,
+          "key": "repair",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.4,
+          "end": 3.62,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "youth,",
+          "start": 3.62,
+          "end": 3.96,
+          "key": "youth",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.4,
+          "end": 4.46,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heap'st",
+          "start": 4.46,
+          "end": 4.82,
+          "key": "heapst",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "year's",
+          "start": 5.04,
+          "end": 5.38,
+          "key": "years",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "age",
+          "start": 5.38,
+          "end": 5.54,
+          "key": "age",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.54,
+          "end": 5.74,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me!",
+          "start": 5.74,
+          "end": 5.94,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "O",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "disloyal",
+          "start": 1.64,
+          "end": 2.06
+        },
+        {
+          "text": "thing,",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "text": "That",
+          "start": 2.66,
+          "end": 2.74
+        },
+        {
+          "text": "shouldst",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "text": "repair",
+          "start": 3.12,
+          "end": 3.4
+        },
+        {
+          "text": "my",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "youth,",
+          "start": 3.62,
+          "end": 3.96
+        },
+        {
+          "text": "thou",
+          "start": 4.4,
+          "end": 4.46
+        },
+        {
+          "text": "heap'st",
+          "start": 4.46,
+          "end": 4.82
+        },
+        {
+          "text": "A",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "year's",
+          "start": 5.04,
+          "end": 5.38
+        },
+        {
+          "text": "age",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "text": "on",
+          "start": 5.54,
+          "end": 5.74
+        },
+        {
+          "text": "me!",
+          "start": 5.74,
+          "end": 5.94
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4271310456097126
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ff3a482bd310fe7d87960de1ea159f6848b622edabe3db3d88d69eca093a6b2c",
+  "selected_reasons": []
+}

@@ -1,0 +1,982 @@
+{
+  "complete": true,
+  "signature": "a075ed906dba280b8ea4496cb37249394e81a9940ce867990750a56f5a85208e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3659268096089363,
+      "alignment_seconds": 0.0009510070085525513,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She almost staggered to the books and opened the one which lay upon the top. Something was written on the flyleaf--just a few words, and they were these:",
+        "hotwords": "She, Something"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She almost staggered to the books and opened the one which lay upon the top. Something was written on the flyleaf just a few words, and they were these.",
+          "start": 0.0,
+          "end": 8.4,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " almost",
+              "start": 0.5,
+              "end": 0.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " staggered",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " books",
+              "start": 1.58,
+              "end": 1.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.88,
+              "end": 2.24,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " opened",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " one",
+              "start": 2.66,
+              "end": 2.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " which",
+              "start": 2.84,
+              "end": 3.06,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lay",
+              "start": 3.06,
+              "end": 3.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " upon",
+              "start": 3.34,
+              "end": 3.68,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " top.",
+              "start": 3.86,
+              "end": 4.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Something",
+              "start": 4.88,
+              "end": 5.06,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " was",
+              "start": 5.06,
+              "end": 5.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " written",
+              "start": 5.28,
+              "end": 5.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 5.54,
+              "end": 5.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.72,
+              "end": 5.84,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " flyleaf",
+              "start": 5.84,
+              "end": 6.24,
+              "probability": 0.893310546875
+            },
+            {
+              "text": " just",
+              "start": 6.24,
+              "end": 6.5,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " a",
+              "start": 6.5,
+              "end": 6.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " few",
+              "start": 6.7,
+              "end": 6.88,
+              "probability": 1.0
+            },
+            {
+              "text": " words,",
+              "start": 6.88,
+              "end": 7.28,
+              "probability": 1.0
+            },
+            {
+              "text": " and",
+              "start": 7.58,
+              "end": 7.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " they",
+              "start": 7.84,
+              "end": 7.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " were",
+              "start": 7.96,
+              "end": 8.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " these.",
+              "start": 8.12,
+              "end": 8.4,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "almost",
+          "start": 0.5,
+          "end": 0.84
+        },
+        {
+          "raw": "staggered",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "books",
+          "start": 1.58,
+          "end": 1.88
+        },
+        {
+          "raw": "and",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "raw": "opened",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "the",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "one",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "raw": "which",
+          "start": 2.84,
+          "end": 3.06
+        },
+        {
+          "raw": "lay",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "raw": "upon",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "raw": "the",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": "top.",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "raw": "Something",
+          "start": 4.88,
+          "end": 5.06
+        },
+        {
+          "raw": "was",
+          "start": 5.06,
+          "end": 5.28
+        },
+        {
+          "raw": "written",
+          "start": 5.28,
+          "end": 5.54
+        },
+        {
+          "raw": "on",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "raw": "the",
+          "start": 5.72,
+          "end": 5.84
+        },
+        {
+          "raw": "flyleaf",
+          "start": 5.84,
+          "end": 6.24
+        },
+        {
+          "raw": "just",
+          "start": 6.24,
+          "end": 6.5
+        },
+        {
+          "raw": "a",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "raw": "few",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "raw": "words,",
+          "start": 6.88,
+          "end": 7.28
+        },
+        {
+          "raw": "and",
+          "start": 7.58,
+          "end": 7.84
+        },
+        {
+          "raw": "they",
+          "start": 7.84,
+          "end": 7.96
+        },
+        {
+          "raw": "were",
+          "start": 7.96,
+          "end": 8.12
+        },
+        {
+          "raw": "these.",
+          "start": 8.12,
+          "end": 8.4
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "almost",
+        "staggered",
+        "to",
+        "the",
+        "books",
+        "and",
+        "opened",
+        "the",
+        "one",
+        "which",
+        "lay",
+        "upon",
+        "the",
+        "top.",
+        "Something",
+        "was",
+        "written",
+        "on",
+        "the",
+        "flyleaf--just",
+        "a",
+        "few",
+        "words,",
+        "and",
+        "they",
+        "were",
+        "these:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 0.5,
+          "end": 0.84,
+          "key": "almost",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "staggered",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "staggered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "books",
+          "start": 1.58,
+          "end": 1.88,
+          "key": "books",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.88,
+          "end": 2.24,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "opened",
+          "start": 2.24,
+          "end": 2.5,
+          "key": "opened",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.66,
+          "end": 2.84,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.84,
+          "end": 3.06,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 3.06,
+          "end": 3.34,
+          "key": "lay",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.34,
+          "end": 3.68,
+          "key": "upon",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.68,
+          "end": 3.86,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "top.",
+          "start": 3.86,
+          "end": 4.16,
+          "key": "top",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Something",
+          "start": 4.88,
+          "end": 5.06,
+          "key": "something",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.06,
+          "end": 5.28,
+          "key": "was",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "written",
+          "start": 5.28,
+          "end": 5.54,
+          "key": "written",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.54,
+          "end": 5.72,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.72,
+          "end": 5.84,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "flyleaf just",
+          "start": 5.84,
+          "end": 6.5,
+          "key": "flyleafjust",
+          "pieces": [
+            20,
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.5,
+          "end": 6.7,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "few",
+          "start": 6.7,
+          "end": 6.88,
+          "key": "few",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "words,",
+          "start": 6.88,
+          "end": 7.28,
+          "key": "words",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.58,
+          "end": 7.84,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 7.84,
+          "end": 7.96,
+          "key": "they",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.96,
+          "end": 8.12,
+          "key": "were",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "these.",
+          "start": 8.12,
+          "end": 8.4,
+          "key": "these",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 20,
+          "text": "flyleaf--just",
+          "heard": "flyleaf just",
+          "heard_indexes": [
+            20,
+            21
+          ],
+          "start": 5.84,
+          "end": 6.5
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "almost",
+          "start": 0.5,
+          "end": 0.84
+        },
+        {
+          "text": "staggered",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "to",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "books",
+          "start": 1.58,
+          "end": 1.88
+        },
+        {
+          "text": "and",
+          "start": 1.88,
+          "end": 2.24
+        },
+        {
+          "text": "opened",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "text": "the",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "one",
+          "start": 2.66,
+          "end": 2.84
+        },
+        {
+          "text": "which",
+          "start": 2.84,
+          "end": 3.06
+        },
+        {
+          "text": "lay",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "text": "upon",
+          "start": 3.34,
+          "end": 3.68
+        },
+        {
+          "text": "the",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "text": "top.",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "text": "Something",
+          "start": 4.88,
+          "end": 5.06
+        },
+        {
+          "text": "was",
+          "start": 5.06,
+          "end": 5.28
+        },
+        {
+          "text": "written",
+          "start": 5.28,
+          "end": 5.54
+        },
+        {
+          "text": "on",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "text": "the",
+          "start": 5.72,
+          "end": 5.84
+        },
+        {
+          "text": "flyleaf--just",
+          "start": 5.84,
+          "end": 6.5
+        },
+        {
+          "text": "a",
+          "start": 6.5,
+          "end": 6.7
+        },
+        {
+          "text": "few",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "text": "words,",
+          "start": 6.88,
+          "end": 7.28
+        },
+        {
+          "text": "and",
+          "start": 7.58,
+          "end": 7.84
+        },
+        {
+          "text": "they",
+          "start": 7.84,
+          "end": 7.96
+        },
+        {
+          "text": "were",
+          "start": 7.96,
+          "end": 8.12
+        },
+        {
+          "text": "these:",
+          "start": 8.12,
+          "end": 8.4
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3672407492995262
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3f20f69750036efbd37b4a137d937d515d312d706b92120f67b34b053604f763",
+  "selected_reasons": []
+}

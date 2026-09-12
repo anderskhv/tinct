@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "9a7b139e43c62590565a0ab428d0698ec5b7b40fb62d03d6b708e79069cd3cf5",
+  "attempts": [
+    {
+      "asr_seconds": 0.17769158445298672,
+      "alignment_seconds": 0.0003262478858232498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Trumpets sound. The dumb show enters]",
+        "hotwords": "Trumpets, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trumpets sound. The dumb show enters.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Trumpets",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.49713134765625
+            },
+            {
+              "text": " sound.",
+              "start": 0.75,
+              "end": 1.07,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " The",
+              "start": 1.55,
+              "end": 1.57,
+              "probability": 0.966796875
+            },
+            {
+              "text": " dumb",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " show",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.89453125
+            },
+            {
+              "text": " enters.",
+              "start": 2.01,
+              "end": 2.37,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trumpets",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "sound.",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "raw": "The",
+          "start": 1.55,
+          "end": 1.57
+        },
+        {
+          "raw": "dumb",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "show",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "enters.",
+          "start": 2.01,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "[Trumpets",
+        "sound.",
+        "The",
+        "dumb",
+        "show",
+        "enters]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Trumpets",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "trumpets",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sound.",
+          "start": 0.75,
+          "end": 1.07,
+          "key": "sound",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.55,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dumb",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "dumb",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "show",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enters.",
+          "start": 2.01,
+          "end": 2.37,
+          "key": "enters",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Trumpets",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "sound.",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "text": "The",
+          "start": 1.55,
+          "end": 1.57
+        },
+        {
+          "text": "dumb",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "show",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "enters]",
+          "start": 2.01,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17815285176038742
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de84d35580e5d0ac2a74a07ff4a65f04400057b5997b94f4645efe7e7d79931b",
+  "selected_reasons": []
+}

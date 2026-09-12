@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "a619e03aea2e5ef24c16f4bb8a7587eaa35b0fee5ccc4954cacf08815738e9ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.21382107865065336,
+      "alignment_seconds": 0.00034123286604881287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We are not wrong therefore in calling them necessary",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " are",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wrong",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " therefore",
+              "start": 1.09,
+              "end": 1.47,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " in",
+              "start": 1.47,
+              "end": 1.77,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " calling",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " them",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " necessary",
+              "start": 2.23,
+              "end": 2.65,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "are",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "not",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "wrong",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "therefore",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "raw": "in",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "raw": "calling",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "them",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "necessary",
+          "start": 2.23,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "are",
+        "not",
+        "wrong",
+        "therefore",
+        "in",
+        "calling",
+        "them",
+        "necessary?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wrong",
+          "start": 0.83,
+          "end": 1.09,
+          "key": "wrong",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 1.09,
+          "end": 1.47,
+          "key": "therefore",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.47,
+          "end": 1.77,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "calling",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "them",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 2.23,
+          "end": 2.65,
+          "key": "necessary",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "are",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "not",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "wrong",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "text": "therefore",
+          "start": 1.09,
+          "end": 1.47
+        },
+        {
+          "text": "in",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "text": "calling",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "them",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "necessary?",
+          "start": 2.23,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21427761297672987
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "21748e9aaec1e648490514f5564527c782dabb4b8490e5e466ff2b65ca0e10e5",
+  "selected_reasons": []
+}

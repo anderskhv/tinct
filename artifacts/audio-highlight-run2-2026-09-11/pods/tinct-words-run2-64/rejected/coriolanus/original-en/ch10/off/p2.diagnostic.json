@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "058db974e48aa56b1b7c6051d06bb6cea53aa5889a08b83e5c3181e43800a34d",
+  "attempts": [
+    {
+      "asr_seconds": 0.21831924933940172,
+      "alignment_seconds": 0.00043325498700141907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soldier, twill be delivered back on good condition.",
+          "start": 0.08,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " Soldier,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " twill",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.7105712890625
+            },
+            {
+              "text": " be",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " delivered",
+              "start": 1.76,
+              "end": 2.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " back",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " good",
+              "start": 2.6,
+              "end": 2.78,
+              "probability": 0.984375
+            },
+            {
+              "text": " condition.",
+              "start": 2.78,
+              "end": 3.3,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soldier,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "twill",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "be",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "delivered",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "raw": "back",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "on",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "good",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "raw": "condition.",
+          "start": 2.78,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "Soldier.",
+        "'Twill",
+        "be",
+        "delivered",
+        "back",
+        "on",
+        "good",
+        "condition."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soldier,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "soldier",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "twill",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "twill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "delivered",
+          "start": 1.76,
+          "end": 2.06,
+          "key": "delivered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "back",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.6,
+          "end": 2.78,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "condition.",
+          "start": 2.78,
+          "end": 3.3,
+          "key": "condition",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soldier.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "'Twill",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "be",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "delivered",
+          "start": 1.76,
+          "end": 2.06
+        },
+        {
+          "text": "back",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "on",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "good",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "text": "condition.",
+          "start": 2.78,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21892987191677094
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d9d22315144815a117e40e7232a85a6fceeb95d01306eec39bb1f91e6bcfeec",
+  "selected_reasons": []
+}

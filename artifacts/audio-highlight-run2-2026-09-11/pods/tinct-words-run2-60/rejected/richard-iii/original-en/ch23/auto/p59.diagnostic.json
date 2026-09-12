@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "31409df5ccb64055563c4e129a9c7b0fce4ee2e27e6bca987bec0d51283dc7b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1328003816306591,
+      "alignment_seconds": 0.00029289722442626953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ghost Of Henry.",
+        "hotwords": "Ghost, Of, Henry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ghost Of Henry.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Ghost",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.55712890625
+            },
+            {
+              "text": " Of",
+              "start": 0.61,
+              "end": 0.81,
+              "probability": 0.014434814453125
+            },
+            {
+              "text": " Henry.",
+              "start": 0.81,
+              "end": 1.13,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ghost",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Of",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "raw": "Henry.",
+          "start": 0.81,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "Ghost",
+        "Of",
+        "Henry."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ghost",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "ghost",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.61,
+          "end": 0.81,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Henry.",
+          "start": 0.81,
+          "end": 1.13,
+          "key": "henry",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ghost",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Of",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "text": "Henry.",
+          "start": 0.81,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13320091366767883
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd6909be791950346e892988c167e8e4c20b8a581918e910604f272e9c34c983",
+  "selected_reasons": []
+}

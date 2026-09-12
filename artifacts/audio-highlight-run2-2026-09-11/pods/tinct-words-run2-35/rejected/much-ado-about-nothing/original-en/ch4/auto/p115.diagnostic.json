@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "88d6fbc9b0ee7c604c0f88fb4edccc9943c68a101e111ddb0472fab8f20687ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.2628523875027895,
+      "alignment_seconds": 0.0004930794239044189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. Why, how now, Count! wherefore are you sad?",
+        "hotwords": "Don, Pedro, Why, Count"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, Why, how now, Count! wherefore are you sad?",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.83,
+              "end": 1.05,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Why,",
+              "start": 1.55,
+              "end": 1.63,
+              "probability": 0.0264739990234375
+            },
+            {
+              "text": " how",
+              "start": 1.69,
+              "end": 1.77,
+              "probability": 0.412841796875
+            },
+            {
+              "text": " now,",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.5458984375
+            },
+            {
+              "text": " Count!",
+              "start": 2.13,
+              "end": 2.17,
+              "probability": 0.42919921875
+            },
+            {
+              "text": " wherefore",
+              "start": 2.63,
+              "end": 2.89,
+              "probability": 0.446990966796875
+            },
+            {
+              "text": " are",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.640625
+            },
+            {
+              "text": " you",
+              "start": 3.01,
+              "end": 3.11,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sad?",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.7041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "raw": "Why,",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "raw": "how",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "raw": "now,",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "Count!",
+          "start": 2.13,
+          "end": 2.17
+        },
+        {
+          "raw": "wherefore",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "raw": "are",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "you",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "raw": "sad?",
+          "start": 3.11,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Why,",
+        "how",
+        "now,",
+        "Count!",
+        "wherefore",
+        "are",
+        "you",
+        "sad?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.83,
+          "end": 1.05,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.55,
+          "end": 1.63,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.69,
+          "end": 1.77,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Count!",
+          "start": 2.13,
+          "end": 2.17,
+          "key": "count",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wherefore",
+          "start": 2.63,
+          "end": 2.89,
+          "key": "wherefore",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.89,
+          "end": 3.01,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.01,
+          "end": 3.11,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sad?",
+          "start": 3.11,
+          "end": 3.37,
+          "key": "sad",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "text": "Why,",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "text": "how",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "text": "now,",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "Count!",
+          "start": 2.13,
+          "end": 2.17
+        },
+        {
+          "text": "wherefore",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "text": "are",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "you",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "text": "sad?",
+          "start": 3.11,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26353707537055016
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "12ea8308933cd05f3aa71649fb6292dd819e12a06dee061e45a36ce90e24e186",
+  "selected_reasons": []
+}

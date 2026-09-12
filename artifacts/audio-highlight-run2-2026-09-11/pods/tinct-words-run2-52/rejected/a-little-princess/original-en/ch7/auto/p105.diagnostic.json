@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "dcbb2d2865b0ff0b4562600e2f2349926efdef6c0a3c842cee7f043a86326b1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.230733510106802,
+      "alignment_seconds": 0.000359170138835907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr. Barrow undisturbedly moved toward the door.",
+        "hotwords": "Mr, Barrow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Barrow undisturbedly moved toward the door.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Barrow",
+              "start": 0.89,
+              "end": 1.11,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " undisturbedly",
+              "start": 1.11,
+              "end": 2.15,
+              "probability": 0.6989364624023438
+            },
+            {
+              "text": " moved",
+              "start": 2.15,
+              "end": 2.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " toward",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " the",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " door.",
+              "start": 2.87,
+              "end": 3.09,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Barrow",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "raw": "undisturbedly",
+          "start": 1.11,
+          "end": 2.15
+        },
+        {
+          "raw": "moved",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "raw": "toward",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "door.",
+          "start": 2.87,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Barrow",
+        "undisturbedly",
+        "moved",
+        "toward",
+        "the",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Barrow",
+          "start": 0.89,
+          "end": 1.11,
+          "key": "barrow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "undisturbedly",
+          "start": 1.11,
+          "end": 2.15,
+          "key": "undisturbedly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 2.15,
+          "end": 2.43,
+          "key": "moved",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "toward",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "toward",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 2.87,
+          "end": 3.09,
+          "key": "door",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Barrow",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "text": "undisturbedly",
+          "start": 1.11,
+          "end": 2.15
+        },
+        {
+          "text": "moved",
+          "start": 2.15,
+          "end": 2.43
+        },
+        {
+          "text": "toward",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "door.",
+          "start": 2.87,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.231216199696064
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1c78bdb598e1133420142b3fe529677a93d436e81bf2197718b206eac456ccf0",
+  "selected_reasons": []
+}

@@ -1,0 +1,91 @@
+{
+ "name": "tinct-words-run2-46",
+ "commit": "f53d744782e3c369fffd2980a013a7f199c0476e",
+ "batch": 15,
+ "createdAt": "2026-09-12T06:17:06Z",
+ "maxSeconds": 2100,
+ "arms": "off auto",
+ "computeType": "float16",
+ "podId": "l5514cbeagjdqr",
+ "gpu": null,
+ "costPerHr": 0.49,
+ "image": null,
+ "cloud": "SECURE",
+ "agentUpAt": "2026-09-12T06:17:41Z",
+ "lastSnapshotAt": "2026-09-12T06:51:13Z",
+ "jobOutcome": "done-with-errors",
+ "finalStatus": {
+  "phase": "done-with-errors",
+  "uptime_seconds": 2225.8,
+  "setup": {
+   "versions": {
+    "faster-whisper": "1.2.1",
+    "ctranslate2": "4.8.2",
+    "av": "18.1.0"
+   },
+   "commit": "f53d744782e3c369fffd2980a013a7f199c0476e",
+   "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+   "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_cupti/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_nvrtc/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cuda_runtime/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cudnn/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cufft/lib:/usr/local/lib/python3.11/dist-packages/nvidia/curand/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusolver/lib:/usr/local/lib/python3.11/dist-packages/nvidia/cusparse/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nccl/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvjitlink/lib:/usr/local/lib/python3.11/dist-packages/nvidia/nvtx/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64",
+   "gpu": "NVIDIA A40, 46068 MiB, 580.159.03",
+   "cuda_probe": "cuda devices 1\nmodel loaded on cuda\n",
+   "setup_seconds": 10.3
+  },
+  "job": {
+   "started": 1789193840.0572069,
+   "targets": 15,
+   "cohort_exit": 0,
+   "cohort_seconds": 95.9,
+   "cohort_chapters": 15,
+   "cohort_audio_seconds": 22640.9,
+   "align_started": 1789193935.982862,
+   "command": [
+    "/usr/bin/python3",
+    "/workspace/run/tools/audio-highlight/aligner/trial.py",
+    "--input",
+    "/workspace/run/cohort/cohort.json",
+    "--output",
+    "/workspace/run/out",
+    "--model-path",
+    "/workspace/run/model",
+    "--model-sha256",
+    "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+    "--device",
+    "cuda",
+    "--compute-type",
+    "float16",
+    "--arms",
+    "off",
+    "auto",
+    "--max-seconds",
+    "2100",
+    "--helper",
+    "v2",
+    "--run"
+   ],
+   "trial_exit": 1,
+   "align_seconds": 2101.5,
+   "run_status": "process_time_cap_reached",
+   "finished": 1789196037.469702
+  },
+  "log": [
+   "[06:17:09] read-only status server on 8000; run root /workspace/run; commit f53d744782e3c369fffd2980a013a7f199c0476e",
+   "[06:17:20] setup complete in 10.3s",
+   "[06:18:55] $ /usr/bin/python3 /workspace/run/tools/audio-highlight/aligner/trial.py --input /workspace/run/cohort/cohort.json --output /workspace/run/out --model-path /workspace/run/model --model-sha256 f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5 --device cuda --compute-type float16 --arms off auto --max-seconds 2100 --helper v2 --run",
+   "[06:53:57] job finished with phase done-with-errors"
+  ],
+  "progress": {
+   "arm_chapters_passed": 21,
+   "arm_chapters_rejected": 7,
+   "arm_chapters_running": 1,
+   "paragraph_diagnostics": 571
+  }
+ },
+ "resultsFetched": true,
+ "uptimeMinutes": 37.4,
+ "estimatedCost": 0.3054,
+ "stopRequestedAt": "2026-09-12T06:54:32Z",
+ "statusAfterStop": "EXITED",
+ "stoppedAt": "2026-09-12T06:54:33Z",
+ "terminatedAt": "2026-09-12T06:54:34Z",
+ "terminateHttp": 204
+}

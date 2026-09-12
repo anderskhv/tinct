@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "828f01bffaea76d590aa3ab8cb6ccd120153bce96d476803e95d0ec5848e61ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.13820374899660237,
+      "alignment_seconds": 0.00018966698553413153,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dercetus. I say, O Caesar, Antony is dead.",
+        "hotwords": "Dercetus, I, O, Caesar, Antony"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dercetus, I say, O Caesar, Antony is dead.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Dercetus,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.22964747746785483
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.986328125
+            },
+            {
+              "text": " say,",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " O",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.027557373046875
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Antony",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " is",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dead.",
+              "start": 2.69,
+              "end": 2.93,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dercetus,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "say,",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "O",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "Antony",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "is",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "dead.",
+          "start": 2.69,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Dercetus.",
+        "I",
+        "say,",
+        "O",
+        "Caesar,",
+        "Antony",
+        "is",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dercetus,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "dercetus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "caesar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Antony",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "antony",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 2.69,
+          "end": 2.93,
+          "key": "dead",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dercetus.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "say,",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "O",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "Caesar,",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "Antony",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "text": "is",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "dead.",
+          "start": 2.69,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13846225800807588
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c998ca6c866d59e404687da602ebbee36fbeda4507be59d9b13180c3a2feefe7",
+  "selected_reasons": []
+}

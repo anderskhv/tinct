@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a0b26f030d2a010139d38e7ccedda47a4459aecacb6c292d0ed2b1962cec19e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.10821952857077122,
+      "alignment_seconds": 0.0001327497884631157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is true.",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " true.",
+              "start": 0.68,
+              "end": 0.96,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "true.",
+          "start": 0.68,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 0.68,
+          "end": 0.96,
+          "key": "true",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "true.",
+          "start": 0.68,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1084078773856163
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1d5a100eb218bfde986218cd1da6b72f8f696784e66b0b0b7467f1d1e237178e",
+  "selected_reasons": []
+}

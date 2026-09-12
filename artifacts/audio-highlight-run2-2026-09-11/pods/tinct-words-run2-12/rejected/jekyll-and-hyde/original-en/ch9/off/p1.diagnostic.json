@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "b179e9d9feab1be4e2987570cade561578988a97371d456a6094ca310c7cc991",
+  "attempts": [
+    {
+      "asr_seconds": 0.08659594506025314,
+      "alignment_seconds": 0.0001537487842142582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 10th December 18",
+          "start": 0.08,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " 10th",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " December",
+              "start": 0.94,
+              "end": 1.38,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " 18",
+              "start": 1.38,
+              "end": 1.88,
+              "probability": 0.912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "10th",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "December",
+          "start": 0.94,
+          "end": 1.38
+        },
+        {
+          "raw": "18",
+          "start": 1.38,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "\"10_th",
+        "December_,",
+        "18—."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "10th",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "10th",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "December",
+          "start": 0.94,
+          "end": 1.38,
+          "key": "december",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "18",
+          "start": 1.38,
+          "end": 1.88,
+          "key": "eighteen",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"10_th",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "December_,",
+          "start": 0.94,
+          "end": 1.38
+        },
+        {
+          "text": "18—.",
+          "start": 1.38,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08680571708828211
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b39fb67eeaaacaf8f91e9015a3408c8c3c8724ba686f6fa9a7d7cb23298bea44",
+  "selected_reasons": []
+}

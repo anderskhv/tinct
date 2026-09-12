@@ -1,0 +1,1391 @@
+{
+  "complete": true,
+  "signature": "2d090a571ae5263e920dd0922bfcf174f23065a96212231e6cc575e18b46731b",
+  "attempts": [
+    {
+      "asr_seconds": 0.5200402094051242,
+      "alignment_seconds": 0.000805070623755455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It's nothing, nothing!\" she went on through her tears. \"I'm upset, I didn't sleep last night. But by the side of two such friends as you and your brother I still feel strong—for I know—you two will never desert me.\"",
+        "hotwords": "It's, I'm, I, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It's nothing, nothing!\" she went on through her tears.",
+          "start": 0.02,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.5236358642578125
+            },
+            {
+              "text": " nothing,",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nothing",
+              "start": 1.14,
+              "end": 1.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": "!\"",
+              "start": 1.44,
+              "end": 1.98,
+              "probability": 0.036529541015625
+            },
+            {
+              "text": " she",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.728515625
+            },
+            {
+              "text": " went",
+              "start": 2.24,
+              "end": 2.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " through",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tears.",
+              "start": 2.92,
+              "end": 3.22,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I'm upset, I didn't sleep last night. But by the side of two such friends as you and your brother I still feel strong—for I know—you two will never desert me.",
+          "start": 3.94,
+          "end": 13.2,
+          "words": [
+            {
+              "text": " I'm",
+              "start": 3.94,
+              "end": 4.2,
+              "probability": 0.4931678771972656
+            },
+            {
+              "text": " upset,",
+              "start": 4.2,
+              "end": 4.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 4.74,
+              "end": 4.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " didn't",
+              "start": 4.78,
+              "end": 5.02,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " sleep",
+              "start": 5.02,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " last",
+              "start": 5.22,
+              "end": 5.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " night.",
+              "start": 5.52,
+              "end": 5.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " But",
+              "start": 6.38,
+              "end": 6.5,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " by",
+              "start": 6.5,
+              "end": 6.62,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 6.62,
+              "end": 6.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " side",
+              "start": 6.76,
+              "end": 6.98,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " of",
+              "start": 6.98,
+              "end": 7.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " two",
+              "start": 7.14,
+              "end": 7.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " such",
+              "start": 7.34,
+              "end": 7.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " friends",
+              "start": 7.58,
+              "end": 8.02,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " as",
+              "start": 8.02,
+              "end": 8.34,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " you",
+              "start": 8.34,
+              "end": 8.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 8.52,
+              "end": 8.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 8.64,
+              "end": 8.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " brother",
+              "start": 8.78,
+              "end": 9.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 9.04,
+              "end": 9.32,
+              "probability": 0.6103515625
+            },
+            {
+              "text": " still",
+              "start": 9.32,
+              "end": 9.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " feel",
+              "start": 9.56,
+              "end": 9.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " strong—for",
+              "start": 9.84,
+              "end": 10.9,
+              "probability": 0.6622263590494791
+            },
+            {
+              "text": " I",
+              "start": 10.9,
+              "end": 11.08,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " know—you",
+              "start": 11.08,
+              "end": 11.88,
+              "probability": 0.6601460774739584
+            },
+            {
+              "text": " two",
+              "start": 11.88,
+              "end": 12.08,
+              "probability": 0.17626953125
+            },
+            {
+              "text": " will",
+              "start": 12.08,
+              "end": 12.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " never",
+              "start": 12.26,
+              "end": 12.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " desert",
+              "start": 12.54,
+              "end": 12.84,
+              "probability": 0.9140625
+            },
+            {
+              "text": " me.",
+              "start": 12.84,
+              "end": 13.2,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "nothing,",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "nothing",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "raw": "!\"",
+          "start": 1.44,
+          "end": 1.98
+        },
+        {
+          "raw": "she",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "went",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "raw": "on",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "through",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "her",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "tears.",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "raw": "I'm",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "raw": "upset,",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "raw": "I",
+          "start": 4.74,
+          "end": 4.78
+        },
+        {
+          "raw": "didn't",
+          "start": 4.78,
+          "end": 5.02
+        },
+        {
+          "raw": "sleep",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "raw": "last",
+          "start": 5.22,
+          "end": 5.52
+        },
+        {
+          "raw": "night.",
+          "start": 5.52,
+          "end": 5.88
+        },
+        {
+          "raw": "But",
+          "start": 6.38,
+          "end": 6.5
+        },
+        {
+          "raw": "by",
+          "start": 6.5,
+          "end": 6.62
+        },
+        {
+          "raw": "the",
+          "start": 6.62,
+          "end": 6.76
+        },
+        {
+          "raw": "side",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "raw": "of",
+          "start": 6.98,
+          "end": 7.14
+        },
+        {
+          "raw": "two",
+          "start": 7.14,
+          "end": 7.34
+        },
+        {
+          "raw": "such",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "raw": "friends",
+          "start": 7.58,
+          "end": 8.02
+        },
+        {
+          "raw": "as",
+          "start": 8.02,
+          "end": 8.34
+        },
+        {
+          "raw": "you",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "raw": "and",
+          "start": 8.52,
+          "end": 8.64
+        },
+        {
+          "raw": "your",
+          "start": 8.64,
+          "end": 8.78
+        },
+        {
+          "raw": "brother",
+          "start": 8.78,
+          "end": 9.04
+        },
+        {
+          "raw": "I",
+          "start": 9.04,
+          "end": 9.32
+        },
+        {
+          "raw": "still",
+          "start": 9.32,
+          "end": 9.56
+        },
+        {
+          "raw": "feel",
+          "start": 9.56,
+          "end": 9.84
+        },
+        {
+          "raw": "strong—for",
+          "start": 9.84,
+          "end": 10.9
+        },
+        {
+          "raw": "I",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "raw": "know—you",
+          "start": 11.08,
+          "end": 11.88
+        },
+        {
+          "raw": "two",
+          "start": 11.88,
+          "end": 12.08
+        },
+        {
+          "raw": "will",
+          "start": 12.08,
+          "end": 12.26
+        },
+        {
+          "raw": "never",
+          "start": 12.26,
+          "end": 12.54
+        },
+        {
+          "raw": "desert",
+          "start": 12.54,
+          "end": 12.84
+        },
+        {
+          "raw": "me.",
+          "start": 12.84,
+          "end": 13.2
+        }
+      ],
+      "expected_tokens": [
+        "\"It's",
+        "nothing,",
+        "nothing!\"",
+        "she",
+        "went",
+        "on",
+        "through",
+        "her",
+        "tears.",
+        "\"I'm",
+        "upset,",
+        "I",
+        "didn't",
+        "sleep",
+        "last",
+        "night.",
+        "But",
+        "by",
+        "the",
+        "side",
+        "of",
+        "two",
+        "such",
+        "friends",
+        "as",
+        "you",
+        "and",
+        "your",
+        "brother",
+        "I",
+        "still",
+        "feel",
+        "strong—for",
+        "I",
+        "know—you",
+        "two",
+        "will",
+        "never",
+        "desert",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          40,
+          4,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing,",
+          "start": 0.62,
+          "end": 0.94,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.14,
+          "end": 1.44,
+          "key": "nothing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.44,
+          "end": 1.98,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.98,
+          "end": 2.24,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 2.24,
+          "end": 2.38,
+          "key": "went",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "through",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tears.",
+          "start": 2.92,
+          "end": 3.22,
+          "key": "tears",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 3.94,
+          "end": 4.2,
+          "key": "im",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "upset,",
+          "start": 4.2,
+          "end": 4.52,
+          "key": "upset",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.74,
+          "end": 4.78,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 4.78,
+          "end": 5.02,
+          "key": "didnt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sleep",
+          "start": 5.02,
+          "end": 5.22,
+          "key": "sleep",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 5.22,
+          "end": 5.52,
+          "key": "last",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "night.",
+          "start": 5.52,
+          "end": 5.88,
+          "key": "night",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 6.38,
+          "end": 6.5,
+          "key": "but",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.5,
+          "end": 6.62,
+          "key": "by",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.62,
+          "end": 6.76,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 6.76,
+          "end": 6.98,
+          "key": "side",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.98,
+          "end": 7.14,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 7.14,
+          "end": 7.34,
+          "key": "two",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 7.34,
+          "end": 7.58,
+          "key": "such",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 7.58,
+          "end": 8.02,
+          "key": "friends",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.02,
+          "end": 8.34,
+          "key": "as",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.34,
+          "end": 8.52,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.52,
+          "end": 8.64,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.64,
+          "end": 8.78,
+          "key": "your",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 8.78,
+          "end": 9.04,
+          "key": "brother",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.04,
+          "end": 9.32,
+          "key": "i",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 9.32,
+          "end": 9.56,
+          "key": "still",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 9.56,
+          "end": 9.84,
+          "key": "feel",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "strong—for",
+          "start": 9.84,
+          "end": 10.9,
+          "key": "strongfor",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.9,
+          "end": 11.08,
+          "key": "i",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "know—you",
+          "start": 11.08,
+          "end": 11.88,
+          "key": "knowyou",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 11.88,
+          "end": 12.08,
+          "key": "two",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 12.08,
+          "end": 12.26,
+          "key": "will",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 12.26,
+          "end": 12.54,
+          "key": "never",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "desert",
+          "start": 12.54,
+          "end": 12.84,
+          "key": "desert",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 12.84,
+          "end": 13.2,
+          "key": "me",
+          "pieces": [
+            40
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It's",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "nothing,",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "text": "nothing!\"",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "text": "she",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "went",
+          "start": 2.24,
+          "end": 2.38
+        },
+        {
+          "text": "on",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "through",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "her",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "tears.",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "text": "\"I'm",
+          "start": 3.94,
+          "end": 4.2
+        },
+        {
+          "text": "upset,",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "text": "I",
+          "start": 4.74,
+          "end": 4.78
+        },
+        {
+          "text": "didn't",
+          "start": 4.78,
+          "end": 5.02
+        },
+        {
+          "text": "sleep",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "text": "last",
+          "start": 5.22,
+          "end": 5.52
+        },
+        {
+          "text": "night.",
+          "start": 5.52,
+          "end": 5.88
+        },
+        {
+          "text": "But",
+          "start": 6.38,
+          "end": 6.5
+        },
+        {
+          "text": "by",
+          "start": 6.5,
+          "end": 6.62
+        },
+        {
+          "text": "the",
+          "start": 6.62,
+          "end": 6.76
+        },
+        {
+          "text": "side",
+          "start": 6.76,
+          "end": 6.98
+        },
+        {
+          "text": "of",
+          "start": 6.98,
+          "end": 7.14
+        },
+        {
+          "text": "two",
+          "start": 7.14,
+          "end": 7.34
+        },
+        {
+          "text": "such",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "text": "friends",
+          "start": 7.58,
+          "end": 8.02
+        },
+        {
+          "text": "as",
+          "start": 8.02,
+          "end": 8.34
+        },
+        {
+          "text": "you",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "text": "and",
+          "start": 8.52,
+          "end": 8.64
+        },
+        {
+          "text": "your",
+          "start": 8.64,
+          "end": 8.78
+        },
+        {
+          "text": "brother",
+          "start": 8.78,
+          "end": 9.04
+        },
+        {
+          "text": "I",
+          "start": 9.04,
+          "end": 9.32
+        },
+        {
+          "text": "still",
+          "start": 9.32,
+          "end": 9.56
+        },
+        {
+          "text": "feel",
+          "start": 9.56,
+          "end": 9.84
+        },
+        {
+          "text": "strong—for",
+          "start": 9.84,
+          "end": 10.9
+        },
+        {
+          "text": "I",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "text": "know—you",
+          "start": 11.08,
+          "end": 11.88
+        },
+        {
+          "text": "two",
+          "start": 11.88,
+          "end": 12.08
+        },
+        {
+          "text": "will",
+          "start": 12.08,
+          "end": 12.26
+        },
+        {
+          "text": "never",
+          "start": 12.26,
+          "end": 12.54
+        },
+        {
+          "text": "desert",
+          "start": 12.54,
+          "end": 12.84
+        },
+        {
+          "text": "me.\"",
+          "start": 12.84,
+          "end": 13.2
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 41,
+        "matched_words": 40
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5211936254054308
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f1629806bbb72201c0a39f40042e0edb89f1fc444a3d837c038aa1f11adfa5f7",
+  "selected_reasons": []
+}

@@ -1,0 +1,410 @@
+{
+  "complete": true,
+  "signature": "9d76f3ef6c1f830aa4dcfc788b5d254f34d2fd2ebd42c0133f3185b8ed6d892c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10449180300929584,
+      "alignment_seconds": 0.00017894600750878453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Proculeius._]",
+        "hotwords": "Proculeius._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Proculeius._",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Proculeius._",
+              "start": 0.66,
+              "end": 1.9,
+              "probability": 0.23076629638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Proculeius._",
+          "start": 0.66,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Proculeius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Proculeius._",
+          "start": 0.66,
+          "end": 1.9,
+          "key": "proculeius_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Proculeius._]",
+          "start": 0.66,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10472303099231794
+    },
+    {
+      "asr_seconds": 0.13618591899285093,
+      "alignment_seconds": 0.0001690960198175162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Proculeius._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Proculeius._",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Proculeius._",
+              "start": 0.66,
+              "end": 1.9,
+              "probability": 0.23076629638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Proculeius._",
+          "start": 0.66,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Proculeius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Proculeius._",
+          "start": 0.66,
+          "end": 1.9,
+          "key": "proculeius_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Proculeius._]",
+          "start": 0.66,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13642349798465148
+    },
+    {
+      "asr_seconds": 0.10691059799864888,
+      "alignment_seconds": 0.00011919401003979146,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Prokuleus.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Prokuleus.",
+              "start": 0.66,
+              "end": 1.46,
+              "probability": 0.594451904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Prokuleus.",
+          "start": 0.66,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Proculeius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prokuleus.",
+          "start": 0.66,
+          "end": 1.46,
+          "key": "prokuleus",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Proculeius._]",
+          "start": 0.66,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1070616930082906
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1e49cf1dbea2cabb0019ddc5d06511f8d7e86c1cabdbb7bd919e0d8ef951b8e9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

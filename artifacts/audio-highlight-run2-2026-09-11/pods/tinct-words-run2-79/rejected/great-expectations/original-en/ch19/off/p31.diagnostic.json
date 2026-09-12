@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "9b947924b7a9c8deb1cb1237721008a2a556554931ecf62ff54baf80f635f9df",
+  "attempts": [
+    {
+      "asr_seconds": 0.17488074768334627,
+      "alignment_seconds": 0.0003248462453484535,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well, what are you stopping for? said I",
+          "start": 0.02,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.322998046875
+            },
+            {
+              "text": " what",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " are",
+              "start": 0.84,
+              "end": 0.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 0.92,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stopping",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for?",
+              "start": 1.3,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " said",
+              "start": 2.06,
+              "end": 2.14,
+              "probability": 0.6259765625
+            },
+            {
+              "text": " I",
+              "start": 2.14,
+              "end": 2.4,
+              "probability": 0.9228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "what",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "are",
+          "start": 0.84,
+          "end": 0.92
+        },
+        {
+          "raw": "you",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "raw": "stopping",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "for?",
+          "start": 1.3,
+          "end": 1.74
+        },
+        {
+          "raw": "said",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "raw": "I",
+          "start": 2.14,
+          "end": 2.4
+        }
+      ],
+      "expected_tokens": [
+        "\"Well?",
+        "What",
+        "are",
+        "you",
+        "stopping",
+        "for?\"",
+        "said",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.84,
+          "end": 0.92,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.92,
+          "end": 1.0,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stopping",
+          "start": 1.0,
+          "end": 1.3,
+          "key": "stopping",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for?",
+          "start": 1.3,
+          "end": 1.74,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.06,
+          "end": 2.14,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.14,
+          "end": 2.4,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well?",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "What",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "are",
+          "start": 0.84,
+          "end": 0.92
+        },
+        {
+          "text": "you",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "text": "stopping",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "text": "for?\"",
+          "start": 1.3,
+          "end": 1.74
+        },
+        {
+          "text": "said",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "text": "I.",
+          "start": 2.14,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1753329560160637
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "182a55a58b8efb7e13cda63e3469a76c6c2528651bee1b6fe05d2411393b8533",
+  "selected_reasons": []
+}

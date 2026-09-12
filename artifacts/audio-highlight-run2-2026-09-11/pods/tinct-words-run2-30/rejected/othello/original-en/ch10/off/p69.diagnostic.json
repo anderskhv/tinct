@@ -1,0 +1,749 @@
+{
+  "complete": true,
+  "signature": "88861b86c7bfd71d3088817dff418c5fd5e52ebaccdcf3dd0e81e2b515610541",
+  "attempts": [
+    {
+      "asr_seconds": 0.1803505658172071,
+      "alignment_seconds": 0.00023468909785151482,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ye go there is no other way tea. She must do tea and lo the happiness go and importune her",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " Ye",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.451171875
+            },
+            {
+              "text": " go",
+              "start": 0.59,
+              "end": 0.81,
+              "probability": 0.49072265625
+            },
+            {
+              "text": " there",
+              "start": 0.81,
+              "end": 1.11,
+              "probability": 0.44189453125
+            },
+            {
+              "text": " is",
+              "start": 1.11,
+              "end": 1.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " no",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " other",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " way",
+              "start": 1.63,
+              "end": 2.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tea.",
+              "start": 2.07,
+              "end": 2.61,
+              "probability": 0.2420654296875
+            },
+            {
+              "text": " She",
+              "start": 2.65,
+              "end": 2.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " must",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 2.99,
+              "end": 3.25,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " tea",
+              "start": 3.25,
+              "end": 3.55,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " and",
+              "start": 3.55,
+              "end": 3.77,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " lo",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " the",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " happiness",
+              "start": 4.17,
+              "end": 4.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " go",
+              "start": 4.57,
+              "end": 5.19,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " and",
+              "start": 5.19,
+              "end": 5.35,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " importune",
+              "start": 5.35,
+              "end": 5.79,
+              "probability": 0.765380859375
+            },
+            {
+              "text": " her",
+              "start": 5.79,
+              "end": 6.01,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ye",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "go",
+          "start": 0.59,
+          "end": 0.81
+        },
+        {
+          "raw": "there",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "raw": "is",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "raw": "no",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "other",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "way",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "raw": "tea.",
+          "start": 2.07,
+          "end": 2.61
+        },
+        {
+          "raw": "She",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "raw": "must",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "do",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "raw": "tea",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "raw": "and",
+          "start": 3.55,
+          "end": 3.77
+        },
+        {
+          "raw": "lo",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "happiness",
+          "start": 4.17,
+          "end": 4.57
+        },
+        {
+          "raw": "go",
+          "start": 4.57,
+          "end": 5.19
+        },
+        {
+          "raw": "and",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "raw": "importune",
+          "start": 5.35,
+          "end": 5.79
+        },
+        {
+          "raw": "her",
+          "start": 5.79,
+          "end": 6.01
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "There",
+        "is",
+        "no",
+        "other",
+        "way;",
+        "'tis",
+        "she",
+        "must",
+        "do",
+        "'t,",
+        "And,",
+        "lo,",
+        "the",
+        "happiness!",
+        "Go",
+        "and",
+        "importune",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          6,
+          2,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          10,
+          8,
+          11
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "equal",
+          11,
+          19,
+          12,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ye",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "ye",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.59,
+          "end": 0.81,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.81,
+          "end": 1.11,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.11,
+          "end": 1.23,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "other",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 1.63,
+          "end": 2.07,
+          "key": "way",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tea.",
+          "start": 2.07,
+          "end": 2.61,
+          "key": "tea",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.65,
+          "end": 2.81,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "must",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.99,
+          "end": 3.25,
+          "key": "do",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 3.25,
+          "end": 3.55,
+          "key": "tea",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.55,
+          "end": 3.77,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "lo",
+          "start": 3.77,
+          "end": 3.99,
+          "key": "lo",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "happiness",
+          "start": 4.17,
+          "end": 4.57,
+          "key": "happiness",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 4.57,
+          "end": 5.19,
+          "key": "go",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.19,
+          "end": 5.35,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "importune",
+          "start": 5.35,
+          "end": 5.79,
+          "key": "importune",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.79,
+          "end": 6.01,
+          "key": "her",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.405
+        },
+        {
+          "text": "There",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "text": "is",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "text": "no",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "other",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "way;",
+          "start": 1.63,
+          "end": 2.07
+        },
+        {
+          "text": "'tis",
+          "start": 2.07,
+          "end": 2.36
+        },
+        {
+          "text": "she",
+          "start": 2.65,
+          "end": 2.81
+        },
+        {
+          "text": "must",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "do",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "text": "'t,",
+          "start": 3.25,
+          "end": 3.4
+        },
+        {
+          "text": "And,",
+          "start": 3.55,
+          "end": 3.77
+        },
+        {
+          "text": "lo,",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "the",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "happiness!",
+          "start": 4.17,
+          "end": 4.57
+        },
+        {
+          "text": "Go",
+          "start": 4.57,
+          "end": 5.19
+        },
+        {
+          "text": "and",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "text": "importune",
+          "start": 5.35,
+          "end": 5.79
+        },
+        {
+          "text": "her.",
+          "start": 5.79,
+          "end": 6.01
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18067367421463132
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "125d3812ccb963e5eb0d5c68fff0e25989b6d522e3129da0d2245c5cc3c9ab6f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

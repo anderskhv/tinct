@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "95c453e7f6c0db601f5c7c04f455ec7af43a4878ffc42e186f67b8a88db28eef",
+  "attempts": [
+    {
+      "asr_seconds": 0.2001771368086338,
+      "alignment_seconds": 0.0003682821989059448,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, thine Claudio, thine I say.",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.323486328125
+            },
+            {
+              "text": " thine",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.751708984375
+            },
+            {
+              "text": " Claudio,",
+              "start": 1.6,
+              "end": 2.0,
+              "probability": 0.725341796875
+            },
+            {
+              "text": " thine",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " I",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " say.",
+              "start": 2.52,
+              "end": 2.78,
+              "probability": 0.9462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "thine",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "Claudio,",
+          "start": 1.6,
+          "end": 2.0
+        },
+        {
+          "raw": "thine",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "I",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "say.",
+          "start": 2.52,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "Thine,",
+        "Claudio;",
+        "thine,",
+        "I",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "thine",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Claudio,",
+          "start": 1.6,
+          "end": 2.0,
+          "key": "claudio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "thine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 2.52,
+          "end": 2.78,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "text": "Thine,",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "Claudio;",
+          "start": 1.6,
+          "end": 2.0
+        },
+        {
+          "text": "thine,",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "I",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "say.",
+          "start": 2.52,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20068353787064552
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0d1a466dc76bb7defbba4ccf8f06a085f4e6aad60db077f5e017a50bf83c58e9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,522 @@
+{
+  "complete": true,
+  "signature": "15d2f801b76f121f88c3d4aaa729ecfe75cadf9632ddd608017a06a12ba66690",
+  "attempts": [
+    {
+      "asr_seconds": 0.19178269430994987,
+      "alignment_seconds": 0.0004618242383003235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It's the Mrs. choked Becky and dropped her piece of cake upon the floor",
+          "start": 0.05,
+          "end": 4.43,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.865234375
+            },
+            {
+              "text": " the",
+              "start": 0.59,
+              "end": 0.71,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Mrs.",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " choked",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.210693359375
+            },
+            {
+              "text": " Becky",
+              "start": 1.91,
+              "end": 2.33,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " and",
+              "start": 2.33,
+              "end": 2.71,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " dropped",
+              "start": 2.71,
+              "end": 2.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " piece",
+              "start": 3.17,
+              "end": 3.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cake",
+              "start": 3.51,
+              "end": 3.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " upon",
+              "start": 3.73,
+              "end": 4.01,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " the",
+              "start": 4.01,
+              "end": 4.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " floor",
+              "start": 4.15,
+              "end": 4.43,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "the",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "raw": "Mrs.",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "raw": "choked",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "Becky",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "raw": "and",
+          "start": 2.33,
+          "end": 2.71
+        },
+        {
+          "raw": "dropped",
+          "start": 2.71,
+          "end": 2.97
+        },
+        {
+          "raw": "her",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "piece",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "raw": "of",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "cake",
+          "start": 3.51,
+          "end": 3.73
+        },
+        {
+          "raw": "upon",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "raw": "the",
+          "start": 4.01,
+          "end": 4.15
+        },
+        {
+          "raw": "floor",
+          "start": 4.15,
+          "end": 4.43
+        }
+      ],
+      "expected_tokens": [
+        "\"It's--the",
+        "missus!\"",
+        "choked",
+        "Becky,",
+        "and",
+        "dropped",
+        "her",
+        "piece",
+        "of",
+        "cake",
+        "upon",
+        "the",
+        "floor."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          13,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's the",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "itsthe",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 0.71,
+          "end": 0.97,
+          "key": "mrs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "choked",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "choked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 1.91,
+          "end": 2.33,
+          "key": "becky",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.33,
+          "end": 2.71,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dropped",
+          "start": 2.71,
+          "end": 2.97,
+          "key": "dropped",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 3.17,
+          "end": 3.35,
+          "key": "piece",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cake",
+          "start": 3.51,
+          "end": 3.73,
+          "key": "cake",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.73,
+          "end": 4.01,
+          "key": "upon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.01,
+          "end": 4.15,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "floor",
+          "start": 4.15,
+          "end": 4.43,
+          "key": "floor",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"It's--the",
+          "heard": "It's the",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.71
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"It's--the",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "missus!\"",
+          "start": 0.71,
+          "end": 1.25
+        },
+        {
+          "text": "choked",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "Becky,",
+          "start": 1.91,
+          "end": 2.33
+        },
+        {
+          "text": "and",
+          "start": 2.33,
+          "end": 2.71
+        },
+        {
+          "text": "dropped",
+          "start": 2.71,
+          "end": 2.97
+        },
+        {
+          "text": "her",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "piece",
+          "start": 3.17,
+          "end": 3.35
+        },
+        {
+          "text": "of",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "cake",
+          "start": 3.51,
+          "end": 3.73
+        },
+        {
+          "text": "upon",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "text": "the",
+          "start": 4.01,
+          "end": 4.15
+        },
+        {
+          "text": "floor.",
+          "start": 4.15,
+          "end": 4.43
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.19244994595646858
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f100903bc65d365a850fc34ea4a97f9b60329a5b24abeded73b59abe9fdabcef",
+  "selected_reasons": []
+}

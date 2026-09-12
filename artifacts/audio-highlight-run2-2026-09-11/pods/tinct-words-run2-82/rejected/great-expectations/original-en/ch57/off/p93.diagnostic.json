@@ -1,0 +1,806 @@
+{
+  "complete": true,
+  "signature": "3d2a2dce87417b8c79e0455907cee2839b8e8f93d3e61e90ef231730590b3e86",
+  "attempts": [
+    {
+      "asr_seconds": 0.3491948968730867,
+      "alignment_seconds": 0.0006276187486946583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pip said Joe appearing a little hurried and troubled there has been larks and dear sir what have been betwixt us have been",
+          "start": 0.05,
+          "end": 7.31,
+          "words": [
+            {
+              "text": " Pip",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.051971435546875
+            },
+            {
+              "text": " said",
+              "start": 0.61,
+              "end": 1.15,
+              "probability": 0.36181640625
+            },
+            {
+              "text": " Joe",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " appearing",
+              "start": 1.45,
+              "end": 1.87,
+              "probability": 0.966796875
+            },
+            {
+              "text": " a",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " little",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hurried",
+              "start": 2.17,
+              "end": 2.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " troubled",
+              "start": 2.75,
+              "end": 3.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " there",
+              "start": 3.09,
+              "end": 3.77,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " has",
+              "start": 3.77,
+              "end": 3.93,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " been",
+              "start": 3.93,
+              "end": 4.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " larks",
+              "start": 4.17,
+              "end": 4.61,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " and",
+              "start": 4.61,
+              "end": 5.21,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " dear",
+              "start": 5.21,
+              "end": 5.39,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " sir",
+              "start": 5.39,
+              "end": 5.69,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " what",
+              "start": 5.69,
+              "end": 5.93,
+              "probability": 0.544921875
+            },
+            {
+              "text": " have",
+              "start": 5.93,
+              "end": 6.05,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " been",
+              "start": 6.05,
+              "end": 6.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " betwixt",
+              "start": 6.17,
+              "end": 6.55,
+              "probability": 0.9915364583333334
+            },
+            {
+              "text": " us",
+              "start": 6.55,
+              "end": 6.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have",
+              "start": 6.79,
+              "end": 6.99,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " been",
+              "start": 6.99,
+              "end": 7.31,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pip",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "said",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "raw": "Joe",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "appearing",
+          "start": 1.45,
+          "end": 1.87
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "little",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "hurried",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "troubled",
+          "start": 2.75,
+          "end": 3.09
+        },
+        {
+          "raw": "there",
+          "start": 3.09,
+          "end": 3.77
+        },
+        {
+          "raw": "has",
+          "start": 3.77,
+          "end": 3.93
+        },
+        {
+          "raw": "been",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "raw": "larks",
+          "start": 4.17,
+          "end": 4.61
+        },
+        {
+          "raw": "and",
+          "start": 4.61,
+          "end": 5.21
+        },
+        {
+          "raw": "dear",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "raw": "sir",
+          "start": 5.39,
+          "end": 5.69
+        },
+        {
+          "raw": "what",
+          "start": 5.69,
+          "end": 5.93
+        },
+        {
+          "raw": "have",
+          "start": 5.93,
+          "end": 6.05
+        },
+        {
+          "raw": "been",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "raw": "betwixt",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "raw": "us",
+          "start": 6.55,
+          "end": 6.79
+        },
+        {
+          "raw": "have",
+          "start": 6.79,
+          "end": 6.99
+        },
+        {
+          "raw": "been",
+          "start": 6.99,
+          "end": 7.31
+        }
+      ],
+      "expected_tokens": [
+        "\"Pip,\"",
+        "said",
+        "Joe,",
+        "appearing",
+        "a",
+        "little",
+        "hurried",
+        "and",
+        "troubled,",
+        "\"there",
+        "has",
+        "been",
+        "larks.",
+        "And,",
+        "dear",
+        "sir,",
+        "what",
+        "have",
+        "been",
+        "betwixt",
+        "us—have",
+        "been.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          22,
+          22,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pip",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "pip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.61,
+          "end": 1.15,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "joe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "appearing",
+          "start": 1.45,
+          "end": 1.87,
+          "key": "appearing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.05,
+          "end": 2.17,
+          "key": "little",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hurried",
+          "start": 2.17,
+          "end": 2.57,
+          "key": "hurried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "troubled",
+          "start": 2.75,
+          "end": 3.09,
+          "key": "troubled",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.09,
+          "end": 3.77,
+          "key": "there",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 3.77,
+          "end": 3.93,
+          "key": "has",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.93,
+          "end": 4.17,
+          "key": "been",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "larks",
+          "start": 4.17,
+          "end": 4.61,
+          "key": "larks",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.61,
+          "end": 5.21,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 5.21,
+          "end": 5.39,
+          "key": "dear",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 5.39,
+          "end": 5.69,
+          "key": "sir",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.69,
+          "end": 5.93,
+          "key": "what",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.93,
+          "end": 6.05,
+          "key": "have",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 6.05,
+          "end": 6.17,
+          "key": "been",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "betwixt",
+          "start": 6.17,
+          "end": 6.55,
+          "key": "betwixt",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 6.55,
+          "end": 6.79,
+          "key": "us",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.79,
+          "end": 6.99,
+          "key": "have",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 6.99,
+          "end": 7.31,
+          "key": "been",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Pip,\"",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "said",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "text": "Joe,",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "appearing",
+          "start": 1.45,
+          "end": 1.87
+        },
+        {
+          "text": "a",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "little",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "hurried",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "text": "and",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "troubled,",
+          "start": 2.75,
+          "end": 3.09
+        },
+        {
+          "text": "\"there",
+          "start": 3.09,
+          "end": 3.77
+        },
+        {
+          "text": "has",
+          "start": 3.77,
+          "end": 3.93
+        },
+        {
+          "text": "been",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "text": "larks.",
+          "start": 4.17,
+          "end": 4.61
+        },
+        {
+          "text": "And,",
+          "start": 4.61,
+          "end": 5.21
+        },
+        {
+          "text": "dear",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "text": "sir,",
+          "start": 5.39,
+          "end": 5.69
+        },
+        {
+          "text": "what",
+          "start": 5.69,
+          "end": 5.93
+        },
+        {
+          "text": "have",
+          "start": 5.93,
+          "end": 6.05
+        },
+        {
+          "text": "been",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "text": "betwixt",
+          "start": 6.17,
+          "end": 6.55
+        },
+        {
+          "text": "us—have",
+          "start": 6.55,
+          "end": 6.77
+        },
+        {
+          "text": "been.\"",
+          "start": 6.99,
+          "end": 7.31
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.3500546938739717
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8e5fdc58ed7206f435397b2865249e486dcafcf3f581221975553568ae87b8e",
+  "selected_reasons": []
+}

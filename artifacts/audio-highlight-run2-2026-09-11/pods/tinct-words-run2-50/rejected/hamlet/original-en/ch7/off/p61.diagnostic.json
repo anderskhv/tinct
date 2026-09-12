@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "1f9f20885499a0e35656b3597497dfac0c102f4490a4d07e8c27829422c1cf70",
+  "attempts": [
+    {
+      "asr_seconds": 0.19888016022741795,
+      "alignment_seconds": 0.00016399472951889038,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius, do you know me, my lord?",
+          "start": 0.69,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.8294270833333334
+            },
+            {
+              "text": " do",
+              "start": 1.37,
+              "end": 1.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " know",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " my",
+              "start": 1.87,
+              "end": 1.89,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " lord?",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.84326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "do",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "know",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "me,",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "my",
+          "start": 1.87,
+          "end": 1.89
+        },
+        {
+          "raw": "lord?",
+          "start": 1.89,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Do",
+        "you",
+        "know",
+        "me,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.37,
+          "end": 1.43,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.53,
+          "end": 1.61,
+          "key": "know",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.87,
+          "end": 1.89,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "Do",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "text": "you",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "know",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "me,",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "my",
+          "start": 1.87,
+          "end": 1.89
+        },
+        {
+          "text": "lord?",
+          "start": 1.89,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1991029717028141
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "edf014073388ec5ecb0f6d3ab71836efa534aeba1561763ef70137d16b2f8f18",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "9d09a3e0c0bea321578639ad8fb0cea2813af05e52c3179cb8b13cc0598ac2a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20639058202505112,
+      "alignment_seconds": 0.00016465038061141968,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, and they will be strong in him too.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " and",
+              "start": 1.07,
+              "end": 1.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " they",
+              "start": 1.17,
+              "end": 1.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " strong",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " too.",
+              "start": 2.11,
+              "end": 2.37,
+              "probability": 0.69677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "and",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "raw": "they",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "raw": "will",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "be",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "strong",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "raw": "in",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "him",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "too.",
+          "start": 2.11,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "and",
+        "they",
+        "will",
+        "be",
+        "strong",
+        "in",
+        "him",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.07,
+          "end": 1.17,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.17,
+          "end": 1.29,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 1.53,
+          "end": 1.83,
+          "key": "strong",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 2.11,
+          "end": 2.37,
+          "key": "too",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "and",
+          "start": 1.07,
+          "end": 1.17
+        },
+        {
+          "text": "they",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "text": "will",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "be",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "strong",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "text": "in",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "him",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "too.",
+          "start": 2.11,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20661864057183266
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e715f1ea89e4634b3fe994359a4998021b86a32da52c70d487ea3ab75a5660ea",
+  "selected_reasons": []
+}

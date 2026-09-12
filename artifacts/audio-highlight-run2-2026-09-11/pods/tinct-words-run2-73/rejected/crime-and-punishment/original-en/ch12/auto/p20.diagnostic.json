@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "add4c70b5edc50e424aba34e8fe637e0e9349cb95b359452f8f52e374e40d62e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13675859570503235,
+      "alignment_seconds": 0.0003546830266714096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Your mamma,\" began Luzhin.",
+        "hotwords": "Your, Luzhin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Your mamma, began Luzhin.",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " mamma,",
+              "start": 0.52,
+              "end": 1.12,
+              "probability": 0.515777587890625
+            },
+            {
+              "text": " began",
+              "start": 1.12,
+              "end": 1.44,
+              "probability": 0.890625
+            },
+            {
+              "text": " Luzhin.",
+              "start": 1.44,
+              "end": 1.9,
+              "probability": 0.445404052734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "mamma,",
+          "start": 0.52,
+          "end": 1.12
+        },
+        {
+          "raw": "began",
+          "start": 1.12,
+          "end": 1.44
+        },
+        {
+          "raw": "Luzhin.",
+          "start": 1.44,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "\"Your",
+        "mamma,\"",
+        "began",
+        "Luzhin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mamma,",
+          "start": 0.52,
+          "end": 1.12,
+          "key": "mamma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 1.12,
+          "end": 1.44,
+          "key": "began",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Luzhin.",
+          "start": 1.44,
+          "end": 1.9,
+          "key": "luzhin",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "mamma,\"",
+          "start": 0.52,
+          "end": 1.12
+        },
+        {
+          "text": "began",
+          "start": 1.12,
+          "end": 1.44
+        },
+        {
+          "text": "Luzhin.",
+          "start": 1.44,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13723931927233934
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8388b14c15fceeb3f540f45ca24e289704b16da34a302408b81e3fe282a5ad18",
+  "selected_reasons": []
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "374afb631e37fd1d52ecb2b69932383098b48a3dd085dd62223b480b65a36b75",
+  "attempts": [
+    {
+      "asr_seconds": 0.21958255395293236,
+      "alignment_seconds": 0.00038011372089385986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. I mean, to go, sir, to enter.",
+        "hotwords": "Toby, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, I mean, to go, sir, to enter.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Toby,",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " mean,",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " to",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " go,",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " sir,",
+              "start": 1.97,
+              "end": 1.97,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " to",
+              "start": 2.09,
+              "end": 2.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " enter.",
+              "start": 2.11,
+              "end": 2.41,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "mean,",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "go,",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "sir,",
+          "start": 1.97,
+          "end": 1.97
+        },
+        {
+          "raw": "to",
+          "start": 2.09,
+          "end": 2.11
+        },
+        {
+          "raw": "enter.",
+          "start": 2.11,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "I",
+        "mean,",
+        "to",
+        "go,",
+        "sir,",
+        "to",
+        "enter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mean,",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "mean",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.97,
+          "end": 1.97,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.09,
+          "end": 2.11,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "enter.",
+          "start": 2.11,
+          "end": 2.41,
+          "key": "enter",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "I",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "mean,",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "to",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "go,",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "sir,",
+          "start": 1.97,
+          "end": 1.97
+        },
+        {
+          "text": "to",
+          "start": 2.09,
+          "end": 2.11
+        },
+        {
+          "text": "enter.",
+          "start": 2.11,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22006360441446304
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1eef773c96236fc493e08fadc327859e74bfbf42f6e8039d495a31f053a8b140",
+  "selected_reasons": []
+}

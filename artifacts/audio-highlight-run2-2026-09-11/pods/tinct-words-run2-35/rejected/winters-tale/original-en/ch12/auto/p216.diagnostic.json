@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "a250f5004e1a2135ca313818c6aa3f60dc32b5645bada3622bfe8249c97c2c7f",
+  "attempts": [
+    {
+      "asr_seconds": 0.25823231972754,
+      "alignment_seconds": 0.0005721095949411392,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Florizel. Should I now meet my father, He would not call me son.",
+        "hotwords": "Florizel, Should, I, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Florizel, Should I now meet my father, He would not call me son.",
+          "start": 0.69,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Florizel,",
+              "start": 0.69,
+              "end": 1.07,
+              "probability": 0.2778422037760417
+            },
+            {
+              "text": " Should",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.00952911376953125
+            },
+            {
+              "text": " I",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.939453125
+            },
+            {
+              "text": " now",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " meet",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " father,",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.958984375
+            },
+            {
+              "text": " He",
+              "start": 2.69,
+              "end": 2.75,
+              "probability": 0.1256103515625
+            },
+            {
+              "text": " would",
+              "start": 2.75,
+              "end": 2.85,
+              "probability": 0.98828125
+            },
+            {
+              "text": " not",
+              "start": 2.85,
+              "end": 2.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " call",
+              "start": 2.99,
+              "end": 3.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me",
+              "start": 3.19,
+              "end": 3.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " son.",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.70849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Florizel,",
+          "start": 0.69,
+          "end": 1.07
+        },
+        {
+          "raw": "Should",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "now",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "meet",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "my",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "father,",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "He",
+          "start": 2.69,
+          "end": 2.75
+        },
+        {
+          "raw": "would",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "raw": "not",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "raw": "call",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "raw": "me",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "raw": "son.",
+          "start": 3.37,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "Should",
+        "I",
+        "now",
+        "meet",
+        "my",
+        "father,",
+        "He",
+        "would",
+        "not",
+        "call",
+        "me",
+        "son."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Florizel,",
+          "start": 0.69,
+          "end": 1.07,
+          "key": "florizel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Should",
+          "start": 1.53,
+          "end": 1.61,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "meet",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "meet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "father,",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "father",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.69,
+          "end": 2.75,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.75,
+          "end": 2.85,
+          "key": "would",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.85,
+          "end": 2.99,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 2.99,
+          "end": 3.19,
+          "key": "call",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.19,
+          "end": 3.37,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "son.",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "son",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.69,
+          "end": 1.07
+        },
+        {
+          "text": "Should",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "I",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "now",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "meet",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "my",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "father,",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "He",
+          "start": 2.69,
+          "end": 2.75
+        },
+        {
+          "text": "would",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "text": "not",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "text": "call",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "text": "me",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "text": "son.",
+          "start": 3.37,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2590382881462574
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9774208f2fdc0073988a655ede4f7bc98c598986b41a7f1850e3fa8ba077afbb",
+  "selected_reasons": []
+}

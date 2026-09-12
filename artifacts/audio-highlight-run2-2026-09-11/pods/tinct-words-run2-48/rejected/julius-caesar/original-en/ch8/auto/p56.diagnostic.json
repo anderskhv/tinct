@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "65d3e01efe38cb8340195355de1172b9c32d670d178cecab1fd00cca1e3ce8bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.3715612404048443,
+      "alignment_seconds": 0.00047525856643915176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Trebonius. Fled to his house amaz'd. Men, wives, and children stare, cry out, and run, As it were doomsday.",
+        "hotwords": "Trebonius, Fled, Men, As"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trebonius, Fled to his house amaz'd. Men, wives, and children stare, cry out, and run, As it were doomsday.",
+          "start": 0.05,
+          "end": 7.27,
+          "words": [
+            {
+              "text": " Trebonius,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.8011067708333334
+            },
+            {
+              "text": " Fled",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.42502784729003906
+            },
+            {
+              "text": " to",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " his",
+              "start": 1.89,
+              "end": 1.99,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " house",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " amaz'd.",
+              "start": 2.21,
+              "end": 2.91,
+              "probability": 0.36855030059814453
+            },
+            {
+              "text": " Men,",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.97265625
+            },
+            {
+              "text": " wives,",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " and",
+              "start": 4.23,
+              "end": 4.35,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " children",
+              "start": 4.35,
+              "end": 4.59,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " stare,",
+              "start": 4.59,
+              "end": 5.05,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " cry",
+              "start": 5.41,
+              "end": 5.51,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " out,",
+              "start": 5.51,
+              "end": 5.79,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 5.97,
+              "end": 5.97,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " run,",
+              "start": 5.97,
+              "end": 6.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " As",
+              "start": 6.51,
+              "end": 6.59,
+              "probability": 0.12152099609375
+            },
+            {
+              "text": " it",
+              "start": 6.59,
+              "end": 6.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " were",
+              "start": 6.71,
+              "end": 6.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " doomsday.",
+              "start": 6.85,
+              "end": 7.27,
+              "probability": 0.9013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trebonius,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Fled",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "to",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "his",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "raw": "house",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "amaz'd.",
+          "start": 2.21,
+          "end": 2.91
+        },
+        {
+          "raw": "Men,",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "wives,",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "and",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "raw": "children",
+          "start": 4.35,
+          "end": 4.59
+        },
+        {
+          "raw": "stare,",
+          "start": 4.59,
+          "end": 5.05
+        },
+        {
+          "raw": "cry",
+          "start": 5.41,
+          "end": 5.51
+        },
+        {
+          "raw": "out,",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "raw": "and",
+          "start": 5.97,
+          "end": 5.97
+        },
+        {
+          "raw": "run,",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "raw": "As",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "raw": "it",
+          "start": 6.59,
+          "end": 6.71
+        },
+        {
+          "raw": "were",
+          "start": 6.71,
+          "end": 6.85
+        },
+        {
+          "raw": "doomsday.",
+          "start": 6.85,
+          "end": 7.27
+        }
+      ],
+      "expected_tokens": [
+        "Trebonius.",
+        "Fled",
+        "to",
+        "his",
+        "house",
+        "amaz'd.",
+        "Men,",
+        "wives,",
+        "and",
+        "children",
+        "stare,",
+        "cry",
+        "out,",
+        "and",
+        "run,",
+        "As",
+        "it",
+        "were",
+        "doomsday."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Trebonius,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "trebonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fled",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "fled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.89,
+          "end": 1.99,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "house",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "amaz'd.",
+          "start": 2.21,
+          "end": 2.91,
+          "key": "amazd",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Men,",
+          "start": 3.31,
+          "end": 3.55,
+          "key": "men",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wives,",
+          "start": 3.77,
+          "end": 3.99,
+          "key": "wives",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.23,
+          "end": 4.35,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 4.35,
+          "end": 4.59,
+          "key": "children",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stare,",
+          "start": 4.59,
+          "end": 5.05,
+          "key": "stare",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 5.41,
+          "end": 5.51,
+          "key": "cry",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 5.51,
+          "end": 5.79,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.97,
+          "end": 5.97,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "run,",
+          "start": 5.97,
+          "end": 6.21,
+          "key": "run",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 6.51,
+          "end": 6.59,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.59,
+          "end": 6.71,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 6.71,
+          "end": 6.85,
+          "key": "were",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "doomsday.",
+          "start": 6.85,
+          "end": 7.27,
+          "key": "doomsday",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Trebonius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Fled",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "to",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "his",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "text": "house",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "amaz'd.",
+          "start": 2.21,
+          "end": 2.91
+        },
+        {
+          "text": "Men,",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "wives,",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "and",
+          "start": 4.23,
+          "end": 4.35
+        },
+        {
+          "text": "children",
+          "start": 4.35,
+          "end": 4.59
+        },
+        {
+          "text": "stare,",
+          "start": 4.59,
+          "end": 5.05
+        },
+        {
+          "text": "cry",
+          "start": 5.41,
+          "end": 5.51
+        },
+        {
+          "text": "out,",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "text": "and",
+          "start": 5.97,
+          "end": 5.97
+        },
+        {
+          "text": "run,",
+          "start": 5.97,
+          "end": 6.21
+        },
+        {
+          "text": "As",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "text": "it",
+          "start": 6.59,
+          "end": 6.71
+        },
+        {
+          "text": "were",
+          "start": 6.71,
+          "end": 6.85
+        },
+        {
+          "text": "doomsday.",
+          "start": 6.85,
+          "end": 7.27
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37220931239426136
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13287e34879a9400d4438ede073a851841278fa9017d4570418bc424e3cbbac7",
+  "selected_reasons": []
+}

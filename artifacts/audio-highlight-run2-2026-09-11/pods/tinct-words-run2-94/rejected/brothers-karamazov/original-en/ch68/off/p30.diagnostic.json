@@ -1,0 +1,567 @@
+{
+  "complete": true,
+  "signature": "634a430142404f99117ddbf467ccf126fbc97301ee09f939f874865d0b4ab480",
+  "attempts": [
+    {
+      "asr_seconds": 0.2858967185020447,
+      "alignment_seconds": 0.0005146358162164688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What do you mean answered whom has someone suggested you're going to America already?",
+          "start": 0.02,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.857421875
+            },
+            {
+              "text": " do",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mean",
+              "start": 0.76,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " answered",
+              "start": 1.0,
+              "end": 1.76,
+              "probability": 0.1436767578125
+            },
+            {
+              "text": " whom",
+              "start": 1.76,
+              "end": 2.12,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " has",
+              "start": 2.12,
+              "end": 2.72,
+              "probability": 0.9453125
+            },
+            {
+              "text": " someone",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " suggested",
+              "start": 3.02,
+              "end": 3.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you're",
+              "start": 3.5,
+              "end": 3.8,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " going",
+              "start": 3.8,
+              "end": 3.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " America",
+              "start": 4.14,
+              "end": 4.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " already?",
+              "start": 4.52,
+              "end": 5.02,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "do",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "mean",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "raw": "answered",
+          "start": 1.0,
+          "end": 1.76
+        },
+        {
+          "raw": "whom",
+          "start": 1.76,
+          "end": 2.12
+        },
+        {
+          "raw": "has",
+          "start": 2.12,
+          "end": 2.72
+        },
+        {
+          "raw": "someone",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "suggested",
+          "start": 3.02,
+          "end": 3.5
+        },
+        {
+          "raw": "you're",
+          "start": 3.5,
+          "end": 3.8
+        },
+        {
+          "raw": "going",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "raw": "to",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "America",
+          "start": 4.14,
+          "end": 4.52
+        },
+        {
+          "raw": "already?",
+          "start": 4.52,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "do",
+        "you",
+        "mean?",
+        "Answered",
+        "whom?",
+        "Has",
+        "some",
+        "one",
+        "suggested",
+        "your",
+        "going",
+        "to",
+        "America",
+        "already?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          10,
+          8,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          10
+        ],
+        [
+          "equal",
+          11,
+          15,
+          10,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.76,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 0.76,
+          "end": 1.0,
+          "key": "mean",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.0,
+          "end": 1.76,
+          "key": "answered",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 1.76,
+          "end": 2.12,
+          "key": "whom",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.12,
+          "end": 2.72,
+          "key": "has",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "someone",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "someone",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "suggested",
+          "start": 3.02,
+          "end": 3.5,
+          "key": "suggested",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 3.5,
+          "end": 3.8,
+          "key": "youre",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 3.8,
+          "end": 3.96,
+          "key": "going",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.96,
+          "end": 4.14,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "America",
+          "start": 4.14,
+          "end": 4.52,
+          "key": "america",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "already?",
+          "start": 4.52,
+          "end": 5.02,
+          "key": "already",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "do",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "you",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "text": "mean?",
+          "start": 0.76,
+          "end": 1.0
+        },
+        {
+          "text": "Answered",
+          "start": 1.0,
+          "end": 1.76
+        },
+        {
+          "text": "whom?",
+          "start": 1.76,
+          "end": 2.12
+        },
+        {
+          "text": "Has",
+          "start": 2.12,
+          "end": 2.72
+        },
+        {
+          "text": "some",
+          "start": 2.72,
+          "end": 2.87
+        },
+        {
+          "text": "one",
+          "start": 2.87,
+          "end": 2.945
+        },
+        {
+          "text": "suggested",
+          "start": 3.02,
+          "end": 3.5
+        },
+        {
+          "text": "your",
+          "start": 3.5,
+          "end": 3.65
+        },
+        {
+          "text": "going",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "text": "to",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "America",
+          "start": 4.14,
+          "end": 4.52
+        },
+        {
+          "text": "already?\"",
+          "start": 4.52,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2866024076938629
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab12553c23559b627518e885c22f72ee518d88d4260be323ba39d635ada03773",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

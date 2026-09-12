@@ -1,0 +1,253 @@
+{
+  "complete": true,
+  "signature": "1d565962126f47cfb602159af6e2b198e51fb2bb4d709dbbc39371a527176b81",
+  "attempts": [
+    {
+      "asr_seconds": 0.13836208399152383,
+      "alignment_seconds": 0.00022816797718405724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Thittias. My name is Thittias.",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Thittias.",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6133626302083334
+            },
+            {
+              "text": " My",
+              "start": 1.25,
+              "end": 1.33,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " name",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Thittias.",
+              "start": 1.61,
+              "end": 2.03,
+              "probability": 0.9949544270833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thittias.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "My",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "raw": "name",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "is",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "Thittias.",
+          "start": 1.61,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Thidias.",
+        "My",
+        "name",
+        "is",
+        "Thidias."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thittias.",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "thittias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.25,
+          "end": 1.33,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "name",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thittias.",
+          "start": 1.61,
+          "end": 2.03,
+          "key": "thittias",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thidias.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "My",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "text": "name",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "is",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "Thidias.",
+          "start": 1.61,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13866945399786346
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6018a5c06899575571e696638af79094c6636842c98ca921ac3930abeaf23021",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

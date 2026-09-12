@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "3e498cceabafb8683df07985d5657838f809b9b18e12af4fedaaccaa9a99ae7b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2130649899772834,
+      "alignment_seconds": 0.00035420298809185624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She poured more tea into her cup watching it flow sideways",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " poured",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " more",
+              "start": 0.75,
+              "end": 0.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tea",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " into",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " her",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cup",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " watching",
+              "start": 1.85,
+              "end": 2.47,
+              "probability": 0.36376953125
+            },
+            {
+              "text": " it",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " flow",
+              "start": 2.73,
+              "end": 2.99,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sideways",
+              "start": 2.99,
+              "end": 3.53,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "poured",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "more",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "raw": "tea",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "into",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "her",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "cup",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "watching",
+          "start": 1.85,
+          "end": 2.47
+        },
+        {
+          "raw": "it",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "flow",
+          "start": 2.73,
+          "end": 2.99
+        },
+        {
+          "raw": "sideways",
+          "start": 2.99,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "poured",
+        "more",
+        "tea",
+        "into",
+        "her",
+        "cup,",
+        "watching",
+        "it",
+        "flow",
+        "sideways."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "poured",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "poured",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 0.75,
+          "end": 0.99,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "tea",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "into",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cup",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "cup",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "watching",
+          "start": 1.85,
+          "end": 2.47,
+          "key": "watching",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.47,
+          "end": 2.73,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "flow",
+          "start": 2.73,
+          "end": 2.99,
+          "key": "flow",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sideways",
+          "start": 2.99,
+          "end": 3.53,
+          "key": "sideways",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "poured",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "more",
+          "start": 0.75,
+          "end": 0.99
+        },
+        {
+          "text": "tea",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "text": "into",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "her",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "cup,",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "watching",
+          "start": 1.85,
+          "end": 2.47
+        },
+        {
+          "text": "it",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "flow",
+          "start": 2.73,
+          "end": 2.99
+        },
+        {
+          "text": "sideways.",
+          "start": 2.99,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21356194198597223
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8abee26e45b672e99a7779df7a5a91ebc987fe2165e8b6aa5530549124ac54db",
+  "selected_reasons": []
+}

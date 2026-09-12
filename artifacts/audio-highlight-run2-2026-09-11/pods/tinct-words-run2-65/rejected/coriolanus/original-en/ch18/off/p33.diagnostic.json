@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "e8ce533b1a091014df8764d739f55d4b426d411bcb47362342ad1feec9946118",
+  "attempts": [
+    {
+      "asr_seconds": 0.09991311468183994,
+      "alignment_seconds": 0.0001660650596022606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt tribunes.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5370686848958334
+            },
+            {
+              "text": " tribunes.",
+              "start": 0.79,
+              "end": 1.25,
+              "probability": 0.595947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "tribunes.",
+          "start": 0.79,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Tribunes._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tribunes.",
+          "start": 0.79,
+          "end": 1.25,
+          "key": "tribunes",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Tribunes._]",
+          "start": 0.79,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10012834100052714
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "efb2ad60820fed514516b158a3c74edd3ff6dde3b06f3cc1847467bc0a4c4780",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "0b99732a6f5dd7da440857d00f858c3f85efe94ea4ad17ed18641dbd369b84d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.09550377447158098,
+      "alignment_seconds": 0.00011924095451831818,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hot Boys",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Hot",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.625
+            },
+            {
+              "text": " Boys",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.46630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hot",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Boys",
+          "start": 0.61,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "[Hautboys.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hot",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "hot",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Boys",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "boys",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Hautboys.]",
+          "start": 0.0,
+          "end": 0.425
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09568138979375362
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cb62f5a0240fba9ed1f43c5f8fea00d53b4583810d838c33accb8bb3d3c3de5a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

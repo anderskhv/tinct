@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "5d0c41dd4a82a7ed8497db22759dab7aa9f7348b40cba49d77f3ff08bd5eddc3",
+  "attempts": [
+    {
+      "asr_seconds": 0.13188487943261862,
+      "alignment_seconds": 0.00037362612783908844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Portia, what is the clock?",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6236572265625
+            },
+            {
+              "text": " what",
+              "start": 1.19,
+              "end": 1.25,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " is",
+              "start": 1.25,
+              "end": 1.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " clock?",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.25
+        },
+        {
+          "raw": "is",
+          "start": 1.25,
+          "end": 1.41
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "clock?",
+          "start": 1.53,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "What",
+        "is't",
+        "o'clock?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.25,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.25,
+          "end": 1.41,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "clock?",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "clock",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "What",
+          "start": 1.19,
+          "end": 1.25
+        },
+        {
+          "text": "is't",
+          "start": 1.25,
+          "end": 1.52
+        },
+        {
+          "text": "o'clock?",
+          "start": 1.52,
+          "end": 1.655
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13238348718732595
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ee7c4a6a5047bc0fb664ea30c45ac5ad9791d43a9c8df5161827535a3178c8b8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

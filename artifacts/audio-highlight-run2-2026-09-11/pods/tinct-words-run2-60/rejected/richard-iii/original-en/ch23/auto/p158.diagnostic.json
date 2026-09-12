@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "9a4f53d5056df36d00684023dbb30da5f4ff3a13a813285562cd706ee376013c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10720706358551979,
+      "alignment_seconds": 0.00012380629777908325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Drum afar off._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drum afar off.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Drum",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.10791015625
+            },
+            {
+              "text": " afar",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.12030029296875
+            },
+            {
+              "text": " off.",
+              "start": 0.88,
+              "end": 1.22,
+              "probability": 0.9248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drum",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "afar",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "off.",
+          "start": 0.88,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[_Drum",
+        "afar",
+        "off._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drum",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "drum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "afar",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "afar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 0.88,
+          "end": 1.22,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Drum",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "afar",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "off._]",
+          "start": 0.88,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10737060010433197
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77177f035e998cd549015c8c4c64b7260fdc6f2b5d9bd4decb614e66190a6b90",
+  "selected_reasons": []
+}

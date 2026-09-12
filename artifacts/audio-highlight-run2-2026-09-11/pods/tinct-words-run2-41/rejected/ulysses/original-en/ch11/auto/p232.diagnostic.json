@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "11def3ef581b23ac99a092d9fb9eb2e237e8b940a6ad3e658f83f0c170c3f09f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1263743001036346,
+      "alignment_seconds": 0.00022191321477293968,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Smart Boylan bespoke potions.",
+        "hotwords": "Smart, Boylan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Smart, Boylan bespoke potions.",
+          "start": 0.08,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Smart,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.55224609375
+            },
+            {
+              "text": " Boylan",
+              "start": 0.72,
+              "end": 1.06,
+              "probability": 0.24334716796875
+            },
+            {
+              "text": " bespoke",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " potions.",
+              "start": 1.44,
+              "end": 1.82,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Smart,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Boylan",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "raw": "bespoke",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "raw": "potions.",
+          "start": 1.44,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "Smart",
+        "Boylan",
+        "bespoke",
+        "potions."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Smart,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "smart",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Boylan",
+          "start": 0.72,
+          "end": 1.06,
+          "key": "boylan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bespoke",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "bespoke",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "potions.",
+          "start": 1.44,
+          "end": 1.82,
+          "key": "potions",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Smart",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Boylan",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "text": "bespoke",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "text": "potions.",
+          "start": 1.44,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1266733780503273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "23ee8533c90ceb5dd5ea0d41616f6a16d6a8f247f2bb820cb47a24211cc20f13",
+  "selected_reasons": []
+}

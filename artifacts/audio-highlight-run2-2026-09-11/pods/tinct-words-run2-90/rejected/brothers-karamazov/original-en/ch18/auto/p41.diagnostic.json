@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "18ac8db8f31ad591784a8c29bb0580db9a9ce6bc736153d6afb068a44852ac1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.12953711580485106,
+      "alignment_seconds": 0.00022194720804691315,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But, Mitya, he won't give it.\"",
+        "hotwords": "But, Mitya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But, Mitya, he won't give it.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " But,",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " Mitya,",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.4001057942708333
+            },
+            {
+              "text": " he",
+              "start": 1.13,
+              "end": 1.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " won't",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " give",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 1.55,
+              "end": 1.81,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But,",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Mitya,",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "raw": "won't",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "give",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "it.",
+          "start": 1.55,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "\"But,",
+        "Mitya,",
+        "he",
+        "won't",
+        "give",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But,",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mitya,",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "mitya",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.13,
+          "end": 1.21,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "wont",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "give",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.55,
+          "end": 1.81,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But,",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Mitya,",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "he",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "text": "won't",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "give",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "it.\"",
+          "start": 1.55,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12984271720051765
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4ef3699b1b27c99756f3645c09bfafdef820cf12e64fc088a181e4bc6e83905",
+  "selected_reasons": []
+}

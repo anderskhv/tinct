@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "a7d76b50a1e8ecb697adf236874dbca4042bc5adef3eb85387eef3af2a92cd9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12502006901195273,
+      "alignment_seconds": 0.00020648096688091755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All the talents, Miles Crawford said. Law the classics.",
+          "start": 0.05,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " talents,",
+              "start": 0.67,
+              "end": 1.05,
+              "probability": 0.908203125
+            },
+            {
+              "text": " Miles",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.60693359375
+            },
+            {
+              "text": " Crawford",
+              "start": 1.41,
+              "end": 1.77,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " said.",
+              "start": 1.77,
+              "end": 2.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Law",
+              "start": 2.71,
+              "end": 2.75,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " the",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " classics.",
+              "start": 2.91,
+              "end": 3.31,
+              "probability": 0.87353515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "talents,",
+          "start": 0.67,
+          "end": 1.05
+        },
+        {
+          "raw": "Miles",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "Crawford",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "raw": "said.",
+          "start": 1.77,
+          "end": 2.17
+        },
+        {
+          "raw": "Law",
+          "start": 2.71,
+          "end": 2.75
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "classics.",
+          "start": 2.91,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "—All",
+        "the",
+        "talents,",
+        "Myles",
+        "Crawford",
+        "said.",
+        "Law,",
+        "the",
+        "classics..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "talents,",
+          "start": 0.67,
+          "end": 1.05,
+          "key": "talents",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miles",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "miles",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Crawford",
+          "start": 1.41,
+          "end": 1.77,
+          "key": "crawford",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.77,
+          "end": 2.17,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Law",
+          "start": 2.71,
+          "end": 2.75,
+          "key": "law",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "classics.",
+          "start": 2.91,
+          "end": 3.31,
+          "key": "classics",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—All",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "talents,",
+          "start": 0.67,
+          "end": 1.05
+        },
+        {
+          "text": "Myles",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "Crawford",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "text": "said.",
+          "start": 1.77,
+          "end": 2.17
+        },
+        {
+          "text": "Law,",
+          "start": 2.71,
+          "end": 2.75
+        },
+        {
+          "text": "the",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "classics...",
+          "start": 2.91,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.12529978097882122
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0a127151031486dd1625d78d71ccafa4787d8f4af506878690d083443401e85d",
+  "selected_reasons": []
+}

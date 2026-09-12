@@ -1,0 +1,445 @@
+{
+  "complete": true,
+  "signature": "867773a9671c46acad2bdbd7a6cceb5dd5a8bf69a8a2d9bb108ca57bf273b686",
+  "attempts": [
+    {
+      "asr_seconds": 0.34835665114223957,
+      "alignment_seconds": 0.00069460179656744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't dare to shout like that,\" cried Grushenka. \"Ah, you turkey-cocks!\"",
+        "hotwords": "Don't, Grushenka, Ah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't dare to shout like that,\" cried Grushenka.",
+          "start": 0.02,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.62225341796875
+            },
+            {
+              "text": " dare",
+              "start": 0.64,
+              "end": 0.74,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shout",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " like",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that,\"",
+              "start": 1.26,
+              "end": 1.94,
+              "probability": 0.5863037109375
+            },
+            {
+              "text": " cried",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Grushenka.",
+              "start": 2.14,
+              "end": 2.72,
+              "probability": 0.64239501953125
+            }
+          ]
+        },
+        {
+          "text": " Ah, you turkey-cocks!",
+          "start": 3.28,
+          "end": 4.3,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.00856781005859375
+            },
+            {
+              "text": " you",
+              "start": 3.52,
+              "end": 3.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " turkey",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.7509765625
+            },
+            {
+              "text": "-cocks!",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.6661580403645834
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "dare",
+          "start": 0.64,
+          "end": 0.74
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "shout",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "like",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "that,\"",
+          "start": 1.26,
+          "end": 1.94
+        },
+        {
+          "raw": "cried",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "Grushenka.",
+          "start": 2.14,
+          "end": 2.72
+        },
+        {
+          "raw": "Ah,",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "you",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "raw": "turkey",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "raw": "-cocks!",
+          "start": 3.94,
+          "end": 4.3
+        }
+      ],
+      "expected_tokens": [
+        "\"Don't",
+        "dare",
+        "to",
+        "shout",
+        "like",
+        "that,\"",
+        "cried",
+        "Grushenka.",
+        "\"Ah,",
+        "you",
+        "turkey-cocks!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 0.64,
+          "end": 0.74,
+          "key": "dare",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shout",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "shout",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that,\"",
+          "start": 1.26,
+          "end": 1.94,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "cried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Grushenka.",
+          "start": 2.14,
+          "end": 2.72,
+          "key": "grushenka",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ah,",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "ah",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.52,
+          "end": 3.68,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "turkey -cocks!",
+          "start": 3.68,
+          "end": 4.3,
+          "key": "turkeycocks",
+          "pieces": [
+            10,
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "turkey-cocks!\"",
+          "heard": "turkey -cocks!",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 3.68,
+          "end": 4.3
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Don't",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "dare",
+          "start": 0.64,
+          "end": 0.74
+        },
+        {
+          "text": "to",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "shout",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "like",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "that,\"",
+          "start": 1.26,
+          "end": 1.94
+        },
+        {
+          "text": "cried",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "Grushenka.",
+          "start": 2.14,
+          "end": 2.72
+        },
+        {
+          "text": "\"Ah,",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "you",
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "text": "turkey-cocks!\"",
+          "start": 3.68,
+          "end": 4.3
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34927576035261154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c69d8330d9f9376e2569e014a1776cce8209969e16a7fc899f9785cbba4dc87f",
+  "selected_reasons": []
+}

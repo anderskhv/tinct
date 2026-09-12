@@ -1,0 +1,1694 @@
+{
+  "complete": true,
+  "signature": "884274e9ee8dbc2bf132604e0d2810d405565f951057d047812aaec91aaa29a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.573567820712924,
+      "alignment_seconds": 0.0009758938103914261,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Camillo. Gracious my lord, You know your father's temper: at this time He will allow no speech (which I do guess You do not purpose to him) and as hardly Will he endure your sight as yet, I fear: Then, till the fury of his highness settle, Come not before him.",
+        "hotwords": "Camillo, Gracious, You, I, Then, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Camillo, Gracious my lord, You know your father's temper, At this time He will allow no speech, Which I do guess You do not purpose to him, And as hardly Will he endure your sight as yet, I fear. Then, till the fury of his highness settle, Come not before him.",
+          "start": 0.02,
+          "end": 16.2,
+          "words": [
+            {
+              "text": " Camillo,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.54296875
+            },
+            {
+              "text": " Gracious",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.536102294921875
+            },
+            {
+              "text": " my",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.50244140625
+            },
+            {
+              "text": " lord,",
+              "start": 1.88,
+              "end": 2.18,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " You",
+              "start": 2.56,
+              "end": 2.64,
+              "probability": 0.1552734375
+            },
+            {
+              "text": " know",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " father's",
+              "start": 2.98,
+              "end": 3.42,
+              "probability": 0.921875
+            },
+            {
+              "text": " temper,",
+              "start": 3.42,
+              "end": 3.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " At",
+              "start": 4.3,
+              "end": 4.44,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " this",
+              "start": 4.44,
+              "end": 4.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " time",
+              "start": 4.64,
+              "end": 4.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " He",
+              "start": 4.92,
+              "end": 5.14,
+              "probability": 0.03741455078125
+            },
+            {
+              "text": " will",
+              "start": 5.14,
+              "end": 5.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " allow",
+              "start": 5.26,
+              "end": 5.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 5.52,
+              "end": 5.76,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " speech,",
+              "start": 5.76,
+              "end": 6.16,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Which",
+              "start": 6.7,
+              "end": 6.88,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " I",
+              "start": 6.88,
+              "end": 7.08,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " do",
+              "start": 7.08,
+              "end": 7.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " guess",
+              "start": 7.26,
+              "end": 7.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " You",
+              "start": 7.48,
+              "end": 7.68,
+              "probability": 0.254150390625
+            },
+            {
+              "text": " do",
+              "start": 7.68,
+              "end": 7.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 7.8,
+              "end": 7.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " purpose",
+              "start": 7.98,
+              "end": 8.24,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " to",
+              "start": 8.24,
+              "end": 8.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " him,",
+              "start": 8.56,
+              "end": 8.8,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " And",
+              "start": 9.16,
+              "end": 9.36,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " as",
+              "start": 9.36,
+              "end": 9.54,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " hardly",
+              "start": 9.54,
+              "end": 9.8,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Will",
+              "start": 9.8,
+              "end": 10.08,
+              "probability": 0.017669677734375
+            },
+            {
+              "text": " he",
+              "start": 10.08,
+              "end": 10.26,
+              "probability": 0.18212890625
+            },
+            {
+              "text": " endure",
+              "start": 10.26,
+              "end": 10.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 10.56,
+              "end": 10.78,
+              "probability": 0.845703125
+            },
+            {
+              "text": " sight",
+              "start": 10.78,
+              "end": 11.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 11.06,
+              "end": 11.28,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " yet,",
+              "start": 11.28,
+              "end": 11.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 11.72,
+              "end": 11.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fear.",
+              "start": 11.76,
+              "end": 12.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Then,",
+              "start": 12.76,
+              "end": 13.08,
+              "probability": 0.978515625
+            },
+            {
+              "text": " till",
+              "start": 13.38,
+              "end": 13.48,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " the",
+              "start": 13.48,
+              "end": 13.64,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " fury",
+              "start": 13.64,
+              "end": 13.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 13.84,
+              "end": 14.08,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " his",
+              "start": 14.08,
+              "end": 14.22,
+              "probability": 0.177490234375
+            },
+            {
+              "text": " highness",
+              "start": 14.22,
+              "end": 14.62,
+              "probability": 0.766357421875
+            },
+            {
+              "text": " settle,",
+              "start": 14.62,
+              "end": 14.88,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " Come",
+              "start": 15.18,
+              "end": 15.3,
+              "probability": 0.98046875
+            },
+            {
+              "text": " not",
+              "start": 15.3,
+              "end": 15.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " before",
+              "start": 15.54,
+              "end": 15.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him.",
+              "start": 15.82,
+              "end": 16.2,
+              "probability": 0.9599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "Gracious",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "my",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "lord,",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "raw": "You",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "raw": "know",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "your",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "father's",
+          "start": 2.98,
+          "end": 3.42
+        },
+        {
+          "raw": "temper,",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "raw": "At",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "raw": "this",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "raw": "time",
+          "start": 4.64,
+          "end": 4.92
+        },
+        {
+          "raw": "He",
+          "start": 4.92,
+          "end": 5.14
+        },
+        {
+          "raw": "will",
+          "start": 5.14,
+          "end": 5.26
+        },
+        {
+          "raw": "allow",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "raw": "no",
+          "start": 5.52,
+          "end": 5.76
+        },
+        {
+          "raw": "speech,",
+          "start": 5.76,
+          "end": 6.16
+        },
+        {
+          "raw": "Which",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "raw": "I",
+          "start": 6.88,
+          "end": 7.08
+        },
+        {
+          "raw": "do",
+          "start": 7.08,
+          "end": 7.26
+        },
+        {
+          "raw": "guess",
+          "start": 7.26,
+          "end": 7.48
+        },
+        {
+          "raw": "You",
+          "start": 7.48,
+          "end": 7.68
+        },
+        {
+          "raw": "do",
+          "start": 7.68,
+          "end": 7.8
+        },
+        {
+          "raw": "not",
+          "start": 7.8,
+          "end": 7.98
+        },
+        {
+          "raw": "purpose",
+          "start": 7.98,
+          "end": 8.24
+        },
+        {
+          "raw": "to",
+          "start": 8.24,
+          "end": 8.56
+        },
+        {
+          "raw": "him,",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "raw": "And",
+          "start": 9.16,
+          "end": 9.36
+        },
+        {
+          "raw": "as",
+          "start": 9.36,
+          "end": 9.54
+        },
+        {
+          "raw": "hardly",
+          "start": 9.54,
+          "end": 9.8
+        },
+        {
+          "raw": "Will",
+          "start": 9.8,
+          "end": 10.08
+        },
+        {
+          "raw": "he",
+          "start": 10.08,
+          "end": 10.26
+        },
+        {
+          "raw": "endure",
+          "start": 10.26,
+          "end": 10.56
+        },
+        {
+          "raw": "your",
+          "start": 10.56,
+          "end": 10.78
+        },
+        {
+          "raw": "sight",
+          "start": 10.78,
+          "end": 11.06
+        },
+        {
+          "raw": "as",
+          "start": 11.06,
+          "end": 11.28
+        },
+        {
+          "raw": "yet,",
+          "start": 11.28,
+          "end": 11.52
+        },
+        {
+          "raw": "I",
+          "start": 11.72,
+          "end": 11.76
+        },
+        {
+          "raw": "fear.",
+          "start": 11.76,
+          "end": 12.08
+        },
+        {
+          "raw": "Then,",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "raw": "till",
+          "start": 13.38,
+          "end": 13.48
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.64
+        },
+        {
+          "raw": "fury",
+          "start": 13.64,
+          "end": 13.84
+        },
+        {
+          "raw": "of",
+          "start": 13.84,
+          "end": 14.08
+        },
+        {
+          "raw": "his",
+          "start": 14.08,
+          "end": 14.22
+        },
+        {
+          "raw": "highness",
+          "start": 14.22,
+          "end": 14.62
+        },
+        {
+          "raw": "settle,",
+          "start": 14.62,
+          "end": 14.88
+        },
+        {
+          "raw": "Come",
+          "start": 15.18,
+          "end": 15.3
+        },
+        {
+          "raw": "not",
+          "start": 15.3,
+          "end": 15.54
+        },
+        {
+          "raw": "before",
+          "start": 15.54,
+          "end": 15.82
+        },
+        {
+          "raw": "him.",
+          "start": 15.82,
+          "end": 16.2
+        }
+      ],
+      "expected_tokens": [
+        "Camillo.",
+        "Gracious",
+        "my",
+        "lord,",
+        "You",
+        "know",
+        "your",
+        "father's",
+        "temper:",
+        "at",
+        "this",
+        "time",
+        "He",
+        "will",
+        "allow",
+        "no",
+        "speech",
+        "(which",
+        "I",
+        "do",
+        "guess",
+        "You",
+        "do",
+        "not",
+        "purpose",
+        "to",
+        "him)",
+        "and",
+        "as",
+        "hardly",
+        "Will",
+        "he",
+        "endure",
+        "your",
+        "sight",
+        "as",
+        "yet,",
+        "I",
+        "fear:",
+        "Then,",
+        "till",
+        "the",
+        "fury",
+        "of",
+        "his",
+        "highness",
+        "settle,",
+        "Come",
+        "not",
+        "before",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          51,
+          0,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gracious",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "gracious",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.88,
+          "end": 2.18,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.56,
+          "end": 2.64,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "know",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 2.98,
+          "end": 3.42,
+          "key": "fathers",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "temper,",
+          "start": 3.42,
+          "end": 3.7,
+          "key": "temper",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 4.3,
+          "end": 4.44,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.44,
+          "end": 4.64,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 4.64,
+          "end": 4.92,
+          "key": "time",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.92,
+          "end": 5.14,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.14,
+          "end": 5.26,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "allow",
+          "start": 5.26,
+          "end": 5.52,
+          "key": "allow",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 5.52,
+          "end": 5.76,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "speech,",
+          "start": 5.76,
+          "end": 6.16,
+          "key": "speech",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 6.7,
+          "end": 6.88,
+          "key": "which",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.88,
+          "end": 7.08,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 7.08,
+          "end": 7.26,
+          "key": "do",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "guess",
+          "start": 7.26,
+          "end": 7.48,
+          "key": "guess",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 7.48,
+          "end": 7.68,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 7.68,
+          "end": 7.8,
+          "key": "do",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.8,
+          "end": 7.98,
+          "key": "not",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "purpose",
+          "start": 7.98,
+          "end": 8.24,
+          "key": "purpose",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.24,
+          "end": 8.56,
+          "key": "to",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 8.56,
+          "end": 8.8,
+          "key": "him",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 9.16,
+          "end": 9.36,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 9.36,
+          "end": 9.54,
+          "key": "as",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "hardly",
+          "start": 9.54,
+          "end": 9.8,
+          "key": "hardly",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 9.8,
+          "end": 10.08,
+          "key": "will",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.08,
+          "end": 10.26,
+          "key": "he",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "endure",
+          "start": 10.26,
+          "end": 10.56,
+          "key": "endure",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 10.56,
+          "end": 10.78,
+          "key": "your",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "sight",
+          "start": 10.78,
+          "end": 11.06,
+          "key": "sight",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.06,
+          "end": 11.28,
+          "key": "as",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "yet,",
+          "start": 11.28,
+          "end": 11.52,
+          "key": "yet",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 11.72,
+          "end": 11.76,
+          "key": "i",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "fear.",
+          "start": 11.76,
+          "end": 12.08,
+          "key": "fear",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Then,",
+          "start": 12.76,
+          "end": 13.08,
+          "key": "then",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 13.38,
+          "end": 13.48,
+          "key": "till",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.64,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "fury",
+          "start": 13.64,
+          "end": 13.84,
+          "key": "fury",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.84,
+          "end": 14.08,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.08,
+          "end": 14.22,
+          "key": "his",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "highness",
+          "start": 14.22,
+          "end": 14.62,
+          "key": "highness",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "settle,",
+          "start": 14.62,
+          "end": 14.88,
+          "key": "settle",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 15.18,
+          "end": 15.3,
+          "key": "come",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.3,
+          "end": 15.54,
+          "key": "not",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 15.54,
+          "end": 15.82,
+          "key": "before",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 15.82,
+          "end": 16.2,
+          "key": "him",
+          "pieces": [
+            50
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "Gracious",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "my",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "lord,",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "text": "You",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "know",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "your",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "father's",
+          "start": 2.98,
+          "end": 3.42
+        },
+        {
+          "text": "temper:",
+          "start": 3.42,
+          "end": 3.7
+        },
+        {
+          "text": "at",
+          "start": 4.3,
+          "end": 4.44
+        },
+        {
+          "text": "this",
+          "start": 4.44,
+          "end": 4.64
+        },
+        {
+          "text": "time",
+          "start": 4.64,
+          "end": 4.92
+        },
+        {
+          "text": "He",
+          "start": 4.92,
+          "end": 5.14
+        },
+        {
+          "text": "will",
+          "start": 5.14,
+          "end": 5.26
+        },
+        {
+          "text": "allow",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "text": "no",
+          "start": 5.52,
+          "end": 5.76
+        },
+        {
+          "text": "speech",
+          "start": 5.76,
+          "end": 6.16
+        },
+        {
+          "text": "(which",
+          "start": 6.7,
+          "end": 6.88
+        },
+        {
+          "text": "I",
+          "start": 6.88,
+          "end": 7.08
+        },
+        {
+          "text": "do",
+          "start": 7.08,
+          "end": 7.26
+        },
+        {
+          "text": "guess",
+          "start": 7.26,
+          "end": 7.48
+        },
+        {
+          "text": "You",
+          "start": 7.48,
+          "end": 7.68
+        },
+        {
+          "text": "do",
+          "start": 7.68,
+          "end": 7.8
+        },
+        {
+          "text": "not",
+          "start": 7.8,
+          "end": 7.98
+        },
+        {
+          "text": "purpose",
+          "start": 7.98,
+          "end": 8.24
+        },
+        {
+          "text": "to",
+          "start": 8.24,
+          "end": 8.56
+        },
+        {
+          "text": "him)",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "text": "and",
+          "start": 9.16,
+          "end": 9.36
+        },
+        {
+          "text": "as",
+          "start": 9.36,
+          "end": 9.54
+        },
+        {
+          "text": "hardly",
+          "start": 9.54,
+          "end": 9.8
+        },
+        {
+          "text": "Will",
+          "start": 9.8,
+          "end": 10.08
+        },
+        {
+          "text": "he",
+          "start": 10.08,
+          "end": 10.26
+        },
+        {
+          "text": "endure",
+          "start": 10.26,
+          "end": 10.56
+        },
+        {
+          "text": "your",
+          "start": 10.56,
+          "end": 10.78
+        },
+        {
+          "text": "sight",
+          "start": 10.78,
+          "end": 11.06
+        },
+        {
+          "text": "as",
+          "start": 11.06,
+          "end": 11.28
+        },
+        {
+          "text": "yet,",
+          "start": 11.28,
+          "end": 11.52
+        },
+        {
+          "text": "I",
+          "start": 11.72,
+          "end": 11.76
+        },
+        {
+          "text": "fear:",
+          "start": 11.76,
+          "end": 12.08
+        },
+        {
+          "text": "Then,",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "text": "till",
+          "start": 13.38,
+          "end": 13.48
+        },
+        {
+          "text": "the",
+          "start": 13.48,
+          "end": 13.64
+        },
+        {
+          "text": "fury",
+          "start": 13.64,
+          "end": 13.84
+        },
+        {
+          "text": "of",
+          "start": 13.84,
+          "end": 14.08
+        },
+        {
+          "text": "his",
+          "start": 14.08,
+          "end": 14.22
+        },
+        {
+          "text": "highness",
+          "start": 14.22,
+          "end": 14.62
+        },
+        {
+          "text": "settle,",
+          "start": 14.62,
+          "end": 14.88
+        },
+        {
+          "text": "Come",
+          "start": 15.18,
+          "end": 15.3
+        },
+        {
+          "text": "not",
+          "start": 15.3,
+          "end": 15.54
+        },
+        {
+          "text": "before",
+          "start": 15.54,
+          "end": 15.82
+        },
+        {
+          "text": "him.",
+          "start": 15.82,
+          "end": 16.2
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 51,
+        "matched_words": 51
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5749744363129139
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2d485c283b4b62e2826d92e4567b21446bde2ac8911cd42a9f8624b2b3229fb3",
+  "selected_reasons": []
+}

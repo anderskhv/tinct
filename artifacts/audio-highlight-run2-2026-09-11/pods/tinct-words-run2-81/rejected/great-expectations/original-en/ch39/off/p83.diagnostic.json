@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "a2ecd1bac23bae7025c64123c88c2380da69a3e0a7456380141669a5f318571c",
+  "attempts": [
+    {
+      "asr_seconds": 0.277200348675251,
+      "alignment_seconds": 0.00022126361727714539,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where will you put me? he asked presently. I must be put somewhere's dear boy",
+          "start": 0.02,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.08740234375
+            },
+            {
+              "text": " will",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 0.76,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " put",
+              "start": 0.92,
+              "end": 1.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me?",
+              "start": 1.1,
+              "end": 1.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " asked",
+              "start": 1.84,
+              "end": 2.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " presently.",
+              "start": 2.24,
+              "end": 2.68,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " I",
+              "start": 3.34,
+              "end": 3.44,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " must",
+              "start": 3.44,
+              "end": 3.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 3.6,
+              "end": 3.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " put",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " somewhere's",
+              "start": 3.94,
+              "end": 4.54,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " dear",
+              "start": 4.54,
+              "end": 4.68,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " boy",
+              "start": 4.68,
+              "end": 5.0,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "will",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "you",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "raw": "put",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "raw": "me?",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "raw": "he",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "asked",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "raw": "presently.",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "raw": "I",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "raw": "must",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.78
+        },
+        {
+          "raw": "put",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "somewhere's",
+          "start": 3.94,
+          "end": 4.54
+        },
+        {
+          "raw": "dear",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "raw": "boy",
+          "start": 4.68,
+          "end": 5.0
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "will",
+        "you",
+        "put",
+        "me?\"",
+        "he",
+        "asked,",
+        "presently.",
+        "\"I",
+        "must",
+        "be",
+        "put",
+        "somewheres,",
+        "dear",
+        "boy.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.58,
+          "end": 0.76,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.76,
+          "end": 0.92,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 0.92,
+          "end": 1.1,
+          "key": "put",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 1.1,
+          "end": 1.42,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.84,
+          "end": 2.24,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "presently.",
+          "start": 2.24,
+          "end": 2.68,
+          "key": "presently",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.34,
+          "end": 3.44,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.44,
+          "end": 3.6,
+          "key": "must",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.6,
+          "end": 3.78,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "put",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "somewhere's",
+          "start": 3.94,
+          "end": 4.54,
+          "key": "somewheres",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 4.54,
+          "end": 4.68,
+          "key": "dear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 4.68,
+          "end": 5.0,
+          "key": "boy",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "will",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "you",
+          "start": 0.76,
+          "end": 0.92
+        },
+        {
+          "text": "put",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "text": "me?\"",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "text": "he",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "asked,",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "text": "presently.",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "text": "\"I",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "text": "must",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "be",
+          "start": 3.6,
+          "end": 3.78
+        },
+        {
+          "text": "put",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "somewheres,",
+          "start": 3.94,
+          "end": 4.54
+        },
+        {
+          "text": "dear",
+          "start": 4.54,
+          "end": 4.68
+        },
+        {
+          "text": "boy.\"",
+          "start": 4.68,
+          "end": 5.0
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27755639143288136
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f4ba13b5df8ff340c3302a4db9d01f42281786f6e9bf18744873913160f63447",
+  "selected_reasons": []
+}

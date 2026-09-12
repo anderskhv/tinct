@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "138d1159fcd9508d839e8231d8b9ba2b0048c5f757e9590b5487e786abe919a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.08727328106760979,
+      "alignment_seconds": 0.0001468230038881302,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You know well enough. It wasn't meant in that way said Karen reprovingly",
+          "start": 0.05,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.08648681640625
+            },
+            {
+              "text": " know",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " well",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " enough.",
+              "start": 0.89,
+              "end": 1.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " It",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wasn't",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " meant",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " in",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " way",
+              "start": 2.05,
+              "end": 2.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " said",
+              "start": 2.51,
+              "end": 3.01,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " Karen",
+              "start": 3.01,
+              "end": 3.37,
+              "probability": 0.360595703125
+            },
+            {
+              "text": " reprovingly",
+              "start": 3.37,
+              "end": 4.15,
+              "probability": 0.9557291666666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "know",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "well",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "enough.",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "raw": "It",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "wasn't",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "raw": "meant",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "in",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "that",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "way",
+          "start": 2.05,
+          "end": 2.51
+        },
+        {
+          "raw": "said",
+          "start": 2.51,
+          "end": 3.01
+        },
+        {
+          "raw": "Karen",
+          "start": 3.01,
+          "end": 3.37
+        },
+        {
+          "raw": "reprovingly",
+          "start": 3.37,
+          "end": 4.15
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "know",
+        "well",
+        "enough",
+        "it",
+        "wasn't",
+        "meant",
+        "in",
+        "that",
+        "way,\"",
+        "said",
+        "Karin",
+        "reprovingly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "know",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 0.71,
+          "end": 0.89,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 0.89,
+          "end": 1.11,
+          "key": "enough",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wasn't",
+          "start": 1.29,
+          "end": 1.57,
+          "key": "wasnt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "meant",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "meant",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 2.05,
+          "end": 2.51,
+          "key": "way",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.51,
+          "end": 3.01,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Karen",
+          "start": 3.01,
+          "end": 3.37,
+          "key": "karen",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reprovingly",
+          "start": 3.37,
+          "end": 4.15,
+          "key": "reprovingly",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "know",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "well",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "enough",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "text": "it",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "wasn't",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "text": "meant",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "in",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "that",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "way,\"",
+          "start": 2.05,
+          "end": 2.51
+        },
+        {
+          "text": "said",
+          "start": 2.51,
+          "end": 3.01
+        },
+        {
+          "text": "Karin",
+          "start": 3.01,
+          "end": 3.19
+        },
+        {
+          "text": "reprovingly.",
+          "start": 3.37,
+          "end": 4.15
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.08747382834553719
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab74a8f4402661ae585521748f0dcfcb3036c7548e44d1c7329086b80acda468",
+  "selected_reasons": []
+}

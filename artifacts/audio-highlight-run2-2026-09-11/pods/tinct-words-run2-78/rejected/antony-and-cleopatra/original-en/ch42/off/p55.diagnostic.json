@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "1684c39094ca0bf6c677ffa5500d0cd6bb2436eeeb7f4dc7bb469a71aab3fcf2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20227363985031843,
+      "alignment_seconds": 0.00041754450649023056,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar, which is the queen of Egypt.",
+          "start": 0.45,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.45,
+              "end": 0.77,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " which",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.97265625
+            },
+            {
+              "text": " is",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " queen",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.53125
+            },
+            {
+              "text": " of",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Egypt.",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.45,
+          "end": 0.77
+        },
+        {
+          "raw": "which",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "queen",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "of",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "Egypt.",
+          "start": 1.89,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Which",
+        "is",
+        "the",
+        "Queen",
+        "of",
+        "Egypt?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.45,
+          "end": 0.77,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "which",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "queen",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "queen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Egypt.",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "egypt",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.45,
+          "end": 0.77
+        },
+        {
+          "text": "Which",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "is",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "the",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "Queen",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "of",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "Egypt?",
+          "start": 1.89,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20284344628453255
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41848ce11ca41aa31777590e53c1b1431d1ae3279d8a8ae9f355665b7f7698e8",
+  "selected_reasons": []
+}

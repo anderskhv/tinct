@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "d60d2c3fd2871033714671e433f13edc5697484dfe821b889775f2d6e23fe5cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.1205986118875444,
+      "alignment_seconds": 0.00016707833856344223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Hum!",
+        "hotwords": "Othello, Hum"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Hum.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.45639705657958984
+            },
+            {
+              "text": " Hum.",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.10809326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "Hum.",
+          "start": 1.04,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Hum!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hum.",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "hum",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Hum!",
+          "start": 1.04,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12082237983122468
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f7de90ed9d77894ef4dd49b1fa3659fd93221f4f2989f4eadc0a53285edaee4d",
+  "selected_reasons": []
+}

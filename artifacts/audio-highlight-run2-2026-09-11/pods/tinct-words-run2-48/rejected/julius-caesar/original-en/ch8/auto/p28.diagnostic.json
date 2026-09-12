@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "9b30fa5d7ac931b914a98912870fbe6ed210bfda2afd6fdea72ef59ac3f47647",
+  "attempts": [
+    {
+      "asr_seconds": 0.12385140918195248,
+      "alignment_seconds": 0.00022479519248008728,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Kneeling._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kneeling.",
+          "start": 0.08,
+          "end": 0.88,
+          "words": [
+            {
+              "text": " Kneeling.",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kneeling.",
+          "start": 0.08,
+          "end": 0.88
+        }
+      ],
+      "expected_tokens": [
+        "[_Kneeling._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kneeling.",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "kneeling",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Kneeling._]",
+          "start": 0.08,
+          "end": 0.88
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12414992693811655
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54694161e775e86a08613f429c16bc1a0c399a824649e56b3cfe8f09411ee9e2",
+  "selected_reasons": []
+}

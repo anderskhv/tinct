@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "b5789e482b987644e30b8819d29599d0459e7fe48dab3eb783bab034a736db63",
+  "attempts": [
+    {
+      "asr_seconds": 0.19245466589927673,
+      "alignment_seconds": 0.00044460827484726906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Did you get any money? Dilly asked.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Did",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.465576171875
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " get",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " any",
+              "start": 0.77,
+              "end": 0.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " money?",
+              "start": 0.93,
+              "end": 1.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Dilly",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " asked.",
+              "start": 1.77,
+              "end": 2.23,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Did",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "get",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "any",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "raw": "money?",
+          "start": 0.93,
+          "end": 1.25
+        },
+        {
+          "raw": "Dilly",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "asked.",
+          "start": 1.77,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "—Did",
+        "you",
+        "get",
+        "any",
+        "money?",
+        "Dilly",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Did",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "did",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "get",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 0.77,
+          "end": 0.93,
+          "key": "any",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "money?",
+          "start": 0.93,
+          "end": 1.25,
+          "key": "money",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Dilly",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "dilly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.77,
+          "end": 2.23,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Did",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "get",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "any",
+          "start": 0.77,
+          "end": 0.93
+        },
+        {
+          "text": "money?",
+          "start": 0.93,
+          "end": 1.25
+        },
+        {
+          "text": "Dilly",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "asked.",
+          "start": 1.77,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19304805900901556
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bd776277002ea55d32f5678e3c8ad279a5c462ea129ee9daa5d2c94f13edcdb8",
+  "selected_reasons": []
+}

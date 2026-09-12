@@ -1,0 +1,2014 @@
+[
+ {
+  "key": "brothers-karamazov/original-en/ch78",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9855127236079617,
+    "reasons": [
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch78/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9703955656336609,
+    "reasons": [
+     {
+      "paragraph": 21,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 105,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch78/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch80",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.991829484902309,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch80/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9761989342806394,
+    "reasons": [
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch80/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.991829484902309
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch81",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9887050170738114,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch81/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9582348305752562,
+    "reasons": [
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch81/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9887050170738114
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch83",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9914572864321608,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch83/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9658291457286432,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch83/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9914572864321608
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch84",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9890882638215325,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch84/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9728419010669254,
+    "reasons": [
+     {
+      "paragraph": 28,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch84/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9890882638215325
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch88",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9943206640454347,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch88/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.981214504150284,
+    "reasons": [
+     {
+      "paragraph": 47,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 51,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 54,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 59,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch88/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9943206640454347
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch89",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9958896065766295,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch89/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.991779213153259,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch89/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9958896065766295
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch90",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9932576295244855,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch90/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9794180269694819,
+    "reasons": [
+     {
+      "paragraph": 0,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch90/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9932576295244855
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch93",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9875437913585052,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch93/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9727520435967303,
+    "reasons": [
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 15,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 52,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch93/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9875437913585052
+ },
+ {
+  "key": "brothers-karamazov/original-en/ch96",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.991556091676719,
+    "reasons": [
+     {
+      "paragraph": 78,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 84,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch96/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9671893848009651,
+    "reasons": [
+     {
+      "paragraph": 2,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 5,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 60,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 68,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 70,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 78,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 80,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 84,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 86,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/brothers-karamazov/original-en/ch96/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "werther/original-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch1/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9893617021276596,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch1/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch10",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9836660617059891,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch10/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9818511796733213,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch10/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9836660617059891
+ },
+ {
+  "key": "werther/original-en/ch11",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9965694682675815,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch11/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9897084048027445,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch11/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9965694682675815
+ },
+ {
+  "key": "werther/original-en/ch12",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9930898321816387,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch12/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9868377755840737,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch12/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9930898321816387
+ },
+ {
+  "key": "werther/original-en/ch13",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch13/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch13/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9982456140350877,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch14/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9929824561403509,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch14/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9982456140350877
+ },
+ {
+  "key": "werther/original-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9868421052631579,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch15/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9842105263157894,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch15/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9868421052631579
+ },
+ {
+  "key": "werther/original-en/ch16",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9799624295554165,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch16/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9730745147150908,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch16/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9799624295554165
+ },
+ {
+  "key": "werther/original-en/ch17",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9937888198757764,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch17/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9917184265010351,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch17/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9937888198757764
+ },
+ {
+  "key": "werther/original-en/ch18",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9705882352941176,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch18/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9656862745098039,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch18/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9705882352941176
+ },
+ {
+  "key": "werther/original-en/ch19",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch19/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9692307692307692,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch19/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9920255183413078,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch2/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9920255183413078,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch2/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9920255183413078
+ },
+ {
+  "key": "werther/original-en/ch20",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch20/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9907120743034056,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch20/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch21",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9854014598540146,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch21/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9635036496350365,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch21/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9854014598540146
+ },
+ {
+  "key": "werther/original-en/ch22",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9886363636363636,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch22/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9810606060606061,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch22/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9886363636363636
+ },
+ {
+  "key": "werther/original-en/ch23",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch23/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9956521739130435,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch23/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch24",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch24/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch24/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch25",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9649122807017544,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch25/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9649122807017544,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch25/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9649122807017544
+ },
+ {
+  "key": "werther/original-en/ch26",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9936708860759493,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch26/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9810126582278481,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch26/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9936708860759493
+ },
+ {
+  "key": "werther/original-en/ch27",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch27/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9803921568627451,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch27/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch28",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9827586206896551,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch28/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9827586206896551,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch28/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9827586206896551
+ },
+ {
+  "key": "werther/original-en/ch29",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9979253112033195,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch29/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.991701244813278,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch29/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9979253112033195
+ },
+ {
+  "key": "werther/original-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9841269841269841,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch3/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9841269841269841,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch3/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9841269841269841
+ },
+ {
+  "key": "werther/original-en/ch30",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch30/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9913544668587896,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch30/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch31",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9797979797979798,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch31/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9797979797979798,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch31/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9797979797979798
+ },
+ {
+  "key": "werther/original-en/ch32",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9950322901142573,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch32/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9771485345255837,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch32/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9950322901142573
+ },
+ {
+  "key": "werther/original-en/ch33",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9868995633187773,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch33/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9868995633187773,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch33/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9868995633187773
+ },
+ {
+  "key": "werther/original-en/ch34",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9865591397849462,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch34/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9811827956989247,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch34/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9865591397849462
+ },
+ {
+  "key": "werther/original-en/ch35",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch35/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch35/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch36",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9957805907172996,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch36/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9915611814345991,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch36/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9957805907172996
+ },
+ {
+  "key": "werther/original-en/ch37",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9881889763779528,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch37/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.984251968503937,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch37/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9881889763779528
+ },
+ {
+  "key": "werther/original-en/ch38",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9933554817275747,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch38/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9900332225913622,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch38/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9933554817275747
+ },
+ {
+  "key": "werther/original-en/ch39",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch39/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9767441860465116,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch39/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch4",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9859154929577465,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch4/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9859154929577465,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch4/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9859154929577465
+ },
+ {
+  "key": "werther/original-en/ch40",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9905149051490515,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch40/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9857723577235772,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch40/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9905149051490515
+ },
+ {
+  "key": "werther/original-en/ch41",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9963503649635036,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch41/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9908759124087592,
+    "reasons": [
+     {
+      "paragraph": 3,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch41/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9963503649635036
+ },
+ {
+  "key": "werther/original-en/ch42",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9990069513406157,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch42/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9940417080436942,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch42/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9990069513406157
+ },
+ {
+  "key": "werther/original-en/ch43",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9938650306748467,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch43/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9877300613496932,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch43/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9938650306748467
+ },
+ {
+  "key": "werther/original-en/ch44",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9823008849557522,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch44/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9769911504424779,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch44/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9823008849557522
+ },
+ {
+  "key": "werther/original-en/ch45",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.974025974025974,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch45/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.974025974025974,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch45/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.974025974025974
+ },
+ {
+  "key": "werther/original-en/ch46",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9853658536585366,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch46/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9853658536585366,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch46/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9853658536585366
+ },
+ {
+  "key": "werther/original-en/ch47",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch47/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch47/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch48",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9954372623574145,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch48/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9901140684410646,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch48/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9954372623574145
+ },
+ {
+  "key": "werther/original-en/ch49",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9900497512437811,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch49/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9900497512437811,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch49/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9900497512437811
+ },
+ {
+  "key": "werther/original-en/ch5",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch5/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch5/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch50",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch50/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch50/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch51",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch51/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9733333333333334,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch51/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch52",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9971631205673759,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch52/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9929078014184397,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch52/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9971631205673759
+ },
+ {
+  "key": "werther/original-en/ch53",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch53/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch53/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch54",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9875,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch54/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9875,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch54/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9875
+ },
+ {
+  "key": "werther/original-en/ch55",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch55/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch55/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch56",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch56/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch56/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch57",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9907407407407407,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch57/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9722222222222222,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch57/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9907407407407407
+ },
+ {
+  "key": "werther/original-en/ch58",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch58/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch58/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch59",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9813664596273292,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch59/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9751552795031055,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch59/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9813664596273292
+ },
+ {
+  "key": "werther/original-en/ch6",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch6/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.996078431372549,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch6/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch60",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch60/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch60/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch61",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9975278121137207,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch61/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.992583436341162,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch61/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9975278121137207
+ },
+ {
+  "key": "werther/original-en/ch62",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch62/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch62/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch63",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch63/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch63/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch64",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch64/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9924528301886792,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch64/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch65",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9905482041587902,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch65/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9829867674858223,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch65/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9905482041587902
+ },
+ {
+  "key": "werther/original-en/ch66",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch66/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9433962264150944,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch66/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch67",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9419795221843004,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch67/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.931740614334471,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch67/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9419795221843004
+ },
+ {
+  "key": "werther/original-en/ch68",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch68/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch68/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch69",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9783950617283951,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch69/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9753086419753086,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch69/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9783950617283951
+ },
+ {
+  "key": "werther/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9985163204747775,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch7/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9896142433234422,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch7/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9985163204747775
+ },
+ {
+  "key": "werther/original-en/ch70",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch70/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch70/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch71",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch71/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch71/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch72",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 1.0,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch72/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9642857142857143,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch72/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 1.0
+ },
+ {
+  "key": "werther/original-en/ch73",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9947368421052631,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch73/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9947368421052631,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch73/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9947368421052631
+ },
+ {
+  "key": "werther/original-en/ch74",
+  "arms": {
+   "auto": {
+    "status": "running",
+    "matchRatio": null,
+    "reasons": [],
+    "validationErrors": null,
+    "sidecar": null
+   },
+   "off": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9905660377358491,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "artifacts/audio-highlight-run2-2026-09-11/pods/tinct-words-run2-95/out/werther/original-en/ch74/off/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "off",
+  "matchRatio": 0.9905660377358491
+ }
+]

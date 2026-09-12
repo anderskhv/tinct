@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "165beb9358d3dc61d2954b8f4935f4f76ed927416a4bb4c2e680ce764977149e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1838952461257577,
+      "alignment_seconds": 0.0003784801810979843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " His words will remain I said",
+          "start": 0.08,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.400390625
+            },
+            {
+              "text": " words",
+              "start": 0.58,
+              "end": 0.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " remain",
+              "start": 1.02,
+              "end": 1.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.88,
+              "probability": 0.2333984375
+            },
+            {
+              "text": " said",
+              "start": 1.88,
+              "end": 2.18,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "words",
+          "start": 0.58,
+          "end": 0.86
+        },
+        {
+          "raw": "will",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "remain",
+          "start": 1.02,
+          "end": 1.42
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.88
+        },
+        {
+          "raw": "said",
+          "start": 1.88,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "\"'His",
+        "words",
+        "will",
+        "remain,'",
+        "I",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "His",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 0.58,
+          "end": 0.86,
+          "key": "words",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "remain",
+          "start": 1.02,
+          "end": 1.42,
+          "key": "remain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.88,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.88,
+          "end": 2.18,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"'His",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "words",
+          "start": 0.58,
+          "end": 0.86
+        },
+        {
+          "text": "will",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "remain,'",
+          "start": 1.02,
+          "end": 1.42
+        },
+        {
+          "text": "I",
+          "start": 1.42,
+          "end": 1.88
+        },
+        {
+          "text": "said.",
+          "start": 1.88,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1844025580212474
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a2be9732b22b55f0bf3cbf706a7b7ba8265344db6b672e09bee94278ed6ef449",
+  "selected_reasons": []
+}

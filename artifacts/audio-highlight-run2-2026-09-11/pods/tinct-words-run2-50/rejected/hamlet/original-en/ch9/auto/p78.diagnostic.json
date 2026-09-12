@@ -1,0 +1,136 @@
+{
+  "complete": true,
+  "signature": "31fc9a411070c730874dcdf864647f1ddb94af8dde63349f257ea2c959890308",
+  "attempts": [
+    {
+      "asr_seconds": 0.16151195019483566,
+      "alignment_seconds": 0.00024209171533584595,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Sleeps.]",
+        "hotwords": "Sleeps"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sleeps",
+          "start": 0.0,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " Sleeps",
+              "start": 0.0,
+              "end": 1.3,
+              "probability": 0.740234375
+            }
+          ]
+        },
+        {
+          "text": " Sleeps",
+          "start": 1.3,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Sleeps",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.0014840960502624512
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sleeps",
+          "start": 0.0,
+          "end": 1.3
+        },
+        {
+          "raw": "Sleeps",
+          "start": 1.3,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "[Sleeps.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sleeps",
+          "start": 0.0,
+          "end": 1.3,
+          "key": "sleeps",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sleeps",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "sleeps",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Sleeps.]",
+          "start": 0.0,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16186085157096386
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7a6cd76f4f4b504d6958373001c842c32b2976ffc7dc8d5a21c14908aab7457f",
+  "selected_reasons": []
+}

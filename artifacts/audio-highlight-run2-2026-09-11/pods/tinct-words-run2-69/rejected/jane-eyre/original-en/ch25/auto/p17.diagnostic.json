@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "c419f1f9000c40503b87af869383ba98147eb2d69b205e130d270152cfc1e7f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.15877063386142254,
+      "alignment_seconds": 0.0001502837985754013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Nothing now; I am neither afraid nor unhappy.\"",
+        "hotwords": "Nothing, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nothing now. I am neither afraid nor unhappy.",
+          "start": 0.05,
+          "end": 2.91,
+          "words": [
+            {
+              "text": " Nothing",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " now.",
+              "start": 0.71,
+              "end": 1.05,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " am",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.211181640625
+            },
+            {
+              "text": " neither",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " afraid",
+              "start": 1.79,
+              "end": 2.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nor",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " unhappy.",
+              "start": 2.47,
+              "end": 2.91,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "now.",
+          "start": 0.71,
+          "end": 1.05
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "am",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "neither",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "afraid",
+          "start": 1.79,
+          "end": 2.17
+        },
+        {
+          "raw": "nor",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "raw": "unhappy.",
+          "start": 2.47,
+          "end": 2.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Nothing",
+        "now;",
+        "I",
+        "am",
+        "neither",
+        "afraid",
+        "nor",
+        "unhappy.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nothing",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "nothing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 0.71,
+          "end": 1.05,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "neither",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "afraid",
+          "start": 1.79,
+          "end": 2.17,
+          "key": "afraid",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "nor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "unhappy.",
+          "start": 2.47,
+          "end": 2.91,
+          "key": "unhappy",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nothing",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "now;",
+          "start": 0.71,
+          "end": 1.05
+        },
+        {
+          "text": "I",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "am",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "neither",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "afraid",
+          "start": 1.79,
+          "end": 2.17
+        },
+        {
+          "text": "nor",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "text": "unhappy.\"",
+          "start": 2.47,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15897525753825903
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02370626a42f02cfa45da8819a491db7a98d4dae33c465983f846d6d9d7381e2",
+  "selected_reasons": []
+}

@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "8ff364278eb9ba008c1ec9fcff2475238155c47afc87984066e40f7439100467",
+  "attempts": [
+    {
+      "asr_seconds": 0.13658595993183553,
+      "alignment_seconds": 0.0003992980346083641,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exune Harold's with Montge.",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Exune",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.458648681640625
+            },
+            {
+              "text": " Harold's",
+              "start": 0.71,
+              "end": 1.17,
+              "probability": 0.561767578125
+            },
+            {
+              "text": " with",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Montge.",
+              "start": 1.27,
+              "end": 1.97,
+              "probability": 0.6048583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Harold's",
+          "start": 0.71,
+          "end": 1.17
+        },
+        {
+          "raw": "with",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "Montge.",
+          "start": 1.27,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Heralds",
+        "with",
+        "Montjoy._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "exune",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Harold's",
+          "start": 0.71,
+          "end": 1.17,
+          "key": "harolds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Montge.",
+          "start": 1.27,
+          "end": 1.97,
+          "key": "montge",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.585
+        },
+        {
+          "text": "Heralds",
+          "start": 0.585,
+          "end": 0.877
+        },
+        {
+          "text": "with",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "Montjoy._]",
+          "start": 1.27,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13710095500573516
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cb4551d9c674dbab94b231ce6bd2c90d2d282cc5c1d951c38ec9f46adf7fab27",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

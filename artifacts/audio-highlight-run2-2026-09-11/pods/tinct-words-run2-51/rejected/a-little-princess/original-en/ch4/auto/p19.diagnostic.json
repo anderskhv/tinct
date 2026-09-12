@@ -1,0 +1,495 @@
+{
+  "complete": true,
+  "signature": "b2913343e000984aca946669bb0b47182d877d2d3557f7a0ecf34bea77c54078",
+  "attempts": [
+    {
+      "asr_seconds": 0.5046500600874424,
+      "alignment_seconds": 0.0006357980892062187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, Lottie!\" screamed Miss Amelia. \"Do stop, darling! Don't cry! Please don't!\"",
+        "hotwords": "Oh, Lottie, Miss, Amelia, Do, Please"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, Lottie!\" screamed Miss Amelia.",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.142822265625
+            },
+            {
+              "text": " Lottie",
+              "start": 0.76,
+              "end": 1.12,
+              "probability": 0.92138671875
+            },
+            {
+              "text": "!\"",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.043487548828125
+            },
+            {
+              "text": " screamed",
+              "start": 1.22,
+              "end": 1.56,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Miss",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Amelia.",
+              "start": 1.8,
+              "end": 2.12,
+              "probability": 0.76123046875
+            }
+          ]
+        },
+        {
+          "text": " Do stop, darling! Don't cry! Please don't!",
+          "start": 2.12,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Do",
+              "start": 2.12,
+              "end": 2.92,
+              "probability": 0.587890625
+            },
+            {
+              "text": " stop,",
+              "start": 2.92,
+              "end": 3.3,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " darling!",
+              "start": 3.7,
+              "end": 3.7,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Don't",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " cry!",
+              "start": 4.1,
+              "end": 4.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Please",
+              "start": 4.56,
+              "end": 4.68,
+              "probability": 0.984375
+            },
+            {
+              "text": " don't!",
+              "start": 4.68,
+              "end": 5.16,
+              "probability": 0.958740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Lottie",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "raw": "!\"",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "screamed",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "raw": "Miss",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "Amelia.",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "raw": "Do",
+          "start": 2.12,
+          "end": 2.92
+        },
+        {
+          "raw": "stop,",
+          "start": 2.92,
+          "end": 3.3
+        },
+        {
+          "raw": "darling!",
+          "start": 3.7,
+          "end": 3.7
+        },
+        {
+          "raw": "Don't",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "cry!",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "raw": "Please",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "raw": "don't!",
+          "start": 4.68,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "Lottie!\"",
+        "screamed",
+        "Miss",
+        "Amelia.",
+        "\"Do",
+        "stop,",
+        "darling!",
+        "Don't",
+        "cry!",
+        "Please",
+        "don't!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          12,
+          3,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lottie",
+          "start": 0.76,
+          "end": 1.12,
+          "key": "lottie",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "screamed",
+          "start": 1.22,
+          "end": 1.56,
+          "key": "screamed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Amelia.",
+          "start": 1.8,
+          "end": 2.12,
+          "key": "amelia",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.12,
+          "end": 2.92,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stop,",
+          "start": 2.92,
+          "end": 3.3,
+          "key": "stop",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "darling!",
+          "start": 3.7,
+          "end": 3.7,
+          "key": "darling",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Don't",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "dont",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cry!",
+          "start": 4.1,
+          "end": 4.32,
+          "key": "cry",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Please",
+          "start": 4.56,
+          "end": 4.68,
+          "key": "please",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "don't!",
+          "start": 4.68,
+          "end": 5.16,
+          "key": "dont",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Lottie!\"",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "text": "screamed",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "text": "Miss",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "Amelia.",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "text": "\"Do",
+          "start": 2.12,
+          "end": 2.92
+        },
+        {
+          "text": "stop,",
+          "start": 2.92,
+          "end": 3.3
+        },
+        {
+          "text": "darling!",
+          "start": 3.7,
+          "end": 3.7
+        },
+        {
+          "text": "Don't",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "cry!",
+          "start": 4.1,
+          "end": 4.32
+        },
+        {
+          "text": "Please",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "text": "don't!\"",
+          "start": 4.68,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5055359192192554
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "caa91f32fd41cc92b73ed0e6170bf4ba1f42ca70e44c5dc7992cb01c0f757202",
+  "selected_reasons": []
+}

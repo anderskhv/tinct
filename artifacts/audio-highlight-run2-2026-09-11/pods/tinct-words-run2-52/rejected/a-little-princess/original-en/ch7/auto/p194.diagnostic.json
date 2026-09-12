@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "977840ca5a7a7a381e6e3ec00e4d2234a6f33778cf39c1edbbefc20b56266732",
+  "attempts": [
+    {
+      "asr_seconds": 0.20815755426883698,
+      "alignment_seconds": 0.00044279173016548157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Not go in?\" exclaimed Sara, and she fell back a pace.",
+        "hotwords": "Not, Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not go in? exclaimed Sara, and she fell back a pace.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.124267578125
+            },
+            {
+              "text": " go",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " in?",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.47,
+              "end": 1.81,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " Sara,",
+              "start": 1.81,
+              "end": 2.27,
+              "probability": 0.0968017578125
+            },
+            {
+              "text": " and",
+              "start": 2.49,
+              "end": 2.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " she",
+              "start": 2.55,
+              "end": 2.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fell",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " back",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.13,
+              "end": 3.25,
+              "probability": 0.22265625
+            },
+            {
+              "text": " pace.",
+              "start": 3.25,
+              "end": 3.53,
+              "probability": 0.82080078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "go",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "in?",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.47,
+          "end": 1.81
+        },
+        {
+          "raw": "Sara,",
+          "start": 1.81,
+          "end": 2.27
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.55
+        },
+        {
+          "raw": "she",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "raw": "fell",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "back",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "raw": "a",
+          "start": 3.13,
+          "end": 3.25
+        },
+        {
+          "raw": "pace.",
+          "start": 3.25,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "go",
+        "in?\"",
+        "exclaimed",
+        "Sara,",
+        "and",
+        "she",
+        "fell",
+        "back",
+        "a",
+        "pace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.61,
+          "end": 0.79,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in?",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.47,
+          "end": 1.81,
+          "key": "exclaimed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sara,",
+          "start": 1.81,
+          "end": 2.27,
+          "key": "sara",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.49,
+          "end": 2.55,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.55,
+          "end": 2.69,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "fell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "back",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.13,
+          "end": 3.25,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pace.",
+          "start": 3.25,
+          "end": 3.53,
+          "key": "pace",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "go",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "in?\"",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.47,
+          "end": 1.81
+        },
+        {
+          "text": "Sara,",
+          "start": 1.81,
+          "end": 2.27
+        },
+        {
+          "text": "and",
+          "start": 2.49,
+          "end": 2.55
+        },
+        {
+          "text": "she",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "text": "fell",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "back",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "text": "a",
+          "start": 3.13,
+          "end": 3.25
+        },
+        {
+          "text": "pace.",
+          "start": 3.25,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20877062529325485
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bbc5b2f07b9ea55dc573c791dea1c4d6e03298aff227df3015d525deccbee7a4",
+  "selected_reasons": []
+}

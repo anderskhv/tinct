@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "23dde8a6c86d1edbb88fb5cd93b650887dc7e7b6592c96d2a32ca6c9407c3943",
+  "attempts": [
+    {
+      "asr_seconds": 0.1533912904560566,
+      "alignment_seconds": 0.00030501000583171844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, formerly a student.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.85546875
+            },
+            {
+              "text": " formerly",
+              "start": 1.03,
+              "end": 1.19,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " a",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " student.",
+              "start": 1.45,
+              "end": 1.77,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "formerly",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "raw": "a",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "student.",
+          "start": 1.45,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "formerly",
+        "a",
+        "student.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "formerly",
+          "start": 1.03,
+          "end": 1.19,
+          "key": "formerly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "student.",
+          "start": 1.45,
+          "end": 1.77,
+          "key": "student",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "formerly",
+          "start": 1.03,
+          "end": 1.19
+        },
+        {
+          "text": "a",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "student.\"",
+          "start": 1.45,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15379911568015814
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b4fd61ce20cc06ed360afbc0d8f9b9407e180fdb0c6b8444a09f0fc72a0cee7f",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "c1f8d8ff768f7b98be2abb8d4039d5fee1dc1e6733d6510f84b7ff3d6e46f351",
+  "attempts": [
+    {
+      "asr_seconds": 0.15127421729266644,
+      "alignment_seconds": 0.0003137737512588501,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He has, Father Cowley said.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.58349609375
+            },
+            {
+              "text": " has,",
+              "start": 0.51,
+              "end": 0.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Father",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " Cowley",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " said.",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "has,",
+          "start": 0.51,
+          "end": 0.89
+        },
+        {
+          "raw": "Father",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "Cowley",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "raw": "said.",
+          "start": 1.63,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "—He",
+        "has,",
+        "Father",
+        "Cowley",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has,",
+          "start": 0.51,
+          "end": 0.89,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Father",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cowley",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "cowley",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "has,",
+          "start": 0.51,
+          "end": 0.89
+        },
+        {
+          "text": "Father",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "Cowley",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "text": "said.",
+          "start": 1.63,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15172707196325064
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c3da4c6628475ebbbcceb7d0edfd684d3a06d0780a4ed7368a7caf607f8c2ace",
+  "selected_reasons": []
+}

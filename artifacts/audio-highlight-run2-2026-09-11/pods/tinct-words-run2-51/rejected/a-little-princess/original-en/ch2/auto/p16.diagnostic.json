@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "d683e273b32309709287eb0249b19931c1118b0e7962e64faf5d406189050529",
+  "attempts": [
+    {
+      "asr_seconds": 0.2918784813955426,
+      "alignment_seconds": 0.0007614856585860252,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She had taken a book from the desk and was turning over its leaves. Sara went to her politely.",
+        "hotwords": "She, Sara"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She had taken a book from the desk and was turning over its leaves. Sara went to her politely.",
+          "start": 0.0,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " had",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " taken",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " book",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " desk",
+              "start": 1.42,
+              "end": 1.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 1.78,
+              "end": 2.16,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " was",
+              "start": 2.16,
+              "end": 2.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turning",
+              "start": 2.28,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " over",
+              "start": 2.54,
+              "end": 2.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " its",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " leaves.",
+              "start": 3.04,
+              "end": 3.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Sara",
+              "start": 4.3,
+              "end": 4.34,
+              "probability": 0.0875244140625
+            },
+            {
+              "text": " went",
+              "start": 4.34,
+              "end": 4.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 4.58,
+              "end": 4.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 4.72,
+              "end": 4.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " politely.",
+              "start": 4.84,
+              "end": 5.18,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "had",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "taken",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "a",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "book",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "raw": "from",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "desk",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "raw": "was",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "raw": "turning",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "raw": "over",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "raw": "its",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "leaves.",
+          "start": 3.04,
+          "end": 3.44
+        },
+        {
+          "raw": "Sara",
+          "start": 4.3,
+          "end": 4.34
+        },
+        {
+          "raw": "went",
+          "start": 4.34,
+          "end": 4.58
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "raw": "her",
+          "start": 4.72,
+          "end": 4.84
+        },
+        {
+          "raw": "politely.",
+          "start": 4.84,
+          "end": 5.18
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "had",
+        "taken",
+        "a",
+        "book",
+        "from",
+        "the",
+        "desk",
+        "and",
+        "was",
+        "turning",
+        "over",
+        "its",
+        "leaves.",
+        "Sara",
+        "went",
+        "to",
+        "her",
+        "politely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "taken",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "book",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "desk",
+          "start": 1.42,
+          "end": 1.78,
+          "key": "desk",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 2.16,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.16,
+          "end": 2.28,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 2.28,
+          "end": 2.54,
+          "key": "turning",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 2.54,
+          "end": 2.84,
+          "key": "over",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "its",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "leaves.",
+          "start": 3.04,
+          "end": 3.44,
+          "key": "leaves",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Sara",
+          "start": 4.3,
+          "end": 4.34,
+          "key": "sara",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 4.34,
+          "end": 4.58,
+          "key": "went",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.58,
+          "end": 4.72,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.72,
+          "end": 4.84,
+          "key": "her",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "politely.",
+          "start": 4.84,
+          "end": 5.18,
+          "key": "politely",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "had",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "taken",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "a",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "book",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "from",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "the",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "desk",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "text": "and",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "text": "was",
+          "start": 2.16,
+          "end": 2.28
+        },
+        {
+          "text": "turning",
+          "start": 2.28,
+          "end": 2.54
+        },
+        {
+          "text": "over",
+          "start": 2.54,
+          "end": 2.84
+        },
+        {
+          "text": "its",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "leaves.",
+          "start": 3.04,
+          "end": 3.44
+        },
+        {
+          "text": "Sara",
+          "start": 4.3,
+          "end": 4.34
+        },
+        {
+          "text": "went",
+          "start": 4.34,
+          "end": 4.58
+        },
+        {
+          "text": "to",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "text": "her",
+          "start": 4.72,
+          "end": 4.84
+        },
+        {
+          "text": "politely.",
+          "start": 4.84,
+          "end": 5.18
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2929538171738386
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49b043bc4a9540205316d995004339d4f4c763bc2241339bc1e9a655a9167fe6",
+  "selected_reasons": []
+}

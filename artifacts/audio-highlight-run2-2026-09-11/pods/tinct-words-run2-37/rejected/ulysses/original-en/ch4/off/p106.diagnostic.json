@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "4bfc7ce1213dd125a8fdad6bafb439a5d4d35fb506cce48abd30bf8f569c880b",
+  "attempts": [
+    {
+      "asr_seconds": 0.14378346901503392,
+      "alignment_seconds": 0.00037611002335324883,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It must have fell down, she said.",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.430419921875
+            },
+            {
+              "text": " must",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " fell",
+              "start": 0.81,
+              "end": 0.97,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " down,",
+              "start": 0.97,
+              "end": 1.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said.",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "must",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "have",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "fell",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "raw": "down,",
+          "start": 0.97,
+          "end": 1.31
+        },
+        {
+          "raw": "she",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "said.",
+          "start": 1.55,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "—It",
+        "must",
+        "have",
+        "fell",
+        "down,",
+        "she",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.65,
+          "end": 0.81,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 0.81,
+          "end": 0.97,
+          "key": "fell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 0.97,
+          "end": 1.31,
+          "key": "down",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "must",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "have",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "fell",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "text": "down,",
+          "start": 0.97,
+          "end": 1.31
+        },
+        {
+          "text": "she",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "said.",
+          "start": 1.55,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14428735998808406
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "463609c35eda2e0ece779ca5e6a073bc0880b7f3a4cef249d3d9dec0a747387e",
+  "selected_reasons": []
+}

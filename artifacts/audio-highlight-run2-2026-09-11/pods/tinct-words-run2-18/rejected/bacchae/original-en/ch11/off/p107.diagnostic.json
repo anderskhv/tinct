@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "bc8bc9365022196a62668e2b141be6ed16ff892553fc9895681e7354f084e58b",
+  "attempts": [
+    {
+      "asr_seconds": 0.362920272978954,
+      "alignment_seconds": 0.0004353669937700033,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dionysus in bitter wise for bitter was the shame you did me when Thebes honored not my name",
+          "start": 0.05,
+          "end": 6.33,
+          "words": [
+            {
+              "text": " Dionysus",
+              "start": 0.05,
+              "end": 1.21,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " in",
+              "start": 1.21,
+              "end": 1.81,
+              "probability": 0.11016845703125
+            },
+            {
+              "text": " bitter",
+              "start": 1.81,
+              "end": 2.05,
+              "probability": 0.873046875
+            },
+            {
+              "text": " wise",
+              "start": 2.05,
+              "end": 2.43,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " for",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " bitter",
+              "start": 2.75,
+              "end": 2.99,
+              "probability": 0.9140625
+            },
+            {
+              "text": " was",
+              "start": 2.99,
+              "end": 3.19,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 3.19,
+              "end": 3.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shame",
+              "start": 3.41,
+              "end": 3.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 3.65,
+              "end": 3.87,
+              "probability": 0.42333984375
+            },
+            {
+              "text": " did",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 4.03,
+              "end": 4.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " when",
+              "start": 4.35,
+              "end": 4.79,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Thebes",
+              "start": 4.79,
+              "end": 5.17,
+              "probability": 0.93359375
+            },
+            {
+              "text": " honored",
+              "start": 5.17,
+              "end": 5.51,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " not",
+              "start": 5.51,
+              "end": 5.79,
+              "probability": 0.9765625
+            },
+            {
+              "text": " my",
+              "start": 5.79,
+              "end": 5.99,
+              "probability": 0.994140625
+            },
+            {
+              "text": " name",
+              "start": 5.99,
+              "end": 6.33,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "raw": "in",
+          "start": 1.21,
+          "end": 1.81
+        },
+        {
+          "raw": "bitter",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "raw": "wise",
+          "start": 2.05,
+          "end": 2.43
+        },
+        {
+          "raw": "for",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "bitter",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "raw": "was",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "raw": "shame",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "raw": "you",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "raw": "did",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "me",
+          "start": 4.03,
+          "end": 4.35
+        },
+        {
+          "raw": "when",
+          "start": 4.35,
+          "end": 4.79
+        },
+        {
+          "raw": "Thebes",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "raw": "honored",
+          "start": 5.17,
+          "end": 5.51
+        },
+        {
+          "raw": "not",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "raw": "my",
+          "start": 5.79,
+          "end": 5.99
+        },
+        {
+          "raw": "name",
+          "start": 5.99,
+          "end": 6.33
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "In",
+        "bitter",
+        "wise,",
+        "for",
+        "bitter",
+        "was",
+        "the",
+        "shame",
+        "Ye",
+        "did",
+        "me,",
+        "when",
+        "Thebes",
+        "honoured",
+        "not",
+        "my",
+        "name."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          14,
+          10,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          18,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus",
+          "start": 0.05,
+          "end": 1.21,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.21,
+          "end": 1.81,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bitter",
+          "start": 1.81,
+          "end": 2.05,
+          "key": "bitter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wise",
+          "start": 2.05,
+          "end": 2.43,
+          "key": "wise",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.43,
+          "end": 2.75,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bitter",
+          "start": 2.75,
+          "end": 2.99,
+          "key": "bitter",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.99,
+          "end": 3.19,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.41,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 3.41,
+          "end": 3.65,
+          "key": "shame",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.65,
+          "end": 3.87,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.87,
+          "end": 4.03,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.03,
+          "end": 4.35,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.35,
+          "end": 4.79,
+          "key": "when",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Thebes",
+          "start": 4.79,
+          "end": 5.17,
+          "key": "thebes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "honored",
+          "start": 5.17,
+          "end": 5.51,
+          "key": "honored",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.51,
+          "end": 5.79,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.79,
+          "end": 5.99,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 5.99,
+          "end": 6.33,
+          "key": "name",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.05,
+          "end": 1.21
+        },
+        {
+          "text": "In",
+          "start": 1.21,
+          "end": 1.81
+        },
+        {
+          "text": "bitter",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "text": "wise,",
+          "start": 2.05,
+          "end": 2.43
+        },
+        {
+          "text": "for",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "text": "bitter",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "text": "was",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "text": "the",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "text": "shame",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "text": "Ye",
+          "start": 3.65,
+          "end": 3.76
+        },
+        {
+          "text": "did",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "me,",
+          "start": 4.03,
+          "end": 4.35
+        },
+        {
+          "text": "when",
+          "start": 4.35,
+          "end": 4.79
+        },
+        {
+          "text": "Thebes",
+          "start": 4.79,
+          "end": 5.17
+        },
+        {
+          "text": "honoured",
+          "start": 5.17,
+          "end": 5.34
+        },
+        {
+          "text": "not",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "text": "my",
+          "start": 5.79,
+          "end": 5.99
+        },
+        {
+          "text": "name.",
+          "start": 5.99,
+          "end": 6.33
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.36352827202063054
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e1bb6abdcebadffcf0680b4b040c89ddafc3bbfcd9c20952753b4959a1244c44",
+  "selected_reasons": []
+}

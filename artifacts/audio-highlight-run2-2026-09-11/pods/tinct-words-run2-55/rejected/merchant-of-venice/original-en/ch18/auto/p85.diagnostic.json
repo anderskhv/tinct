@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "4c8b6dd564ec281521b128e1d2526f3e027e478efece57d247658c23bacf68fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.3048060005530715,
+      "alignment_seconds": 0.000344935804605484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. Your wife would give you little thanks for that If she were by to hear you make the offer.",
+        "hotwords": "Portia, Your, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, Your wife would give you little thanks for that If she were by to hear you make the offer.",
+          "start": 0.49,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.49,
+              "end": 0.87,
+              "probability": 0.716796875
+            },
+            {
+              "text": " Your",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.01477813720703125
+            },
+            {
+              "text": " wife",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " would",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " give",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " little",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " thanks",
+              "start": 2.29,
+              "end": 2.67,
+              "probability": 0.95703125
+            },
+            {
+              "text": " for",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.962890625
+            },
+            {
+              "text": " that",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " If",
+              "start": 3.07,
+              "end": 3.21,
+              "probability": 0.0160064697265625
+            },
+            {
+              "text": " she",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " were",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " by",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.94921875
+            },
+            {
+              "text": " to",
+              "start": 3.65,
+              "end": 3.77,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " hear",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " you",
+              "start": 4.03,
+              "end": 4.43,
+              "probability": 0.3642578125
+            },
+            {
+              "text": " make",
+              "start": 4.43,
+              "end": 4.61,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 4.61,
+              "end": 4.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " offer.",
+              "start": 4.81,
+              "end": 5.17,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "raw": "Your",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "wife",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "would",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "give",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "you",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "little",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "thanks",
+          "start": 2.29,
+          "end": 2.67
+        },
+        {
+          "raw": "for",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "raw": "that",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "If",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "raw": "she",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "were",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "by",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "to",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "raw": "hear",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "raw": "you",
+          "start": 4.03,
+          "end": 4.43
+        },
+        {
+          "raw": "make",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "raw": "offer.",
+          "start": 4.81,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Your",
+        "wife",
+        "would",
+        "give",
+        "you",
+        "little",
+        "thanks",
+        "for",
+        "that",
+        "If",
+        "she",
+        "were",
+        "by",
+        "to",
+        "hear",
+        "you",
+        "make",
+        "the",
+        "offer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.49,
+          "end": 0.87,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "wife",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "give",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "little",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thanks",
+          "start": 2.29,
+          "end": 2.67,
+          "key": "thanks",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.67,
+          "end": 2.91,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.91,
+          "end": 3.07,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 3.07,
+          "end": 3.21,
+          "key": "if",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.21,
+          "end": 3.35,
+          "key": "she",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "were",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.47,
+          "end": 3.65,
+          "key": "by",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.65,
+          "end": 3.77,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "hear",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.03,
+          "end": 4.43,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.43,
+          "end": 4.61,
+          "key": "make",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.81,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "offer.",
+          "start": 4.81,
+          "end": 5.17,
+          "key": "offer",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.49,
+          "end": 0.87
+        },
+        {
+          "text": "Your",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "wife",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "would",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "give",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "you",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "little",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "thanks",
+          "start": 2.29,
+          "end": 2.67
+        },
+        {
+          "text": "for",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "text": "that",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "If",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "text": "she",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "text": "were",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "by",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "to",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "text": "hear",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "text": "you",
+          "start": 4.03,
+          "end": 4.43
+        },
+        {
+          "text": "make",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "text": "the",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "text": "offer.",
+          "start": 4.81,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30529390554875135
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d7c791129191ccf7b61c55c5310aa92a50873c75adf3768e229a8f1e09badf77",
+  "selected_reasons": []
+}

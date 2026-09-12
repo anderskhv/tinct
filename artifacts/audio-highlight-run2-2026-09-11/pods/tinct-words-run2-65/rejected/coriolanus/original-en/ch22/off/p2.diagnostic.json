@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "a95e4b6ba63b315cb622569a502f6afccc847425d44611273cb1eef49483ec4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14017238933593035,
+      "alignment_seconds": 0.0002741883508861065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, we stood taught in good time.",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " we",
+              "start": 1.16,
+              "end": 1.26,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " stood",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " taught",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " in",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " good",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " time.",
+              "start": 1.98,
+              "end": 2.34,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "we",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "raw": "stood",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "taught",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "in",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "good",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "time.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "We",
+        "stood",
+        "to't",
+        "in",
+        "good",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.16,
+          "end": 1.26,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "stood",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "taught",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "taught",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 1.98,
+          "end": 2.34,
+          "key": "time",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "We",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "text": "stood",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "to't",
+          "start": 1.42,
+          "end": 1.55
+        },
+        {
+          "text": "in",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "good",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "time.",
+          "start": 1.98,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.14053635904565454
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7acb8c010b3f5733c3602b2a4c5ffb8be232608dac452bcd02e9cbd6cad657fe",
+  "selected_reasons": []
+}

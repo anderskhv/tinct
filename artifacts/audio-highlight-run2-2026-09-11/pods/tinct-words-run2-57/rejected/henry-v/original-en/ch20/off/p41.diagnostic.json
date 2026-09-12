@@ -1,0 +1,583 @@
+{
+  "complete": true,
+  "signature": "78327faff11bd2e45a750224efb823d556fd7ed5ac2ad769853a52b1cce0286b",
+  "attempts": [
+    {
+      "asr_seconds": 0.27087744581513107,
+      "alignment_seconds": 0.0004671060014516115,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, what thank you Captain Flulan is it fit this soldier keep his oath?",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Henry,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " what",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " thank",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.434326171875
+            },
+            {
+              "text": " you",
+              "start": 1.89,
+              "end": 2.13,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Captain",
+              "start": 2.13,
+              "end": 2.47,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " Flulan",
+              "start": 2.47,
+              "end": 3.05,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " is",
+              "start": 3.05,
+              "end": 3.29,
+              "probability": 0.47509765625
+            },
+            {
+              "text": " it",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fit",
+              "start": 3.45,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 3.65,
+              "end": 3.87,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " soldier",
+              "start": 3.87,
+              "end": 4.23,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " keep",
+              "start": 4.23,
+              "end": 4.53,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " his",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " oath?",
+              "start": 4.71,
+              "end": 4.95,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "what",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "thank",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "you",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "raw": "Captain",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "raw": "Flulan",
+          "start": 2.47,
+          "end": 3.05
+        },
+        {
+          "raw": "is",
+          "start": 3.05,
+          "end": 3.29
+        },
+        {
+          "raw": "it",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "fit",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "raw": "this",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "raw": "soldier",
+          "start": 3.87,
+          "end": 4.23
+        },
+        {
+          "raw": "keep",
+          "start": 4.23,
+          "end": 4.53
+        },
+        {
+          "raw": "his",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "oath?",
+          "start": 4.71,
+          "end": 4.95
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "What",
+        "think",
+        "you,",
+        "Captain",
+        "Fluellen,",
+        "is",
+        "it",
+        "fit",
+        "this",
+        "soldier",
+        "keep",
+        "his",
+        "oath?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          15,
+          7,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "thank",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.89,
+          "end": 2.13,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 2.13,
+          "end": 2.47,
+          "key": "captain",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Flulan",
+          "start": 2.47,
+          "end": 3.05,
+          "key": "flulan",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.05,
+          "end": 3.29,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.29,
+          "end": 3.45,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fit",
+          "start": 3.45,
+          "end": 3.65,
+          "key": "fit",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.65,
+          "end": 3.87,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 3.87,
+          "end": 4.23,
+          "key": "soldier",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 4.23,
+          "end": 4.53,
+          "key": "keep",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.53,
+          "end": 4.71,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "oath?",
+          "start": 4.71,
+          "end": 4.95,
+          "key": "oath",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "What",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "think",
+          "start": 1.67,
+          "end": 1.78
+        },
+        {
+          "text": "you,",
+          "start": 1.89,
+          "end": 2.13
+        },
+        {
+          "text": "Captain",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "text": "Fluellen,",
+          "start": 2.47,
+          "end": 2.76
+        },
+        {
+          "text": "is",
+          "start": 3.05,
+          "end": 3.29
+        },
+        {
+          "text": "it",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "fit",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "text": "this",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "text": "soldier",
+          "start": 3.87,
+          "end": 4.23
+        },
+        {
+          "text": "keep",
+          "start": 4.23,
+          "end": 4.53
+        },
+        {
+          "text": "his",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "oath?",
+          "start": 4.71,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.2715186718851328
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4fc127a4cf39b588d31720a9ea3684ce87fecf03963d5fb973595bc806bb9fd3",
+  "selected_reasons": []
+}

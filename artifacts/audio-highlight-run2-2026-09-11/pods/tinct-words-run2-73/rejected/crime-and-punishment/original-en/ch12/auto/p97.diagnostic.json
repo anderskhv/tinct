@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "60bfca5b6d2040ba0238369eabd37e931a49d149f4d34a0e4976ffa7db7590cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.13055758364498615,
+      "alignment_seconds": 0.00031603407114744186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Go to hell!\"",
+        "hotwords": "Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Go to hell.",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " to",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hell.",
+              "start": 0.65,
+              "end": 0.89,
+              "probability": 0.85791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "to",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "hell.",
+          "start": 0.65,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "to",
+        "hell!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hell.",
+          "start": 0.65,
+          "end": 0.89,
+          "key": "hell",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "to",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "hell!\"",
+          "start": 0.65,
+          "end": 0.89
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13097229786217213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54e5409d6625319b5a4e82a0b3d3947cb3f10331b33decf9f431f318ba464fd1",
+  "selected_reasons": []
+}

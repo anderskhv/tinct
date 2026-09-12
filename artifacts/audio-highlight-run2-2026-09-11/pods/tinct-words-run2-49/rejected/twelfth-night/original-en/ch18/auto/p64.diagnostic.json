@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "512433434ea9f289fd5ce768ab2f1958397cbb2732d3d8bfd813c4c373a1cca3",
+  "attempts": [
+    {
+      "asr_seconds": 4.005769766867161,
+      "alignment_seconds": 0.0003072097897529602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Priest.",
+        "hotwords": "Enter, Priest"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Priest",
+          "start": 0.14,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.14,
+              "end": 0.68,
+              "probability": 0.9140625
+            },
+            {
+              "text": " Priest",
+              "start": 0.9,
+              "end": 0.96,
+              "probability": 0.5400390625
+            }
+          ]
+        },
+        {
+          "text": " Enter, Priest Enter, Priest",
+          "start": 0.96,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.96,
+              "end": 0.96,
+              "probability": 4.0531158447265625e-06
+            },
+            {
+              "text": " Priest",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 2.1338462829589844e-05
+            },
+            {
+              "text": " Enter,",
+              "start": 1.14,
+              "end": 1.66,
+              "probability": 2.980232238769531e-07
+            },
+            {
+              "text": " Priest",
+              "start": 1.66,
+              "end": 1.66,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "raw": "Priest",
+          "start": 0.9,
+          "end": 0.96
+        },
+        {
+          "raw": "Enter,",
+          "start": 0.96,
+          "end": 0.96
+        },
+        {
+          "raw": "Priest",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.14,
+          "end": 1.66
+        },
+        {
+          "raw": "Priest",
+          "start": 1.66,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Priest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.14,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Priest",
+          "start": 0.9,
+          "end": 0.96,
+          "key": "priest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 0.96,
+          "end": 0.96,
+          "key": "enter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Priest",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "priest",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.14,
+          "end": 1.66,
+          "key": "enter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Priest",
+          "start": 1.66,
+          "end": 1.66,
+          "key": "priest",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "text": "Priest.",
+          "start": 0.9,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 4.006220944225788
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1bd561183a7a3bae36b2bc9a851eb1da2ede33d35d31082dfa931bf466a9075b",
+  "selected_reasons": []
+}

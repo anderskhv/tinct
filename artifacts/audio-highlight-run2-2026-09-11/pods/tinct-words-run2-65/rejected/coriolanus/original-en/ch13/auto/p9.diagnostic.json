@@ -1,0 +1,1061 @@
+{
+  "complete": true,
+  "signature": "17c9bf9392d5ae5cff6f8f162bce56050afc015b27d27760560babe1f9010fa0",
+  "attempts": [
+    {
+      "asr_seconds": 0.34950210992246866,
+      "alignment_seconds": 0.0006682593375444412,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Citizen. To lose itself in a fog, where being three parts melted away with rotten dews, the fourth would return for conscience' sake, to help to get thee a wife.",
+        "hotwords": "Third, Citizen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third Citizen. To lose itself in a fog, where being three parts melted away with rotten",
+          "start": 0.05,
+          "end": 5.77,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " Citizen.",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.25537109375
+            },
+            {
+              "text": " To",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.974609375
+            },
+            {
+              "text": " lose",
+              "start": 1.89,
+              "end": 2.09,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " itself",
+              "start": 2.09,
+              "end": 2.45,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " in",
+              "start": 2.45,
+              "end": 2.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.65,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fog,",
+              "start": 2.79,
+              "end": 3.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " where",
+              "start": 3.51,
+              "end": 3.59,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " being",
+              "start": 3.59,
+              "end": 3.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " three",
+              "start": 3.85,
+              "end": 4.17,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " parts",
+              "start": 4.17,
+              "end": 4.57,
+              "probability": 0.98828125
+            },
+            {
+              "text": " melted",
+              "start": 4.57,
+              "end": 4.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " away",
+              "start": 4.93,
+              "end": 5.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 5.25,
+              "end": 5.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rotten",
+              "start": 5.49,
+              "end": 5.77,
+              "probability": 0.9560546875
+            }
+          ]
+        },
+        {
+          "text": " dews, the fourth would return for conscience' sake, to help to get thee a wife.",
+          "start": 5.77,
+          "end": 10.27,
+          "words": [
+            {
+              "text": " dews,",
+              "start": 5.77,
+              "end": 6.27,
+              "probability": 0.720458984375
+            },
+            {
+              "text": " the",
+              "start": 6.67,
+              "end": 6.75,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " fourth",
+              "start": 6.75,
+              "end": 7.03,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " would",
+              "start": 7.03,
+              "end": 7.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " return",
+              "start": 7.27,
+              "end": 7.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 7.65,
+              "end": 7.93,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " conscience'",
+              "start": 7.93,
+              "end": 8.35,
+              "probability": 0.96875
+            },
+            {
+              "text": " sake,",
+              "start": 8.51,
+              "end": 8.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 9.13,
+              "end": 9.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " help",
+              "start": 9.27,
+              "end": 9.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 9.49,
+              "end": 9.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " get",
+              "start": 9.67,
+              "end": 9.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thee",
+              "start": 9.79,
+              "end": 9.93,
+              "probability": 0.014556884765625
+            },
+            {
+              "text": " a",
+              "start": 9.93,
+              "end": 10.03,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " wife.",
+              "start": 10.03,
+              "end": 10.27,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Citizen.",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "To",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "lose",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "raw": "itself",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "raw": "a",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "raw": "fog,",
+          "start": 2.79,
+          "end": 3.11
+        },
+        {
+          "raw": "where",
+          "start": 3.51,
+          "end": 3.59
+        },
+        {
+          "raw": "being",
+          "start": 3.59,
+          "end": 3.85
+        },
+        {
+          "raw": "three",
+          "start": 3.85,
+          "end": 4.17
+        },
+        {
+          "raw": "parts",
+          "start": 4.17,
+          "end": 4.57
+        },
+        {
+          "raw": "melted",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "raw": "away",
+          "start": 4.93,
+          "end": 5.25
+        },
+        {
+          "raw": "with",
+          "start": 5.25,
+          "end": 5.49
+        },
+        {
+          "raw": "rotten",
+          "start": 5.49,
+          "end": 5.77
+        },
+        {
+          "raw": "dews,",
+          "start": 5.77,
+          "end": 6.27
+        },
+        {
+          "raw": "the",
+          "start": 6.67,
+          "end": 6.75
+        },
+        {
+          "raw": "fourth",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "raw": "would",
+          "start": 7.03,
+          "end": 7.27
+        },
+        {
+          "raw": "return",
+          "start": 7.27,
+          "end": 7.65
+        },
+        {
+          "raw": "for",
+          "start": 7.65,
+          "end": 7.93
+        },
+        {
+          "raw": "conscience'",
+          "start": 7.93,
+          "end": 8.35
+        },
+        {
+          "raw": "sake,",
+          "start": 8.51,
+          "end": 8.79
+        },
+        {
+          "raw": "to",
+          "start": 9.13,
+          "end": 9.27
+        },
+        {
+          "raw": "help",
+          "start": 9.27,
+          "end": 9.49
+        },
+        {
+          "raw": "to",
+          "start": 9.49,
+          "end": 9.67
+        },
+        {
+          "raw": "get",
+          "start": 9.67,
+          "end": 9.79
+        },
+        {
+          "raw": "thee",
+          "start": 9.79,
+          "end": 9.93
+        },
+        {
+          "raw": "a",
+          "start": 9.93,
+          "end": 10.03
+        },
+        {
+          "raw": "wife.",
+          "start": 10.03,
+          "end": 10.27
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Citizen.",
+        "To",
+        "lose",
+        "itself",
+        "in",
+        "a",
+        "fog,",
+        "where",
+        "being",
+        "three",
+        "parts",
+        "melted",
+        "away",
+        "with",
+        "rotten",
+        "dews,",
+        "the",
+        "fourth",
+        "would",
+        "return",
+        "for",
+        "conscience'",
+        "sake,",
+        "to",
+        "help",
+        "to",
+        "get",
+        "thee",
+        "a",
+        "wife."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen.",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 1.89,
+          "end": 2.09,
+          "key": "lose",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "itself",
+          "start": 2.09,
+          "end": 2.45,
+          "key": "itself",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.45,
+          "end": 2.65,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.65,
+          "end": 2.79,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fog,",
+          "start": 2.79,
+          "end": 3.11,
+          "key": "fog",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 3.51,
+          "end": 3.59,
+          "key": "where",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 3.59,
+          "end": 3.85,
+          "key": "being",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 3.85,
+          "end": 4.17,
+          "key": "three",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "parts",
+          "start": 4.17,
+          "end": 4.57,
+          "key": "parts",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "melted",
+          "start": 4.57,
+          "end": 4.93,
+          "key": "melted",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 4.93,
+          "end": 5.25,
+          "key": "away",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.25,
+          "end": 5.49,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "rotten",
+          "start": 5.49,
+          "end": 5.77,
+          "key": "rotten",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dews,",
+          "start": 5.77,
+          "end": 6.27,
+          "key": "dews",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.67,
+          "end": 6.75,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fourth",
+          "start": 6.75,
+          "end": 7.03,
+          "key": "fourth",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 7.03,
+          "end": 7.27,
+          "key": "would",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "return",
+          "start": 7.27,
+          "end": 7.65,
+          "key": "return",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.65,
+          "end": 7.93,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "conscience'",
+          "start": 7.93,
+          "end": 8.35,
+          "key": "conscience",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "sake,",
+          "start": 8.51,
+          "end": 8.79,
+          "key": "sake",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.13,
+          "end": 9.27,
+          "key": "to",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 9.27,
+          "end": 9.49,
+          "key": "help",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.49,
+          "end": 9.67,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 9.67,
+          "end": 9.79,
+          "key": "get",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 9.79,
+          "end": 9.93,
+          "key": "thee",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.93,
+          "end": 10.03,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "wife.",
+          "start": 10.03,
+          "end": 10.27,
+          "key": "wife",
+          "pieces": [
+            30
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "To",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "lose",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "text": "itself",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "text": "in",
+          "start": 2.45,
+          "end": 2.65
+        },
+        {
+          "text": "a",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "text": "fog,",
+          "start": 2.79,
+          "end": 3.11
+        },
+        {
+          "text": "where",
+          "start": 3.51,
+          "end": 3.59
+        },
+        {
+          "text": "being",
+          "start": 3.59,
+          "end": 3.85
+        },
+        {
+          "text": "three",
+          "start": 3.85,
+          "end": 4.17
+        },
+        {
+          "text": "parts",
+          "start": 4.17,
+          "end": 4.57
+        },
+        {
+          "text": "melted",
+          "start": 4.57,
+          "end": 4.93
+        },
+        {
+          "text": "away",
+          "start": 4.93,
+          "end": 5.25
+        },
+        {
+          "text": "with",
+          "start": 5.25,
+          "end": 5.49
+        },
+        {
+          "text": "rotten",
+          "start": 5.49,
+          "end": 5.77
+        },
+        {
+          "text": "dews,",
+          "start": 5.77,
+          "end": 6.27
+        },
+        {
+          "text": "the",
+          "start": 6.67,
+          "end": 6.75
+        },
+        {
+          "text": "fourth",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "text": "would",
+          "start": 7.03,
+          "end": 7.27
+        },
+        {
+          "text": "return",
+          "start": 7.27,
+          "end": 7.65
+        },
+        {
+          "text": "for",
+          "start": 7.65,
+          "end": 7.93
+        },
+        {
+          "text": "conscience'",
+          "start": 7.93,
+          "end": 8.35
+        },
+        {
+          "text": "sake,",
+          "start": 8.51,
+          "end": 8.79
+        },
+        {
+          "text": "to",
+          "start": 9.13,
+          "end": 9.27
+        },
+        {
+          "text": "help",
+          "start": 9.27,
+          "end": 9.49
+        },
+        {
+          "text": "to",
+          "start": 9.49,
+          "end": 9.67
+        },
+        {
+          "text": "get",
+          "start": 9.67,
+          "end": 9.79
+        },
+        {
+          "text": "thee",
+          "start": 9.79,
+          "end": 9.93
+        },
+        {
+          "text": "a",
+          "start": 9.93,
+          "end": 10.03
+        },
+        {
+          "text": "wife.",
+          "start": 10.03,
+          "end": 10.27
+        }
+      ],
+      "stats": {
+        "expected_words": 31,
+        "heard_words": 31,
+        "matched_words": 31
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35045255813747644
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "05f81d07cb7eb098d71b124f703f11e46ebb927c483ec768d4f870f22d4de881",
+  "selected_reasons": []
+}

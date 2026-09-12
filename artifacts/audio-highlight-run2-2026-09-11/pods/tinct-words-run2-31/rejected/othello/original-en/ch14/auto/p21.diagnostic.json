@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "42c12501aaaece5f5e09b2dc8965986354b42becf424c4d22fdc17e798b30268",
+  "attempts": [
+    {
+      "asr_seconds": 0.16385510610416532,
+      "alignment_seconds": 0.00026256823912262917,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. O, help, ho! light! a surgeon!",
+        "hotwords": "Cassio, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, O, help, ho! light! a surgeon!",
+          "start": 0.53,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.623779296875
+            },
+            {
+              "text": " O,",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " help,",
+              "start": 1.55,
+              "end": 1.55,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " ho!",
+              "start": 1.75,
+              "end": 1.77,
+              "probability": 0.331787109375
+            },
+            {
+              "text": " light!",
+              "start": 2.05,
+              "end": 2.13,
+              "probability": 0.440185546875
+            },
+            {
+              "text": " a",
+              "start": 2.31,
+              "end": 2.31,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " surgeon!",
+              "start": 2.31,
+              "end": 2.57,
+              "probability": 0.966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "O,",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "help,",
+          "start": 1.55,
+          "end": 1.55
+        },
+        {
+          "raw": "ho!",
+          "start": 1.75,
+          "end": 1.77
+        },
+        {
+          "raw": "light!",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "raw": "a",
+          "start": 2.31,
+          "end": 2.31
+        },
+        {
+          "raw": "surgeon!",
+          "start": 2.31,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "O,",
+        "help,",
+        "ho!",
+        "light!",
+        "a",
+        "surgeon!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "help,",
+          "start": 1.55,
+          "end": 1.55,
+          "key": "help",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 1.75,
+          "end": 1.77,
+          "key": "ho",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "light!",
+          "start": 2.05,
+          "end": 2.13,
+          "key": "light",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.31,
+          "end": 2.31,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "surgeon!",
+          "start": 2.31,
+          "end": 2.57,
+          "key": "surgeon",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "O,",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "help,",
+          "start": 1.55,
+          "end": 1.55
+        },
+        {
+          "text": "ho!",
+          "start": 1.75,
+          "end": 1.77
+        },
+        {
+          "text": "light!",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "text": "a",
+          "start": 2.31,
+          "end": 2.31
+        },
+        {
+          "text": "surgeon!",
+          "start": 2.31,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16421467205509543
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ca778bfad502922a57867c1a811b7dfb0f8aa370e510ee72cdf2d8236a1ca16f",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "6388734a4afe6be9e0da51359f351d94c28531ca5df3c4028a257c56421f087b",
+  "attempts": [
+    {
+      "asr_seconds": 0.18912365846335888,
+      "alignment_seconds": 0.00013786833733320236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, Menenius Ever Ever.",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.08,
+              "end": 1.1,
+              "probability": 0.8162434895833334
+            },
+            {
+              "text": " Menenius",
+              "start": 1.6,
+              "end": 2.0,
+              "probability": 0.7154947916666666
+            },
+            {
+              "text": " Ever",
+              "start": 2.0,
+              "end": 2.28,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " Ever.",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.77197265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "raw": "Menenius",
+          "start": 1.6,
+          "end": 2.0
+        },
+        {
+          "raw": "Ever",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "raw": "Ever.",
+          "start": 2.28,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Menenius",
+        "ever,",
+        "ever."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.1,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Menenius",
+          "start": 1.6,
+          "end": 2.0,
+          "key": "menenius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ever",
+          "start": 2.0,
+          "end": 2.28,
+          "key": "ever",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ever.",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "ever",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "text": "Menenius",
+          "start": 1.6,
+          "end": 2.0
+        },
+        {
+          "text": "ever,",
+          "start": 2.0,
+          "end": 2.28
+        },
+        {
+          "text": "ever.",
+          "start": 2.28,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18930924776941538
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "53bb6068b84cee5f4a616fd325cf9122c7d29db2a861565a0db2311e1b4b60db",
+  "selected_reasons": []
+}

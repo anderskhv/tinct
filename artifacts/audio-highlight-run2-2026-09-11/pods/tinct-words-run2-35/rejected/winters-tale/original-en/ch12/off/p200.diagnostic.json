@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "128d9f16d9a35332cc869a0af38561d58b1e373378e106f911db48fd9c9c5d2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.11883489601314068,
+      "alignment_seconds": 0.0002127327024936676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Autolycus",
+          "start": 0.02,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " Autolycus",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.8219401041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus",
+          "start": 0.02,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.02,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11911667324602604
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fe9f65650991363d29da8d79297786170736526517bb06f391b35b74b41e4225",
+  "selected_reasons": []
+}

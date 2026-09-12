@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "727132b86a1804a3bcdcbd1e64aa28fd0f963c344fd3bf01ed327705cadb1376",
+  "attempts": [
+    {
+      "asr_seconds": 0.19621178414672613,
+      "alignment_seconds": 0.00048026489093899727,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Charmian, my arm is sore. Best play with Mardien.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " my",
+              "start": 1.01,
+              "end": 1.09,
+              "probability": 0.97265625
+            },
+            {
+              "text": " arm",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " is",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sore.",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Best",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " play",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " with",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Mardien.",
+              "start": 2.79,
+              "end": 3.23,
+              "probability": 0.60009765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "my",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "raw": "arm",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "is",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "sore.",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "Best",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "play",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "with",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "Mardien.",
+          "start": 2.79,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "My",
+        "arm",
+        "is",
+        "sore.",
+        "Best",
+        "play",
+        "with",
+        "Mardian."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.01,
+          "end": 1.09,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "arm",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "arm",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sore.",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "sore",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Best",
+          "start": 2.25,
+          "end": 2.35,
+          "key": "best",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "play",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.61,
+          "end": 2.79,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mardien.",
+          "start": 2.79,
+          "end": 3.23,
+          "key": "mardien",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "My",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "text": "arm",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "is",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "sore.",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "Best",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "play",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "with",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "Mardian.",
+          "start": 2.79,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.19687312096357346
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "95f0a57af9a91e0643dab5da2ad02044aca32dc560ce9713154d6508d390585f",
+  "selected_reasons": []
+}

@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "ec9a48c9ff872b676bf156f4f2de9d5ed2a10123c0c02b17909c359caacaab01",
+  "attempts": [
+    {
+      "asr_seconds": 0.23687419947236776,
+      "alignment_seconds": 0.0005690092220902443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Boy. I do not know the French for fer, and ferret, and firk.",
+        "hotwords": "Boy, I, French"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boy, I do not know the French for fer, and ferret, and firk.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Boy,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " I",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " do",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " French",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " for",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " fer,",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.0037174224853515625
+            },
+            {
+              "text": " and",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " ferret,",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " and",
+              "start": 3.21,
+              "end": 3.29,
+              "probability": 0.986328125
+            },
+            {
+              "text": " firk.",
+              "start": 3.29,
+              "end": 3.61,
+              "probability": 0.447021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "do",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "not",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "know",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "French",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "for",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "fer,",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "and",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "ferret,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.29
+        },
+        {
+          "raw": "firk.",
+          "start": 3.29,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Boy.",
+        "I",
+        "do",
+        "not",
+        "know",
+        "the",
+        "French",
+        "for",
+        "fer,",
+        "and",
+        "ferret,",
+        "and",
+        "firk."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boy,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "boy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "know",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "french",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fer,",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "fer",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ferret,",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "ferret",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.29,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "firk.",
+          "start": 3.29,
+          "end": 3.61,
+          "key": "firk",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Boy.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "I",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "do",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "not",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "know",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "the",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "text": "French",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "for",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "text": "fer,",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "and",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "ferret,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "and",
+          "start": 3.21,
+          "end": 3.29
+        },
+        {
+          "text": "firk.",
+          "start": 3.29,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23767962027341127
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "94df18dd5384ce40238dc356403472ed8c598df2131532bb5448275aebef93c4",
+  "selected_reasons": []
+}

@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "4be0d299aa4447327a58eab64af43efd911c23082da9a00db678c5ab8c41b5f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.23580100573599339,
+      "alignment_seconds": 0.0003406163305044174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hermione, you look as if you held a brow of much distraction.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Hermione,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.492919921875
+            },
+            {
+              "text": " you",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " look",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 1.89,
+              "end": 2.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " held",
+              "start": 2.11,
+              "end": 2.27,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 2.27,
+              "end": 2.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " brow",
+              "start": 2.43,
+              "end": 2.65,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " of",
+              "start": 2.65,
+              "end": 2.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " much",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " distraction.",
+              "start": 3.05,
+              "end": 3.63,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Are you mauved, my lord?",
+          "start": 4.27,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " Are",
+              "start": 4.27,
+              "end": 4.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 4.35,
+              "end": 4.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mauved,",
+              "start": 4.49,
+              "end": 4.93,
+              "probability": 0.75
+            },
+            {
+              "text": " my",
+              "start": 5.07,
+              "end": 5.17,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lord?",
+              "start": 5.17,
+              "end": 5.37,
+              "probability": 0.814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "you",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "look",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "as",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "if",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "raw": "you",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "held",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "raw": "brow",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "raw": "of",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "raw": "much",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "distraction.",
+          "start": 3.05,
+          "end": 3.63
+        },
+        {
+          "raw": "Are",
+          "start": 4.27,
+          "end": 4.35
+        },
+        {
+          "raw": "you",
+          "start": 4.35,
+          "end": 4.49
+        },
+        {
+          "raw": "mauved,",
+          "start": 4.49,
+          "end": 4.93
+        },
+        {
+          "raw": "my",
+          "start": 5.07,
+          "end": 5.17
+        },
+        {
+          "raw": "lord?",
+          "start": 5.17,
+          "end": 5.37
+        }
+      ],
+      "expected_tokens": [
+        "Hermione.",
+        "You",
+        "look",
+        "As",
+        "if",
+        "you",
+        "held",
+        "a",
+        "brow",
+        "of",
+        "much",
+        "distraction:",
+        "Are",
+        "you",
+        "mov'd,",
+        "my",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          17,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hermione,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "hermione",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.89,
+          "end": 2.03,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 2.11,
+          "end": 2.27,
+          "key": "held",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.43,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "brow",
+          "start": 2.43,
+          "end": 2.65,
+          "key": "brow",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.65,
+          "end": 2.85,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "much",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "distraction.",
+          "start": 3.05,
+          "end": 3.63,
+          "key": "distraction",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 4.27,
+          "end": 4.35,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.35,
+          "end": 4.49,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "mauved,",
+          "start": 4.49,
+          "end": 4.93,
+          "key": "mauved",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.07,
+          "end": 5.17,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 5.17,
+          "end": 5.37,
+          "key": "lord",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hermione.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "You",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "look",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "As",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "if",
+          "start": 1.89,
+          "end": 2.03
+        },
+        {
+          "text": "you",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "held",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "text": "a",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "text": "brow",
+          "start": 2.43,
+          "end": 2.65
+        },
+        {
+          "text": "of",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "text": "much",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "distraction:",
+          "start": 3.05,
+          "end": 3.63
+        },
+        {
+          "text": "Are",
+          "start": 4.27,
+          "end": 4.35
+        },
+        {
+          "text": "you",
+          "start": 4.35,
+          "end": 4.49
+        },
+        {
+          "text": "mov'd,",
+          "start": 4.49,
+          "end": 4.78
+        },
+        {
+          "text": "my",
+          "start": 5.07,
+          "end": 5.17
+        },
+        {
+          "text": "lord?",
+          "start": 5.17,
+          "end": 5.37
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.23628530651330948
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ee76fa9cabe0c7808090af65e90eaec6de3c51a72755a909d4f6692eb398e8d",
+  "selected_reasons": []
+}

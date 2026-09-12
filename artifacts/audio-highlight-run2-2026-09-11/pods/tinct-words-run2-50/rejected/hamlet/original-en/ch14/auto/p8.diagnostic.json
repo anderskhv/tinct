@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "2a74d1f0be86948ee6c0668bfa407939243764b25ea727b8c00b8ea8f9504aee",
+  "attempts": [
+    {
+      "asr_seconds": 0.172642320394516,
+      "alignment_seconds": 0.00017665885388851166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Rosencrantz. Ho, Guildenstern! Bring in my lord.",
+        "hotwords": "Rosencrantz, Ho, Guildenstern, Bring"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosencrantz, Ho, Guildenstern, Bring in my lord.",
+          "start": 0.89,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Rosencrantz,",
+              "start": 0.89,
+              "end": 1.37,
+              "probability": 0.7071533203125
+            },
+            {
+              "text": " Ho,",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " Guildenstern,",
+              "start": 1.93,
+              "end": 2.39,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " Bring",
+              "start": 2.75,
+              "end": 2.81,
+              "probability": 0.2333984375
+            },
+            {
+              "text": " in",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " my",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " lord.",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.59423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.89,
+          "end": 1.37
+        },
+        {
+          "raw": "Ho,",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "Guildenstern,",
+          "start": 1.93,
+          "end": 2.39
+        },
+        {
+          "raw": "Bring",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "raw": "in",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "my",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "lord.",
+          "start": 3.11,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Rosencrantz.",
+        "Ho,",
+        "Guildenstern!",
+        "Bring",
+        "in",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.89,
+          "end": 1.37,
+          "key": "rosencrantz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ho,",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "ho",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Guildenstern,",
+          "start": 1.93,
+          "end": 2.39,
+          "key": "guildenstern",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bring",
+          "start": 2.75,
+          "end": 2.81,
+          "key": "bring",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 3.11,
+          "end": 3.37,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rosencrantz.",
+          "start": 0.89,
+          "end": 1.37
+        },
+        {
+          "text": "Ho,",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "Guildenstern!",
+          "start": 1.93,
+          "end": 2.39
+        },
+        {
+          "text": "Bring",
+          "start": 2.75,
+          "end": 2.81
+        },
+        {
+          "text": "in",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "my",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "lord.",
+          "start": 3.11,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.172879870980978
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c3ac696ab686b3ecb3bce476cccf868507aa34589a4c63f1ca0b7e341278df32",
+  "selected_reasons": []
+}

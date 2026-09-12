@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "4e26d93aec6e0aec1136b07d47aed4c773da92660d51df4cbec18c01caf27bd2",
+  "attempts": [
+    {
+      "asr_seconds": 0.21026434935629368,
+      "alignment_seconds": 0.0003518126904964447,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cinna, Casca, you're the first that rears your hand.",
+          "start": 0.08,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " Cinna,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.6084798177083334
+            },
+            {
+              "text": " Casca,",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.7330322265625
+            },
+            {
+              "text": " you're",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.890380859375
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " first",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " that",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rears",
+              "start": 2.44,
+              "end": 2.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " your",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hand.",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cinna,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Casca,",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "you're",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "first",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "rears",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "raw": "your",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "hand.",
+          "start": 2.88,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "Casca,",
+        "you",
+        "are",
+        "the",
+        "first",
+        "that",
+        "rears",
+        "your",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          10,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cinna,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "cinna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Casca,",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "casca",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "youre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "first",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rears",
+          "start": 2.44,
+          "end": 2.74,
+          "key": "rears",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "hand",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Casca,",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "you",
+          "start": 1.36,
+          "end": 1.63
+        },
+        {
+          "text": "are",
+          "start": 1.63,
+          "end": 1.765
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "first",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "that",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "rears",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "text": "your",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "hand.",
+          "start": 2.88,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21073842979967594
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fe8ef0970872dfd929d90f7569ac1b233b77c9e766a527d2a185901ec61f25d7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

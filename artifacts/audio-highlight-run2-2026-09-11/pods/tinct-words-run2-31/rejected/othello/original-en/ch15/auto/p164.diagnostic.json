@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "7d0eb98eb686c976f3fe62c6c9599f634a12586974c0ba9f88bf955a6d70dad8",
+  "attempts": [
+    {
+      "asr_seconds": 0.16026854515075684,
+      "alignment_seconds": 0.00017383787781000137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. That's he that was Othello. Here I am.",
+        "hotwords": "Othello, That's, Here, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, That's he that was Othello. Here I am.",
+          "start": 0.21,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.95,
+              "probability": 0.8416341145833334
+            },
+            {
+              "text": " That's",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.45630645751953125
+            },
+            {
+              "text": " he",
+              "start": 1.45,
+              "end": 1.51,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " that",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " was",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Othello.",
+              "start": 1.73,
+              "end": 2.19,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Here",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " I",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " am.",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.95
+        },
+        {
+          "raw": "That's",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "he",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "raw": "that",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "was",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.73,
+          "end": 2.19
+        },
+        {
+          "raw": "Here",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "I",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "am.",
+          "start": 2.65,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "That's",
+        "he",
+        "that",
+        "was",
+        "Othello.",
+        "Here",
+        "I",
+        "am."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.95,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.45,
+          "end": 1.51,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Othello.",
+          "start": 1.73,
+          "end": 2.19,
+          "key": "othello",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "am.",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "am",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.95
+        },
+        {
+          "text": "That's",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "he",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "text": "that",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "was",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "Othello.",
+          "start": 1.73,
+          "end": 2.19
+        },
+        {
+          "text": "Here",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "I",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "am.",
+          "start": 2.65,
+          "end": 2.89
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16050085239112377
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d2c3fc9a1f25ea94bef0ec20820e5d65ce04a87e7cfbcd65b572eff29796424f",
+  "selected_reasons": []
+}

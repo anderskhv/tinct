@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "2961d5803e028eb918a145a1f56d52c584fdf2e5dabbc14288ef74741a5ac934",
+  "attempts": [
+    {
+      "asr_seconds": 0.12444226117804646,
+      "alignment_seconds": 0.00022316304966807365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Are you selling an obstinate?",
+          "start": 0.08,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " you",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " selling",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.734375
+            },
+            {
+              "text": " an",
+              "start": 0.94,
+              "end": 1.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " obstinate?",
+              "start": 1.14,
+              "end": 1.6,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "selling",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "raw": "an",
+          "start": 0.94,
+          "end": 1.14
+        },
+        {
+          "raw": "obstinate?",
+          "start": 1.14,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "you",
+        "sullen",
+        "and",
+        "obstinate?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "selling",
+          "start": 0.64,
+          "end": 0.94,
+          "key": "selling",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.94,
+          "end": 1.14,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "obstinate?",
+          "start": 1.14,
+          "end": 1.6,
+          "key": "obstinate",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "you",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "sullen",
+          "start": 0.64,
+          "end": 0.89
+        },
+        {
+          "text": "and",
+          "start": 0.89,
+          "end": 1.015
+        },
+        {
+          "text": "obstinate?\"",
+          "start": 1.14,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12475420907139778
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e8f33da20626081f02f991af645fe879393044032277a543573607909cea877",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

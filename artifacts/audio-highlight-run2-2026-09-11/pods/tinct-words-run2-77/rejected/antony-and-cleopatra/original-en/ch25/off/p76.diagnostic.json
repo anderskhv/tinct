@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "519bb27e5fe2b4a0677709555c48dae1b6207d18bcb3154cea0f2654ee570564",
+  "attempts": [
+    {
+      "asr_seconds": 0.11957205200451426,
+      "alignment_seconds": 0.00014681500033475459,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra not know me yet",
+          "start": 0.05,
+          "end": 1.99,
+          "words": [
+            {
+              "text": " Cleopatra",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.9788411458333334
+            },
+            {
+              "text": " not",
+              "start": 0.99,
+              "end": 1.47,
+              "probability": 0.128662109375
+            },
+            {
+              "text": " know",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " me",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yet",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "not",
+          "start": 0.99,
+          "end": 1.47
+        },
+        {
+          "raw": "know",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "me",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "yet",
+          "start": 1.75,
+          "end": 1.99
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Not",
+        "know",
+        "me",
+        "yet?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.99,
+          "end": 1.47,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Not",
+          "start": 0.99,
+          "end": 1.47
+        },
+        {
+          "text": "know",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "me",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "yet?",
+          "start": 1.75,
+          "end": 1.99
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11977089897845872
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3c4d3d4a23df5e0292514fd3d15c6ceac16e912242521112b7a54e2652661731",
+  "selected_reasons": []
+}

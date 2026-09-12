@@ -1,0 +1,2330 @@
+{
+  "complete": true,
+  "signature": "099cc678e030b2276f705438d24eadcd012f4c9f414acea59f70f2933076722a",
+  "attempts": [
+    {
+      "asr_seconds": 0.8768804399296641,
+      "alignment_seconds": 0.0012209480628371239,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I spent a long time, almost eight years, in the military cadet school at Petersburg, and in the novelty of my surroundings there, many of my childish impressions grew dimmer, though I forgot nothing. I picked up so many new habits and opinions that I was transformed into a cruel, absurd, almost savage creature. A surface polish of courtesy and society manners I did acquire together with the French language.",
+        "hotwords": "I, Petersburg, French"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I spent a long time, almost eight years, in the military cadet school at Petersburg, and",
+          "start": 0.05,
+          "end": 5.93,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " spent",
+              "start": 0.49,
+              "end": 0.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 0.69,
+              "end": 0.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " long",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time,",
+              "start": 1.07,
+              "end": 1.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " almost",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eight",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " years,",
+              "start": 2.49,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.01,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " military",
+              "start": 3.47,
+              "end": 3.85,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " cadet",
+              "start": 3.85,
+              "end": 4.25,
+              "probability": 0.963623046875
+            },
+            {
+              "text": " school",
+              "start": 4.25,
+              "end": 4.53,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " at",
+              "start": 4.53,
+              "end": 4.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Petersburg,",
+              "start": 4.75,
+              "end": 5.15,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " and",
+              "start": 5.53,
+              "end": 5.93,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " in the novelty of my surroundings there, many of my childish impressions grew dimmer, though",
+          "start": 5.93,
+          "end": 10.77,
+          "words": [
+            {
+              "text": " in",
+              "start": 5.93,
+              "end": 6.03,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 6.03,
+              "end": 6.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " novelty",
+              "start": 6.13,
+              "end": 6.45,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 6.45,
+              "end": 6.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 6.71,
+              "end": 6.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " surroundings",
+              "start": 6.85,
+              "end": 7.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there,",
+              "start": 7.29,
+              "end": 7.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " many",
+              "start": 8.11,
+              "end": 8.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 8.25,
+              "end": 8.41,
+              "probability": 1.0
+            },
+            {
+              "text": " my",
+              "start": 8.41,
+              "end": 8.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " childish",
+              "start": 8.55,
+              "end": 8.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " impressions",
+              "start": 8.87,
+              "end": 9.49,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " grew",
+              "start": 9.49,
+              "end": 9.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dimmer,",
+              "start": 9.83,
+              "end": 10.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " though",
+              "start": 10.59,
+              "end": 10.77,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " I forgot nothing. I picked up so many new habits and opinions that I was transformed",
+          "start": 10.77,
+          "end": 15.47,
+          "words": [
+            {
+              "text": " I",
+              "start": 10.77,
+              "end": 10.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " forgot",
+              "start": 10.89,
+              "end": 11.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nothing.",
+              "start": 11.17,
+              "end": 11.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 12.27,
+              "end": 12.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " picked",
+              "start": 12.45,
+              "end": 12.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up",
+              "start": 12.61,
+              "end": 12.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 12.79,
+              "end": 13.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " many",
+              "start": 13.01,
+              "end": 13.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " new",
+              "start": 13.17,
+              "end": 13.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " habits",
+              "start": 13.41,
+              "end": 13.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 13.77,
+              "end": 13.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " opinions",
+              "start": 13.99,
+              "end": 14.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 14.39,
+              "end": 14.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " I",
+              "start": 14.65,
+              "end": 14.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 14.75,
+              "end": 14.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " transformed",
+              "start": 14.85,
+              "end": 15.47,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " into a cruel, absurd, almost savage creature. A surface polish of courtesy and society manners",
+          "start": 15.47,
+          "end": 22.31,
+          "words": [
+            {
+              "text": " into",
+              "start": 15.47,
+              "end": 15.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 15.81,
+              "end": 16.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cruel,",
+              "start": 16.05,
+              "end": 16.37,
+              "probability": 1.0
+            },
+            {
+              "text": " absurd,",
+              "start": 16.75,
+              "end": 17.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " almost",
+              "start": 17.65,
+              "end": 17.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " savage",
+              "start": 17.89,
+              "end": 18.39,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " creature.",
+              "start": 18.39,
+              "end": 18.89,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " A",
+              "start": 19.55,
+              "end": 19.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " surface",
+              "start": 19.77,
+              "end": 20.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " polish",
+              "start": 20.13,
+              "end": 20.57,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 20.57,
+              "end": 20.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " courtesy",
+              "start": 20.81,
+              "end": 21.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 21.21,
+              "end": 21.47,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " society",
+              "start": 21.47,
+              "end": 21.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " manners",
+              "start": 21.91,
+              "end": 22.31,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " I did acquire together with the French language.",
+          "start": 22.31,
+          "end": 24.91,
+          "words": [
+            {
+              "text": " I",
+              "start": 22.31,
+              "end": 22.89,
+              "probability": 0.31298828125
+            },
+            {
+              "text": " did",
+              "start": 22.89,
+              "end": 23.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " acquire",
+              "start": 23.05,
+              "end": 23.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " together",
+              "start": 23.41,
+              "end": 23.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 23.81,
+              "end": 24.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 24.07,
+              "end": 24.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " French",
+              "start": 24.21,
+              "end": 24.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " language.",
+              "start": 24.43,
+              "end": 24.91,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "spent",
+          "start": 0.49,
+          "end": 0.69
+        },
+        {
+          "raw": "a",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "raw": "long",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "time,",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "raw": "almost",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "raw": "eight",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "years,",
+          "start": 2.49,
+          "end": 2.87
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "military",
+          "start": 3.47,
+          "end": 3.85
+        },
+        {
+          "raw": "cadet",
+          "start": 3.85,
+          "end": 4.25
+        },
+        {
+          "raw": "school",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "raw": "at",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "raw": "Petersburg,",
+          "start": 4.75,
+          "end": 5.15
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.93
+        },
+        {
+          "raw": "in",
+          "start": 5.93,
+          "end": 6.03
+        },
+        {
+          "raw": "the",
+          "start": 6.03,
+          "end": 6.13
+        },
+        {
+          "raw": "novelty",
+          "start": 6.13,
+          "end": 6.45
+        },
+        {
+          "raw": "of",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "raw": "my",
+          "start": 6.71,
+          "end": 6.85
+        },
+        {
+          "raw": "surroundings",
+          "start": 6.85,
+          "end": 7.29
+        },
+        {
+          "raw": "there,",
+          "start": 7.29,
+          "end": 7.73
+        },
+        {
+          "raw": "many",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "raw": "of",
+          "start": 8.25,
+          "end": 8.41
+        },
+        {
+          "raw": "my",
+          "start": 8.41,
+          "end": 8.55
+        },
+        {
+          "raw": "childish",
+          "start": 8.55,
+          "end": 8.87
+        },
+        {
+          "raw": "impressions",
+          "start": 8.87,
+          "end": 9.49
+        },
+        {
+          "raw": "grew",
+          "start": 9.49,
+          "end": 9.83
+        },
+        {
+          "raw": "dimmer,",
+          "start": 9.83,
+          "end": 10.27
+        },
+        {
+          "raw": "though",
+          "start": 10.59,
+          "end": 10.77
+        },
+        {
+          "raw": "I",
+          "start": 10.77,
+          "end": 10.89
+        },
+        {
+          "raw": "forgot",
+          "start": 10.89,
+          "end": 11.17
+        },
+        {
+          "raw": "nothing.",
+          "start": 11.17,
+          "end": 11.59
+        },
+        {
+          "raw": "I",
+          "start": 12.27,
+          "end": 12.45
+        },
+        {
+          "raw": "picked",
+          "start": 12.45,
+          "end": 12.61
+        },
+        {
+          "raw": "up",
+          "start": 12.61,
+          "end": 12.79
+        },
+        {
+          "raw": "so",
+          "start": 12.79,
+          "end": 13.01
+        },
+        {
+          "raw": "many",
+          "start": 13.01,
+          "end": 13.17
+        },
+        {
+          "raw": "new",
+          "start": 13.17,
+          "end": 13.41
+        },
+        {
+          "raw": "habits",
+          "start": 13.41,
+          "end": 13.77
+        },
+        {
+          "raw": "and",
+          "start": 13.77,
+          "end": 13.99
+        },
+        {
+          "raw": "opinions",
+          "start": 13.99,
+          "end": 14.39
+        },
+        {
+          "raw": "that",
+          "start": 14.39,
+          "end": 14.65
+        },
+        {
+          "raw": "I",
+          "start": 14.65,
+          "end": 14.75
+        },
+        {
+          "raw": "was",
+          "start": 14.75,
+          "end": 14.85
+        },
+        {
+          "raw": "transformed",
+          "start": 14.85,
+          "end": 15.47
+        },
+        {
+          "raw": "into",
+          "start": 15.47,
+          "end": 15.81
+        },
+        {
+          "raw": "a",
+          "start": 15.81,
+          "end": 16.05
+        },
+        {
+          "raw": "cruel,",
+          "start": 16.05,
+          "end": 16.37
+        },
+        {
+          "raw": "absurd,",
+          "start": 16.75,
+          "end": 17.15
+        },
+        {
+          "raw": "almost",
+          "start": 17.65,
+          "end": 17.89
+        },
+        {
+          "raw": "savage",
+          "start": 17.89,
+          "end": 18.39
+        },
+        {
+          "raw": "creature.",
+          "start": 18.39,
+          "end": 18.89
+        },
+        {
+          "raw": "A",
+          "start": 19.55,
+          "end": 19.77
+        },
+        {
+          "raw": "surface",
+          "start": 19.77,
+          "end": 20.13
+        },
+        {
+          "raw": "polish",
+          "start": 20.13,
+          "end": 20.57
+        },
+        {
+          "raw": "of",
+          "start": 20.57,
+          "end": 20.81
+        },
+        {
+          "raw": "courtesy",
+          "start": 20.81,
+          "end": 21.21
+        },
+        {
+          "raw": "and",
+          "start": 21.21,
+          "end": 21.47
+        },
+        {
+          "raw": "society",
+          "start": 21.47,
+          "end": 21.91
+        },
+        {
+          "raw": "manners",
+          "start": 21.91,
+          "end": 22.31
+        },
+        {
+          "raw": "I",
+          "start": 22.31,
+          "end": 22.89
+        },
+        {
+          "raw": "did",
+          "start": 22.89,
+          "end": 23.05
+        },
+        {
+          "raw": "acquire",
+          "start": 23.05,
+          "end": 23.41
+        },
+        {
+          "raw": "together",
+          "start": 23.41,
+          "end": 23.81
+        },
+        {
+          "raw": "with",
+          "start": 23.81,
+          "end": 24.07
+        },
+        {
+          "raw": "the",
+          "start": 24.07,
+          "end": 24.21
+        },
+        {
+          "raw": "French",
+          "start": 24.21,
+          "end": 24.43
+        },
+        {
+          "raw": "language.",
+          "start": 24.43,
+          "end": 24.91
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "spent",
+        "a",
+        "long",
+        "time,",
+        "almost",
+        "eight",
+        "years,",
+        "in",
+        "the",
+        "military",
+        "cadet",
+        "school",
+        "at",
+        "Petersburg,",
+        "and",
+        "in",
+        "the",
+        "novelty",
+        "of",
+        "my",
+        "surroundings",
+        "there,",
+        "many",
+        "of",
+        "my",
+        "childish",
+        "impressions",
+        "grew",
+        "dimmer,",
+        "though",
+        "I",
+        "forgot",
+        "nothing.",
+        "I",
+        "picked",
+        "up",
+        "so",
+        "many",
+        "new",
+        "habits",
+        "and",
+        "opinions",
+        "that",
+        "I",
+        "was",
+        "transformed",
+        "into",
+        "a",
+        "cruel,",
+        "absurd,",
+        "almost",
+        "savage",
+        "creature.",
+        "A",
+        "surface",
+        "polish",
+        "of",
+        "courtesy",
+        "and",
+        "society",
+        "manners",
+        "I",
+        "did",
+        "acquire",
+        "together",
+        "with",
+        "the",
+        "French",
+        "language."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          70,
+          0,
+          70
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "spent",
+          "start": 0.49,
+          "end": 0.69,
+          "key": "spent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.69,
+          "end": 0.85,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "long",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 1.07,
+          "end": 1.53,
+          "key": "time",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "almost",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "eight",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "eight",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "years,",
+          "start": 2.49,
+          "end": 2.87,
+          "key": "years",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.35,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "military",
+          "start": 3.47,
+          "end": 3.85,
+          "key": "military",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cadet",
+          "start": 3.85,
+          "end": 4.25,
+          "key": "cadet",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "school",
+          "start": 4.25,
+          "end": 4.53,
+          "key": "school",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.53,
+          "end": 4.75,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Petersburg,",
+          "start": 4.75,
+          "end": 5.15,
+          "key": "petersburg",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.93,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.93,
+          "end": 6.03,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.03,
+          "end": 6.13,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "novelty",
+          "start": 6.13,
+          "end": 6.45,
+          "key": "novelty",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.45,
+          "end": 6.71,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.71,
+          "end": 6.85,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "surroundings",
+          "start": 6.85,
+          "end": 7.29,
+          "key": "surroundings",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 7.29,
+          "end": 7.73,
+          "key": "there",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 8.11,
+          "end": 8.25,
+          "key": "many",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.25,
+          "end": 8.41,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.41,
+          "end": 8.55,
+          "key": "my",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "childish",
+          "start": 8.55,
+          "end": 8.87,
+          "key": "childish",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "impressions",
+          "start": 8.87,
+          "end": 9.49,
+          "key": "impressions",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "grew",
+          "start": 9.49,
+          "end": 9.83,
+          "key": "grew",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "dimmer,",
+          "start": 9.83,
+          "end": 10.27,
+          "key": "dimmer",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 10.59,
+          "end": 10.77,
+          "key": "though",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.77,
+          "end": 10.89,
+          "key": "i",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "forgot",
+          "start": 10.89,
+          "end": 11.17,
+          "key": "forgot",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 11.17,
+          "end": 11.59,
+          "key": "nothing",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.27,
+          "end": 12.45,
+          "key": "i",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "picked",
+          "start": 12.45,
+          "end": 12.61,
+          "key": "picked",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 12.61,
+          "end": 12.79,
+          "key": "up",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 12.79,
+          "end": 13.01,
+          "key": "so",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 13.01,
+          "end": 13.17,
+          "key": "many",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 13.17,
+          "end": 13.41,
+          "key": "new",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "habits",
+          "start": 13.41,
+          "end": 13.77,
+          "key": "habits",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.77,
+          "end": 13.99,
+          "key": "and",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "opinions",
+          "start": 13.99,
+          "end": 14.39,
+          "key": "opinions",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 14.39,
+          "end": 14.65,
+          "key": "that",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.65,
+          "end": 14.75,
+          "key": "i",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 14.75,
+          "end": 14.85,
+          "key": "was",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "transformed",
+          "start": 14.85,
+          "end": 15.47,
+          "key": "transformed",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 15.47,
+          "end": 15.81,
+          "key": "into",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.81,
+          "end": 16.05,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "cruel,",
+          "start": 16.05,
+          "end": 16.37,
+          "key": "cruel",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "absurd,",
+          "start": 16.75,
+          "end": 17.15,
+          "key": "absurd",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 17.65,
+          "end": 17.89,
+          "key": "almost",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "savage",
+          "start": 17.89,
+          "end": 18.39,
+          "key": "savage",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "creature.",
+          "start": 18.39,
+          "end": 18.89,
+          "key": "creature",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 19.55,
+          "end": 19.77,
+          "key": "a",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "surface",
+          "start": 19.77,
+          "end": 20.13,
+          "key": "surface",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "polish",
+          "start": 20.13,
+          "end": 20.57,
+          "key": "polish",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 20.57,
+          "end": 20.81,
+          "key": "of",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "courtesy",
+          "start": 20.81,
+          "end": 21.21,
+          "key": "courtesy",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.21,
+          "end": 21.47,
+          "key": "and",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "society",
+          "start": 21.47,
+          "end": 21.91,
+          "key": "society",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "manners",
+          "start": 21.91,
+          "end": 22.31,
+          "key": "manners",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 22.31,
+          "end": 22.89,
+          "key": "i",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 22.89,
+          "end": 23.05,
+          "key": "did",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "acquire",
+          "start": 23.05,
+          "end": 23.41,
+          "key": "acquire",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "together",
+          "start": 23.41,
+          "end": 23.81,
+          "key": "together",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 23.81,
+          "end": 24.07,
+          "key": "with",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.07,
+          "end": 24.21,
+          "key": "the",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "French",
+          "start": 24.21,
+          "end": 24.43,
+          "key": "french",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "language.",
+          "start": 24.43,
+          "end": 24.91,
+          "key": "language",
+          "pieces": [
+            69
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "spent",
+          "start": 0.49,
+          "end": 0.69
+        },
+        {
+          "text": "a",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "text": "long",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "time,",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "text": "almost",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "text": "eight",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "years,",
+          "start": 2.49,
+          "end": 2.87
+        },
+        {
+          "text": "in",
+          "start": 3.01,
+          "end": 3.35
+        },
+        {
+          "text": "the",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "military",
+          "start": 3.47,
+          "end": 3.85
+        },
+        {
+          "text": "cadet",
+          "start": 3.85,
+          "end": 4.25
+        },
+        {
+          "text": "school",
+          "start": 4.25,
+          "end": 4.53
+        },
+        {
+          "text": "at",
+          "start": 4.53,
+          "end": 4.75
+        },
+        {
+          "text": "Petersburg,",
+          "start": 4.75,
+          "end": 5.15
+        },
+        {
+          "text": "and",
+          "start": 5.53,
+          "end": 5.93
+        },
+        {
+          "text": "in",
+          "start": 5.93,
+          "end": 6.03
+        },
+        {
+          "text": "the",
+          "start": 6.03,
+          "end": 6.13
+        },
+        {
+          "text": "novelty",
+          "start": 6.13,
+          "end": 6.45
+        },
+        {
+          "text": "of",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "text": "my",
+          "start": 6.71,
+          "end": 6.85
+        },
+        {
+          "text": "surroundings",
+          "start": 6.85,
+          "end": 7.29
+        },
+        {
+          "text": "there,",
+          "start": 7.29,
+          "end": 7.73
+        },
+        {
+          "text": "many",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "text": "of",
+          "start": 8.25,
+          "end": 8.41
+        },
+        {
+          "text": "my",
+          "start": 8.41,
+          "end": 8.55
+        },
+        {
+          "text": "childish",
+          "start": 8.55,
+          "end": 8.87
+        },
+        {
+          "text": "impressions",
+          "start": 8.87,
+          "end": 9.49
+        },
+        {
+          "text": "grew",
+          "start": 9.49,
+          "end": 9.83
+        },
+        {
+          "text": "dimmer,",
+          "start": 9.83,
+          "end": 10.27
+        },
+        {
+          "text": "though",
+          "start": 10.59,
+          "end": 10.77
+        },
+        {
+          "text": "I",
+          "start": 10.77,
+          "end": 10.89
+        },
+        {
+          "text": "forgot",
+          "start": 10.89,
+          "end": 11.17
+        },
+        {
+          "text": "nothing.",
+          "start": 11.17,
+          "end": 11.59
+        },
+        {
+          "text": "I",
+          "start": 12.27,
+          "end": 12.45
+        },
+        {
+          "text": "picked",
+          "start": 12.45,
+          "end": 12.61
+        },
+        {
+          "text": "up",
+          "start": 12.61,
+          "end": 12.79
+        },
+        {
+          "text": "so",
+          "start": 12.79,
+          "end": 13.01
+        },
+        {
+          "text": "many",
+          "start": 13.01,
+          "end": 13.17
+        },
+        {
+          "text": "new",
+          "start": 13.17,
+          "end": 13.41
+        },
+        {
+          "text": "habits",
+          "start": 13.41,
+          "end": 13.77
+        },
+        {
+          "text": "and",
+          "start": 13.77,
+          "end": 13.99
+        },
+        {
+          "text": "opinions",
+          "start": 13.99,
+          "end": 14.39
+        },
+        {
+          "text": "that",
+          "start": 14.39,
+          "end": 14.65
+        },
+        {
+          "text": "I",
+          "start": 14.65,
+          "end": 14.75
+        },
+        {
+          "text": "was",
+          "start": 14.75,
+          "end": 14.85
+        },
+        {
+          "text": "transformed",
+          "start": 14.85,
+          "end": 15.47
+        },
+        {
+          "text": "into",
+          "start": 15.47,
+          "end": 15.81
+        },
+        {
+          "text": "a",
+          "start": 15.81,
+          "end": 16.05
+        },
+        {
+          "text": "cruel,",
+          "start": 16.05,
+          "end": 16.37
+        },
+        {
+          "text": "absurd,",
+          "start": 16.75,
+          "end": 17.15
+        },
+        {
+          "text": "almost",
+          "start": 17.65,
+          "end": 17.89
+        },
+        {
+          "text": "savage",
+          "start": 17.89,
+          "end": 18.39
+        },
+        {
+          "text": "creature.",
+          "start": 18.39,
+          "end": 18.89
+        },
+        {
+          "text": "A",
+          "start": 19.55,
+          "end": 19.77
+        },
+        {
+          "text": "surface",
+          "start": 19.77,
+          "end": 20.13
+        },
+        {
+          "text": "polish",
+          "start": 20.13,
+          "end": 20.57
+        },
+        {
+          "text": "of",
+          "start": 20.57,
+          "end": 20.81
+        },
+        {
+          "text": "courtesy",
+          "start": 20.81,
+          "end": 21.21
+        },
+        {
+          "text": "and",
+          "start": 21.21,
+          "end": 21.47
+        },
+        {
+          "text": "society",
+          "start": 21.47,
+          "end": 21.91
+        },
+        {
+          "text": "manners",
+          "start": 21.91,
+          "end": 22.31
+        },
+        {
+          "text": "I",
+          "start": 22.31,
+          "end": 22.89
+        },
+        {
+          "text": "did",
+          "start": 22.89,
+          "end": 23.05
+        },
+        {
+          "text": "acquire",
+          "start": 23.05,
+          "end": 23.41
+        },
+        {
+          "text": "together",
+          "start": 23.41,
+          "end": 23.81
+        },
+        {
+          "text": "with",
+          "start": 23.81,
+          "end": 24.07
+        },
+        {
+          "text": "the",
+          "start": 24.07,
+          "end": 24.21
+        },
+        {
+          "text": "French",
+          "start": 24.21,
+          "end": 24.43
+        },
+        {
+          "text": "language.",
+          "start": 24.43,
+          "end": 24.91
+        }
+      ],
+      "stats": {
+        "expected_words": 70,
+        "heard_words": 70,
+        "matched_words": 70
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8786594243720174
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "637abdf928275f3e577c40bb6f23a3e3b714ff780e22475ff9e51b29565e5eb3",
+  "selected_reasons": []
+}

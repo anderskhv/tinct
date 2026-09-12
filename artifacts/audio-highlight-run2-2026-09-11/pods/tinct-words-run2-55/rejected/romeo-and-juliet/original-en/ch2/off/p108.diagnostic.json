@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "d5429002127fa86d25f697db3ad4c84d4ae9c9e3fd4fdbdb9812bfd13f406397",
+  "attempts": [
+    {
+      "asr_seconds": 0.30741830728948116,
+      "alignment_seconds": 0.00028537679463624954,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benvolio, by giving liberty unto thine eyes, examine other beauties.",
+          "start": 0.08,
+          "end": 4.9,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.08,
+              "end": 1.1,
+              "probability": 0.9275716145833334
+            },
+            {
+              "text": " by",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " giving",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " liberty",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.94140625
+            },
+            {
+              "text": " unto",
+              "start": 2.28,
+              "end": 2.56,
+              "probability": 0.95703125
+            },
+            {
+              "text": " thine",
+              "start": 2.56,
+              "end": 2.88,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " eyes,",
+              "start": 2.88,
+              "end": 3.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " examine",
+              "start": 3.64,
+              "end": 3.94,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " other",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " beauties.",
+              "start": 4.34,
+              "end": 4.9,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "raw": "by",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "giving",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "liberty",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "unto",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "raw": "thine",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "raw": "eyes,",
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "raw": "examine",
+          "start": 3.64,
+          "end": 3.94
+        },
+        {
+          "raw": "other",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "beauties.",
+          "start": 4.34,
+          "end": 4.9
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "By",
+        "giving",
+        "liberty",
+        "unto",
+        "thine",
+        "eyes;",
+        "Examine",
+        "other",
+        "beauties."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.1,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "giving",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "giving",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "liberty",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "liberty",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 2.28,
+          "end": 2.56,
+          "key": "unto",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 2.56,
+          "end": 2.88,
+          "key": "thine",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "eyes,",
+          "start": 2.88,
+          "end": 3.28,
+          "key": "eyes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "examine",
+          "start": 3.64,
+          "end": 3.94,
+          "key": "examine",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 3.94,
+          "end": 4.34,
+          "key": "other",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "beauties.",
+          "start": 4.34,
+          "end": 4.9,
+          "key": "beauties",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.08,
+          "end": 1.1
+        },
+        {
+          "text": "By",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "giving",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "liberty",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "unto",
+          "start": 2.28,
+          "end": 2.56
+        },
+        {
+          "text": "thine",
+          "start": 2.56,
+          "end": 2.88
+        },
+        {
+          "text": "eyes;",
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "text": "Examine",
+          "start": 3.64,
+          "end": 3.94
+        },
+        {
+          "text": "other",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "beauties.",
+          "start": 4.34,
+          "end": 4.9
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.307766773737967
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "74f026ebf30efdc6167e5c29892bd40057939f9ceb8fee05442ebb1c0831fb7f",
+  "selected_reasons": []
+}

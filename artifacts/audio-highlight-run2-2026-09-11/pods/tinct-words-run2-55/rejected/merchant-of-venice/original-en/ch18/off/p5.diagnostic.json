@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "72d5233a175f74c2158bb04c52c2b42eea5b04f0088c5ca164b4c67e207af6ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.1668796418234706,
+      "alignment_seconds": 0.00044014211744070053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, go on and call the Jew into the court.",
+          "start": 0.08,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " go",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " on",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " and",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " call",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Jew",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " into",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " court.",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "go",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "on",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "call",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "Jew",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "into",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "court.",
+          "start": 2.36,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "Go",
+        "one",
+        "and",
+        "call",
+        "the",
+        "Jew",
+        "into",
+        "the",
+        "court."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "call",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Jew",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "jew",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "into",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.36,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "court.",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "court",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Go",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "one",
+          "start": 1.26,
+          "end": 1.33
+        },
+        {
+          "text": "and",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "call",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "the",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "Jew",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "into",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "text": "the",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "court.",
+          "start": 2.36,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.16752338409423828
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c68beec6218186988740884d8fd6a97ec3aa515d605249731a5a564272f85b79",
+  "selected_reasons": []
+}

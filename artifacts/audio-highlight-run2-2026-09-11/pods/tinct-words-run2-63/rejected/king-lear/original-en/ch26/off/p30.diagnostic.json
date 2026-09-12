@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "6d3cf63db581335e8519951853b4c538edd64f8faa4f31e0a52f8e9234f48895",
+  "attempts": [
+    {
+      "asr_seconds": 0.11799659766256809,
+      "alignment_seconds": 0.00029282644391059875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " goneral, and interlude.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " goneral,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.22735595703125
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.29,
+              "probability": 0.9765625
+            },
+            {
+              "text": " interlude.",
+              "start": 1.29,
+              "end": 1.75,
+              "probability": 0.993896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "goneral,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.29
+        },
+        {
+          "raw": "interlude.",
+          "start": 1.29,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Goneril.",
+        "An",
+        "interlude!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "goneral,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "goneral",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.29,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "interlude.",
+          "start": 1.29,
+          "end": 1.75,
+          "key": "interlude",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Goneril.",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "An",
+          "start": 0.645,
+          "end": 0.968
+        },
+        {
+          "text": "interlude!",
+          "start": 1.29,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11838462576270103
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "768c9fcaec5b99fcf9b17f417ef1ab8c985e7216ae47578fc682580e4d645b8d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "af8bcbf5710ebc5d0c907241d97f7a97cd40c21f165dbec5d7a3ba7bda9e5478",
+  "attempts": [
+    {
+      "asr_seconds": 0.2368399011902511,
+      "alignment_seconds": 0.00035566510632634163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The snow, the wet.\" (I yawned.)",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The snow, the wet. I yawned.",
+          "start": 0.02,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " snow,",
+              "start": 0.52,
+              "end": 0.84,
+              "probability": 0.96484375
+            },
+            {
+              "text": " the",
+              "start": 0.92,
+              "end": 1.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " wet.",
+              "start": 1.0,
+              "end": 1.26,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " yawned.",
+              "start": 1.86,
+              "end": 2.15,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "snow,",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "raw": "wet.",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "yawned.",
+          "start": 1.86,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "snow,",
+        "the",
+        "wet.\"",
+        "(I",
+        "yawned.)"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "snow,",
+          "start": 0.52,
+          "end": 0.84,
+          "key": "snow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.92,
+          "end": 1.0,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wet.",
+          "start": 1.0,
+          "end": 1.26,
+          "key": "wet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "yawned.",
+          "start": 1.86,
+          "end": 2.15,
+          "key": "yawned",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "snow,",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 0.92,
+          "end": 1.0
+        },
+        {
+          "text": "wet.\"",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "text": "(I",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "yawned.)",
+          "start": 1.86,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23731779213994741
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e619673cedd1edc412d2665762e9cfbd35fc66b26c3cf2cedb8064107b5ad228",
+  "selected_reasons": []
+}

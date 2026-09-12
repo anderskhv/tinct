@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "c71e6d6a0ded8edc9667747b3c28f376eabc1d33a115e9bf8cd3cb36c805866c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13640115084126592,
+      "alignment_seconds": 0.00015484914183616638,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rodrigo, oh villain that I am.",
+          "start": 0.56,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Rodrigo,",
+              "start": 0.56,
+              "end": 0.98,
+              "probability": 0.521484375
+            },
+            {
+              "text": " oh",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.54541015625
+            },
+            {
+              "text": " villain",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " that",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " I",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.990234375
+            },
+            {
+              "text": " am.",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rodrigo,",
+          "start": 0.56,
+          "end": 0.98
+        },
+        {
+          "raw": "oh",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "villain",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "that",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "I",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "am.",
+          "start": 2.0,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "O,",
+        "villain",
+        "that",
+        "I",
+        "am!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rodrigo,",
+          "start": 0.56,
+          "end": 0.98,
+          "key": "rodrigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "villain",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am.",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "O,",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "villain",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "that",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "I",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "am!",
+          "start": 2.0,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13660265877842903
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dcdbfc3ae8f3bb005fe2462d14b32f0fa9dd01a52f95b7c9b2e66b6e82eee25f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

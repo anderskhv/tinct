@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "5cc2b62d1b66e9ad369c7b22fba01c3fc2b3e342776c0e3c888795b9fd7ca11c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09158814884722233,
+      "alignment_seconds": 0.00017732661217451096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I think not.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.85546875
+            },
+            {
+              "text": " think",
+              "start": 0.51,
+              "end": 0.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " not.",
+              "start": 0.73,
+              "end": 1.03,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "think",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "raw": "not.",
+          "start": 0.73,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "think",
+        "not.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.51,
+          "end": 0.73,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 0.73,
+          "end": 1.03,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "think",
+          "start": 0.51,
+          "end": 0.73
+        },
+        {
+          "text": "not.\"",
+          "start": 0.73,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09182713646441698
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4143905768b8fbf064edaaae38b3797e3d6e05993a87a569dc20103ef22eed79",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "d50a1a889d6b1281f761c23be077a7541db01bb429b91bffb990995f44d80d50",
+  "attempts": [
+    {
+      "asr_seconds": 0.11532214190810919,
+      "alignment_seconds": 0.0003166571259498596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lorenzo, who calls.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Lorenzo,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " who",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " calls.",
+              "start": 1.35,
+              "end": 1.61,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "who",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "calls.",
+          "start": 1.35,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Lorenzo.",
+        "Who",
+        "calls?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lorenzo,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "lorenzo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.27,
+          "end": 1.35,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "calls.",
+          "start": 1.35,
+          "end": 1.61,
+          "key": "calls",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lorenzo.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Who",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "calls?",
+          "start": 1.35,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11573978140950203
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ee6ad62a086b88a160d2d36cc1eeb3a7a79d7e4bd4e6a00fe8cb4c19719f52e4",
+  "selected_reasons": []
+}

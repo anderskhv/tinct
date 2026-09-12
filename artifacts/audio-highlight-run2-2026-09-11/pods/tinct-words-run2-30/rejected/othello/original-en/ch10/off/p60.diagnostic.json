@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "0100141dae940acf9acfb044c1d38b9a029697877d28fddc0d0da5d9702909f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.09784529777243733,
+      "alignment_seconds": 0.0001172991469502449,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ocello, the handkerchief.",
+          "start": 0.08,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Ocello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.5799967447916666
+            },
+            {
+              "text": " the",
+              "start": 1.1,
+              "end": 1.18,
+              "probability": 0.69921875
+            },
+            {
+              "text": " handkerchief.",
+              "start": 1.18,
+              "end": 1.68,
+              "probability": 0.85888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ocello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "raw": "handkerchief.",
+          "start": 1.18,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "The",
+        "handkerchief!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ocello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "ocello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.18,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "handkerchief.",
+          "start": 1.18,
+          "end": 1.68,
+          "key": "handkerchief",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.0,
+          "end": 0.55
+        },
+        {
+          "text": "The",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "text": "handkerchief!",
+          "start": 1.18,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09799242671579123
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "024d4fef6c52d8bb243fbbbf6b3761f960b089c96cb50b75ff7a71043ceb1cd2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

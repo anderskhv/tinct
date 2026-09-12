@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "4d416e54eafb76a328e8d63d6732e9ae1c1cf9046fb77f3292680b0877b24267",
+  "attempts": [
+    {
+      "asr_seconds": 0.17794099589809775,
+      "alignment_seconds": 0.0004363912157714367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Camels?\" said I, wondering why he could possibly want to know.",
+        "hotwords": "Camels, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Camels said I, wondering why he could possibly want to know.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Camels",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.499542236328125
+            },
+            {
+              "text": " said",
+              "start": 0.87,
+              "end": 1.39,
+              "probability": 0.1875
+            },
+            {
+              "text": " I,",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " wondering",
+              "start": 1.73,
+              "end": 1.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " why",
+              "start": 1.99,
+              "end": 2.29,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " could",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " possibly",
+              "start": 2.59,
+              "end": 2.95,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " want",
+              "start": 2.95,
+              "end": 3.29,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " to",
+              "start": 3.29,
+              "end": 3.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " know.",
+              "start": 3.41,
+              "end": 3.63,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camels",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "said",
+          "start": 0.87,
+          "end": 1.39
+        },
+        {
+          "raw": "I,",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "wondering",
+          "start": 1.73,
+          "end": 1.99
+        },
+        {
+          "raw": "why",
+          "start": 1.99,
+          "end": 2.29
+        },
+        {
+          "raw": "he",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "could",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "possibly",
+          "start": 2.59,
+          "end": 2.95
+        },
+        {
+          "raw": "want",
+          "start": 2.95,
+          "end": 3.29
+        },
+        {
+          "raw": "to",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "raw": "know.",
+          "start": 3.41,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"Camels?\"",
+        "said",
+        "I,",
+        "wondering",
+        "why",
+        "he",
+        "could",
+        "possibly",
+        "want",
+        "to",
+        "know."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camels",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "camels",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.87,
+          "end": 1.39,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wondering",
+          "start": 1.73,
+          "end": 1.99,
+          "key": "wondering",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.99,
+          "end": 2.29,
+          "key": "why",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "could",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "possibly",
+          "start": 2.59,
+          "end": 2.95,
+          "key": "possibly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 2.95,
+          "end": 3.29,
+          "key": "want",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.29,
+          "end": 3.41,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 3.41,
+          "end": 3.63,
+          "key": "know",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Camels?\"",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "said",
+          "start": 0.87,
+          "end": 1.39
+        },
+        {
+          "text": "I,",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "wondering",
+          "start": 1.73,
+          "end": 1.99
+        },
+        {
+          "text": "why",
+          "start": 1.99,
+          "end": 2.29
+        },
+        {
+          "text": "he",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "could",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "possibly",
+          "start": 2.59,
+          "end": 2.95
+        },
+        {
+          "text": "want",
+          "start": 2.95,
+          "end": 3.29
+        },
+        {
+          "text": "to",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "text": "know.",
+          "start": 3.41,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1785450167953968
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6abd32c75242b75cd8cf290b5ed1acc0f0ccef67a98af0ddcc63ab720a8abe92",
+  "selected_reasons": []
+}

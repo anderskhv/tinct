@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "d55919ec965365c966015efc351e9c2cc0f4dea600248e5e64ada51f6cf506a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.30196383499423973,
+      "alignment_seconds": 0.0005327699764166027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Last See I Darem with J.C. Doyle, she said, and Love's old sweet song.",
+          "start": 0.05,
+          "end": 4.55,
+          "words": [
+            {
+              "text": " Last",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.07958984375
+            },
+            {
+              "text": " See",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.685546875
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " Darem",
+              "start": 0.97,
+              "end": 1.25,
+              "probability": 0.4371744791666667
+            },
+            {
+              "text": " with",
+              "start": 1.25,
+              "end": 1.33,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " J",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.74853515625
+            },
+            {
+              "text": ".C.",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.856201171875
+            },
+            {
+              "text": " Doyle,",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " she",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " said,",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Love's",
+              "start": 3.27,
+              "end": 3.61,
+              "probability": 0.857177734375
+            },
+            {
+              "text": " old",
+              "start": 3.61,
+              "end": 3.91,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " sweet",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " song.",
+              "start": 4.19,
+              "end": 4.55,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Last",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "See",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "Darem",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "raw": "with",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "raw": "J",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": ".C.",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "Doyle,",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "she",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "said,",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "raw": "and",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "Love's",
+          "start": 3.27,
+          "end": 3.61
+        },
+        {
+          "raw": "old",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "raw": "sweet",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "song.",
+          "start": 4.19,
+          "end": 4.55
+        }
+      ],
+      "expected_tokens": [
+        "—_Là",
+        "ci",
+        "darem_",
+        "with",
+        "J.",
+        "C.",
+        "Doyle,",
+        "she",
+        "said,",
+        "and",
+        "_Love's",
+        "Old",
+        "Sweet",
+        "Song_."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          14,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Last",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "last",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Darem",
+          "start": 0.97,
+          "end": 1.25,
+          "key": "darem",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.25,
+          "end": 1.33,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "J",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "j",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".C.",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "c",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Doyle,",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "doyle",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Love's",
+          "start": 3.27,
+          "end": 3.61,
+          "key": "loves",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 3.61,
+          "end": 3.91,
+          "key": "old",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 3.91,
+          "end": 4.19,
+          "key": "sweet",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "song.",
+          "start": 4.19,
+          "end": 4.55,
+          "key": "song",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_Là",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "ci",
+          "start": 0.485,
+          "end": 0.728
+        },
+        {
+          "text": "darem_",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "text": "with",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "text": "J.",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "C.",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "Doyle,",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "she",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "said,",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "text": "and",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "_Love's",
+          "start": 3.27,
+          "end": 3.61
+        },
+        {
+          "text": "Old",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "text": "Sweet",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "Song_.",
+          "start": 4.19,
+          "end": 4.55
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.3027087090013083
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b2b881c565a8b8c8d20461eda9f0eac91e09350624c0ad18d4d2ee181735aeae",
+  "selected_reasons": []
+}

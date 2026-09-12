@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "468946e876efa17282e0f65f47af978c65ff470727357cd8fd017c88d23df797",
+  "attempts": [
+    {
+      "asr_seconds": 0.11853996402351186,
+      "alignment_seconds": 0.0002559309941716492,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The greatest disgrace to have in the family, Mr. Power added.",
+          "start": 0.05,
+          "end": 3.75,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.489501953125
+            },
+            {
+              "text": " greatest",
+              "start": 0.51,
+              "end": 0.87,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " disgrace",
+              "start": 0.87,
+              "end": 1.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 1.77,
+              "end": 1.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " family,",
+              "start": 1.99,
+              "end": 2.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mr.",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Power",
+              "start": 3.27,
+              "end": 3.29,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " added.",
+              "start": 3.29,
+              "end": 3.75,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "greatest",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "raw": "disgrace",
+          "start": 0.87,
+          "end": 1.37
+        },
+        {
+          "raw": "to",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "have",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "in",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "raw": "the",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "family,",
+          "start": 1.99,
+          "end": 2.39
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "Power",
+          "start": 3.27,
+          "end": 3.29
+        },
+        {
+          "raw": "added.",
+          "start": 3.29,
+          "end": 3.75
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "greatest",
+        "disgrace",
+        "to",
+        "have",
+        "in",
+        "the",
+        "family,",
+        "Mr",
+        "Power",
+        "added."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "greatest",
+          "start": 0.51,
+          "end": 0.87,
+          "key": "greatest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "disgrace",
+          "start": 0.87,
+          "end": 1.37,
+          "key": "disgrace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.77,
+          "end": 1.87,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "family,",
+          "start": 1.99,
+          "end": 2.39,
+          "key": "family",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.89,
+          "end": 3.01,
+          "key": "mr",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 3.27,
+          "end": 3.29,
+          "key": "power",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "added.",
+          "start": 3.29,
+          "end": 3.75,
+          "key": "added",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "greatest",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "text": "disgrace",
+          "start": 0.87,
+          "end": 1.37
+        },
+        {
+          "text": "to",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "have",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "in",
+          "start": 1.77,
+          "end": 1.87
+        },
+        {
+          "text": "the",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "family,",
+          "start": 1.99,
+          "end": 2.39
+        },
+        {
+          "text": "Mr",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "Power",
+          "start": 3.27,
+          "end": 3.29
+        },
+        {
+          "text": "added.",
+          "start": 3.29,
+          "end": 3.75
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11889137502294034
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d033f714209d8f1cdb01e4c3759f9432970dfcb86e43e6312a16869d1b8116db",
+  "selected_reasons": []
+}

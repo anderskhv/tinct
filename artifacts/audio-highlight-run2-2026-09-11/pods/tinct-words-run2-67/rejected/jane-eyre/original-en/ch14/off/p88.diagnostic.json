@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "a4eb6a28c8f0f8c11813c57edfc2511e2c55be475a508839b83f0237235f5625",
+  "attempts": [
+    {
+      "asr_seconds": 0.16266915295273066,
+      "alignment_seconds": 0.00041928188875317574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I am, so are you, what then?",
+          "start": 0.11,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " am,",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " so",
+              "start": 1.07,
+              "end": 1.13,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " are",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you,",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 1.53,
+              "end": 1.65,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " then?",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.91455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "am,",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "so",
+          "start": 1.07,
+          "end": 1.13
+        },
+        {
+          "raw": "are",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "you,",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "what",
+          "start": 1.53,
+          "end": 1.65
+        },
+        {
+          "raw": "then?",
+          "start": 1.65,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am:",
+        "so",
+        "are",
+        "you—what",
+        "then?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          6,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am,",
+          "start": 0.55,
+          "end": 0.77,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.07,
+          "end": 1.13,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.53,
+          "end": 1.65,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "then",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "am:",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "so",
+          "start": 1.07,
+          "end": 1.13
+        },
+        {
+          "text": "are",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "you—what",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "then?\"",
+          "start": 1.65,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16323862876743078
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06e7d37bdda8860330bf4dac2b57fba7747eafba007ce503dacb28e184bdf0d5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "c19e64a9f9a5c25ce3b775a74182648edd885371c87946b5f947b196386f7f18",
+  "attempts": [
+    {
+      "asr_seconds": 0.2447450216859579,
+      "alignment_seconds": 0.0004648701287806034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " May I say a word to your telephone, Missy?\" he asked roguishly.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " May",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.1824951171875
+            },
+            {
+              "text": " I",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " say",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 0.89,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " word",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " telephone,",
+              "start": 1.41,
+              "end": 1.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Missy?\"",
+              "start": 2.03,
+              "end": 2.61,
+              "probability": 0.7140299479166666
+            },
+            {
+              "text": " he",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " asked",
+              "start": 2.79,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " roguishly.",
+              "start": 3.11,
+              "end": 3.61,
+              "probability": 0.8277994791666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "May",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "I",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "say",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "a",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "raw": "word",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "to",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "your",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "telephone,",
+          "start": 1.41,
+          "end": 1.85
+        },
+        {
+          "raw": "Missy?\"",
+          "start": 2.03,
+          "end": 2.61
+        },
+        {
+          "raw": "he",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "asked",
+          "start": 2.79,
+          "end": 3.11
+        },
+        {
+          "raw": "roguishly.",
+          "start": 3.11,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "—May",
+        "I",
+        "say",
+        "a",
+        "word",
+        "to",
+        "your",
+        "telephone,",
+        "missy?",
+        "he",
+        "asked",
+        "roguishly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "May",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "may",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.71,
+          "end": 0.89,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.89,
+          "end": 1.03,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "word",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "telephone,",
+          "start": 1.41,
+          "end": 1.85,
+          "key": "telephone",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Missy?\"",
+          "start": 2.03,
+          "end": 2.61,
+          "key": "missy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.61,
+          "end": 2.79,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.79,
+          "end": 3.11,
+          "key": "asked",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "roguishly.",
+          "start": 3.11,
+          "end": 3.61,
+          "key": "roguishly",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—May",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "I",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "say",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "a",
+          "start": 0.89,
+          "end": 1.03
+        },
+        {
+          "text": "word",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "to",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "your",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "telephone,",
+          "start": 1.41,
+          "end": 1.85
+        },
+        {
+          "text": "missy?",
+          "start": 2.03,
+          "end": 2.61
+        },
+        {
+          "text": "he",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "asked",
+          "start": 2.79,
+          "end": 3.11
+        },
+        {
+          "text": "roguishly.",
+          "start": 3.11,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24538571387529373
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb56c3db61d77629e3350c0d16f9a2f11d902eaea163e728dd22a5c37c610bd4",
+  "selected_reasons": []
+}

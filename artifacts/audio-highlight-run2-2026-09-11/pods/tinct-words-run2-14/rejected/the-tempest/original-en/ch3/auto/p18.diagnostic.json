@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4eab1946fb2087a978c34d8433495302a575fc5153f614b3228bcece6f978ceb",
+  "attempts": [
+    {
+      "asr_seconds": 0.13113481178879738,
+      "alignment_seconds": 0.0002803876996040344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. The old cock.",
+        "hotwords": "Sebastian, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, The old cock.",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " The",
+              "start": 1.32,
+              "end": 1.4,
+              "probability": 0.303955078125
+            },
+            {
+              "text": " old",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.006969451904296875
+            },
+            {
+              "text": " cock.",
+              "start": 1.6,
+              "end": 1.84,
+              "probability": 0.76611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "The",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "raw": "old",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "cock.",
+          "start": 1.6,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "The",
+        "old",
+        "cock."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.32,
+          "end": 1.4,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "old",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cock.",
+          "start": 1.6,
+          "end": 1.84,
+          "key": "cock",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "The",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "text": "old",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "cock.",
+          "start": 1.6,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13153889775276184
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a21907116ad66aab9aff0abd2b32f2ee4b4abd63df09c66b2c733768b27a7747",
+  "selected_reasons": []
+}

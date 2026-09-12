@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "8e715b5e33f2fcc96ba938f265b824480fa353451c4ec4e5b144bb5c898bca72",
+  "attempts": [
+    {
+      "asr_seconds": 0.24282522313296795,
+      "alignment_seconds": 0.0004096957854926586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "E1. Two versions of these paragraphs appear in different editions.",
+        "hotwords": "E1, Two"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " E1, Two versions of these paragraphs appear in different editions.",
+          "start": 0.18,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " E1,",
+              "start": 0.18,
+              "end": 0.9,
+              "probability": 0.725830078125
+            },
+            {
+              "text": " Two",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.0159149169921875
+            },
+            {
+              "text": " versions",
+              "start": 1.62,
+              "end": 1.96,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " of",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " these",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " paragraphs",
+              "start": 2.32,
+              "end": 2.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " appear",
+              "start": 2.82,
+              "end": 3.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 3.24,
+              "end": 3.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " different",
+              "start": 3.52,
+              "end": 3.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " editions.",
+              "start": 3.76,
+              "end": 4.2,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "E1,",
+          "start": 0.18,
+          "end": 0.9
+        },
+        {
+          "raw": "Two",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "versions",
+          "start": 1.62,
+          "end": 1.96
+        },
+        {
+          "raw": "of",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "these",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "paragraphs",
+          "start": 2.32,
+          "end": 2.82
+        },
+        {
+          "raw": "appear",
+          "start": 2.82,
+          "end": 3.24
+        },
+        {
+          "raw": "in",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "raw": "different",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "raw": "editions.",
+          "start": 3.76,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "E1.",
+        "Two",
+        "versions",
+        "of",
+        "these",
+        "paragraphs",
+        "appear",
+        "in",
+        "different",
+        "editions."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "E1,",
+          "start": 0.18,
+          "end": 0.9,
+          "key": "e1",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Two",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "versions",
+          "start": 1.62,
+          "end": 1.96,
+          "key": "versions",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "these",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "paragraphs",
+          "start": 2.32,
+          "end": 2.82,
+          "key": "paragraphs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "appear",
+          "start": 2.82,
+          "end": 3.24,
+          "key": "appear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.24,
+          "end": 3.52,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "different",
+          "start": 3.52,
+          "end": 3.76,
+          "key": "different",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "editions.",
+          "start": 3.76,
+          "end": 4.2,
+          "key": "editions",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "E1.",
+          "start": 0.18,
+          "end": 0.9
+        },
+        {
+          "text": "Two",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "versions",
+          "start": 1.62,
+          "end": 1.96
+        },
+        {
+          "text": "of",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "these",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "paragraphs",
+          "start": 2.32,
+          "end": 2.82
+        },
+        {
+          "text": "appear",
+          "start": 2.82,
+          "end": 3.24
+        },
+        {
+          "text": "in",
+          "start": 3.24,
+          "end": 3.52
+        },
+        {
+          "text": "different",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "text": "editions.",
+          "start": 3.76,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24338887631893158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb8c76c659e1f51609592ad8139e2df3412ead5d81f1635a6844fe270585041f",
+  "selected_reasons": []
+}

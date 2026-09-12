@@ -1,0 +1,189 @@
+{
+  "complete": true,
+  "signature": "bb41f4149308090a1132bfc4fed93e4e525d9e4fb51a3cfb39b2668c0579832a",
+  "attempts": [
+    {
+      "asr_seconds": 0.11348474401165731,
+      "alignment_seconds": 0.0001233649963978678,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Falling on his sword._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Falling on his sword.",
+          "start": 0.08,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " Falling",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.08782958984375
+            },
+            {
+              "text": " on",
+              "start": 0.64,
+              "end": 0.82,
+              "probability": 0.96484375
+            },
+            {
+              "text": " his",
+              "start": 0.82,
+              "end": 0.94,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " sword.",
+              "start": 0.94,
+              "end": 1.24,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Falling",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "on",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "raw": "sword.",
+          "start": 0.94,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "[_Falling",
+        "on",
+        "his",
+        "sword._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Falling",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "falling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.64,
+          "end": 0.82,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.94,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sword.",
+          "start": 0.94,
+          "end": 1.24,
+          "key": "sword",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Falling",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "on",
+          "start": 0.64,
+          "end": 0.82
+        },
+        {
+          "text": "his",
+          "start": 0.82,
+          "end": 0.94
+        },
+        {
+          "text": "sword._]",
+          "start": 0.94,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11365216999547556
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c80582ceec9701a8d81cb9dc5a4251419326bd68d9fce4229402e35b50047d65",
+  "selected_reasons": []
+}

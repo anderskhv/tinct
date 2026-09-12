@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "6e7e00cfac081823194713c8036a2fe248acc6be9a2a0ff508b0e39dbb77c1c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.08857609704136848,
+      "alignment_seconds": 0.0001878710463643074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Thunder._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thunder.",
+          "start": 0.08,
+          "end": 0.62,
+          "words": [
+            {
+              "text": " Thunder.",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thunder.",
+          "start": 0.08,
+          "end": 0.62
+        }
+      ],
+      "expected_tokens": [
+        "[_Thunder._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thunder.",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "thunder",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Thunder._]",
+          "start": 0.08,
+          "end": 0.62
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08881539106369019
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2de3ca648350a9d4fff749b30db07c777343d650fc9cc3f4448b05e8f5eca309",
+  "selected_reasons": []
+}

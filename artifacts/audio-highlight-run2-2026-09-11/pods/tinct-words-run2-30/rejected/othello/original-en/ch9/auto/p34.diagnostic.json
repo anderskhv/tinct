@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "1fd0f900ce5e43eb5465946562c2152023e3d3aad2b5c71efb7830fc920ae7f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.15547442389652133,
+      "alignment_seconds": 0.0002795681357383728,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Prithee no more. Let him come when he will; I will deny thee nothing.",
+        "hotwords": "Othello, Prithee, Let, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Prithee no more. Let him come when he will. I will deny thee nothing.",
+          "start": 0.21,
+          "end": 4.43,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.3838054339090983
+            },
+            {
+              "text": " Prithee",
+              "start": 1.19,
+              "end": 1.35,
+              "probability": 0.5683797200520834
+            },
+            {
+              "text": " no",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.708984375
+            },
+            {
+              "text": " more.",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Let",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " him",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " come",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " when",
+              "start": 2.71,
+              "end": 2.85,
+              "probability": 0.916015625
+            },
+            {
+              "text": " he",
+              "start": 2.85,
+              "end": 3.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will.",
+              "start": 3.01,
+              "end": 3.27,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 3.51,
+              "end": 3.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " will",
+              "start": 3.61,
+              "end": 3.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " deny",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thee",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nothing.",
+              "start": 4.17,
+              "end": 4.43,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "Prithee",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "raw": "no",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "more.",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "Let",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "him",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "come",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "when",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "raw": "he",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "raw": "will.",
+          "start": 3.01,
+          "end": 3.27
+        },
+        {
+          "raw": "I",
+          "start": 3.51,
+          "end": 3.61
+        },
+        {
+          "raw": "will",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "raw": "deny",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "raw": "thee",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "nothing.",
+          "start": 4.17,
+          "end": 4.43
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Prithee",
+        "no",
+        "more.",
+        "Let",
+        "him",
+        "come",
+        "when",
+        "he",
+        "will;",
+        "I",
+        "will",
+        "deny",
+        "thee",
+        "nothing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prithee",
+          "start": 1.19,
+          "end": 1.35,
+          "key": "prithee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "more",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.71,
+          "end": 2.85,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.85,
+          "end": 3.01,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 3.01,
+          "end": 3.27,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.51,
+          "end": 3.61,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.61,
+          "end": 3.73,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "deny",
+          "start": 3.73,
+          "end": 3.99,
+          "key": "deny",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "thee",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 4.17,
+          "end": 4.43,
+          "key": "nothing",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "Prithee",
+          "start": 1.19,
+          "end": 1.35
+        },
+        {
+          "text": "no",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "more.",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "Let",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "him",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "come",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "when",
+          "start": 2.71,
+          "end": 2.85
+        },
+        {
+          "text": "he",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "text": "will;",
+          "start": 3.01,
+          "end": 3.27
+        },
+        {
+          "text": "I",
+          "start": 3.51,
+          "end": 3.61
+        },
+        {
+          "text": "will",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "text": "deny",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "text": "thee",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "nothing.",
+          "start": 4.17,
+          "end": 4.43
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15586575167253613
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7dd14cc3f4bf56e925e129865c115c4a7dc177c8b2bab286bb4afbdf37d041ea",
+  "selected_reasons": []
+}

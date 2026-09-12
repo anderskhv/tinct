@@ -1,0 +1,436 @@
+{
+  "complete": true,
+  "signature": "6de966c334f4d1dbf6e8281b521e5831268e6302a49f89aad56807bb618b5ddb",
+  "attempts": [
+    {
+      "asr_seconds": 0.18532605841755867,
+      "alignment_seconds": 0.000694766640663147,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " One must do a good work sometimes. How ill-humored you are.",
+          "start": 0.02,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " must",
+              "start": 0.58,
+              "end": 0.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " do",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 1.0,
+              "end": 1.12,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " good",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " work",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sometimes.",
+              "start": 1.44,
+              "end": 1.9,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " How",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " ill",
+              "start": 2.64,
+              "end": 2.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": "-humored",
+              "start": 2.82,
+              "end": 3.18,
+              "probability": 0.9073893229166666
+            },
+            {
+              "text": " you",
+              "start": 3.18,
+              "end": 3.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are.",
+              "start": 3.36,
+              "end": 3.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "must",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "raw": "do",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "a",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "raw": "good",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "work",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "sometimes.",
+          "start": 1.44,
+          "end": 1.9
+        },
+        {
+          "raw": "How",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "ill",
+          "start": 2.64,
+          "end": 2.82
+        },
+        {
+          "raw": "-humored",
+          "start": 2.82,
+          "end": 3.18
+        },
+        {
+          "raw": "you",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "raw": "are.",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "\"One",
+        "must",
+        "do",
+        "a",
+        "good",
+        "work",
+        "sometimes.",
+        "How",
+        "ill-humored",
+        "you",
+        "are!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.58,
+          "end": 0.78,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.0,
+          "end": 1.12,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "work",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "work",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sometimes.",
+          "start": 1.44,
+          "end": 1.9,
+          "key": "sometimes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "how",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ill -humored",
+          "start": 2.64,
+          "end": 3.18,
+          "key": "illhumored",
+          "pieces": [
+            8,
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.18,
+          "end": 3.36,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are.",
+          "start": 3.36,
+          "end": 3.66,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 8,
+          "text": "ill-humored",
+          "heard": "ill -humored",
+          "heard_indexes": [
+            8,
+            9
+          ],
+          "start": 2.64,
+          "end": 3.18
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"One",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "must",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "text": "do",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "a",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "text": "good",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "work",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "sometimes.",
+          "start": 1.44,
+          "end": 1.9
+        },
+        {
+          "text": "How",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "ill-humored",
+          "start": 2.64,
+          "end": 3.18
+        },
+        {
+          "text": "you",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "text": "are!\"",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18624583259224892
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce32115f99cbb620a9b0e9283e0585d8bcc55836f9692f320421ecd0009840c4",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "b4b9a9320adbc3050e08966f05566756f10ddff9a94439829d3f52e647a4d304",
+  "attempts": [
+    {
+      "asr_seconds": 0.1235326649621129,
+      "alignment_seconds": 0.00034802593290805817,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Did you see her face?",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Did",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " you",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " see",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " face?",
+              "start": 0.96,
+              "end": 1.22,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "see",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "her",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "face?",
+          "start": 0.96,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "\"Did",
+        "you",
+        "see",
+        "her",
+        "face?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "did",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "face?",
+          "start": 0.96,
+          "end": 1.22,
+          "key": "face",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Did",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "you",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "see",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "her",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "face?\"",
+          "start": 0.96,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12401168886572123
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "49f234c0c82e4170c9c256138a67d2230574187fcee985ec0f3eea0bd5fc539e",
+  "selected_reasons": []
+}

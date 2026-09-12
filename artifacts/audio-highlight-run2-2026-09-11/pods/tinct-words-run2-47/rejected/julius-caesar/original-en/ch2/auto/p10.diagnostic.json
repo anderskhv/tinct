@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "fe2ed102cdbf47606a8b9390e82b3bfc6206b65aa1d4a7ff823bbfc48cb95a0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19841918000020087,
+      "alignment_seconds": 0.00044227601028978825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. Set on; and leave no ceremony out.",
+        "hotwords": "Caesar, Set"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, Set on and leave no ceremony out.",
+          "start": 0.08,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " Set",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.0007843971252441406
+            },
+            {
+              "text": " on",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " and",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.876953125
+            },
+            {
+              "text": " leave",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " no",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " ceremony",
+              "start": 2.3,
+              "end": 2.7,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " out.",
+              "start": 2.7,
+              "end": 3.12,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Set",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "on",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "raw": "leave",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "no",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "ceremony",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "raw": "out.",
+          "start": 2.7,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Set",
+        "on;",
+        "and",
+        "leave",
+        "no",
+        "ceremony",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Set",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "set",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 1.92,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "leave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ceremony",
+          "start": 2.3,
+          "end": 2.7,
+          "key": "ceremony",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 2.7,
+          "end": 3.12,
+          "key": "out",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Set",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "text": "on;",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 1.64,
+          "end": 1.92
+        },
+        {
+          "text": "leave",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "no",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "ceremony",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "text": "out.",
+          "start": 2.7,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19903170998441055
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "445672b18472ba93713f295719f11b66c0889519e1c24211f72e5ffc37e5e31f",
+  "selected_reasons": []
+}

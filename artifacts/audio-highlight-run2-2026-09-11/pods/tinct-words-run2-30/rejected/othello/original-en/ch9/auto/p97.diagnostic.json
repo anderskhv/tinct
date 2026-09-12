@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "e3a712b2dcdf5881690ee074306eddb31bf0bbc7c7f61d195c88761e539abf12",
+  "attempts": [
+    {
+      "asr_seconds": 0.10360243823379278,
+      "alignment_seconds": 0.00013835914433002472,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Fear not my government.",
+        "hotwords": "Othello, Fear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Fear not my government.",
+          "start": 0.14,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.14,
+              "end": 0.92,
+              "probability": 0.5052337646484375
+            },
+            {
+              "text": " Fear",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.061737060546875
+            },
+            {
+              "text": " not",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " my",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " government.",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.64306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.14,
+          "end": 0.92
+        },
+        {
+          "raw": "Fear",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "not",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "my",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "government.",
+          "start": 1.78,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Fear",
+        "not",
+        "my",
+        "government."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.14,
+          "end": 0.92,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fear",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "fear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "government.",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "government",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.14,
+          "end": 0.92
+        },
+        {
+          "text": "Fear",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "not",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "my",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "government.",
+          "start": 1.78,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.103784607257694
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "404449c4796e9293998d35488d067c7c5c8c033b2a0fcf7a324fd38ab3202966",
+  "selected_reasons": []
+}

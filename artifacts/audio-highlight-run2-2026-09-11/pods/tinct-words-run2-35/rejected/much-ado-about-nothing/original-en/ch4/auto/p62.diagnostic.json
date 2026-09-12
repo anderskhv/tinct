@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "298f63d4c9f8950aad98abd6aeaa6507dd84ae603f843103fa5a063bc3a9213b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20247465930879116,
+      "alignment_seconds": 0.00041849538683891296,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Beatrice. Did he never make you laugh?",
+        "hotwords": "Beatrice, Did"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beatrice, Did he never make you laugh?",
+          "start": 0.56,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Beatrice,",
+              "start": 0.56,
+              "end": 1.0,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " Did",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.022552490234375
+            },
+            {
+              "text": " he",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " never",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " make",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " you",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " laugh?",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "raw": "Did",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "he",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "never",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "make",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "you",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "laugh?",
+          "start": 2.1,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "Did",
+        "he",
+        "never",
+        "make",
+        "you",
+        "laugh?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.56,
+          "end": 1.0,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "never",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "make",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "laugh?",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "laugh",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.56,
+          "end": 1.0
+        },
+        {
+          "text": "Did",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "he",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "never",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "make",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "you",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "laugh?",
+          "start": 2.1,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20304823480546474
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "475cafb0fdd5cbe6e0b3da4fbec5f60120e8afc4cc225d2579c93b8faa85f925",
+  "selected_reasons": []
+}

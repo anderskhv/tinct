@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "a56d40bd5259d60a948a87b52db444463ee5aae0005209b28996fd4da9ab30f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.29666622914373875,
+      "alignment_seconds": 0.0007519014179706573,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Peter musicians. Oh musicians hearts ease hearts ease. Oh and you will have me live play hearts ease",
+          "start": 0.05,
+          "end": 7.01,
+          "words": [
+            {
+              "text": " Peter",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.94140625
+            },
+            {
+              "text": " musicians.",
+              "start": 0.69,
+              "end": 1.41,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " Oh",
+              "start": 1.41,
+              "end": 1.77,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " musicians",
+              "start": 1.77,
+              "end": 2.41,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " hearts",
+              "start": 2.41,
+              "end": 2.83,
+              "probability": 0.59521484375
+            },
+            {
+              "text": " ease",
+              "start": 2.83,
+              "end": 3.35,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " hearts",
+              "start": 3.35,
+              "end": 4.03,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " ease.",
+              "start": 4.03,
+              "end": 4.37,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Oh",
+              "start": 4.47,
+              "end": 5.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.499267578125
+            },
+            {
+              "text": " you",
+              "start": 5.19,
+              "end": 5.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " will",
+              "start": 5.31,
+              "end": 5.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 5.41,
+              "end": 5.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 5.57,
+              "end": 5.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " live",
+              "start": 5.73,
+              "end": 5.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " play",
+              "start": 5.99,
+              "end": 6.33,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " hearts",
+              "start": 6.33,
+              "end": 6.63,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " ease",
+              "start": 6.63,
+              "end": 7.01,
+              "probability": 0.95751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Peter",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "musicians.",
+          "start": 0.69,
+          "end": 1.41
+        },
+        {
+          "raw": "Oh",
+          "start": 1.41,
+          "end": 1.77
+        },
+        {
+          "raw": "musicians",
+          "start": 1.77,
+          "end": 2.41
+        },
+        {
+          "raw": "hearts",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "raw": "ease",
+          "start": 2.83,
+          "end": 3.35
+        },
+        {
+          "raw": "hearts",
+          "start": 3.35,
+          "end": 4.03
+        },
+        {
+          "raw": "ease.",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "raw": "Oh",
+          "start": 4.47,
+          "end": 5.01
+        },
+        {
+          "raw": "and",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "you",
+          "start": 5.19,
+          "end": 5.31
+        },
+        {
+          "raw": "will",
+          "start": 5.31,
+          "end": 5.41
+        },
+        {
+          "raw": "have",
+          "start": 5.41,
+          "end": 5.57
+        },
+        {
+          "raw": "me",
+          "start": 5.57,
+          "end": 5.73
+        },
+        {
+          "raw": "live",
+          "start": 5.73,
+          "end": 5.99
+        },
+        {
+          "raw": "play",
+          "start": 5.99,
+          "end": 6.33
+        },
+        {
+          "raw": "hearts",
+          "start": 6.33,
+          "end": 6.63
+        },
+        {
+          "raw": "ease",
+          "start": 6.63,
+          "end": 7.01
+        }
+      ],
+      "expected_tokens": [
+        "Peter.",
+        "Musicians,",
+        "O,",
+        "musicians,",
+        "'Heart's",
+        "ease,'",
+        "'Heart's",
+        "ease',",
+        "O,",
+        "and",
+        "you",
+        "will",
+        "have",
+        "me",
+        "live,",
+        "play",
+        "'Heart's",
+        "ease.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          8,
+          3,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          18,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Peter",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "peter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "musicians.",
+          "start": 0.69,
+          "end": 1.41,
+          "key": "musicians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 1.41,
+          "end": 1.77,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "musicians",
+          "start": 1.77,
+          "end": 2.41,
+          "key": "musicians",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 2.41,
+          "end": 2.83,
+          "key": "hearts",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ease",
+          "start": 2.83,
+          "end": 3.35,
+          "key": "ease",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 3.35,
+          "end": 4.03,
+          "key": "hearts",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ease.",
+          "start": 4.03,
+          "end": 4.37,
+          "key": "ease",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 4.47,
+          "end": 5.01,
+          "key": "oh",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.01,
+          "end": 5.19,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.19,
+          "end": 5.31,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.31,
+          "end": 5.41,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.41,
+          "end": 5.57,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.57,
+          "end": 5.73,
+          "key": "me",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 5.73,
+          "end": 5.99,
+          "key": "live",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 5.99,
+          "end": 6.33,
+          "key": "play",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "hearts",
+          "start": 6.33,
+          "end": 6.63,
+          "key": "hearts",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ease",
+          "start": 6.63,
+          "end": 7.01,
+          "key": "ease",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Peter.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Musicians,",
+          "start": 0.69,
+          "end": 1.41
+        },
+        {
+          "text": "O,",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "musicians,",
+          "start": 1.77,
+          "end": 2.41
+        },
+        {
+          "text": "'Heart's",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "text": "ease,'",
+          "start": 2.83,
+          "end": 3.35
+        },
+        {
+          "text": "'Heart's",
+          "start": 3.35,
+          "end": 4.03
+        },
+        {
+          "text": "ease',",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "text": "O,",
+          "start": 4.37,
+          "end": 4.69
+        },
+        {
+          "text": "and",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "you",
+          "start": 5.19,
+          "end": 5.31
+        },
+        {
+          "text": "will",
+          "start": 5.31,
+          "end": 5.41
+        },
+        {
+          "text": "have",
+          "start": 5.41,
+          "end": 5.57
+        },
+        {
+          "text": "me",
+          "start": 5.57,
+          "end": 5.73
+        },
+        {
+          "text": "live,",
+          "start": 5.73,
+          "end": 5.99
+        },
+        {
+          "text": "play",
+          "start": 5.99,
+          "end": 6.33
+        },
+        {
+          "text": "'Heart's",
+          "start": 6.33,
+          "end": 6.63
+        },
+        {
+          "text": "ease.'",
+          "start": 6.63,
+          "end": 7.01
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.29776955116540194
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ed3d3bc1eb8a493ac33d9dbd4d8735e93d29017ecd0be5b2eaba13801153ae11",
+  "selected_reasons": []
+}

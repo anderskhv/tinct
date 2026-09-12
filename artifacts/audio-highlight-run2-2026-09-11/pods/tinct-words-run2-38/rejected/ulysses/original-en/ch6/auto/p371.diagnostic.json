@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "f9075898779007c5b5a70e69e1fb445cea961ddfdbdd732f130c538bbabf728d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16726379498140886,
+      "alignment_seconds": 0.00029977201484143734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They turned to the right, following their slow thoughts. With awe Mr Power's blank voice spoke:",
+        "hotwords": "They, With, Mr, Power's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They turned to the right, following their slow thoughts. With awe Mr Power's blank voice spoke.",
+          "start": 0.02,
+          "end": 5.52,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " turned",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " to",
+              "start": 0.74,
+              "end": 0.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 0.92,
+              "end": 1.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " right,",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " following",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " slow",
+              "start": 2.16,
+              "end": 2.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thoughts.",
+              "start": 2.46,
+              "end": 2.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " With",
+              "start": 3.56,
+              "end": 3.66,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " awe",
+              "start": 3.66,
+              "end": 3.88,
+              "probability": 0.352294921875
+            },
+            {
+              "text": " Mr",
+              "start": 3.88,
+              "end": 4.1,
+              "probability": 0.334228515625
+            },
+            {
+              "text": " Power's",
+              "start": 4.1,
+              "end": 4.62,
+              "probability": 0.530731201171875
+            },
+            {
+              "text": " blank",
+              "start": 4.62,
+              "end": 4.82,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " voice",
+              "start": 4.82,
+              "end": 5.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " spoke.",
+              "start": 5.14,
+              "end": 5.52,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "turned",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "raw": "the",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "raw": "right,",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "following",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "their",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "slow",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "raw": "thoughts.",
+          "start": 2.46,
+          "end": 2.96
+        },
+        {
+          "raw": "With",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "raw": "awe",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "raw": "Mr",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "raw": "Power's",
+          "start": 4.1,
+          "end": 4.62
+        },
+        {
+          "raw": "blank",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "raw": "voice",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "raw": "spoke.",
+          "start": 5.14,
+          "end": 5.52
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "turned",
+        "to",
+        "the",
+        "right,",
+        "following",
+        "their",
+        "slow",
+        "thoughts.",
+        "With",
+        "awe",
+        "Mr",
+        "Power's",
+        "blank",
+        "voice",
+        "spoke:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.52,
+          "end": 0.74,
+          "key": "turned",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.92,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.92,
+          "end": 1.02,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 1.02,
+          "end": 1.28,
+          "key": "right",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "following",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "following",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "their",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "slow",
+          "start": 2.16,
+          "end": 2.46,
+          "key": "slow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thoughts.",
+          "start": 2.46,
+          "end": 2.96,
+          "key": "thoughts",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 3.56,
+          "end": 3.66,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "awe",
+          "start": 3.66,
+          "end": 3.88,
+          "key": "awe",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 3.88,
+          "end": 4.1,
+          "key": "mr",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Power's",
+          "start": 4.1,
+          "end": 4.62,
+          "key": "powers",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blank",
+          "start": 4.62,
+          "end": 4.82,
+          "key": "blank",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 4.82,
+          "end": 5.14,
+          "key": "voice",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "spoke.",
+          "start": 5.14,
+          "end": 5.52,
+          "key": "spoke",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "turned",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "to",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "text": "the",
+          "start": 0.92,
+          "end": 1.02
+        },
+        {
+          "text": "right,",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "following",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "their",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "slow",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "text": "thoughts.",
+          "start": 2.46,
+          "end": 2.96
+        },
+        {
+          "text": "With",
+          "start": 3.56,
+          "end": 3.66
+        },
+        {
+          "text": "awe",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "text": "Mr",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "text": "Power's",
+          "start": 4.1,
+          "end": 4.62
+        },
+        {
+          "text": "blank",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "text": "voice",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "text": "spoke:",
+          "start": 5.14,
+          "end": 5.52
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16770119802094996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a608c362936de76f9f10ddeb587441ff8fb68af63670cb228b3a8b1cb2914a0f",
+  "selected_reasons": []
+}

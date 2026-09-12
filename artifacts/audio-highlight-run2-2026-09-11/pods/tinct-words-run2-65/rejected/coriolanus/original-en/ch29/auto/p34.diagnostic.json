@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "81e82987fd61bde8d538941efa31746cb9a99973a98983f2fd27fdaded9b63e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.13435761397704482,
+      "alignment_seconds": 0.00015057390555739403,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. Martius?",
+        "hotwords": "Coriolanus, Martius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, Martius.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.8468424479166666
+            },
+            {
+              "text": " Martius.",
+              "start": 1.37,
+              "end": 1.91,
+              "probability": 0.743896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "Martius.",
+          "start": 1.37,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Martius?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Martius.",
+          "start": 1.37,
+          "end": 1.91,
+          "key": "martius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "Martius?",
+          "start": 1.37,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1345593398436904
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e987d44dc8384ad92424ac4ea90be4c112c39409abb1bc091f1c9eeb93fcc9d",
+  "selected_reasons": []
+}

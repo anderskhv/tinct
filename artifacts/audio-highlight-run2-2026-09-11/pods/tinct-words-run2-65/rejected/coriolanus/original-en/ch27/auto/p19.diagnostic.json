@@ -1,0 +1,253 @@
+{
+  "complete": true,
+  "signature": "f67b2262b2250cd26a978b9f6db0254c08a8f8d740a8e9d0c4447b167e8dfc9b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1387575431726873,
+      "alignment_seconds": 0.00017711613327264786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Trumpets, hautboys, drums beat, all together._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Trumpets, hautboys, drums beat, all together.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Trumpets,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.883056640625
+            },
+            {
+              "text": " hautboys,",
+              "start": 1.11,
+              "end": 1.43,
+              "probability": 0.13285847504933676
+            },
+            {
+              "text": " drums",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " beat,",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " all",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " together.",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Trumpets,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "hautboys,",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "raw": "drums",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "beat,",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "raw": "all",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "together.",
+          "start": 2.43,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Trumpets,",
+        "hautboys,",
+        "drums",
+        "beat,",
+        "all",
+        "together._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Trumpets,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "trumpets",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hautboys,",
+          "start": 1.11,
+          "end": 1.43,
+          "key": "hautboys",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "drums",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "drums",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "beat,",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "beat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "together.",
+          "start": 2.43,
+          "end": 2.75,
+          "key": "together",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Trumpets,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "hautboys,",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "text": "drums",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "beat,",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "text": "all",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "together._]",
+          "start": 2.43,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13899977132678032
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7b245b2856ffafae600c1e6ce0efc33d2cc63a192bc81b0d4594da48d9393bec",
+  "selected_reasons": []
+}

@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "7a4715ddf78dcc3c04d44366f17ec0975259e3a68be1657d30e46259a8e7409a",
+  "attempts": [
+    {
+      "asr_seconds": 0.24375138408504426,
+      "alignment_seconds": 0.0004644589498639107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tom Rockford spilt powder from a twisted paper into the water set before him",
+          "start": 0.05,
+          "end": 4.81,
+          "words": [
+            {
+              "text": " Tom",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.96875
+            },
+            {
+              "text": " Rockford",
+              "start": 0.59,
+              "end": 1.05,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " spilt",
+              "start": 1.05,
+              "end": 1.45,
+              "probability": 0.713623046875
+            },
+            {
+              "text": " powder",
+              "start": 1.45,
+              "end": 1.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " from",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " twisted",
+              "start": 2.21,
+              "end": 2.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " paper",
+              "start": 2.47,
+              "end": 2.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 2.95,
+              "end": 3.45,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 3.45,
+              "end": 3.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " water",
+              "start": 3.61,
+              "end": 3.89,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " set",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " before",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 4.49,
+              "end": 4.81,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tom",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Rockford",
+          "start": 0.59,
+          "end": 1.05
+        },
+        {
+          "raw": "spilt",
+          "start": 1.05,
+          "end": 1.45
+        },
+        {
+          "raw": "powder",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "raw": "from",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "raw": "a",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "twisted",
+          "start": 2.21,
+          "end": 2.47
+        },
+        {
+          "raw": "paper",
+          "start": 2.47,
+          "end": 2.95
+        },
+        {
+          "raw": "into",
+          "start": 2.95,
+          "end": 3.45
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "raw": "water",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "raw": "set",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "raw": "before",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "raw": "him",
+          "start": 4.49,
+          "end": 4.81
+        }
+      ],
+      "expected_tokens": [
+        "Tom",
+        "Rochford",
+        "spilt",
+        "powder",
+        "from",
+        "a",
+        "twisted",
+        "paper",
+        "into",
+        "the",
+        "water",
+        "set",
+        "before",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          14,
+          2,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tom",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "tom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rockford",
+          "start": 0.59,
+          "end": 1.05,
+          "key": "rockford",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "spilt",
+          "start": 1.05,
+          "end": 1.45,
+          "key": "spilt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "powder",
+          "start": 1.45,
+          "end": 1.81,
+          "key": "powder",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "twisted",
+          "start": 2.21,
+          "end": 2.47,
+          "key": "twisted",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "paper",
+          "start": 2.47,
+          "end": 2.95,
+          "key": "paper",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.95,
+          "end": 3.45,
+          "key": "into",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.61,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 3.61,
+          "end": 3.89,
+          "key": "water",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 3.89,
+          "end": 4.19,
+          "key": "set",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "before",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.49,
+          "end": 4.81,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tom",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Rochford",
+          "start": 0.59,
+          "end": 0.82
+        },
+        {
+          "text": "spilt",
+          "start": 1.05,
+          "end": 1.45
+        },
+        {
+          "text": "powder",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "text": "from",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "text": "a",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "twisted",
+          "start": 2.21,
+          "end": 2.47
+        },
+        {
+          "text": "paper",
+          "start": 2.47,
+          "end": 2.95
+        },
+        {
+          "text": "into",
+          "start": 2.95,
+          "end": 3.45
+        },
+        {
+          "text": "the",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "text": "water",
+          "start": 3.61,
+          "end": 3.89
+        },
+        {
+          "text": "set",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "text": "before",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "text": "him.",
+          "start": 4.49,
+          "end": 4.81
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.24442107090726495
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0cf2da092a86f9162e2210f2e9d467066691b4145cf2e8dbc2f7b366b9ff1b50",
+  "selected_reasons": []
+}

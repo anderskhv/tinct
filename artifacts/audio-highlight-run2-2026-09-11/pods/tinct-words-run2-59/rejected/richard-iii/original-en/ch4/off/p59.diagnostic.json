@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "5309024c7a1007ebd5797f2fce130e664492b9c7035d0b12ba986f5778881919",
+  "attempts": [
+    {
+      "asr_seconds": 0.17790442192927003,
+      "alignment_seconds": 0.0004233068320900202,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clarence, but not as I am Royal.",
+          "start": 0.02,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Clarence,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " but",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " not",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " am",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Royal.",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.56640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clarence,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "but",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "not",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "as",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "am",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "Royal.",
+          "start": 1.88,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Clarence.",
+        "But",
+        "not",
+        "as",
+        "I",
+        "am,",
+        "royal."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clarence,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "clarence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.12,
+          "end": 1.28,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Royal.",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "royal",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clarence.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "But",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "not",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "as",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "I",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "am,",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "royal.",
+          "start": 1.88,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17850784491747618
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b44f0f9861ec54fc2222f4c056c5f954c67f2fab14fe3a1c39bad2653f4de8e5",
+  "selected_reasons": []
+}

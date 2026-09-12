@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "98bc81f9df86b61b6a9b50c89edccbd7e3a14bf862f4311753d9d11d33c2226d",
+  "attempts": [
+    {
+      "asr_seconds": 0.284749330021441,
+      "alignment_seconds": 0.00041258055716753006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lottie howled tempestuously.",
+          "start": 1.81,
+          "end": 3.51,
+          "words": [
+            {
+              "text": " Lottie",
+              "start": 1.81,
+              "end": 2.51,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " howled",
+              "start": 2.51,
+              "end": 2.77,
+              "probability": 0.958740234375
+            },
+            {
+              "text": " tempestuously.",
+              "start": 2.77,
+              "end": 3.51,
+              "probability": 0.9599609375
+            }
+          ]
+        },
+        {
+          "text": " Haven't got any mammae.",
+          "start": 4.17,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " Haven't",
+              "start": 4.17,
+              "end": 4.49,
+              "probability": 0.60400390625
+            },
+            {
+              "text": " got",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " any",
+              "start": 4.63,
+              "end": 4.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mammae.",
+              "start": 4.87,
+              "end": 5.47,
+              "probability": 0.44451904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lottie",
+          "start": 1.81,
+          "end": 2.51
+        },
+        {
+          "raw": "howled",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "raw": "tempestuously.",
+          "start": 2.77,
+          "end": 3.51
+        },
+        {
+          "raw": "Haven't",
+          "start": 4.17,
+          "end": 4.49
+        },
+        {
+          "raw": "got",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "any",
+          "start": 4.63,
+          "end": 4.87
+        },
+        {
+          "raw": "mammae.",
+          "start": 4.87,
+          "end": 5.47
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh!",
+        "Oh!",
+        "Oh!",
+        "Oh!",
+        "Oh!\"",
+        "Lottie",
+        "howled",
+        "tempestuously.",
+        "\"Haven't--got--any--mam--ma-a!\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "equal",
+          5,
+          8,
+          0,
+          3
+        ],
+        [
+          "replace",
+          8,
+          9,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "replace",
+          8,
+          9,
+          3,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lottie",
+          "start": 1.81,
+          "end": 2.51,
+          "key": "lottie",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "howled",
+          "start": 2.51,
+          "end": 2.77,
+          "key": "howled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tempestuously.",
+          "start": 2.77,
+          "end": 3.51,
+          "key": "tempestuously",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Haven't",
+          "start": 4.17,
+          "end": 4.49,
+          "key": "havent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 4.49,
+          "end": 4.63,
+          "key": "got",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 4.63,
+          "end": 4.87,
+          "key": "any",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mammae.",
+          "start": 4.87,
+          "end": 5.47,
+          "key": "mammae",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh!",
+          "start": 0.0,
+          "end": 0.905
+        },
+        {
+          "text": "Oh!",
+          "start": 0.905,
+          "end": 1.357
+        },
+        {
+          "text": "Oh!",
+          "start": 1.357,
+          "end": 1.583
+        },
+        {
+          "text": "Oh!",
+          "start": 1.583,
+          "end": 1.696
+        },
+        {
+          "text": "Oh!\"",
+          "start": 1.696,
+          "end": 1.753
+        },
+        {
+          "text": "Lottie",
+          "start": 1.81,
+          "end": 2.51
+        },
+        {
+          "text": "howled",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "text": "tempestuously.",
+          "start": 2.77,
+          "end": 3.51
+        },
+        {
+          "text": "\"Haven't--got--any--mam--ma-a!\"",
+          "start": 3.51,
+          "end": 4.49
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 7,
+        "matched_words": 3
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2852719835937023
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f2c891ad3b706144002e1ba40f9aed39ffb8fc218b6fbe1e7e418ac6cb20beee",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

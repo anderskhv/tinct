@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "d72c57bb81cc9938b880cdc47f3cca90ef2b4183a02c975e9bae96515bd99854",
+  "attempts": [
+    {
+      "asr_seconds": 0.20728344097733498,
+      "alignment_seconds": 0.0003102244809269905,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Parsee made a motion to keep silence.",
+        "hotwords": "The, Parsee"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Parsee made a motion to keep silence.",
+          "start": 0.02,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.92578125
+            },
+            {
+              "text": " Parsee",
+              "start": 0.5,
+              "end": 0.88,
+              "probability": 0.37908935546875
+            },
+            {
+              "text": " made",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 1.08,
+              "end": 1.24,
+              "probability": 0.994140625
+            },
+            {
+              "text": " motion",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " keep",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " silence.",
+              "start": 1.9,
+              "end": 2.34,
+              "probability": 0.95556640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Parsee",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "raw": "made",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "a",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "raw": "motion",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "keep",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "silence.",
+          "start": 1.9,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Parsee",
+        "made",
+        "a",
+        "motion",
+        "to",
+        "keep",
+        "silence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Parsee",
+          "start": 0.5,
+          "end": 0.88,
+          "key": "parsee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 0.88,
+          "end": 1.08,
+          "key": "made",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.08,
+          "end": 1.24,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "motion",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "motion",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "keep",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "silence.",
+          "start": 1.9,
+          "end": 2.34,
+          "key": "silence",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Parsee",
+          "start": 0.5,
+          "end": 0.88
+        },
+        {
+          "text": "made",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "a",
+          "start": 1.08,
+          "end": 1.24
+        },
+        {
+          "text": "motion",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "to",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "keep",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "silence.",
+          "start": 1.9,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20772613119333982
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5858923b50190c6ff0776e2c70a18b7d9a8d46b01cc08fbfbd2db6753ce3b41e",
+  "selected_reasons": []
+}

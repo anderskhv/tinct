@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "0237d76ae18dea669d7d8f1408ff77aa4f77ae3be68a1db01f3b2d28a5d6b800",
+  "attempts": [
+    {
+      "asr_seconds": 0.27250486239790916,
+      "alignment_seconds": 0.0007079867646098137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Still, I must keep this man here until I can get a warrant to arrest him from London.\"",
+        "hotwords": "Still, I, London"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Still, I must keep this man here until I can get a warrant to arrest him from London.",
+          "start": 0.18,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Still,",
+              "start": 0.18,
+              "end": 0.74,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " I",
+              "start": 0.9,
+              "end": 1.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " must",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " keep",
+              "start": 1.4,
+              "end": 1.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " here",
+              "start": 2.14,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " until",
+              "start": 2.5,
+              "end": 2.96,
+              "probability": 0.732421875
+            },
+            {
+              "text": " I",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.990234375
+            },
+            {
+              "text": " can",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " get",
+              "start": 3.22,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.32,
+              "end": 3.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " warrant",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " arrest",
+              "start": 3.82,
+              "end": 4.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 4.1,
+              "end": 4.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 4.3,
+              "end": 4.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " London.",
+              "start": 4.5,
+              "end": 4.8,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Still,",
+          "start": 0.18,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 1.24
+        },
+        {
+          "raw": "must",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "keep",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "raw": "this",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "man",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "here",
+          "start": 2.14,
+          "end": 2.5
+        },
+        {
+          "raw": "until",
+          "start": 2.5,
+          "end": 2.96
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "can",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "raw": "get",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "raw": "a",
+          "start": 3.32,
+          "end": 3.42
+        },
+        {
+          "raw": "warrant",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "to",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "arrest",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "raw": "him",
+          "start": 4.1,
+          "end": 4.3
+        },
+        {
+          "raw": "from",
+          "start": 4.3,
+          "end": 4.5
+        },
+        {
+          "raw": "London.",
+          "start": 4.5,
+          "end": 4.8
+        }
+      ],
+      "expected_tokens": [
+        "\"Still,",
+        "I",
+        "must",
+        "keep",
+        "this",
+        "man",
+        "here",
+        "until",
+        "I",
+        "can",
+        "get",
+        "a",
+        "warrant",
+        "to",
+        "arrest",
+        "him",
+        "from",
+        "London.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Still,",
+          "start": 0.18,
+          "end": 0.74,
+          "key": "still",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 1.24,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 1.4,
+          "end": 1.66,
+          "key": "keep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.14,
+          "end": 2.5,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "until",
+          "start": 2.5,
+          "end": 2.96,
+          "key": "until",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "can",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 3.22,
+          "end": 3.32,
+          "key": "get",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.32,
+          "end": 3.42,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "warrant",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.62,
+          "end": 3.82,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "arrest",
+          "start": 3.82,
+          "end": 4.1,
+          "key": "arrest",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.1,
+          "end": 4.3,
+          "key": "him",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.3,
+          "end": 4.5,
+          "key": "from",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "London.",
+          "start": 4.5,
+          "end": 4.8,
+          "key": "london",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Still,",
+          "start": 0.18,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 0.9,
+          "end": 1.24
+        },
+        {
+          "text": "must",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "keep",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "text": "this",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "man",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "text": "here",
+          "start": 2.14,
+          "end": 2.5
+        },
+        {
+          "text": "until",
+          "start": 2.5,
+          "end": 2.96
+        },
+        {
+          "text": "I",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "can",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "text": "get",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "text": "a",
+          "start": 3.32,
+          "end": 3.42
+        },
+        {
+          "text": "warrant",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "to",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "arrest",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "text": "him",
+          "start": 4.1,
+          "end": 4.3
+        },
+        {
+          "text": "from",
+          "start": 4.3,
+          "end": 4.5
+        },
+        {
+          "text": "London.\"",
+          "start": 4.5,
+          "end": 4.8
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27351435646414757
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7d4446b82a25e4e2476ffc70fd94e93d9a900a40b439dc609b0df1deba91eab5",
+  "selected_reasons": []
+}

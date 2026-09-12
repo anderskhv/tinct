@@ -1,0 +1,1328 @@
+{
+  "complete": true,
+  "signature": "a128dba3a303b59ed2f669541d53a2a6ddfceb97232a9cc31331447d769d65d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.16234060376882553,
+      "alignment_seconds": 0.0004171431064605713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I could risk no sort of answer by this time: my heart was still.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My heart was still.",
+          "start": 0.02,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.02,
+              "end": 1.88,
+              "probability": 0.0006585121154785156
+            },
+            {
+              "text": " heart",
+              "start": 1.88,
+              "end": 3.16,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " was",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " still.",
+              "start": 3.36,
+              "end": 3.66,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.02,
+          "end": 1.88
+        },
+        {
+          "raw": "heart",
+          "start": 1.88,
+          "end": 3.16
+        },
+        {
+          "raw": "was",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "still.",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "could",
+        "risk",
+        "no",
+        "sort",
+        "of",
+        "answer",
+        "by",
+        "this",
+        "time:",
+        "my",
+        "heart",
+        "was",
+        "still."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          10,
+          0,
+          0
+        ],
+        [
+          "equal",
+          10,
+          14,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          10,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 0.02,
+          "end": 1.88,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 1.88,
+          "end": 3.16,
+          "key": "heart",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.16,
+          "end": 3.36,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "still.",
+          "start": 3.36,
+          "end": 3.66,
+          "key": "still",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "could",
+          "start": 0.01,
+          "end": 0.015
+        },
+        {
+          "text": "risk",
+          "start": 0.015,
+          "end": 0.018
+        },
+        {
+          "text": "no",
+          "start": 0.018,
+          "end": 0.019
+        },
+        {
+          "text": "sort",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "of",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "answer",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "by",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "this",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "time:",
+          "start": 0.019,
+          "end": 0.019
+        },
+        {
+          "text": "my",
+          "start": 0.02,
+          "end": 1.88
+        },
+        {
+          "text": "heart",
+          "start": 1.88,
+          "end": 3.16
+        },
+        {
+          "text": "was",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "still.",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 0.2857142857142857,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16284997388720512
+    },
+    {
+      "asr_seconds": 0.24549990892410278,
+      "alignment_seconds": 0.0005701296031475067,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " could risk no sort of answer by this time my heart was still",
+          "start": 0.02,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " could",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.03765869140625
+            },
+            {
+              "text": " risk",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 0.84,
+              "end": 1.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sort",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " answer",
+              "start": 1.34,
+              "end": 1.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " by",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " this",
+              "start": 1.86,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " time",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 2.38,
+              "end": 2.98,
+              "probability": 0.2008056640625
+            },
+            {
+              "text": " heart",
+              "start": 2.98,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " still",
+              "start": 3.38,
+              "end": 3.68,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "could",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "risk",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "raw": "no",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "raw": "sort",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "of",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "answer",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "raw": "by",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "this",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "raw": "time",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "my",
+          "start": 2.38,
+          "end": 2.98
+        },
+        {
+          "raw": "heart",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "raw": "was",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "still",
+          "start": 3.38,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "could",
+        "risk",
+        "no",
+        "sort",
+        "of",
+        "answer",
+        "by",
+        "this",
+        "time:",
+        "my",
+        "heart",
+        "was",
+        "still."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          14,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "could",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "could",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "risk",
+          "start": 0.58,
+          "end": 0.84,
+          "key": "risk",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.84,
+          "end": 1.08,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "sort",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 1.34,
+          "end": 1.62,
+          "key": "answer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.86,
+          "end": 2.06,
+          "key": "this",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.38,
+          "end": 2.98,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 2.98,
+          "end": 3.2,
+          "key": "heart",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "was",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 3.38,
+          "end": 3.68,
+          "key": "still",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "could",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "risk",
+          "start": 0.58,
+          "end": 0.84
+        },
+        {
+          "text": "no",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "text": "sort",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "of",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "answer",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "text": "by",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "this",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "text": "time:",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "my",
+          "start": 2.38,
+          "end": 2.98
+        },
+        {
+          "text": "heart",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "text": "was",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "still.",
+          "start": 3.38,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.24632319062948227
+    },
+    {
+      "asr_seconds": 0.27351951971650124,
+      "alignment_seconds": 0.0005252733826637268,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I could risk no sort of answer by this time.",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " could",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " risk",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sort",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " answer",
+              "start": 1.34,
+              "end": 1.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " by",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " this",
+              "start": 1.86,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " time.",
+              "start": 2.06,
+              "end": 2.38,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " My heart was still.",
+          "start": 2.88,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " My",
+              "start": 2.88,
+              "end": 2.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heart",
+              "start": 2.98,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " still.",
+              "start": 3.38,
+              "end": 3.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "could",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "risk",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "no",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "sort",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "of",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "answer",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "raw": "by",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "this",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "raw": "time.",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "raw": "My",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "raw": "heart",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "raw": "was",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "still.",
+          "start": 3.38,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "could",
+        "risk",
+        "no",
+        "sort",
+        "of",
+        "answer",
+        "by",
+        "this",
+        "time:",
+        "my",
+        "heart",
+        "was",
+        "still."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "could",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "risk",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "risk",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "sort",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 1.34,
+          "end": 1.62,
+          "key": "answer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.86,
+          "end": 2.06,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 2.06,
+          "end": 2.38,
+          "key": "time",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.88,
+          "end": 2.98,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 2.98,
+          "end": 3.2,
+          "key": "heart",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "still.",
+          "start": 3.38,
+          "end": 3.66,
+          "key": "still",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "could",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "risk",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "no",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "sort",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "of",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "answer",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "text": "by",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "this",
+          "start": 1.86,
+          "end": 2.06
+        },
+        {
+          "text": "time:",
+          "start": 2.06,
+          "end": 2.38
+        },
+        {
+          "text": "my",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "text": "heart",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "text": "was",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "still.",
+          "start": 3.38,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27426399663090706
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0081ab97644431fb3e50ee99169c8ea0e91490fff7f0aac405183fb376d11e4e",
+  "selected_reasons": []
+}

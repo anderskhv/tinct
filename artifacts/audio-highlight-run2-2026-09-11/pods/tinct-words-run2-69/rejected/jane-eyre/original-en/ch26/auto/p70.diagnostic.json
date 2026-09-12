@@ -1,0 +1,456 @@
+{
+  "complete": true,
+  "signature": "2c0c1279792f9dbe106e73d2dbb5cd1f46209b8de11e9a94b1731a65777004e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.22800641786307096,
+      "alignment_seconds": 0.00042820069938898087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah! sir, she sees you!\" exclaimed Grace: \"you'd better not stay.\"",
+        "hotwords": "Ah, Grace"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah! sir, she sees you!\" exclaimed Grace, you'd better not stay.",
+          "start": 0.24,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " Ah!",
+              "start": 0.24,
+              "end": 0.66,
+              "probability": 0.0189208984375
+            },
+            {
+              "text": " sir,",
+              "start": 0.74,
+              "end": 0.84,
+              "probability": 0.268798828125
+            },
+            {
+              "text": " she",
+              "start": 0.94,
+              "end": 1.02,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " sees",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " you",
+              "start": 1.24,
+              "end": 1.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": "!\"",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.1148681640625
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.78,
+              "end": 2.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Grace,",
+              "start": 2.14,
+              "end": 2.54,
+              "probability": 0.9765625
+            },
+            {
+              "text": " you'd",
+              "start": 2.98,
+              "end": 3.12,
+              "probability": 0.4555931091308594
+            },
+            {
+              "text": " better",
+              "start": 3.12,
+              "end": 3.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 3.26,
+              "end": 3.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stay.",
+              "start": 3.5,
+              "end": 3.84,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah!",
+          "start": 0.24,
+          "end": 0.66
+        },
+        {
+          "raw": "sir,",
+          "start": 0.74,
+          "end": 0.84
+        },
+        {
+          "raw": "she",
+          "start": 0.94,
+          "end": 1.02
+        },
+        {
+          "raw": "sees",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "you",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "raw": "!\"",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.78,
+          "end": 2.14
+        },
+        {
+          "raw": "Grace,",
+          "start": 2.14,
+          "end": 2.54
+        },
+        {
+          "raw": "you'd",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "raw": "better",
+          "start": 3.12,
+          "end": 3.26
+        },
+        {
+          "raw": "not",
+          "start": 3.26,
+          "end": 3.5
+        },
+        {
+          "raw": "stay.",
+          "start": 3.5,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah!",
+        "sir,",
+        "she",
+        "sees",
+        "you!\"",
+        "exclaimed",
+        "Grace:",
+        "\"you'd",
+        "better",
+        "not",
+        "stay.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          11,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah!",
+          "start": 0.24,
+          "end": 0.66,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.74,
+          "end": 0.84,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.94,
+          "end": 1.02,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sees",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "sees",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.24,
+          "end": 1.6,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.78,
+          "end": 2.14,
+          "key": "exclaimed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Grace,",
+          "start": 2.14,
+          "end": 2.54,
+          "key": "grace",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you'd",
+          "start": 2.98,
+          "end": 3.12,
+          "key": "youd",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 3.12,
+          "end": 3.26,
+          "key": "better",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.26,
+          "end": 3.5,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "stay.",
+          "start": 3.5,
+          "end": 3.84,
+          "key": "stay",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah!",
+          "start": 0.24,
+          "end": 0.66
+        },
+        {
+          "text": "sir,",
+          "start": 0.74,
+          "end": 0.84
+        },
+        {
+          "text": "she",
+          "start": 0.94,
+          "end": 1.02
+        },
+        {
+          "text": "sees",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "you!\"",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.78,
+          "end": 2.14
+        },
+        {
+          "text": "Grace:",
+          "start": 2.14,
+          "end": 2.54
+        },
+        {
+          "text": "\"you'd",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "text": "better",
+          "start": 3.12,
+          "end": 3.26
+        },
+        {
+          "text": "not",
+          "start": 3.26,
+          "end": 3.5
+        },
+        {
+          "text": "stay.\"",
+          "start": 3.5,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2285967255011201
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe5f56b1706825bd6d1cb5a04eec9748b8e263ca1b7abbcaa63831caf83e911d",
+  "selected_reasons": []
+}

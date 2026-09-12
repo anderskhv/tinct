@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "e75206adb3de8f9060b688533a29d8e3fbc8e6a6b08e26cb743a0bff0c1cf20a",
+  "attempts": [
+    {
+      "asr_seconds": 0.07807936891913414,
+      "alignment_seconds": 0.00010848045349121094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester. Too well, too well.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Gloucester.",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.683837890625
+            },
+            {
+              "text": " Too",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " well,",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " too",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " well.",
+              "start": 1.79,
+              "end": 2.07,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Too",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "well,",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "too",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "well.",
+          "start": 1.79,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "Too",
+        "well,",
+        "too",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester.",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Too",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "too",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.71,
+          "end": 1.79,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.79,
+          "end": 2.07,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Too",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "well,",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "too",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "text": "well.",
+          "start": 1.79,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07822617515921593
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "142b08c0856435ee52c045b7ffc931f054c20f76dba064511f01da4c7a136b29",
+  "selected_reasons": []
+}

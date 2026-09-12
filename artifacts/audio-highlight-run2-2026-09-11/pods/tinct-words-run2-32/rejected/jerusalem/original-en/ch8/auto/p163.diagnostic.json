@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "0bd6c518544e0cc5c623f202d34fa9940887246601e32400804cd490cd4de18f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11879940330982208,
+      "alignment_seconds": 0.00016399845480918884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You should also think it over for Hellgum's sake,\" said Ingmar with rising anger, seizing her by the arm.",
+        "hotwords": "You, Hellgum's, Ingmar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You should also think it over for Hellgum's sake,\" said Ingmar with rising anger, seizing her by the arm.",
+          "start": 0.02,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.3603515625
+            },
+            {
+              "text": " should",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " also",
+              "start": 0.64,
+              "end": 0.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " think",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " it",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " over",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Hellgum's",
+              "start": 1.74,
+              "end": 2.16,
+              "probability": 0.6091089248657227
+            },
+            {
+              "text": " sake,\"",
+              "start": 2.16,
+              "end": 3.08,
+              "probability": 0.819580078125
+            },
+            {
+              "text": " said",
+              "start": 3.08,
+              "end": 3.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Ingmar",
+              "start": 3.14,
+              "end": 3.62,
+              "probability": 0.894287109375
+            },
+            {
+              "text": " with",
+              "start": 3.62,
+              "end": 3.84,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " rising",
+              "start": 3.84,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " anger,",
+              "start": 4.22,
+              "end": 4.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seizing",
+              "start": 5.14,
+              "end": 5.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " her",
+              "start": 5.32,
+              "end": 5.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 5.6,
+              "end": 5.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.76,
+              "end": 5.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " arm.",
+              "start": 5.92,
+              "end": 6.16,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "should",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "also",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "raw": "think",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "it",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "over",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "for",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "Hellgum's",
+          "start": 1.74,
+          "end": 2.16
+        },
+        {
+          "raw": "sake,\"",
+          "start": 2.16,
+          "end": 3.08
+        },
+        {
+          "raw": "said",
+          "start": 3.08,
+          "end": 3.14
+        },
+        {
+          "raw": "Ingmar",
+          "start": 3.14,
+          "end": 3.62
+        },
+        {
+          "raw": "with",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "raw": "rising",
+          "start": 3.84,
+          "end": 4.22
+        },
+        {
+          "raw": "anger,",
+          "start": 4.22,
+          "end": 4.66
+        },
+        {
+          "raw": "seizing",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "raw": "her",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "raw": "by",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "raw": "the",
+          "start": 5.76,
+          "end": 5.92
+        },
+        {
+          "raw": "arm.",
+          "start": 5.92,
+          "end": 6.16
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "should",
+        "also",
+        "think",
+        "it",
+        "over",
+        "for",
+        "Hellgum's",
+        "sake,\"",
+        "said",
+        "Ingmar",
+        "with",
+        "rising",
+        "anger,",
+        "seizing",
+        "her",
+        "by",
+        "the",
+        "arm."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "also",
+          "start": 0.64,
+          "end": 0.96,
+          "key": "also",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "think",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "over",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Hellgum's",
+          "start": 1.74,
+          "end": 2.16,
+          "key": "hellgums",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sake,\"",
+          "start": 2.16,
+          "end": 3.08,
+          "key": "sake",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.08,
+          "end": 3.14,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 3.14,
+          "end": 3.62,
+          "key": "ingmar",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.62,
+          "end": 3.84,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "rising",
+          "start": 3.84,
+          "end": 4.22,
+          "key": "rising",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "anger,",
+          "start": 4.22,
+          "end": 4.66,
+          "key": "anger",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "seizing",
+          "start": 5.14,
+          "end": 5.32,
+          "key": "seizing",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 5.32,
+          "end": 5.6,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.6,
+          "end": 5.76,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.76,
+          "end": 5.92,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "arm.",
+          "start": 5.92,
+          "end": 6.16,
+          "key": "arm",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "should",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "also",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "think",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "it",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "over",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "for",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "Hellgum's",
+          "start": 1.74,
+          "end": 2.16
+        },
+        {
+          "text": "sake,\"",
+          "start": 2.16,
+          "end": 3.08
+        },
+        {
+          "text": "said",
+          "start": 3.08,
+          "end": 3.14
+        },
+        {
+          "text": "Ingmar",
+          "start": 3.14,
+          "end": 3.62
+        },
+        {
+          "text": "with",
+          "start": 3.62,
+          "end": 3.84
+        },
+        {
+          "text": "rising",
+          "start": 3.84,
+          "end": 4.22
+        },
+        {
+          "text": "anger,",
+          "start": 4.22,
+          "end": 4.66
+        },
+        {
+          "text": "seizing",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "text": "her",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "text": "by",
+          "start": 5.6,
+          "end": 5.76
+        },
+        {
+          "text": "the",
+          "start": 5.76,
+          "end": 5.92
+        },
+        {
+          "text": "arm.",
+          "start": 5.92,
+          "end": 6.16
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1190382819622755
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7cd41c886e9d8e0f0f8d45a1a4719170a7181a2baea5b0abdf2b02c5fd69c680",
+  "selected_reasons": []
+}

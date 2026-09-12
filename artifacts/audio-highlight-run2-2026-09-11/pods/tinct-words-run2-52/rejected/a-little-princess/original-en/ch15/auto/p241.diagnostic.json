@@ -1,0 +1,2530 @@
+{
+  "complete": true,
+  "signature": "539ecf3153fbbbacdd623d46852696648aaeb28d8178a527abf531b56f314e2d",
+  "attempts": [
+    {
+      "asr_seconds": 0.6390952281653881,
+      "alignment_seconds": 0.0028361082077026367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I am dreaming--I am getting out of bed,\" she heard her own voice say; and then, as she stood up in the midst of it all, turning slowly from side to side--\"I am dreaming it stays--real! I'm dreaming it Feels real. It's bewitched--or I'm bewitched. I only Think I see it all.\" Her words began to hurry themselves. \"If I can only keep on thinking it,\" she cried, \"I don't care! I don't care!\"",
+        "hotwords": "I, I'm, Feels, It's, Think, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I am dreaming I am getting out of bed,\" she heard her own voice say. And then, as she stood up in the midst of it all, turning slowly from side to side, I am dreaming it stays real. I'm dreaming it Feels real. It's bewitched or I'm bewitched. I only Think I see it all. Her words began to hurry themselves.",
+          "start": 0.05,
+          "end": 16.53,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.06689453125
+            },
+            {
+              "text": " am",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.947265625
+            },
+            {
+              "text": " dreaming",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.908203125
+            },
+            {
+              "text": " am",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " getting",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bed,\"",
+              "start": 1.79,
+              "end": 2.43,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " she",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " heard",
+              "start": 2.59,
+              "end": 2.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " voice",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " say.",
+              "start": 3.37,
+              "end": 3.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " And",
+              "start": 4.19,
+              "end": 4.27,
+              "probability": 0.9765625
+            },
+            {
+              "text": " then,",
+              "start": 4.27,
+              "end": 4.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 4.47,
+              "end": 4.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " she",
+              "start": 4.65,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stood",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up",
+              "start": 4.99,
+              "end": 5.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 5.15,
+              "end": 5.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 5.27,
+              "end": 5.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " midst",
+              "start": 5.35,
+              "end": 5.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.51,
+              "end": 5.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 5.67,
+              "end": 5.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " all,",
+              "start": 5.75,
+              "end": 5.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turning",
+              "start": 6.11,
+              "end": 6.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " slowly",
+              "start": 6.31,
+              "end": 6.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 6.73,
+              "end": 7.03,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " side",
+              "start": 7.03,
+              "end": 7.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 7.31,
+              "end": 7.51,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " side,",
+              "start": 7.51,
+              "end": 7.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 7.95,
+              "end": 8.07,
+              "probability": 0.67578125
+            },
+            {
+              "text": " am",
+              "start": 8.07,
+              "end": 8.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " dreaming",
+              "start": 8.23,
+              "end": 8.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 8.47,
+              "end": 8.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " stays",
+              "start": 8.71,
+              "end": 9.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " real.",
+              "start": 9.03,
+              "end": 9.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I'm",
+              "start": 9.91,
+              "end": 10.13,
+              "probability": 0.901123046875
+            },
+            {
+              "text": " dreaming",
+              "start": 10.13,
+              "end": 10.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 10.31,
+              "end": 10.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Feels",
+              "start": 10.57,
+              "end": 10.91,
+              "probability": 0.49732500314712524
+            },
+            {
+              "text": " real.",
+              "start": 10.91,
+              "end": 11.13,
+              "probability": 0.892578125
+            },
+            {
+              "text": " It's",
+              "start": 11.61,
+              "end": 11.77,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " bewitched",
+              "start": 11.77,
+              "end": 12.07,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " or",
+              "start": 12.07,
+              "end": 12.25,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " I'm",
+              "start": 12.25,
+              "end": 12.43,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " bewitched.",
+              "start": 12.43,
+              "end": 12.87,
+              "probability": 0.9861653645833334
+            },
+            {
+              "text": " I",
+              "start": 13.25,
+              "end": 13.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only",
+              "start": 13.37,
+              "end": 13.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Think",
+              "start": 13.53,
+              "end": 13.71,
+              "probability": 0.00939178466796875
+            },
+            {
+              "text": " I",
+              "start": 13.71,
+              "end": 13.87,
+              "probability": 0.94140625
+            },
+            {
+              "text": " see",
+              "start": 13.87,
+              "end": 14.07,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " it",
+              "start": 14.07,
+              "end": 14.17,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " all.",
+              "start": 14.17,
+              "end": 14.43,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Her",
+              "start": 15.13,
+              "end": 15.23,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " words",
+              "start": 15.23,
+              "end": 15.51,
+              "probability": 0.984375
+            },
+            {
+              "text": " began",
+              "start": 15.51,
+              "end": 15.79,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " to",
+              "start": 15.79,
+              "end": 15.99,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " hurry",
+              "start": 15.99,
+              "end": 16.15,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " themselves.",
+              "start": 16.15,
+              "end": 16.53,
+              "probability": 0.880859375
+            }
+          ]
+        },
+        {
+          "text": " If I can only keep on thinking it,\" she cried, I don't care! I don't care!",
+          "start": 17.01,
+          "end": 21.23,
+          "words": [
+            {
+              "text": " If",
+              "start": 17.01,
+              "end": 17.49,
+              "probability": 0.58447265625
+            },
+            {
+              "text": " I",
+              "start": 17.49,
+              "end": 17.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " can",
+              "start": 17.63,
+              "end": 17.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " only",
+              "start": 17.77,
+              "end": 18.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " keep",
+              "start": 18.03,
+              "end": 18.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 18.27,
+              "end": 18.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thinking",
+              "start": 18.43,
+              "end": 18.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it,\"",
+              "start": 18.71,
+              "end": 19.23,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " she",
+              "start": 19.23,
+              "end": 19.39,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " cried,",
+              "start": 19.39,
+              "end": 19.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 20.07,
+              "end": 20.19,
+              "probability": 0.00274658203125
+            },
+            {
+              "text": " don't",
+              "start": 20.19,
+              "end": 20.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " care!",
+              "start": 20.39,
+              "end": 20.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 20.81,
+              "end": 20.83,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " don't",
+              "start": 20.83,
+              "end": 21.07,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " care!",
+              "start": 21.07,
+              "end": 21.23,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "am",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "dreaming",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "I",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "am",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "getting",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "out",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "of",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "bed,\"",
+          "start": 1.79,
+          "end": 2.43
+        },
+        {
+          "raw": "she",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "heard",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "raw": "her",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "own",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "voice",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "raw": "say.",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "raw": "And",
+          "start": 4.19,
+          "end": 4.27
+        },
+        {
+          "raw": "then,",
+          "start": 4.27,
+          "end": 4.45
+        },
+        {
+          "raw": "as",
+          "start": 4.47,
+          "end": 4.65
+        },
+        {
+          "raw": "she",
+          "start": 4.65,
+          "end": 4.79
+        },
+        {
+          "raw": "stood",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "up",
+          "start": 4.99,
+          "end": 5.15
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.27
+        },
+        {
+          "raw": "the",
+          "start": 5.27,
+          "end": 5.35
+        },
+        {
+          "raw": "midst",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "raw": "of",
+          "start": 5.51,
+          "end": 5.67
+        },
+        {
+          "raw": "it",
+          "start": 5.67,
+          "end": 5.75
+        },
+        {
+          "raw": "all,",
+          "start": 5.75,
+          "end": 5.97
+        },
+        {
+          "raw": "turning",
+          "start": 6.11,
+          "end": 6.31
+        },
+        {
+          "raw": "slowly",
+          "start": 6.31,
+          "end": 6.73
+        },
+        {
+          "raw": "from",
+          "start": 6.73,
+          "end": 7.03
+        },
+        {
+          "raw": "side",
+          "start": 7.03,
+          "end": 7.31
+        },
+        {
+          "raw": "to",
+          "start": 7.31,
+          "end": 7.51
+        },
+        {
+          "raw": "side,",
+          "start": 7.51,
+          "end": 7.79
+        },
+        {
+          "raw": "I",
+          "start": 7.95,
+          "end": 8.07
+        },
+        {
+          "raw": "am",
+          "start": 8.07,
+          "end": 8.23
+        },
+        {
+          "raw": "dreaming",
+          "start": 8.23,
+          "end": 8.47
+        },
+        {
+          "raw": "it",
+          "start": 8.47,
+          "end": 8.71
+        },
+        {
+          "raw": "stays",
+          "start": 8.71,
+          "end": 9.03
+        },
+        {
+          "raw": "real.",
+          "start": 9.03,
+          "end": 9.37
+        },
+        {
+          "raw": "I'm",
+          "start": 9.91,
+          "end": 10.13
+        },
+        {
+          "raw": "dreaming",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "raw": "it",
+          "start": 10.31,
+          "end": 10.57
+        },
+        {
+          "raw": "Feels",
+          "start": 10.57,
+          "end": 10.91
+        },
+        {
+          "raw": "real.",
+          "start": 10.91,
+          "end": 11.13
+        },
+        {
+          "raw": "It's",
+          "start": 11.61,
+          "end": 11.77
+        },
+        {
+          "raw": "bewitched",
+          "start": 11.77,
+          "end": 12.07
+        },
+        {
+          "raw": "or",
+          "start": 12.07,
+          "end": 12.25
+        },
+        {
+          "raw": "I'm",
+          "start": 12.25,
+          "end": 12.43
+        },
+        {
+          "raw": "bewitched.",
+          "start": 12.43,
+          "end": 12.87
+        },
+        {
+          "raw": "I",
+          "start": 13.25,
+          "end": 13.37
+        },
+        {
+          "raw": "only",
+          "start": 13.37,
+          "end": 13.53
+        },
+        {
+          "raw": "Think",
+          "start": 13.53,
+          "end": 13.71
+        },
+        {
+          "raw": "I",
+          "start": 13.71,
+          "end": 13.87
+        },
+        {
+          "raw": "see",
+          "start": 13.87,
+          "end": 14.07
+        },
+        {
+          "raw": "it",
+          "start": 14.07,
+          "end": 14.17
+        },
+        {
+          "raw": "all.",
+          "start": 14.17,
+          "end": 14.43
+        },
+        {
+          "raw": "Her",
+          "start": 15.13,
+          "end": 15.23
+        },
+        {
+          "raw": "words",
+          "start": 15.23,
+          "end": 15.51
+        },
+        {
+          "raw": "began",
+          "start": 15.51,
+          "end": 15.79
+        },
+        {
+          "raw": "to",
+          "start": 15.79,
+          "end": 15.99
+        },
+        {
+          "raw": "hurry",
+          "start": 15.99,
+          "end": 16.15
+        },
+        {
+          "raw": "themselves.",
+          "start": 16.15,
+          "end": 16.53
+        },
+        {
+          "raw": "If",
+          "start": 17.01,
+          "end": 17.49
+        },
+        {
+          "raw": "I",
+          "start": 17.49,
+          "end": 17.63
+        },
+        {
+          "raw": "can",
+          "start": 17.63,
+          "end": 17.77
+        },
+        {
+          "raw": "only",
+          "start": 17.77,
+          "end": 18.03
+        },
+        {
+          "raw": "keep",
+          "start": 18.03,
+          "end": 18.27
+        },
+        {
+          "raw": "on",
+          "start": 18.27,
+          "end": 18.43
+        },
+        {
+          "raw": "thinking",
+          "start": 18.43,
+          "end": 18.71
+        },
+        {
+          "raw": "it,\"",
+          "start": 18.71,
+          "end": 19.23
+        },
+        {
+          "raw": "she",
+          "start": 19.23,
+          "end": 19.39
+        },
+        {
+          "raw": "cried,",
+          "start": 19.39,
+          "end": 19.67
+        },
+        {
+          "raw": "I",
+          "start": 20.07,
+          "end": 20.19
+        },
+        {
+          "raw": "don't",
+          "start": 20.19,
+          "end": 20.39
+        },
+        {
+          "raw": "care!",
+          "start": 20.39,
+          "end": 20.57
+        },
+        {
+          "raw": "I",
+          "start": 20.81,
+          "end": 20.83
+        },
+        {
+          "raw": "don't",
+          "start": 20.83,
+          "end": 21.07
+        },
+        {
+          "raw": "care!",
+          "start": 21.07,
+          "end": 21.23
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am",
+        "dreaming--I",
+        "am",
+        "getting",
+        "out",
+        "of",
+        "bed,\"",
+        "she",
+        "heard",
+        "her",
+        "own",
+        "voice",
+        "say;",
+        "and",
+        "then,",
+        "as",
+        "she",
+        "stood",
+        "up",
+        "in",
+        "the",
+        "midst",
+        "of",
+        "it",
+        "all,",
+        "turning",
+        "slowly",
+        "from",
+        "side",
+        "to",
+        "side--\"I",
+        "am",
+        "dreaming",
+        "it",
+        "stays--real!",
+        "I'm",
+        "dreaming",
+        "it",
+        "Feels",
+        "real.",
+        "It's",
+        "bewitched--or",
+        "I'm",
+        "bewitched.",
+        "I",
+        "only",
+        "Think",
+        "I",
+        "see",
+        "it",
+        "all.\"",
+        "Her",
+        "words",
+        "began",
+        "to",
+        "hurry",
+        "themselves.",
+        "\"If",
+        "I",
+        "can",
+        "only",
+        "keep",
+        "on",
+        "thinking",
+        "it,\"",
+        "she",
+        "cried,",
+        "\"I",
+        "don't",
+        "care!",
+        "I",
+        "don't",
+        "care!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          74,
+          0,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dreaming I",
+          "start": 0.69,
+          "end": 1.21,
+          "key": "dreamingi",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "getting",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "getting",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bed,\"",
+          "start": 1.79,
+          "end": 2.43,
+          "key": "bed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.59,
+          "end": 2.79,
+          "key": "heard",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.79,
+          "end": 2.93,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "own",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 3.11,
+          "end": 3.37,
+          "key": "voice",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 3.37,
+          "end": 3.71,
+          "key": "say",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.19,
+          "end": 4.27,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 4.27,
+          "end": 4.45,
+          "key": "then",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.47,
+          "end": 4.65,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.65,
+          "end": 4.79,
+          "key": "she",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 4.79,
+          "end": 4.99,
+          "key": "stood",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 4.99,
+          "end": 5.15,
+          "key": "up",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.15,
+          "end": 5.27,
+          "key": "in",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.27,
+          "end": 5.35,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "midst",
+          "start": 5.35,
+          "end": 5.51,
+          "key": "midst",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.51,
+          "end": 5.67,
+          "key": "of",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.67,
+          "end": 5.75,
+          "key": "it",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "all,",
+          "start": 5.75,
+          "end": 5.97,
+          "key": "all",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 6.11,
+          "end": 6.31,
+          "key": "turning",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "slowly",
+          "start": 6.31,
+          "end": 6.73,
+          "key": "slowly",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 6.73,
+          "end": 7.03,
+          "key": "from",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 7.03,
+          "end": 7.31,
+          "key": "side",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.31,
+          "end": 7.51,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "side, I",
+          "start": 7.51,
+          "end": 8.07,
+          "key": "sidei",
+          "pieces": [
+            32,
+            33
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 8.07,
+          "end": 8.23,
+          "key": "am",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "dreaming",
+          "start": 8.23,
+          "end": 8.47,
+          "key": "dreaming",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.47,
+          "end": 8.71,
+          "key": "it",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "stays real.",
+          "start": 8.71,
+          "end": 9.37,
+          "key": "staysreal",
+          "pieces": [
+            37,
+            38
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 9.91,
+          "end": 10.13,
+          "key": "im",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "dreaming",
+          "start": 10.13,
+          "end": 10.31,
+          "key": "dreaming",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 10.31,
+          "end": 10.57,
+          "key": "it",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Feels",
+          "start": 10.57,
+          "end": 10.91,
+          "key": "feels",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "real.",
+          "start": 10.91,
+          "end": 11.13,
+          "key": "real",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 11.61,
+          "end": 11.77,
+          "key": "its",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "bewitched or",
+          "start": 11.77,
+          "end": 12.25,
+          "key": "bewitchedor",
+          "pieces": [
+            45,
+            46
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 12.25,
+          "end": 12.43,
+          "key": "im",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "bewitched.",
+          "start": 12.43,
+          "end": 12.87,
+          "key": "bewitched",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.25,
+          "end": 13.37,
+          "key": "i",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 13.37,
+          "end": 13.53,
+          "key": "only",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Think",
+          "start": 13.53,
+          "end": 13.71,
+          "key": "think",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.71,
+          "end": 13.87,
+          "key": "i",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 13.87,
+          "end": 14.07,
+          "key": "see",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 14.07,
+          "end": 14.17,
+          "key": "it",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 14.17,
+          "end": 14.43,
+          "key": "all",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Her",
+          "start": 15.13,
+          "end": 15.23,
+          "key": "her",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 15.23,
+          "end": 15.51,
+          "key": "words",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 15.51,
+          "end": 15.79,
+          "key": "began",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.79,
+          "end": 15.99,
+          "key": "to",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "hurry",
+          "start": 15.99,
+          "end": 16.15,
+          "key": "hurry",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "themselves.",
+          "start": 16.15,
+          "end": 16.53,
+          "key": "themselves",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 17.01,
+          "end": 17.49,
+          "key": "if",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.49,
+          "end": 17.63,
+          "key": "i",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 17.63,
+          "end": 17.77,
+          "key": "can",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 17.77,
+          "end": 18.03,
+          "key": "only",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 18.03,
+          "end": 18.27,
+          "key": "keep",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 18.27,
+          "end": 18.43,
+          "key": "on",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "thinking",
+          "start": 18.43,
+          "end": 18.71,
+          "key": "thinking",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "it,\"",
+          "start": 18.71,
+          "end": 19.23,
+          "key": "it",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 19.23,
+          "end": 19.39,
+          "key": "she",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "cried,",
+          "start": 19.39,
+          "end": 19.67,
+          "key": "cried",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 20.07,
+          "end": 20.19,
+          "key": "i",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 20.19,
+          "end": 20.39,
+          "key": "dont",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "care!",
+          "start": 20.39,
+          "end": 20.57,
+          "key": "care",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 20.81,
+          "end": 20.83,
+          "key": "i",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 20.83,
+          "end": 21.07,
+          "key": "dont",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "care!",
+          "start": 21.07,
+          "end": 21.23,
+          "key": "care",
+          "pieces": [
+            77
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "dreaming--I",
+          "heard": "dreaming I",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "expected_index": 31,
+          "text": "side--\"I",
+          "heard": "side, I",
+          "heard_indexes": [
+            32,
+            33
+          ],
+          "start": 7.51,
+          "end": 8.07
+        },
+        {
+          "expected_index": 35,
+          "text": "stays--real!",
+          "heard": "stays real.",
+          "heard_indexes": [
+            37,
+            38
+          ],
+          "start": 8.71,
+          "end": 9.37
+        },
+        {
+          "expected_index": 42,
+          "text": "bewitched--or",
+          "heard": "bewitched or",
+          "heard_indexes": [
+            45,
+            46
+          ],
+          "start": 11.77,
+          "end": 12.25
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "am",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "dreaming--I",
+          "start": 0.69,
+          "end": 1.21
+        },
+        {
+          "text": "am",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "getting",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "out",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "of",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "bed,\"",
+          "start": 1.79,
+          "end": 2.43
+        },
+        {
+          "text": "she",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "heard",
+          "start": 2.59,
+          "end": 2.79
+        },
+        {
+          "text": "her",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "own",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "voice",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "text": "say;",
+          "start": 3.37,
+          "end": 3.71
+        },
+        {
+          "text": "and",
+          "start": 4.19,
+          "end": 4.27
+        },
+        {
+          "text": "then,",
+          "start": 4.27,
+          "end": 4.45
+        },
+        {
+          "text": "as",
+          "start": 4.47,
+          "end": 4.65
+        },
+        {
+          "text": "she",
+          "start": 4.65,
+          "end": 4.79
+        },
+        {
+          "text": "stood",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "up",
+          "start": 4.99,
+          "end": 5.15
+        },
+        {
+          "text": "in",
+          "start": 5.15,
+          "end": 5.27
+        },
+        {
+          "text": "the",
+          "start": 5.27,
+          "end": 5.35
+        },
+        {
+          "text": "midst",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "text": "of",
+          "start": 5.51,
+          "end": 5.67
+        },
+        {
+          "text": "it",
+          "start": 5.67,
+          "end": 5.75
+        },
+        {
+          "text": "all,",
+          "start": 5.75,
+          "end": 5.97
+        },
+        {
+          "text": "turning",
+          "start": 6.11,
+          "end": 6.31
+        },
+        {
+          "text": "slowly",
+          "start": 6.31,
+          "end": 6.73
+        },
+        {
+          "text": "from",
+          "start": 6.73,
+          "end": 7.03
+        },
+        {
+          "text": "side",
+          "start": 7.03,
+          "end": 7.31
+        },
+        {
+          "text": "to",
+          "start": 7.31,
+          "end": 7.51
+        },
+        {
+          "text": "side--\"I",
+          "start": 7.51,
+          "end": 8.07
+        },
+        {
+          "text": "am",
+          "start": 8.07,
+          "end": 8.23
+        },
+        {
+          "text": "dreaming",
+          "start": 8.23,
+          "end": 8.47
+        },
+        {
+          "text": "it",
+          "start": 8.47,
+          "end": 8.71
+        },
+        {
+          "text": "stays--real!",
+          "start": 8.71,
+          "end": 9.37
+        },
+        {
+          "text": "I'm",
+          "start": 9.91,
+          "end": 10.13
+        },
+        {
+          "text": "dreaming",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "text": "it",
+          "start": 10.31,
+          "end": 10.57
+        },
+        {
+          "text": "Feels",
+          "start": 10.57,
+          "end": 10.91
+        },
+        {
+          "text": "real.",
+          "start": 10.91,
+          "end": 11.13
+        },
+        {
+          "text": "It's",
+          "start": 11.61,
+          "end": 11.77
+        },
+        {
+          "text": "bewitched--or",
+          "start": 11.77,
+          "end": 12.25
+        },
+        {
+          "text": "I'm",
+          "start": 12.25,
+          "end": 12.43
+        },
+        {
+          "text": "bewitched.",
+          "start": 12.43,
+          "end": 12.87
+        },
+        {
+          "text": "I",
+          "start": 13.25,
+          "end": 13.37
+        },
+        {
+          "text": "only",
+          "start": 13.37,
+          "end": 13.53
+        },
+        {
+          "text": "Think",
+          "start": 13.53,
+          "end": 13.71
+        },
+        {
+          "text": "I",
+          "start": 13.71,
+          "end": 13.87
+        },
+        {
+          "text": "see",
+          "start": 13.87,
+          "end": 14.07
+        },
+        {
+          "text": "it",
+          "start": 14.07,
+          "end": 14.17
+        },
+        {
+          "text": "all.\"",
+          "start": 14.17,
+          "end": 14.43
+        },
+        {
+          "text": "Her",
+          "start": 15.13,
+          "end": 15.23
+        },
+        {
+          "text": "words",
+          "start": 15.23,
+          "end": 15.51
+        },
+        {
+          "text": "began",
+          "start": 15.51,
+          "end": 15.79
+        },
+        {
+          "text": "to",
+          "start": 15.79,
+          "end": 15.99
+        },
+        {
+          "text": "hurry",
+          "start": 15.99,
+          "end": 16.15
+        },
+        {
+          "text": "themselves.",
+          "start": 16.15,
+          "end": 16.53
+        },
+        {
+          "text": "\"If",
+          "start": 17.01,
+          "end": 17.49
+        },
+        {
+          "text": "I",
+          "start": 17.49,
+          "end": 17.63
+        },
+        {
+          "text": "can",
+          "start": 17.63,
+          "end": 17.77
+        },
+        {
+          "text": "only",
+          "start": 17.77,
+          "end": 18.03
+        },
+        {
+          "text": "keep",
+          "start": 18.03,
+          "end": 18.27
+        },
+        {
+          "text": "on",
+          "start": 18.27,
+          "end": 18.43
+        },
+        {
+          "text": "thinking",
+          "start": 18.43,
+          "end": 18.71
+        },
+        {
+          "text": "it,\"",
+          "start": 18.71,
+          "end": 19.23
+        },
+        {
+          "text": "she",
+          "start": 19.23,
+          "end": 19.39
+        },
+        {
+          "text": "cried,",
+          "start": 19.39,
+          "end": 19.67
+        },
+        {
+          "text": "\"I",
+          "start": 20.07,
+          "end": 20.19
+        },
+        {
+          "text": "don't",
+          "start": 20.19,
+          "end": 20.39
+        },
+        {
+          "text": "care!",
+          "start": 20.39,
+          "end": 20.57
+        },
+        {
+          "text": "I",
+          "start": 20.81,
+          "end": 20.83
+        },
+        {
+          "text": "don't",
+          "start": 20.83,
+          "end": 21.07
+        },
+        {
+          "text": "care!\"",
+          "start": 21.07,
+          "end": 21.23
+        }
+      ],
+      "stats": {
+        "expected_words": 74,
+        "heard_words": 74,
+        "matched_words": 74
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6430752947926521
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "859e04fbf80c4829819730d9aabc9002d4d6fdfe83c9da83f28bc91cf2389620",
+  "selected_reasons": []
+}

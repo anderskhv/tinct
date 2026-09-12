@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "e72e449a87765d9f260344fc8d0e89b26de31e2dbfaaf3a268ab765640a751de",
+  "attempts": [
+    {
+      "asr_seconds": 0.32700892724096775,
+      "alignment_seconds": 0.0006593838334083557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Claudio. Yea, my good lord. How still the evening is, As hush'd on purpose to grace harmony!",
+        "hotwords": "Claudio, Yea, How, As"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Claudio, Yea, my good lord. How still the evening is, As hush'd on purpose to grace harmony!",
+          "start": 0.0,
+          "end": 6.06,
+          "words": [
+            {
+              "text": " Claudio,",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.813720703125
+            },
+            {
+              "text": " Yea,",
+              "start": 1.22,
+              "end": 1.58,
+              "probability": 0.503509521484375
+            },
+            {
+              "text": " my",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.828125
+            },
+            {
+              "text": " good",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.5390625
+            },
+            {
+              "text": " lord.",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.320068359375
+            },
+            {
+              "text": " How",
+              "start": 2.88,
+              "end": 3.0,
+              "probability": 0.951171875
+            },
+            {
+              "text": " still",
+              "start": 3.0,
+              "end": 3.24,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 3.24,
+              "end": 3.44,
+              "probability": 0.982421875
+            },
+            {
+              "text": " evening",
+              "start": 3.44,
+              "end": 3.72,
+              "probability": 0.94921875
+            },
+            {
+              "text": " is,",
+              "start": 3.72,
+              "end": 4.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " As",
+              "start": 4.28,
+              "end": 4.38,
+              "probability": 0.35205078125
+            },
+            {
+              "text": " hush'd",
+              "start": 4.38,
+              "end": 4.78,
+              "probability": 0.5294850667317709
+            },
+            {
+              "text": " on",
+              "start": 4.78,
+              "end": 4.88,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " purpose",
+              "start": 4.88,
+              "end": 5.12,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 5.12,
+              "end": 5.42,
+              "probability": 0.947265625
+            },
+            {
+              "text": " grace",
+              "start": 5.42,
+              "end": 5.66,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " harmony!",
+              "start": 5.66,
+              "end": 6.06,
+              "probability": 0.8466796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio,",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "Yea,",
+          "start": 1.22,
+          "end": 1.58
+        },
+        {
+          "raw": "my",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "good",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "lord.",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "How",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "raw": "still",
+          "start": 3.0,
+          "end": 3.24
+        },
+        {
+          "raw": "the",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "raw": "evening",
+          "start": 3.44,
+          "end": 3.72
+        },
+        {
+          "raw": "is,",
+          "start": 3.72,
+          "end": 4.14
+        },
+        {
+          "raw": "As",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "raw": "hush'd",
+          "start": 4.38,
+          "end": 4.78
+        },
+        {
+          "raw": "on",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "raw": "purpose",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "raw": "to",
+          "start": 5.12,
+          "end": 5.42
+        },
+        {
+          "raw": "grace",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "raw": "harmony!",
+          "start": 5.66,
+          "end": 6.06
+        }
+      ],
+      "expected_tokens": [
+        "Claudio.",
+        "Yea,",
+        "my",
+        "good",
+        "lord.",
+        "How",
+        "still",
+        "the",
+        "evening",
+        "is,",
+        "As",
+        "hush'd",
+        "on",
+        "purpose",
+        "to",
+        "grace",
+        "harmony!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio,",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yea,",
+          "start": 1.22,
+          "end": 1.58,
+          "key": "yea",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.88,
+          "end": 3.0,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 3.0,
+          "end": 3.24,
+          "key": "still",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.24,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "evening",
+          "start": 3.44,
+          "end": 3.72,
+          "key": "evening",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 3.72,
+          "end": 4.14,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 4.28,
+          "end": 4.38,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hush'd",
+          "start": 4.38,
+          "end": 4.78,
+          "key": "hushd",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.78,
+          "end": 4.88,
+          "key": "on",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "purpose",
+          "start": 4.88,
+          "end": 5.12,
+          "key": "purpose",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.12,
+          "end": 5.42,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "grace",
+          "start": 5.42,
+          "end": 5.66,
+          "key": "grace",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "harmony!",
+          "start": 5.66,
+          "end": 6.06,
+          "key": "harmony",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "Yea,",
+          "start": 1.22,
+          "end": 1.58
+        },
+        {
+          "text": "my",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "good",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "lord.",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "How",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "still",
+          "start": 3.0,
+          "end": 3.24
+        },
+        {
+          "text": "the",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "evening",
+          "start": 3.44,
+          "end": 3.72
+        },
+        {
+          "text": "is,",
+          "start": 3.72,
+          "end": 4.14
+        },
+        {
+          "text": "As",
+          "start": 4.28,
+          "end": 4.38
+        },
+        {
+          "text": "hush'd",
+          "start": 4.38,
+          "end": 4.78
+        },
+        {
+          "text": "on",
+          "start": 4.78,
+          "end": 4.88
+        },
+        {
+          "text": "purpose",
+          "start": 4.88,
+          "end": 5.12
+        },
+        {
+          "text": "to",
+          "start": 5.12,
+          "end": 5.42
+        },
+        {
+          "text": "grace",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "text": "harmony!",
+          "start": 5.66,
+          "end": 6.06
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32793157547712326
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e6abe8896cf55885c61958e3fdc8cd4cb0807c21e35ea52cd8d8d8b4c7cca1e1",
+  "selected_reasons": []
+}

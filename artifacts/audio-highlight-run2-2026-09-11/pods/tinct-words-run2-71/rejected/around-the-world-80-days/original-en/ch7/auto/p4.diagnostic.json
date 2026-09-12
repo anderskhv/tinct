@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d74a0b84d93b2e7bd3fd75dd7dde640127e43e4ed0192b3feff49c1a1c73d2c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1283836979418993,
+      "alignment_seconds": 0.0003672325983643532,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"To have his passport _visaed?_\"",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To have his passport visaed.",
+          "start": 0.02,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.2281494140625
+            },
+            {
+              "text": " have",
+              "start": 0.48,
+              "end": 0.66,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " his",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " passport",
+              "start": 0.82,
+              "end": 1.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " visaed.",
+              "start": 1.24,
+              "end": 1.76,
+              "probability": 0.03217315673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "have",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "raw": "his",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "passport",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "raw": "visaed.",
+          "start": 1.24,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "\"To",
+        "have",
+        "his",
+        "passport",
+        "_visaed?_\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.48,
+          "end": 0.66,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "passport",
+          "start": 0.82,
+          "end": 1.24,
+          "key": "passport",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "visaed.",
+          "start": 1.24,
+          "end": 1.76,
+          "key": "visaed",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "have",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "text": "his",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "passport",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "text": "_visaed?_\"",
+          "start": 1.24,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12889786716550589
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2009a144651797a214102d797cb18be0b70a8468a1e908ff990f80b808cac749",
+  "selected_reasons": []
+}

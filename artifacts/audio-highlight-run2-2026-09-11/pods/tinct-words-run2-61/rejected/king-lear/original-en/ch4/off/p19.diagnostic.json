@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "451b42d4b64e65e49746811c8b8ed9839cf8a74e63e5330ce2d9042c82176979",
+  "attempts": [
+    {
+      "asr_seconds": 0.256793811917305,
+      "alignment_seconds": 0.0003875158727169037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, what services canst thou do?",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " what",
+              "start": 0.99,
+              "end": 1.15,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " services",
+              "start": 1.15,
+              "end": 1.47,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " canst",
+              "start": 1.47,
+              "end": 1.95,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " thou",
+              "start": 1.95,
+              "end": 2.11,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " do?",
+              "start": 2.11,
+              "end": 2.39,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "what",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "raw": "services",
+          "start": 1.15,
+          "end": 1.47
+        },
+        {
+          "raw": "canst",
+          "start": 1.47,
+          "end": 1.95
+        },
+        {
+          "raw": "thou",
+          "start": 1.95,
+          "end": 2.11
+        },
+        {
+          "raw": "do?",
+          "start": 2.11,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "What",
+        "services",
+        "canst",
+        "thou",
+        "do?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.99,
+          "end": 1.15,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "services",
+          "start": 1.15,
+          "end": 1.47,
+          "key": "services",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 1.47,
+          "end": 1.95,
+          "key": "canst",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.95,
+          "end": 2.11,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do?",
+          "start": 2.11,
+          "end": 2.39,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "What",
+          "start": 0.99,
+          "end": 1.15
+        },
+        {
+          "text": "services",
+          "start": 1.15,
+          "end": 1.47
+        },
+        {
+          "text": "canst",
+          "start": 1.47,
+          "end": 1.95
+        },
+        {
+          "text": "thou",
+          "start": 1.95,
+          "end": 2.11
+        },
+        {
+          "text": "do?",
+          "start": 2.11,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25732301734387875
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8e78a11fcb146cc28ba856caec53b1cc810c1b6b610b68bf795dd0c16fa164c",
+  "selected_reasons": []
+}

@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "158ac56e63ca5955a64bd8b753090bb3182a599a0b27c034219a0d416a9b2541",
+  "attempts": [
+    {
+      "asr_seconds": 0.10543537000194192,
+      "alignment_seconds": 0.0001566498540341854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exune all but Diego and Casio.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Exune",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.5712890625
+            },
+            {
+              "text": " all",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " but",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Diego",
+              "start": 1.11,
+              "end": 1.35,
+              "probability": 0.4326171875
+            },
+            {
+              "text": " and",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Casio.",
+              "start": 1.65,
+              "end": 2.21,
+              "probability": 0.785888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "all",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "but",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "Diego",
+          "start": 1.11,
+          "end": 1.35
+        },
+        {
+          "raw": "and",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "raw": "Casio.",
+          "start": 1.65,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "all",
+        "but",
+        "Iago",
+        "and",
+        "Cassio.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "exune",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.95,
+          "end": 1.11,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Diego",
+          "start": 1.11,
+          "end": 1.35,
+          "key": "diego",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.35,
+          "end": 1.65,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Casio.",
+          "start": 1.65,
+          "end": 2.21,
+          "key": "casio",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "all",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "but",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "Iago",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "text": "Cassio.]",
+          "start": 1.65,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1056332578882575
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd0b78bb3cae2a2afa1756b76c107bc0ca622ee63536102e9a359f980e76ab54",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

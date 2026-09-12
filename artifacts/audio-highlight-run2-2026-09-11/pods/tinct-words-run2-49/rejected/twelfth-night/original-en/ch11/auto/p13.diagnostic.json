@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "d73f6c613ab579875af1220ce99566a446d714aab88ba750609ab81b3884d888",
+  "attempts": [
+    {
+      "asr_seconds": 0.2081259973347187,
+      "alignment_seconds": 0.0004769042134284973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. I warrant thou art a merry fellow, and car'st for nothing.",
+        "hotwords": "Viola, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, I warrant thou art a merry fellow, and car'st for nothing.",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.782958984375
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " warrant",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.986328125
+            },
+            {
+              "text": " thou",
+              "start": 1.65,
+              "end": 1.89,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " art",
+              "start": 1.89,
+              "end": 2.09,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " a",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " merry",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " fellow,",
+              "start": 2.41,
+              "end": 2.75,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " and",
+              "start": 3.03,
+              "end": 3.11,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " car'st",
+              "start": 3.11,
+              "end": 3.57,
+              "probability": 0.2945963541666667
+            },
+            {
+              "text": " for",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.09979248046875
+            },
+            {
+              "text": " nothing.",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "warrant",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "thou",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "raw": "art",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "raw": "a",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "merry",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "fellow,",
+          "start": 2.41,
+          "end": 2.75
+        },
+        {
+          "raw": "and",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "raw": "car'st",
+          "start": 3.11,
+          "end": 3.57
+        },
+        {
+          "raw": "for",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "nothing.",
+          "start": 3.71,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "I",
+        "warrant",
+        "thou",
+        "art",
+        "a",
+        "merry",
+        "fellow,",
+        "and",
+        "car'st",
+        "for",
+        "nothing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "warrant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.65,
+          "end": 1.89,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.89,
+          "end": 2.09,
+          "key": "art",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "merry",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "merry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fellow,",
+          "start": 2.41,
+          "end": 2.75,
+          "key": "fellow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.03,
+          "end": 3.11,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "car'st",
+          "start": 3.11,
+          "end": 3.57,
+          "key": "carst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "nothing",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "warrant",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "thou",
+          "start": 1.65,
+          "end": 1.89
+        },
+        {
+          "text": "art",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "text": "a",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "merry",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "fellow,",
+          "start": 2.41,
+          "end": 2.75
+        },
+        {
+          "text": "and",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "text": "car'st",
+          "start": 3.11,
+          "end": 3.57
+        },
+        {
+          "text": "for",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "nothing.",
+          "start": 3.71,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20879987999796867
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "79abc42589abd7c2d614a562096115186902c3641bc2375009f21e6126bb1361",
+  "selected_reasons": []
+}

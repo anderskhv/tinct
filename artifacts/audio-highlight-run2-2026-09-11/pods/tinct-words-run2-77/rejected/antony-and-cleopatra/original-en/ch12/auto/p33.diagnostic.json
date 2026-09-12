@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "5ba0a4cdf712f78313dc99091b12901ea8c7e450915ef87c1b28bdef8c641949",
+  "attempts": [
+    {
+      "asr_seconds": 0.1259353430068586,
+      "alignment_seconds": 0.00014877502690069377,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Of its own colour too.",
+        "hotwords": "Antony, Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Of Its Own Colour too.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.817138671875
+            },
+            {
+              "text": " Of",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.00655364990234375
+            },
+            {
+              "text": " Its",
+              "start": 1.25,
+              "end": 1.35,
+              "probability": 0.47021484375
+            },
+            {
+              "text": " Own",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Colour",
+              "start": 1.55,
+              "end": 1.81,
+              "probability": 0.0484619140625
+            },
+            {
+              "text": " too.",
+              "start": 1.81,
+              "end": 2.21,
+              "probability": 0.08770751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Of",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "Its",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "raw": "Own",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "Colour",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "raw": "too.",
+          "start": 1.81,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Of",
+        "its",
+        "own",
+        "colour",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Its",
+          "start": 1.25,
+          "end": 1.35,
+          "key": "its",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Own",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "own",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Colour",
+          "start": 1.55,
+          "end": 1.81,
+          "key": "colour",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 1.81,
+          "end": 2.21,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Of",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "its",
+          "start": 1.25,
+          "end": 1.35
+        },
+        {
+          "text": "own",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "colour",
+          "start": 1.55,
+          "end": 1.81
+        },
+        {
+          "text": "too.",
+          "start": 1.81,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12614059000043198
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1b1782d5b1cc5b788d98a5cf8624548b23101f23d00067fab6133c377aa934a",
+  "selected_reasons": []
+}

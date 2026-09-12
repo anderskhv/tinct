@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1cc83d08a18c24f2238a89f25102b965695e763542a274e20d8962be518cbfad",
+  "attempts": [
+    {
+      "asr_seconds": 0.09274607803672552,
+      "alignment_seconds": 0.00010240590199828148,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lowood Institution.",
+        "hotwords": "Lowood, Institution"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lowood Institution.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Lowood",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.004952430725097656
+            },
+            {
+              "text": " Institution.",
+              "start": 0.78,
+              "end": 1.2,
+              "probability": 0.8828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lowood",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Institution.",
+          "start": 0.78,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Lowood",
+        "Institution."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lowood",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "lowood",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Institution.",
+          "start": 0.78,
+          "end": 1.2,
+          "key": "institution",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lowood",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Institution.",
+          "start": 0.78,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09288147138431668
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b2bcb31f844efb0390c3dff99a4ab5618d0e3aee66b53501d6d1fe1a4a0461a",
+  "selected_reasons": []
+}

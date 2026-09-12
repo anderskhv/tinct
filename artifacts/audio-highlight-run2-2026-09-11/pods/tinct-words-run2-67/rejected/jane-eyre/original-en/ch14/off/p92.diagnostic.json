@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "78a8ca8805e1e4a1d6f1154c33b8791abf5357e9a9acb9e44eaa077927b964a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2048222883604467,
+      "alignment_seconds": 0.0003849538043141365,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Let it be right, the very words. You have pronounced them.",
+          "start": 0.02,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " it",
+              "start": 0.56,
+              "end": 0.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " right,",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 1.14,
+              "end": 1.22,
+              "probability": 0.990234375
+            },
+            {
+              "text": " very",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " words.",
+              "start": 1.42,
+              "end": 1.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " You",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " have",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " pronounced",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " them.",
+              "start": 2.7,
+              "end": 3.08,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.66
+        },
+        {
+          "raw": "be",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "right,",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "raw": "very",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "words.",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "raw": "You",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "have",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "pronounced",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "them.",
+          "start": 2.7,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "\"'Let",
+        "it",
+        "be",
+        "right'—the",
+        "very",
+        "words:",
+        "you",
+        "have",
+        "pronounced",
+        "them.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.66,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "right",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.22,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "very",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 1.42,
+          "end": 1.84,
+          "key": "words",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.34,
+          "end": 2.42,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pronounced",
+          "start": 2.42,
+          "end": 2.7,
+          "key": "pronounced",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.7,
+          "end": 3.08,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"'Let",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "it",
+          "start": 0.56,
+          "end": 0.66
+        },
+        {
+          "text": "be",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "right'—the",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "very",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "words:",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "text": "you",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "have",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "pronounced",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "them.\"",
+          "start": 2.7,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.20535607496276498
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "566d60fc58693caca739bdb0d7bfe1b5ea6cdf8b828e1e55fbe39a0d580a0807",
+  "selected_reasons": []
+}

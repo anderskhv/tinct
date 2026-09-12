@@ -1,0 +1,995 @@
+{
+  "complete": true,
+  "signature": "4b9e7474445a6b9795f70060aac6d605391f908aa99d9129621bb3da171fc77e",
+  "attempts": [
+    {
+      "asr_seconds": 0.29457125533372164,
+      "alignment_seconds": 0.0006189486011862755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Katharine. _Dites-moi l'anglais pour le bras._",
+        "hotwords": "Katharine"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katharine.",
+          "start": 0.11,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " Katharine.",
+              "start": 0.11,
+              "end": 0.91,
+              "probability": 0.4866180419921875
+            }
+          ]
+        },
+        {
+          "text": " Dites-moi l'anglais pour le bras._",
+          "start": 0.91,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Dites",
+              "start": 0.91,
+              "end": 1.55,
+              "probability": 0.1862698197364807
+            },
+            {
+              "text": "-moi",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.5524648030598959
+            },
+            {
+              "text": " l",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.0270843505859375
+            },
+            {
+              "text": "'anglais",
+              "start": 1.89,
+              "end": 2.17,
+              "probability": 0.6581573486328125
+            },
+            {
+              "text": " pour",
+              "start": 2.17,
+              "end": 2.29,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " le",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.222900390625
+            },
+            {
+              "text": " bras._",
+              "start": 2.41,
+              "end": 2.71,
+              "probability": 0.4172363877296448
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine.",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "raw": "Dites",
+          "start": 0.91,
+          "end": 1.55
+        },
+        {
+          "raw": "-moi",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "l",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "'anglais",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "raw": "pour",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "raw": "le",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "bras._",
+          "start": 2.41,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Dites-moi",
+        "l'anglais",
+        "pour",
+        "le",
+        "bras._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine.",
+          "start": 0.11,
+          "end": 0.91,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dites -moi",
+          "start": 0.91,
+          "end": 1.75,
+          "key": "ditesmoi",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "l",
+          "start": 1.75,
+          "end": 1.89,
+          "key": "l",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'anglais",
+          "start": 1.89,
+          "end": 2.17,
+          "key": "anglais",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 2.17,
+          "end": 2.29,
+          "key": "pour",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "le",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "le",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bras._",
+          "start": 2.41,
+          "end": 2.71,
+          "key": "bras_",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "_Dites-moi",
+          "heard": "Dites -moi",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 0.91,
+          "end": 1.75
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.11,
+          "end": 0.91
+        },
+        {
+          "text": "_Dites-moi",
+          "start": 0.91,
+          "end": 1.75
+        },
+        {
+          "text": "l'anglais",
+          "start": 1.75,
+          "end": 1.96
+        },
+        {
+          "text": "pour",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "text": "le",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "bras._",
+          "start": 2.41,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.295357882976532
+    },
+    {
+      "asr_seconds": 0.22731538861989975,
+      "alignment_seconds": 0.0004924889653921127,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Katharine"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Katharine, dits moi el anglais pour la bras.",
+          "start": 0.11,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Katharine,",
+              "start": 0.11,
+              "end": 0.93,
+              "probability": 0.486541748046875
+            },
+            {
+              "text": " dits",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.545166015625
+            },
+            {
+              "text": " moi",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.859619140625
+            },
+            {
+              "text": " el",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.203369140625
+            },
+            {
+              "text": " anglais",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " pour",
+              "start": 2.19,
+              "end": 2.29,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " la",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " bras.",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.95166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine,",
+          "start": 0.11,
+          "end": 0.93
+        },
+        {
+          "raw": "dits",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "moi",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "el",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "anglais",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "raw": "pour",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "raw": "la",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "bras.",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Dites-moi",
+        "l'anglais",
+        "pour",
+        "le",
+        "bras._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          5
+        ],
+        [
+          "equal",
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          "replace",
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          "equal",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine,",
+          "start": 0.11,
+          "end": 0.93,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dits",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "dits",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moi",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "moi",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "el",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "el",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "anglais",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "anglais",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 2.19,
+          "end": 2.29,
+          "key": "pour",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "la",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bras.",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "bras",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.11,
+          "end": 0.93
+        },
+        {
+          "text": "_Dites-moi",
+          "start": 0.93,
+          "end": 1.56
+        },
+        {
+          "text": "l'anglais",
+          "start": 1.56,
+          "end": 1.875
+        },
+        {
+          "text": "pour",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "text": "le",
+          "start": 2.29,
+          "end": 2.34
+        },
+        {
+          "text": "bras._",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 8,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22797206789255142
+    },
+    {
+      "asr_seconds": 0.22559192311018705,
+      "alignment_seconds": 0.0004972917959094048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catherine, dits moi el anglais pour la bras.",
+          "start": 0.11,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Catherine,",
+              "start": 0.11,
+              "end": 0.87,
+              "probability": 0.458251953125
+            },
+            {
+              "text": " dits",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.426513671875
+            },
+            {
+              "text": " moi",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.856689453125
+            },
+            {
+              "text": " el",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.2076416015625
+            },
+            {
+              "text": " anglais",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.6710611979166666
+            },
+            {
+              "text": " pour",
+              "start": 2.19,
+              "end": 2.29,
+              "probability": 0.822265625
+            },
+            {
+              "text": " la",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.5712890625
+            },
+            {
+              "text": " bras.",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catherine,",
+          "start": 0.11,
+          "end": 0.87
+        },
+        {
+          "raw": "dits",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "moi",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "el",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "anglais",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "raw": "pour",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "raw": "la",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "bras.",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Dites-moi",
+        "l'anglais",
+        "pour",
+        "le",
+        "bras._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          5
+        ],
+        [
+          "equal",
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          "replace",
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          "equal",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catherine,",
+          "start": 0.11,
+          "end": 0.87,
+          "key": "catherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dits",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "dits",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moi",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "moi",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "el",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "el",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "anglais",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "anglais",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 2.19,
+          "end": 2.29,
+          "key": "pour",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "la",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bras.",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "bras",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 1.095
+        },
+        {
+          "text": "_Dites-moi",
+          "start": 1.095,
+          "end": 1.643
+        },
+        {
+          "text": "l'anglais",
+          "start": 1.643,
+          "end": 1.917
+        },
+        {
+          "text": "pour",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "text": "le",
+          "start": 2.29,
+          "end": 2.34
+        },
+        {
+          "text": "bras._",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 8,
+        "matched_words": 2
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22627161536365747
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "deef3a34db575e983ff8930bcc1247b52467f300cb20551937fecc54ca96711f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

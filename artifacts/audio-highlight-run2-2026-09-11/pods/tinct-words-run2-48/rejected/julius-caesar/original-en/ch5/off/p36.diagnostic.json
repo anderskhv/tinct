@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "e403752cb3b2935c07a87304f9e00ff127044946b581d9fdae619b874cd2d8fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.17961103934794664,
+      "alignment_seconds": 0.00026952195912599564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, Caesar, teas struck an eight.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " Caesar,",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " teas",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.558349609375
+            },
+            {
+              "text": " struck",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " an",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " eight.",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.64111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "teas",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "struck",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "an",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "eight.",
+          "start": 2.27,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Caesar,",
+        "'tis",
+        "strucken",
+        "eight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caesar,",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "caesar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "teas",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "teas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "struck",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "an",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "eight.",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "eight",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Caesar,",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "'tis",
+          "start": 1.41,
+          "end": 1.84
+        },
+        {
+          "text": "strucken",
+          "start": 1.84,
+          "end": 2.055
+        },
+        {
+          "text": "eight.",
+          "start": 2.27,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18002837989479303
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d5cfd9fea9d5e33ebbb8acbd04171c3bc2086b8091734667bf2443d9440605d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

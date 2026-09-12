@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "34f8d04cd86d10442ed7f65f5c299ceefb4c48a3d149ff3f5bbcad919d58e3c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.13533969700802118,
+      "alignment_seconds": 0.00023946200963109732,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soon be calling him my lord mayor long John is backing him they say",
+          "start": 0.08,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " Soon",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " be",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " calling",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.984375
+            },
+            {
+              "text": " my",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.81640625
+            },
+            {
+              "text": " lord",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.412353515625
+            },
+            {
+              "text": " mayor",
+              "start": 1.52,
+              "end": 1.92,
+              "probability": 0.72412109375
+            },
+            {
+              "text": " long",
+              "start": 1.92,
+              "end": 2.68,
+              "probability": 0.51806640625
+            },
+            {
+              "text": " John",
+              "start": 2.68,
+              "end": 2.94,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " is",
+              "start": 2.94,
+              "end": 3.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " backing",
+              "start": 3.1,
+              "end": 3.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 3.38,
+              "end": 3.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " they",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " say",
+              "start": 3.96,
+              "end": 4.32,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soon",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "be",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "calling",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "him",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "my",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "lord",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "mayor",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "raw": "long",
+          "start": 1.92,
+          "end": 2.68
+        },
+        {
+          "raw": "John",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "raw": "is",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "raw": "backing",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "raw": "him",
+          "start": 3.38,
+          "end": 3.72
+        },
+        {
+          "raw": "they",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "raw": "say",
+          "start": 3.96,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "Soon",
+        "be",
+        "calling",
+        "him",
+        "my",
+        "lord",
+        "mayor.",
+        "Long",
+        "John",
+        "is",
+        "backing",
+        "him,",
+        "they",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soon",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "soon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "calling",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.16,
+          "end": 1.32,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mayor",
+          "start": 1.52,
+          "end": 1.92,
+          "key": "mayor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 1.92,
+          "end": 2.68,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 2.68,
+          "end": 2.94,
+          "key": "john",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.94,
+          "end": 3.1,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "backing",
+          "start": 3.1,
+          "end": 3.38,
+          "key": "backing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.38,
+          "end": 3.72,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.72,
+          "end": 3.96,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.96,
+          "end": 4.32,
+          "key": "say",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soon",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "be",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "calling",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "him",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "my",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "text": "lord",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "mayor.",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "text": "Long",
+          "start": 1.92,
+          "end": 2.68
+        },
+        {
+          "text": "John",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "text": "is",
+          "start": 2.94,
+          "end": 3.1
+        },
+        {
+          "text": "backing",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "text": "him,",
+          "start": 3.38,
+          "end": 3.72
+        },
+        {
+          "text": "they",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "text": "say.",
+          "start": 3.96,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1356809680000879
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f0213b47c2c098b770153c26bf09c01fab8db0dddd1456f3d2f1a1034b30617",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "62a948882d3c6102dd050e200768fd4fd783bd20966c6707b35db6f4f4789652",
+  "attempts": [
+    {
+      "asr_seconds": 0.16773872915655375,
+      "alignment_seconds": 0.00021981587633490562,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. May I change these garments?",
+        "hotwords": "Coriolanus, May, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, May I change these garments?",
+          "start": 0.08,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.08,
+              "end": 1.06,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " May",
+              "start": 1.54,
+              "end": 1.62,
+              "probability": 0.0187835693359375
+            },
+            {
+              "text": " I",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " change",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " these",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " garments?",
+              "start": 2.16,
+              "end": 2.5,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "raw": "May",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "raw": "I",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "change",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "these",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "garments?",
+          "start": 2.16,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "May",
+        "I",
+        "change",
+        "these",
+        "garments?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.08,
+          "end": 1.06,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 1.54,
+          "end": 1.62,
+          "key": "may",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "change",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "these",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "garments?",
+          "start": 2.16,
+          "end": 2.5,
+          "key": "garments",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.08,
+          "end": 1.06
+        },
+        {
+          "text": "May",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "text": "I",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "change",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "these",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "garments?",
+          "start": 2.16,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16804063692688942
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "05c1465f49759b6a2d484cce5082adbee55da390136de27f5cee808917f61e56",
+  "selected_reasons": []
+}

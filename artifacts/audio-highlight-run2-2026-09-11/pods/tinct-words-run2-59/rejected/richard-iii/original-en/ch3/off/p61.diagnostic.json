@@ -1,0 +1,729 @@
+{
+  "complete": true,
+  "signature": "9325de930220551469bf1ef3640586992c222cf4ce1cd48d786ab10ab0d6ed12",
+  "attempts": [
+    {
+      "asr_seconds": 0.37412332301028073,
+      "alignment_seconds": 0.000724228098988533,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, if I should be, I had rather be a peddler.",
+          "start": 0.05,
+          "end": 3.29,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " if",
+              "start": 0.99,
+              "end": 1.19,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " should",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be,",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " had",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " rather",
+              "start": 2.41,
+              "end": 2.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 2.57,
+              "end": 2.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 2.77,
+              "end": 2.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " peddler.",
+              "start": 2.89,
+              "end": 3.29,
+              "probability": 0.931640625
+            }
+          ]
+        },
+        {
+          "text": " Far be it from my heart the thought thereof.",
+          "start": 3.93,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " Far",
+              "start": 3.93,
+              "end": 4.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it",
+              "start": 4.21,
+              "end": 4.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 4.31,
+              "end": 4.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 4.43,
+              "end": 4.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heart",
+              "start": 4.61,
+              "end": 4.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.83,
+              "end": 5.05,
+              "probability": 0.90234375
+            },
+            {
+              "text": " thought",
+              "start": 5.05,
+              "end": 5.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thereof.",
+              "start": 5.27,
+              "end": 5.65,
+              "probability": 0.95703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "if",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "should",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "be,",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "had",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "rather",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "raw": "be",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "raw": "a",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "raw": "peddler.",
+          "start": 2.89,
+          "end": 3.29
+        },
+        {
+          "raw": "Far",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "raw": "be",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "it",
+          "start": 4.21,
+          "end": 4.31
+        },
+        {
+          "raw": "from",
+          "start": 4.31,
+          "end": 4.43
+        },
+        {
+          "raw": "my",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "raw": "heart",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "raw": "the",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "raw": "thought",
+          "start": 5.05,
+          "end": 5.27
+        },
+        {
+          "raw": "thereof.",
+          "start": 5.27,
+          "end": 5.65
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "If",
+        "I",
+        "should",
+        "be!",
+        "I",
+        "had",
+        "rather",
+        "be",
+        "a",
+        "pedler.",
+        "Far",
+        "be",
+        "it",
+        "from",
+        "my",
+        "heart,",
+        "the",
+        "thought",
+        "thereof."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          20,
+          11,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.99,
+          "end": 1.19,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "should",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be,",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 2.41,
+          "end": 2.57,
+          "key": "rather",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.57,
+          "end": 2.77,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.77,
+          "end": 2.89,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "peddler.",
+          "start": 2.89,
+          "end": 3.29,
+          "key": "peddler",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Far",
+          "start": 3.93,
+          "end": 4.01,
+          "key": "far",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.01,
+          "end": 4.21,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.21,
+          "end": 4.31,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.31,
+          "end": 4.43,
+          "key": "from",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.43,
+          "end": 4.61,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 4.61,
+          "end": 4.83,
+          "key": "heart",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.83,
+          "end": 5.05,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 5.05,
+          "end": 5.27,
+          "key": "thought",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thereof.",
+          "start": 5.27,
+          "end": 5.65,
+          "key": "thereof",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "If",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "text": "I",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "should",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "be!",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "I",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "had",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "rather",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "text": "be",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "text": "a",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "text": "pedler.",
+          "start": 2.89,
+          "end": 3.41
+        },
+        {
+          "text": "Far",
+          "start": 3.93,
+          "end": 4.01
+        },
+        {
+          "text": "be",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "it",
+          "start": 4.21,
+          "end": 4.31
+        },
+        {
+          "text": "from",
+          "start": 4.31,
+          "end": 4.43
+        },
+        {
+          "text": "my",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "text": "heart,",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "text": "the",
+          "start": 4.83,
+          "end": 5.05
+        },
+        {
+          "text": "thought",
+          "start": 5.05,
+          "end": 5.27
+        },
+        {
+          "text": "thereof.",
+          "start": 5.27,
+          "end": 5.65
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.37514317920431495
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf0b282f265d75c74b7139e3e1bcdcc6ea7577f2f6faac00eba5ef6edc6a5a00",
+  "selected_reasons": []
+}

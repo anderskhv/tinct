@@ -1,0 +1,136 @@
+{
+  "complete": true,
+  "signature": "9a1adf6c940e7c165331198e3730734910e0ae6a7cef7d612ba6ae37ac4b53c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.12174807861447334,
+      "alignment_seconds": 0.0001659388653934002,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ocelo, aye.",
+          "start": 0.02,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Ocelo,",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.5681966145833334
+            },
+            {
+              "text": " aye.",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.64404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ocelo,",
+          "start": 0.02,
+          "end": 1.02
+        },
+        {
+          "raw": "aye.",
+          "start": 1.34,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Ay."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ocelo,",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "ocelo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aye.",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "aye",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "text": "Ay.",
+          "start": 0.74,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12196907680481672
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e503b84a5b211281a031b5e91321c8bf92d7c030863e397a2e50afcc7abe1e23",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

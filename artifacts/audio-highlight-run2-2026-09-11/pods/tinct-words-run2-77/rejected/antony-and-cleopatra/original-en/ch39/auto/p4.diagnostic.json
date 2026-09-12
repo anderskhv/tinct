@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "b5d18e30cf7383bc658b0e260c97a0fe1de2f5813af281217b1864b22f445389",
+  "attempts": [
+    {
+      "asr_seconds": 0.17369693701039068,
+      "alignment_seconds": 0.0001092040038201958,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Eros. Ay, my lord.",
+        "hotwords": "Eros, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eros, Ay, my lord.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Eros,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " Ay,",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.003204345703125
+            },
+            {
+              "text": " my",
+              "start": 1.37,
+              "end": 1.43,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " lord.",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.685546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "my",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "raw": "lord.",
+          "start": 1.43,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Eros.",
+        "Ay,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "eros",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.37,
+          "end": 1.43,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Eros.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Ay,",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "my",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "text": "lord.",
+          "start": 1.43,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17384320200653747
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "140df2e135e2002b5fdc35f8e9b27915510938b2a12f06959cebccaf0733c2af",
+  "selected_reasons": []
+}

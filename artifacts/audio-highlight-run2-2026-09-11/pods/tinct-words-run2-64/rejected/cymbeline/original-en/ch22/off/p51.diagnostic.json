@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "1f250fcf6d7a576cfb0e8dd92b2dbbd89df47b90bbb10c6c8747069e04e1aa9f",
+  "attempts": [
+    {
+      "asr_seconds": 0.27289482206106186,
+      "alignment_seconds": 0.0002129077911376953,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloten, thou injurious thief, hear but my name and tremble.",
+          "start": 0.0,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.0,
+              "end": 0.8,
+              "probability": 0.510986328125
+            },
+            {
+              "text": " thou",
+              "start": 1.14,
+              "end": 1.2,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " injurious",
+              "start": 1.2,
+              "end": 1.66,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " thief,",
+              "start": 1.66,
+              "end": 2.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hear",
+              "start": 2.5,
+              "end": 2.52,
+              "probability": 0.712890625
+            },
+            {
+              "text": " but",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " my",
+              "start": 2.66,
+              "end": 2.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " name",
+              "start": 2.82,
+              "end": 3.1,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " tremble.",
+              "start": 3.3,
+              "end": 3.78,
+              "probability": 0.996337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "raw": "thou",
+          "start": 1.14,
+          "end": 1.2
+        },
+        {
+          "raw": "injurious",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "raw": "thief,",
+          "start": 1.66,
+          "end": 2.04
+        },
+        {
+          "raw": "hear",
+          "start": 2.5,
+          "end": 2.52
+        },
+        {
+          "raw": "but",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "my",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "raw": "name",
+          "start": 2.82,
+          "end": 3.1
+        },
+        {
+          "raw": "and",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "tremble.",
+          "start": 3.3,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Thou",
+        "injurious",
+        "thief,",
+        "Hear",
+        "but",
+        "my",
+        "name,",
+        "and",
+        "tremble."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.0,
+          "end": 0.8,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.14,
+          "end": 1.2,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "injurious",
+          "start": 1.2,
+          "end": 1.66,
+          "key": "injurious",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thief,",
+          "start": 1.66,
+          "end": 2.04,
+          "key": "thief",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.5,
+          "end": 2.52,
+          "key": "hear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.66,
+          "end": 2.82,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 2.82,
+          "end": 3.1,
+          "key": "name",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tremble.",
+          "start": 3.3,
+          "end": 3.78,
+          "key": "tremble",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "Thou",
+          "start": 1.14,
+          "end": 1.2
+        },
+        {
+          "text": "injurious",
+          "start": 1.2,
+          "end": 1.66
+        },
+        {
+          "text": "thief,",
+          "start": 1.66,
+          "end": 2.04
+        },
+        {
+          "text": "Hear",
+          "start": 2.5,
+          "end": 2.52
+        },
+        {
+          "text": "but",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "my",
+          "start": 2.66,
+          "end": 2.82
+        },
+        {
+          "text": "name,",
+          "start": 2.82,
+          "end": 3.1
+        },
+        {
+          "text": "and",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "tremble.",
+          "start": 3.3,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27318735886365175
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c889c7512d8f7fd84943abbfa1ad32b974a12481236115dd09aa4254eb6d555a",
+  "selected_reasons": []
+}

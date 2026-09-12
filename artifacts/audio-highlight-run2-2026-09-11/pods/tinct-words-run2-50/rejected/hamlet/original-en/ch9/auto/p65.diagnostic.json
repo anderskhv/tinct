@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c021dec2c2ccb76ba12551b240c90db9059dc966f002e25151c9ee8c1420c613",
+  "attempts": [
+    {
+      "asr_seconds": 0.18854370713233948,
+      "alignment_seconds": 0.0001482013612985611,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ophelia. 'Tis brief, my lord.",
+        "hotwords": "Ophelia, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ophelia, Tis brief, my lord.",
+          "start": 0.59,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Ophelia,",
+              "start": 0.59,
+              "end": 0.99,
+              "probability": 0.8753255208333334
+            },
+            {
+              "text": " Tis",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.020954132080078125
+            },
+            {
+              "text": " brief,",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.41064453125
+            },
+            {
+              "text": " my",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.955078125
+            },
+            {
+              "text": " lord.",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.7880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ophelia,",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "raw": "Tis",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "brief,",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "my",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "lord.",
+          "start": 2.05,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Ophelia.",
+        "'Tis",
+        "brief,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ophelia,",
+          "start": 0.59,
+          "end": 0.99,
+          "key": "ophelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "brief,",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "brief",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ophelia.",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "text": "'Tis",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "brief,",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "my",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "lord.",
+          "start": 2.05,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18874125368893147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48889cd6e050bcfaae349a5d69deaf161c07865fbf7f9fd78e33580333ef7345",
+  "selected_reasons": []
+}

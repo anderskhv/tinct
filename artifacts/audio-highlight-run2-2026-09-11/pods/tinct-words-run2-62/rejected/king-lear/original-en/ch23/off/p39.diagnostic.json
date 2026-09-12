@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "e75a0c46a72c59c7f4159de44c4cd855e5e2aab75795087779d721e1a0f6467e",
+  "attempts": [
+    {
+      "asr_seconds": 0.0849660150706768,
+      "alignment_seconds": 0.00012305378913879395,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, who is conductor of his people.",
+          "start": 0.02,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.75
+            },
+            {
+              "text": " who",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.966796875
+            },
+            {
+              "text": " is",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " conductor",
+              "start": 1.58,
+              "end": 1.92,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " of",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 2.22,
+              "end": 2.34,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " people.",
+              "start": 2.34,
+              "end": 2.66,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "who",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "is",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "conductor",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "his",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "raw": "people.",
+          "start": 2.34,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "Who",
+        "is",
+        "conductor",
+        "of",
+        "his",
+        "people?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "conductor",
+          "start": 1.58,
+          "end": 1.92,
+          "key": "conductor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.22,
+          "end": 2.34,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 2.34,
+          "end": 2.66,
+          "key": "people",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "Who",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "is",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "conductor",
+          "start": 1.58,
+          "end": 1.92
+        },
+        {
+          "text": "of",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "his",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "text": "people?",
+          "start": 2.34,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.08513287454843521
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6f1dbc602a688e03f4729f601aa966da45c7c5423d234b8d9f0f121d4e0cdbd3",
+  "selected_reasons": []
+}

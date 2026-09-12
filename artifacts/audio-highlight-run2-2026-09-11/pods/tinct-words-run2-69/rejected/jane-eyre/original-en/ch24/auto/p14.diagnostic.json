@@ -1,0 +1,1501 @@
+{
+  "complete": true,
+  "signature": "85849d758888d2e02c51deef335b7995e55d1b0b0b21cff73ab732fd69bbcc2e",
+  "attempts": [
+    {
+      "asr_seconds": 0.30134919192641973,
+      "alignment_seconds": 0.000635562464594841,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Because you gave me a new name—Jane Rochester; and it seems so strange.\"",
+        "hotwords": "Because, Rochester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Because you gave me a new name—Jane Rochester—and it seems so strange.",
+          "start": 0.05,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " Because",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " you",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gave",
+              "start": 0.73,
+              "end": 0.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 0.87,
+              "end": 1.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " new",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " name—Jane",
+              "start": 1.25,
+              "end": 2.13,
+              "probability": 0.5264968872070312
+            },
+            {
+              "text": " Rochester—and",
+              "start": 2.13,
+              "end": 3.35,
+              "probability": 0.8326822916666666
+            },
+            {
+              "text": " it",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " seems",
+              "start": 3.47,
+              "end": 3.67,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " so",
+              "start": 3.67,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " strange.",
+              "start": 3.95,
+              "end": 4.35,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Because",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "gave",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "raw": "me",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "new",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "name—Jane",
+          "start": 1.25,
+          "end": 2.13
+        },
+        {
+          "raw": "Rochester—and",
+          "start": 2.13,
+          "end": 3.35
+        },
+        {
+          "raw": "it",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "seems",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "raw": "so",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "raw": "strange.",
+          "start": 3.95,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "\"Because",
+        "you",
+        "gave",
+        "me",
+        "a",
+        "new",
+        "name—Jane",
+        "Rochester;",
+        "and",
+        "it",
+        "seems",
+        "so",
+        "strange.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          13,
+          8,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Because",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "because",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.73,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 0.73,
+          "end": 0.87,
+          "key": "gave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.87,
+          "end": 1.01,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "new",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "name—Jane",
+          "start": 1.25,
+          "end": 2.13,
+          "key": "namejane",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Rochester—and",
+          "start": 2.13,
+          "end": 3.35,
+          "key": "rochesterand",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 3.47,
+          "end": 3.67,
+          "key": "seems",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.67,
+          "end": 3.95,
+          "key": "so",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "strange.",
+          "start": 3.95,
+          "end": 4.35,
+          "key": "strange",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Because",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "you",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "gave",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "text": "me",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "text": "a",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "new",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "name—Jane",
+          "start": 1.25,
+          "end": 2.13
+        },
+        {
+          "text": "Rochester;",
+          "start": 2.13,
+          "end": 2.74
+        },
+        {
+          "text": "and",
+          "start": 2.74,
+          "end": 3.045
+        },
+        {
+          "text": "it",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "seems",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "text": "so",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "text": "strange.\"",
+          "start": 3.95,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30220904387533665
+    },
+    {
+      "asr_seconds": 0.2851223973557353,
+      "alignment_seconds": 0.0005392860621213913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Because, Rochester"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Because you gave me a new name Jane Rochester, and it seems so strange",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Because",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " you",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gave",
+              "start": 0.73,
+              "end": 0.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 0.87,
+              "end": 1.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " new",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " name",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Jane",
+              "start": 1.57,
+              "end": 2.13,
+              "probability": 0.09991455078125
+            },
+            {
+              "text": " Rochester,",
+              "start": 2.13,
+              "end": 2.61,
+              "probability": 0.97265625
+            },
+            {
+              "text": " and",
+              "start": 2.89,
+              "end": 3.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seems",
+              "start": 3.47,
+              "end": 3.67,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " so",
+              "start": 3.67,
+              "end": 3.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " strange",
+              "start": 3.95,
+              "end": 4.37,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Because",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "gave",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "raw": "me",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "new",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "name",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "Jane",
+          "start": 1.57,
+          "end": 2.13
+        },
+        {
+          "raw": "Rochester,",
+          "start": 2.13,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "raw": "it",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "seems",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "raw": "so",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "raw": "strange",
+          "start": 3.95,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "\"Because",
+        "you",
+        "gave",
+        "me",
+        "a",
+        "new",
+        "name—Jane",
+        "Rochester;",
+        "and",
+        "it",
+        "seems",
+        "so",
+        "strange.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          13,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Because",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "because",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.73,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 0.73,
+          "end": 0.87,
+          "key": "gave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.87,
+          "end": 1.01,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "new",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "name",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 1.57,
+          "end": 2.13,
+          "key": "jane",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Rochester,",
+          "start": 2.13,
+          "end": 2.61,
+          "key": "rochester",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 3.35,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 3.47,
+          "end": 3.67,
+          "key": "seems",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.67,
+          "end": 3.95,
+          "key": "so",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 3.95,
+          "end": 4.37,
+          "key": "strange",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Because",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "you",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "gave",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "text": "me",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "text": "a",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "new",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "name—Jane",
+          "start": 1.25,
+          "end": 1.69
+        },
+        {
+          "text": "Rochester;",
+          "start": 2.13,
+          "end": 2.61
+        },
+        {
+          "text": "and",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "text": "it",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "seems",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "text": "so",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "text": "strange.\"",
+          "start": 3.95,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.2858705101534724
+    },
+    {
+      "asr_seconds": 0.3285898081958294,
+      "alignment_seconds": 0.0006849188357591629,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Because you gave me a new name, Jane Rochester, and it seems so strange.",
+          "start": 0.05,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " Because",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " you",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gave",
+              "start": 0.73,
+              "end": 0.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 0.87,
+              "end": 1.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 1.01,
+              "end": 1.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " new",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " name,",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Jane",
+              "start": 2.09,
+              "end": 2.13,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Rochester,",
+              "start": 2.13,
+              "end": 2.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 3.29,
+              "end": 3.35,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " it",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " seems",
+              "start": 3.47,
+              "end": 3.67,
+              "probability": 0.978515625
+            },
+            {
+              "text": " so",
+              "start": 3.67,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " strange.",
+              "start": 3.95,
+              "end": 4.35,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Because",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "gave",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "raw": "me",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "raw": "new",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "name,",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "Jane",
+          "start": 2.09,
+          "end": 2.13
+        },
+        {
+          "raw": "Rochester,",
+          "start": 2.13,
+          "end": 2.63
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.35
+        },
+        {
+          "raw": "it",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "seems",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "raw": "so",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "raw": "strange.",
+          "start": 3.95,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "\"Because",
+        "you",
+        "gave",
+        "me",
+        "a",
+        "new",
+        "name—Jane",
+        "Rochester;",
+        "and",
+        "it",
+        "seems",
+        "so",
+        "strange.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          13,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Because",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "because",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.73,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 0.73,
+          "end": 0.87,
+          "key": "gave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.87,
+          "end": 1.01,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.11,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "new",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "name,",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "name",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 2.09,
+          "end": 2.13,
+          "key": "jane",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Rochester,",
+          "start": 2.13,
+          "end": 2.63,
+          "key": "rochester",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.29,
+          "end": 3.35,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 3.47,
+          "end": 3.67,
+          "key": "seems",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.67,
+          "end": 3.95,
+          "key": "so",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "strange.",
+          "start": 3.95,
+          "end": 4.35,
+          "key": "strange",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Because",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "you",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "gave",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "text": "me",
+          "start": 0.87,
+          "end": 1.01
+        },
+        {
+          "text": "a",
+          "start": 1.01,
+          "end": 1.11
+        },
+        {
+          "text": "new",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "name—Jane",
+          "start": 1.25,
+          "end": 1.69
+        },
+        {
+          "text": "Rochester;",
+          "start": 2.13,
+          "end": 2.63
+        },
+        {
+          "text": "and",
+          "start": 3.29,
+          "end": 3.35
+        },
+        {
+          "text": "it",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "text": "seems",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "text": "so",
+          "start": 3.67,
+          "end": 3.95
+        },
+        {
+          "text": "strange.\"",
+          "start": 3.95,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.32952649239450693
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "5b4b14274c8a5ce984a25bc4055219326c5c0969f10e6f8caaaf171f9f07dbf3",
+  "selected_reasons": []
+}

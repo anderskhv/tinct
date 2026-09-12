@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "584b08e2c353e9e8772646d5016b330827626b2588db7d91efae8e58c9e2e4f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19063998013734818,
+      "alignment_seconds": 0.00039764121174812317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Olivia. See him delivered, Fabian, bring him hither.",
+        "hotwords": "Olivia, See, Fabian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Olivia, See him delivered, Fabian, bring him hither.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.94140625
+            },
+            {
+              "text": " See",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.01554107666015625
+            },
+            {
+              "text": " him",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " delivered,",
+              "start": 1.61,
+              "end": 1.99,
+              "probability": 0.80859375
+            },
+            {
+              "text": " Fabian,",
+              "start": 2.25,
+              "end": 2.63,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " bring",
+              "start": 2.81,
+              "end": 2.89,
+              "probability": 0.732421875
+            },
+            {
+              "text": " him",
+              "start": 2.89,
+              "end": 3.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " hither.",
+              "start": 3.05,
+              "end": 3.27,
+              "probability": 0.86572265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "See",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "him",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "delivered,",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "raw": "Fabian,",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "raw": "bring",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "raw": "him",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "raw": "hither.",
+          "start": 3.05,
+          "end": 3.27
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "See",
+        "him",
+        "delivered,",
+        "Fabian,",
+        "bring",
+        "him",
+        "hither."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "delivered,",
+          "start": 1.61,
+          "end": 1.99,
+          "key": "delivered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Fabian,",
+          "start": 2.25,
+          "end": 2.63,
+          "key": "fabian",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 2.81,
+          "end": 2.89,
+          "key": "bring",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.89,
+          "end": 3.05,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 3.05,
+          "end": 3.27,
+          "key": "hither",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "See",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "him",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "delivered,",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "text": "Fabian,",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "text": "bring",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "text": "him",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "text": "hither.",
+          "start": 3.05,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19118580594658852
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8dc61cb0bf7452942612957f4cc40807835b61d81806d940c9cb54ccccffa77b",
+  "selected_reasons": []
+}

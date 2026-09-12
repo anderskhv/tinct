@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "80a3728940b7108450f77bb6dd38c6fc804692713d2ebae01045fb86a13c552b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2694756370037794,
+      "alignment_seconds": 0.0004919562488794327,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh! don't be so proud, Estella, and so inflexible.\"",
+        "hotwords": "Oh, Estella"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, don't be so proud, Estella, and so inflexible.",
+          "start": 0.02,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " don't",
+              "start": 0.86,
+              "end": 0.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " be",
+              "start": 0.98,
+              "end": 1.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " so",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " proud,",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Estella,",
+              "start": 1.78,
+              "end": 2.08,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " and",
+              "start": 2.34,
+              "end": 2.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " inflexible.",
+              "start": 2.66,
+              "end": 3.34,
+              "probability": 0.9962565104166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "don't",
+          "start": 0.86,
+          "end": 0.98
+        },
+        {
+          "raw": "be",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "raw": "so",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "proud,",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "Estella,",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "raw": "so",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "inflexible.",
+          "start": 2.66,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh!",
+        "don't",
+        "be",
+        "so",
+        "proud,",
+        "Estella,",
+        "and",
+        "so",
+        "inflexible.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.86,
+          "end": 0.98,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.98,
+          "end": 1.14,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "proud,",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "proud",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Estella,",
+          "start": 1.78,
+          "end": 2.08,
+          "key": "estella",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.46,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "inflexible.",
+          "start": 2.66,
+          "end": 3.34,
+          "key": "inflexible",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh!",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "don't",
+          "start": 0.86,
+          "end": 0.98
+        },
+        {
+          "text": "be",
+          "start": 0.98,
+          "end": 1.14
+        },
+        {
+          "text": "so",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "proud,",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "Estella,",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "and",
+          "start": 2.34,
+          "end": 2.46
+        },
+        {
+          "text": "so",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "inflexible.\"",
+          "start": 2.66,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2701541166752577
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "20667d08940d5e5b0be9717b50ebdbfa547e247316ea20c1d6bae608fbb5f89b",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "a26f062f4d3f2c1ed5260871bd5d0f965f3a138d58d1cab4e8625c6c8ed12730",
+  "attempts": [
+    {
+      "asr_seconds": 0.1071653279941529,
+      "alignment_seconds": 0.0001969409640878439,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It struck me too, Martin Cunningham said.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.355224609375
+            },
+            {
+              "text": " struck",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me",
+              "start": 0.77,
+              "end": 0.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " too,",
+              "start": 0.97,
+              "end": 1.29,
+              "probability": 0.751953125
+            },
+            {
+              "text": " Martin",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Cunningham",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " said.",
+              "start": 2.19,
+              "end": 2.63,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "struck",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "me",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "raw": "too,",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "raw": "Martin",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "raw": "said.",
+          "start": 2.19,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "—It",
+        "struck",
+        "me",
+        "too,",
+        "Martin",
+        "Cunningham",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 0.53,
+          "end": 0.77,
+          "key": "struck",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.77,
+          "end": 0.97,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 0.97,
+          "end": 1.29,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Martin",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "martin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Cunningham",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "cunningham",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.19,
+          "end": 2.63,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "struck",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "me",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "text": "too,",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "text": "Martin",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "Cunningham",
+          "start": 1.85,
+          "end": 2.19
+        },
+        {
+          "text": "said.",
+          "start": 2.19,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10743763897335157
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6819491fffbbf44416bc7a35b6e04379a4fa8c9cde3d22688c860308c3515750",
+  "selected_reasons": []
+}

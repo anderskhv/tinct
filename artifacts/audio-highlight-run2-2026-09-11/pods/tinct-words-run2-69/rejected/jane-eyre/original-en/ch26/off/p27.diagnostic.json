@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "d5fde0e623f95dcab311416e99fba3e3cd7b33a921f241ded7d526cd86f782dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.3344327947124839,
+      "alignment_seconds": 0.0005248170346021652,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Profound silence fell when he had uttered that word, with deep but low intonation.",
+          "start": 0.02,
+          "end": 5.12,
+          "words": [
+            {
+              "text": " Profound",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " silence",
+              "start": 0.92,
+              "end": 1.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fell",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " when",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 1.92,
+              "end": 2.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " uttered",
+              "start": 2.14,
+              "end": 2.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " word,",
+              "start": 2.64,
+              "end": 2.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 3.42,
+              "end": 3.54,
+              "probability": 0.986328125
+            },
+            {
+              "text": " deep",
+              "start": 3.54,
+              "end": 3.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " but",
+              "start": 3.86,
+              "end": 4.16,
+              "probability": 0.91796875
+            },
+            {
+              "text": " low",
+              "start": 4.16,
+              "end": 4.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " intonation.",
+              "start": 4.46,
+              "end": 5.12,
+              "probability": 0.9986979166666666
+            }
+          ]
+        },
+        {
+          "text": " Presently Mr. Wood said,",
+          "start": 5.9,
+          "end": 7.08,
+          "words": [
+            {
+              "text": " Presently",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " Mr.",
+              "start": 6.2,
+              "end": 6.5,
+              "probability": 0.63671875
+            },
+            {
+              "text": " Wood",
+              "start": 6.76,
+              "end": 6.78,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " said,",
+              "start": 6.78,
+              "end": 7.08,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Profound",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "silence",
+          "start": 0.92,
+          "end": 1.38
+        },
+        {
+          "raw": "fell",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "when",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "he",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "raw": "had",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "uttered",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "raw": "that",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "raw": "word,",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "raw": "with",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "raw": "deep",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "raw": "but",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "raw": "low",
+          "start": 4.16,
+          "end": 4.46
+        },
+        {
+          "raw": "intonation.",
+          "start": 4.46,
+          "end": 5.12
+        },
+        {
+          "raw": "Presently",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.2,
+          "end": 6.5
+        },
+        {
+          "raw": "Wood",
+          "start": 6.76,
+          "end": 6.78
+        },
+        {
+          "raw": "said,",
+          "start": 6.78,
+          "end": 7.08
+        }
+      ],
+      "expected_tokens": [
+        "Profound",
+        "silence",
+        "fell",
+        "when",
+        "he",
+        "had",
+        "uttered",
+        "that",
+        "word,",
+        "with",
+        "deep",
+        "but",
+        "low",
+        "intonation.",
+        "Presently",
+        "Mr.",
+        "Wood",
+        "said—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Profound",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "profound",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "silence",
+          "start": 0.92,
+          "end": 1.38,
+          "key": "silence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fell",
+          "start": 1.38,
+          "end": 1.7,
+          "key": "fell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "when",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.92,
+          "end": 2.04,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "had",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "uttered",
+          "start": 2.14,
+          "end": 2.38,
+          "key": "uttered",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 2.64,
+          "end": 2.96,
+          "key": "word",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.42,
+          "end": 3.54,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deep",
+          "start": 3.54,
+          "end": 3.86,
+          "key": "deep",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.86,
+          "end": 4.16,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 4.16,
+          "end": 4.46,
+          "key": "low",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "intonation.",
+          "start": 4.46,
+          "end": 5.12,
+          "key": "intonation",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Presently",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "presently",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 6.2,
+          "end": 6.5,
+          "key": "mr",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Wood",
+          "start": 6.76,
+          "end": 6.78,
+          "key": "wood",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 6.78,
+          "end": 7.08,
+          "key": "said",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Profound",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "silence",
+          "start": 0.92,
+          "end": 1.38
+        },
+        {
+          "text": "fell",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "text": "when",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "he",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "text": "had",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "uttered",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "text": "that",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "text": "word,",
+          "start": 2.64,
+          "end": 2.96
+        },
+        {
+          "text": "with",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "text": "deep",
+          "start": 3.54,
+          "end": 3.86
+        },
+        {
+          "text": "but",
+          "start": 3.86,
+          "end": 4.16
+        },
+        {
+          "text": "low",
+          "start": 4.16,
+          "end": 4.46
+        },
+        {
+          "text": "intonation.",
+          "start": 4.46,
+          "end": 5.12
+        },
+        {
+          "text": "Presently",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "Mr.",
+          "start": 6.2,
+          "end": 6.5
+        },
+        {
+          "text": "Wood",
+          "start": 6.76,
+          "end": 6.78
+        },
+        {
+          "text": "said—",
+          "start": 6.78,
+          "end": 7.08
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3352547390386462
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c34dae7544883b8d133ad21fd9310ddfec3fd22366920895eb97b7dff12406ad",
+  "selected_reasons": []
+}

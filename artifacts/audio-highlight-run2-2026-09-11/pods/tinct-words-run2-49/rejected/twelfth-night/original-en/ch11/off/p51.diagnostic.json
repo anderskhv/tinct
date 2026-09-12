@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "83054a799214d6a8d4794c81ddc553fe09e62e3a9f71bcc3f73f5abf2ce0f464",
+  "attempts": [
+    {
+      "asr_seconds": 0.25347988307476044,
+      "alignment_seconds": 0.0004439130425453186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, Cesario is your servant's name, fair princess.",
+          "start": 0.08,
+          "end": 3.4,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.765625
+            },
+            {
+              "text": " Cesario",
+              "start": 1.42,
+              "end": 1.7,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " is",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " your",
+              "start": 1.92,
+              "end": 2.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " servant's",
+              "start": 2.04,
+              "end": 2.54,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " name,",
+              "start": 2.54,
+              "end": 2.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fair",
+              "start": 2.98,
+              "end": 3.04,
+              "probability": 0.771484375
+            },
+            {
+              "text": " princess.",
+              "start": 3.04,
+              "end": 3.4,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Cesario",
+          "start": 1.42,
+          "end": 1.7
+        },
+        {
+          "raw": "is",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "your",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "raw": "servant's",
+          "start": 2.04,
+          "end": 2.54
+        },
+        {
+          "raw": "name,",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "raw": "fair",
+          "start": 2.98,
+          "end": 3.04
+        },
+        {
+          "raw": "princess.",
+          "start": 3.04,
+          "end": 3.4
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "Cesario",
+        "is",
+        "your",
+        "servant's",
+        "name,",
+        "fair",
+        "princess."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cesario",
+          "start": 1.42,
+          "end": 1.7,
+          "key": "cesario",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.92,
+          "end": 2.04,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "servant's",
+          "start": 2.04,
+          "end": 2.54,
+          "key": "servants",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "name,",
+          "start": 2.54,
+          "end": 2.74,
+          "key": "name",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 2.98,
+          "end": 3.04,
+          "key": "fair",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "princess.",
+          "start": 3.04,
+          "end": 3.4,
+          "key": "princess",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "Cesario",
+          "start": 1.42,
+          "end": 1.7
+        },
+        {
+          "text": "is",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "your",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "text": "servant's",
+          "start": 2.04,
+          "end": 2.54
+        },
+        {
+          "text": "name,",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "text": "fair",
+          "start": 2.98,
+          "end": 3.04
+        },
+        {
+          "text": "princess.",
+          "start": 3.04,
+          "end": 3.4
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2540877163410187
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b3e77b51456b6c03c1c2c2fc98fe029a5f16ae161289cd33acc20eefc6e9d0fd",
+  "selected_reasons": []
+}

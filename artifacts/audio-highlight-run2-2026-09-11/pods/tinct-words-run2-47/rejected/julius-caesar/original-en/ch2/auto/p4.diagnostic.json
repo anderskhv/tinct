@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "68323796272b1dca8fca70a7327c57c246f3ccc8c8072f28e2f6b55e40f106f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.14308730501215905,
+      "alignment_seconds": 0.00024348698207177222,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. Calphurnia.",
+        "hotwords": "Caesar, Calphurnia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, Calphurnia.",
+          "start": 0.11,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.342529296875
+            },
+            {
+              "text": " Calphurnia.",
+              "start": 1.13,
+              "end": 1.63,
+              "probability": 0.431396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "Calphurnia.",
+          "start": 1.13,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Calphurnia."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Calphurnia.",
+          "start": 1.13,
+          "end": 1.63,
+          "key": "calphurnia",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "Calphurnia.",
+          "start": 1.13,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1434138820040971
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "37d47a0d5337c42fe32671687145c6c4d06e76349d378adebdb842fa61e2492b",
+  "selected_reasons": []
+}

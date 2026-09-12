@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "e92c255de9612337c8cbed8d169e22c27c841e0d31a3a51a23b4b53e4ce9fa61",
+  "attempts": [
+    {
+      "asr_seconds": 0.21693900600075722,
+      "alignment_seconds": 0.00026223715394735336,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antifolus of Ephesus. I never saw my father in my life.",
+          "start": 0.05,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " Antifolus",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.763916015625
+            },
+            {
+              "text": " of",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Ephesus.",
+              "start": 1.21,
+              "end": 1.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " I",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " never",
+              "start": 2.27,
+              "end": 2.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " saw",
+              "start": 2.43,
+              "end": 2.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " father",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " in",
+              "start": 3.13,
+              "end": 3.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 3.33,
+              "end": 3.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " life.",
+              "start": 3.47,
+              "end": 3.77,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antifolus",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "of",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "Ephesus.",
+          "start": 1.21,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "never",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "raw": "saw",
+          "start": 2.43,
+          "end": 2.69
+        },
+        {
+          "raw": "my",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "father",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "in",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "raw": "my",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "raw": "life.",
+          "start": 3.47,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Ephesus.",
+        "I",
+        "never",
+        "saw",
+        "my",
+        "father",
+        "in",
+        "my",
+        "life."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antifolus",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "antifolus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ephesus.",
+          "start": 1.21,
+          "end": 1.79,
+          "key": "ephesus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.27,
+          "end": 2.43,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 2.43,
+          "end": 2.69,
+          "key": "saw",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "father",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.13,
+          "end": 3.33,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.33,
+          "end": 3.47,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 3.47,
+          "end": 3.77,
+          "key": "life",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.0,
+          "end": 0.535
+        },
+        {
+          "text": "Of",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "Ephesus.",
+          "start": 1.21,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "never",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "text": "saw",
+          "start": 2.43,
+          "end": 2.69
+        },
+        {
+          "text": "my",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "father",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "in",
+          "start": 3.13,
+          "end": 3.33
+        },
+        {
+          "text": "my",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "text": "life.",
+          "start": 3.47,
+          "end": 3.77
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.21729674702510238
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "66a6c23aa54ad049678dbffa8b25b369c2e690de4030aba9abdfaa0a22446875",
+  "selected_reasons": []
+}

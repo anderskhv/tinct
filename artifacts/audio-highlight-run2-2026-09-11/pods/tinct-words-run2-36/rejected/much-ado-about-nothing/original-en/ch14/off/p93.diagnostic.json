@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "64d230e43c76b2bfc16b24350a5c32b0f9e4e13d97fb5b090d81aae353845072",
+  "attempts": [
+    {
+      "asr_seconds": 0.19137704744935036,
+      "alignment_seconds": 0.00047479569911956787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro, but did my brother set the on to this?",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.51171875
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " but",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.98828125
+            },
+            {
+              "text": " did",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " brother",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.931640625
+            },
+            {
+              "text": " set",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 2.45,
+              "end": 2.59,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " on",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " to",
+              "start": 2.77,
+              "end": 2.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " this?",
+              "start": 2.93,
+              "end": 3.17,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "but",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "did",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "brother",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "set",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "raw": "the",
+          "start": 2.45,
+          "end": 2.59
+        },
+        {
+          "raw": "on",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "to",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "raw": "this?",
+          "start": 2.93,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "But",
+        "did",
+        "my",
+        "brother",
+        "set",
+        "thee",
+        "on",
+        "to",
+        "this?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          11,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.67,
+          "end": 1.77,
+          "key": "did",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "brother",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 2.15,
+          "end": 2.45,
+          "key": "set",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.45,
+          "end": 2.59,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.77,
+          "end": 2.93,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this?",
+          "start": 2.93,
+          "end": 3.17,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "But",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "did",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "my",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "brother",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "set",
+          "start": 2.15,
+          "end": 2.45
+        },
+        {
+          "text": "thee",
+          "start": 2.45,
+          "end": 2.52
+        },
+        {
+          "text": "on",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "to",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "this?",
+          "start": 2.93,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19203371554613113
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "68ba7a56c98337c99b876f16c92bc5ed921600d6b3015403366de87e8b2e65cc",
+  "selected_reasons": []
+}

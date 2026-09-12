@@ -1,0 +1,512 @@
+{
+  "complete": true,
+  "signature": "7575f7f8523425d4c5a36d6ced5b53b1c38b7a09e0ce77c1d1fa78bb17c31e26",
+  "attempts": [
+    {
+      "asr_seconds": 0.20310887973755598,
+      "alignment_seconds": 0.0003605503588914871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Titinius, hi you masala, and I will seek for Pindurus the while",
+          "start": 0.58,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " Titinius,",
+              "start": 0.58,
+              "end": 1.02,
+              "probability": 0.7560221354166666
+            },
+            {
+              "text": " hi",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.269287109375
+            },
+            {
+              "text": " you",
+              "start": 1.7,
+              "end": 1.86,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " masala,",
+              "start": 1.86,
+              "end": 2.28,
+              "probability": 0.57379150390625
+            },
+            {
+              "text": " and",
+              "start": 2.54,
+              "end": 2.6,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I",
+              "start": 2.6,
+              "end": 2.7,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " will",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " seek",
+              "start": 2.82,
+              "end": 3.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 3.04,
+              "end": 3.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Pindurus",
+              "start": 3.24,
+              "end": 3.64,
+              "probability": 0.6083577473958334
+            },
+            {
+              "text": " the",
+              "start": 3.64,
+              "end": 3.86,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " while",
+              "start": 3.86,
+              "end": 4.1,
+              "probability": 0.70947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Titinius,",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "raw": "hi",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "you",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "raw": "masala,",
+          "start": 1.86,
+          "end": 2.28
+        },
+        {
+          "raw": "and",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "raw": "I",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "raw": "will",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "seek",
+          "start": 2.82,
+          "end": 3.04
+        },
+        {
+          "raw": "for",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "raw": "Pindurus",
+          "start": 3.24,
+          "end": 3.64
+        },
+        {
+          "raw": "the",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "raw": "while",
+          "start": 3.86,
+          "end": 4.1
+        }
+      ],
+      "expected_tokens": [
+        "Titinius.",
+        "Hie",
+        "you,",
+        "Messala,",
+        "And",
+        "I",
+        "will",
+        "seek",
+        "for",
+        "Pindarus",
+        "the",
+        "while."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          12,
+          10,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Titinius,",
+          "start": 0.58,
+          "end": 1.02,
+          "key": "titinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hi",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "hi",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.7,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "masala,",
+          "start": 1.86,
+          "end": 2.28,
+          "key": "masala",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.54,
+          "end": 2.6,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.6,
+          "end": 2.7,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.7,
+          "end": 2.82,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 2.82,
+          "end": 3.04,
+          "key": "seek",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.04,
+          "end": 3.24,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pindurus",
+          "start": 3.24,
+          "end": 3.64,
+          "key": "pindurus",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.64,
+          "end": 3.86,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 3.86,
+          "end": 4.1,
+          "key": "while",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Titinius.",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "text": "Hie",
+          "start": 1.02,
+          "end": 1.36
+        },
+        {
+          "text": "you,",
+          "start": 1.7,
+          "end": 1.86
+        },
+        {
+          "text": "Messala,",
+          "start": 1.86,
+          "end": 2.2
+        },
+        {
+          "text": "And",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "text": "I",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "text": "will",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "seek",
+          "start": 2.82,
+          "end": 3.04
+        },
+        {
+          "text": "for",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "text": "Pindarus",
+          "start": 3.24,
+          "end": 3.44
+        },
+        {
+          "text": "the",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "text": "while.",
+          "start": 3.86,
+          "end": 4.1
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2035905523225665
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b092014e9d655ce17e4714a997bd967650282c4463336c0d22af8a67a2a9f9ca",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

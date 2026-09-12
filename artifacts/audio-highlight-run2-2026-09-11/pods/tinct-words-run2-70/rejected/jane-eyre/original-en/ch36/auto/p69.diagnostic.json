@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "5de86ba2db6bf48845a19664abff5a72e9aaac3530168c4946c65ca0e217ccd3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2737668619956821,
+      "alignment_seconds": 0.00042792409658432007,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What agony was this! And the man seemed resolved to protract it.",
+        "hotwords": "What, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What agony was this! And the man seemed resolved to protract it.",
+          "start": 0.05,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " agony",
+              "start": 0.57,
+              "end": 0.89,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " was",
+              "start": 0.89,
+              "end": 1.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this!",
+              "start": 1.17,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " And",
+              "start": 1.97,
+              "end": 2.05,
+              "probability": 0.658203125
+            },
+            {
+              "text": " the",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.986328125
+            },
+            {
+              "text": " man",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.96875
+            },
+            {
+              "text": " seemed",
+              "start": 2.39,
+              "end": 2.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " resolved",
+              "start": 2.71,
+              "end": 3.19,
+              "probability": 0.978515625
+            },
+            {
+              "text": " to",
+              "start": 3.19,
+              "end": 3.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " protract",
+              "start": 3.47,
+              "end": 3.91,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " it.",
+              "start": 3.91,
+              "end": 4.13,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "agony",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "raw": "was",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "raw": "this!",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "raw": "And",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "man",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "seemed",
+          "start": 2.39,
+          "end": 2.71
+        },
+        {
+          "raw": "resolved",
+          "start": 2.71,
+          "end": 3.19
+        },
+        {
+          "raw": "to",
+          "start": 3.19,
+          "end": 3.47
+        },
+        {
+          "raw": "protract",
+          "start": 3.47,
+          "end": 3.91
+        },
+        {
+          "raw": "it.",
+          "start": 3.91,
+          "end": 4.13
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "agony",
+        "was",
+        "this!",
+        "And",
+        "the",
+        "man",
+        "seemed",
+        "resolved",
+        "to",
+        "protract",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "agony",
+          "start": 0.57,
+          "end": 0.89,
+          "key": "agony",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.89,
+          "end": 1.17,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this!",
+          "start": 1.17,
+          "end": 1.51,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.97,
+          "end": 2.05,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.15,
+          "end": 2.39,
+          "key": "man",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 2.39,
+          "end": 2.71,
+          "key": "seemed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "resolved",
+          "start": 2.71,
+          "end": 3.19,
+          "key": "resolved",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.19,
+          "end": 3.47,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "protract",
+          "start": 3.47,
+          "end": 3.91,
+          "key": "protract",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.91,
+          "end": 4.13,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "agony",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "text": "was",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "text": "this!",
+          "start": 1.17,
+          "end": 1.51
+        },
+        {
+          "text": "And",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "text": "the",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "man",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "seemed",
+          "start": 2.39,
+          "end": 2.71
+        },
+        {
+          "text": "resolved",
+          "start": 2.71,
+          "end": 3.19
+        },
+        {
+          "text": "to",
+          "start": 3.19,
+          "end": 3.47
+        },
+        {
+          "text": "protract",
+          "start": 3.47,
+          "end": 3.91
+        },
+        {
+          "text": "it.",
+          "start": 3.91,
+          "end": 4.13
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2743779590819031
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1987c2e70da1169f0cdf2d9c551da875b789cd86d121da069a5591a120e095be",
+  "selected_reasons": []
+}

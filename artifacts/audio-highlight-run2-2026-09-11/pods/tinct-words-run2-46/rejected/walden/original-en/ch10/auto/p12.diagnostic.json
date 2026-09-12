@@ -1,0 +1,1433 @@
+{
+  "complete": true,
+  "signature": "809d8601a7c18f229e59c5f4a2b450a1d0fffae233754393321fd94e5dacf60e",
+  "attempts": [
+    {
+      "asr_seconds": 3.9039816316217184,
+      "alignment_seconds": 0.0007980158552527428,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No one runs to revel On thy rail-fenced lea.\" * *",
+        "hotwords": "No, On"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No one runs to revel On thy rail-fenced lea.",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " one",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " runs",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " revel",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " On",
+              "start": 1.41,
+              "end": 1.93,
+              "probability": 0.01123046875
+            },
+            {
+              "text": " thy",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " rail",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.94482421875
+            },
+            {
+              "text": "-fenced",
+              "start": 2.27,
+              "end": 2.59,
+              "probability": 0.8595377604166666
+            },
+            {
+              "text": " lea.",
+              "start": 2.59,
+              "end": 3.07,
+              "probability": 0.396484375
+            }
+          ]
+        },
+        {
+          "text": " No one runs to revel On thy rail-fenced lea.",
+          "start": 3.07,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " No",
+              "start": 3.07,
+              "end": 3.63,
+              "probability": 0.0014581680297851562
+            },
+            {
+              "text": " one",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 0.0211334228515625
+            },
+            {
+              "text": " runs",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 0.0004143714904785156
+            },
+            {
+              "text": " to",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 0.0263824462890625
+            },
+            {
+              "text": " revel",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 4.589557647705078e-06
+            },
+            {
+              "text": " On",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 5.125999450683594e-06
+            },
+            {
+              "text": " thy",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 1.1563301086425781e-05
+            },
+            {
+              "text": " rail",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 8.761882781982422e-06
+            },
+            {
+              "text": "-fenced",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 0.004010478655497233
+            },
+            {
+              "text": " lea.",
+              "start": 3.63,
+              "end": 3.63,
+              "probability": 0.002978503704071045
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "one",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "runs",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.17
+        },
+        {
+          "raw": "revel",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "On",
+          "start": 1.41,
+          "end": 1.93
+        },
+        {
+          "raw": "thy",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "rail",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "-fenced",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "raw": "lea.",
+          "start": 2.59,
+          "end": 3.07
+        },
+        {
+          "raw": "No",
+          "start": 3.07,
+          "end": 3.63
+        },
+        {
+          "raw": "one",
+          "start": 3.63,
+          "end": 3.63
+        },
+        {
+          "raw": "runs",
+          "start": 3.63,
+          "end": 3.63
+        },
+        {
+          "raw": "to",
+          "start": 3.63,
+          "end": 3.63
+        },
+        {
+          "raw": "revel",
+          "start": 3.63,
+          "end": 3.63
+        },
+        {
+          "raw": "On",
+          "start": 3.63,
+          "end": 3.63
+        },
+        {
+          "raw": "thy",
+          "start": 3.63,
+          "end": 3.63
+        },
+        {
+          "raw": "rail",
+          "start": 3.63,
+          "end": 3.63
+        },
+        {
+          "raw": "-fenced",
+          "start": 3.63,
+          "end": 3.63
+        },
+        {
+          "raw": "lea.",
+          "start": 3.63,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"No",
+        "one",
+        "runs",
+        "to",
+        "revel",
+        "On",
+        "thy",
+        "rail-fenced",
+        "lea.\"",
+        "*",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          11,
+          9,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.59,
+          "end": 0.73,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 0.73,
+          "end": 0.93,
+          "key": "runs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.17,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "revel",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "revel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "On",
+          "start": 1.41,
+          "end": 1.93,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "thy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rail -fenced",
+          "start": 2.05,
+          "end": 2.59,
+          "key": "railfenced",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "lea.",
+          "start": 2.59,
+          "end": 3.07,
+          "key": "lea",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.07,
+          "end": 3.63,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "one",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "runs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "revel",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "revel",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "On",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "thy",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "rail",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "rail",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "-fenced",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "fenced",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "lea.",
+          "start": 3.63,
+          "end": 3.63,
+          "key": "lea",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "rail-fenced",
+          "heard": "rail -fenced",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.05,
+          "end": 2.59
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "one",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "runs",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.17
+        },
+        {
+          "text": "revel",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "On",
+          "start": 1.41,
+          "end": 1.93
+        },
+        {
+          "text": "thy",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "rail-fenced",
+          "start": 2.05,
+          "end": 2.59
+        },
+        {
+          "text": "lea.\"",
+          "start": 2.59,
+          "end": 3.07
+        },
+        {
+          "text": "*",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "text": "*",
+          "start": 3.35,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 19,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.9051185455173254
+    },
+    {
+      "asr_seconds": 0.19640266802161932,
+      "alignment_seconds": 0.0004748338833451271,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "No, On"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " No one runs to revel on thy rail fenced lea",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " one",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " runs",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " revel",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " on",
+              "start": 1.41,
+              "end": 1.93,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " thy",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " rail",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " fenced",
+              "start": 2.27,
+              "end": 2.61,
+              "probability": 0.53961181640625
+            },
+            {
+              "text": " lea",
+              "start": 2.61,
+              "end": 3.07,
+              "probability": 0.4349365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "one",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "runs",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.17
+        },
+        {
+          "raw": "revel",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "on",
+          "start": 1.41,
+          "end": 1.93
+        },
+        {
+          "raw": "thy",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "rail",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "fenced",
+          "start": 2.27,
+          "end": 2.61
+        },
+        {
+          "raw": "lea",
+          "start": 2.61,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "\"No",
+        "one",
+        "runs",
+        "to",
+        "revel",
+        "On",
+        "thy",
+        "rail-fenced",
+        "lea.\"",
+        "*",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "delete",
+          9,
+          11,
+          9,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          9,
+          11,
+          9,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.59,
+          "end": 0.73,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 0.73,
+          "end": 0.93,
+          "key": "runs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.17,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "revel",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "revel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.41,
+          "end": 1.93,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "thy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rail fenced",
+          "start": 2.05,
+          "end": 2.61,
+          "key": "railfenced",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "lea",
+          "start": 2.61,
+          "end": 3.07,
+          "key": "lea",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "rail-fenced",
+          "heard": "rail fenced",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.05,
+          "end": 2.61
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "one",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "runs",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.17
+        },
+        {
+          "text": "revel",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "On",
+          "start": 1.41,
+          "end": 1.93
+        },
+        {
+          "text": "thy",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "rail-fenced",
+          "start": 2.05,
+          "end": 2.61
+        },
+        {
+          "text": "lea.\"",
+          "start": 2.61,
+          "end": 3.07
+        },
+        {
+          "text": "*",
+          "start": 3.07,
+          "end": 3.07
+        },
+        {
+          "text": "*",
+          "start": 3.07,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1970110135152936
+    },
+    {
+      "asr_seconds": 0.2235247576609254,
+      "alignment_seconds": 0.0006467439234256744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No one runs to revel on thy rail-fenced lee.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " one",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " runs",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " revel",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " on",
+              "start": 1.41,
+              "end": 1.93,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " thy",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " rail",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.955078125
+            },
+            {
+              "text": "-fenced",
+              "start": 2.27,
+              "end": 2.59,
+              "probability": 0.8624674479166666
+            },
+            {
+              "text": " lee.",
+              "start": 2.59,
+              "end": 3.21,
+              "probability": 0.57080078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "one",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "runs",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.17
+        },
+        {
+          "raw": "revel",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "on",
+          "start": 1.41,
+          "end": 1.93
+        },
+        {
+          "raw": "thy",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "rail",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "-fenced",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "raw": "lee.",
+          "start": 2.59,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "\"No",
+        "one",
+        "runs",
+        "to",
+        "revel",
+        "On",
+        "thy",
+        "rail-fenced",
+        "lea.\"",
+        "*",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          11,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          11,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.59,
+          "end": 0.73,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "runs",
+          "start": 0.73,
+          "end": 0.93,
+          "key": "runs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.17,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "revel",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "revel",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.41,
+          "end": 1.93,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "thy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rail -fenced",
+          "start": 2.05,
+          "end": 2.59,
+          "key": "railfenced",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "lee.",
+          "start": 2.59,
+          "end": 3.21,
+          "key": "lee",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "rail-fenced",
+          "heard": "rail -fenced",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.05,
+          "end": 2.59
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "one",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "runs",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.17
+        },
+        {
+          "text": "revel",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "On",
+          "start": 1.41,
+          "end": 1.93
+        },
+        {
+          "text": "thy",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "rail-fenced",
+          "start": 2.05,
+          "end": 2.59
+        },
+        {
+          "text": "lea.\"",
+          "start": 2.59,
+          "end": 2.9
+        },
+        {
+          "text": "*",
+          "start": 2.9,
+          "end": 3.055
+        },
+        {
+          "text": "*",
+          "start": 3.055,
+          "end": 3.133
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22437473852187395
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb62ef65c9f25010047e38628421db4b704d3fc9c694598d7bfca70827696a39",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

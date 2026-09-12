@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "d3d469fcee876f488d1a3dd1e286ceec67218ce73975a5a04c974dd348c0f813",
+  "attempts": [
+    {
+      "asr_seconds": 0.12203775672242045,
+      "alignment_seconds": 0.0003186059184372425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He handed her a shilling.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " handed",
+              "start": 0.49,
+              "end": 0.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " her",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 0.95,
+              "end": 1.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " shilling.",
+              "start": 1.05,
+              "end": 1.37,
+              "probability": 0.91796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "handed",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "raw": "her",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "a",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "raw": "shilling.",
+          "start": 1.05,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "handed",
+        "her",
+        "a",
+        "shilling."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "handed",
+          "start": 0.49,
+          "end": 0.77,
+          "key": "handed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.95,
+          "end": 1.05,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shilling.",
+          "start": 1.05,
+          "end": 1.37,
+          "key": "shilling",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "handed",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "text": "her",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "a",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "text": "shilling.",
+          "start": 1.05,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12247961480170488
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c607c98fa3a0b58915e2b054cfa5b4af3a21fbf09cfff5a5ae2614bf5f16d396",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "6e31c26d5f0b8870a4f7ff9b1af587546ba06b42492ee515a36a716f029bf772",
+  "attempts": [
+    {
+      "asr_seconds": 0.1415370088070631,
+      "alignment_seconds": 0.00024245120584964752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Kent.",
+        "hotwords": "Enter, Kent"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Kent.",
+          "start": 0.08,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " Kent.",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.67822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Kent.",
+          "start": 0.7,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Kent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kent.",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "kent",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Kent.",
+          "start": 0.7,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14186855033040047
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e5aca9e34e8b7a94b060e525ea02bb977f7ecdbd84bfff2a476187009209b5c8",
+  "selected_reasons": []
+}

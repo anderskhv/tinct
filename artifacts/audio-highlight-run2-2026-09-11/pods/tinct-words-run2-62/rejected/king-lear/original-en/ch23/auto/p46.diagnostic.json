@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "5e455aa987a640e1eb8ee4c0d805be1e19022cc5356cd4479e9e2a72c2f0ab84",
+  "attempts": [
+    {
+      "asr_seconds": 0.057670656591653824,
+      "alignment_seconds": 6.93202018737793e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit.",
+          "start": 0.05,
+          "end": 0.75,
+          "words": [
+            {
+              "text": " Exit.",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.76416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit.",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit.",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit._]",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.05776073783636093
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8deec72fa592d196e84ebd1e414947176f29796e40b13e89b9c33e7f4dc353be",
+  "selected_reasons": []
+}

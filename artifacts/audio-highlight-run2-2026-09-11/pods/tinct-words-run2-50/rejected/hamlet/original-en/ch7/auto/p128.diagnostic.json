@@ -1,0 +1,533 @@
+{
+  "complete": true,
+  "signature": "ccb1bce19b2cc9248008ce9057c81db20d3fee93580f6a76c5b5ee39bf6dae6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.30232348665595055,
+      "alignment_seconds": 0.0003400612622499466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Rosencrantz. I think their inhibition comes by the means of the late innovation.",
+        "hotwords": "Rosencrantz, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosencrantz, I Rosencrantz. I think their inhibition comes by the means of the late innovation.",
+          "start": 0.87,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " Rosencrantz,",
+              "start": 0.87,
+              "end": 1.39,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " I",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Rosencrantz.",
+              "start": 1.93,
+              "end": 1.99,
+              "probability": 0.7474365234375
+            },
+            {
+              "text": " I",
+              "start": 1.99,
+              "end": 1.99,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " think",
+              "start": 1.99,
+              "end": 2.07,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " their",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " inhibition",
+              "start": 2.25,
+              "end": 2.63,
+              "probability": 0.951171875
+            },
+            {
+              "text": " comes",
+              "start": 2.63,
+              "end": 3.07,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " by",
+              "start": 3.07,
+              "end": 3.35,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 3.49,
+              "probability": 0.982421875
+            },
+            {
+              "text": " means",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 3.99,
+              "end": 4.11,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " late",
+              "start": 4.11,
+              "end": 4.35,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " innovation.",
+              "start": 4.35,
+              "end": 4.87,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.87,
+          "end": 1.39
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "Rosencrantz.",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "raw": "I",
+          "start": 1.99,
+          "end": 1.99
+        },
+        {
+          "raw": "think",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "raw": "their",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "inhibition",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "raw": "comes",
+          "start": 2.63,
+          "end": 3.07
+        },
+        {
+          "raw": "by",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.49
+        },
+        {
+          "raw": "means",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "raw": "late",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "raw": "innovation.",
+          "start": 4.35,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "Rosencrantz.",
+        "I",
+        "think",
+        "their",
+        "inhibition",
+        "comes",
+        "by",
+        "the",
+        "means",
+        "of",
+        "the",
+        "late",
+        "innovation."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          13,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.87,
+          "end": 1.39,
+          "key": "rosencrantz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.93,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Rosencrantz.",
+          "start": 1.93,
+          "end": 1.99,
+          "key": "rosencrantz",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.99,
+          "end": 1.99,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.99,
+          "end": 2.07,
+          "key": "think",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.07,
+          "end": 2.25,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "inhibition",
+          "start": 2.25,
+          "end": 2.63,
+          "key": "inhibition",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.63,
+          "end": 3.07,
+          "key": "comes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.07,
+          "end": 3.35,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.49,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 3.49,
+          "end": 3.79,
+          "key": "means",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.99,
+          "end": 4.11,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 4.11,
+          "end": 4.35,
+          "key": "late",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "innovation.",
+          "start": 4.35,
+          "end": 4.87,
+          "key": "innovation",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rosencrantz.",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "text": "I",
+          "start": 1.99,
+          "end": 1.99
+        },
+        {
+          "text": "think",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "text": "their",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "text": "inhibition",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "text": "comes",
+          "start": 2.63,
+          "end": 3.07
+        },
+        {
+          "text": "by",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "text": "the",
+          "start": 3.35,
+          "end": 3.49
+        },
+        {
+          "text": "means",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "text": "of",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "the",
+          "start": 3.99,
+          "end": 4.11
+        },
+        {
+          "text": "late",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "text": "innovation.",
+          "start": 4.35,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.302814606577158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "93a7a0fc46154091278686593113e81356bb02f839bd99ca77505b08e315a363",
+  "selected_reasons": []
+}

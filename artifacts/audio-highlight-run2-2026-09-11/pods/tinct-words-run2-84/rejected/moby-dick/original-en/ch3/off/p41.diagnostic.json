@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "0376d623b1f9fec78d8ac43454045c2f5f6909dd8906faa8d2416c29a1e99da5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1700807074084878,
+      "alignment_seconds": 0.0004647905007004738,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Broke said I broke do you mean",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Broke",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.815673828125
+            },
+            {
+              "text": " said",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.428955078125
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " broke",
+              "start": 1.43,
+              "end": 1.83,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " do",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.48779296875
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mean",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Broke",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "said",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.43
+        },
+        {
+          "raw": "broke",
+          "start": 1.43,
+          "end": 1.83
+        },
+        {
+          "raw": "do",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "mean",
+          "start": 2.15,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "\"Broke,\"",
+        "said",
+        "I—\"_broke_,",
+        "do",
+        "you",
+        "mean?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          6,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Broke",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "broke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.93,
+          "end": 1.15,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.43,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 1.43,
+          "end": 1.83,
+          "key": "broke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "mean",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Broke,\"",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "said",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "I—\"_broke_,",
+          "start": 1.15,
+          "end": 1.49
+        },
+        {
+          "text": "do",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "mean?\"",
+          "start": 2.15,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1707035293802619
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7424e7dadbf693438805c008e57270950e16af34a467b27c511f7797371abebc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

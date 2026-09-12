@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "0caa2c2c720f64f255fe863b9b6443c48d0c86b946d2b646fe9b7504d81df5b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.20921964943408966,
+      "alignment_seconds": 0.00043554604053497314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fabian. Carry his water to th' wise woman.",
+        "hotwords": "Fabian, Carry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fabian, Carry his water to th' wise woman.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Fabian,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.967529296875
+            },
+            {
+              "text": " Carry",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.006557464599609375
+            },
+            {
+              "text": " his",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " water",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " to",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " th'",
+              "start": 2.18,
+              "end": 2.5,
+              "probability": 0.12890625
+            },
+            {
+              "text": " wise",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " woman.",
+              "start": 3.02,
+              "end": 3.32,
+              "probability": 0.85888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Carry",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "his",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "water",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "to",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "th'",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "raw": "wise",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "woman.",
+          "start": 3.02,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "Carry",
+        "his",
+        "water",
+        "to",
+        "th'",
+        "wise",
+        "woman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Carry",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "carry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "water",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "th'",
+          "start": 2.18,
+          "end": 2.5,
+          "key": "th",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wise",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "wise",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "woman.",
+          "start": 3.02,
+          "end": 3.32,
+          "key": "woman",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Carry",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "his",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "text": "water",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "to",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "th'",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "text": "wise",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "woman.",
+          "start": 3.02,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20981931313872337
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "35c674fc2e956a950a5386b12efff6bae6bc03e5f0344fe3df83ec0a57596e9b",
+  "selected_reasons": []
+}

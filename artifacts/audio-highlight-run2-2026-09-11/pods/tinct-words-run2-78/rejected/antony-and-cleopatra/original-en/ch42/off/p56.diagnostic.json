@@ -1,0 +1,291 @@
+{
+  "complete": true,
+  "signature": "513abbae9ff344015f059a42d6f4ab48c86bc1a5e6a9254dfce6b4e8113e95c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2002498796209693,
+      "alignment_seconds": 0.0004120822995901108,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dalle Bella. It is the Emperor, Madam.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Dalle",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.608154296875
+            },
+            {
+              "text": " Bella.",
+              "start": 0.67,
+              "end": 0.95,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " It",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " is",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Emperor,",
+              "start": 1.75,
+              "end": 2.09,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " Madam.",
+              "start": 2.27,
+              "end": 2.57,
+              "probability": 0.7344970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dalle",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Bella.",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "raw": "It",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "is",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "Emperor,",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "raw": "Madam.",
+          "start": 2.27,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "Dolabella.",
+        "It",
+        "is",
+        "the",
+        "Emperor,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          6,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dalle",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "dalle",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bella.",
+          "start": 0.67,
+          "end": 0.95,
+          "key": "bella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Emperor,",
+          "start": 1.75,
+          "end": 2.09,
+          "key": "emperor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Madam.",
+          "start": 2.27,
+          "end": 2.57,
+          "key": "madam",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dolabella.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "It",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "text": "is",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "the",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "Emperor,",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "text": "madam.",
+          "start": 2.27,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2008224856108427
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "34658429c734cf4d2800e9fde16a4b7f63744228666491670c97a7d4afd050ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

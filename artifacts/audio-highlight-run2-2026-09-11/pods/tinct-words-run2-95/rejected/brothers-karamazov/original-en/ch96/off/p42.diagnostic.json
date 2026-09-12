@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "6f8bf45a3f074a7a84833f96d236dbcbc094e0abd0d296e0f9f248447a54a583",
+  "attempts": [
+    {
+      "asr_seconds": 0.14106571301817894,
+      "alignment_seconds": 0.00026404112577438354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ah, so would I, said Alyosha.",
+          "start": 0.18,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.343505859375
+            },
+            {
+              "text": " so",
+              "start": 0.72,
+              "end": 0.74,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " would",
+              "start": 0.74,
+              "end": 0.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I,",
+              "start": 0.86,
+              "end": 1.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Alyosha.",
+              "start": 1.48,
+              "end": 2.1,
+              "probability": 0.9453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "so",
+          "start": 0.72,
+          "end": 0.74
+        },
+        {
+          "raw": "would",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "raw": "I,",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "raw": "said",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 1.48,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah,",
+        "so",
+        "would",
+        "I,\"",
+        "said",
+        "Alyosha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.72,
+          "end": 0.74,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.74,
+          "end": 0.86,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 0.86,
+          "end": 1.16,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Alyosha.",
+          "start": 1.48,
+          "end": 2.1,
+          "key": "alyosha",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah,",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "text": "so",
+          "start": 0.72,
+          "end": 0.74
+        },
+        {
+          "text": "would",
+          "start": 0.74,
+          "end": 0.86
+        },
+        {
+          "text": "I,\"",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "text": "said",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "Alyosha.",
+          "start": 1.48,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14143160730600357
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f18644e1ae064fcae201daffa3a397f7da943612846436a467e60aa6d1f4c52",
+  "selected_reasons": []
+}

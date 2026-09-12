@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1cbf9da91a6eaf386efc4d9e637959cd3f340a7eaa42ec83f2b7084595e7fba5",
+  "attempts": [
+    {
+      "asr_seconds": 0.06536025181412697,
+      "alignment_seconds": 7.644668221473694e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Pass.",
+        "hotwords": "Lear, Pass"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Pass.",
+          "start": 0.02,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.6552734375
+            },
+            {
+              "text": " Pass.",
+              "start": 0.94,
+              "end": 1.24,
+              "probability": 0.044036865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Pass.",
+          "start": 0.94,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Pass."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pass.",
+          "start": 0.94,
+          "end": 1.24,
+          "key": "pass",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Pass.",
+          "start": 0.94,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06546296179294586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c3949070c815bea51dafbb52e19eb64a65d9f6df0a479c60d5fa332f093248b7",
+  "selected_reasons": []
+}

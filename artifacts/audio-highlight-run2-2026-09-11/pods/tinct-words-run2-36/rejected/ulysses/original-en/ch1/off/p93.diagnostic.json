@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "fc5a5dd643176920beb4ddec59d3a9e4e0e30a7e84683c426c981e86e5c0b388",
+  "attempts": [
+    {
+      "asr_seconds": 0.17642614245414734,
+      "alignment_seconds": 0.0003321617841720581,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Of the offense to me, Stephen answered.",
+          "start": 0.02,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.775390625
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " offense",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 0.9,
+              "end": 1.12,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " me,",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Stephen",
+              "start": 1.72,
+              "end": 1.76,
+              "probability": 0.482421875
+            },
+            {
+              "text": " answered.",
+              "start": 1.76,
+              "end": 2.28,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "offense",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "raw": "me,",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "raw": "answered.",
+          "start": 1.76,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "—Of",
+        "the",
+        "offence",
+        "to",
+        "me,",
+        "Stephen",
+        "answered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          7,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "offense",
+          "start": 0.62,
+          "end": 0.9,
+          "key": "offense",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.9,
+          "end": 1.12,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.72,
+          "end": 1.76,
+          "key": "stephen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "answered.",
+          "start": 1.76,
+          "end": 2.28,
+          "key": "answered",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Of",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "offence",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.9,
+          "end": 1.12
+        },
+        {
+          "text": "me,",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "Stephen",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "text": "answered.",
+          "start": 1.76,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.17688775062561035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e30a87da2554dc0af222266f97b283cfd90aa8e302d83c33f38e855ecae7a5e5",
+  "selected_reasons": []
+}

@@ -1,0 +1,1093 @@
+{
+  "complete": true,
+  "signature": "c302af22dac66a4bc23134cc26105851706e452f9417eda9cb72b968d5534474",
+  "attempts": [
+    {
+      "asr_seconds": 0.3640903460327536,
+      "alignment_seconds": 0.0005407530115917325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Look at the young guttersnipe behind him hue and cry, Lenehan said, and you'll kick. O, my rib risible! Taking off his flat spaugs and the walk. Small nines. Steal upon larks.",
+        "hotwords": "Look, Lenehan, O, Taking, Small, Steal"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Look at the young guttersnipe behind him hue and cry, Lenehan said, and you'll kick. O,",
+          "start": 0.02,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " Look",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.0211639404296875
+            },
+            {
+              "text": " at",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 0.64,
+              "end": 0.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " young",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " guttersnipe",
+              "start": 0.9,
+              "end": 1.46,
+              "probability": 0.61224365234375
+            },
+            {
+              "text": " behind",
+              "start": 1.46,
+              "end": 1.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " him",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hue",
+              "start": 1.96,
+              "end": 2.2,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " and",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " cry,",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Lenehan",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.6288248697916666
+            },
+            {
+              "text": " said,",
+              "start": 3.22,
+              "end": 3.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.98046875
+            },
+            {
+              "text": " you'll",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " kick.",
+              "start": 4.04,
+              "end": 4.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " O,",
+              "start": 4.9,
+              "end": 5.1,
+              "probability": 0.26123046875
+            }
+          ]
+        },
+        {
+          "text": " my rib risible! Taking off his flat spaugs and the walk. Small nines. Steal upon larks.",
+          "start": 5.22,
+          "end": 11.36,
+          "words": [
+            {
+              "text": " my",
+              "start": 5.22,
+              "end": 5.34,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " rib",
+              "start": 5.34,
+              "end": 5.56,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " risible!",
+              "start": 5.56,
+              "end": 6.02,
+              "probability": 0.5413818359375
+            },
+            {
+              "text": " Taking",
+              "start": 6.5,
+              "end": 6.64,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " off",
+              "start": 6.64,
+              "end": 6.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 6.86,
+              "end": 7.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " flat",
+              "start": 7.04,
+              "end": 7.3,
+              "probability": 0.974609375
+            },
+            {
+              "text": " spaugs",
+              "start": 7.3,
+              "end": 7.94,
+              "probability": 0.6502966086069742
+            },
+            {
+              "text": " and",
+              "start": 7.94,
+              "end": 8.04,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " the",
+              "start": 8.04,
+              "end": 8.16,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " walk.",
+              "start": 8.16,
+              "end": 8.42,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " Small",
+              "start": 9.18,
+              "end": 9.38,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " nines.",
+              "start": 9.38,
+              "end": 9.92,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " Steal",
+              "start": 10.6,
+              "end": 10.64,
+              "probability": 0.2371826171875
+            },
+            {
+              "text": " upon",
+              "start": 10.64,
+              "end": 11.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " larks.",
+              "start": 11.0,
+              "end": 11.36,
+              "probability": 0.9384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Look",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "at",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.72
+        },
+        {
+          "raw": "young",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "guttersnipe",
+          "start": 0.9,
+          "end": 1.46
+        },
+        {
+          "raw": "behind",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "raw": "him",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "hue",
+          "start": 1.96,
+          "end": 2.2
+        },
+        {
+          "raw": "and",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "cry,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "raw": "Lenehan",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "said,",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "you'll",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "kick.",
+          "start": 4.04,
+          "end": 4.26
+        },
+        {
+          "raw": "O,",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "raw": "my",
+          "start": 5.22,
+          "end": 5.34
+        },
+        {
+          "raw": "rib",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "raw": "risible!",
+          "start": 5.56,
+          "end": 6.02
+        },
+        {
+          "raw": "Taking",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "raw": "off",
+          "start": 6.64,
+          "end": 6.86
+        },
+        {
+          "raw": "his",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "raw": "flat",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "raw": "spaugs",
+          "start": 7.3,
+          "end": 7.94
+        },
+        {
+          "raw": "and",
+          "start": 7.94,
+          "end": 8.04
+        },
+        {
+          "raw": "the",
+          "start": 8.04,
+          "end": 8.16
+        },
+        {
+          "raw": "walk.",
+          "start": 8.16,
+          "end": 8.42
+        },
+        {
+          "raw": "Small",
+          "start": 9.18,
+          "end": 9.38
+        },
+        {
+          "raw": "nines.",
+          "start": 9.38,
+          "end": 9.92
+        },
+        {
+          "raw": "Steal",
+          "start": 10.6,
+          "end": 10.64
+        },
+        {
+          "raw": "upon",
+          "start": 10.64,
+          "end": 11.0
+        },
+        {
+          "raw": "larks.",
+          "start": 11.0,
+          "end": 11.36
+        }
+      ],
+      "expected_tokens": [
+        "—Look",
+        "at",
+        "the",
+        "young",
+        "guttersnipe",
+        "behind",
+        "him",
+        "hue",
+        "and",
+        "cry,",
+        "Lenehan",
+        "said,",
+        "and",
+        "you'll",
+        "kick.",
+        "O,",
+        "my",
+        "rib",
+        "risible!",
+        "Taking",
+        "off",
+        "his",
+        "flat",
+        "spaugs",
+        "and",
+        "the",
+        "walk.",
+        "Small",
+        "nines.",
+        "Steal",
+        "upon",
+        "larks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Look",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "look",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.72,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "young",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "guttersnipe",
+          "start": 0.9,
+          "end": 1.46,
+          "key": "guttersnipe",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 1.46,
+          "end": 1.72,
+          "key": "behind",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hue",
+          "start": 1.96,
+          "end": 2.2,
+          "key": "hue",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.2,
+          "end": 2.4,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cry,",
+          "start": 2.4,
+          "end": 2.76,
+          "key": "cry",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Lenehan",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "lenehan",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 3.22,
+          "end": 3.52,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.82,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "youll",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "kick.",
+          "start": 4.04,
+          "end": 4.26,
+          "key": "kick",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 4.9,
+          "end": 5.1,
+          "key": "o",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.22,
+          "end": 5.34,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "rib",
+          "start": 5.34,
+          "end": 5.56,
+          "key": "rib",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "risible!",
+          "start": 5.56,
+          "end": 6.02,
+          "key": "risible",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Taking",
+          "start": 6.5,
+          "end": 6.64,
+          "key": "taking",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 6.64,
+          "end": 6.86,
+          "key": "off",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.86,
+          "end": 7.04,
+          "key": "his",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "flat",
+          "start": 7.04,
+          "end": 7.3,
+          "key": "flat",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "spaugs",
+          "start": 7.3,
+          "end": 7.94,
+          "key": "spaugs",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.94,
+          "end": 8.04,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.04,
+          "end": 8.16,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "walk.",
+          "start": 8.16,
+          "end": 8.42,
+          "key": "walk",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Small",
+          "start": 9.18,
+          "end": 9.38,
+          "key": "small",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "nines.",
+          "start": 9.38,
+          "end": 9.92,
+          "key": "nines",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Steal",
+          "start": 10.6,
+          "end": 10.64,
+          "key": "steal",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 10.64,
+          "end": 11.0,
+          "key": "upon",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "larks.",
+          "start": 11.0,
+          "end": 11.36,
+          "key": "larks",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Look",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "at",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "the",
+          "start": 0.64,
+          "end": 0.72
+        },
+        {
+          "text": "young",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "guttersnipe",
+          "start": 0.9,
+          "end": 1.46
+        },
+        {
+          "text": "behind",
+          "start": 1.46,
+          "end": 1.72
+        },
+        {
+          "text": "him",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "hue",
+          "start": 1.96,
+          "end": 2.2
+        },
+        {
+          "text": "and",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "cry,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "text": "Lenehan",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "said,",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "text": "and",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "you'll",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "kick.",
+          "start": 4.04,
+          "end": 4.26
+        },
+        {
+          "text": "O,",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "text": "my",
+          "start": 5.22,
+          "end": 5.34
+        },
+        {
+          "text": "rib",
+          "start": 5.34,
+          "end": 5.56
+        },
+        {
+          "text": "risible!",
+          "start": 5.56,
+          "end": 6.02
+        },
+        {
+          "text": "Taking",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "text": "off",
+          "start": 6.64,
+          "end": 6.86
+        },
+        {
+          "text": "his",
+          "start": 6.86,
+          "end": 7.04
+        },
+        {
+          "text": "flat",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "text": "spaugs",
+          "start": 7.3,
+          "end": 7.94
+        },
+        {
+          "text": "and",
+          "start": 7.94,
+          "end": 8.04
+        },
+        {
+          "text": "the",
+          "start": 8.04,
+          "end": 8.16
+        },
+        {
+          "text": "walk.",
+          "start": 8.16,
+          "end": 8.42
+        },
+        {
+          "text": "Small",
+          "start": 9.18,
+          "end": 9.38
+        },
+        {
+          "text": "nines.",
+          "start": 9.38,
+          "end": 9.92
+        },
+        {
+          "text": "Steal",
+          "start": 10.6,
+          "end": 10.64
+        },
+        {
+          "text": "upon",
+          "start": 10.64,
+          "end": 11.0
+        },
+        {
+          "text": "larks.",
+          "start": 11.0,
+          "end": 11.36
+        }
+      ],
+      "stats": {
+        "expected_words": 32,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3648283500224352
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e4ed747718939b2e83b58daa8d60ae95ba6c221085dc23e35bab86475461e01",
+  "selected_reasons": []
+}

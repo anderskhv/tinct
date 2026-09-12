@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "fee6bf5946a37707bda63bf6a9066b3de4a547ee0f0f4a37a06f59370157a015",
+  "attempts": [
+    {
+      "asr_seconds": 0.11464550998061895,
+      "alignment_seconds": 0.00015724869444966316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. In sooth, you are to blame.",
+        "hotwords": "Desdemona, In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, In sooth, you are to blame.",
+          "start": 0.65,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.6400705973307291
+            },
+            {
+              "text": " In",
+              "start": 1.49,
+              "end": 1.53,
+              "probability": 0.01380157470703125
+            },
+            {
+              "text": " sooth,",
+              "start": 1.53,
+              "end": 1.91,
+              "probability": 0.613525390625
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.07,
+              "probability": 0.94921875
+            },
+            {
+              "text": " are",
+              "start": 2.07,
+              "end": 2.13,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " to",
+              "start": 2.13,
+              "end": 2.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " blame.",
+              "start": 2.21,
+              "end": 2.47,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "In",
+          "start": 1.49,
+          "end": 1.53
+        },
+        {
+          "raw": "sooth,",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.07
+        },
+        {
+          "raw": "are",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "raw": "blame.",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "In",
+        "sooth,",
+        "you",
+        "are",
+        "to",
+        "blame."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.49,
+          "end": 1.53,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sooth,",
+          "start": 1.53,
+          "end": 1.91,
+          "key": "sooth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.07,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.07,
+          "end": 2.13,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.21,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blame.",
+          "start": 2.21,
+          "end": 2.47,
+          "key": "blame",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "In",
+          "start": 1.49,
+          "end": 1.53
+        },
+        {
+          "text": "sooth,",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.07
+        },
+        {
+          "text": "are",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "text": "to",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "text": "blame.",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11485912930220366
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a798914e1607135a62af722f3888913d8a24a8c23f8113a07f1d861bc602c157",
+  "selected_reasons": []
+}

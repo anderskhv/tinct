@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "6eebccbe7a7960559096e7ceb041768bae595ac842e0fc9666431648f5d6e1fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1400846280157566,
+      "alignment_seconds": 0.0003568977117538452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Even solicitors had no right to take liberties.",
+        "hotwords": "Even"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Even solicitors had no right to take liberties.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Even",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " solicitors",
+              "start": 0.67,
+              "end": 1.39,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " had",
+              "start": 1.39,
+              "end": 1.79,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " no",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " right",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " take",
+              "start": 2.37,
+              "end": 2.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " liberties.",
+              "start": 2.55,
+              "end": 2.93,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Even",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "solicitors",
+          "start": 0.67,
+          "end": 1.39
+        },
+        {
+          "raw": "had",
+          "start": 1.39,
+          "end": 1.79
+        },
+        {
+          "raw": "no",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "right",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "take",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "raw": "liberties.",
+          "start": 2.55,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Even",
+        "solicitors",
+        "had",
+        "no",
+        "right",
+        "to",
+        "take",
+        "liberties."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Even",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "even",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "solicitors",
+          "start": 0.67,
+          "end": 1.39,
+          "key": "solicitors",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.39,
+          "end": 1.79,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "right",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.37,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.37,
+          "end": 2.55,
+          "key": "take",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "liberties.",
+          "start": 2.55,
+          "end": 2.93,
+          "key": "liberties",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Even",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "solicitors",
+          "start": 0.67,
+          "end": 1.39
+        },
+        {
+          "text": "had",
+          "start": 1.39,
+          "end": 1.79
+        },
+        {
+          "text": "no",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "right",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "text": "take",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "text": "liberties.",
+          "start": 2.55,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14057334512472153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5af1340ecc743f5c008bad0eb92cf88bf7212cdbcf42d91fa4806c4d44fa4075",
+  "selected_reasons": []
+}

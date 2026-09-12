@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "62fb0993bb57e952b26a0d1b890c9e60b53f7dea0a5a6f414b4534c2a8c4d5dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.13412848487496376,
+      "alignment_seconds": 0.00017719902098178864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First lady, blue my lord.",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " lady,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.3388671875
+            },
+            {
+              "text": " blue",
+              "start": 1.28,
+              "end": 1.54,
+              "probability": 0.513671875
+            },
+            {
+              "text": " my",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " lord.",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.81396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "lady,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "blue",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "raw": "my",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "lord.",
+          "start": 1.74,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Lady.",
+        "Blue,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "blue",
+          "start": 1.28,
+          "end": 1.54,
+          "key": "blue",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Lady.",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "Blue,",
+          "start": 1.28,
+          "end": 1.54
+        },
+        {
+          "text": "my",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "lord.",
+          "start": 1.74,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13436807692050934
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51a5ef743fdda227807c8bfaef63d4db5cae9bb6c79fb59b2ff2ee04bba022c0",
+  "selected_reasons": []
+}

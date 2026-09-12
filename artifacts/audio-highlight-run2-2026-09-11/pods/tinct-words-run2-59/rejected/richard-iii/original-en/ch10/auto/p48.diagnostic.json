@@ -1,0 +1,189 @@
+{
+  "complete": true,
+  "signature": "a4523d7189f3cc0d908233f564c61aa00f1c52d14880c243dc7456cea4717d55",
+  "attempts": [
+    {
+      "asr_seconds": 0.1295303839724511,
+      "alignment_seconds": 0.0003223358653485775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Throws him his purse._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " throws him his purse.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " throws",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.72412109375
+            },
+            {
+              "text": " him",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " his",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " purse.",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "throws",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "him",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "purse.",
+          "start": 0.98,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[_Throws",
+        "him",
+        "his",
+        "purse._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "throws",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "throws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "purse.",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "purse",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Throws",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "him",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "his",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "purse._]",
+          "start": 0.98,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12996645993553102
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0da3c5dfc2914f688bf2397423bb93951049bba20c95c2faae75e105764cbfd1",
+  "selected_reasons": []
+}

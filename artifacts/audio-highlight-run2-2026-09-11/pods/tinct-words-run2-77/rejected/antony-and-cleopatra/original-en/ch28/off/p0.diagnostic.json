@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "83707e5a26602bd9679b31568e5ea9a08c6950f485302356ee3e23276c5daba0",
+  "attempts": [
+    {
+      "asr_seconds": 0.09504715300863609,
+      "alignment_seconds": 0.0002114670060109347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter a company of soldiers.",
+          "start": 0.18,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.66,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " a",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " company",
+              "start": 0.8,
+              "end": 1.06,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " of",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " soldiers.",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.90087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.66
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "company",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "raw": "of",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "soldiers.",
+          "start": 1.24,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "Company",
+        "of",
+        "Soldiers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "company",
+          "start": 0.8,
+          "end": 1.06,
+          "key": "company",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soldiers.",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "soldiers",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.66
+        },
+        {
+          "text": "a",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "Company",
+          "start": 0.8,
+          "end": 1.06
+        },
+        {
+          "text": "of",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "Soldiers.",
+          "start": 1.24,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09533609298523515
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "08d19b328d57118e08985f97f380ac11aa7bfa7c54a4c2c8b24239e1064252bd",
+  "selected_reasons": []
+}

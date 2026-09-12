@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "898ef597d2fa43d5367d0c9d6c43e191ff6e22606d8e14eb63ca714534816a62",
+  "attempts": [
+    {
+      "asr_seconds": 0.2190787922590971,
+      "alignment_seconds": 0.0005827043205499649,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "O, you, sir, you, come you hither, sir: who am I, sir?",
+        "hotwords": "O, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O, you, sir, you, come you hither, sir, who am I, sir?",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " O,",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.0908203125
+            },
+            {
+              "text": " you,",
+              "start": 0.68,
+              "end": 0.76,
+              "probability": 0.95703125
+            },
+            {
+              "text": " sir,",
+              "start": 0.92,
+              "end": 0.94,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " you,",
+              "start": 1.12,
+              "end": 1.16,
+              "probability": 0.982421875
+            },
+            {
+              "text": " come",
+              "start": 1.24,
+              "end": 1.32,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " you",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.305419921875
+            },
+            {
+              "text": " hither,",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " sir,",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " who",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " am",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I,",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sir?",
+              "start": 2.9,
+              "end": 2.96,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "you,",
+          "start": 0.68,
+          "end": 0.76
+        },
+        {
+          "raw": "sir,",
+          "start": 0.92,
+          "end": 0.94
+        },
+        {
+          "raw": "you,",
+          "start": 1.12,
+          "end": 1.16
+        },
+        {
+          "raw": "come",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "raw": "you",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "hither,",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "sir,",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "who",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "am",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "I,",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "sir?",
+          "start": 2.9,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "O,",
+        "you,",
+        "sir,",
+        "you,",
+        "come",
+        "you",
+        "hither,",
+        "sir:",
+        "who",
+        "am",
+        "I,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O,",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.68,
+          "end": 0.76,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.92,
+          "end": 0.94,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.12,
+          "end": 1.16,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.24,
+          "end": 1.32,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "hither",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.34,
+          "end": 2.42,
+          "key": "who",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.42,
+          "end": 2.54,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 2.54,
+          "end": 2.76,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 2.9,
+          "end": 2.96,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "O,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "you,",
+          "start": 0.68,
+          "end": 0.76
+        },
+        {
+          "text": "sir,",
+          "start": 0.92,
+          "end": 0.94
+        },
+        {
+          "text": "you,",
+          "start": 1.12,
+          "end": 1.16
+        },
+        {
+          "text": "come",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "text": "you",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "hither,",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "sir:",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "who",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "am",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "text": "I,",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "text": "sir?",
+          "start": 2.9,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21989199705421925
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "439532355b990725effb58ec6f9f6a75e5281a9f840c6ec780025a94e5a8d8c5",
+  "selected_reasons": []
+}

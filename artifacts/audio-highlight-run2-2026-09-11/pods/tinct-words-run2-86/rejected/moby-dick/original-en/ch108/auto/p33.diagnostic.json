@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "f9870a50727f83901ea105cce3402cd1f16de665b8af5a1784a28b6f20ce7c8a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13762211054563522,
+      "alignment_seconds": 0.00021716207265853882,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Perhaps an hour, sir.",
+        "hotwords": "Perhaps"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perhaps an hour, sir.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Perhaps",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.849609375
+            },
+            {
+              "text": " an",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " hour,",
+              "start": 0.87,
+              "end": 1.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sir.",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.88818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perhaps",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "an",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "hour,",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "raw": "sir.",
+          "start": 1.25,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "Perhaps",
+        "an",
+        "hour,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perhaps",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "perhaps",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hour,",
+          "start": 0.87,
+          "end": 1.13,
+          "key": "hour",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perhaps",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "an",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "hour,",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "text": "sir.",
+          "start": 1.25,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13793614879250526
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ffa3037da1d9555249221e4ce4a301bc92a419cc04059ead17ae1d46ea6723cd",
+  "selected_reasons": []
+}

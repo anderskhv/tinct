@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "b658c1a5aa04ec3c74b50c7f33fe4c97aceb6a36b8001351fbf1b36723da8c79",
+  "attempts": [
+    {
+      "asr_seconds": 0.2295589568093419,
+      "alignment_seconds": 0.0004118031356483698,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No; we'll go back to Grande Terre. Let the fish alone.\"",
+        "hotwords": "No, Grande, Terre, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, we'll go back to Grande Terre. Let the fish alone.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " we'll",
+              "start": 0.85,
+              "end": 0.99,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " go",
+              "start": 0.99,
+              "end": 1.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " back",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Grande",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.01073455810546875
+            },
+            {
+              "text": " Terre.",
+              "start": 1.75,
+              "end": 2.35,
+              "probability": 0.9140625
+            },
+            {
+              "text": " Let",
+              "start": 2.59,
+              "end": 2.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 2.65,
+              "end": 2.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fish",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " alone.",
+              "start": 2.93,
+              "end": 3.33,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "we'll",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "raw": "go",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "raw": "back",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "to",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "Grande",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "Terre.",
+          "start": 1.75,
+          "end": 2.35
+        },
+        {
+          "raw": "Let",
+          "start": 2.59,
+          "end": 2.65
+        },
+        {
+          "raw": "the",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "raw": "fish",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "alone.",
+          "start": 2.93,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "\"No;",
+        "we'll",
+        "go",
+        "back",
+        "to",
+        "Grande",
+        "Terre.",
+        "Let",
+        "the",
+        "fish",
+        "alone.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 0.85,
+          "end": 0.99,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.99,
+          "end": 1.11,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 1.11,
+          "end": 1.33,
+          "key": "back",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Grande",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "grande",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Terre.",
+          "start": 1.75,
+          "end": 2.35,
+          "key": "terre",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 2.59,
+          "end": 2.65,
+          "key": "let",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.65,
+          "end": 2.79,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fish",
+          "start": 2.79,
+          "end": 2.93,
+          "key": "fish",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "alone.",
+          "start": 2.93,
+          "end": 3.33,
+          "key": "alone",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No;",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "we'll",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "text": "go",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "text": "back",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "text": "to",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "Grande",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "Terre.",
+          "start": 1.75,
+          "end": 2.35
+        },
+        {
+          "text": "Let",
+          "start": 2.59,
+          "end": 2.65
+        },
+        {
+          "text": "the",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "text": "fish",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "alone.\"",
+          "start": 2.93,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23012348799966276
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "03fc7a01e065dfdb3fff70ecbbdef458e1723c8cb895943ad704e633e013b47d",
+  "selected_reasons": []
+}

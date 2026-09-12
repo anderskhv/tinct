@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "8e97b7bbf8212dc4a4e1eb50cfa34035dc1bf100a4e8bfddeba7189ce8443d2d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11998828701325692,
+      "alignment_seconds": 0.00017481599934399128,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, none but friends, say boldly.",
+          "start": 0.05,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " none",
+              "start": 1.53,
+              "end": 1.55,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " but",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " friends,",
+              "start": 1.73,
+              "end": 2.13,
+              "probability": 0.990234375
+            },
+            {
+              "text": " say",
+              "start": 2.39,
+              "end": 2.57,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " boldly.",
+              "start": 2.57,
+              "end": 2.95,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "none",
+          "start": 1.53,
+          "end": 1.55
+        },
+        {
+          "raw": "but",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "friends,",
+          "start": 1.73,
+          "end": 2.13
+        },
+        {
+          "raw": "say",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "raw": "boldly.",
+          "start": 2.57,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "None",
+        "but",
+        "friends.",
+        "Say",
+        "boldly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 1.53,
+          "end": 1.55,
+          "key": "none",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "friends,",
+          "start": 1.73,
+          "end": 2.13,
+          "key": "friends",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.39,
+          "end": 2.57,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "boldly.",
+          "start": 2.57,
+          "end": 2.95,
+          "key": "boldly",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "None",
+          "start": 1.53,
+          "end": 1.55
+        },
+        {
+          "text": "but",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "friends.",
+          "start": 1.73,
+          "end": 2.13
+        },
+        {
+          "text": "Say",
+          "start": 2.39,
+          "end": 2.57
+        },
+        {
+          "text": "boldly.",
+          "start": 2.57,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12022267500287853
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cc36ae31817dba4280ace9e98a00c75077df604770d0b2cd0d0355b577a5377",
+  "selected_reasons": []
+}

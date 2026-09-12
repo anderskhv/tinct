@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "79cbae9a122b1f94f739b9207c5e77344f200f053318f7a50d9b52556ad307c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.27121495601022616,
+      "alignment_seconds": 0.0002764499804470688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. I have sixty sails, Caesar none better.",
+        "hotwords": "Cleopatra, I, Caesar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, I have sixty sails, Caesar none better.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " I",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " have",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sixty",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.2236328125
+            },
+            {
+              "text": " sails,",
+              "start": 2.03,
+              "end": 2.49,
+              "probability": 0.026031494140625
+            },
+            {
+              "text": " Caesar",
+              "start": 2.89,
+              "end": 2.89,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " none",
+              "start": 2.89,
+              "end": 3.13,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " better.",
+              "start": 3.13,
+              "end": 3.45,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "have",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "sixty",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "raw": "sails,",
+          "start": 2.03,
+          "end": 2.49
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.89,
+          "end": 2.89
+        },
+        {
+          "raw": "none",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "raw": "better.",
+          "start": 3.13,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "I",
+        "have",
+        "sixty",
+        "sails,",
+        "Caesar",
+        "none",
+        "better."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sixty",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "sixty",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sails,",
+          "start": 2.03,
+          "end": 2.49,
+          "key": "sails",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 2.89,
+          "end": 2.89,
+          "key": "caesar",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 2.89,
+          "end": 3.13,
+          "key": "none",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 3.13,
+          "end": 3.45,
+          "key": "better",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "I",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "have",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "text": "sixty",
+          "start": 1.71,
+          "end": 2.03
+        },
+        {
+          "text": "sails,",
+          "start": 2.03,
+          "end": 2.49
+        },
+        {
+          "text": "Caesar",
+          "start": 2.89,
+          "end": 2.89
+        },
+        {
+          "text": "none",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "text": "better.",
+          "start": 3.13,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27159608001238666
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f6b1ef597e4b79fe4fb210ad059a8b3ae27399ba091617b54f197bfb0046738",
+  "selected_reasons": []
+}

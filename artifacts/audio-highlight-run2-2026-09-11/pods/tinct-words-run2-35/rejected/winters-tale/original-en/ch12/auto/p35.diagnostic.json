@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "edddc218b2f9d16dccb6bb6202c368789aa8925c047c4bd54d6087b0ba001a2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.135753920301795,
+      "alignment_seconds": 0.0003710556775331497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Come on, strike up.",
+        "hotwords": "Clown, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Come on, strike up.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " Come",
+              "start": 1.08,
+              "end": 1.14,
+              "probability": 0.0284271240234375
+            },
+            {
+              "text": " on,",
+              "start": 1.14,
+              "end": 1.3,
+              "probability": 0.744140625
+            },
+            {
+              "text": " strike",
+              "start": 1.48,
+              "end": 1.56,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " up.",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Come",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "raw": "on,",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "raw": "strike",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "raw": "up.",
+          "start": 1.56,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Come",
+        "on,",
+        "strike",
+        "up."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 1.08,
+          "end": 1.14,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 1.14,
+          "end": 1.3,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strike",
+          "start": 1.48,
+          "end": 1.56,
+          "key": "strike",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Come",
+          "start": 1.08,
+          "end": 1.14
+        },
+        {
+          "text": "on,",
+          "start": 1.14,
+          "end": 1.3
+        },
+        {
+          "text": "strike",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "text": "up.",
+          "start": 1.56,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13624981604516506
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e07e2dc04ed10d640fda2bb2d9dc7b771367471048aa66e2f59737000192482",
+  "selected_reasons": []
+}

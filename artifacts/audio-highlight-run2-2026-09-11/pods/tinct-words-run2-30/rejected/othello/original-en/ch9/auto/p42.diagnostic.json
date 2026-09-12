@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8881fadfdfa4a7fa770e74248e1fc7452a1b2be88e98f978de45aed19faf0739",
+  "attempts": [
+    {
+      "asr_seconds": 0.200063182041049,
+      "alignment_seconds": 0.00016104895621538162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. My noble lord,—",
+        "hotwords": "Iago, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, My noble lord,—",
+          "start": 0.08,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.0574951171875
+            },
+            {
+              "text": " My",
+              "start": 1.18,
+              "end": 1.2,
+              "probability": 0.06524658203125
+            },
+            {
+              "text": " noble",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.422607421875
+            },
+            {
+              "text": " lord,—",
+              "start": 1.48,
+              "end": 2.48,
+              "probability": 0.30883800983428955
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "My",
+          "start": 1.18,
+          "end": 1.2
+        },
+        {
+          "raw": "noble",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "lord,—",
+          "start": 1.48,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "My",
+        "noble",
+        "lord,—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.18,
+          "end": 1.2,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "noble",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,—",
+          "start": 1.48,
+          "end": 2.48,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "My",
+          "start": 1.18,
+          "end": 1.2
+        },
+        {
+          "text": "noble",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "lord,—",
+          "start": 1.48,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20027221087366343
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "07606572e446b55f029587e97da50f44b5da5a407f1cc23cb7142f3ae1121453",
+  "selected_reasons": []
+}

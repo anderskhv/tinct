@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "a8839d87f32e84ee320649dd71875f762a79ca7ffebeb73a45b634881432c088",
+  "attempts": [
+    {
+      "asr_seconds": 0.16518472880125046,
+      "alignment_seconds": 0.0003767646849155426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, he misses not much.",
+          "start": 0.11,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " he",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.986328125
+            },
+            {
+              "text": " misses",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " much.",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "misses",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "not",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "much.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "He",
+        "misses",
+        "not",
+        "much."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.75,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "misses",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "misses",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "much.",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "much",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "text": "He",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "misses",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "not",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "much.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16568854078650475
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bde2d16891cc25293762cbedca19c9adbb6320851340dfd46650e0a91ab66760",
+  "selected_reasons": []
+}

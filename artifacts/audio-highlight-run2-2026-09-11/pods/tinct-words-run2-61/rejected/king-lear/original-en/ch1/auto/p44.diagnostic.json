@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "af997682d2aed00311f3d589bda6df2c10f38c7bc147cce12b26e3480b41f54e",
+  "attempts": [
+    {
+      "asr_seconds": 0.10612280294299126,
+      "alignment_seconds": 0.00018297508358955383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Giving the crown._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Giving the crown.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Giving",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " the",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " crown.",
+              "start": 0.77,
+              "end": 1.03,
+              "probability": 0.7548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Giving",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "the",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "crown.",
+          "start": 0.77,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "[_Giving",
+        "the",
+        "crown._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Giving",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "giving",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.59,
+          "end": 0.77,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "crown.",
+          "start": 0.77,
+          "end": 1.03,
+          "key": "crown",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Giving",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "the",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "text": "crown._]",
+          "start": 0.77,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10636335238814354
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3c5d9ff970afbd8b1dc105b4ec3d31c6415c5023e5033ba3509bc1a2376ef7fa",
+  "selected_reasons": []
+}

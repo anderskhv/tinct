@@ -1,0 +1,487 @@
+{
+  "complete": true,
+  "signature": "aaec2a96f29fb1744f9d1eb66d54dbee468d02352a6ab0792863c78767ca8bf0",
+  "attempts": [
+    {
+      "asr_seconds": 0.13742871908470988,
+      "alignment_seconds": 0.00032840529456734657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit second Messenger._]",
+        "hotwords": "Messenger._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit second Messenger._",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " second",
+              "start": 0.68,
+              "end": 1.04,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " Messenger._",
+              "start": 1.04,
+              "end": 2.16,
+              "probability": 0.0130767822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "second",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "raw": "Messenger._",
+          "start": 1.04,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "second",
+        "Messenger._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 0.68,
+          "end": 1.04,
+          "key": "second",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Messenger._",
+          "start": 1.04,
+          "end": 2.16,
+          "key": "messenger_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "second",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "text": "Messenger._]",
+          "start": 1.04,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1378615340217948
+    },
+    {
+      "asr_seconds": 0.15234199818223715,
+      "alignment_seconds": 0.0003094729036092758,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Messenger._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit second Messenger._",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " second",
+              "start": 0.68,
+              "end": 1.04,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " Messenger._",
+              "start": 1.04,
+              "end": 2.16,
+              "probability": 0.0130767822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "second",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "raw": "Messenger._",
+          "start": 1.04,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "second",
+        "Messenger._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 0.68,
+          "end": 1.04,
+          "key": "second",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Messenger._",
+          "start": 1.04,
+          "end": 2.16,
+          "key": "messenger_",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "second",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "text": "Messenger._]",
+          "start": 1.04,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1527782459743321
+    },
+    {
+      "asr_seconds": 0.12589627923443913,
+      "alignment_seconds": 0.00029624300077557564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit second messenger.",
+          "start": 0.02,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " second",
+              "start": 0.68,
+              "end": 1.04,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " messenger.",
+              "start": 1.04,
+              "end": 1.52,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "second",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "raw": "messenger.",
+          "start": 1.04,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "second",
+        "Messenger._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 0.68,
+          "end": 1.04,
+          "key": "second",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "messenger.",
+          "start": 1.04,
+          "end": 1.52,
+          "key": "messenger",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "second",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "text": "Messenger._]",
+          "start": 1.04,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12629950931295753
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "703e6b0e8cc3d18a0354df56b9b7390f7845f88b4c304f69ba19a794352955ea",
+  "selected_reasons": []
+}

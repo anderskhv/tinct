@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "e40a0f5c35d804e2fab8463200230144d56854fb43168a8b92491ad4a227ab1c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2623720979318023,
+      "alignment_seconds": 0.0002875290811061859,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Tribunes, patricians, citizens, what, ho! Sicinius, Brutus, Coriolanus, citizens!",
+        "hotwords": "Tribunes, Sicinius, Brutus, Coriolanus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tribunes, patricians, citizens, what, ho! Sicinius, Brutus, Coriolanus, citizens!",
+          "start": 0.05,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " Tribunes,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.57958984375
+            },
+            {
+              "text": " patricians,",
+              "start": 1.07,
+              "end": 1.53,
+              "probability": 0.7779134114583334
+            },
+            {
+              "text": " citizens,",
+              "start": 1.75,
+              "end": 2.03,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " what,",
+              "start": 2.33,
+              "end": 2.37,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " ho!",
+              "start": 2.65,
+              "end": 2.65,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " Sicinius,",
+              "start": 3.43,
+              "end": 3.89,
+              "probability": 0.4934895833333333
+            },
+            {
+              "text": " Brutus,",
+              "start": 4.01,
+              "end": 4.39,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " Coriolanus,",
+              "start": 4.65,
+              "end": 5.15,
+              "probability": 0.8587239583333334
+            },
+            {
+              "text": " citizens!",
+              "start": 5.65,
+              "end": 5.65,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tribunes,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "patricians,",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "raw": "citizens,",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "raw": "what,",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "raw": "ho!",
+          "start": 2.65,
+          "end": 2.65
+        },
+        {
+          "raw": "Sicinius,",
+          "start": 3.43,
+          "end": 3.89
+        },
+        {
+          "raw": "Brutus,",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 4.65,
+          "end": 5.15
+        },
+        {
+          "raw": "citizens!",
+          "start": 5.65,
+          "end": 5.65
+        }
+      ],
+      "expected_tokens": [
+        "Tribunes,",
+        "patricians,",
+        "citizens,",
+        "what,",
+        "ho!",
+        "Sicinius,",
+        "Brutus,",
+        "Coriolanus,",
+        "citizens!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tribunes,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "tribunes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "patricians,",
+          "start": 1.07,
+          "end": 1.53,
+          "key": "patricians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "citizens,",
+          "start": 1.75,
+          "end": 2.03,
+          "key": "citizens",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what,",
+          "start": 2.33,
+          "end": 2.37,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 2.65,
+          "end": 2.65,
+          "key": "ho",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sicinius,",
+          "start": 3.43,
+          "end": 3.89,
+          "key": "sicinius",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Brutus,",
+          "start": 4.01,
+          "end": 4.39,
+          "key": "brutus",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Coriolanus,",
+          "start": 4.65,
+          "end": 5.15,
+          "key": "coriolanus",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "citizens!",
+          "start": 5.65,
+          "end": 5.65,
+          "key": "citizens",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tribunes,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "patricians,",
+          "start": 1.07,
+          "end": 1.53
+        },
+        {
+          "text": "citizens,",
+          "start": 1.75,
+          "end": 2.03
+        },
+        {
+          "text": "what,",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "text": "ho!",
+          "start": 2.65,
+          "end": 2.65
+        },
+        {
+          "text": "Sicinius,",
+          "start": 3.43,
+          "end": 3.89
+        },
+        {
+          "text": "Brutus,",
+          "start": 4.01,
+          "end": 4.39
+        },
+        {
+          "text": "Coriolanus,",
+          "start": 4.65,
+          "end": 5.15
+        },
+        {
+          "text": "citizens!",
+          "start": 5.65,
+          "end": 5.65
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2627790798433125
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f38ab13ae3630bc754e883e2c1140902322939c64228550ad35a00e1d74af78",
+  "selected_reasons": []
+}

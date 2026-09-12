@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "388960b816363b8893c0d9018586fca816d977939c640725a1a5c5e2cec21b43",
+  "attempts": [
+    {
+      "asr_seconds": 0.0801287516951561,
+      "alignment_seconds": 0.00011749938130378723,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fool. Not i' the stocks, fool.",
+        "hotwords": "Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fool. Not i' the stocks, fool.",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Fool.",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Not",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " i'",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.052581787109375
+            },
+            {
+              "text": " the",
+              "start": 1.32,
+              "end": 1.36,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " stocks,",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.248779296875
+            },
+            {
+              "text": " fool.",
+              "start": 1.92,
+              "end": 1.94,
+              "probability": 0.78515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Not",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "i'",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "raw": "stocks,",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "fool.",
+          "start": 1.92,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "Not",
+        "i'",
+        "the",
+        "stocks,",
+        "fool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool.",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.32,
+          "end": 1.36,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stocks,",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "stocks",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fool.",
+          "start": 1.92,
+          "end": 1.94,
+          "key": "fool",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Not",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "i'",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "the",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "text": "stocks,",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "fool.",
+          "start": 1.92,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08030025288462639
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e8238b6d66f3f47b47bd1dd8ab6a4658d64a171519010e3d809c0c487c8d1f7e",
+  "selected_reasons": []
+}

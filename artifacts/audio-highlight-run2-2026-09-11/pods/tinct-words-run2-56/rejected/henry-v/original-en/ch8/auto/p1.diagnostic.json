@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e0178a2a6eb18c70c8b846052ef56465d02fa8ba21fe2d885a94ef8e248e8c6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2284977175295353,
+      "alignment_seconds": 0.0007238360121846199,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bardolph. On, on, on, on, on! To the breach, to the breach!",
+        "hotwords": "Bardolph"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bardolph. On, on, on, on, on! To the breach, to the breach!",
+          "start": 0.5,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " Bardolph.",
+              "start": 0.5,
+              "end": 0.86,
+              "probability": 0.4326171875
+            },
+            {
+              "text": " On,",
+              "start": 1.34,
+              "end": 1.4,
+              "probability": 0.9375
+            },
+            {
+              "text": " on,",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " on,",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on,",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.98828125
+            },
+            {
+              "text": " on!",
+              "start": 2.22,
+              "end": 2.22,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " To",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " the",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " breach,",
+              "start": 2.72,
+              "end": 2.9,
+              "probability": 0.8671875
+            },
+            {
+              "text": " to",
+              "start": 3.16,
+              "end": 3.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " breach!",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bardolph.",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "raw": "On,",
+          "start": 1.34,
+          "end": 1.4
+        },
+        {
+          "raw": "on,",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "on,",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "raw": "on,",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "on!",
+          "start": 2.22,
+          "end": 2.22
+        },
+        {
+          "raw": "To",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "the",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "breach,",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "raw": "to",
+          "start": 3.16,
+          "end": 3.16
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "breach!",
+          "start": 3.28,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "Bardolph.",
+        "On,",
+        "on,",
+        "on,",
+        "on,",
+        "on!",
+        "To",
+        "the",
+        "breach,",
+        "to",
+        "the",
+        "breach!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bardolph.",
+          "start": 0.5,
+          "end": 0.86,
+          "key": "bardolph",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "On,",
+          "start": 1.34,
+          "end": 1.4,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "on",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on!",
+          "start": 2.22,
+          "end": 2.22,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.6,
+          "end": 2.72,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "breach,",
+          "start": 2.72,
+          "end": 2.9,
+          "key": "breach",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.16,
+          "end": 3.16,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "breach!",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "breach",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bardolph.",
+          "start": 0.5,
+          "end": 0.86
+        },
+        {
+          "text": "On,",
+          "start": 1.34,
+          "end": 1.4
+        },
+        {
+          "text": "on,",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "on,",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "on,",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "on!",
+          "start": 2.22,
+          "end": 2.22
+        },
+        {
+          "text": "To",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "the",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "breach,",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "text": "to",
+          "start": 3.16,
+          "end": 3.16
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "breach!",
+          "start": 3.28,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22950802650302649
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "500154326cb5f0468794cea5347cd3687a2c1959d20947c43264ee46d74f0a8e",
+  "selected_reasons": []
+}

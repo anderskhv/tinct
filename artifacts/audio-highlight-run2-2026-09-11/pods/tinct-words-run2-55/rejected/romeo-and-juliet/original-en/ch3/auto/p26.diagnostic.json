@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "616668c64f0bb070f2b4113c1d434a227bcfcd440c3fe3a01e2764d767d16e6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14555182494223118,
+      "alignment_seconds": 0.00023030489683151245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Romeo. Whose house?",
+        "hotwords": "Romeo, Whose"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Romeo, Whose house?",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.42138671875
+            },
+            {
+              "text": " Whose",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.4714317321777344
+            },
+            {
+              "text": " house?",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.119384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Whose",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "house?",
+          "start": 1.18,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "Whose",
+        "house?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Whose",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "whose",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "house?",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "house",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Whose",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "house?",
+          "start": 1.18,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14585595298558474
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7634f25ddc79c234e054488b376a63dd9b494fb61552f1a09528304543a633cb",
+  "selected_reasons": []
+}

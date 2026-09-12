@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "f9c905ec8284a9845ca8f16c91078cce0f5b73a3563dde9a0863d1cc98f661bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.3134841537103057,
+      "alignment_seconds": 0.0002649109810590744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Good old knight, Collect them all together at my tent. I'll be before thee.",
+        "hotwords": "King, Henry, Good, Collect, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, Henry, Good old knight, Collect them all together at my tent. I'll be before thee.",
+          "start": 0.0,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " Henry,",
+              "start": 0.88,
+              "end": 0.94,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " Good",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.03387451171875
+            },
+            {
+              "text": " old",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.90234375
+            },
+            {
+              "text": " knight,",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " Collect",
+              "start": 2.54,
+              "end": 2.56,
+              "probability": 0.4677734375
+            },
+            {
+              "text": " them",
+              "start": 2.56,
+              "end": 2.8,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " all",
+              "start": 2.8,
+              "end": 2.96,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " together",
+              "start": 2.96,
+              "end": 3.26,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " at",
+              "start": 3.26,
+              "end": 3.46,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " my",
+              "start": 3.46,
+              "end": 3.62,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " tent.",
+              "start": 3.62,
+              "end": 3.9,
+              "probability": 0.966796875
+            },
+            {
+              "text": " I'll",
+              "start": 4.38,
+              "end": 4.52,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " be",
+              "start": 4.52,
+              "end": 4.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " before",
+              "start": 4.62,
+              "end": 4.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thee.",
+              "start": 4.96,
+              "end": 5.28,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.88,
+          "end": 0.94
+        },
+        {
+          "raw": "Good",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "old",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "knight,",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "Collect",
+          "start": 2.54,
+          "end": 2.56
+        },
+        {
+          "raw": "them",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "raw": "all",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "raw": "together",
+          "start": 2.96,
+          "end": 3.26
+        },
+        {
+          "raw": "at",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "raw": "my",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "raw": "tent.",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "raw": "I'll",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "raw": "be",
+          "start": 4.52,
+          "end": 4.62
+        },
+        {
+          "raw": "before",
+          "start": 4.62,
+          "end": 4.96
+        },
+        {
+          "raw": "thee.",
+          "start": 4.96,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Good",
+        "old",
+        "knight,",
+        "Collect",
+        "them",
+        "all",
+        "together",
+        "at",
+        "my",
+        "tent.",
+        "I'll",
+        "be",
+        "before",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.88,
+          "end": 0.94,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.64,
+          "end": 1.82,
+          "key": "old",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "knight,",
+          "start": 1.82,
+          "end": 2.16,
+          "key": "knight",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Collect",
+          "start": 2.54,
+          "end": 2.56,
+          "key": "collect",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.56,
+          "end": 2.8,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.8,
+          "end": 2.96,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "together",
+          "start": 2.96,
+          "end": 3.26,
+          "key": "together",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.26,
+          "end": 3.46,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.46,
+          "end": 3.62,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tent.",
+          "start": 3.62,
+          "end": 3.9,
+          "key": "tent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 4.38,
+          "end": 4.52,
+          "key": "ill",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.52,
+          "end": 4.62,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 4.62,
+          "end": 4.96,
+          "key": "before",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 4.96,
+          "end": 5.28,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "Henry.",
+          "start": 0.88,
+          "end": 0.94
+        },
+        {
+          "text": "Good",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "old",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "knight,",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "Collect",
+          "start": 2.54,
+          "end": 2.56
+        },
+        {
+          "text": "them",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "text": "all",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "text": "together",
+          "start": 2.96,
+          "end": 3.26
+        },
+        {
+          "text": "at",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "text": "my",
+          "start": 3.46,
+          "end": 3.62
+        },
+        {
+          "text": "tent.",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "text": "I'll",
+          "start": 4.38,
+          "end": 4.52
+        },
+        {
+          "text": "be",
+          "start": 4.52,
+          "end": 4.62
+        },
+        {
+          "text": "before",
+          "start": 4.62,
+          "end": 4.96
+        },
+        {
+          "text": "thee.",
+          "start": 4.96,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3138726335018873
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "21c4b3662090fd499f6ebe9506a02873a6812c04d0a49f8b37a2c2143b2fc52c",
+  "selected_reasons": []
+}

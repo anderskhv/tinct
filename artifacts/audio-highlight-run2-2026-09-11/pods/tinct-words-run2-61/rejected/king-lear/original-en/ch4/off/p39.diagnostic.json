@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "365f9c8ec101756e8a987c579eb3adae6ac7fba541a2a6b4aa0b3a13448b17cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.15295728482306004,
+      "alignment_seconds": 0.00041798874735832214,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, huh, says d'thou so.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.50390625
+            },
+            {
+              "text": " huh,",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.66796875
+            },
+            {
+              "text": " says",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " d",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.56689453125
+            },
+            {
+              "text": "'thou",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.5437825520833334
+            },
+            {
+              "text": " so.",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.59130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "huh,",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "says",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "d",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "'thou",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "so.",
+          "start": 1.81,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Ha!",
+        "say'st",
+        "thou",
+        "so?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "huh,",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "huh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "d",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'thou",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Ha!",
+          "start": 0.69,
+          "end": 1.14
+        },
+        {
+          "text": "say'st",
+          "start": 1.14,
+          "end": 1.365
+        },
+        {
+          "text": "thou",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "so?",
+          "start": 1.81,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15352261438965797
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ee3e7692f64054b1b696d507332260ad70a7234ba1b7ec2672838b6a8339b5f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

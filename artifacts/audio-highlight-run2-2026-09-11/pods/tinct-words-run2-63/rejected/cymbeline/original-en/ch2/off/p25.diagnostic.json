@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "df329ff3794f208f08d64f95d4c0193bd0e4371084a32b7e1f5ca834f233a60f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19651861675083637,
+      "alignment_seconds": 0.00035363808274269104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Symboling past grace, obedience.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Symboling",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.5323486328125
+            },
+            {
+              "text": " past",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " grace,",
+              "start": 1.18,
+              "end": 1.64,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " obedience.",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Symboling",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "past",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "raw": "grace,",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "raw": "obedience.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "Past",
+        "grace?",
+        "obedience?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Symboling",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "symboling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "past",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "grace,",
+          "start": 1.18,
+          "end": 1.64,
+          "key": "grace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "obedience.",
+          "start": 1.94,
+          "end": 2.24,
+          "key": "obedience",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.0,
+          "end": 0.47
+        },
+        {
+          "text": "Past",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "text": "grace?",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "text": "obedience?",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19699312560260296
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8b3dd9b24cc77ff7d76d2f664b38f003affc8d60048adfc8601faf5834a430ff",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

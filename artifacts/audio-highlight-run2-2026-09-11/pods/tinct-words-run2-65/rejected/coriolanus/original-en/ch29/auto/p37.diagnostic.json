@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "fb71c14988ad08d27d08c70d0634f90c37332f54fd82762a57efb3d40da26467",
+  "attempts": [
+    {
+      "asr_seconds": 0.18521205009892583,
+      "alignment_seconds": 0.00027014827355742455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aufidius. Name not the god, thou boy of tears.",
+        "hotwords": "Aufidius, Name"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aufidius, Name not the god, thou boy of tears.",
+          "start": 0.57,
+          "end": 2.99,
+          "words": [
+            {
+              "text": " Aufidius,",
+              "start": 0.57,
+              "end": 0.95,
+              "probability": 0.4583740234375
+            },
+            {
+              "text": " Name",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.0196533203125
+            },
+            {
+              "text": " not",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " the",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.990234375
+            },
+            {
+              "text": " god,",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.40087890625
+            },
+            {
+              "text": " thou",
+              "start": 2.27,
+              "end": 2.35,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " boy",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " of",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " tears.",
+              "start": 2.71,
+              "end": 2.99,
+              "probability": 0.9482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aufidius,",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "raw": "Name",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "not",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "the",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "god,",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "thou",
+          "start": 2.27,
+          "end": 2.35
+        },
+        {
+          "raw": "boy",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "of",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "tears.",
+          "start": 2.71,
+          "end": 2.99
+        }
+      ],
+      "expected_tokens": [
+        "Aufidius.",
+        "Name",
+        "not",
+        "the",
+        "god,",
+        "thou",
+        "boy",
+        "of",
+        "tears."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aufidius,",
+          "start": 0.57,
+          "end": 0.95,
+          "key": "aufidius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Name",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "name",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "god,",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "god",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.27,
+          "end": 2.35,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "boy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tears.",
+          "start": 2.71,
+          "end": 2.99,
+          "key": "tears",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aufidius.",
+          "start": 0.57,
+          "end": 0.95
+        },
+        {
+          "text": "Name",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "not",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "the",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "god,",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "thou",
+          "start": 2.27,
+          "end": 2.35
+        },
+        {
+          "text": "boy",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "of",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "tears.",
+          "start": 2.71,
+          "end": 2.99
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18558902107179165
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d98d67ff51d14d6d1c15f92e9be5f9e82f4989cba8d8af100ac8221ac35b1112",
+  "selected_reasons": []
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "9aa622a37f0b440ecfab92d850d5e090048382abb9f5f74abbd4ed33d2c658fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.2773391343653202,
+      "alignment_seconds": 0.0004826737567782402,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why, anyone can make up things,\" she said. \"Have you never tried?\"",
+        "hotwords": "Why, Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, anyone can make up things, she said. Have you never tried?",
+          "start": 0.05,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.39892578125
+            },
+            {
+              "text": " anyone",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " can",
+              "start": 0.97,
+              "end": 1.19,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " make",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.796875
+            },
+            {
+              "text": " up",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " things,",
+              "start": 1.47,
+              "end": 1.91,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " she",
+              "start": 2.19,
+              "end": 2.27,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " said.",
+              "start": 2.27,
+              "end": 2.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Have",
+              "start": 3.15,
+              "end": 3.19,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " you",
+              "start": 3.19,
+              "end": 3.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " never",
+              "start": 3.29,
+              "end": 3.47,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " tried?",
+              "start": 3.47,
+              "end": 3.81,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "anyone",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "can",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "raw": "make",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "up",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "things,",
+          "start": 1.47,
+          "end": 1.91
+        },
+        {
+          "raw": "she",
+          "start": 2.19,
+          "end": 2.27
+        },
+        {
+          "raw": "said.",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "raw": "Have",
+          "start": 3.15,
+          "end": 3.19
+        },
+        {
+          "raw": "you",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "raw": "never",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "raw": "tried?",
+          "start": 3.47,
+          "end": 3.81
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "anyone",
+        "can",
+        "make",
+        "up",
+        "things,\"",
+        "she",
+        "said.",
+        "\"Have",
+        "you",
+        "never",
+        "tried?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "anyone",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "anyone",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.97,
+          "end": 1.19,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "make",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "things,",
+          "start": 1.47,
+          "end": 1.91,
+          "key": "things",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.19,
+          "end": 2.27,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.27,
+          "end": 2.59,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 3.15,
+          "end": 3.19,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.19,
+          "end": 3.29,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 3.29,
+          "end": 3.47,
+          "key": "never",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tried?",
+          "start": 3.47,
+          "end": 3.81,
+          "key": "tried",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "anyone",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "text": "can",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "text": "make",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "up",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "things,\"",
+          "start": 1.47,
+          "end": 1.91
+        },
+        {
+          "text": "she",
+          "start": 2.19,
+          "end": 2.27
+        },
+        {
+          "text": "said.",
+          "start": 2.27,
+          "end": 2.59
+        },
+        {
+          "text": "\"Have",
+          "start": 3.15,
+          "end": 3.19
+        },
+        {
+          "text": "you",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "text": "never",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "text": "tried?\"",
+          "start": 3.47,
+          "end": 3.81
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27801933884620667
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5455025421ec9c26bcc8934d8701e795dde7367a3ca4c83aab2822dc88ac12b9",
+  "selected_reasons": []
+}

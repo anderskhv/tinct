@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "06d4b7445b4c51e6fd635e20b714ddecec4b651783718a1f04e1f6c4bcc93576",
+  "attempts": [
+    {
+      "asr_seconds": 0.13491346826776862,
+      "alignment_seconds": 0.00025940733030438423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona in bed asleep. A light burning.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Distimona",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.61163330078125
+            },
+            {
+              "text": " in",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.916015625
+            },
+            {
+              "text": " bed",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " asleep.",
+              "start": 1.27,
+              "end": 1.61,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " A",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " light",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " burning.",
+              "start": 2.39,
+              "end": 2.73,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "in",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "bed",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "asleep.",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "raw": "A",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "light",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "burning.",
+          "start": 2.39,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "[Desdemona",
+        "in",
+        "bed",
+        "asleep;",
+        "a",
+        "light",
+        "burning.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bed",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "bed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asleep.",
+          "start": 1.27,
+          "end": 1.61,
+          "key": "asleep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "light",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "burning.",
+          "start": 2.39,
+          "end": 2.73,
+          "key": "burning",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Desdemona",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "in",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "bed",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "asleep;",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "text": "a",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "light",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "burning.]",
+          "start": 2.39,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.13526866445317864
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "78a12c0e47a3da3d9d525b4871cd6be144fadd2df826574f2d30d2f2b1fed88f",
+  "selected_reasons": []
+}

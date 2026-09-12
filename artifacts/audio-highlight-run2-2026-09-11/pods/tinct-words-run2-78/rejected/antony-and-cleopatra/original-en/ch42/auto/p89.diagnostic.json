@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "045c419299b024be98eafcc48c7617a2918d72c40f1d739727ceda53b1a6b822",
+  "attempts": [
+    {
+      "asr_seconds": 0.17028207518160343,
+      "alignment_seconds": 0.0003161681815981865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Madam, I will.",
+        "hotwords": "Charmian, Madam, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Madam, I will.",
+          "start": 0.45,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.45,
+              "end": 0.85,
+              "probability": 0.796142578125
+            },
+            {
+              "text": " Madam,",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.608154296875
+            },
+            {
+              "text": " I",
+              "start": 1.61,
+              "end": 1.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " will.",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.95556640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.65
+        },
+        {
+          "raw": "will.",
+          "start": 1.65,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Madam,",
+        "I",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.45,
+          "end": 0.85,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.61,
+          "end": 1.65,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "text": "Madam,",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "I",
+          "start": 1.61,
+          "end": 1.65
+        },
+        {
+          "text": "will.",
+          "start": 1.65,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17072678171098232
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1110748cf44c00364fdc822258286cae56ec7521609d414a0359a57def8857f5",
+  "selected_reasons": []
+}

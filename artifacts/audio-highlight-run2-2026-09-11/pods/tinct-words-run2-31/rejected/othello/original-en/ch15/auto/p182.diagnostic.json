@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "87766b8b65c57822ba708f6d385cfcc5f763cdb55aba4d80846792d51a8c6ea2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12431422201916575,
+      "alignment_seconds": 0.00018839817494153976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. O villain!",
+        "hotwords": "Othello, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, O villain!",
+          "start": 0.08,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.4013659159342448
+            },
+            {
+              "text": " O",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.4873046875
+            },
+            {
+              "text": " villain!",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.363037109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "O",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "villain!",
+          "start": 1.26,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "O",
+        "villain!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "villain!",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "villain",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "O",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "villain!",
+          "start": 1.26,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12456791894510388
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "24568bcb5b3ea288a0ff528757bbccc237ad6c570b7c961060574bf34721b6cd",
+  "selected_reasons": []
+}

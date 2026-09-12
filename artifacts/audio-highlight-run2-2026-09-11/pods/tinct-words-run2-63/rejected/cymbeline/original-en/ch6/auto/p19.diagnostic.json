@@ -1,0 +1,522 @@
+{
+  "complete": true,
+  "signature": "33ebfc4e3d58955a10905a5f9cb8b0266724df6122731b349fb6694923e16ce9",
+  "attempts": [
+    {
+      "asr_seconds": 0.22008586302399635,
+      "alignment_seconds": 0.0004539117217063904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Pisanio._] Hark thee, a word.",
+        "hotwords": "Pisanio._, Hark"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Pisanio._, Hark thee, a word.",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.27197265625
+            },
+            {
+              "text": " Pisanio._,",
+              "start": 0.5,
+              "end": 1.54,
+              "probability": 0.4230346828699112
+            },
+            {
+              "text": " Hark",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.822509765625
+            },
+            {
+              "text": " thee,",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " a",
+              "start": 2.04,
+              "end": 2.12,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " word.",
+              "start": 2.12,
+              "end": 2.36,
+              "probability": 0.94921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Pisanio._,",
+          "start": 0.5,
+          "end": 1.54
+        },
+        {
+          "raw": "Hark",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "thee,",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "a",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "raw": "word.",
+          "start": 2.12,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Pisanio._]",
+        "Hark",
+        "thee,",
+        "a",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pisanio._,",
+          "start": 0.5,
+          "end": 1.54,
+          "key": "pisanio_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "hark",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.04,
+          "end": 2.12,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 2.12,
+          "end": 2.36,
+          "key": "word",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Pisanio._]",
+          "start": 0.5,
+          "end": 1.02
+        },
+        {
+          "text": "Hark",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "thee,",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "a",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "text": "word.",
+          "start": 2.12,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22067622281610966
+    },
+    {
+      "asr_seconds": 0.19683047197759151,
+      "alignment_seconds": 0.0004101656377315521,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Pisanio._, Hark"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " to Pisanio. Hark thee a word.",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " to",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.039947509765625
+            },
+            {
+              "text": " Pisanio.",
+              "start": 0.5,
+              "end": 1.16,
+              "probability": 0.5527445475260416
+            },
+            {
+              "text": " Hark",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " thee",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.806640625
+            },
+            {
+              "text": " a",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.67041015625
+            },
+            {
+              "text": " word.",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Pisanio.",
+          "start": 0.5,
+          "end": 1.16
+        },
+        {
+          "raw": "Hark",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "thee",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "word.",
+          "start": 2.12,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Pisanio._]",
+        "Hark",
+        "thee,",
+        "a",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pisanio.",
+          "start": 0.5,
+          "end": 1.16,
+          "key": "pisanio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "hark",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "word",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Pisanio._]",
+          "start": 0.5,
+          "end": 1.16
+        },
+        {
+          "text": "Hark",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "thee,",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "a",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "word.",
+          "start": 2.12,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19738218560814857
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "40e95df9cb274ebd51828aff94c9eb891f8031ec7505f9b99a354953d670e74c",
+  "selected_reasons": []
+}

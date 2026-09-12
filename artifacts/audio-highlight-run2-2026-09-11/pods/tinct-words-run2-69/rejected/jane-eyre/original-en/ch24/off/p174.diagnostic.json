@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "9f54b48a14f45c186895e25ae3c8a2c4682ca2061a6b6738346f9c8887048ff4",
+  "attempts": [
+    {
+      "asr_seconds": 0.15561965946108103,
+      "alignment_seconds": 0.00027462374418973923,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, I would rather be excused.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8984375
+            },
+            {
+              "text": " I",
+              "start": 0.93,
+              "end": 1.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " would",
+              "start": 1.03,
+              "end": 1.11,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " rather",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " excused.",
+              "start": 1.45,
+              "end": 2.11,
+              "probability": 0.999267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "raw": "would",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "raw": "rather",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "be",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "excused.",
+          "start": 1.45,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "\"No:",
+        "I",
+        "would",
+        "rather",
+        "be",
+        "excused.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.03,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.03,
+          "end": 1.11,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "rather",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "excused.",
+          "start": 1.45,
+          "end": 2.11,
+          "key": "excused",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No:",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 1.03
+        },
+        {
+          "text": "would",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "text": "rather",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "be",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "excused.\"",
+          "start": 1.45,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15602897759526968
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "21f9b2b0d49827fad538a2521701bccbb1b86637efb733525f57886d77436cb4",
+  "selected_reasons": []
+}

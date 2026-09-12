@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "26e248af61bc5b46fafa9714222697fcafb7dbe35fad9a05562b4a386650d76e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2769414479844272,
+      "alignment_seconds": 0.0004255850799381733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Burgundy. The King hath heard them; to the which as yet There is no answer made.",
+        "hotwords": "Burgundy, King, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Burgundy, The King hath heard them. To the which as yet There is no answer made.",
+          "start": 0.05,
+          "end": 4.91,
+          "words": [
+            {
+              "text": " Burgundy,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.923095703125
+            },
+            {
+              "text": " The",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.1134033203125
+            },
+            {
+              "text": " King",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.380126953125
+            },
+            {
+              "text": " hath",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.990234375
+            },
+            {
+              "text": " heard",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " them.",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " To",
+              "start": 2.75,
+              "end": 2.91,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " the",
+              "start": 2.91,
+              "end": 3.05,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " which",
+              "start": 3.05,
+              "end": 3.21,
+              "probability": 0.023712158203125
+            },
+            {
+              "text": " as",
+              "start": 3.21,
+              "end": 3.41,
+              "probability": 0.1646728515625
+            },
+            {
+              "text": " yet",
+              "start": 3.41,
+              "end": 3.61,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " There",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.02001953125
+            },
+            {
+              "text": " is",
+              "start": 3.79,
+              "end": 3.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " no",
+              "start": 3.91,
+              "end": 4.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " answer",
+              "start": 4.19,
+              "end": 4.55,
+              "probability": 0.974609375
+            },
+            {
+              "text": " made.",
+              "start": 4.55,
+              "end": 4.91,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Burgundy,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "The",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "King",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "hath",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "heard",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "them.",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "To",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "raw": "which",
+          "start": 3.05,
+          "end": 3.21
+        },
+        {
+          "raw": "as",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "raw": "yet",
+          "start": 3.41,
+          "end": 3.61
+        },
+        {
+          "raw": "There",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "is",
+          "start": 3.79,
+          "end": 3.91
+        },
+        {
+          "raw": "no",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "raw": "answer",
+          "start": 4.19,
+          "end": 4.55
+        },
+        {
+          "raw": "made.",
+          "start": 4.55,
+          "end": 4.91
+        }
+      ],
+      "expected_tokens": [
+        "Burgundy.",
+        "The",
+        "King",
+        "hath",
+        "heard",
+        "them;",
+        "to",
+        "the",
+        "which",
+        "as",
+        "yet",
+        "There",
+        "is",
+        "no",
+        "answer",
+        "made."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Burgundy,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "burgundy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "king",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "hath",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "heard",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 2.75,
+          "end": 2.91,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.05,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.05,
+          "end": 3.21,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.21,
+          "end": 3.41,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 3.41,
+          "end": 3.61,
+          "key": "yet",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "there",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.79,
+          "end": 3.91,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.91,
+          "end": 4.19,
+          "key": "no",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 4.19,
+          "end": 4.55,
+          "key": "answer",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "made.",
+          "start": 4.55,
+          "end": 4.91,
+          "key": "made",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Burgundy.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "The",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "King",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "hath",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "heard",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "them;",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.75,
+          "end": 2.91
+        },
+        {
+          "text": "the",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "text": "which",
+          "start": 3.05,
+          "end": 3.21
+        },
+        {
+          "text": "as",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "text": "yet",
+          "start": 3.41,
+          "end": 3.61
+        },
+        {
+          "text": "There",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "is",
+          "start": 3.79,
+          "end": 3.91
+        },
+        {
+          "text": "no",
+          "start": 3.91,
+          "end": 4.19
+        },
+        {
+          "text": "answer",
+          "start": 4.19,
+          "end": 4.55
+        },
+        {
+          "text": "made.",
+          "start": 4.55,
+          "end": 4.91
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27753593190573156
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2d811e7fd00fe5a977fa790aa1d92f4ab8f5f91c6b5139768fdb2dfb06d0432a",
+  "selected_reasons": []
+}

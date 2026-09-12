@@ -1,0 +1,322 @@
+{
+  "complete": true,
+  "signature": "d9d52ad0249d58a7202796c43b004a3ddc15fcb061de6bb7dec811ad0e33a2bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.20768731087446213,
+      "alignment_seconds": 0.0003965371288359165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, Istso, my lords of England.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " Henry,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Istso,",
+              "start": 1.45,
+              "end": 1.77,
+              "probability": 0.6216634114583334
+            },
+            {
+              "text": " my",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " lords",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.4990234375
+            },
+            {
+              "text": " of",
+              "start": 2.17,
+              "end": 2.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " England.",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "Istso,",
+          "start": 1.45,
+          "end": 1.77
+        },
+        {
+          "raw": "my",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "lords",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "of",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "raw": "England.",
+          "start": 2.33,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Is't",
+        "so,",
+        "my",
+        "lords",
+        "of",
+        "England?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          8,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Istso,",
+          "start": 1.45,
+          "end": 1.77,
+          "key": "istso",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lords",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "lords",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.17,
+          "end": 2.33,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "England.",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "england",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "Is't",
+          "start": 0.95,
+          "end": 1.4
+        },
+        {
+          "text": "so,",
+          "start": 1.4,
+          "end": 1.625
+        },
+        {
+          "text": "my",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "lords",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "of",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "text": "England?",
+          "start": 2.33,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2082052838522941
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f0e5cbbc576041d804d0f7233df15c2e1f0be74f874c427623972f34567d9d75",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

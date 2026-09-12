@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "e6111a6a2f117e797b6eecb6da0b157d7ee3ccc02437e3805928ad58c43f52ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.09516188502311707,
+      "alignment_seconds": 0.00021792203187942505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. You are a spirit, I know: when did you die?",
+        "hotwords": "Lear, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, you are a spirit, I know. When did you die?",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.313232421875
+            },
+            {
+              "text": " you",
+              "start": 0.91,
+              "end": 0.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " are",
+              "start": 0.95,
+              "end": 1.05,
+              "probability": 0.96875
+            },
+            {
+              "text": " a",
+              "start": 1.05,
+              "end": 1.17,
+              "probability": 0.92578125
+            },
+            {
+              "text": " spirit,",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " I",
+              "start": 1.65,
+              "end": 1.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " know.",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " When",
+              "start": 2.23,
+              "end": 2.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " did",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " die?",
+              "start": 2.55,
+              "end": 2.77,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "you",
+          "start": 0.91,
+          "end": 0.95
+        },
+        {
+          "raw": "are",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "raw": "a",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "raw": "spirit,",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.67
+        },
+        {
+          "raw": "know.",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "When",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "raw": "did",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "you",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "die?",
+          "start": 2.55,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "You",
+        "are",
+        "a",
+        "spirit,",
+        "I",
+        "know:",
+        "when",
+        "did",
+        "you",
+        "die?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.91,
+          "end": 0.95,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.95,
+          "end": 1.05,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.05,
+          "end": 1.17,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "spirit,",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "spirit",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.67,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 2.23,
+          "end": 2.31,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "did",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "die?",
+          "start": 2.55,
+          "end": 2.77,
+          "key": "die",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "You",
+          "start": 0.91,
+          "end": 0.95
+        },
+        {
+          "text": "are",
+          "start": 0.95,
+          "end": 1.05
+        },
+        {
+          "text": "a",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "text": "spirit,",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "I",
+          "start": 1.65,
+          "end": 1.67
+        },
+        {
+          "text": "know:",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "when",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "text": "did",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "you",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "die?",
+          "start": 2.55,
+          "end": 2.77
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0954664759337902
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3c0111c95f60c97a56b0c5655cee96bfd22dca3ae37612e8b37ec3d6d2321b32",
+  "selected_reasons": []
+}

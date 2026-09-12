@@ -1,0 +1,665 @@
+{
+  "complete": true,
+  "signature": "4452ebc00bc0830fcf9d579f91dba4039e0afac5c6f556176cd874c7fd0b87db",
+  "attempts": [
+    {
+      "asr_seconds": 0.2110285684466362,
+      "alignment_seconds": 0.00017685815691947937,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, my point in period will be throughly wrought, or well or ill, as this day's battles",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.880859375
+            },
+            {
+              "text": " my",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " point",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.984375
+            },
+            {
+              "text": " in",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " period",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " will",
+              "start": 2.03,
+              "end": 2.25,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " be",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " throughly",
+              "start": 2.41,
+              "end": 2.79,
+              "probability": 0.75
+            },
+            {
+              "text": " wrought,",
+              "start": 2.79,
+              "end": 3.07,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " or",
+              "start": 3.47,
+              "end": 3.53,
+              "probability": 0.978515625
+            },
+            {
+              "text": " well",
+              "start": 3.53,
+              "end": 3.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " or",
+              "start": 3.79,
+              "end": 4.01,
+              "probability": 0.958984375
+            },
+            {
+              "text": " ill,",
+              "start": 4.01,
+              "end": 4.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 4.67,
+              "end": 4.77,
+              "probability": 0.98046875
+            },
+            {
+              "text": " this",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " day's",
+              "start": 5.01,
+              "end": 5.41,
+              "probability": 0.966064453125
+            },
+            {
+              "text": " battles",
+              "start": 5.41,
+              "end": 5.63,
+              "probability": 0.8544921875
+            }
+          ]
+        },
+        {
+          "text": " fought.",
+          "start": 5.63,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " fought.",
+              "start": 5.63,
+              "end": 6.05,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "my",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "point",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "in",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "period",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "will",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "raw": "be",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "throughly",
+          "start": 2.41,
+          "end": 2.79
+        },
+        {
+          "raw": "wrought,",
+          "start": 2.79,
+          "end": 3.07
+        },
+        {
+          "raw": "or",
+          "start": 3.47,
+          "end": 3.53
+        },
+        {
+          "raw": "well",
+          "start": 3.53,
+          "end": 3.79
+        },
+        {
+          "raw": "or",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "raw": "ill,",
+          "start": 4.01,
+          "end": 4.27
+        },
+        {
+          "raw": "as",
+          "start": 4.67,
+          "end": 4.77
+        },
+        {
+          "raw": "this",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "day's",
+          "start": 5.01,
+          "end": 5.41
+        },
+        {
+          "raw": "battles",
+          "start": 5.41,
+          "end": 5.63
+        },
+        {
+          "raw": "fought.",
+          "start": 5.63,
+          "end": 6.05
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "My",
+        "point",
+        "and",
+        "period",
+        "will",
+        "be",
+        "throughly",
+        "wrought,",
+        "Or",
+        "well",
+        "or",
+        "ill,",
+        "as",
+        "this",
+        "day's",
+        "battle's",
+        "fought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          18,
+          4,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "point",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "point",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "period",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "period",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.03,
+          "end": 2.25,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "throughly",
+          "start": 2.41,
+          "end": 2.79,
+          "key": "throughly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wrought,",
+          "start": 2.79,
+          "end": 3.07,
+          "key": "wrought",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.47,
+          "end": 3.53,
+          "key": "or",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 3.53,
+          "end": 3.79,
+          "key": "well",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.79,
+          "end": 4.01,
+          "key": "or",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ill,",
+          "start": 4.01,
+          "end": 4.27,
+          "key": "ill",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.67,
+          "end": 4.77,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "this",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "day's",
+          "start": 5.01,
+          "end": 5.41,
+          "key": "days",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "battles",
+          "start": 5.41,
+          "end": 5.63,
+          "key": "battles",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fought.",
+          "start": 5.63,
+          "end": 6.05,
+          "key": "fought",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "My",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "point",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 1.64
+        },
+        {
+          "text": "period",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "will",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "text": "be",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "text": "throughly",
+          "start": 2.41,
+          "end": 2.79
+        },
+        {
+          "text": "wrought,",
+          "start": 2.79,
+          "end": 3.07
+        },
+        {
+          "text": "Or",
+          "start": 3.47,
+          "end": 3.53
+        },
+        {
+          "text": "well",
+          "start": 3.53,
+          "end": 3.79
+        },
+        {
+          "text": "or",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "text": "ill,",
+          "start": 4.01,
+          "end": 4.27
+        },
+        {
+          "text": "as",
+          "start": 4.67,
+          "end": 4.77
+        },
+        {
+          "text": "this",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "day's",
+          "start": 5.01,
+          "end": 5.41
+        },
+        {
+          "text": "battle's",
+          "start": 5.41,
+          "end": 5.63
+        },
+        {
+          "text": "fought.",
+          "start": 5.63,
+          "end": 6.05
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.21127238497138023
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a10246ab24c4e9cb8079d28640959e08a4b374a1a525232356a88735bfc2b505",
+  "selected_reasons": []
+}

@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "53232e47658eb0d6f3a751f7a66baec736b2a0cbc542e5b107f9678ea80f27f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.19745906069874763,
+      "alignment_seconds": 0.0005888473242521286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, and so I do still buy these pickers and steelers.",
+          "start": 0.05,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " and",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " so",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.984375
+            },
+            {
+              "text": " do",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " still",
+              "start": 1.75,
+              "end": 2.09,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " buy",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " these",
+              "start": 2.29,
+              "end": 2.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " pickers",
+              "start": 2.51,
+              "end": 2.89,
+              "probability": 0.9296875
+            },
+            {
+              "text": " and",
+              "start": 2.89,
+              "end": 3.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " steelers.",
+              "start": 3.05,
+              "end": 3.61,
+              "probability": 0.703857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "so",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "I",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "do",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "still",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "raw": "buy",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "raw": "these",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "raw": "pickers",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "raw": "steelers.",
+          "start": 3.05,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "And",
+        "so",
+        "I",
+        "do",
+        "still,",
+        "by",
+        "these",
+        "pickers",
+        "and",
+        "stealers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.75,
+          "end": 2.09,
+          "key": "still",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "buy",
+          "start": 2.09,
+          "end": 2.29,
+          "key": "buy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.29,
+          "end": 2.51,
+          "key": "these",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pickers",
+          "start": 2.51,
+          "end": 2.89,
+          "key": "pickers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 3.05,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "steelers.",
+          "start": 3.05,
+          "end": 3.61,
+          "key": "steelers",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "And",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "so",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "I",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "do",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "still,",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "text": "by",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "these",
+          "start": 2.29,
+          "end": 2.51
+        },
+        {
+          "text": "pickers",
+          "start": 2.51,
+          "end": 2.89
+        },
+        {
+          "text": "and",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "text": "stealers.",
+          "start": 3.05,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19825875014066696
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c24de9c68e49407e00d896c70cda07e55fc9fea4c2e1ab62550e7785adf463a1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

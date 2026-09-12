@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b3c899003cd3bcb3d078dae1e1a262a4a6290ebe6dab2138087aef0a971c23d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.16927380301058292,
+      "alignment_seconds": 0.00042930152267217636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Murderer. Hark! I hear horses.",
+        "hotwords": "Third, Murderer, Hark, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third Murderer, Hark! I hear horses.",
+          "start": 0.08,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.896484375
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.62,
+              "end": 1.1,
+              "probability": 0.5301513671875
+            },
+            {
+              "text": " Hark!",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.725341796875
+            },
+            {
+              "text": " I",
+              "start": 1.84,
+              "end": 1.86,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " hear",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.494873046875
+            },
+            {
+              "text": " horses.",
+              "start": 2.04,
+              "end": 2.4,
+              "probability": 0.9462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "raw": "Hark!",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "I",
+          "start": 1.84,
+          "end": 1.86
+        },
+        {
+          "raw": "hear",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "horses.",
+          "start": 2.04,
+          "end": 2.4
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Murderer.",
+        "Hark!",
+        "I",
+        "hear",
+        "horses."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.62,
+          "end": 1.1,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hark!",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "hark",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.84,
+          "end": 1.86,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "hear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "horses.",
+          "start": 2.04,
+          "end": 2.4,
+          "key": "horses",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.62,
+          "end": 1.1
+        },
+        {
+          "text": "Hark!",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "text": "I",
+          "start": 1.84,
+          "end": 1.86
+        },
+        {
+          "text": "hear",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "horses.",
+          "start": 2.04,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1698415745049715
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "80d73b5bb1ee82392dd90bccb99e201ea28debd50a4e592125df1b4211b2c754",
+  "selected_reasons": []
+}

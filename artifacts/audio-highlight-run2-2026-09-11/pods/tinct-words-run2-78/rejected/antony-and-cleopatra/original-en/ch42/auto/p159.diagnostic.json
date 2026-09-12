@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "687c5856363aef7d707f6dbca4f0a6e7dad5fab6de26c5e6ab32b5489e6f9a0e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13910254649817944,
+      "alignment_seconds": 0.0003053750842809677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Applies an asp._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Applies an asp.",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Applies",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.5201416015625
+            },
+            {
+              "text": " an",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " asp.",
+              "start": 0.9,
+              "end": 1.36,
+              "probability": 0.5904541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Applies",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "an",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "asp.",
+          "start": 0.9,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "[_Applies",
+        "an",
+        "asp._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Applies",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "applies",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "asp.",
+          "start": 0.9,
+          "end": 1.36,
+          "key": "asp",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Applies",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "an",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "asp._]",
+          "start": 0.9,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1395160984247923
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d87ed2c84c622ea85fb801dddb84ccc12d00e829ccadd350380daf2089254b5",
+  "selected_reasons": []
+}

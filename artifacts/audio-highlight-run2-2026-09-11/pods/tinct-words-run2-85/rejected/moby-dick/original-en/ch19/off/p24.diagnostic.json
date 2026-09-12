@@ -1,0 +1,312 @@
+{
+  "complete": true,
+  "signature": "0c8f93270ec539449325d9bafd92da992bacf8299be751c001437c0b634c36cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.1550039779394865,
+      "alignment_seconds": 0.0003162943758070469,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All about it, Asher, you do. All.",
+          "start": 0.02,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " about",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it,",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Asher,",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.61376953125
+            },
+            {
+              "text": " you",
+              "start": 1.26,
+              "end": 1.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " do.",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " All.",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "about",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "it,",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "raw": "Asher,",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "you",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "raw": "do.",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "All.",
+          "start": 1.84,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "\"_All_",
+        "about",
+        "it,",
+        "eh—sure",
+        "you",
+        "do?—all?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "about",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Asher,",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "asher",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.26,
+          "end": 1.3,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "All.",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_All_",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "about",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "it,",
+          "start": 0.74,
+          "end": 0.9
+        },
+        {
+          "text": "eh—sure",
+          "start": 0.9,
+          "end": 1.08
+        },
+        {
+          "text": "you",
+          "start": 1.26,
+          "end": 1.3
+        },
+        {
+          "text": "do?—all?\"",
+          "start": 1.3,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15542589919641614
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "70e6c3ff028aa3cf1f7ab5f7efd77d36dc5a092c3c413e8c09dd136b76585cf5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

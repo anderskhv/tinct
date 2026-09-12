@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "a6e0ee7178ad0dcc3396548311839ff062819a86fe2970f4739f3bbd0418a023",
+  "attempts": [
+    {
+      "asr_seconds": 0.3102880883961916,
+      "alignment_seconds": 0.00043374113738536835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Profession Of The Law In The United States Serves To Counterpoise The Democracy",
+        "hotwords": "The, Profession, Of, Law, In, United, States, Serves, To, Counterpoise, Democracy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Profession Of The Law In The United States Serves To Counterpoise The Democracy",
+          "start": 0.02,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " Profession",
+              "start": 0.48,
+              "end": 0.8,
+              "probability": 0.003955841064453125
+            },
+            {
+              "text": " Of",
+              "start": 0.8,
+              "end": 1.08,
+              "probability": 0.0038776397705078125
+            },
+            {
+              "text": " The",
+              "start": 1.08,
+              "end": 1.2,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Law",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.986328125
+            },
+            {
+              "text": " In",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.73828125
+            },
+            {
+              "text": " The",
+              "start": 1.68,
+              "end": 1.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " United",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " States",
+              "start": 2.04,
+              "end": 2.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Serves",
+              "start": 2.62,
+              "end": 3.4,
+              "probability": 0.724609375
+            },
+            {
+              "text": " To",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Counterpoise",
+              "start": 3.6,
+              "end": 4.2,
+              "probability": 0.8719075520833334
+            },
+            {
+              "text": " The",
+              "start": 4.2,
+              "end": 4.36,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Democracy",
+              "start": 4.36,
+              "end": 4.76,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Profession",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "raw": "Of",
+          "start": 0.8,
+          "end": 1.08
+        },
+        {
+          "raw": "The",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "raw": "Law",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "In",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "The",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "raw": "United",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "raw": "States",
+          "start": 2.04,
+          "end": 2.62
+        },
+        {
+          "raw": "Serves",
+          "start": 2.62,
+          "end": 3.4
+        },
+        {
+          "raw": "To",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "Counterpoise",
+          "start": 3.6,
+          "end": 4.2
+        },
+        {
+          "raw": "The",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "raw": "Democracy",
+          "start": 4.36,
+          "end": 4.76
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Profession",
+        "Of",
+        "The",
+        "Law",
+        "In",
+        "The",
+        "United",
+        "States",
+        "Serves",
+        "To",
+        "Counterpoise",
+        "The",
+        "Democracy"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Profession",
+          "start": 0.48,
+          "end": 0.8,
+          "key": "profession",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.8,
+          "end": 1.08,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.08,
+          "end": 1.2,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Law",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "law",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.68,
+          "end": 1.78,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 1.78,
+          "end": 2.04,
+          "key": "united",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 2.04,
+          "end": 2.62,
+          "key": "states",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Serves",
+          "start": 2.62,
+          "end": 3.4,
+          "key": "serves",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Counterpoise",
+          "start": 3.6,
+          "end": 4.2,
+          "key": "counterpoise",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.2,
+          "end": 4.36,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Democracy",
+          "start": 4.36,
+          "end": 4.76,
+          "key": "democracy",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Profession",
+          "start": 0.48,
+          "end": 0.8
+        },
+        {
+          "text": "Of",
+          "start": 0.8,
+          "end": 1.08
+        },
+        {
+          "text": "The",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "text": "Law",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "In",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "The",
+          "start": 1.68,
+          "end": 1.78
+        },
+        {
+          "text": "United",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "text": "States",
+          "start": 2.04,
+          "end": 2.62
+        },
+        {
+          "text": "Serves",
+          "start": 2.62,
+          "end": 3.4
+        },
+        {
+          "text": "To",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "Counterpoise",
+          "start": 3.6,
+          "end": 4.2
+        },
+        {
+          "text": "The",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "text": "Democracy",
+          "start": 4.36,
+          "end": 4.76
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.310874879360199
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6073de27c7a2d54e33ad16bbc653a6ee1415bf3ad3c3815ca178d20c5d5c3b8f",
+  "selected_reasons": []
+}

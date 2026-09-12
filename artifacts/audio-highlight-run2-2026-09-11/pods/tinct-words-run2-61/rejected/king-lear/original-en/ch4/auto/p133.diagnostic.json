@@ -1,0 +1,150 @@
+{
+  "complete": true,
+  "signature": "11998ae6121901a6444ed4a31194f1147472e20b6f28e47e2bc7eaf466a97326",
+  "attempts": [
+    {
+      "asr_seconds": 0.1415792815387249,
+      "alignment_seconds": 0.00038545578718185425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Re-enter Lear.",
+        "hotwords": "Re-enter, Lear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Re-enter, Lear.",
+          "start": 0.05,
+          "end": 1.01,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.90576171875
+            },
+            {
+              "text": "-enter,",
+              "start": 0.57,
+              "end": 0.75,
+              "probability": 0.828125
+            },
+            {
+              "text": " Lear.",
+              "start": 0.87,
+              "end": 1.01,
+              "probability": 0.111083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-enter,",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "raw": "Lear.",
+          "start": 0.87,
+          "end": 1.01
+        }
+      ],
+      "expected_tokens": [
+        "Re-enter",
+        "Lear."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Re -enter,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Lear.",
+          "start": 0.87,
+          "end": 1.01,
+          "key": "lear",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "Re-enter",
+          "heard": "Re -enter,",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Re-enter",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Lear.",
+          "start": 0.87,
+          "end": 1.01
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14207147993147373
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60a8e74de91cf90024dc8df1e00bddae39a03f512d34a5fe520900c1d3d998e3",
+  "selected_reasons": []
+}

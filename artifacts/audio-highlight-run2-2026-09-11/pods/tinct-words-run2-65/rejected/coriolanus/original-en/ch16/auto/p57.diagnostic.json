@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "e7345a74395b781bc58b42f03a75ebeee649e4d80f234e94c268fcbb7c8bc09f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13494331436231732,
+      "alignment_seconds": 0.00023990683257579803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. He's sentenced. No more hearing.",
+        "hotwords": "Sicinius, He's, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, He's Sentenced. No more hearing.",
+          "start": 0.08,
+          "end": 2.74,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.47946929931640625
+            },
+            {
+              "text": " He's",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.07472610473632812
+            },
+            {
+              "text": " Sentenced.",
+              "start": 1.48,
+              "end": 1.9,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " No",
+              "start": 2.14,
+              "end": 2.24,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " more",
+              "start": 2.24,
+              "end": 2.44,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " hearing.",
+              "start": 2.44,
+              "end": 2.74,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "He's",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "Sentenced.",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "raw": "No",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "raw": "more",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "raw": "hearing.",
+          "start": 2.44,
+          "end": 2.74
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "He's",
+        "sentenced.",
+        "No",
+        "more",
+        "hearing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sentenced.",
+          "start": 1.48,
+          "end": 1.9,
+          "key": "sentenced",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.14,
+          "end": 2.24,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.24,
+          "end": 2.44,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hearing.",
+          "start": 2.44,
+          "end": 2.74,
+          "key": "hearing",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "He's",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "text": "sentenced.",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "text": "No",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "text": "more",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "text": "hearing.",
+          "start": 2.44,
+          "end": 2.74
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13526804419234395
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27a1a89c297327e0ae2fe8fd0c0a7504d8b7d168450adc570f121cbe60dc72e2",
+  "selected_reasons": []
+}

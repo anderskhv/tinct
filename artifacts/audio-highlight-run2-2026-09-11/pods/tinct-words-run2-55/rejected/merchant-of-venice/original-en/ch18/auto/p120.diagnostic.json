@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "2c7a2691699104d01ac70e1df39ad74bba3475bf40219b9ea214f1c9fba891ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.2731934394687414,
+      "alignment_seconds": 0.0002761324867606163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duke. He shall do this, or else I do recant The pardon that I late pronounced here.",
+        "hotwords": "Duke, He, I, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, He shall do this, or else I do recant The pardon that I late pronounced here.",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.56103515625
+            },
+            {
+              "text": " He",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.0262451171875
+            },
+            {
+              "text": " shall",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.931640625
+            },
+            {
+              "text": " do",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " this,",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " or",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " else",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " I",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.974609375
+            },
+            {
+              "text": " do",
+              "start": 2.73,
+              "end": 2.91,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " recant",
+              "start": 2.91,
+              "end": 3.25,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " The",
+              "start": 3.25,
+              "end": 3.43,
+              "probability": 0.004638671875
+            },
+            {
+              "text": " pardon",
+              "start": 3.43,
+              "end": 3.63,
+              "probability": 0.180419921875
+            },
+            {
+              "text": " that",
+              "start": 3.63,
+              "end": 3.83,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " I",
+              "start": 3.83,
+              "end": 3.99,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " late",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.978515625
+            },
+            {
+              "text": " pronounced",
+              "start": 4.21,
+              "end": 4.57,
+              "probability": 0.94140625
+            },
+            {
+              "text": " here.",
+              "start": 4.57,
+              "end": 4.99,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "He",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "shall",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "do",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "this,",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "raw": "or",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "else",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "raw": "do",
+          "start": 2.73,
+          "end": 2.91
+        },
+        {
+          "raw": "recant",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "raw": "The",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "raw": "pardon",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "raw": "that",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "raw": "I",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "raw": "late",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "pronounced",
+          "start": 4.21,
+          "end": 4.57
+        },
+        {
+          "raw": "here.",
+          "start": 4.57,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "He",
+        "shall",
+        "do",
+        "this,",
+        "or",
+        "else",
+        "I",
+        "do",
+        "recant",
+        "The",
+        "pardon",
+        "that",
+        "I",
+        "late",
+        "pronounced",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.25,
+          "end": 2.35,
+          "key": "or",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "else",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "else",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.73,
+          "end": 2.91,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "recant",
+          "start": 2.91,
+          "end": 3.25,
+          "key": "recant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.25,
+          "end": 3.43,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pardon",
+          "start": 3.43,
+          "end": 3.63,
+          "key": "pardon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.63,
+          "end": 3.83,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.83,
+          "end": 3.99,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "late",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pronounced",
+          "start": 4.21,
+          "end": 4.57,
+          "key": "pronounced",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 4.57,
+          "end": 4.99,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "He",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "shall",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "do",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "this,",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "text": "or",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "else",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "I",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "text": "do",
+          "start": 2.73,
+          "end": 2.91
+        },
+        {
+          "text": "recant",
+          "start": 2.91,
+          "end": 3.25
+        },
+        {
+          "text": "The",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "text": "pardon",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "text": "that",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "text": "I",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "text": "late",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "pronounced",
+          "start": 4.21,
+          "end": 4.57
+        },
+        {
+          "text": "here.",
+          "start": 4.57,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2735851099714637
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d0fe39855e369fe920502d9e6b469433fdc936a1a8e39b3f08de2bd18e59834",
+  "selected_reasons": []
+}

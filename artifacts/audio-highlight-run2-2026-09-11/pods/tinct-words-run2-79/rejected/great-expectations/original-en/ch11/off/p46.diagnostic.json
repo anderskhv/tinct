@@ -1,0 +1,234 @@
+{
+  "complete": true,
+  "signature": "ac250e2da3e17875d42f53657567fff22ac095aa188783bcdfc55192aeefa64b",
+  "attempts": [
+    {
+      "asr_seconds": 0.14667539624497294,
+      "alignment_seconds": 0.00038276612758636475,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am. Today is.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.833984375
+            },
+            {
+              "text": " ma",
+              "start": 0.85,
+              "end": 0.89,
+              "probability": 0.9013671875
+            },
+            {
+              "text": "'am.",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Today",
+              "start": 1.33,
+              "end": 1.37,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " is.",
+              "start": 1.37,
+              "end": 1.75,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "ma",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "raw": "'am.",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "Today",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "raw": "is.",
+          "start": 1.37,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am.",
+        "To-day",
+        "is—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.85,
+          "end": 0.89,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am.",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Today",
+          "start": 1.33,
+          "end": 1.37,
+          "key": "today",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 1.37,
+          "end": 1.75,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "ma'am.",
+          "start": 0.63,
+          "end": 0.98
+        },
+        {
+          "text": "To-day",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "text": "is—\"",
+          "start": 1.37,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1471740361303091
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f16aafc4dbb243e59164ab2069e52564882cf83782f51fe5a2ebd9ee1cc85a22",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

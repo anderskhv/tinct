@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "aa032529570a1d14ec4b3dca97bae87c19a49b6b22dc948e5ddc60e39a9e34c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.1354109477251768,
+      "alignment_seconds": 0.0003138463944196701,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "By all means.",
+        "hotwords": "By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " By all means.",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.427734375
+            },
+            {
+              "text": " all",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " means.",
+              "start": 0.69,
+              "end": 0.99,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "all",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "means.",
+          "start": 0.69,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "all",
+        "means."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "means.",
+          "start": 0.69,
+          "end": 0.99,
+          "key": "means",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "all",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "means.",
+          "start": 0.69,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13582899328321218
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88fa71b740dc8ce0feb9248f71f353a4e711add70877569917a6161c9ad6a393",
+  "selected_reasons": []
+}

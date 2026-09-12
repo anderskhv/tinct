@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "eec4ee873e4f9004780f31dbf0a6ff8f109d36470f3094cf47d8241fe192c46c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14526863023638725,
+      "alignment_seconds": 0.00017448700964450836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. I'll see that straight.",
+        "hotwords": "Lear, I'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, I'll see that straight.",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.556640625
+            },
+            {
+              "text": " I'll",
+              "start": 0.98,
+              "end": 1.08,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " see",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " straight.",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "I'll",
+          "start": 0.98,
+          "end": 1.08
+        },
+        {
+          "raw": "see",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "that",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "straight.",
+          "start": 1.36,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "I'll",
+        "see",
+        "that",
+        "straight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 0.98,
+          "end": 1.08,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "straight.",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "straight",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "I'll",
+          "start": 0.98,
+          "end": 1.08
+        },
+        {
+          "text": "see",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "that",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "straight.",
+          "start": 1.36,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1455086823552847
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0b5a58896443b11ebb0ff1543370a32e6128e680e4b50c82e16cb79850e1f312",
+  "selected_reasons": []
+}

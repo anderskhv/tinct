@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "3c0362d328cbeca31561ea5e0a5abb83b0a92276bab964d8aae1ebb4b09ba6de",
+  "attempts": [
+    {
+      "asr_seconds": 0.1637935396283865,
+      "alignment_seconds": 0.0002670283429324627,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ophidias, my noble masters, hear me speak.",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " Ophidias,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.574493408203125
+            },
+            {
+              "text": " my",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.970703125
+            },
+            {
+              "text": " noble",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " masters,",
+              "start": 1.69,
+              "end": 2.11,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " hear",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me",
+              "start": 2.43,
+              "end": 2.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " speak.",
+              "start": 2.61,
+              "end": 2.89,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ophidias,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "noble",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "masters,",
+          "start": 1.69,
+          "end": 2.11
+        },
+        {
+          "raw": "hear",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "me",
+          "start": 2.43,
+          "end": 2.61
+        },
+        {
+          "raw": "speak.",
+          "start": 2.61,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "Aufidius.",
+        "My",
+        "noble",
+        "masters,",
+        "hear",
+        "me",
+        "speak."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ophidias,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "ophidias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.49,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "noble",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "masters,",
+          "start": 1.69,
+          "end": 2.11,
+          "key": "masters",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "hear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.43,
+          "end": 2.61,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "speak.",
+          "start": 2.61,
+          "end": 2.89,
+          "key": "speak",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aufidius.",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "My",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "noble",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "masters,",
+          "start": 1.69,
+          "end": 2.11
+        },
+        {
+          "text": "hear",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "me",
+          "start": 2.43,
+          "end": 2.61
+        },
+        {
+          "text": "speak.",
+          "start": 2.61,
+          "end": 2.89
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1641556997783482
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8ddb119deb8d49ac76618f9496e8ad1715b411c2955c22fd0d80be1beb73f51",
+  "selected_reasons": []
+}

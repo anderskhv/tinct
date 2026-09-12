@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "9ffc62533afbbe9ffb92ce63231a3231507a9cd75421cc62f1308d20b9146862",
+  "attempts": [
+    {
+      "asr_seconds": 0.1906024981290102,
+      "alignment_seconds": 0.00039082951843738556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen, let me hear no more.",
+          "start": 0.02,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.870849609375
+            },
+            {
+              "text": " let",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hear",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " no",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " more.",
+              "start": 1.78,
+              "end": 2.06,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "let",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "me",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "hear",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "no",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "more.",
+          "start": 1.78,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "Let",
+        "me",
+        "hear",
+        "no",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "hear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 1.78,
+          "end": 2.06,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Let",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "me",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "hear",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "no",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "more.",
+          "start": 1.78,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1911403089761734
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9304ff0b4f58c694b2053a6f09d2d724ffcfde9f0c2b684d5c4d84fab19e5015",
+  "selected_reasons": []
+}

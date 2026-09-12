@@ -1,0 +1,7717 @@
+{
+  "complete": true,
+  "signature": "f05c5ae0d76083b660791b8af8636e5b10cc8229ee71bb8e59842d853af1f9c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.7137710489332676,
+      "alignment_seconds": 0.0025145597755908966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The captain ran across the passage to the landlady, where their cooking was done. Not to lose precious time, Kolya, in desperate haste, shouted to Perezvon, \"Dead!\" And the dog immediately turned round and lay on his back with its four paws in the air. The boys laughed. Ilusha looked on with the same suffering smile, but the person most delighted with the dog's performance was \"mamma.\" She laughed at the dog and began snapping her fingers and calling it, \"Perezvon, Perezvon!\"",
+        "hotwords": "Not, Kolya, Perezvon, Dead, Ilusha, She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perezvon, Perezvon!",
+          "start": 8.38,
+          "end": 9.24,
+          "words": [
+            {
+              "text": " Perezvon,",
+              "start": 8.38,
+              "end": 8.86,
+              "probability": 0.0020276308059692383
+            },
+            {
+              "text": " Perezvon!",
+              "start": 9.0,
+              "end": 9.24,
+              "probability": 0.698486328125
+            }
+          ]
+        },
+        {
+          "text": " Dead, Dead, Dead, Dead,",
+          "start": 9.24,
+          "end": 10.92,
+          "words": [
+            {
+              "text": " Dead,",
+              "start": 9.24,
+              "end": 9.38,
+              "probability": 0.0014219284057617188
+            },
+            {
+              "text": " Dead,",
+              "start": 9.94,
+              "end": 10.18,
+              "probability": 3.540515899658203e-05
+            },
+            {
+              "text": " Dead,",
+              "start": 10.48,
+              "end": 10.64,
+              "probability": 0.06951904296875
+            },
+            {
+              "text": " Dead,",
+              "start": 10.64,
+              "end": 10.92,
+              "probability": 0.272705078125
+            }
+          ]
+        },
+        {
+          "text": " Dead, Dead, Dead, Dead, Dead,",
+          "start": 10.92,
+          "end": 14.18,
+          "words": [
+            {
+              "text": " Dead,",
+              "start": 10.92,
+              "end": 12.16,
+              "probability": 1.430511474609375e-06
+            },
+            {
+              "text": " Dead,",
+              "start": 12.3,
+              "end": 12.3,
+              "probability": 0.002643585205078125
+            },
+            {
+              "text": " Dead,",
+              "start": 12.66,
+              "end": 12.66,
+              "probability": 0.53271484375
+            },
+            {
+              "text": " Dead,",
+              "start": 12.66,
+              "end": 12.82,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " Dead,",
+              "start": 12.82,
+              "end": 14.18,
+              "probability": 0.71728515625
+            }
+          ]
+        },
+        {
+          "text": " The boys laughed. Ilusha looked on with the same suffering smile, but the person most delighted",
+          "start": 14.18,
+          "end": 19.82,
+          "words": [
+            {
+              "text": " The",
+              "start": 14.18,
+              "end": 14.68,
+              "probability": 0.947265625
+            },
+            {
+              "text": " boys",
+              "start": 14.68,
+              "end": 14.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " laughed.",
+              "start": 14.92,
+              "end": 15.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Ilusha",
+              "start": 16.06,
+              "end": 16.24,
+              "probability": 0.4542884826660156
+            },
+            {
+              "text": " looked",
+              "start": 16.24,
+              "end": 16.48,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " on",
+              "start": 16.48,
+              "end": 16.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 16.68,
+              "end": 16.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 16.82,
+              "end": 16.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " same",
+              "start": 16.94,
+              "end": 17.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " suffering",
+              "start": 17.2,
+              "end": 17.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " smile,",
+              "start": 17.66,
+              "end": 18.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 18.28,
+              "end": 18.64,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 18.64,
+              "end": 18.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " person",
+              "start": 18.76,
+              "end": 19.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " most",
+              "start": 19.1,
+              "end": 19.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " delighted",
+              "start": 19.4,
+              "end": 19.82,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " with the dog's performance was mamma. She laughed at the dog and began snapping her",
+          "start": 19.82,
+          "end": 24.54,
+          "words": [
+            {
+              "text": " with",
+              "start": 19.82,
+              "end": 20.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 20.04,
+              "end": 20.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dog's",
+              "start": 20.16,
+              "end": 20.56,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " performance",
+              "start": 20.56,
+              "end": 20.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " was",
+              "start": 20.9,
+              "end": 21.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mamma.",
+              "start": 21.26,
+              "end": 21.9,
+              "probability": 0.4185892740885417
+            },
+            {
+              "text": " She",
+              "start": 22.48,
+              "end": 22.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " laughed",
+              "start": 22.64,
+              "end": 22.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 22.88,
+              "end": 23.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 23.06,
+              "end": 23.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dog",
+              "start": 23.16,
+              "end": 23.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 23.42,
+              "end": 23.58,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " began",
+              "start": 23.58,
+              "end": 23.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " snapping",
+              "start": 23.82,
+              "end": 24.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 24.3,
+              "end": 24.54,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " fingers and calling it, Perezvon, Perezvon!",
+          "start": 24.54,
+          "end": 27.42,
+          "words": [
+            {
+              "text": " fingers",
+              "start": 24.54,
+              "end": 24.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 24.84,
+              "end": 25.12,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " calling",
+              "start": 25.12,
+              "end": 25.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it,",
+              "start": 25.42,
+              "end": 25.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Perezvon,",
+              "start": 26.22,
+              "end": 26.68,
+              "probability": 0.022143840789794922
+            },
+            {
+              "text": " Perezvon!",
+              "start": 26.92,
+              "end": 27.42,
+              "probability": 0.875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perezvon,",
+          "start": 8.38,
+          "end": 8.86
+        },
+        {
+          "raw": "Perezvon!",
+          "start": 9.0,
+          "end": 9.24
+        },
+        {
+          "raw": "Dead,",
+          "start": 9.24,
+          "end": 9.38
+        },
+        {
+          "raw": "Dead,",
+          "start": 9.94,
+          "end": 10.18
+        },
+        {
+          "raw": "Dead,",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "raw": "Dead,",
+          "start": 10.64,
+          "end": 10.92
+        },
+        {
+          "raw": "Dead,",
+          "start": 10.92,
+          "end": 12.16
+        },
+        {
+          "raw": "Dead,",
+          "start": 12.3,
+          "end": 12.3
+        },
+        {
+          "raw": "Dead,",
+          "start": 12.66,
+          "end": 12.66
+        },
+        {
+          "raw": "Dead,",
+          "start": 12.66,
+          "end": 12.82
+        },
+        {
+          "raw": "Dead,",
+          "start": 12.82,
+          "end": 14.18
+        },
+        {
+          "raw": "The",
+          "start": 14.18,
+          "end": 14.68
+        },
+        {
+          "raw": "boys",
+          "start": 14.68,
+          "end": 14.92
+        },
+        {
+          "raw": "laughed.",
+          "start": 14.92,
+          "end": 15.46
+        },
+        {
+          "raw": "Ilusha",
+          "start": 16.06,
+          "end": 16.24
+        },
+        {
+          "raw": "looked",
+          "start": 16.24,
+          "end": 16.48
+        },
+        {
+          "raw": "on",
+          "start": 16.48,
+          "end": 16.68
+        },
+        {
+          "raw": "with",
+          "start": 16.68,
+          "end": 16.82
+        },
+        {
+          "raw": "the",
+          "start": 16.82,
+          "end": 16.94
+        },
+        {
+          "raw": "same",
+          "start": 16.94,
+          "end": 17.2
+        },
+        {
+          "raw": "suffering",
+          "start": 17.2,
+          "end": 17.66
+        },
+        {
+          "raw": "smile,",
+          "start": 17.66,
+          "end": 18.08
+        },
+        {
+          "raw": "but",
+          "start": 18.28,
+          "end": 18.64
+        },
+        {
+          "raw": "the",
+          "start": 18.64,
+          "end": 18.76
+        },
+        {
+          "raw": "person",
+          "start": 18.76,
+          "end": 19.1
+        },
+        {
+          "raw": "most",
+          "start": 19.1,
+          "end": 19.4
+        },
+        {
+          "raw": "delighted",
+          "start": 19.4,
+          "end": 19.82
+        },
+        {
+          "raw": "with",
+          "start": 19.82,
+          "end": 20.04
+        },
+        {
+          "raw": "the",
+          "start": 20.04,
+          "end": 20.16
+        },
+        {
+          "raw": "dog's",
+          "start": 20.16,
+          "end": 20.56
+        },
+        {
+          "raw": "performance",
+          "start": 20.56,
+          "end": 20.9
+        },
+        {
+          "raw": "was",
+          "start": 20.9,
+          "end": 21.26
+        },
+        {
+          "raw": "mamma.",
+          "start": 21.26,
+          "end": 21.9
+        },
+        {
+          "raw": "She",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "raw": "laughed",
+          "start": 22.64,
+          "end": 22.88
+        },
+        {
+          "raw": "at",
+          "start": 22.88,
+          "end": 23.06
+        },
+        {
+          "raw": "the",
+          "start": 23.06,
+          "end": 23.16
+        },
+        {
+          "raw": "dog",
+          "start": 23.16,
+          "end": 23.42
+        },
+        {
+          "raw": "and",
+          "start": 23.42,
+          "end": 23.58
+        },
+        {
+          "raw": "began",
+          "start": 23.58,
+          "end": 23.82
+        },
+        {
+          "raw": "snapping",
+          "start": 23.82,
+          "end": 24.3
+        },
+        {
+          "raw": "her",
+          "start": 24.3,
+          "end": 24.54
+        },
+        {
+          "raw": "fingers",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "raw": "and",
+          "start": 24.84,
+          "end": 25.12
+        },
+        {
+          "raw": "calling",
+          "start": 25.12,
+          "end": 25.42
+        },
+        {
+          "raw": "it,",
+          "start": 25.42,
+          "end": 25.74
+        },
+        {
+          "raw": "Perezvon,",
+          "start": 26.22,
+          "end": 26.68
+        },
+        {
+          "raw": "Perezvon!",
+          "start": 26.92,
+          "end": 27.42
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "captain",
+        "ran",
+        "across",
+        "the",
+        "passage",
+        "to",
+        "the",
+        "landlady,",
+        "where",
+        "their",
+        "cooking",
+        "was",
+        "done.",
+        "Not",
+        "to",
+        "lose",
+        "precious",
+        "time,",
+        "Kolya,",
+        "in",
+        "desperate",
+        "haste,",
+        "shouted",
+        "to",
+        "Perezvon,",
+        "\"Dead!\"",
+        "And",
+        "the",
+        "dog",
+        "immediately",
+        "turned",
+        "round",
+        "and",
+        "lay",
+        "on",
+        "his",
+        "back",
+        "with",
+        "its",
+        "four",
+        "paws",
+        "in",
+        "the",
+        "air.",
+        "The",
+        "boys",
+        "laughed.",
+        "Ilusha",
+        "looked",
+        "on",
+        "with",
+        "the",
+        "same",
+        "suffering",
+        "smile,",
+        "but",
+        "the",
+        "person",
+        "most",
+        "delighted",
+        "with",
+        "the",
+        "dog's",
+        "performance",
+        "was",
+        "\"mamma.\"",
+        "She",
+        "laughed",
+        "at",
+        "the",
+        "dog",
+        "and",
+        "began",
+        "snapping",
+        "her",
+        "fingers",
+        "and",
+        "calling",
+        "it,",
+        "\"Perezvon,",
+        "Perezvon!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          25,
+          0,
+          1
+        ],
+        [
+          "equal",
+          25,
+          27,
+          1,
+          3
+        ],
+        [
+          "replace",
+          27,
+          45,
+          3,
+          11
+        ],
+        [
+          "equal",
+          45,
+          82,
+          11,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          25,
+          0,
+          1
+        ],
+        [
+          "replace",
+          27,
+          45,
+          3,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perezvon,",
+          "start": 8.38,
+          "end": 8.86,
+          "key": "perezvon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Perezvon!",
+          "start": 9.0,
+          "end": 9.24,
+          "key": "perezvon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 9.24,
+          "end": 9.38,
+          "key": "dead",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 9.94,
+          "end": 10.18,
+          "key": "dead",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 10.48,
+          "end": 10.64,
+          "key": "dead",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 10.64,
+          "end": 10.92,
+          "key": "dead",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 10.92,
+          "end": 12.16,
+          "key": "dead",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 12.3,
+          "end": 12.3,
+          "key": "dead",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 12.66,
+          "end": 12.66,
+          "key": "dead",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 12.66,
+          "end": 12.82,
+          "key": "dead",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 12.82,
+          "end": 14.18,
+          "key": "dead",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 14.18,
+          "end": 14.68,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "boys",
+          "start": 14.68,
+          "end": 14.92,
+          "key": "boys",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "laughed.",
+          "start": 14.92,
+          "end": 15.46,
+          "key": "laughed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Ilusha",
+          "start": 16.06,
+          "end": 16.24,
+          "key": "ilusha",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 16.24,
+          "end": 16.48,
+          "key": "looked",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 16.48,
+          "end": 16.68,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.68,
+          "end": 16.82,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.82,
+          "end": 16.94,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 16.94,
+          "end": 17.2,
+          "key": "same",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "suffering",
+          "start": 17.2,
+          "end": 17.66,
+          "key": "suffering",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "smile,",
+          "start": 17.66,
+          "end": 18.08,
+          "key": "smile",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 18.28,
+          "end": 18.64,
+          "key": "but",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.64,
+          "end": 18.76,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "person",
+          "start": 18.76,
+          "end": 19.1,
+          "key": "person",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 19.1,
+          "end": 19.4,
+          "key": "most",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "delighted",
+          "start": 19.4,
+          "end": 19.82,
+          "key": "delighted",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 19.82,
+          "end": 20.04,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.04,
+          "end": 20.16,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "dog's",
+          "start": 20.16,
+          "end": 20.56,
+          "key": "dogs",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "performance",
+          "start": 20.56,
+          "end": 20.9,
+          "key": "performance",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 20.9,
+          "end": 21.26,
+          "key": "was",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "mamma.",
+          "start": 21.26,
+          "end": 21.9,
+          "key": "mamma",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 22.48,
+          "end": 22.64,
+          "key": "she",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 22.64,
+          "end": 22.88,
+          "key": "laughed",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 22.88,
+          "end": 23.06,
+          "key": "at",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.06,
+          "end": 23.16,
+          "key": "the",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 23.16,
+          "end": 23.42,
+          "key": "dog",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.42,
+          "end": 23.58,
+          "key": "and",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 23.58,
+          "end": 23.82,
+          "key": "began",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "snapping",
+          "start": 23.82,
+          "end": 24.3,
+          "key": "snapping",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 24.3,
+          "end": 24.54,
+          "key": "her",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 24.54,
+          "end": 24.84,
+          "key": "fingers",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.84,
+          "end": 25.12,
+          "key": "and",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 25.12,
+          "end": 25.42,
+          "key": "calling",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 25.42,
+          "end": 25.74,
+          "key": "it",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Perezvon,",
+          "start": 26.22,
+          "end": 26.68,
+          "key": "perezvon",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Perezvon!",
+          "start": 26.92,
+          "end": 27.42,
+          "key": "perezvon",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.0,
+          "end": 4.5
+        },
+        {
+          "text": "captain",
+          "start": 4.5,
+          "end": 6.75
+        },
+        {
+          "text": "ran",
+          "start": 6.75,
+          "end": 7.875
+        },
+        {
+          "text": "across",
+          "start": 7.875,
+          "end": 8.438
+        },
+        {
+          "text": "the",
+          "start": 8.438,
+          "end": 8.719
+        },
+        {
+          "text": "passage",
+          "start": 8.719,
+          "end": 8.86
+        },
+        {
+          "text": "to",
+          "start": 8.86,
+          "end": 8.93
+        },
+        {
+          "text": "the",
+          "start": 8.93,
+          "end": 8.965
+        },
+        {
+          "text": "landlady,",
+          "start": 8.965,
+          "end": 8.982
+        },
+        {
+          "text": "where",
+          "start": 8.982,
+          "end": 8.991
+        },
+        {
+          "text": "their",
+          "start": 8.991,
+          "end": 8.995
+        },
+        {
+          "text": "cooking",
+          "start": 8.995,
+          "end": 8.997
+        },
+        {
+          "text": "was",
+          "start": 8.997,
+          "end": 8.998
+        },
+        {
+          "text": "done.",
+          "start": 8.998,
+          "end": 8.999
+        },
+        {
+          "text": "Not",
+          "start": 8.999,
+          "end": 9.0
+        },
+        {
+          "text": "to",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "lose",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "precious",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "time,",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "Kolya,",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "in",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "desperate",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "haste,",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "shouted",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "to",
+          "start": 9.0,
+          "end": 9.0
+        },
+        {
+          "text": "Perezvon,",
+          "start": 9.0,
+          "end": 9.24
+        },
+        {
+          "text": "\"Dead!\"",
+          "start": 9.24,
+          "end": 9.38
+        },
+        {
+          "text": "And",
+          "start": 9.38,
+          "end": 11.78
+        },
+        {
+          "text": "the",
+          "start": 11.78,
+          "end": 12.98
+        },
+        {
+          "text": "dog",
+          "start": 12.98,
+          "end": 13.58
+        },
+        {
+          "text": "immediately",
+          "start": 13.58,
+          "end": 13.88
+        },
+        {
+          "text": "turned",
+          "start": 13.88,
+          "end": 14.03
+        },
+        {
+          "text": "round",
+          "start": 14.03,
+          "end": 14.105
+        },
+        {
+          "text": "and",
+          "start": 14.105,
+          "end": 14.143
+        },
+        {
+          "text": "lay",
+          "start": 14.143,
+          "end": 14.162
+        },
+        {
+          "text": "on",
+          "start": 14.162,
+          "end": 14.171
+        },
+        {
+          "text": "his",
+          "start": 14.171,
+          "end": 14.175
+        },
+        {
+          "text": "back",
+          "start": 14.175,
+          "end": 14.178
+        },
+        {
+          "text": "with",
+          "start": 14.178,
+          "end": 14.179
+        },
+        {
+          "text": "its",
+          "start": 14.179,
+          "end": 14.18
+        },
+        {
+          "text": "four",
+          "start": 14.18,
+          "end": 14.18
+        },
+        {
+          "text": "paws",
+          "start": 14.18,
+          "end": 14.18
+        },
+        {
+          "text": "in",
+          "start": 14.18,
+          "end": 14.18
+        },
+        {
+          "text": "the",
+          "start": 14.18,
+          "end": 14.18
+        },
+        {
+          "text": "air.",
+          "start": 14.18,
+          "end": 14.18
+        },
+        {
+          "text": "The",
+          "start": 14.18,
+          "end": 14.68
+        },
+        {
+          "text": "boys",
+          "start": 14.68,
+          "end": 14.92
+        },
+        {
+          "text": "laughed.",
+          "start": 14.92,
+          "end": 15.46
+        },
+        {
+          "text": "Ilusha",
+          "start": 16.06,
+          "end": 16.24
+        },
+        {
+          "text": "looked",
+          "start": 16.24,
+          "end": 16.48
+        },
+        {
+          "text": "on",
+          "start": 16.48,
+          "end": 16.68
+        },
+        {
+          "text": "with",
+          "start": 16.68,
+          "end": 16.82
+        },
+        {
+          "text": "the",
+          "start": 16.82,
+          "end": 16.94
+        },
+        {
+          "text": "same",
+          "start": 16.94,
+          "end": 17.2
+        },
+        {
+          "text": "suffering",
+          "start": 17.2,
+          "end": 17.66
+        },
+        {
+          "text": "smile,",
+          "start": 17.66,
+          "end": 18.08
+        },
+        {
+          "text": "but",
+          "start": 18.28,
+          "end": 18.64
+        },
+        {
+          "text": "the",
+          "start": 18.64,
+          "end": 18.76
+        },
+        {
+          "text": "person",
+          "start": 18.76,
+          "end": 19.1
+        },
+        {
+          "text": "most",
+          "start": 19.1,
+          "end": 19.4
+        },
+        {
+          "text": "delighted",
+          "start": 19.4,
+          "end": 19.82
+        },
+        {
+          "text": "with",
+          "start": 19.82,
+          "end": 20.04
+        },
+        {
+          "text": "the",
+          "start": 20.04,
+          "end": 20.16
+        },
+        {
+          "text": "dog's",
+          "start": 20.16,
+          "end": 20.56
+        },
+        {
+          "text": "performance",
+          "start": 20.56,
+          "end": 20.9
+        },
+        {
+          "text": "was",
+          "start": 20.9,
+          "end": 21.26
+        },
+        {
+          "text": "\"mamma.\"",
+          "start": 21.26,
+          "end": 21.9
+        },
+        {
+          "text": "She",
+          "start": 22.48,
+          "end": 22.64
+        },
+        {
+          "text": "laughed",
+          "start": 22.64,
+          "end": 22.88
+        },
+        {
+          "text": "at",
+          "start": 22.88,
+          "end": 23.06
+        },
+        {
+          "text": "the",
+          "start": 23.06,
+          "end": 23.16
+        },
+        {
+          "text": "dog",
+          "start": 23.16,
+          "end": 23.42
+        },
+        {
+          "text": "and",
+          "start": 23.42,
+          "end": 23.58
+        },
+        {
+          "text": "began",
+          "start": 23.58,
+          "end": 23.82
+        },
+        {
+          "text": "snapping",
+          "start": 23.82,
+          "end": 24.3
+        },
+        {
+          "text": "her",
+          "start": 24.3,
+          "end": 24.54
+        },
+        {
+          "text": "fingers",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "text": "and",
+          "start": 24.84,
+          "end": 25.12
+        },
+        {
+          "text": "calling",
+          "start": 25.12,
+          "end": 25.42
+        },
+        {
+          "text": "it,",
+          "start": 25.42,
+          "end": 25.74
+        },
+        {
+          "text": "\"Perezvon,",
+          "start": 26.22,
+          "end": 26.68
+        },
+        {
+          "text": "Perezvon!\"",
+          "start": 26.92,
+          "end": 27.42
+        }
+      ],
+      "stats": {
+        "expected_words": 82,
+        "heard_words": 48,
+        "matched_words": 39
+      },
+      "match_ratio": 0.47560975609756095,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.7169814500957727
+    },
+    {
+      "asr_seconds": 0.9068224355578423,
+      "alignment_seconds": 0.002721814438700676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Not, Kolya, Perezvon, Dead, Ilusha, She"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The captain ran across the passage to the landlady, where their cooking was done. Not",
+          "start": 0.02,
+          "end": 4.76,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.888671875
+            },
+            {
+              "text": " captain",
+              "start": 0.48,
+              "end": 0.76,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " ran",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " across",
+              "start": 1.06,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " passage",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.1,
+              "end": 2.22,
+              "probability": 0.990234375
+            },
+            {
+              "text": " landlady,",
+              "start": 2.22,
+              "end": 2.72,
+              "probability": 0.9768880208333334
+            },
+            {
+              "text": " where",
+              "start": 2.98,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " their",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cooking",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " done.",
+              "start": 3.8,
+              "end": 4.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Not",
+              "start": 4.58,
+              "end": 4.76,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " to lose precious time, Kolya in desperate haste shouted to Perezvon, Dead, and the dog",
+          "start": 4.76,
+          "end": 10.46,
+          "words": [
+            {
+              "text": " to",
+              "start": 4.76,
+              "end": 4.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lose",
+              "start": 4.94,
+              "end": 5.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " precious",
+              "start": 5.08,
+              "end": 5.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " time,",
+              "start": 5.46,
+              "end": 5.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Kolya",
+              "start": 6.4,
+              "end": 6.66,
+              "probability": 0.41681671142578125
+            },
+            {
+              "text": " in",
+              "start": 6.66,
+              "end": 6.82,
+              "probability": 0.716796875
+            },
+            {
+              "text": " desperate",
+              "start": 6.82,
+              "end": 7.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " haste",
+              "start": 7.14,
+              "end": 7.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shouted",
+              "start": 7.56,
+              "end": 8.06,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " to",
+              "start": 8.06,
+              "end": 8.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Perezvon,",
+              "start": 8.38,
+              "end": 8.82,
+              "probability": 0.2907752990722656
+            },
+            {
+              "text": " Dead,",
+              "start": 9.08,
+              "end": 9.36,
+              "probability": 0.00719451904296875
+            },
+            {
+              "text": " and",
+              "start": 9.84,
+              "end": 10.1,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " the",
+              "start": 10.1,
+              "end": 10.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dog",
+              "start": 10.2,
+              "end": 10.46,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " immediately turned round and lay on his back with its forepaws in the air. The boys laughed.",
+          "start": 10.46,
+          "end": 15.32,
+          "words": [
+            {
+              "text": " immediately",
+              "start": 10.46,
+              "end": 10.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " turned",
+              "start": 10.84,
+              "end": 11.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " round",
+              "start": 11.32,
+              "end": 11.72,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " and",
+              "start": 11.72,
+              "end": 11.98,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " lay",
+              "start": 11.98,
+              "end": 12.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 12.14,
+              "end": 12.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 12.32,
+              "end": 12.46,
+              "probability": 0.98046875
+            },
+            {
+              "text": " back",
+              "start": 12.46,
+              "end": 12.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 12.72,
+              "end": 12.86,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " its",
+              "start": 12.86,
+              "end": 13.02,
+              "probability": 0.974609375
+            },
+            {
+              "text": " forepaws",
+              "start": 13.02,
+              "end": 13.5,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " in",
+              "start": 13.5,
+              "end": 13.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 13.66,
+              "end": 13.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " air.",
+              "start": 13.76,
+              "end": 14.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " The",
+              "start": 14.56,
+              "end": 14.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " boys",
+              "start": 14.68,
+              "end": 14.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " laughed.",
+              "start": 14.92,
+              "end": 15.32,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Ilusha looked on with the same suffering smile, but the person most delighted with the dog's",
+          "start": 16.06,
+          "end": 20.56,
+          "words": [
+            {
+              "text": " Ilusha",
+              "start": 16.06,
+              "end": 16.22,
+              "probability": 0.4405403137207031
+            },
+            {
+              "text": " looked",
+              "start": 16.22,
+              "end": 16.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 16.48,
+              "end": 16.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 16.68,
+              "end": 16.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 16.82,
+              "end": 16.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " same",
+              "start": 16.96,
+              "end": 17.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " suffering",
+              "start": 17.2,
+              "end": 17.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " smile,",
+              "start": 17.66,
+              "end": 18.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 18.44,
+              "end": 18.64,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 18.64,
+              "end": 18.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " person",
+              "start": 18.76,
+              "end": 19.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " most",
+              "start": 19.08,
+              "end": 19.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " delighted",
+              "start": 19.38,
+              "end": 19.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 19.84,
+              "end": 20.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 20.04,
+              "end": 20.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dog's",
+              "start": 20.18,
+              "end": 20.56,
+              "probability": 0.921875
+            }
+          ]
+        },
+        {
+          "text": " performance was Mama. She laughed at the dog and began snapping her fingers and calling",
+          "start": 20.56,
+          "end": 25.42,
+          "words": [
+            {
+              "text": " performance",
+              "start": 20.56,
+              "end": 20.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 20.94,
+              "end": 21.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mama.",
+              "start": 21.28,
+              "end": 21.62,
+              "probability": 0.67626953125
+            },
+            {
+              "text": " She",
+              "start": 22.44,
+              "end": 22.64,
+              "probability": 0.99609375
+            },
+            {
+              "text": " laughed",
+              "start": 22.64,
+              "end": 22.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 22.88,
+              "end": 23.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 23.06,
+              "end": 23.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dog",
+              "start": 23.16,
+              "end": 23.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 23.44,
+              "end": 23.58,
+              "probability": 0.947265625
+            },
+            {
+              "text": " began",
+              "start": 23.58,
+              "end": 23.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " snapping",
+              "start": 23.84,
+              "end": 24.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " her",
+              "start": 24.3,
+              "end": 24.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fingers",
+              "start": 24.54,
+              "end": 24.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 24.84,
+              "end": 25.14,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " calling",
+              "start": 25.14,
+              "end": 25.42,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " it, Perezvon, Perezvon.",
+          "start": 25.42,
+          "end": 27.44,
+          "words": [
+            {
+              "text": " it,",
+              "start": 25.42,
+              "end": 25.7,
+              "probability": 0.411865234375
+            },
+            {
+              "text": " Perezvon,",
+              "start": 26.32,
+              "end": 26.68,
+              "probability": 0.14249038696289062
+            },
+            {
+              "text": " Perezvon.",
+              "start": 26.94,
+              "end": 27.44,
+              "probability": 0.880126953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "captain",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "raw": "ran",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "across",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "passage",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "to",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "raw": "landlady,",
+          "start": 2.22,
+          "end": 2.72
+        },
+        {
+          "raw": "where",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "raw": "their",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "cooking",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "was",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "raw": "done.",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "raw": "Not",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "raw": "to",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "raw": "lose",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "raw": "precious",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "raw": "time,",
+          "start": 5.46,
+          "end": 5.88
+        },
+        {
+          "raw": "Kolya",
+          "start": 6.4,
+          "end": 6.66
+        },
+        {
+          "raw": "in",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "raw": "desperate",
+          "start": 6.82,
+          "end": 7.14
+        },
+        {
+          "raw": "haste",
+          "start": 7.14,
+          "end": 7.56
+        },
+        {
+          "raw": "shouted",
+          "start": 7.56,
+          "end": 8.06
+        },
+        {
+          "raw": "to",
+          "start": 8.06,
+          "end": 8.38
+        },
+        {
+          "raw": "Perezvon,",
+          "start": 8.38,
+          "end": 8.82
+        },
+        {
+          "raw": "Dead,",
+          "start": 9.08,
+          "end": 9.36
+        },
+        {
+          "raw": "and",
+          "start": 9.84,
+          "end": 10.1
+        },
+        {
+          "raw": "the",
+          "start": 10.1,
+          "end": 10.2
+        },
+        {
+          "raw": "dog",
+          "start": 10.2,
+          "end": 10.46
+        },
+        {
+          "raw": "immediately",
+          "start": 10.46,
+          "end": 10.84
+        },
+        {
+          "raw": "turned",
+          "start": 10.84,
+          "end": 11.32
+        },
+        {
+          "raw": "round",
+          "start": 11.32,
+          "end": 11.72
+        },
+        {
+          "raw": "and",
+          "start": 11.72,
+          "end": 11.98
+        },
+        {
+          "raw": "lay",
+          "start": 11.98,
+          "end": 12.14
+        },
+        {
+          "raw": "on",
+          "start": 12.14,
+          "end": 12.32
+        },
+        {
+          "raw": "his",
+          "start": 12.32,
+          "end": 12.46
+        },
+        {
+          "raw": "back",
+          "start": 12.46,
+          "end": 12.72
+        },
+        {
+          "raw": "with",
+          "start": 12.72,
+          "end": 12.86
+        },
+        {
+          "raw": "its",
+          "start": 12.86,
+          "end": 13.02
+        },
+        {
+          "raw": "forepaws",
+          "start": 13.02,
+          "end": 13.5
+        },
+        {
+          "raw": "in",
+          "start": 13.5,
+          "end": 13.66
+        },
+        {
+          "raw": "the",
+          "start": 13.66,
+          "end": 13.76
+        },
+        {
+          "raw": "air.",
+          "start": 13.76,
+          "end": 14.0
+        },
+        {
+          "raw": "The",
+          "start": 14.56,
+          "end": 14.68
+        },
+        {
+          "raw": "boys",
+          "start": 14.68,
+          "end": 14.92
+        },
+        {
+          "raw": "laughed.",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "raw": "Ilusha",
+          "start": 16.06,
+          "end": 16.22
+        },
+        {
+          "raw": "looked",
+          "start": 16.22,
+          "end": 16.48
+        },
+        {
+          "raw": "on",
+          "start": 16.48,
+          "end": 16.68
+        },
+        {
+          "raw": "with",
+          "start": 16.68,
+          "end": 16.82
+        },
+        {
+          "raw": "the",
+          "start": 16.82,
+          "end": 16.96
+        },
+        {
+          "raw": "same",
+          "start": 16.96,
+          "end": 17.2
+        },
+        {
+          "raw": "suffering",
+          "start": 17.2,
+          "end": 17.66
+        },
+        {
+          "raw": "smile,",
+          "start": 17.66,
+          "end": 18.08
+        },
+        {
+          "raw": "but",
+          "start": 18.44,
+          "end": 18.64
+        },
+        {
+          "raw": "the",
+          "start": 18.64,
+          "end": 18.76
+        },
+        {
+          "raw": "person",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "raw": "most",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "raw": "delighted",
+          "start": 19.38,
+          "end": 19.84
+        },
+        {
+          "raw": "with",
+          "start": 19.84,
+          "end": 20.04
+        },
+        {
+          "raw": "the",
+          "start": 20.04,
+          "end": 20.18
+        },
+        {
+          "raw": "dog's",
+          "start": 20.18,
+          "end": 20.56
+        },
+        {
+          "raw": "performance",
+          "start": 20.56,
+          "end": 20.94
+        },
+        {
+          "raw": "was",
+          "start": 20.94,
+          "end": 21.28
+        },
+        {
+          "raw": "Mama.",
+          "start": 21.28,
+          "end": 21.62
+        },
+        {
+          "raw": "She",
+          "start": 22.44,
+          "end": 22.64
+        },
+        {
+          "raw": "laughed",
+          "start": 22.64,
+          "end": 22.88
+        },
+        {
+          "raw": "at",
+          "start": 22.88,
+          "end": 23.06
+        },
+        {
+          "raw": "the",
+          "start": 23.06,
+          "end": 23.16
+        },
+        {
+          "raw": "dog",
+          "start": 23.16,
+          "end": 23.44
+        },
+        {
+          "raw": "and",
+          "start": 23.44,
+          "end": 23.58
+        },
+        {
+          "raw": "began",
+          "start": 23.58,
+          "end": 23.84
+        },
+        {
+          "raw": "snapping",
+          "start": 23.84,
+          "end": 24.3
+        },
+        {
+          "raw": "her",
+          "start": 24.3,
+          "end": 24.54
+        },
+        {
+          "raw": "fingers",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "raw": "and",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "raw": "calling",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "raw": "it,",
+          "start": 25.42,
+          "end": 25.7
+        },
+        {
+          "raw": "Perezvon,",
+          "start": 26.32,
+          "end": 26.68
+        },
+        {
+          "raw": "Perezvon.",
+          "start": 26.94,
+          "end": 27.44
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "captain",
+        "ran",
+        "across",
+        "the",
+        "passage",
+        "to",
+        "the",
+        "landlady,",
+        "where",
+        "their",
+        "cooking",
+        "was",
+        "done.",
+        "Not",
+        "to",
+        "lose",
+        "precious",
+        "time,",
+        "Kolya,",
+        "in",
+        "desperate",
+        "haste,",
+        "shouted",
+        "to",
+        "Perezvon,",
+        "\"Dead!\"",
+        "And",
+        "the",
+        "dog",
+        "immediately",
+        "turned",
+        "round",
+        "and",
+        "lay",
+        "on",
+        "his",
+        "back",
+        "with",
+        "its",
+        "four",
+        "paws",
+        "in",
+        "the",
+        "air.",
+        "The",
+        "boys",
+        "laughed.",
+        "Ilusha",
+        "looked",
+        "on",
+        "with",
+        "the",
+        "same",
+        "suffering",
+        "smile,",
+        "but",
+        "the",
+        "person",
+        "most",
+        "delighted",
+        "with",
+        "the",
+        "dog's",
+        "performance",
+        "was",
+        "\"mamma.\"",
+        "She",
+        "laughed",
+        "at",
+        "the",
+        "dog",
+        "and",
+        "began",
+        "snapping",
+        "her",
+        "fingers",
+        "and",
+        "calling",
+        "it,",
+        "\"Perezvon,",
+        "Perezvon!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          40,
+          0,
+          40
+        ],
+        [
+          "replace",
+          40,
+          42,
+          40,
+          41
+        ],
+        [
+          "equal",
+          42,
+          66,
+          41,
+          65
+        ],
+        [
+          "replace",
+          66,
+          67,
+          65,
+          66
+        ],
+        [
+          "equal",
+          67,
+          82,
+          66,
+          81
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 80
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          40,
+          42,
+          40,
+          41
+        ],
+        [
+          "replace",
+          66,
+          67,
+          65,
+          66
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "captain",
+          "start": 0.48,
+          "end": 0.76,
+          "key": "captain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "ran",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "across",
+          "start": 1.06,
+          "end": 1.36,
+          "key": "across",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.56,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "passage",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "passage",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.22,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "landlady,",
+          "start": 2.22,
+          "end": 2.72,
+          "key": "landlady",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 2.98,
+          "end": 3.12,
+          "key": "where",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "their",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cooking",
+          "start": 3.28,
+          "end": 3.54,
+          "key": "cooking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.54,
+          "end": 3.8,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 3.8,
+          "end": 4.06,
+          "key": "done",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 4.58,
+          "end": 4.76,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.76,
+          "end": 4.94,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 4.94,
+          "end": 5.08,
+          "key": "lose",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "precious",
+          "start": 5.08,
+          "end": 5.46,
+          "key": "precious",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 5.46,
+          "end": 5.88,
+          "key": "time",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Kolya",
+          "start": 6.4,
+          "end": 6.66,
+          "key": "kolya",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.66,
+          "end": 6.82,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "desperate",
+          "start": 6.82,
+          "end": 7.14,
+          "key": "desperate",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "haste",
+          "start": 7.14,
+          "end": 7.56,
+          "key": "haste",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 7.56,
+          "end": 8.06,
+          "key": "shouted",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.06,
+          "end": 8.38,
+          "key": "to",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Perezvon,",
+          "start": 8.38,
+          "end": 8.82,
+          "key": "perezvon",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Dead,",
+          "start": 9.08,
+          "end": 9.36,
+          "key": "dead",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.84,
+          "end": 10.1,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.1,
+          "end": 10.2,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 10.2,
+          "end": 10.46,
+          "key": "dog",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "immediately",
+          "start": 10.46,
+          "end": 10.84,
+          "key": "immediately",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 10.84,
+          "end": 11.32,
+          "key": "turned",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 11.32,
+          "end": 11.72,
+          "key": "round",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.72,
+          "end": 11.98,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 11.98,
+          "end": 12.14,
+          "key": "lay",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 12.14,
+          "end": 12.32,
+          "key": "on",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 12.32,
+          "end": 12.46,
+          "key": "his",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 12.46,
+          "end": 12.72,
+          "key": "back",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.72,
+          "end": 12.86,
+          "key": "with",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 12.86,
+          "end": 13.02,
+          "key": "its",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "forepaws",
+          "start": 13.02,
+          "end": 13.5,
+          "key": "forepaws",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.5,
+          "end": 13.66,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.66,
+          "end": 13.76,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "air.",
+          "start": 13.76,
+          "end": 14.0,
+          "key": "air",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 14.56,
+          "end": 14.68,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "boys",
+          "start": 14.68,
+          "end": 14.92,
+          "key": "boys",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "laughed.",
+          "start": 14.92,
+          "end": 15.32,
+          "key": "laughed",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Ilusha",
+          "start": 16.06,
+          "end": 16.22,
+          "key": "ilusha",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 16.22,
+          "end": 16.48,
+          "key": "looked",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 16.48,
+          "end": 16.68,
+          "key": "on",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.68,
+          "end": 16.82,
+          "key": "with",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.82,
+          "end": 16.96,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 16.96,
+          "end": 17.2,
+          "key": "same",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "suffering",
+          "start": 17.2,
+          "end": 17.66,
+          "key": "suffering",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "smile,",
+          "start": 17.66,
+          "end": 18.08,
+          "key": "smile",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 18.44,
+          "end": 18.64,
+          "key": "but",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.64,
+          "end": 18.76,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "person",
+          "start": 18.76,
+          "end": 19.08,
+          "key": "person",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 19.08,
+          "end": 19.38,
+          "key": "most",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "delighted",
+          "start": 19.38,
+          "end": 19.84,
+          "key": "delighted",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 19.84,
+          "end": 20.04,
+          "key": "with",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.04,
+          "end": 20.18,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "dog's",
+          "start": 20.18,
+          "end": 20.56,
+          "key": "dogs",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "performance",
+          "start": 20.56,
+          "end": 20.94,
+          "key": "performance",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 20.94,
+          "end": 21.28,
+          "key": "was",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Mama.",
+          "start": 21.28,
+          "end": 21.62,
+          "key": "mama",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 22.44,
+          "end": 22.64,
+          "key": "she",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 22.64,
+          "end": 22.88,
+          "key": "laughed",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 22.88,
+          "end": 23.06,
+          "key": "at",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.06,
+          "end": 23.16,
+          "key": "the",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 23.16,
+          "end": 23.44,
+          "key": "dog",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.44,
+          "end": 23.58,
+          "key": "and",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 23.58,
+          "end": 23.84,
+          "key": "began",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "snapping",
+          "start": 23.84,
+          "end": 24.3,
+          "key": "snapping",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 24.3,
+          "end": 24.54,
+          "key": "her",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 24.54,
+          "end": 24.84,
+          "key": "fingers",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.84,
+          "end": 25.14,
+          "key": "and",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 25.14,
+          "end": 25.42,
+          "key": "calling",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 25.42,
+          "end": 25.7,
+          "key": "it",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Perezvon,",
+          "start": 26.32,
+          "end": 26.68,
+          "key": "perezvon",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Perezvon.",
+          "start": 26.94,
+          "end": 27.44,
+          "key": "perezvon",
+          "pieces": [
+            80
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "captain",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "text": "ran",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "across",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "text": "the",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "passage",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "to",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "the",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "text": "landlady,",
+          "start": 2.22,
+          "end": 2.72
+        },
+        {
+          "text": "where",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "text": "their",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "text": "cooking",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "was",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "text": "done.",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "text": "Not",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "text": "to",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "text": "lose",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "text": "precious",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "text": "time,",
+          "start": 5.46,
+          "end": 5.88
+        },
+        {
+          "text": "Kolya,",
+          "start": 6.4,
+          "end": 6.66
+        },
+        {
+          "text": "in",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "text": "desperate",
+          "start": 6.82,
+          "end": 7.14
+        },
+        {
+          "text": "haste,",
+          "start": 7.14,
+          "end": 7.56
+        },
+        {
+          "text": "shouted",
+          "start": 7.56,
+          "end": 8.06
+        },
+        {
+          "text": "to",
+          "start": 8.06,
+          "end": 8.38
+        },
+        {
+          "text": "Perezvon,",
+          "start": 8.38,
+          "end": 8.82
+        },
+        {
+          "text": "\"Dead!\"",
+          "start": 9.08,
+          "end": 9.36
+        },
+        {
+          "text": "And",
+          "start": 9.84,
+          "end": 10.1
+        },
+        {
+          "text": "the",
+          "start": 10.1,
+          "end": 10.2
+        },
+        {
+          "text": "dog",
+          "start": 10.2,
+          "end": 10.46
+        },
+        {
+          "text": "immediately",
+          "start": 10.46,
+          "end": 10.84
+        },
+        {
+          "text": "turned",
+          "start": 10.84,
+          "end": 11.32
+        },
+        {
+          "text": "round",
+          "start": 11.32,
+          "end": 11.72
+        },
+        {
+          "text": "and",
+          "start": 11.72,
+          "end": 11.98
+        },
+        {
+          "text": "lay",
+          "start": 11.98,
+          "end": 12.14
+        },
+        {
+          "text": "on",
+          "start": 12.14,
+          "end": 12.32
+        },
+        {
+          "text": "his",
+          "start": 12.32,
+          "end": 12.46
+        },
+        {
+          "text": "back",
+          "start": 12.46,
+          "end": 12.72
+        },
+        {
+          "text": "with",
+          "start": 12.72,
+          "end": 12.86
+        },
+        {
+          "text": "its",
+          "start": 12.86,
+          "end": 13.02
+        },
+        {
+          "text": "four",
+          "start": 13.02,
+          "end": 13.26
+        },
+        {
+          "text": "paws",
+          "start": 13.26,
+          "end": 13.38
+        },
+        {
+          "text": "in",
+          "start": 13.5,
+          "end": 13.66
+        },
+        {
+          "text": "the",
+          "start": 13.66,
+          "end": 13.76
+        },
+        {
+          "text": "air.",
+          "start": 13.76,
+          "end": 14.0
+        },
+        {
+          "text": "The",
+          "start": 14.56,
+          "end": 14.68
+        },
+        {
+          "text": "boys",
+          "start": 14.68,
+          "end": 14.92
+        },
+        {
+          "text": "laughed.",
+          "start": 14.92,
+          "end": 15.32
+        },
+        {
+          "text": "Ilusha",
+          "start": 16.06,
+          "end": 16.22
+        },
+        {
+          "text": "looked",
+          "start": 16.22,
+          "end": 16.48
+        },
+        {
+          "text": "on",
+          "start": 16.48,
+          "end": 16.68
+        },
+        {
+          "text": "with",
+          "start": 16.68,
+          "end": 16.82
+        },
+        {
+          "text": "the",
+          "start": 16.82,
+          "end": 16.96
+        },
+        {
+          "text": "same",
+          "start": 16.96,
+          "end": 17.2
+        },
+        {
+          "text": "suffering",
+          "start": 17.2,
+          "end": 17.66
+        },
+        {
+          "text": "smile,",
+          "start": 17.66,
+          "end": 18.08
+        },
+        {
+          "text": "but",
+          "start": 18.44,
+          "end": 18.64
+        },
+        {
+          "text": "the",
+          "start": 18.64,
+          "end": 18.76
+        },
+        {
+          "text": "person",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "text": "most",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "text": "delighted",
+          "start": 19.38,
+          "end": 19.84
+        },
+        {
+          "text": "with",
+          "start": 19.84,
+          "end": 20.04
+        },
+        {
+          "text": "the",
+          "start": 20.04,
+          "end": 20.18
+        },
+        {
+          "text": "dog's",
+          "start": 20.18,
+          "end": 20.56
+        },
+        {
+          "text": "performance",
+          "start": 20.56,
+          "end": 20.94
+        },
+        {
+          "text": "was",
+          "start": 20.94,
+          "end": 21.28
+        },
+        {
+          "text": "\"mamma.\"",
+          "start": 21.28,
+          "end": 21.86
+        },
+        {
+          "text": "She",
+          "start": 22.44,
+          "end": 22.64
+        },
+        {
+          "text": "laughed",
+          "start": 22.64,
+          "end": 22.88
+        },
+        {
+          "text": "at",
+          "start": 22.88,
+          "end": 23.06
+        },
+        {
+          "text": "the",
+          "start": 23.06,
+          "end": 23.16
+        },
+        {
+          "text": "dog",
+          "start": 23.16,
+          "end": 23.44
+        },
+        {
+          "text": "and",
+          "start": 23.44,
+          "end": 23.58
+        },
+        {
+          "text": "began",
+          "start": 23.58,
+          "end": 23.84
+        },
+        {
+          "text": "snapping",
+          "start": 23.84,
+          "end": 24.3
+        },
+        {
+          "text": "her",
+          "start": 24.3,
+          "end": 24.54
+        },
+        {
+          "text": "fingers",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "text": "and",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "text": "calling",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "text": "it,",
+          "start": 25.42,
+          "end": 25.7
+        },
+        {
+          "text": "\"Perezvon,",
+          "start": 26.32,
+          "end": 26.68
+        },
+        {
+          "text": "Perezvon!\"",
+          "start": 26.94,
+          "end": 27.44
+        }
+      ],
+      "stats": {
+        "expected_words": 82,
+        "heard_words": 81,
+        "matched_words": 79
+      },
+      "match_ratio": 0.9634146341463414,
+      "rejection_reasons": [],
+      "seconds": 0.9106820356100798
+    },
+    {
+      "asr_seconds": 0.9189380668103695,
+      "alignment_seconds": 0.002934293821454048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The captain ran across the passage to the landlady, where their cooking was done.",
+          "start": 0.02,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.888671875
+            },
+            {
+              "text": " captain",
+              "start": 0.48,
+              "end": 0.76,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " ran",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " across",
+              "start": 1.06,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " passage",
+              "start": 1.56,
+              "end": 1.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.86,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.1,
+              "end": 2.22,
+              "probability": 0.990234375
+            },
+            {
+              "text": " landlady,",
+              "start": 2.22,
+              "end": 2.72,
+              "probability": 0.9768880208333334
+            },
+            {
+              "text": " where",
+              "start": 2.98,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " their",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cooking",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " done.",
+              "start": 3.8,
+              "end": 4.06,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Not to lose precious time, Kalia in desperate haste shouted to Perezven, dead, and the dog",
+          "start": 4.58,
+          "end": 10.46,
+          "words": [
+            {
+              "text": " Not",
+              "start": 4.58,
+              "end": 4.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 4.76,
+              "end": 4.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lose",
+              "start": 4.94,
+              "end": 5.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " precious",
+              "start": 5.08,
+              "end": 5.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " time,",
+              "start": 5.46,
+              "end": 5.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Kalia",
+              "start": 6.4,
+              "end": 6.54,
+              "probability": 0.4993896484375
+            },
+            {
+              "text": " in",
+              "start": 6.54,
+              "end": 6.82,
+              "probability": 0.75
+            },
+            {
+              "text": " desperate",
+              "start": 6.82,
+              "end": 7.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " haste",
+              "start": 7.16,
+              "end": 7.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shouted",
+              "start": 7.58,
+              "end": 8.06,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " to",
+              "start": 8.06,
+              "end": 8.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Perezven,",
+              "start": 8.38,
+              "end": 8.82,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " dead,",
+              "start": 9.08,
+              "end": 9.36,
+              "probability": 0.13232421875
+            },
+            {
+              "text": " and",
+              "start": 9.84,
+              "end": 10.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 10.1,
+              "end": 10.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dog",
+              "start": 10.2,
+              "end": 10.46,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " immediately turned round and lay on his back with its forepaws in the air.",
+          "start": 10.46,
+          "end": 14.0,
+          "words": [
+            {
+              "text": " immediately",
+              "start": 10.46,
+              "end": 10.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " turned",
+              "start": 10.86,
+              "end": 11.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " round",
+              "start": 11.34,
+              "end": 11.72,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " and",
+              "start": 11.72,
+              "end": 11.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " lay",
+              "start": 11.98,
+              "end": 12.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 12.16,
+              "end": 12.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 12.32,
+              "end": 12.46,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " back",
+              "start": 12.46,
+              "end": 12.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 12.72,
+              "end": 12.86,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " its",
+              "start": 12.86,
+              "end": 13.02,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " forepaws",
+              "start": 13.02,
+              "end": 13.5,
+              "probability": 0.8077799479166666
+            },
+            {
+              "text": " in",
+              "start": 13.5,
+              "end": 13.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 13.66,
+              "end": 13.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " air.",
+              "start": 13.76,
+              "end": 14.0,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " The boys laughed.",
+          "start": 14.56,
+          "end": 15.3,
+          "words": [
+            {
+              "text": " The",
+              "start": 14.56,
+              "end": 14.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " boys",
+              "start": 14.68,
+              "end": 14.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " laughed.",
+              "start": 14.92,
+              "end": 15.3,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Elisha looked on with the same suffering smile, but the person most delighted with the dog's",
+          "start": 16.04,
+          "end": 20.54,
+          "words": [
+            {
+              "text": " Elisha",
+              "start": 16.04,
+              "end": 16.34,
+              "probability": 0.7223307291666666
+            },
+            {
+              "text": " looked",
+              "start": 16.34,
+              "end": 16.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 16.48,
+              "end": 16.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 16.68,
+              "end": 16.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 16.82,
+              "end": 16.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " same",
+              "start": 16.96,
+              "end": 17.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " suffering",
+              "start": 17.2,
+              "end": 17.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " smile,",
+              "start": 17.66,
+              "end": 18.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 18.44,
+              "end": 18.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 18.64,
+              "end": 18.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " person",
+              "start": 18.76,
+              "end": 19.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 19.08,
+              "end": 19.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " delighted",
+              "start": 19.38,
+              "end": 19.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 19.84,
+              "end": 20.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 20.04,
+              "end": 20.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dog's",
+              "start": 20.18,
+              "end": 20.54,
+              "probability": 0.958740234375
+            }
+          ]
+        },
+        {
+          "text": " performance was Mama.",
+          "start": 20.54,
+          "end": 21.62,
+          "words": [
+            {
+              "text": " performance",
+              "start": 20.54,
+              "end": 20.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 20.94,
+              "end": 21.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mama.",
+              "start": 21.28,
+              "end": 21.62,
+              "probability": 0.6982421875
+            }
+          ]
+        },
+        {
+          "text": " She laughed at the dog and began snapping her fingers and calling it, Perezven, Perezven.",
+          "start": 22.46,
+          "end": 27.42,
+          "words": [
+            {
+              "text": " She",
+              "start": 22.46,
+              "end": 22.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " laughed",
+              "start": 22.64,
+              "end": 22.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 22.88,
+              "end": 23.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 23.06,
+              "end": 23.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dog",
+              "start": 23.16,
+              "end": 23.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 23.44,
+              "end": 23.58,
+              "probability": 0.95703125
+            },
+            {
+              "text": " began",
+              "start": 23.58,
+              "end": 23.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " snapping",
+              "start": 23.84,
+              "end": 24.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 24.3,
+              "end": 24.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fingers",
+              "start": 24.54,
+              "end": 24.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 24.84,
+              "end": 25.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " calling",
+              "start": 25.14,
+              "end": 25.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it,",
+              "start": 25.42,
+              "end": 25.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Perezven,",
+              "start": 26.16,
+              "end": 26.66,
+              "probability": 0.888427734375
+            },
+            {
+              "text": " Perezven.",
+              "start": 26.94,
+              "end": 27.42,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Elisha, Perezven, Perezven, Perezven.",
+          "start": 27.42,
+          "end": 27.94,
+          "words": [
+            {
+              "text": " Elisha,",
+              "start": 27.42,
+              "end": 27.64,
+              "probability": 0.3303574323654175
+            },
+            {
+              "text": " Perezven,",
+              "start": 27.64,
+              "end": 27.64,
+              "probability": 0.00010570883750915527
+            },
+            {
+              "text": " Perezven,",
+              "start": 27.64,
+              "end": 27.64,
+              "probability": 0.4461572766304016
+            },
+            {
+              "text": " Perezven.",
+              "start": 27.64,
+              "end": 27.94,
+              "probability": 0.7413330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "captain",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "raw": "ran",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "across",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "raw": "passage",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "raw": "to",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "raw": "landlady,",
+          "start": 2.22,
+          "end": 2.72
+        },
+        {
+          "raw": "where",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "raw": "their",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "cooking",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "was",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "raw": "done.",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "raw": "Not",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "raw": "to",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "raw": "lose",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "raw": "precious",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "raw": "time,",
+          "start": 5.46,
+          "end": 5.88
+        },
+        {
+          "raw": "Kalia",
+          "start": 6.4,
+          "end": 6.54
+        },
+        {
+          "raw": "in",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "raw": "desperate",
+          "start": 6.82,
+          "end": 7.16
+        },
+        {
+          "raw": "haste",
+          "start": 7.16,
+          "end": 7.58
+        },
+        {
+          "raw": "shouted",
+          "start": 7.58,
+          "end": 8.06
+        },
+        {
+          "raw": "to",
+          "start": 8.06,
+          "end": 8.38
+        },
+        {
+          "raw": "Perezven,",
+          "start": 8.38,
+          "end": 8.82
+        },
+        {
+          "raw": "dead,",
+          "start": 9.08,
+          "end": 9.36
+        },
+        {
+          "raw": "and",
+          "start": 9.84,
+          "end": 10.1
+        },
+        {
+          "raw": "the",
+          "start": 10.1,
+          "end": 10.2
+        },
+        {
+          "raw": "dog",
+          "start": 10.2,
+          "end": 10.46
+        },
+        {
+          "raw": "immediately",
+          "start": 10.46,
+          "end": 10.86
+        },
+        {
+          "raw": "turned",
+          "start": 10.86,
+          "end": 11.34
+        },
+        {
+          "raw": "round",
+          "start": 11.34,
+          "end": 11.72
+        },
+        {
+          "raw": "and",
+          "start": 11.72,
+          "end": 11.98
+        },
+        {
+          "raw": "lay",
+          "start": 11.98,
+          "end": 12.16
+        },
+        {
+          "raw": "on",
+          "start": 12.16,
+          "end": 12.32
+        },
+        {
+          "raw": "his",
+          "start": 12.32,
+          "end": 12.46
+        },
+        {
+          "raw": "back",
+          "start": 12.46,
+          "end": 12.72
+        },
+        {
+          "raw": "with",
+          "start": 12.72,
+          "end": 12.86
+        },
+        {
+          "raw": "its",
+          "start": 12.86,
+          "end": 13.02
+        },
+        {
+          "raw": "forepaws",
+          "start": 13.02,
+          "end": 13.5
+        },
+        {
+          "raw": "in",
+          "start": 13.5,
+          "end": 13.66
+        },
+        {
+          "raw": "the",
+          "start": 13.66,
+          "end": 13.76
+        },
+        {
+          "raw": "air.",
+          "start": 13.76,
+          "end": 14.0
+        },
+        {
+          "raw": "The",
+          "start": 14.56,
+          "end": 14.68
+        },
+        {
+          "raw": "boys",
+          "start": 14.68,
+          "end": 14.92
+        },
+        {
+          "raw": "laughed.",
+          "start": 14.92,
+          "end": 15.3
+        },
+        {
+          "raw": "Elisha",
+          "start": 16.04,
+          "end": 16.34
+        },
+        {
+          "raw": "looked",
+          "start": 16.34,
+          "end": 16.48
+        },
+        {
+          "raw": "on",
+          "start": 16.48,
+          "end": 16.68
+        },
+        {
+          "raw": "with",
+          "start": 16.68,
+          "end": 16.82
+        },
+        {
+          "raw": "the",
+          "start": 16.82,
+          "end": 16.96
+        },
+        {
+          "raw": "same",
+          "start": 16.96,
+          "end": 17.2
+        },
+        {
+          "raw": "suffering",
+          "start": 17.2,
+          "end": 17.66
+        },
+        {
+          "raw": "smile,",
+          "start": 17.66,
+          "end": 18.08
+        },
+        {
+          "raw": "but",
+          "start": 18.44,
+          "end": 18.64
+        },
+        {
+          "raw": "the",
+          "start": 18.64,
+          "end": 18.76
+        },
+        {
+          "raw": "person",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "raw": "most",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "raw": "delighted",
+          "start": 19.38,
+          "end": 19.84
+        },
+        {
+          "raw": "with",
+          "start": 19.84,
+          "end": 20.04
+        },
+        {
+          "raw": "the",
+          "start": 20.04,
+          "end": 20.18
+        },
+        {
+          "raw": "dog's",
+          "start": 20.18,
+          "end": 20.54
+        },
+        {
+          "raw": "performance",
+          "start": 20.54,
+          "end": 20.94
+        },
+        {
+          "raw": "was",
+          "start": 20.94,
+          "end": 21.28
+        },
+        {
+          "raw": "Mama.",
+          "start": 21.28,
+          "end": 21.62
+        },
+        {
+          "raw": "She",
+          "start": 22.46,
+          "end": 22.64
+        },
+        {
+          "raw": "laughed",
+          "start": 22.64,
+          "end": 22.88
+        },
+        {
+          "raw": "at",
+          "start": 22.88,
+          "end": 23.06
+        },
+        {
+          "raw": "the",
+          "start": 23.06,
+          "end": 23.16
+        },
+        {
+          "raw": "dog",
+          "start": 23.16,
+          "end": 23.44
+        },
+        {
+          "raw": "and",
+          "start": 23.44,
+          "end": 23.58
+        },
+        {
+          "raw": "began",
+          "start": 23.58,
+          "end": 23.84
+        },
+        {
+          "raw": "snapping",
+          "start": 23.84,
+          "end": 24.3
+        },
+        {
+          "raw": "her",
+          "start": 24.3,
+          "end": 24.54
+        },
+        {
+          "raw": "fingers",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "raw": "and",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "raw": "calling",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "raw": "it,",
+          "start": 25.42,
+          "end": 25.74
+        },
+        {
+          "raw": "Perezven,",
+          "start": 26.16,
+          "end": 26.66
+        },
+        {
+          "raw": "Perezven.",
+          "start": 26.94,
+          "end": 27.42
+        },
+        {
+          "raw": "Elisha,",
+          "start": 27.42,
+          "end": 27.64
+        },
+        {
+          "raw": "Perezven,",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "raw": "Perezven,",
+          "start": 27.64,
+          "end": 27.64
+        },
+        {
+          "raw": "Perezven.",
+          "start": 27.64,
+          "end": 27.94
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "captain",
+        "ran",
+        "across",
+        "the",
+        "passage",
+        "to",
+        "the",
+        "landlady,",
+        "where",
+        "their",
+        "cooking",
+        "was",
+        "done.",
+        "Not",
+        "to",
+        "lose",
+        "precious",
+        "time,",
+        "Kolya,",
+        "in",
+        "desperate",
+        "haste,",
+        "shouted",
+        "to",
+        "Perezvon,",
+        "\"Dead!\"",
+        "And",
+        "the",
+        "dog",
+        "immediately",
+        "turned",
+        "round",
+        "and",
+        "lay",
+        "on",
+        "his",
+        "back",
+        "with",
+        "its",
+        "four",
+        "paws",
+        "in",
+        "the",
+        "air.",
+        "The",
+        "boys",
+        "laughed.",
+        "Ilusha",
+        "looked",
+        "on",
+        "with",
+        "the",
+        "same",
+        "suffering",
+        "smile,",
+        "but",
+        "the",
+        "person",
+        "most",
+        "delighted",
+        "with",
+        "the",
+        "dog's",
+        "performance",
+        "was",
+        "\"mamma.\"",
+        "She",
+        "laughed",
+        "at",
+        "the",
+        "dog",
+        "and",
+        "began",
+        "snapping",
+        "her",
+        "fingers",
+        "and",
+        "calling",
+        "it,",
+        "\"Perezvon,",
+        "Perezvon!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          25,
+          20,
+          25
+        ],
+        [
+          "replace",
+          25,
+          26,
+          25,
+          26
+        ],
+        [
+          "equal",
+          26,
+          40,
+          26,
+          40
+        ],
+        [
+          "replace",
+          40,
+          42,
+          40,
+          41
+        ],
+        [
+          "equal",
+          42,
+          48,
+          41,
+          47
+        ],
+        [
+          "replace",
+          48,
+          49,
+          47,
+          48
+        ],
+        [
+          "equal",
+          49,
+          66,
+          48,
+          65
+        ],
+        [
+          "replace",
+          66,
+          67,
+          65,
+          66
+        ],
+        [
+          "equal",
+          67,
+          80,
+          66,
+          79
+        ],
+        [
+          "replace",
+          80,
+          82,
+          79,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "replace",
+          25,
+          26,
+          25,
+          26
+        ],
+        [
+          "replace",
+          40,
+          42,
+          40,
+          41
+        ],
+        [
+          "replace",
+          48,
+          49,
+          47,
+          48
+        ],
+        [
+          "replace",
+          66,
+          67,
+          65,
+          66
+        ],
+        [
+          "replace",
+          80,
+          82,
+          79,
+          85
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "captain",
+          "start": 0.48,
+          "end": 0.76,
+          "key": "captain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "ran",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "across",
+          "start": 1.06,
+          "end": 1.36,
+          "key": "across",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.56,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "passage",
+          "start": 1.56,
+          "end": 1.86,
+          "key": "passage",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.86,
+          "end": 2.1,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.22,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "landlady,",
+          "start": 2.22,
+          "end": 2.72,
+          "key": "landlady",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 2.98,
+          "end": 3.12,
+          "key": "where",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "their",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cooking",
+          "start": 3.28,
+          "end": 3.54,
+          "key": "cooking",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.54,
+          "end": 3.8,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 3.8,
+          "end": 4.06,
+          "key": "done",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 4.58,
+          "end": 4.76,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.76,
+          "end": 4.94,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lose",
+          "start": 4.94,
+          "end": 5.08,
+          "key": "lose",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "precious",
+          "start": 5.08,
+          "end": 5.46,
+          "key": "precious",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "time,",
+          "start": 5.46,
+          "end": 5.88,
+          "key": "time",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Kalia",
+          "start": 6.4,
+          "end": 6.54,
+          "key": "kalia",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.54,
+          "end": 6.82,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "desperate",
+          "start": 6.82,
+          "end": 7.16,
+          "key": "desperate",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "haste",
+          "start": 7.16,
+          "end": 7.58,
+          "key": "haste",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "shouted",
+          "start": 7.58,
+          "end": 8.06,
+          "key": "shouted",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.06,
+          "end": 8.38,
+          "key": "to",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Perezven,",
+          "start": 8.38,
+          "end": 8.82,
+          "key": "perezven",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 9.08,
+          "end": 9.36,
+          "key": "dead",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.84,
+          "end": 10.1,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.1,
+          "end": 10.2,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 10.2,
+          "end": 10.46,
+          "key": "dog",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "immediately",
+          "start": 10.46,
+          "end": 10.86,
+          "key": "immediately",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 10.86,
+          "end": 11.34,
+          "key": "turned",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 11.34,
+          "end": 11.72,
+          "key": "round",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.72,
+          "end": 11.98,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 11.98,
+          "end": 12.16,
+          "key": "lay",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 12.16,
+          "end": 12.32,
+          "key": "on",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 12.32,
+          "end": 12.46,
+          "key": "his",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 12.46,
+          "end": 12.72,
+          "key": "back",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.72,
+          "end": 12.86,
+          "key": "with",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 12.86,
+          "end": 13.02,
+          "key": "its",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "forepaws",
+          "start": 13.02,
+          "end": 13.5,
+          "key": "forepaws",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.5,
+          "end": 13.66,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.66,
+          "end": 13.76,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "air.",
+          "start": 13.76,
+          "end": 14.0,
+          "key": "air",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 14.56,
+          "end": 14.68,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "boys",
+          "start": 14.68,
+          "end": 14.92,
+          "key": "boys",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "laughed.",
+          "start": 14.92,
+          "end": 15.3,
+          "key": "laughed",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Elisha",
+          "start": 16.04,
+          "end": 16.34,
+          "key": "elisha",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 16.34,
+          "end": 16.48,
+          "key": "looked",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 16.48,
+          "end": 16.68,
+          "key": "on",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.68,
+          "end": 16.82,
+          "key": "with",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.82,
+          "end": 16.96,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 16.96,
+          "end": 17.2,
+          "key": "same",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "suffering",
+          "start": 17.2,
+          "end": 17.66,
+          "key": "suffering",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "smile,",
+          "start": 17.66,
+          "end": 18.08,
+          "key": "smile",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 18.44,
+          "end": 18.64,
+          "key": "but",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.64,
+          "end": 18.76,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "person",
+          "start": 18.76,
+          "end": 19.08,
+          "key": "person",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 19.08,
+          "end": 19.38,
+          "key": "most",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "delighted",
+          "start": 19.38,
+          "end": 19.84,
+          "key": "delighted",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 19.84,
+          "end": 20.04,
+          "key": "with",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.04,
+          "end": 20.18,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "dog's",
+          "start": 20.18,
+          "end": 20.54,
+          "key": "dogs",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "performance",
+          "start": 20.54,
+          "end": 20.94,
+          "key": "performance",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 20.94,
+          "end": 21.28,
+          "key": "was",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Mama.",
+          "start": 21.28,
+          "end": 21.62,
+          "key": "mama",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 22.46,
+          "end": 22.64,
+          "key": "she",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 22.64,
+          "end": 22.88,
+          "key": "laughed",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 22.88,
+          "end": 23.06,
+          "key": "at",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.06,
+          "end": 23.16,
+          "key": "the",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 23.16,
+          "end": 23.44,
+          "key": "dog",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.44,
+          "end": 23.58,
+          "key": "and",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 23.58,
+          "end": 23.84,
+          "key": "began",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "snapping",
+          "start": 23.84,
+          "end": 24.3,
+          "key": "snapping",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 24.3,
+          "end": 24.54,
+          "key": "her",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 24.54,
+          "end": 24.84,
+          "key": "fingers",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.84,
+          "end": 25.14,
+          "key": "and",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 25.14,
+          "end": 25.42,
+          "key": "calling",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 25.42,
+          "end": 25.74,
+          "key": "it",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Perezven,",
+          "start": 26.16,
+          "end": 26.66,
+          "key": "perezven",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Perezven.",
+          "start": 26.94,
+          "end": 27.42,
+          "key": "perezven",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Elisha,",
+          "start": 27.42,
+          "end": 27.64,
+          "key": "elisha",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "Perezven,",
+          "start": 27.64,
+          "end": 27.64,
+          "key": "perezven",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "Perezven,",
+          "start": 27.64,
+          "end": 27.64,
+          "key": "perezven",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "Perezven.",
+          "start": 27.64,
+          "end": 27.94,
+          "key": "perezven",
+          "pieces": [
+            84
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "captain",
+          "start": 0.48,
+          "end": 0.76
+        },
+        {
+          "text": "ran",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "across",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "text": "the",
+          "start": 1.36,
+          "end": 1.56
+        },
+        {
+          "text": "passage",
+          "start": 1.56,
+          "end": 1.86
+        },
+        {
+          "text": "to",
+          "start": 1.86,
+          "end": 2.1
+        },
+        {
+          "text": "the",
+          "start": 2.1,
+          "end": 2.22
+        },
+        {
+          "text": "landlady,",
+          "start": 2.22,
+          "end": 2.72
+        },
+        {
+          "text": "where",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "text": "their",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "text": "cooking",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "was",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "text": "done.",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "text": "Not",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "text": "to",
+          "start": 4.76,
+          "end": 4.94
+        },
+        {
+          "text": "lose",
+          "start": 4.94,
+          "end": 5.08
+        },
+        {
+          "text": "precious",
+          "start": 5.08,
+          "end": 5.46
+        },
+        {
+          "text": "time,",
+          "start": 5.46,
+          "end": 5.88
+        },
+        {
+          "text": "Kolya,",
+          "start": 5.88,
+          "end": 6.21
+        },
+        {
+          "text": "in",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "text": "desperate",
+          "start": 6.82,
+          "end": 7.16
+        },
+        {
+          "text": "haste,",
+          "start": 7.16,
+          "end": 7.58
+        },
+        {
+          "text": "shouted",
+          "start": 7.58,
+          "end": 8.06
+        },
+        {
+          "text": "to",
+          "start": 8.06,
+          "end": 8.38
+        },
+        {
+          "text": "Perezvon,",
+          "start": 8.38,
+          "end": 8.73
+        },
+        {
+          "text": "\"Dead!\"",
+          "start": 9.08,
+          "end": 9.36
+        },
+        {
+          "text": "And",
+          "start": 9.84,
+          "end": 10.1
+        },
+        {
+          "text": "the",
+          "start": 10.1,
+          "end": 10.2
+        },
+        {
+          "text": "dog",
+          "start": 10.2,
+          "end": 10.46
+        },
+        {
+          "text": "immediately",
+          "start": 10.46,
+          "end": 10.86
+        },
+        {
+          "text": "turned",
+          "start": 10.86,
+          "end": 11.34
+        },
+        {
+          "text": "round",
+          "start": 11.34,
+          "end": 11.72
+        },
+        {
+          "text": "and",
+          "start": 11.72,
+          "end": 11.98
+        },
+        {
+          "text": "lay",
+          "start": 11.98,
+          "end": 12.16
+        },
+        {
+          "text": "on",
+          "start": 12.16,
+          "end": 12.32
+        },
+        {
+          "text": "his",
+          "start": 12.32,
+          "end": 12.46
+        },
+        {
+          "text": "back",
+          "start": 12.46,
+          "end": 12.72
+        },
+        {
+          "text": "with",
+          "start": 12.72,
+          "end": 12.86
+        },
+        {
+          "text": "its",
+          "start": 12.86,
+          "end": 13.02
+        },
+        {
+          "text": "four",
+          "start": 13.02,
+          "end": 13.26
+        },
+        {
+          "text": "paws",
+          "start": 13.26,
+          "end": 13.38
+        },
+        {
+          "text": "in",
+          "start": 13.5,
+          "end": 13.66
+        },
+        {
+          "text": "the",
+          "start": 13.66,
+          "end": 13.76
+        },
+        {
+          "text": "air.",
+          "start": 13.76,
+          "end": 14.0
+        },
+        {
+          "text": "The",
+          "start": 14.56,
+          "end": 14.68
+        },
+        {
+          "text": "boys",
+          "start": 14.68,
+          "end": 14.92
+        },
+        {
+          "text": "laughed.",
+          "start": 14.92,
+          "end": 15.3
+        },
+        {
+          "text": "Ilusha",
+          "start": 15.3,
+          "end": 15.82
+        },
+        {
+          "text": "looked",
+          "start": 16.34,
+          "end": 16.48
+        },
+        {
+          "text": "on",
+          "start": 16.48,
+          "end": 16.68
+        },
+        {
+          "text": "with",
+          "start": 16.68,
+          "end": 16.82
+        },
+        {
+          "text": "the",
+          "start": 16.82,
+          "end": 16.96
+        },
+        {
+          "text": "same",
+          "start": 16.96,
+          "end": 17.2
+        },
+        {
+          "text": "suffering",
+          "start": 17.2,
+          "end": 17.66
+        },
+        {
+          "text": "smile,",
+          "start": 17.66,
+          "end": 18.08
+        },
+        {
+          "text": "but",
+          "start": 18.44,
+          "end": 18.64
+        },
+        {
+          "text": "the",
+          "start": 18.64,
+          "end": 18.76
+        },
+        {
+          "text": "person",
+          "start": 18.76,
+          "end": 19.08
+        },
+        {
+          "text": "most",
+          "start": 19.08,
+          "end": 19.38
+        },
+        {
+          "text": "delighted",
+          "start": 19.38,
+          "end": 19.84
+        },
+        {
+          "text": "with",
+          "start": 19.84,
+          "end": 20.04
+        },
+        {
+          "text": "the",
+          "start": 20.04,
+          "end": 20.18
+        },
+        {
+          "text": "dog's",
+          "start": 20.18,
+          "end": 20.54
+        },
+        {
+          "text": "performance",
+          "start": 20.54,
+          "end": 20.94
+        },
+        {
+          "text": "was",
+          "start": 20.94,
+          "end": 21.28
+        },
+        {
+          "text": "\"mamma.\"",
+          "start": 21.28,
+          "end": 21.87
+        },
+        {
+          "text": "She",
+          "start": 22.46,
+          "end": 22.64
+        },
+        {
+          "text": "laughed",
+          "start": 22.64,
+          "end": 22.88
+        },
+        {
+          "text": "at",
+          "start": 22.88,
+          "end": 23.06
+        },
+        {
+          "text": "the",
+          "start": 23.06,
+          "end": 23.16
+        },
+        {
+          "text": "dog",
+          "start": 23.16,
+          "end": 23.44
+        },
+        {
+          "text": "and",
+          "start": 23.44,
+          "end": 23.58
+        },
+        {
+          "text": "began",
+          "start": 23.58,
+          "end": 23.84
+        },
+        {
+          "text": "snapping",
+          "start": 23.84,
+          "end": 24.3
+        },
+        {
+          "text": "her",
+          "start": 24.3,
+          "end": 24.54
+        },
+        {
+          "text": "fingers",
+          "start": 24.54,
+          "end": 24.84
+        },
+        {
+          "text": "and",
+          "start": 24.84,
+          "end": 25.14
+        },
+        {
+          "text": "calling",
+          "start": 25.14,
+          "end": 25.42
+        },
+        {
+          "text": "it,",
+          "start": 25.42,
+          "end": 25.74
+        },
+        {
+          "text": "\"Perezvon,",
+          "start": 25.74,
+          "end": 26.84
+        },
+        {
+          "text": "Perezvon!\"",
+          "start": 26.84,
+          "end": 27.39
+        }
+      ],
+      "stats": {
+        "expected_words": 82,
+        "heard_words": 85,
+        "matched_words": 74
+      },
+      "match_ratio": 0.9024390243902439,
+      "rejection_reasons": [],
+      "seconds": 0.9230608362704515
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "7133542700ae4c7768b653f45d24f64671a2a2d306ce3e86be7eab71dcf43cb1",
+  "selected_reasons": []
+}

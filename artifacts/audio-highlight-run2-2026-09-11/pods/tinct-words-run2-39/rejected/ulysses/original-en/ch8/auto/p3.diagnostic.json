@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "9b521eee64213544226357bd634afa8ab861fd3106ff567ea3635e23377851d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16180599597282708,
+      "alignment_seconds": 0.00030462886206805706,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bloo... Me? No.",
+        "hotwords": "Bloo, Me, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bloo, Me, No.",
+          "start": 0.08,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Bloo,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.1767578125
+            },
+            {
+              "text": " Me,",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.042449951171875
+            },
+            {
+              "text": " No.",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.11474609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bloo,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Me,",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "No.",
+          "start": 1.4,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Bloo...",
+        "Me?",
+        "No."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bloo,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "bloo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Me,",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bloo...",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Me?",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "No.",
+          "start": 1.4,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16222038096748292
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "890256ceced871de2fb8cd271496e72be4fd4d404e029b8a87b388a0c64d83d2",
+  "selected_reasons": []
+}

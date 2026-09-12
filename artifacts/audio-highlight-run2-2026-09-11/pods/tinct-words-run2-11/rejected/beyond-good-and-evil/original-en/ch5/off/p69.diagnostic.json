@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "6d1425add340da124f46c84da0c0087f88c2115a5cc3192f88be85e8a8a75074",
+  "attempts": [
+    {
+      "asr_seconds": 0.19890948291867971,
+      "alignment_seconds": 0.0004006819799542427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 132. One is punished best for one's virtues.",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " 132.",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.69921875
+            },
+            {
+              "text": " One",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " is",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " punished",
+              "start": 2.45,
+              "end": 2.79,
+              "probability": 0.94921875
+            },
+            {
+              "text": " best",
+              "start": 2.79,
+              "end": 3.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 3.15,
+              "end": 3.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one's",
+              "start": 3.41,
+              "end": 3.73,
+              "probability": 0.986328125
+            },
+            {
+              "text": " virtues.",
+              "start": 3.73,
+              "end": 4.05,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "132.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "One",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "is",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "punished",
+          "start": 2.45,
+          "end": 2.79
+        },
+        {
+          "raw": "best",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "raw": "for",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "raw": "one's",
+          "start": 3.41,
+          "end": 3.73
+        },
+        {
+          "raw": "virtues.",
+          "start": 3.73,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "132.",
+        "One",
+        "is",
+        "punished",
+        "best",
+        "for",
+        "one's",
+        "virtues."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "132.",
+          "start": 0.05,
+          "end": 1.17,
+          "key": "132",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.27,
+          "end": 2.45,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "punished",
+          "start": 2.45,
+          "end": 2.79,
+          "key": "punished",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 2.79,
+          "end": 3.15,
+          "key": "best",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.15,
+          "end": 3.41,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one's",
+          "start": 3.41,
+          "end": 3.73,
+          "key": "ones",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "virtues.",
+          "start": 3.73,
+          "end": 4.05,
+          "key": "virtues",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "132.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "text": "One",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "is",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "text": "punished",
+          "start": 2.45,
+          "end": 2.79
+        },
+        {
+          "text": "best",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "text": "for",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "text": "one's",
+          "start": 3.41,
+          "end": 3.73
+        },
+        {
+          "text": "virtues.",
+          "start": 3.73,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19947789516299963
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f39eb269311ca6e9989f54c833e2af3345777871355eba5ba7c6fbcac1c3ff6d",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "198ada82b501d9e3b568521df5eda8c1b22391f39356a1084678233a650c697b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19404884614050388,
+      "alignment_seconds": 0.0003624036908149719,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro with me in your company",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " Pedro",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " with",
+              "start": 1.03,
+              "end": 1.57,
+              "probability": 0.4052734375
+            },
+            {
+              "text": " me",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " in",
+              "start": 1.73,
+              "end": 1.81,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " your",
+              "start": 1.81,
+              "end": 1.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " company",
+              "start": 1.91,
+              "end": 2.29,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "with",
+          "start": 1.03,
+          "end": 1.57
+        },
+        {
+          "raw": "me",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "in",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "raw": "your",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "raw": "company",
+          "start": 1.91,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "With",
+        "me",
+        "in",
+        "your",
+        "company?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.03,
+          "end": 1.57,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.73,
+          "end": 1.81,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.81,
+          "end": 1.91,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "company",
+          "start": 1.91,
+          "end": 2.29,
+          "key": "company",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "With",
+          "start": 1.03,
+          "end": 1.57
+        },
+        {
+          "text": "me",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "in",
+          "start": 1.73,
+          "end": 1.81
+        },
+        {
+          "text": "your",
+          "start": 1.81,
+          "end": 1.91
+        },
+        {
+          "text": "company?",
+          "start": 1.91,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19456261582672596
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0fea0058c5e435027efcad6948d243837fd80fb98ea85749658df1b6001f1bbc",
+  "selected_reasons": []
+}

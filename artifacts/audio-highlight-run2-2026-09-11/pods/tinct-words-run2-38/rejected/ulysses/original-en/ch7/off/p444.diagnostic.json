@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "825e8072b135c55708ae5d5d277e3f1091200719f8d7b3e0f76c1ffd271413eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.19890558201586828,
+      "alignment_seconds": 0.0002979920245707035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gentlemen, Stephen said.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Gentlemen,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.7044677734375
+            },
+            {
+              "text": " Stephen",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " said.",
+              "start": 1.55,
+              "end": 1.95,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " As the next motion on the agenda paper, may I suggest that the House do now adjourn.",
+          "start": 2.61,
+          "end": 6.79,
+          "words": [
+            {
+              "text": " As",
+              "start": 2.61,
+              "end": 2.65,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " the",
+              "start": 2.65,
+              "end": 2.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " next",
+              "start": 2.77,
+              "end": 2.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " motion",
+              "start": 2.99,
+              "end": 3.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.53,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " agenda",
+              "start": 3.65,
+              "end": 3.93,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " paper,",
+              "start": 3.93,
+              "end": 4.41,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " may",
+              "start": 4.73,
+              "end": 4.77,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " I",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " suggest",
+              "start": 4.93,
+              "end": 5.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 5.29,
+              "end": 5.57,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 5.57,
+              "end": 5.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " House",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " do",
+              "start": 5.97,
+              "end": 6.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " now",
+              "start": 6.23,
+              "end": 6.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " adjourn.",
+              "start": 6.45,
+              "end": 6.79,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "said.",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "raw": "As",
+          "start": 2.61,
+          "end": 2.65
+        },
+        {
+          "raw": "the",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "raw": "next",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "raw": "motion",
+          "start": 2.99,
+          "end": 3.35
+        },
+        {
+          "raw": "on",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "the",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "raw": "agenda",
+          "start": 3.65,
+          "end": 3.93
+        },
+        {
+          "raw": "paper,",
+          "start": 3.93,
+          "end": 4.41
+        },
+        {
+          "raw": "may",
+          "start": 4.73,
+          "end": 4.77
+        },
+        {
+          "raw": "I",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "suggest",
+          "start": 4.93,
+          "end": 5.29
+        },
+        {
+          "raw": "that",
+          "start": 5.29,
+          "end": 5.57
+        },
+        {
+          "raw": "the",
+          "start": 5.57,
+          "end": 5.71
+        },
+        {
+          "raw": "House",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "do",
+          "start": 5.97,
+          "end": 6.23
+        },
+        {
+          "raw": "now",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "raw": "adjourn.",
+          "start": 6.45,
+          "end": 6.79
+        }
+      ],
+      "expected_tokens": [
+        "—Gentlemen,",
+        "Stephen",
+        "said.",
+        "As",
+        "the",
+        "next",
+        "motion",
+        "on",
+        "the",
+        "agenda",
+        "paper",
+        "may",
+        "I",
+        "suggest",
+        "that",
+        "the",
+        "house",
+        "do",
+        "now",
+        "adjourn?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentlemen,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "gentlemen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Stephen",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "stephen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.55,
+          "end": 1.95,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 2.61,
+          "end": 2.65,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.65,
+          "end": 2.77,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 2.77,
+          "end": 2.99,
+          "key": "next",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "motion",
+          "start": 2.99,
+          "end": 3.35,
+          "key": "motion",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.35,
+          "end": 3.53,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.53,
+          "end": 3.65,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "agenda",
+          "start": 3.65,
+          "end": 3.93,
+          "key": "agenda",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "paper,",
+          "start": 3.93,
+          "end": 4.41,
+          "key": "paper",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 4.73,
+          "end": 4.77,
+          "key": "may",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.77,
+          "end": 4.93,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "suggest",
+          "start": 4.93,
+          "end": 5.29,
+          "key": "suggest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.29,
+          "end": 5.57,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.57,
+          "end": 5.71,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "House",
+          "start": 5.71,
+          "end": 5.97,
+          "key": "house",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.97,
+          "end": 6.23,
+          "key": "do",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 6.23,
+          "end": 6.45,
+          "key": "now",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "adjourn.",
+          "start": 6.45,
+          "end": 6.79,
+          "key": "adjourn",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Gentlemen,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "Stephen",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "said.",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "text": "As",
+          "start": 2.61,
+          "end": 2.65
+        },
+        {
+          "text": "the",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "text": "next",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "text": "motion",
+          "start": 2.99,
+          "end": 3.35
+        },
+        {
+          "text": "on",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "the",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "text": "agenda",
+          "start": 3.65,
+          "end": 3.93
+        },
+        {
+          "text": "paper",
+          "start": 3.93,
+          "end": 4.41
+        },
+        {
+          "text": "may",
+          "start": 4.73,
+          "end": 4.77
+        },
+        {
+          "text": "I",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "suggest",
+          "start": 4.93,
+          "end": 5.29
+        },
+        {
+          "text": "that",
+          "start": 5.29,
+          "end": 5.57
+        },
+        {
+          "text": "the",
+          "start": 5.57,
+          "end": 5.71
+        },
+        {
+          "text": "house",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "do",
+          "start": 5.97,
+          "end": 6.23
+        },
+        {
+          "text": "now",
+          "start": 6.23,
+          "end": 6.45
+        },
+        {
+          "text": "adjourn?",
+          "start": 6.45,
+          "end": 6.79
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19931657501729205
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3afdf294a90d9543d74efc56e2953014d9211ef20a353f6aca12dd4017bd5cf9",
+  "selected_reasons": []
+}

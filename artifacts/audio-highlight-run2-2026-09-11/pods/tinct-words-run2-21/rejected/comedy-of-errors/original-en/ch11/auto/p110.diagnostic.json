@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "eb7560fbfb3b37484a06b0ab51ae31af4c62b6bb27c5aaff4a50ab86a2a642bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.1978396587073803,
+      "alignment_seconds": 0.0001244889572262764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter the Abbess with Antipholus of Syracuse and Dromio of Syracuse.",
+        "hotwords": "Enter, Abbess, Antipholus, Syracuse, Dromio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter the Abbess with Antipholus of Syracuse and Dromio of Syracuse.",
+          "start": 0.08,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.9296875
+            },
+            {
+              "text": " the",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Abbess",
+              "start": 0.8,
+              "end": 1.18,
+              "probability": 0.5540669759114584
+            },
+            {
+              "text": " with",
+              "start": 1.18,
+              "end": 1.48,
+              "probability": 0.783203125
+            },
+            {
+              "text": " Antipholus",
+              "start": 1.48,
+              "end": 2.22,
+              "probability": 0.502042293548584
+            },
+            {
+              "text": " of",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Syracuse",
+              "start": 2.36,
+              "end": 2.82,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " and",
+              "start": 2.82,
+              "end": 3.4,
+              "probability": 0.78125
+            },
+            {
+              "text": " Dromio",
+              "start": 3.4,
+              "end": 3.88,
+              "probability": 0.737060546875
+            },
+            {
+              "text": " of",
+              "start": 3.88,
+              "end": 4.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Syracuse.",
+              "start": 4.1,
+              "end": 4.52,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "Abbess",
+          "start": 0.8,
+          "end": 1.18
+        },
+        {
+          "raw": "with",
+          "start": 1.18,
+          "end": 1.48
+        },
+        {
+          "raw": "Antipholus",
+          "start": 1.48,
+          "end": 2.22
+        },
+        {
+          "raw": "of",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "Syracuse",
+          "start": 2.36,
+          "end": 2.82
+        },
+        {
+          "raw": "and",
+          "start": 2.82,
+          "end": 3.4
+        },
+        {
+          "raw": "Dromio",
+          "start": 3.4,
+          "end": 3.88
+        },
+        {
+          "raw": "of",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 4.1,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Abbess",
+        "with",
+        "Antipholus",
+        "of",
+        "Syracuse",
+        "and",
+        "Dromio",
+        "of",
+        "Syracuse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Abbess",
+          "start": 0.8,
+          "end": 1.18,
+          "key": "abbess",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.18,
+          "end": 1.48,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Antipholus",
+          "start": 1.48,
+          "end": 2.22,
+          "key": "antipholus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.22,
+          "end": 2.36,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Syracuse",
+          "start": 2.36,
+          "end": 2.82,
+          "key": "syracuse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.82,
+          "end": 3.4,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dromio",
+          "start": 3.4,
+          "end": 3.88,
+          "key": "dromio",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.88,
+          "end": 4.1,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Syracuse.",
+          "start": 4.1,
+          "end": 4.52,
+          "key": "syracuse",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "the",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "Abbess",
+          "start": 0.8,
+          "end": 1.18
+        },
+        {
+          "text": "with",
+          "start": 1.18,
+          "end": 1.48
+        },
+        {
+          "text": "Antipholus",
+          "start": 1.48,
+          "end": 2.22
+        },
+        {
+          "text": "of",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "Syracuse",
+          "start": 2.36,
+          "end": 2.82
+        },
+        {
+          "text": "and",
+          "start": 2.82,
+          "end": 3.4
+        },
+        {
+          "text": "Dromio",
+          "start": 3.4,
+          "end": 3.88
+        },
+        {
+          "text": "of",
+          "start": 3.88,
+          "end": 4.1
+        },
+        {
+          "text": "Syracuse.",
+          "start": 4.1,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19801080785691738
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "44560eac110c83002faaaac9d3a87acd2b2ac36de77d86295bb8ba2ad3a2200e",
+  "selected_reasons": []
+}

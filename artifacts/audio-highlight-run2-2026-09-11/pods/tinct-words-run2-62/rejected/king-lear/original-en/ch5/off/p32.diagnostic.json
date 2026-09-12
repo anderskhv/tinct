@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "4eb690ea4be400ccdc67c2a68d205262aa5ace41b24782066d262324f7e1995e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17184414714574814,
+      "alignment_seconds": 0.0002477020025253296,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fool she that's a maid now and laughs at my departure shall not be a maid long unless things be cut shorter",
+          "start": 0.08,
+          "end": 6.94,
+          "words": [
+            {
+              "text": " Fool",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " she",
+              "start": 0.66,
+              "end": 1.34,
+              "probability": 0.27392578125
+            },
+            {
+              "text": " that's",
+              "start": 1.34,
+              "end": 1.66,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " a",
+              "start": 1.66,
+              "end": 1.68,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " maid",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.96484375
+            },
+            {
+              "text": " now",
+              "start": 1.9,
+              "end": 2.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 2.26,
+              "end": 2.64,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " laughs",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " my",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " departure",
+              "start": 3.2,
+              "end": 3.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shall",
+              "start": 3.68,
+              "end": 4.04,
+              "probability": 0.953125
+            },
+            {
+              "text": " not",
+              "start": 4.04,
+              "end": 4.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 4.24,
+              "end": 4.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 4.4,
+              "end": 4.52,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " maid",
+              "start": 4.52,
+              "end": 4.76,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " long",
+              "start": 4.76,
+              "end": 5.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " unless",
+              "start": 5.12,
+              "end": 5.76,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " things",
+              "start": 5.76,
+              "end": 6.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 6.06,
+              "end": 6.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " cut",
+              "start": 6.3,
+              "end": 6.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shorter",
+              "start": 6.52,
+              "end": 6.94,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "she",
+          "start": 0.66,
+          "end": 1.34
+        },
+        {
+          "raw": "that's",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "raw": "a",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "raw": "maid",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "now",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.64
+        },
+        {
+          "raw": "laughs",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "at",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "my",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "departure",
+          "start": 3.2,
+          "end": 3.68
+        },
+        {
+          "raw": "shall",
+          "start": 3.68,
+          "end": 4.04
+        },
+        {
+          "raw": "not",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "raw": "be",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "raw": "a",
+          "start": 4.4,
+          "end": 4.52
+        },
+        {
+          "raw": "maid",
+          "start": 4.52,
+          "end": 4.76
+        },
+        {
+          "raw": "long",
+          "start": 4.76,
+          "end": 5.12
+        },
+        {
+          "raw": "unless",
+          "start": 5.12,
+          "end": 5.76
+        },
+        {
+          "raw": "things",
+          "start": 5.76,
+          "end": 6.06
+        },
+        {
+          "raw": "be",
+          "start": 6.06,
+          "end": 6.3
+        },
+        {
+          "raw": "cut",
+          "start": 6.3,
+          "end": 6.52
+        },
+        {
+          "raw": "shorter",
+          "start": 6.52,
+          "end": 6.94
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "She",
+        "that's",
+        "a",
+        "maid",
+        "now,",
+        "and",
+        "laughs",
+        "at",
+        "my",
+        "departure,",
+        "Shall",
+        "not",
+        "be",
+        "a",
+        "maid",
+        "long,",
+        "unless",
+        "things",
+        "be",
+        "cut",
+        "shorter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.66,
+          "end": 1.34,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.34,
+          "end": 1.66,
+          "key": "thats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.66,
+          "end": 1.68,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "maid",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "maid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.9,
+          "end": 2.26,
+          "key": "now",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.64,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "laughs",
+          "start": 2.64,
+          "end": 2.9,
+          "key": "laughs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.9,
+          "end": 3.06,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "departure",
+          "start": 3.2,
+          "end": 3.68,
+          "key": "departure",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.68,
+          "end": 4.04,
+          "key": "shall",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.04,
+          "end": 4.24,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.24,
+          "end": 4.4,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.4,
+          "end": 4.52,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "maid",
+          "start": 4.52,
+          "end": 4.76,
+          "key": "maid",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 4.76,
+          "end": 5.12,
+          "key": "long",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "unless",
+          "start": 5.12,
+          "end": 5.76,
+          "key": "unless",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 5.76,
+          "end": 6.06,
+          "key": "things",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.06,
+          "end": 6.3,
+          "key": "be",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cut",
+          "start": 6.3,
+          "end": 6.52,
+          "key": "cut",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "shorter",
+          "start": 6.52,
+          "end": 6.94,
+          "key": "shorter",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "She",
+          "start": 0.66,
+          "end": 1.34
+        },
+        {
+          "text": "that's",
+          "start": 1.34,
+          "end": 1.66
+        },
+        {
+          "text": "a",
+          "start": 1.66,
+          "end": 1.68
+        },
+        {
+          "text": "maid",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "now,",
+          "start": 1.9,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.64
+        },
+        {
+          "text": "laughs",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "at",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "my",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "departure,",
+          "start": 3.2,
+          "end": 3.68
+        },
+        {
+          "text": "Shall",
+          "start": 3.68,
+          "end": 4.04
+        },
+        {
+          "text": "not",
+          "start": 4.04,
+          "end": 4.24
+        },
+        {
+          "text": "be",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "text": "a",
+          "start": 4.4,
+          "end": 4.52
+        },
+        {
+          "text": "maid",
+          "start": 4.52,
+          "end": 4.76
+        },
+        {
+          "text": "long,",
+          "start": 4.76,
+          "end": 5.12
+        },
+        {
+          "text": "unless",
+          "start": 5.12,
+          "end": 5.76
+        },
+        {
+          "text": "things",
+          "start": 5.76,
+          "end": 6.06
+        },
+        {
+          "text": "be",
+          "start": 6.06,
+          "end": 6.3
+        },
+        {
+          "text": "cut",
+          "start": 6.3,
+          "end": 6.52
+        },
+        {
+          "text": "shorter.",
+          "start": 6.52,
+          "end": 6.94
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17218780890107155
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "311290102155a969d87ef65944fe17877e5a1f5a744ac9eeb8166a154063f19e",
+  "selected_reasons": []
+}

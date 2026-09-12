@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "c2ab7113f11bf3a3a63d61b951639fbda5381b73d2b88d8407f6acd929fa2750",
+  "attempts": [
+    {
+      "asr_seconds": 0.216132378205657,
+      "alignment_seconds": 0.00020865723490715027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen. I'll warrant you, Fear me not. Withdraw, I hear him coming.",
+        "hotwords": "Queen, I'll, Fear, Withdraw, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen, I'll warrant you, Fear me not. Withdraw, I hear him coming.",
+          "start": 0.08,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.7734375
+            },
+            {
+              "text": " I'll",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " warrant",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " you,",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Fear",
+              "start": 1.82,
+              "end": 1.88,
+              "probability": 0.143798828125
+            },
+            {
+              "text": " me",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.465087890625
+            },
+            {
+              "text": " not.",
+              "start": 2.02,
+              "end": 2.3,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Withdraw,",
+              "start": 2.78,
+              "end": 3.08,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " I",
+              "start": 3.22,
+              "end": 3.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hear",
+              "start": 3.28,
+              "end": 3.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 3.44,
+              "end": 3.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " coming.",
+              "start": 3.6,
+              "end": 3.86,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "I'll",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "warrant",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "you,",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "Fear",
+          "start": 1.82,
+          "end": 1.88
+        },
+        {
+          "raw": "me",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "not.",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "raw": "Withdraw,",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.28
+        },
+        {
+          "raw": "hear",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "raw": "him",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "raw": "coming.",
+          "start": 3.6,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "I'll",
+        "warrant",
+        "you,",
+        "Fear",
+        "me",
+        "not.",
+        "Withdraw,",
+        "I",
+        "hear",
+        "him",
+        "coming."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "warrant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Fear",
+          "start": 1.82,
+          "end": 1.88,
+          "key": "fear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 2.02,
+          "end": 2.3,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Withdraw,",
+          "start": 2.78,
+          "end": 3.08,
+          "key": "withdraw",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.22,
+          "end": 3.28,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 3.28,
+          "end": 3.44,
+          "key": "hear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.44,
+          "end": 3.6,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "coming.",
+          "start": 3.6,
+          "end": 3.86,
+          "key": "coming",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "I'll",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "warrant",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "you,",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "text": "Fear",
+          "start": 1.82,
+          "end": 1.88
+        },
+        {
+          "text": "me",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "not.",
+          "start": 2.02,
+          "end": 2.3
+        },
+        {
+          "text": "Withdraw,",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "text": "I",
+          "start": 3.22,
+          "end": 3.28
+        },
+        {
+          "text": "hear",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "text": "him",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "coming.",
+          "start": 3.6,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21642121113836765
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47a956e996dbbaaac1c77a687cee48f7e9864ae1e5d6549a360ecc7df1d9c435",
+  "selected_reasons": []
+}

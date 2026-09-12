@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "3e0e2e6788f847bc30307a6de737d9124d7a0efd6e0359313185c31f053e323e",
+  "attempts": [
+    {
+      "asr_seconds": 0.29204946104437113,
+      "alignment_seconds": 0.0004406329244375229,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cominius. They are worn, lord consul, so That we shall hardly in our ages see Their banners wave again.",
+        "hotwords": "Cominius, They, That, Their"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cominius, They are worn, lord consul, so That we shall hardly in our ages see Their banners wave again.",
+          "start": 0.02,
+          "end": 6.44,
+          "words": [
+            {
+              "text": " Cominius,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.53955078125
+            },
+            {
+              "text": " They",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.09344482421875
+            },
+            {
+              "text": " are",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.986328125
+            },
+            {
+              "text": " worn,",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " lord",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.06427001953125
+            },
+            {
+              "text": " consul,",
+              "start": 2.64,
+              "end": 3.2,
+              "probability": 0.710693359375
+            },
+            {
+              "text": " so",
+              "start": 3.5,
+              "end": 3.64,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " That",
+              "start": 3.64,
+              "end": 3.76,
+              "probability": 0.00397491455078125
+            },
+            {
+              "text": " we",
+              "start": 3.76,
+              "end": 3.92,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " shall",
+              "start": 3.92,
+              "end": 4.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hardly",
+              "start": 4.08,
+              "end": 4.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " our",
+              "start": 4.6,
+              "end": 4.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ages",
+              "start": 4.72,
+              "end": 5.04,
+              "probability": 0.955078125
+            },
+            {
+              "text": " see",
+              "start": 5.04,
+              "end": 5.34,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Their",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " banners",
+              "start": 5.52,
+              "end": 5.86,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " wave",
+              "start": 5.86,
+              "end": 6.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " again.",
+              "start": 6.1,
+              "end": 6.44,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cominius,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "They",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "raw": "are",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "worn,",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "lord",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "consul,",
+          "start": 2.64,
+          "end": 3.2
+        },
+        {
+          "raw": "so",
+          "start": 3.5,
+          "end": 3.64
+        },
+        {
+          "raw": "That",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "raw": "we",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "raw": "shall",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "raw": "hardly",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "raw": "in",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "our",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "raw": "ages",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "raw": "see",
+          "start": 5.04,
+          "end": 5.34
+        },
+        {
+          "raw": "Their",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "banners",
+          "start": 5.52,
+          "end": 5.86
+        },
+        {
+          "raw": "wave",
+          "start": 5.86,
+          "end": 6.1
+        },
+        {
+          "raw": "again.",
+          "start": 6.1,
+          "end": 6.44
+        }
+      ],
+      "expected_tokens": [
+        "Cominius.",
+        "They",
+        "are",
+        "worn,",
+        "lord",
+        "consul,",
+        "so",
+        "That",
+        "we",
+        "shall",
+        "hardly",
+        "in",
+        "our",
+        "ages",
+        "see",
+        "Their",
+        "banners",
+        "wave",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cominius,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "cominius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "worn,",
+          "start": 1.9,
+          "end": 2.22,
+          "key": "worn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "consul,",
+          "start": 2.64,
+          "end": 3.2,
+          "key": "consul",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.5,
+          "end": 3.64,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.64,
+          "end": 3.76,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.76,
+          "end": 3.92,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.92,
+          "end": 4.08,
+          "key": "shall",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hardly",
+          "start": 4.08,
+          "end": 4.38,
+          "key": "hardly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.6,
+          "end": 4.72,
+          "key": "our",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ages",
+          "start": 4.72,
+          "end": 5.04,
+          "key": "ages",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 5.04,
+          "end": 5.34,
+          "key": "see",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 5.34,
+          "end": 5.52,
+          "key": "their",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "banners",
+          "start": 5.52,
+          "end": 5.86,
+          "key": "banners",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "wave",
+          "start": 5.86,
+          "end": 6.1,
+          "key": "wave",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 6.1,
+          "end": 6.44,
+          "key": "again",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cominius.",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "text": "They",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "text": "are",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "worn,",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "lord",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "consul,",
+          "start": 2.64,
+          "end": 3.2
+        },
+        {
+          "text": "so",
+          "start": 3.5,
+          "end": 3.64
+        },
+        {
+          "text": "That",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "text": "we",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "text": "shall",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "hardly",
+          "start": 4.08,
+          "end": 4.38
+        },
+        {
+          "text": "in",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "our",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "text": "ages",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "text": "see",
+          "start": 5.04,
+          "end": 5.34
+        },
+        {
+          "text": "Their",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "banners",
+          "start": 5.52,
+          "end": 5.86
+        },
+        {
+          "text": "wave",
+          "start": 5.86,
+          "end": 6.1
+        },
+        {
+          "text": "again.",
+          "start": 6.1,
+          "end": 6.44
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29270612029358745
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c020c0bfb8cdf800185197fc46bdc7fdaf167d97dad903f8ef77985d737a49bc",
+  "selected_reasons": []
+}

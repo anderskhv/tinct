@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "a1cf5e3ed6cb7b12ee0177f1a042e34b499d76633ad00baac5e1e40cb6b4274a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2165900617837906,
+      "alignment_seconds": 0.000506669282913208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Toby possess us possess us tell us something of him",
+          "start": 0.0,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " Toby",
+              "start": 0.52,
+              "end": 0.9,
+              "probability": 0.77734375
+            },
+            {
+              "text": " possess",
+              "start": 0.9,
+              "end": 1.64,
+              "probability": 0.230224609375
+            },
+            {
+              "text": " us",
+              "start": 1.64,
+              "end": 1.96,
+              "probability": 0.970703125
+            },
+            {
+              "text": " possess",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " us",
+              "start": 2.16,
+              "end": 2.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " tell",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.740234375
+            },
+            {
+              "text": " us",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " something",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "Toby",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "raw": "possess",
+          "start": 0.9,
+          "end": 1.64
+        },
+        {
+          "raw": "us",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "raw": "possess",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "us",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "raw": "tell",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "us",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "something",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "of",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "him",
+          "start": 3.28,
+          "end": 3.48
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Possess",
+        "us,",
+        "possess",
+        "us,",
+        "tell",
+        "us",
+        "something",
+        "of",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby",
+          "start": 0.52,
+          "end": 0.9,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "possess",
+          "start": 0.9,
+          "end": 1.64,
+          "key": "possess",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.64,
+          "end": 1.96,
+          "key": "us",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "possess",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "possess",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.16,
+          "end": 2.52,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "tell",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "something",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "Toby.",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "text": "Possess",
+          "start": 0.9,
+          "end": 1.64
+        },
+        {
+          "text": "us,",
+          "start": 1.64,
+          "end": 1.96
+        },
+        {
+          "text": "possess",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "us,",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "text": "tell",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "us",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "something",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "of",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "him.",
+          "start": 3.28,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21730711311101913
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9adafac84b16a4e2acbbb318342fc8c7043ad5c057dd2951ddb91a102881778a",
+  "selected_reasons": []
+}

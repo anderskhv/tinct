@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "408187db5635ac6fb718cb31dd2e79a29f37ed734bee9b24406cc33116917c36",
+  "attempts": [
+    {
+      "asr_seconds": 0.2386859767138958,
+      "alignment_seconds": 0.0004036780446767807,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leance, we'll part the time betweens then, and in that I'll know Gainsing.",
+          "start": 0.02,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " Leance,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.5391845703125
+            },
+            {
+              "text": " we'll",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.859375
+            },
+            {
+              "text": " part",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " time",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " betweens",
+              "start": 1.94,
+              "end": 2.36,
+              "probability": 0.7670084635416666
+            },
+            {
+              "text": " then,",
+              "start": 2.36,
+              "end": 2.68,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " and",
+              "start": 3.1,
+              "end": 3.18,
+              "probability": 0.9765625
+            },
+            {
+              "text": " in",
+              "start": 3.18,
+              "end": 3.28,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " that",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.986328125
+            },
+            {
+              "text": " I'll",
+              "start": 3.42,
+              "end": 3.56,
+              "probability": 0.951416015625
+            },
+            {
+              "text": " know",
+              "start": 3.56,
+              "end": 3.74,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Gainsing.",
+              "start": 3.74,
+              "end": 4.26,
+              "probability": 0.5799967447916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leance,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "we'll",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "raw": "part",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "time",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "betweens",
+          "start": 1.94,
+          "end": 2.36
+        },
+        {
+          "raw": "then,",
+          "start": 2.36,
+          "end": 2.68
+        },
+        {
+          "raw": "and",
+          "start": 3.1,
+          "end": 3.18
+        },
+        {
+          "raw": "in",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "raw": "that",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "I'll",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "raw": "know",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "raw": "Gainsing.",
+          "start": 3.74,
+          "end": 4.26
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "We'll",
+        "part",
+        "the",
+        "time",
+        "between",
+        "'s",
+        "then:",
+        "and",
+        "in",
+        "that",
+        "I'll",
+        "no",
+        "gainsaying."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          6
+        ],
+        [
+          "equal",
+          7,
+          12,
+          6,
+          11
+        ],
+        [
+          "replace",
+          12,
+          14,
+          11,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          6
+        ],
+        [
+          "replace",
+          12,
+          14,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leance,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "leance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 1.16,
+          "end": 1.44,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "part",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "time",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "betweens",
+          "start": 1.94,
+          "end": 2.36,
+          "key": "betweens",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 2.36,
+          "end": 2.68,
+          "key": "then",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.1,
+          "end": 3.18,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.18,
+          "end": 3.28,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.42,
+          "end": 3.56,
+          "key": "ill",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.56,
+          "end": 3.74,
+          "key": "know",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Gainsing.",
+          "start": 3.74,
+          "end": 4.26,
+          "key": "gainsing",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "We'll",
+          "start": 1.16,
+          "end": 1.44
+        },
+        {
+          "text": "part",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "the",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "time",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "between",
+          "start": 1.94,
+          "end": 2.15
+        },
+        {
+          "text": "'s",
+          "start": 2.15,
+          "end": 2.255
+        },
+        {
+          "text": "then:",
+          "start": 2.36,
+          "end": 2.68
+        },
+        {
+          "text": "and",
+          "start": 3.1,
+          "end": 3.18
+        },
+        {
+          "text": "in",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "text": "that",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "I'll",
+          "start": 3.42,
+          "end": 3.56
+        },
+        {
+          "text": "no",
+          "start": 3.56,
+          "end": 3.91
+        },
+        {
+          "text": "gainsaying.",
+          "start": 3.91,
+          "end": 4.085
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 13,
+        "matched_words": 9
+      },
+      "match_ratio": 0.6428571428571429,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23919829167425632
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a9bafa170d4ba2a0d146710756cb6ecfe957824a78c3583cb11530d436287e98",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

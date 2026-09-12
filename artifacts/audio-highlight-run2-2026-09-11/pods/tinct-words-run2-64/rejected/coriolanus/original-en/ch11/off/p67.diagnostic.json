@@ -1,0 +1,515 @@
+{
+  "complete": true,
+  "signature": "7003e3f6b109ec430b25b93d0059b5bfd2d97da376bff97ff3927d9fde2b4b9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2830653106793761,
+      "alignment_seconds": 0.0004092119634151459,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, no more of this it does offend my heart.",
+          "start": 0.58,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.58,
+              "end": 1.02,
+              "probability": 0.7320149739583334
+            },
+            {
+              "text": " no",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " more",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " this",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " does",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " offend",
+              "start": 2.4,
+              "end": 2.7,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " my",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " heart.",
+              "start": 2.92,
+              "end": 3.22,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Pray now no more.",
+          "start": 3.7,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " Pray",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " now",
+              "start": 3.86,
+              "end": 4.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " no",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.66357421875
+            },
+            {
+              "text": " more.",
+              "start": 4.3,
+              "end": 4.56,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "raw": "no",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "more",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "of",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "this",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "it",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "does",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "offend",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "raw": "my",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "heart.",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "raw": "Pray",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "now",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "raw": "no",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "raw": "more.",
+          "start": 4.3,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "No",
+        "more",
+        "of",
+        "this,",
+        "it",
+        "does",
+        "offend",
+        "my",
+        "heart.",
+        "Pray",
+        "now,",
+        "no",
+        "more."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.58,
+          "end": 1.02,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "more",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "does",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "offend",
+          "start": 2.4,
+          "end": 2.7,
+          "key": "offend",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 2.92,
+          "end": 3.22,
+          "key": "heart",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 3.7,
+          "end": 3.86,
+          "key": "pray",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.86,
+          "end": 4.04,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.04,
+          "end": 4.3,
+          "key": "no",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 4.3,
+          "end": 4.56,
+          "key": "more",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.58,
+          "end": 1.02
+        },
+        {
+          "text": "No",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "more",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "of",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "this,",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "it",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "does",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "offend",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "text": "my",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "heart.",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "text": "Pray",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "now,",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "text": "no",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "text": "more.",
+          "start": 4.3,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28362134750932455
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2d53cfb17826088d8aaca73c68fc3578defc1c6a244ef0ab8f9dc73a1c2b57b0",
+  "selected_reasons": []
+}

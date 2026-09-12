@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "44fa5e8105ed1400634e5e2aa70db44dbb4f0d8cd8de63127ab3e01b1ae78127",
+  "attempts": [
+    {
+      "asr_seconds": 0.25070363096892834,
+      "alignment_seconds": 0.00014416687190532684,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polixenes. How, my lord? What cheer? How is't with you, best brother?",
+        "hotwords": "Polixenes, How, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polixenes, How, my lord? What cheer? How is't with you, best brother?",
+          "start": 0.59,
+          "end": 4.25,
+          "words": [
+            {
+              "text": " Polixenes,",
+              "start": 0.59,
+              "end": 0.97,
+              "probability": 0.264434814453125
+            },
+            {
+              "text": " How,",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.11376953125
+            },
+            {
+              "text": " my",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " lord?",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " What",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " cheer?",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " How",
+              "start": 3.05,
+              "end": 3.13,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " is't",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.407562255859375
+            },
+            {
+              "text": " with",
+              "start": 3.43,
+              "end": 3.53,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " you,",
+              "start": 3.53,
+              "end": 3.71,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " best",
+              "start": 3.81,
+              "end": 3.97,
+              "probability": 0.9296875
+            },
+            {
+              "text": " brother?",
+              "start": 3.97,
+              "end": 4.25,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.59,
+          "end": 0.97
+        },
+        {
+          "raw": "How,",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "my",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "lord?",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "What",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "cheer?",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "How",
+          "start": 3.05,
+          "end": 3.13
+        },
+        {
+          "raw": "is't",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "raw": "with",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "raw": "you,",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "raw": "best",
+          "start": 3.81,
+          "end": 3.97
+        },
+        {
+          "raw": "brother?",
+          "start": 3.97,
+          "end": 4.25
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "How,",
+        "my",
+        "lord?",
+        "What",
+        "cheer?",
+        "How",
+        "is't",
+        "with",
+        "you,",
+        "best",
+        "brother?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.59,
+          "end": 0.97,
+          "key": "polixenes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How,",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cheer?",
+          "start": 2.27,
+          "end": 2.53,
+          "key": "cheer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 3.05,
+          "end": 3.13,
+          "key": "how",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is't",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "ist",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.43,
+          "end": 3.53,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.53,
+          "end": 3.71,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 3.81,
+          "end": 3.97,
+          "key": "best",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "brother?",
+          "start": 3.97,
+          "end": 4.25,
+          "key": "brother",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.59,
+          "end": 0.97
+        },
+        {
+          "text": "How,",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "my",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "lord?",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "What",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "cheer?",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "How",
+          "start": 3.05,
+          "end": 3.13
+        },
+        {
+          "text": "is't",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "text": "with",
+          "start": 3.43,
+          "end": 3.53
+        },
+        {
+          "text": "you,",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "text": "best",
+          "start": 3.81,
+          "end": 3.97
+        },
+        {
+          "text": "brother?",
+          "start": 3.97,
+          "end": 4.25
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25089458748698235
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bbee9989e5d256ee2f2270076dc01630cf1afa723cdd300612a67daeab0d1c94",
+  "selected_reasons": []
+}

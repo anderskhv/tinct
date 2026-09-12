@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "969024cad3eac1ad2e4158a97d45c96256706e0a1ea089afd050c48f329479e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.15072833746671677,
+      "alignment_seconds": 0.00032012537121772766,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In what way shown, he said.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.51171875
+            },
+            {
+              "text": " what",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " way",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.943359375
+            },
+            {
+              "text": " shown,",
+              "start": 0.81,
+              "end": 1.09,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " he",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " said.",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "way",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "shown,",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "raw": "he",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "said.",
+          "start": 1.57,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "what",
+        "way",
+        "shown?",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 0.65,
+          "end": 0.81,
+          "key": "way",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shown,",
+          "start": 0.81,
+          "end": 1.09,
+          "key": "shown",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "what",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "way",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "shown?",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "text": "he",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "said.",
+          "start": 1.57,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15117165818810463
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "55dda93a698ff3fc93a0463585478b7a86226bd7d3914d53c00cb436ec8669d8",
+  "selected_reasons": []
+}

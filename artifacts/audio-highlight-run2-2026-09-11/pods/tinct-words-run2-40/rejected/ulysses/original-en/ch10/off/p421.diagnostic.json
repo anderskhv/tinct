@@ -1,0 +1,878 @@
+{
+  "complete": true,
+  "signature": "18d35813c407a9cdc59fe4e83b29f2a4a8f1db2265bbd48c954230ce9d84dd14",
+  "attempts": [
+    {
+      "asr_seconds": 0.4009877941571176,
+      "alignment_seconds": 0.0005460339598357677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Daedalus' eyed with cold wandering scorned various points of Ben Dollard's figure.",
+          "start": 0.05,
+          "end": 5.21,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.8515625
+            },
+            {
+              "text": " Daedalus'",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.7416178385416666
+            },
+            {
+              "text": " eyed",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " with",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " cold",
+              "start": 1.77,
+              "end": 2.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wandering",
+              "start": 2.11,
+              "end": 2.55,
+              "probability": 0.837890625
+            },
+            {
+              "text": " scorned",
+              "start": 2.55,
+              "end": 3.05,
+              "probability": 0.6883544921875
+            },
+            {
+              "text": " various",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " points",
+              "start": 3.49,
+              "end": 3.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Ben",
+              "start": 4.17,
+              "end": 4.43,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Dollard's",
+              "start": 4.43,
+              "end": 4.97,
+              "probability": 0.7954915364583334
+            },
+            {
+              "text": " figure.",
+              "start": 4.97,
+              "end": 5.21,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Then, turning to Father Cowley with a nod, he muttered sneeringly.",
+          "start": 6.11,
+          "end": 10.11,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 6.11,
+              "end": 6.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " turning",
+              "start": 6.67,
+              "end": 6.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 6.95,
+              "end": 7.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Father",
+              "start": 7.21,
+              "end": 7.47,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Cowley",
+              "start": 7.47,
+              "end": 7.91,
+              "probability": 0.94921875
+            },
+            {
+              "text": " with",
+              "start": 7.91,
+              "end": 8.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 8.05,
+              "end": 8.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " nod,",
+              "start": 8.17,
+              "end": 8.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 8.95,
+              "end": 9.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " muttered",
+              "start": 9.03,
+              "end": 9.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sneeringly.",
+              "start": 9.27,
+              "end": 10.11,
+              "probability": 0.92138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Daedalus'",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "raw": "eyed",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "with",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "cold",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "raw": "wandering",
+          "start": 2.11,
+          "end": 2.55
+        },
+        {
+          "raw": "scorned",
+          "start": 2.55,
+          "end": 3.05
+        },
+        {
+          "raw": "various",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "points",
+          "start": 3.49,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "raw": "Ben",
+          "start": 4.17,
+          "end": 4.43
+        },
+        {
+          "raw": "Dollard's",
+          "start": 4.43,
+          "end": 4.97
+        },
+        {
+          "raw": "figure.",
+          "start": 4.97,
+          "end": 5.21
+        },
+        {
+          "raw": "Then,",
+          "start": 6.11,
+          "end": 6.33
+        },
+        {
+          "raw": "turning",
+          "start": 6.67,
+          "end": 6.95
+        },
+        {
+          "raw": "to",
+          "start": 6.95,
+          "end": 7.21
+        },
+        {
+          "raw": "Father",
+          "start": 7.21,
+          "end": 7.47
+        },
+        {
+          "raw": "Cowley",
+          "start": 7.47,
+          "end": 7.91
+        },
+        {
+          "raw": "with",
+          "start": 7.91,
+          "end": 8.05
+        },
+        {
+          "raw": "a",
+          "start": 8.05,
+          "end": 8.17
+        },
+        {
+          "raw": "nod,",
+          "start": 8.17,
+          "end": 8.45
+        },
+        {
+          "raw": "he",
+          "start": 8.95,
+          "end": 9.03
+        },
+        {
+          "raw": "muttered",
+          "start": 9.03,
+          "end": 9.27
+        },
+        {
+          "raw": "sneeringly.",
+          "start": 9.27,
+          "end": 10.11
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus",
+        "eyed",
+        "with",
+        "cold",
+        "wandering",
+        "scorn",
+        "various",
+        "points",
+        "of",
+        "Ben",
+        "Dollard's",
+        "figure.",
+        "Then,",
+        "turning",
+        "to",
+        "Father",
+        "Cowley",
+        "with",
+        "a",
+        "nod,",
+        "he",
+        "muttered",
+        "sneeringly:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          24,
+          7,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Daedalus'",
+          "start": 0.87,
+          "end": 1.17,
+          "key": "daedalus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "eyed",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "eyed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 1.77,
+          "end": 2.11,
+          "key": "cold",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wandering",
+          "start": 2.11,
+          "end": 2.55,
+          "key": "wandering",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "scorned",
+          "start": 2.55,
+          "end": 3.05,
+          "key": "scorned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "various",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "various",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "points",
+          "start": 3.49,
+          "end": 3.93,
+          "key": "points",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.17,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ben",
+          "start": 4.17,
+          "end": 4.43,
+          "key": "ben",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Dollard's",
+          "start": 4.43,
+          "end": 4.97,
+          "key": "dollards",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "figure.",
+          "start": 4.97,
+          "end": 5.21,
+          "key": "figure",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Then,",
+          "start": 6.11,
+          "end": 6.33,
+          "key": "then",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "turning",
+          "start": 6.67,
+          "end": 6.95,
+          "key": "turning",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.95,
+          "end": 7.21,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Father",
+          "start": 7.21,
+          "end": 7.47,
+          "key": "father",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Cowley",
+          "start": 7.47,
+          "end": 7.91,
+          "key": "cowley",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.91,
+          "end": 8.05,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.05,
+          "end": 8.17,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "nod,",
+          "start": 8.17,
+          "end": 8.45,
+          "key": "nod",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.95,
+          "end": 9.03,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "muttered",
+          "start": 9.03,
+          "end": 9.27,
+          "key": "muttered",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "sneeringly.",
+          "start": 9.27,
+          "end": 10.11,
+          "key": "sneeringly",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "text": "eyed",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "with",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "cold",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "text": "wandering",
+          "start": 2.11,
+          "end": 2.55
+        },
+        {
+          "text": "scorn",
+          "start": 2.55,
+          "end": 2.8
+        },
+        {
+          "text": "various",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "text": "points",
+          "start": 3.49,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.17
+        },
+        {
+          "text": "Ben",
+          "start": 4.17,
+          "end": 4.43
+        },
+        {
+          "text": "Dollard's",
+          "start": 4.43,
+          "end": 4.97
+        },
+        {
+          "text": "figure.",
+          "start": 4.97,
+          "end": 5.21
+        },
+        {
+          "text": "Then,",
+          "start": 6.11,
+          "end": 6.33
+        },
+        {
+          "text": "turning",
+          "start": 6.67,
+          "end": 6.95
+        },
+        {
+          "text": "to",
+          "start": 6.95,
+          "end": 7.21
+        },
+        {
+          "text": "Father",
+          "start": 7.21,
+          "end": 7.47
+        },
+        {
+          "text": "Cowley",
+          "start": 7.47,
+          "end": 7.91
+        },
+        {
+          "text": "with",
+          "start": 7.91,
+          "end": 8.05
+        },
+        {
+          "text": "a",
+          "start": 8.05,
+          "end": 8.17
+        },
+        {
+          "text": "nod,",
+          "start": 8.17,
+          "end": 8.45
+        },
+        {
+          "text": "he",
+          "start": 8.95,
+          "end": 9.03
+        },
+        {
+          "text": "muttered",
+          "start": 9.03,
+          "end": 9.27
+        },
+        {
+          "text": "sneeringly:",
+          "start": 9.27,
+          "end": 10.11
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.4017709270119667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc36fe09104cfc76031222bc99e228518301cf9dbd56dd7066d62f5cc92801fc",
+  "selected_reasons": []
+}

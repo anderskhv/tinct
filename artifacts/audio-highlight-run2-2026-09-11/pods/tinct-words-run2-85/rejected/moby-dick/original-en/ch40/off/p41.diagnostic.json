@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "signature": "6d54e26a1f289c5ffc81b6547d7dd4a3114441ddcebf79a98a9c36365e97af53",
+  "attempts": [
+    {
+      "asr_seconds": 0.24226029869168997,
+      "alignment_seconds": 0.00044055888429284096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dagu springing. Swallow thine mannequin, white skin, white liver.",
+          "start": 0.05,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " Dagu",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.498046875
+            },
+            {
+              "text": " springing.",
+              "start": 0.75,
+              "end": 1.53,
+              "probability": 0.59808349609375
+            },
+            {
+              "text": " Swallow",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.928466796875
+            },
+            {
+              "text": " thine",
+              "start": 2.07,
+              "end": 2.39,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " mannequin,",
+              "start": 2.39,
+              "end": 2.79,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " white",
+              "start": 3.15,
+              "end": 3.19,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " skin,",
+              "start": 3.19,
+              "end": 3.57,
+              "probability": 0.91015625
+            },
+            {
+              "text": " white",
+              "start": 3.77,
+              "end": 3.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " liver.",
+              "start": 3.85,
+              "end": 4.15,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dagu",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "springing.",
+          "start": 0.75,
+          "end": 1.53
+        },
+        {
+          "raw": "Swallow",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "thine",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "raw": "mannequin,",
+          "start": 2.39,
+          "end": 2.79
+        },
+        {
+          "raw": "white",
+          "start": 3.15,
+          "end": 3.19
+        },
+        {
+          "raw": "skin,",
+          "start": 3.19,
+          "end": 3.57
+        },
+        {
+          "raw": "white",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "raw": "liver.",
+          "start": 3.85,
+          "end": 4.15
+        }
+      ],
+      "expected_tokens": [
+        "Daggoo",
+        "(_springing_).",
+        "Swallow",
+        "thine,",
+        "mannikin!",
+        "White",
+        "skin,",
+        "white",
+        "liver!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dagu",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "dagu",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "springing.",
+          "start": 0.75,
+          "end": 1.53,
+          "key": "springing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Swallow",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "swallow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 2.07,
+          "end": 2.39,
+          "key": "thine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mannequin,",
+          "start": 2.39,
+          "end": 2.79,
+          "key": "mannequin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 3.15,
+          "end": 3.19,
+          "key": "white",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "skin,",
+          "start": 3.19,
+          "end": 3.57,
+          "key": "skin",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 3.77,
+          "end": 3.85,
+          "key": "white",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "liver.",
+          "start": 3.85,
+          "end": 4.15,
+          "key": "liver",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Daggoo",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "(_springing_).",
+          "start": 0.75,
+          "end": 1.53
+        },
+        {
+          "text": "Swallow",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "thine,",
+          "start": 2.07,
+          "end": 2.39
+        },
+        {
+          "text": "mannikin!",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "text": "White",
+          "start": 3.15,
+          "end": 3.19
+        },
+        {
+          "text": "skin,",
+          "start": 3.19,
+          "end": 3.57
+        },
+        {
+          "text": "white",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "text": "liver!",
+          "start": 3.85,
+          "end": 4.15
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24284642189741135
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d35e6f71f50fd5aa441b36b76268c8868f871ce74351ccff6baad6aff6d34538",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

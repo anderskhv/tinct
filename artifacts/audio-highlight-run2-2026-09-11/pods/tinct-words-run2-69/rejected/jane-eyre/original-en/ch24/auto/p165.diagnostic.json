@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "c099b2188e4d5072680218b52d0c8207e3a92726dd5c0ab76f49d26cfc66decb",
+  "attempts": [
+    {
+      "asr_seconds": 0.4041394256055355,
+      "alignment_seconds": 0.0008088760077953339,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Though haughty Hate should strike me down, Right, bar approach to me, And grinding Might, with furious frown, Swear endless enmity.",
+        "hotwords": "Though, Hate, Right, And, Might, Swear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Though haughty Hate should strike me down, Right, bar approach to me, And grinding Might, with furious frown, Swear endless enmity.",
+          "start": 0.05,
+          "end": 7.55,
+          "words": [
+            {
+              "text": " Though",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " haughty",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.9090169270833334
+            },
+            {
+              "text": " Hate",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.002651214599609375
+            },
+            {
+              "text": " should",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " strike",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 0.9140625
+            },
+            {
+              "text": " me",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " down,",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " Right,",
+              "start": 2.65,
+              "end": 2.69,
+              "probability": 0.64453125
+            },
+            {
+              "text": " bar",
+              "start": 3.05,
+              "end": 3.07,
+              "probability": 0.55078125
+            },
+            {
+              "text": " approach",
+              "start": 3.07,
+              "end": 3.39,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " to",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " me,",
+              "start": 3.63,
+              "end": 3.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " And",
+              "start": 4.25,
+              "end": 4.35,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " grinding",
+              "start": 4.35,
+              "end": 4.73,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Might,",
+              "start": 4.73,
+              "end": 5.01,
+              "probability": 0.1405029296875
+            },
+            {
+              "text": " with",
+              "start": 5.13,
+              "end": 5.29,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " furious",
+              "start": 5.29,
+              "end": 5.69,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " frown,",
+              "start": 5.69,
+              "end": 6.11,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Swear",
+              "start": 6.41,
+              "end": 6.75,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " endless",
+              "start": 6.75,
+              "end": 7.15,
+              "probability": 0.958984375
+            },
+            {
+              "text": " enmity.",
+              "start": 7.15,
+              "end": 7.55,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Though",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "haughty",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "Hate",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "should",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": "strike",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "raw": "me",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "down,",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "Right,",
+          "start": 2.65,
+          "end": 2.69
+        },
+        {
+          "raw": "bar",
+          "start": 3.05,
+          "end": 3.07
+        },
+        {
+          "raw": "approach",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "raw": "to",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "me,",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "raw": "And",
+          "start": 4.25,
+          "end": 4.35
+        },
+        {
+          "raw": "grinding",
+          "start": 4.35,
+          "end": 4.73
+        },
+        {
+          "raw": "Might,",
+          "start": 4.73,
+          "end": 5.01
+        },
+        {
+          "raw": "with",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "raw": "furious",
+          "start": 5.29,
+          "end": 5.69
+        },
+        {
+          "raw": "frown,",
+          "start": 5.69,
+          "end": 6.11
+        },
+        {
+          "raw": "Swear",
+          "start": 6.41,
+          "end": 6.75
+        },
+        {
+          "raw": "endless",
+          "start": 6.75,
+          "end": 7.15
+        },
+        {
+          "raw": "enmity.",
+          "start": 7.15,
+          "end": 7.55
+        }
+      ],
+      "expected_tokens": [
+        "Though",
+        "haughty",
+        "Hate",
+        "should",
+        "strike",
+        "me",
+        "down,",
+        "Right,",
+        "bar",
+        "approach",
+        "to",
+        "me,",
+        "And",
+        "grinding",
+        "Might,",
+        "with",
+        "furious",
+        "frown,",
+        "Swear",
+        "endless",
+        "enmity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Though",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "though",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "haughty",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "haughty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Hate",
+          "start": 0.85,
+          "end": 1.05,
+          "key": "hate",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.05,
+          "end": 1.29,
+          "key": "should",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strike",
+          "start": 1.29,
+          "end": 1.57,
+          "key": "strike",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "down",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Right,",
+          "start": 2.65,
+          "end": 2.69,
+          "key": "right",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bar",
+          "start": 3.05,
+          "end": 3.07,
+          "key": "bar",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "approach",
+          "start": 3.07,
+          "end": 3.39,
+          "key": "approach",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 3.63,
+          "end": 3.83,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 4.25,
+          "end": 4.35,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "grinding",
+          "start": 4.35,
+          "end": 4.73,
+          "key": "grinding",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Might,",
+          "start": 4.73,
+          "end": 5.01,
+          "key": "might",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.13,
+          "end": 5.29,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "furious",
+          "start": 5.29,
+          "end": 5.69,
+          "key": "furious",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "frown,",
+          "start": 5.69,
+          "end": 6.11,
+          "key": "frown",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Swear",
+          "start": 6.41,
+          "end": 6.75,
+          "key": "swear",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "endless",
+          "start": 6.75,
+          "end": 7.15,
+          "key": "endless",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "enmity.",
+          "start": 7.15,
+          "end": 7.55,
+          "key": "enmity",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Though",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "haughty",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "Hate",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "should",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": "strike",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "text": "me",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "down,",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "Right,",
+          "start": 2.65,
+          "end": 2.69
+        },
+        {
+          "text": "bar",
+          "start": 3.05,
+          "end": 3.07
+        },
+        {
+          "text": "approach",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "text": "to",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "me,",
+          "start": 3.63,
+          "end": 3.83
+        },
+        {
+          "text": "And",
+          "start": 4.25,
+          "end": 4.35
+        },
+        {
+          "text": "grinding",
+          "start": 4.35,
+          "end": 4.73
+        },
+        {
+          "text": "Might,",
+          "start": 4.73,
+          "end": 5.01
+        },
+        {
+          "text": "with",
+          "start": 5.13,
+          "end": 5.29
+        },
+        {
+          "text": "furious",
+          "start": 5.29,
+          "end": 5.69
+        },
+        {
+          "text": "frown,",
+          "start": 5.69,
+          "end": 6.11
+        },
+        {
+          "text": "Swear",
+          "start": 6.41,
+          "end": 6.75
+        },
+        {
+          "text": "endless",
+          "start": 6.75,
+          "end": 7.15
+        },
+        {
+          "text": "enmity.",
+          "start": 7.15,
+          "end": 7.55
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40530519373714924
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d769b41570a51976a4eb405172d7c019435be74484d39710a45549624fd0809",
+  "selected_reasons": []
+}

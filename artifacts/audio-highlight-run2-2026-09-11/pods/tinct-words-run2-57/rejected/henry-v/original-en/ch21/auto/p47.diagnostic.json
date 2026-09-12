@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "624b8b6cee397b4fe921021451c26738bd6b1d993b8f64874b9c43f90fb5fb44",
+  "attempts": [
+    {
+      "asr_seconds": 0.12667345511727035,
+      "alignment_seconds": 0.0002444470301270485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Chorus.",
+        "hotwords": "Enter, Chorus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Chorus.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Chorus.",
+              "start": 0.68,
+              "end": 1.1,
+              "probability": 0.71533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Chorus.",
+          "start": 0.68,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Chorus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Chorus.",
+          "start": 0.68,
+          "end": 1.1,
+          "key": "chorus",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Chorus.",
+          "start": 0.68,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12700955499894917
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8133a757d85f1ecd5478b263536f614ddb607f1f6ae71219226e921dbdab14fe",
+  "selected_reasons": []
+}

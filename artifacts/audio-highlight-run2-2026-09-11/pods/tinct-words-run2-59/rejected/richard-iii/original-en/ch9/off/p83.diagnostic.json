@@ -1,0 +1,474 @@
+{
+  "complete": true,
+  "signature": "c0ea7c9b49e68af26289e1a7dd17052d373158cfb3ed8223033e5e9435ac613f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2577841670718044,
+      "alignment_seconds": 0.0004610090982168913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cat is be he will do all in all his Hastings death",
+          "start": 0.05,
+          "end": 3.03,
+          "words": [
+            {
+              "text": " Cat",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.419921875
+            },
+            {
+              "text": " is",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.2423095703125
+            },
+            {
+              "text": " be",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.38427734375
+            },
+            {
+              "text": " he",
+              "start": 0.93,
+              "end": 1.39,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " will",
+              "start": 1.39,
+              "end": 1.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " all",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " his",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " Hastings",
+              "start": 2.25,
+              "end": 2.63,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " death",
+              "start": 2.63,
+              "end": 3.03,
+              "probability": 0.474365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cat",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "is",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "be",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "he",
+          "start": 0.93,
+          "end": 1.39
+        },
+        {
+          "raw": "will",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "raw": "do",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "all",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "in",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "all",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "his",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "Hastings",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "raw": "death",
+          "start": 2.63,
+          "end": 3.03
+        }
+      ],
+      "expected_tokens": [
+        "Catesby.",
+        "He",
+        "will",
+        "do",
+        "all",
+        "in",
+        "all",
+        "as",
+        "Hastings",
+        "doth."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          7,
+          3,
+          9
+        ],
+        [
+          "replace",
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          "equal",
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          "replace",
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cat",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "cat",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.57,
+          "end": 0.73,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.73,
+          "end": 0.93,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.93,
+          "end": 1.39,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.39,
+          "end": 1.47,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.07,
+          "end": 2.25,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Hastings",
+          "start": 2.25,
+          "end": 2.63,
+          "key": "hastings",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 2.63,
+          "end": 3.03,
+          "key": "death",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Catesby.",
+          "start": 0.0,
+          "end": 0.465
+        },
+        {
+          "text": "He",
+          "start": 0.93,
+          "end": 1.39
+        },
+        {
+          "text": "will",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "text": "do",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "all",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "in",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "all",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "as",
+          "start": 2.07,
+          "end": 2.16
+        },
+        {
+          "text": "Hastings",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "text": "doth.",
+          "start": 2.63,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.258428905159235
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0e21fc1f7f2a5858229bc1681b6df74cf2a512d70dbfd6f9635c2e243460de5b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

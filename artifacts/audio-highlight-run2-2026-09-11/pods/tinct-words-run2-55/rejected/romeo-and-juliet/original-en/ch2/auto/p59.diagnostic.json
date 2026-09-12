@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "07488cb84eba86bccd4ddd16298e75e3d10c000fe90b66a5c4238b4a894c8523",
+  "attempts": [
+    {
+      "asr_seconds": 0.20337782986462116,
+      "alignment_seconds": 0.0002701170742511749,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady Montague. Thou shalt not stir one foot to seek a foe.",
+        "hotwords": "Lady, Montague, Thou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady Montague, Thou shalt not stir one foot to seek a foe.",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " Montague,",
+              "start": 0.65,
+              "end": 1.19,
+              "probability": 0.904541015625
+            },
+            {
+              "text": " Thou",
+              "start": 1.63,
+              "end": 1.81,
+              "probability": 0.1380615234375
+            },
+            {
+              "text": " shalt",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " stir",
+              "start": 2.17,
+              "end": 2.41,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " one",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " foot",
+              "start": 2.63,
+              "end": 2.91,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " to",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.966796875
+            },
+            {
+              "text": " seek",
+              "start": 3.07,
+              "end": 3.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 3.23,
+              "end": 3.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " foe.",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Montague,",
+          "start": 0.65,
+          "end": 1.19
+        },
+        {
+          "raw": "Thou",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "raw": "shalt",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "not",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "stir",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "raw": "one",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "foot",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "raw": "to",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "seek",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "raw": "a",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "raw": "foe.",
+          "start": 3.37,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Montague.",
+        "Thou",
+        "shalt",
+        "not",
+        "stir",
+        "one",
+        "foot",
+        "to",
+        "seek",
+        "a",
+        "foe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Montague,",
+          "start": 0.65,
+          "end": 1.19,
+          "key": "montague",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 1.63,
+          "end": 1.81,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "shalt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stir",
+          "start": 2.17,
+          "end": 2.41,
+          "key": "stir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "foot",
+          "start": 2.63,
+          "end": 2.91,
+          "key": "foot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.91,
+          "end": 3.07,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 3.07,
+          "end": 3.23,
+          "key": "seek",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.23,
+          "end": 3.37,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "foe.",
+          "start": 3.37,
+          "end": 3.59,
+          "key": "foe",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Montague.",
+          "start": 0.65,
+          "end": 1.19
+        },
+        {
+          "text": "Thou",
+          "start": 1.63,
+          "end": 1.81
+        },
+        {
+          "text": "shalt",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "not",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "text": "stir",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "text": "one",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "foot",
+          "start": 2.63,
+          "end": 2.91
+        },
+        {
+          "text": "to",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "seek",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "text": "a",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "text": "foe.",
+          "start": 3.37,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20375785045325756
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3b48e58f05d623c5921b087348e4bd811efd100fe457d18471b1c7604c120734",
+  "selected_reasons": []
+}

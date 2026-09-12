@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "640530d7adc763bcac5c4172dba883ade518d899dc950c4a511b239bb61c9154",
+  "attempts": [
+    {
+      "asr_seconds": 0.13724987907335162,
+      "alignment_seconds": 0.0002270471304655075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Tullus Aufidius with Attendants.",
+        "hotwords": "Enter, Tullus, Aufidius, Attendants"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Tullus Aufidius with Attendants.",
+          "start": 0.08,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " Tullus",
+              "start": 0.66,
+              "end": 1.08,
+              "probability": 0.931640625
+            },
+            {
+              "text": " Aufidius",
+              "start": 1.08,
+              "end": 1.6,
+              "probability": 0.64019775390625
+            },
+            {
+              "text": " with",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Attendants.",
+              "start": 1.74,
+              "end": 2.26,
+              "probability": 0.4695014953613281
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Tullus",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "raw": "Aufidius",
+          "start": 1.08,
+          "end": 1.6
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "Attendants.",
+          "start": 1.74,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Tullus",
+        "Aufidius",
+        "with",
+        "Attendants."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tullus",
+          "start": 0.66,
+          "end": 1.08,
+          "key": "tullus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Aufidius",
+          "start": 1.08,
+          "end": 1.6,
+          "key": "aufidius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Attendants.",
+          "start": 1.74,
+          "end": 2.26,
+          "key": "attendants",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Tullus",
+          "start": 0.66,
+          "end": 1.08
+        },
+        {
+          "text": "Aufidius",
+          "start": 1.08,
+          "end": 1.6
+        },
+        {
+          "text": "with",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "Attendants.",
+          "start": 1.74,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13755527790635824
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b482d0bc7d160674f56811e3334c58133d308c7d98ed3e10769e0b75b5b1131",
+  "selected_reasons": []
+}

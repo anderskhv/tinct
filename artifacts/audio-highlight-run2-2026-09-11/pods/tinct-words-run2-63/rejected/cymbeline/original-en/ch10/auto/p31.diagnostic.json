@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "bda26c19187a1c6b5e40e5e26ce6dfedc8ae86dd13ef8fe3dfcb81f0dc04770f",
+  "attempts": [
+    {
+      "asr_seconds": 0.15646052360534668,
+      "alignment_seconds": 0.00035942718386650085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lady. Who's there that knocks?",
+        "hotwords": "Lady, Who's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lady, Who's there that knocks?",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Lady,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " Who's",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.49274444580078125
+            },
+            {
+              "text": " there",
+              "start": 1.25,
+              "end": 1.33,
+              "probability": 0.385498046875
+            },
+            {
+              "text": " that",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " knocks?",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Who's",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "there",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "raw": "that",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "knocks?",
+          "start": 1.53,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Lady.",
+        "Who's",
+        "there",
+        "that",
+        "knocks?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who's",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.25,
+          "end": 1.33,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "knocks?",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "knocks",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Who's",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "there",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "text": "that",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "knocks?",
+          "start": 1.53,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15694347955286503
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "37d3ec8de366707105c12dd5a6fa2518665e4e5633636a8830d4e706fadfff60",
+  "selected_reasons": []
+}

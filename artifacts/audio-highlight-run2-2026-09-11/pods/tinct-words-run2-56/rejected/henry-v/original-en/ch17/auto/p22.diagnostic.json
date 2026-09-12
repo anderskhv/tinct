@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "44de864426737d8d6e734fbfea17d3dd681ed453e92a2c699e3996f2317d133d",
+  "attempts": [
+    {
+      "asr_seconds": 3.540986657142639,
+      "alignment_seconds": 0.00041128508746623993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pistol. What are his words?",
+        "hotwords": "Pistol, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pistol, What Pistol? What Pistol are his words?",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " What",
+              "start": 1.15,
+              "end": 1.21,
+              "probability": 0.021209716796875
+            },
+            {
+              "text": " Pistol?",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.0
+            },
+            {
+              "text": " What",
+              "start": 1.31,
+              "end": 1.31,
+              "probability": 0.798828125
+            },
+            {
+              "text": " Pistol",
+              "start": 1.31,
+              "end": 1.31,
+              "probability": 0.0157470703125
+            },
+            {
+              "text": " are",
+              "start": 1.31,
+              "end": 1.31,
+              "probability": 0.06536865234375
+            },
+            {
+              "text": " his",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " words?",
+              "start": 1.39,
+              "end": 1.65,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "What",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "raw": "Pistol?",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "What",
+          "start": 1.31,
+          "end": 1.31
+        },
+        {
+          "raw": "Pistol",
+          "start": 1.31,
+          "end": 1.31
+        },
+        {
+          "raw": "are",
+          "start": 1.31,
+          "end": 1.31
+        },
+        {
+          "raw": "his",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "words?",
+          "start": 1.39,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "What",
+        "are",
+        "his",
+        "words?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          5
+        ],
+        [
+          "equal",
+          2,
+          5,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.15,
+          "end": 1.21,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pistol?",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "pistol",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.31,
+          "end": 1.31,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pistol",
+          "start": 1.31,
+          "end": 1.31,
+          "key": "pistol",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.31,
+          "end": 1.31,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.31,
+          "end": 1.39,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "words?",
+          "start": 1.39,
+          "end": 1.65,
+          "key": "words",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "What",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "text": "are",
+          "start": 1.31,
+          "end": 1.31
+        },
+        {
+          "text": "his",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "text": "words?",
+          "start": 1.39,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.5415664464235306
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e7920454113534a6be643d1a1842736810136ec1652b91d4b375f03f86f7ec31",
+  "selected_reasons": []
+}

@@ -1,0 +1,322 @@
+{
+  "complete": true,
+  "signature": "4fb15992e2f94b08b8a8c2af7619aa049b65532012ffdd8acf78aa29ab7974c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.24404966598376632,
+      "alignment_seconds": 0.0004047360271215439,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham, Madam Goodhope, His Grace Speaks Cheerfully",
+          "start": 0.05,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " Madam",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.6728515625
+            },
+            {
+              "text": " Goodhope,",
+              "start": 1.69,
+              "end": 2.17,
+              "probability": 0.8351236979166666
+            },
+            {
+              "text": " His",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " Grace",
+              "start": 2.51,
+              "end": 2.81,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " Speaks",
+              "start": 2.81,
+              "end": 3.19,
+              "probability": 0.87109375
+            },
+            {
+              "text": " Cheerfully",
+              "start": 3.19,
+              "end": 3.69,
+              "probability": 0.9850260416666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Madam",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "Goodhope,",
+          "start": 1.69,
+          "end": 2.17
+        },
+        {
+          "raw": "His",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "Grace",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "raw": "Speaks",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "raw": "Cheerfully",
+          "start": 3.19,
+          "end": 3.69
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Madam,",
+        "good",
+        "hope;",
+        "his",
+        "Grace",
+        "speaks",
+        "cheerfully."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          8,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Goodhope,",
+          "start": 1.69,
+          "end": 2.17,
+          "key": "goodhope",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Grace",
+          "start": 2.51,
+          "end": 2.81,
+          "key": "grace",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Speaks",
+          "start": 2.81,
+          "end": 3.19,
+          "key": "speaks",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cheerfully",
+          "start": 3.19,
+          "end": 3.69,
+          "key": "cheerfully",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Madam,",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "good",
+          "start": 1.69,
+          "end": 2.05
+        },
+        {
+          "text": "hope;",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "his",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "Grace",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "text": "speaks",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "text": "cheerfully.",
+          "start": 3.19,
+          "end": 3.69
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2445910181850195
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4a9ee45c81c900df8aa0eed9eb99f5d7d2eafae814abed5b9ebfbd6efa372645",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "6f588b2760e9d571d091c5b615d5f86431f05cb5375c5efe8a210731122a4cbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.07873474434018135,
+      "alignment_seconds": 0.0001321732997894287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oswald, help Ho murder murder.",
+          "start": 0.11,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " help",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.935546875
+            },
+            {
+              "text": " Ho",
+              "start": 1.33,
+              "end": 1.63,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " murder",
+              "start": 1.63,
+              "end": 1.97,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " murder.",
+              "start": 1.97,
+              "end": 2.29,
+              "probability": 0.9140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "help",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "Ho",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "raw": "murder",
+          "start": 1.63,
+          "end": 1.97
+        },
+        {
+          "raw": "murder.",
+          "start": 1.97,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "Help,",
+        "ho!",
+        "murder!",
+        "murder!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "help",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ho",
+          "start": 1.33,
+          "end": 1.63,
+          "key": "ho",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "murder",
+          "start": 1.63,
+          "end": 1.97,
+          "key": "murder",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "murder.",
+          "start": 1.97,
+          "end": 2.29,
+          "key": "murder",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "Help,",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "ho!",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "text": "murder!",
+          "start": 1.63,
+          "end": 1.97
+        },
+        {
+          "text": "murder!",
+          "start": 1.97,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07891571149230003
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2aa04c687445b8f183ebe72fbe03e1e91c5f63c31dcd25495c6c6ecf4286fd4c",
+  "selected_reasons": []
+}

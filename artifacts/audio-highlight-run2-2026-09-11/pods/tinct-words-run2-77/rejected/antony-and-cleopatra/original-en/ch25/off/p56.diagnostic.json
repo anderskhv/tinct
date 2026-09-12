@@ -1,0 +1,722 @@
+{
+  "complete": true,
+  "signature": "07360120365451fb77b9666d3072859e74ff75d8a7bc580df7b3801894299ae6",
+  "attempts": [
+    {
+      "asr_seconds": 0.26571932501974516,
+      "alignment_seconds": 0.00039351399755105376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, tug him away. Being whipped, bring him again. This Jack of Caesars shall bear us an errand to him.",
+          "start": 0.11,
+          "end": 6.85,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.797119140625
+            },
+            {
+              "text": " tug",
+              "start": 0.97,
+              "end": 1.21,
+              "probability": 0.958984375
+            },
+            {
+              "text": " him",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " away.",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Being",
+              "start": 2.17,
+              "end": 2.37,
+              "probability": 0.974609375
+            },
+            {
+              "text": " whipped,",
+              "start": 2.37,
+              "end": 2.71,
+              "probability": 0.93359375
+            },
+            {
+              "text": " bring",
+              "start": 3.05,
+              "end": 3.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " him",
+              "start": 3.13,
+              "end": 3.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " again.",
+              "start": 3.29,
+              "end": 3.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " This",
+              "start": 4.29,
+              "end": 4.43,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Jack",
+              "start": 4.43,
+              "end": 4.69,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " of",
+              "start": 4.69,
+              "end": 4.87,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Caesars",
+              "start": 4.87,
+              "end": 5.29,
+              "probability": 0.9192708333333334
+            },
+            {
+              "text": " shall",
+              "start": 5.29,
+              "end": 5.53,
+              "probability": 0.982421875
+            },
+            {
+              "text": " bear",
+              "start": 5.53,
+              "end": 5.77,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " us",
+              "start": 5.77,
+              "end": 5.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " an",
+              "start": 5.97,
+              "end": 6.15,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " errand",
+              "start": 6.15,
+              "end": 6.45,
+              "probability": 0.91796875
+            },
+            {
+              "text": " to",
+              "start": 6.45,
+              "end": 6.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 6.59,
+              "end": 6.85,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "tug",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "raw": "him",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "away.",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "raw": "Being",
+          "start": 2.17,
+          "end": 2.37
+        },
+        {
+          "raw": "whipped,",
+          "start": 2.37,
+          "end": 2.71
+        },
+        {
+          "raw": "bring",
+          "start": 3.05,
+          "end": 3.13
+        },
+        {
+          "raw": "him",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "raw": "again.",
+          "start": 3.29,
+          "end": 3.59
+        },
+        {
+          "raw": "This",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "raw": "Jack",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "raw": "of",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "raw": "Caesars",
+          "start": 4.87,
+          "end": 5.29
+        },
+        {
+          "raw": "shall",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "raw": "bear",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "raw": "us",
+          "start": 5.77,
+          "end": 5.97
+        },
+        {
+          "raw": "an",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "raw": "errand",
+          "start": 6.15,
+          "end": 6.45
+        },
+        {
+          "raw": "to",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "raw": "him.",
+          "start": 6.59,
+          "end": 6.85
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Tug",
+        "him",
+        "away.",
+        "Being",
+        "whipp'd,",
+        "Bring",
+        "him",
+        "again.",
+        "This",
+        "jack",
+        "of",
+        "Caesar's",
+        "shall",
+        "Bear",
+        "us",
+        "an",
+        "errand",
+        "to",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          20,
+          6,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tug",
+          "start": 0.97,
+          "end": 1.21,
+          "key": "tug",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 1.35,
+          "end": 1.65,
+          "key": "away",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Being",
+          "start": 2.17,
+          "end": 2.37,
+          "key": "being",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whipped,",
+          "start": 2.37,
+          "end": 2.71,
+          "key": "whipped",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 3.05,
+          "end": 3.13,
+          "key": "bring",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.13,
+          "end": 3.29,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.29,
+          "end": 3.59,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.29,
+          "end": 4.43,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Jack",
+          "start": 4.43,
+          "end": 4.69,
+          "key": "jack",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.69,
+          "end": 4.87,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Caesars",
+          "start": 4.87,
+          "end": 5.29,
+          "key": "caesars",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.29,
+          "end": 5.53,
+          "key": "shall",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 5.53,
+          "end": 5.77,
+          "key": "bear",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 5.77,
+          "end": 5.97,
+          "key": "us",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 5.97,
+          "end": 6.15,
+          "key": "an",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "errand",
+          "start": 6.15,
+          "end": 6.45,
+          "key": "errand",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.45,
+          "end": 6.59,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 6.59,
+          "end": 6.85,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "Tug",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "text": "him",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "away.",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "text": "Being",
+          "start": 2.17,
+          "end": 2.37
+        },
+        {
+          "text": "whipp'd,",
+          "start": 2.37,
+          "end": 2.71
+        },
+        {
+          "text": "Bring",
+          "start": 3.05,
+          "end": 3.13
+        },
+        {
+          "text": "him",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "text": "again.",
+          "start": 3.29,
+          "end": 3.59
+        },
+        {
+          "text": "This",
+          "start": 4.29,
+          "end": 4.43
+        },
+        {
+          "text": "jack",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "text": "of",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "text": "Caesar's",
+          "start": 4.87,
+          "end": 5.29
+        },
+        {
+          "text": "shall",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "text": "Bear",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "text": "us",
+          "start": 5.77,
+          "end": 5.97
+        },
+        {
+          "text": "an",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "text": "errand",
+          "start": 6.15,
+          "end": 6.45
+        },
+        {
+          "text": "to",
+          "start": 6.45,
+          "end": 6.59
+        },
+        {
+          "text": "him.",
+          "start": 6.59,
+          "end": 6.85
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.26628972502658144
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0a29a98e7fb948c5f9eac84928303022cbe79f68d02550adc4745bfcedee49aa",
+  "selected_reasons": []
+}

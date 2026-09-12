@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "cecc13fee442dfeacec7f8791e6458d45ead8f78c1380e5de7c2f405d2eead6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2670882027596235,
+      "alignment_seconds": 0.00032078102231025696,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Smurdiakov got up slowly.",
+          "start": 0.08,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Smurdiakov",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.58636474609375
+            },
+            {
+              "text": " got",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " up",
+              "start": 1.2,
+              "end": 1.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " slowly.",
+              "start": 1.36,
+              "end": 1.74,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Marya Kondratyevna rose, too.",
+          "start": 2.4,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Marya",
+              "start": 2.4,
+              "end": 2.58,
+              "probability": 0.2598876953125
+            },
+            {
+              "text": " Kondratyevna",
+              "start": 2.58,
+              "end": 3.24,
+              "probability": 0.6903889973958334
+            },
+            {
+              "text": " rose,",
+              "start": 3.24,
+              "end": 3.5,
+              "probability": 0.984375
+            },
+            {
+              "text": " too.",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Smurdiakov",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "got",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "up",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "raw": "slowly.",
+          "start": 1.36,
+          "end": 1.74
+        },
+        {
+          "raw": "Marya",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "raw": "Kondratyevna",
+          "start": 2.58,
+          "end": 3.24
+        },
+        {
+          "raw": "rose,",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "raw": "too.",
+          "start": 3.66,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "Smerdyakov",
+        "got",
+        "up",
+        "slowly;",
+        "Marya",
+        "Kondratyevna",
+        "rose",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Smurdiakov",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "smurdiakov",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "got",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.2,
+          "end": 1.36,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slowly.",
+          "start": 1.36,
+          "end": 1.74,
+          "key": "slowly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Marya",
+          "start": 2.4,
+          "end": 2.58,
+          "key": "marya",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Kondratyevna",
+          "start": 2.58,
+          "end": 3.24,
+          "key": "kondratyevna",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rose,",
+          "start": 3.24,
+          "end": 3.5,
+          "key": "rose",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "too",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Smerdyakov",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "got",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "up",
+          "start": 1.2,
+          "end": 1.36
+        },
+        {
+          "text": "slowly;",
+          "start": 1.36,
+          "end": 1.74
+        },
+        {
+          "text": "Marya",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "text": "Kondratyevna",
+          "start": 2.58,
+          "end": 3.24
+        },
+        {
+          "text": "rose",
+          "start": 3.24,
+          "end": 3.5
+        },
+        {
+          "text": "too.",
+          "start": 3.66,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.26752383075654507
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1f43d63eb5825e10d6a0d6b4d9e41e854f0ab0b79626a329802cb30cb17c019f",
+  "selected_reasons": []
+}

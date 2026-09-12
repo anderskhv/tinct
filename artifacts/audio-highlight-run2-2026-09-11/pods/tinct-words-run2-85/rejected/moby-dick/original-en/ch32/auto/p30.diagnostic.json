@@ -1,0 +1,3204 @@
+{
+  "complete": true,
+  "signature": "1214f7b6d924479b2dc042ad5a3da2a1e408d7b9ff476cabbda80547dbaa07bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.5399487027898431,
+      "alignment_seconds": 0.0011933031491935253,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Octavoes.*—These embrace the whales of middling magnitude, among which present may be numbered:—I., the _Grampus_; Ii., the _Black Fish_; Iii., the _Narwhale_; Iv., the _Thrasher_; V., the _Killer_.",
+        "hotwords": "Octavoes.*—These, Ii, Fish_, Iii, Iv, V"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Octavoes.*—These embrace the whales of middling magnitude, among which present",
+          "start": 1.62,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " Octavoes.*—These",
+              "start": 1.62,
+              "end": 2.18,
+              "probability": 0.28636397918065387
+            },
+            {
+              "text": " embrace",
+              "start": 2.18,
+              "end": 2.56,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " the",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " whales",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.397705078125
+            },
+            {
+              "text": " of",
+              "start": 3.08,
+              "end": 3.34,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " middling",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " magnitude,",
+              "start": 3.62,
+              "end": 4.26,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " among",
+              "start": 4.46,
+              "end": 4.6,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " which",
+              "start": 4.6,
+              "end": 4.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " present",
+              "start": 4.82,
+              "end": 5.14,
+              "probability": 0.9609375
+            }
+          ]
+        },
+        {
+          "text": " may be numbered.—I., the Grampus, Iii., the Black Fish, Iii., the Narwhal, Iv., the",
+          "start": 5.14,
+          "end": 11.76,
+          "words": [
+            {
+              "text": " may",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " be",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " numbered",
+              "start": 5.52,
+              "end": 5.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": ".—I.,",
+              "start": 5.88,
+              "end": 7.24,
+              "probability": 0.3390865921974182
+            },
+            {
+              "text": " the",
+              "start": 7.24,
+              "end": 7.4,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " Grampus,",
+              "start": 7.4,
+              "end": 7.94,
+              "probability": 0.8084309895833334
+            },
+            {
+              "text": " Iii.,",
+              "start": 8.28,
+              "end": 8.7,
+              "probability": 0.07633469502131145
+            },
+            {
+              "text": " the",
+              "start": 8.7,
+              "end": 8.82,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Black",
+              "start": 8.82,
+              "end": 9.08,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Fish,",
+              "start": 9.08,
+              "end": 9.42,
+              "probability": 0.38720703125
+            },
+            {
+              "text": " Iii.,",
+              "start": 9.84,
+              "end": 10.3,
+              "probability": 0.6656290690104166
+            },
+            {
+              "text": " the",
+              "start": 10.3,
+              "end": 10.42,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Narwhal,",
+              "start": 10.42,
+              "end": 10.84,
+              "probability": 0.8683268229166666
+            },
+            {
+              "text": " Iv.,",
+              "start": 11.1,
+              "end": 11.54,
+              "probability": 0.492218017578125
+            },
+            {
+              "text": " the",
+              "start": 11.54,
+              "end": 11.76,
+              "probability": 0.9521484375
+            }
+          ]
+        },
+        {
+          "text": " Thrasher, V., the Killer.",
+          "start": 11.76,
+          "end": 13.12,
+          "words": [
+            {
+              "text": " Thrasher,",
+              "start": 11.76,
+              "end": 12.26,
+              "probability": 0.9537760416666666
+            },
+            {
+              "text": " V.,",
+              "start": 12.58,
+              "end": 12.78,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " the",
+              "start": 12.78,
+              "end": 12.88,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Killer.",
+              "start": 12.88,
+              "end": 13.12,
+              "probability": 0.9267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavoes.*—These",
+          "start": 1.62,
+          "end": 2.18
+        },
+        {
+          "raw": "embrace",
+          "start": 2.18,
+          "end": 2.56
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "whales",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "of",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "raw": "middling",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "magnitude,",
+          "start": 3.62,
+          "end": 4.26
+        },
+        {
+          "raw": "among",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "raw": "which",
+          "start": 4.6,
+          "end": 4.82
+        },
+        {
+          "raw": "present",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "raw": "may",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "be",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "numbered",
+          "start": 5.52,
+          "end": 5.88
+        },
+        {
+          "raw": ".—I.,",
+          "start": 5.88,
+          "end": 7.24
+        },
+        {
+          "raw": "the",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "raw": "Grampus,",
+          "start": 7.4,
+          "end": 7.94
+        },
+        {
+          "raw": "Iii.,",
+          "start": 8.28,
+          "end": 8.7
+        },
+        {
+          "raw": "the",
+          "start": 8.7,
+          "end": 8.82
+        },
+        {
+          "raw": "Black",
+          "start": 8.82,
+          "end": 9.08
+        },
+        {
+          "raw": "Fish,",
+          "start": 9.08,
+          "end": 9.42
+        },
+        {
+          "raw": "Iii.,",
+          "start": 9.84,
+          "end": 10.3
+        },
+        {
+          "raw": "the",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "raw": "Narwhal,",
+          "start": 10.42,
+          "end": 10.84
+        },
+        {
+          "raw": "Iv.,",
+          "start": 11.1,
+          "end": 11.54
+        },
+        {
+          "raw": "the",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "raw": "Thrasher,",
+          "start": 11.76,
+          "end": 12.26
+        },
+        {
+          "raw": "V.,",
+          "start": 12.58,
+          "end": 12.78
+        },
+        {
+          "raw": "the",
+          "start": 12.78,
+          "end": 12.88
+        },
+        {
+          "raw": "Killer.",
+          "start": 12.88,
+          "end": 13.12
+        }
+      ],
+      "expected_tokens": [
+        "Octavoes.*—These",
+        "embrace",
+        "the",
+        "whales",
+        "of",
+        "middling",
+        "magnitude,",
+        "among",
+        "which",
+        "present",
+        "may",
+        "be",
+        "numbered:—I.,",
+        "the",
+        "_Grampus_;",
+        "Ii.,",
+        "the",
+        "_Black",
+        "Fish_;",
+        "Iii.,",
+        "the",
+        "_Narwhale_;",
+        "Iv.,",
+        "the",
+        "_Thrasher_;",
+        "V.,",
+        "the",
+        "_Killer_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          15,
+          14,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ],
+        [
+          "equal",
+          16,
+          21,
+          17,
+          22
+        ],
+        [
+          "replace",
+          21,
+          22,
+          22,
+          23
+        ],
+        [
+          "equal",
+          22,
+          28,
+          23,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          17
+        ],
+        [
+          "replace",
+          21,
+          22,
+          22,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavoes.*—These",
+          "start": 1.62,
+          "end": 2.18,
+          "key": "octavoesthese",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "embrace",
+          "start": 2.18,
+          "end": 2.56,
+          "key": "embrace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "whales",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "whales",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.08,
+          "end": 3.34,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "middling",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "middling",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "magnitude,",
+          "start": 3.62,
+          "end": 4.26,
+          "key": "magnitude",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 4.46,
+          "end": 4.6,
+          "key": "among",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.6,
+          "end": 4.82,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 4.82,
+          "end": 5.14,
+          "key": "present",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "may",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.34,
+          "end": 5.52,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "numbered",
+          "start": 5.52,
+          "end": 5.88,
+          "key": "numbered",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": ".—I.,",
+          "start": 5.88,
+          "end": 7.24,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.24,
+          "end": 7.4,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Grampus,",
+          "start": 7.4,
+          "end": 7.94,
+          "key": "grampus",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Iii.,",
+          "start": 8.28,
+          "end": 8.7,
+          "key": "iii",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.7,
+          "end": 8.82,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Black",
+          "start": 8.82,
+          "end": 9.08,
+          "key": "black",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Fish,",
+          "start": 9.08,
+          "end": 9.42,
+          "key": "fish",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Iii.,",
+          "start": 9.84,
+          "end": 10.3,
+          "key": "iii",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.3,
+          "end": 10.42,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Narwhal,",
+          "start": 10.42,
+          "end": 10.84,
+          "key": "narwhal",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Iv.,",
+          "start": 11.1,
+          "end": 11.54,
+          "key": "iv",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.54,
+          "end": 11.76,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Thrasher,",
+          "start": 11.76,
+          "end": 12.26,
+          "key": "thrasher",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "V.,",
+          "start": 12.58,
+          "end": 12.78,
+          "key": "v",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.78,
+          "end": 12.88,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Killer.",
+          "start": 12.88,
+          "end": 13.12,
+          "key": "killer",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavoes.*—These",
+          "start": 1.62,
+          "end": 2.18
+        },
+        {
+          "text": "embrace",
+          "start": 2.18,
+          "end": 2.56
+        },
+        {
+          "text": "the",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "whales",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "of",
+          "start": 3.08,
+          "end": 3.34
+        },
+        {
+          "text": "middling",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "magnitude,",
+          "start": 3.62,
+          "end": 4.26
+        },
+        {
+          "text": "among",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "text": "which",
+          "start": 4.6,
+          "end": 4.82
+        },
+        {
+          "text": "present",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "text": "may",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "be",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "numbered:—I.,",
+          "start": 5.52,
+          "end": 6.38
+        },
+        {
+          "text": "the",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "text": "_Grampus_;",
+          "start": 7.4,
+          "end": 7.94
+        },
+        {
+          "text": "Ii.,",
+          "start": 7.94,
+          "end": 8.32
+        },
+        {
+          "text": "the",
+          "start": 8.7,
+          "end": 8.82
+        },
+        {
+          "text": "_Black",
+          "start": 8.82,
+          "end": 9.08
+        },
+        {
+          "text": "Fish_;",
+          "start": 9.08,
+          "end": 9.42
+        },
+        {
+          "text": "Iii.,",
+          "start": 9.84,
+          "end": 10.3
+        },
+        {
+          "text": "the",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "text": "_Narwhale_;",
+          "start": 10.42,
+          "end": 10.76
+        },
+        {
+          "text": "Iv.,",
+          "start": 11.1,
+          "end": 11.54
+        },
+        {
+          "text": "the",
+          "start": 11.54,
+          "end": 11.76
+        },
+        {
+          "text": "_Thrasher_;",
+          "start": 11.76,
+          "end": 12.26
+        },
+        {
+          "text": "V.,",
+          "start": 12.58,
+          "end": 12.78
+        },
+        {
+          "text": "the",
+          "start": 12.78,
+          "end": 12.88
+        },
+        {
+          "text": "_Killer_.",
+          "start": 12.88,
+          "end": 13.12
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 29,
+        "matched_words": 25
+      },
+      "match_ratio": 0.8928571428571429,
+      "rejection_reasons": [],
+      "seconds": 0.5415964480489492
+    },
+    {
+      "asr_seconds": 0.5302370488643646,
+      "alignment_seconds": 0.0007841517217457294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Octavoes.*—These, Ii, Fish_, Iii, Iv, V"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Octavoes.*—These, Embrace the Whales of Middling Magnitude Among Which Present May",
+          "start": 1.62,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " Octavoes.*—These,",
+              "start": 1.62,
+              "end": 2.18,
+              "probability": 0.28665290276209515
+            },
+            {
+              "text": " Embrace",
+              "start": 2.22,
+              "end": 2.6,
+              "probability": 0.7027587890625
+            },
+            {
+              "text": " the",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " Whales",
+              "start": 2.86,
+              "end": 3.16,
+              "probability": 0.736328125
+            },
+            {
+              "text": " of",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Middling",
+              "start": 3.36,
+              "end": 3.64,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " Magnitude",
+              "start": 3.64,
+              "end": 4.3,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " Among",
+              "start": 4.3,
+              "end": 4.58,
+              "probability": 0.429443359375
+            },
+            {
+              "text": " Which",
+              "start": 4.58,
+              "end": 4.8,
+              "probability": 0.28857421875
+            },
+            {
+              "text": " Present",
+              "start": 4.8,
+              "end": 5.12,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " May",
+              "start": 5.12,
+              "end": 5.36,
+              "probability": 0.93505859375
+            }
+          ]
+        },
+        {
+          "text": " Be Numbered I, The Grampus, Ii, The Black Fish, Iii,",
+          "start": 5.36,
+          "end": 10.12,
+          "words": [
+            {
+              "text": " Be",
+              "start": 5.36,
+              "end": 5.56,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " Numbered",
+              "start": 5.56,
+              "end": 5.92,
+              "probability": 0.7239990234375
+            },
+            {
+              "text": " I,",
+              "start": 5.92,
+              "end": 6.88,
+              "probability": 0.1373291015625
+            },
+            {
+              "text": " The",
+              "start": 7.22,
+              "end": 7.4,
+              "probability": 0.497314453125
+            },
+            {
+              "text": " Grampus,",
+              "start": 7.4,
+              "end": 7.94,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " Ii,",
+              "start": 8.26,
+              "end": 8.5,
+              "probability": 0.06459379196166992
+            },
+            {
+              "text": " The",
+              "start": 8.68,
+              "end": 8.82,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Black",
+              "start": 8.82,
+              "end": 9.08,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Fish,",
+              "start": 9.08,
+              "end": 9.42,
+              "probability": 0.685546875
+            },
+            {
+              "text": " Iii,",
+              "start": 9.84,
+              "end": 10.12,
+              "probability": 0.0786285400390625
+            }
+          ]
+        },
+        {
+          "text": " The Narwhal, Iv, The Thrasher, V, The Killer",
+          "start": 10.3,
+          "end": 13.16,
+          "words": [
+            {
+              "text": " The",
+              "start": 10.3,
+              "end": 10.42,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " Narwhal,",
+              "start": 10.42,
+              "end": 10.84,
+              "probability": 0.9358723958333334
+            },
+            {
+              "text": " Iv,",
+              "start": 11.14,
+              "end": 11.18,
+              "probability": 0.0838623046875
+            },
+            {
+              "text": " The",
+              "start": 11.6,
+              "end": 11.76,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Thrasher,",
+              "start": 11.76,
+              "end": 12.26,
+              "probability": 0.9303385416666666
+            },
+            {
+              "text": " V,",
+              "start": 12.6,
+              "end": 12.62,
+              "probability": 0.52880859375
+            },
+            {
+              "text": " The",
+              "start": 12.76,
+              "end": 12.9,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Killer",
+              "start": 12.9,
+              "end": 13.16,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavoes.*—These,",
+          "start": 1.62,
+          "end": 2.18
+        },
+        {
+          "raw": "Embrace",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "raw": "the",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "Whales",
+          "start": 2.86,
+          "end": 3.16
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "Middling",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "raw": "Magnitude",
+          "start": 3.64,
+          "end": 4.3
+        },
+        {
+          "raw": "Among",
+          "start": 4.3,
+          "end": 4.58
+        },
+        {
+          "raw": "Which",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "raw": "Present",
+          "start": 4.8,
+          "end": 5.12
+        },
+        {
+          "raw": "May",
+          "start": 5.12,
+          "end": 5.36
+        },
+        {
+          "raw": "Be",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "raw": "Numbered",
+          "start": 5.56,
+          "end": 5.92
+        },
+        {
+          "raw": "I,",
+          "start": 5.92,
+          "end": 6.88
+        },
+        {
+          "raw": "The",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "raw": "Grampus,",
+          "start": 7.4,
+          "end": 7.94
+        },
+        {
+          "raw": "Ii,",
+          "start": 8.26,
+          "end": 8.5
+        },
+        {
+          "raw": "The",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "raw": "Black",
+          "start": 8.82,
+          "end": 9.08
+        },
+        {
+          "raw": "Fish,",
+          "start": 9.08,
+          "end": 9.42
+        },
+        {
+          "raw": "Iii,",
+          "start": 9.84,
+          "end": 10.12
+        },
+        {
+          "raw": "The",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "raw": "Narwhal,",
+          "start": 10.42,
+          "end": 10.84
+        },
+        {
+          "raw": "Iv,",
+          "start": 11.14,
+          "end": 11.18
+        },
+        {
+          "raw": "The",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "raw": "Thrasher,",
+          "start": 11.76,
+          "end": 12.26
+        },
+        {
+          "raw": "V,",
+          "start": 12.6,
+          "end": 12.62
+        },
+        {
+          "raw": "The",
+          "start": 12.76,
+          "end": 12.9
+        },
+        {
+          "raw": "Killer",
+          "start": 12.9,
+          "end": 13.16
+        }
+      ],
+      "expected_tokens": [
+        "Octavoes.*—These",
+        "embrace",
+        "the",
+        "whales",
+        "of",
+        "middling",
+        "magnitude,",
+        "among",
+        "which",
+        "present",
+        "may",
+        "be",
+        "numbered:—I.,",
+        "the",
+        "_Grampus_;",
+        "Ii.,",
+        "the",
+        "_Black",
+        "Fish_;",
+        "Iii.,",
+        "the",
+        "_Narwhale_;",
+        "Iv.,",
+        "the",
+        "_Thrasher_;",
+        "V.,",
+        "the",
+        "_Killer_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          21,
+          14,
+          22
+        ],
+        [
+          "replace",
+          21,
+          22,
+          22,
+          23
+        ],
+        [
+          "equal",
+          22,
+          28,
+          23,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          21,
+          22,
+          22,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavoes.*—These,",
+          "start": 1.62,
+          "end": 2.18,
+          "key": "octavoesthese",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Embrace",
+          "start": 2.22,
+          "end": 2.6,
+          "key": "embrace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Whales",
+          "start": 2.86,
+          "end": 3.16,
+          "key": "whales",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.36,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Middling",
+          "start": 3.36,
+          "end": 3.64,
+          "key": "middling",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Magnitude",
+          "start": 3.64,
+          "end": 4.3,
+          "key": "magnitude",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Among",
+          "start": 4.3,
+          "end": 4.58,
+          "key": "among",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 4.58,
+          "end": 4.8,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Present",
+          "start": 4.8,
+          "end": 5.12,
+          "key": "present",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 5.12,
+          "end": 5.36,
+          "key": "may",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 5.36,
+          "end": 5.56,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Numbered",
+          "start": 5.56,
+          "end": 5.92,
+          "key": "numbered",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 5.92,
+          "end": 6.88,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.22,
+          "end": 7.4,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Grampus,",
+          "start": 7.4,
+          "end": 7.94,
+          "key": "grampus",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Ii,",
+          "start": 8.26,
+          "end": 8.5,
+          "key": "ii",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.68,
+          "end": 8.82,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Black",
+          "start": 8.82,
+          "end": 9.08,
+          "key": "black",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Fish,",
+          "start": 9.08,
+          "end": 9.42,
+          "key": "fish",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Iii,",
+          "start": 9.84,
+          "end": 10.12,
+          "key": "iii",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 10.3,
+          "end": 10.42,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Narwhal,",
+          "start": 10.42,
+          "end": 10.84,
+          "key": "narwhal",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Iv,",
+          "start": 11.14,
+          "end": 11.18,
+          "key": "iv",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 11.6,
+          "end": 11.76,
+          "key": "the",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Thrasher,",
+          "start": 11.76,
+          "end": 12.26,
+          "key": "thrasher",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "V,",
+          "start": 12.6,
+          "end": 12.62,
+          "key": "v",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 12.76,
+          "end": 12.9,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Killer",
+          "start": 12.9,
+          "end": 13.16,
+          "key": "killer",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavoes.*—These",
+          "start": 1.62,
+          "end": 2.18
+        },
+        {
+          "text": "embrace",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "text": "the",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "whales",
+          "start": 2.86,
+          "end": 3.16
+        },
+        {
+          "text": "of",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "middling",
+          "start": 3.36,
+          "end": 3.64
+        },
+        {
+          "text": "magnitude,",
+          "start": 3.64,
+          "end": 4.3
+        },
+        {
+          "text": "among",
+          "start": 4.3,
+          "end": 4.58
+        },
+        {
+          "text": "which",
+          "start": 4.58,
+          "end": 4.8
+        },
+        {
+          "text": "present",
+          "start": 4.8,
+          "end": 5.12
+        },
+        {
+          "text": "may",
+          "start": 5.12,
+          "end": 5.36
+        },
+        {
+          "text": "be",
+          "start": 5.36,
+          "end": 5.56
+        },
+        {
+          "text": "numbered:—I.,",
+          "start": 5.56,
+          "end": 6.39
+        },
+        {
+          "text": "the",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "text": "_Grampus_;",
+          "start": 7.4,
+          "end": 7.94
+        },
+        {
+          "text": "Ii.,",
+          "start": 8.26,
+          "end": 8.5
+        },
+        {
+          "text": "the",
+          "start": 8.68,
+          "end": 8.82
+        },
+        {
+          "text": "_Black",
+          "start": 8.82,
+          "end": 9.08
+        },
+        {
+          "text": "Fish_;",
+          "start": 9.08,
+          "end": 9.42
+        },
+        {
+          "text": "Iii.,",
+          "start": 9.84,
+          "end": 10.12
+        },
+        {
+          "text": "the",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "text": "_Narwhale_;",
+          "start": 10.42,
+          "end": 10.78
+        },
+        {
+          "text": "Iv.,",
+          "start": 11.14,
+          "end": 11.18
+        },
+        {
+          "text": "the",
+          "start": 11.6,
+          "end": 11.76
+        },
+        {
+          "text": "_Thrasher_;",
+          "start": 11.76,
+          "end": 12.26
+        },
+        {
+          "text": "V.,",
+          "start": 12.6,
+          "end": 12.62
+        },
+        {
+          "text": "the",
+          "start": 12.76,
+          "end": 12.9
+        },
+        {
+          "text": "_Killer_.",
+          "start": 12.9,
+          "end": 13.16
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 29,
+        "matched_words": 26
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.5313225500285625
+    },
+    {
+      "asr_seconds": 0.5074404189363122,
+      "alignment_seconds": 0.0006110896356403828,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Octavo's asterisk, these embrace the wails of middling magnitude among which present",
+          "start": 0.02,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " Octavo's",
+              "start": 0.02,
+              "end": 1.12,
+              "probability": 0.7760009765625
+            },
+            {
+              "text": " asterisk,",
+              "start": 1.12,
+              "end": 1.76,
+              "probability": 0.912353515625
+            },
+            {
+              "text": " these",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " embrace",
+              "start": 2.2,
+              "end": 2.56,
+              "probability": 0.970703125
+            },
+            {
+              "text": " the",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.982421875
+            },
+            {
+              "text": " wails",
+              "start": 2.86,
+              "end": 3.16,
+              "probability": 0.6292724609375
+            },
+            {
+              "text": " of",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " middling",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.9921875
+            },
+            {
+              "text": " magnitude",
+              "start": 3.62,
+              "end": 4.26,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " among",
+              "start": 4.26,
+              "end": 4.58,
+              "probability": 0.94140625
+            },
+            {
+              "text": " which",
+              "start": 4.58,
+              "end": 4.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " present",
+              "start": 4.82,
+              "end": 5.14,
+              "probability": 0.978515625
+            }
+          ]
+        },
+        {
+          "text": " may be numbered.",
+          "start": 5.14,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " may",
+              "start": 5.14,
+              "end": 5.36,
+              "probability": 0.9921875
+            },
+            {
+              "text": " be",
+              "start": 5.36,
+              "end": 5.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " numbered.",
+              "start": 5.54,
+              "end": 5.88,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I, the Grampus, I, the Blackfish, EI, the Narwhal, Ive, the Thrasher, V, the Killer.",
+          "start": 6.88,
+          "end": 13.14,
+          "words": [
+            {
+              "text": " I,",
+              "start": 6.88,
+              "end": 6.88,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " the",
+              "start": 7.24,
+              "end": 7.4,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " Grampus,",
+              "start": 7.4,
+              "end": 7.96,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " I,",
+              "start": 8.28,
+              "end": 8.44,
+              "probability": 0.383544921875
+            },
+            {
+              "text": " the",
+              "start": 8.7,
+              "end": 8.82,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Blackfish,",
+              "start": 8.82,
+              "end": 9.42,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " EI,",
+              "start": 9.76,
+              "end": 10.14,
+              "probability": 0.608154296875
+            },
+            {
+              "text": " the",
+              "start": 10.38,
+              "end": 10.42,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Narwhal,",
+              "start": 10.42,
+              "end": 10.84,
+              "probability": 0.8619791666666666
+            },
+            {
+              "text": " Ive,",
+              "start": 11.14,
+              "end": 11.32,
+              "probability": 0.5325927734375
+            },
+            {
+              "text": " the",
+              "start": 11.64,
+              "end": 11.76,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " Thrasher,",
+              "start": 11.76,
+              "end": 12.26,
+              "probability": 0.955078125
+            },
+            {
+              "text": " V,",
+              "start": 12.58,
+              "end": 12.62,
+              "probability": 0.81640625
+            },
+            {
+              "text": " the",
+              "start": 12.82,
+              "end": 12.9,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Killer.",
+              "start": 12.9,
+              "end": 13.14,
+              "probability": 0.9287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavo's",
+          "start": 0.02,
+          "end": 1.12
+        },
+        {
+          "raw": "asterisk,",
+          "start": 1.12,
+          "end": 1.76
+        },
+        {
+          "raw": "these",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "embrace",
+          "start": 2.2,
+          "end": 2.56
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "wails",
+          "start": 2.86,
+          "end": 3.16
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "middling",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "magnitude",
+          "start": 3.62,
+          "end": 4.26
+        },
+        {
+          "raw": "among",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "raw": "which",
+          "start": 4.58,
+          "end": 4.82
+        },
+        {
+          "raw": "present",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "raw": "may",
+          "start": 5.14,
+          "end": 5.36
+        },
+        {
+          "raw": "be",
+          "start": 5.36,
+          "end": 5.54
+        },
+        {
+          "raw": "numbered.",
+          "start": 5.54,
+          "end": 5.88
+        },
+        {
+          "raw": "I,",
+          "start": 6.88,
+          "end": 6.88
+        },
+        {
+          "raw": "the",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "raw": "Grampus,",
+          "start": 7.4,
+          "end": 7.96
+        },
+        {
+          "raw": "I,",
+          "start": 8.28,
+          "end": 8.44
+        },
+        {
+          "raw": "the",
+          "start": 8.7,
+          "end": 8.82
+        },
+        {
+          "raw": "Blackfish,",
+          "start": 8.82,
+          "end": 9.42
+        },
+        {
+          "raw": "EI,",
+          "start": 9.76,
+          "end": 10.14
+        },
+        {
+          "raw": "the",
+          "start": 10.38,
+          "end": 10.42
+        },
+        {
+          "raw": "Narwhal,",
+          "start": 10.42,
+          "end": 10.84
+        },
+        {
+          "raw": "Ive,",
+          "start": 11.14,
+          "end": 11.32
+        },
+        {
+          "raw": "the",
+          "start": 11.64,
+          "end": 11.76
+        },
+        {
+          "raw": "Thrasher,",
+          "start": 11.76,
+          "end": 12.26
+        },
+        {
+          "raw": "V,",
+          "start": 12.58,
+          "end": 12.62
+        },
+        {
+          "raw": "the",
+          "start": 12.82,
+          "end": 12.9
+        },
+        {
+          "raw": "Killer.",
+          "start": 12.9,
+          "end": 13.14
+        }
+      ],
+      "expected_tokens": [
+        "Octavoes.*—These",
+        "embrace",
+        "the",
+        "whales",
+        "of",
+        "middling",
+        "magnitude,",
+        "among",
+        "which",
+        "present",
+        "may",
+        "be",
+        "numbered:—I.,",
+        "the",
+        "_Grampus_;",
+        "Ii.,",
+        "the",
+        "_Black",
+        "Fish_;",
+        "Iii.,",
+        "the",
+        "_Narwhale_;",
+        "Iv.,",
+        "the",
+        "_Thrasher_;",
+        "V.,",
+        "the",
+        "_Killer_."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          3,
+          3,
+          5
+        ],
+        [
+          "replace",
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          "equal",
+          4,
+          12,
+          6,
+          14
+        ],
+        [
+          "replace",
+          12,
+          13,
+          14,
+          16
+        ],
+        [
+          "equal",
+          13,
+          15,
+          16,
+          18
+        ],
+        [
+          "replace",
+          15,
+          16,
+          18,
+          19
+        ],
+        [
+          "equal",
+          16,
+          17,
+          19,
+          20
+        ],
+        [
+          "replace",
+          17,
+          20,
+          20,
+          22
+        ],
+        [
+          "equal",
+          20,
+          21,
+          22,
+          23
+        ],
+        [
+          "replace",
+          21,
+          23,
+          23,
+          25
+        ],
+        [
+          "equal",
+          23,
+          28,
+          25,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          "replace",
+          12,
+          13,
+          14,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          18,
+          19
+        ],
+        [
+          "replace",
+          17,
+          20,
+          20,
+          22
+        ],
+        [
+          "replace",
+          21,
+          23,
+          23,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavo's",
+          "start": 0.02,
+          "end": 1.12,
+          "key": "octavos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "asterisk,",
+          "start": 1.12,
+          "end": 1.76,
+          "key": "asterisk",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "these",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "embrace",
+          "start": 2.2,
+          "end": 2.56,
+          "key": "embrace",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wails",
+          "start": 2.86,
+          "end": 3.16,
+          "key": "wails",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "middling",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "middling",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "magnitude",
+          "start": 3.62,
+          "end": 4.26,
+          "key": "magnitude",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 4.26,
+          "end": 4.58,
+          "key": "among",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.58,
+          "end": 4.82,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 4.82,
+          "end": 5.14,
+          "key": "present",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 5.14,
+          "end": 5.36,
+          "key": "may",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.36,
+          "end": 5.54,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "numbered.",
+          "start": 5.54,
+          "end": 5.88,
+          "key": "numbered",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 6.88,
+          "end": 6.88,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.24,
+          "end": 7.4,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Grampus,",
+          "start": 7.4,
+          "end": 7.96,
+          "key": "grampus",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 8.28,
+          "end": 8.44,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.7,
+          "end": 8.82,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Blackfish,",
+          "start": 8.82,
+          "end": 9.42,
+          "key": "blackfish",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "EI,",
+          "start": 9.76,
+          "end": 10.14,
+          "key": "ei",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.38,
+          "end": 10.42,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Narwhal,",
+          "start": 10.42,
+          "end": 10.84,
+          "key": "narwhal",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Ive,",
+          "start": 11.14,
+          "end": 11.32,
+          "key": "ive",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.64,
+          "end": 11.76,
+          "key": "the",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Thrasher,",
+          "start": 11.76,
+          "end": 12.26,
+          "key": "thrasher",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "V,",
+          "start": 12.58,
+          "end": 12.62,
+          "key": "v",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.82,
+          "end": 12.9,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Killer.",
+          "start": 12.9,
+          "end": 13.14,
+          "key": "killer",
+          "pieces": [
+            29
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavoes.*—These",
+          "start": 0.0,
+          "end": 1.1
+        },
+        {
+          "text": "embrace",
+          "start": 2.2,
+          "end": 2.56
+        },
+        {
+          "text": "the",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "whales",
+          "start": 2.86,
+          "end": 3.01
+        },
+        {
+          "text": "of",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "middling",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "magnitude,",
+          "start": 3.62,
+          "end": 4.26
+        },
+        {
+          "text": "among",
+          "start": 4.26,
+          "end": 4.58
+        },
+        {
+          "text": "which",
+          "start": 4.58,
+          "end": 4.82
+        },
+        {
+          "text": "present",
+          "start": 4.82,
+          "end": 5.14
+        },
+        {
+          "text": "may",
+          "start": 5.14,
+          "end": 5.36
+        },
+        {
+          "text": "be",
+          "start": 5.36,
+          "end": 5.54
+        },
+        {
+          "text": "numbered:—I.,",
+          "start": 5.54,
+          "end": 6.39
+        },
+        {
+          "text": "the",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "text": "_Grampus_;",
+          "start": 7.4,
+          "end": 7.96
+        },
+        {
+          "text": "Ii.,",
+          "start": 7.96,
+          "end": 8.33
+        },
+        {
+          "text": "the",
+          "start": 8.7,
+          "end": 8.82
+        },
+        {
+          "text": "_Black",
+          "start": 8.82,
+          "end": 9.6
+        },
+        {
+          "text": "Fish_;",
+          "start": 9.6,
+          "end": 9.99
+        },
+        {
+          "text": "Iii.,",
+          "start": 9.99,
+          "end": 10.185
+        },
+        {
+          "text": "the",
+          "start": 10.38,
+          "end": 10.42
+        },
+        {
+          "text": "_Narwhale_;",
+          "start": 10.42,
+          "end": 11.03
+        },
+        {
+          "text": "Iv.,",
+          "start": 11.03,
+          "end": 11.335
+        },
+        {
+          "text": "the",
+          "start": 11.64,
+          "end": 11.76
+        },
+        {
+          "text": "_Thrasher_;",
+          "start": 11.76,
+          "end": 12.26
+        },
+        {
+          "text": "V.,",
+          "start": 12.58,
+          "end": 12.62
+        },
+        {
+          "text": "the",
+          "start": 12.82,
+          "end": 12.9
+        },
+        {
+          "text": "_Killer_.",
+          "start": 12.9,
+          "end": 13.14
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 30,
+        "matched_words": 19
+      },
+      "match_ratio": 0.6785714285714286,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5082777333445847
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "a62b3d3a09971b651dd7d4b53fba711a9e34eb2d5dc71484ff6897d5307169c5",
+  "selected_reasons": []
+}

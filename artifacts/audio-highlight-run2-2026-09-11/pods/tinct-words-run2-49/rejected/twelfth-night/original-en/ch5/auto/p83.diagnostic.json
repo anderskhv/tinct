@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "6e3530d698918f9f268bdfda9b1928b89517bb69c0a53a8c4a59e580c80c4cd3",
+  "attempts": [
+    {
+      "asr_seconds": 0.13378245383501053,
+      "alignment_seconds": 0.0002730153501033783,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Maria.",
+        "hotwords": "Enter, Maria"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Maria.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.921875
+            },
+            {
+              "text": " Maria.",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.22705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Maria.",
+          "start": 0.88,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Maria."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Maria.",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "maria",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Maria.",
+          "start": 0.88,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13414661958813667
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "952f375a91457bae0785672ee93c5f08dea1495f751c66d0f80e1c550cdd39cd",
+  "selected_reasons": []
+}

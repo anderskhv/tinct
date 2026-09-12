@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "88b2334bf5cd955986258c241e605d043b042a50255fdaa2e51c026db4336d0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09941221214830875,
+      "alignment_seconds": 0.00013653887435793877,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Eggo, why what's that to you?",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Eggo,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " why",
+              "start": 1.01,
+              "end": 1.21,
+              "probability": 0.9765625
+            },
+            {
+              "text": " what's",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.832763671875
+            },
+            {
+              "text": " that",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you?",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eggo,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "why",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "raw": "what's",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "that",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "to",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "you?",
+          "start": 1.75,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Why,",
+        "what's",
+        "that",
+        "to",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eggo,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "eggo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.01,
+          "end": 1.21,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "whats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.505
+        },
+        {
+          "text": "Why,",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "text": "what's",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "that",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "to",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "you?",
+          "start": 1.75,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09959506103768945
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c97550a9814ae9cf825599a93516e6e655a7e9dfbdd65bbda806320f41fbc453",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

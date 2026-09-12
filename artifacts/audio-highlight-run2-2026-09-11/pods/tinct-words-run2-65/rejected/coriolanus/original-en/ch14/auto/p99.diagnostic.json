@@ -1,0 +1,723 @@
+{
+  "complete": true,
+  "signature": "91d38bcdd138dc57fb553bf20ad144317e57d734f6cb85d6dce224b89e956f90",
+  "attempts": [
+    {
+      "asr_seconds": 4.041504378896207,
+      "alignment_seconds": 0.00032847002148628235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All Plebeians. True, The people are the city.",
+        "hotwords": "All, Plebeians, True"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Plebeians, True All Plebeians, True All Plebeians, True All Plebeians, True",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " Plebeians,",
+              "start": 0.76,
+              "end": 1.2,
+              "probability": 0.6660970052083334
+            },
+            {
+              "text": " True",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.061065673828125
+            },
+            {
+              "text": " All",
+              "start": 1.86,
+              "end": 2.58,
+              "probability": 1.1324882507324219e-05
+            },
+            {
+              "text": " Plebeians,",
+              "start": 2.58,
+              "end": 2.92,
+              "probability": 0.6853841145833334
+            },
+            {
+              "text": " True",
+              "start": 2.92,
+              "end": 2.92,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " All",
+              "start": 2.92,
+              "end": 2.92,
+              "probability": 0.038726806640625
+            },
+            {
+              "text": " Plebeians,",
+              "start": 2.92,
+              "end": 2.92,
+              "probability": 0.8343098958333334
+            },
+            {
+              "text": " True",
+              "start": 2.92,
+              "end": 2.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " All",
+              "start": 2.92,
+              "end": 2.92,
+              "probability": 0.022216796875
+            },
+            {
+              "text": " Plebeians,",
+              "start": 2.92,
+              "end": 2.92,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " True",
+              "start": 3.64,
+              "end": 3.64,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "raw": "True",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "All",
+          "start": 1.86,
+          "end": 2.58
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 2.58,
+          "end": 2.92
+        },
+        {
+          "raw": "True",
+          "start": 2.92,
+          "end": 2.92
+        },
+        {
+          "raw": "All",
+          "start": 2.92,
+          "end": 2.92
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 2.92,
+          "end": 2.92
+        },
+        {
+          "raw": "True",
+          "start": 2.92,
+          "end": 2.92
+        },
+        {
+          "raw": "All",
+          "start": 2.92,
+          "end": 2.92
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 2.92,
+          "end": 2.92
+        },
+        {
+          "raw": "True",
+          "start": 3.64,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Plebeians.",
+        "True,",
+        "The",
+        "people",
+        "are",
+        "the",
+        "city."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          8,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          8,
+          3,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 0.76,
+          "end": 1.2,
+          "key": "plebeians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "True",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "true",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 1.86,
+          "end": 2.58,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 2.58,
+          "end": 2.92,
+          "key": "plebeians",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "True",
+          "start": 2.92,
+          "end": 2.92,
+          "key": "true",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 2.92,
+          "end": 2.92,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 2.92,
+          "end": 2.92,
+          "key": "plebeians",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "True",
+          "start": 2.92,
+          "end": 2.92,
+          "key": "true",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 2.92,
+          "end": 2.92,
+          "key": "all",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 2.92,
+          "end": 2.92,
+          "key": "plebeians",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "True",
+          "start": 3.64,
+          "end": 3.64,
+          "key": "true",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "Plebeians.",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "text": "True,",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "The",
+          "start": 1.86,
+          "end": 2.75
+        },
+        {
+          "text": "people",
+          "start": 2.75,
+          "end": 3.195
+        },
+        {
+          "text": "are",
+          "start": 3.195,
+          "end": 3.417
+        },
+        {
+          "text": "the",
+          "start": 3.417,
+          "end": 3.529
+        },
+        {
+          "text": "city.",
+          "start": 3.529,
+          "end": 3.585
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 12,
+        "matched_words": 3
+      },
+      "match_ratio": 0.375,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.041962663177401
+    },
+    {
+      "asr_seconds": 0.1401716391555965,
+      "alignment_seconds": 0.0002515171654522419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "All, Plebeians, True"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " All, Plebeians, True The people are the city.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " Plebeians,",
+              "start": 0.76,
+              "end": 1.2,
+              "probability": 0.6658732096354166
+            },
+            {
+              "text": " True",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.06085205078125
+            },
+            {
+              "text": " The",
+              "start": 1.86,
+              "end": 2.22,
+              "probability": 0.0343017578125
+            },
+            {
+              "text": " people",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.1641845703125
+            },
+            {
+              "text": " are",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " the",
+              "start": 2.6,
+              "end": 2.7,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " city.",
+              "start": 2.7,
+              "end": 2.96,
+              "probability": 0.76953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "raw": "True",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "The",
+          "start": 1.86,
+          "end": 2.22
+        },
+        {
+          "raw": "people",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "are",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "the",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "raw": "city.",
+          "start": 2.7,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Plebeians.",
+        "True,",
+        "The",
+        "people",
+        "are",
+        "the",
+        "city."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Plebeians,",
+          "start": 0.76,
+          "end": 1.2,
+          "key": "plebeians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "True",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "true",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.86,
+          "end": 2.22,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "people",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.6,
+          "end": 2.7,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "city.",
+          "start": 2.7,
+          "end": 2.96,
+          "key": "city",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "Plebeians.",
+          "start": 0.76,
+          "end": 1.2
+        },
+        {
+          "text": "True,",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "The",
+          "start": 1.86,
+          "end": 2.22
+        },
+        {
+          "text": "people",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "text": "are",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "text": "the",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "text": "city.",
+          "start": 2.7,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1405223091132939
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "c3744c0ab01e831a4ad632d295d130cdb54c6ecba6acf97d149a2ba2c13f3e2e",
+  "selected_reasons": []
+}

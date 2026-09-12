@@ -1,0 +1,235 @@
+{
+  "complete": true,
+  "signature": "8284630568be1eca5743b510490f89e449672082ba6bcdf825f20961b7158793",
+  "attempts": [
+    {
+      "asr_seconds": 0.12494617799529806,
+      "alignment_seconds": 0.0001489659771323204,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " An ah-bar-bus tees true.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " An",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " ah",
+              "start": 0.55,
+              "end": 0.65,
+              "probability": 0.0341796875
+            },
+            {
+              "text": "-bar",
+              "start": 0.65,
+              "end": 0.77,
+              "probability": 0.786376953125
+            },
+            {
+              "text": "-bus",
+              "start": 0.77,
+              "end": 1.03,
+              "probability": 0.653076171875
+            },
+            {
+              "text": " tees",
+              "start": 1.03,
+              "end": 1.69,
+              "probability": 0.57611083984375
+            },
+            {
+              "text": " true.",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "An",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "ah",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "raw": "-bar",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "raw": "-bus",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "raw": "tees",
+          "start": 1.03,
+          "end": 1.69
+        },
+        {
+          "raw": "true.",
+          "start": 1.69,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "'Tis",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          5
+        ],
+        [
+          "equal",
+          2,
+          3,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "An",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "an",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ah",
+          "start": 0.55,
+          "end": 0.65,
+          "key": "ah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-bar",
+          "start": 0.65,
+          "end": 0.77,
+          "key": "bar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-bus",
+          "start": 0.77,
+          "end": 1.03,
+          "key": "bus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tees",
+          "start": 1.03,
+          "end": 1.69,
+          "key": "tees",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "true",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.0,
+          "end": 0.845
+        },
+        {
+          "text": "'Tis",
+          "start": 0.845,
+          "end": 1.268
+        },
+        {
+          "text": "true.",
+          "start": 1.69,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 6,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12515247499686666
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c16b828ecc902ff2a5c3d97bcc1bdcf77ae26f4313cc48db6d264a2ed663df06",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "d63181a312709d8ef555ad80be663c731736c783359f7799a8ba137290b3f541",
+  "attempts": [
+    {
+      "asr_seconds": 0.3286335039883852,
+      "alignment_seconds": 0.0004815291613340378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First guard a simple countryman that brought her figs. This was his basket",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.73828125
+            },
+            {
+              "text": " guard",
+              "start": 0.69,
+              "end": 0.99,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " a",
+              "start": 0.99,
+              "end": 1.57,
+              "probability": 0.348876953125
+            },
+            {
+              "text": " simple",
+              "start": 1.57,
+              "end": 1.91,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " countryman",
+              "start": 1.91,
+              "end": 2.49,
+              "probability": 0.923828125
+            },
+            {
+              "text": " that",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " brought",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " her",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " figs.",
+              "start": 3.07,
+              "end": 3.85,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " This",
+              "start": 3.85,
+              "end": 4.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " was",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 4.31,
+              "end": 4.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " basket",
+              "start": 4.49,
+              "end": 4.95,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "guard",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "raw": "a",
+          "start": 0.99,
+          "end": 1.57
+        },
+        {
+          "raw": "simple",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "raw": "countryman",
+          "start": 1.91,
+          "end": 2.49
+        },
+        {
+          "raw": "that",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "brought",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "her",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "figs.",
+          "start": 3.07,
+          "end": 3.85
+        },
+        {
+          "raw": "This",
+          "start": 3.85,
+          "end": 4.15
+        },
+        {
+          "raw": "was",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "his",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "raw": "basket",
+          "start": 4.49,
+          "end": 4.95
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Guard.",
+        "A",
+        "simple",
+        "countryman",
+        "that",
+        "brought",
+        "her",
+        "figs.",
+        "This",
+        "was",
+        "his",
+        "basket."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "guard",
+          "start": 0.69,
+          "end": 0.99,
+          "key": "guard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.99,
+          "end": 1.57,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "simple",
+          "start": 1.57,
+          "end": 1.91,
+          "key": "simple",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "countryman",
+          "start": 1.91,
+          "end": 2.49,
+          "key": "countryman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "brought",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "brought",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "figs.",
+          "start": 3.07,
+          "end": 3.85,
+          "key": "figs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 3.85,
+          "end": 4.15,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.31,
+          "end": 4.49,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "basket",
+          "start": 4.49,
+          "end": 4.95,
+          "key": "basket",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Guard.",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "text": "A",
+          "start": 0.99,
+          "end": 1.57
+        },
+        {
+          "text": "simple",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "text": "countryman",
+          "start": 1.91,
+          "end": 2.49
+        },
+        {
+          "text": "that",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "brought",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "her",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "figs.",
+          "start": 3.07,
+          "end": 3.85
+        },
+        {
+          "text": "This",
+          "start": 3.85,
+          "end": 4.15
+        },
+        {
+          "text": "was",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "his",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "text": "basket.",
+          "start": 4.49,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32930823508650064
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06166956c47176d07e0f7f3630cec893c38e8d6d86ca82ef8417a912b3560729",
+  "selected_reasons": []
+}

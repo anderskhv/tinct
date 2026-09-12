@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "a77f272fa516d66a3a5c1ebb58034317c8ef7a85d94ad5e2c613b5a9a3f73e5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.33119332045316696,
+      "alignment_seconds": 0.00046670064330101013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But the wretched creature did not seem to be making any resistance,\" observed Sir Francis.",
+        "hotwords": "But, Sir, Francis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But the wretched creature did not seem to be making any resistance,\" observed Sir Francis.",
+          "start": 0.18,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.18,
+              "end": 0.52,
+              "probability": 0.51611328125
+            },
+            {
+              "text": " the",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " wretched",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " creature",
+              "start": 0.98,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " did",
+              "start": 1.48,
+              "end": 1.84,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " not",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " seem",
+              "start": 2.06,
+              "end": 2.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.28,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " making",
+              "start": 2.56,
+              "end": 2.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any",
+              "start": 2.78,
+              "end": 3.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " resistance,\"",
+              "start": 3.08,
+              "end": 4.28,
+              "probability": 0.718994140625
+            },
+            {
+              "text": " observed",
+              "start": 4.28,
+              "end": 4.62,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Sir",
+              "start": 4.62,
+              "end": 4.9,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Francis.",
+              "start": 4.9,
+              "end": 5.3,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.18,
+          "end": 0.52
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "wretched",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "creature",
+          "start": 0.98,
+          "end": 1.48
+        },
+        {
+          "raw": "did",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "raw": "not",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "seem",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "raw": "to",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "raw": "be",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "making",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "raw": "any",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "raw": "resistance,\"",
+          "start": 3.08,
+          "end": 4.28
+        },
+        {
+          "raw": "observed",
+          "start": 4.28,
+          "end": 4.62
+        },
+        {
+          "raw": "Sir",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "raw": "Francis.",
+          "start": 4.9,
+          "end": 5.3
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "the",
+        "wretched",
+        "creature",
+        "did",
+        "not",
+        "seem",
+        "to",
+        "be",
+        "making",
+        "any",
+        "resistance,\"",
+        "observed",
+        "Sir",
+        "Francis."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.18,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wretched",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "wretched",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "creature",
+          "start": 0.98,
+          "end": 1.48,
+          "key": "creature",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.48,
+          "end": 1.84,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 2.06,
+          "end": 2.28,
+          "key": "seem",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.28,
+          "end": 2.42,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 2.56,
+          "end": 2.78,
+          "key": "making",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 2.78,
+          "end": 3.08,
+          "key": "any",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "resistance,\"",
+          "start": 3.08,
+          "end": 4.28,
+          "key": "resistance",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 4.28,
+          "end": 4.62,
+          "key": "observed",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 4.62,
+          "end": 4.9,
+          "key": "sir",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Francis.",
+          "start": 4.9,
+          "end": 5.3,
+          "key": "francis",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.18,
+          "end": 0.52
+        },
+        {
+          "text": "the",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "wretched",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "creature",
+          "start": 0.98,
+          "end": 1.48
+        },
+        {
+          "text": "did",
+          "start": 1.48,
+          "end": 1.84
+        },
+        {
+          "text": "not",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "seem",
+          "start": 2.06,
+          "end": 2.28
+        },
+        {
+          "text": "to",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "text": "be",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "making",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "text": "any",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "text": "resistance,\"",
+          "start": 3.08,
+          "end": 4.28
+        },
+        {
+          "text": "observed",
+          "start": 4.28,
+          "end": 4.62
+        },
+        {
+          "text": "Sir",
+          "start": 4.62,
+          "end": 4.9
+        },
+        {
+          "text": "Francis.",
+          "start": 4.9,
+          "end": 5.3
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.331848138011992
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28525188b8b72c58f3a5ba848586a831cd6f5e0d7a98088354c3855f3e8ae4ec",
+  "selected_reasons": []
+}

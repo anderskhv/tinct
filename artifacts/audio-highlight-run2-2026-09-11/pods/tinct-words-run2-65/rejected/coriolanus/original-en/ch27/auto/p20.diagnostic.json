@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "0a903447b24f0833937e7354ad554822830a6f8ac29d0e55a21b9986ceaeb059",
+  "attempts": [
+    {
+      "asr_seconds": 0.30778971686959267,
+      "alignment_seconds": 0.00046414416283369064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The trumpets, sackbuts, psalteries, and fifes, Tabors and cymbals, and the shouting Romans Make the sun dance. Hark you!",
+        "hotwords": "Tabors, Romans, Make, Hark"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The trumpets, sackbuts, psalteries, and fifes, Tabors and cymbals, and the shouting Romans Make the sun dance. Hark you!",
+          "start": 0.02,
+          "end": 7.86,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " trumpets,",
+              "start": 0.48,
+              "end": 1.0,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " sackbuts,",
+              "start": 1.34,
+              "end": 1.9,
+              "probability": 0.650390625
+            },
+            {
+              "text": " psalteries,",
+              "start": 2.16,
+              "end": 2.56,
+              "probability": 0.805572509765625
+            },
+            {
+              "text": " and",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " fifes,",
+              "start": 2.86,
+              "end": 3.2,
+              "probability": 0.5946044921875
+            },
+            {
+              "text": " Tabors",
+              "start": 3.52,
+              "end": 3.8,
+              "probability": 0.0434722900390625
+            },
+            {
+              "text": " and",
+              "start": 3.8,
+              "end": 4.02,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " cymbals,",
+              "start": 4.02,
+              "end": 4.48,
+              "probability": 0.9415690104166666
+            },
+            {
+              "text": " and",
+              "start": 4.72,
+              "end": 4.8,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " the",
+              "start": 4.8,
+              "end": 4.92,
+              "probability": 0.98828125
+            },
+            {
+              "text": " shouting",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Romans",
+              "start": 5.22,
+              "end": 5.58,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Make",
+              "start": 5.58,
+              "end": 5.9,
+              "probability": 0.1402587890625
+            },
+            {
+              "text": " the",
+              "start": 5.9,
+              "end": 6.1,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " sun",
+              "start": 6.1,
+              "end": 6.3,
+              "probability": 0.38525390625
+            },
+            {
+              "text": " dance.",
+              "start": 6.3,
+              "end": 6.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Hark",
+              "start": 7.42,
+              "end": 7.6,
+              "probability": 0.91796875
+            },
+            {
+              "text": " you!",
+              "start": 7.6,
+              "end": 7.86,
+              "probability": 0.78955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "trumpets,",
+          "start": 0.48,
+          "end": 1.0
+        },
+        {
+          "raw": "sackbuts,",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "raw": "psalteries,",
+          "start": 2.16,
+          "end": 2.56
+        },
+        {
+          "raw": "and",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "fifes,",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "raw": "Tabors",
+          "start": 3.52,
+          "end": 3.8
+        },
+        {
+          "raw": "and",
+          "start": 3.8,
+          "end": 4.02
+        },
+        {
+          "raw": "cymbals,",
+          "start": 4.02,
+          "end": 4.48
+        },
+        {
+          "raw": "and",
+          "start": 4.72,
+          "end": 4.8
+        },
+        {
+          "raw": "the",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "raw": "shouting",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "Romans",
+          "start": 5.22,
+          "end": 5.58
+        },
+        {
+          "raw": "Make",
+          "start": 5.58,
+          "end": 5.9
+        },
+        {
+          "raw": "the",
+          "start": 5.9,
+          "end": 6.1
+        },
+        {
+          "raw": "sun",
+          "start": 6.1,
+          "end": 6.3
+        },
+        {
+          "raw": "dance.",
+          "start": 6.3,
+          "end": 6.74
+        },
+        {
+          "raw": "Hark",
+          "start": 7.42,
+          "end": 7.6
+        },
+        {
+          "raw": "you!",
+          "start": 7.6,
+          "end": 7.86
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "trumpets,",
+        "sackbuts,",
+        "psalteries,",
+        "and",
+        "fifes,",
+        "Tabors",
+        "and",
+        "cymbals,",
+        "and",
+        "the",
+        "shouting",
+        "Romans",
+        "Make",
+        "the",
+        "sun",
+        "dance.",
+        "Hark",
+        "you!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "trumpets,",
+          "start": 0.48,
+          "end": 1.0,
+          "key": "trumpets",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sackbuts,",
+          "start": 1.34,
+          "end": 1.9,
+          "key": "sackbuts",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "psalteries,",
+          "start": 2.16,
+          "end": 2.56,
+          "key": "psalteries",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fifes,",
+          "start": 2.86,
+          "end": 3.2,
+          "key": "fifes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Tabors",
+          "start": 3.52,
+          "end": 3.8,
+          "key": "tabors",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.8,
+          "end": 4.02,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cymbals,",
+          "start": 4.02,
+          "end": 4.48,
+          "key": "cymbals",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.72,
+          "end": 4.8,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.8,
+          "end": 4.92,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shouting",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "shouting",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Romans",
+          "start": 5.22,
+          "end": 5.58,
+          "key": "romans",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Make",
+          "start": 5.58,
+          "end": 5.9,
+          "key": "make",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.9,
+          "end": 6.1,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 6.1,
+          "end": 6.3,
+          "key": "sun",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dance.",
+          "start": 6.3,
+          "end": 6.74,
+          "key": "dance",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 7.42,
+          "end": 7.6,
+          "key": "hark",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you!",
+          "start": 7.6,
+          "end": 7.86,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "trumpets,",
+          "start": 0.48,
+          "end": 1.0
+        },
+        {
+          "text": "sackbuts,",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "text": "psalteries,",
+          "start": 2.16,
+          "end": 2.56
+        },
+        {
+          "text": "and",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "fifes,",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "text": "Tabors",
+          "start": 3.52,
+          "end": 3.8
+        },
+        {
+          "text": "and",
+          "start": 3.8,
+          "end": 4.02
+        },
+        {
+          "text": "cymbals,",
+          "start": 4.02,
+          "end": 4.48
+        },
+        {
+          "text": "and",
+          "start": 4.72,
+          "end": 4.8
+        },
+        {
+          "text": "the",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "text": "shouting",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "Romans",
+          "start": 5.22,
+          "end": 5.58
+        },
+        {
+          "text": "Make",
+          "start": 5.58,
+          "end": 5.9
+        },
+        {
+          "text": "the",
+          "start": 5.9,
+          "end": 6.1
+        },
+        {
+          "text": "sun",
+          "start": 6.1,
+          "end": 6.3
+        },
+        {
+          "text": "dance.",
+          "start": 6.3,
+          "end": 6.74
+        },
+        {
+          "text": "Hark",
+          "start": 7.42,
+          "end": 7.6
+        },
+        {
+          "text": "you!",
+          "start": 7.6,
+          "end": 7.86
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30845198687165976
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "30c18d6be6ab54589a597b4666529a48c182b2cd8ab251ceea1f3456f3437182",
+  "selected_reasons": []
+}

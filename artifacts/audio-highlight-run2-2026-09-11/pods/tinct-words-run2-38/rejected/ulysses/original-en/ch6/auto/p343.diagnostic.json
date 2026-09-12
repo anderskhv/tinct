@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "623fd34243c3f5f04d71ee2fe99d931c52b61c9deb6ec28993e5d8232e35062c",
+  "attempts": [
+    {
+      "asr_seconds": 0.07776242401450872,
+      "alignment_seconds": 7.575104245916009e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pause.",
+        "hotwords": "Pause"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pause.",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " Pause.",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.764404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pause.",
+          "start": 0.05,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "Pause."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pause.",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "pause",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pause.",
+          "start": 0.05,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0778651749715209
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5f679714f2d3ef22216e8aec63cde7ca213813649cbbd49d35e334bf246f79c",
+  "selected_reasons": []
+}

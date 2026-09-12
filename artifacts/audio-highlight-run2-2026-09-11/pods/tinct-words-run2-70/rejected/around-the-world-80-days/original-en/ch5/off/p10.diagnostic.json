@@ -1,0 +1,782 @@
+{
+  "complete": true,
+  "signature": "9b152543457d5877d1bb53c255e9c043146213fe7b3d1ffc53e353acfb365e36",
+  "attempts": [
+    {
+      "asr_seconds": 0.42253826814703643,
+      "alignment_seconds": 0.0005491208285093307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rowan, Commissioner of Police, Scotland Yard, I found the bank robber, Filia's fog.",
+          "start": 0.05,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " Rowan,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.757568359375
+            },
+            {
+              "text": " Commissioner",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.68359375
+            },
+            {
+              "text": " of",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Police,",
+              "start": 1.55,
+              "end": 1.87,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Scotland",
+              "start": 2.51,
+              "end": 2.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Yard,",
+              "start": 2.67,
+              "end": 3.07,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 3.71,
+              "end": 3.79,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " found",
+              "start": 3.79,
+              "end": 4.03,
+              "probability": 0.955078125
+            },
+            {
+              "text": " the",
+              "start": 4.03,
+              "end": 4.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bank",
+              "start": 4.21,
+              "end": 4.41,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " robber,",
+              "start": 4.41,
+              "end": 4.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Filia's",
+              "start": 5.05,
+              "end": 5.45,
+              "probability": 0.7547200520833334
+            },
+            {
+              "text": " fog.",
+              "start": 5.45,
+              "end": 5.71,
+              "probability": 0.390380859375
+            }
+          ]
+        },
+        {
+          "text": " Send without delay warrant of arrest to Bombay.",
+          "start": 6.59,
+          "end": 8.73,
+          "words": [
+            {
+              "text": " Send",
+              "start": 6.59,
+              "end": 6.63,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " without",
+              "start": 6.63,
+              "end": 6.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " delay",
+              "start": 6.99,
+              "end": 7.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " warrant",
+              "start": 7.37,
+              "end": 7.67,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " of",
+              "start": 7.67,
+              "end": 7.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " arrest",
+              "start": 7.85,
+              "end": 8.19,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 8.19,
+              "end": 8.47,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Bombay.",
+              "start": 8.47,
+              "end": 8.73,
+              "probability": 0.9599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rowan,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Commissioner",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "of",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "raw": "Police,",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "raw": "Scotland",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "raw": "Yard,",
+          "start": 2.67,
+          "end": 3.07
+        },
+        {
+          "raw": "I",
+          "start": 3.71,
+          "end": 3.79
+        },
+        {
+          "raw": "found",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "raw": "the",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "raw": "bank",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "raw": "robber,",
+          "start": 4.41,
+          "end": 4.81
+        },
+        {
+          "raw": "Filia's",
+          "start": 5.05,
+          "end": 5.45
+        },
+        {
+          "raw": "fog.",
+          "start": 5.45,
+          "end": 5.71
+        },
+        {
+          "raw": "Send",
+          "start": 6.59,
+          "end": 6.63
+        },
+        {
+          "raw": "without",
+          "start": 6.63,
+          "end": 6.99
+        },
+        {
+          "raw": "delay",
+          "start": 6.99,
+          "end": 7.37
+        },
+        {
+          "raw": "warrant",
+          "start": 7.37,
+          "end": 7.67
+        },
+        {
+          "raw": "of",
+          "start": 7.67,
+          "end": 7.85
+        },
+        {
+          "raw": "arrest",
+          "start": 7.85,
+          "end": 8.19
+        },
+        {
+          "raw": "to",
+          "start": 8.19,
+          "end": 8.47
+        },
+        {
+          "raw": "Bombay.",
+          "start": 8.47,
+          "end": 8.73
+        }
+      ],
+      "expected_tokens": [
+        "Rowan,",
+        "Commissioner",
+        "Of",
+        "Police,",
+        "Scotland",
+        "Yard:",
+        "I've",
+        "found",
+        "the",
+        "bank",
+        "robber,",
+        "Phileas",
+        "Fogg.",
+        "Send",
+        "without",
+        "delay",
+        "warrant",
+        "of",
+        "arrest",
+        "to",
+        "Bombay."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          11,
+          7,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "equal",
+          13,
+          21,
+          13,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rowan,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "rowan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Commissioner",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "commissioner",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.21,
+          "end": 1.55,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Police,",
+          "start": 1.55,
+          "end": 1.87,
+          "key": "police",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Scotland",
+          "start": 2.51,
+          "end": 2.67,
+          "key": "scotland",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Yard,",
+          "start": 2.67,
+          "end": 3.07,
+          "key": "yard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.71,
+          "end": 3.79,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 3.79,
+          "end": 4.03,
+          "key": "found",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.03,
+          "end": 4.21,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bank",
+          "start": 4.21,
+          "end": 4.41,
+          "key": "bank",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "robber,",
+          "start": 4.41,
+          "end": 4.81,
+          "key": "robber",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Filia's",
+          "start": 5.05,
+          "end": 5.45,
+          "key": "filias",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fog.",
+          "start": 5.45,
+          "end": 5.71,
+          "key": "fog",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Send",
+          "start": 6.59,
+          "end": 6.63,
+          "key": "send",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 6.63,
+          "end": 6.99,
+          "key": "without",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "delay",
+          "start": 6.99,
+          "end": 7.37,
+          "key": "delay",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "warrant",
+          "start": 7.37,
+          "end": 7.67,
+          "key": "warrant",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.67,
+          "end": 7.85,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "arrest",
+          "start": 7.85,
+          "end": 8.19,
+          "key": "arrest",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.19,
+          "end": 8.47,
+          "key": "to",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Bombay.",
+          "start": 8.47,
+          "end": 8.73,
+          "key": "bombay",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rowan,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Commissioner",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "Of",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "text": "Police,",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "Scotland",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "text": "Yard:",
+          "start": 2.67,
+          "end": 3.07
+        },
+        {
+          "text": "I've",
+          "start": 3.07,
+          "end": 3.43
+        },
+        {
+          "text": "found",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "text": "the",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "text": "bank",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "text": "robber,",
+          "start": 4.41,
+          "end": 4.81
+        },
+        {
+          "text": "Phileas",
+          "start": 4.81,
+          "end": 5.7
+        },
+        {
+          "text": "Fogg.",
+          "start": 5.7,
+          "end": 6.145
+        },
+        {
+          "text": "Send",
+          "start": 6.59,
+          "end": 6.63
+        },
+        {
+          "text": "without",
+          "start": 6.63,
+          "end": 6.99
+        },
+        {
+          "text": "delay",
+          "start": 6.99,
+          "end": 7.37
+        },
+        {
+          "text": "warrant",
+          "start": 7.37,
+          "end": 7.67
+        },
+        {
+          "text": "of",
+          "start": 7.67,
+          "end": 7.85
+        },
+        {
+          "text": "arrest",
+          "start": 7.85,
+          "end": 8.19
+        },
+        {
+          "text": "to",
+          "start": 8.19,
+          "end": 8.47
+        },
+        {
+          "text": "Bombay.",
+          "start": 8.47,
+          "end": 8.73
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 18
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.42331445310264826
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dd6e2829955c5ae65e678431824eda1b2c01b92c523162dd3a29c9d7768b3656",
+  "selected_reasons": []
+}

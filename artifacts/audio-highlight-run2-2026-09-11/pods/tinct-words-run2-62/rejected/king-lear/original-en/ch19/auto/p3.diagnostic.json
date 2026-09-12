@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "70a3380af5f8ef487cd10f7ecbd8fca4ef1c5d65b4820b08155572cf3455b9a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.08922403305768967,
+      "alignment_seconds": 0.000160854309797287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Who hath he left behind him general?",
+        "hotwords": "Kent, Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Who hath he left behind him general?",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Who",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.1195068359375
+            },
+            {
+              "text": " hath",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.939453125
+            },
+            {
+              "text": " he",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " left",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " behind",
+              "start": 1.63,
+              "end": 1.97,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " him",
+              "start": 1.97,
+              "end": 2.19,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " general?",
+              "start": 2.19,
+              "end": 2.59,
+              "probability": 0.7275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Who",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "hath",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "he",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "left",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "behind",
+          "start": 1.63,
+          "end": 1.97
+        },
+        {
+          "raw": "him",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "raw": "general?",
+          "start": 2.19,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Who",
+        "hath",
+        "he",
+        "left",
+        "behind",
+        "him",
+        "general?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "left",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 1.63,
+          "end": 1.97,
+          "key": "behind",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.97,
+          "end": 2.19,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "general?",
+          "start": 2.19,
+          "end": 2.59,
+          "key": "general",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Who",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "hath",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "he",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "left",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "behind",
+          "start": 1.63,
+          "end": 1.97
+        },
+        {
+          "text": "him",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "text": "general?",
+          "start": 2.19,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08944409713149071
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e23bfe435944f1fb9341cc4c0714635bfbd59ddfe17442fa0aa7d8deb3c8621a",
+  "selected_reasons": []
+}

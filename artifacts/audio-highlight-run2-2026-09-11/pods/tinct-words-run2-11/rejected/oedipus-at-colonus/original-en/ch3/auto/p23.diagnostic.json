@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "17150994c3969930e1dfbed1901b216e4bcbf06c7f19afdae79bda8d8b1f6709",
+  "attempts": [
+    {
+      "asr_seconds": 0.3434953410178423,
+      "alignment_seconds": 0.0005362648516893387,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ismene. Thy country (so it runs) shall yearn in time To have thee for their weal alive or dead.",
+        "hotwords": "Ismene, Thy, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ismene, Thy country, so it runs, Shall yearn in time To have thee for their weal alive or dead.",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.5264485677083334
+            },
+            {
+              "text": " Thy",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.0172119140625
+            },
+            {
+              "text": " country,",
+              "start": 1.37,
+              "end": 1.79,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " so",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " it",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " runs,",
+              "start": 2.39,
+              "end": 2.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Shall",
+              "start": 3.27,
+              "end": 3.33,
+              "probability": 0.421142578125
+            },
+            {
+              "text": " yearn",
+              "start": 3.33,
+              "end": 3.59,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " in",
+              "start": 3.59,
+              "end": 3.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " time",
+              "start": 3.71,
+              "end": 3.93,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " To",
+              "start": 3.93,
+              "end": 4.11,
+              "probability": 0.067626953125
+            },
+            {
+              "text": " have",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thee",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " for",
+              "start": 4.41,
+              "end": 4.55,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " their",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.88671875
+            },
+            {
+              "text": " weal",
+              "start": 4.71,
+              "end": 5.03,
+              "probability": 0.2566490173339844
+            },
+            {
+              "text": " alive",
+              "start": 5.03,
+              "end": 5.37,
+              "probability": 0.87890625
+            },
+            {
+              "text": " or",
+              "start": 5.37,
+              "end": 5.63,
+              "probability": 0.90234375
+            },
+            {
+              "text": " dead.",
+              "start": 5.63,
+              "end": 5.91,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Thy",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "country,",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "raw": "so",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "it",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "runs,",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "raw": "Shall",
+          "start": 3.27,
+          "end": 3.33
+        },
+        {
+          "raw": "yearn",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "raw": "in",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "raw": "time",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "raw": "To",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "raw": "have",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "thee",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "for",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "raw": "their",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "weal",
+          "start": 4.71,
+          "end": 5.03
+        },
+        {
+          "raw": "alive",
+          "start": 5.03,
+          "end": 5.37
+        },
+        {
+          "raw": "or",
+          "start": 5.37,
+          "end": 5.63
+        },
+        {
+          "raw": "dead.",
+          "start": 5.63,
+          "end": 5.91
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Thy",
+        "country",
+        "(so",
+        "it",
+        "runs)",
+        "shall",
+        "yearn",
+        "in",
+        "time",
+        "To",
+        "have",
+        "thee",
+        "for",
+        "their",
+        "weal",
+        "alive",
+        "or",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ismene,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "ismene",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "thy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "country,",
+          "start": 1.37,
+          "end": 1.79,
+          "key": "country",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.27,
+          "end": 2.39,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "runs,",
+          "start": 2.39,
+          "end": 2.77,
+          "key": "runs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 3.27,
+          "end": 3.33,
+          "key": "shall",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "yearn",
+          "start": 3.33,
+          "end": 3.59,
+          "key": "yearn",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.59,
+          "end": 3.71,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 3.71,
+          "end": 3.93,
+          "key": "time",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.93,
+          "end": 4.11,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.25,
+          "end": 4.41,
+          "key": "thee",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.41,
+          "end": 4.55,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "their",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "weal",
+          "start": 4.71,
+          "end": 5.03,
+          "key": "weal",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "alive",
+          "start": 5.03,
+          "end": 5.37,
+          "key": "alive",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 5.37,
+          "end": 5.63,
+          "key": "or",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 5.63,
+          "end": 5.91,
+          "key": "dead",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Thy",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "country",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "text": "(so",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "it",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "text": "runs)",
+          "start": 2.39,
+          "end": 2.77
+        },
+        {
+          "text": "shall",
+          "start": 3.27,
+          "end": 3.33
+        },
+        {
+          "text": "yearn",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "text": "in",
+          "start": 3.59,
+          "end": 3.71
+        },
+        {
+          "text": "time",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "text": "To",
+          "start": 3.93,
+          "end": 4.11
+        },
+        {
+          "text": "have",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "thee",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "for",
+          "start": 4.41,
+          "end": 4.55
+        },
+        {
+          "text": "their",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "weal",
+          "start": 4.71,
+          "end": 5.03
+        },
+        {
+          "text": "alive",
+          "start": 5.03,
+          "end": 5.37
+        },
+        {
+          "text": "or",
+          "start": 5.37,
+          "end": 5.63
+        },
+        {
+          "text": "dead.",
+          "start": 5.63,
+          "end": 5.91
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3442601431161165
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "84eafce889db11345aa220ea7636012826026d7540b948bcf7dd5023b2541d83",
+  "selected_reasons": []
+}

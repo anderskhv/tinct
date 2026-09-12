@@ -1,0 +1,7809 @@
+{
+  "complete": true,
+  "signature": "a06170fffc7c217b2fbe3115a150f45bc9f50b5d3e3d42b0057a8962dc8fe70d",
+  "attempts": [
+    {
+      "asr_seconds": 0.6549982773140073,
+      "alignment_seconds": 0.0016925325617194176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Juliet. O serpent heart, hid with a flowering face! Did ever dragon keep so fair a cave? Beautiful tyrant, fiend angelical, Dove-feather'd raven, wolvish-ravening lamb! Despised substance of divinest show! Just opposite to what thou justly seem'st, A damned saint, an honourable villain! O nature, what hadst thou to do in hell When thou didst bower the spirit of a fiend In mortal paradise of such sweet flesh? Was ever book containing such vile matter So fairly bound? O, that deceit should dwell In such a gorgeous palace.",
+        "hotwords": "Juliet, O, Did, Beautiful, Dove-feather'd, Despised, Just, When, Was"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Juliet, O serpent heart, hid with a flowering face! Did ever dragon keep so fair a cave?",
+          "start": 24.85,
+          "end": 30.03,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 24.85,
+              "end": 25.57,
+              "probability": 0.282958984375
+            },
+            {
+              "text": " O",
+              "start": 26.57,
+              "end": 26.69,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " serpent",
+              "start": 26.69,
+              "end": 27.05,
+              "probability": 0.63916015625
+            },
+            {
+              "text": " heart,",
+              "start": 27.05,
+              "end": 27.31,
+              "probability": 0.685546875
+            },
+            {
+              "text": " hid",
+              "start": 27.49,
+              "end": 27.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " with",
+              "start": 27.49,
+              "end": 27.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 27.59,
+              "end": 27.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " flowering",
+              "start": 27.99,
+              "end": 27.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " face!",
+              "start": 27.99,
+              "end": 28.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Did",
+              "start": 29.35,
+              "end": 29.67,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " ever",
+              "start": 29.67,
+              "end": 30.03,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " dragon",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " keep",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.986328125
+            },
+            {
+              "text": " so",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " fair",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cave?",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " O, that deceit should dwell In such a gorgeous palace.",
+          "start": 30.03,
+          "end": 32.13,
+          "words": [
+            {
+              "text": " O,",
+              "start": 30.03,
+              "end": 30.03,
+              "probability": 0.0001150965690612793
+            },
+            {
+              "text": " that",
+              "start": 30.03,
+              "end": 30.23,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " deceit",
+              "start": 30.23,
+              "end": 30.49,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " should",
+              "start": 30.49,
+              "end": 30.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dwell",
+              "start": 30.73,
+              "end": 30.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " In",
+              "start": 30.93,
+              "end": 31.15,
+              "probability": 0.00311279296875
+            },
+            {
+              "text": " such",
+              "start": 31.15,
+              "end": 31.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 31.31,
+              "end": 31.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " gorgeous",
+              "start": 31.47,
+              "end": 31.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " palace.",
+              "start": 31.71,
+              "end": 32.13,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 24.85,
+          "end": 25.57
+        },
+        {
+          "raw": "O",
+          "start": 26.57,
+          "end": 26.69
+        },
+        {
+          "raw": "serpent",
+          "start": 26.69,
+          "end": 27.05
+        },
+        {
+          "raw": "heart,",
+          "start": 27.05,
+          "end": 27.31
+        },
+        {
+          "raw": "hid",
+          "start": 27.49,
+          "end": 27.49
+        },
+        {
+          "raw": "with",
+          "start": 27.49,
+          "end": 27.59
+        },
+        {
+          "raw": "a",
+          "start": 27.59,
+          "end": 27.99
+        },
+        {
+          "raw": "flowering",
+          "start": 27.99,
+          "end": 27.99
+        },
+        {
+          "raw": "face!",
+          "start": 27.99,
+          "end": 28.53
+        },
+        {
+          "raw": "Did",
+          "start": 29.35,
+          "end": 29.67
+        },
+        {
+          "raw": "ever",
+          "start": 29.67,
+          "end": 30.03
+        },
+        {
+          "raw": "dragon",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "keep",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "so",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "fair",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "a",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "cave?",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "O,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "raw": "that",
+          "start": 30.03,
+          "end": 30.23
+        },
+        {
+          "raw": "deceit",
+          "start": 30.23,
+          "end": 30.49
+        },
+        {
+          "raw": "should",
+          "start": 30.49,
+          "end": 30.73
+        },
+        {
+          "raw": "dwell",
+          "start": 30.73,
+          "end": 30.93
+        },
+        {
+          "raw": "In",
+          "start": 30.93,
+          "end": 31.15
+        },
+        {
+          "raw": "such",
+          "start": 31.15,
+          "end": 31.31
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.47
+        },
+        {
+          "raw": "gorgeous",
+          "start": 31.47,
+          "end": 31.71
+        },
+        {
+          "raw": "palace.",
+          "start": 31.71,
+          "end": 32.13
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "O",
+        "serpent",
+        "heart,",
+        "hid",
+        "with",
+        "a",
+        "flowering",
+        "face!",
+        "Did",
+        "ever",
+        "dragon",
+        "keep",
+        "so",
+        "fair",
+        "a",
+        "cave?",
+        "Beautiful",
+        "tyrant,",
+        "fiend",
+        "angelical,",
+        "Dove-feather'd",
+        "raven,",
+        "wolvish-ravening",
+        "lamb!",
+        "Despised",
+        "substance",
+        "of",
+        "divinest",
+        "show!",
+        "Just",
+        "opposite",
+        "to",
+        "what",
+        "thou",
+        "justly",
+        "seem'st,",
+        "A",
+        "damned",
+        "saint,",
+        "an",
+        "honourable",
+        "villain!",
+        "O",
+        "nature,",
+        "what",
+        "hadst",
+        "thou",
+        "to",
+        "do",
+        "in",
+        "hell",
+        "When",
+        "thou",
+        "didst",
+        "bower",
+        "the",
+        "spirit",
+        "of",
+        "a",
+        "fiend",
+        "In",
+        "mortal",
+        "paradise",
+        "of",
+        "such",
+        "sweet",
+        "flesh?",
+        "Was",
+        "ever",
+        "book",
+        "containing",
+        "such",
+        "vile",
+        "matter",
+        "So",
+        "fairly",
+        "bound?",
+        "O,",
+        "that",
+        "deceit",
+        "should",
+        "dwell",
+        "In",
+        "such",
+        "a",
+        "gorgeous",
+        "palace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "delete",
+          17,
+          78,
+          17,
+          17
+        ],
+        [
+          "equal",
+          78,
+          88,
+          17,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          17,
+          78,
+          17,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 24.85,
+          "end": 25.57,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 26.57,
+          "end": 26.69,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "serpent",
+          "start": 26.69,
+          "end": 27.05,
+          "key": "serpent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heart,",
+          "start": 27.05,
+          "end": 27.31,
+          "key": "heart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hid",
+          "start": 27.49,
+          "end": 27.49,
+          "key": "hid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 27.49,
+          "end": 27.59,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 27.59,
+          "end": 27.99,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flowering",
+          "start": 27.99,
+          "end": 27.99,
+          "key": "flowering",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face!",
+          "start": 27.99,
+          "end": 28.53,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 29.35,
+          "end": 29.67,
+          "key": "did",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 29.67,
+          "end": 30.03,
+          "key": "ever",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dragon",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "dragon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "keep",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "fair",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cave?",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "cave",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 30.03,
+          "end": 30.03,
+          "key": "o",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 30.03,
+          "end": 30.23,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "deceit",
+          "start": 30.23,
+          "end": 30.49,
+          "key": "deceit",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 30.49,
+          "end": 30.73,
+          "key": "should",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "dwell",
+          "start": 30.73,
+          "end": 30.93,
+          "key": "dwell",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 30.93,
+          "end": 31.15,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 31.15,
+          "end": 31.31,
+          "key": "such",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.47,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "gorgeous",
+          "start": 31.47,
+          "end": 31.71,
+          "key": "gorgeous",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "palace.",
+          "start": 31.71,
+          "end": 32.13,
+          "key": "palace",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 24.85,
+          "end": 25.57
+        },
+        {
+          "text": "O",
+          "start": 26.57,
+          "end": 26.69
+        },
+        {
+          "text": "serpent",
+          "start": 26.69,
+          "end": 27.05
+        },
+        {
+          "text": "heart,",
+          "start": 27.05,
+          "end": 27.31
+        },
+        {
+          "text": "hid",
+          "start": 27.49,
+          "end": 27.49
+        },
+        {
+          "text": "with",
+          "start": 27.49,
+          "end": 27.59
+        },
+        {
+          "text": "a",
+          "start": 27.59,
+          "end": 27.99
+        },
+        {
+          "text": "flowering",
+          "start": 27.99,
+          "end": 27.99
+        },
+        {
+          "text": "face!",
+          "start": 27.99,
+          "end": 28.53
+        },
+        {
+          "text": "Did",
+          "start": 29.35,
+          "end": 29.67
+        },
+        {
+          "text": "ever",
+          "start": 29.67,
+          "end": 30.03
+        },
+        {
+          "text": "dragon",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "keep",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "so",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "fair",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "a",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "cave?",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "Beautiful",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "tyrant,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "fiend",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "angelical,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "Dove-feather'd",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "raven,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "wolvish-ravening",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "lamb!",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "Despised",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "substance",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "of",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "divinest",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "show!",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "Just",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "opposite",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "to",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "what",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "thou",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "justly",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "seem'st,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "A",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "damned",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "saint,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "an",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "honourable",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "villain!",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "O",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "nature,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "what",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "hadst",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "thou",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "to",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "do",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "in",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "hell",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "When",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "thou",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "didst",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "bower",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "the",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "spirit",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "of",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "a",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "fiend",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "In",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "mortal",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "paradise",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "of",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "such",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "sweet",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "flesh?",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "Was",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "ever",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "book",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "containing",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "such",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "vile",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "matter",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "So",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "fairly",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "bound?",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "O,",
+          "start": 30.03,
+          "end": 30.03
+        },
+        {
+          "text": "that",
+          "start": 30.03,
+          "end": 30.23
+        },
+        {
+          "text": "deceit",
+          "start": 30.23,
+          "end": 30.49
+        },
+        {
+          "text": "should",
+          "start": 30.49,
+          "end": 30.73
+        },
+        {
+          "text": "dwell",
+          "start": 30.73,
+          "end": 30.93
+        },
+        {
+          "text": "In",
+          "start": 30.93,
+          "end": 31.15
+        },
+        {
+          "text": "such",
+          "start": 31.15,
+          "end": 31.31
+        },
+        {
+          "text": "a",
+          "start": 31.31,
+          "end": 31.47
+        },
+        {
+          "text": "gorgeous",
+          "start": 31.47,
+          "end": 31.71
+        },
+        {
+          "text": "palace.",
+          "start": 31.71,
+          "end": 32.13
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 0.3068181818181818,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6569939972832799
+    },
+    {
+      "asr_seconds": 1.3196862861514091,
+      "alignment_seconds": 0.002465427853167057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Juliet, O, Did, Beautiful, Dove-feather'd, Despised, Just, When, Was"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Juliet, O, Serpent Heart, hid with a flowering face, Did ever dragon keep so fair a cave,",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.282470703125
+            },
+            {
+              "text": " O,",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.54833984375
+            },
+            {
+              "text": " Serpent",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.39990234375
+            },
+            {
+              "text": " Heart,",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " hid",
+              "start": 2.31,
+              "end": 2.37,
+              "probability": 0.978515625
+            },
+            {
+              "text": " with",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " a",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " flowering",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " face,",
+              "start": 2.97,
+              "end": 3.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Did",
+              "start": 3.95,
+              "end": 4.03,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " ever",
+              "start": 4.03,
+              "end": 4.21,
+              "probability": 0.892578125
+            },
+            {
+              "text": " dragon",
+              "start": 4.21,
+              "end": 4.53,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " keep",
+              "start": 4.53,
+              "end": 4.77,
+              "probability": 0.97265625
+            },
+            {
+              "text": " so",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " fair",
+              "start": 5.01,
+              "end": 5.17,
+              "probability": 0.984375
+            },
+            {
+              "text": " a",
+              "start": 5.17,
+              "end": 5.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cave,",
+              "start": 5.33,
+              "end": 5.61,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " Beautiful tyrant, fiend Angelical, dove-feather'd Raven, Woolvish ravening lamb, Despised substance",
+          "start": 6.15,
+          "end": 11.79,
+          "words": [
+            {
+              "text": " Beautiful",
+              "start": 6.15,
+              "end": 6.41,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " tyrant,",
+              "start": 6.41,
+              "end": 6.85,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " fiend",
+              "start": 7.15,
+              "end": 7.33,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " Angelical,",
+              "start": 7.33,
+              "end": 7.97,
+              "probability": 0.741943359375
+            },
+            {
+              "text": " dove",
+              "start": 8.17,
+              "end": 8.29,
+              "probability": 0.88818359375
+            },
+            {
+              "text": "-feather'd",
+              "start": 8.29,
+              "end": 8.77,
+              "probability": 0.4995994567871094
+            },
+            {
+              "text": " Raven,",
+              "start": 8.77,
+              "end": 9.03,
+              "probability": 0.482177734375
+            },
+            {
+              "text": " Woolvish",
+              "start": 9.31,
+              "end": 9.59,
+              "probability": 0.6790568033854166
+            },
+            {
+              "text": " ravening",
+              "start": 9.59,
+              "end": 10.05,
+              "probability": 0.6851806640625
+            },
+            {
+              "text": " lamb,",
+              "start": 10.05,
+              "end": 10.33,
+              "probability": 0.5537109375
+            },
+            {
+              "text": " Despised",
+              "start": 10.97,
+              "end": 11.37,
+              "probability": 0.8577473958333334
+            },
+            {
+              "text": " substance",
+              "start": 11.37,
+              "end": 11.79,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " of divinest show, Just opposite to what thou justly seems to,",
+          "start": 11.79,
+          "end": 15.35,
+          "words": [
+            {
+              "text": " of",
+              "start": 11.79,
+              "end": 12.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " divinest",
+              "start": 12.01,
+              "end": 12.47,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " show,",
+              "start": 12.47,
+              "end": 12.77,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " Just",
+              "start": 13.37,
+              "end": 13.57,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " opposite",
+              "start": 13.57,
+              "end": 13.83,
+              "probability": 0.970703125
+            },
+            {
+              "text": " to",
+              "start": 13.83,
+              "end": 14.09,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " what",
+              "start": 14.09,
+              "end": 14.21,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thou",
+              "start": 14.21,
+              "end": 14.37,
+              "probability": 0.958984375
+            },
+            {
+              "text": " justly",
+              "start": 14.37,
+              "end": 14.81,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " seems",
+              "start": 14.81,
+              "end": 15.09,
+              "probability": 0.53564453125
+            },
+            {
+              "text": " to,",
+              "start": 15.09,
+              "end": 15.35,
+              "probability": 0.70166015625
+            }
+          ]
+        },
+        {
+          "text": " A damned saint, an honourable villain. O, Nature, what hadst thou to do in hell when",
+          "start": 15.61,
+          "end": 20.61,
+          "words": [
+            {
+              "text": " A",
+              "start": 15.61,
+              "end": 15.83,
+              "probability": 0.951171875
+            },
+            {
+              "text": " damned",
+              "start": 15.83,
+              "end": 16.09,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " saint,",
+              "start": 16.09,
+              "end": 16.53,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " an",
+              "start": 16.81,
+              "end": 16.91,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " honourable",
+              "start": 16.91,
+              "end": 17.45,
+              "probability": 0.749267578125
+            },
+            {
+              "text": " villain.",
+              "start": 17.45,
+              "end": 17.71,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " O,",
+              "start": 18.35,
+              "end": 18.55,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Nature,",
+              "start": 18.63,
+              "end": 18.79,
+              "probability": 0.71923828125
+            },
+            {
+              "text": " what",
+              "start": 19.19,
+              "end": 19.31,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " hadst",
+              "start": 19.31,
+              "end": 19.63,
+              "probability": 0.89453125
+            },
+            {
+              "text": " thou",
+              "start": 19.63,
+              "end": 19.77,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " to",
+              "start": 19.77,
+              "end": 19.91,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " do",
+              "start": 19.91,
+              "end": 20.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 20.05,
+              "end": 20.23,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " hell",
+              "start": 20.23,
+              "end": 20.41,
+              "probability": 0.537109375
+            },
+            {
+              "text": " when",
+              "start": 20.41,
+              "end": 20.61,
+              "probability": 0.2066650390625
+            }
+          ]
+        },
+        {
+          "text": " thou didst bower the spirit of a fiend In mortal paradise of such sweet flesh,",
+          "start": 20.61,
+          "end": 24.71,
+          "words": [
+            {
+              "text": " thou",
+              "start": 20.61,
+              "end": 20.81,
+              "probability": 0.978515625
+            },
+            {
+              "text": " didst",
+              "start": 20.81,
+              "end": 21.21,
+              "probability": 0.96875
+            },
+            {
+              "text": " bower",
+              "start": 21.21,
+              "end": 21.47,
+              "probability": 0.830322265625
+            },
+            {
+              "text": " the",
+              "start": 21.47,
+              "end": 21.71,
+              "probability": 0.389892578125
+            },
+            {
+              "text": " spirit",
+              "start": 21.71,
+              "end": 21.97,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " of",
+              "start": 21.97,
+              "end": 22.15,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " a",
+              "start": 22.15,
+              "end": 22.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fiend",
+              "start": 22.31,
+              "end": 22.63,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " In",
+              "start": 22.63,
+              "end": 22.77,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " mortal",
+              "start": 22.77,
+              "end": 23.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " paradise",
+              "start": 23.03,
+              "end": 23.57,
+              "probability": 0.958984375
+            },
+            {
+              "text": " of",
+              "start": 23.57,
+              "end": 23.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " such",
+              "start": 23.81,
+              "end": 23.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sweet",
+              "start": 23.99,
+              "end": 24.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flesh,",
+              "start": 24.31,
+              "end": 24.71,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Was ever book containing such vile matter so fairly bound.",
+          "start": 25.23,
+          "end": 28.25,
+          "words": [
+            {
+              "text": " Was",
+              "start": 25.23,
+              "end": 25.41,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " ever",
+              "start": 25.41,
+              "end": 25.61,
+              "probability": 0.97265625
+            },
+            {
+              "text": " book",
+              "start": 25.61,
+              "end": 25.79,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " containing",
+              "start": 25.79,
+              "end": 26.23,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " such",
+              "start": 26.23,
+              "end": 26.63,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " vile",
+              "start": 26.63,
+              "end": 26.97,
+              "probability": 0.97265625
+            },
+            {
+              "text": " matter",
+              "start": 26.97,
+              "end": 27.29,
+              "probability": 0.982421875
+            },
+            {
+              "text": " so",
+              "start": 27.29,
+              "end": 27.59,
+              "probability": 0.97265625
+            },
+            {
+              "text": " fairly",
+              "start": 27.59,
+              "end": 27.95,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " bound.",
+              "start": 27.95,
+              "end": 28.25,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Oh, that deceit should dwell in such a gorgeous palace.",
+          "start": 29.09,
+          "end": 32.13,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 29.09,
+              "end": 29.61,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " that",
+              "start": 29.87,
+              "end": 30.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " deceit",
+              "start": 30.21,
+              "end": 30.49,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " should",
+              "start": 30.49,
+              "end": 30.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dwell",
+              "start": 30.73,
+              "end": 30.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 30.95,
+              "end": 31.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 31.15,
+              "end": 31.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 31.31,
+              "end": 31.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gorgeous",
+              "start": 31.47,
+              "end": 31.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " palace.",
+              "start": 31.73,
+              "end": 32.13,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "O,",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "Serpent",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "Heart,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "raw": "hid",
+          "start": 2.31,
+          "end": 2.37
+        },
+        {
+          "raw": "with",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "flowering",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "face,",
+          "start": 2.97,
+          "end": 3.41
+        },
+        {
+          "raw": "Did",
+          "start": 3.95,
+          "end": 4.03
+        },
+        {
+          "raw": "ever",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "raw": "dragon",
+          "start": 4.21,
+          "end": 4.53
+        },
+        {
+          "raw": "keep",
+          "start": 4.53,
+          "end": 4.77
+        },
+        {
+          "raw": "so",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "fair",
+          "start": 5.01,
+          "end": 5.17
+        },
+        {
+          "raw": "a",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "raw": "cave,",
+          "start": 5.33,
+          "end": 5.61
+        },
+        {
+          "raw": "Beautiful",
+          "start": 6.15,
+          "end": 6.41
+        },
+        {
+          "raw": "tyrant,",
+          "start": 6.41,
+          "end": 6.85
+        },
+        {
+          "raw": "fiend",
+          "start": 7.15,
+          "end": 7.33
+        },
+        {
+          "raw": "Angelical,",
+          "start": 7.33,
+          "end": 7.97
+        },
+        {
+          "raw": "dove",
+          "start": 8.17,
+          "end": 8.29
+        },
+        {
+          "raw": "-feather'd",
+          "start": 8.29,
+          "end": 8.77
+        },
+        {
+          "raw": "Raven,",
+          "start": 8.77,
+          "end": 9.03
+        },
+        {
+          "raw": "Woolvish",
+          "start": 9.31,
+          "end": 9.59
+        },
+        {
+          "raw": "ravening",
+          "start": 9.59,
+          "end": 10.05
+        },
+        {
+          "raw": "lamb,",
+          "start": 10.05,
+          "end": 10.33
+        },
+        {
+          "raw": "Despised",
+          "start": 10.97,
+          "end": 11.37
+        },
+        {
+          "raw": "substance",
+          "start": 11.37,
+          "end": 11.79
+        },
+        {
+          "raw": "of",
+          "start": 11.79,
+          "end": 12.01
+        },
+        {
+          "raw": "divinest",
+          "start": 12.01,
+          "end": 12.47
+        },
+        {
+          "raw": "show,",
+          "start": 12.47,
+          "end": 12.77
+        },
+        {
+          "raw": "Just",
+          "start": 13.37,
+          "end": 13.57
+        },
+        {
+          "raw": "opposite",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "raw": "to",
+          "start": 13.83,
+          "end": 14.09
+        },
+        {
+          "raw": "what",
+          "start": 14.09,
+          "end": 14.21
+        },
+        {
+          "raw": "thou",
+          "start": 14.21,
+          "end": 14.37
+        },
+        {
+          "raw": "justly",
+          "start": 14.37,
+          "end": 14.81
+        },
+        {
+          "raw": "seems",
+          "start": 14.81,
+          "end": 15.09
+        },
+        {
+          "raw": "to,",
+          "start": 15.09,
+          "end": 15.35
+        },
+        {
+          "raw": "A",
+          "start": 15.61,
+          "end": 15.83
+        },
+        {
+          "raw": "damned",
+          "start": 15.83,
+          "end": 16.09
+        },
+        {
+          "raw": "saint,",
+          "start": 16.09,
+          "end": 16.53
+        },
+        {
+          "raw": "an",
+          "start": 16.81,
+          "end": 16.91
+        },
+        {
+          "raw": "honourable",
+          "start": 16.91,
+          "end": 17.45
+        },
+        {
+          "raw": "villain.",
+          "start": 17.45,
+          "end": 17.71
+        },
+        {
+          "raw": "O,",
+          "start": 18.35,
+          "end": 18.55
+        },
+        {
+          "raw": "Nature,",
+          "start": 18.63,
+          "end": 18.79
+        },
+        {
+          "raw": "what",
+          "start": 19.19,
+          "end": 19.31
+        },
+        {
+          "raw": "hadst",
+          "start": 19.31,
+          "end": 19.63
+        },
+        {
+          "raw": "thou",
+          "start": 19.63,
+          "end": 19.77
+        },
+        {
+          "raw": "to",
+          "start": 19.77,
+          "end": 19.91
+        },
+        {
+          "raw": "do",
+          "start": 19.91,
+          "end": 20.05
+        },
+        {
+          "raw": "in",
+          "start": 20.05,
+          "end": 20.23
+        },
+        {
+          "raw": "hell",
+          "start": 20.23,
+          "end": 20.41
+        },
+        {
+          "raw": "when",
+          "start": 20.41,
+          "end": 20.61
+        },
+        {
+          "raw": "thou",
+          "start": 20.61,
+          "end": 20.81
+        },
+        {
+          "raw": "didst",
+          "start": 20.81,
+          "end": 21.21
+        },
+        {
+          "raw": "bower",
+          "start": 21.21,
+          "end": 21.47
+        },
+        {
+          "raw": "the",
+          "start": 21.47,
+          "end": 21.71
+        },
+        {
+          "raw": "spirit",
+          "start": 21.71,
+          "end": 21.97
+        },
+        {
+          "raw": "of",
+          "start": 21.97,
+          "end": 22.15
+        },
+        {
+          "raw": "a",
+          "start": 22.15,
+          "end": 22.31
+        },
+        {
+          "raw": "fiend",
+          "start": 22.31,
+          "end": 22.63
+        },
+        {
+          "raw": "In",
+          "start": 22.63,
+          "end": 22.77
+        },
+        {
+          "raw": "mortal",
+          "start": 22.77,
+          "end": 23.03
+        },
+        {
+          "raw": "paradise",
+          "start": 23.03,
+          "end": 23.57
+        },
+        {
+          "raw": "of",
+          "start": 23.57,
+          "end": 23.81
+        },
+        {
+          "raw": "such",
+          "start": 23.81,
+          "end": 23.99
+        },
+        {
+          "raw": "sweet",
+          "start": 23.99,
+          "end": 24.31
+        },
+        {
+          "raw": "flesh,",
+          "start": 24.31,
+          "end": 24.71
+        },
+        {
+          "raw": "Was",
+          "start": 25.23,
+          "end": 25.41
+        },
+        {
+          "raw": "ever",
+          "start": 25.41,
+          "end": 25.61
+        },
+        {
+          "raw": "book",
+          "start": 25.61,
+          "end": 25.79
+        },
+        {
+          "raw": "containing",
+          "start": 25.79,
+          "end": 26.23
+        },
+        {
+          "raw": "such",
+          "start": 26.23,
+          "end": 26.63
+        },
+        {
+          "raw": "vile",
+          "start": 26.63,
+          "end": 26.97
+        },
+        {
+          "raw": "matter",
+          "start": 26.97,
+          "end": 27.29
+        },
+        {
+          "raw": "so",
+          "start": 27.29,
+          "end": 27.59
+        },
+        {
+          "raw": "fairly",
+          "start": 27.59,
+          "end": 27.95
+        },
+        {
+          "raw": "bound.",
+          "start": 27.95,
+          "end": 28.25
+        },
+        {
+          "raw": "Oh,",
+          "start": 29.09,
+          "end": 29.61
+        },
+        {
+          "raw": "that",
+          "start": 29.87,
+          "end": 30.21
+        },
+        {
+          "raw": "deceit",
+          "start": 30.21,
+          "end": 30.49
+        },
+        {
+          "raw": "should",
+          "start": 30.49,
+          "end": 30.73
+        },
+        {
+          "raw": "dwell",
+          "start": 30.73,
+          "end": 30.95
+        },
+        {
+          "raw": "in",
+          "start": 30.95,
+          "end": 31.15
+        },
+        {
+          "raw": "such",
+          "start": 31.15,
+          "end": 31.31
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.47
+        },
+        {
+          "raw": "gorgeous",
+          "start": 31.47,
+          "end": 31.73
+        },
+        {
+          "raw": "palace.",
+          "start": 31.73,
+          "end": 32.13
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "O",
+        "serpent",
+        "heart,",
+        "hid",
+        "with",
+        "a",
+        "flowering",
+        "face!",
+        "Did",
+        "ever",
+        "dragon",
+        "keep",
+        "so",
+        "fair",
+        "a",
+        "cave?",
+        "Beautiful",
+        "tyrant,",
+        "fiend",
+        "angelical,",
+        "Dove-feather'd",
+        "raven,",
+        "wolvish-ravening",
+        "lamb!",
+        "Despised",
+        "substance",
+        "of",
+        "divinest",
+        "show!",
+        "Just",
+        "opposite",
+        "to",
+        "what",
+        "thou",
+        "justly",
+        "seem'st,",
+        "A",
+        "damned",
+        "saint,",
+        "an",
+        "honourable",
+        "villain!",
+        "O",
+        "nature,",
+        "what",
+        "hadst",
+        "thou",
+        "to",
+        "do",
+        "in",
+        "hell",
+        "When",
+        "thou",
+        "didst",
+        "bower",
+        "the",
+        "spirit",
+        "of",
+        "a",
+        "fiend",
+        "In",
+        "mortal",
+        "paradise",
+        "of",
+        "such",
+        "sweet",
+        "flesh?",
+        "Was",
+        "ever",
+        "book",
+        "containing",
+        "such",
+        "vile",
+        "matter",
+        "So",
+        "fairly",
+        "bound?",
+        "O,",
+        "that",
+        "deceit",
+        "should",
+        "dwell",
+        "In",
+        "such",
+        "a",
+        "gorgeous",
+        "palace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          36,
+          25,
+          37
+        ],
+        [
+          "replace",
+          36,
+          37,
+          37,
+          39
+        ],
+        [
+          "equal",
+          37,
+          78,
+          39,
+          80
+        ],
+        [
+          "replace",
+          78,
+          79,
+          80,
+          81
+        ],
+        [
+          "equal",
+          79,
+          88,
+          81,
+          90
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 89
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "replace",
+          36,
+          37,
+          37,
+          39
+        ],
+        [
+          "replace",
+          78,
+          79,
+          80,
+          81
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Serpent",
+          "start": 1.61,
+          "end": 1.71,
+          "key": "serpent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Heart,",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "heart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hid",
+          "start": 2.31,
+          "end": 2.37,
+          "key": "hid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flowering",
+          "start": 2.65,
+          "end": 2.97,
+          "key": "flowering",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 2.97,
+          "end": 3.41,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 3.95,
+          "end": 4.03,
+          "key": "did",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 4.03,
+          "end": 4.21,
+          "key": "ever",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dragon",
+          "start": 4.21,
+          "end": 4.53,
+          "key": "dragon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 4.53,
+          "end": 4.77,
+          "key": "keep",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 5.01,
+          "end": 5.17,
+          "key": "fair",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.17,
+          "end": 5.33,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cave,",
+          "start": 5.33,
+          "end": 5.61,
+          "key": "cave",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Beautiful",
+          "start": 6.15,
+          "end": 6.41,
+          "key": "beautiful",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "tyrant,",
+          "start": 6.41,
+          "end": 6.85,
+          "key": "tyrant",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fiend",
+          "start": 7.15,
+          "end": 7.33,
+          "key": "fiend",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Angelical,",
+          "start": 7.33,
+          "end": 7.97,
+          "key": "angelical",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "dove -feather'd",
+          "start": 8.17,
+          "end": 8.77,
+          "key": "dovefeatherd",
+          "pieces": [
+            21,
+            22
+          ]
+        },
+        {
+          "raw": "Raven,",
+          "start": 8.77,
+          "end": 9.03,
+          "key": "raven",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Woolvish",
+          "start": 9.31,
+          "end": 9.59,
+          "key": "woolvish",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "ravening",
+          "start": 9.59,
+          "end": 10.05,
+          "key": "ravening",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "lamb,",
+          "start": 10.05,
+          "end": 10.33,
+          "key": "lamb",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Despised",
+          "start": 10.97,
+          "end": 11.37,
+          "key": "despised",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "substance",
+          "start": 11.37,
+          "end": 11.79,
+          "key": "substance",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.79,
+          "end": 12.01,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "divinest",
+          "start": 12.01,
+          "end": 12.47,
+          "key": "divinest",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "show,",
+          "start": 12.47,
+          "end": 12.77,
+          "key": "show",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Just",
+          "start": 13.37,
+          "end": 13.57,
+          "key": "just",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "opposite",
+          "start": 13.57,
+          "end": 13.83,
+          "key": "opposite",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.83,
+          "end": 14.09,
+          "key": "to",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 14.09,
+          "end": 14.21,
+          "key": "what",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 14.21,
+          "end": 14.37,
+          "key": "thou",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "justly",
+          "start": 14.37,
+          "end": 14.81,
+          "key": "justly",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 14.81,
+          "end": 15.09,
+          "key": "seems",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "to,",
+          "start": 15.09,
+          "end": 15.35,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 15.61,
+          "end": 15.83,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "damned",
+          "start": 15.83,
+          "end": 16.09,
+          "key": "damned",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "saint,",
+          "start": 16.09,
+          "end": 16.53,
+          "key": "saint",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 16.81,
+          "end": 16.91,
+          "key": "an",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "honourable",
+          "start": 16.91,
+          "end": 17.45,
+          "key": "honourable",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "villain.",
+          "start": 17.45,
+          "end": 17.71,
+          "key": "villain",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 18.35,
+          "end": 18.55,
+          "key": "o",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Nature,",
+          "start": 18.63,
+          "end": 18.79,
+          "key": "nature",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 19.19,
+          "end": 19.31,
+          "key": "what",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 19.31,
+          "end": 19.63,
+          "key": "hadst",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 19.63,
+          "end": 19.77,
+          "key": "thou",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.77,
+          "end": 19.91,
+          "key": "to",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 19.91,
+          "end": 20.05,
+          "key": "do",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.05,
+          "end": 20.23,
+          "key": "in",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "hell",
+          "start": 20.23,
+          "end": 20.41,
+          "key": "hell",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 20.41,
+          "end": 20.61,
+          "key": "when",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 20.61,
+          "end": 20.81,
+          "key": "thou",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "didst",
+          "start": 20.81,
+          "end": 21.21,
+          "key": "didst",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "bower",
+          "start": 21.21,
+          "end": 21.47,
+          "key": "bower",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.47,
+          "end": 21.71,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 21.71,
+          "end": 21.97,
+          "key": "spirit",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.97,
+          "end": 22.15,
+          "key": "of",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.15,
+          "end": 22.31,
+          "key": "a",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "fiend",
+          "start": 22.31,
+          "end": 22.63,
+          "key": "fiend",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 22.63,
+          "end": 22.77,
+          "key": "in",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "mortal",
+          "start": 22.77,
+          "end": 23.03,
+          "key": "mortal",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "paradise",
+          "start": 23.03,
+          "end": 23.57,
+          "key": "paradise",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.57,
+          "end": 23.81,
+          "key": "of",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 23.81,
+          "end": 23.99,
+          "key": "such",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 23.99,
+          "end": 24.31,
+          "key": "sweet",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "flesh,",
+          "start": 24.31,
+          "end": 24.71,
+          "key": "flesh",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 25.23,
+          "end": 25.41,
+          "key": "was",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 25.41,
+          "end": 25.61,
+          "key": "ever",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 25.61,
+          "end": 25.79,
+          "key": "book",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "containing",
+          "start": 25.79,
+          "end": 26.23,
+          "key": "containing",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 26.23,
+          "end": 26.63,
+          "key": "such",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "vile",
+          "start": 26.63,
+          "end": 26.97,
+          "key": "vile",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 26.97,
+          "end": 27.29,
+          "key": "matter",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 27.29,
+          "end": 27.59,
+          "key": "so",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "fairly",
+          "start": 27.59,
+          "end": 27.95,
+          "key": "fairly",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "bound.",
+          "start": 27.95,
+          "end": 28.25,
+          "key": "bound",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 29.09,
+          "end": 29.61,
+          "key": "oh",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 29.87,
+          "end": 30.21,
+          "key": "that",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "deceit",
+          "start": 30.21,
+          "end": 30.49,
+          "key": "deceit",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 30.49,
+          "end": 30.73,
+          "key": "should",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "dwell",
+          "start": 30.73,
+          "end": 30.95,
+          "key": "dwell",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 30.95,
+          "end": 31.15,
+          "key": "in",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 31.15,
+          "end": 31.31,
+          "key": "such",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.47,
+          "key": "a",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "gorgeous",
+          "start": 31.47,
+          "end": 31.73,
+          "key": "gorgeous",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "palace.",
+          "start": 31.73,
+          "end": 32.13,
+          "key": "palace",
+          "pieces": [
+            90
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 21,
+          "text": "Dove-feather'd",
+          "heard": "dove -feather'd",
+          "heard_indexes": [
+            21,
+            22
+          ],
+          "start": 8.17,
+          "end": 8.77
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "O",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "serpent",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "heart,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "text": "hid",
+          "start": 2.31,
+          "end": 2.37
+        },
+        {
+          "text": "with",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "a",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "flowering",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "text": "face!",
+          "start": 2.97,
+          "end": 3.41
+        },
+        {
+          "text": "Did",
+          "start": 3.95,
+          "end": 4.03
+        },
+        {
+          "text": "ever",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "text": "dragon",
+          "start": 4.21,
+          "end": 4.53
+        },
+        {
+          "text": "keep",
+          "start": 4.53,
+          "end": 4.77
+        },
+        {
+          "text": "so",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "fair",
+          "start": 5.01,
+          "end": 5.17
+        },
+        {
+          "text": "a",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "text": "cave?",
+          "start": 5.33,
+          "end": 5.61
+        },
+        {
+          "text": "Beautiful",
+          "start": 6.15,
+          "end": 6.41
+        },
+        {
+          "text": "tyrant,",
+          "start": 6.41,
+          "end": 6.85
+        },
+        {
+          "text": "fiend",
+          "start": 7.15,
+          "end": 7.33
+        },
+        {
+          "text": "angelical,",
+          "start": 7.33,
+          "end": 7.97
+        },
+        {
+          "text": "Dove-feather'd",
+          "start": 8.17,
+          "end": 8.77
+        },
+        {
+          "text": "raven,",
+          "start": 8.77,
+          "end": 9.03
+        },
+        {
+          "text": "wolvish-ravening",
+          "start": 9.03,
+          "end": 9.54
+        },
+        {
+          "text": "lamb!",
+          "start": 10.05,
+          "end": 10.33
+        },
+        {
+          "text": "Despised",
+          "start": 10.97,
+          "end": 11.37
+        },
+        {
+          "text": "substance",
+          "start": 11.37,
+          "end": 11.79
+        },
+        {
+          "text": "of",
+          "start": 11.79,
+          "end": 12.01
+        },
+        {
+          "text": "divinest",
+          "start": 12.01,
+          "end": 12.47
+        },
+        {
+          "text": "show!",
+          "start": 12.47,
+          "end": 12.77
+        },
+        {
+          "text": "Just",
+          "start": 13.37,
+          "end": 13.57
+        },
+        {
+          "text": "opposite",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "text": "to",
+          "start": 13.83,
+          "end": 14.09
+        },
+        {
+          "text": "what",
+          "start": 14.09,
+          "end": 14.21
+        },
+        {
+          "text": "thou",
+          "start": 14.21,
+          "end": 14.37
+        },
+        {
+          "text": "justly",
+          "start": 14.37,
+          "end": 14.81
+        },
+        {
+          "text": "seem'st,",
+          "start": 14.81,
+          "end": 15.21
+        },
+        {
+          "text": "A",
+          "start": 15.61,
+          "end": 15.83
+        },
+        {
+          "text": "damned",
+          "start": 15.83,
+          "end": 16.09
+        },
+        {
+          "text": "saint,",
+          "start": 16.09,
+          "end": 16.53
+        },
+        {
+          "text": "an",
+          "start": 16.81,
+          "end": 16.91
+        },
+        {
+          "text": "honourable",
+          "start": 16.91,
+          "end": 17.45
+        },
+        {
+          "text": "villain!",
+          "start": 17.45,
+          "end": 17.71
+        },
+        {
+          "text": "O",
+          "start": 18.35,
+          "end": 18.55
+        },
+        {
+          "text": "nature,",
+          "start": 18.63,
+          "end": 18.79
+        },
+        {
+          "text": "what",
+          "start": 19.19,
+          "end": 19.31
+        },
+        {
+          "text": "hadst",
+          "start": 19.31,
+          "end": 19.63
+        },
+        {
+          "text": "thou",
+          "start": 19.63,
+          "end": 19.77
+        },
+        {
+          "text": "to",
+          "start": 19.77,
+          "end": 19.91
+        },
+        {
+          "text": "do",
+          "start": 19.91,
+          "end": 20.05
+        },
+        {
+          "text": "in",
+          "start": 20.05,
+          "end": 20.23
+        },
+        {
+          "text": "hell",
+          "start": 20.23,
+          "end": 20.41
+        },
+        {
+          "text": "When",
+          "start": 20.41,
+          "end": 20.61
+        },
+        {
+          "text": "thou",
+          "start": 20.61,
+          "end": 20.81
+        },
+        {
+          "text": "didst",
+          "start": 20.81,
+          "end": 21.21
+        },
+        {
+          "text": "bower",
+          "start": 21.21,
+          "end": 21.47
+        },
+        {
+          "text": "the",
+          "start": 21.47,
+          "end": 21.71
+        },
+        {
+          "text": "spirit",
+          "start": 21.71,
+          "end": 21.97
+        },
+        {
+          "text": "of",
+          "start": 21.97,
+          "end": 22.15
+        },
+        {
+          "text": "a",
+          "start": 22.15,
+          "end": 22.31
+        },
+        {
+          "text": "fiend",
+          "start": 22.31,
+          "end": 22.63
+        },
+        {
+          "text": "In",
+          "start": 22.63,
+          "end": 22.77
+        },
+        {
+          "text": "mortal",
+          "start": 22.77,
+          "end": 23.03
+        },
+        {
+          "text": "paradise",
+          "start": 23.03,
+          "end": 23.57
+        },
+        {
+          "text": "of",
+          "start": 23.57,
+          "end": 23.81
+        },
+        {
+          "text": "such",
+          "start": 23.81,
+          "end": 23.99
+        },
+        {
+          "text": "sweet",
+          "start": 23.99,
+          "end": 24.31
+        },
+        {
+          "text": "flesh?",
+          "start": 24.31,
+          "end": 24.71
+        },
+        {
+          "text": "Was",
+          "start": 25.23,
+          "end": 25.41
+        },
+        {
+          "text": "ever",
+          "start": 25.41,
+          "end": 25.61
+        },
+        {
+          "text": "book",
+          "start": 25.61,
+          "end": 25.79
+        },
+        {
+          "text": "containing",
+          "start": 25.79,
+          "end": 26.23
+        },
+        {
+          "text": "such",
+          "start": 26.23,
+          "end": 26.63
+        },
+        {
+          "text": "vile",
+          "start": 26.63,
+          "end": 26.97
+        },
+        {
+          "text": "matter",
+          "start": 26.97,
+          "end": 27.29
+        },
+        {
+          "text": "So",
+          "start": 27.29,
+          "end": 27.59
+        },
+        {
+          "text": "fairly",
+          "start": 27.59,
+          "end": 27.95
+        },
+        {
+          "text": "bound?",
+          "start": 27.95,
+          "end": 28.25
+        },
+        {
+          "text": "O,",
+          "start": 28.25,
+          "end": 29.06
+        },
+        {
+          "text": "that",
+          "start": 29.87,
+          "end": 30.21
+        },
+        {
+          "text": "deceit",
+          "start": 30.21,
+          "end": 30.49
+        },
+        {
+          "text": "should",
+          "start": 30.49,
+          "end": 30.73
+        },
+        {
+          "text": "dwell",
+          "start": 30.73,
+          "end": 30.95
+        },
+        {
+          "text": "In",
+          "start": 30.95,
+          "end": 31.15
+        },
+        {
+          "text": "such",
+          "start": 31.15,
+          "end": 31.31
+        },
+        {
+          "text": "a",
+          "start": 31.31,
+          "end": 31.47
+        },
+        {
+          "text": "gorgeous",
+          "start": 31.47,
+          "end": 31.73
+        },
+        {
+          "text": "palace.",
+          "start": 31.73,
+          "end": 32.13
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 90,
+        "matched_words": 85
+      },
+      "match_ratio": 0.9659090909090909,
+      "rejection_reasons": [],
+      "seconds": 1.322718976996839
+    },
+    {
+      "asr_seconds": 1.213086691685021,
+      "alignment_seconds": 0.0027422066777944565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, O serpent-heart, hid with a flowering face, did ever dragon keep so fair a cave.",
+          "start": 0.05,
+          "end": 5.65,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.282470703125
+            },
+            {
+              "text": " O",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.54833984375
+            },
+            {
+              "text": " serpent",
+              "start": 1.51,
+              "end": 1.73,
+              "probability": 0.6376953125
+            },
+            {
+              "text": "-heart,",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.6170654296875
+            },
+            {
+              "text": " hid",
+              "start": 2.33,
+              "end": 2.37,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " with",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " flowering",
+              "start": 2.63,
+              "end": 2.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " face,",
+              "start": 2.95,
+              "end": 3.43,
+              "probability": 0.98828125
+            },
+            {
+              "text": " did",
+              "start": 3.95,
+              "end": 4.03,
+              "probability": 0.270263671875
+            },
+            {
+              "text": " ever",
+              "start": 4.03,
+              "end": 4.21,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " dragon",
+              "start": 4.21,
+              "end": 4.53,
+              "probability": 0.8828125
+            },
+            {
+              "text": " keep",
+              "start": 4.53,
+              "end": 4.77,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " so",
+              "start": 4.77,
+              "end": 5.01,
+              "probability": 0.984375
+            },
+            {
+              "text": " fair",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 5.19,
+              "end": 5.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " cave.",
+              "start": 5.33,
+              "end": 5.65,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " Beautiful tyrant, fiend-angelical, dove-feathered raven, wolfish ravening lamb, despised substance",
+          "start": 6.15,
+          "end": 11.81,
+          "words": [
+            {
+              "text": " Beautiful",
+              "start": 6.15,
+              "end": 6.43,
+              "probability": 0.962890625
+            },
+            {
+              "text": " tyrant,",
+              "start": 6.43,
+              "end": 6.85,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " fiend",
+              "start": 7.15,
+              "end": 7.33,
+              "probability": 0.968017578125
+            },
+            {
+              "text": "-angelical,",
+              "start": 7.33,
+              "end": 7.97,
+              "probability": 0.805419921875
+            },
+            {
+              "text": " dove",
+              "start": 8.17,
+              "end": 8.31,
+              "probability": 0.97607421875
+            },
+            {
+              "text": "-feathered",
+              "start": 8.31,
+              "end": 8.65,
+              "probability": 0.7676595052083334
+            },
+            {
+              "text": " raven,",
+              "start": 8.65,
+              "end": 9.03,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " wolfish",
+              "start": 9.31,
+              "end": 9.61,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " ravening",
+              "start": 9.61,
+              "end": 10.05,
+              "probability": 0.757080078125
+            },
+            {
+              "text": " lamb,",
+              "start": 10.05,
+              "end": 10.33,
+              "probability": 0.96875
+            },
+            {
+              "text": " despised",
+              "start": 11.31,
+              "end": 11.31,
+              "probability": 0.96484375
+            },
+            {
+              "text": " substance",
+              "start": 11.31,
+              "end": 11.81,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " of divinest show, just opposite to what thou justly seems to, a damned saint, an honorable",
+          "start": 11.81,
+          "end": 17.31,
+          "words": [
+            {
+              "text": " of",
+              "start": 11.81,
+              "end": 12.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " divinest",
+              "start": 12.01,
+              "end": 12.49,
+              "probability": 0.9010416666666666
+            },
+            {
+              "text": " show,",
+              "start": 12.49,
+              "end": 12.79,
+              "probability": 0.927734375
+            },
+            {
+              "text": " just",
+              "start": 13.41,
+              "end": 13.57,
+              "probability": 0.96875
+            },
+            {
+              "text": " opposite",
+              "start": 13.57,
+              "end": 13.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 13.83,
+              "end": 14.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 14.07,
+              "end": 14.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thou",
+              "start": 14.21,
+              "end": 14.37,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " justly",
+              "start": 14.37,
+              "end": 14.81,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " seems",
+              "start": 14.81,
+              "end": 15.09,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " to,",
+              "start": 15.09,
+              "end": 15.35,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " a",
+              "start": 15.65,
+              "end": 15.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " damned",
+              "start": 15.83,
+              "end": 16.11,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " saint,",
+              "start": 16.11,
+              "end": 16.55,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " an",
+              "start": 16.81,
+              "end": 16.91,
+              "probability": 0.982421875
+            },
+            {
+              "text": " honorable",
+              "start": 16.91,
+              "end": 17.31,
+              "probability": 0.82275390625
+            }
+          ]
+        },
+        {
+          "text": " villain.",
+          "start": 17.31,
+          "end": 17.71,
+          "words": [
+            {
+              "text": " villain.",
+              "start": 17.31,
+              "end": 17.71,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " O nature, what hadst thou to do in hell when thou didst bower the spirit of a fiend in",
+          "start": 18.33,
+          "end": 22.77,
+          "words": [
+            {
+              "text": " O",
+              "start": 18.33,
+              "end": 18.55,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " nature,",
+              "start": 18.55,
+              "end": 18.83,
+              "probability": 0.79296875
+            },
+            {
+              "text": " what",
+              "start": 19.15,
+              "end": 19.31,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hadst",
+              "start": 19.31,
+              "end": 19.63,
+              "probability": 0.902587890625
+            },
+            {
+              "text": " thou",
+              "start": 19.63,
+              "end": 19.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 19.77,
+              "end": 19.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " do",
+              "start": 19.91,
+              "end": 20.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 20.05,
+              "end": 20.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hell",
+              "start": 20.23,
+              "end": 20.41,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " when",
+              "start": 20.41,
+              "end": 20.63,
+              "probability": 0.869140625
+            },
+            {
+              "text": " thou",
+              "start": 20.63,
+              "end": 20.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " didst",
+              "start": 20.81,
+              "end": 21.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " bower",
+              "start": 21.21,
+              "end": 21.49,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " the",
+              "start": 21.49,
+              "end": 21.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " spirit",
+              "start": 21.71,
+              "end": 21.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 21.99,
+              "end": 22.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 22.15,
+              "end": 22.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fiend",
+              "start": 22.31,
+              "end": 22.63,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " in",
+              "start": 22.63,
+              "end": 22.77,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " mortal paradise of such sweet flesh?",
+          "start": 22.77,
+          "end": 24.73,
+          "words": [
+            {
+              "text": " mortal",
+              "start": 22.77,
+              "end": 23.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " paradise",
+              "start": 23.05,
+              "end": 23.59,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 23.59,
+              "end": 23.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " such",
+              "start": 23.81,
+              "end": 23.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sweet",
+              "start": 23.99,
+              "end": 24.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " flesh?",
+              "start": 24.31,
+              "end": 24.73,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Was ever book containing such vile matter so fairly bound?",
+          "start": 25.23,
+          "end": 28.25,
+          "words": [
+            {
+              "text": " Was",
+              "start": 25.23,
+              "end": 25.41,
+              "probability": 0.849609375
+            },
+            {
+              "text": " ever",
+              "start": 25.41,
+              "end": 25.61,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " book",
+              "start": 25.61,
+              "end": 25.81,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " containing",
+              "start": 25.81,
+              "end": 26.23,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " such",
+              "start": 26.23,
+              "end": 26.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " vile",
+              "start": 26.63,
+              "end": 26.97,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " matter",
+              "start": 26.97,
+              "end": 27.29,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " so",
+              "start": 27.29,
+              "end": 27.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fairly",
+              "start": 27.59,
+              "end": 27.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " bound?",
+              "start": 27.95,
+              "end": 28.25,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Oh, that deceit should dwell in such a gorgeous palace.",
+          "start": 29.09,
+          "end": 32.13,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 29.09,
+              "end": 29.61,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " that",
+              "start": 29.87,
+              "end": 30.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " deceit",
+              "start": 30.21,
+              "end": 30.49,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " should",
+              "start": 30.49,
+              "end": 30.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " dwell",
+              "start": 30.73,
+              "end": 30.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 30.95,
+              "end": 31.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 31.15,
+              "end": 31.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 31.31,
+              "end": 31.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gorgeous",
+              "start": 31.47,
+              "end": 31.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " palace.",
+              "start": 31.73,
+              "end": 32.13,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "O",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "serpent",
+          "start": 1.51,
+          "end": 1.73
+        },
+        {
+          "raw": "-heart,",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "raw": "hid",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "raw": "with",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "flowering",
+          "start": 2.63,
+          "end": 2.95
+        },
+        {
+          "raw": "face,",
+          "start": 2.95,
+          "end": 3.43
+        },
+        {
+          "raw": "did",
+          "start": 3.95,
+          "end": 4.03
+        },
+        {
+          "raw": "ever",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "raw": "dragon",
+          "start": 4.21,
+          "end": 4.53
+        },
+        {
+          "raw": "keep",
+          "start": 4.53,
+          "end": 4.77
+        },
+        {
+          "raw": "so",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "raw": "fair",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "a",
+          "start": 5.19,
+          "end": 5.33
+        },
+        {
+          "raw": "cave.",
+          "start": 5.33,
+          "end": 5.65
+        },
+        {
+          "raw": "Beautiful",
+          "start": 6.15,
+          "end": 6.43
+        },
+        {
+          "raw": "tyrant,",
+          "start": 6.43,
+          "end": 6.85
+        },
+        {
+          "raw": "fiend",
+          "start": 7.15,
+          "end": 7.33
+        },
+        {
+          "raw": "-angelical,",
+          "start": 7.33,
+          "end": 7.97
+        },
+        {
+          "raw": "dove",
+          "start": 8.17,
+          "end": 8.31
+        },
+        {
+          "raw": "-feathered",
+          "start": 8.31,
+          "end": 8.65
+        },
+        {
+          "raw": "raven,",
+          "start": 8.65,
+          "end": 9.03
+        },
+        {
+          "raw": "wolfish",
+          "start": 9.31,
+          "end": 9.61
+        },
+        {
+          "raw": "ravening",
+          "start": 9.61,
+          "end": 10.05
+        },
+        {
+          "raw": "lamb,",
+          "start": 10.05,
+          "end": 10.33
+        },
+        {
+          "raw": "despised",
+          "start": 11.31,
+          "end": 11.31
+        },
+        {
+          "raw": "substance",
+          "start": 11.31,
+          "end": 11.81
+        },
+        {
+          "raw": "of",
+          "start": 11.81,
+          "end": 12.01
+        },
+        {
+          "raw": "divinest",
+          "start": 12.01,
+          "end": 12.49
+        },
+        {
+          "raw": "show,",
+          "start": 12.49,
+          "end": 12.79
+        },
+        {
+          "raw": "just",
+          "start": 13.41,
+          "end": 13.57
+        },
+        {
+          "raw": "opposite",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "raw": "to",
+          "start": 13.83,
+          "end": 14.07
+        },
+        {
+          "raw": "what",
+          "start": 14.07,
+          "end": 14.21
+        },
+        {
+          "raw": "thou",
+          "start": 14.21,
+          "end": 14.37
+        },
+        {
+          "raw": "justly",
+          "start": 14.37,
+          "end": 14.81
+        },
+        {
+          "raw": "seems",
+          "start": 14.81,
+          "end": 15.09
+        },
+        {
+          "raw": "to,",
+          "start": 15.09,
+          "end": 15.35
+        },
+        {
+          "raw": "a",
+          "start": 15.65,
+          "end": 15.83
+        },
+        {
+          "raw": "damned",
+          "start": 15.83,
+          "end": 16.11
+        },
+        {
+          "raw": "saint,",
+          "start": 16.11,
+          "end": 16.55
+        },
+        {
+          "raw": "an",
+          "start": 16.81,
+          "end": 16.91
+        },
+        {
+          "raw": "honorable",
+          "start": 16.91,
+          "end": 17.31
+        },
+        {
+          "raw": "villain.",
+          "start": 17.31,
+          "end": 17.71
+        },
+        {
+          "raw": "O",
+          "start": 18.33,
+          "end": 18.55
+        },
+        {
+          "raw": "nature,",
+          "start": 18.55,
+          "end": 18.83
+        },
+        {
+          "raw": "what",
+          "start": 19.15,
+          "end": 19.31
+        },
+        {
+          "raw": "hadst",
+          "start": 19.31,
+          "end": 19.63
+        },
+        {
+          "raw": "thou",
+          "start": 19.63,
+          "end": 19.77
+        },
+        {
+          "raw": "to",
+          "start": 19.77,
+          "end": 19.91
+        },
+        {
+          "raw": "do",
+          "start": 19.91,
+          "end": 20.05
+        },
+        {
+          "raw": "in",
+          "start": 20.05,
+          "end": 20.23
+        },
+        {
+          "raw": "hell",
+          "start": 20.23,
+          "end": 20.41
+        },
+        {
+          "raw": "when",
+          "start": 20.41,
+          "end": 20.63
+        },
+        {
+          "raw": "thou",
+          "start": 20.63,
+          "end": 20.81
+        },
+        {
+          "raw": "didst",
+          "start": 20.81,
+          "end": 21.21
+        },
+        {
+          "raw": "bower",
+          "start": 21.21,
+          "end": 21.49
+        },
+        {
+          "raw": "the",
+          "start": 21.49,
+          "end": 21.71
+        },
+        {
+          "raw": "spirit",
+          "start": 21.71,
+          "end": 21.99
+        },
+        {
+          "raw": "of",
+          "start": 21.99,
+          "end": 22.15
+        },
+        {
+          "raw": "a",
+          "start": 22.15,
+          "end": 22.31
+        },
+        {
+          "raw": "fiend",
+          "start": 22.31,
+          "end": 22.63
+        },
+        {
+          "raw": "in",
+          "start": 22.63,
+          "end": 22.77
+        },
+        {
+          "raw": "mortal",
+          "start": 22.77,
+          "end": 23.05
+        },
+        {
+          "raw": "paradise",
+          "start": 23.05,
+          "end": 23.59
+        },
+        {
+          "raw": "of",
+          "start": 23.59,
+          "end": 23.81
+        },
+        {
+          "raw": "such",
+          "start": 23.81,
+          "end": 23.99
+        },
+        {
+          "raw": "sweet",
+          "start": 23.99,
+          "end": 24.31
+        },
+        {
+          "raw": "flesh?",
+          "start": 24.31,
+          "end": 24.73
+        },
+        {
+          "raw": "Was",
+          "start": 25.23,
+          "end": 25.41
+        },
+        {
+          "raw": "ever",
+          "start": 25.41,
+          "end": 25.61
+        },
+        {
+          "raw": "book",
+          "start": 25.61,
+          "end": 25.81
+        },
+        {
+          "raw": "containing",
+          "start": 25.81,
+          "end": 26.23
+        },
+        {
+          "raw": "such",
+          "start": 26.23,
+          "end": 26.63
+        },
+        {
+          "raw": "vile",
+          "start": 26.63,
+          "end": 26.97
+        },
+        {
+          "raw": "matter",
+          "start": 26.97,
+          "end": 27.29
+        },
+        {
+          "raw": "so",
+          "start": 27.29,
+          "end": 27.59
+        },
+        {
+          "raw": "fairly",
+          "start": 27.59,
+          "end": 27.95
+        },
+        {
+          "raw": "bound?",
+          "start": 27.95,
+          "end": 28.25
+        },
+        {
+          "raw": "Oh,",
+          "start": 29.09,
+          "end": 29.61
+        },
+        {
+          "raw": "that",
+          "start": 29.87,
+          "end": 30.21
+        },
+        {
+          "raw": "deceit",
+          "start": 30.21,
+          "end": 30.49
+        },
+        {
+          "raw": "should",
+          "start": 30.49,
+          "end": 30.73
+        },
+        {
+          "raw": "dwell",
+          "start": 30.73,
+          "end": 30.95
+        },
+        {
+          "raw": "in",
+          "start": 30.95,
+          "end": 31.15
+        },
+        {
+          "raw": "such",
+          "start": 31.15,
+          "end": 31.31
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.47
+        },
+        {
+          "raw": "gorgeous",
+          "start": 31.47,
+          "end": 31.73
+        },
+        {
+          "raw": "palace.",
+          "start": 31.73,
+          "end": 32.13
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "O",
+        "serpent",
+        "heart,",
+        "hid",
+        "with",
+        "a",
+        "flowering",
+        "face!",
+        "Did",
+        "ever",
+        "dragon",
+        "keep",
+        "so",
+        "fair",
+        "a",
+        "cave?",
+        "Beautiful",
+        "tyrant,",
+        "fiend",
+        "angelical,",
+        "Dove-feather'd",
+        "raven,",
+        "wolvish-ravening",
+        "lamb!",
+        "Despised",
+        "substance",
+        "of",
+        "divinest",
+        "show!",
+        "Just",
+        "opposite",
+        "to",
+        "what",
+        "thou",
+        "justly",
+        "seem'st,",
+        "A",
+        "damned",
+        "saint,",
+        "an",
+        "honourable",
+        "villain!",
+        "O",
+        "nature,",
+        "what",
+        "hadst",
+        "thou",
+        "to",
+        "do",
+        "in",
+        "hell",
+        "When",
+        "thou",
+        "didst",
+        "bower",
+        "the",
+        "spirit",
+        "of",
+        "a",
+        "fiend",
+        "In",
+        "mortal",
+        "paradise",
+        "of",
+        "such",
+        "sweet",
+        "flesh?",
+        "Was",
+        "ever",
+        "book",
+        "containing",
+        "such",
+        "vile",
+        "matter",
+        "So",
+        "fairly",
+        "bound?",
+        "O,",
+        "that",
+        "deceit",
+        "should",
+        "dwell",
+        "In",
+        "such",
+        "a",
+        "gorgeous",
+        "palace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ],
+        [
+          "replace",
+          21,
+          22,
+          21,
+          23
+        ],
+        [
+          "equal",
+          22,
+          23,
+          23,
+          24
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          26
+        ],
+        [
+          "equal",
+          24,
+          36,
+          26,
+          38
+        ],
+        [
+          "replace",
+          36,
+          37,
+          38,
+          40
+        ],
+        [
+          "equal",
+          37,
+          41,
+          40,
+          44
+        ],
+        [
+          "replace",
+          41,
+          42,
+          44,
+          45
+        ],
+        [
+          "equal",
+          42,
+          78,
+          45,
+          81
+        ],
+        [
+          "replace",
+          78,
+          79,
+          81,
+          82
+        ],
+        [
+          "equal",
+          79,
+          88,
+          82,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          21,
+          22,
+          21,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          24,
+          26
+        ],
+        [
+          "replace",
+          36,
+          37,
+          38,
+          40
+        ],
+        [
+          "replace",
+          41,
+          42,
+          44,
+          45
+        ],
+        [
+          "replace",
+          78,
+          79,
+          81,
+          82
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "serpent",
+          "start": 1.51,
+          "end": 1.73,
+          "key": "serpent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-heart,",
+          "start": 1.73,
+          "end": 2.07,
+          "key": "heart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hid",
+          "start": 2.33,
+          "end": 2.37,
+          "key": "hid",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.37,
+          "end": 2.51,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flowering",
+          "start": 2.63,
+          "end": 2.95,
+          "key": "flowering",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 2.95,
+          "end": 3.43,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.95,
+          "end": 4.03,
+          "key": "did",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 4.03,
+          "end": 4.21,
+          "key": "ever",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dragon",
+          "start": 4.21,
+          "end": 4.53,
+          "key": "dragon",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 4.53,
+          "end": 4.77,
+          "key": "keep",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.77,
+          "end": 5.01,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 5.01,
+          "end": 5.19,
+          "key": "fair",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.19,
+          "end": 5.33,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cave.",
+          "start": 5.33,
+          "end": 5.65,
+          "key": "cave",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Beautiful",
+          "start": 6.15,
+          "end": 6.43,
+          "key": "beautiful",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "tyrant,",
+          "start": 6.43,
+          "end": 6.85,
+          "key": "tyrant",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fiend",
+          "start": 7.15,
+          "end": 7.33,
+          "key": "fiend",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "-angelical,",
+          "start": 7.33,
+          "end": 7.97,
+          "key": "angelical",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "dove",
+          "start": 8.17,
+          "end": 8.31,
+          "key": "dove",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "-feathered",
+          "start": 8.31,
+          "end": 8.65,
+          "key": "feathered",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "raven,",
+          "start": 8.65,
+          "end": 9.03,
+          "key": "raven",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "wolfish",
+          "start": 9.31,
+          "end": 9.61,
+          "key": "wolfish",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "ravening",
+          "start": 9.61,
+          "end": 10.05,
+          "key": "ravening",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "lamb,",
+          "start": 10.05,
+          "end": 10.33,
+          "key": "lamb",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "despised",
+          "start": 11.31,
+          "end": 11.31,
+          "key": "despised",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "substance",
+          "start": 11.31,
+          "end": 11.81,
+          "key": "substance",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.81,
+          "end": 12.01,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "divinest",
+          "start": 12.01,
+          "end": 12.49,
+          "key": "divinest",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "show,",
+          "start": 12.49,
+          "end": 12.79,
+          "key": "show",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 13.41,
+          "end": 13.57,
+          "key": "just",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "opposite",
+          "start": 13.57,
+          "end": 13.83,
+          "key": "opposite",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.83,
+          "end": 14.07,
+          "key": "to",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 14.07,
+          "end": 14.21,
+          "key": "what",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 14.21,
+          "end": 14.37,
+          "key": "thou",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "justly",
+          "start": 14.37,
+          "end": 14.81,
+          "key": "justly",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "seems",
+          "start": 14.81,
+          "end": 15.09,
+          "key": "seems",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "to,",
+          "start": 15.09,
+          "end": 15.35,
+          "key": "to",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.65,
+          "end": 15.83,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "damned",
+          "start": 15.83,
+          "end": 16.11,
+          "key": "damned",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "saint,",
+          "start": 16.11,
+          "end": 16.55,
+          "key": "saint",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 16.81,
+          "end": 16.91,
+          "key": "an",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "honorable",
+          "start": 16.91,
+          "end": 17.31,
+          "key": "honorable",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "villain.",
+          "start": 17.31,
+          "end": 17.71,
+          "key": "villain",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 18.33,
+          "end": 18.55,
+          "key": "o",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "nature,",
+          "start": 18.55,
+          "end": 18.83,
+          "key": "nature",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 19.15,
+          "end": 19.31,
+          "key": "what",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 19.31,
+          "end": 19.63,
+          "key": "hadst",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 19.63,
+          "end": 19.77,
+          "key": "thou",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 19.77,
+          "end": 19.91,
+          "key": "to",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 19.91,
+          "end": 20.05,
+          "key": "do",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 20.05,
+          "end": 20.23,
+          "key": "in",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "hell",
+          "start": 20.23,
+          "end": 20.41,
+          "key": "hell",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 20.41,
+          "end": 20.63,
+          "key": "when",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 20.63,
+          "end": 20.81,
+          "key": "thou",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "didst",
+          "start": 20.81,
+          "end": 21.21,
+          "key": "didst",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "bower",
+          "start": 21.21,
+          "end": 21.49,
+          "key": "bower",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.49,
+          "end": 21.71,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 21.71,
+          "end": 21.99,
+          "key": "spirit",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.99,
+          "end": 22.15,
+          "key": "of",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.15,
+          "end": 22.31,
+          "key": "a",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "fiend",
+          "start": 22.31,
+          "end": 22.63,
+          "key": "fiend",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 22.63,
+          "end": 22.77,
+          "key": "in",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "mortal",
+          "start": 22.77,
+          "end": 23.05,
+          "key": "mortal",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "paradise",
+          "start": 23.05,
+          "end": 23.59,
+          "key": "paradise",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 23.59,
+          "end": 23.81,
+          "key": "of",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 23.81,
+          "end": 23.99,
+          "key": "such",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 23.99,
+          "end": 24.31,
+          "key": "sweet",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "flesh?",
+          "start": 24.31,
+          "end": 24.73,
+          "key": "flesh",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 25.23,
+          "end": 25.41,
+          "key": "was",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 25.41,
+          "end": 25.61,
+          "key": "ever",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 25.61,
+          "end": 25.81,
+          "key": "book",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "containing",
+          "start": 25.81,
+          "end": 26.23,
+          "key": "containing",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 26.23,
+          "end": 26.63,
+          "key": "such",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "vile",
+          "start": 26.63,
+          "end": 26.97,
+          "key": "vile",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 26.97,
+          "end": 27.29,
+          "key": "matter",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 27.29,
+          "end": 27.59,
+          "key": "so",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "fairly",
+          "start": 27.59,
+          "end": 27.95,
+          "key": "fairly",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "bound?",
+          "start": 27.95,
+          "end": 28.25,
+          "key": "bound",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 29.09,
+          "end": 29.61,
+          "key": "oh",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 29.87,
+          "end": 30.21,
+          "key": "that",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "deceit",
+          "start": 30.21,
+          "end": 30.49,
+          "key": "deceit",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 30.49,
+          "end": 30.73,
+          "key": "should",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "dwell",
+          "start": 30.73,
+          "end": 30.95,
+          "key": "dwell",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 30.95,
+          "end": 31.15,
+          "key": "in",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 31.15,
+          "end": 31.31,
+          "key": "such",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.47,
+          "key": "a",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "gorgeous",
+          "start": 31.47,
+          "end": 31.73,
+          "key": "gorgeous",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "palace.",
+          "start": 31.73,
+          "end": 32.13,
+          "key": "palace",
+          "pieces": [
+            90
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "O",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "serpent",
+          "start": 1.51,
+          "end": 1.73
+        },
+        {
+          "text": "heart,",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "text": "hid",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "text": "with",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "a",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "text": "flowering",
+          "start": 2.63,
+          "end": 2.95
+        },
+        {
+          "text": "face!",
+          "start": 2.95,
+          "end": 3.43
+        },
+        {
+          "text": "Did",
+          "start": 3.95,
+          "end": 4.03
+        },
+        {
+          "text": "ever",
+          "start": 4.03,
+          "end": 4.21
+        },
+        {
+          "text": "dragon",
+          "start": 4.21,
+          "end": 4.53
+        },
+        {
+          "text": "keep",
+          "start": 4.53,
+          "end": 4.77
+        },
+        {
+          "text": "so",
+          "start": 4.77,
+          "end": 5.01
+        },
+        {
+          "text": "fair",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "a",
+          "start": 5.19,
+          "end": 5.33
+        },
+        {
+          "text": "cave?",
+          "start": 5.33,
+          "end": 5.65
+        },
+        {
+          "text": "Beautiful",
+          "start": 6.15,
+          "end": 6.43
+        },
+        {
+          "text": "tyrant,",
+          "start": 6.43,
+          "end": 6.85
+        },
+        {
+          "text": "fiend",
+          "start": 7.15,
+          "end": 7.33
+        },
+        {
+          "text": "angelical,",
+          "start": 7.33,
+          "end": 7.97
+        },
+        {
+          "text": "Dove-feather'd",
+          "start": 7.97,
+          "end": 8.31
+        },
+        {
+          "text": "raven,",
+          "start": 8.65,
+          "end": 9.03
+        },
+        {
+          "text": "wolvish-ravening",
+          "start": 9.03,
+          "end": 9.54
+        },
+        {
+          "text": "lamb!",
+          "start": 10.05,
+          "end": 10.33
+        },
+        {
+          "text": "Despised",
+          "start": 11.31,
+          "end": 11.31
+        },
+        {
+          "text": "substance",
+          "start": 11.31,
+          "end": 11.81
+        },
+        {
+          "text": "of",
+          "start": 11.81,
+          "end": 12.01
+        },
+        {
+          "text": "divinest",
+          "start": 12.01,
+          "end": 12.49
+        },
+        {
+          "text": "show!",
+          "start": 12.49,
+          "end": 12.79
+        },
+        {
+          "text": "Just",
+          "start": 13.41,
+          "end": 13.57
+        },
+        {
+          "text": "opposite",
+          "start": 13.57,
+          "end": 13.83
+        },
+        {
+          "text": "to",
+          "start": 13.83,
+          "end": 14.07
+        },
+        {
+          "text": "what",
+          "start": 14.07,
+          "end": 14.21
+        },
+        {
+          "text": "thou",
+          "start": 14.21,
+          "end": 14.37
+        },
+        {
+          "text": "justly",
+          "start": 14.37,
+          "end": 14.81
+        },
+        {
+          "text": "seem'st,",
+          "start": 14.81,
+          "end": 15.23
+        },
+        {
+          "text": "A",
+          "start": 15.65,
+          "end": 15.83
+        },
+        {
+          "text": "damned",
+          "start": 15.83,
+          "end": 16.11
+        },
+        {
+          "text": "saint,",
+          "start": 16.11,
+          "end": 16.55
+        },
+        {
+          "text": "an",
+          "start": 16.81,
+          "end": 16.91
+        },
+        {
+          "text": "honourable",
+          "start": 16.91,
+          "end": 17.11
+        },
+        {
+          "text": "villain!",
+          "start": 17.31,
+          "end": 17.71
+        },
+        {
+          "text": "O",
+          "start": 18.33,
+          "end": 18.55
+        },
+        {
+          "text": "nature,",
+          "start": 18.55,
+          "end": 18.83
+        },
+        {
+          "text": "what",
+          "start": 19.15,
+          "end": 19.31
+        },
+        {
+          "text": "hadst",
+          "start": 19.31,
+          "end": 19.63
+        },
+        {
+          "text": "thou",
+          "start": 19.63,
+          "end": 19.77
+        },
+        {
+          "text": "to",
+          "start": 19.77,
+          "end": 19.91
+        },
+        {
+          "text": "do",
+          "start": 19.91,
+          "end": 20.05
+        },
+        {
+          "text": "in",
+          "start": 20.05,
+          "end": 20.23
+        },
+        {
+          "text": "hell",
+          "start": 20.23,
+          "end": 20.41
+        },
+        {
+          "text": "When",
+          "start": 20.41,
+          "end": 20.63
+        },
+        {
+          "text": "thou",
+          "start": 20.63,
+          "end": 20.81
+        },
+        {
+          "text": "didst",
+          "start": 20.81,
+          "end": 21.21
+        },
+        {
+          "text": "bower",
+          "start": 21.21,
+          "end": 21.49
+        },
+        {
+          "text": "the",
+          "start": 21.49,
+          "end": 21.71
+        },
+        {
+          "text": "spirit",
+          "start": 21.71,
+          "end": 21.99
+        },
+        {
+          "text": "of",
+          "start": 21.99,
+          "end": 22.15
+        },
+        {
+          "text": "a",
+          "start": 22.15,
+          "end": 22.31
+        },
+        {
+          "text": "fiend",
+          "start": 22.31,
+          "end": 22.63
+        },
+        {
+          "text": "In",
+          "start": 22.63,
+          "end": 22.77
+        },
+        {
+          "text": "mortal",
+          "start": 22.77,
+          "end": 23.05
+        },
+        {
+          "text": "paradise",
+          "start": 23.05,
+          "end": 23.59
+        },
+        {
+          "text": "of",
+          "start": 23.59,
+          "end": 23.81
+        },
+        {
+          "text": "such",
+          "start": 23.81,
+          "end": 23.99
+        },
+        {
+          "text": "sweet",
+          "start": 23.99,
+          "end": 24.31
+        },
+        {
+          "text": "flesh?",
+          "start": 24.31,
+          "end": 24.73
+        },
+        {
+          "text": "Was",
+          "start": 25.23,
+          "end": 25.41
+        },
+        {
+          "text": "ever",
+          "start": 25.41,
+          "end": 25.61
+        },
+        {
+          "text": "book",
+          "start": 25.61,
+          "end": 25.81
+        },
+        {
+          "text": "containing",
+          "start": 25.81,
+          "end": 26.23
+        },
+        {
+          "text": "such",
+          "start": 26.23,
+          "end": 26.63
+        },
+        {
+          "text": "vile",
+          "start": 26.63,
+          "end": 26.97
+        },
+        {
+          "text": "matter",
+          "start": 26.97,
+          "end": 27.29
+        },
+        {
+          "text": "So",
+          "start": 27.29,
+          "end": 27.59
+        },
+        {
+          "text": "fairly",
+          "start": 27.59,
+          "end": 27.95
+        },
+        {
+          "text": "bound?",
+          "start": 27.95,
+          "end": 28.25
+        },
+        {
+          "text": "O,",
+          "start": 28.25,
+          "end": 29.06
+        },
+        {
+          "text": "that",
+          "start": 29.87,
+          "end": 30.21
+        },
+        {
+          "text": "deceit",
+          "start": 30.21,
+          "end": 30.49
+        },
+        {
+          "text": "should",
+          "start": 30.49,
+          "end": 30.73
+        },
+        {
+          "text": "dwell",
+          "start": 30.73,
+          "end": 30.95
+        },
+        {
+          "text": "In",
+          "start": 30.95,
+          "end": 31.15
+        },
+        {
+          "text": "such",
+          "start": 31.15,
+          "end": 31.31
+        },
+        {
+          "text": "a",
+          "start": 31.31,
+          "end": 31.47
+        },
+        {
+          "text": "gorgeous",
+          "start": 31.47,
+          "end": 31.73
+        },
+        {
+          "text": "palace.",
+          "start": 31.73,
+          "end": 32.13
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 91,
+        "matched_words": 83
+      },
+      "match_ratio": 0.9431818181818182,
+      "rejection_reasons": [],
+      "seconds": 1.2169995661824942
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "cb75287ee5f8b2c6862587c14c196addca0646412d1131b2396badb4b7d6019d",
+  "selected_reasons": []
+}

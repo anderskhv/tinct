@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "aeff0aaa7a763375499735a50c29e0e8a51f74ee15893cb0c688bec2e47d5660",
+  "attempts": [
+    {
+      "asr_seconds": 0.1640922799706459,
+      "alignment_seconds": 0.0004493705928325653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Draws, pray God he keep his oath.",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Draws,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " pray",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " God",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " he",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.449951171875
+            },
+            {
+              "text": " keep",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " his",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " oath.",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Draws,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "pray",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "God",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "raw": "he",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "keep",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "his",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "oath.",
+          "start": 2.05,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "[_Draws._]",
+        "Pray",
+        "God",
+        "he",
+        "keep",
+        "his",
+        "oath!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Draws,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "draws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.31,
+          "end": 1.57,
+          "key": "god",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "keep",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "oath.",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "oath",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Draws._]",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Pray",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "God",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "text": "he",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "keep",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "his",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "oath!",
+          "start": 2.05,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16469667106866837
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4b4f83af3e63953e016d06117baa179da12f200558a859542ed6acefdfdb3e79",
+  "selected_reasons": []
+}

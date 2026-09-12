@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "af0d4a34f6899eefe8f07d4cc1e2658330ae45c367f1445ecf62d9a211828aff",
+  "attempts": [
+    {
+      "asr_seconds": 0.16296307370066643,
+      "alignment_seconds": 0.0003475584089756012,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Kneeling._] Your blessing, sir.",
+        "hotwords": "Your"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kneeling, your blessing, sir.",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Kneeling,",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.9352213541666666
+            },
+            {
+              "text": " your",
+              "start": 1.12,
+              "end": 1.28,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " blessing,",
+              "start": 1.28,
+              "end": 1.6,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " sir.",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.85546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kneeling,",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "raw": "your",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "raw": "blessing,",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "raw": "sir.",
+          "start": 1.78,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "[_Kneeling._]",
+        "Your",
+        "blessing,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kneeling,",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "kneeling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.12,
+          "end": 1.28,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "blessing,",
+          "start": 1.28,
+          "end": 1.6,
+          "key": "blessing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Kneeling._]",
+          "start": 0.02,
+          "end": 0.84
+        },
+        {
+          "text": "Your",
+          "start": 1.12,
+          "end": 1.28
+        },
+        {
+          "text": "blessing,",
+          "start": 1.28,
+          "end": 1.6
+        },
+        {
+          "text": "sir.",
+          "start": 1.78,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16344842687249184
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c772886af0eef75b51800ea1707136cb38c438d3618c8ec8cb931bf7a49837d5",
+  "selected_reasons": []
+}

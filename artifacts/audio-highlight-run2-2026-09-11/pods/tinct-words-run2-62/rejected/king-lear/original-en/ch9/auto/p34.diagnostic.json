@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "8a66aaaca3b91a6a3016f0d54b1d39d2fffcdc79343ff8b6388ac8156217375c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19352088496088982,
+      "alignment_seconds": 0.0002336464822292328,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Vengeance! plague! death! confusion! Fiery? What quality? Why, Gloucester, Gloucester, I'd speak with the Duke of Cornwall and his wife.",
+        "hotwords": "Lear, Vengeance, Fiery, What, Why, Gloucester, I'd, Duke, Cornwall"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Vengeance, plague! death! confusion! fiery! What quality? Why, Gloucester, Gloucester, I'd speak with the Duke of Cornwall and his wife.",
+          "start": 0.05,
+          "end": 8.73,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.40478515625
+            },
+            {
+              "text": " Vengeance,",
+              "start": 0.85,
+              "end": 1.17,
+              "probability": 0.072509765625
+            },
+            {
+              "text": " plague!",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 0.01406097412109375
+            },
+            {
+              "text": " death!",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.10205078125
+            },
+            {
+              "text": " confusion!",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " fiery!",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " What",
+              "start": 4.23,
+              "end": 4.33,
+              "probability": 0.48046875
+            },
+            {
+              "text": " quality?",
+              "start": 4.33,
+              "end": 4.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Why,",
+              "start": 5.27,
+              "end": 5.51,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " Gloucester,",
+              "start": 5.69,
+              "end": 6.05,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Gloucester,",
+              "start": 6.21,
+              "end": 6.57,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I'd",
+              "start": 6.73,
+              "end": 6.83,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " speak",
+              "start": 6.83,
+              "end": 7.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 7.05,
+              "end": 7.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 7.25,
+              "end": 7.37,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Duke",
+              "start": 7.37,
+              "end": 7.49,
+              "probability": 0.96484375
+            },
+            {
+              "text": " of",
+              "start": 7.49,
+              "end": 7.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Cornwall",
+              "start": 7.67,
+              "end": 8.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 8.05,
+              "end": 8.33,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " his",
+              "start": 8.33,
+              "end": 8.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wife.",
+              "start": 8.45,
+              "end": 8.73,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Vengeance,",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "raw": "plague!",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "raw": "death!",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "confusion!",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "fiery!",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "What",
+          "start": 4.23,
+          "end": 4.33
+        },
+        {
+          "raw": "quality?",
+          "start": 4.33,
+          "end": 4.73
+        },
+        {
+          "raw": "Why,",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 5.69,
+          "end": 6.05
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 6.21,
+          "end": 6.57
+        },
+        {
+          "raw": "I'd",
+          "start": 6.73,
+          "end": 6.83
+        },
+        {
+          "raw": "speak",
+          "start": 6.83,
+          "end": 7.05
+        },
+        {
+          "raw": "with",
+          "start": 7.05,
+          "end": 7.25
+        },
+        {
+          "raw": "the",
+          "start": 7.25,
+          "end": 7.37
+        },
+        {
+          "raw": "Duke",
+          "start": 7.37,
+          "end": 7.49
+        },
+        {
+          "raw": "of",
+          "start": 7.49,
+          "end": 7.67
+        },
+        {
+          "raw": "Cornwall",
+          "start": 7.67,
+          "end": 8.05
+        },
+        {
+          "raw": "and",
+          "start": 8.05,
+          "end": 8.33
+        },
+        {
+          "raw": "his",
+          "start": 8.33,
+          "end": 8.45
+        },
+        {
+          "raw": "wife.",
+          "start": 8.45,
+          "end": 8.73
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Vengeance!",
+        "plague!",
+        "death!",
+        "confusion!",
+        "Fiery?",
+        "What",
+        "quality?",
+        "Why,",
+        "Gloucester,",
+        "Gloucester,",
+        "I'd",
+        "speak",
+        "with",
+        "the",
+        "Duke",
+        "of",
+        "Cornwall",
+        "and",
+        "his",
+        "wife."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Vengeance,",
+          "start": 0.85,
+          "end": 1.17,
+          "key": "vengeance",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "plague!",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "plague",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "death!",
+          "start": 2.27,
+          "end": 2.39,
+          "key": "death",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "confusion!",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "confusion",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fiery!",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "fiery",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 4.23,
+          "end": 4.33,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "quality?",
+          "start": 4.33,
+          "end": 4.73,
+          "key": "quality",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 5.27,
+          "end": 5.51,
+          "key": "why",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 5.69,
+          "end": 6.05,
+          "key": "gloucester",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Gloucester,",
+          "start": 6.21,
+          "end": 6.57,
+          "key": "gloucester",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I'd",
+          "start": 6.73,
+          "end": 6.83,
+          "key": "id",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 6.83,
+          "end": 7.05,
+          "key": "speak",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.05,
+          "end": 7.25,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.25,
+          "end": 7.37,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Duke",
+          "start": 7.37,
+          "end": 7.49,
+          "key": "duke",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.49,
+          "end": 7.67,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Cornwall",
+          "start": 7.67,
+          "end": 8.05,
+          "key": "cornwall",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.05,
+          "end": 8.33,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.33,
+          "end": 8.45,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "wife.",
+          "start": 8.45,
+          "end": 8.73,
+          "key": "wife",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Vengeance!",
+          "start": 0.85,
+          "end": 1.17
+        },
+        {
+          "text": "plague!",
+          "start": 1.77,
+          "end": 1.77
+        },
+        {
+          "text": "death!",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "text": "confusion!",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "Fiery?",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "What",
+          "start": 4.23,
+          "end": 4.33
+        },
+        {
+          "text": "quality?",
+          "start": 4.33,
+          "end": 4.73
+        },
+        {
+          "text": "Why,",
+          "start": 5.27,
+          "end": 5.51
+        },
+        {
+          "text": "Gloucester,",
+          "start": 5.69,
+          "end": 6.05
+        },
+        {
+          "text": "Gloucester,",
+          "start": 6.21,
+          "end": 6.57
+        },
+        {
+          "text": "I'd",
+          "start": 6.73,
+          "end": 6.83
+        },
+        {
+          "text": "speak",
+          "start": 6.83,
+          "end": 7.05
+        },
+        {
+          "text": "with",
+          "start": 7.05,
+          "end": 7.25
+        },
+        {
+          "text": "the",
+          "start": 7.25,
+          "end": 7.37
+        },
+        {
+          "text": "Duke",
+          "start": 7.37,
+          "end": 7.49
+        },
+        {
+          "text": "of",
+          "start": 7.49,
+          "end": 7.67
+        },
+        {
+          "text": "Cornwall",
+          "start": 7.67,
+          "end": 8.05
+        },
+        {
+          "text": "and",
+          "start": 8.05,
+          "end": 8.33
+        },
+        {
+          "text": "his",
+          "start": 8.33,
+          "end": 8.45
+        },
+        {
+          "text": "wife.",
+          "start": 8.45,
+          "end": 8.73
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19384929165244102
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d72690c603d1e5fbedf5dd284e3c1d8ccd9c5a1b226f5cf95f72c0dad6ecd502",
+  "selected_reasons": []
+}

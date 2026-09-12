@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "a6138fdb57827561e9289f39ffa51a8e7b2a44132666e28f06623f946972a84a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1736713000573218,
+      "alignment_seconds": 0.0002930168993771076,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. What, ho! No watch? No passage? murder, murder!",
+        "hotwords": "Cassio, What, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, What, ho! No watch? No passage? murder, murder!",
+          "start": 0.48,
+          "end": 3.7,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.607421875
+            },
+            {
+              "text": " What,",
+              "start": 1.12,
+              "end": 1.14,
+              "probability": 0.0208282470703125
+            },
+            {
+              "text": " ho!",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.076416015625
+            },
+            {
+              "text": " No",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " watch?",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.5654296875
+            },
+            {
+              "text": " No",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " passage?",
+              "start": 2.18,
+              "end": 2.58,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " murder,",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.0283355712890625
+            },
+            {
+              "text": " murder!",
+              "start": 3.56,
+              "end": 3.7,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "What,",
+          "start": 1.12,
+          "end": 1.14
+        },
+        {
+          "raw": "ho!",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "No",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "watch?",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "No",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "passage?",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "raw": "murder,",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "murder!",
+          "start": 3.56,
+          "end": 3.7
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "What,",
+        "ho!",
+        "No",
+        "watch?",
+        "No",
+        "passage?",
+        "murder,",
+        "murder!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.12,
+          "end": 1.14,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "ho",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "watch?",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "watch",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "passage?",
+          "start": 2.18,
+          "end": 2.58,
+          "key": "passage",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "murder,",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "murder",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "murder!",
+          "start": 3.56,
+          "end": 3.7,
+          "key": "murder",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "text": "What,",
+          "start": 1.12,
+          "end": 1.14
+        },
+        {
+          "text": "ho!",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "text": "No",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "watch?",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "No",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "passage?",
+          "start": 2.18,
+          "end": 2.58
+        },
+        {
+          "text": "murder,",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "text": "murder!",
+          "start": 3.56,
+          "end": 3.7
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17407973622903228
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f420509ee4919348b57e9237e2e2d7b756715c73be55dedb57958628a5fec9ed",
+  "selected_reasons": []
+}

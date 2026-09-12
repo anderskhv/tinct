@@ -1,0 +1,358 @@
+{
+  "complete": true,
+  "signature": "95435abf5e180ef0adc025eadb5835364be5a9bd8cde89601d1755d4521b4f59",
+  "attempts": [
+    {
+      "asr_seconds": 0.20550914807245135,
+      "alignment_seconds": 0.000493932981044054,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Were you robbing the poor box Joe says I",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Were",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " robbing",
+              "start": 0.67,
+              "end": 0.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.93,
+              "end": 1.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " poor",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " box",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 0.837890625
+            },
+            {
+              "text": " Joe",
+              "start": 1.57,
+              "end": 1.89,
+              "probability": 0.260498046875
+            },
+            {
+              "text": " says",
+              "start": 1.89,
+              "end": 2.33,
+              "probability": 0.49365234375
+            },
+            {
+              "text": " I",
+              "start": 2.33,
+              "end": 2.65,
+              "probability": 0.90234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Were",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "robbing",
+          "start": 0.67,
+          "end": 0.93
+        },
+        {
+          "raw": "the",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "raw": "poor",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "box",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "raw": "Joe",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "raw": "says",
+          "start": 1.89,
+          "end": 2.33
+        },
+        {
+          "raw": "I",
+          "start": 2.33,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "—Were",
+        "you",
+        "robbing",
+        "the",
+        "poorbox,",
+        "Joe?",
+        "says",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Were",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "were",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "robbing",
+          "start": 0.67,
+          "end": 0.93,
+          "key": "robbing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.93,
+          "end": 1.13,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "poor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "box",
+          "start": 1.29,
+          "end": 1.57,
+          "key": "box",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 1.57,
+          "end": 1.89,
+          "key": "joe",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.89,
+          "end": 2.33,
+          "key": "says",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.33,
+          "end": 2.65,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Were",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "robbing",
+          "start": 0.67,
+          "end": 0.93
+        },
+        {
+          "text": "the",
+          "start": 0.93,
+          "end": 1.13
+        },
+        {
+          "text": "poorbox,",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "Joe?",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "text": "says",
+          "start": 1.89,
+          "end": 2.33
+        },
+        {
+          "text": "I.",
+          "start": 2.33,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.20619984390214086
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b53960f4d4ac555329c92643512c21490c39da3912183df3e4b262eea4b2891a",
+  "selected_reasons": []
+}

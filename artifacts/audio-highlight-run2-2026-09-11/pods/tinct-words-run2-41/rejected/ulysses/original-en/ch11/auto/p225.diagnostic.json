@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "53b18277c98d752e73a87c754d5e54bd2516015f798de14fc2006b37006fdeb1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12989619793370366,
+      "alignment_seconds": 0.00013062497600913048,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Like lady, ladylike.",
+        "hotwords": "Like"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Like lady, ladylike.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Like",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.634765625
+            },
+            {
+              "text": " lady,",
+              "start": 0.59,
+              "end": 0.93,
+              "probability": 0.658203125
+            },
+            {
+              "text": " ladylike.",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.687255859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Like",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "lady,",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "raw": "ladylike.",
+          "start": 1.29,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Like",
+        "lady,",
+        "ladylike."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Like",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "like",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 0.59,
+          "end": 0.93,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ladylike.",
+          "start": 1.29,
+          "end": 1.63,
+          "key": "ladylike",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Like",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "lady,",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "text": "ladylike.",
+          "start": 1.29,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13007186772301793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27dc55696bcdcf5594c2952961b88a5e945911eafe3bf74d8fc18c7a1bc02415",
+  "selected_reasons": []
+}

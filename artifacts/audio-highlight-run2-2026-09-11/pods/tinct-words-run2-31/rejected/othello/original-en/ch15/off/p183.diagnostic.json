@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "8f08862e01a08292c898f0334e2465ec58befe6a1a4fe494b928d4491fad88c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1415418372489512,
+      "alignment_seconds": 0.00013787811622023582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio, most heathenish and most gross.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Casio,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.7093505859375
+            },
+            {
+              "text": " most",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " heathenish",
+              "start": 1.43,
+              "end": 1.85,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " and",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " most",
+              "start": 1.97,
+              "end": 2.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " gross.",
+              "start": 2.19,
+              "end": 2.49,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "most",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "heathenish",
+          "start": 1.43,
+          "end": 1.85
+        },
+        {
+          "raw": "and",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "most",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "raw": "gross.",
+          "start": 2.19,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Most",
+        "heathenish",
+        "and",
+        "most",
+        "gross!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "most",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heathenish",
+          "start": 1.43,
+          "end": 1.85,
+          "key": "heathenish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.97,
+          "end": 2.19,
+          "key": "most",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gross.",
+          "start": 2.19,
+          "end": 2.49,
+          "key": "gross",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.655
+        },
+        {
+          "text": "Most",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "heathenish",
+          "start": 1.43,
+          "end": 1.85
+        },
+        {
+          "text": "and",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "most",
+          "start": 1.97,
+          "end": 2.19
+        },
+        {
+          "text": "gross!",
+          "start": 2.19,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14172686403617263
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "41a0ed57080a2262feaa932a27f4683038e971e8c9eef4ecad81bc6455769072",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

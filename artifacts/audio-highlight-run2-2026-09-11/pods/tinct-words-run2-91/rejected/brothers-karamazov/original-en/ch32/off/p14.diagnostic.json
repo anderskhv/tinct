@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "27c5d1e11ef1083ca8b905838cba4daf68b58234a69be5b0577ff25e8bbedf4d",
+  "attempts": [
+    {
+      "asr_seconds": 0.27712597884237766,
+      "alignment_seconds": 0.0004073828458786011,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why why could nothing better have happened cried lies looking with great surprise at Alyosha",
+          "start": 0.05,
+          "end": 5.57,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.343994140625
+            },
+            {
+              "text": " why",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.67578125
+            },
+            {
+              "text": " could",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " nothing",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " better",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " happened",
+              "start": 1.67,
+              "end": 2.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cried",
+              "start": 2.17,
+              "end": 2.75,
+              "probability": 0.465576171875
+            },
+            {
+              "text": " lies",
+              "start": 2.75,
+              "end": 3.23,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " looking",
+              "start": 3.23,
+              "end": 3.71,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " with",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " great",
+              "start": 3.95,
+              "end": 4.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " surprise",
+              "start": 4.19,
+              "end": 4.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 4.65,
+              "end": 4.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Alyosha",
+              "start": 4.87,
+              "end": 5.57,
+              "probability": 0.8531901041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "why",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "raw": "could",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "nothing",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "better",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "have",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "happened",
+          "start": 1.67,
+          "end": 2.17
+        },
+        {
+          "raw": "cried",
+          "start": 2.17,
+          "end": 2.75
+        },
+        {
+          "raw": "lies",
+          "start": 2.75,
+          "end": 3.23
+        },
+        {
+          "raw": "looking",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "raw": "with",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "raw": "great",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "raw": "surprise",
+          "start": 4.19,
+          "end": 4.65
+        },
+        {
+          "raw": "at",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "raw": "Alyosha",
+          "start": 4.87,
+          "end": 5.57
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "why",
+        "could",
+        "nothing",
+        "better",
+        "have",
+        "happened?\"",
+        "cried",
+        "Lise,",
+        "looking",
+        "with",
+        "great",
+        "surprise",
+        "at",
+        "Alyosha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          15,
+          9,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "could",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "nothing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "better",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "happened",
+          "start": 1.67,
+          "end": 2.17,
+          "key": "happened",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.17,
+          "end": 2.75,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 2.75,
+          "end": 3.23,
+          "key": "lies",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.23,
+          "end": 3.71,
+          "key": "looking",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 3.95,
+          "end": 4.19,
+          "key": "great",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "surprise",
+          "start": 4.19,
+          "end": 4.65,
+          "key": "surprise",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.65,
+          "end": 4.87,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 4.87,
+          "end": 5.57,
+          "key": "alyosha",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "why",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "text": "could",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "nothing",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "better",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "have",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "happened?\"",
+          "start": 1.67,
+          "end": 2.17
+        },
+        {
+          "text": "cried",
+          "start": 2.17,
+          "end": 2.75
+        },
+        {
+          "text": "Lise,",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "text": "looking",
+          "start": 3.23,
+          "end": 3.71
+        },
+        {
+          "text": "with",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "text": "great",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "text": "surprise",
+          "start": 4.19,
+          "end": 4.65
+        },
+        {
+          "text": "at",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "text": "Alyosha.",
+          "start": 4.87,
+          "end": 5.57
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.2776924204081297
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7c33133716d59129d7ca70b305bc8346c33352bfec3ba8c47719a4f7b9d1baa",
+  "selected_reasons": []
+}

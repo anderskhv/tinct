@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "67df9461e2e48b1475f2118651cee99c06965b74716ca572d563f6e14d30a391",
+  "attempts": [
+    {
+      "asr_seconds": 0.18943680310621858,
+      "alignment_seconds": 0.0005434490740299225,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Drain, Lenihan said. It was down a manhole.",
+          "start": 0.05,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Drain,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.2325439453125
+            },
+            {
+              "text": " Lenihan",
+              "start": 1.07,
+              "end": 1.33,
+              "probability": 0.6561686197916666
+            },
+            {
+              "text": " said.",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " It",
+              "start": 1.81,
+              "end": 1.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " manhole.",
+              "start": 2.29,
+              "end": 2.71,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drain,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "raw": "said.",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "It",
+          "start": 1.81,
+          "end": 1.85
+        },
+        {
+          "raw": "was",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "down",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "a",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "manhole.",
+          "start": 2.29,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "—Drain?",
+        "Lenehan",
+        "said.",
+        "It",
+        "was",
+        "down",
+        "a",
+        "manhole."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drain,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "drain",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lenihan",
+          "start": 1.07,
+          "end": 1.33,
+          "key": "lenihan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 1.81,
+          "end": 1.85,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "down",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "manhole.",
+          "start": 2.29,
+          "end": 2.71,
+          "key": "manhole",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Drain?",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Lenehan",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "said.",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "It",
+          "start": 1.81,
+          "end": 1.85
+        },
+        {
+          "text": "was",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "down",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "a",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "manhole.",
+          "start": 2.29,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.19017020799219608
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aec6a37d15e7f808c77391c6fa8c7feb791aa023c1024ad22dc0e0871e883143",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "246155841d6b5283c0b00e1d7facdf109cdbaf11463f82670747b1d9d9ae8860",
+  "attempts": [
+    {
+      "asr_seconds": 0.20560657099122182,
+      "alignment_seconds": 0.00036676001036539674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Mrkrgnao! the cat said loudly.",
+        "hotwords": "Mrkrgnao"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrkrgnao, the cat said loudly.",
+          "start": 0.7,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Mrkrgnao,",
+              "start": 0.7,
+              "end": 1.26,
+              "probability": 0.08472685813903809
+            },
+            {
+              "text": " the",
+              "start": 1.54,
+              "end": 1.62,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " cat",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " said",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " loudly.",
+              "start": 2.04,
+              "end": 2.46,
+              "probability": 0.8857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrkrgnao,",
+          "start": 0.7,
+          "end": 1.26
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "raw": "cat",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "said",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "loudly.",
+          "start": 2.04,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "—Mrkrgnao!",
+        "the",
+        "cat",
+        "said",
+        "loudly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrkrgnao,",
+          "start": 0.7,
+          "end": 1.26,
+          "key": "mrkrgnao",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.54,
+          "end": 1.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cat",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "cat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "loudly.",
+          "start": 2.04,
+          "end": 2.46,
+          "key": "loudly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mrkrgnao!",
+          "start": 0.7,
+          "end": 1.26
+        },
+        {
+          "text": "the",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "text": "cat",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "said",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "loudly.",
+          "start": 2.04,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20609383197734132
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9402261de5c99c42c538120b56fe9e21cd418b3ec3860bb7908c3d292560c30d",
+  "selected_reasons": []
+}

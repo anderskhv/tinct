@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "507c13c6f3a0f6d0371d8d70fe0b262419fced3c998bd9df27f95382c037d4d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1689028930850327,
+      "alignment_seconds": 0.0005097649991512299,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He means to give the whole school a treat at Christmas.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " means",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " give",
+              "start": 0.89,
+              "end": 0.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 0.99,
+              "end": 1.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " whole",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " school",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " treat",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Christmas.",
+              "start": 2.21,
+              "end": 2.47,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "means",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "to",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "give",
+          "start": 0.89,
+          "end": 0.99
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "raw": "whole",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "school",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "a",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "treat",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "Christmas.",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "means",
+        "to",
+        "give",
+        "the",
+        "whole",
+        "school",
+        "a",
+        "treat",
+        "at",
+        "Christmas.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "means",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.71,
+          "end": 0.89,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 0.89,
+          "end": 0.99,
+          "key": "give",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.11,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "whole",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "school",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "school",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "treat",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "treat",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Christmas.",
+          "start": 2.21,
+          "end": 2.47,
+          "key": "christmas",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "means",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "to",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "give",
+          "start": 0.89,
+          "end": 0.99
+        },
+        {
+          "text": "the",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "text": "whole",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "school",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "a",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "treat",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "at",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "Christmas.\"",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16963006905280054
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "696d46f5c9374fb4fd793c60ff987b0ad3c4b339821711b32f6b6254dcd3799d",
+  "selected_reasons": []
+}

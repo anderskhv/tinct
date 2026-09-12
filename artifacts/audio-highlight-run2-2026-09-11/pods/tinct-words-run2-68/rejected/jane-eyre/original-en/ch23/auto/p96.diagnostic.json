@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "a3f34c053dbb3ca5d78757f549b67c3e8851de4d45f990dbbbe3f79a9c68befb",
+  "attempts": [
+    {
+      "asr_seconds": 0.2406039983034134,
+      "alignment_seconds": 0.00035466626286506653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Mr. Rochester, let me look at your face: turn to the moonlight.\"",
+        "hotwords": "Mr, Rochester"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Rochester, let me look at your face. Turn to the moonlight.",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " Rochester,",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " let",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me",
+              "start": 1.87,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " look",
+              "start": 1.97,
+              "end": 2.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " face.",
+              "start": 2.35,
+              "end": 2.71,
+              "probability": 1.0
+            },
+            {
+              "text": " Turn",
+              "start": 3.23,
+              "end": 3.37,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 3.37,
+              "end": 3.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " moonlight.",
+              "start": 3.65,
+              "end": 4.05,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Rochester,",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "let",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "me",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "raw": "look",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "raw": "at",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "your",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "face.",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "raw": "Turn",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "moonlight.",
+          "start": 3.65,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Mr.",
+        "Rochester,",
+        "let",
+        "me",
+        "look",
+        "at",
+        "your",
+        "face:",
+        "turn",
+        "to",
+        "the",
+        "moonlight.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rochester,",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "rochester",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.87,
+          "end": 1.97,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.97,
+          "end": 2.11,
+          "key": "look",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.11,
+          "end": 2.23,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 2.35,
+          "end": 2.71,
+          "key": "face",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Turn",
+          "start": 3.23,
+          "end": 3.37,
+          "key": "turn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.55,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "moonlight.",
+          "start": 3.65,
+          "end": 4.05,
+          "key": "moonlight",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mr.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Rochester,",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "let",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "me",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "text": "look",
+          "start": 1.97,
+          "end": 2.11
+        },
+        {
+          "text": "at",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "your",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "face:",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "text": "turn",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "text": "to",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "text": "the",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "moonlight.\"",
+          "start": 3.65,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24111030623316765
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cce66f30a5e68efd5ece5922eda40e6255e3ddef4e3271e6abf6066321fca694",
+  "selected_reasons": []
+}

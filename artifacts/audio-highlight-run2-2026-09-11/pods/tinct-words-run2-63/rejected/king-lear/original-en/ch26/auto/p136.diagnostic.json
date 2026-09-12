@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "e774b9926af642a9bd21258bf343d5ff9b3d55ce240e0dcea38fed8b445f48c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.30400583148002625,
+      "alignment_seconds": 0.0006692260503768921,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Albany. He knows not what he says; and vain is it That we present us to him.",
+        "hotwords": "Albany, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Albany. He knows not what he says. And vain is it That we present us to him.",
+          "start": 0.05,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " Albany.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " He",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " knows",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 1.57,
+              "end": 1.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " what",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " says.",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " And",
+              "start": 2.93,
+              "end": 2.97,
+              "probability": 0.951171875
+            },
+            {
+              "text": " vain",
+              "start": 2.97,
+              "end": 3.21,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " is",
+              "start": 3.21,
+              "end": 3.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it",
+              "start": 3.43,
+              "end": 3.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " That",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.0003311634063720703
+            },
+            {
+              "text": " we",
+              "start": 3.71,
+              "end": 3.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " present",
+              "start": 3.87,
+              "end": 4.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " us",
+              "start": 4.21,
+              "end": 4.41,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " him.",
+              "start": 4.59,
+              "end": 4.83,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "He",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "knows",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "not",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "raw": "what",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "he",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "says.",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "And",
+          "start": 2.93,
+          "end": 2.97
+        },
+        {
+          "raw": "vain",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "raw": "is",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "raw": "it",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "raw": "That",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "we",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "raw": "present",
+          "start": 3.87,
+          "end": 4.21
+        },
+        {
+          "raw": "us",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "raw": "to",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "him.",
+          "start": 4.59,
+          "end": 4.83
+        }
+      ],
+      "expected_tokens": [
+        "Albany.",
+        "He",
+        "knows",
+        "not",
+        "what",
+        "he",
+        "says;",
+        "and",
+        "vain",
+        "is",
+        "it",
+        "That",
+        "we",
+        "present",
+        "us",
+        "to",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "knows",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.57,
+          "end": 1.83,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "says.",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "says",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.93,
+          "end": 2.97,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "vain",
+          "start": 2.97,
+          "end": 3.21,
+          "key": "vain",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.21,
+          "end": 3.43,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.43,
+          "end": 3.57,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.71,
+          "end": 3.87,
+          "key": "we",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 3.87,
+          "end": 4.21,
+          "key": "present",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 4.21,
+          "end": 4.41,
+          "key": "us",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.41,
+          "end": 4.59,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 4.59,
+          "end": 4.83,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "He",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "knows",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "not",
+          "start": 1.57,
+          "end": 1.83
+        },
+        {
+          "text": "what",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "he",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "says;",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "and",
+          "start": 2.93,
+          "end": 2.97
+        },
+        {
+          "text": "vain",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "text": "is",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "text": "it",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "text": "That",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "we",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "text": "present",
+          "start": 3.87,
+          "end": 4.21
+        },
+        {
+          "text": "us",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "text": "to",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "him.",
+          "start": 4.59,
+          "end": 4.83
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3049618676304817
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac46069debf66c338b17e095e4588c728292394bcdfe1278a629cac3ec46a792",
+  "selected_reasons": []
+}

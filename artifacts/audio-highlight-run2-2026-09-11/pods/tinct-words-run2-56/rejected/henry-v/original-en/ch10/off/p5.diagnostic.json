@@ -1,0 +1,265 @@
+{
+  "complete": true,
+  "signature": "3ae069928defa21935d3357dac52e6391890e2297bb61801e8bf6b4767b93d22",
+  "attempts": [
+    {
+      "asr_seconds": 0.2352668046951294,
+      "alignment_seconds": 0.0004346827045083046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Katherine DeHandt, at Les Deutschs.",
+          "start": 0.05,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " Katherine",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.20947265625
+            },
+            {
+              "text": " DeHandt,",
+              "start": 0.91,
+              "end": 2.15,
+              "probability": 0.552978515625
+            },
+            {
+              "text": " at",
+              "start": 2.15,
+              "end": 2.23,
+              "probability": 0.259765625
+            },
+            {
+              "text": " Les",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.381103515625
+            },
+            {
+              "text": " Deutschs.",
+              "start": 2.37,
+              "end": 2.97,
+              "probability": 0.4678141276041667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katherine",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "DeHandt,",
+          "start": 0.91,
+          "end": 2.15
+        },
+        {
+          "raw": "at",
+          "start": 2.15,
+          "end": 2.23
+        },
+        {
+          "raw": "Les",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "Deutschs.",
+          "start": 2.37,
+          "end": 2.97
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "De",
+        "hand.",
+        "_Et",
+        "les",
+        "doigts?_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ],
+        [
+          "equal",
+          4,
+          5,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katherine",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "katherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "DeHandt,",
+          "start": 0.91,
+          "end": 2.15,
+          "key": "dehandt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.15,
+          "end": 2.23,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Les",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "les",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Deutschs.",
+          "start": 2.37,
+          "end": 2.97,
+          "key": "deutschs",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 1.115
+        },
+        {
+          "text": "De",
+          "start": 1.115,
+          "end": 1.672
+        },
+        {
+          "text": "hand.",
+          "start": 1.672,
+          "end": 1.951
+        },
+        {
+          "text": "_Et",
+          "start": 1.951,
+          "end": 2.091
+        },
+        {
+          "text": "les",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "text": "doigts?_",
+          "start": 2.37,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23583138454705477
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "546e4224669350e0612427f4c415dbdc968a0f32ba5e01b61defc30601a8d3f0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

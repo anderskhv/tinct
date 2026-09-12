@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "198f4b4b542e9c581255cef5e9b817909f2e2d4d4365dcce67e992c099e65aad",
+  "attempts": [
+    {
+      "asr_seconds": 0.11806479119695723,
+      "alignment_seconds": 0.0002443899866193533,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Williams.",
+          "start": 0.08,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Williams.",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.94482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Williams.",
+          "start": 0.64,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Williams."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Williams.",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "williams",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Williams.",
+          "start": 0.64,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11839972902089357
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b7116e205e4c17f7ea04d4eda9231f8bac17209a03c8bb3b3d5dabdec9ebf3c1",
+  "selected_reasons": []
+}

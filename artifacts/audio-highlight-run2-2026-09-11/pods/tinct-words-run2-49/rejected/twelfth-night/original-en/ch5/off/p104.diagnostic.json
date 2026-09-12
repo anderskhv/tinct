@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "2f2abdd9672e303caa65b3f5a60d7a15e11aefe9f653d6417ebeeceecf78fcbb",
+  "attempts": [
+    {
+      "asr_seconds": 0.21719243377447128,
+      "alignment_seconds": 0.0004686228930950165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, give us the place alone. We will hear this divinity.",
+          "start": 0.05,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " give",
+              "start": 1.25,
+              "end": 1.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " us",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " place",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " alone.",
+              "start": 1.93,
+              "end": 2.31,
+              "probability": 0.9921875
+            },
+            {
+              "text": " We",
+              "start": 2.77,
+              "end": 2.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " will",
+              "start": 2.83,
+              "end": 2.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hear",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " divinity.",
+              "start": 3.35,
+              "end": 3.81,
+              "probability": 0.968505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "give",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "raw": "us",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "place",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "alone.",
+          "start": 1.93,
+          "end": 2.31
+        },
+        {
+          "raw": "We",
+          "start": 2.77,
+          "end": 2.83
+        },
+        {
+          "raw": "will",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "raw": "hear",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "this",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "divinity.",
+          "start": 3.35,
+          "end": 3.81
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Give",
+        "us",
+        "the",
+        "place",
+        "alone:",
+        "we",
+        "will",
+        "hear",
+        "this",
+        "divinity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.25,
+          "end": 1.45,
+          "key": "give",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "us",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "place",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "alone.",
+          "start": 1.93,
+          "end": 2.31,
+          "key": "alone",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.77,
+          "end": 2.83,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.83,
+          "end": 2.93,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "hear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.11,
+          "end": 3.35,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "divinity.",
+          "start": 3.35,
+          "end": 3.81,
+          "key": "divinity",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Give",
+          "start": 1.25,
+          "end": 1.45
+        },
+        {
+          "text": "us",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "the",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "place",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "alone:",
+          "start": 1.93,
+          "end": 2.31
+        },
+        {
+          "text": "we",
+          "start": 2.77,
+          "end": 2.83
+        },
+        {
+          "text": "will",
+          "start": 2.83,
+          "end": 2.93
+        },
+        {
+          "text": "hear",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "this",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "divinity.",
+          "start": 3.35,
+          "end": 3.81
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21786218136548996
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8d2b38609f9c720d97a155bc5cc5e1be898c82bf47c6e6d8383283b05ca65f82",
+  "selected_reasons": []
+}

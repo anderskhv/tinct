@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "a5dd6aa7c66f275d632bf6866e13c1d44a0fe966a4acd65f224f2f680fa6a73a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1361328884959221,
+      "alignment_seconds": 0.00028364360332489014,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"From what, Jane?\"",
+        "hotwords": "From, Jane"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " From what, Jane?",
+          "start": 0.05,
+          "end": 1.01,
+          "words": [
+            {
+              "text": " From",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " what,",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " Jane?",
+              "start": 1.01,
+              "end": 1.01,
+              "probability": 0.95654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "what,",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "Jane?",
+          "start": 1.01,
+          "end": 1.01
+        }
+      ],
+      "expected_tokens": [
+        "\"From",
+        "what,",
+        "Jane?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what,",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Jane?",
+          "start": 1.01,
+          "end": 1.01,
+          "key": "jane",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"From",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "what,",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "Jane?\"",
+          "start": 1.01,
+          "end": 1.01
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13652240112423897
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fc07391a34866b3d4f38a16f392d027dba5f92050dea82ba01038e4abe4e2d5c",
+  "selected_reasons": []
+}

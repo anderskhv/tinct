@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "04cc1211fef4df19b342fb2b0476c626842c4c59a6296f02f4125bd2dec7f28e",
+  "attempts": [
+    {
+      "asr_seconds": 0.29018122097477317,
+      "alignment_seconds": 0.0005058860406279564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. Now, my lord, what shall we do if we perceive Lord Hastings will not yield to our complots?",
+        "hotwords": "Buckingham, Now, Hastings"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham, Now, my lord, what shall we do if we perceive Lord Hastings will not yield to our complots?",
+          "start": 0.05,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " Now,",
+              "start": 1.47,
+              "end": 1.73,
+              "probability": 0.0291290283203125
+            },
+            {
+              "text": " my",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.8984375
+            },
+            {
+              "text": " lord,",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " what",
+              "start": 2.71,
+              "end": 2.77,
+              "probability": 0.744140625
+            },
+            {
+              "text": " shall",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " we",
+              "start": 2.95,
+              "end": 3.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 3.07,
+              "end": 3.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " if",
+              "start": 3.23,
+              "end": 3.41,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " we",
+              "start": 3.41,
+              "end": 3.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " perceive",
+              "start": 3.53,
+              "end": 3.85,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Lord",
+              "start": 3.85,
+              "end": 4.19,
+              "probability": 0.279296875
+            },
+            {
+              "text": " Hastings",
+              "start": 4.19,
+              "end": 4.65,
+              "probability": 0.958984375
+            },
+            {
+              "text": " will",
+              "start": 4.65,
+              "end": 4.97,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " not",
+              "start": 4.97,
+              "end": 5.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " yield",
+              "start": 5.21,
+              "end": 5.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 5.47,
+              "end": 5.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 5.69,
+              "end": 5.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " complots?",
+              "start": 5.81,
+              "end": 6.39,
+              "probability": 0.56103515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Now,",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "raw": "my",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "lord,",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "what",
+          "start": 2.71,
+          "end": 2.77
+        },
+        {
+          "raw": "shall",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "we",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "raw": "do",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "raw": "if",
+          "start": 3.23,
+          "end": 3.41
+        },
+        {
+          "raw": "we",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "raw": "perceive",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "raw": "Lord",
+          "start": 3.85,
+          "end": 4.19
+        },
+        {
+          "raw": "Hastings",
+          "start": 4.19,
+          "end": 4.65
+        },
+        {
+          "raw": "will",
+          "start": 4.65,
+          "end": 4.97
+        },
+        {
+          "raw": "not",
+          "start": 4.97,
+          "end": 5.21
+        },
+        {
+          "raw": "yield",
+          "start": 5.21,
+          "end": 5.47
+        },
+        {
+          "raw": "to",
+          "start": 5.47,
+          "end": 5.69
+        },
+        {
+          "raw": "our",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "raw": "complots?",
+          "start": 5.81,
+          "end": 6.39
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Now,",
+        "my",
+        "lord,",
+        "what",
+        "shall",
+        "we",
+        "do",
+        "if",
+        "we",
+        "perceive",
+        "Lord",
+        "Hastings",
+        "will",
+        "not",
+        "yield",
+        "to",
+        "our",
+        "complots?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 1.47,
+          "end": 1.73,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.71,
+          "end": 2.77,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.95,
+          "end": 3.07,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.07,
+          "end": 3.23,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.23,
+          "end": 3.41,
+          "key": "if",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.41,
+          "end": 3.53,
+          "key": "we",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "perceive",
+          "start": 3.53,
+          "end": 3.85,
+          "key": "perceive",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 3.85,
+          "end": 4.19,
+          "key": "lord",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Hastings",
+          "start": 4.19,
+          "end": 4.65,
+          "key": "hastings",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.65,
+          "end": 4.97,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.97,
+          "end": 5.21,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yield",
+          "start": 5.21,
+          "end": 5.47,
+          "key": "yield",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.47,
+          "end": 5.69,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.69,
+          "end": 5.81,
+          "key": "our",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "complots?",
+          "start": 5.81,
+          "end": 6.39,
+          "key": "complots",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Now,",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "text": "my",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "text": "lord,",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "what",
+          "start": 2.71,
+          "end": 2.77
+        },
+        {
+          "text": "shall",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "we",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "text": "do",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "text": "if",
+          "start": 3.23,
+          "end": 3.41
+        },
+        {
+          "text": "we",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "text": "perceive",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "text": "Lord",
+          "start": 3.85,
+          "end": 4.19
+        },
+        {
+          "text": "Hastings",
+          "start": 4.19,
+          "end": 4.65
+        },
+        {
+          "text": "will",
+          "start": 4.65,
+          "end": 4.97
+        },
+        {
+          "text": "not",
+          "start": 4.97,
+          "end": 5.21
+        },
+        {
+          "text": "yield",
+          "start": 5.21,
+          "end": 5.47
+        },
+        {
+          "text": "to",
+          "start": 5.47,
+          "end": 5.69
+        },
+        {
+          "text": "our",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "text": "complots?",
+          "start": 5.81,
+          "end": 6.39
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29093447094783187
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8c1416a092b12fecc0b58249076384f2d8ada68d8a33abc84bb263dfd3da9776",
+  "selected_reasons": []
+}

@@ -1,0 +1,419 @@
+{
+  "complete": true,
+  "signature": "29ba7b89ec2d2689548a2ed70a03e2591bb0c97309f029617b698b5a878f045c",
+  "attempts": [
+    {
+      "asr_seconds": 0.33067511580884457,
+      "alignment_seconds": 0.0005983076989650726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, epoxo your throat, you bawling, blasphemous, interritable dog.",
+          "start": 0.08,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " epoxo",
+              "start": 1.52,
+              "end": 1.98,
+              "probability": 0.622802734375
+            },
+            {
+              "text": " your",
+              "start": 1.98,
+              "end": 2.16,
+              "probability": 0.9765625
+            },
+            {
+              "text": " throat,",
+              "start": 2.16,
+              "end": 2.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.8,
+              "end": 2.84,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " bawling,",
+              "start": 2.84,
+              "end": 3.24,
+              "probability": 0.947265625
+            },
+            {
+              "text": " blasphemous,",
+              "start": 3.38,
+              "end": 4.06,
+              "probability": 0.9972330729166666
+            },
+            {
+              "text": " interritable",
+              "start": 4.22,
+              "end": 4.66,
+              "probability": 0.5502522786458334
+            },
+            {
+              "text": " dog.",
+              "start": 4.66,
+              "end": 4.96,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "epoxo",
+          "start": 1.52,
+          "end": 1.98
+        },
+        {
+          "raw": "your",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "raw": "throat,",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "raw": "you",
+          "start": 2.8,
+          "end": 2.84
+        },
+        {
+          "raw": "bawling,",
+          "start": 2.84,
+          "end": 3.24
+        },
+        {
+          "raw": "blasphemous,",
+          "start": 3.38,
+          "end": 4.06
+        },
+        {
+          "raw": "interritable",
+          "start": 4.22,
+          "end": 4.66
+        },
+        {
+          "raw": "dog.",
+          "start": 4.66,
+          "end": 4.96
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "A",
+        "pox",
+        "o'",
+        "your",
+        "throat,",
+        "you",
+        "bawling,",
+        "blasphemous,",
+        "incharitable",
+        "dog!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          2
+        ],
+        [
+          "equal",
+          4,
+          9,
+          2,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          7,
+          8
+        ],
+        [
+          "equal",
+          10,
+          11,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          2
+        ],
+        [
+          "replace",
+          9,
+          10,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "epoxo",
+          "start": 1.52,
+          "end": 1.98,
+          "key": "epoxo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.98,
+          "end": 2.16,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "throat,",
+          "start": 2.16,
+          "end": 2.48,
+          "key": "throat",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.8,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bawling,",
+          "start": 2.84,
+          "end": 3.24,
+          "key": "bawling",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blasphemous,",
+          "start": 3.38,
+          "end": 4.06,
+          "key": "blasphemous",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "interritable",
+          "start": 4.22,
+          "end": 4.66,
+          "key": "interritable",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dog.",
+          "start": 4.66,
+          "end": 4.96,
+          "key": "dog",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "A",
+          "start": 0.9,
+          "end": 1.44
+        },
+        {
+          "text": "pox",
+          "start": 1.44,
+          "end": 1.71
+        },
+        {
+          "text": "o'",
+          "start": 1.71,
+          "end": 1.845
+        },
+        {
+          "text": "your",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "text": "throat,",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "text": "you",
+          "start": 2.8,
+          "end": 2.84
+        },
+        {
+          "text": "bawling,",
+          "start": 2.84,
+          "end": 3.24
+        },
+        {
+          "text": "blasphemous,",
+          "start": 3.38,
+          "end": 4.06
+        },
+        {
+          "text": "incharitable",
+          "start": 4.06,
+          "end": 4.36
+        },
+        {
+          "text": "dog!",
+          "start": 4.66,
+          "end": 4.96
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.6363636363636364,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.33145543187856674
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f86676d3f079a2d5212e67e657dd37e2c6b07c5cc0c91a8614f5a4ef7b9f5fc6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

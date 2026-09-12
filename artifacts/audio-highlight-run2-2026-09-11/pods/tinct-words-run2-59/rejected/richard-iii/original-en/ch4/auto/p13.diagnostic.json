@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "cdbc55cfc80be3d2dbd639d4b9fae0f4e8f24fe483532cfe39130c9adf217a46",
+  "attempts": [
+    {
+      "asr_seconds": 0.1554532959125936,
+      "alignment_seconds": 0.0003292178735136986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Brakenbury the Lieutenant.",
+        "hotwords": "Enter, Brakenbury, Lieutenant"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Brakenbury the Lieutenant.",
+          "start": 0.14,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Brakenbury",
+              "start": 0.72,
+              "end": 1.24,
+              "probability": 0.2657470703125
+            },
+            {
+              "text": " the",
+              "start": 1.24,
+              "end": 1.5,
+              "probability": 0.4365234375
+            },
+            {
+              "text": " Lieutenant.",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.49072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "Brakenbury",
+          "start": 0.72,
+          "end": 1.24
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "raw": "Lieutenant.",
+          "start": 1.5,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Brakenbury",
+        "the",
+        "Lieutenant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Brakenbury",
+          "start": 0.72,
+          "end": 1.24,
+          "key": "brakenbury",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.5,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lieutenant.",
+          "start": 1.5,
+          "end": 1.78,
+          "key": "lieutenant",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Brakenbury",
+          "start": 0.72,
+          "end": 1.24
+        },
+        {
+          "text": "the",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "text": "Lieutenant.",
+          "start": 1.5,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1559122058097273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "09c4b4c43a279eafc07dd339812e7cdc32ed713fd7345827f5fb4c04c9ba5661",
+  "selected_reasons": []
+}

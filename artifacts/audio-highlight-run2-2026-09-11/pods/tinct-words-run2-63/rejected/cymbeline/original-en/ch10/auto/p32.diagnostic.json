@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "ea88bc37042464ece257483ed71374a59887caabfd296e67c6e2f1bf87505cff",
+  "attempts": [
+    {
+      "asr_seconds": 0.15299764089286327,
+      "alignment_seconds": 0.00031190551817417145,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cloten. A gentleman.",
+        "hotwords": "Cloten, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cloten, A Gentleman.",
+          "start": 0.08,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.4046630859375
+            },
+            {
+              "text": " A",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.121337890625
+            },
+            {
+              "text": " Gentleman.",
+              "start": 1.18,
+              "end": 1.52,
+              "probability": 0.33544921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "A",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "Gentleman.",
+          "start": 1.18,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "A",
+        "gentleman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.08,
+          "end": 1.18,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gentleman.",
+          "start": 1.18,
+          "end": 1.52,
+          "key": "gentleman",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "A",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "gentleman.",
+          "start": 1.18,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15341759286820889
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2946a13149140304aecc93af1b1129156041ae49a47d066851875ac4b0a53bbe",
+  "selected_reasons": []
+}

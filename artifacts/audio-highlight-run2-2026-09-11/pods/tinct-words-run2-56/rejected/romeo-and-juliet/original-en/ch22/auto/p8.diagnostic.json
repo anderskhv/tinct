@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "4ec118e691bf72dd7c87a064c8462d146f60f53eebe0997367e1f51a89742852",
+  "attempts": [
+    {
+      "asr_seconds": 0.12304637301713228,
+      "alignment_seconds": 0.00026372727006673813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Capulet.]",
+        "hotwords": "Enter, Capulet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Capulet.",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Capulet.",
+              "start": 0.68,
+              "end": 1.28,
+              "probability": 0.94091796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Capulet.",
+          "start": 0.68,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Capulet.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Capulet.",
+          "start": 0.68,
+          "end": 1.28,
+          "key": "capulet",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Capulet.]",
+          "start": 0.68,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12339201290160418
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1f87eee18e16bd3dcc79b116c5591bf12aedd3b31f4102e827115adc9c966137",
+  "selected_reasons": []
+}

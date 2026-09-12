@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "36bdbbf93728f0dc131533d887e2a69d815859ec27a53d6bb1605858fc247f82",
+  "attempts": [
+    {
+      "asr_seconds": 0.1849873050232418,
+      "alignment_seconds": 0.0002736110473051667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He is sitting with a sweet thing, Miles Crawford said in a child's frock.",
+          "start": 0.05,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " sitting",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 0.83,
+              "end": 1.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.01,
+              "end": 1.13,
+              "probability": 0.98046875
+            },
+            {
+              "text": " sweet",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thing,",
+              "start": 1.29,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Miles",
+              "start": 1.91,
+              "end": 2.03,
+              "probability": 0.724609375
+            },
+            {
+              "text": " Crawford",
+              "start": 2.03,
+              "end": 2.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " a",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " child's",
+              "start": 2.97,
+              "end": 3.39,
+              "probability": 0.954833984375
+            },
+            {
+              "text": " frock.",
+              "start": 3.39,
+              "end": 3.83,
+              "probability": 0.989501953125
+            }
+          ]
+        },
+        {
+          "text": " Go on, well.",
+          "start": 4.27,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " Go",
+              "start": 4.27,
+              "end": 4.41,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " on,",
+              "start": 4.41,
+              "end": 4.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " well.",
+              "start": 5.07,
+              "end": 5.35,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "sitting",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "with",
+          "start": 0.83,
+          "end": 1.01
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.13
+        },
+        {
+          "raw": "sweet",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "thing,",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "raw": "Miles",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "raw": "Crawford",
+          "start": 2.03,
+          "end": 2.41
+        },
+        {
+          "raw": "said",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "in",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "a",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "child's",
+          "start": 2.97,
+          "end": 3.39
+        },
+        {
+          "raw": "frock.",
+          "start": 3.39,
+          "end": 3.83
+        },
+        {
+          "raw": "Go",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "raw": "on,",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "raw": "well.",
+          "start": 5.07,
+          "end": 5.35
+        }
+      ],
+      "expected_tokens": [
+        "—He",
+        "is",
+        "sitting",
+        "with",
+        "a",
+        "sweet",
+        "thing,",
+        "Myles",
+        "Crawford",
+        "said,",
+        "in",
+        "a",
+        "child's",
+        "frock.",
+        "Go",
+        "on.",
+        "Well?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          17,
+          8,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sitting",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "sitting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.83,
+          "end": 1.01,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.01,
+          "end": 1.13,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "sweet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thing,",
+          "start": 1.29,
+          "end": 1.61,
+          "key": "thing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Miles",
+          "start": 1.91,
+          "end": 2.03,
+          "key": "miles",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Crawford",
+          "start": 2.03,
+          "end": 2.41,
+          "key": "crawford",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "child's",
+          "start": 2.97,
+          "end": 3.39,
+          "key": "childs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "frock.",
+          "start": 3.39,
+          "end": 3.83,
+          "key": "frock",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 4.27,
+          "end": 4.41,
+          "key": "go",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 4.41,
+          "end": 4.73,
+          "key": "on",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 5.07,
+          "end": 5.35,
+          "key": "well",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "sitting",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "with",
+          "start": 0.83,
+          "end": 1.01
+        },
+        {
+          "text": "a",
+          "start": 1.01,
+          "end": 1.13
+        },
+        {
+          "text": "sweet",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "thing,",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "text": "Myles",
+          "start": 1.61,
+          "end": 1.82
+        },
+        {
+          "text": "Crawford",
+          "start": 2.03,
+          "end": 2.41
+        },
+        {
+          "text": "said,",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "text": "in",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "a",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "child's",
+          "start": 2.97,
+          "end": 3.39
+        },
+        {
+          "text": "frock.",
+          "start": 3.39,
+          "end": 3.83
+        },
+        {
+          "text": "Go",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "text": "on.",
+          "start": 4.41,
+          "end": 4.73
+        },
+        {
+          "text": "Well?",
+          "start": 5.07,
+          "end": 5.35
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.185362107004039
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d18c8a132665214a92e2e312188772084c2e6b10de709a07fc183e5c0ccffe20",
+  "selected_reasons": []
+}

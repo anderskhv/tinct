@@ -1,0 +1,1324 @@
+{
+  "complete": true,
+  "signature": "f27d5c93f2168946c09d26582b8fdf936ca59aefdbf87a21a6e6b8d2ed13301c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4569612182676792,
+      "alignment_seconds": 0.000863201916217804,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I wish I was as thin as you, Sara,\" Ermengarde said suddenly. \"I believe you are thinner than you used to be. Your eyes look so big, and look at the sharp little bones sticking out of your elbow!\"",
+        "hotwords": "I, Sara, Ermengarde"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I wish I was as thin as you, Sara,\" Ermengarde said suddenly.",
+          "start": 0.02,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.0693359375
+            },
+            {
+              "text": " wish",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " I",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 0.9,
+              "end": 1.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " as",
+              "start": 1.02,
+              "end": 1.22,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thin",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " as",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you,",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Sara,\"",
+              "start": 2.12,
+              "end": 2.84,
+              "probability": 0.47705078125
+            },
+            {
+              "text": " Ermengarde",
+              "start": 2.84,
+              "end": 3.32,
+              "probability": 0.518798828125
+            },
+            {
+              "text": " said",
+              "start": 3.32,
+              "end": 3.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " suddenly.",
+              "start": 3.58,
+              "end": 4.02,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " I believe you are thinner than you used to be. Your eyes look so big, and look at the",
+          "start": 4.82,
+          "end": 9.44,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.82,
+              "end": 4.96,
+              "probability": 0.040069580078125
+            },
+            {
+              "text": " believe",
+              "start": 4.96,
+              "end": 5.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 5.24,
+              "end": 5.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 5.48,
+              "end": 5.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thinner",
+              "start": 5.6,
+              "end": 5.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 5.86,
+              "end": 6.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 6.12,
+              "end": 6.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " used",
+              "start": 6.34,
+              "end": 6.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 6.56,
+              "end": 6.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be.",
+              "start": 6.74,
+              "end": 6.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Your",
+              "start": 7.44,
+              "end": 7.54,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " eyes",
+              "start": 7.54,
+              "end": 7.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " look",
+              "start": 7.88,
+              "end": 8.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so",
+              "start": 8.12,
+              "end": 8.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " big,",
+              "start": 8.34,
+              "end": 8.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 8.96,
+              "end": 9.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " look",
+              "start": 9.04,
+              "end": 9.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 9.18,
+              "end": 9.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.3,
+              "end": 9.44,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " sharp little bones sticking out of your elbow.",
+          "start": 9.44,
+          "end": 11.38,
+          "words": [
+            {
+              "text": " sharp",
+              "start": 9.44,
+              "end": 9.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " little",
+              "start": 9.68,
+              "end": 9.92,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " bones",
+              "start": 9.92,
+              "end": 10.34,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sticking",
+              "start": 10.34,
+              "end": 10.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " out",
+              "start": 10.68,
+              "end": 10.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 10.94,
+              "end": 11.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " your",
+              "start": 11.02,
+              "end": 11.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " elbow.",
+              "start": 11.12,
+              "end": 11.38,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "wish",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "was",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "raw": "as",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "raw": "thin",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "as",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "you,",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "Sara,\"",
+          "start": 2.12,
+          "end": 2.84
+        },
+        {
+          "raw": "Ermengarde",
+          "start": 2.84,
+          "end": 3.32
+        },
+        {
+          "raw": "said",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "raw": "suddenly.",
+          "start": 3.58,
+          "end": 4.02
+        },
+        {
+          "raw": "I",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "raw": "believe",
+          "start": 4.96,
+          "end": 5.24
+        },
+        {
+          "raw": "you",
+          "start": 5.24,
+          "end": 5.48
+        },
+        {
+          "raw": "are",
+          "start": 5.48,
+          "end": 5.6
+        },
+        {
+          "raw": "thinner",
+          "start": 5.6,
+          "end": 5.86
+        },
+        {
+          "raw": "than",
+          "start": 5.86,
+          "end": 6.12
+        },
+        {
+          "raw": "you",
+          "start": 6.12,
+          "end": 6.34
+        },
+        {
+          "raw": "used",
+          "start": 6.34,
+          "end": 6.56
+        },
+        {
+          "raw": "to",
+          "start": 6.56,
+          "end": 6.74
+        },
+        {
+          "raw": "be.",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "raw": "Your",
+          "start": 7.44,
+          "end": 7.54
+        },
+        {
+          "raw": "eyes",
+          "start": 7.54,
+          "end": 7.88
+        },
+        {
+          "raw": "look",
+          "start": 7.88,
+          "end": 8.12
+        },
+        {
+          "raw": "so",
+          "start": 8.12,
+          "end": 8.34
+        },
+        {
+          "raw": "big,",
+          "start": 8.34,
+          "end": 8.64
+        },
+        {
+          "raw": "and",
+          "start": 8.96,
+          "end": 9.04
+        },
+        {
+          "raw": "look",
+          "start": 9.04,
+          "end": 9.18
+        },
+        {
+          "raw": "at",
+          "start": 9.18,
+          "end": 9.3
+        },
+        {
+          "raw": "the",
+          "start": 9.3,
+          "end": 9.44
+        },
+        {
+          "raw": "sharp",
+          "start": 9.44,
+          "end": 9.68
+        },
+        {
+          "raw": "little",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "raw": "bones",
+          "start": 9.92,
+          "end": 10.34
+        },
+        {
+          "raw": "sticking",
+          "start": 10.34,
+          "end": 10.68
+        },
+        {
+          "raw": "out",
+          "start": 10.68,
+          "end": 10.94
+        },
+        {
+          "raw": "of",
+          "start": 10.94,
+          "end": 11.02
+        },
+        {
+          "raw": "your",
+          "start": 11.02,
+          "end": 11.12
+        },
+        {
+          "raw": "elbow.",
+          "start": 11.12,
+          "end": 11.38
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "wish",
+        "I",
+        "was",
+        "as",
+        "thin",
+        "as",
+        "you,",
+        "Sara,\"",
+        "Ermengarde",
+        "said",
+        "suddenly.",
+        "\"I",
+        "believe",
+        "you",
+        "are",
+        "thinner",
+        "than",
+        "you",
+        "used",
+        "to",
+        "be.",
+        "Your",
+        "eyes",
+        "look",
+        "so",
+        "big,",
+        "and",
+        "look",
+        "at",
+        "the",
+        "sharp",
+        "little",
+        "bones",
+        "sticking",
+        "out",
+        "of",
+        "your",
+        "elbow!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          39,
+          0,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "wish",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.72,
+          "end": 0.9,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.9,
+          "end": 1.02,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.02,
+          "end": 1.22,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thin",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "thin",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Sara,\"",
+          "start": 2.12,
+          "end": 2.84,
+          "key": "sara",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ermengarde",
+          "start": 2.84,
+          "end": 3.32,
+          "key": "ermengarde",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.32,
+          "end": 3.58,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suddenly.",
+          "start": 3.58,
+          "end": 4.02,
+          "key": "suddenly",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.82,
+          "end": 4.96,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 4.96,
+          "end": 5.24,
+          "key": "believe",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.24,
+          "end": 5.48,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.48,
+          "end": 5.6,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thinner",
+          "start": 5.6,
+          "end": 5.86,
+          "key": "thinner",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.86,
+          "end": 6.12,
+          "key": "than",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.12,
+          "end": 6.34,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "used",
+          "start": 6.34,
+          "end": 6.56,
+          "key": "used",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.56,
+          "end": 6.74,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "be.",
+          "start": 6.74,
+          "end": 6.96,
+          "key": "be",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 7.44,
+          "end": 7.54,
+          "key": "your",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 7.54,
+          "end": 7.88,
+          "key": "eyes",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 7.88,
+          "end": 8.12,
+          "key": "look",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 8.12,
+          "end": 8.34,
+          "key": "so",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "big,",
+          "start": 8.34,
+          "end": 8.64,
+          "key": "big",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.96,
+          "end": 9.04,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 9.04,
+          "end": 9.18,
+          "key": "look",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 9.18,
+          "end": 9.3,
+          "key": "at",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.3,
+          "end": 9.44,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sharp",
+          "start": 9.44,
+          "end": 9.68,
+          "key": "sharp",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 9.68,
+          "end": 9.92,
+          "key": "little",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "bones",
+          "start": 9.92,
+          "end": 10.34,
+          "key": "bones",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "sticking",
+          "start": 10.34,
+          "end": 10.68,
+          "key": "sticking",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 10.68,
+          "end": 10.94,
+          "key": "out",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.94,
+          "end": 11.02,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 11.02,
+          "end": 11.12,
+          "key": "your",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "elbow.",
+          "start": 11.12,
+          "end": 11.38,
+          "key": "elbow",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "wish",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "I",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "was",
+          "start": 0.9,
+          "end": 1.02
+        },
+        {
+          "text": "as",
+          "start": 1.02,
+          "end": 1.22
+        },
+        {
+          "text": "thin",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "as",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "you,",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "Sara,\"",
+          "start": 2.12,
+          "end": 2.84
+        },
+        {
+          "text": "Ermengarde",
+          "start": 2.84,
+          "end": 3.32
+        },
+        {
+          "text": "said",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "text": "suddenly.",
+          "start": 3.58,
+          "end": 4.02
+        },
+        {
+          "text": "\"I",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "text": "believe",
+          "start": 4.96,
+          "end": 5.24
+        },
+        {
+          "text": "you",
+          "start": 5.24,
+          "end": 5.48
+        },
+        {
+          "text": "are",
+          "start": 5.48,
+          "end": 5.6
+        },
+        {
+          "text": "thinner",
+          "start": 5.6,
+          "end": 5.86
+        },
+        {
+          "text": "than",
+          "start": 5.86,
+          "end": 6.12
+        },
+        {
+          "text": "you",
+          "start": 6.12,
+          "end": 6.34
+        },
+        {
+          "text": "used",
+          "start": 6.34,
+          "end": 6.56
+        },
+        {
+          "text": "to",
+          "start": 6.56,
+          "end": 6.74
+        },
+        {
+          "text": "be.",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "text": "Your",
+          "start": 7.44,
+          "end": 7.54
+        },
+        {
+          "text": "eyes",
+          "start": 7.54,
+          "end": 7.88
+        },
+        {
+          "text": "look",
+          "start": 7.88,
+          "end": 8.12
+        },
+        {
+          "text": "so",
+          "start": 8.12,
+          "end": 8.34
+        },
+        {
+          "text": "big,",
+          "start": 8.34,
+          "end": 8.64
+        },
+        {
+          "text": "and",
+          "start": 8.96,
+          "end": 9.04
+        },
+        {
+          "text": "look",
+          "start": 9.04,
+          "end": 9.18
+        },
+        {
+          "text": "at",
+          "start": 9.18,
+          "end": 9.3
+        },
+        {
+          "text": "the",
+          "start": 9.3,
+          "end": 9.44
+        },
+        {
+          "text": "sharp",
+          "start": 9.44,
+          "end": 9.68
+        },
+        {
+          "text": "little",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "text": "bones",
+          "start": 9.92,
+          "end": 10.34
+        },
+        {
+          "text": "sticking",
+          "start": 10.34,
+          "end": 10.68
+        },
+        {
+          "text": "out",
+          "start": 10.68,
+          "end": 10.94
+        },
+        {
+          "text": "of",
+          "start": 10.94,
+          "end": 11.02
+        },
+        {
+          "text": "your",
+          "start": 11.02,
+          "end": 11.12
+        },
+        {
+          "text": "elbow!\"",
+          "start": 11.12,
+          "end": 11.38
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 39
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.45821981504559517
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "46c2db5f9d8525289c93b96f54d0d643e21f6f94f1095226364b9d816df9495c",
+  "selected_reasons": []
+}

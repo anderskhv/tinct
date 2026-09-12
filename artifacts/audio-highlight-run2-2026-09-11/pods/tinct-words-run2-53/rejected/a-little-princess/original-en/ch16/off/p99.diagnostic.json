@@ -1,0 +1,513 @@
+{
+  "complete": true,
+  "signature": "25c603d2016d07b8538c3564efd0ca4adfab2987af6fa775a8d9fcb4a1060b68",
+  "attempts": [
+    {
+      "asr_seconds": 0.29280068492516875,
+      "alignment_seconds": 0.0008101249113678932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, said Sarah slowly. It sounds rather like a cat trying to get in.",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.0712890625
+            },
+            {
+              "text": " said",
+              "start": 1.13,
+              "end": 1.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Sarah",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " slowly.",
+              "start": 1.69,
+              "end": 2.19,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " It",
+              "start": 2.83,
+              "end": 2.95,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " sounds",
+              "start": 2.95,
+              "end": 3.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rather",
+              "start": 3.27,
+              "end": 3.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " like",
+              "start": 3.57,
+              "end": 3.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 3.85,
+              "end": 3.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cat",
+              "start": 3.95,
+              "end": 4.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " trying",
+              "start": 4.13,
+              "end": 4.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 4.49,
+              "end": 4.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " get",
+              "start": 4.67,
+              "end": 4.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in.",
+              "start": 4.81,
+              "end": 5.05,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "said",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "raw": "Sarah",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "slowly.",
+          "start": 1.69,
+          "end": 2.19
+        },
+        {
+          "raw": "It",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "raw": "sounds",
+          "start": 2.95,
+          "end": 3.27
+        },
+        {
+          "raw": "rather",
+          "start": 3.27,
+          "end": 3.57
+        },
+        {
+          "raw": "like",
+          "start": 3.57,
+          "end": 3.85
+        },
+        {
+          "raw": "a",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "raw": "cat",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "raw": "trying",
+          "start": 4.13,
+          "end": 4.49
+        },
+        {
+          "raw": "to",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "raw": "get",
+          "start": 4.67,
+          "end": 4.81
+        },
+        {
+          "raw": "in.",
+          "start": 4.81,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,\"",
+        "said",
+        "Sara,",
+        "slowly.",
+        "\"It",
+        "sounds--rather",
+        "like",
+        "a",
+        "cat--trying",
+        "to",
+        "get",
+        "in.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          12,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.13,
+          "end": 1.39,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "sarah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slowly.",
+          "start": 1.69,
+          "end": 2.19,
+          "key": "slowly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.83,
+          "end": 2.95,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sounds rather",
+          "start": 2.95,
+          "end": 3.57,
+          "key": "soundsrather",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.57,
+          "end": 3.85,
+          "key": "like",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.85,
+          "end": 3.95,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "cat trying",
+          "start": 3.95,
+          "end": 4.49,
+          "key": "cattrying",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.49,
+          "end": 4.67,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 4.67,
+          "end": 4.81,
+          "key": "get",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 4.81,
+          "end": 5.05,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "sounds--rather",
+          "heard": "sounds rather",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 2.95,
+          "end": 3.57
+        },
+        {
+          "expected_index": 8,
+          "text": "cat--trying",
+          "heard": "cat trying",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 3.95,
+          "end": 4.49
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Yes,\"",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "said",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "text": "Sara,",
+          "start": 1.39,
+          "end": 1.54
+        },
+        {
+          "text": "slowly.",
+          "start": 1.69,
+          "end": 2.19
+        },
+        {
+          "text": "\"It",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "text": "sounds--rather",
+          "start": 2.95,
+          "end": 3.57
+        },
+        {
+          "text": "like",
+          "start": 3.57,
+          "end": 3.85
+        },
+        {
+          "text": "a",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "text": "cat--trying",
+          "start": 3.95,
+          "end": 4.49
+        },
+        {
+          "text": "to",
+          "start": 4.49,
+          "end": 4.67
+        },
+        {
+          "text": "get",
+          "start": 4.67,
+          "end": 4.81
+        },
+        {
+          "text": "in.\"",
+          "start": 4.81,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.29385068896226585
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a8f290e022dc77983290163165480dc104e5faa65aa9ea43c4015c73525a7cdd",
+  "selected_reasons": []
+}

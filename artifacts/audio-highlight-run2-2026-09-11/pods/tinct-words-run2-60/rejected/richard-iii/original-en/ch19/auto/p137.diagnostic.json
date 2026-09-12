@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "c90a805a8cb1085aa83cf42e7e91d3d1c6137d74907583b3cc4923b704ba8655",
+  "attempts": [
+    {
+      "asr_seconds": 0.1483486220240593,
+      "alignment_seconds": 0.00039787590503692627,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. Now, by the world—",
+        "hotwords": "King, Richard, Now"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, Now by the world—",
+          "start": 0.0,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " Richard,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Now",
+              "start": 1.44,
+              "end": 1.56,
+              "probability": 0.09893798828125
+            },
+            {
+              "text": " by",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " world—",
+              "start": 1.86,
+              "end": 2.26,
+              "probability": 0.053404152393341064
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "Now",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "raw": "by",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "world—",
+          "start": 1.86,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Now,",
+        "by",
+        "the",
+        "world—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 1.44,
+          "end": 1.56,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "world—",
+          "start": 1.86,
+          "end": 2.26,
+          "key": "world",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "Richard.",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "Now,",
+          "start": 1.44,
+          "end": 1.56
+        },
+        {
+          "text": "by",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "world—",
+          "start": 1.86,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14888394996523857
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "189dbc9b8a23d579796af38b500684f34d425baf230e3738e86119d569d8d856",
+  "selected_reasons": []
+}

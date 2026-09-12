@@ -1,0 +1,1420 @@
+{
+  "complete": true,
+  "signature": "e493853fd6fa641b38d35129d7aa022c4abd8fe387ded1357549f7015419a65e",
+  "attempts": [
+    {
+      "asr_seconds": 0.5232571759843268,
+      "alignment_seconds": 0.00040866201743483543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Before Nelson's pillar trams slowed, shunted, changed trolley, started for Blackrock, Kingstown and Dalkey, Clonskea, Rathgar and Terenure, Palmerston Park and upper Rathmines, Sandymount Green, Rathmines, Ringsend and Sandymount Tower, Harold's Cross. The hoarse Dublin United Tramway Company's timekeeper bawled them off:",
+        "hotwords": "Before, Nelson's, Blackrock, Kingstown, Dalkey, Clonskea, Rathgar, Terenure, Palmerston, Park, Rathmines, Sandymount, Green, Ringsend, Tower, Harold's, Cross, The, Dublin, United, Tramway, Company's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Before Nelson's pillar trams slowed, shunted, changed trolley, started for Blackrock, Kingstown and Dalkey,",
+          "start": 0.02,
+          "end": 6.9,
+          "words": [
+            {
+              "text": " Before",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.744140625
+            },
+            {
+              "text": " Nelson's",
+              "start": 0.66,
+              "end": 1.26,
+              "probability": 0.986328125
+            },
+            {
+              "text": " pillar",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.625
+            },
+            {
+              "text": " trams",
+              "start": 1.48,
+              "end": 2.02,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " slowed,",
+              "start": 2.02,
+              "end": 2.5,
+              "probability": 0.2357177734375
+            },
+            {
+              "text": " shunted,",
+              "start": 2.82,
+              "end": 3.16,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " changed",
+              "start": 3.38,
+              "end": 3.64,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " trolley,",
+              "start": 3.64,
+              "end": 4.1,
+              "probability": 0.974609375
+            },
+            {
+              "text": " started",
+              "start": 4.54,
+              "end": 4.82,
+              "probability": 0.986328125
+            },
+            {
+              "text": " for",
+              "start": 4.82,
+              "end": 5.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Blackrock,",
+              "start": 5.06,
+              "end": 5.58,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " Kingstown",
+              "start": 5.96,
+              "end": 6.26,
+              "probability": 0.886474609375
+            },
+            {
+              "text": " and",
+              "start": 6.26,
+              "end": 6.46,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " Dalkey,",
+              "start": 6.46,
+              "end": 6.9,
+              "probability": 0.49658203125
+            }
+          ]
+        },
+        {
+          "text": " Clonskea, Rathgar and Terenure, Palmerston Park and upper Rathmines, Sandymount Green, Rathmines, Ringsend and Sandymount Tower, Harold's, Cross.",
+          "start": 7.4,
+          "end": 16.62,
+          "words": [
+            {
+              "text": " Clonskea,",
+              "start": 7.4,
+              "end": 7.92,
+              "probability": 0.4249744415283203
+            },
+            {
+              "text": " Rathgar",
+              "start": 8.32,
+              "end": 8.54,
+              "probability": 0.726318359375
+            },
+            {
+              "text": " and",
+              "start": 8.54,
+              "end": 8.78,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " Terenure,",
+              "start": 8.78,
+              "end": 9.24,
+              "probability": 0.39111328125
+            },
+            {
+              "text": " Palmerston",
+              "start": 9.68,
+              "end": 10.06,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Park",
+              "start": 10.06,
+              "end": 10.3,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 10.3,
+              "end": 10.56,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " upper",
+              "start": 10.56,
+              "end": 10.84,
+              "probability": 0.16015625
+            },
+            {
+              "text": " Rathmines,",
+              "start": 10.84,
+              "end": 11.52,
+              "probability": 0.9269205729166666
+            },
+            {
+              "text": " Sandymount",
+              "start": 12.14,
+              "end": 12.48,
+              "probability": 0.5817159016927084
+            },
+            {
+              "text": " Green,",
+              "start": 12.48,
+              "end": 12.82,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Rathmines,",
+              "start": 13.36,
+              "end": 13.82,
+              "probability": 0.9943033854166666
+            },
+            {
+              "text": " Ringsend",
+              "start": 14.12,
+              "end": 14.5,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " and",
+              "start": 14.5,
+              "end": 14.78,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " Sandymount",
+              "start": 14.78,
+              "end": 15.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Tower,",
+              "start": 15.36,
+              "end": 15.7,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Harold's,",
+              "start": 16.2,
+              "end": 16.38,
+              "probability": 0.681396484375
+            },
+            {
+              "text": " Cross.",
+              "start": 16.38,
+              "end": 16.62,
+              "probability": 0.79248046875
+            }
+          ]
+        },
+        {
+          "text": " The hoarse Dublin United Tramway Company's timekeeper bawled them off.",
+          "start": 17.5,
+          "end": 21.0,
+          "words": [
+            {
+              "text": " The",
+              "start": 17.5,
+              "end": 17.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " hoarse",
+              "start": 17.6,
+              "end": 17.92,
+              "probability": 0.5055084228515625
+            },
+            {
+              "text": " Dublin",
+              "start": 17.92,
+              "end": 18.24,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " United",
+              "start": 18.24,
+              "end": 18.68,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " Tramway",
+              "start": 18.68,
+              "end": 19.12,
+              "probability": 0.9246419270833334
+            },
+            {
+              "text": " Company's",
+              "start": 19.12,
+              "end": 19.7,
+              "probability": 0.826416015625
+            },
+            {
+              "text": " timekeeper",
+              "start": 19.7,
+              "end": 20.2,
+              "probability": 0.635009765625
+            },
+            {
+              "text": " bawled",
+              "start": 20.2,
+              "end": 20.58,
+              "probability": 0.6822102864583334
+            },
+            {
+              "text": " them",
+              "start": 20.58,
+              "end": 20.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " off.",
+              "start": 20.68,
+              "end": 21.0,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Before",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Nelson's",
+          "start": 0.66,
+          "end": 1.26
+        },
+        {
+          "raw": "pillar",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "trams",
+          "start": 1.48,
+          "end": 2.02
+        },
+        {
+          "raw": "slowed,",
+          "start": 2.02,
+          "end": 2.5
+        },
+        {
+          "raw": "shunted,",
+          "start": 2.82,
+          "end": 3.16
+        },
+        {
+          "raw": "changed",
+          "start": 3.38,
+          "end": 3.64
+        },
+        {
+          "raw": "trolley,",
+          "start": 3.64,
+          "end": 4.1
+        },
+        {
+          "raw": "started",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "raw": "for",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "raw": "Blackrock,",
+          "start": 5.06,
+          "end": 5.58
+        },
+        {
+          "raw": "Kingstown",
+          "start": 5.96,
+          "end": 6.26
+        },
+        {
+          "raw": "and",
+          "start": 6.26,
+          "end": 6.46
+        },
+        {
+          "raw": "Dalkey,",
+          "start": 6.46,
+          "end": 6.9
+        },
+        {
+          "raw": "Clonskea,",
+          "start": 7.4,
+          "end": 7.92
+        },
+        {
+          "raw": "Rathgar",
+          "start": 8.32,
+          "end": 8.54
+        },
+        {
+          "raw": "and",
+          "start": 8.54,
+          "end": 8.78
+        },
+        {
+          "raw": "Terenure,",
+          "start": 8.78,
+          "end": 9.24
+        },
+        {
+          "raw": "Palmerston",
+          "start": 9.68,
+          "end": 10.06
+        },
+        {
+          "raw": "Park",
+          "start": 10.06,
+          "end": 10.3
+        },
+        {
+          "raw": "and",
+          "start": 10.3,
+          "end": 10.56
+        },
+        {
+          "raw": "upper",
+          "start": 10.56,
+          "end": 10.84
+        },
+        {
+          "raw": "Rathmines,",
+          "start": 10.84,
+          "end": 11.52
+        },
+        {
+          "raw": "Sandymount",
+          "start": 12.14,
+          "end": 12.48
+        },
+        {
+          "raw": "Green,",
+          "start": 12.48,
+          "end": 12.82
+        },
+        {
+          "raw": "Rathmines,",
+          "start": 13.36,
+          "end": 13.82
+        },
+        {
+          "raw": "Ringsend",
+          "start": 14.12,
+          "end": 14.5
+        },
+        {
+          "raw": "and",
+          "start": 14.5,
+          "end": 14.78
+        },
+        {
+          "raw": "Sandymount",
+          "start": 14.78,
+          "end": 15.36
+        },
+        {
+          "raw": "Tower,",
+          "start": 15.36,
+          "end": 15.7
+        },
+        {
+          "raw": "Harold's,",
+          "start": 16.2,
+          "end": 16.38
+        },
+        {
+          "raw": "Cross.",
+          "start": 16.38,
+          "end": 16.62
+        },
+        {
+          "raw": "The",
+          "start": 17.5,
+          "end": 17.6
+        },
+        {
+          "raw": "hoarse",
+          "start": 17.6,
+          "end": 17.92
+        },
+        {
+          "raw": "Dublin",
+          "start": 17.92,
+          "end": 18.24
+        },
+        {
+          "raw": "United",
+          "start": 18.24,
+          "end": 18.68
+        },
+        {
+          "raw": "Tramway",
+          "start": 18.68,
+          "end": 19.12
+        },
+        {
+          "raw": "Company's",
+          "start": 19.12,
+          "end": 19.7
+        },
+        {
+          "raw": "timekeeper",
+          "start": 19.7,
+          "end": 20.2
+        },
+        {
+          "raw": "bawled",
+          "start": 20.2,
+          "end": 20.58
+        },
+        {
+          "raw": "them",
+          "start": 20.58,
+          "end": 20.68
+        },
+        {
+          "raw": "off.",
+          "start": 20.68,
+          "end": 21.0
+        }
+      ],
+      "expected_tokens": [
+        "Before",
+        "Nelson's",
+        "pillar",
+        "trams",
+        "slowed,",
+        "shunted,",
+        "changed",
+        "trolley,",
+        "started",
+        "for",
+        "Blackrock,",
+        "Kingstown",
+        "and",
+        "Dalkey,",
+        "Clonskea,",
+        "Rathgar",
+        "and",
+        "Terenure,",
+        "Palmerston",
+        "Park",
+        "and",
+        "upper",
+        "Rathmines,",
+        "Sandymount",
+        "Green,",
+        "Rathmines,",
+        "Ringsend",
+        "and",
+        "Sandymount",
+        "Tower,",
+        "Harold's",
+        "Cross.",
+        "The",
+        "hoarse",
+        "Dublin",
+        "United",
+        "Tramway",
+        "Company's",
+        "timekeeper",
+        "bawled",
+        "them",
+        "off:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          42,
+          0,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Before",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "before",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nelson's",
+          "start": 0.66,
+          "end": 1.26,
+          "key": "nelsons",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pillar",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "pillar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "trams",
+          "start": 1.48,
+          "end": 2.02,
+          "key": "trams",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "slowed,",
+          "start": 2.02,
+          "end": 2.5,
+          "key": "slowed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shunted,",
+          "start": 2.82,
+          "end": 3.16,
+          "key": "shunted",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "changed",
+          "start": 3.38,
+          "end": 3.64,
+          "key": "changed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "trolley,",
+          "start": 3.64,
+          "end": 4.1,
+          "key": "trolley",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "started",
+          "start": 4.54,
+          "end": 4.82,
+          "key": "started",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.82,
+          "end": 5.06,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Blackrock,",
+          "start": 5.06,
+          "end": 5.58,
+          "key": "blackrock",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Kingstown",
+          "start": 5.96,
+          "end": 6.26,
+          "key": "kingstown",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.26,
+          "end": 6.46,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Dalkey,",
+          "start": 6.46,
+          "end": 6.9,
+          "key": "dalkey",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Clonskea,",
+          "start": 7.4,
+          "end": 7.92,
+          "key": "clonskea",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Rathgar",
+          "start": 8.32,
+          "end": 8.54,
+          "key": "rathgar",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.54,
+          "end": 8.78,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Terenure,",
+          "start": 8.78,
+          "end": 9.24,
+          "key": "terenure",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Palmerston",
+          "start": 9.68,
+          "end": 10.06,
+          "key": "palmerston",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Park",
+          "start": 10.06,
+          "end": 10.3,
+          "key": "park",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.3,
+          "end": 10.56,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "upper",
+          "start": 10.56,
+          "end": 10.84,
+          "key": "upper",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Rathmines,",
+          "start": 10.84,
+          "end": 11.52,
+          "key": "rathmines",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Sandymount",
+          "start": 12.14,
+          "end": 12.48,
+          "key": "sandymount",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Green,",
+          "start": 12.48,
+          "end": 12.82,
+          "key": "green",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Rathmines,",
+          "start": 13.36,
+          "end": 13.82,
+          "key": "rathmines",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Ringsend",
+          "start": 14.12,
+          "end": 14.5,
+          "key": "ringsend",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 14.5,
+          "end": 14.78,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Sandymount",
+          "start": 14.78,
+          "end": 15.36,
+          "key": "sandymount",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Tower,",
+          "start": 15.36,
+          "end": 15.7,
+          "key": "tower",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Harold's,",
+          "start": 16.2,
+          "end": 16.38,
+          "key": "harolds",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Cross.",
+          "start": 16.38,
+          "end": 16.62,
+          "key": "cross",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 17.5,
+          "end": 17.6,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "hoarse",
+          "start": 17.6,
+          "end": 17.92,
+          "key": "hoarse",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Dublin",
+          "start": 17.92,
+          "end": 18.24,
+          "key": "dublin",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 18.24,
+          "end": 18.68,
+          "key": "united",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Tramway",
+          "start": 18.68,
+          "end": 19.12,
+          "key": "tramway",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Company's",
+          "start": 19.12,
+          "end": 19.7,
+          "key": "companys",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "timekeeper",
+          "start": 19.7,
+          "end": 20.2,
+          "key": "timekeeper",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "bawled",
+          "start": 20.2,
+          "end": 20.58,
+          "key": "bawled",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 20.58,
+          "end": 20.68,
+          "key": "them",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 20.68,
+          "end": 21.0,
+          "key": "off",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Before",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Nelson's",
+          "start": 0.66,
+          "end": 1.26
+        },
+        {
+          "text": "pillar",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "trams",
+          "start": 1.48,
+          "end": 2.02
+        },
+        {
+          "text": "slowed,",
+          "start": 2.02,
+          "end": 2.5
+        },
+        {
+          "text": "shunted,",
+          "start": 2.82,
+          "end": 3.16
+        },
+        {
+          "text": "changed",
+          "start": 3.38,
+          "end": 3.64
+        },
+        {
+          "text": "trolley,",
+          "start": 3.64,
+          "end": 4.1
+        },
+        {
+          "text": "started",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "text": "for",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "text": "Blackrock,",
+          "start": 5.06,
+          "end": 5.58
+        },
+        {
+          "text": "Kingstown",
+          "start": 5.96,
+          "end": 6.26
+        },
+        {
+          "text": "and",
+          "start": 6.26,
+          "end": 6.46
+        },
+        {
+          "text": "Dalkey,",
+          "start": 6.46,
+          "end": 6.9
+        },
+        {
+          "text": "Clonskea,",
+          "start": 7.4,
+          "end": 7.92
+        },
+        {
+          "text": "Rathgar",
+          "start": 8.32,
+          "end": 8.54
+        },
+        {
+          "text": "and",
+          "start": 8.54,
+          "end": 8.78
+        },
+        {
+          "text": "Terenure,",
+          "start": 8.78,
+          "end": 9.24
+        },
+        {
+          "text": "Palmerston",
+          "start": 9.68,
+          "end": 10.06
+        },
+        {
+          "text": "Park",
+          "start": 10.06,
+          "end": 10.3
+        },
+        {
+          "text": "and",
+          "start": 10.3,
+          "end": 10.56
+        },
+        {
+          "text": "upper",
+          "start": 10.56,
+          "end": 10.84
+        },
+        {
+          "text": "Rathmines,",
+          "start": 10.84,
+          "end": 11.52
+        },
+        {
+          "text": "Sandymount",
+          "start": 12.14,
+          "end": 12.48
+        },
+        {
+          "text": "Green,",
+          "start": 12.48,
+          "end": 12.82
+        },
+        {
+          "text": "Rathmines,",
+          "start": 13.36,
+          "end": 13.82
+        },
+        {
+          "text": "Ringsend",
+          "start": 14.12,
+          "end": 14.5
+        },
+        {
+          "text": "and",
+          "start": 14.5,
+          "end": 14.78
+        },
+        {
+          "text": "Sandymount",
+          "start": 14.78,
+          "end": 15.36
+        },
+        {
+          "text": "Tower,",
+          "start": 15.36,
+          "end": 15.7
+        },
+        {
+          "text": "Harold's",
+          "start": 16.2,
+          "end": 16.38
+        },
+        {
+          "text": "Cross.",
+          "start": 16.38,
+          "end": 16.62
+        },
+        {
+          "text": "The",
+          "start": 17.5,
+          "end": 17.6
+        },
+        {
+          "text": "hoarse",
+          "start": 17.6,
+          "end": 17.92
+        },
+        {
+          "text": "Dublin",
+          "start": 17.92,
+          "end": 18.24
+        },
+        {
+          "text": "United",
+          "start": 18.24,
+          "end": 18.68
+        },
+        {
+          "text": "Tramway",
+          "start": 18.68,
+          "end": 19.12
+        },
+        {
+          "text": "Company's",
+          "start": 19.12,
+          "end": 19.7
+        },
+        {
+          "text": "timekeeper",
+          "start": 19.7,
+          "end": 20.2
+        },
+        {
+          "text": "bawled",
+          "start": 20.2,
+          "end": 20.58
+        },
+        {
+          "text": "them",
+          "start": 20.58,
+          "end": 20.68
+        },
+        {
+          "text": "off:",
+          "start": 20.68,
+          "end": 21.0
+        }
+      ],
+      "stats": {
+        "expected_words": 42,
+        "heard_words": 42,
+        "matched_words": 42
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5238424389972351
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fdc905f23d5981bf39c1a349368387ee84b14ca589f77f5778f2da9b560352bd",
+  "selected_reasons": []
+}

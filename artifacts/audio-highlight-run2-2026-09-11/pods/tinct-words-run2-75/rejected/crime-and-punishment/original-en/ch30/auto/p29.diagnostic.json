@@ -1,0 +1,709 @@
+{
+  "complete": true,
+  "signature": "7a9cd729e45905875ee6d7c0d8f7330019355fd177e30c56e06d56b682e2e7ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.40026384964585304,
+      "alignment_seconds": 0.0006667524576187134,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, if the Divine Providence is to be mixed up in it, there is no doing anything,\" Raskolnikov grumbled morosely.",
+        "hotwords": "Oh, Divine, Providence, Raskolnikov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, if the Divine Providence is to be mixed up in it, there is no doing anything,\" Raskolnikov",
+          "start": 0.08,
+          "end": 6.34,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.154541015625
+            },
+            {
+              "text": " if",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Divine",
+              "start": 1.14,
+              "end": 1.52,
+              "probability": 0.462646484375
+            },
+            {
+              "text": " Providence",
+              "start": 1.52,
+              "end": 1.92,
+              "probability": 0.935546875
+            },
+            {
+              "text": " is",
+              "start": 1.92,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.26,
+              "end": 2.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 2.4,
+              "end": 2.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mixed",
+              "start": 2.54,
+              "end": 2.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it,",
+              "start": 3.06,
+              "end": 3.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there",
+              "start": 3.64,
+              "end": 3.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 3.76,
+              "end": 3.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 3.88,
+              "end": 4.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " doing",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " anything,\"",
+              "start": 4.48,
+              "end": 5.66,
+              "probability": 0.668701171875
+            },
+            {
+              "text": " Raskolnikov",
+              "start": 5.66,
+              "end": 6.34,
+              "probability": 0.96103515625
+            }
+          ]
+        },
+        {
+          "text": " grumbled morosely.",
+          "start": 6.34,
+          "end": 7.48,
+          "words": [
+            {
+              "text": " grumbled",
+              "start": 6.34,
+              "end": 6.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " morosely.",
+              "start": 6.78,
+              "end": 7.48,
+              "probability": 0.9329427083333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "if",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "Divine",
+          "start": 1.14,
+          "end": 1.52
+        },
+        {
+          "raw": "Providence",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "raw": "is",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "raw": "to",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "raw": "be",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "raw": "mixed",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "raw": "up",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "in",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "it,",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "raw": "there",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "raw": "is",
+          "start": 3.76,
+          "end": 3.88
+        },
+        {
+          "raw": "no",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "raw": "doing",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "anything,\"",
+          "start": 4.48,
+          "end": 5.66
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 5.66,
+          "end": 6.34
+        },
+        {
+          "raw": "grumbled",
+          "start": 6.34,
+          "end": 6.78
+        },
+        {
+          "raw": "morosely.",
+          "start": 6.78,
+          "end": 7.48
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "if",
+        "the",
+        "Divine",
+        "Providence",
+        "is",
+        "to",
+        "be",
+        "mixed",
+        "up",
+        "in",
+        "it,",
+        "there",
+        "is",
+        "no",
+        "doing",
+        "anything,\"",
+        "Raskolnikov",
+        "grumbled",
+        "morosely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Divine",
+          "start": 1.14,
+          "end": 1.52,
+          "key": "divine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Providence",
+          "start": 1.52,
+          "end": 1.92,
+          "key": "providence",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.92,
+          "end": 2.26,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.26,
+          "end": 2.4,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.4,
+          "end": 2.54,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mixed",
+          "start": 2.54,
+          "end": 2.74,
+          "key": "mixed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.74,
+          "end": 2.94,
+          "key": "up",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 3.06,
+          "end": 3.24,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.64,
+          "end": 3.76,
+          "key": "there",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.76,
+          "end": 3.88,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.88,
+          "end": 4.16,
+          "key": "no",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "doing",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "doing",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "anything,\"",
+          "start": 4.48,
+          "end": 5.66,
+          "key": "anything",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 5.66,
+          "end": 6.34,
+          "key": "raskolnikov",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "grumbled",
+          "start": 6.34,
+          "end": 6.78,
+          "key": "grumbled",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "morosely.",
+          "start": 6.78,
+          "end": 7.48,
+          "key": "morosely",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "if",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "the",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "Divine",
+          "start": 1.14,
+          "end": 1.52
+        },
+        {
+          "text": "Providence",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "text": "is",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "text": "to",
+          "start": 2.26,
+          "end": 2.4
+        },
+        {
+          "text": "be",
+          "start": 2.4,
+          "end": 2.54
+        },
+        {
+          "text": "mixed",
+          "start": 2.54,
+          "end": 2.74
+        },
+        {
+          "text": "up",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "in",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "it,",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "text": "there",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "text": "is",
+          "start": 3.76,
+          "end": 3.88
+        },
+        {
+          "text": "no",
+          "start": 3.88,
+          "end": 4.16
+        },
+        {
+          "text": "doing",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "anything,\"",
+          "start": 4.48,
+          "end": 5.66
+        },
+        {
+          "text": "Raskolnikov",
+          "start": 5.66,
+          "end": 6.34
+        },
+        {
+          "text": "grumbled",
+          "start": 6.34,
+          "end": 6.78
+        },
+        {
+          "text": "morosely.",
+          "start": 6.78,
+          "end": 7.48
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4011957570910454
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1eddfa2b219286dc7127835e0c35ab34fe2e21e43a010384af0b88d29bfb0f4",
+  "selected_reasons": []
+}

@@ -1,0 +1,438 @@
+{
+  "complete": true,
+  "signature": "e126ac06cee624eefa71a8c69e2aa01823b6e6ff3b891dca32f1496048de684f",
+  "attempts": [
+    {
+      "asr_seconds": 0.18865111097693443,
+      "alignment_seconds": 0.00033783353865146637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Portia._]",
+        "hotwords": "Portia._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " exit Portia._",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.045257568359375
+            },
+            {
+              "text": " Portia._",
+              "start": 0.67,
+              "end": 1.73,
+              "probability": 0.4775390625
+            }
+          ]
+        },
+        {
+          "text": " exit Portia._",
+          "start": 1.73,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " exit",
+              "start": 1.73,
+              "end": 1.77,
+              "probability": 1.7702579498291016e-05
+            },
+            {
+              "text": " Portia._",
+              "start": 1.77,
+              "end": 1.79,
+              "probability": 0.0020379225413004556
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Portia._",
+          "start": 0.67,
+          "end": 1.73
+        },
+        {
+          "raw": "exit",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "raw": "Portia._",
+          "start": 1.77,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Portia._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Portia._",
+          "start": 0.67,
+          "end": 1.73,
+          "key": "portia_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exit",
+          "start": 1.73,
+          "end": 1.77,
+          "key": "exit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Portia._",
+          "start": 1.77,
+          "end": 1.79,
+          "key": "portia_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Portia._]",
+          "start": 0.67,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18911222834140062
+    },
+    {
+      "asr_seconds": 0.13343605864793062,
+      "alignment_seconds": 0.0003057951107621193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Portia._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Portia._",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.82421875
+            },
+            {
+              "text": " Portia._",
+              "start": 0.67,
+              "end": 1.75,
+              "probability": 0.4190266927083333
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Portia._",
+          "start": 0.67,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Portia._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Portia._",
+          "start": 0.67,
+          "end": 1.75,
+          "key": "portia_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Portia._]",
+          "start": 0.67,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1338344719260931
+    },
+    {
+      "asr_seconds": 0.10432582348585129,
+      "alignment_seconds": 0.00025443825870752335,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Portia.",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.82421875
+            },
+            {
+              "text": " Portia.",
+              "start": 0.67,
+              "end": 1.21,
+              "probability": 0.6285400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Portia.",
+          "start": 0.67,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Portia._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Portia.",
+          "start": 0.67,
+          "end": 1.21,
+          "key": "portia",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Portia._]",
+          "start": 0.67,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10466079041361809
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1db79567663ab53887ba6bd2e3d66c69f9bbf9d7a4df2dc2b0cccae1b5c130e1",
+  "selected_reasons": []
+}

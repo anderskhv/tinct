@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "c3c779ab30886890e51843657f6d5397a390bd51e94519fe198aebc94f8b02f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1279813414439559,
+      "alignment_seconds": 0.00031836237758398056,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She spits at him",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " spits",
+              "start": 0.54,
+              "end": 0.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " at",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "spits",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "raw": "at",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "him",
+          "start": 1.04,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[_She",
+        "spits",
+        "at",
+        "him._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "spits",
+          "start": 0.54,
+          "end": 0.9,
+          "key": "spits",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "spits",
+          "start": 0.54,
+          "end": 0.9
+        },
+        {
+          "text": "at",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "him._]",
+          "start": 1.04,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12841020990163088
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20256051e5030fdaa326a6bf8c85b22b39c9c7ec3216b1c9c9b40a4bd64e347c",
+  "selected_reasons": []
+}

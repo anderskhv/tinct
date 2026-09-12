@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "9ee4a6bf586be35c5ee0906508cf768efce936ba3c9c1320a5c3ef44c415b476",
+  "attempts": [
+    {
+      "asr_seconds": 0.21310881059616804,
+      "alignment_seconds": 0.00047548580914735794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Adèle may accompany us, may she not, sir?\"",
+        "hotwords": "Adèle"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Adèle may accompany us, may she not, sir?",
+          "start": 0.44,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Adèle",
+              "start": 0.44,
+              "end": 0.72,
+              "probability": 0.6598409016927084
+            },
+            {
+              "text": " may",
+              "start": 0.72,
+              "end": 0.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " accompany",
+              "start": 0.86,
+              "end": 1.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " us,",
+              "start": 1.24,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " may",
+              "start": 1.72,
+              "end": 1.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not,",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sir?",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.87060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adèle",
+          "start": 0.44,
+          "end": 0.72
+        },
+        {
+          "raw": "may",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "raw": "accompany",
+          "start": 0.86,
+          "end": 1.24
+        },
+        {
+          "raw": "us,",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "raw": "may",
+          "start": 1.72,
+          "end": 1.78
+        },
+        {
+          "raw": "she",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "not,",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "sir?",
+          "start": 2.24,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "\"Adèle",
+        "may",
+        "accompany",
+        "us,",
+        "may",
+        "she",
+        "not,",
+        "sir?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Adèle",
+          "start": 0.44,
+          "end": 0.72,
+          "key": "adèle",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 0.72,
+          "end": 0.86,
+          "key": "may",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "accompany",
+          "start": 0.86,
+          "end": 1.24,
+          "key": "accompany",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 1.24,
+          "end": 1.58,
+          "key": "us",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.72,
+          "end": 1.78,
+          "key": "may",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Adèle",
+          "start": 0.44,
+          "end": 0.72
+        },
+        {
+          "text": "may",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "text": "accompany",
+          "start": 0.86,
+          "end": 1.24
+        },
+        {
+          "text": "us,",
+          "start": 1.24,
+          "end": 1.58
+        },
+        {
+          "text": "may",
+          "start": 1.72,
+          "end": 1.78
+        },
+        {
+          "text": "she",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "not,",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "sir?\"",
+          "start": 2.24,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2137509835883975
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1113c4dca830dbc7773e6390ef9159faa272eafd92a042c19c1416cbf668e237",
+  "selected_reasons": []
+}

@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "4e7f79bd1ecd8a022f429d50b6b605e21e7ca5fa5fc72409f7e8d7125fb73907",
+  "attempts": [
+    {
+      "asr_seconds": 3.9934697989956476,
+      "alignment_seconds": 0.00017701700562611222,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Farewell!",
+        "hotwords": "Antony, Farewell"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Farewell",
+          "start": 0.14,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.14,
+              "end": 0.86,
+              "probability": 0.766357421875
+            },
+            {
+              "text": " Farewell",
+              "start": 1.22,
+              "end": 1.62,
+              "probability": 0.554901123046875
+            }
+          ]
+        },
+        {
+          "text": " Antony, Farewell Antony, Farewell",
+          "start": 1.62,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 1.62,
+              "end": 2.22,
+              "probability": 0.005457788705825806
+            },
+            {
+              "text": " Farewell",
+              "start": 2.22,
+              "end": 2.22,
+              "probability": 0.4919441342353821
+            },
+            {
+              "text": " Antony,",
+              "start": 2.22,
+              "end": 2.22,
+              "probability": 0.4990570545196533
+            },
+            {
+              "text": " Farewell",
+              "start": 2.22,
+              "end": 2.22,
+              "probability": 0.80224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.14,
+          "end": 0.86
+        },
+        {
+          "raw": "Farewell",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "raw": "Antony,",
+          "start": 1.62,
+          "end": 2.22
+        },
+        {
+          "raw": "Farewell",
+          "start": 2.22,
+          "end": 2.22
+        },
+        {
+          "raw": "Antony,",
+          "start": 2.22,
+          "end": 2.22
+        },
+        {
+          "raw": "Farewell",
+          "start": 2.22,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Farewell!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.14,
+          "end": 0.86,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Farewell",
+          "start": 1.22,
+          "end": 1.62,
+          "key": "farewell",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 1.62,
+          "end": 2.22,
+          "key": "antony",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Farewell",
+          "start": 2.22,
+          "end": 2.22,
+          "key": "farewell",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 2.22,
+          "end": 2.22,
+          "key": "antony",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Farewell",
+          "start": 2.22,
+          "end": 2.22,
+          "key": "farewell",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.14,
+          "end": 0.86
+        },
+        {
+          "text": "Farewell!",
+          "start": 1.22,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.9937336090079043
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1b7c12493ad68bca85dc70d03cb430c1af60a91b60b575608283d989f001b5e",
+  "selected_reasons": []
+}

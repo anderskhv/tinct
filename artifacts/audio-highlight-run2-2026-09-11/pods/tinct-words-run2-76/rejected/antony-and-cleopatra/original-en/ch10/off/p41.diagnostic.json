@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "5db4ec0858dd644bb9e2d31f6f2ff491230149dc6115b16cc77ffb9cba08fc48",
+  "attempts": [
+    {
+      "asr_seconds": 0.34482333716005087,
+      "alignment_seconds": 0.0005893250927329063,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Thou shalt be whipped with wire and stewed in brine smarting in lingering pickle",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Thou",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.880859375
+            },
+            {
+              "text": " shalt",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.984375
+            },
+            {
+              "text": " be",
+              "start": 0.73,
+              "end": 0.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " whipped",
+              "start": 0.89,
+              "end": 1.09,
+              "probability": 0.986328125
+            },
+            {
+              "text": " with",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wire",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " stewed",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.955810546875
+            },
+            {
+              "text": " in",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " brine",
+              "start": 2.33,
+              "end": 2.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " smarting",
+              "start": 2.75,
+              "end": 3.65,
+              "probability": 0.5662841796875
+            },
+            {
+              "text": " in",
+              "start": 3.65,
+              "end": 3.77,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " lingering",
+              "start": 3.77,
+              "end": 4.05,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " pickle",
+              "start": 4.05,
+              "end": 4.73,
+              "probability": 0.991455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thou",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "shalt",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "be",
+          "start": 0.73,
+          "end": 0.89
+        },
+        {
+          "raw": "whipped",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "raw": "with",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "wire",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "stewed",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "in",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "brine",
+          "start": 2.33,
+          "end": 2.75
+        },
+        {
+          "raw": "smarting",
+          "start": 2.75,
+          "end": 3.65
+        },
+        {
+          "raw": "in",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "raw": "lingering",
+          "start": 3.77,
+          "end": 4.05
+        },
+        {
+          "raw": "pickle",
+          "start": 4.05,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "Thou",
+        "shalt",
+        "be",
+        "whipped",
+        "with",
+        "wire",
+        "and",
+        "stewed",
+        "in",
+        "brine,",
+        "Smarting",
+        "in",
+        "ling'ring",
+        "pickle."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thou",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "thou",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 0.55,
+          "end": 0.73,
+          "key": "shalt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.73,
+          "end": 0.89,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "whipped",
+          "start": 0.89,
+          "end": 1.09,
+          "key": "whipped",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wire",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "wire",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stewed",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "stewed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "brine",
+          "start": 2.33,
+          "end": 2.75,
+          "key": "brine",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "smarting",
+          "start": 2.75,
+          "end": 3.65,
+          "key": "smarting",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.65,
+          "end": 3.77,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "lingering",
+          "start": 3.77,
+          "end": 4.05,
+          "key": "lingering",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pickle",
+          "start": 4.05,
+          "end": 4.73,
+          "key": "pickle",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thou",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "shalt",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "text": "be",
+          "start": 0.73,
+          "end": 0.89
+        },
+        {
+          "text": "whipped",
+          "start": 0.89,
+          "end": 1.09
+        },
+        {
+          "text": "with",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "wire",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "stewed",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "in",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "brine,",
+          "start": 2.33,
+          "end": 2.75
+        },
+        {
+          "text": "Smarting",
+          "start": 2.75,
+          "end": 3.65
+        },
+        {
+          "text": "in",
+          "start": 3.65,
+          "end": 3.77
+        },
+        {
+          "text": "ling'ring",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "pickle.",
+          "start": 4.05,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.3456272082403302
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a808367887a69201674f0ef05d4ec7e3e7548c2038346484dfae5bd766d1b33a",
+  "selected_reasons": []
+}

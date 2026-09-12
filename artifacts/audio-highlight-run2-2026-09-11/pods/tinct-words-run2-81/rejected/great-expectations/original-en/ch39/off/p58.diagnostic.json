@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "151dddf374462156949c25763d3909a1c5720981d9379385caa984cd3577d47f",
+  "attempts": [
+    {
+      "asr_seconds": 0.23710945341736078,
+      "alignment_seconds": 0.00038575753569602966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I faltered again. I don't know.",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.88671875
+            },
+            {
+              "text": " faltered",
+              "start": 0.52,
+              "end": 0.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " again.",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 1.56,
+              "end": 1.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " don't",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " know.",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "faltered",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "raw": "again.",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "raw": "don't",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "know.",
+          "start": 1.82,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "faltered",
+        "again,",
+        "\"I",
+        "don't",
+        "know.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "faltered",
+          "start": 0.52,
+          "end": 0.9,
+          "key": "faltered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "again",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 1.64,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.64,
+          "end": 1.82,
+          "key": "dont",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "know.",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "know",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "faltered",
+          "start": 0.52,
+          "end": 0.9
+        },
+        {
+          "text": "again,",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "\"I",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "text": "don't",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "know.\"",
+          "start": 1.82,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23762957472354174
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bbdc96d22000330af3f31b89f391dcb5148d12a05dbec3da344e7f7cf896db25",
+  "selected_reasons": []
+}

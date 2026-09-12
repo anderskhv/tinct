@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "6fd4b925bb0f98c4cebdfed04f5f74802fe493b5d05bf244b0094779787a0eb8",
+  "attempts": [
+    {
+      "asr_seconds": 0.20978030562400818,
+      "alignment_seconds": 0.0003576558083295822,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Shylock. Give me my principal, and let me go.",
+        "hotwords": "Shylock, Give"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shylock, give me my principal, and let me go.",
+          "start": 0.46,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Shylock,",
+              "start": 0.46,
+              "end": 0.9,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " give",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " me",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " my",
+              "start": 1.56,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " principal,",
+              "start": 1.74,
+              "end": 2.0,
+              "probability": 0.423828125
+            },
+            {
+              "text": " and",
+              "start": 2.34,
+              "end": 2.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " let",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " go.",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock,",
+          "start": 0.46,
+          "end": 0.9
+        },
+        {
+          "raw": "give",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "me",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "my",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "raw": "principal,",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.36
+        },
+        {
+          "raw": "let",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "me",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "go.",
+          "start": 2.6,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Shylock.",
+        "Give",
+        "me",
+        "my",
+        "principal,",
+        "and",
+        "let",
+        "me",
+        "go."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock,",
+          "start": 0.46,
+          "end": 0.9,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "give",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.56,
+          "end": 1.74,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "principal,",
+          "start": 1.74,
+          "end": 2.0,
+          "key": "principal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.36,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "let",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "go.",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "go",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shylock.",
+          "start": 0.46,
+          "end": 0.9
+        },
+        {
+          "text": "Give",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "text": "me",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "my",
+          "start": 1.56,
+          "end": 1.74
+        },
+        {
+          "text": "principal,",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "text": "and",
+          "start": 2.34,
+          "end": 2.36
+        },
+        {
+          "text": "let",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "me",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "text": "go.",
+          "start": 2.6,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21027453895658255
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bd70ae3b2e71dbefe1a6ec9d56257459bdc51762338d062c88a88bef614b17eb",
+  "selected_reasons": []
+}

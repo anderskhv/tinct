@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "bb16466c51ccff04b3822045791d9ea58d234465a84bf20c514419a1b480fb6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3239646456204355,
+      "alignment_seconds": 0.0005628080107271671,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A clock in the schoolroom struck nine; Miss Miller left her circle, and standing in the middle of the room, cried—",
+        "hotwords": "A, Miss, Miller"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A clock in the schoolroom struck nine. Miss Miller left her circle, and standing in the middle of the room, cried—",
+          "start": 0.18,
+          "end": 7.1,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.18,
+              "end": 0.5,
+              "probability": 0.87109375
+            },
+            {
+              "text": " clock",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " schoolroom",
+              "start": 1.04,
+              "end": 1.54,
+              "probability": 0.765380859375
+            },
+            {
+              "text": " struck",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nine.",
+              "start": 1.84,
+              "end": 2.22,
+              "probability": 0.876953125
+            },
+            {
+              "text": " Miss",
+              "start": 2.9,
+              "end": 2.96,
+              "probability": 0.5625
+            },
+            {
+              "text": " Miller",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " left",
+              "start": 3.2,
+              "end": 3.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 3.46,
+              "end": 3.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " circle,",
+              "start": 3.66,
+              "end": 4.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.38,
+              "end": 4.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " standing",
+              "start": 4.56,
+              "end": 4.9,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " in",
+              "start": 4.9,
+              "end": 5.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.12,
+              "end": 5.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " middle",
+              "start": 5.2,
+              "end": 5.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 5.34,
+              "end": 5.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.48,
+              "end": 5.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " room,",
+              "start": 5.58,
+              "end": 5.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cried—",
+              "start": 6.08,
+              "end": 7.1,
+              "probability": 0.4989614486694336
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.18,
+          "end": 0.5
+        },
+        {
+          "raw": "clock",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "in",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.04
+        },
+        {
+          "raw": "schoolroom",
+          "start": 1.04,
+          "end": 1.54
+        },
+        {
+          "raw": "struck",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "raw": "nine.",
+          "start": 1.84,
+          "end": 2.22
+        },
+        {
+          "raw": "Miss",
+          "start": 2.9,
+          "end": 2.96
+        },
+        {
+          "raw": "Miller",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "left",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "raw": "her",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "raw": "circle,",
+          "start": 3.66,
+          "end": 4.04
+        },
+        {
+          "raw": "and",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "raw": "standing",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "raw": "in",
+          "start": 4.9,
+          "end": 5.12
+        },
+        {
+          "raw": "the",
+          "start": 5.12,
+          "end": 5.2
+        },
+        {
+          "raw": "middle",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "raw": "of",
+          "start": 5.34,
+          "end": 5.48
+        },
+        {
+          "raw": "the",
+          "start": 5.48,
+          "end": 5.58
+        },
+        {
+          "raw": "room,",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "raw": "cried—",
+          "start": 6.08,
+          "end": 7.1
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "clock",
+        "in",
+        "the",
+        "schoolroom",
+        "struck",
+        "nine;",
+        "Miss",
+        "Miller",
+        "left",
+        "her",
+        "circle,",
+        "and",
+        "standing",
+        "in",
+        "the",
+        "middle",
+        "of",
+        "the",
+        "room,",
+        "cried—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.18,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clock",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "clock",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.78,
+          "end": 0.96,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.04,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "schoolroom",
+          "start": 1.04,
+          "end": 1.54,
+          "key": "schoolroom",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 1.54,
+          "end": 1.84,
+          "key": "struck",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nine.",
+          "start": 1.84,
+          "end": 2.22,
+          "key": "nine",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.9,
+          "end": 2.96,
+          "key": "miss",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Miller",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "miller",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 3.2,
+          "end": 3.46,
+          "key": "left",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.46,
+          "end": 3.66,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "circle,",
+          "start": 3.66,
+          "end": 4.04,
+          "key": "circle",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.38,
+          "end": 4.56,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "standing",
+          "start": 4.56,
+          "end": 4.9,
+          "key": "standing",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.9,
+          "end": 5.12,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.12,
+          "end": 5.2,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "middle",
+          "start": 5.2,
+          "end": 5.34,
+          "key": "middle",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.34,
+          "end": 5.48,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.48,
+          "end": 5.58,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "room,",
+          "start": 5.58,
+          "end": 5.88,
+          "key": "room",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cried—",
+          "start": 6.08,
+          "end": 7.1,
+          "key": "cried",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.18,
+          "end": 0.5
+        },
+        {
+          "text": "clock",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "in",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.04
+        },
+        {
+          "text": "schoolroom",
+          "start": 1.04,
+          "end": 1.54
+        },
+        {
+          "text": "struck",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "text": "nine;",
+          "start": 1.84,
+          "end": 2.22
+        },
+        {
+          "text": "Miss",
+          "start": 2.9,
+          "end": 2.96
+        },
+        {
+          "text": "Miller",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "text": "left",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "text": "her",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "text": "circle,",
+          "start": 3.66,
+          "end": 4.04
+        },
+        {
+          "text": "and",
+          "start": 4.38,
+          "end": 4.56
+        },
+        {
+          "text": "standing",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "text": "in",
+          "start": 4.9,
+          "end": 5.12
+        },
+        {
+          "text": "the",
+          "start": 5.12,
+          "end": 5.2
+        },
+        {
+          "text": "middle",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "text": "of",
+          "start": 5.34,
+          "end": 5.48
+        },
+        {
+          "text": "the",
+          "start": 5.48,
+          "end": 5.58
+        },
+        {
+          "text": "room,",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "text": "cried—",
+          "start": 6.08,
+          "end": 7.1
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3247976377606392
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "84d0f3b9882558259df5bfcbfde98fa978bc5f654ef56b9ad65e6b91575e58fa",
+  "selected_reasons": []
+}

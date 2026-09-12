@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "8dc4f3f7c62d000d50645f91aa2df149716d631456048b29513bcff4a7130f47",
+  "attempts": [
+    {
+      "asr_seconds": 0.046460866928100586,
+      "alignment_seconds": 6.533972918987274e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Did she go?",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Did",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " she",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " go?",
+              "start": 0.68,
+              "end": 0.96,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "she",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "go?",
+          "start": 0.68,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "\"Did",
+        "she",
+        "go?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Did",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "did",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go?",
+          "start": 0.68,
+          "end": 0.96,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Did",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "she",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "go?\"",
+          "start": 0.68,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.04654758796095848
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "052a597ffcdcd13206c0e5f4c2ecec62b47a5ab5ac8a5336dd5991b506ab4652",
+  "selected_reasons": []
+}

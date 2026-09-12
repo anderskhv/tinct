@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "14d0b8f7ae358834a731914f5091dc3273f5cd2784e4b903a9996cb1c79ed559",
+  "attempts": [
+    {
+      "asr_seconds": 0.3086001048795879,
+      "alignment_seconds": 0.00034123589284718037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nice, quiet bar. Nice piece of wood in that counter. Nicely planed. Like the way it curves there.",
+          "start": 0.05,
+          "end": 6.13,
+          "words": [
+            {
+              "text": " Nice,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " quiet",
+              "start": 0.77,
+              "end": 1.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " bar.",
+              "start": 1.03,
+              "end": 1.41,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Nice",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " piece",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wood",
+              "start": 2.47,
+              "end": 2.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that",
+              "start": 2.81,
+              "end": 2.97,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " counter.",
+              "start": 2.97,
+              "end": 3.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Nicely",
+              "start": 3.85,
+              "end": 4.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " planed.",
+              "start": 4.13,
+              "end": 4.69,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Like",
+              "start": 5.03,
+              "end": 5.13,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 5.13,
+              "end": 5.25,
+              "probability": 0.982421875
+            },
+            {
+              "text": " way",
+              "start": 5.25,
+              "end": 5.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 5.37,
+              "end": 5.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " curves",
+              "start": 5.51,
+              "end": 5.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " there.",
+              "start": 5.79,
+              "end": 6.13,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nice,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "quiet",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "raw": "bar.",
+          "start": 1.03,
+          "end": 1.41
+        },
+        {
+          "raw": "Nice",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "piece",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "of",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "wood",
+          "start": 2.47,
+          "end": 2.67
+        },
+        {
+          "raw": "in",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "that",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "raw": "counter.",
+          "start": 2.97,
+          "end": 3.35
+        },
+        {
+          "raw": "Nicely",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "raw": "planed.",
+          "start": 4.13,
+          "end": 4.69
+        },
+        {
+          "raw": "Like",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "raw": "way",
+          "start": 5.25,
+          "end": 5.37
+        },
+        {
+          "raw": "it",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "raw": "curves",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "raw": "there.",
+          "start": 5.79,
+          "end": 6.13
+        }
+      ],
+      "expected_tokens": [
+        "Nice",
+        "quiet",
+        "bar.",
+        "Nice",
+        "piece",
+        "of",
+        "wood",
+        "in",
+        "that",
+        "counter.",
+        "Nicely",
+        "planed.",
+        "Like",
+        "the",
+        "way",
+        "it",
+        "curves",
+        "there."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nice,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "nice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quiet",
+          "start": 0.77,
+          "end": 1.03,
+          "key": "quiet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bar.",
+          "start": 1.03,
+          "end": 1.41,
+          "key": "bar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nice",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "nice",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "piece",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wood",
+          "start": 2.47,
+          "end": 2.67,
+          "key": "wood",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.81,
+          "end": 2.97,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "counter.",
+          "start": 2.97,
+          "end": 3.35,
+          "key": "counter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Nicely",
+          "start": 3.85,
+          "end": 4.13,
+          "key": "nicely",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "planed.",
+          "start": 4.13,
+          "end": 4.69,
+          "key": "planed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Like",
+          "start": 5.03,
+          "end": 5.13,
+          "key": "like",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.25,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 5.25,
+          "end": 5.37,
+          "key": "way",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.37,
+          "end": 5.51,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "curves",
+          "start": 5.51,
+          "end": 5.79,
+          "key": "curves",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 5.79,
+          "end": 6.13,
+          "key": "there",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nice",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "quiet",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "text": "bar.",
+          "start": 1.03,
+          "end": 1.41
+        },
+        {
+          "text": "Nice",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "text": "piece",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "text": "of",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "wood",
+          "start": 2.47,
+          "end": 2.67
+        },
+        {
+          "text": "in",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "that",
+          "start": 2.81,
+          "end": 2.97
+        },
+        {
+          "text": "counter.",
+          "start": 2.97,
+          "end": 3.35
+        },
+        {
+          "text": "Nicely",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "text": "planed.",
+          "start": 4.13,
+          "end": 4.69
+        },
+        {
+          "text": "Like",
+          "start": 5.03,
+          "end": 5.13
+        },
+        {
+          "text": "the",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "text": "way",
+          "start": 5.25,
+          "end": 5.37
+        },
+        {
+          "text": "it",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "text": "curves",
+          "start": 5.51,
+          "end": 5.79
+        },
+        {
+          "text": "there.",
+          "start": 5.79,
+          "end": 6.13
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3090812840964645
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "64def83953c080b21e2b15fe72ece4e3646ec66672d6141238c2ade19998e07e",
+  "selected_reasons": []
+}

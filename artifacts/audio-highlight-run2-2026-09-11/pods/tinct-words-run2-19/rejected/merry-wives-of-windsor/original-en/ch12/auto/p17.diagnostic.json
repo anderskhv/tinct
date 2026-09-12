@@ -1,0 +1,4850 @@
+{
+  "complete": true,
+  "signature": "df7d93113e1f4bcbcf52fcaca0a8e17e37e6f53c75d6f25f51457aa512b24148",
+  "attempts": [
+    {
+      "asr_seconds": 0.7713214969262481,
+      "alignment_seconds": 0.0005767857655882835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ So did I mine, to build upon a foolish woman's promise.",
+        "hotwords": "So, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, to see thee fight, to see thee foyne, to see thee traverse, to see thee here, to see thee there, to see thee pass thy punto, thy stock, thy reverse, thy distance, thy montant.",
+          "start": 0.05,
+          "end": 9.75,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.462890625
+            },
+            {
+              "text": " to",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " see",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " thee",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.90234375
+            },
+            {
+              "text": " fight,",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.953125
+            },
+            {
+              "text": " to",
+              "start": 2.05,
+              "end": 2.07,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " see",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " foyne,",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.5997721354166666
+            },
+            {
+              "text": " to",
+              "start": 2.85,
+              "end": 2.87,
+              "probability": 0.958984375
+            },
+            {
+              "text": " see",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thee",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.990234375
+            },
+            {
+              "text": " traverse,",
+              "start": 3.17,
+              "end": 3.55,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.01,
+              "probability": 0.94140625
+            },
+            {
+              "text": " see",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thee",
+              "start": 4.19,
+              "end": 4.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " here,",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " to",
+              "start": 4.73,
+              "end": 4.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see",
+              "start": 4.77,
+              "end": 4.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thee",
+              "start": 4.97,
+              "end": 5.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there,",
+              "start": 5.11,
+              "end": 5.41,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 5.79,
+              "end": 5.87,
+              "probability": 0.9375
+            },
+            {
+              "text": " see",
+              "start": 5.87,
+              "end": 6.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 6.03,
+              "end": 6.19,
+              "probability": 0.984375
+            },
+            {
+              "text": " pass",
+              "start": 6.19,
+              "end": 6.47,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " thy",
+              "start": 6.47,
+              "end": 6.69,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " punto,",
+              "start": 6.69,
+              "end": 7.13,
+              "probability": 0.861083984375
+            },
+            {
+              "text": " thy",
+              "start": 7.25,
+              "end": 7.37,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " stock,",
+              "start": 7.37,
+              "end": 7.73,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " thy",
+              "start": 7.93,
+              "end": 7.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " reverse,",
+              "start": 7.99,
+              "end": 8.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thy",
+              "start": 8.57,
+              "end": 8.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " distance,",
+              "start": 8.65,
+              "end": 9.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thy",
+              "start": 9.27,
+              "end": 9.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " montant.",
+              "start": 9.31,
+              "end": 9.75,
+              "probability": 0.402099609375
+            }
+          ]
+        },
+        {
+          "text": " Is he dead, my Ethiopian? Is he dead, my Francisco? Twenty-five ha, bully. What says my Aesculapius? My Galen? My heart of Elder? Ha! Is he dead, bully-stale? Is he dead?",
+          "start": 10.37,
+          "end": 21.41,
+          "words": [
+            {
+              "text": " Is",
+              "start": 10.37,
+              "end": 10.57,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " he",
+              "start": 10.57,
+              "end": 10.69,
+              "probability": 0.982421875
+            },
+            {
+              "text": " dead,",
+              "start": 10.69,
+              "end": 10.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 11.09,
+              "end": 11.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Ethiopian?",
+              "start": 11.17,
+              "end": 11.57,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Is",
+              "start": 12.35,
+              "end": 12.47,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " he",
+              "start": 12.47,
+              "end": 12.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dead,",
+              "start": 12.61,
+              "end": 12.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 12.93,
+              "end": 13.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Francisco?",
+              "start": 13.03,
+              "end": 13.41,
+              "probability": 0.642578125
+            },
+            {
+              "text": " Twenty",
+              "start": 14.09,
+              "end": 14.27,
+              "probability": 0.6943359375
+            },
+            {
+              "text": "-five",
+              "start": 14.27,
+              "end": 14.57,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " ha,",
+              "start": 14.57,
+              "end": 14.79,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " bully.",
+              "start": 15.03,
+              "end": 15.03,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " What",
+              "start": 15.47,
+              "end": 15.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " says",
+              "start": 15.61,
+              "end": 15.81,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " my",
+              "start": 15.81,
+              "end": 16.05,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Aesculapius?",
+              "start": 16.05,
+              "end": 16.87,
+              "probability": 0.754052734375
+            },
+            {
+              "text": " My",
+              "start": 17.29,
+              "end": 17.43,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Galen?",
+              "start": 17.43,
+              "end": 17.81,
+              "probability": 0.869384765625
+            },
+            {
+              "text": " My",
+              "start": 18.01,
+              "end": 18.17,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " heart",
+              "start": 18.17,
+              "end": 18.37,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " of",
+              "start": 18.37,
+              "end": 18.51,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Elder?",
+              "start": 18.51,
+              "end": 18.75,
+              "probability": 0.4267578125
+            },
+            {
+              "text": " Ha!",
+              "start": 19.07,
+              "end": 19.29,
+              "probability": 0.779296875
+            },
+            {
+              "text": " Is",
+              "start": 19.51,
+              "end": 19.59,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " he",
+              "start": 19.59,
+              "end": 19.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dead,",
+              "start": 19.75,
+              "end": 19.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bully",
+              "start": 20.11,
+              "end": 20.21,
+              "probability": 0.430908203125
+            },
+            {
+              "text": "-stale?",
+              "start": 20.21,
+              "end": 20.57,
+              "probability": 0.7757161458333334
+            },
+            {
+              "text": " Is",
+              "start": 20.89,
+              "end": 20.99,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " he",
+              "start": 20.99,
+              "end": 21.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dead?",
+              "start": 21.13,
+              "end": 21.41,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "see",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "thee",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "fight,",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.07
+        },
+        {
+          "raw": "see",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "thee",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "foyne,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "to",
+          "start": 2.85,
+          "end": 2.87
+        },
+        {
+          "raw": "see",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "thee",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "traverse,",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.01
+        },
+        {
+          "raw": "see",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "thee",
+          "start": 4.19,
+          "end": 4.35
+        },
+        {
+          "raw": "here,",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "to",
+          "start": 4.73,
+          "end": 4.77
+        },
+        {
+          "raw": "see",
+          "start": 4.77,
+          "end": 4.97
+        },
+        {
+          "raw": "thee",
+          "start": 4.97,
+          "end": 5.11
+        },
+        {
+          "raw": "there,",
+          "start": 5.11,
+          "end": 5.41
+        },
+        {
+          "raw": "to",
+          "start": 5.79,
+          "end": 5.87
+        },
+        {
+          "raw": "see",
+          "start": 5.87,
+          "end": 6.03
+        },
+        {
+          "raw": "thee",
+          "start": 6.03,
+          "end": 6.19
+        },
+        {
+          "raw": "pass",
+          "start": 6.19,
+          "end": 6.47
+        },
+        {
+          "raw": "thy",
+          "start": 6.47,
+          "end": 6.69
+        },
+        {
+          "raw": "punto,",
+          "start": 6.69,
+          "end": 7.13
+        },
+        {
+          "raw": "thy",
+          "start": 7.25,
+          "end": 7.37
+        },
+        {
+          "raw": "stock,",
+          "start": 7.37,
+          "end": 7.73
+        },
+        {
+          "raw": "thy",
+          "start": 7.93,
+          "end": 7.99
+        },
+        {
+          "raw": "reverse,",
+          "start": 7.99,
+          "end": 8.35
+        },
+        {
+          "raw": "thy",
+          "start": 8.57,
+          "end": 8.65
+        },
+        {
+          "raw": "distance,",
+          "start": 8.65,
+          "end": 9.07
+        },
+        {
+          "raw": "thy",
+          "start": 9.27,
+          "end": 9.31
+        },
+        {
+          "raw": "montant.",
+          "start": 9.31,
+          "end": 9.75
+        },
+        {
+          "raw": "Is",
+          "start": 10.37,
+          "end": 10.57
+        },
+        {
+          "raw": "he",
+          "start": 10.57,
+          "end": 10.69
+        },
+        {
+          "raw": "dead,",
+          "start": 10.69,
+          "end": 10.95
+        },
+        {
+          "raw": "my",
+          "start": 11.09,
+          "end": 11.17
+        },
+        {
+          "raw": "Ethiopian?",
+          "start": 11.17,
+          "end": 11.57
+        },
+        {
+          "raw": "Is",
+          "start": 12.35,
+          "end": 12.47
+        },
+        {
+          "raw": "he",
+          "start": 12.47,
+          "end": 12.61
+        },
+        {
+          "raw": "dead,",
+          "start": 12.61,
+          "end": 12.83
+        },
+        {
+          "raw": "my",
+          "start": 12.93,
+          "end": 13.03
+        },
+        {
+          "raw": "Francisco?",
+          "start": 13.03,
+          "end": 13.41
+        },
+        {
+          "raw": "Twenty",
+          "start": 14.09,
+          "end": 14.27
+        },
+        {
+          "raw": "-five",
+          "start": 14.27,
+          "end": 14.57
+        },
+        {
+          "raw": "ha,",
+          "start": 14.57,
+          "end": 14.79
+        },
+        {
+          "raw": "bully.",
+          "start": 15.03,
+          "end": 15.03
+        },
+        {
+          "raw": "What",
+          "start": 15.47,
+          "end": 15.61
+        },
+        {
+          "raw": "says",
+          "start": 15.61,
+          "end": 15.81
+        },
+        {
+          "raw": "my",
+          "start": 15.81,
+          "end": 16.05
+        },
+        {
+          "raw": "Aesculapius?",
+          "start": 16.05,
+          "end": 16.87
+        },
+        {
+          "raw": "My",
+          "start": 17.29,
+          "end": 17.43
+        },
+        {
+          "raw": "Galen?",
+          "start": 17.43,
+          "end": 17.81
+        },
+        {
+          "raw": "My",
+          "start": 18.01,
+          "end": 18.17
+        },
+        {
+          "raw": "heart",
+          "start": 18.17,
+          "end": 18.37
+        },
+        {
+          "raw": "of",
+          "start": 18.37,
+          "end": 18.51
+        },
+        {
+          "raw": "Elder?",
+          "start": 18.51,
+          "end": 18.75
+        },
+        {
+          "raw": "Ha!",
+          "start": 19.07,
+          "end": 19.29
+        },
+        {
+          "raw": "Is",
+          "start": 19.51,
+          "end": 19.59
+        },
+        {
+          "raw": "he",
+          "start": 19.59,
+          "end": 19.75
+        },
+        {
+          "raw": "dead,",
+          "start": 19.75,
+          "end": 19.97
+        },
+        {
+          "raw": "bully",
+          "start": 20.11,
+          "end": 20.21
+        },
+        {
+          "raw": "-stale?",
+          "start": 20.21,
+          "end": 20.57
+        },
+        {
+          "raw": "Is",
+          "start": 20.89,
+          "end": 20.99
+        },
+        {
+          "raw": "he",
+          "start": 20.99,
+          "end": 21.13
+        },
+        {
+          "raw": "dead?",
+          "start": 21.13,
+          "end": 21.41
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "So",
+        "did",
+        "I",
+        "mine,",
+        "to",
+        "build",
+        "upon",
+        "a",
+        "foolish",
+        "woman's",
+        "promise."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          1
+        ],
+        [
+          "equal",
+          5,
+          6,
+          1,
+          2
+        ],
+        [
+          "replace",
+          6,
+          12,
+          2,
+          68
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          12,
+          2,
+          68
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fight,",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "fight",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.07,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "foyne,",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "foyne",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.85,
+          "end": 2.87,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "thee",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "traverse,",
+          "start": 3.17,
+          "end": 3.55,
+          "key": "traverse",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.01,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "see",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.19,
+          "end": 4.35,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 4.35,
+          "end": 4.57,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.73,
+          "end": 4.77,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.77,
+          "end": 4.97,
+          "key": "see",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.97,
+          "end": 5.11,
+          "key": "thee",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 5.11,
+          "end": 5.41,
+          "key": "there",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.79,
+          "end": 5.87,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 5.87,
+          "end": 6.03,
+          "key": "see",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 6.03,
+          "end": 6.19,
+          "key": "thee",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 6.19,
+          "end": 6.47,
+          "key": "pass",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 6.47,
+          "end": 6.69,
+          "key": "thy",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "punto,",
+          "start": 6.69,
+          "end": 7.13,
+          "key": "punto",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 7.25,
+          "end": 7.37,
+          "key": "thy",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "stock,",
+          "start": 7.37,
+          "end": 7.73,
+          "key": "stock",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 7.93,
+          "end": 7.99,
+          "key": "thy",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "reverse,",
+          "start": 7.99,
+          "end": 8.35,
+          "key": "reverse",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 8.57,
+          "end": 8.65,
+          "key": "thy",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "distance,",
+          "start": 8.65,
+          "end": 9.07,
+          "key": "distance",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 9.27,
+          "end": 9.31,
+          "key": "thy",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "montant.",
+          "start": 9.31,
+          "end": 9.75,
+          "key": "montant",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 10.37,
+          "end": 10.57,
+          "key": "is",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.57,
+          "end": 10.69,
+          "key": "he",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 10.69,
+          "end": 10.95,
+          "key": "dead",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 11.09,
+          "end": 11.17,
+          "key": "my",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Ethiopian?",
+          "start": 11.17,
+          "end": 11.57,
+          "key": "ethiopian",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 12.35,
+          "end": 12.47,
+          "key": "is",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.47,
+          "end": 12.61,
+          "key": "he",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 12.61,
+          "end": 12.83,
+          "key": "dead",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.93,
+          "end": 13.03,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Francisco?",
+          "start": 13.03,
+          "end": 13.41,
+          "key": "francisco",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Twenty",
+          "start": 14.09,
+          "end": 14.27,
+          "key": "twenty",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "-five",
+          "start": 14.27,
+          "end": 14.57,
+          "key": "five",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "ha,",
+          "start": 14.57,
+          "end": 14.79,
+          "key": "ha",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "bully.",
+          "start": 15.03,
+          "end": 15.03,
+          "key": "bully",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 15.47,
+          "end": 15.61,
+          "key": "what",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 15.61,
+          "end": 15.81,
+          "key": "says",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 15.81,
+          "end": 16.05,
+          "key": "my",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Aesculapius?",
+          "start": 16.05,
+          "end": 16.87,
+          "key": "aesculapius",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 17.29,
+          "end": 17.43,
+          "key": "my",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Galen?",
+          "start": 17.43,
+          "end": 17.81,
+          "key": "galen",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 18.01,
+          "end": 18.17,
+          "key": "my",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 18.17,
+          "end": 18.37,
+          "key": "heart",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.37,
+          "end": 18.51,
+          "key": "of",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Elder?",
+          "start": 18.51,
+          "end": 18.75,
+          "key": "elder",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Ha!",
+          "start": 19.07,
+          "end": 19.29,
+          "key": "ha",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 19.51,
+          "end": 19.59,
+          "key": "is",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 19.59,
+          "end": 19.75,
+          "key": "he",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 19.75,
+          "end": 19.97,
+          "key": "dead",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "bully",
+          "start": 20.11,
+          "end": 20.21,
+          "key": "bully",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "-stale?",
+          "start": 20.21,
+          "end": 20.57,
+          "key": "stale",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 20.89,
+          "end": 20.99,
+          "key": "is",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 20.99,
+          "end": 21.13,
+          "key": "he",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "dead?",
+          "start": 21.13,
+          "end": 21.41,
+          "key": "dead",
+          "pieces": [
+            67
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.555
+        },
+        {
+          "text": "So",
+          "start": 0.555,
+          "end": 0.833
+        },
+        {
+          "text": "did",
+          "start": 0.833,
+          "end": 0.972
+        },
+        {
+          "text": "I",
+          "start": 0.972,
+          "end": 1.041
+        },
+        {
+          "text": "mine,",
+          "start": 1.041,
+          "end": 1.075
+        },
+        {
+          "text": "to",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "build",
+          "start": 1.31,
+          "end": 11.36
+        },
+        {
+          "text": "upon",
+          "start": 11.36,
+          "end": 16.385
+        },
+        {
+          "text": "a",
+          "start": 16.385,
+          "end": 18.898
+        },
+        {
+          "text": "foolish",
+          "start": 18.898,
+          "end": 20.154
+        },
+        {
+          "text": "woman's",
+          "start": 20.154,
+          "end": 20.782
+        },
+        {
+          "text": "promise.",
+          "start": 20.782,
+          "end": 21.096
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 68,
+        "matched_words": 1
+      },
+      "match_ratio": 0.08333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.7724327268078923
+    },
+    {
+      "asr_seconds": 0.6107191871851683,
+      "alignment_seconds": 0.0003667818382382393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "So, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " host to see thee fight to see thee foin to see thee traverse to see thee here to see thee there to see thee pass thy",
+          "start": 0.05,
+          "end": 6.69,
+          "words": [
+            {
+              "text": " host",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.0281219482421875
+            },
+            {
+              "text": " to",
+              "start": 0.69,
+              "end": 1.29,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " see",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " thee",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.48828125
+            },
+            {
+              "text": " fight",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " to",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " see",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thee",
+              "start": 2.23,
+              "end": 2.37,
+              "probability": 0.43310546875
+            },
+            {
+              "text": " foin",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.533935546875
+            },
+            {
+              "text": " to",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.984375
+            },
+            {
+              "text": " see",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thee",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " traverse",
+              "start": 3.17,
+              "end": 3.59,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " to",
+              "start": 3.59,
+              "end": 4.01,
+              "probability": 0.98046875
+            },
+            {
+              "text": " see",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " thee",
+              "start": 4.19,
+              "end": 4.33,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " here",
+              "start": 4.33,
+              "end": 4.59,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " to",
+              "start": 4.59,
+              "end": 4.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " see",
+              "start": 4.77,
+              "end": 4.95,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thee",
+              "start": 4.95,
+              "end": 5.11,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " there",
+              "start": 5.11,
+              "end": 5.45,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " to",
+              "start": 5.45,
+              "end": 5.87,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " see",
+              "start": 5.87,
+              "end": 6.01,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " thee",
+              "start": 6.01,
+              "end": 6.17,
+              "probability": 0.51953125
+            },
+            {
+              "text": " pass",
+              "start": 6.17,
+              "end": 6.47,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " thy",
+              "start": 6.47,
+              "end": 6.69,
+              "probability": 0.8837890625
+            }
+          ]
+        },
+        {
+          "text": " Punto thy stock thy reverse thy distance thy Montaint. Is he dead my Ethiopian? Is he dead my Francisco?",
+          "start": 6.69,
+          "end": 13.43,
+          "words": [
+            {
+              "text": " Punto",
+              "start": 6.69,
+              "end": 7.15,
+              "probability": 0.6693115234375
+            },
+            {
+              "text": " thy",
+              "start": 7.15,
+              "end": 7.35,
+              "probability": 0.89453125
+            },
+            {
+              "text": " stock",
+              "start": 7.35,
+              "end": 7.73,
+              "probability": 0.779296875
+            },
+            {
+              "text": " thy",
+              "start": 7.73,
+              "end": 7.99,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " reverse",
+              "start": 7.99,
+              "end": 8.39,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " thy",
+              "start": 8.39,
+              "end": 8.65,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " distance",
+              "start": 8.65,
+              "end": 9.07,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " thy",
+              "start": 9.07,
+              "end": 9.29,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Montaint.",
+              "start": 9.29,
+              "end": 9.95,
+              "probability": 0.2987060546875
+            },
+            {
+              "text": " Is",
+              "start": 10.23,
+              "end": 10.57,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " he",
+              "start": 10.57,
+              "end": 10.69,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " dead",
+              "start": 10.69,
+              "end": 10.95,
+              "probability": 0.982421875
+            },
+            {
+              "text": " my",
+              "start": 10.95,
+              "end": 11.17,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Ethiopian?",
+              "start": 11.17,
+              "end": 11.65,
+              "probability": 0.91796875
+            },
+            {
+              "text": " Is",
+              "start": 12.33,
+              "end": 12.47,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " he",
+              "start": 12.47,
+              "end": 12.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " dead",
+              "start": 12.59,
+              "end": 12.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " my",
+              "start": 12.83,
+              "end": 13.01,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Francisco?",
+              "start": 13.01,
+              "end": 13.43,
+              "probability": 0.82763671875
+            }
+          ]
+        },
+        {
+          "text": " 25 ha bully what says my isculapius my Galen my heart of elder ha is he dead bully stale is he dead",
+          "start": 14.15,
+          "end": 21.43,
+          "words": [
+            {
+              "text": " 25",
+              "start": 14.15,
+              "end": 14.49,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " ha",
+              "start": 14.49,
+              "end": 14.79,
+              "probability": 0.83984375
+            },
+            {
+              "text": " bully",
+              "start": 14.79,
+              "end": 15.09,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " what",
+              "start": 15.09,
+              "end": 15.61,
+              "probability": 0.36669921875
+            },
+            {
+              "text": " says",
+              "start": 15.61,
+              "end": 15.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 15.81,
+              "end": 16.05,
+              "probability": 0.982421875
+            },
+            {
+              "text": " isculapius",
+              "start": 16.05,
+              "end": 16.91,
+              "probability": 0.631134033203125
+            },
+            {
+              "text": " my",
+              "start": 16.91,
+              "end": 17.41,
+              "probability": 0.40625
+            },
+            {
+              "text": " Galen",
+              "start": 17.41,
+              "end": 17.83,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " my",
+              "start": 17.83,
+              "end": 18.17,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " heart",
+              "start": 18.17,
+              "end": 18.39,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " of",
+              "start": 18.39,
+              "end": 18.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " elder",
+              "start": 18.51,
+              "end": 18.81,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " ha",
+              "start": 18.81,
+              "end": 19.29,
+              "probability": 0.2066650390625
+            },
+            {
+              "text": " is",
+              "start": 19.29,
+              "end": 19.59,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " he",
+              "start": 19.59,
+              "end": 19.73,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " dead",
+              "start": 19.73,
+              "end": 19.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " bully",
+              "start": 19.97,
+              "end": 20.21,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " stale",
+              "start": 20.21,
+              "end": 20.55,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " is",
+              "start": 20.55,
+              "end": 20.99,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " he",
+              "start": 20.99,
+              "end": 21.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dead",
+              "start": 21.13,
+              "end": 21.43,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "host",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 1.29
+        },
+        {
+          "raw": "see",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "thee",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "fight",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "to",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "see",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "thee",
+          "start": 2.23,
+          "end": 2.37
+        },
+        {
+          "raw": "foin",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "see",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "thee",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "traverse",
+          "start": 3.17,
+          "end": 3.59
+        },
+        {
+          "raw": "to",
+          "start": 3.59,
+          "end": 4.01
+        },
+        {
+          "raw": "see",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "thee",
+          "start": 4.19,
+          "end": 4.33
+        },
+        {
+          "raw": "here",
+          "start": 4.33,
+          "end": 4.59
+        },
+        {
+          "raw": "to",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "raw": "see",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "raw": "thee",
+          "start": 4.95,
+          "end": 5.11
+        },
+        {
+          "raw": "there",
+          "start": 5.11,
+          "end": 5.45
+        },
+        {
+          "raw": "to",
+          "start": 5.45,
+          "end": 5.87
+        },
+        {
+          "raw": "see",
+          "start": 5.87,
+          "end": 6.01
+        },
+        {
+          "raw": "thee",
+          "start": 6.01,
+          "end": 6.17
+        },
+        {
+          "raw": "pass",
+          "start": 6.17,
+          "end": 6.47
+        },
+        {
+          "raw": "thy",
+          "start": 6.47,
+          "end": 6.69
+        },
+        {
+          "raw": "Punto",
+          "start": 6.69,
+          "end": 7.15
+        },
+        {
+          "raw": "thy",
+          "start": 7.15,
+          "end": 7.35
+        },
+        {
+          "raw": "stock",
+          "start": 7.35,
+          "end": 7.73
+        },
+        {
+          "raw": "thy",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "raw": "reverse",
+          "start": 7.99,
+          "end": 8.39
+        },
+        {
+          "raw": "thy",
+          "start": 8.39,
+          "end": 8.65
+        },
+        {
+          "raw": "distance",
+          "start": 8.65,
+          "end": 9.07
+        },
+        {
+          "raw": "thy",
+          "start": 9.07,
+          "end": 9.29
+        },
+        {
+          "raw": "Montaint.",
+          "start": 9.29,
+          "end": 9.95
+        },
+        {
+          "raw": "Is",
+          "start": 10.23,
+          "end": 10.57
+        },
+        {
+          "raw": "he",
+          "start": 10.57,
+          "end": 10.69
+        },
+        {
+          "raw": "dead",
+          "start": 10.69,
+          "end": 10.95
+        },
+        {
+          "raw": "my",
+          "start": 10.95,
+          "end": 11.17
+        },
+        {
+          "raw": "Ethiopian?",
+          "start": 11.17,
+          "end": 11.65
+        },
+        {
+          "raw": "Is",
+          "start": 12.33,
+          "end": 12.47
+        },
+        {
+          "raw": "he",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "raw": "dead",
+          "start": 12.59,
+          "end": 12.83
+        },
+        {
+          "raw": "my",
+          "start": 12.83,
+          "end": 13.01
+        },
+        {
+          "raw": "Francisco?",
+          "start": 13.01,
+          "end": 13.43
+        },
+        {
+          "raw": "25",
+          "start": 14.15,
+          "end": 14.49
+        },
+        {
+          "raw": "ha",
+          "start": 14.49,
+          "end": 14.79
+        },
+        {
+          "raw": "bully",
+          "start": 14.79,
+          "end": 15.09
+        },
+        {
+          "raw": "what",
+          "start": 15.09,
+          "end": 15.61
+        },
+        {
+          "raw": "says",
+          "start": 15.61,
+          "end": 15.81
+        },
+        {
+          "raw": "my",
+          "start": 15.81,
+          "end": 16.05
+        },
+        {
+          "raw": "isculapius",
+          "start": 16.05,
+          "end": 16.91
+        },
+        {
+          "raw": "my",
+          "start": 16.91,
+          "end": 17.41
+        },
+        {
+          "raw": "Galen",
+          "start": 17.41,
+          "end": 17.83
+        },
+        {
+          "raw": "my",
+          "start": 17.83,
+          "end": 18.17
+        },
+        {
+          "raw": "heart",
+          "start": 18.17,
+          "end": 18.39
+        },
+        {
+          "raw": "of",
+          "start": 18.39,
+          "end": 18.51
+        },
+        {
+          "raw": "elder",
+          "start": 18.51,
+          "end": 18.81
+        },
+        {
+          "raw": "ha",
+          "start": 18.81,
+          "end": 19.29
+        },
+        {
+          "raw": "is",
+          "start": 19.29,
+          "end": 19.59
+        },
+        {
+          "raw": "he",
+          "start": 19.59,
+          "end": 19.73
+        },
+        {
+          "raw": "dead",
+          "start": 19.73,
+          "end": 19.97
+        },
+        {
+          "raw": "bully",
+          "start": 19.97,
+          "end": 20.21
+        },
+        {
+          "raw": "stale",
+          "start": 20.21,
+          "end": 20.55
+        },
+        {
+          "raw": "is",
+          "start": 20.55,
+          "end": 20.99
+        },
+        {
+          "raw": "he",
+          "start": 20.99,
+          "end": 21.13
+        },
+        {
+          "raw": "dead",
+          "start": 21.13,
+          "end": 21.43
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "So",
+        "did",
+        "I",
+        "mine,",
+        "to",
+        "build",
+        "upon",
+        "a",
+        "foolish",
+        "woman's",
+        "promise."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          1
+        ],
+        [
+          "equal",
+          5,
+          6,
+          1,
+          2
+        ],
+        [
+          "replace",
+          6,
+          12,
+          2,
+          67
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          12,
+          2,
+          67
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "host",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.69,
+          "end": 1.29,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "fight",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.23,
+          "end": 2.37,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "foin",
+          "start": 2.37,
+          "end": 2.69,
+          "key": "foin",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "thee",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "traverse",
+          "start": 3.17,
+          "end": 3.59,
+          "key": "traverse",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.59,
+          "end": 4.01,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "see",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.19,
+          "end": 4.33,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 4.33,
+          "end": 4.59,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.59,
+          "end": 4.77,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.77,
+          "end": 4.95,
+          "key": "see",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.95,
+          "end": 5.11,
+          "key": "thee",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 5.11,
+          "end": 5.45,
+          "key": "there",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.45,
+          "end": 5.87,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 5.87,
+          "end": 6.01,
+          "key": "see",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 6.01,
+          "end": 6.17,
+          "key": "thee",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 6.17,
+          "end": 6.47,
+          "key": "pass",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 6.47,
+          "end": 6.69,
+          "key": "thy",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Punto",
+          "start": 6.69,
+          "end": 7.15,
+          "key": "punto",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 7.15,
+          "end": 7.35,
+          "key": "thy",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "stock",
+          "start": 7.35,
+          "end": 7.73,
+          "key": "stock",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 7.73,
+          "end": 7.99,
+          "key": "thy",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "reverse",
+          "start": 7.99,
+          "end": 8.39,
+          "key": "reverse",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 8.39,
+          "end": 8.65,
+          "key": "thy",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "distance",
+          "start": 8.65,
+          "end": 9.07,
+          "key": "distance",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 9.07,
+          "end": 9.29,
+          "key": "thy",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Montaint.",
+          "start": 9.29,
+          "end": 9.95,
+          "key": "montaint",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 10.23,
+          "end": 10.57,
+          "key": "is",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.57,
+          "end": 10.69,
+          "key": "he",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 10.69,
+          "end": 10.95,
+          "key": "dead",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 10.95,
+          "end": 11.17,
+          "key": "my",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Ethiopian?",
+          "start": 11.17,
+          "end": 11.65,
+          "key": "ethiopian",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 12.33,
+          "end": 12.47,
+          "key": "is",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.47,
+          "end": 12.59,
+          "key": "he",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 12.59,
+          "end": 12.83,
+          "key": "dead",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.83,
+          "end": 13.01,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Francisco?",
+          "start": 13.01,
+          "end": 13.43,
+          "key": "francisco",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "25",
+          "start": 14.15,
+          "end": 14.49,
+          "key": "twentyfive",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 14.49,
+          "end": 14.79,
+          "key": "ha",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "bully",
+          "start": 14.79,
+          "end": 15.09,
+          "key": "bully",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 15.09,
+          "end": 15.61,
+          "key": "what",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 15.61,
+          "end": 15.81,
+          "key": "says",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 15.81,
+          "end": 16.05,
+          "key": "my",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "isculapius",
+          "start": 16.05,
+          "end": 16.91,
+          "key": "isculapius",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 16.91,
+          "end": 17.41,
+          "key": "my",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Galen",
+          "start": 17.41,
+          "end": 17.83,
+          "key": "galen",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.83,
+          "end": 18.17,
+          "key": "my",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 18.17,
+          "end": 18.39,
+          "key": "heart",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.39,
+          "end": 18.51,
+          "key": "of",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "elder",
+          "start": 18.51,
+          "end": 18.81,
+          "key": "elder",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "ha",
+          "start": 18.81,
+          "end": 19.29,
+          "key": "ha",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 19.29,
+          "end": 19.59,
+          "key": "is",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 19.59,
+          "end": 19.73,
+          "key": "he",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 19.73,
+          "end": 19.97,
+          "key": "dead",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "bully",
+          "start": 19.97,
+          "end": 20.21,
+          "key": "bully",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "stale",
+          "start": 20.21,
+          "end": 20.55,
+          "key": "stale",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 20.55,
+          "end": 20.99,
+          "key": "is",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 20.99,
+          "end": 21.13,
+          "key": "he",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 21.13,
+          "end": 21.43,
+          "key": "dead",
+          "pieces": [
+            66
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "So",
+          "start": 0.345,
+          "end": 0.517
+        },
+        {
+          "text": "did",
+          "start": 0.517,
+          "end": 0.603
+        },
+        {
+          "text": "I",
+          "start": 0.603,
+          "end": 0.646
+        },
+        {
+          "text": "mine,",
+          "start": 0.646,
+          "end": 0.668
+        },
+        {
+          "text": "to",
+          "start": 0.69,
+          "end": 1.29
+        },
+        {
+          "text": "build",
+          "start": 1.29,
+          "end": 11.36
+        },
+        {
+          "text": "upon",
+          "start": 11.36,
+          "end": 16.395
+        },
+        {
+          "text": "a",
+          "start": 16.395,
+          "end": 18.913
+        },
+        {
+          "text": "foolish",
+          "start": 18.913,
+          "end": 20.172
+        },
+        {
+          "text": "woman's",
+          "start": 20.172,
+          "end": 20.801
+        },
+        {
+          "text": "promise.",
+          "start": 20.801,
+          "end": 21.115
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 67,
+        "matched_words": 1
+      },
+      "match_ratio": 0.08333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6114071765914559
+    },
+    {
+      "asr_seconds": 4.281331587582827,
+      "alignment_seconds": 0.0011935634538531303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Host, to see thee fight, to see thee foyne, to see thee traverse, to see thee here, to",
+          "start": 0.05,
+          "end": 4.77,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.462890625
+            },
+            {
+              "text": " to",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " see",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " thee",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.90234375
+            },
+            {
+              "text": " fight,",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.953125
+            },
+            {
+              "text": " to",
+              "start": 2.05,
+              "end": 2.07,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " see",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " foyne,",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.5997721354166666
+            },
+            {
+              "text": " to",
+              "start": 2.85,
+              "end": 2.87,
+              "probability": 0.958984375
+            },
+            {
+              "text": " see",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thee",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.990234375
+            },
+            {
+              "text": " traverse,",
+              "start": 3.17,
+              "end": 3.55,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.01,
+              "probability": 0.94140625
+            },
+            {
+              "text": " see",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thee",
+              "start": 4.19,
+              "end": 4.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " here,",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " to",
+              "start": 4.73,
+              "end": 4.77,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " see thee there, to see thee pass thy punto, thy stock, thy reverse, thy distance, thy",
+          "start": 4.77,
+          "end": 9.31,
+          "words": [
+            {
+              "text": " see",
+              "start": 4.77,
+              "end": 4.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thee",
+              "start": 4.97,
+              "end": 5.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there,",
+              "start": 5.11,
+              "end": 5.41,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 5.79,
+              "end": 5.87,
+              "probability": 0.9375
+            },
+            {
+              "text": " see",
+              "start": 5.87,
+              "end": 6.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 6.03,
+              "end": 6.19,
+              "probability": 0.984375
+            },
+            {
+              "text": " pass",
+              "start": 6.19,
+              "end": 6.47,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " thy",
+              "start": 6.47,
+              "end": 6.69,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " punto,",
+              "start": 6.69,
+              "end": 7.13,
+              "probability": 0.861083984375
+            },
+            {
+              "text": " thy",
+              "start": 7.25,
+              "end": 7.37,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " stock,",
+              "start": 7.37,
+              "end": 7.73,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " thy",
+              "start": 7.93,
+              "end": 7.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " reverse,",
+              "start": 7.99,
+              "end": 8.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thy",
+              "start": 8.57,
+              "end": 8.65,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " distance,",
+              "start": 8.65,
+              "end": 9.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thy",
+              "start": 9.27,
+              "end": 9.31,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " montant.",
+          "start": 9.31,
+          "end": 9.75,
+          "words": [
+            {
+              "text": " montant.",
+              "start": 9.31,
+              "end": 9.75,
+              "probability": 0.402099609375
+            }
+          ]
+        },
+        {
+          "text": " Is he dead, my Ethiopian?",
+          "start": 10.37,
+          "end": 11.57,
+          "words": [
+            {
+              "text": " Is",
+              "start": 10.37,
+              "end": 10.57,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " he",
+              "start": 10.57,
+              "end": 10.69,
+              "probability": 0.982421875
+            },
+            {
+              "text": " dead,",
+              "start": 10.69,
+              "end": 10.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 11.09,
+              "end": 11.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Ethiopian?",
+              "start": 11.17,
+              "end": 11.57,
+              "probability": 0.96826171875
+            }
+          ]
+        },
+        {
+          "text": " Is he dead, my Francisco?",
+          "start": 12.35,
+          "end": 13.41,
+          "words": [
+            {
+              "text": " Is",
+              "start": 12.35,
+              "end": 12.47,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " he",
+              "start": 12.47,
+              "end": 12.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dead,",
+              "start": 12.61,
+              "end": 12.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 12.93,
+              "end": 13.03,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Francisco?",
+              "start": 13.03,
+              "end": 13.41,
+              "probability": 0.642578125
+            }
+          ]
+        },
+        {
+          "text": " Twenty-five ha, bully.",
+          "start": 14.09,
+          "end": 15.03,
+          "words": [
+            {
+              "text": " Twenty",
+              "start": 14.09,
+              "end": 14.27,
+              "probability": 0.6943359375
+            },
+            {
+              "text": "-five",
+              "start": 14.27,
+              "end": 14.57,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " ha,",
+              "start": 14.57,
+              "end": 14.79,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " bully.",
+              "start": 15.03,
+              "end": 15.03,
+              "probability": 0.9384765625
+            }
+          ]
+        },
+        {
+          "text": " What says my Isculapius?",
+          "start": 15.47,
+          "end": 16.87,
+          "words": [
+            {
+              "text": " What",
+              "start": 15.47,
+              "end": 15.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " says",
+              "start": 15.61,
+              "end": 15.81,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " my",
+              "start": 15.81,
+              "end": 16.05,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Isculapius?",
+              "start": 16.05,
+              "end": 16.87,
+              "probability": 0.704132080078125
+            }
+          ]
+        },
+        {
+          "text": " My Galen?",
+          "start": 17.27,
+          "end": 17.81,
+          "words": [
+            {
+              "text": " My",
+              "start": 17.27,
+              "end": 17.43,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Galen?",
+              "start": 17.43,
+              "end": 17.81,
+              "probability": 0.86083984375
+            }
+          ]
+        },
+        {
+          "text": " My heart of Elder?",
+          "start": 18.01,
+          "end": 18.75,
+          "words": [
+            {
+              "text": " My",
+              "start": 18.01,
+              "end": 18.17,
+              "probability": 0.91796875
+            },
+            {
+              "text": " heart",
+              "start": 18.17,
+              "end": 18.37,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " of",
+              "start": 18.37,
+              "end": 18.51,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Elder?",
+              "start": 18.51,
+              "end": 18.75,
+              "probability": 0.4560546875
+            }
+          ]
+        },
+        {
+          "text": " Ha!",
+          "start": 19.07,
+          "end": 19.29,
+          "words": [
+            {
+              "text": " Ha!",
+              "start": 19.07,
+              "end": 19.29,
+              "probability": 0.7783203125
+            }
+          ]
+        },
+        {
+          "text": " Is he dead, bully-stale?",
+          "start": 19.51,
+          "end": 20.57,
+          "words": [
+            {
+              "text": " Is",
+              "start": 19.51,
+              "end": 19.59,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " he",
+              "start": 19.59,
+              "end": 19.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dead,",
+              "start": 19.75,
+              "end": 19.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bully",
+              "start": 20.11,
+              "end": 20.21,
+              "probability": 0.426513671875
+            },
+            {
+              "text": "-stale?",
+              "start": 20.21,
+              "end": 20.57,
+              "probability": 0.76611328125
+            }
+          ]
+        },
+        {
+          "text": " Is he dead?",
+          "start": 20.89,
+          "end": 21.41,
+          "words": [
+            {
+              "text": " Is",
+              "start": 20.89,
+              "end": 20.99,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " he",
+              "start": 20.99,
+              "end": 21.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dead?",
+              "start": 21.13,
+              "end": 21.41,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "to",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "see",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "thee",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "fight,",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.07
+        },
+        {
+          "raw": "see",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "thee",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "foyne,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "to",
+          "start": 2.85,
+          "end": 2.87
+        },
+        {
+          "raw": "see",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "thee",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "traverse,",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.01
+        },
+        {
+          "raw": "see",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "thee",
+          "start": 4.19,
+          "end": 4.35
+        },
+        {
+          "raw": "here,",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "to",
+          "start": 4.73,
+          "end": 4.77
+        },
+        {
+          "raw": "see",
+          "start": 4.77,
+          "end": 4.97
+        },
+        {
+          "raw": "thee",
+          "start": 4.97,
+          "end": 5.11
+        },
+        {
+          "raw": "there,",
+          "start": 5.11,
+          "end": 5.41
+        },
+        {
+          "raw": "to",
+          "start": 5.79,
+          "end": 5.87
+        },
+        {
+          "raw": "see",
+          "start": 5.87,
+          "end": 6.03
+        },
+        {
+          "raw": "thee",
+          "start": 6.03,
+          "end": 6.19
+        },
+        {
+          "raw": "pass",
+          "start": 6.19,
+          "end": 6.47
+        },
+        {
+          "raw": "thy",
+          "start": 6.47,
+          "end": 6.69
+        },
+        {
+          "raw": "punto,",
+          "start": 6.69,
+          "end": 7.13
+        },
+        {
+          "raw": "thy",
+          "start": 7.25,
+          "end": 7.37
+        },
+        {
+          "raw": "stock,",
+          "start": 7.37,
+          "end": 7.73
+        },
+        {
+          "raw": "thy",
+          "start": 7.93,
+          "end": 7.99
+        },
+        {
+          "raw": "reverse,",
+          "start": 7.99,
+          "end": 8.35
+        },
+        {
+          "raw": "thy",
+          "start": 8.57,
+          "end": 8.65
+        },
+        {
+          "raw": "distance,",
+          "start": 8.65,
+          "end": 9.07
+        },
+        {
+          "raw": "thy",
+          "start": 9.27,
+          "end": 9.31
+        },
+        {
+          "raw": "montant.",
+          "start": 9.31,
+          "end": 9.75
+        },
+        {
+          "raw": "Is",
+          "start": 10.37,
+          "end": 10.57
+        },
+        {
+          "raw": "he",
+          "start": 10.57,
+          "end": 10.69
+        },
+        {
+          "raw": "dead,",
+          "start": 10.69,
+          "end": 10.95
+        },
+        {
+          "raw": "my",
+          "start": 11.09,
+          "end": 11.17
+        },
+        {
+          "raw": "Ethiopian?",
+          "start": 11.17,
+          "end": 11.57
+        },
+        {
+          "raw": "Is",
+          "start": 12.35,
+          "end": 12.47
+        },
+        {
+          "raw": "he",
+          "start": 12.47,
+          "end": 12.61
+        },
+        {
+          "raw": "dead,",
+          "start": 12.61,
+          "end": 12.83
+        },
+        {
+          "raw": "my",
+          "start": 12.93,
+          "end": 13.03
+        },
+        {
+          "raw": "Francisco?",
+          "start": 13.03,
+          "end": 13.41
+        },
+        {
+          "raw": "Twenty",
+          "start": 14.09,
+          "end": 14.27
+        },
+        {
+          "raw": "-five",
+          "start": 14.27,
+          "end": 14.57
+        },
+        {
+          "raw": "ha,",
+          "start": 14.57,
+          "end": 14.79
+        },
+        {
+          "raw": "bully.",
+          "start": 15.03,
+          "end": 15.03
+        },
+        {
+          "raw": "What",
+          "start": 15.47,
+          "end": 15.61
+        },
+        {
+          "raw": "says",
+          "start": 15.61,
+          "end": 15.81
+        },
+        {
+          "raw": "my",
+          "start": 15.81,
+          "end": 16.05
+        },
+        {
+          "raw": "Isculapius?",
+          "start": 16.05,
+          "end": 16.87
+        },
+        {
+          "raw": "My",
+          "start": 17.27,
+          "end": 17.43
+        },
+        {
+          "raw": "Galen?",
+          "start": 17.43,
+          "end": 17.81
+        },
+        {
+          "raw": "My",
+          "start": 18.01,
+          "end": 18.17
+        },
+        {
+          "raw": "heart",
+          "start": 18.17,
+          "end": 18.37
+        },
+        {
+          "raw": "of",
+          "start": 18.37,
+          "end": 18.51
+        },
+        {
+          "raw": "Elder?",
+          "start": 18.51,
+          "end": 18.75
+        },
+        {
+          "raw": "Ha!",
+          "start": 19.07,
+          "end": 19.29
+        },
+        {
+          "raw": "Is",
+          "start": 19.51,
+          "end": 19.59
+        },
+        {
+          "raw": "he",
+          "start": 19.59,
+          "end": 19.75
+        },
+        {
+          "raw": "dead,",
+          "start": 19.75,
+          "end": 19.97
+        },
+        {
+          "raw": "bully",
+          "start": 20.11,
+          "end": 20.21
+        },
+        {
+          "raw": "-stale?",
+          "start": 20.21,
+          "end": 20.57
+        },
+        {
+          "raw": "Is",
+          "start": 20.89,
+          "end": 20.99
+        },
+        {
+          "raw": "he",
+          "start": 20.99,
+          "end": 21.13
+        },
+        {
+          "raw": "dead?",
+          "start": 21.13,
+          "end": 21.41
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "So",
+        "did",
+        "I",
+        "mine,",
+        "to",
+        "build",
+        "upon",
+        "a",
+        "foolish",
+        "woman's",
+        "promise."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          1
+        ],
+        [
+          "equal",
+          5,
+          6,
+          1,
+          2
+        ],
+        [
+          "replace",
+          6,
+          12,
+          2,
+          68
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          12,
+          2,
+          68
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fight,",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "fight",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.07,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "thee",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "foyne,",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "foyne",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.85,
+          "end": 2.87,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "thee",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "traverse,",
+          "start": 3.17,
+          "end": 3.55,
+          "key": "traverse",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.01,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "see",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.19,
+          "end": 4.35,
+          "key": "thee",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 4.35,
+          "end": 4.57,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.73,
+          "end": 4.77,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.77,
+          "end": 4.97,
+          "key": "see",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.97,
+          "end": 5.11,
+          "key": "thee",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 5.11,
+          "end": 5.41,
+          "key": "there",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.79,
+          "end": 5.87,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 5.87,
+          "end": 6.03,
+          "key": "see",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 6.03,
+          "end": 6.19,
+          "key": "thee",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "pass",
+          "start": 6.19,
+          "end": 6.47,
+          "key": "pass",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 6.47,
+          "end": 6.69,
+          "key": "thy",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "punto,",
+          "start": 6.69,
+          "end": 7.13,
+          "key": "punto",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 7.25,
+          "end": 7.37,
+          "key": "thy",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "stock,",
+          "start": 7.37,
+          "end": 7.73,
+          "key": "stock",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 7.93,
+          "end": 7.99,
+          "key": "thy",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "reverse,",
+          "start": 7.99,
+          "end": 8.35,
+          "key": "reverse",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 8.57,
+          "end": 8.65,
+          "key": "thy",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "distance,",
+          "start": 8.65,
+          "end": 9.07,
+          "key": "distance",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 9.27,
+          "end": 9.31,
+          "key": "thy",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "montant.",
+          "start": 9.31,
+          "end": 9.75,
+          "key": "montant",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 10.37,
+          "end": 10.57,
+          "key": "is",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 10.57,
+          "end": 10.69,
+          "key": "he",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 10.69,
+          "end": 10.95,
+          "key": "dead",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 11.09,
+          "end": 11.17,
+          "key": "my",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Ethiopian?",
+          "start": 11.17,
+          "end": 11.57,
+          "key": "ethiopian",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 12.35,
+          "end": 12.47,
+          "key": "is",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.47,
+          "end": 12.61,
+          "key": "he",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 12.61,
+          "end": 12.83,
+          "key": "dead",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.93,
+          "end": 13.03,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Francisco?",
+          "start": 13.03,
+          "end": 13.41,
+          "key": "francisco",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Twenty",
+          "start": 14.09,
+          "end": 14.27,
+          "key": "twenty",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "-five",
+          "start": 14.27,
+          "end": 14.57,
+          "key": "five",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "ha,",
+          "start": 14.57,
+          "end": 14.79,
+          "key": "ha",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "bully.",
+          "start": 15.03,
+          "end": 15.03,
+          "key": "bully",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 15.47,
+          "end": 15.61,
+          "key": "what",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 15.61,
+          "end": 15.81,
+          "key": "says",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 15.81,
+          "end": 16.05,
+          "key": "my",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Isculapius?",
+          "start": 16.05,
+          "end": 16.87,
+          "key": "isculapius",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 17.27,
+          "end": 17.43,
+          "key": "my",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Galen?",
+          "start": 17.43,
+          "end": 17.81,
+          "key": "galen",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 18.01,
+          "end": 18.17,
+          "key": "my",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 18.17,
+          "end": 18.37,
+          "key": "heart",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.37,
+          "end": 18.51,
+          "key": "of",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Elder?",
+          "start": 18.51,
+          "end": 18.75,
+          "key": "elder",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Ha!",
+          "start": 19.07,
+          "end": 19.29,
+          "key": "ha",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 19.51,
+          "end": 19.59,
+          "key": "is",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 19.59,
+          "end": 19.75,
+          "key": "he",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 19.75,
+          "end": 19.97,
+          "key": "dead",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "bully",
+          "start": 20.11,
+          "end": 20.21,
+          "key": "bully",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "-stale?",
+          "start": 20.21,
+          "end": 20.57,
+          "key": "stale",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 20.89,
+          "end": 20.99,
+          "key": "is",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 20.99,
+          "end": 21.13,
+          "key": "he",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "dead?",
+          "start": 21.13,
+          "end": 21.41,
+          "key": "dead",
+          "pieces": [
+            67
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.555
+        },
+        {
+          "text": "So",
+          "start": 0.555,
+          "end": 0.833
+        },
+        {
+          "text": "did",
+          "start": 0.833,
+          "end": 0.972
+        },
+        {
+          "text": "I",
+          "start": 0.972,
+          "end": 1.041
+        },
+        {
+          "text": "mine,",
+          "start": 1.041,
+          "end": 1.075
+        },
+        {
+          "text": "to",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "build",
+          "start": 1.31,
+          "end": 11.36
+        },
+        {
+          "text": "upon",
+          "start": 11.36,
+          "end": 16.385
+        },
+        {
+          "text": "a",
+          "start": 16.385,
+          "end": 18.898
+        },
+        {
+          "text": "foolish",
+          "start": 18.898,
+          "end": 20.154
+        },
+        {
+          "text": "woman's",
+          "start": 20.154,
+          "end": 20.782
+        },
+        {
+          "text": "promise.",
+          "start": 20.782,
+          "end": 21.096
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 68,
+        "matched_words": 1
+      },
+      "match_ratio": 0.08333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.2835306311026216
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "721804ffc10eae3017015470b227ad2f2dc8108d4a1d3dc4283fdfdb20cd9258",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

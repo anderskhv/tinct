@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "c2ec4985dc29da0a01b1174e81f5745548e29a81bc04b500349f3103e71a6ff2",
+  "attempts": [
+    {
+      "asr_seconds": 0.25618141796439886,
+      "alignment_seconds": 0.00036500999704003334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sixth citizen he has done nobly and cannot go without any honest man's voice",
+          "start": 0.08,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Sixth",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " citizen",
+              "start": 0.66,
+              "end": 1.16,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " he",
+              "start": 1.16,
+              "end": 1.88,
+              "probability": 0.444091796875
+            },
+            {
+              "text": " has",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.958984375
+            },
+            {
+              "text": " done",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nobly",
+              "start": 2.2,
+              "end": 2.68,
+              "probability": 0.757080078125
+            },
+            {
+              "text": " and",
+              "start": 2.68,
+              "end": 3.0,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cannot",
+              "start": 3.0,
+              "end": 3.2,
+              "probability": 0.9921875
+            },
+            {
+              "text": " go",
+              "start": 3.2,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " without",
+              "start": 3.5,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " any",
+              "start": 3.78,
+              "end": 4.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " honest",
+              "start": 4.08,
+              "end": 4.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man's",
+              "start": 4.48,
+              "end": 4.92,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " voice",
+              "start": 4.92,
+              "end": 5.16,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sixth",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "citizen",
+          "start": 0.66,
+          "end": 1.16
+        },
+        {
+          "raw": "he",
+          "start": 1.16,
+          "end": 1.88
+        },
+        {
+          "raw": "has",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "done",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "nobly",
+          "start": 2.2,
+          "end": 2.68
+        },
+        {
+          "raw": "and",
+          "start": 2.68,
+          "end": 3.0
+        },
+        {
+          "raw": "cannot",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "raw": "go",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "raw": "without",
+          "start": 3.5,
+          "end": 3.78
+        },
+        {
+          "raw": "any",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "raw": "honest",
+          "start": 4.08,
+          "end": 4.48
+        },
+        {
+          "raw": "man's",
+          "start": 4.48,
+          "end": 4.92
+        },
+        {
+          "raw": "voice",
+          "start": 4.92,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "Sixth",
+        "Citizen.",
+        "He",
+        "has",
+        "done",
+        "nobly,",
+        "and",
+        "cannot",
+        "go",
+        "without",
+        "any",
+        "honest",
+        "man's",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sixth",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "sixth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "citizen",
+          "start": 0.66,
+          "end": 1.16,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.16,
+          "end": 1.88,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.88,
+          "end": 2.0,
+          "key": "has",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "done",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nobly",
+          "start": 2.2,
+          "end": 2.68,
+          "key": "nobly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.68,
+          "end": 3.0,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.0,
+          "end": 3.2,
+          "key": "cannot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.2,
+          "end": 3.5,
+          "key": "go",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 3.5,
+          "end": 3.78,
+          "key": "without",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 3.78,
+          "end": 4.08,
+          "key": "any",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "honest",
+          "start": 4.08,
+          "end": 4.48,
+          "key": "honest",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 4.48,
+          "end": 4.92,
+          "key": "mans",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 4.92,
+          "end": 5.16,
+          "key": "voice",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sixth",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.66,
+          "end": 1.16
+        },
+        {
+          "text": "He",
+          "start": 1.16,
+          "end": 1.88
+        },
+        {
+          "text": "has",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "done",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "nobly,",
+          "start": 2.2,
+          "end": 2.68
+        },
+        {
+          "text": "and",
+          "start": 2.68,
+          "end": 3.0
+        },
+        {
+          "text": "cannot",
+          "start": 3.0,
+          "end": 3.2
+        },
+        {
+          "text": "go",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "text": "without",
+          "start": 3.5,
+          "end": 3.78
+        },
+        {
+          "text": "any",
+          "start": 3.78,
+          "end": 4.08
+        },
+        {
+          "text": "honest",
+          "start": 4.08,
+          "end": 4.48
+        },
+        {
+          "text": "man's",
+          "start": 4.48,
+          "end": 4.92
+        },
+        {
+          "text": "voice.",
+          "start": 4.92,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2566920630633831
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "365bcabbd1a5a52bafdaaa5b69cf075506727ca55ba2e7ea6726297771bb7e3f",
+  "selected_reasons": []
+}

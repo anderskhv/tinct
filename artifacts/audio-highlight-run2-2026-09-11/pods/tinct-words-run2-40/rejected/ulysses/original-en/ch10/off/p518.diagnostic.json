@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "b21803661944e8e7da552d594eda1fcde6dda034227d1f7aa054f9f79d82134a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3243007929995656,
+      "alignment_seconds": 0.000700084026902914,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ten years, he said, chewing and laughing. He's going to write something in ten years.",
+          "start": 0.08,
+          "end": 4.86,
+          "words": [
+            {
+              "text": " Ten",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " years,",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 1.06,
+              "end": 1.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said,",
+              "start": 1.12,
+              "end": 1.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " chewing",
+              "start": 1.86,
+              "end": 1.98,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " laughing.",
+              "start": 2.28,
+              "end": 2.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " He's",
+              "start": 3.26,
+              "end": 3.42,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " going",
+              "start": 3.42,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.54,
+              "end": 3.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " write",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 1.0
+            },
+            {
+              "text": " something",
+              "start": 3.8,
+              "end": 4.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 4.06,
+              "end": 4.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ten",
+              "start": 4.3,
+              "end": 4.5,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " years.",
+              "start": 4.5,
+              "end": 4.86,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ten",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "years,",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.12
+        },
+        {
+          "raw": "said,",
+          "start": 1.12,
+          "end": 1.44
+        },
+        {
+          "raw": "chewing",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "laughing.",
+          "start": 2.28,
+          "end": 2.62
+        },
+        {
+          "raw": "He's",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "raw": "going",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "raw": "to",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "raw": "write",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "something",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "raw": "in",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "raw": "ten",
+          "start": 4.3,
+          "end": 4.5
+        },
+        {
+          "raw": "years.",
+          "start": 4.5,
+          "end": 4.86
+        }
+      ],
+      "expected_tokens": [
+        "—Ten",
+        "years,",
+        "he",
+        "said,",
+        "chewing",
+        "and",
+        "laughing.",
+        "He",
+        "is",
+        "going",
+        "to",
+        "write",
+        "something",
+        "in",
+        "ten",
+        "years."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          16,
+          8,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ten",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "ten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "years,",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "years",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.12,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.12,
+          "end": 1.44,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "chewing",
+          "start": 1.86,
+          "end": 1.98,
+          "key": "chewing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.28,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "laughing.",
+          "start": 2.28,
+          "end": 2.62,
+          "key": "laughing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 3.26,
+          "end": 3.42,
+          "key": "hes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 3.42,
+          "end": 3.54,
+          "key": "going",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.54,
+          "end": 3.66,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "write",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "write",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 3.8,
+          "end": 4.06,
+          "key": "something",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.06,
+          "end": 4.3,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 4.3,
+          "end": 4.5,
+          "key": "ten",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "years.",
+          "start": 4.5,
+          "end": 4.86,
+          "key": "years",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ten",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "years,",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "text": "he",
+          "start": 1.06,
+          "end": 1.12
+        },
+        {
+          "text": "said,",
+          "start": 1.12,
+          "end": 1.44
+        },
+        {
+          "text": "chewing",
+          "start": 1.86,
+          "end": 1.98
+        },
+        {
+          "text": "and",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "laughing.",
+          "start": 2.28,
+          "end": 2.62
+        },
+        {
+          "text": "He",
+          "start": 2.62,
+          "end": 3.02
+        },
+        {
+          "text": "is",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "going",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "text": "to",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "text": "write",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "something",
+          "start": 3.8,
+          "end": 4.06
+        },
+        {
+          "text": "in",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "text": "ten",
+          "start": 4.3,
+          "end": 4.5
+        },
+        {
+          "text": "years.",
+          "start": 4.5,
+          "end": 4.86
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.32527136988937855
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "22401ee5ff2af643edf9a8e5b1b14c16bc0636f8be4278d331ca9575804807df",
+  "selected_reasons": []
+}

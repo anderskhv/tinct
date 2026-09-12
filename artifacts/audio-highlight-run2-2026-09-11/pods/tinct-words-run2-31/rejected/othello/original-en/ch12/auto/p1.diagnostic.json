@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "d03eb3527eb0e932300a2cc742cbbfac7d69ad83a163a67b2c122ddd8d5c4eb6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1807233253493905,
+      "alignment_seconds": 0.00022919708862900734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. You have seen nothing, then?",
+        "hotwords": "Othello, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, You have seen nothing, then?",
+          "start": 0.08,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.9524739583333334
+            },
+            {
+              "text": " You",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.015625
+            },
+            {
+              "text": " have",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " seen",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.9765625
+            },
+            {
+              "text": " nothing,",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.96875
+            },
+            {
+              "text": " then?",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "You",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "have",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "seen",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "nothing,",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "then?",
+          "start": 2.12,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "You",
+        "have",
+        "seen",
+        "nothing,",
+        "then?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "seen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nothing,",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "nothing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "then",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "You",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "have",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "seen",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "nothing,",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "then?",
+          "start": 2.12,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1810373510234058
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "686971a9a3b20cdf4cf9e17a0ace261b47b318c592e936388b9b509a0ffba08a",
+  "selected_reasons": []
+}

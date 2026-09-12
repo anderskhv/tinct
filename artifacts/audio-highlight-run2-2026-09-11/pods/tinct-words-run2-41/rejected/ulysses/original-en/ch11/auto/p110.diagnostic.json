@@ -1,0 +1,448 @@
+{
+  "complete": true,
+  "signature": "6d52f0855db5aeb5a2d3780faff9e4fd0d193ab462370e39f70f55bfae6f9f2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.31036817701533437,
+      "alignment_seconds": 0.00048297271132469177,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Miss Douce grunted in snuffy fogey's tone:",
+        "hotwords": "Miss, Douce"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Miss Douce grunted in snuffy fogey's tone,",
+          "start": 0.08,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.55029296875
+            },
+            {
+              "text": " Douce",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.4897308349609375
+            },
+            {
+              "text": " grunted",
+              "start": 0.94,
+              "end": 1.28,
+              "probability": 0.822509765625
+            },
+            {
+              "text": " in",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " snuffy",
+              "start": 1.44,
+              "end": 1.76,
+              "probability": 0.488525390625
+            },
+            {
+              "text": " fogey's",
+              "start": 1.76,
+              "end": 2.22,
+              "probability": 0.7224934895833334
+            },
+            {
+              "text": " tone,",
+              "start": 2.22,
+              "end": 2.48,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " Miss Douce grunted in snuffy fogey's tone,",
+          "start": 2.48,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 2.3126602172851562e-05
+            },
+            {
+              "text": " Douce",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.00026932358741760254
+            },
+            {
+              "text": " grunted",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.0027536749839782715
+            },
+            {
+              "text": " in",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 0.050994873046875
+            },
+            {
+              "text": " snuffy",
+              "start": 2.48,
+              "end": 2.48,
+              "probability": 4.735589027404785e-05
+            },
+            {
+              "text": " fogey's",
+              "start": 2.48,
+              "end": 2.6,
+              "probability": 0.00029329458872477215
+            },
+            {
+              "text": " tone,",
+              "start": 2.6,
+              "end": 2.62,
+              "probability": 0.004901885986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "Douce",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "grunted",
+          "start": 0.94,
+          "end": 1.28
+        },
+        {
+          "raw": "in",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "snuffy",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "raw": "fogey's",
+          "start": 1.76,
+          "end": 2.22
+        },
+        {
+          "raw": "tone,",
+          "start": 2.22,
+          "end": 2.48
+        },
+        {
+          "raw": "Miss",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "Douce",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "grunted",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "in",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "snuffy",
+          "start": 2.48,
+          "end": 2.48
+        },
+        {
+          "raw": "fogey's",
+          "start": 2.48,
+          "end": 2.6
+        },
+        {
+          "raw": "tone,",
+          "start": 2.6,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "Miss",
+        "Douce",
+        "grunted",
+        "in",
+        "snuffy",
+        "fogey's",
+        "tone:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "insert",
+          7,
+          7,
+          7,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          7,
+          7,
+          7,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Douce",
+          "start": 0.6,
+          "end": 0.94,
+          "key": "douce",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "grunted",
+          "start": 0.94,
+          "end": 1.28,
+          "key": "grunted",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "snuffy",
+          "start": 1.44,
+          "end": 1.76,
+          "key": "snuffy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fogey's",
+          "start": 1.76,
+          "end": 2.22,
+          "key": "fogeys",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tone,",
+          "start": 2.22,
+          "end": 2.48,
+          "key": "tone",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "miss",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Douce",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "douce",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "grunted",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "grunted",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "snuffy",
+          "start": 2.48,
+          "end": 2.48,
+          "key": "snuffy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fogey's",
+          "start": 2.48,
+          "end": 2.6,
+          "key": "fogeys",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tone,",
+          "start": 2.6,
+          "end": 2.62,
+          "key": "tone",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Miss",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "Douce",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "grunted",
+          "start": 0.94,
+          "end": 1.28
+        },
+        {
+          "text": "in",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "snuffy",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "text": "fogey's",
+          "start": 1.76,
+          "end": 2.22
+        },
+        {
+          "text": "tone:",
+          "start": 2.22,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 14,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31111248023808
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88edc7ac6498db3438f78f2f34f477cac621d72d4b3608025948ac9686b974fe",
+  "selected_reasons": []
+}

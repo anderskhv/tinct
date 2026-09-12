@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "73ddc0012662c4f84e54b5a26261f33098df133bbac34abeca740db2392f0eb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12382423700182699,
+      "alignment_seconds": 0.0002937240060418844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casca eye",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Casca",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.6070556640625
+            },
+            {
+              "text": " eye",
+              "start": 0.85,
+              "end": 1.25,
+              "probability": 0.1497802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casca",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "eye",
+          "start": 0.85,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Ay."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casca",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "casca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 0.85,
+          "end": 1.25,
+          "key": "eye",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Ay.",
+          "start": 0.85,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12421095400350168
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6632ac2b7076bc61fe17d61912518e008d34ad7fceb2069715b858cea31ece87",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

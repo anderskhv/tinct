@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d0072498394ad12eae76a0807fc0b137e9cbf7fb29a4098d4291de0eecfafbc3",
+  "attempts": [
+    {
+      "asr_seconds": 0.13690954819321632,
+      "alignment_seconds": 0.0002254033461213112,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. Money, youth?",
+        "hotwords": "Guiderius, Money"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, Money, youth?",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.2527720133463542
+            },
+            {
+              "text": " Money,",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.49072265625
+            },
+            {
+              "text": " youth?",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.0083770751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Money,",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "youth?",
+          "start": 1.61,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "Money,",
+        "youth?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Money,",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "money",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "youth?",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "youth",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Money,",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "youth?",
+          "start": 1.61,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1372154178097844
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0d5bee1cb97f50bfea0e43a0ff4f890e0d4b85e0c60b39ab9a3597eaa3bdb473",
+  "selected_reasons": []
+}

@@ -1,0 +1,701 @@
+{
+  "complete": true,
+  "signature": "8fb37b7d609b607f15a3b257ee4e243dc004a91efc09c55ee4fa4f865583a2e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.3307892456650734,
+      "alignment_seconds": 0.0006779655814170837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You are lying; you suggested my going away yourself; you told me to get out of the way of trouble.\""
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You are lying. You suggested my going away yourself. You told me to get out of the way of trouble.",
+          "start": 0.05,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " are",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " lying.",
+              "start": 0.77,
+              "end": 1.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " You",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " suggested",
+              "start": 1.83,
+              "end": 2.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 2.25,
+              "end": 2.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " going",
+              "start": 2.57,
+              "end": 2.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " away",
+              "start": 2.83,
+              "end": 3.05,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " yourself.",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " You",
+              "start": 4.07,
+              "end": 4.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " told",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 4.37,
+              "end": 4.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 4.51,
+              "end": 4.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " get",
+              "start": 4.63,
+              "end": 4.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 4.73,
+              "end": 4.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 4.89,
+              "end": 5.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.01,
+              "end": 5.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " way",
+              "start": 5.09,
+              "end": 5.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 5.23,
+              "end": 5.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " trouble.",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "are",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "lying.",
+          "start": 0.77,
+          "end": 1.19
+        },
+        {
+          "raw": "You",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "suggested",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "raw": "my",
+          "start": 2.25,
+          "end": 2.57
+        },
+        {
+          "raw": "going",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "raw": "away",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "raw": "yourself.",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "You",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "raw": "told",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "me",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "raw": "to",
+          "start": 4.51,
+          "end": 4.63
+        },
+        {
+          "raw": "get",
+          "start": 4.63,
+          "end": 4.73
+        },
+        {
+          "raw": "out",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "raw": "of",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "raw": "the",
+          "start": 5.01,
+          "end": 5.09
+        },
+        {
+          "raw": "way",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "raw": "of",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "raw": "trouble.",
+          "start": 5.41,
+          "end": 5.71
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "are",
+        "lying;",
+        "you",
+        "suggested",
+        "my",
+        "going",
+        "away",
+        "yourself;",
+        "you",
+        "told",
+        "me",
+        "to",
+        "get",
+        "out",
+        "of",
+        "the",
+        "way",
+        "of",
+        "trouble.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.59,
+          "end": 0.77,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lying.",
+          "start": 0.77,
+          "end": 1.19,
+          "key": "lying",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "suggested",
+          "start": 1.83,
+          "end": 2.25,
+          "key": "suggested",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.25,
+          "end": 2.57,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 2.57,
+          "end": 2.83,
+          "key": "going",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.83,
+          "end": 3.05,
+          "key": "away",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yourself.",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "yourself",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.07,
+          "end": 4.17,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 4.17,
+          "end": 4.37,
+          "key": "told",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.37,
+          "end": 4.51,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.51,
+          "end": 4.63,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 4.63,
+          "end": 4.73,
+          "key": "get",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.73,
+          "end": 4.89,
+          "key": "out",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.89,
+          "end": 5.01,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.01,
+          "end": 5.09,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 5.09,
+          "end": 5.23,
+          "key": "way",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.23,
+          "end": 5.41,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "trouble.",
+          "start": 5.41,
+          "end": 5.71,
+          "key": "trouble",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "are",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "text": "lying;",
+          "start": 0.77,
+          "end": 1.19
+        },
+        {
+          "text": "you",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "suggested",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "text": "my",
+          "start": 2.25,
+          "end": 2.57
+        },
+        {
+          "text": "going",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "text": "away",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "text": "yourself;",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "text": "you",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "text": "told",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "text": "me",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "text": "to",
+          "start": 4.51,
+          "end": 4.63
+        },
+        {
+          "text": "get",
+          "start": 4.63,
+          "end": 4.73
+        },
+        {
+          "text": "out",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "text": "of",
+          "start": 4.89,
+          "end": 5.01
+        },
+        {
+          "text": "the",
+          "start": 5.01,
+          "end": 5.09
+        },
+        {
+          "text": "way",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "text": "of",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "text": "trouble.\"",
+          "start": 5.41,
+          "end": 5.71
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3317544814199209
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b05609994ae8c4f6da23fa28b0d598023749eba4785d18eafb2c3d5973a05f6e",
+  "selected_reasons": []
+}

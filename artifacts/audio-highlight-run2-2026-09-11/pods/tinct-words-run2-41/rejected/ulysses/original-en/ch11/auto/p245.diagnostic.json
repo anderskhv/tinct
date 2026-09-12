@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4108f7165b5985cbaae2b43c0690278ead7c30e9f5830c68dbb99db8036c6079",
+  "attempts": [
+    {
+      "asr_seconds": 0.13364943815395236,
+      "alignment_seconds": 0.00015671877190470695,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Here's fortune, Blazes said.",
+        "hotwords": "Here's, Blazes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Here's fortune, Blazes said.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Here's",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.815185546875
+            },
+            {
+              "text": " fortune,",
+              "start": 0.71,
+              "end": 1.03,
+              "probability": 0.497314453125
+            },
+            {
+              "text": " Blazes",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.4986724853515625
+            },
+            {
+              "text": " said.",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here's",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "fortune,",
+          "start": 0.71,
+          "end": 1.03
+        },
+        {
+          "raw": "Blazes",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "said.",
+          "start": 1.63,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "—Here's",
+        "fortune,",
+        "Blazes",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here's",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "heres",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fortune,",
+          "start": 0.71,
+          "end": 1.03,
+          "key": "fortune",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Blazes",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "blazes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Here's",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "fortune,",
+          "start": 0.71,
+          "end": 1.03
+        },
+        {
+          "text": "Blazes",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "said.",
+          "start": 1.63,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13385880505666137
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bbf6df88ccbc53aa43e5965bbc2b04679032872a0a80c026ead39812b91b72e8",
+  "selected_reasons": []
+}

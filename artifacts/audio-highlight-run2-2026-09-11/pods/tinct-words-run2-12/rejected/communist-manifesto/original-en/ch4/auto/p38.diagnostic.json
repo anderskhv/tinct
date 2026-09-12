@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "2d213bcab164c6b59705aedb10177f41a38991e1c4d54d45a5b039062ddebb75",
+  "attempts": [
+    {
+      "asr_seconds": 0.23309430899098516,
+      "alignment_seconds": 0.0003248099237680435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "2. Conservative, Or Bourgeois, Socialism",
+        "hotwords": "Conservative, Or, Bourgeois, Socialism"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 2. Conservative, Or Bourgeois, Socialism",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " 2.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " Conservative,",
+              "start": 1.57,
+              "end": 1.57,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " Or",
+              "start": 1.83,
+              "end": 1.87,
+              "probability": 0.0006051063537597656
+            },
+            {
+              "text": " Bourgeois,",
+              "start": 1.87,
+              "end": 2.19,
+              "probability": 0.52545166015625
+            },
+            {
+              "text": " Socialism",
+              "start": 2.51,
+              "end": 2.87,
+              "probability": 0.92138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "2.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Conservative,",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "raw": "Or",
+          "start": 1.83,
+          "end": 1.87
+        },
+        {
+          "raw": "Bourgeois,",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "raw": "Socialism",
+          "start": 2.51,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "2.",
+        "Conservative,",
+        "Or",
+        "Bourgeois,",
+        "Socialism"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "2.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Conservative,",
+          "start": 1.57,
+          "end": 1.57,
+          "key": "conservative",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 1.83,
+          "end": 1.87,
+          "key": "or",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bourgeois,",
+          "start": 1.87,
+          "end": 2.19,
+          "key": "bourgeois",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Socialism",
+          "start": 2.51,
+          "end": 2.87,
+          "key": "socialism",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "2.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Conservative,",
+          "start": 1.57,
+          "end": 1.57
+        },
+        {
+          "text": "Or",
+          "start": 1.83,
+          "end": 1.87
+        },
+        {
+          "text": "Bourgeois,",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "text": "Socialism",
+          "start": 2.51,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23351267608813941
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34370d7688b782296bea9dc09c95510c88ceb7f00c8b4a1df721d2b350b10ccc",
+  "selected_reasons": []
+}

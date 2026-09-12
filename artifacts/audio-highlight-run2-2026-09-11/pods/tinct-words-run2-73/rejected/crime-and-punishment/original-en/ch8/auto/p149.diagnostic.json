@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "9e5474cd1ceca5653aef2011fa269d30780fb538c8f92c95b980b71098c0422d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2272656476125121,
+      "alignment_seconds": 0.0005045048892498016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It's clear, quite clear,\" Nikodim Fomitch repeated warmly.",
+        "hotwords": "It's, Nikodim, Fomitch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It's clear, quite clear,\" Nikodim Fomitch repeated warmly.",
+          "start": 0.02,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.759765625
+            },
+            {
+              "text": " clear,",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " quite",
+              "start": 1.36,
+              "end": 1.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " clear,\"",
+              "start": 1.4,
+              "end": 2.36,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " Nikodim",
+              "start": 2.36,
+              "end": 2.66,
+              "probability": 0.5863444010416666
+            },
+            {
+              "text": " Fomitch",
+              "start": 2.66,
+              "end": 3.06,
+              "probability": 0.3791097005208333
+            },
+            {
+              "text": " repeated",
+              "start": 3.06,
+              "end": 3.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " warmly.",
+              "start": 3.46,
+              "end": 4.02,
+              "probability": 0.981689453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "clear,",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "raw": "quite",
+          "start": 1.36,
+          "end": 1.4
+        },
+        {
+          "raw": "clear,\"",
+          "start": 1.4,
+          "end": 2.36
+        },
+        {
+          "raw": "Nikodim",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "raw": "Fomitch",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "raw": "repeated",
+          "start": 3.06,
+          "end": 3.46
+        },
+        {
+          "raw": "warmly.",
+          "start": 3.46,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "\"It's",
+        "clear,",
+        "quite",
+        "clear,\"",
+        "Nikodim",
+        "Fomitch",
+        "repeated",
+        "warmly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clear,",
+          "start": 0.64,
+          "end": 0.94,
+          "key": "clear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 1.36,
+          "end": 1.4,
+          "key": "quite",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "clear,\"",
+          "start": 1.4,
+          "end": 2.36,
+          "key": "clear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Nikodim",
+          "start": 2.36,
+          "end": 2.66,
+          "key": "nikodim",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Fomitch",
+          "start": 2.66,
+          "end": 3.06,
+          "key": "fomitch",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 3.06,
+          "end": 3.46,
+          "key": "repeated",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "warmly.",
+          "start": 3.46,
+          "end": 4.02,
+          "key": "warmly",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It's",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "clear,",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "text": "quite",
+          "start": 1.36,
+          "end": 1.4
+        },
+        {
+          "text": "clear,\"",
+          "start": 1.4,
+          "end": 2.36
+        },
+        {
+          "text": "Nikodim",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "text": "Fomitch",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "text": "repeated",
+          "start": 3.06,
+          "end": 3.46
+        },
+        {
+          "text": "warmly.",
+          "start": 3.46,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22793593630194664
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8816c60e31d6a2eee581fe95138f7b7282ebfd8c96651b6d8e93bda913baf270",
+  "selected_reasons": []
+}

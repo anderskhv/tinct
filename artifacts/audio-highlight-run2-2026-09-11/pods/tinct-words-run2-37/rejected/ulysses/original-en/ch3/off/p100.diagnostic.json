@@ -1,0 +1,128 @@
+{
+  "complete": true,
+  "signature": "af9373bcda0b7551e7a30db368ec8862a5e459cb5e15e1d5fb7b33ff80882bd3",
+  "attempts": [
+    {
+      "asr_seconds": 0.11222745300619863,
+      "alignment_seconds": 0.00030658001196570694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lay.",
+          "start": 0.14,
+          "end": 0.64,
+          "words": [
+            {
+              "text": " Lay.",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.281005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lay.",
+          "start": 0.14,
+          "end": 0.64
+        }
+      ],
+      "expected_tokens": [
+        "—",
+        "Ii",
+        "—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lay.",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "lay",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "Ii",
+          "start": 0.32,
+          "end": 0.48
+        },
+        {
+          "text": "—",
+          "start": 0.48,
+          "end": 0.56
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11260704300366342
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b79ae6ac86e7e7dcb17022e6a9d59b7d0ae0e088f03e5618a07dd8d7b9c44e6d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

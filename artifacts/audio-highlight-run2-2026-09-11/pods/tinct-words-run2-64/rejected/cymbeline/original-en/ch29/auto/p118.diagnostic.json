@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "4165afdf07125026e683f80d0346ad9d6553d4b405f2b7e315230c4f1a341d3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.244161126203835,
+      "alignment_seconds": 0.0005503837019205093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. Take him hence, The whole world shall not save him.",
+        "hotwords": "Cymbeline, Take, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, Take him hence, The whole world shall not save him.",
+          "start": 0.08,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.7203776041666666
+            },
+            {
+              "text": " Take",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.02410888671875
+            },
+            {
+              "text": " him",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " hence,",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " The",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.2432861328125
+            },
+            {
+              "text": " whole",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " world",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " shall",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.9609375
+            },
+            {
+              "text": " not",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " save",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him.",
+              "start": 3.36,
+              "end": 3.66,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Take",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "him",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "hence,",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "raw": "The",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "whole",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "world",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "shall",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "not",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "save",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "raw": "him.",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "Take",
+        "him",
+        "hence,",
+        "The",
+        "whole",
+        "world",
+        "shall",
+        "not",
+        "save",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "take",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hence,",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "hence",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "whole",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 2.42,
+          "end": 2.7,
+          "key": "world",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "save",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.36,
+          "end": 3.66,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Take",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "him",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "hence,",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "text": "The",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "whole",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "world",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "shall",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "not",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "save",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "text": "him.",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24492082372307777
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa3e332063a5e43379ff7c551a8c754fe1ebd3b1cdf6d06e1e2fbecfc2fa723e",
+  "selected_reasons": []
+}

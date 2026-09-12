@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "2185004a32d260497f52a73f74357979969257e6b097a93f5b2a75b329b48958",
+  "attempts": [
+    {
+      "asr_seconds": 0.2015742207877338,
+      "alignment_seconds": 0.00044508883729577065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iras. No, you shall paint when you are old.",
+        "hotwords": "Iras, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iras, No, you shall paint when you are old.",
+          "start": 0.49,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Iras,",
+              "start": 0.49,
+              "end": 0.89,
+              "probability": 0.4203224182128906
+            },
+            {
+              "text": " No,",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.016571044921875
+            },
+            {
+              "text": " you",
+              "start": 1.55,
+              "end": 1.55,
+              "probability": 0.763671875
+            },
+            {
+              "text": " shall",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " paint",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " when",
+              "start": 1.89,
+              "end": 2.09,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " you",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " old.",
+              "start": 2.31,
+              "end": 2.61,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iras,",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "raw": "No,",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "you",
+          "start": 1.55,
+          "end": 1.55
+        },
+        {
+          "raw": "shall",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "paint",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "when",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "are",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "old.",
+          "start": 2.31,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "Iras.",
+        "No,",
+        "you",
+        "shall",
+        "paint",
+        "when",
+        "you",
+        "are",
+        "old."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iras,",
+          "start": 0.49,
+          "end": 0.89,
+          "key": "iras",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.55,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "paint",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "paint",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.89,
+          "end": 2.09,
+          "key": "when",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "old.",
+          "start": 2.31,
+          "end": 2.61,
+          "key": "old",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iras.",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "text": "No,",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "you",
+          "start": 1.55,
+          "end": 1.55
+        },
+        {
+          "text": "shall",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "paint",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "when",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "text": "you",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "are",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "old.",
+          "start": 2.31,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20230845967307687
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "08bc08e8b41c929d5f8f1effceddbe4b75fd650c5bac20341667118aa6059c06",
+  "selected_reasons": []
+}

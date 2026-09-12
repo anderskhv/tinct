@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "b95272ed233f8d16d475f92d6a637dbe3d6bf3652920d16c34666cb8e222e7ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.21160414908081293,
+      "alignment_seconds": 0.00040413998067379,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucius, to know my errand, madam.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Lucius,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " to",
+              "start": 1.29,
+              "end": 1.31,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " know",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " errand,",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " madam.",
+              "start": 2.03,
+              "end": 2.35,
+              "probability": 0.80615234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "to",
+          "start": 1.29,
+          "end": 1.31
+        },
+        {
+          "raw": "know",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "my",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "errand,",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "madam.",
+          "start": 2.03,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "Lucius.",
+        "To",
+        "know",
+        "my",
+        "errand,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucius,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "lucius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.29,
+          "end": 1.31,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "errand,",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "errand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 2.03,
+          "end": 2.35,
+          "key": "madam",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucius.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "To",
+          "start": 1.29,
+          "end": 1.31
+        },
+        {
+          "text": "know",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "my",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "errand,",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "madam.",
+          "start": 2.03,
+          "end": 2.35
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21215151902288198
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ac67add0b5575c597ad6bb3b31e74d9eb322897654a2fd6bcda149261106bd83",
+  "selected_reasons": []
+}

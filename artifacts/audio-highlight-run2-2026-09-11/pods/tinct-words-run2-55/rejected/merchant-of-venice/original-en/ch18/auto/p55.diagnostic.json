@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "10113073072390a6a36266be993728d2763d33981144489e21005c07a1420375",
+  "attempts": [
+    {
+      "asr_seconds": 0.21415768191218376,
+      "alignment_seconds": 0.0004177270457148552,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. Then must the Jew be merciful.",
+        "hotwords": "Portia, Then, Jew"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, Then must the Jew be merciful.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.674560546875
+            },
+            {
+              "text": " Then",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.0106048583984375
+            },
+            {
+              "text": " must",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.900390625
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Jew",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " be",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " merciful.",
+              "start": 2.05,
+              "end": 2.55,
+              "probability": 0.994873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Then",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "must",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "Jew",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "be",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "merciful.",
+          "start": 2.05,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Then",
+        "must",
+        "the",
+        "Jew",
+        "be",
+        "merciful."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jew",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "jew",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "merciful.",
+          "start": 2.05,
+          "end": 2.55,
+          "key": "merciful",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Then",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "must",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "Jew",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "be",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "merciful.",
+          "start": 2.05,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21467636991292238
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "909e426443bfd18224499dec56953f08000032e2ecc0f52e4558bd6a31b6c029",
+  "selected_reasons": []
+}

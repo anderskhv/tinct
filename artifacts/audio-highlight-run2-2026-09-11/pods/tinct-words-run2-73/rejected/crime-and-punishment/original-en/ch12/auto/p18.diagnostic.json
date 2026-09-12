@@ -1,0 +1,406 @@
+{
+  "complete": true,
+  "signature": "e712c3c3ea826c2ff4c33a5b2ee8f7c4bdb33f0697a0c64b06f71b7779b67da9",
+  "attempts": [
+    {
+      "asr_seconds": 0.22039617877453566,
+      "alignment_seconds": 0.0004940526559948921,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"N-no,\" mumbled Zossimov; \"you may amuse him.\" He yawned again.",
+        "hotwords": "N-no, Zossimov, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " N-no, mumbled Zossimov, You may amuse him.\" He yawned again.",
+          "start": 0.08,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " N",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.0020351409912109375
+            },
+            {
+              "text": "-no,",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.4420166015625
+            },
+            {
+              "text": " mumbled",
+              "start": 1.0,
+              "end": 1.38,
+              "probability": 0.938232421875
+            },
+            {
+              "text": " Zossimov,",
+              "start": 1.38,
+              "end": 1.92,
+              "probability": 0.7784016927083334
+            },
+            {
+              "text": " You",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.0194854736328125
+            },
+            {
+              "text": " may",
+              "start": 2.44,
+              "end": 2.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " amuse",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " him.\"",
+              "start": 2.86,
+              "end": 3.48,
+              "probability": 0.57470703125
+            },
+            {
+              "text": " He",
+              "start": 3.48,
+              "end": 3.68,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " yawned",
+              "start": 3.68,
+              "end": 4.02,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " again.",
+              "start": 4.02,
+              "end": 4.22,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "N",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "-no,",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "mumbled",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "raw": "Zossimov,",
+          "start": 1.38,
+          "end": 1.92
+        },
+        {
+          "raw": "You",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "may",
+          "start": 2.44,
+          "end": 2.58
+        },
+        {
+          "raw": "amuse",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "him.\"",
+          "start": 2.86,
+          "end": 3.48
+        },
+        {
+          "raw": "He",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "raw": "yawned",
+          "start": 3.68,
+          "end": 4.02
+        },
+        {
+          "raw": "again.",
+          "start": 4.02,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "\"N-no,\"",
+        "mumbled",
+        "Zossimov;",
+        "\"you",
+        "may",
+        "amuse",
+        "him.\"",
+        "He",
+        "yawned",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "N -no,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "nno",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "mumbled",
+          "start": 1.0,
+          "end": 1.38,
+          "key": "mumbled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Zossimov,",
+          "start": 1.38,
+          "end": 1.92,
+          "key": "zossimov",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.28,
+          "end": 2.44,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.44,
+          "end": 2.58,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "amuse",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "amuse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "him.\"",
+          "start": 2.86,
+          "end": 3.48,
+          "key": "him",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.48,
+          "end": 3.68,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yawned",
+          "start": 3.68,
+          "end": 4.02,
+          "key": "yawned",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 4.02,
+          "end": 4.22,
+          "key": "again",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"N-no,\"",
+          "heard": "N -no,",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.08,
+          "end": 0.86
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"N-no,\"",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "mumbled",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "text": "Zossimov;",
+          "start": 1.38,
+          "end": 1.92
+        },
+        {
+          "text": "\"you",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "may",
+          "start": 2.44,
+          "end": 2.58
+        },
+        {
+          "text": "amuse",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "him.\"",
+          "start": 2.86,
+          "end": 3.48
+        },
+        {
+          "text": "He",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "text": "yawned",
+          "start": 3.68,
+          "end": 4.02
+        },
+        {
+          "text": "again.",
+          "start": 4.02,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22104467451572418
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "713dba8e9653d60c848160287715d63ec879dcbbe562135220cc16cda217bbf7",
+  "selected_reasons": []
+}

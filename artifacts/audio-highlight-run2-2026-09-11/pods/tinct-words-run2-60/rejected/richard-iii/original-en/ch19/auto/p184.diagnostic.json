@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "9d2781af69a17fc3e2832de7e736e29ed9120f14fcaced603a5604058014ea21",
+  "attempts": [
+    {
+      "asr_seconds": 0.21800976246595383,
+      "alignment_seconds": 0.0003757551312446594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Stanley. I know not, mighty sovereign, but by guess.",
+        "hotwords": "Stanley, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Stanley, I know not, mighty sovereign, but by guess.",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " Stanley,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.78125
+            },
+            {
+              "text": " I",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " know",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not,",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " mighty",
+              "start": 1.94,
+              "end": 1.94,
+              "probability": 0.4345703125
+            },
+            {
+              "text": " sovereign,",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.634765625
+            },
+            {
+              "text": " but",
+              "start": 2.48,
+              "end": 2.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " by",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.9765625
+            },
+            {
+              "text": " guess.",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.8271484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "know",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "not,",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "mighty",
+          "start": 1.94,
+          "end": 1.94
+        },
+        {
+          "raw": "sovereign,",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "but",
+          "start": 2.48,
+          "end": 2.56
+        },
+        {
+          "raw": "by",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "guess.",
+          "start": 2.74,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Stanley.",
+        "I",
+        "know",
+        "not,",
+        "mighty",
+        "sovereign,",
+        "but",
+        "by",
+        "guess."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stanley,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "stanley",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mighty",
+          "start": 1.94,
+          "end": 1.94,
+          "key": "mighty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sovereign,",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "sovereign",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.48,
+          "end": 2.56,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "guess.",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "guess",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stanley.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "I",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "know",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "not,",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "mighty",
+          "start": 1.94,
+          "end": 1.94
+        },
+        {
+          "text": "sovereign,",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "but",
+          "start": 2.48,
+          "end": 2.56
+        },
+        {
+          "text": "by",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "guess.",
+          "start": 2.74,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21853751689195633
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b239fc63e54479d38ec4590b55e6ff9e55b145a8cf06d86bc1f00f7e832925b1",
+  "selected_reasons": []
+}

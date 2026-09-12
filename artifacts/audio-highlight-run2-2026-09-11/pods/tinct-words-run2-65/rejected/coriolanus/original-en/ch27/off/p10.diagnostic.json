@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "09d66c8596330e7a43cca27a672a05786c3854b955e362d2a380d8c733d1b9c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.14465986005961895,
+      "alignment_seconds": 0.00025457702577114105,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, the gods be good unto us.",
+          "start": 0.08,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.605224609375
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " gods",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 0.982421875
+            },
+            {
+              "text": " be",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " good",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " unto",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us.",
+              "start": 2.32,
+              "end": 2.7,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "raw": "gods",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "raw": "be",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "good",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "raw": "unto",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "raw": "us.",
+          "start": 2.32,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "The",
+        "gods",
+        "be",
+        "good",
+        "unto",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 1.5,
+          "end": 1.76,
+          "key": "gods",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "unto",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "unto",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.32,
+          "end": 2.7,
+          "key": "us",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.71
+        },
+        {
+          "text": "The",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "text": "gods",
+          "start": 1.5,
+          "end": 1.76
+        },
+        {
+          "text": "be",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "good",
+          "start": 2.0,
+          "end": 2.16
+        },
+        {
+          "text": "unto",
+          "start": 2.16,
+          "end": 2.32
+        },
+        {
+          "text": "us.",
+          "start": 2.32,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1450060000643134
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11d5f80a36e8e0c33d102060c39fd61e51f2b663a7d4f7fe127780d85f23e7bf",
+  "selected_reasons": []
+}

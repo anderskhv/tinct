@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "c1124de45fbf27857a90fbedbe73c29d9a25e1448b2e31889e0116e668b802ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.23433216474950314,
+      "alignment_seconds": 0.00048664864152669907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dolabella. Most noble empress, you have heard of me?",
+        "hotwords": "Dolabella, Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dolabella, Most noble empress, you have heard of me?",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Dolabella,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.006702899932861328
+            },
+            {
+              "text": " Most",
+              "start": 1.41,
+              "end": 1.67,
+              "probability": 0.040252685546875
+            },
+            {
+              "text": " noble",
+              "start": 1.67,
+              "end": 2.01,
+              "probability": 0.387939453125
+            },
+            {
+              "text": " empress,",
+              "start": 2.01,
+              "end": 2.47,
+              "probability": 0.62164306640625
+            },
+            {
+              "text": " you",
+              "start": 2.65,
+              "end": 2.67,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " have",
+              "start": 2.67,
+              "end": 2.75,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " heard",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me?",
+              "start": 3.05,
+              "end": 3.25,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dolabella,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Most",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "raw": "noble",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "raw": "empress,",
+          "start": 2.01,
+          "end": 2.47
+        },
+        {
+          "raw": "you",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "raw": "have",
+          "start": 2.67,
+          "end": 2.75
+        },
+        {
+          "raw": "heard",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "of",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "me?",
+          "start": 3.05,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "Dolabella.",
+        "Most",
+        "noble",
+        "empress,",
+        "you",
+        "have",
+        "heard",
+        "of",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dolabella,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "dolabella",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Most",
+          "start": 1.41,
+          "end": 1.67,
+          "key": "most",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.67,
+          "end": 2.01,
+          "key": "noble",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "empress,",
+          "start": 2.01,
+          "end": 2.47,
+          "key": "empress",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.65,
+          "end": 2.67,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.67,
+          "end": 2.75,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "heard",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.93,
+          "end": 3.05,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 3.05,
+          "end": 3.25,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dolabella.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Most",
+          "start": 1.41,
+          "end": 1.67
+        },
+        {
+          "text": "noble",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "text": "empress,",
+          "start": 2.01,
+          "end": 2.47
+        },
+        {
+          "text": "you",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "text": "have",
+          "start": 2.67,
+          "end": 2.75
+        },
+        {
+          "text": "heard",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "of",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "me?",
+          "start": 3.05,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2349986396729946
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e950141a1f352108f6293820f39dbe964a1e8ee0a9f6a0f8519d0c2e65853a0e",
+  "selected_reasons": []
+}

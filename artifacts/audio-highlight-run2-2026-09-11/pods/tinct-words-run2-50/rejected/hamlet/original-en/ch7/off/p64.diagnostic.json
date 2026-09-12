@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "b9100df40822bd7789581b401b724835429ae172a3cca2f40dcae7914bee8b1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20720719546079636,
+      "alignment_seconds": 0.00019023381173610687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, then I would you were so honest a man",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.952392578125
+            },
+            {
+              "text": " then",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " would",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " you",
+              "start": 1.51,
+              "end": 1.63,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " were",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " so",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " honest",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " man",
+              "start": 2.45,
+              "end": 2.75,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "then",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "would",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "you",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "raw": "were",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "so",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "honest",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "man",
+          "start": 2.45,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Then",
+        "I",
+        "would",
+        "you",
+        "were",
+        "so",
+        "honest",
+        "a",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.43,
+          "end": 1.51,
+          "key": "would",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.51,
+          "end": 1.63,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "were",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.73,
+          "end": 1.95,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "honest",
+          "start": 1.95,
+          "end": 2.29,
+          "key": "honest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.45,
+          "end": 2.75,
+          "key": "man",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Then",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "I",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "would",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "you",
+          "start": 1.51,
+          "end": 1.63
+        },
+        {
+          "text": "were",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "so",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "text": "honest",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "text": "a",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "man.",
+          "start": 2.45,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20747102238237858
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25ef8bc7daca6d763d625d5694ed1b0c69c810818497ac633993c0df5b65e04a",
+  "selected_reasons": []
+}

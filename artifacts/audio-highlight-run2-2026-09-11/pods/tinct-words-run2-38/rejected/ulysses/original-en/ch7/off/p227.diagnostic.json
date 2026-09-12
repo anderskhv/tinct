@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "ffccdcb0ed4b2193aa63a12cd59aff59989ecd4c9cb3f46093d5f10099fc842f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10240665299352258,
+      "alignment_seconds": 0.00016065099043771625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A street court ad.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.59228515625
+            },
+            {
+              "text": " street",
+              "start": 0.49,
+              "end": 0.73,
+              "probability": 0.5185546875
+            },
+            {
+              "text": " court",
+              "start": 0.73,
+              "end": 1.01,
+              "probability": 0.18798828125
+            },
+            {
+              "text": " ad.",
+              "start": 1.01,
+              "end": 1.25,
+              "probability": 0.72607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "street",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "raw": "court",
+          "start": 0.73,
+          "end": 1.01
+        },
+        {
+          "raw": "ad.",
+          "start": 1.01,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "Street",
+        "CORTÈGE"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "street",
+          "start": 0.49,
+          "end": 0.73,
+          "key": "street",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "court",
+          "start": 0.73,
+          "end": 1.01,
+          "key": "court",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ad.",
+          "start": 1.01,
+          "end": 1.25,
+          "key": "ad",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "Street",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "text": "CORTÈGE",
+          "start": 0.73,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10262098402017727
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69dfc09e210116ccf0e71ac580c78c118d22027a179596e1c786f30e73fcbd9c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,686 @@
+{
+  "complete": true,
+  "signature": "e9eed8abecf6b8a81a0136b5478a658d7b4ca91b504fa3131e4814c361898e0a",
+  "attempts": [
+    {
+      "asr_seconds": 0.29701702762395144,
+      "alignment_seconds": 0.0003711991012096405,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Portia, it is not so expressed, but what of that?",
+          "start": 0.45,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.45,
+              "end": 0.85,
+              "probability": 0.6512451171875
+            },
+            {
+              "text": " it",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.966796875
+            },
+            {
+              "text": " is",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.990234375
+            },
+            {
+              "text": " not",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.9921875
+            },
+            {
+              "text": " so",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " expressed,",
+              "start": 1.81,
+              "end": 2.25,
+              "probability": 0.962890625
+            },
+            {
+              "text": " but",
+              "start": 2.51,
+              "end": 2.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 2.59,
+              "end": 2.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 2.73,
+              "end": 2.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that?",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " Tweer good you do so much for charity.",
+          "start": 3.75,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " Tweer",
+              "start": 3.75,
+              "end": 3.93,
+              "probability": 0.56256103515625
+            },
+            {
+              "text": " good",
+              "start": 3.93,
+              "end": 4.07,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " you",
+              "start": 4.07,
+              "end": 4.23,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " do",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so",
+              "start": 4.41,
+              "end": 4.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " much",
+              "start": 4.61,
+              "end": 4.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 4.77,
+              "end": 4.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " charity.",
+              "start": 4.99,
+              "end": 5.35,
+              "probability": 0.912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "raw": "it",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "not",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "so",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "expressed,",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "raw": "but",
+          "start": 2.51,
+          "end": 2.59
+        },
+        {
+          "raw": "what",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "raw": "of",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "raw": "that?",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "raw": "Tweer",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "raw": "good",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "raw": "you",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "raw": "do",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "so",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "raw": "much",
+          "start": 4.61,
+          "end": 4.77
+        },
+        {
+          "raw": "for",
+          "start": 4.77,
+          "end": 4.99
+        },
+        {
+          "raw": "charity.",
+          "start": 4.99,
+          "end": 5.35
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "It",
+        "is",
+        "not",
+        "so",
+        "express'd,",
+        "but",
+        "what",
+        "of",
+        "that?",
+        "'Twere",
+        "good",
+        "you",
+        "do",
+        "so",
+        "much",
+        "for",
+        "charity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          10,
+          6,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          18,
+          11,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.45,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.05,
+          "end": 1.29,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "expressed,",
+          "start": 1.81,
+          "end": 2.25,
+          "key": "expressed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.51,
+          "end": 2.59,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.59,
+          "end": 2.73,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.73,
+          "end": 2.83,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Tweer",
+          "start": 3.75,
+          "end": 3.93,
+          "key": "tweer",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.93,
+          "end": 4.07,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.07,
+          "end": 4.23,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.23,
+          "end": 4.41,
+          "key": "do",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.41,
+          "end": 4.61,
+          "key": "so",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 4.61,
+          "end": 4.77,
+          "key": "much",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.77,
+          "end": 4.99,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "charity.",
+          "start": 4.99,
+          "end": 5.35,
+          "key": "charity",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.45,
+          "end": 0.85
+        },
+        {
+          "text": "It",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": "is",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "not",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "so",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "express'd,",
+          "start": 1.81,
+          "end": 2.16
+        },
+        {
+          "text": "but",
+          "start": 2.51,
+          "end": 2.59
+        },
+        {
+          "text": "what",
+          "start": 2.59,
+          "end": 2.73
+        },
+        {
+          "text": "of",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "text": "that?",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "text": "'Twere",
+          "start": 3.11,
+          "end": 3.52
+        },
+        {
+          "text": "good",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "text": "you",
+          "start": 4.07,
+          "end": 4.23
+        },
+        {
+          "text": "do",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "so",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "text": "much",
+          "start": 4.61,
+          "end": 4.77
+        },
+        {
+          "text": "for",
+          "start": 4.77,
+          "end": 4.99
+        },
+        {
+          "text": "charity.",
+          "start": 4.99,
+          "end": 5.35
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.29751995392143726
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e83cd39bb97db66addea7dba3369c0c30aa9e834e44ef4b17e70ab436bb7ae1a",
+  "selected_reasons": []
+}

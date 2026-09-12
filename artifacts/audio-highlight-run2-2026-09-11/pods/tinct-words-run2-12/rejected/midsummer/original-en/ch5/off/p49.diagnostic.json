@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "867088ee0b5c673ddd62476294a1989d38ed204ce1435d9c5c6b1ff40eb1c439",
+  "attempts": [
+    {
+      "asr_seconds": 0.21356972795911133,
+      "alignment_seconds": 0.0004919648636132479,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bottom, what do you see? You see an asshead of your own, do you?",
+          "start": 0.47,
+          "end": 3.61,
+          "words": [
+            {
+              "text": " Bottom,",
+              "start": 0.47,
+              "end": 0.73,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " what",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.984375
+            },
+            {
+              "text": " do",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see?",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " You",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.986328125
+            },
+            {
+              "text": " see",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " an",
+              "start": 2.33,
+              "end": 2.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " asshead",
+              "start": 2.45,
+              "end": 2.77,
+              "probability": 0.734375
+            },
+            {
+              "text": " of",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " own,",
+              "start": 2.97,
+              "end": 3.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " do",
+              "start": 3.35,
+              "end": 3.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you?",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bottom,",
+          "start": 0.47,
+          "end": 0.73
+        },
+        {
+          "raw": "what",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "do",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "you",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "see?",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "You",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "see",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "an",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "raw": "asshead",
+          "start": 2.45,
+          "end": 2.77
+        },
+        {
+          "raw": "of",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "your",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "own,",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "raw": "do",
+          "start": 3.35,
+          "end": 3.39
+        },
+        {
+          "raw": "you?",
+          "start": 3.39,
+          "end": 3.61
+        }
+      ],
+      "expected_tokens": [
+        "Bottom.",
+        "What",
+        "do",
+        "you",
+        "see?",
+        "You",
+        "see",
+        "an",
+        "ass-head",
+        "of",
+        "your",
+        "own,",
+        "do",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bottom,",
+          "start": 0.47,
+          "end": 0.73,
+          "key": "bottom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see?",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.11,
+          "end": 2.21,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.33,
+          "end": 2.45,
+          "key": "an",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "asshead",
+          "start": 2.45,
+          "end": 2.77,
+          "key": "asshead",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.77,
+          "end": 2.87,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "own,",
+          "start": 2.97,
+          "end": 3.21,
+          "key": "own",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.35,
+          "end": 3.39,
+          "key": "do",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 3.39,
+          "end": 3.61,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bottom.",
+          "start": 0.47,
+          "end": 0.73
+        },
+        {
+          "text": "What",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "do",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "you",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "see?",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "You",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "see",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "an",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "text": "ass-head",
+          "start": 2.45,
+          "end": 2.77
+        },
+        {
+          "text": "of",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "your",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "own,",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "text": "do",
+          "start": 3.35,
+          "end": 3.39
+        },
+        {
+          "text": "you?",
+          "start": 3.39,
+          "end": 3.61
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21426336700096726
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc8294278167a8bd5f510e2746c4bec41b2084b0f755afaf6d7538f4278ed3cf",
+  "selected_reasons": []
+}

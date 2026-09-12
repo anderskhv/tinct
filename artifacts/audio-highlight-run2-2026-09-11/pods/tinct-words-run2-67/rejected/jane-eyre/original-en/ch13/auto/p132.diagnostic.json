@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "39860ab8d687062cc040af2ef3615965c3ce8a3803ab907137d8d9ba80db1940",
+  "attempts": [
+    {
+      "asr_seconds": 0.3328661327250302,
+      "alignment_seconds": 0.0005593667738139629,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Nine years is a tolerable time. Was he so very fond of his brother as to be still inconsolable for his loss?\"",
+        "hotwords": "Nine, Was"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nine years is a tolerable time. Was he so very fond of his brother as to be still inconsolable for his loss?",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Nine",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.54345703125
+            },
+            {
+              "text": " years",
+              "start": 0.69,
+              "end": 1.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 1.05,
+              "end": 1.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tolerable",
+              "start": 1.55,
+              "end": 2.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " time.",
+              "start": 2.05,
+              "end": 2.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Was",
+              "start": 3.11,
+              "end": 3.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 3.17,
+              "end": 3.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " so",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " very",
+              "start": 3.47,
+              "end": 3.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " fond",
+              "start": 3.75,
+              "end": 4.09,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 4.09,
+              "end": 4.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 4.25,
+              "end": 4.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " brother",
+              "start": 4.41,
+              "end": 4.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 4.65,
+              "end": 4.93,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " to",
+              "start": 4.93,
+              "end": 5.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 5.09,
+              "end": 5.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " still",
+              "start": 5.21,
+              "end": 5.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " inconsolable",
+              "start": 5.45,
+              "end": 6.31,
+              "probability": 0.9895833333333334
+            },
+            {
+              "text": " for",
+              "start": 6.31,
+              "end": 6.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 6.49,
+              "end": 6.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " loss?",
+              "start": 6.63,
+              "end": 6.93,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nine",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "years",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "raw": "is",
+          "start": 1.05,
+          "end": 1.41
+        },
+        {
+          "raw": "a",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "tolerable",
+          "start": 1.55,
+          "end": 2.05
+        },
+        {
+          "raw": "time.",
+          "start": 2.05,
+          "end": 2.45
+        },
+        {
+          "raw": "Was",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "raw": "he",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "raw": "so",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "very",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "raw": "fond",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "raw": "of",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "raw": "his",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "raw": "brother",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "raw": "as",
+          "start": 4.65,
+          "end": 4.93
+        },
+        {
+          "raw": "to",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "raw": "be",
+          "start": 5.09,
+          "end": 5.21
+        },
+        {
+          "raw": "still",
+          "start": 5.21,
+          "end": 5.45
+        },
+        {
+          "raw": "inconsolable",
+          "start": 5.45,
+          "end": 6.31
+        },
+        {
+          "raw": "for",
+          "start": 6.31,
+          "end": 6.49
+        },
+        {
+          "raw": "his",
+          "start": 6.49,
+          "end": 6.63
+        },
+        {
+          "raw": "loss?",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "\"Nine",
+        "years",
+        "is",
+        "a",
+        "tolerable",
+        "time.",
+        "Was",
+        "he",
+        "so",
+        "very",
+        "fond",
+        "of",
+        "his",
+        "brother",
+        "as",
+        "to",
+        "be",
+        "still",
+        "inconsolable",
+        "for",
+        "his",
+        "loss?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nine",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "nine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 0.69,
+          "end": 1.05,
+          "key": "years",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.05,
+          "end": 1.41,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tolerable",
+          "start": 1.55,
+          "end": 2.05,
+          "key": "tolerable",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 2.05,
+          "end": 2.45,
+          "key": "time",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 3.11,
+          "end": 3.17,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.17,
+          "end": 3.31,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 3.47,
+          "end": 3.75,
+          "key": "very",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fond",
+          "start": 3.75,
+          "end": 4.09,
+          "key": "fond",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.09,
+          "end": 4.25,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.25,
+          "end": 4.41,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "brother",
+          "start": 4.41,
+          "end": 4.65,
+          "key": "brother",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.65,
+          "end": 4.93,
+          "key": "as",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.93,
+          "end": 5.09,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.09,
+          "end": 5.21,
+          "key": "be",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 5.21,
+          "end": 5.45,
+          "key": "still",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "inconsolable",
+          "start": 5.45,
+          "end": 6.31,
+          "key": "inconsolable",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.31,
+          "end": 6.49,
+          "key": "for",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.49,
+          "end": 6.63,
+          "key": "his",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "loss?",
+          "start": 6.63,
+          "end": 6.93,
+          "key": "loss",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nine",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "years",
+          "start": 0.69,
+          "end": 1.05
+        },
+        {
+          "text": "is",
+          "start": 1.05,
+          "end": 1.41
+        },
+        {
+          "text": "a",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "tolerable",
+          "start": 1.55,
+          "end": 2.05
+        },
+        {
+          "text": "time.",
+          "start": 2.05,
+          "end": 2.45
+        },
+        {
+          "text": "Was",
+          "start": 3.11,
+          "end": 3.17
+        },
+        {
+          "text": "he",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "text": "so",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "very",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "text": "fond",
+          "start": 3.75,
+          "end": 4.09
+        },
+        {
+          "text": "of",
+          "start": 4.09,
+          "end": 4.25
+        },
+        {
+          "text": "his",
+          "start": 4.25,
+          "end": 4.41
+        },
+        {
+          "text": "brother",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "text": "as",
+          "start": 4.65,
+          "end": 4.93
+        },
+        {
+          "text": "to",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "text": "be",
+          "start": 5.09,
+          "end": 5.21
+        },
+        {
+          "text": "still",
+          "start": 5.21,
+          "end": 5.45
+        },
+        {
+          "text": "inconsolable",
+          "start": 5.45,
+          "end": 6.31
+        },
+        {
+          "text": "for",
+          "start": 6.31,
+          "end": 6.49
+        },
+        {
+          "text": "his",
+          "start": 6.49,
+          "end": 6.63
+        },
+        {
+          "text": "loss?\"",
+          "start": 6.63,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3336621490307152
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dcb8a93469651d6c1e89f902b7e4e871d41632e521dd89743c654d47e8c89ff4",
+  "selected_reasons": []
+}

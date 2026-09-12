@@ -1,0 +1,181 @@
+{
+  "complete": true,
+  "signature": "e8bb863e53e45cc3dd629bb09f3c91d765a2afb6898b148497fc993713d126a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.13303188793361187,
+      "alignment_seconds": 0.0002488624304533005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Queen.",
+        "hotwords": "Enter, Queen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Queen Enter Queen.",
+          "start": 0.02,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Queen",
+              "start": 0.9,
+              "end": 0.96,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " Enter",
+              "start": 0.96,
+              "end": 1.64,
+              "probability": 5.364418029785156e-07
+            },
+            {
+              "text": " Queen.",
+              "start": 1.64,
+              "end": 1.64,
+              "probability": 0.241455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Queen",
+          "start": 0.9,
+          "end": 0.96
+        },
+        {
+          "raw": "Enter",
+          "start": 0.96,
+          "end": 1.64
+        },
+        {
+          "raw": "Queen.",
+          "start": 1.64,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Queen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 0.9,
+          "end": 0.96,
+          "key": "queen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 0.96,
+          "end": 1.64,
+          "key": "enter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queen.",
+          "start": 1.64,
+          "end": 1.64,
+          "key": "queen",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Queen.",
+          "start": 0.9,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13339160196483135
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cf69fc1455fa265a4a3b54293b1a3f82083125c02f40f71dbe4fc214b68caa6f",
+  "selected_reasons": []
+}

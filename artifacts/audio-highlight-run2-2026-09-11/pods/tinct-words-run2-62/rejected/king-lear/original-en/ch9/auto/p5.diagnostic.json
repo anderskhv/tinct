@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "d9e89e980a33878cae0a2906f420a239b4e95f9575272c50a54f2739eaba0c6d",
+  "attempts": [
+    {
+      "asr_seconds": 0.07419493421912193,
+      "alignment_seconds": 9.848922491073608e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. No, my lord.",
+        "hotwords": "Kent, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, No, my lord.",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.916015625
+            },
+            {
+              "text": " No,",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.00470733642578125
+            },
+            {
+              "text": " my",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " lord.",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.475830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "No,",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "lord.",
+          "start": 1.34,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "No,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "No,",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "my",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "lord.",
+          "start": 1.34,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07432625815272331
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2cbf79218f2ed2777f274965dfe12abbdfa2406287e1ebc1a962e7ff548e8378",
+  "selected_reasons": []
+}

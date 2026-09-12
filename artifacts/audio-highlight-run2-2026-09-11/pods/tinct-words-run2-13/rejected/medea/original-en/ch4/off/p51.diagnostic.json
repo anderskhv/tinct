@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "742b00666a0e3d1e27a890184297d82a47c1e7b586fe9e260681ea29ff265d22",
+  "attempts": [
+    {
+      "asr_seconds": 0.25833777245134115,
+      "alignment_seconds": 0.00041386764496564865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Medea, tan him a wife, a wife, set over me to rule his house.",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.656982421875
+            },
+            {
+              "text": " tan",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.374755859375
+            },
+            {
+              "text": " him",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.9375
+            },
+            {
+              "text": " a",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " wife,",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " wife,",
+              "start": 2.37,
+              "end": 2.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " set",
+              "start": 2.91,
+              "end": 3.05,
+              "probability": 0.833984375
+            },
+            {
+              "text": " over",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " me",
+              "start": 3.23,
+              "end": 3.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rule",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 3.75,
+              "end": 3.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house.",
+              "start": 3.93,
+              "end": 4.19,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "tan",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "raw": "him",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "wife,",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "wife,",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "raw": "set",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "raw": "over",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "me",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "rule",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "raw": "his",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "raw": "house.",
+          "start": 3.93,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "Ta'en",
+        "him",
+        "a",
+        "wife;",
+        "a",
+        "wife,",
+        "set",
+        "over",
+        "me",
+        "To",
+        "rule",
+        "his",
+        "house."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          14,
+          2,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "medea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tan",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "tan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.67,
+          "end": 1.77,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wife,",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "wife",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wife,",
+          "start": 2.37,
+          "end": 2.67,
+          "key": "wife",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 2.91,
+          "end": 3.05,
+          "key": "set",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 3.05,
+          "end": 3.23,
+          "key": "over",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.23,
+          "end": 3.37,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.53,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "rule",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "rule",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.75,
+          "end": 3.93,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "house.",
+          "start": 3.93,
+          "end": 4.19,
+          "key": "house",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Ta'en",
+          "start": 0.87,
+          "end": 1.2
+        },
+        {
+          "text": "him",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "a",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "wife;",
+          "start": 1.77,
+          "end": 2.07
+        },
+        {
+          "text": "a",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "wife,",
+          "start": 2.37,
+          "end": 2.67
+        },
+        {
+          "text": "set",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "text": "over",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "me",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "text": "To",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "rule",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "text": "his",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "text": "house.",
+          "start": 3.93,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.25891133956611156
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a23a1ede99fb79f85ea99c2d61d84f2a854272bf2b823ef2c05154e7ac0af8ff",
+  "selected_reasons": []
+}

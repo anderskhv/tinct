@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "20bf9016dfe0eda08d69a211f60cc0125d94ab4830b758e7f8bcf7360fe17e4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11123982816934586,
+      "alignment_seconds": 0.00015034154057502747,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Singing._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Singing.",
+          "start": 0.11,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " Singing.",
+              "start": 0.11,
+              "end": 0.89,
+              "probability": 0.7452392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Singing.",
+          "start": 0.11,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "[_Singing._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Singing.",
+          "start": 0.11,
+          "end": 0.89,
+          "key": "singing",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Singing._]",
+          "start": 0.11,
+          "end": 0.89
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1114399079233408
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e3c2f191a39722e190c828cef265aade308cd2f811240b82ae62010ae51386b",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "9ae82e9dd22dcc04910ef4acafc5af54023e9add01b228223fe589ba9f13ca66",
+  "attempts": [
+    {
+      "asr_seconds": 0.20403075497597456,
+      "alignment_seconds": 0.0004558572545647621,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alarum. Excursions. Enter Pistol, French Soldier and Boy.",
+        "hotwords": "Alarum, Excursions, Enter, Pistol, French, Soldier, Boy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alarum, Excursions, Enter, Pistol, French, Soldier and Boy.",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Alarum,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.5488764444986979
+            },
+            {
+              "text": " Excursions,",
+              "start": 1.03,
+              "end": 1.57,
+              "probability": 0.599609375
+            },
+            {
+              "text": " Enter,",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " Pistol,",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " French,",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Soldier",
+              "start": 3.29,
+              "end": 3.55,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " and",
+              "start": 3.55,
+              "end": 3.83,
+              "probability": 0.25244140625
+            },
+            {
+              "text": " Boy.",
+              "start": 3.83,
+              "end": 4.05,
+              "probability": 0.962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alarum,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Excursions,",
+          "start": 1.03,
+          "end": 1.57
+        },
+        {
+          "raw": "Enter,",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "Pistol,",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "French,",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "Soldier",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "raw": "and",
+          "start": 3.55,
+          "end": 3.83
+        },
+        {
+          "raw": "Boy.",
+          "start": 3.83,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "Alarum.",
+        "Excursions.",
+        "Enter",
+        "Pistol,",
+        "French",
+        "Soldier",
+        "and",
+        "Boy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alarum,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "alarum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Excursions,",
+          "start": 1.03,
+          "end": 1.57,
+          "key": "excursions",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "enter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pistol,",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "pistol",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "French,",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "french",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Soldier",
+          "start": 3.29,
+          "end": 3.55,
+          "key": "soldier",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.55,
+          "end": 3.83,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Boy.",
+          "start": 3.83,
+          "end": 4.05,
+          "key": "boy",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alarum.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Excursions.",
+          "start": 1.03,
+          "end": 1.57
+        },
+        {
+          "text": "Enter",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "Pistol,",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "French",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "text": "Soldier",
+          "start": 3.29,
+          "end": 3.55
+        },
+        {
+          "text": "and",
+          "start": 3.55,
+          "end": 3.83
+        },
+        {
+          "text": "Boy.",
+          "start": 3.83,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20465197134763002
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "96bdc43f54ad68f6ebbf61b2e35562c2651226597ec43870f468f3fa46d7710d",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "8a354f9adadc1e90d03d8935a9f83664333742ec27f9be4c15bc8be4909a0611",
+  "attempts": [
+    {
+      "asr_seconds": 0.12538392306305468,
+      "alignment_seconds": 0.00038984091952443123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Were any other lives lost?",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Were",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.364013671875
+            },
+            {
+              "text": " any",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " other",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lives",
+              "start": 0.86,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lost?",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Were",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "any",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "other",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "lives",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "raw": "lost?",
+          "start": 1.18,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "\"Were",
+        "any",
+        "other",
+        "lives",
+        "lost?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Were",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "were",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "any",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "other",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 0.86,
+          "end": 1.18,
+          "key": "lives",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lost?",
+          "start": 1.18,
+          "end": 1.5,
+          "key": "lost",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Were",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "any",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "other",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "lives",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "text": "lost?\"",
+          "start": 1.18,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1259000499267131
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11c1c34d3ad59ac93aa787d2c859c0afaef49ae660e07e43285f633be37236e5",
+  "selected_reasons": []
+}

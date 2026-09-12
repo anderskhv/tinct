@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "fb64f1bbde11ea2cf2ad0e693bcae309e3c859e5d76e1ce14858907efbd7c266",
+  "attempts": [
+    {
+      "asr_seconds": 0.09479896351695061,
+      "alignment_seconds": 0.0001650676131248474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Regan. The messengers from our sister and the King.",
+        "hotwords": "Regan, King"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Regan, the messengers from our sister and the King.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Regan,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6558837890625
+            },
+            {
+              "text": " the",
+              "start": 1.21,
+              "end": 1.41,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " messengers",
+              "start": 1.41,
+              "end": 1.87,
+              "probability": 0.874267578125
+            },
+            {
+              "text": " from",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " sister",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " and",
+              "start": 2.47,
+              "end": 2.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.79,
+              "end": 2.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " King.",
+              "start": 2.89,
+              "end": 3.11,
+              "probability": 0.310302734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "the",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "raw": "messengers",
+          "start": 1.41,
+          "end": 1.87
+        },
+        {
+          "raw": "from",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "our",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "sister",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "and",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "raw": "the",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "raw": "King.",
+          "start": 2.89,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Regan.",
+        "The",
+        "messengers",
+        "from",
+        "our",
+        "sister",
+        "and",
+        "the",
+        "King."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Regan,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "regan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.21,
+          "end": 1.41,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "messengers",
+          "start": 1.41,
+          "end": 1.87,
+          "key": "messengers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.09,
+          "end": 2.25,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sister",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "sister",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.47,
+          "end": 2.79,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.79,
+          "end": 2.89,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "King.",
+          "start": 2.89,
+          "end": 3.11,
+          "key": "king",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Regan.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "The",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "text": "messengers",
+          "start": 1.41,
+          "end": 1.87
+        },
+        {
+          "text": "from",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "our",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "sister",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "and",
+          "start": 2.47,
+          "end": 2.79
+        },
+        {
+          "text": "the",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "text": "King.",
+          "start": 2.89,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09502902254462242
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63769539ca4a989d5035bb2479d69577e27ab79266add686a15f562402e4fd6d",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "d411ef8ee8d18339d7774adf74bc5a5e73b2b736b8accb6778cd30dbc657a9e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1704283282160759,
+      "alignment_seconds": 0.0004043467342853546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And harpoons sticking in near his starboard fin.\"",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And harpoons sticking in near his starboard fin.",
+          "start": 0.08,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.09295654296875
+            },
+            {
+              "text": " harpoons",
+              "start": 0.52,
+              "end": 1.06,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " sticking",
+              "start": 1.06,
+              "end": 1.46,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " in",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " near",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " starboard",
+              "start": 1.98,
+              "end": 2.48,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " fin.",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "harpoons",
+          "start": 0.52,
+          "end": 1.06
+        },
+        {
+          "raw": "sticking",
+          "start": 1.06,
+          "end": 1.46
+        },
+        {
+          "raw": "in",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "near",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "his",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "starboard",
+          "start": 1.98,
+          "end": 2.48
+        },
+        {
+          "raw": "fin.",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "harpoons",
+        "sticking",
+        "in",
+        "near",
+        "his",
+        "starboard",
+        "fin.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "harpoons",
+          "start": 0.52,
+          "end": 1.06,
+          "key": "harpoons",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sticking",
+          "start": 1.06,
+          "end": 1.46,
+          "key": "sticking",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "near",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "starboard",
+          "start": 1.98,
+          "end": 2.48,
+          "key": "starboard",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fin.",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "fin",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "harpoons",
+          "start": 0.52,
+          "end": 1.06
+        },
+        {
+          "text": "sticking",
+          "start": 1.06,
+          "end": 1.46
+        },
+        {
+          "text": "in",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "near",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "his",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "starboard",
+          "start": 1.98,
+          "end": 2.48
+        },
+        {
+          "text": "fin.\"",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17098558321595192
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d4e2259c536e2ce06d1d5e4e3b70de5532ec37912a986c2d8df9a09d3549e80b",
+  "selected_reasons": []
+}

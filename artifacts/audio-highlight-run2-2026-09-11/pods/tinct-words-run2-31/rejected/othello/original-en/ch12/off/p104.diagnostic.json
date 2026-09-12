@@ -1,0 +1,524 @@
+{
+  "complete": true,
+  "signature": "9981ffb45e867b8f6f2b84d14b7840e6b5e684f2981516366693bbc30390771d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2580955419689417,
+      "alignment_seconds": 0.0004014563746750355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rodra go I and said nothing but what I protest in tenment of doing",
+          "start": 0.02,
+          "end": 4.74,
+          "words": [
+            {
+              "text": " Rodra",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.175537109375
+            },
+            {
+              "text": " go",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " I",
+              "start": 0.98,
+              "end": 1.84,
+              "probability": 0.33544921875
+            },
+            {
+              "text": " and",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " said",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " nothing",
+              "start": 2.38,
+              "end": 2.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 2.72,
+              "end": 2.98,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " what",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 3.1,
+              "end": 3.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " protest",
+              "start": 3.24,
+              "end": 3.58,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 3.58,
+              "end": 3.82,
+              "probability": 0.467041015625
+            },
+            {
+              "text": " tenment",
+              "start": 3.82,
+              "end": 4.24,
+              "probability": 0.6400146484375
+            },
+            {
+              "text": " of",
+              "start": 4.24,
+              "end": 4.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " doing",
+              "start": 4.4,
+              "end": 4.74,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rodra",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "go",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.84
+        },
+        {
+          "raw": "and",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "said",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "nothing",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "raw": "but",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "raw": "what",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "raw": "protest",
+          "start": 3.24,
+          "end": 3.58
+        },
+        {
+          "raw": "in",
+          "start": 3.58,
+          "end": 3.82
+        },
+        {
+          "raw": "tenment",
+          "start": 3.82,
+          "end": 4.24
+        },
+        {
+          "raw": "of",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "raw": "doing",
+          "start": 4.4,
+          "end": 4.74
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "Ay,",
+        "and",
+        "said",
+        "nothing",
+        "but",
+        "what",
+        "I",
+        "protest",
+        "intendment",
+        "of",
+        "doing."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          9,
+          3,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ],
+        [
+          "equal",
+          10,
+          12,
+          12,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rodra",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "rodra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.84,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 2.38,
+          "end": 2.72,
+          "key": "nothing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.72,
+          "end": 2.98,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.98,
+          "end": 3.1,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.1,
+          "end": 3.24,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "protest",
+          "start": 3.24,
+          "end": 3.58,
+          "key": "protest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.58,
+          "end": 3.82,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tenment",
+          "start": 3.82,
+          "end": 4.24,
+          "key": "tenment",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.24,
+          "end": 4.4,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "doing",
+          "start": 4.4,
+          "end": 4.74,
+          "key": "doing",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.0,
+          "end": 0.92
+        },
+        {
+          "text": "Ay,",
+          "start": 0.92,
+          "end": 1.38
+        },
+        {
+          "text": "and",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "said",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "nothing",
+          "start": 2.38,
+          "end": 2.72
+        },
+        {
+          "text": "but",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "text": "what",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "I",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "text": "protest",
+          "start": 3.24,
+          "end": 3.58
+        },
+        {
+          "text": "intendment",
+          "start": 3.58,
+          "end": 3.91
+        },
+        {
+          "text": "of",
+          "start": 4.24,
+          "end": 4.4
+        },
+        {
+          "text": "doing.",
+          "start": 4.4,
+          "end": 4.74
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 14,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25864948611706495
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7be9d105c1aee1bac3306085ee324014599009e12b910c47ced1398b3f1072b7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

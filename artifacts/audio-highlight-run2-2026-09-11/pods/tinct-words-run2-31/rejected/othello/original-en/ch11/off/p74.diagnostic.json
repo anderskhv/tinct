@@ -1,0 +1,319 @@
+{
+  "complete": true,
+  "signature": "f7ce8a12773935f58fa530eb9858863e4aff3539744581a677b353a6984e8de2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1373233962804079,
+      "alignment_seconds": 0.0002525267191231251,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hey go before me look where she comes",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " Hey",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.10699462890625
+            },
+            {
+              "text": " go",
+              "start": 0.59,
+              "end": 0.79,
+              "probability": 0.708984375
+            },
+            {
+              "text": " before",
+              "start": 0.79,
+              "end": 1.17,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " me",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " look",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " where",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " she",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " comes",
+              "start": 2.03,
+              "end": 2.45,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hey",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "go",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "raw": "before",
+          "start": 0.79,
+          "end": 1.17
+        },
+        {
+          "raw": "me",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "look",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "where",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "she",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "comes",
+          "start": 2.03,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Before",
+        "me!",
+        "look",
+        "where",
+        "she",
+        "comes."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          7,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hey",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "hey",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.59,
+          "end": 0.79,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 0.79,
+          "end": 1.17,
+          "key": "before",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "look",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "where",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.03,
+          "end": 2.45,
+          "key": "comes",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.395
+        },
+        {
+          "text": "Before",
+          "start": 0.79,
+          "end": 1.17
+        },
+        {
+          "text": "me!",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "look",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "where",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "she",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "comes.",
+          "start": 2.03,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.13768643187358975
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2c5981ce1b0f6abe809dba5e5cbe6e74c188123a313ac27883b671cec3d32f5",
+  "selected_reasons": []
+}

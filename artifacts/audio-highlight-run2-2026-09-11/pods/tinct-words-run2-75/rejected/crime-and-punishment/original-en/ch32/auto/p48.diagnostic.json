@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e08a852c771ed78269e9a80eebefc9c9989b9506f6ed16553ee637b49af2d09f",
+  "attempts": [
+    {
+      "asr_seconds": 0.21859954670071602,
+      "alignment_seconds": 0.000283215194940567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"From Porfiry?\"",
+        "hotwords": "From, Porfiry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " From Porfiry",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " From",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.560546875
+            },
+            {
+              "text": " Porfiry",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.3310139973958333
+            }
+          ]
+        },
+        {
+          "text": " From Porfiry",
+          "start": 1.03,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " From",
+              "start": 1.03,
+              "end": 1.05,
+              "probability": 3.4332275390625e-05
+            },
+            {
+              "text": " Porfiry",
+              "start": 1.05,
+              "end": 1.25,
+              "probability": 0.03873223066329956
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Porfiry",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "From",
+          "start": 1.03,
+          "end": 1.05
+        },
+        {
+          "raw": "Porfiry",
+          "start": 1.05,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "\"From",
+        "Porfiry?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Porfiry",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "porfiry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "From",
+          "start": 1.03,
+          "end": 1.05,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Porfiry",
+          "start": 1.05,
+          "end": 1.25,
+          "key": "porfiry",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"From",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Porfiry?\"",
+          "start": 0.55,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2190086767077446
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1a325594c51551bf8fb70dca66151f43148630c449fbc6b363c41e4db773f4c",
+  "selected_reasons": []
+}

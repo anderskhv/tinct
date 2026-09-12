@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "47015a24715ed917a8a764326030568c9e58bf2a998c8c7adf243b0aec4c93f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.09706641011871397,
+      "alignment_seconds": 0.00012015900574624538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I am.",
+          "start": 0.08,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " am.",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.93896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "am.",
+          "start": 0.54,
+          "end": 0.74
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "am.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am.",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "am.\"",
+          "start": 0.54,
+          "end": 0.74
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0972269419580698
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40041ef762c3378b8ff0ee5f1fa068f3cceb4aec229bc938e2e141fe3acfc98e",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d25d8f8bf33f4008bdb812dfcc213b14941ab74dedf2ce9ccc4100639698a118",
+  "attempts": [
+    {
+      "asr_seconds": 0.12240457534790039,
+      "alignment_seconds": 0.0002823956310749054,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ghost Of Clarence.",
+        "hotwords": "Ghost, Of, Clarence"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ghost Of Clarence.",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Ghost",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.62158203125
+            },
+            {
+              "text": " Of",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.005462646484375
+            },
+            {
+              "text": " Clarence.",
+              "start": 0.83,
+              "end": 1.17,
+              "probability": 0.55322265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ghost",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Of",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "Clarence.",
+          "start": 0.83,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "Ghost",
+        "Of",
+        "Clarence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ghost",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "ghost",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Clarence.",
+          "start": 0.83,
+          "end": 1.17,
+          "key": "clarence",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ghost",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Of",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "Clarence.",
+          "start": 0.83,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1228095293045044
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "432813d36a4165a6f7ac8a46901dcae21915bcd4aefe94923e15a8e23bb94b56",
+  "selected_reasons": []
+}

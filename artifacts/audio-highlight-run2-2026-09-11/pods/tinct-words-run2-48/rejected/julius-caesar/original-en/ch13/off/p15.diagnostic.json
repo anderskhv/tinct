@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "736b432420f6ed098a4615c6feaa8cc7f5ae4153263dae204364f6d216632987",
+  "attempts": [
+    {
+      "asr_seconds": 0.15829946752637625,
+      "alignment_seconds": 0.0003374451771378517,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius is possible.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Cassius",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " is",
+              "start": 0.91,
+              "end": 1.31,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " possible.",
+              "start": 1.31,
+              "end": 1.81,
+              "probability": 0.352783203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "is",
+          "start": 0.91,
+          "end": 1.31
+        },
+        {
+          "raw": "possible.",
+          "start": 1.31,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Is't",
+        "possible?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.91,
+          "end": 1.31,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "possible.",
+          "start": 1.31,
+          "end": 1.81,
+          "key": "possible",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Is't",
+          "start": 0.91,
+          "end": 1.11
+        },
+        {
+          "text": "possible?",
+          "start": 1.31,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1587512856349349
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "646d07c10313a4e4da41722659762706e06fa7e8d7b47bafbba90e82296aad35",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

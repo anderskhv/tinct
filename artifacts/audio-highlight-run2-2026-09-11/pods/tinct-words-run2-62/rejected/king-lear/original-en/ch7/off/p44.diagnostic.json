@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "52fe2bf8118aa5b571c44a4e463205d635603327278a4cf5b40b2d4d1efabc80",
+  "attempts": [
+    {
+      "asr_seconds": 0.07561390101909637,
+      "alignment_seconds": 0.0001366548240184784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, his countenance likes me not.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " his",
+              "start": 0.97,
+              "end": 1.19,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " countenance",
+              "start": 1.19,
+              "end": 1.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " likes",
+              "start": 1.67,
+              "end": 1.89,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " me",
+              "start": 1.89,
+              "end": 2.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not.",
+              "start": 2.09,
+              "end": 2.39,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "his",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "raw": "countenance",
+          "start": 1.19,
+          "end": 1.67
+        },
+        {
+          "raw": "likes",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "raw": "me",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "raw": "not.",
+          "start": 2.09,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "His",
+        "countenance",
+        "likes",
+        "me",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.97,
+          "end": 1.19,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "countenance",
+          "start": 1.19,
+          "end": 1.67,
+          "key": "countenance",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "likes",
+          "start": 1.67,
+          "end": 1.89,
+          "key": "likes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.89,
+          "end": 2.09,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 2.09,
+          "end": 2.39,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "His",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "text": "countenance",
+          "start": 1.19,
+          "end": 1.67
+        },
+        {
+          "text": "likes",
+          "start": 1.67,
+          "end": 1.89
+        },
+        {
+          "text": "me",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "text": "not.",
+          "start": 2.09,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0758008360862732
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "52fb2e7baa492e6798acb1afc6b4081e29f0e0182fbd5635118dcb7d75834692",
+  "selected_reasons": []
+}

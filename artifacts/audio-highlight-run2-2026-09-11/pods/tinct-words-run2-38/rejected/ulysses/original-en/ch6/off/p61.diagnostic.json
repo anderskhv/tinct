@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "2f84f901c1d2a74fb447ef536e320400fe1172439e7bc9f0c51924e3855fa720",
+  "attempts": [
+    {
+      "asr_seconds": 0.22480982798151672,
+      "alignment_seconds": 0.0002994909882545471,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Deadallus, peering through his glasses towards the veiled sun, hurled a mute curse",
+          "start": 0.02,
+          "end": 5.26,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " Deadallus,",
+              "start": 0.92,
+              "end": 1.36,
+              "probability": 0.5570475260416666
+            },
+            {
+              "text": " peering",
+              "start": 1.58,
+              "end": 1.98,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " through",
+              "start": 1.98,
+              "end": 2.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " glasses",
+              "start": 2.32,
+              "end": 2.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " towards",
+              "start": 2.72,
+              "end": 3.08,
+              "probability": 0.91015625
+            },
+            {
+              "text": " the",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " veiled",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " sun,",
+              "start": 3.48,
+              "end": 3.9,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " hurled",
+              "start": 4.46,
+              "end": 4.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 4.48,
+              "end": 4.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mute",
+              "start": 4.7,
+              "end": 4.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " curse",
+              "start": 4.9,
+              "end": 5.26,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " at the sky.",
+          "start": 5.26,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " at",
+              "start": 5.26,
+              "end": 5.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.44,
+              "end": 5.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sky.",
+              "start": 5.54,
+              "end": 5.82,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Deadallus,",
+          "start": 0.92,
+          "end": 1.36
+        },
+        {
+          "raw": "peering",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "raw": "through",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "raw": "his",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "glasses",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "raw": "towards",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "raw": "the",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "veiled",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "sun,",
+          "start": 3.48,
+          "end": 3.9
+        },
+        {
+          "raw": "hurled",
+          "start": 4.46,
+          "end": 4.48
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.7
+        },
+        {
+          "raw": "mute",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "raw": "curse",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "raw": "at",
+          "start": 5.26,
+          "end": 5.44
+        },
+        {
+          "raw": "the",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "raw": "sky.",
+          "start": 5.54,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus,",
+        "peering",
+        "through",
+        "his",
+        "glasses",
+        "towards",
+        "the",
+        "veiled",
+        "sun,",
+        "hurled",
+        "a",
+        "mute",
+        "curse",
+        "at",
+        "the",
+        "sky."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          17,
+          2,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Deadallus,",
+          "start": 0.92,
+          "end": 1.36,
+          "key": "deadallus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peering",
+          "start": 1.58,
+          "end": 1.98,
+          "key": "peering",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 1.98,
+          "end": 2.14,
+          "key": "through",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "glasses",
+          "start": 2.32,
+          "end": 2.72,
+          "key": "glasses",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 2.72,
+          "end": 3.08,
+          "key": "towards",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "veiled",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "veiled",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sun,",
+          "start": 3.48,
+          "end": 3.9,
+          "key": "sun",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hurled",
+          "start": 4.46,
+          "end": 4.48,
+          "key": "hurled",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.7,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "mute",
+          "start": 4.7,
+          "end": 4.9,
+          "key": "mute",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "curse",
+          "start": 4.9,
+          "end": 5.26,
+          "key": "curse",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.26,
+          "end": 5.44,
+          "key": "at",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.44,
+          "end": 5.54,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sky.",
+          "start": 5.54,
+          "end": 5.82,
+          "key": "sky",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Dedalus,",
+          "start": 0.68,
+          "end": 1.13
+        },
+        {
+          "text": "peering",
+          "start": 1.58,
+          "end": 1.98
+        },
+        {
+          "text": "through",
+          "start": 1.98,
+          "end": 2.14
+        },
+        {
+          "text": "his",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "glasses",
+          "start": 2.32,
+          "end": 2.72
+        },
+        {
+          "text": "towards",
+          "start": 2.72,
+          "end": 3.08
+        },
+        {
+          "text": "the",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "veiled",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "sun,",
+          "start": 3.48,
+          "end": 3.9
+        },
+        {
+          "text": "hurled",
+          "start": 4.46,
+          "end": 4.48
+        },
+        {
+          "text": "a",
+          "start": 4.48,
+          "end": 4.7
+        },
+        {
+          "text": "mute",
+          "start": 4.7,
+          "end": 4.9
+        },
+        {
+          "text": "curse",
+          "start": 4.9,
+          "end": 5.26
+        },
+        {
+          "text": "at",
+          "start": 5.26,
+          "end": 5.44
+        },
+        {
+          "text": "the",
+          "start": 5.44,
+          "end": 5.54
+        },
+        {
+          "text": "sky.",
+          "start": 5.54,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.22524849994806573
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca5510109ffa3b06f2bf4e6f12058990d5060032d07421a92e9957400eaf38cd",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "e9ab6d2266bdf28bfbc5f4497062107b527c2161715ebbc6af4f61041441e7a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.19186590146273375,
+      "alignment_seconds": 0.00048151426017284393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shylock, to cut the forfeiture from that bankrupt there.",
+          "start": 0.02,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Shylock,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.8551432291666666
+            },
+            {
+              "text": " to",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cut",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " forfeiture",
+              "start": 1.74,
+              "end": 2.06,
+              "probability": 0.923828125
+            },
+            {
+              "text": " from",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " bankrupt",
+              "start": 2.56,
+              "end": 2.9,
+              "probability": 0.4951171875
+            },
+            {
+              "text": " there.",
+              "start": 2.9,
+              "end": 3.32,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "cut",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "forfeiture",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "raw": "from",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "that",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "bankrupt",
+          "start": 2.56,
+          "end": 2.9
+        },
+        {
+          "raw": "there.",
+          "start": 2.9,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Shylock.",
+        "To",
+        "cut",
+        "the",
+        "forfeiture",
+        "from",
+        "that",
+        "bankrupt",
+        "there."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cut",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "cut",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forfeiture",
+          "start": 1.74,
+          "end": 2.06,
+          "key": "forfeiture",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "from",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bankrupt",
+          "start": 2.56,
+          "end": 2.9,
+          "key": "bankrupt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 2.9,
+          "end": 3.32,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shylock.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "To",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "cut",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "forfeiture",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "text": "from",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "that",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "bankrupt",
+          "start": 2.56,
+          "end": 2.9
+        },
+        {
+          "text": "there.",
+          "start": 2.9,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1925254976376891
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0df2ac2c56ef6d0d0bd951b4019fcd0f676f8b3ce00d04f908a11eefb78af76b",
+  "selected_reasons": []
+}

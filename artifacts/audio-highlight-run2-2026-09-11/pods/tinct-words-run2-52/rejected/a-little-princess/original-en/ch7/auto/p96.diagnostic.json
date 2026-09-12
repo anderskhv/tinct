@@ -1,0 +1,3693 @@
+{
+  "complete": true,
+  "signature": "f2bfcc46afaa1e27b9171b98b25f58068cb6042df44fa38e99726a9bb9984c09",
+  "attempts": [
+    {
+      "asr_seconds": 0.4232103042304516,
+      "alignment_seconds": 0.0007679164409637451,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You had better not pay for anything more, ma'am,\" he remarked, \"unless you want to make presents to the young lady. No one will remember you. She hasn't a brass farthing to call her own.\"",
+        "hotwords": "No, She"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You had better not pay for anything more, ma'am,\" he remarked,",
+          "start": 0.02,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.10687255859375
+            },
+            {
+              "text": " had",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " better",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pay",
+              "start": 1.16,
+              "end": 1.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anything",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more,",
+              "start": 1.9,
+              "end": 2.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " ma",
+              "start": 2.46,
+              "end": 2.52,
+              "probability": 0.80419921875
+            },
+            {
+              "text": "'am,\"",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.8717447916666666
+            },
+            {
+              "text": " he",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " remarked,",
+              "start": 3.16,
+              "end": 3.48,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " \"'Unless you want to make presents to the young lady. No one will remember you. She hasn't a brass farthing to call her own.'\"",
+          "start": 4.02,
+          "end": 10.7,
+          "words": [
+            {
+              "text": " \"'Unless",
+              "start": 4.02,
+              "end": 4.38,
+              "probability": 0.4339485168457031
+            },
+            {
+              "text": " you",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " want",
+              "start": 4.6,
+              "end": 4.72,
+              "probability": 0.953125
+            },
+            {
+              "text": " to",
+              "start": 4.72,
+              "end": 4.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " make",
+              "start": 4.82,
+              "end": 4.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " presents",
+              "start": 4.96,
+              "end": 5.32,
+              "probability": 0.626953125
+            },
+            {
+              "text": " to",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 5.58,
+              "end": 5.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " young",
+              "start": 5.68,
+              "end": 5.84,
+              "probability": 0.931640625
+            },
+            {
+              "text": " lady.",
+              "start": 5.84,
+              "end": 6.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " No",
+              "start": 6.64,
+              "end": 6.82,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " one",
+              "start": 6.82,
+              "end": 6.98,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 6.98,
+              "end": 7.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " remember",
+              "start": 7.12,
+              "end": 7.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you.",
+              "start": 7.42,
+              "end": 7.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " She",
+              "start": 8.2,
+              "end": 8.36,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hasn't",
+              "start": 8.36,
+              "end": 8.64,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 8.64,
+              "end": 8.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " brass",
+              "start": 8.74,
+              "end": 9.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " farthing",
+              "start": 9.02,
+              "end": 9.48,
+              "probability": 0.95703125
+            },
+            {
+              "text": " to",
+              "start": 9.48,
+              "end": 9.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " call",
+              "start": 9.66,
+              "end": 9.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 9.86,
+              "end": 10.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " own.'\"",
+              "start": 10.02,
+              "end": 10.7,
+              "probability": 0.907470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "had",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "better",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "not",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "pay",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "raw": "for",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "anything",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "more,",
+          "start": 1.9,
+          "end": 2.3
+        },
+        {
+          "raw": "ma",
+          "start": 2.46,
+          "end": 2.52
+        },
+        {
+          "raw": "'am,\"",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "he",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "raw": "remarked,",
+          "start": 3.16,
+          "end": 3.48
+        },
+        {
+          "raw": "\"'Unless",
+          "start": 4.02,
+          "end": 4.38
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "want",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "raw": "presents",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "raw": "young",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "raw": "lady.",
+          "start": 5.84,
+          "end": 6.16
+        },
+        {
+          "raw": "No",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "raw": "one",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "raw": "will",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "raw": "remember",
+          "start": 7.12,
+          "end": 7.42
+        },
+        {
+          "raw": "you.",
+          "start": 7.42,
+          "end": 7.78
+        },
+        {
+          "raw": "She",
+          "start": 8.2,
+          "end": 8.36
+        },
+        {
+          "raw": "hasn't",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "raw": "a",
+          "start": 8.64,
+          "end": 8.74
+        },
+        {
+          "raw": "brass",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "raw": "farthing",
+          "start": 9.02,
+          "end": 9.48
+        },
+        {
+          "raw": "to",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "raw": "call",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "raw": "her",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "raw": "own.'\"",
+          "start": 10.02,
+          "end": 10.7
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "had",
+        "better",
+        "not",
+        "pay",
+        "for",
+        "anything",
+        "more,",
+        "ma'am,\"",
+        "he",
+        "remarked,",
+        "\"unless",
+        "you",
+        "want",
+        "to",
+        "make",
+        "presents",
+        "to",
+        "the",
+        "young",
+        "lady.",
+        "No",
+        "one",
+        "will",
+        "remember",
+        "you.",
+        "She",
+        "hasn't",
+        "a",
+        "brass",
+        "farthing",
+        "to",
+        "call",
+        "her",
+        "own.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          35,
+          10,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "better",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 1.16,
+          "end": 1.46,
+          "key": "pay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "anything",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 1.9,
+          "end": 2.3,
+          "key": "more",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 2.46,
+          "end": 2.52,
+          "key": "ma",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'am,\"",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.9,
+          "end": 3.16,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "remarked,",
+          "start": 3.16,
+          "end": 3.48,
+          "key": "remarked",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "\"'Unless",
+          "start": 4.02,
+          "end": 4.38,
+          "key": "unless",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 4.6,
+          "end": 4.72,
+          "key": "want",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.82,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 4.96,
+          "key": "make",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "presents",
+          "start": 4.96,
+          "end": 5.32,
+          "key": "presents",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.68,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 5.68,
+          "end": 5.84,
+          "key": "young",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "lady.",
+          "start": 5.84,
+          "end": 6.16,
+          "key": "lady",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 6.64,
+          "end": 6.82,
+          "key": "no",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.82,
+          "end": 6.98,
+          "key": "one",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.98,
+          "end": 7.12,
+          "key": "will",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 7.12,
+          "end": 7.42,
+          "key": "remember",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 7.42,
+          "end": 7.78,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 8.2,
+          "end": 8.36,
+          "key": "she",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "hasn't",
+          "start": 8.36,
+          "end": 8.64,
+          "key": "hasnt",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.64,
+          "end": 8.74,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "brass",
+          "start": 8.74,
+          "end": 9.02,
+          "key": "brass",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "farthing",
+          "start": 9.02,
+          "end": 9.48,
+          "key": "farthing",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.48,
+          "end": 9.66,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 9.66,
+          "end": 9.86,
+          "key": "call",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 9.86,
+          "end": 10.02,
+          "key": "her",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "own.'\"",
+          "start": 10.02,
+          "end": 10.7,
+          "key": "own",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "had",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "better",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "not",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "pay",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "text": "for",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "anything",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "more,",
+          "start": 1.9,
+          "end": 2.3
+        },
+        {
+          "text": "ma'am,\"",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "he",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "text": "remarked,",
+          "start": 3.16,
+          "end": 3.48
+        },
+        {
+          "text": "\"unless",
+          "start": 4.02,
+          "end": 4.38
+        },
+        {
+          "text": "you",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "want",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "text": "to",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "text": "make",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "text": "presents",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "text": "to",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "the",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "text": "young",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "text": "lady.",
+          "start": 5.84,
+          "end": 6.16
+        },
+        {
+          "text": "No",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "text": "one",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "text": "will",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "text": "remember",
+          "start": 7.12,
+          "end": 7.42
+        },
+        {
+          "text": "you.",
+          "start": 7.42,
+          "end": 7.78
+        },
+        {
+          "text": "She",
+          "start": 8.2,
+          "end": 8.36
+        },
+        {
+          "text": "hasn't",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "text": "a",
+          "start": 8.64,
+          "end": 8.74
+        },
+        {
+          "text": "brass",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "text": "farthing",
+          "start": 9.02,
+          "end": 9.48
+        },
+        {
+          "text": "to",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "text": "call",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "text": "her",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "text": "own.\"",
+          "start": 10.02,
+          "end": 10.7
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 36,
+        "matched_words": 34
+      },
+      "match_ratio": 0.9714285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.42432722821831703
+    },
+    {
+      "asr_seconds": 0.39482220634818077,
+      "alignment_seconds": 0.0007306858897209167,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "No, She"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " You had better not pay for anything more ma'am. He remarked unless you want to make presence to the young lady",
+          "start": 0.02,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.1083984375
+            },
+            {
+              "text": " had",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " better",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pay",
+              "start": 1.16,
+              "end": 1.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anything",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more",
+              "start": 1.9,
+              "end": 2.28,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " ma",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.52001953125
+            },
+            {
+              "text": "'am.",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " He",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " remarked",
+              "start": 3.16,
+              "end": 3.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " unless",
+              "start": 3.54,
+              "end": 4.38,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " you",
+              "start": 4.38,
+              "end": 4.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " want",
+              "start": 4.58,
+              "end": 4.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 4.72,
+              "end": 4.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " make",
+              "start": 4.82,
+              "end": 4.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " presence",
+              "start": 4.96,
+              "end": 5.32,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " to",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.58,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " young",
+              "start": 5.68,
+              "end": 5.84,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " lady",
+              "start": 5.84,
+              "end": 6.16,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " No one will remember you. She hasn't a brass farthing to call her own",
+          "start": 6.16,
+          "end": 10.34,
+          "words": [
+            {
+              "text": " No",
+              "start": 6.16,
+              "end": 6.82,
+              "probability": 0.869140625
+            },
+            {
+              "text": " one",
+              "start": 6.82,
+              "end": 6.98,
+              "probability": 0.7109375
+            },
+            {
+              "text": " will",
+              "start": 6.98,
+              "end": 7.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " remember",
+              "start": 7.12,
+              "end": 7.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 7.44,
+              "end": 7.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " She",
+              "start": 7.96,
+              "end": 8.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hasn't",
+              "start": 8.36,
+              "end": 8.66,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " a",
+              "start": 8.66,
+              "end": 8.74,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " brass",
+              "start": 8.74,
+              "end": 9.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " farthing",
+              "start": 9.02,
+              "end": 9.48,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " to",
+              "start": 9.48,
+              "end": 9.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " call",
+              "start": 9.66,
+              "end": 9.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " her",
+              "start": 9.86,
+              "end": 10.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 10.02,
+              "end": 10.34,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "had",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "better",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "not",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "pay",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "raw": "for",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "anything",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "more",
+          "start": 1.9,
+          "end": 2.28
+        },
+        {
+          "raw": "ma",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "'am.",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "He",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "remarked",
+          "start": 3.16,
+          "end": 3.54
+        },
+        {
+          "raw": "unless",
+          "start": 3.54,
+          "end": 4.38
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "raw": "want",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "raw": "presence",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "raw": "young",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "raw": "lady",
+          "start": 5.84,
+          "end": 6.16
+        },
+        {
+          "raw": "No",
+          "start": 6.16,
+          "end": 6.82
+        },
+        {
+          "raw": "one",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "raw": "will",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "raw": "remember",
+          "start": 7.12,
+          "end": 7.44
+        },
+        {
+          "raw": "you.",
+          "start": 7.44,
+          "end": 7.82
+        },
+        {
+          "raw": "She",
+          "start": 7.96,
+          "end": 8.36
+        },
+        {
+          "raw": "hasn't",
+          "start": 8.36,
+          "end": 8.66
+        },
+        {
+          "raw": "a",
+          "start": 8.66,
+          "end": 8.74
+        },
+        {
+          "raw": "brass",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "raw": "farthing",
+          "start": 9.02,
+          "end": 9.48
+        },
+        {
+          "raw": "to",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "raw": "call",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "raw": "her",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "raw": "own",
+          "start": 10.02,
+          "end": 10.34
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "had",
+        "better",
+        "not",
+        "pay",
+        "for",
+        "anything",
+        "more,",
+        "ma'am,\"",
+        "he",
+        "remarked,",
+        "\"unless",
+        "you",
+        "want",
+        "to",
+        "make",
+        "presents",
+        "to",
+        "the",
+        "young",
+        "lady.",
+        "No",
+        "one",
+        "will",
+        "remember",
+        "you.",
+        "She",
+        "hasn't",
+        "a",
+        "brass",
+        "farthing",
+        "to",
+        "call",
+        "her",
+        "own.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          16,
+          10,
+          17
+        ],
+        [
+          "replace",
+          16,
+          17,
+          17,
+          18
+        ],
+        [
+          "equal",
+          17,
+          35,
+          18,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          16,
+          17,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "better",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 1.16,
+          "end": 1.46,
+          "key": "pay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "anything",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.9,
+          "end": 2.28,
+          "key": "more",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 2.28,
+          "end": 2.52,
+          "key": "ma",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'am.",
+          "start": 2.52,
+          "end": 2.84,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "remarked",
+          "start": 3.16,
+          "end": 3.54,
+          "key": "remarked",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "unless",
+          "start": 3.54,
+          "end": 4.38,
+          "key": "unless",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.58,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 4.58,
+          "end": 4.72,
+          "key": "want",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.82,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 4.96,
+          "key": "make",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "presence",
+          "start": 4.96,
+          "end": 5.32,
+          "key": "presence",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.68,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 5.68,
+          "end": 5.84,
+          "key": "young",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 5.84,
+          "end": 6.16,
+          "key": "lady",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 6.16,
+          "end": 6.82,
+          "key": "no",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.82,
+          "end": 6.98,
+          "key": "one",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.98,
+          "end": 7.12,
+          "key": "will",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 7.12,
+          "end": 7.44,
+          "key": "remember",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 7.44,
+          "end": 7.82,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 7.96,
+          "end": 8.36,
+          "key": "she",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "hasn't",
+          "start": 8.36,
+          "end": 8.66,
+          "key": "hasnt",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.66,
+          "end": 8.74,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "brass",
+          "start": 8.74,
+          "end": 9.02,
+          "key": "brass",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "farthing",
+          "start": 9.02,
+          "end": 9.48,
+          "key": "farthing",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.48,
+          "end": 9.66,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 9.66,
+          "end": 9.86,
+          "key": "call",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 9.86,
+          "end": 10.02,
+          "key": "her",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 10.02,
+          "end": 10.34,
+          "key": "own",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "had",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "better",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "not",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "pay",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "text": "for",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "anything",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "more,",
+          "start": 1.9,
+          "end": 2.28
+        },
+        {
+          "text": "ma'am,\"",
+          "start": 2.28,
+          "end": 2.63
+        },
+        {
+          "text": "he",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "remarked,",
+          "start": 3.16,
+          "end": 3.54
+        },
+        {
+          "text": "\"unless",
+          "start": 3.54,
+          "end": 4.38
+        },
+        {
+          "text": "you",
+          "start": 4.38,
+          "end": 4.58
+        },
+        {
+          "text": "want",
+          "start": 4.58,
+          "end": 4.72
+        },
+        {
+          "text": "to",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "text": "make",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "text": "presents",
+          "start": 4.96,
+          "end": 5.14
+        },
+        {
+          "text": "to",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "the",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "text": "young",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "text": "lady.",
+          "start": 5.84,
+          "end": 6.16
+        },
+        {
+          "text": "No",
+          "start": 6.16,
+          "end": 6.82
+        },
+        {
+          "text": "one",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "text": "will",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "text": "remember",
+          "start": 7.12,
+          "end": 7.44
+        },
+        {
+          "text": "you.",
+          "start": 7.44,
+          "end": 7.82
+        },
+        {
+          "text": "She",
+          "start": 7.96,
+          "end": 8.36
+        },
+        {
+          "text": "hasn't",
+          "start": 8.36,
+          "end": 8.66
+        },
+        {
+          "text": "a",
+          "start": 8.66,
+          "end": 8.74
+        },
+        {
+          "text": "brass",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "text": "farthing",
+          "start": 9.02,
+          "end": 9.48
+        },
+        {
+          "text": "to",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "text": "call",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "text": "her",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "text": "own.\"",
+          "start": 10.02,
+          "end": 10.34
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 36,
+        "matched_words": 33
+      },
+      "match_ratio": 0.9428571428571428,
+      "rejection_reasons": [],
+      "seconds": 0.39587582275271416
+    },
+    {
+      "asr_seconds": 0.4092335179448128,
+      "alignment_seconds": 0.0006645843386650085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You had better not pay for anything more ma'am, he remarked. Unless you want to make presents to the young lady",
+          "start": 0.02,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.1083984375
+            },
+            {
+              "text": " had",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " better",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 0.92,
+              "end": 1.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pay",
+              "start": 1.16,
+              "end": 1.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anything",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more",
+              "start": 1.9,
+              "end": 2.28,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " ma",
+              "start": 2.28,
+              "end": 2.52,
+              "probability": 0.52001953125
+            },
+            {
+              "text": "'am,",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " he",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " remarked.",
+              "start": 3.16,
+              "end": 3.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Unless",
+              "start": 4.2,
+              "end": 4.38,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " you",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " want",
+              "start": 4.6,
+              "end": 4.72,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " to",
+              "start": 4.72,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " make",
+              "start": 4.82,
+              "end": 4.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " presents",
+              "start": 4.96,
+              "end": 5.32,
+              "probability": 0.525390625
+            },
+            {
+              "text": " to",
+              "start": 5.32,
+              "end": 5.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.58,
+              "end": 5.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " young",
+              "start": 5.68,
+              "end": 5.84,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " lady",
+              "start": 5.84,
+              "end": 6.16,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " No one will remember you. She hasn't a brass farthing to call her own",
+          "start": 6.16,
+          "end": 10.34,
+          "words": [
+            {
+              "text": " No",
+              "start": 6.16,
+              "end": 6.82,
+              "probability": 0.1444091796875
+            },
+            {
+              "text": " one",
+              "start": 6.82,
+              "end": 6.98,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " will",
+              "start": 6.98,
+              "end": 7.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " remember",
+              "start": 7.12,
+              "end": 7.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 7.44,
+              "end": 7.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " She",
+              "start": 8.08,
+              "end": 8.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hasn't",
+              "start": 8.36,
+              "end": 8.64,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " a",
+              "start": 8.64,
+              "end": 8.74,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " brass",
+              "start": 8.74,
+              "end": 9.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " farthing",
+              "start": 9.02,
+              "end": 9.48,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " to",
+              "start": 9.48,
+              "end": 9.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " call",
+              "start": 9.66,
+              "end": 9.86,
+              "probability": 1.0
+            },
+            {
+              "text": " her",
+              "start": 9.86,
+              "end": 10.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 10.02,
+              "end": 10.34,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "had",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "better",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "not",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "raw": "pay",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "raw": "for",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "anything",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "more",
+          "start": 1.9,
+          "end": 2.28
+        },
+        {
+          "raw": "ma",
+          "start": 2.28,
+          "end": 2.52
+        },
+        {
+          "raw": "'am,",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "raw": "remarked.",
+          "start": 3.16,
+          "end": 3.54
+        },
+        {
+          "raw": "Unless",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "want",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "raw": "presents",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "raw": "young",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "raw": "lady",
+          "start": 5.84,
+          "end": 6.16
+        },
+        {
+          "raw": "No",
+          "start": 6.16,
+          "end": 6.82
+        },
+        {
+          "raw": "one",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "raw": "will",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "raw": "remember",
+          "start": 7.12,
+          "end": 7.44
+        },
+        {
+          "raw": "you.",
+          "start": 7.44,
+          "end": 7.8
+        },
+        {
+          "raw": "She",
+          "start": 8.08,
+          "end": 8.36
+        },
+        {
+          "raw": "hasn't",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "raw": "a",
+          "start": 8.64,
+          "end": 8.74
+        },
+        {
+          "raw": "brass",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "raw": "farthing",
+          "start": 9.02,
+          "end": 9.48
+        },
+        {
+          "raw": "to",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "raw": "call",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "raw": "her",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "raw": "own",
+          "start": 10.02,
+          "end": 10.34
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "had",
+        "better",
+        "not",
+        "pay",
+        "for",
+        "anything",
+        "more,",
+        "ma'am,\"",
+        "he",
+        "remarked,",
+        "\"unless",
+        "you",
+        "want",
+        "to",
+        "make",
+        "presents",
+        "to",
+        "the",
+        "young",
+        "lady.",
+        "No",
+        "one",
+        "will",
+        "remember",
+        "you.",
+        "She",
+        "hasn't",
+        "a",
+        "brass",
+        "farthing",
+        "to",
+        "call",
+        "her",
+        "own.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          35,
+          10,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "better",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.92,
+          "end": 1.16,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 1.16,
+          "end": 1.46,
+          "key": "pay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "anything",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.9,
+          "end": 2.28,
+          "key": "more",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 2.28,
+          "end": 2.52,
+          "key": "ma",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'am,",
+          "start": 2.52,
+          "end": 2.84,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.94,
+          "end": 3.16,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "remarked.",
+          "start": 3.16,
+          "end": 3.54,
+          "key": "remarked",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Unless",
+          "start": 4.2,
+          "end": 4.38,
+          "key": "unless",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 4.6,
+          "end": 4.72,
+          "key": "want",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.72,
+          "end": 4.82,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 4.96,
+          "key": "make",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "presents",
+          "start": 4.96,
+          "end": 5.32,
+          "key": "presents",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.58,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.58,
+          "end": 5.68,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 5.68,
+          "end": 5.84,
+          "key": "young",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 5.84,
+          "end": 6.16,
+          "key": "lady",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 6.16,
+          "end": 6.82,
+          "key": "no",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.82,
+          "end": 6.98,
+          "key": "one",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.98,
+          "end": 7.12,
+          "key": "will",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 7.12,
+          "end": 7.44,
+          "key": "remember",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 7.44,
+          "end": 7.8,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 8.08,
+          "end": 8.36,
+          "key": "she",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "hasn't",
+          "start": 8.36,
+          "end": 8.64,
+          "key": "hasnt",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.64,
+          "end": 8.74,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "brass",
+          "start": 8.74,
+          "end": 9.02,
+          "key": "brass",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "farthing",
+          "start": 9.02,
+          "end": 9.48,
+          "key": "farthing",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.48,
+          "end": 9.66,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 9.66,
+          "end": 9.86,
+          "key": "call",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 9.86,
+          "end": 10.02,
+          "key": "her",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 10.02,
+          "end": 10.34,
+          "key": "own",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "had",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "better",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "not",
+          "start": 0.92,
+          "end": 1.16
+        },
+        {
+          "text": "pay",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "text": "for",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "anything",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "more,",
+          "start": 1.9,
+          "end": 2.28
+        },
+        {
+          "text": "ma'am,\"",
+          "start": 2.28,
+          "end": 2.61
+        },
+        {
+          "text": "he",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "text": "remarked,",
+          "start": 3.16,
+          "end": 3.54
+        },
+        {
+          "text": "\"unless",
+          "start": 4.2,
+          "end": 4.38
+        },
+        {
+          "text": "you",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "want",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "text": "to",
+          "start": 4.72,
+          "end": 4.82
+        },
+        {
+          "text": "make",
+          "start": 4.82,
+          "end": 4.96
+        },
+        {
+          "text": "presents",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "text": "to",
+          "start": 5.32,
+          "end": 5.58
+        },
+        {
+          "text": "the",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "text": "young",
+          "start": 5.68,
+          "end": 5.84
+        },
+        {
+          "text": "lady.",
+          "start": 5.84,
+          "end": 6.16
+        },
+        {
+          "text": "No",
+          "start": 6.16,
+          "end": 6.82
+        },
+        {
+          "text": "one",
+          "start": 6.82,
+          "end": 6.98
+        },
+        {
+          "text": "will",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "text": "remember",
+          "start": 7.12,
+          "end": 7.44
+        },
+        {
+          "text": "you.",
+          "start": 7.44,
+          "end": 7.8
+        },
+        {
+          "text": "She",
+          "start": 8.08,
+          "end": 8.36
+        },
+        {
+          "text": "hasn't",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "text": "a",
+          "start": 8.64,
+          "end": 8.74
+        },
+        {
+          "text": "brass",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "text": "farthing",
+          "start": 9.02,
+          "end": 9.48
+        },
+        {
+          "text": "to",
+          "start": 9.48,
+          "end": 9.66
+        },
+        {
+          "text": "call",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "text": "her",
+          "start": 9.86,
+          "end": 10.02
+        },
+        {
+          "text": "own.\"",
+          "start": 10.02,
+          "end": 10.34
+        }
+      ],
+      "stats": {
+        "expected_words": 35,
+        "heard_words": 36,
+        "matched_words": 34
+      },
+      "match_ratio": 0.9714285714285714,
+      "rejection_reasons": [],
+      "seconds": 0.4101884141564369
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ba98eed5b78aa7420ea191cfdf4dc1a4152289da71193abed008430092401f5b",
+  "selected_reasons": []
+}

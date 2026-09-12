@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "65b1b879469ff1589c4b1cbf64d784e15070531adea9f0cddb26631c02698da2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1123182000592351,
+      "alignment_seconds": 0.00030200392939150333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Roast beef and cabbage.",
+          "start": 0.05,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " Roast",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " beef",
+              "start": 0.71,
+              "end": 0.91,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " and",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " cabbage.",
+              "start": 1.09,
+              "end": 1.45,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roast",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "beef",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "raw": "and",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "cabbage.",
+          "start": 1.09,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "—Roast",
+        "beef",
+        "and",
+        "cabbage."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roast",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "roast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "beef",
+          "start": 0.71,
+          "end": 0.91,
+          "key": "beef",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.91,
+          "end": 1.09,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cabbage.",
+          "start": 1.09,
+          "end": 1.45,
+          "key": "cabbage",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Roast",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "beef",
+          "start": 0.71,
+          "end": 0.91
+        },
+        {
+          "text": "and",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "cabbage.",
+          "start": 1.09,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11272699292749166
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c880bf67bb49c12a1aacaef0f7268784ff140e609a2c1e580edec21afe540f13",
+  "selected_reasons": []
+}

@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "a688710c0266199ace8cc0637a015ae380f31c3754f1b47eb4c4ec6858065ec8",
+  "attempts": [
+    {
+      "asr_seconds": 0.16563495597802103,
+      "alignment_seconds": 0.00030753196915611625,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hell of a racket they make. He doesn't hear it. Nannon. Iron nerves. Maybe he understands what I",
+          "start": 0.05,
+          "end": 5.93,
+          "words": [
+            {
+              "text": " Hell",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " of",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 0.67,
+              "end": 0.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " racket",
+              "start": 0.75,
+              "end": 0.97,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " they",
+              "start": 0.97,
+              "end": 1.21,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " make.",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " He",
+              "start": 1.77,
+              "end": 1.83,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " doesn't",
+              "start": 1.83,
+              "end": 2.11,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " hear",
+              "start": 2.11,
+              "end": 2.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it.",
+              "start": 2.25,
+              "end": 2.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Nannon.",
+              "start": 3.05,
+              "end": 3.17,
+              "probability": 0.677490234375
+            },
+            {
+              "text": " Iron",
+              "start": 3.65,
+              "end": 3.71,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " nerves.",
+              "start": 3.71,
+              "end": 4.15,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Maybe",
+              "start": 4.75,
+              "end": 4.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 4.85,
+              "end": 5.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " understands",
+              "start": 5.07,
+              "end": 5.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " what",
+              "start": 5.49,
+              "end": 5.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 5.73,
+              "end": 5.93,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hell",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "of",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.75
+        },
+        {
+          "raw": "racket",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "raw": "they",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "raw": "make.",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "He",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "raw": "doesn't",
+          "start": 1.83,
+          "end": 2.11
+        },
+        {
+          "raw": "hear",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "raw": "it.",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "raw": "Nannon.",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "raw": "Iron",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "raw": "nerves.",
+          "start": 3.71,
+          "end": 4.15
+        },
+        {
+          "raw": "Maybe",
+          "start": 4.75,
+          "end": 4.85
+        },
+        {
+          "raw": "he",
+          "start": 4.85,
+          "end": 5.07
+        },
+        {
+          "raw": "understands",
+          "start": 5.07,
+          "end": 5.49
+        },
+        {
+          "raw": "what",
+          "start": 5.49,
+          "end": 5.73
+        },
+        {
+          "raw": "I",
+          "start": 5.73,
+          "end": 5.93
+        }
+      ],
+      "expected_tokens": [
+        "Hell",
+        "of",
+        "a",
+        "racket",
+        "they",
+        "make.",
+        "He",
+        "doesn't",
+        "hear",
+        "it.",
+        "Nannan.",
+        "Iron",
+        "nerves.",
+        "Maybe",
+        "he",
+        "understands",
+        "what",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          18,
+          11,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hell",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "hell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.67,
+          "end": 0.75,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "racket",
+          "start": 0.75,
+          "end": 0.97,
+          "key": "racket",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.97,
+          "end": 1.21,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "make.",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "make",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.77,
+          "end": 1.83,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "doesn't",
+          "start": 1.83,
+          "end": 2.11,
+          "key": "doesnt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.11,
+          "end": 2.25,
+          "key": "hear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.25,
+          "end": 2.63,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Nannon.",
+          "start": 3.05,
+          "end": 3.17,
+          "key": "nannon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Iron",
+          "start": 3.65,
+          "end": 3.71,
+          "key": "iron",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "nerves.",
+          "start": 3.71,
+          "end": 4.15,
+          "key": "nerves",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Maybe",
+          "start": 4.75,
+          "end": 4.85,
+          "key": "maybe",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.85,
+          "end": 5.07,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "understands",
+          "start": 5.07,
+          "end": 5.49,
+          "key": "understands",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.49,
+          "end": 5.73,
+          "key": "what",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.73,
+          "end": 5.93,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hell",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "of",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "a",
+          "start": 0.67,
+          "end": 0.75
+        },
+        {
+          "text": "racket",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "text": "they",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "text": "make.",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "He",
+          "start": 1.77,
+          "end": 1.83
+        },
+        {
+          "text": "doesn't",
+          "start": 1.83,
+          "end": 2.11
+        },
+        {
+          "text": "hear",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "text": "it.",
+          "start": 2.25,
+          "end": 2.63
+        },
+        {
+          "text": "Nannan.",
+          "start": 2.63,
+          "end": 3.14
+        },
+        {
+          "text": "Iron",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "text": "nerves.",
+          "start": 3.71,
+          "end": 4.15
+        },
+        {
+          "text": "Maybe",
+          "start": 4.75,
+          "end": 4.85
+        },
+        {
+          "text": "he",
+          "start": 4.85,
+          "end": 5.07
+        },
+        {
+          "text": "understands",
+          "start": 5.07,
+          "end": 5.49
+        },
+        {
+          "text": "what",
+          "start": 5.49,
+          "end": 5.73
+        },
+        {
+          "text": "I.",
+          "start": 5.73,
+          "end": 5.93
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.166050057974644
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "417789bad10c546b606c8c2e71b173fa9421fa6784ec03875ff0b911fe7867e9",
+  "selected_reasons": []
+}

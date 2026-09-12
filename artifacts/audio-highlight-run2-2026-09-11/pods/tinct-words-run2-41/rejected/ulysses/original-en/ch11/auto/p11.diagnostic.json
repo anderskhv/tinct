@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "959d4371bcd5e7f181ee9065d455bfc419ac4f0207f68b437e819a164021f2f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.19872943917289376,
+      "alignment_seconds": 0.00042085908353328705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And a call, pure, long and throbbing. Longindying call.",
+        "hotwords": "Longindying"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And a call, pure, long and throbbing. Longindying call.",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.1710205078125
+            },
+            {
+              "text": " a",
+              "start": 0.49,
+              "end": 0.57,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " call,",
+              "start": 0.57,
+              "end": 0.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " pure,",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " long",
+              "start": 1.49,
+              "end": 1.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " throbbing.",
+              "start": 1.67,
+              "end": 2.19,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " Longindying",
+              "start": 2.57,
+              "end": 3.13,
+              "probability": 0.3255550066630046
+            },
+            {
+              "text": " call.",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "a",
+          "start": 0.49,
+          "end": 0.57
+        },
+        {
+          "raw": "call,",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "raw": "pure,",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "long",
+          "start": 1.49,
+          "end": 1.51
+        },
+        {
+          "raw": "and",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "throbbing.",
+          "start": 1.67,
+          "end": 2.19
+        },
+        {
+          "raw": "Longindying",
+          "start": 2.57,
+          "end": 3.13
+        },
+        {
+          "raw": "call.",
+          "start": 3.13,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "a",
+        "call,",
+        "pure,",
+        "long",
+        "and",
+        "throbbing.",
+        "Longindying",
+        "call."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.49,
+          "end": 0.57,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "call,",
+          "start": 0.57,
+          "end": 0.79,
+          "key": "call",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pure,",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "pure",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 1.49,
+          "end": 1.51,
+          "key": "long",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "throbbing.",
+          "start": 1.67,
+          "end": 2.19,
+          "key": "throbbing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Longindying",
+          "start": 2.57,
+          "end": 3.13,
+          "key": "longindying",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "call.",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "call",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "a",
+          "start": 0.49,
+          "end": 0.57
+        },
+        {
+          "text": "call,",
+          "start": 0.57,
+          "end": 0.79
+        },
+        {
+          "text": "pure,",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "long",
+          "start": 1.49,
+          "end": 1.51
+        },
+        {
+          "text": "and",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "throbbing.",
+          "start": 1.67,
+          "end": 2.19
+        },
+        {
+          "text": "Longindying",
+          "start": 2.57,
+          "end": 3.13
+        },
+        {
+          "text": "call.",
+          "start": 3.13,
+          "end": 3.43
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1992981592193246
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "94043c5ce57cad04bed7916bf358c58101ef7343c4d9088ca09ac73a206baa66",
+  "selected_reasons": []
+}

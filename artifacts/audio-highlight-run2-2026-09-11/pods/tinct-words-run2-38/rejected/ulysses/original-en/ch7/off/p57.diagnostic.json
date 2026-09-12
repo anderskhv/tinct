@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "03485a00783c118ca1d7df5197f037ccb8e6b494d9c452b6d8eb0b914a1ad11d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16080397902987897,
+      "alignment_seconds": 0.00021306099370121956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Excuse me, Councillor, he said. This ad you see. Keys you remember.",
+          "start": 0.02,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " Excuse",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.5731201171875
+            },
+            {
+              "text": " me,",
+              "start": 0.9,
+              "end": 1.06,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Councillor,",
+              "start": 1.26,
+              "end": 1.62,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " he",
+              "start": 1.66,
+              "end": 1.74,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " said.",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " This",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " ad",
+              "start": 2.62,
+              "end": 2.88,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " you",
+              "start": 2.88,
+              "end": 3.04,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " see.",
+              "start": 3.04,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Keys",
+              "start": 3.9,
+              "end": 3.9,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " you",
+              "start": 3.9,
+              "end": 4.14,
+              "probability": 0.974609375
+            },
+            {
+              "text": " remember.",
+              "start": 4.14,
+              "end": 4.44,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Excuse",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "me,",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "raw": "Councillor,",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "raw": "he",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "raw": "said.",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "This",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "ad",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "raw": "see.",
+          "start": 3.04,
+          "end": 3.3
+        },
+        {
+          "raw": "Keys",
+          "start": 3.9,
+          "end": 3.9
+        },
+        {
+          "raw": "you",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "raw": "remember.",
+          "start": 4.14,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "—Excuse",
+        "me,",
+        "councillor,",
+        "he",
+        "said.",
+        "This",
+        "ad,",
+        "you",
+        "see.",
+        "Keyes,",
+        "you",
+        "remember?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          12,
+          10,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Excuse",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "excuse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.9,
+          "end": 1.06,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Councillor,",
+          "start": 1.26,
+          "end": 1.62,
+          "key": "councillor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.66,
+          "end": 1.74,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.74,
+          "end": 2.02,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ad",
+          "start": 2.62,
+          "end": 2.88,
+          "key": "ad",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.88,
+          "end": 3.04,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "see.",
+          "start": 3.04,
+          "end": 3.3,
+          "key": "see",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Keys",
+          "start": 3.9,
+          "end": 3.9,
+          "key": "keys",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.9,
+          "end": 4.14,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "remember.",
+          "start": 4.14,
+          "end": 4.44,
+          "key": "remember",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Excuse",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "me,",
+          "start": 0.9,
+          "end": 1.06
+        },
+        {
+          "text": "councillor,",
+          "start": 1.26,
+          "end": 1.62
+        },
+        {
+          "text": "he",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "text": "said.",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "text": "This",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "ad,",
+          "start": 2.62,
+          "end": 2.88
+        },
+        {
+          "text": "you",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "text": "see.",
+          "start": 3.04,
+          "end": 3.3
+        },
+        {
+          "text": "Keyes,",
+          "start": 3.3,
+          "end": 3.6
+        },
+        {
+          "text": "you",
+          "start": 3.9,
+          "end": 4.14
+        },
+        {
+          "text": "remember?",
+          "start": 4.14,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.16109363100258633
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fc5e560e21e82b7b6f76b5a679715c49e0356cb0929cf0528e3823a661a8f35c",
+  "selected_reasons": []
+}

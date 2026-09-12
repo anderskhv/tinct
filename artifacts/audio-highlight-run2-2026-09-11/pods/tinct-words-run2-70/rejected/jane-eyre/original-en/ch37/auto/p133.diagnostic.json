@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "0942a3fba03c7917b6929fb19256918f0d947fa12b91741546387a3c3d1e3550",
+  "attempts": [
+    {
+      "asr_seconds": 0.21712502115406096,
+      "alignment_seconds": 0.00042619300074875355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"St. John is an accomplished and profound scholar.\"",
+        "hotwords": "St, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " St. John is an accomplished and profound scholar.",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " St.",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.2005615234375
+            },
+            {
+              "text": " John",
+              "start": 1.02,
+              "end": 1.04,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " an",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " accomplished",
+              "start": 1.36,
+              "end": 1.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 1.86,
+              "end": 2.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " profound",
+              "start": 2.12,
+              "end": 2.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " scholar.",
+              "start": 2.52,
+              "end": 3.02,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "St.",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "John",
+          "start": 1.02,
+          "end": 1.04
+        },
+        {
+          "raw": "is",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "an",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "accomplished",
+          "start": 1.36,
+          "end": 1.86
+        },
+        {
+          "raw": "and",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "raw": "profound",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "raw": "scholar.",
+          "start": 2.52,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "\"St.",
+        "John",
+        "is",
+        "an",
+        "accomplished",
+        "and",
+        "profound",
+        "scholar.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "St.",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "st",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.02,
+          "end": 1.04,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "an",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "accomplished",
+          "start": 1.36,
+          "end": 1.86,
+          "key": "accomplished",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.86,
+          "end": 2.12,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "profound",
+          "start": 2.12,
+          "end": 2.52,
+          "key": "profound",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "scholar.",
+          "start": 2.52,
+          "end": 3.02,
+          "key": "scholar",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"St.",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "John",
+          "start": 1.02,
+          "end": 1.04
+        },
+        {
+          "text": "is",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "an",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "accomplished",
+          "start": 1.36,
+          "end": 1.86
+        },
+        {
+          "text": "and",
+          "start": 1.86,
+          "end": 2.12
+        },
+        {
+          "text": "profound",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "text": "scholar.\"",
+          "start": 2.52,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2177178340498358
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8184e51cdb95e6c056f8d9662a5cbf91b33223c551550eba3a32bfe74261a732",
+  "selected_reasons": []
+}

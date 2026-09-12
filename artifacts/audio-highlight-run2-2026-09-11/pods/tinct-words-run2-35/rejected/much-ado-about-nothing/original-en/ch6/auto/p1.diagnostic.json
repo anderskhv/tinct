@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "326dbc141b4f6bb808630bdccceb90da441b4150c0a4747c52d05de214e1034d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16147368773818016,
+      "alignment_seconds": 0.00028336048126220703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Benedick. Boy!",
+        "hotwords": "Benedick, Boy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Benedick, Boy!",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Benedick,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.1705474853515625
+            },
+            {
+              "text": " Boy!",
+              "start": 0.89,
+              "end": 1.11,
+              "probability": 0.169189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benedick,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Boy!",
+          "start": 0.89,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "Benedick.",
+        "Boy!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benedick,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "benedick",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Boy!",
+          "start": 0.89,
+          "end": 1.11,
+          "key": "boy",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benedick.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Boy!",
+          "start": 0.89,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16185187734663486
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8ae09fb51d6c524644942cead0202f3c393fd0696bcf60c02c80570792ebba6e",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "df049fd3e7e08d4ec73fb783189a62643a903e6a921c288781f9acfe18e632d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.15824523894116282,
+      "alignment_seconds": 0.0002410481683909893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aufidius. I know thee not. Thy name?",
+        "hotwords": "Aufidius, I, Thy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aufidius, I know thee not. Thy name?",
+          "start": 0.57,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Aufidius,",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.354949951171875
+            },
+            {
+              "text": " I",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " know",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thee",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " not.",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Thy",
+              "start": 1.93,
+              "end": 2.03,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " name?",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aufidius,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "know",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "thee",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "not.",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "Thy",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "raw": "name?",
+          "start": 2.03,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "Aufidius.",
+        "I",
+        "know",
+        "thee",
+        "not.",
+        "Thy",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aufidius,",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "aufidius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.37,
+          "end": 1.45,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.57,
+          "end": 1.79,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 1.93,
+          "end": 2.03,
+          "key": "thy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "name?",
+          "start": 2.03,
+          "end": 2.31,
+          "key": "name",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aufidius.",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "know",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "text": "thee",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "not.",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "text": "Thy",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "text": "name?",
+          "start": 2.03,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15857737930491567
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2766185f52daddaddf933ff85cb1dd1a5d846cd2f0416a2a8a247c3e9a5c6d2e",
+  "selected_reasons": []
+}

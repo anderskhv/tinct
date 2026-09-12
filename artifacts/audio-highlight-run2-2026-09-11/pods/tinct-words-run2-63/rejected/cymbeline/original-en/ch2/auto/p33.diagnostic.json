@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "6b8054d1930731f4ff32f04dfe6265b69a80a400378633363ae9da6639f508b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.24065938964486122,
+      "alignment_seconds": 0.00035774707794189453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. What, art thou mad?",
+        "hotwords": "Cymbeline, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline, What art thou mad?",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Cymbeline,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.6149088541666666
+            },
+            {
+              "text": " What",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.189697265625
+            },
+            {
+              "text": " art",
+              "start": 1.4,
+              "end": 1.64,
+              "probability": 0.66064453125
+            },
+            {
+              "text": " thou",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " mad?",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "What",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "art",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "raw": "thou",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "mad?",
+          "start": 1.82,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "What,",
+        "art",
+        "thou",
+        "mad?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.4,
+          "end": 1.64,
+          "key": "art",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.64,
+          "end": 1.82,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mad?",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "mad",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "What,",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "art",
+          "start": 1.4,
+          "end": 1.64
+        },
+        {
+          "text": "thou",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "mad?",
+          "start": 1.82,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24115584418177605
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "10807111e893387309baeb6b9d18db7d13be35870dbc28b3051df8bae222570b",
+  "selected_reasons": []
+}

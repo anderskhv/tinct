@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "6fccb7a2192d89cc97efcf8939c50ae7fa219b1172ad9a9b9278b33cbec3d27c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12343624886125326,
+      "alignment_seconds": 0.0002866843715310097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A mere spectre!\"",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A mere spectre!",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.5458984375
+            },
+            {
+              "text": " mere",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " spectre!",
+              "start": 0.65,
+              "end": 1.21,
+              "probability": 0.594970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "mere",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "spectre!",
+          "start": 0.65,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "mere",
+        "spectre!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mere",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "mere",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "spectre!",
+          "start": 0.65,
+          "end": 1.21,
+          "key": "spectre",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "mere",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "spectre!\"",
+          "start": 0.65,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12382754776626825
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4bf20de202cadc7c01aa19793be3201f777254d9137825514f30511c24a65e36",
+  "selected_reasons": []
+}

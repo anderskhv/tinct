@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "f4c5338cb21e24cc259ca4527a0fa225d2e9fc7b0a8964890cd4c77f077c5dd3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2067559640854597,
+      "alignment_seconds": 0.00027351733297109604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gower why the enemy is loud you hear him all night",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Gower",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.856201171875
+            },
+            {
+              "text": " why",
+              "start": 0.73,
+              "end": 1.31,
+              "probability": 0.37939453125
+            },
+            {
+              "text": " the",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.984375
+            },
+            {
+              "text": " enemy",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " loud",
+              "start": 1.93,
+              "end": 2.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 2.25,
+              "end": 2.57,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " hear",
+              "start": 2.57,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 2.91,
+              "end": 3.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " night",
+              "start": 3.05,
+              "end": 3.41,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gower",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "why",
+          "start": 0.73,
+          "end": 1.31
+        },
+        {
+          "raw": "the",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "enemy",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "is",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "loud",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "raw": "you",
+          "start": 2.25,
+          "end": 2.57
+        },
+        {
+          "raw": "hear",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "raw": "him",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "all",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "raw": "night",
+          "start": 3.05,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Gower.",
+        "Why,",
+        "the",
+        "enemy",
+        "is",
+        "loud;",
+        "you",
+        "hear",
+        "him",
+        "all",
+        "night."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gower",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "gower",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 0.73,
+          "end": 1.31,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "enemy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "loud",
+          "start": 1.93,
+          "end": 2.25,
+          "key": "loud",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.25,
+          "end": 2.57,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.57,
+          "end": 2.77,
+          "key": "hear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.91,
+          "end": 3.05,
+          "key": "all",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 3.05,
+          "end": 3.41,
+          "key": "night",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gower.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Why,",
+          "start": 0.73,
+          "end": 1.31
+        },
+        {
+          "text": "the",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "enemy",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "is",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "loud;",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "text": "you",
+          "start": 2.25,
+          "end": 2.57
+        },
+        {
+          "text": "hear",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "text": "him",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "all",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "text": "night.",
+          "start": 3.05,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20714833214879036
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "248e66323a7950631e65b59f908ba72f681e6c1c82da64a48efc1435fabe6265",
+  "selected_reasons": []
+}

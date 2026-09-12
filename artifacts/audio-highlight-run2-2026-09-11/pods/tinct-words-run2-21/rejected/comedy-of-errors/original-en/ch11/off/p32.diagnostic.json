@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "aaff60fd4e12e531ace0249c63a799ea3cf451f0be9f093a24784805cbef0720",
+  "attempts": [
+    {
+      "asr_seconds": 0.2164568961597979,
+      "alignment_seconds": 0.0002024071291089058,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Adriana, and in Assemblies 2.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Adriana,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.9407552083333334
+            },
+            {
+              "text": " and",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " Assemblies",
+              "start": 1.48,
+              "end": 1.94,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " 2.",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.7001953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adriana,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "and",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "in",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "Assemblies",
+          "start": 1.48,
+          "end": 1.94
+        },
+        {
+          "raw": "2.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Adriana.",
+        "And",
+        "in",
+        "assemblies",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Adriana,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "adriana",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Assemblies",
+          "start": 1.48,
+          "end": 1.94,
+          "key": "assemblies",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "2.",
+          "start": 1.94,
+          "end": 2.24,
+          "key": "two",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Adriana.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "And",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "in",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "assemblies",
+          "start": 1.48,
+          "end": 1.94
+        },
+        {
+          "text": "too.",
+          "start": 1.94,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21672117616981268
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11ee6da23d739499227e6f2ef9f5223697c671bbe2422afa58c823ed6c4cfeff",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

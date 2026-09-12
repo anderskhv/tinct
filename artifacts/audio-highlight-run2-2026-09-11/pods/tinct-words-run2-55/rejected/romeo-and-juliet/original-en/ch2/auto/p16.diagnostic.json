@@ -1,0 +1,437 @@
+{
+  "complete": true,
+  "signature": "e2947637eca3ed0a4c1546af434e7ba2aeba75d136a9d6281adf80cb08280eca",
+  "attempts": [
+    {
+      "asr_seconds": 1.121565287001431,
+      "alignment_seconds": 0.0002856254577636719,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gregory. They must take it in sense that feel it.",
+        "hotwords": "Gregory, They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gregory, They Gregory. They must take it in sense that feel it.",
+          "start": 0.02,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Gregory,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " They",
+              "start": 1.22,
+              "end": 1.32,
+              "probability": 0.0272979736328125
+            },
+            {
+              "text": " Gregory.",
+              "start": 1.32,
+              "end": 1.4,
+              "probability": 0.0
+            },
+            {
+              "text": " They",
+              "start": 1.4,
+              "end": 1.4,
+              "probability": 0.35595703125
+            },
+            {
+              "text": " must",
+              "start": 1.4,
+              "end": 1.44,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " take",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.939453125
+            },
+            {
+              "text": " it",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " in",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.775390625
+            },
+            {
+              "text": " sense",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " that",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " feel",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.970703125
+            },
+            {
+              "text": " it.",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gregory,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "They",
+          "start": 1.22,
+          "end": 1.32
+        },
+        {
+          "raw": "Gregory.",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "raw": "They",
+          "start": 1.4,
+          "end": 1.4
+        },
+        {
+          "raw": "must",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "raw": "take",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "it",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "in",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "sense",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "that",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "feel",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "it.",
+          "start": 2.58,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Gregory.",
+        "They",
+        "must",
+        "take",
+        "it",
+        "in",
+        "sense",
+        "that",
+        "feel",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          10,
+          2,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gregory,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "gregory",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.22,
+          "end": 1.32,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gregory.",
+          "start": 1.32,
+          "end": 1.4,
+          "key": "gregory",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.4,
+          "end": 1.4,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.4,
+          "end": 1.44,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.44,
+          "end": 1.68,
+          "key": "take",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sense",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "sense",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "feel",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.58,
+          "end": 2.86,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gregory.",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "text": "They",
+          "start": 1.4,
+          "end": 1.4
+        },
+        {
+          "text": "must",
+          "start": 1.4,
+          "end": 1.44
+        },
+        {
+          "text": "take",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "it",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "in",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "sense",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "that",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "feel",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "text": "it.",
+          "start": 2.58,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.121965960599482
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d610fb4bc2c741c8f2e91fb365d9d47897198c421d4f67a045392638a3d7688a",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "8daeb40fccf28e6c78dd46c3d08e583fae9aa6339d556c64ca41aec5831a27a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.22565267886966467,
+      "alignment_seconds": 0.000489184632897377,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Decius. Shall no man else be touch'd but only Caesar?",
+        "hotwords": "Decius, Shall, Caesar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Decius, Shall no man else be touch'd but only Caesar?",
+          "start": 0.08,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Decius,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.302978515625
+            },
+            {
+              "text": " Shall",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.032806396484375
+            },
+            {
+              "text": " no",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.95703125
+            },
+            {
+              "text": " man",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.9765625
+            },
+            {
+              "text": " else",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " be",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " touch'd",
+              "start": 2.14,
+              "end": 2.6,
+              "probability": 0.357144832611084
+            },
+            {
+              "text": " but",
+              "start": 2.6,
+              "end": 2.7,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " only",
+              "start": 2.7,
+              "end": 2.98,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Caesar?",
+              "start": 2.98,
+              "end": 3.34,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Decius,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Shall",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "no",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "man",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "else",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "be",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "raw": "touch'd",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "raw": "but",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "raw": "only",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "raw": "Caesar?",
+          "start": 2.98,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "Decius.",
+        "Shall",
+        "no",
+        "man",
+        "else",
+        "be",
+        "touch'd",
+        "but",
+        "only",
+        "Caesar?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Decius,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "decius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "else",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "else",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "touch'd",
+          "start": 2.14,
+          "end": 2.6,
+          "key": "touchd",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.6,
+          "end": 2.7,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.7,
+          "end": 2.98,
+          "key": "only",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Caesar?",
+          "start": 2.98,
+          "end": 3.34,
+          "key": "caesar",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Decius.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Shall",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "no",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "man",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "else",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "be",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "text": "touch'd",
+          "start": 2.14,
+          "end": 2.6
+        },
+        {
+          "text": "but",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "text": "only",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "text": "Caesar?",
+          "start": 2.98,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22635117266327143
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ed4033c59b7f7865f8512d1e6e09bbade102fab43e7f5a0c57e0b53382d4cb3",
+  "selected_reasons": []
+}

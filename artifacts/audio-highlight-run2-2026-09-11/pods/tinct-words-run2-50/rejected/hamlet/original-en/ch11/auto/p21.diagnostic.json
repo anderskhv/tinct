@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "e19b7925fb570148c42813f627843e0ce2e60a8557a3d804995413e4135e69c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.217881316319108,
+      "alignment_seconds": 0.0001600366085767746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polonius. [Behind.] O, I am slain!",
+        "hotwords": "Polonius, Behind, O, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polonius, Behind, O, I am slain!",
+          "start": 0.05,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.8111979166666666
+            },
+            {
+              "text": " Behind,",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.01514434814453125
+            },
+            {
+              "text": " O,",
+              "start": 2.13,
+              "end": 2.19,
+              "probability": 0.050506591796875
+            },
+            {
+              "text": " I",
+              "start": 2.27,
+              "end": 2.33,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " am",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " slain!",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.359130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Behind,",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "O,",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.33
+        },
+        {
+          "raw": "am",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "slain!",
+          "start": 2.43,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "[Behind.]",
+        "O,",
+        "I",
+        "am",
+        "slain!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Behind,",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "behind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 2.13,
+          "end": 2.19,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.27,
+          "end": 2.33,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "slain!",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "slain",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "[Behind.]",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "O,",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "text": "I",
+          "start": 2.27,
+          "end": 2.33
+        },
+        {
+          "text": "am",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "slain!",
+          "start": 2.43,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.218096274882555
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df159995627874246a0fc825cb5f302e03ae4b5581fe9ad00f5f5db97c522713",
+  "selected_reasons": []
+}

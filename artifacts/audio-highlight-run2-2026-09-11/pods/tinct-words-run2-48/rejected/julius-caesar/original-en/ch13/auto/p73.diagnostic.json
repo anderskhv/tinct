@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "edc377199764eae9be1acedc59f1deebfcfb8812541a3344a35d800d7951346b",
+  "attempts": [
+    {
+      "asr_seconds": 0.23935380578041077,
+      "alignment_seconds": 0.00048246700316667557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. No man bears sorrow better. Portia is dead.",
+        "hotwords": "Brutus, No, Portia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, No man bears sorrow better. Portia is dead.",
+          "start": 0.08,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " No",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.04248046875
+            },
+            {
+              "text": " man",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " bears",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.896484375
+            },
+            {
+              "text": " sorrow",
+              "start": 1.88,
+              "end": 2.18,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " better.",
+              "start": 2.18,
+              "end": 2.52,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Portia",
+              "start": 2.84,
+              "end": 3.1,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 3.1,
+              "end": 3.26,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " dead.",
+              "start": 3.26,
+              "end": 3.52,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "No",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "man",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "bears",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "sorrow",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "raw": "better.",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "raw": "Portia",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.26
+        },
+        {
+          "raw": "dead.",
+          "start": 3.26,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "No",
+        "man",
+        "bears",
+        "sorrow",
+        "better.",
+        "Portia",
+        "is",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bears",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "bears",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sorrow",
+          "start": 1.88,
+          "end": 2.18,
+          "key": "sorrow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 2.18,
+          "end": 2.52,
+          "key": "better",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Portia",
+          "start": 2.84,
+          "end": 3.1,
+          "key": "portia",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.26,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 3.26,
+          "end": 3.52,
+          "key": "dead",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "No",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "man",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "bears",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "sorrow",
+          "start": 1.88,
+          "end": 2.18
+        },
+        {
+          "text": "better.",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "text": "Portia",
+          "start": 2.84,
+          "end": 3.1
+        },
+        {
+          "text": "is",
+          "start": 3.1,
+          "end": 3.26
+        },
+        {
+          "text": "dead.",
+          "start": 3.26,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24002005252987146
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f11c8d1941ed20917e809b35bda1cdd7f1a8796251fd144300d36b56e804a62e",
+  "selected_reasons": []
+}

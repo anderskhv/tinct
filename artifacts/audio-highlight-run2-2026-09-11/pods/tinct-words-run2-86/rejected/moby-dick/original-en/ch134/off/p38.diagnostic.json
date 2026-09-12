@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "01f8e776ee69e3e26d0eed652fd2c8982e3d4d53c029f343ea9b12d1bfa82a33",
+  "attempts": [
+    {
+      "asr_seconds": 0.2904340289533138,
+      "alignment_seconds": 0.0004323534667491913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But quickly, they returned to him, with the tidings that the Parsi was nowhere to be found.",
+          "start": 0.02,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.830078125
+            },
+            {
+              "text": " quickly,",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.9765625
+            },
+            {
+              "text": " they",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " returned",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " to",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him,",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " with",
+              "start": 2.4,
+              "end": 2.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.58,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tidings",
+              "start": 2.72,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.38,
+              "end": 3.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Parsi",
+              "start": 3.5,
+              "end": 3.92,
+              "probability": 0.80859375
+            },
+            {
+              "text": " was",
+              "start": 3.92,
+              "end": 4.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " nowhere",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 4.46,
+              "end": 4.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " found.",
+              "start": 4.9,
+              "end": 5.24,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "quickly,",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "they",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "returned",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "him,",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "with",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "raw": "tidings",
+          "start": 2.72,
+          "end": 3.2
+        },
+        {
+          "raw": "that",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "the",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "raw": "Parsi",
+          "start": 3.5,
+          "end": 3.92
+        },
+        {
+          "raw": "was",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "raw": "nowhere",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "raw": "to",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "raw": "be",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "raw": "found.",
+          "start": 4.9,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "quickly",
+        "they",
+        "returned",
+        "to",
+        "him",
+        "with",
+        "the",
+        "tidings",
+        "that",
+        "the",
+        "Parsee",
+        "was",
+        "nowhere",
+        "to",
+        "be",
+        "found."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          17,
+          12,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quickly,",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "quickly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "returned",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.4,
+          "end": 2.58,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.72,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tidings",
+          "start": 2.72,
+          "end": 3.2,
+          "key": "tidings",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.38,
+          "end": 3.5,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Parsi",
+          "start": 3.5,
+          "end": 3.92,
+          "key": "parsi",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.92,
+          "end": 4.12,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "nowhere",
+          "start": 4.12,
+          "end": 4.46,
+          "key": "nowhere",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.46,
+          "end": 4.78,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.78,
+          "end": 4.9,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "found.",
+          "start": 4.9,
+          "end": 5.24,
+          "key": "found",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "quickly",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "they",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "returned",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "text": "to",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "him",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "with",
+          "start": 2.4,
+          "end": 2.58
+        },
+        {
+          "text": "the",
+          "start": 2.58,
+          "end": 2.72
+        },
+        {
+          "text": "tidings",
+          "start": 2.72,
+          "end": 3.2
+        },
+        {
+          "text": "that",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "the",
+          "start": 3.38,
+          "end": 3.5
+        },
+        {
+          "text": "Parsee",
+          "start": 3.5,
+          "end": 3.71
+        },
+        {
+          "text": "was",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "text": "nowhere",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "text": "to",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "text": "be",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "text": "found.",
+          "start": 4.9,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.29107648879289627
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e1a03479d6e41a295db3562c237f85688dfb01fd768fdd6022a8a46fb0ce8b4",
+  "selected_reasons": []
+}

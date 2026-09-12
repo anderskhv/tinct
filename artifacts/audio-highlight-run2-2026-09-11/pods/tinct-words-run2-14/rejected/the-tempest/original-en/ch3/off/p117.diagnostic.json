@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "821a8b9141722de1f9f957488f11143131f3ce72bcc8bc19da1dff74acf39103",
+  "attempts": [
+    {
+      "asr_seconds": 0.1912047453224659,
+      "alignment_seconds": 0.0004028715193271637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, what a strange drowsiness possesses them.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " what",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " a",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " strange",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " drowsiness",
+              "start": 2.0,
+              "end": 2.58,
+              "probability": 0.986328125
+            },
+            {
+              "text": " possesses",
+              "start": 2.58,
+              "end": 2.94,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " them.",
+              "start": 2.94,
+              "end": 3.32,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "a",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "strange",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "raw": "drowsiness",
+          "start": 2.0,
+          "end": 2.58
+        },
+        {
+          "raw": "possesses",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "raw": "them.",
+          "start": 2.94,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "What",
+        "a",
+        "strange",
+        "drowsiness",
+        "possesses",
+        "them!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "strange",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drowsiness",
+          "start": 2.0,
+          "end": 2.58,
+          "key": "drowsiness",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "possesses",
+          "start": 2.58,
+          "end": 2.94,
+          "key": "possesses",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.94,
+          "end": 3.32,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "What",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "a",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "strange",
+          "start": 1.66,
+          "end": 2.0
+        },
+        {
+          "text": "drowsiness",
+          "start": 2.0,
+          "end": 2.58
+        },
+        {
+          "text": "possesses",
+          "start": 2.58,
+          "end": 2.94
+        },
+        {
+          "text": "them!",
+          "start": 2.94,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19175997376441956
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca18b46a04171a034331b21bbafac533012792d4287a6b9c124a4ba1a3558efd",
+  "selected_reasons": []
+}

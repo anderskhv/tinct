@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "5c4d1ad809a5f08e24bfc63479cfc80d706da1be5c8c93c39d5cb9fd6bc01c44",
+  "attempts": [
+    {
+      "asr_seconds": 0.21941857878118753,
+      "alignment_seconds": 0.00039078202098608017,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Come and fight,\" said the pale young gentleman.",
+        "hotwords": "Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Come and fight, said the pale young gentleman.",
+          "start": 0.05,
+          "end": 2.61,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.07977294921875
+            },
+            {
+              "text": " and",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " fight,",
+              "start": 0.71,
+              "end": 1.03,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " said",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " pale",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.955078125
+            },
+            {
+              "text": " young",
+              "start": 1.91,
+              "end": 2.17,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " gentleman.",
+              "start": 2.17,
+              "end": 2.61,
+              "probability": 0.8076171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "and",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "fight,",
+          "start": 0.71,
+          "end": 1.03
+        },
+        {
+          "raw": "said",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "pale",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "young",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "raw": "gentleman.",
+          "start": 2.17,
+          "end": 2.61
+        }
+      ],
+      "expected_tokens": [
+        "\"Come",
+        "and",
+        "fight,\"",
+        "said",
+        "the",
+        "pale",
+        "young",
+        "gentleman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fight,",
+          "start": 0.71,
+          "end": 1.03,
+          "key": "fight",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pale",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "pale",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 1.91,
+          "end": 2.17,
+          "key": "young",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gentleman.",
+          "start": 2.17,
+          "end": 2.61,
+          "key": "gentleman",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Come",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "and",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "fight,\"",
+          "start": 0.71,
+          "end": 1.03
+        },
+        {
+          "text": "said",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "the",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "pale",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "young",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "text": "gentleman.",
+          "start": 2.17,
+          "end": 2.61
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21995938383042812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b96e0e21db0eff258a4f10c2d7e3571de85199d34c88bcd7ecd4642baacfce13",
+  "selected_reasons": []
+}

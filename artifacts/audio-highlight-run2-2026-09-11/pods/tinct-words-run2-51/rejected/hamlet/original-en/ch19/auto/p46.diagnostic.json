@@ -1,0 +1,310 @@
+{
+  "complete": true,
+  "signature": "5e1f26d1df53fef78328cd9f77a7941278b8fc81d80fe0813a9a901f2a6bcec5",
+  "attempts": [
+    {
+      "asr_seconds": 0.22683590278029442,
+      "alignment_seconds": 0.0005486886948347092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Is not parchment made of sheep-skins?",
+        "hotwords": "Hamlet, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Is not parchment made of sheep-skins?",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.947021484375
+            },
+            {
+              "text": " Is",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.0193634033203125
+            },
+            {
+              "text": " not",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " parchment",
+              "start": 1.49,
+              "end": 1.83,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " made",
+              "start": 1.83,
+              "end": 2.07,
+              "probability": 0.96484375
+            },
+            {
+              "text": " of",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sheep",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.96630859375
+            },
+            {
+              "text": "-skins?",
+              "start": 2.35,
+              "end": 2.77,
+              "probability": 0.6254825592041016
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Is",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "not",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "parchment",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "raw": "made",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "sheep",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "-skins?",
+          "start": 2.35,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Is",
+        "not",
+        "parchment",
+        "made",
+        "of",
+        "sheep-skins?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "parchment",
+          "start": 1.49,
+          "end": 1.83,
+          "key": "parchment",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 1.83,
+          "end": 2.07,
+          "key": "made",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sheep -skins?",
+          "start": 2.23,
+          "end": 2.77,
+          "key": "sheepskins",
+          "pieces": [
+            6,
+            7
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "sheep-skins?",
+          "heard": "sheep -skins?",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 2.23,
+          "end": 2.77
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Is",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "not",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "parchment",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "text": "made",
+          "start": 1.83,
+          "end": 2.07
+        },
+        {
+          "text": "of",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "sheep-skins?",
+          "start": 2.23,
+          "end": 2.77
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22765222564339638
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "18931958383077066dd65e69803547bd608ec1e4ad83b2ebed83c35a32f61d94",
+  "selected_reasons": []
+}

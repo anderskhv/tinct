@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "a113425e602d2fb2dc641671f534ff47b5cf0ff78c009160e315e8e1868b91c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19758503884077072,
+      "alignment_seconds": 0.0004082433879375458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Malvolio, this is much credit to you.",
+          "start": 0.55,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " this",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.9921875
+            },
+            {
+              "text": " much",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " credit",
+              "start": 1.91,
+              "end": 2.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "this",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "credit",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "raw": "to",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "you.",
+          "start": 2.37,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "This",
+        "is",
+        "much",
+        "credit",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.91,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "credit",
+          "start": 1.91,
+          "end": 2.15,
+          "key": "credit",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.15,
+          "end": 2.37,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.37,
+          "end": 2.69,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "text": "This",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "is",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "much",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "credit",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "text": "to",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "you.",
+          "start": 2.37,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19814758375287056
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8ee9a73aeeae04b29c715391c98eee39576f767bcda30f4ebb891336944b6df",
+  "selected_reasons": []
+}

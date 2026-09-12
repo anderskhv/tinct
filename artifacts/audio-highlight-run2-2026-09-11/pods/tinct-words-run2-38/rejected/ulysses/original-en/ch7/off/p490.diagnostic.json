@@ -1,0 +1,400 @@
+{
+  "complete": true,
+  "signature": "1d6f8952d2cc3a27f47d1c5ac0d400cf42bd47ca82efcf7e00ec2026a2370f66",
+  "attempts": [
+    {
+      "asr_seconds": 0.12317503802478313,
+      "alignment_seconds": 0.0002168909995816648,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What is it? Miles Crawford said, falling back apace.",
+          "start": 0.02,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.36865234375
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " it?",
+              "start": 0.72,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Miles",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " Crawford",
+              "start": 1.52,
+              "end": 1.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " said,",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " falling",
+              "start": 2.46,
+              "end": 2.52,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " back",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " apace.",
+              "start": 2.84,
+              "end": 3.24,
+              "probability": 0.941650390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "raw": "it?",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "raw": "Miles",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "Crawford",
+          "start": 1.52,
+          "end": 1.88
+        },
+        {
+          "raw": "said,",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "falling",
+          "start": 2.46,
+          "end": 2.52
+        },
+        {
+          "raw": "back",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "apace.",
+          "start": 2.84,
+          "end": 3.24
+        }
+      ],
+      "expected_tokens": [
+        "—What",
+        "is",
+        "it?",
+        "Myles",
+        "Crawford",
+        "said,",
+        "falling",
+        "back",
+        "a",
+        "pace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.72,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 0.72,
+          "end": 1.04,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miles",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "miles",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Crawford",
+          "start": 1.52,
+          "end": 1.88,
+          "key": "crawford",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "falling",
+          "start": 2.46,
+          "end": 2.52,
+          "key": "falling",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 2.52,
+          "end": 2.84,
+          "key": "back",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "apace.",
+          "start": 2.84,
+          "end": 3.24,
+          "key": "apace",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "is",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "text": "it?",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "Myles",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "Crawford",
+          "start": 1.52,
+          "end": 1.88
+        },
+        {
+          "text": "said,",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "text": "falling",
+          "start": 2.46,
+          "end": 2.52
+        },
+        {
+          "text": "back",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "a",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "pace.",
+          "start": 3.04,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12346726999385282
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0804e79fef427a15da5a3d58e5f5146f35fab9ee05a427c0aba0121635368486",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

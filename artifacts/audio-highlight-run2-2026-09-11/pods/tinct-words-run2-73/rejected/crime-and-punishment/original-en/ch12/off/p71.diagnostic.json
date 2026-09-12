@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "c9b9648b3c5b40afff2e8ce51deaf96e0aae0a97ba33195439d4c7feb0ad167f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11511320061981678,
+      "alignment_seconds": 0.0003298269584774971,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, you've heard of it.",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " you've",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " heard",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it.",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "you've",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "heard",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "of",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "it.",
+          "start": 1.4,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes.",
+        "You've",
+        "heard",
+        "of",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you've",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "youve",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "heard",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "You've",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "heard",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "of",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "it?\"",
+          "start": 1.4,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11556596495211124
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e966936d070e1ea4e378713d687863b12ce89dc1a5374b6fbd232dc060b20d77",
+  "selected_reasons": []
+}

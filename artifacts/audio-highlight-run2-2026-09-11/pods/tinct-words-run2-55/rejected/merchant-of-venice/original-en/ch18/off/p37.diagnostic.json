@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "8c818936bcf53748747ff43f8b45f97b5e94fa3847979b8b4aa858a148311571",
+  "attempts": [
+    {
+      "asr_seconds": 0.25547165889292955,
+      "alignment_seconds": 0.00037625525146722794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nerissa, he attendeth here hard by to know your answer whether you'll admit him.",
+          "start": 0.05,
+          "end": 4.93,
+          "words": [
+            {
+              "text": " Nerissa,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.6510009765625
+            },
+            {
+              "text": " he",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.939453125
+            },
+            {
+              "text": " attendeth",
+              "start": 1.59,
+              "end": 2.03,
+              "probability": 0.849365234375
+            },
+            {
+              "text": " here",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.947265625
+            },
+            {
+              "text": " hard",
+              "start": 2.23,
+              "end": 2.47,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " by",
+              "start": 2.47,
+              "end": 2.75,
+              "probability": 0.8203125
+            },
+            {
+              "text": " to",
+              "start": 2.75,
+              "end": 3.07,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " know",
+              "start": 3.07,
+              "end": 3.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 3.21,
+              "end": 3.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " answer",
+              "start": 3.37,
+              "end": 3.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " whether",
+              "start": 3.75,
+              "end": 4.13,
+              "probability": 0.59130859375
+            },
+            {
+              "text": " you'll",
+              "start": 4.13,
+              "end": 4.39,
+              "probability": 0.980224609375
+            },
+            {
+              "text": " admit",
+              "start": 4.39,
+              "end": 4.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him.",
+              "start": 4.65,
+              "end": 4.93,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nerissa,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "he",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "attendeth",
+          "start": 1.59,
+          "end": 2.03
+        },
+        {
+          "raw": "here",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "hard",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "raw": "by",
+          "start": 2.47,
+          "end": 2.75
+        },
+        {
+          "raw": "to",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "raw": "know",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "raw": "your",
+          "start": 3.21,
+          "end": 3.37
+        },
+        {
+          "raw": "answer",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "raw": "whether",
+          "start": 3.75,
+          "end": 4.13
+        },
+        {
+          "raw": "you'll",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "raw": "admit",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "raw": "him.",
+          "start": 4.65,
+          "end": 4.93
+        }
+      ],
+      "expected_tokens": [
+        "Nerissa.",
+        "He",
+        "attendeth",
+        "here",
+        "hard",
+        "by,",
+        "To",
+        "know",
+        "your",
+        "answer,",
+        "whether",
+        "you'll",
+        "admit",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nerissa,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "nerissa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "attendeth",
+          "start": 1.59,
+          "end": 2.03,
+          "key": "attendeth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 2.23,
+          "end": 2.47,
+          "key": "hard",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.47,
+          "end": 2.75,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.75,
+          "end": 3.07,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.07,
+          "end": 3.21,
+          "key": "know",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.21,
+          "end": 3.37,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 3.37,
+          "end": 3.75,
+          "key": "answer",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "whether",
+          "start": 3.75,
+          "end": 4.13,
+          "key": "whether",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 4.13,
+          "end": 4.39,
+          "key": "youll",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "admit",
+          "start": 4.39,
+          "end": 4.65,
+          "key": "admit",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 4.65,
+          "end": 4.93,
+          "key": "him",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nerissa.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "He",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "attendeth",
+          "start": 1.59,
+          "end": 2.03
+        },
+        {
+          "text": "here",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "hard",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "text": "by,",
+          "start": 2.47,
+          "end": 2.75
+        },
+        {
+          "text": "To",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "text": "know",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "text": "your",
+          "start": 3.21,
+          "end": 3.37
+        },
+        {
+          "text": "answer,",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "text": "whether",
+          "start": 3.75,
+          "end": 4.13
+        },
+        {
+          "text": "you'll",
+          "start": 4.13,
+          "end": 4.39
+        },
+        {
+          "text": "admit",
+          "start": 4.39,
+          "end": 4.65
+        },
+        {
+          "text": "him.",
+          "start": 4.65,
+          "end": 4.93
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25598309002816677
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bca71e9c1fd982b067b71318530be14b1b096c501f11b4a877bd795776b06d0b",
+  "selected_reasons": []
+}

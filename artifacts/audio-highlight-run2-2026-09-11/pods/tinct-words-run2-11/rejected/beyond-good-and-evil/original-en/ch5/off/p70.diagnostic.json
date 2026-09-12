@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "32da98d5ca1e802f93dac0bcb25e61af1cb8bf4c33c08702df4842de9caa6a4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3904215358197689,
+      "alignment_seconds": 0.0005027325823903084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 133. He who cannot find the way to his ideal, lives more frivolously and shamelessly than",
+          "start": 0.71,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " 133.",
+              "start": 0.71,
+              "end": 1.21,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " He",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.9140625
+            },
+            {
+              "text": " who",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " cannot",
+              "start": 2.57,
+              "end": 2.83,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " find",
+              "start": 2.83,
+              "end": 3.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.15,
+              "end": 3.29,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " way",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 3.45,
+              "end": 3.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " ideal,",
+              "start": 3.77,
+              "end": 4.21,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " lives",
+              "start": 4.63,
+              "end": 4.87,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " more",
+              "start": 4.87,
+              "end": 5.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " frivolously",
+              "start": 5.15,
+              "end": 5.83,
+              "probability": 0.974609375
+            },
+            {
+              "text": " and",
+              "start": 5.83,
+              "end": 6.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " shamelessly",
+              "start": 6.07,
+              "end": 6.81,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " than",
+              "start": 6.81,
+              "end": 6.93,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " the man without an ideal.",
+          "start": 6.93,
+          "end": 8.13,
+          "words": [
+            {
+              "text": " the",
+              "start": 6.93,
+              "end": 7.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man",
+              "start": 7.05,
+              "end": 7.29,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " without",
+              "start": 7.29,
+              "end": 7.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 7.61,
+              "end": 7.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ideal.",
+              "start": 7.79,
+              "end": 8.13,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "133.",
+          "start": 0.71,
+          "end": 1.21
+        },
+        {
+          "raw": "He",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "who",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "cannot",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "raw": "find",
+          "start": 2.83,
+          "end": 3.15
+        },
+        {
+          "raw": "the",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "raw": "way",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "to",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "raw": "his",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "ideal,",
+          "start": 3.77,
+          "end": 4.21
+        },
+        {
+          "raw": "lives",
+          "start": 4.63,
+          "end": 4.87
+        },
+        {
+          "raw": "more",
+          "start": 4.87,
+          "end": 5.15
+        },
+        {
+          "raw": "frivolously",
+          "start": 5.15,
+          "end": 5.83
+        },
+        {
+          "raw": "and",
+          "start": 5.83,
+          "end": 6.07
+        },
+        {
+          "raw": "shamelessly",
+          "start": 6.07,
+          "end": 6.81
+        },
+        {
+          "raw": "than",
+          "start": 6.81,
+          "end": 6.93
+        },
+        {
+          "raw": "the",
+          "start": 6.93,
+          "end": 7.05
+        },
+        {
+          "raw": "man",
+          "start": 7.05,
+          "end": 7.29
+        },
+        {
+          "raw": "without",
+          "start": 7.29,
+          "end": 7.61
+        },
+        {
+          "raw": "an",
+          "start": 7.61,
+          "end": 7.79
+        },
+        {
+          "raw": "ideal.",
+          "start": 7.79,
+          "end": 8.13
+        }
+      ],
+      "expected_tokens": [
+        "133.",
+        "He",
+        "who",
+        "cannot",
+        "find",
+        "the",
+        "way",
+        "to",
+        "His",
+        "ideal,",
+        "lives",
+        "more",
+        "frivolously",
+        "and",
+        "shamelessly",
+        "than",
+        "the",
+        "man",
+        "without",
+        "an",
+        "ideal."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "133.",
+          "start": 0.71,
+          "end": 1.21,
+          "key": "133",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.43,
+          "end": 2.57,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 2.57,
+          "end": 2.83,
+          "key": "cannot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 2.83,
+          "end": 3.15,
+          "key": "find",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.15,
+          "end": 3.29,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 3.29,
+          "end": 3.45,
+          "key": "way",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.45,
+          "end": 3.63,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ideal,",
+          "start": 3.77,
+          "end": 4.21,
+          "key": "ideal",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 4.63,
+          "end": 4.87,
+          "key": "lives",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.87,
+          "end": 5.15,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "frivolously",
+          "start": 5.15,
+          "end": 5.83,
+          "key": "frivolously",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.83,
+          "end": 6.07,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shamelessly",
+          "start": 6.07,
+          "end": 6.81,
+          "key": "shamelessly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 6.81,
+          "end": 6.93,
+          "key": "than",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.93,
+          "end": 7.05,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 7.05,
+          "end": 7.29,
+          "key": "man",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 7.29,
+          "end": 7.61,
+          "key": "without",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 7.61,
+          "end": 7.79,
+          "key": "an",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ideal.",
+          "start": 7.79,
+          "end": 8.13,
+          "key": "ideal",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "133.",
+          "start": 0.71,
+          "end": 1.21
+        },
+        {
+          "text": "He",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "who",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "cannot",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "text": "find",
+          "start": 2.83,
+          "end": 3.15
+        },
+        {
+          "text": "the",
+          "start": 3.15,
+          "end": 3.29
+        },
+        {
+          "text": "way",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "to",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "text": "His",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "ideal,",
+          "start": 3.77,
+          "end": 4.21
+        },
+        {
+          "text": "lives",
+          "start": 4.63,
+          "end": 4.87
+        },
+        {
+          "text": "more",
+          "start": 4.87,
+          "end": 5.15
+        },
+        {
+          "text": "frivolously",
+          "start": 5.15,
+          "end": 5.83
+        },
+        {
+          "text": "and",
+          "start": 5.83,
+          "end": 6.07
+        },
+        {
+          "text": "shamelessly",
+          "start": 6.07,
+          "end": 6.81
+        },
+        {
+          "text": "than",
+          "start": 6.81,
+          "end": 6.93
+        },
+        {
+          "text": "the",
+          "start": 6.93,
+          "end": 7.05
+        },
+        {
+          "text": "man",
+          "start": 7.05,
+          "end": 7.29
+        },
+        {
+          "text": "without",
+          "start": 7.29,
+          "end": 7.61
+        },
+        {
+          "text": "an",
+          "start": 7.61,
+          "end": 7.79
+        },
+        {
+          "text": "ideal.",
+          "start": 7.79,
+          "end": 8.13
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39115076046437025
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8678fca58f209f9db64be7bcc138f9c7706b6460babdc587e46800dbc451b2de",
+  "selected_reasons": []
+}

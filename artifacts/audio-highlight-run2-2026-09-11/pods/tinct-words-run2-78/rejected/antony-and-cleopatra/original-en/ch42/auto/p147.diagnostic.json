@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "f8db7513940f85302d78354085da474d50c53677a5d3214a7cb2921378f73fbf",
+  "attempts": [
+    {
+      "asr_seconds": 0.29113545548170805,
+      "alignment_seconds": 0.0006209490820765495,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Peace, peace! Dost thou not see my baby at my breast That sucks the nurse asleep?",
+        "hotwords": "Cleopatra, Dost, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Peace, peace! Dost thou not see my baby at my breast That sucks the nurse asleep?",
+          "start": 0.61,
+          "end": 5.83,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.61,
+              "end": 1.05,
+              "probability": 0.9537760416666666
+            },
+            {
+              "text": " Peace,",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.10809326171875
+            },
+            {
+              "text": " peace!",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.49267578125
+            },
+            {
+              "text": " Dost",
+              "start": 2.89,
+              "end": 2.95,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " thou",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " see",
+              "start": 3.27,
+              "end": 3.47,
+              "probability": 0.98828125
+            },
+            {
+              "text": " my",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " baby",
+              "start": 3.65,
+              "end": 3.91,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " at",
+              "start": 3.91,
+              "end": 4.09,
+              "probability": 0.97265625
+            },
+            {
+              "text": " my",
+              "start": 4.09,
+              "end": 4.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " breast",
+              "start": 4.23,
+              "end": 4.49,
+              "probability": 0.98828125
+            },
+            {
+              "text": " That",
+              "start": 4.49,
+              "end": 4.71,
+              "probability": 0.10650634765625
+            },
+            {
+              "text": " sucks",
+              "start": 4.71,
+              "end": 4.99,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " the",
+              "start": 4.99,
+              "end": 5.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nurse",
+              "start": 5.23,
+              "end": 5.43,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " asleep?",
+              "start": 5.43,
+              "end": 5.83,
+              "probability": 0.88427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "peace!",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "Dost",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "raw": "thou",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "not",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "see",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "raw": "my",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "baby",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "raw": "at",
+          "start": 3.91,
+          "end": 4.09
+        },
+        {
+          "raw": "my",
+          "start": 4.09,
+          "end": 4.23
+        },
+        {
+          "raw": "breast",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "raw": "That",
+          "start": 4.49,
+          "end": 4.71
+        },
+        {
+          "raw": "sucks",
+          "start": 4.71,
+          "end": 4.99
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.23
+        },
+        {
+          "raw": "nurse",
+          "start": 5.23,
+          "end": 5.43
+        },
+        {
+          "raw": "asleep?",
+          "start": 5.43,
+          "end": 5.83
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Peace,",
+        "peace!",
+        "Dost",
+        "thou",
+        "not",
+        "see",
+        "my",
+        "baby",
+        "at",
+        "my",
+        "breast",
+        "That",
+        "sucks",
+        "the",
+        "nurse",
+        "asleep?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.61,
+          "end": 1.05,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Peace,",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "peace",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace!",
+          "start": 2.03,
+          "end": 2.19,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dost",
+          "start": 2.89,
+          "end": 2.95,
+          "key": "dost",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.95,
+          "end": 3.13,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.27,
+          "end": 3.47,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.47,
+          "end": 3.65,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "baby",
+          "start": 3.65,
+          "end": 3.91,
+          "key": "baby",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.91,
+          "end": 4.09,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.09,
+          "end": 4.23,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "breast",
+          "start": 4.23,
+          "end": 4.49,
+          "key": "breast",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 4.49,
+          "end": 4.71,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sucks",
+          "start": 4.71,
+          "end": 4.99,
+          "key": "sucks",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.23,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nurse",
+          "start": 5.23,
+          "end": 5.43,
+          "key": "nurse",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "asleep?",
+          "start": 5.43,
+          "end": 5.83,
+          "key": "asleep",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "text": "Peace,",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "peace!",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "Dost",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "text": "thou",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "not",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "see",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "text": "my",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "baby",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "text": "at",
+          "start": 3.91,
+          "end": 4.09
+        },
+        {
+          "text": "my",
+          "start": 4.09,
+          "end": 4.23
+        },
+        {
+          "text": "breast",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "text": "That",
+          "start": 4.49,
+          "end": 4.71
+        },
+        {
+          "text": "sucks",
+          "start": 4.71,
+          "end": 4.99
+        },
+        {
+          "text": "the",
+          "start": 4.99,
+          "end": 5.23
+        },
+        {
+          "text": "nurse",
+          "start": 5.23,
+          "end": 5.43
+        },
+        {
+          "text": "asleep?",
+          "start": 5.43,
+          "end": 5.83
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29201179277151823
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bbdd7dc0025ade5f54486bd6cebad84d7b11505377a504e48e2399f1065b1064",
+  "selected_reasons": []
+}

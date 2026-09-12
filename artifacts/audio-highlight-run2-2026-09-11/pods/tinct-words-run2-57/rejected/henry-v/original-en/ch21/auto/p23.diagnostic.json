@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "00c96a4976897178b73b3e019f725357301a18549562b12e7ea995e340b09edf",
+  "attempts": [
+    {
+      "asr_seconds": 0.3278229180723429,
+      "alignment_seconds": 0.000498961191624403,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fluellen. An it please your Majesty, let his neck answer for it, if there is any martial law in the world.",
+        "hotwords": "Fluellen, An, Majesty"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fluellen, An it please your Majesty, let his neck answer for it, if there is any martial",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Fluellen,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.4532928466796875
+            },
+            {
+              "text": " An",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.0589599609375
+            },
+            {
+              "text": " it",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.11370849609375
+            },
+            {
+              "text": " please",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.802734375
+            },
+            {
+              "text": " your",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " Majesty,",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.1468505859375
+            },
+            {
+              "text": " let",
+              "start": 2.99,
+              "end": 3.03,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " his",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.955078125
+            },
+            {
+              "text": " neck",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.953125
+            },
+            {
+              "text": " answer",
+              "start": 3.41,
+              "end": 3.73,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " for",
+              "start": 3.73,
+              "end": 4.03,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " it,",
+              "start": 4.03,
+              "end": 4.29,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " if",
+              "start": 4.57,
+              "end": 4.67,
+              "probability": 0.765625
+            },
+            {
+              "text": " there",
+              "start": 4.67,
+              "end": 4.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 4.83,
+              "end": 4.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " any",
+              "start": 4.99,
+              "end": 5.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " martial",
+              "start": 5.25,
+              "end": 5.59,
+              "probability": 0.908203125
+            }
+          ]
+        },
+        {
+          "text": " law in the world.",
+          "start": 5.59,
+          "end": 6.47,
+          "words": [
+            {
+              "text": " law",
+              "start": 5.59,
+              "end": 5.97,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 5.97,
+              "end": 6.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.15,
+              "end": 6.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " world.",
+              "start": 6.23,
+              "end": 6.47,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "An",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "it",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "please",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "your",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "Majesty,",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "raw": "let",
+          "start": 2.99,
+          "end": 3.03
+        },
+        {
+          "raw": "his",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "neck",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "answer",
+          "start": 3.41,
+          "end": 3.73
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 4.03
+        },
+        {
+          "raw": "it,",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "raw": "if",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "raw": "there",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "raw": "is",
+          "start": 4.83,
+          "end": 4.99
+        },
+        {
+          "raw": "any",
+          "start": 4.99,
+          "end": 5.25
+        },
+        {
+          "raw": "martial",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "raw": "law",
+          "start": 5.59,
+          "end": 5.97
+        },
+        {
+          "raw": "in",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "raw": "world.",
+          "start": 6.23,
+          "end": 6.47
+        }
+      ],
+      "expected_tokens": [
+        "Fluellen.",
+        "An",
+        "it",
+        "please",
+        "your",
+        "Majesty,",
+        "let",
+        "his",
+        "neck",
+        "answer",
+        "for",
+        "it,",
+        "if",
+        "there",
+        "is",
+        "any",
+        "martial",
+        "law",
+        "in",
+        "the",
+        "world."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "fluellen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "An",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "please",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.85,
+          "end": 2.09,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Majesty,",
+          "start": 2.09,
+          "end": 2.47,
+          "key": "majesty",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.99,
+          "end": 3.03,
+          "key": "let",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "neck",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "neck",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 3.41,
+          "end": 3.73,
+          "key": "answer",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 4.03,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 4.03,
+          "end": 4.29,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.57,
+          "end": 4.67,
+          "key": "if",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.67,
+          "end": 4.83,
+          "key": "there",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.83,
+          "end": 4.99,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 4.99,
+          "end": 5.25,
+          "key": "any",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "martial",
+          "start": 5.25,
+          "end": 5.59,
+          "key": "martial",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "law",
+          "start": 5.59,
+          "end": 5.97,
+          "key": "law",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.97,
+          "end": 6.15,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.23,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "world.",
+          "start": 6.23,
+          "end": 6.47,
+          "key": "world",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fluellen.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "An",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "it",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "please",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "your",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "Majesty,",
+          "start": 2.09,
+          "end": 2.47
+        },
+        {
+          "text": "let",
+          "start": 2.99,
+          "end": 3.03
+        },
+        {
+          "text": "his",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "neck",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "answer",
+          "start": 3.41,
+          "end": 3.73
+        },
+        {
+          "text": "for",
+          "start": 3.73,
+          "end": 4.03
+        },
+        {
+          "text": "it,",
+          "start": 4.03,
+          "end": 4.29
+        },
+        {
+          "text": "if",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "text": "there",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "text": "is",
+          "start": 4.83,
+          "end": 4.99
+        },
+        {
+          "text": "any",
+          "start": 4.99,
+          "end": 5.25
+        },
+        {
+          "text": "martial",
+          "start": 5.25,
+          "end": 5.59
+        },
+        {
+          "text": "law",
+          "start": 5.59,
+          "end": 5.97
+        },
+        {
+          "text": "in",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "text": "world.",
+          "start": 6.23,
+          "end": 6.47
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3285612650215626
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "454634cee3ff6a7d4c08c588544563663393f60aae5dca394ad02f41cf5da681",
+  "selected_reasons": []
+}

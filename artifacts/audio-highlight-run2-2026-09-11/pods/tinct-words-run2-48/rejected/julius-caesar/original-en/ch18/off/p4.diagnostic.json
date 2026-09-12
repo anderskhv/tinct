@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "f2ad09049cde6b647011bb2af223e1dcb8a3cc5859ad1fc3b9b57a5b1597fe87",
+  "attempts": [
+    {
+      "asr_seconds": 0.09314493369311094,
+      "alignment_seconds": 0.00018148496747016907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Whispering.",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Whispering.",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.803466796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Whispering.",
+          "start": 0.02,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "[_Whispering._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Whispering.",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "whispering",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Whispering._]",
+          "start": 0.02,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09338260907679796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "106b0754d681493f8fced613162df095d1f4c65ee434bd3750502c2a6201cd18",
+  "selected_reasons": []
+}

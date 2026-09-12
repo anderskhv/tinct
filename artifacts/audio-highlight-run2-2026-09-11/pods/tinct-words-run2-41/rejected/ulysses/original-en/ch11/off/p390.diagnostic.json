@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "5964ace881bc27c2a0b6545dd8c3e56550c58c9bcc0e9e941f49998af2d6bc17",
+  "attempts": [
+    {
+      "asr_seconds": 0.25745498202741146,
+      "alignment_seconds": 0.00057607376947999,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ladies and gentlemen, I am most deeply obliged by your kind solicitations.",
+          "start": 0.05,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Ladies",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.826171875
+            },
+            {
+              "text": " and",
+              "start": 0.75,
+              "end": 1.15,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " gentlemen,",
+              "start": 1.15,
+              "end": 1.57,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " I",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 2.25,
+              "end": 2.33,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " most",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deeply",
+              "start": 2.49,
+              "end": 2.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " obliged",
+              "start": 2.89,
+              "end": 3.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " by",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 3.65,
+              "end": 3.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kind",
+              "start": 3.83,
+              "end": 4.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " solicitations.",
+              "start": 4.17,
+              "end": 5.01,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ladies",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "and",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 1.15,
+          "end": 1.57
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "am",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "raw": "most",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "deeply",
+          "start": 2.49,
+          "end": 2.89
+        },
+        {
+          "raw": "obliged",
+          "start": 2.89,
+          "end": 3.39
+        },
+        {
+          "raw": "by",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "raw": "your",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "raw": "kind",
+          "start": 3.83,
+          "end": 4.17
+        },
+        {
+          "raw": "solicitations.",
+          "start": 4.17,
+          "end": 5.01
+        }
+      ],
+      "expected_tokens": [
+        "—Ladies",
+        "and",
+        "gentlemen,",
+        "I",
+        "am",
+        "most",
+        "deeply",
+        "obliged",
+        "by",
+        "your",
+        "kind",
+        "solicitations."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ladies",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "ladies",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.75,
+          "end": 1.15,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 1.15,
+          "end": 1.57,
+          "key": "gentlemen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.25,
+          "end": 2.33,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "most",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "deeply",
+          "start": 2.49,
+          "end": 2.89,
+          "key": "deeply",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "obliged",
+          "start": 2.89,
+          "end": 3.39,
+          "key": "obliged",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.65,
+          "end": 3.83,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 3.83,
+          "end": 4.17,
+          "key": "kind",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "solicitations.",
+          "start": 4.17,
+          "end": 5.01,
+          "key": "solicitations",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ladies",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "and",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "text": "gentlemen,",
+          "start": 1.15,
+          "end": 1.57
+        },
+        {
+          "text": "I",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "am",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "text": "most",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "deeply",
+          "start": 2.49,
+          "end": 2.89
+        },
+        {
+          "text": "obliged",
+          "start": 2.89,
+          "end": 3.39
+        },
+        {
+          "text": "by",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "text": "your",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "text": "kind",
+          "start": 3.83,
+          "end": 4.17
+        },
+        {
+          "text": "solicitations.",
+          "start": 4.17,
+          "end": 5.01
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25825459137558937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1f8ef129b789839179db953a906c896e2b9f25f65f35441195c7e1443f207239",
+  "selected_reasons": []
+}

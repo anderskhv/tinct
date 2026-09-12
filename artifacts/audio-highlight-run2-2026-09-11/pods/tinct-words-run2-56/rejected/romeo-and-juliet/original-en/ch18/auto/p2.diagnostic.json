@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "301f148d0a62b2e0de14b54fc2847cb58ee4c0df2ce82e62a836cc7d681b11f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3209695089608431,
+      "alignment_seconds": 0.0005802139639854431,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Paris. My father Capulet will have it so; And I am nothing slow to slack his haste.",
+        "hotwords": "Paris, My, Capulet, And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paris, My father Capulet will have it so, And I am nothing slow to slack his haste.",
+          "start": 0.05,
+          "end": 5.29,
+          "words": [
+            {
+              "text": " Paris,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.393310546875
+            },
+            {
+              "text": " My",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.034393310546875
+            },
+            {
+              "text": " father",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " Capulet",
+              "start": 1.71,
+              "end": 2.19,
+              "probability": 0.912353515625
+            },
+            {
+              "text": " will",
+              "start": 2.19,
+              "end": 2.35,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " have",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " so,",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " And",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.41015625
+            },
+            {
+              "text": " I",
+              "start": 3.49,
+              "end": 3.59,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " am",
+              "start": 3.59,
+              "end": 3.67,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " nothing",
+              "start": 3.67,
+              "end": 3.87,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " slow",
+              "start": 3.87,
+              "end": 4.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 4.31,
+              "end": 4.53,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " slack",
+              "start": 4.53,
+              "end": 4.81,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " his",
+              "start": 4.81,
+              "end": 5.01,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " haste.",
+              "start": 5.01,
+              "end": 5.29,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paris,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "My",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "father",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "Capulet",
+          "start": 1.71,
+          "end": 2.19
+        },
+        {
+          "raw": "will",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "raw": "have",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "it",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "so,",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "raw": "And",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "I",
+          "start": 3.49,
+          "end": 3.59
+        },
+        {
+          "raw": "am",
+          "start": 3.59,
+          "end": 3.67
+        },
+        {
+          "raw": "nothing",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "raw": "slow",
+          "start": 3.87,
+          "end": 4.31
+        },
+        {
+          "raw": "to",
+          "start": 4.31,
+          "end": 4.53
+        },
+        {
+          "raw": "slack",
+          "start": 4.53,
+          "end": 4.81
+        },
+        {
+          "raw": "his",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "raw": "haste.",
+          "start": 5.01,
+          "end": 5.29
+        }
+      ],
+      "expected_tokens": [
+        "Paris.",
+        "My",
+        "father",
+        "Capulet",
+        "will",
+        "have",
+        "it",
+        "so;",
+        "And",
+        "I",
+        "am",
+        "nothing",
+        "slow",
+        "to",
+        "slack",
+        "his",
+        "haste."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paris,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "paris",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Capulet",
+          "start": 1.71,
+          "end": 2.19,
+          "key": "capulet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.19,
+          "end": 2.35,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 2.65,
+          "end": 2.91,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.39,
+          "end": 3.49,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.49,
+          "end": 3.59,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.59,
+          "end": 3.67,
+          "key": "am",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 3.67,
+          "end": 3.87,
+          "key": "nothing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "slow",
+          "start": 3.87,
+          "end": 4.31,
+          "key": "slow",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.31,
+          "end": 4.53,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "slack",
+          "start": 4.53,
+          "end": 4.81,
+          "key": "slack",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.81,
+          "end": 5.01,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "haste.",
+          "start": 5.01,
+          "end": 5.29,
+          "key": "haste",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Paris.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "My",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "father",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "Capulet",
+          "start": 1.71,
+          "end": 2.19
+        },
+        {
+          "text": "will",
+          "start": 2.19,
+          "end": 2.35
+        },
+        {
+          "text": "have",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "it",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "so;",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "text": "And",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "I",
+          "start": 3.49,
+          "end": 3.59
+        },
+        {
+          "text": "am",
+          "start": 3.59,
+          "end": 3.67
+        },
+        {
+          "text": "nothing",
+          "start": 3.67,
+          "end": 3.87
+        },
+        {
+          "text": "slow",
+          "start": 3.87,
+          "end": 4.31
+        },
+        {
+          "text": "to",
+          "start": 4.31,
+          "end": 4.53
+        },
+        {
+          "text": "slack",
+          "start": 4.53,
+          "end": 4.81
+        },
+        {
+          "text": "his",
+          "start": 4.81,
+          "end": 5.01
+        },
+        {
+          "text": "haste.",
+          "start": 5.01,
+          "end": 5.29
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3217588784173131
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "41dcabb979db8a973cb09347c98e5562f54ca0bbef9187759d196304f4e6b4bd",
+  "selected_reasons": []
+}

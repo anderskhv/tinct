@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "8ef9c0e0d57e998ca3f0f45c2c3ac13b55266ec3d99d9a848342cb319aaef107",
+  "attempts": [
+    {
+      "asr_seconds": 0.1964542381465435,
+      "alignment_seconds": 0.0005798749625682831,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew, if I cannot recover your niece, I am a foul way out.",
+          "start": 0.08,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.87109375
+            },
+            {
+              "text": " Andrew,",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.939453125
+            },
+            {
+              "text": " if",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " I",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " cannot",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " recover",
+              "start": 1.98,
+              "end": 2.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " niece,",
+              "start": 2.62,
+              "end": 2.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 3.24,
+              "end": 3.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " am",
+              "start": 3.26,
+              "end": 3.32,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " a",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " foul",
+              "start": 3.44,
+              "end": 3.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " way",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " out.",
+              "start": 3.92,
+              "end": 4.2,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "if",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "I",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "cannot",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "recover",
+          "start": 1.98,
+          "end": 2.42
+        },
+        {
+          "raw": "your",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "niece,",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "raw": "I",
+          "start": 3.24,
+          "end": 3.26
+        },
+        {
+          "raw": "am",
+          "start": 3.26,
+          "end": 3.32
+        },
+        {
+          "raw": "a",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "foul",
+          "start": 3.44,
+          "end": 3.68
+        },
+        {
+          "raw": "way",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "out.",
+          "start": 3.92,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "If",
+        "I",
+        "cannot",
+        "recover",
+        "your",
+        "niece,",
+        "I",
+        "am",
+        "a",
+        "foul",
+        "way",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "cannot",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "recover",
+          "start": 1.98,
+          "end": 2.42,
+          "key": "recover",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "niece,",
+          "start": 2.62,
+          "end": 2.9,
+          "key": "niece",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.24,
+          "end": 3.26,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.26,
+          "end": 3.32,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "foul",
+          "start": 3.44,
+          "end": 3.68,
+          "key": "foul",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 3.68,
+          "end": 3.92,
+          "key": "way",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 3.92,
+          "end": 4.2,
+          "key": "out",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "If",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "I",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "cannot",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "recover",
+          "start": 1.98,
+          "end": 2.42
+        },
+        {
+          "text": "your",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "niece,",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "text": "I",
+          "start": 3.24,
+          "end": 3.26
+        },
+        {
+          "text": "am",
+          "start": 3.26,
+          "end": 3.32
+        },
+        {
+          "text": "a",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "text": "foul",
+          "start": 3.44,
+          "end": 3.68
+        },
+        {
+          "text": "way",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "out.",
+          "start": 3.92,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19729650020599365
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6966f783629394e0131b9a0c70d3f1a0399c65d91a2bb6f914a52faae7a07c03",
+  "selected_reasons": []
+}

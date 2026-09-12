@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "a636ca6220f61cf63a9186d72bec94ce2f712d7f3f11ccc87349eb4a4c6d4ea2",
+  "attempts": [
+    {
+      "asr_seconds": 0.18391635501757264,
+      "alignment_seconds": 0.0002969079650938511,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Quince.]",
+        "hotwords": "Enter, Quince"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Quince",
+          "start": 0.08,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Quince",
+              "start": 0.82,
+              "end": 1.18,
+              "probability": 0.5081787109375
+            }
+          ]
+        },
+        {
+          "text": " Enter, Quince",
+          "start": 1.18,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 1.18,
+              "end": 1.74,
+              "probability": 9.179115295410156e-06
+            },
+            {
+              "text": " Quince",
+              "start": 1.74,
+              "end": 1.74,
+              "probability": 0.03059569001197815
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Quince",
+          "start": 0.82,
+          "end": 1.18
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.18,
+          "end": 1.74
+        },
+        {
+          "raw": "Quince",
+          "start": 1.74,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Quince.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Quince",
+          "start": 0.82,
+          "end": 1.18,
+          "key": "quince",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.18,
+          "end": 1.74,
+          "key": "enter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Quince",
+          "start": 1.74,
+          "end": 1.74,
+          "key": "quince",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Quince.]",
+          "start": 0.82,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18435472110286355
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b6fbbdf6e98ba800180bf8a9635ba1d3806dc88057ab64092706894c9c97a29a",
+  "selected_reasons": []
+}

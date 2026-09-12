@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "22f561e8945936f254c77bedced365168ab4ff10539ec5353c22a1bbb7beceb6",
+  "attempts": [
+    {
+      "asr_seconds": 0.09213734418153763,
+      "alignment_seconds": 0.00022926228120923042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit messenger.",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " messenger.",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.55419921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "messenger.",
+          "start": 0.68,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Messenger._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "messenger.",
+          "start": 0.68,
+          "end": 1.16,
+          "key": "messenger",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Messenger._]",
+          "start": 0.68,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09242889983579516
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0b38ca778cde4652f49b643ffbecd948fce0d094034f0bf86e82c873b5ae9399",
+  "selected_reasons": []
+}

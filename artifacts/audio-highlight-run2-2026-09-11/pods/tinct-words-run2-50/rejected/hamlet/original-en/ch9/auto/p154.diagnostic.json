@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "b98d6d65f12c8b264554dff9d17e9e3d3b417e5cd251b1abdd79b24f779c92d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.16843345947563648,
+      "alignment_seconds": 0.00036430731415748596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. God bless you, sir.",
+        "hotwords": "Hamlet, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, God bless you, sir.",
+          "start": 0.08,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " God",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " bless",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you,",
+              "start": 1.52,
+              "end": 1.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir.",
+              "start": 1.9,
+              "end": 1.96,
+              "probability": 0.82470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "God",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "bless",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "you,",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "raw": "sir.",
+          "start": 1.9,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "God",
+        "bless",
+        "you,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "god",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "bless",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.52,
+          "end": 1.78,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.9,
+          "end": 1.96,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "God",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "bless",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "you,",
+          "start": 1.52,
+          "end": 1.78
+        },
+        {
+          "text": "sir.",
+          "start": 1.9,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16895178705453873
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "671ee1a40e12f9d9828475645f36fe180e2a4c42491ad3b7a6d8e00a563885ea",
+  "selected_reasons": []
+}

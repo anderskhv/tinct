@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "58a89a7e6eac14205bec17c13650b8c651f131e8108a6f1fe164f40a59d2a0d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.20907924696803093,
+      "alignment_seconds": 0.0004544551484286785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rivers, is it concluded he shall be protector?",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Rivers,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " is",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.953125
+            },
+            {
+              "text": " it",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " concluded",
+              "start": 1.53,
+              "end": 1.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " shall",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " protector?",
+              "start": 2.49,
+              "end": 2.85,
+              "probability": 0.73779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rivers,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "is",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "it",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "concluded",
+          "start": 1.53,
+          "end": 1.89
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "raw": "shall",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "be",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "protector?",
+          "start": 2.49,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "Rivers.",
+        "Is",
+        "it",
+        "concluded",
+        "he",
+        "shall",
+        "be",
+        "Protector?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rivers,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "rivers",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "concluded",
+          "start": 1.53,
+          "end": 1.89,
+          "key": "concluded",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "protector?",
+          "start": 2.49,
+          "end": 2.85,
+          "key": "protector",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rivers.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Is",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "it",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "concluded",
+          "start": 1.53,
+          "end": 1.89
+        },
+        {
+          "text": "he",
+          "start": 1.89,
+          "end": 2.19
+        },
+        {
+          "text": "shall",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "be",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "Protector?",
+          "start": 2.49,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20970119209960103
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "573a36d94945fe42e269eaaa26f0e419ecb6ce7ee0caf5a2a8e3708ade83d2a4",
+  "selected_reasons": []
+}

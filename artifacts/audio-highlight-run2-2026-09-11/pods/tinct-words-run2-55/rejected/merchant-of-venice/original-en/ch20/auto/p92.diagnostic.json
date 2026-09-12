@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "5f7ddb47dde542f3db47e155df80d0596c0578f55254396f1a3fad46f7f9e340",
+  "attempts": [
+    {
+      "asr_seconds": 0.32885887660086155,
+      "alignment_seconds": 0.0003919694572687149,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. I had it of him: pardon me, Bassanio, For by this ring, the doctor lay with me.",
+        "hotwords": "Portia, I, Bassanio, For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, I had it of him. Pardon me, Bassanio, For by this ring, the doctor lay with me.",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " had",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " of",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him.",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Pardon",
+              "start": 2.67,
+              "end": 2.87,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " me,",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Bassanio,",
+              "start": 3.27,
+              "end": 3.75,
+              "probability": 0.8308919270833334
+            },
+            {
+              "text": " For",
+              "start": 3.89,
+              "end": 4.01,
+              "probability": 0.004192352294921875
+            },
+            {
+              "text": " by",
+              "start": 4.01,
+              "end": 4.15,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " this",
+              "start": 4.15,
+              "end": 4.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ring,",
+              "start": 4.35,
+              "end": 4.61,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " the",
+              "start": 4.77,
+              "end": 4.85,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " doctor",
+              "start": 4.85,
+              "end": 5.17,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " lay",
+              "start": 5.17,
+              "end": 5.41,
+              "probability": 0.990234375
+            },
+            {
+              "text": " with",
+              "start": 5.41,
+              "end": 5.61,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " me.",
+              "start": 5.61,
+              "end": 5.89,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "raw": "had",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "him.",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "Pardon",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "raw": "me,",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 3.27,
+          "end": 3.75
+        },
+        {
+          "raw": "For",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "raw": "by",
+          "start": 4.01,
+          "end": 4.15
+        },
+        {
+          "raw": "this",
+          "start": 4.15,
+          "end": 4.35
+        },
+        {
+          "raw": "ring,",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "raw": "the",
+          "start": 4.77,
+          "end": 4.85
+        },
+        {
+          "raw": "doctor",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "raw": "lay",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "raw": "with",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "raw": "me.",
+          "start": 5.61,
+          "end": 5.89
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "I",
+        "had",
+        "it",
+        "of",
+        "him:",
+        "pardon",
+        "me,",
+        "Bassanio,",
+        "For",
+        "by",
+        "this",
+        "ring,",
+        "the",
+        "doctor",
+        "lay",
+        "with",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.43,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Pardon",
+          "start": 2.67,
+          "end": 2.87,
+          "key": "pardon",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 3.27,
+          "end": 3.75,
+          "key": "bassanio",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.89,
+          "end": 4.01,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.01,
+          "end": 4.15,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.15,
+          "end": 4.35,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ring,",
+          "start": 4.35,
+          "end": 4.61,
+          "key": "ring",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.77,
+          "end": 4.85,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "doctor",
+          "start": 4.85,
+          "end": 5.17,
+          "key": "doctor",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 5.17,
+          "end": 5.41,
+          "key": "lay",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.41,
+          "end": 5.61,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 5.61,
+          "end": 5.89,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "text": "had",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "it",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "of",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "him:",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "text": "pardon",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "text": "me,",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "text": "Bassanio,",
+          "start": 3.27,
+          "end": 3.75
+        },
+        {
+          "text": "For",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "text": "by",
+          "start": 4.01,
+          "end": 4.15
+        },
+        {
+          "text": "this",
+          "start": 4.15,
+          "end": 4.35
+        },
+        {
+          "text": "ring,",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "text": "the",
+          "start": 4.77,
+          "end": 4.85
+        },
+        {
+          "text": "doctor",
+          "start": 4.85,
+          "end": 5.17
+        },
+        {
+          "text": "lay",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "text": "with",
+          "start": 5.41,
+          "end": 5.61
+        },
+        {
+          "text": "me.",
+          "start": 5.61,
+          "end": 5.89
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3293958967551589
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7cfcd47371849a52c7f640d6a89794a2021d3da007de0f8b27d75a22087bdfdc",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "b5bddaf43f1de542587304756f9c91a4c0246dd8b1f8a61a123640058a345232",
+  "attempts": [
+    {
+      "asr_seconds": 0.19512971863150597,
+      "alignment_seconds": 0.0003614649176597595,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt, Don Pedro and Claudio.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6281941731770834
+            },
+            {
+              "text": " Don",
+              "start": 0.99,
+              "end": 1.03,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " Pedro",
+              "start": 1.03,
+              "end": 1.37,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " and",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.6484375
+            },
+            {
+              "text": " Claudio.",
+              "start": 1.55,
+              "end": 1.95,
+              "probability": 0.979736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Don",
+          "start": 0.99,
+          "end": 1.03
+        },
+        {
+          "raw": "Pedro",
+          "start": 1.03,
+          "end": 1.37
+        },
+        {
+          "raw": "and",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "Claudio.",
+          "start": 1.55,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Don",
+        "Pedro",
+        "and",
+        "Claudio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 0.99,
+          "end": 1.03,
+          "key": "don",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 1.03,
+          "end": 1.37,
+          "key": "pedro",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Claudio.",
+          "start": 1.55,
+          "end": 1.95,
+          "key": "claudio",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Don",
+          "start": 0.99,
+          "end": 1.03
+        },
+        {
+          "text": "Pedro",
+          "start": 1.03,
+          "end": 1.37
+        },
+        {
+          "text": "and",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "Claudio.]",
+          "start": 1.55,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1956142969429493
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5ec4eea9eff707006f37571cd8658dea154716427e7608c24c9c384f961e456c",
+  "selected_reasons": []
+}

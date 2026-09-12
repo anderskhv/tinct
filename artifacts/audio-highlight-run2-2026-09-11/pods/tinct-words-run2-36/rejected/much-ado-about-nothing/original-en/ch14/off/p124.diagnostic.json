@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "29de0e2cfb8e3f833fa493080c133f7675b2a41d36b956042987499509818c1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1145220585167408,
+      "alignment_seconds": 0.00019681453704833984,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leona",
+          "start": 0.02,
+          "end": 0.72,
+          "words": [
+            {
+              "text": " Leona",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.34698486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leona",
+          "start": 0.02,
+          "end": 0.72
+        }
+      ],
+      "expected_tokens": [
+        "Leonato."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leona",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "leona",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.36
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11479105055332184
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "881afc720eef671feb12079714ab4e95a9f115fbf59a5540f868b85f669f1870",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

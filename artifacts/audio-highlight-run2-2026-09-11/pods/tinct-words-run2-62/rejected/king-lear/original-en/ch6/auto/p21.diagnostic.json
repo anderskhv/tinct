@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "39f161cb5e6a1a7f60778af4cd28991214160ba6ab6b4ec320a13daee16f1378",
+  "attempts": [
+    {
+      "asr_seconds": 0.07525739073753357,
+      "alignment_seconds": 0.00010998174548149109,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edmund. Look, sir, I bleed.",
+        "hotwords": "Edmund, Look, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edmund, Look, sir, I bleed.",
+          "start": 0.48,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Edmund,",
+              "start": 0.48,
+              "end": 0.68,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " Look,",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.0743408203125
+            },
+            {
+              "text": " sir,",
+              "start": 1.32,
+              "end": 1.4,
+              "probability": 0.377685546875
+            },
+            {
+              "text": " I",
+              "start": 1.5,
+              "end": 1.56,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " bleed.",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edmund,",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "raw": "Look,",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "sir,",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "raw": "bleed.",
+          "start": 1.56,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Edmund.",
+        "Look,",
+        "sir,",
+        "I",
+        "bleed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edmund,",
+          "start": 0.48,
+          "end": 0.68,
+          "key": "edmund",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Look,",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.32,
+          "end": 1.4,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.5,
+          "end": 1.56,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bleed.",
+          "start": 1.56,
+          "end": 1.78,
+          "key": "bleed",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edmund.",
+          "start": 0.48,
+          "end": 0.68
+        },
+        {
+          "text": "Look,",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "sir,",
+          "start": 1.32,
+          "end": 1.4
+        },
+        {
+          "text": "I",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "text": "bleed.",
+          "start": 1.56,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07540527358651161
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4acb6ff5877466a2c38362fb4d4eb9f6f9478fe2e149329fbc5e2e73a2f0fdb1",
+  "selected_reasons": []
+}

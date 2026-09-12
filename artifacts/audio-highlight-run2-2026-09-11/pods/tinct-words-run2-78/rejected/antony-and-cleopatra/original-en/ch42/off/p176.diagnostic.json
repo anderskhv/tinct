@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "eebcc4f4e56905fe38c9780f972dfb457a74c5297bc7173449881df63d04d368",
+  "attempts": [
+    {
+      "asr_seconds": 0.12263042666018009,
+      "alignment_seconds": 0.000341818667948246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar, poison then.",
+          "start": 0.11,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " poison",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " then.",
+              "start": 1.43,
+              "end": 1.75,
+              "probability": 0.93017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "poison",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "then.",
+          "start": 1.43,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Poisoned",
+        "then."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "poison",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "poison",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 1.43,
+          "end": 1.75,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "Poisoned",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "text": "then.",
+          "start": 1.43,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12306802161037922
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5b253683fee811648b17b063705c9259113bccd7aa2e7754a4e4ecebee319be4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

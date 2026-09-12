@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "53d63a79a928400aa7c5185835ecb7827a1fe9d38c0e0b990b8f1adfdce2330b",
+  "attempts": [
+    {
+      "asr_seconds": 0.14757681172341108,
+      "alignment_seconds": 0.00022699497640132904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Who are you?\" he asked of the intruder.",
+        "hotwords": "Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who are you? he asked of the intruder.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.2037353515625
+            },
+            {
+              "text": " are",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you?",
+              "start": 0.71,
+              "end": 0.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.35595703125
+            },
+            {
+              "text": " asked",
+              "start": 1.39,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " intruder.",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "are",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "you?",
+          "start": 0.71,
+          "end": 0.99
+        },
+        {
+          "raw": "he",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "asked",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "raw": "of",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "intruder.",
+          "start": 1.95,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "\"Who",
+        "are",
+        "you?\"",
+        "he",
+        "asked",
+        "of",
+        "the",
+        "intruder."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 0.71,
+          "end": 0.99,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.39,
+          "end": 1.67,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "intruder.",
+          "start": 1.95,
+          "end": 2.23,
+          "key": "intruder",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Who",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "are",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "you?\"",
+          "start": 0.71,
+          "end": 0.99
+        },
+        {
+          "text": "he",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "asked",
+          "start": 1.39,
+          "end": 1.67
+        },
+        {
+          "text": "of",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "the",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "intruder.",
+          "start": 1.95,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1478903340175748
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6fdfb73c87c4bd525d1cbc07331625c4ec7ba46e9283468decaf6fa87bb27d86",
+  "selected_reasons": []
+}

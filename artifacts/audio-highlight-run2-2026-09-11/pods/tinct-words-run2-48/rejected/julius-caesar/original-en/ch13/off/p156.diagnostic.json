@@ -1,0 +1,194 @@
+{
+  "complete": true,
+  "signature": "d2216aa1db19b4baf6d004071eb81d7d273e768c8f2f810de07544860a32f984",
+  "attempts": [
+    {
+      "asr_seconds": 0.10369040817022324,
+      "alignment_seconds": 0.00012751109898090363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ghost, Ayat Philippi.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Ghost,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " Ayat",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.6473388671875
+            },
+            {
+              "text": " Philippi.",
+              "start": 1.37,
+              "end": 1.89,
+              "probability": 0.53631591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ghost,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Ayat",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "Philippi.",
+          "start": 1.37,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Ghost.",
+        "Ay,",
+        "at",
+        "Philippi."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ghost,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "ghost",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ayat",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "ayat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Philippi.",
+          "start": 1.37,
+          "end": 1.89,
+          "key": "philippi",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ghost.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Ay,",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "text": "at",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "Philippi.",
+          "start": 1.37,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10385110788047314
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "71e2d227ef02aa9d8bd35f7ed5a6c169e61f26358f1e6ef2566cb7323eec58e4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

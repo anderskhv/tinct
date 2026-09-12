@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "a1a38ca2654836495ebdee226df010d838b8c07b75f736a9f0820fb0e010b0e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.14434504695236683,
+      "alignment_seconds": 0.00022061774507164955,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. He did, from first to last. Why dost thou ask?",
+        "hotwords": "Othello, He, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, He did, from first to last. Why dost thou ask?",
+          "start": 0.51,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.51,
+              "end": 0.91,
+              "probability": 0.8645833333333334
+            },
+            {
+              "text": " He",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.08917236328125
+            },
+            {
+              "text": " did,",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.921875
+            },
+            {
+              "text": " from",
+              "start": 1.69,
+              "end": 1.77,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " first",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " to",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " last.",
+              "start": 2.17,
+              "end": 2.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Why",
+              "start": 2.89,
+              "end": 2.95,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " dost",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.911865234375
+            },
+            {
+              "text": " thou",
+              "start": 3.15,
+              "end": 3.33,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " ask?",
+              "start": 3.33,
+              "end": 3.71,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "raw": "He",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "did,",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "from",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "raw": "first",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "last.",
+          "start": 2.17,
+          "end": 2.49
+        },
+        {
+          "raw": "Why",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "raw": "dost",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "thou",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "raw": "ask?",
+          "start": 3.33,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "He",
+        "did,",
+        "from",
+        "first",
+        "to",
+        "last.",
+        "Why",
+        "dost",
+        "thou",
+        "ask?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.51,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did,",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.69,
+          "end": 1.77,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.77,
+          "end": 1.97,
+          "key": "first",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "last.",
+          "start": 2.17,
+          "end": 2.49,
+          "key": "last",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 2.89,
+          "end": 2.95,
+          "key": "why",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "dost",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.15,
+          "end": 3.33,
+          "key": "thou",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ask?",
+          "start": 3.33,
+          "end": 3.71,
+          "key": "ask",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.51,
+          "end": 0.91
+        },
+        {
+          "text": "He",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "did,",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "from",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "text": "first",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "text": "to",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "text": "last.",
+          "start": 2.17,
+          "end": 2.49
+        },
+        {
+          "text": "Why",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "text": "dost",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "thou",
+          "start": 3.15,
+          "end": 3.33
+        },
+        {
+          "text": "ask?",
+          "start": 3.33,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14464428601786494
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1b0820d1bc9e782f6d21658b5e1db416c38b05f9ce3f528c51df58d84fc29675",
+  "selected_reasons": []
+}

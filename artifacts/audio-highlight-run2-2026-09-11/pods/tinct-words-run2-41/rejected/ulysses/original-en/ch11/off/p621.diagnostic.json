@@ -1,0 +1,823 @@
+{
+  "complete": true,
+  "signature": "c039fc1bdddddcf03e0492818d85a19d251403c2bd8437b1080a98e6c25745fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.41149827279150486,
+      "alignment_seconds": 0.0005047586746513844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bloom viewed a gallant pictured hero in Lionel Marx's window.",
+          "start": 0.05,
+          "end": 3.85,
+          "words": [
+            {
+              "text": " Bloom",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " viewed",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 0.93,
+              "end": 1.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " gallant",
+              "start": 1.09,
+              "end": 1.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pictured",
+              "start": 1.53,
+              "end": 1.81,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " hero",
+              "start": 1.81,
+              "end": 2.25,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 2.25,
+              "end": 2.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Lionel",
+              "start": 2.53,
+              "end": 2.87,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Marx's",
+              "start": 2.87,
+              "end": 3.47,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " window.",
+              "start": 3.47,
+              "end": 3.85,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " Robert Emmett's last words, seven last words, of mayor beer that is.",
+          "start": 4.67,
+          "end": 9.17,
+          "words": [
+            {
+              "text": " Robert",
+              "start": 4.67,
+              "end": 4.89,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Emmett's",
+              "start": 4.89,
+              "end": 5.35,
+              "probability": 0.8927001953125
+            },
+            {
+              "text": " last",
+              "start": 5.35,
+              "end": 5.57,
+              "probability": 0.436279296875
+            },
+            {
+              "text": " words,",
+              "start": 5.57,
+              "end": 6.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seven",
+              "start": 6.65,
+              "end": 6.79,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " last",
+              "start": 6.79,
+              "end": 7.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " words,",
+              "start": 7.17,
+              "end": 7.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 8.07,
+              "end": 8.19,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " mayor",
+              "start": 8.19,
+              "end": 8.45,
+              "probability": 0.2861328125
+            },
+            {
+              "text": " beer",
+              "start": 8.45,
+              "end": 8.67,
+              "probability": 0.943359375
+            },
+            {
+              "text": " that",
+              "start": 8.67,
+              "end": 8.91,
+              "probability": 0.84765625
+            },
+            {
+              "text": " is.",
+              "start": 8.91,
+              "end": 9.17,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bloom",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "viewed",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "raw": "a",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "raw": "gallant",
+          "start": 1.09,
+          "end": 1.53
+        },
+        {
+          "raw": "pictured",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "raw": "hero",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "raw": "in",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "raw": "Lionel",
+          "start": 2.53,
+          "end": 2.87
+        },
+        {
+          "raw": "Marx's",
+          "start": 2.87,
+          "end": 3.47
+        },
+        {
+          "raw": "window.",
+          "start": 3.47,
+          "end": 3.85
+        },
+        {
+          "raw": "Robert",
+          "start": 4.67,
+          "end": 4.89
+        },
+        {
+          "raw": "Emmett's",
+          "start": 4.89,
+          "end": 5.35
+        },
+        {
+          "raw": "last",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "raw": "words,",
+          "start": 5.57,
+          "end": 6.07
+        },
+        {
+          "raw": "seven",
+          "start": 6.65,
+          "end": 6.79
+        },
+        {
+          "raw": "last",
+          "start": 6.79,
+          "end": 7.17
+        },
+        {
+          "raw": "words,",
+          "start": 7.17,
+          "end": 7.67
+        },
+        {
+          "raw": "of",
+          "start": 8.07,
+          "end": 8.19
+        },
+        {
+          "raw": "mayor",
+          "start": 8.19,
+          "end": 8.45
+        },
+        {
+          "raw": "beer",
+          "start": 8.45,
+          "end": 8.67
+        },
+        {
+          "raw": "that",
+          "start": 8.67,
+          "end": 8.91
+        },
+        {
+          "raw": "is.",
+          "start": 8.91,
+          "end": 9.17
+        }
+      ],
+      "expected_tokens": [
+        "Bloom",
+        "viewed",
+        "a",
+        "gallant",
+        "pictured",
+        "hero",
+        "in",
+        "Lionel",
+        "Marks's",
+        "window.",
+        "Robert",
+        "Emmet's",
+        "last",
+        "words.",
+        "Seven",
+        "last",
+        "words.",
+        "Of",
+        "Meyerbeer",
+        "that",
+        "is."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          18,
+          12,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ],
+        [
+          "equal",
+          19,
+          21,
+          20,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bloom",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "bloom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "viewed",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "viewed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.93,
+          "end": 1.09,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gallant",
+          "start": 1.09,
+          "end": 1.53,
+          "key": "gallant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pictured",
+          "start": 1.53,
+          "end": 1.81,
+          "key": "pictured",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hero",
+          "start": 1.81,
+          "end": 2.25,
+          "key": "hero",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.25,
+          "end": 2.53,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lionel",
+          "start": 2.53,
+          "end": 2.87,
+          "key": "lionel",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Marx's",
+          "start": 2.87,
+          "end": 3.47,
+          "key": "marxs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "window.",
+          "start": 3.47,
+          "end": 3.85,
+          "key": "window",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Robert",
+          "start": 4.67,
+          "end": 4.89,
+          "key": "robert",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Emmett's",
+          "start": 4.89,
+          "end": 5.35,
+          "key": "emmetts",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 5.35,
+          "end": 5.57,
+          "key": "last",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "words,",
+          "start": 5.57,
+          "end": 6.07,
+          "key": "words",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "seven",
+          "start": 6.65,
+          "end": 6.79,
+          "key": "seven",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 6.79,
+          "end": 7.17,
+          "key": "last",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "words,",
+          "start": 7.17,
+          "end": 7.67,
+          "key": "words",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.07,
+          "end": 8.19,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "mayor",
+          "start": 8.19,
+          "end": 8.45,
+          "key": "mayor",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "beer",
+          "start": 8.45,
+          "end": 8.67,
+          "key": "beer",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 8.67,
+          "end": 8.91,
+          "key": "that",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 8.91,
+          "end": 9.17,
+          "key": "is",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bloom",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "viewed",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "text": "a",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "text": "gallant",
+          "start": 1.09,
+          "end": 1.53
+        },
+        {
+          "text": "pictured",
+          "start": 1.53,
+          "end": 1.81
+        },
+        {
+          "text": "hero",
+          "start": 1.81,
+          "end": 2.25
+        },
+        {
+          "text": "in",
+          "start": 2.25,
+          "end": 2.53
+        },
+        {
+          "text": "Lionel",
+          "start": 2.53,
+          "end": 2.87
+        },
+        {
+          "text": "Marks's",
+          "start": 2.87,
+          "end": 3.17
+        },
+        {
+          "text": "window.",
+          "start": 3.47,
+          "end": 3.85
+        },
+        {
+          "text": "Robert",
+          "start": 4.67,
+          "end": 4.89
+        },
+        {
+          "text": "Emmet's",
+          "start": 4.89,
+          "end": 5.12
+        },
+        {
+          "text": "last",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "text": "words.",
+          "start": 5.57,
+          "end": 6.07
+        },
+        {
+          "text": "Seven",
+          "start": 6.65,
+          "end": 6.79
+        },
+        {
+          "text": "last",
+          "start": 6.79,
+          "end": 7.17
+        },
+        {
+          "text": "words.",
+          "start": 7.17,
+          "end": 7.67
+        },
+        {
+          "text": "Of",
+          "start": 8.07,
+          "end": 8.19
+        },
+        {
+          "text": "Meyerbeer",
+          "start": 8.19,
+          "end": 8.43
+        },
+        {
+          "text": "that",
+          "start": 8.67,
+          "end": 8.91
+        },
+        {
+          "text": "is.",
+          "start": 8.91,
+          "end": 9.17
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 18
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.412198094651103
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aafc0659cff30b2ddd126bcd8b317ba2e48eb1305afc123326f66b5371798c52",
+  "selected_reasons": []
+}

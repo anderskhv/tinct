@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "7fb73e136306c1db5412e0825513a3f901e21e35f66bb9290a6372b588e860e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12755298090633005,
+      "alignment_seconds": 0.00026477198116481304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agavi does praise it.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Agavi",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.586669921875
+            },
+            {
+              "text": " does",
+              "start": 0.81,
+              "end": 1.21,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " praise",
+              "start": 1.21,
+              "end": 1.53,
+              "probability": 0.990234375
+            },
+            {
+              "text": " it.",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agavi",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "does",
+          "start": 0.81,
+          "end": 1.21
+        },
+        {
+          "raw": "praise",
+          "start": 1.21,
+          "end": 1.53
+        },
+        {
+          "raw": "it.",
+          "start": 1.53,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Dost",
+        "praise",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agavi",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "agavi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 0.81,
+          "end": 1.21,
+          "key": "does",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "praise",
+          "start": 1.21,
+          "end": 1.53,
+          "key": "praise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.605
+        },
+        {
+          "text": "Dost",
+          "start": 0.605,
+          "end": 0.907
+        },
+        {
+          "text": "praise",
+          "start": 1.21,
+          "end": 1.53
+        },
+        {
+          "text": "it?",
+          "start": 1.53,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12790939095430076
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "415f93bbe9be6c3447f2a692e4d674595295a2e8a53b0e005797a01c9c5fdc17",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

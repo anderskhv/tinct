@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "9e303c0cb0f55c4d98500e752007d2b5b22c1918091bea5fb624feecb16aa215",
+  "attempts": [
+    {
+      "asr_seconds": 0.1606632862240076,
+      "alignment_seconds": 0.0003713620826601982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why you'll never get downstairs",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " you'll",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.653564453125
+            },
+            {
+              "text": " never",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " get",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " downstairs",
+              "start": 1.33,
+              "end": 1.71,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "you'll",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "raw": "never",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "get",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "downstairs",
+          "start": 1.33,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "\"Why,",
+        "you'll",
+        "never",
+        "get",
+        "downstairs!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 0.67,
+          "end": 1.03,
+          "key": "youll",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "never",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "get",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "downstairs",
+          "start": 1.33,
+          "end": 1.71,
+          "key": "downstairs",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "you'll",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "text": "never",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "get",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "downstairs!\"",
+          "start": 1.33,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16117849107831717
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f587cbe29aa5e5db73e03f8bdbbfb07236a545238e2a46b442046a8dbd87bfd7",
+  "selected_reasons": []
+}

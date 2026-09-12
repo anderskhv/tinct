@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "03dfa74ec402f9605e5051d4ddbb039522a4adcbba5241406d308c2a25900bea",
+  "attempts": [
+    {
+      "asr_seconds": 0.1849697157740593,
+      "alignment_seconds": 0.0003904290497303009,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rolling in the dirt, calling each man loudly by his name.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Rolling",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.5048828125
+            },
+            {
+              "text": " in",
+              "start": 0.71,
+              "end": 0.89,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 0.89,
+              "end": 0.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dirt,",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " calling",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.978515625
+            },
+            {
+              "text": " each",
+              "start": 1.87,
+              "end": 2.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " man",
+              "start": 2.13,
+              "end": 2.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " loudly",
+              "start": 2.45,
+              "end": 2.71,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " by",
+              "start": 2.71,
+              "end": 3.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 3.05,
+              "end": 3.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " name.",
+              "start": 3.21,
+              "end": 3.53,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rolling",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "in",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 0.99
+        },
+        {
+          "raw": "dirt,",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "raw": "calling",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "each",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "raw": "man",
+          "start": 2.13,
+          "end": 2.45
+        },
+        {
+          "raw": "loudly",
+          "start": 2.45,
+          "end": 2.71
+        },
+        {
+          "raw": "by",
+          "start": 2.71,
+          "end": 3.05
+        },
+        {
+          "raw": "his",
+          "start": 3.05,
+          "end": 3.21
+        },
+        {
+          "raw": "name.",
+          "start": 3.21,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "'Rolling",
+        "in",
+        "the",
+        "dirt,",
+        "calling",
+        "each",
+        "man",
+        "loudly",
+        "by",
+        "his",
+        "name.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rolling",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "rolling",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.71,
+          "end": 0.89,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 0.99,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dirt,",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "dirt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "calling",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "calling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 1.87,
+          "end": 2.13,
+          "key": "each",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.13,
+          "end": 2.45,
+          "key": "man",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "loudly",
+          "start": 2.45,
+          "end": 2.71,
+          "key": "loudly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.71,
+          "end": 3.05,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.05,
+          "end": 3.21,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "name.",
+          "start": 3.21,
+          "end": 3.53,
+          "key": "name",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'Rolling",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "in",
+          "start": 0.71,
+          "end": 0.89
+        },
+        {
+          "text": "the",
+          "start": 0.89,
+          "end": 0.99
+        },
+        {
+          "text": "dirt,",
+          "start": 0.99,
+          "end": 1.27
+        },
+        {
+          "text": "calling",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "each",
+          "start": 1.87,
+          "end": 2.13
+        },
+        {
+          "text": "man",
+          "start": 2.13,
+          "end": 2.45
+        },
+        {
+          "text": "loudly",
+          "start": 2.45,
+          "end": 2.71
+        },
+        {
+          "text": "by",
+          "start": 2.71,
+          "end": 3.05
+        },
+        {
+          "text": "his",
+          "start": 3.05,
+          "end": 3.21
+        },
+        {
+          "text": "name.'",
+          "start": 3.21,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18550658971071243
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "986cf7d8f6bcfbdfb66cf1525a3e7b6fa0acfeb43ba83903b47335c680672a38",
+  "selected_reasons": []
+}

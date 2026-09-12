@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "04184ca8b169204517c2601ecd337daec3dbfc86229ec75c94de64091df0a3d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.22729792911559343,
+      "alignment_seconds": 0.0004525939002633095,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"There is some one down there, is there not?\" I called out, looking down.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There is some one down there, is there not? I called out, looking down.",
+          "start": 0.05,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " some",
+              "start": 0.65,
+              "end": 0.79,
+              "probability": 0.004878997802734375
+            },
+            {
+              "text": " one",
+              "start": 0.79,
+              "end": 0.99,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " down",
+              "start": 0.99,
+              "end": 1.19,
+              "probability": 0.9921875
+            },
+            {
+              "text": " there,",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 1.57,
+              "end": 1.59,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " there",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not?",
+              "start": 1.75,
+              "end": 2.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " called",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " out,",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " looking",
+              "start": 3.27,
+              "end": 3.41,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " down.",
+              "start": 3.41,
+              "end": 3.77,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "some",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "raw": "one",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "raw": "down",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "raw": "there,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "is",
+          "start": 1.57,
+          "end": 1.59
+        },
+        {
+          "raw": "there",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "not?",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "raw": "I",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "called",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "out,",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "raw": "looking",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "raw": "down.",
+          "start": 3.41,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "\"There",
+        "is",
+        "some",
+        "one",
+        "down",
+        "there,",
+        "is",
+        "there",
+        "not?\"",
+        "I",
+        "called",
+        "out,",
+        "looking",
+        "down."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 0.65,
+          "end": 0.79,
+          "key": "some",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.79,
+          "end": 0.99,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.99,
+          "end": 1.19,
+          "key": "down",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.57,
+          "end": 1.59,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "there",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not?",
+          "start": 1.75,
+          "end": 2.01,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "called",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 2.91,
+          "end": 3.17,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.27,
+          "end": 3.41,
+          "key": "looking",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 3.41,
+          "end": 3.77,
+          "key": "down",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"There",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "some",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "text": "one",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "text": "down",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "text": "there,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "text": "is",
+          "start": 1.57,
+          "end": 1.59
+        },
+        {
+          "text": "there",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "not?\"",
+          "start": 1.75,
+          "end": 2.01
+        },
+        {
+          "text": "I",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "called",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "out,",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "text": "looking",
+          "start": 3.27,
+          "end": 3.41
+        },
+        {
+          "text": "down.",
+          "start": 3.41,
+          "end": 3.77
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22793574258685112
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0506276a542a83b701edaa4bcf94f93730b08219fb1f7d0b472bbe927565ee97",
+  "selected_reasons": []
+}

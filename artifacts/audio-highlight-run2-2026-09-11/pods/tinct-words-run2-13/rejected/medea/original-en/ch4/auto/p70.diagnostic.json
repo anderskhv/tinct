@@ -1,0 +1,1733 @@
+{
+  "complete": true,
+  "signature": "58c06a370a25562b7608ef6ef43db6e2945df68445e755036d82fd2ce43964eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.5299240089952946,
+      "alignment_seconds": 0.0007947636768221855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aegeus. Methinks 'tis a far foresight, this thine oath. Still, if thou so wilt have it, nothing loath Am I to serve thee. Mine own hand is so The stronger, if I have this plea to show Thy persecutors: and for thee withal The bond more sure.--On what God shall I call?",
+        "hotwords": "Aegeus, Methinks, Still, Am, I, Mine, The, Thy, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aegeus, Methinks, Tis a far foresight, this thine oath. Still, if thou so wilt have it, nothing loath Am I to serve thee.",
+          "start": 0.56,
+          "end": 7.96,
+          "words": [
+            {
+              "text": " Aegeus,",
+              "start": 0.56,
+              "end": 0.98,
+              "probability": 0.651123046875
+            },
+            {
+              "text": " Methinks,",
+              "start": 1.22,
+              "end": 1.64,
+              "probability": 0.4968414306640625
+            },
+            {
+              "text": " Tis",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.4728240966796875
+            },
+            {
+              "text": " a",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " far",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " foresight,",
+              "start": 2.18,
+              "end": 2.76,
+              "probability": 0.921875
+            },
+            {
+              "text": " this",
+              "start": 2.94,
+              "end": 3.04,
+              "probability": 0.57421875
+            },
+            {
+              "text": " thine",
+              "start": 3.04,
+              "end": 3.3,
+              "probability": 0.886474609375
+            },
+            {
+              "text": " oath.",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " Still,",
+              "start": 4.26,
+              "end": 4.48,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " if",
+              "start": 4.8,
+              "end": 4.92,
+              "probability": 0.904296875
+            },
+            {
+              "text": " thou",
+              "start": 4.92,
+              "end": 5.08,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " so",
+              "start": 5.08,
+              "end": 5.32,
+              "probability": 0.974609375
+            },
+            {
+              "text": " wilt",
+              "start": 5.32,
+              "end": 5.56,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " have",
+              "start": 5.56,
+              "end": 5.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it,",
+              "start": 5.8,
+              "end": 6.0,
+              "probability": 0.9453125
+            },
+            {
+              "text": " nothing",
+              "start": 6.38,
+              "end": 6.58,
+              "probability": 0.477294921875
+            },
+            {
+              "text": " loath",
+              "start": 6.58,
+              "end": 6.96,
+              "probability": 0.45794677734375
+            },
+            {
+              "text": " Am",
+              "start": 6.96,
+              "end": 7.12,
+              "probability": 0.004627227783203125
+            },
+            {
+              "text": " I",
+              "start": 7.12,
+              "end": 7.26,
+              "probability": 0.96875
+            },
+            {
+              "text": " to",
+              "start": 7.26,
+              "end": 7.44,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " serve",
+              "start": 7.44,
+              "end": 7.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thee.",
+              "start": 7.7,
+              "end": 7.96,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Mine own hand is so The stronger, if I have this plea to show Thy persecutors, and for thee withal The bond more sure.--On what God shall I call?",
+          "start": 8.68,
+          "end": 16.5,
+          "words": [
+            {
+              "text": " Mine",
+              "start": 8.68,
+              "end": 8.9,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " own",
+              "start": 8.9,
+              "end": 9.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " hand",
+              "start": 9.16,
+              "end": 9.5,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " is",
+              "start": 9.5,
+              "end": 9.68,
+              "probability": 0.927734375
+            },
+            {
+              "text": " so",
+              "start": 9.68,
+              "end": 9.88,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " The",
+              "start": 9.88,
+              "end": 10.02,
+              "probability": 0.0012941360473632812
+            },
+            {
+              "text": " stronger,",
+              "start": 10.02,
+              "end": 10.44,
+              "probability": 0.56298828125
+            },
+            {
+              "text": " if",
+              "start": 10.78,
+              "end": 10.88,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " I",
+              "start": 10.88,
+              "end": 11.02,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have",
+              "start": 11.02,
+              "end": 11.22,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " this",
+              "start": 11.22,
+              "end": 11.44,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " plea",
+              "start": 11.44,
+              "end": 11.62,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " to",
+              "start": 11.62,
+              "end": 11.82,
+              "probability": 0.357666015625
+            },
+            {
+              "text": " show",
+              "start": 11.82,
+              "end": 12.02,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Thy",
+              "start": 12.02,
+              "end": 12.2,
+              "probability": 0.328125
+            },
+            {
+              "text": " persecutors,",
+              "start": 12.2,
+              "end": 13.0,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " and",
+              "start": 13.42,
+              "end": 13.56,
+              "probability": 0.369140625
+            },
+            {
+              "text": " for",
+              "start": 13.56,
+              "end": 13.66,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " thee",
+              "start": 13.66,
+              "end": 13.8,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " withal",
+              "start": 13.8,
+              "end": 14.18,
+              "probability": 0.46697998046875
+            },
+            {
+              "text": " The",
+              "start": 14.18,
+              "end": 14.34,
+              "probability": 0.27001953125
+            },
+            {
+              "text": " bond",
+              "start": 14.34,
+              "end": 14.64,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " more",
+              "start": 14.64,
+              "end": 14.9,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " sure.--On",
+              "start": 14.9,
+              "end": 15.38,
+              "probability": 0.3963216145833333
+            },
+            {
+              "text": " what",
+              "start": 15.38,
+              "end": 15.58,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " God",
+              "start": 15.58,
+              "end": 15.84,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " shall",
+              "start": 15.84,
+              "end": 16.04,
+              "probability": 0.94921875
+            },
+            {
+              "text": " I",
+              "start": 16.04,
+              "end": 16.22,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " call?",
+              "start": 16.22,
+              "end": 16.5,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aegeus,",
+          "start": 0.56,
+          "end": 0.98
+        },
+        {
+          "raw": "Methinks,",
+          "start": 1.22,
+          "end": 1.64
+        },
+        {
+          "raw": "Tis",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "a",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "far",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "foresight,",
+          "start": 2.18,
+          "end": 2.76
+        },
+        {
+          "raw": "this",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "raw": "thine",
+          "start": 3.04,
+          "end": 3.3
+        },
+        {
+          "raw": "oath.",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "Still,",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "raw": "if",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "raw": "thou",
+          "start": 4.92,
+          "end": 5.08
+        },
+        {
+          "raw": "so",
+          "start": 5.08,
+          "end": 5.32
+        },
+        {
+          "raw": "wilt",
+          "start": 5.32,
+          "end": 5.56
+        },
+        {
+          "raw": "have",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "raw": "it,",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "raw": "nothing",
+          "start": 6.38,
+          "end": 6.58
+        },
+        {
+          "raw": "loath",
+          "start": 6.58,
+          "end": 6.96
+        },
+        {
+          "raw": "Am",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "raw": "I",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "raw": "to",
+          "start": 7.26,
+          "end": 7.44
+        },
+        {
+          "raw": "serve",
+          "start": 7.44,
+          "end": 7.7
+        },
+        {
+          "raw": "thee.",
+          "start": 7.7,
+          "end": 7.96
+        },
+        {
+          "raw": "Mine",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "raw": "own",
+          "start": 8.9,
+          "end": 9.16
+        },
+        {
+          "raw": "hand",
+          "start": 9.16,
+          "end": 9.5
+        },
+        {
+          "raw": "is",
+          "start": 9.5,
+          "end": 9.68
+        },
+        {
+          "raw": "so",
+          "start": 9.68,
+          "end": 9.88
+        },
+        {
+          "raw": "The",
+          "start": 9.88,
+          "end": 10.02
+        },
+        {
+          "raw": "stronger,",
+          "start": 10.02,
+          "end": 10.44
+        },
+        {
+          "raw": "if",
+          "start": 10.78,
+          "end": 10.88
+        },
+        {
+          "raw": "I",
+          "start": 10.88,
+          "end": 11.02
+        },
+        {
+          "raw": "have",
+          "start": 11.02,
+          "end": 11.22
+        },
+        {
+          "raw": "this",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "raw": "plea",
+          "start": 11.44,
+          "end": 11.62
+        },
+        {
+          "raw": "to",
+          "start": 11.62,
+          "end": 11.82
+        },
+        {
+          "raw": "show",
+          "start": 11.82,
+          "end": 12.02
+        },
+        {
+          "raw": "Thy",
+          "start": 12.02,
+          "end": 12.2
+        },
+        {
+          "raw": "persecutors,",
+          "start": 12.2,
+          "end": 13.0
+        },
+        {
+          "raw": "and",
+          "start": 13.42,
+          "end": 13.56
+        },
+        {
+          "raw": "for",
+          "start": 13.56,
+          "end": 13.66
+        },
+        {
+          "raw": "thee",
+          "start": 13.66,
+          "end": 13.8
+        },
+        {
+          "raw": "withal",
+          "start": 13.8,
+          "end": 14.18
+        },
+        {
+          "raw": "The",
+          "start": 14.18,
+          "end": 14.34
+        },
+        {
+          "raw": "bond",
+          "start": 14.34,
+          "end": 14.64
+        },
+        {
+          "raw": "more",
+          "start": 14.64,
+          "end": 14.9
+        },
+        {
+          "raw": "sure.--On",
+          "start": 14.9,
+          "end": 15.38
+        },
+        {
+          "raw": "what",
+          "start": 15.38,
+          "end": 15.58
+        },
+        {
+          "raw": "God",
+          "start": 15.58,
+          "end": 15.84
+        },
+        {
+          "raw": "shall",
+          "start": 15.84,
+          "end": 16.04
+        },
+        {
+          "raw": "I",
+          "start": 16.04,
+          "end": 16.22
+        },
+        {
+          "raw": "call?",
+          "start": 16.22,
+          "end": 16.5
+        }
+      ],
+      "expected_tokens": [
+        "Aegeus.",
+        "Methinks",
+        "'tis",
+        "a",
+        "far",
+        "foresight,",
+        "this",
+        "thine",
+        "oath.",
+        "Still,",
+        "if",
+        "thou",
+        "so",
+        "wilt",
+        "have",
+        "it,",
+        "nothing",
+        "loath",
+        "Am",
+        "I",
+        "to",
+        "serve",
+        "thee.",
+        "Mine",
+        "own",
+        "hand",
+        "is",
+        "so",
+        "The",
+        "stronger,",
+        "if",
+        "I",
+        "have",
+        "this",
+        "plea",
+        "to",
+        "show",
+        "Thy",
+        "persecutors:",
+        "and",
+        "for",
+        "thee",
+        "withal",
+        "The",
+        "bond",
+        "more",
+        "sure.--On",
+        "what",
+        "God",
+        "shall",
+        "I",
+        "call?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          52,
+          0,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aegeus,",
+          "start": 0.56,
+          "end": 0.98,
+          "key": "aegeus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Methinks,",
+          "start": 1.22,
+          "end": 1.64,
+          "key": "methinks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.74,
+          "end": 1.84,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "far",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "foresight,",
+          "start": 2.18,
+          "end": 2.76,
+          "key": "foresight",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.94,
+          "end": 3.04,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 3.04,
+          "end": 3.3,
+          "key": "thine",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "oath.",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "oath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Still,",
+          "start": 4.26,
+          "end": 4.48,
+          "key": "still",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 4.8,
+          "end": 4.92,
+          "key": "if",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.92,
+          "end": 5.08,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.08,
+          "end": 5.32,
+          "key": "so",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 5.32,
+          "end": 5.56,
+          "key": "wilt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.56,
+          "end": 5.8,
+          "key": "have",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 5.8,
+          "end": 6.0,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 6.38,
+          "end": 6.58,
+          "key": "nothing",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "loath",
+          "start": 6.58,
+          "end": 6.96,
+          "key": "loath",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Am",
+          "start": 6.96,
+          "end": 7.12,
+          "key": "am",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.12,
+          "end": 7.26,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.26,
+          "end": 7.44,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 7.44,
+          "end": 7.7,
+          "key": "serve",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 7.7,
+          "end": 7.96,
+          "key": "thee",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Mine",
+          "start": 8.68,
+          "end": 8.9,
+          "key": "mine",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 8.9,
+          "end": 9.16,
+          "key": "own",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 9.16,
+          "end": 9.5,
+          "key": "hand",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 9.5,
+          "end": 9.68,
+          "key": "is",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 9.68,
+          "end": 9.88,
+          "key": "so",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.88,
+          "end": 10.02,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "stronger,",
+          "start": 10.02,
+          "end": 10.44,
+          "key": "stronger",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 10.78,
+          "end": 10.88,
+          "key": "if",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.88,
+          "end": 11.02,
+          "key": "i",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 11.02,
+          "end": 11.22,
+          "key": "have",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 11.22,
+          "end": 11.44,
+          "key": "this",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "plea",
+          "start": 11.44,
+          "end": 11.62,
+          "key": "plea",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.62,
+          "end": 11.82,
+          "key": "to",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 11.82,
+          "end": 12.02,
+          "key": "show",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 12.02,
+          "end": 12.2,
+          "key": "thy",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "persecutors,",
+          "start": 12.2,
+          "end": 13.0,
+          "key": "persecutors",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.42,
+          "end": 13.56,
+          "key": "and",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 13.56,
+          "end": 13.66,
+          "key": "for",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 13.66,
+          "end": 13.8,
+          "key": "thee",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "withal",
+          "start": 13.8,
+          "end": 14.18,
+          "key": "withal",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 14.18,
+          "end": 14.34,
+          "key": "the",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "bond",
+          "start": 14.34,
+          "end": 14.64,
+          "key": "bond",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 14.64,
+          "end": 14.9,
+          "key": "more",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "sure.--On",
+          "start": 14.9,
+          "end": 15.38,
+          "key": "sureon",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 15.38,
+          "end": 15.58,
+          "key": "what",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 15.58,
+          "end": 15.84,
+          "key": "god",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 15.84,
+          "end": 16.04,
+          "key": "shall",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.04,
+          "end": 16.22,
+          "key": "i",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "call?",
+          "start": 16.22,
+          "end": 16.5,
+          "key": "call",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aegeus.",
+          "start": 0.56,
+          "end": 0.98
+        },
+        {
+          "text": "Methinks",
+          "start": 1.22,
+          "end": 1.64
+        },
+        {
+          "text": "'tis",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "a",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "far",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "foresight,",
+          "start": 2.18,
+          "end": 2.76
+        },
+        {
+          "text": "this",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "thine",
+          "start": 3.04,
+          "end": 3.3
+        },
+        {
+          "text": "oath.",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "Still,",
+          "start": 4.26,
+          "end": 4.48
+        },
+        {
+          "text": "if",
+          "start": 4.8,
+          "end": 4.92
+        },
+        {
+          "text": "thou",
+          "start": 4.92,
+          "end": 5.08
+        },
+        {
+          "text": "so",
+          "start": 5.08,
+          "end": 5.32
+        },
+        {
+          "text": "wilt",
+          "start": 5.32,
+          "end": 5.56
+        },
+        {
+          "text": "have",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "text": "it,",
+          "start": 5.8,
+          "end": 6.0
+        },
+        {
+          "text": "nothing",
+          "start": 6.38,
+          "end": 6.58
+        },
+        {
+          "text": "loath",
+          "start": 6.58,
+          "end": 6.96
+        },
+        {
+          "text": "Am",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "text": "I",
+          "start": 7.12,
+          "end": 7.26
+        },
+        {
+          "text": "to",
+          "start": 7.26,
+          "end": 7.44
+        },
+        {
+          "text": "serve",
+          "start": 7.44,
+          "end": 7.7
+        },
+        {
+          "text": "thee.",
+          "start": 7.7,
+          "end": 7.96
+        },
+        {
+          "text": "Mine",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "text": "own",
+          "start": 8.9,
+          "end": 9.16
+        },
+        {
+          "text": "hand",
+          "start": 9.16,
+          "end": 9.5
+        },
+        {
+          "text": "is",
+          "start": 9.5,
+          "end": 9.68
+        },
+        {
+          "text": "so",
+          "start": 9.68,
+          "end": 9.88
+        },
+        {
+          "text": "The",
+          "start": 9.88,
+          "end": 10.02
+        },
+        {
+          "text": "stronger,",
+          "start": 10.02,
+          "end": 10.44
+        },
+        {
+          "text": "if",
+          "start": 10.78,
+          "end": 10.88
+        },
+        {
+          "text": "I",
+          "start": 10.88,
+          "end": 11.02
+        },
+        {
+          "text": "have",
+          "start": 11.02,
+          "end": 11.22
+        },
+        {
+          "text": "this",
+          "start": 11.22,
+          "end": 11.44
+        },
+        {
+          "text": "plea",
+          "start": 11.44,
+          "end": 11.62
+        },
+        {
+          "text": "to",
+          "start": 11.62,
+          "end": 11.82
+        },
+        {
+          "text": "show",
+          "start": 11.82,
+          "end": 12.02
+        },
+        {
+          "text": "Thy",
+          "start": 12.02,
+          "end": 12.2
+        },
+        {
+          "text": "persecutors:",
+          "start": 12.2,
+          "end": 13.0
+        },
+        {
+          "text": "and",
+          "start": 13.42,
+          "end": 13.56
+        },
+        {
+          "text": "for",
+          "start": 13.56,
+          "end": 13.66
+        },
+        {
+          "text": "thee",
+          "start": 13.66,
+          "end": 13.8
+        },
+        {
+          "text": "withal",
+          "start": 13.8,
+          "end": 14.18
+        },
+        {
+          "text": "The",
+          "start": 14.18,
+          "end": 14.34
+        },
+        {
+          "text": "bond",
+          "start": 14.34,
+          "end": 14.64
+        },
+        {
+          "text": "more",
+          "start": 14.64,
+          "end": 14.9
+        },
+        {
+          "text": "sure.--On",
+          "start": 14.9,
+          "end": 15.38
+        },
+        {
+          "text": "what",
+          "start": 15.38,
+          "end": 15.58
+        },
+        {
+          "text": "God",
+          "start": 15.58,
+          "end": 15.84
+        },
+        {
+          "text": "shall",
+          "start": 15.84,
+          "end": 16.04
+        },
+        {
+          "text": "I",
+          "start": 16.04,
+          "end": 16.22
+        },
+        {
+          "text": "call?",
+          "start": 16.22,
+          "end": 16.5
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 52
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5310515034943819
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8d3a810c39806d6fa8c4d64f79afd8f9179feac8eae4966a17d167857e34ed78",
+  "selected_reasons": []
+}

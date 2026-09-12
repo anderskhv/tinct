@@ -1,0 +1,582 @@
+{
+  "complete": true,
+  "signature": "d53b708c9370ebc95fd23507abc11552b077f4bedcbc914da53296e72d3d0a18",
+  "attempts": [
+    {
+      "asr_seconds": 0.28174006566405296,
+      "alignment_seconds": 0.0004867352545261383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He was raving all night about a Black Panther, Stephen said.",
+          "start": 0.05,
+          "end": 3.27,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " was",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " raving",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " all",
+              "start": 0.91,
+              "end": 1.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " night",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " about",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Black",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " Panther,",
+              "start": 1.95,
+              "end": 2.39,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Stephen",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.60400390625
+            },
+            {
+              "text": " said.",
+              "start": 2.85,
+              "end": 3.27,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Where is his gun case?",
+          "start": 3.85,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " Where",
+              "start": 3.85,
+              "end": 3.95,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " is",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " his",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gun",
+              "start": 4.25,
+              "end": 4.45,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " case?",
+              "start": 4.45,
+              "end": 4.71,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "raving",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "raw": "all",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "raw": "night",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "about",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "Black",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "Panther,",
+          "start": 1.95,
+          "end": 2.39
+        },
+        {
+          "raw": "Stephen",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "said.",
+          "start": 2.85,
+          "end": 3.27
+        },
+        {
+          "raw": "Where",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "raw": "is",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "his",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "gun",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "raw": "case?",
+          "start": 4.45,
+          "end": 4.71
+        }
+      ],
+      "expected_tokens": [
+        "—He",
+        "was",
+        "raving",
+        "all",
+        "night",
+        "about",
+        "a",
+        "black",
+        "panther,",
+        "Stephen",
+        "said.",
+        "Where",
+        "is",
+        "his",
+        "guncase?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.49,
+          "end": 0.59,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "raving",
+          "start": 0.59,
+          "end": 0.91,
+          "key": "raving",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.91,
+          "end": 1.19,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "night",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "about",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Black",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "black",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Panther,",
+          "start": 1.95,
+          "end": 2.39,
+          "key": "panther",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Stephen",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "stephen",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.85,
+          "end": 3.27,
+          "key": "said",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 3.85,
+          "end": 3.95,
+          "key": "where",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.95,
+          "end": 4.11,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gun",
+          "start": 4.25,
+          "end": 4.45,
+          "key": "gun",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "case?",
+          "start": 4.45,
+          "end": 4.71,
+          "key": "case",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "was",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "raving",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "text": "all",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "text": "night",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "about",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "a",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "black",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "panther,",
+          "start": 1.95,
+          "end": 2.39
+        },
+        {
+          "text": "Stephen",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "said.",
+          "start": 2.85,
+          "end": 3.27
+        },
+        {
+          "text": "Where",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "text": "is",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "his",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "guncase?",
+          "start": 4.25,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.28242946043610573
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "153ecb36632909d8bbeab51a93bd55d359fb278c4837700697c600598fbbacfb",
+  "selected_reasons": []
+}

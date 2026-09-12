@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "be1099af6cf5cf79d312339098999539a0e8469fb8afdbe17c68b7ddd46d3fe5",
+  "attempts": [
+    {
+      "asr_seconds": 0.10890513891354203,
+      "alignment_seconds": 0.00022270670160651207,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Or what is worst will follow.",
+        "hotwords": "Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Or what is worst will follow.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Or",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.548828125
+            },
+            {
+              "text": " what",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " is",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " worst",
+              "start": 0.85,
+              "end": 1.11,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " will",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " follow.",
+              "start": 1.33,
+              "end": 1.63,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Or",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "is",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "worst",
+          "start": 0.85,
+          "end": 1.11
+        },
+        {
+          "raw": "will",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "follow.",
+          "start": 1.33,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Or",
+        "what",
+        "is",
+        "worst",
+        "will",
+        "follow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Or",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "or",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "worst",
+          "start": 0.85,
+          "end": 1.11,
+          "key": "worst",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.11,
+          "end": 1.33,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "follow.",
+          "start": 1.33,
+          "end": 1.63,
+          "key": "follow",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Or",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "what",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "is",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "worst",
+          "start": 0.85,
+          "end": 1.11
+        },
+        {
+          "text": "will",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "text": "follow.",
+          "start": 1.33,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10921218805015087
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "769ffa180f33e15100a32c316acffa04e50f5f9b8dd19d85a276956d7bf05c73",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "f62c602c59bed079a85df8896c399a1511114e7cfcef526cbfeee2f949caff05",
+  "attempts": [
+    {
+      "asr_seconds": 0.24259864445775747,
+      "alignment_seconds": 0.0003104889765381813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ligarius. But are not some whole that we must make sick?",
+        "hotwords": "Ligarius, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ligarius, But are not some whole that we must make sick?",
+          "start": 0.53,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Ligarius,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.3419850667317708
+            },
+            {
+              "text": " But",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.0035228729248046875
+            },
+            {
+              "text": " are",
+              "start": 1.53,
+              "end": 1.63,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " not",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.990234375
+            },
+            {
+              "text": " some",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " whole",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.233642578125
+            },
+            {
+              "text": " that",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " we",
+              "start": 2.31,
+              "end": 2.45,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " must",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " make",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sick?",
+              "start": 2.81,
+              "end": 3.11,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ligarius,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "But",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "are",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "raw": "not",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "some",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "whole",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "that",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "we",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "raw": "must",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "make",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "raw": "sick?",
+          "start": 2.81,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Ligarius.",
+        "But",
+        "are",
+        "not",
+        "some",
+        "whole",
+        "that",
+        "we",
+        "must",
+        "make",
+        "sick?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ligarius,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "ligarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.53,
+          "end": 1.63,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "some",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "whole",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.31,
+          "end": 2.45,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.45,
+          "end": 2.61,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 2.61,
+          "end": 2.81,
+          "key": "make",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sick?",
+          "start": 2.81,
+          "end": 3.11,
+          "key": "sick",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ligarius.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "But",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "are",
+          "start": 1.53,
+          "end": 1.63
+        },
+        {
+          "text": "not",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "some",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "whole",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "that",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "we",
+          "start": 2.31,
+          "end": 2.45
+        },
+        {
+          "text": "must",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "make",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "text": "sick?",
+          "start": 2.81,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.243052264675498
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6b5eae3edc7c5ee18b2e56d6ebddbee2fdbed23495ed347d1d89efa9e054e04",
+  "selected_reasons": []
+}

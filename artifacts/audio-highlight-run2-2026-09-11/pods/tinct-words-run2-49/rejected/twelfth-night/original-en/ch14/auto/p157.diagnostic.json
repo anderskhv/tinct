@@ -1,0 +1,1387 @@
+{
+  "complete": true,
+  "signature": "562a233f1a487f31838ce762614e17eb177947184676c27e44cf63954cb4608b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3731871731579304,
+      "alignment_seconds": 0.000632215291261673,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Sir Andrew._] Pray, sir, put your sword up, if you please.",
+        "hotwords": "Andrew._, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Sir Andrew._, Pray, sir, put your sword up, if you please._",
+          "start": 0.02,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.640625
+            },
+            {
+              "text": " Sir",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.890625
+            },
+            {
+              "text": " Andrew._,",
+              "start": 0.66,
+              "end": 1.56,
+              "probability": 0.4887695610523224
+            },
+            {
+              "text": " Pray,",
+              "start": 1.56,
+              "end": 1.94,
+              "probability": 0.59576416015625
+            },
+            {
+              "text": " sir,",
+              "start": 2.06,
+              "end": 2.1,
+              "probability": 0.396484375
+            },
+            {
+              "text": " put",
+              "start": 2.3,
+              "end": 2.38,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " your",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " sword",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " up,",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " if",
+              "start": 2.98,
+              "end": 3.04,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " you",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " please._",
+              "start": 3.14,
+              "end": 4.14,
+              "probability": 0.5024032592773438
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Sir",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "Andrew._,",
+          "start": 0.66,
+          "end": 1.56
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "raw": "sir,",
+          "start": 2.06,
+          "end": 2.1
+        },
+        {
+          "raw": "put",
+          "start": 2.3,
+          "end": 2.38
+        },
+        {
+          "raw": "your",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "sword",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "up,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "if",
+          "start": 2.98,
+          "end": 3.04
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "please._",
+          "start": 3.14,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Sir",
+        "Andrew._]",
+        "Pray,",
+        "sir,",
+        "put",
+        "your",
+        "sword",
+        "up,",
+        "if",
+        "you",
+        "please."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          11,
+          3,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Andrew._,",
+          "start": 0.66,
+          "end": 1.56,
+          "key": "andrew_",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.56,
+          "end": 1.94,
+          "key": "pray",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.06,
+          "end": 2.1,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 2.3,
+          "end": 2.38,
+          "key": "put",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "sword",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "up,",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "up",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.98,
+          "end": 3.04,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "please._",
+          "start": 3.14,
+          "end": 4.14,
+          "key": "please_",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Sir",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "Andrew._]",
+          "start": 0.66,
+          "end": 1.11
+        },
+        {
+          "text": "Pray,",
+          "start": 1.56,
+          "end": 1.94
+        },
+        {
+          "text": "sir,",
+          "start": 2.06,
+          "end": 2.1
+        },
+        {
+          "text": "put",
+          "start": 2.3,
+          "end": 2.38
+        },
+        {
+          "text": "your",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "sword",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "up,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "if",
+          "start": 2.98,
+          "end": 3.04
+        },
+        {
+          "text": "you",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "text": "please.",
+          "start": 3.14,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.37404439225792885
+    },
+    {
+      "asr_seconds": 1.350398663431406,
+      "alignment_seconds": 0.0005951970815658569,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Andrew._, Pray"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Sir, put your sword up if you please._",
+          "start": 0.02,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Sir,",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.00218963623046875
+            },
+            {
+              "text": " put",
+              "start": 1.84,
+              "end": 1.84,
+              "probability": 0.32568359375
+            },
+            {
+              "text": " your",
+              "start": 1.84,
+              "end": 2.48,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " sword",
+              "start": 2.48,
+              "end": 2.74,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " up",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " if",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " you",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.994140625
+            },
+            {
+              "text": " please._",
+              "start": 3.14,
+              "end": 3.54,
+              "probability": 0.4829101860523224
+            }
+          ]
+        },
+        {
+          "text": " .",
+          "start": 3.54,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " .",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.00970458984375
+            }
+          ]
+        },
+        {
+          "text": " .",
+          "start": 3.8,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " .",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.57275390625
+            }
+          ]
+        },
+        {
+          "text": " .",
+          "start": 3.94,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " .",
+              "start": 3.94,
+              "end": 4.14,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "put",
+          "start": 1.84,
+          "end": 1.84
+        },
+        {
+          "raw": "your",
+          "start": 1.84,
+          "end": 2.48
+        },
+        {
+          "raw": "sword",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "raw": "up",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "if",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "please._",
+          "start": 3.14,
+          "end": 3.54
+        },
+        {
+          "raw": ".",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "raw": ".",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": ".",
+          "start": 3.94,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Sir",
+        "Andrew._]",
+        "Pray,",
+        "sir,",
+        "put",
+        "your",
+        "sword",
+        "up,",
+        "if",
+        "you",
+        "please."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          11,
+          0,
+          7
+        ],
+        [
+          "replace",
+          11,
+          12,
+          7,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "replace",
+          11,
+          12,
+          7,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir,",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 1.84,
+          "end": 1.84,
+          "key": "put",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.84,
+          "end": 2.48,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 2.48,
+          "end": 2.74,
+          "key": "sword",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "please._",
+          "start": 3.14,
+          "end": 3.54,
+          "key": "please_",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 3.54,
+          "end": 3.8,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 3.8,
+          "end": 3.94,
+          "key": "",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ".",
+          "start": 3.94,
+          "end": 4.14,
+          "key": "",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "Sir",
+          "start": 0.01,
+          "end": 0.015
+        },
+        {
+          "text": "Andrew._]",
+          "start": 0.015,
+          "end": 0.018
+        },
+        {
+          "text": "Pray,",
+          "start": 0.018,
+          "end": 0.019
+        },
+        {
+          "text": "sir,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "put",
+          "start": 1.84,
+          "end": 1.84
+        },
+        {
+          "text": "your",
+          "start": 1.84,
+          "end": 2.48
+        },
+        {
+          "text": "sword",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "text": "up,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "if",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "you",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "text": "please.",
+          "start": 3.14,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 7
+      },
+      "match_ratio": 0.5833333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.3512177467346191
+    },
+    {
+      "asr_seconds": 0.23758793622255325,
+      "alignment_seconds": 0.0005581080913543701,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Sir Andrew pray sir put your sword up if you please",
+          "start": 0.02,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.638671875
+            },
+            {
+              "text": " Sir",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.890625
+            },
+            {
+              "text": " Andrew",
+              "start": 0.66,
+              "end": 1.1,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " pray",
+              "start": 1.1,
+              "end": 1.78,
+              "probability": 0.176025390625
+            },
+            {
+              "text": " sir",
+              "start": 1.78,
+              "end": 2.12,
+              "probability": 0.564453125
+            },
+            {
+              "text": " put",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " your",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sword",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " up",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " if",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " you",
+              "start": 3.04,
+              "end": 3.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " please",
+              "start": 3.14,
+              "end": 3.42,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Sir",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "Andrew",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "raw": "pray",
+          "start": 1.1,
+          "end": 1.78
+        },
+        {
+          "raw": "sir",
+          "start": 1.78,
+          "end": 2.12
+        },
+        {
+          "raw": "put",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "raw": "your",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "sword",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "up",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "if",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "raw": "please",
+          "start": 3.14,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Sir",
+        "Andrew._]",
+        "Pray,",
+        "sir,",
+        "put",
+        "your",
+        "sword",
+        "up,",
+        "if",
+        "you",
+        "please."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 0.66,
+          "end": 1.1,
+          "key": "andrew",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.1,
+          "end": 1.78,
+          "key": "pray",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 1.78,
+          "end": 2.12,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "put",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sword",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "sword",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "up",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.04,
+          "end": 3.14,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 3.14,
+          "end": 3.42,
+          "key": "please",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Sir",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "Andrew._]",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "text": "Pray,",
+          "start": 1.1,
+          "end": 1.78
+        },
+        {
+          "text": "sir,",
+          "start": 1.78,
+          "end": 2.12
+        },
+        {
+          "text": "put",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "text": "your",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "sword",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "up,",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "if",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "you",
+          "start": 3.04,
+          "end": 3.14
+        },
+        {
+          "text": "please.",
+          "start": 3.14,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23838158696889877
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c96c8a88bd3ee596aad6aae987c2a4257479fe5fe0ea86b5666fc2aedc2f84c1",
+  "selected_reasons": []
+}

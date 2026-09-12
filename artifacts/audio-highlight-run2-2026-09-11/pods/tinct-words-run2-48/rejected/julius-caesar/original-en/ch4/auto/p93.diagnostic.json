@@ -1,0 +1,93 @@
+{
+  "complete": true,
+  "signature": "22908a7029aa7443bbf15b7573f7dead88616e43de6f31b94f7b769032ab1c97",
+  "attempts": [
+    {
+      "asr_seconds": 0.09849193692207336,
+      "alignment_seconds": 0.0001568831503391266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Knock._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Knock.",
+          "start": 0.0,
+          "end": 0.72,
+          "words": [
+            {
+              "text": " Knock.",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.58984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Knock.",
+          "start": 0.0,
+          "end": 0.72
+        }
+      ],
+      "expected_tokens": [
+        "[_Knock._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Knock.",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "knock",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Knock._]",
+          "start": 0.0,
+          "end": 0.72
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09869676921516657
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a1986deb65fc3899f1fcc02ff3bbd75f04489e2666834a6b75a6fb27e0fe0fce",
+  "selected_reasons": []
+}

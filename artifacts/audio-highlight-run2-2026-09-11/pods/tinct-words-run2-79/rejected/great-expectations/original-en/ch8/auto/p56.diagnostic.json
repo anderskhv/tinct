@@ -1,0 +1,645 @@
+{
+  "complete": true,
+  "signature": "614697f0c5f09fdb85cd6656c3e4405e5c999fd908c97a652206aaf587e89a68",
+  "attempts": [
+    {
+      "asr_seconds": 0.4205362447537482,
+      "alignment_seconds": 0.0007112268358469009,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Call Estella,\" she repeated, flashing a look at me. \"You can do that. Call Estella. At the door.\"",
+        "hotwords": "Call, Estella, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Call Estella,\" she repeated, flashing a look at me.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Call",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.327392578125
+            },
+            {
+              "text": " Estella,\"",
+              "start": 0.61,
+              "end": 1.25,
+              "probability": 0.7040201822916666
+            },
+            {
+              "text": " she",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " repeated,",
+              "start": 1.49,
+              "end": 1.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " flashing",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.39,
+              "end": 2.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " look",
+              "start": 2.55,
+              "end": 2.67,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " at",
+              "start": 2.67,
+              "end": 2.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me.",
+              "start": 2.77,
+              "end": 2.93,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " You can do that. Call Estella. At the door.",
+          "start": 2.93,
+          "end": 5.85,
+          "words": [
+            {
+              "text": " You",
+              "start": 2.93,
+              "end": 3.61,
+              "probability": 0.5
+            },
+            {
+              "text": " can",
+              "start": 3.61,
+              "end": 3.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " do",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that.",
+              "start": 3.95,
+              "end": 4.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Call",
+              "start": 4.71,
+              "end": 4.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Estella.",
+              "start": 4.75,
+              "end": 5.15,
+              "probability": 0.938720703125
+            },
+            {
+              "text": " At",
+              "start": 5.41,
+              "end": 5.47,
+              "probability": 0.81298828125
+            },
+            {
+              "text": " the",
+              "start": 5.47,
+              "end": 5.61,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " door.",
+              "start": 5.61,
+              "end": 5.85,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Call",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Estella,\"",
+          "start": 0.61,
+          "end": 1.25
+        },
+        {
+          "raw": "she",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "repeated,",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "raw": "flashing",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "a",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "raw": "look",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "raw": "at",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "raw": "me.",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "raw": "You",
+          "start": 2.93,
+          "end": 3.61
+        },
+        {
+          "raw": "can",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "raw": "do",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "that.",
+          "start": 3.95,
+          "end": 4.27
+        },
+        {
+          "raw": "Call",
+          "start": 4.71,
+          "end": 4.75
+        },
+        {
+          "raw": "Estella.",
+          "start": 4.75,
+          "end": 5.15
+        },
+        {
+          "raw": "At",
+          "start": 5.41,
+          "end": 5.47
+        },
+        {
+          "raw": "the",
+          "start": 5.47,
+          "end": 5.61
+        },
+        {
+          "raw": "door.",
+          "start": 5.61,
+          "end": 5.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Call",
+        "Estella,\"",
+        "she",
+        "repeated,",
+        "flashing",
+        "a",
+        "look",
+        "at",
+        "me.",
+        "\"You",
+        "can",
+        "do",
+        "that.",
+        "Call",
+        "Estella.",
+        "At",
+        "the",
+        "door.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Call",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "call",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Estella,\"",
+          "start": 0.61,
+          "end": 1.25,
+          "key": "estella",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "repeated,",
+          "start": 1.49,
+          "end": 1.91,
+          "key": "repeated",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "flashing",
+          "start": 2.15,
+          "end": 2.39,
+          "key": "flashing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.39,
+          "end": 2.55,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 2.55,
+          "end": 2.67,
+          "key": "look",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.67,
+          "end": 2.77,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.77,
+          "end": 2.93,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.93,
+          "end": 3.61,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.61,
+          "end": 3.77,
+          "key": "can",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.77,
+          "end": 3.95,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 3.95,
+          "end": 4.27,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Call",
+          "start": 4.71,
+          "end": 4.75,
+          "key": "call",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Estella.",
+          "start": 4.75,
+          "end": 5.15,
+          "key": "estella",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 5.41,
+          "end": 5.47,
+          "key": "at",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.47,
+          "end": 5.61,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 5.61,
+          "end": 5.85,
+          "key": "door",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Call",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Estella,\"",
+          "start": 0.61,
+          "end": 1.25
+        },
+        {
+          "text": "she",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "repeated,",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "text": "flashing",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "a",
+          "start": 2.39,
+          "end": 2.55
+        },
+        {
+          "text": "look",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "text": "at",
+          "start": 2.67,
+          "end": 2.77
+        },
+        {
+          "text": "me.",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "\"You",
+          "start": 2.93,
+          "end": 3.61
+        },
+        {
+          "text": "can",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "text": "do",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "that.",
+          "start": 3.95,
+          "end": 4.27
+        },
+        {
+          "text": "Call",
+          "start": 4.71,
+          "end": 4.75
+        },
+        {
+          "text": "Estella.",
+          "start": 4.75,
+          "end": 5.15
+        },
+        {
+          "text": "At",
+          "start": 5.41,
+          "end": 5.47
+        },
+        {
+          "text": "the",
+          "start": 5.47,
+          "end": 5.61
+        },
+        {
+          "text": "door.\"",
+          "start": 5.61,
+          "end": 5.85
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4215398500673473
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dc7e9112902cc2ae7647f4250b407f4307835ff4e6851ca8c9de8bec7745a2da",
+  "selected_reasons": []
+}

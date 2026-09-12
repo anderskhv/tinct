@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "492656cf424a76613b45a39f2f4701997e5040b045beceb6e9d6e41c1462312c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11413026787340641,
+      "alignment_seconds": 0.00018266495317220688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " BANG!",
+          "start": 0.02,
+          "end": 0.78,
+          "words": [
+            {
+              "text": " BANG!",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.58343505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "BANG!",
+          "start": 0.02,
+          "end": 0.78
+        }
+      ],
+      "expected_tokens": [
+        "—Bang!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "BANG!",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "bang",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Bang!",
+          "start": 0.02,
+          "end": 0.78
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11437181802466512
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "17b1d3ac61e1a0d75eb54f802e243bf6ab91f3a61bd74e95235b8fb75c0409d6",
+  "selected_reasons": []
+}

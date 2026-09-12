@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "5be5de7387c8b3c60a15f4bf4f712bd40d4f1f3856e10f92da12b33dfcd1fcc5",
+  "attempts": [
+    {
+      "asr_seconds": 0.22227363288402557,
+      "alignment_seconds": 0.00043831951916217804,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lies laughed nervously again. She spoke rapidly.",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Lies",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.429931640625
+            },
+            {
+              "text": " laughed",
+              "start": 0.63,
+              "end": 0.99,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " nervously",
+              "start": 0.99,
+              "end": 1.35,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " again.",
+              "start": 1.35,
+              "end": 1.79,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " She",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " spoke",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rapidly.",
+              "start": 2.57,
+              "end": 3.07,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lies",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "laughed",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "raw": "nervously",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "raw": "again.",
+          "start": 1.35,
+          "end": 1.79
+        },
+        {
+          "raw": "She",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "spoke",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "raw": "rapidly.",
+          "start": 2.57,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "Lise",
+        "laughed",
+        "nervously",
+        "again;",
+        "she",
+        "spoke",
+        "rapidly."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lies",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lies",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "laughed",
+          "start": 0.63,
+          "end": 0.99,
+          "key": "laughed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nervously",
+          "start": 0.99,
+          "end": 1.35,
+          "key": "nervously",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 1.35,
+          "end": 1.79,
+          "key": "again",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.19,
+          "end": 2.33,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 2.33,
+          "end": 2.57,
+          "key": "spoke",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rapidly.",
+          "start": 2.57,
+          "end": 3.07,
+          "key": "rapidly",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lise",
+          "start": 0.0,
+          "end": 0.315
+        },
+        {
+          "text": "laughed",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "text": "nervously",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "text": "again;",
+          "start": 1.35,
+          "end": 1.79
+        },
+        {
+          "text": "she",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "spoke",
+          "start": 2.33,
+          "end": 2.57
+        },
+        {
+          "text": "rapidly.",
+          "start": 2.57,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.22286425903439522
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0492f46c1ac38cc649174bf70656fe57256dca4f74bc00a0c1e906cf8b6a16bf",
+  "selected_reasons": []
+}

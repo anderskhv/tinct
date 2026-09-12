@@ -1,0 +1,589 @@
+{
+  "complete": true,
+  "signature": "af524b49082920463f10831bfa5f911f924bc2bdfada1f02dc6547265f49364b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3143925475887954,
+      "alignment_seconds": 0.00042406003922224045,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Raskolnikov's face grew more and more gloomy.",
+          "start": 0.73,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Raskolnikov's",
+              "start": 0.73,
+              "end": 1.27,
+              "probability": 0.9242350260416666
+            },
+            {
+              "text": " face",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grew",
+              "start": 1.53,
+              "end": 1.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more",
+              "start": 1.91,
+              "end": 2.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gloomy.",
+              "start": 2.75,
+              "end": 3.09,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Poor fairy seemed to guess his state of mind.",
+          "start": 3.85,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " Poor",
+              "start": 3.85,
+              "end": 3.87,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " fairy",
+              "start": 3.87,
+              "end": 4.15,
+              "probability": 0.57373046875
+            },
+            {
+              "text": " seemed",
+              "start": 4.15,
+              "end": 4.43,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " to",
+              "start": 4.43,
+              "end": 4.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " guess",
+              "start": 4.59,
+              "end": 4.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 4.77,
+              "end": 4.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " state",
+              "start": 4.95,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 5.15,
+              "end": 5.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mind.",
+              "start": 5.27,
+              "end": 5.61,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Raskolnikov's",
+          "start": 0.73,
+          "end": 1.27
+        },
+        {
+          "raw": "face",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "raw": "grew",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "raw": "more",
+          "start": 1.91,
+          "end": 2.29
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "more",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "raw": "gloomy.",
+          "start": 2.75,
+          "end": 3.09
+        },
+        {
+          "raw": "Poor",
+          "start": 3.85,
+          "end": 3.87
+        },
+        {
+          "raw": "fairy",
+          "start": 3.87,
+          "end": 4.15
+        },
+        {
+          "raw": "seemed",
+          "start": 4.15,
+          "end": 4.43
+        },
+        {
+          "raw": "to",
+          "start": 4.43,
+          "end": 4.59
+        },
+        {
+          "raw": "guess",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "raw": "his",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "raw": "state",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "raw": "of",
+          "start": 5.15,
+          "end": 5.27
+        },
+        {
+          "raw": "mind.",
+          "start": 5.27,
+          "end": 5.61
+        }
+      ],
+      "expected_tokens": [
+        "Raskolnikov's",
+        "face",
+        "grew",
+        "more",
+        "and",
+        "more",
+        "gloomy.",
+        "Porfiry",
+        "seemed",
+        "to",
+        "guess",
+        "his",
+        "state",
+        "of",
+        "mind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          15,
+          9,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Raskolnikov's",
+          "start": 0.73,
+          "end": 1.27,
+          "key": "raskolnikovs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "face",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "grew",
+          "start": 1.53,
+          "end": 1.91,
+          "key": "grew",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.91,
+          "end": 2.29,
+          "key": "more",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gloomy.",
+          "start": 2.75,
+          "end": 3.09,
+          "key": "gloomy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Poor",
+          "start": 3.85,
+          "end": 3.87,
+          "key": "poor",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fairy",
+          "start": 3.87,
+          "end": 4.15,
+          "key": "fairy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 4.15,
+          "end": 4.43,
+          "key": "seemed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.43,
+          "end": 4.59,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "guess",
+          "start": 4.59,
+          "end": 4.77,
+          "key": "guess",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.77,
+          "end": 4.95,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 4.95,
+          "end": 5.15,
+          "key": "state",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.15,
+          "end": 5.27,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 5.27,
+          "end": 5.61,
+          "key": "mind",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Raskolnikov's",
+          "start": 0.73,
+          "end": 1.27
+        },
+        {
+          "text": "face",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "text": "grew",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "text": "more",
+          "start": 1.91,
+          "end": 2.29
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "text": "more",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "text": "gloomy.",
+          "start": 2.75,
+          "end": 3.09
+        },
+        {
+          "text": "Porfiry",
+          "start": 3.09,
+          "end": 3.62
+        },
+        {
+          "text": "seemed",
+          "start": 4.15,
+          "end": 4.43
+        },
+        {
+          "text": "to",
+          "start": 4.43,
+          "end": 4.59
+        },
+        {
+          "text": "guess",
+          "start": 4.59,
+          "end": 4.77
+        },
+        {
+          "text": "his",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "text": "state",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "text": "of",
+          "start": 5.15,
+          "end": 5.27
+        },
+        {
+          "text": "mind.",
+          "start": 5.27,
+          "end": 5.61
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.31499519385397434
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "be5dd32e104d0a133a8b14d4bdb50b17348a8b9dcd4c4c4ae771d7386721f15f",
+  "selected_reasons": []
+}

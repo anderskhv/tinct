@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "6a59ccb10ba2fc432de51fc2151352361af1a5fbfff25b08897bb1a4389c4116",
+  "attempts": [
+    {
+      "asr_seconds": 0.2071261997334659,
+      "alignment_seconds": 0.00019061239436268806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miss Martha Clifford C.O.P. O'Dolphin's Barn Lane Dublin",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.759765625
+            },
+            {
+              "text": " Martha",
+              "start": 0.57,
+              "end": 0.89,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Clifford",
+              "start": 0.89,
+              "end": 1.19,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " C",
+              "start": 1.19,
+              "end": 1.53,
+              "probability": 0.4111328125
+            },
+            {
+              "text": ".O",
+              "start": 1.53,
+              "end": 1.85,
+              "probability": 0.560302734375
+            },
+            {
+              "text": ".P.",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " O",
+              "start": 2.45,
+              "end": 2.53,
+              "probability": 0.595703125
+            },
+            {
+              "text": "'Dolphin's",
+              "start": 2.53,
+              "end": 3.07,
+              "probability": 0.71575927734375
+            },
+            {
+              "text": " Barn",
+              "start": 3.07,
+              "end": 3.27,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Lane",
+              "start": 3.27,
+              "end": 3.57,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " Dublin",
+              "start": 3.57,
+              "end": 3.95,
+              "probability": 0.59228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Martha",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "raw": "Clifford",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "raw": "C",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "raw": ".O",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "raw": ".P.",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "O",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "raw": "'Dolphin's",
+          "start": 2.53,
+          "end": 3.07
+        },
+        {
+          "raw": "Barn",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "raw": "Lane",
+          "start": 3.27,
+          "end": 3.57
+        },
+        {
+          "raw": "Dublin",
+          "start": 3.57,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "Miss",
+        "Martha",
+        "Clifford",
+        "c/o",
+        "P.",
+        "O.",
+        "Dolphin's",
+        "Barn",
+        "Lane",
+        "Dublin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Martha",
+          "start": 0.57,
+          "end": 0.89,
+          "key": "martha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Clifford",
+          "start": 0.89,
+          "end": 1.19,
+          "key": "clifford",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "C",
+          "start": 1.19,
+          "end": 1.53,
+          "key": "c",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": ".O",
+          "start": 1.53,
+          "end": 1.85,
+          "key": "o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ".P.",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "p",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.45,
+          "end": 2.53,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "'Dolphin's",
+          "start": 2.53,
+          "end": 3.07,
+          "key": "dolphins",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Barn",
+          "start": 3.07,
+          "end": 3.27,
+          "key": "barn",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Lane",
+          "start": 3.27,
+          "end": 3.57,
+          "key": "lane",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Dublin",
+          "start": 3.57,
+          "end": 3.95,
+          "key": "dublin",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Miss",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Martha",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "text": "Clifford",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "text": "c/o",
+          "start": 1.19,
+          "end": 1.52
+        },
+        {
+          "text": "P.",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "O.",
+          "start": 2.45,
+          "end": 2.53
+        },
+        {
+          "text": "Dolphin's",
+          "start": 2.53,
+          "end": 3.07
+        },
+        {
+          "text": "Barn",
+          "start": 3.07,
+          "end": 3.27
+        },
+        {
+          "text": "Lane",
+          "start": 3.27,
+          "end": 3.57
+        },
+        {
+          "text": "Dublin.",
+          "start": 3.57,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.20738170901313424
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "40d111abb3b08193f09f19bcfb8f9928e60acb3c0b0c640f2b21ba34d2933d6e",
+  "selected_reasons": []
+}

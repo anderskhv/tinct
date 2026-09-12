@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "800797ee3e4665dbfe903bbb226d1f93b704063f56d156323d8a61f7dd6a4438",
+  "attempts": [
+    {
+      "asr_seconds": 0.11552650528028607,
+      "alignment_seconds": 0.00020344601944088936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. You may, sir.",
+        "hotwords": "Sicinius, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, You may, sir.",
+          "start": 0.64,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.64,
+              "end": 0.96,
+              "probability": 0.48471323649088544
+            },
+            {
+              "text": " You",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.00528717041015625
+            },
+            {
+              "text": " may,",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.771484375
+            },
+            {
+              "text": " sir.",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.7998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "raw": "You",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "may,",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "sir.",
+          "start": 1.66,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "You",
+        "may,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.64,
+          "end": 0.96,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may,",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.64,
+          "end": 0.96
+        },
+        {
+          "text": "You",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "may,",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "sir.",
+          "start": 1.66,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11579583305865526
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dcf1151f8683da08bd10d9496b6587d65b2edcce9bea3d71ce2fb5bb14b8780c",
+  "selected_reasons": []
+}

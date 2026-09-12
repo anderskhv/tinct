@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "5afa6a5f73b19343b5383826be8088e6727cb38c48859c2dc4855ca1bc256033",
+  "attempts": [
+    {
+      "asr_seconds": 0.2852965295314789,
+      "alignment_seconds": 0.00042387843132019043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Octavius, all that served Brutus I will entertain them.",
+          "start": 0.6,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Octavius,",
+              "start": 0.6,
+              "end": 1.12,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " all",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " that",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " served",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Brutus",
+              "start": 2.22,
+              "end": 2.7,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.65576171875
+            },
+            {
+              "text": " will",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " entertain",
+              "start": 2.96,
+              "end": 3.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 3.34,
+              "end": 3.66,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " Fellow, wilt thou bestow thy time with me?",
+          "start": 4.46,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " Fellow,",
+              "start": 4.46,
+              "end": 4.46,
+              "probability": 0.927734375
+            },
+            {
+              "text": " wilt",
+              "start": 4.7,
+              "end": 4.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " thou",
+              "start": 4.88,
+              "end": 5.08,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " bestow",
+              "start": 5.08,
+              "end": 5.48,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " thy",
+              "start": 5.48,
+              "end": 5.62,
+              "probability": 0.974609375
+            },
+            {
+              "text": " time",
+              "start": 5.62,
+              "end": 5.9,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " with",
+              "start": 5.9,
+              "end": 6.08,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " me?",
+              "start": 6.08,
+              "end": 6.32,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavius,",
+          "start": 0.6,
+          "end": 1.12
+        },
+        {
+          "raw": "all",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "that",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "served",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "Brutus",
+          "start": 2.22,
+          "end": 2.7
+        },
+        {
+          "raw": "I",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "will",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "entertain",
+          "start": 2.96,
+          "end": 3.34
+        },
+        {
+          "raw": "them.",
+          "start": 3.34,
+          "end": 3.66
+        },
+        {
+          "raw": "Fellow,",
+          "start": 4.46,
+          "end": 4.46
+        },
+        {
+          "raw": "wilt",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "raw": "thou",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "raw": "bestow",
+          "start": 5.08,
+          "end": 5.48
+        },
+        {
+          "raw": "thy",
+          "start": 5.48,
+          "end": 5.62
+        },
+        {
+          "raw": "time",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "raw": "with",
+          "start": 5.9,
+          "end": 6.08
+        },
+        {
+          "raw": "me?",
+          "start": 6.08,
+          "end": 6.32
+        }
+      ],
+      "expected_tokens": [
+        "Octavius.",
+        "All",
+        "that",
+        "serv'd",
+        "Brutus,",
+        "I",
+        "will",
+        "entertain",
+        "them.",
+        "Fellow,",
+        "wilt",
+        "thou",
+        "bestow",
+        "thy",
+        "time",
+        "with",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          17,
+          4,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavius,",
+          "start": 0.6,
+          "end": 1.12,
+          "key": "octavius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "served",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "served",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 2.22,
+          "end": 2.7,
+          "key": "brutus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "entertain",
+          "start": 2.96,
+          "end": 3.34,
+          "key": "entertain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 3.34,
+          "end": 3.66,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Fellow,",
+          "start": 4.46,
+          "end": 4.46,
+          "key": "fellow",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 4.7,
+          "end": 4.88,
+          "key": "wilt",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.88,
+          "end": 5.08,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "bestow",
+          "start": 5.08,
+          "end": 5.48,
+          "key": "bestow",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.48,
+          "end": 5.62,
+          "key": "thy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 5.62,
+          "end": 5.9,
+          "key": "time",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.9,
+          "end": 6.08,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 6.08,
+          "end": 6.32,
+          "key": "me",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavius.",
+          "start": 0.6,
+          "end": 1.12
+        },
+        {
+          "text": "All",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "that",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "serv'd",
+          "start": 1.88,
+          "end": 2.05
+        },
+        {
+          "text": "Brutus,",
+          "start": 2.22,
+          "end": 2.7
+        },
+        {
+          "text": "I",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "will",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "entertain",
+          "start": 2.96,
+          "end": 3.34
+        },
+        {
+          "text": "them.",
+          "start": 3.34,
+          "end": 3.66
+        },
+        {
+          "text": "Fellow,",
+          "start": 4.46,
+          "end": 4.46
+        },
+        {
+          "text": "wilt",
+          "start": 4.7,
+          "end": 4.88
+        },
+        {
+          "text": "thou",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "text": "bestow",
+          "start": 5.08,
+          "end": 5.48
+        },
+        {
+          "text": "thy",
+          "start": 5.48,
+          "end": 5.62
+        },
+        {
+          "text": "time",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "text": "with",
+          "start": 5.9,
+          "end": 6.08
+        },
+        {
+          "text": "me?",
+          "start": 6.08,
+          "end": 6.32
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.285883572883904
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0d91756dadb04a1320d15bbf0ce52a4b368d9b45d76848f38d196416192c3827",
+  "selected_reasons": []
+}

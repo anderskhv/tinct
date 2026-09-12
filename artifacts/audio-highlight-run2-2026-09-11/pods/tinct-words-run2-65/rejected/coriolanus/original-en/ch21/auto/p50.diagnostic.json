@@ -1,0 +1,492 @@
+{
+  "complete": true,
+  "signature": "ef4155b187f6fdaa265f03d454127767f01828f7346c66ea254ad04885e5dc87",
+  "attempts": [
+    {
+      "asr_seconds": 4.18434149492532,
+      "alignment_seconds": 0.00024673808366060257,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Removing his muffler_.] If, Tullus,",
+        "hotwords": "If, Tullus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " If, Tullus,",
+          "start": 0.02,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " If,",
+              "start": 0.02,
+              "end": 0.98,
+              "probability": 0.0005240440368652344
+            },
+            {
+              "text": " Tullus,",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.732421875
+            }
+          ]
+        },
+        {
+          "text": " If, Tullus, If, Tullus,",
+          "start": 2.44,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " If,",
+              "start": 2.44,
+              "end": 2.94,
+              "probability": 0.0002282857894897461
+            },
+            {
+              "text": " Tullus,",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.00033525625864664715
+            },
+            {
+              "text": " If,",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.00028896331787109375
+            },
+            {
+              "text": " Tullus,",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.6885986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If,",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "raw": "Tullus,",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "If,",
+          "start": 2.44,
+          "end": 2.94
+        },
+        {
+          "raw": "Tullus,",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "If,",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "Tullus,",
+          "start": 2.94,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "[_Removing",
+        "his",
+        "muffler_.]",
+        "If,",
+        "Tullus,"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "equal",
+          3,
+          5,
+          0,
+          2
+        ],
+        [
+          "insert",
+          5,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          "insert",
+          5,
+          5,
+          2,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If,",
+          "start": 0.02,
+          "end": 0.98,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tullus,",
+          "start": 2.14,
+          "end": 2.44,
+          "key": "tullus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "If,",
+          "start": 2.44,
+          "end": 2.94,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tullus,",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "tullus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "If,",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tullus,",
+          "start": 2.94,
+          "end": 2.94,
+          "key": "tullus",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Removing",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "his",
+          "start": 0.01,
+          "end": 0.015
+        },
+        {
+          "text": "muffler_.]",
+          "start": 0.015,
+          "end": 0.018
+        },
+        {
+          "text": "If,",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "text": "Tullus,",
+          "start": 2.14,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.1846864451654255
+    },
+    {
+      "asr_seconds": 0.13032866921275854,
+      "alignment_seconds": 0.00020380597561597824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "If, Tullus"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Removing his muffler, if Tullus",
+          "start": 0.02,
+          "end": 2.46,
+          "words": [
+            {
+              "text": " Removing",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.788330078125
+            },
+            {
+              "text": " his",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " muffler,",
+              "start": 0.98,
+              "end": 1.48,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " if",
+              "start": 1.86,
+              "end": 1.96,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Tullus",
+              "start": 1.96,
+              "end": 2.46,
+              "probability": 0.6656901041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Removing",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "his",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "muffler,",
+          "start": 0.98,
+          "end": 1.48
+        },
+        {
+          "raw": "if",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "raw": "Tullus",
+          "start": 1.96,
+          "end": 2.46
+        }
+      ],
+      "expected_tokens": [
+        "[_Removing",
+        "his",
+        "muffler_.]",
+        "If,",
+        "Tullus,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Removing",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "removing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "muffler,",
+          "start": 0.98,
+          "end": 1.48,
+          "key": "muffler",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.86,
+          "end": 1.96,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Tullus",
+          "start": 1.96,
+          "end": 2.46,
+          "key": "tullus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Removing",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "his",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "muffler_.]",
+          "start": 0.98,
+          "end": 1.48
+        },
+        {
+          "text": "If,",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "text": "Tullus,",
+          "start": 1.96,
+          "end": 2.46
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13060544710606337
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "68732620d120b481aa4a06557c279592a1bc5400ba07e8dfce6ad8695f58fcc6",
+  "selected_reasons": []
+}

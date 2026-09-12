@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "475e64df99a71bc3caf6021c26a51fd32a3f01a52dc25f04c3d739af465cfbba",
+  "attempts": [
+    {
+      "asr_seconds": 0.12031583907082677,
+      "alignment_seconds": 0.00027529383078217506,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Living, Joe?\"",
+        "hotwords": "Living, Joe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Living, Joe.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " Living,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " Joe.",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.75634765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Living,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Joe.",
+          "start": 0.84,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "\"Living,",
+        "Joe?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Living,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "living",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Joe.",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "joe",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Living,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Joe?\"",
+          "start": 0.84,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12069277092814445
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b9017ab7d37a2afda85180a09a8fc468524cb35e8f757547cfb050a97468e111",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "053176cfb499410cf0f0fff55b7140fcca92ab0f0286a8820539494a0ebc032e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1952614840120077,
+      "alignment_seconds": 0.0002601882442831993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Except me: I am substantial enough—touch me.\"",
+        "hotwords": "Except, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Except me, I am substantial enough—touch me.",
+          "start": 0.02,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Except",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.376220703125
+            },
+            {
+              "text": " me,",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " am",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.96875
+            },
+            {
+              "text": " substantial",
+              "start": 1.6,
+              "end": 2.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " enough—touch",
+              "start": 2.02,
+              "end": 2.68,
+              "probability": 0.6085777282714844
+            },
+            {
+              "text": " me.",
+              "start": 2.68,
+              "end": 3.0,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Except",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "me,",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "am",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "substantial",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "raw": "enough—touch",
+          "start": 2.02,
+          "end": 2.68
+        },
+        {
+          "raw": "me.",
+          "start": 2.68,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "\"Except",
+        "me:",
+        "I",
+        "am",
+        "substantial",
+        "enough—touch",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Except",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "except",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.7,
+          "end": 0.98,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "substantial",
+          "start": 1.6,
+          "end": 2.02,
+          "key": "substantial",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enough—touch",
+          "start": 2.02,
+          "end": 2.68,
+          "key": "enoughtouch",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.68,
+          "end": 3.0,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Except",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "me:",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "I",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "am",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "substantial",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "text": "enough—touch",
+          "start": 2.02,
+          "end": 2.68
+        },
+        {
+          "text": "me.\"",
+          "start": 2.68,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19561909511685371
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "08f3f8e94f98fdfac1b80fd87243f883edbde8afb6847c33e2bc388142f341fb",
+  "selected_reasons": []
+}

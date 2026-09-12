@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "c69faaf3bb186e4702b31de7fff7d4f85cca5ec498af6068197764ee70b4e511",
+  "attempts": [
+    {
+      "asr_seconds": 0.2054327130317688,
+      "alignment_seconds": 0.0003828480839729309,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fabian, come, let's see the event.",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Fabian,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.974609375
+            },
+            {
+              "text": " come,",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " let's",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " see",
+              "start": 1.86,
+              "end": 1.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.96,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " event.",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "come,",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "let's",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "see",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "raw": "event.",
+          "start": 2.08,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "Come,",
+        "let's",
+        "see",
+        "the",
+        "event."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "lets",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.86,
+          "end": 1.96,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.96,
+          "end": 2.08,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "event.",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "event",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Come,",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "let's",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "see",
+          "start": 1.86,
+          "end": 1.96
+        },
+        {
+          "text": "the",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "text": "event.",
+          "start": 2.08,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20593978464603424
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "18b7c931b5519fdffbff6206570e4dd29f879a5c4415929b1e8b1191463f1c13",
+  "selected_reasons": []
+}

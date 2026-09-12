@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "10fd6883bceb1ebcfe325c46e369a0870c3c594dba28730ed05035bc9b7ed683",
+  "attempts": [
+    {
+      "asr_seconds": 0.1519855810329318,
+      "alignment_seconds": 0.0003078123554587364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside._] Great men,",
+        "hotwords": "Great"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " aside, great men.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " aside,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.272705078125
+            },
+            {
+              "text": " great",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.94140625
+            },
+            {
+              "text": " men.",
+              "start": 1.37,
+              "end": 1.69,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "aside,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "great",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "men.",
+          "start": 1.37,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "Great",
+        "men,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "aside,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "great",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 1.37,
+          "end": 1.69,
+          "key": "men",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Great",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "men,",
+          "start": 1.37,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15240231342613697
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "85b738c8e4764017a72bed88a36ffd1b7732eba6482495239f489a6c448b1403",
+  "selected_reasons": []
+}

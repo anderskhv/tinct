@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "74ef6db553d203f932845fdf5aa2805d78c8916d83bcfd2ccda25e5c7fe7d405",
+  "attempts": [
+    {
+      "asr_seconds": 0.18688464723527431,
+      "alignment_seconds": 0.00039335712790489197,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Strato, I, if Missala will prefer me to you.",
+          "start": 0.11,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Strato,",
+              "start": 0.11,
+              "end": 0.83,
+              "probability": 0.736572265625
+            },
+            {
+              "text": " I,",
+              "start": 1.19,
+              "end": 1.45,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " if",
+              "start": 1.59,
+              "end": 1.63,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Missala",
+              "start": 1.63,
+              "end": 2.05,
+              "probability": 0.4617919921875
+            },
+            {
+              "text": " will",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.5869140625
+            },
+            {
+              "text": " prefer",
+              "start": 2.23,
+              "end": 2.53,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " me",
+              "start": 2.53,
+              "end": 2.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you.",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Strato,",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "raw": "I,",
+          "start": 1.19,
+          "end": 1.45
+        },
+        {
+          "raw": "if",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "raw": "Missala",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "raw": "will",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "prefer",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "raw": "me",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "you.",
+          "start": 2.87,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "Strato.",
+        "Ay,",
+        "if",
+        "Messala",
+        "will",
+        "prefer",
+        "me",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Strato,",
+          "start": 0.11,
+          "end": 0.83,
+          "key": "strato",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.19,
+          "end": 1.45,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.59,
+          "end": 1.63,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Missala",
+          "start": 1.63,
+          "end": 2.05,
+          "key": "missala",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prefer",
+          "start": 2.23,
+          "end": 2.53,
+          "key": "prefer",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.53,
+          "end": 2.73,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Strato.",
+          "start": 0.11,
+          "end": 0.83
+        },
+        {
+          "text": "Ay,",
+          "start": 0.83,
+          "end": 1.21
+        },
+        {
+          "text": "if",
+          "start": 1.59,
+          "end": 1.63
+        },
+        {
+          "text": "Messala",
+          "start": 1.63,
+          "end": 1.84
+        },
+        {
+          "text": "will",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "prefer",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "text": "me",
+          "start": 2.53,
+          "end": 2.73
+        },
+        {
+          "text": "to",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "you.",
+          "start": 2.87,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1874073799699545
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "86243df4d74cc217a396440f01d5658dbf56ca143d3620f9eb9a30dc147984bd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

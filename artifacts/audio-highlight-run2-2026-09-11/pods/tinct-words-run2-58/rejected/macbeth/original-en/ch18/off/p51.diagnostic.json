@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "729fdcc9fcf87ed4cb239543cc7f54ad9a0107ffce5e6782529540d9f494da5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.25100026931613684,
+      "alignment_seconds": 0.000542396679520607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All show his eyes and grieve his heart come like shadows so depart",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " show",
+              "start": 0.67,
+              "end": 1.07,
+              "probability": 0.53515625
+            },
+            {
+              "text": " his",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " eyes",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " grieve",
+              "start": 1.71,
+              "end": 1.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " his",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " heart",
+              "start": 2.07,
+              "end": 2.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " come",
+              "start": 2.43,
+              "end": 2.89,
+              "probability": 0.1129150390625
+            },
+            {
+              "text": " like",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " shadows",
+              "start": 3.07,
+              "end": 3.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " so",
+              "start": 3.47,
+              "end": 3.83,
+              "probability": 0.93359375
+            },
+            {
+              "text": " depart",
+              "start": 3.83,
+              "end": 4.19,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "show",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "raw": "his",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "eyes",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "grieve",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "raw": "his",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "heart",
+          "start": 2.07,
+          "end": 2.43
+        },
+        {
+          "raw": "come",
+          "start": 2.43,
+          "end": 2.89
+        },
+        {
+          "raw": "like",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "shadows",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "raw": "so",
+          "start": 3.47,
+          "end": 3.83
+        },
+        {
+          "raw": "depart",
+          "start": 3.83,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Show",
+        "his",
+        "eyes,",
+        "and",
+        "grieve",
+        "his",
+        "heart;",
+        "Come",
+        "like",
+        "shadows,",
+        "so",
+        "depart!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 0.67,
+          "end": 1.07,
+          "key": "show",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "eyes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "grieve",
+          "start": 1.71,
+          "end": 1.93,
+          "key": "grieve",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 2.07,
+          "end": 2.43,
+          "key": "heart",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.43,
+          "end": 2.89,
+          "key": "come",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "shadows",
+          "start": 3.07,
+          "end": 3.47,
+          "key": "shadows",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.47,
+          "end": 3.83,
+          "key": "so",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "depart",
+          "start": 3.83,
+          "end": 4.19,
+          "key": "depart",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Show",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "text": "his",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "eyes,",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "grieve",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "text": "his",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "heart;",
+          "start": 2.07,
+          "end": 2.43
+        },
+        {
+          "text": "Come",
+          "start": 2.43,
+          "end": 2.89
+        },
+        {
+          "text": "like",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "shadows,",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "text": "so",
+          "start": 3.47,
+          "end": 3.83
+        },
+        {
+          "text": "depart!",
+          "start": 3.83,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2517863102257252
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ec6421ecf81aa2f070df2d784c4f0d81b589204de6ef64fe42cb6b7a6f26d60",
+  "selected_reasons": []
+}

@@ -1,0 +1,1306 @@
+{
+  "complete": true,
+  "signature": "0f09478e0a8168f9a5ecebfb20e86090af37f93961b9c1517e1447d0a556e402",
+  "attempts": [
+    {
+      "asr_seconds": 0.2349811540916562,
+      "alignment_seconds": 0.000601995037868619,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. If he were dead, what would betide on me?",
+        "hotwords": "Queen, Elizabeth, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth, If you were dead, what would betide on me?",
+          "start": 0.0,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " Elizabeth,",
+              "start": 0.58,
+              "end": 1.1,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " If",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.02911376953125
+            },
+            {
+              "text": " you",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " were",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.98046875
+            },
+            {
+              "text": " dead,",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " what",
+              "start": 2.54,
+              "end": 2.6,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " would",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " betide",
+              "start": 2.72,
+              "end": 3.1,
+              "probability": 0.4862518310546875
+            },
+            {
+              "text": " on",
+              "start": 3.1,
+              "end": 3.26,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " me?",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "raw": "If",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "you",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "were",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "dead,",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "raw": "what",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "raw": "would",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "betide",
+          "start": 2.72,
+          "end": 3.1
+        },
+        {
+          "raw": "on",
+          "start": 3.1,
+          "end": 3.26
+        },
+        {
+          "raw": "me?",
+          "start": 3.26,
+          "end": 3.48
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "If",
+        "he",
+        "were",
+        "dead,",
+        "what",
+        "would",
+        "betide",
+        "on",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          11,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.58,
+          "end": 1.1,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.56,
+          "end": 1.76,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 2.0,
+          "end": 2.24,
+          "key": "dead",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.54,
+          "end": 2.6,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.6,
+          "end": 2.72,
+          "key": "would",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "betide",
+          "start": 2.72,
+          "end": 3.1,
+          "key": "betide",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.1,
+          "end": 3.26,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 3.26,
+          "end": 3.48,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "text": "If",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "text": "he",
+          "start": 1.76,
+          "end": 1.81
+        },
+        {
+          "text": "were",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "dead,",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "text": "what",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "text": "would",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "betide",
+          "start": 2.72,
+          "end": 3.1
+        },
+        {
+          "text": "on",
+          "start": 3.1,
+          "end": 3.26
+        },
+        {
+          "text": "me?",
+          "start": 3.26,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2357915269676596
+    },
+    {
+      "asr_seconds": 0.23619204899296165,
+      "alignment_seconds": 0.0005214221309870481,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Queen, Elizabeth, If"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " you were dead, what would be tied on me?",
+          "start": 0.0,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " you",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 3.892183303833008e-05
+            },
+            {
+              "text": " were",
+              "start": 0.58,
+              "end": 1.94,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " dead,",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " what",
+              "start": 2.54,
+              "end": 2.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " would",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " tied",
+              "start": 2.84,
+              "end": 3.08,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " on",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me?",
+              "start": 3.28,
+              "end": 3.46,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "you",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "were",
+          "start": 0.58,
+          "end": 1.94
+        },
+        {
+          "raw": "dead,",
+          "start": 1.94,
+          "end": 2.24
+        },
+        {
+          "raw": "what",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "raw": "would",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "be",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "tied",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "raw": "on",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "me?",
+          "start": 3.28,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "If",
+        "he",
+        "were",
+        "dead,",
+        "what",
+        "would",
+        "betide",
+        "on",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          1
+        ],
+        [
+          "equal",
+          4,
+          8,
+          1,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          5,
+          7
+        ],
+        [
+          "equal",
+          9,
+          11,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "you",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.58,
+          "end": 1.94,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 1.94,
+          "end": 2.24,
+          "key": "dead",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.54,
+          "end": 2.6,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.6,
+          "end": 2.72,
+          "key": "would",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tied",
+          "start": 2.84,
+          "end": 3.08,
+          "key": "tied",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 3.28,
+          "end": 3.46,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.0,
+          "end": 0.29
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.29,
+          "end": 0.435
+        },
+        {
+          "text": "If",
+          "start": 0.435,
+          "end": 0.507
+        },
+        {
+          "text": "he",
+          "start": 0.507,
+          "end": 0.543
+        },
+        {
+          "text": "were",
+          "start": 0.58,
+          "end": 1.94
+        },
+        {
+          "text": "dead,",
+          "start": 1.94,
+          "end": 2.24
+        },
+        {
+          "text": "what",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "text": "would",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "betide",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "text": "on",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "me?",
+          "start": 3.28,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.5454545454545454,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23687151912599802
+    },
+    {
+      "asr_seconds": 0.20669729192741215,
+      "alignment_seconds": 0.0005313919391483068,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth, if you were dead, what would be tied on me?",
+          "start": 0.0,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.0,
+              "end": 0.58,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " Elizabeth,",
+              "start": 0.58,
+              "end": 1.1,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " if",
+              "start": 1.56,
+              "end": 1.76,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " you",
+              "start": 1.76,
+              "end": 1.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " dead,",
+              "start": 2.0,
+              "end": 2.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 2.54,
+              "end": 2.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " would",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 2.72,
+              "end": 2.84,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " tied",
+              "start": 2.84,
+              "end": 3.08,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " on",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me?",
+              "start": 3.28,
+              "end": 3.46,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "raw": "if",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "raw": "you",
+          "start": 1.76,
+          "end": 1.86
+        },
+        {
+          "raw": "were",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "dead,",
+          "start": 2.0,
+          "end": 2.26
+        },
+        {
+          "raw": "what",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "raw": "would",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "be",
+          "start": 2.72,
+          "end": 2.84
+        },
+        {
+          "raw": "tied",
+          "start": 2.84,
+          "end": 3.08
+        },
+        {
+          "raw": "on",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "me?",
+          "start": 3.28,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "If",
+        "he",
+        "were",
+        "dead,",
+        "what",
+        "would",
+        "betide",
+        "on",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          11,
+          10,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.0,
+          "end": 0.58,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.58,
+          "end": 1.1,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.56,
+          "end": 1.76,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.76,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 2.0,
+          "end": 2.26,
+          "key": "dead",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.54,
+          "end": 2.6,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.6,
+          "end": 2.72,
+          "key": "would",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.72,
+          "end": 2.84,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tied",
+          "start": 2.84,
+          "end": 3.08,
+          "key": "tied",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "on",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 3.28,
+          "end": 3.46,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "text": "If",
+          "start": 1.56,
+          "end": 1.76
+        },
+        {
+          "text": "he",
+          "start": 1.76,
+          "end": 1.81
+        },
+        {
+          "text": "were",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "dead,",
+          "start": 2.0,
+          "end": 2.26
+        },
+        {
+          "text": "what",
+          "start": 2.54,
+          "end": 2.6
+        },
+        {
+          "text": "would",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "betide",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "text": "on",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "me?",
+          "start": 3.28,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20742844487540424
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9ada36722f61070aafde1bdb2f3789f705a3de6065db9befac2ecdf7ae334c91",
+  "selected_reasons": []
+}

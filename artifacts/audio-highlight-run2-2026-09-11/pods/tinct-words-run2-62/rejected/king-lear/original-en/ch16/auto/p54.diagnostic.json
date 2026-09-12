@@ -1,0 +1,515 @@
+{
+  "complete": true,
+  "signature": "c19497c33902343127f9c81dddf8de40b39dde795392e7ec6436549e30d15014",
+  "attempts": [
+    {
+      "asr_seconds": 0.08112598583102226,
+      "alignment_seconds": 0.00011651217937469482,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Draws. They fight. Cornwall is wounded._]",
+        "hotwords": "They, Cornwall"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Draws. They fight. Cornwall is wounded._",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Draws.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.830322265625
+            },
+            {
+              "text": " They",
+              "start": 0.93,
+              "end": 0.97,
+              "probability": 0.955078125
+            },
+            {
+              "text": " fight.",
+              "start": 0.97,
+              "end": 1.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Cornwall",
+              "start": 1.83,
+              "end": 1.91,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " is",
+              "start": 1.91,
+              "end": 2.17,
+              "probability": 0.97265625
+            },
+            {
+              "text": " wounded._",
+              "start": 2.17,
+              "end": 3.19,
+              "probability": 0.4951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Draws.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "They",
+          "start": 0.93,
+          "end": 0.97
+        },
+        {
+          "raw": "fight.",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "raw": "Cornwall",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "raw": "is",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "raw": "wounded._",
+          "start": 2.17,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "[_Draws.",
+        "They",
+        "fight.",
+        "Cornwall",
+        "is",
+        "wounded._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Draws.",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "draws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 0.93,
+          "end": 0.97,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fight.",
+          "start": 0.97,
+          "end": 1.29,
+          "key": "fight",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cornwall",
+          "start": 1.83,
+          "end": 1.91,
+          "key": "cornwall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.91,
+          "end": 2.17,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wounded._",
+          "start": 2.17,
+          "end": 3.19,
+          "key": "wounded_",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Draws.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "They",
+          "start": 0.93,
+          "end": 0.97
+        },
+        {
+          "text": "fight.",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "text": "Cornwall",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "text": "is",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "text": "wounded._]",
+          "start": 2.17,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0812799297273159
+    },
+    {
+      "asr_seconds": 0.09314526244997978,
+      "alignment_seconds": 0.00010780245065689087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "They, Cornwall"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Draws they fight, Cornwall is wounded",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Draws",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.830322265625
+            },
+            {
+              "text": " they",
+              "start": 0.81,
+              "end": 0.97,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " fight,",
+              "start": 0.97,
+              "end": 1.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Cornwall",
+              "start": 1.79,
+              "end": 1.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 1.89,
+              "end": 2.17,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wounded",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Draws",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "they",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "raw": "fight,",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "raw": "Cornwall",
+          "start": 1.79,
+          "end": 1.89
+        },
+        {
+          "raw": "is",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "raw": "wounded",
+          "start": 2.17,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "[_Draws.",
+        "They",
+        "fight.",
+        "Cornwall",
+        "is",
+        "wounded._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Draws",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "draws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.81,
+          "end": 0.97,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fight,",
+          "start": 0.97,
+          "end": 1.29,
+          "key": "fight",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cornwall",
+          "start": 1.79,
+          "end": 1.89,
+          "key": "cornwall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.89,
+          "end": 2.17,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wounded",
+          "start": 2.17,
+          "end": 2.51,
+          "key": "wounded",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Draws.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "They",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "text": "fight.",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "text": "Cornwall",
+          "start": 1.79,
+          "end": 1.89
+        },
+        {
+          "text": "is",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "text": "wounded._]",
+          "start": 2.17,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09329051524400711
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "fb963fc3e318021244a9cfce0dcc96f0e4dc20293bf35f9776dc6e247b38b52e",
+  "selected_reasons": []
+}

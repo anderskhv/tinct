@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6d3b4498355fa4176dd10dbd5cadb29a84f2630a45e210d0908d6b1ab7b1267b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20314732566475868,
+      "alignment_seconds": 0.00016660988330841064,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Excellent well. You are a fishmonger.",
+        "hotwords": "Hamlet, Excellent, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Excellent well. You are a fishmonger.",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.946533203125
+            },
+            {
+              "text": " Excellent",
+              "start": 1.05,
+              "end": 1.33,
+              "probability": 0.01371002197265625
+            },
+            {
+              "text": " well.",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.619140625
+            },
+            {
+              "text": " You",
+              "start": 1.91,
+              "end": 1.97,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " are",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " a",
+              "start": 2.09,
+              "end": 2.19,
+              "probability": 0.955078125
+            },
+            {
+              "text": " fishmonger.",
+              "start": 2.19,
+              "end": 2.75,
+              "probability": 0.86865234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Excellent",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "raw": "well.",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "You",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "raw": "are",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "a",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "raw": "fishmonger.",
+          "start": 2.19,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Excellent",
+        "well.",
+        "You",
+        "are",
+        "a",
+        "fishmonger."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Excellent",
+          "start": 1.05,
+          "end": 1.33,
+          "key": "excellent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.91,
+          "end": 1.97,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.09,
+          "end": 2.19,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fishmonger.",
+          "start": 2.19,
+          "end": 2.75,
+          "key": "fishmonger",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Excellent",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "text": "well.",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "You",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "text": "are",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "a",
+          "start": 2.09,
+          "end": 2.19
+        },
+        {
+          "text": "fishmonger.",
+          "start": 2.19,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20337378419935703
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d637b2db26ab5c2870d4a7966f4f5ccd8c16d803c43869b05c1d3ed349633aa",
+  "selected_reasons": []
+}

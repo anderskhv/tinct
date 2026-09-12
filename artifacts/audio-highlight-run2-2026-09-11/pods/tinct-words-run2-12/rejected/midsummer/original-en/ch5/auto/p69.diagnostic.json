@@ -1,0 +1,293 @@
+{
+  "complete": true,
+  "signature": "fc93b9f3d3ac6b57bdd1c7091c702528c84b7ee8707774586dc026fb03c80b5a",
+  "attempts": [
+    {
+      "asr_seconds": 3.950972031103447,
+      "alignment_seconds": 0.00034749205224215984,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mustardseed. And I.",
+        "hotwords": "Mustardseed, And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mustardseed, And, I Mustardseed, And, I Mustardseed, And, I",
+          "start": 0.59,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Mustardseed,",
+              "start": 0.59,
+              "end": 1.11,
+              "probability": 0.5947901407877604
+            },
+            {
+              "text": " And,",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.00479888916015625
+            },
+            {
+              "text": " I",
+              "start": 1.73,
+              "end": 1.83,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " Mustardseed,",
+              "start": 1.83,
+              "end": 2.49,
+              "probability": 0.5895228584607443
+            },
+            {
+              "text": " And,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.69140625
+            },
+            {
+              "text": " I",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Mustardseed,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.8644205729166666
+            },
+            {
+              "text": " And,",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.748046875
+            },
+            {
+              "text": " I",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mustardseed,",
+          "start": 0.59,
+          "end": 1.11
+        },
+        {
+          "raw": "And,",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.83
+        },
+        {
+          "raw": "Mustardseed,",
+          "start": 1.83,
+          "end": 2.49
+        },
+        {
+          "raw": "And,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "Mustardseed,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "And,",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "Mustardseed.",
+        "And",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mustardseed,",
+          "start": 0.59,
+          "end": 1.11,
+          "key": "mustardseed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And,",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.83,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mustardseed,",
+          "start": 1.83,
+          "end": 2.49,
+          "key": "mustardseed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mustardseed,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "mustardseed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "And,",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mustardseed.",
+          "start": 0.59,
+          "end": 1.11
+        },
+        {
+          "text": "And",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "I.",
+          "start": 1.73,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 9,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.951516193104908
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5310f40546d90bcd302f0e8cf037699d1289a9acc23a4b67f86eebc8ddc0d7b5",
+  "selected_reasons": []
+}

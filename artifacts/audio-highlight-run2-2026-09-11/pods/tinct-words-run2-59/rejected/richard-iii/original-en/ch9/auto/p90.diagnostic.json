@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "314f36c860ce6ab10c15287974653289e2f2dcd48aa190d4977cb55889d638f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.19431869708932936,
+      "alignment_seconds": 0.00048817205242812634,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. At Crosby Place, there shall you find us both.",
+        "hotwords": "Richard, At, Crosby, Place"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, At Crosby Place, there shall you find us both.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " At",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.0127105712890625
+            },
+            {
+              "text": " Crosby",
+              "start": 1.37,
+              "end": 1.69,
+              "probability": 0.456787109375
+            },
+            {
+              "text": " Place,",
+              "start": 1.69,
+              "end": 2.11,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " there",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.58984375
+            },
+            {
+              "text": " shall",
+              "start": 2.39,
+              "end": 2.49,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " you",
+              "start": 2.49,
+              "end": 2.65,
+              "probability": 0.96484375
+            },
+            {
+              "text": " find",
+              "start": 2.65,
+              "end": 2.87,
+              "probability": 0.984375
+            },
+            {
+              "text": " us",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.990234375
+            },
+            {
+              "text": " both.",
+              "start": 3.07,
+              "end": 3.33,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "At",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "Crosby",
+          "start": 1.37,
+          "end": 1.69
+        },
+        {
+          "raw": "Place,",
+          "start": 1.69,
+          "end": 2.11
+        },
+        {
+          "raw": "there",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "shall",
+          "start": 2.39,
+          "end": 2.49
+        },
+        {
+          "raw": "you",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "raw": "find",
+          "start": 2.65,
+          "end": 2.87
+        },
+        {
+          "raw": "us",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "both.",
+          "start": 3.07,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "At",
+        "Crosby",
+        "Place,",
+        "there",
+        "shall",
+        "you",
+        "find",
+        "us",
+        "both."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Crosby",
+          "start": 1.37,
+          "end": 1.69,
+          "key": "crosby",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Place,",
+          "start": 1.69,
+          "end": 2.11,
+          "key": "place",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.39,
+          "end": 2.49,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.49,
+          "end": 2.65,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 2.65,
+          "end": 2.87,
+          "key": "find",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "both.",
+          "start": 3.07,
+          "end": 3.33,
+          "key": "both",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "At",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "Crosby",
+          "start": 1.37,
+          "end": 1.69
+        },
+        {
+          "text": "Place,",
+          "start": 1.69,
+          "end": 2.11
+        },
+        {
+          "text": "there",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "shall",
+          "start": 2.39,
+          "end": 2.49
+        },
+        {
+          "text": "you",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "text": "find",
+          "start": 2.65,
+          "end": 2.87
+        },
+        {
+          "text": "us",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "both.",
+          "start": 3.07,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19498356897383928
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "12f517420f49d03f7544c8f6eb77cbbaadc6abed5860a94820d3d701eac96b50",
+  "selected_reasons": []
+}

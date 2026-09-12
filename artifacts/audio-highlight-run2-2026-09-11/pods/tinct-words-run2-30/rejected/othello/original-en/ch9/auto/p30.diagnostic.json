@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4f29dcc24a294365eb93d6ac99360fb453adcb92484c848f220becca939457f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.11307212011888623,
+      "alignment_seconds": 0.00013663014397025108,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. No, not tonight.",
+        "hotwords": "Othello, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, No, not tonight.",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.9327799479166666
+            },
+            {
+              "text": " No,",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.024749755859375
+            },
+            {
+              "text": " not",
+              "start": 1.5,
+              "end": 1.56,
+              "probability": 0.494384765625
+            },
+            {
+              "text": " tonight.",
+              "start": 1.56,
+              "end": 1.84,
+              "probability": 0.91650390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "No,",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "not",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "raw": "tonight.",
+          "start": 1.56,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "No,",
+        "not",
+        "tonight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.5,
+          "end": 1.56,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tonight.",
+          "start": 1.56,
+          "end": 1.84,
+          "key": "tonight",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "No,",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "not",
+          "start": 1.5,
+          "end": 1.56
+        },
+        {
+          "text": "tonight.",
+          "start": 1.56,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11325102811679244
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a3c0afed5d3b9e4009c7e62ede90ce89567c75cc68c5a2adf265f918ebdb3d65",
+  "selected_reasons": []
+}

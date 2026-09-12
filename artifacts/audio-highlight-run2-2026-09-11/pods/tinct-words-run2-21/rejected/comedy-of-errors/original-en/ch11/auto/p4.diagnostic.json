@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "2468a75d35acab305fffabba46d5d1d5d6e9c2058f72fb1eb5259d0df0e818db",
+  "attempts": [
+    {
+      "asr_seconds": 0.20504453033208847,
+      "alignment_seconds": 0.00019388413056731224,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Merchant. Speak softly. Yonder, as I think, he walks.",
+        "hotwords": "Merchant, Speak, Yonder, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Merchant, Speak, Softly. Yonder, as I think, he walks.",
+          "start": 0.02,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Merchant,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " Speak,",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.019927978515625
+            },
+            {
+              "text": " Softly.",
+              "start": 1.46,
+              "end": 1.82,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Yonder,",
+              "start": 2.38,
+              "end": 2.52,
+              "probability": 0.962646484375
+            },
+            {
+              "text": " as",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.47509765625
+            },
+            {
+              "text": " I",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " think,",
+              "start": 2.88,
+              "end": 3.04,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " he",
+              "start": 3.16,
+              "end": 3.22,
+              "probability": 0.6044921875
+            },
+            {
+              "text": " walks.",
+              "start": 3.22,
+              "end": 3.46,
+              "probability": 0.9384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Merchant,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Speak,",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "Softly.",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "raw": "Yonder,",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "raw": "as",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "think,",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "raw": "he",
+          "start": 3.16,
+          "end": 3.22
+        },
+        {
+          "raw": "walks.",
+          "start": 3.22,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Merchant.",
+        "Speak",
+        "softly.",
+        "Yonder,",
+        "as",
+        "I",
+        "think,",
+        "he",
+        "walks."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Merchant,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "merchant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Speak,",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Softly.",
+          "start": 1.46,
+          "end": 1.82,
+          "key": "softly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Yonder,",
+          "start": 2.38,
+          "end": 2.52,
+          "key": "yonder",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.62,
+          "end": 2.72,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 2.88,
+          "end": 3.04,
+          "key": "think",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.16,
+          "end": 3.22,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "walks.",
+          "start": 3.22,
+          "end": 3.46,
+          "key": "walks",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Merchant.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Speak",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "softly.",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "text": "Yonder,",
+          "start": 2.38,
+          "end": 2.52
+        },
+        {
+          "text": "as",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "I",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "think,",
+          "start": 2.88,
+          "end": 3.04
+        },
+        {
+          "text": "he",
+          "start": 3.16,
+          "end": 3.22
+        },
+        {
+          "text": "walks.",
+          "start": 3.22,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20531374728307128
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a412ca21dd29e0f2ecbc15d99c6e7d93e9bd5a67a95b82e5dcae9f6edf45bf68",
+  "selected_reasons": []
+}

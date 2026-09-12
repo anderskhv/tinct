@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f5edc1e7c544e6cf42750330e4cd266fde43ae672510d768a28b1b5a2248d2bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.13615353091154248,
+      "alignment_seconds": 0.00019434001296758652,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. The daughters?",
+        "hotwords": "Leader, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, The Daughters.",
+          "start": 0.02,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.456787109375
+            },
+            {
+              "text": " The",
+              "start": 1.02,
+              "end": 1.08,
+              "probability": 0.30810546875
+            },
+            {
+              "text": " Daughters.",
+              "start": 1.08,
+              "end": 1.44,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "The",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "raw": "Daughters.",
+          "start": 1.08,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "The",
+        "daughters?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.02,
+          "end": 1.08,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Daughters.",
+          "start": 1.08,
+          "end": 1.44,
+          "key": "daughters",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "The",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "text": "daughters?",
+          "start": 1.08,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1364159289514646
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02da8963b2fe6f7d11eb2c821f3af8d6b739cc7326fd45e0b70e9e6a8c5a1675",
+  "selected_reasons": []
+}

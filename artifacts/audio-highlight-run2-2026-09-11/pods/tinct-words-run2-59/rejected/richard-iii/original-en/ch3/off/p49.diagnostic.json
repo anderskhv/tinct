@@ -1,0 +1,406 @@
+{
+  "complete": true,
+  "signature": "78d5d6921d64a9426b78e23fd316f7ceebac7eb58028512c0e00c084f370c8c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2665928991045803,
+      "alignment_seconds": 0.0004897159524261951,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside, I am much better blood than his or thine.",
+          "start": 0.02,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.399658203125
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.978515625
+            },
+            {
+              "text": " am",
+              "start": 1.52,
+              "end": 1.72,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " much",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " better",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " blood",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " than",
+              "start": 2.44,
+              "end": 2.66,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " his",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " or",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " thine.",
+              "start": 3.08,
+              "end": 3.5,
+              "probability": 0.97900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "am",
+          "start": 1.52,
+          "end": 1.72
+        },
+        {
+          "raw": "much",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "better",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "blood",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "raw": "than",
+          "start": 2.44,
+          "end": 2.66
+        },
+        {
+          "raw": "his",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "or",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "thine.",
+          "start": 3.08,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "Ay,",
+        "and",
+        "much",
+        "better",
+        "blood",
+        "than",
+        "his",
+        "or",
+        "thine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.52,
+          "end": 1.72,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "better",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "blood",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "blood",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.44,
+          "end": 2.66,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "or",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thine.",
+          "start": 3.08,
+          "end": 3.5,
+          "key": "thine",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Ay,",
+          "start": 0.78,
+          "end": 1.25
+        },
+        {
+          "text": "and",
+          "start": 1.25,
+          "end": 1.485
+        },
+        {
+          "text": "much",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "better",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "blood",
+          "start": 2.16,
+          "end": 2.44
+        },
+        {
+          "text": "than",
+          "start": 2.44,
+          "end": 2.66
+        },
+        {
+          "text": "his",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "or",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "thine.",
+          "start": 3.08,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2672557921614498
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2314946e7bd8086d7cab3b70291fe334f6760325f346088932b2d70bbe7d293c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

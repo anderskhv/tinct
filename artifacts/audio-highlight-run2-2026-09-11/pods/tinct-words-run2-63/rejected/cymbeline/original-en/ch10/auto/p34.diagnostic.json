@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "97f3716f7453307e3c5e44ba49c38816a5d62f3be0ab709478002075d0c0e2bb",
+  "attempts": [
+    {
+      "asr_seconds": 3.359116893261671,
+      "alignment_seconds": 0.0005832798779010773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cloten. Yes, and a gentlewoman's son.",
+        "hotwords": "Cloten, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cloten, Yes Cloten, Yes Cloten, Yes Cloten, Yes Cloten, Yes Cloten, Yes, and a gentlewoman's son.",
+          "start": 0.08,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.3872477213541667
+            },
+            {
+              "text": " Yes",
+              "start": 1.08,
+              "end": 1.36,
+              "probability": 0.1160888671875
+            },
+            {
+              "text": " Cloten,",
+              "start": 1.36,
+              "end": 1.78,
+              "probability": 0.6472989519437155
+            },
+            {
+              "text": " Yes",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Cloten,",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.747802734375
+            },
+            {
+              "text": " Yes",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Cloten,",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " Yes",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Cloten,",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.8767903645833334
+            },
+            {
+              "text": " Yes",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Cloten,",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " Yes,",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " and",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.626953125
+            },
+            {
+              "text": " a",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " gentlewoman's",
+              "start": 1.9,
+              "end": 2.5,
+              "probability": 0.640625
+            },
+            {
+              "text": " son.",
+              "start": 2.5,
+              "end": 2.72,
+              "probability": 0.85498046875
+            }
+          ]
+        },
+        {
+          "text": " Cloten",
+          "start": 2.72,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " Cloten",
+              "start": 2.72,
+              "end": 2.78,
+              "probability": 0.0005427201588948568
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "Yes",
+          "start": 1.08,
+          "end": 1.36
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.36,
+          "end": 1.78
+        },
+        {
+          "raw": "Yes",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Yes",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Yes",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Yes",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "a",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "gentlewoman's",
+          "start": 1.9,
+          "end": 2.5
+        },
+        {
+          "raw": "son.",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "raw": "Cloten",
+          "start": 2.72,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Yes,",
+        "and",
+        "a",
+        "gentlewoman's",
+        "son."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          10
+        ],
+        [
+          "equal",
+          0,
+          6,
+          10,
+          16
+        ],
+        [
+          "insert",
+          6,
+          6,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          10
+        ],
+        [
+          "insert",
+          6,
+          6,
+          16,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes",
+          "start": 1.08,
+          "end": 1.36,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.36,
+          "end": 1.78,
+          "key": "cloten",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Yes",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "yes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "cloten",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Yes",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "yes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "cloten",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Yes",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "yes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "cloten",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Yes",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "yes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Cloten,",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "cloten",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "yes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gentlewoman's",
+          "start": 1.9,
+          "end": 2.5,
+          "key": "gentlewomans",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "son.",
+          "start": 2.5,
+          "end": 2.72,
+          "key": "son",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Cloten",
+          "start": 2.72,
+          "end": 2.78,
+          "key": "cloten",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "text": "Yes,",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "text": "and",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "text": "a",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "gentlewoman's",
+          "start": 1.9,
+          "end": 2.5
+        },
+        {
+          "text": "son.",
+          "start": 2.5,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 17,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.3600127398967743
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ab42b2de946a9c26d8122a11a0f1c14efa0271a664283bd13fc410a61c28a594",
+  "selected_reasons": []
+}

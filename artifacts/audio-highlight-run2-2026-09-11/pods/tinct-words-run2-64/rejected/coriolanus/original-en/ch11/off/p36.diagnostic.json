@@ -1,0 +1,529 @@
+{
+  "complete": true,
+  "signature": "cb06d02e803fdb691ec1198460226b00fe7a81190ff55eb28951782e68b8dd95",
+  "attempts": [
+    {
+      "asr_seconds": 0.3855824423953891,
+      "alignment_seconds": 0.0005051661282777786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenius, take my cap, Jupiter, and I thank thee.",
+          "start": 0.53,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.5474446614583334
+            },
+            {
+              "text": " take",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " my",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cap,",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Jupiter,",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 2.57,
+              "end": 2.63,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " thank",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thee.",
+              "start": 2.97,
+              "end": 3.25,
+              "probability": 0.9736328125
+            }
+          ]
+        },
+        {
+          "text": " Who, Marty, is coming home?",
+          "start": 3.77,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Who,",
+              "start": 3.77,
+              "end": 3.87,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Marty,",
+              "start": 4.17,
+              "end": 4.31,
+              "probability": 0.537109375
+            },
+            {
+              "text": " is",
+              "start": 4.39,
+              "end": 4.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " coming",
+              "start": 4.51,
+              "end": 4.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " home?",
+              "start": 4.73,
+              "end": 5.03,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "take",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "my",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "cap,",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "Jupiter,",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.63
+        },
+        {
+          "raw": "I",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "thank",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "thee.",
+          "start": 2.97,
+          "end": 3.25
+        },
+        {
+          "raw": "Who,",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "raw": "Marty,",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "raw": "is",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "raw": "coming",
+          "start": 4.51,
+          "end": 4.73
+        },
+        {
+          "raw": "home?",
+          "start": 4.73,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Take",
+        "my",
+        "cap,",
+        "Jupiter,",
+        "and",
+        "I",
+        "thank",
+        "thee!",
+        "Hoo!",
+        "Martius",
+        "coming",
+        "home?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          12
+        ],
+        [
+          "equal",
+          11,
+          13,
+          12,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          11,
+          9,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.37,
+          "end": 1.59,
+          "key": "take",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cap,",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "cap",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jupiter,",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "jupiter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.63,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "thank",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 2.97,
+          "end": 3.25,
+          "key": "thee",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Who,",
+          "start": 3.77,
+          "end": 3.87,
+          "key": "who",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Marty,",
+          "start": 4.17,
+          "end": 4.31,
+          "key": "marty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.39,
+          "end": 4.51,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 4.51,
+          "end": 4.73,
+          "key": "coming",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "home?",
+          "start": 4.73,
+          "end": 5.03,
+          "key": "home",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "text": "Take",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "my",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "cap,",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "Jupiter,",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "and",
+          "start": 2.57,
+          "end": 2.63
+        },
+        {
+          "text": "I",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "thank",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "thee!",
+          "start": 2.97,
+          "end": 3.25
+        },
+        {
+          "text": "Hoo!",
+          "start": 3.25,
+          "end": 3.88
+        },
+        {
+          "text": "Martius",
+          "start": 3.88,
+          "end": 4.195
+        },
+        {
+          "text": "coming",
+          "start": 4.51,
+          "end": 4.73
+        },
+        {
+          "text": "home?",
+          "start": 4.73,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3862896887585521
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0f3643b8b3600c43f53fe437e5069604c836230baf887280622ae2afe5191439",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

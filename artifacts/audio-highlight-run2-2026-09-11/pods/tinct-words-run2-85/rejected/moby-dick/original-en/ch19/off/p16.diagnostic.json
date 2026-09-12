@@ -1,0 +1,743 @@
+{
+  "complete": true,
+  "signature": "9c7f0bb6a788a6afe19c4390a457e2a1f19c9bffd07fbd98286044ae225541e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3436661409214139,
+      "alignment_seconds": 0.0005999552085995674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I, among some of us old sailor chaps, he goes by that name.",
+          "start": 0.24,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.24,
+              "end": 0.66,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " among",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " some",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " us",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " old",
+              "start": 1.44,
+              "end": 1.7,
+              "probability": 0.859375
+            },
+            {
+              "text": " sailor",
+              "start": 1.7,
+              "end": 2.1,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " chaps,",
+              "start": 2.1,
+              "end": 2.58,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " he",
+              "start": 2.86,
+              "end": 2.94,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " goes",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " by",
+              "start": 3.16,
+              "end": 3.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 3.42,
+              "end": 3.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " name.",
+              "start": 3.64,
+              "end": 3.94,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " You haven't seen him yet, have ye?",
+          "start": 4.46,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " You",
+              "start": 4.46,
+              "end": 4.54,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " haven't",
+              "start": 4.54,
+              "end": 4.82,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " seen",
+              "start": 4.82,
+              "end": 4.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him",
+              "start": 4.94,
+              "end": 5.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yet,",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " have",
+              "start": 5.5,
+              "end": 5.58,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ye?",
+              "start": 5.58,
+              "end": 5.84,
+              "probability": 0.94482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.24,
+          "end": 0.66
+        },
+        {
+          "raw": "among",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "some",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "raw": "of",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "us",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "old",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "raw": "sailor",
+          "start": 1.7,
+          "end": 2.1
+        },
+        {
+          "raw": "chaps,",
+          "start": 2.1,
+          "end": 2.58
+        },
+        {
+          "raw": "he",
+          "start": 2.86,
+          "end": 2.94
+        },
+        {
+          "raw": "goes",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "raw": "by",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "raw": "that",
+          "start": 3.42,
+          "end": 3.64
+        },
+        {
+          "raw": "name.",
+          "start": 3.64,
+          "end": 3.94
+        },
+        {
+          "raw": "You",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "raw": "haven't",
+          "start": 4.54,
+          "end": 4.82
+        },
+        {
+          "raw": "seen",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "raw": "him",
+          "start": 4.94,
+          "end": 5.14
+        },
+        {
+          "raw": "yet,",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "have",
+          "start": 5.5,
+          "end": 5.58
+        },
+        {
+          "raw": "ye?",
+          "start": 5.58,
+          "end": 5.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Aye,",
+        "among",
+        "some",
+        "of",
+        "us",
+        "old",
+        "sailor",
+        "chaps,",
+        "he",
+        "goes",
+        "by",
+        "that",
+        "name.",
+        "Ye",
+        "hav'n't",
+        "seen",
+        "him",
+        "yet,",
+        "have",
+        "ye?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          13,
+          1,
+          13
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          15
+        ],
+        [
+          "equal",
+          15,
+          20,
+          15,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          13,
+          15,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.24,
+          "end": 0.66,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 0.88,
+          "end": 0.98,
+          "key": "among",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "some",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "us",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.44,
+          "end": 1.7,
+          "key": "old",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sailor",
+          "start": 1.7,
+          "end": 2.1,
+          "key": "sailor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "chaps,",
+          "start": 2.1,
+          "end": 2.58,
+          "key": "chaps",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.86,
+          "end": 2.94,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 2.94,
+          "end": 3.16,
+          "key": "goes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.16,
+          "end": 3.42,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.42,
+          "end": 3.64,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "name.",
+          "start": 3.64,
+          "end": 3.94,
+          "key": "name",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 4.46,
+          "end": 4.54,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 4.54,
+          "end": 4.82,
+          "key": "havent",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 4.82,
+          "end": 4.94,
+          "key": "seen",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.94,
+          "end": 5.14,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "yet,",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "yet",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.5,
+          "end": 5.58,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "ye?",
+          "start": 5.58,
+          "end": 5.84,
+          "key": "ye",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Aye,",
+          "start": 0.0,
+          "end": 0.44
+        },
+        {
+          "text": "among",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "text": "some",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "text": "of",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "us",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "old",
+          "start": 1.44,
+          "end": 1.7
+        },
+        {
+          "text": "sailor",
+          "start": 1.7,
+          "end": 2.1
+        },
+        {
+          "text": "chaps,",
+          "start": 2.1,
+          "end": 2.58
+        },
+        {
+          "text": "he",
+          "start": 2.86,
+          "end": 2.94
+        },
+        {
+          "text": "goes",
+          "start": 2.94,
+          "end": 3.16
+        },
+        {
+          "text": "by",
+          "start": 3.16,
+          "end": 3.42
+        },
+        {
+          "text": "that",
+          "start": 3.42,
+          "end": 3.64
+        },
+        {
+          "text": "name.",
+          "start": 3.64,
+          "end": 3.94
+        },
+        {
+          "text": "Ye",
+          "start": 3.94,
+          "end": 4.38
+        },
+        {
+          "text": "hav'n't",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "seen",
+          "start": 4.82,
+          "end": 4.94
+        },
+        {
+          "text": "him",
+          "start": 4.94,
+          "end": 5.14
+        },
+        {
+          "text": "yet,",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "have",
+          "start": 5.5,
+          "end": 5.58
+        },
+        {
+          "text": "ye?\"",
+          "start": 5.58,
+          "end": 5.84
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.34450603974983096
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5adfbc5b4379102753cf0f1ed14d44e4f7286dabaa4cfb3c0add50a5e4589c45",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "1de51add74485fc85dbbdb25e017e25f774089deb0c4af62092cf279a7f5e933",
+  "attempts": [
+    {
+      "asr_seconds": 0.13271252700360492,
+      "alignment_seconds": 0.00018828699830919504,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Cried he? And begged he pardon?",
+        "hotwords": "Antony, Cried, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Cried he? And begged he pardon?",
+          "start": 0.14,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.14,
+              "end": 0.82,
+              "probability": 0.7193603515625
+            },
+            {
+              "text": " Cried",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.09305191040039062
+            },
+            {
+              "text": " he?",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.39697265625
+            },
+            {
+              "text": " And",
+              "start": 1.76,
+              "end": 1.9,
+              "probability": 0.354248046875
+            },
+            {
+              "text": " begged",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " he",
+              "start": 2.1,
+              "end": 2.24,
+              "probability": 0.6640625
+            },
+            {
+              "text": " pardon?",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.89599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "raw": "Cried",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "he?",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "And",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "raw": "begged",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "he",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "raw": "pardon?",
+          "start": 2.24,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Cried",
+        "he?",
+        "And",
+        "begged",
+        "he",
+        "pardon?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.14,
+          "end": 0.82,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cried",
+          "start": 0.92,
+          "end": 1.2,
+          "key": "cried",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.76,
+          "end": 1.9,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "begged",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "begged",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.1,
+          "end": 2.24,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pardon?",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "pardon",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "text": "Cried",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "text": "he?",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "And",
+          "start": 1.76,
+          "end": 1.9
+        },
+        {
+          "text": "begged",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "he",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "text": "pardon?",
+          "start": 2.24,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13296973600517958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "03768731716b339b8a6c6fc84a0dbd75b1f9cec0d5986a4bd9f5a57c931e387e",
+  "selected_reasons": []
+}

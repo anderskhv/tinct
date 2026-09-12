@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "31bab99658f983ad41e16fb086a8ff5548b5bdcd1486cd00d9734ec154b5c370",
+  "attempts": [
+    {
+      "asr_seconds": 0.08071344112977386,
+      "alignment_seconds": 8.96090641617775e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Emilia.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Emilia.",
+              "start": 0.67,
+              "end": 1.11,
+              "probability": 0.6773681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Emilia.",
+          "start": 0.67,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Emilia.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Emilia.",
+          "start": 0.67,
+          "end": 1.11,
+          "key": "emilia",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Emilia.]",
+          "start": 0.67,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.080832629930228
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "be9bebb0d458de5b55e2666cb93b782353ab53465665a31f1530444fd26e2065",
+  "selected_reasons": []
+}

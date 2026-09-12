@@ -1,0 +1,2232 @@
+{
+  "complete": true,
+  "signature": "729780c42fab4a598cd87de4c6152c1a358aa2d82379fb5776c645a57a0d062a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2215406708419323,
+      "alignment_seconds": 0.0003871321678161621,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cordelia. O, look upon me, sir, And hold your hands in benediction o'er me. No, sir, you must not kneel.",
+        "hotwords": "Cordelia, O, And, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cordelia. O, look upon me, sir, And hold your hands in benediction o'er me. No, sir, you must not kneel.",
+          "start": 0.52,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " Cordelia.",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " O,",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.24365234375
+            },
+            {
+              "text": " look",
+              "start": 1.86,
+              "end": 1.94,
+              "probability": 0.974609375
+            },
+            {
+              "text": " upon",
+              "start": 1.94,
+              "end": 2.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me,",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sir,",
+              "start": 2.58,
+              "end": 2.64,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " And",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.054656982421875
+            },
+            {
+              "text": " hold",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 3.3,
+              "end": 3.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hands",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " in",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " benediction",
+              "start": 3.96,
+              "end": 4.42,
+              "probability": 0.9837239583333334
+            },
+            {
+              "text": " o",
+              "start": 4.42,
+              "end": 4.7,
+              "probability": 0.41796875
+            },
+            {
+              "text": "'er",
+              "start": 4.7,
+              "end": 4.82,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " me.",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " No,",
+              "start": 5.66,
+              "end": 5.8,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " sir,",
+              "start": 5.9,
+              "end": 6.06,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 6.18,
+              "end": 6.26,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " must",
+              "start": 6.26,
+              "end": 6.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kneel.",
+              "start": 6.66,
+              "end": 7.04,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia.",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "O,",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "raw": "look",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "raw": "upon",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "raw": "me,",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "sir,",
+          "start": 2.58,
+          "end": 2.64
+        },
+        {
+          "raw": "And",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "hold",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "your",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "raw": "hands",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "in",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "benediction",
+          "start": 3.96,
+          "end": 4.42
+        },
+        {
+          "raw": "o",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "raw": "'er",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "raw": "me.",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "No,",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "raw": "sir,",
+          "start": 5.9,
+          "end": 6.06
+        },
+        {
+          "raw": "you",
+          "start": 6.18,
+          "end": 6.26
+        },
+        {
+          "raw": "must",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "raw": "not",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "kneel.",
+          "start": 6.66,
+          "end": 7.04
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "O,",
+        "look",
+        "upon",
+        "me,",
+        "sir,",
+        "And",
+        "hold",
+        "your",
+        "hands",
+        "in",
+        "benediction",
+        "o'er",
+        "me.",
+        "No,",
+        "sir,",
+        "you",
+        "must",
+        "not",
+        "kneel."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          20,
+          14,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia.",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.86,
+          "end": 1.94,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.94,
+          "end": 2.2,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.58,
+          "end": 2.64,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "hold",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.3,
+          "end": 3.48,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "hands",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "benediction",
+          "start": 3.96,
+          "end": 4.42,
+          "key": "benediction",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 4.42,
+          "end": 4.7,
+          "key": "o",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 4.7,
+          "end": 4.82,
+          "key": "er",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 5.66,
+          "end": 5.8,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 5.9,
+          "end": 6.06,
+          "key": "sir",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.18,
+          "end": 6.26,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 6.26,
+          "end": 6.38,
+          "key": "must",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.38,
+          "end": 6.66,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "kneel.",
+          "start": 6.66,
+          "end": 7.04,
+          "key": "kneel",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "O,",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "text": "look",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "text": "upon",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "text": "me,",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "sir,",
+          "start": 2.58,
+          "end": 2.64
+        },
+        {
+          "text": "And",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "hold",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "your",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "text": "hands",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "in",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "benediction",
+          "start": 3.96,
+          "end": 4.42
+        },
+        {
+          "text": "o'er",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "text": "me.",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "No,",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "text": "sir,",
+          "start": 5.9,
+          "end": 6.06
+        },
+        {
+          "text": "you",
+          "start": 6.18,
+          "end": 6.26
+        },
+        {
+          "text": "must",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "text": "not",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "kneel.",
+          "start": 6.66,
+          "end": 7.04
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.22206786274909973
+    },
+    {
+      "asr_seconds": 0.2534964382648468,
+      "alignment_seconds": 0.00038062408566474915,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Cordelia, O, And, No"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Cordelia, O, Look upon me, sir, And hold your hands in benediction o'er me.",
+          "start": 0.52,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " Cordelia,",
+              "start": 0.52,
+              "end": 0.92,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " O,",
+              "start": 1.4,
+              "end": 1.72,
+              "probability": 0.233154296875
+            },
+            {
+              "text": " Look",
+              "start": 1.86,
+              "end": 1.94,
+              "probability": 0.0282745361328125
+            },
+            {
+              "text": " upon",
+              "start": 1.94,
+              "end": 2.2,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " me,",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " sir,",
+              "start": 2.6,
+              "end": 2.64,
+              "probability": 0.7109375
+            },
+            {
+              "text": " And",
+              "start": 3.02,
+              "end": 3.1,
+              "probability": 0.18212890625
+            },
+            {
+              "text": " hold",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " your",
+              "start": 3.3,
+              "end": 3.48,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " hands",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " in",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.73828125
+            },
+            {
+              "text": " benediction",
+              "start": 3.96,
+              "end": 4.42,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " o",
+              "start": 4.42,
+              "end": 4.7,
+              "probability": 0.3544921875
+            },
+            {
+              "text": "'er",
+              "start": 4.7,
+              "end": 4.82,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " me.",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " No, sir, you must not kneel.",
+          "start": 5.66,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " No,",
+              "start": 5.66,
+              "end": 5.8,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " sir,",
+              "start": 5.92,
+              "end": 6.06,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " you",
+              "start": 6.18,
+              "end": 6.26,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " must",
+              "start": 6.26,
+              "end": 6.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kneel.",
+              "start": 6.66,
+              "end": 7.04,
+              "probability": 0.998779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "raw": "O,",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "raw": "Look",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "raw": "upon",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "raw": "me,",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "sir,",
+          "start": 2.6,
+          "end": 2.64
+        },
+        {
+          "raw": "And",
+          "start": 3.02,
+          "end": 3.1
+        },
+        {
+          "raw": "hold",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "your",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "raw": "hands",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "in",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "benediction",
+          "start": 3.96,
+          "end": 4.42
+        },
+        {
+          "raw": "o",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "raw": "'er",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "raw": "me.",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "No,",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "raw": "sir,",
+          "start": 5.92,
+          "end": 6.06
+        },
+        {
+          "raw": "you",
+          "start": 6.18,
+          "end": 6.26
+        },
+        {
+          "raw": "must",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "raw": "not",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "kneel.",
+          "start": 6.66,
+          "end": 7.04
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "O,",
+        "look",
+        "upon",
+        "me,",
+        "sir,",
+        "And",
+        "hold",
+        "your",
+        "hands",
+        "in",
+        "benediction",
+        "o'er",
+        "me.",
+        "No,",
+        "sir,",
+        "you",
+        "must",
+        "not",
+        "kneel."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          20,
+          14,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.52,
+          "end": 0.92,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.4,
+          "end": 1.72,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 1.86,
+          "end": 1.94,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.94,
+          "end": 2.2,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.6,
+          "end": 2.64,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.02,
+          "end": 3.1,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "hold",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.3,
+          "end": 3.48,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "hands",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "benediction",
+          "start": 3.96,
+          "end": 4.42,
+          "key": "benediction",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 4.42,
+          "end": 4.7,
+          "key": "o",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 4.7,
+          "end": 4.82,
+          "key": "er",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 5.66,
+          "end": 5.8,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 5.92,
+          "end": 6.06,
+          "key": "sir",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.18,
+          "end": 6.26,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 6.26,
+          "end": 6.38,
+          "key": "must",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.38,
+          "end": 6.66,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "kneel.",
+          "start": 6.66,
+          "end": 7.04,
+          "key": "kneel",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.52,
+          "end": 0.92
+        },
+        {
+          "text": "O,",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "text": "look",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "text": "upon",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "text": "me,",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "sir,",
+          "start": 2.6,
+          "end": 2.64
+        },
+        {
+          "text": "And",
+          "start": 3.02,
+          "end": 3.1
+        },
+        {
+          "text": "hold",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "your",
+          "start": 3.3,
+          "end": 3.48
+        },
+        {
+          "text": "hands",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "in",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "benediction",
+          "start": 3.96,
+          "end": 4.42
+        },
+        {
+          "text": "o'er",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "text": "me.",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "No,",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "text": "sir,",
+          "start": 5.92,
+          "end": 6.06
+        },
+        {
+          "text": "you",
+          "start": 6.18,
+          "end": 6.26
+        },
+        {
+          "text": "must",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "text": "not",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "kneel.",
+          "start": 6.66,
+          "end": 7.04
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.25402989983558655
+    },
+    {
+      "asr_seconds": 0.22808385640382767,
+      "alignment_seconds": 0.00032483041286468506,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cordelia.",
+          "start": 0.48,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Cordelia.",
+              "start": 0.48,
+              "end": 0.92,
+              "probability": 0.6591796875
+            }
+          ]
+        },
+        {
+          "text": " O, look upon me, sir, and hold your hands in benediction o'er me.",
+          "start": 1.48,
+          "end": 5.04,
+          "words": [
+            {
+              "text": " O,",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.24365234375
+            },
+            {
+              "text": " look",
+              "start": 1.86,
+              "end": 1.94,
+              "probability": 0.974609375
+            },
+            {
+              "text": " upon",
+              "start": 1.94,
+              "end": 2.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me,",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sir,",
+              "start": 2.58,
+              "end": 2.64,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " and",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " hold",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.9921875
+            },
+            {
+              "text": " hands",
+              "start": 3.48,
+              "end": 3.76,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " in",
+              "start": 3.76,
+              "end": 3.98,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " benediction",
+              "start": 3.98,
+              "end": 4.42,
+              "probability": 0.9837239583333334
+            },
+            {
+              "text": " o",
+              "start": 4.42,
+              "end": 4.7,
+              "probability": 0.49072265625
+            },
+            {
+              "text": "'er",
+              "start": 4.7,
+              "end": 4.82,
+              "probability": 0.892822265625
+            },
+            {
+              "text": " me.",
+              "start": 4.82,
+              "end": 5.04,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " No, sir, you must not kneel.",
+          "start": 5.66,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " No,",
+              "start": 5.66,
+              "end": 5.8,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " sir,",
+              "start": 5.9,
+              "end": 6.06,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " you",
+              "start": 6.18,
+              "end": 6.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " must",
+              "start": 6.26,
+              "end": 6.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 6.38,
+              "end": 6.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " kneel.",
+              "start": 6.66,
+              "end": 7.04,
+              "probability": 0.999267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia.",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "raw": "O,",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "raw": "look",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "raw": "upon",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "raw": "me,",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "sir,",
+          "start": 2.58,
+          "end": 2.64
+        },
+        {
+          "raw": "and",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "hold",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "your",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "hands",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "raw": "in",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "raw": "benediction",
+          "start": 3.98,
+          "end": 4.42
+        },
+        {
+          "raw": "o",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "raw": "'er",
+          "start": 4.7,
+          "end": 4.82
+        },
+        {
+          "raw": "me.",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "raw": "No,",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "raw": "sir,",
+          "start": 5.9,
+          "end": 6.06
+        },
+        {
+          "raw": "you",
+          "start": 6.18,
+          "end": 6.26
+        },
+        {
+          "raw": "must",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "raw": "not",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "raw": "kneel.",
+          "start": 6.66,
+          "end": 7.04
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "O,",
+        "look",
+        "upon",
+        "me,",
+        "sir,",
+        "And",
+        "hold",
+        "your",
+        "hands",
+        "in",
+        "benediction",
+        "o'er",
+        "me.",
+        "No,",
+        "sir,",
+        "you",
+        "must",
+        "not",
+        "kneel."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          20,
+          14,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia.",
+          "start": 0.48,
+          "end": 0.92,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.86,
+          "end": 1.94,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.94,
+          "end": 2.2,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.58,
+          "end": 2.64,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "hold",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 3.48,
+          "end": 3.76,
+          "key": "hands",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.76,
+          "end": 3.98,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "benediction",
+          "start": 3.98,
+          "end": 4.42,
+          "key": "benediction",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 4.42,
+          "end": 4.7,
+          "key": "o",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 4.7,
+          "end": 4.82,
+          "key": "er",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.82,
+          "end": 5.04,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 5.66,
+          "end": 5.8,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 5.9,
+          "end": 6.06,
+          "key": "sir",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.18,
+          "end": 6.26,
+          "key": "you",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 6.26,
+          "end": 6.38,
+          "key": "must",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.38,
+          "end": 6.66,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "kneel.",
+          "start": 6.66,
+          "end": 7.04,
+          "key": "kneel",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.48,
+          "end": 0.92
+        },
+        {
+          "text": "O,",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "text": "look",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "text": "upon",
+          "start": 1.94,
+          "end": 2.2
+        },
+        {
+          "text": "me,",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "sir,",
+          "start": 2.58,
+          "end": 2.64
+        },
+        {
+          "text": "And",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "hold",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "your",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "hands",
+          "start": 3.48,
+          "end": 3.76
+        },
+        {
+          "text": "in",
+          "start": 3.76,
+          "end": 3.98
+        },
+        {
+          "text": "benediction",
+          "start": 3.98,
+          "end": 4.42
+        },
+        {
+          "text": "o'er",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "text": "me.",
+          "start": 4.82,
+          "end": 5.04
+        },
+        {
+          "text": "No,",
+          "start": 5.66,
+          "end": 5.8
+        },
+        {
+          "text": "sir,",
+          "start": 5.9,
+          "end": 6.06
+        },
+        {
+          "text": "you",
+          "start": 6.18,
+          "end": 6.26
+        },
+        {
+          "text": "must",
+          "start": 6.26,
+          "end": 6.38
+        },
+        {
+          "text": "not",
+          "start": 6.38,
+          "end": 6.66
+        },
+        {
+          "text": "kneel.",
+          "start": 6.66,
+          "end": 7.04
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.22852959483861923
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e2f2c481373f2e6bd13e7dd995b5806cbb31b453046df2bf599e3c9db4e9f6a",
+  "selected_reasons": []
+}

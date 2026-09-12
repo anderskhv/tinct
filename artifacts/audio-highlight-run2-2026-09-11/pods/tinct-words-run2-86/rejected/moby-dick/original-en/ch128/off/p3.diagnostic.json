@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "fdafcbe835013376af1f2a827b3560f0b3ad0178b8e0b3f44c7ce571c29c62f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2195407822728157,
+      "alignment_seconds": 0.0005383528769016266,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I, yesterday, have you seen a whale boat adrift?",
+          "start": 0.18,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.18,
+              "end": 0.62,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " yesterday,",
+              "start": 0.76,
+              "end": 1.04,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " have",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.9609375
+            },
+            {
+              "text": " you",
+              "start": 1.7,
+              "end": 1.78,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " seen",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " whale",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " boat",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " adrift?",
+              "start": 2.48,
+              "end": 2.92,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.18,
+          "end": 0.62
+        },
+        {
+          "raw": "yesterday,",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "raw": "have",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "you",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "raw": "seen",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "whale",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "boat",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "adrift?",
+          "start": 2.48,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "\"Aye,",
+        "yesterday.",
+        "Have",
+        "ye",
+        "seen",
+        "a",
+        "whale-boat",
+        "adrift?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.18,
+          "end": 0.62,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yesterday,",
+          "start": 0.76,
+          "end": 1.04,
+          "key": "yesterday",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.7,
+          "end": 1.78,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "seen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "whale boat",
+          "start": 2.08,
+          "end": 2.48,
+          "key": "whaleboat",
+          "pieces": [
+            6,
+            7
+          ]
+        },
+        {
+          "raw": "adrift?",
+          "start": 2.48,
+          "end": 2.92,
+          "key": "adrift",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "whale-boat",
+          "heard": "whale boat",
+          "heard_indexes": [
+            6,
+            7
+          ],
+          "start": 2.08,
+          "end": 2.48
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Aye,",
+          "start": 0.0,
+          "end": 0.38
+        },
+        {
+          "text": "yesterday.",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "text": "Have",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "ye",
+          "start": 1.7,
+          "end": 1.74
+        },
+        {
+          "text": "seen",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "a",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "whale-boat",
+          "start": 2.08,
+          "end": 2.48
+        },
+        {
+          "text": "adrift?\"",
+          "start": 2.48,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22022100910544395
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5a2afc7794478f744e4e32f4ee73be0ccb3c28d73e7bb3919a4ca1195919095d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

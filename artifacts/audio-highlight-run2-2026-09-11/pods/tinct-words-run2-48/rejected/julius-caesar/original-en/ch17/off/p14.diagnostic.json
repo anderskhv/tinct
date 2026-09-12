@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "728cc0b38a0c70f02531b53952b08cfb046bc777e917105208a738fa4b63d366",
+  "attempts": [
+    {
+      "asr_seconds": 0.1174706481397152,
+      "alignment_seconds": 0.00019067339599132538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Antony.",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Antony.",
+              "start": 0.66,
+              "end": 1.08,
+              "probability": 0.8681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Antony.",
+          "start": 0.66,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Antony."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antony.",
+          "start": 0.66,
+          "end": 1.08,
+          "key": "antony",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Antony.",
+          "start": 0.66,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11772433202713728
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e48bd26ed709fd28137714e95f8d82f968ddd7002eb0ee7091d5305c56e5c122",
+  "selected_reasons": []
+}

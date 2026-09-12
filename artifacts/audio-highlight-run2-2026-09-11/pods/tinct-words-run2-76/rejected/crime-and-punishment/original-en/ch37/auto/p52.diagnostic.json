@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "49b1883f02be65200a503ecfa955bc2f7661bfdc64547c8bc78e67da60c6f8ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.1052893721498549,
+      "alignment_seconds": 0.000298250000923872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"To foreign parts?\"",
+        "hotwords": "To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To foreign parts?",
+          "start": 0.05,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.11279296875
+            },
+            {
+              "text": " foreign",
+              "start": 0.51,
+              "end": 0.83,
+              "probability": 0.892578125
+            },
+            {
+              "text": " parts?",
+              "start": 0.83,
+              "end": 1.31,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "foreign",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "raw": "parts?",
+          "start": 0.83,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "\"To",
+        "foreign",
+        "parts?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "foreign",
+          "start": 0.51,
+          "end": 0.83,
+          "key": "foreign",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "parts?",
+          "start": 0.83,
+          "end": 1.31,
+          "key": "parts",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "foreign",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "text": "parts?\"",
+          "start": 0.83,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10568054998293519
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "34ba0f9d6e9eb2c4fb1df8c77659df8371dddccccd3c2c5ceaa8709197a924df",
+  "selected_reasons": []
+}

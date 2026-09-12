@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "1a577c99a170c2844a24614e628c646f8964164574cbac9927ba464336f4b829",
+  "attempts": [
+    {
+      "asr_seconds": 0.1331053301692009,
+      "alignment_seconds": 0.00036736298352479935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Have you been long here?\"",
+        "hotwords": "Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Have you been long here?",
+          "start": 0.05,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " you",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " been",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " long",
+              "start": 0.79,
+              "end": 1.03,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " here?",
+              "start": 1.03,
+              "end": 1.33,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "been",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "long",
+          "start": 0.79,
+          "end": 1.03
+        },
+        {
+          "raw": "here?",
+          "start": 1.03,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "been",
+        "long",
+        "here?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "been",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 0.79,
+          "end": 1.03,
+          "key": "long",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 1.03,
+          "end": 1.33,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "you",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "been",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "long",
+          "start": 0.79,
+          "end": 1.03
+        },
+        {
+          "text": "here?\"",
+          "start": 1.03,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13359994906932116
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28dd6e4f44e98e07a299e2ef7909497588c281252b2144d6cf8b044a4ddf9671",
+  "selected_reasons": []
+}

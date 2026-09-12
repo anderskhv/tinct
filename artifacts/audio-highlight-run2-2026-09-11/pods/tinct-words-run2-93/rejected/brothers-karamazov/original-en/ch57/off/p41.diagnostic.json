@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "ce82b2f086844f500cc4e16e38f3385f66092bd985594733519a1e9488c76ff7",
+  "attempts": [
+    {
+      "asr_seconds": 0.22159904055297375,
+      "alignment_seconds": 0.00046005286276340485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What object? No object. I just picked it up and ran off.",
+          "start": 0.02,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.892578125
+            },
+            {
+              "text": " object?",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " No",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " object.",
+              "start": 1.54,
+              "end": 1.96,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " I",
+              "start": 2.4,
+              "end": 2.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " just",
+              "start": 2.46,
+              "end": 2.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " picked",
+              "start": 2.58,
+              "end": 2.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 3.02,
+              "end": 3.16,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " ran",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " off.",
+              "start": 3.34,
+              "end": 3.66,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "object?",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "No",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "object.",
+          "start": 1.54,
+          "end": 1.96
+        },
+        {
+          "raw": "I",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "raw": "just",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "raw": "picked",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "raw": "it",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "up",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "and",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "raw": "ran",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "off.",
+          "start": 3.34,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "object?",
+        "No",
+        "object.",
+        "I",
+        "just",
+        "picked",
+        "it",
+        "up",
+        "and",
+        "ran",
+        "off.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "object?",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "object",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "object.",
+          "start": 1.54,
+          "end": 1.96,
+          "key": "object",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.4,
+          "end": 2.46,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.46,
+          "end": 2.58,
+          "key": "just",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "picked",
+          "start": 2.58,
+          "end": 2.76,
+          "key": "picked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.9,
+          "end": 3.02,
+          "key": "up",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.02,
+          "end": 3.16,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "ran",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 3.34,
+          "end": 3.66,
+          "key": "off",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "object?",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "No",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "object.",
+          "start": 1.54,
+          "end": 1.96
+        },
+        {
+          "text": "I",
+          "start": 2.4,
+          "end": 2.46
+        },
+        {
+          "text": "just",
+          "start": 2.46,
+          "end": 2.58
+        },
+        {
+          "text": "picked",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "it",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "up",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "and",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "text": "ran",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "off.\"",
+          "start": 3.34,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22224383987486362
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d9e9df3a55c3183a9f81679c4ea41820af0b539776073288fdea2c6de5faf5a1",
+  "selected_reasons": []
+}

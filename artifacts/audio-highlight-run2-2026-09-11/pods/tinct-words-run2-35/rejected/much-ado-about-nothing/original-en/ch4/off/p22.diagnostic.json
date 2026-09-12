@@ -1,0 +1,722 @@
+{
+  "complete": true,
+  "signature": "20510886a8c5574c957ddc82ad7589d86b7348fdb3eb2947b2c2675618f4ef89",
+  "attempts": [
+    {
+      "asr_seconds": 0.3172081969678402,
+      "alignment_seconds": 0.0006628129631280899,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, daughter, remember what I told you.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.32080078125
+            },
+            {
+              "text": " daughter,",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " remember",
+              "start": 2.17,
+              "end": 2.19,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " what",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 2.41,
+              "end": 2.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " told",
+              "start": 2.55,
+              "end": 2.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 2.79,
+              "end": 3.13,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " If the prince do solicit you in that kind, you know your answer.",
+          "start": 3.49,
+          "end": 6.61,
+          "words": [
+            {
+              "text": " If",
+              "start": 3.49,
+              "end": 3.67,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 3.67,
+              "end": 3.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " prince",
+              "start": 3.79,
+              "end": 3.99,
+              "probability": 0.63916015625
+            },
+            {
+              "text": " do",
+              "start": 3.99,
+              "end": 4.31,
+              "probability": 0.974609375
+            },
+            {
+              "text": " solicit",
+              "start": 4.31,
+              "end": 4.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 4.69,
+              "end": 4.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.95,
+              "end": 5.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 5.09,
+              "end": 5.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " kind,",
+              "start": 5.27,
+              "end": 5.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 5.89,
+              "end": 5.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know",
+              "start": 5.99,
+              "end": 6.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 6.13,
+              "end": 6.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " answer.",
+              "start": 6.31,
+              "end": 6.61,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "daughter,",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "remember",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "raw": "what",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "I",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "raw": "told",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "raw": "you.",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "raw": "If",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "raw": "the",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "raw": "prince",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "raw": "do",
+          "start": 3.99,
+          "end": 4.31
+        },
+        {
+          "raw": "solicit",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "raw": "you",
+          "start": 4.69,
+          "end": 4.95
+        },
+        {
+          "raw": "in",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "raw": "that",
+          "start": 5.09,
+          "end": 5.27
+        },
+        {
+          "raw": "kind,",
+          "start": 5.27,
+          "end": 5.61
+        },
+        {
+          "raw": "you",
+          "start": 5.89,
+          "end": 5.99
+        },
+        {
+          "raw": "know",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "raw": "your",
+          "start": 6.13,
+          "end": 6.31
+        },
+        {
+          "raw": "answer.",
+          "start": 6.31,
+          "end": 6.61
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "Daughter,",
+        "remember",
+        "what",
+        "I",
+        "told",
+        "you:",
+        "if",
+        "the",
+        "Prince",
+        "do",
+        "solicit",
+        "you",
+        "in",
+        "that",
+        "kind,",
+        "you",
+        "know",
+        "your",
+        "answer."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          20,
+          1,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "daughter,",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "daughter",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 2.17,
+          "end": 2.19,
+          "key": "remember",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.41,
+          "end": 2.55,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 2.55,
+          "end": 2.79,
+          "key": "told",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.79,
+          "end": 3.13,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 3.49,
+          "end": 3.67,
+          "key": "if",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.67,
+          "end": 3.79,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "prince",
+          "start": 3.79,
+          "end": 3.99,
+          "key": "prince",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.99,
+          "end": 4.31,
+          "key": "do",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "solicit",
+          "start": 4.31,
+          "end": 4.69,
+          "key": "solicit",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.69,
+          "end": 4.95,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.95,
+          "end": 5.09,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.09,
+          "end": 5.27,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "kind,",
+          "start": 5.27,
+          "end": 5.61,
+          "key": "kind",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.89,
+          "end": 5.99,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 5.99,
+          "end": 6.13,
+          "key": "know",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.13,
+          "end": 6.31,
+          "key": "your",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "answer.",
+          "start": 6.31,
+          "end": 6.61,
+          "key": "answer",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.795
+        },
+        {
+          "text": "Daughter,",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "remember",
+          "start": 2.17,
+          "end": 2.19
+        },
+        {
+          "text": "what",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "I",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "text": "told",
+          "start": 2.55,
+          "end": 2.79
+        },
+        {
+          "text": "you:",
+          "start": 2.79,
+          "end": 3.13
+        },
+        {
+          "text": "if",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "text": "the",
+          "start": 3.67,
+          "end": 3.79
+        },
+        {
+          "text": "Prince",
+          "start": 3.79,
+          "end": 3.99
+        },
+        {
+          "text": "do",
+          "start": 3.99,
+          "end": 4.31
+        },
+        {
+          "text": "solicit",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "text": "you",
+          "start": 4.69,
+          "end": 4.95
+        },
+        {
+          "text": "in",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "text": "that",
+          "start": 5.09,
+          "end": 5.27
+        },
+        {
+          "text": "kind,",
+          "start": 5.27,
+          "end": 5.61
+        },
+        {
+          "text": "you",
+          "start": 5.89,
+          "end": 5.99
+        },
+        {
+          "text": "know",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "text": "your",
+          "start": 6.13,
+          "end": 6.31
+        },
+        {
+          "text": "answer.",
+          "start": 6.31,
+          "end": 6.61
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.31817619875073433
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bec276024fa0ce883579629ec56fcfd9a5b67a1e9921bda677a964192626c7b4",
+  "selected_reasons": []
+}

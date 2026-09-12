@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "1844efcf478a37c148ff7ebfd5f0d4b3bba3e28790c1c2077be3b289e49f2db8",
+  "attempts": [
+    {
+      "asr_seconds": 0.10511050000786781,
+      "alignment_seconds": 0.00010764971375465393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. Pursue him, ho! Go after.",
+        "hotwords": "Gloucester, Pursue, Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester, Pursue him, ho! Go after.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.791748046875
+            },
+            {
+              "text": " Pursue",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.45114707946777344
+            },
+            {
+              "text": " him,",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.430908203125
+            },
+            {
+              "text": " ho!",
+              "start": 1.89,
+              "end": 1.89,
+              "probability": 0.1024169921875
+            },
+            {
+              "text": " Go",
+              "start": 2.11,
+              "end": 2.17,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " after.",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Pursue",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "him,",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "ho!",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "raw": "Go",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "raw": "after.",
+          "start": 2.17,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "Pursue",
+        "him,",
+        "ho!",
+        "Go",
+        "after."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pursue",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "pursue",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 1.89,
+          "end": 1.89,
+          "key": "ho",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 2.11,
+          "end": 2.17,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "after.",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "after",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Pursue",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "him,",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "ho!",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "text": "Go",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "text": "after.",
+          "start": 2.17,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10525783151388168
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f21e45cbf0a7c459f7476e2108db256dfc712517d20be235f104436c18425c28",
+  "selected_reasons": []
+}

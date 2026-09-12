@@ -1,0 +1,7303 @@
+{
+  "complete": true,
+  "signature": "d132c9c8fb45c161569a0c06d65a805636a1222f090644f7f935ebbb3aef8fed",
+  "attempts": [
+    {
+      "asr_seconds": 0.8506332510150969,
+      "alignment_seconds": 0.0009716170025058091,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Casca. Nay, and I tell you that, I'll ne'er look you i' the face again. But those that understood him smil'd at one another and shook their heads; but for mine own part, it was Greek to me. I could tell you more news too: Marullus and Flavius, for pulling scarfs off Caesar's images, are put to silence. Fare you well. There was more foolery yet, if I could remember it.",
+        "hotwords": "Casca, Nay, I'll, Greek, Marullus, Flavius, Caesar's, Fare, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Casca, Nay, and I tell you that, I'll ne'er look you i' the face again. But those that understood him smil'd at one another and shook their heads, but for mine own part, it was Greek to me.",
+          "start": 0.05,
+          "end": 10.43,
+          "words": [
+            {
+              "text": " Casca,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.551025390625
+            },
+            {
+              "text": " Nay,",
+              "start": 1.47,
+              "end": 1.49,
+              "probability": 0.666015625
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.970703125
+            },
+            {
+              "text": " I",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tell",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that,",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " I'll",
+              "start": 2.57,
+              "end": 2.61,
+              "probability": 0.973876953125
+            },
+            {
+              "text": " ne",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.9150390625
+            },
+            {
+              "text": "'er",
+              "start": 2.75,
+              "end": 2.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " look",
+              "start": 2.85,
+              "end": 2.95,
+              "probability": 0.92578125
+            },
+            {
+              "text": " you",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " i'",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.017059326171875
+            },
+            {
+              "text": " the",
+              "start": 3.33,
+              "end": 3.47,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " face",
+              "start": 3.47,
+              "end": 3.67,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " again.",
+              "start": 3.67,
+              "end": 4.01,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " But",
+              "start": 4.59,
+              "end": 4.75,
+              "probability": 0.984375
+            },
+            {
+              "text": " those",
+              "start": 4.75,
+              "end": 4.95,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " that",
+              "start": 4.95,
+              "end": 5.17,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " understood",
+              "start": 5.17,
+              "end": 5.57,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " him",
+              "start": 5.57,
+              "end": 5.79,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " smil'd",
+              "start": 5.79,
+              "end": 6.31,
+              "probability": 0.48699951171875
+            },
+            {
+              "text": " at",
+              "start": 6.31,
+              "end": 6.37,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " one",
+              "start": 6.37,
+              "end": 6.51,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " another",
+              "start": 6.51,
+              "end": 6.77,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " and",
+              "start": 6.77,
+              "end": 7.05,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " shook",
+              "start": 7.05,
+              "end": 7.19,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " their",
+              "start": 7.19,
+              "end": 7.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " heads,",
+              "start": 7.41,
+              "end": 7.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " but",
+              "start": 8.17,
+              "end": 8.33,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " for",
+              "start": 8.33,
+              "end": 8.51,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " mine",
+              "start": 8.51,
+              "end": 8.75,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " own",
+              "start": 8.75,
+              "end": 9.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " part,",
+              "start": 9.03,
+              "end": 9.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 9.53,
+              "end": 9.61,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " was",
+              "start": 9.61,
+              "end": 9.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Greek",
+              "start": 9.75,
+              "end": 9.97,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " to",
+              "start": 9.97,
+              "end": 10.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me.",
+              "start": 10.19,
+              "end": 10.43,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I could tell you more news too. Marullus and Flavius, for pulling scarfs off Caesar's images, are put to silence. Fare you well. There was more foolery yet, if I could remember it.",
+          "start": 10.99,
+          "end": 21.39,
+          "words": [
+            {
+              "text": " I",
+              "start": 10.99,
+              "end": 11.11,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " could",
+              "start": 11.11,
+              "end": 11.23,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " tell",
+              "start": 11.23,
+              "end": 11.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 11.39,
+              "end": 11.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 11.55,
+              "end": 11.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " news",
+              "start": 11.73,
+              "end": 11.99,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " too.",
+              "start": 11.99,
+              "end": 12.35,
+              "probability": 0.58837890625
+            },
+            {
+              "text": " Marullus",
+              "start": 12.95,
+              "end": 13.29,
+              "probability": 0.5955810546875
+            },
+            {
+              "text": " and",
+              "start": 13.29,
+              "end": 13.47,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Flavius,",
+              "start": 13.47,
+              "end": 13.99,
+              "probability": 0.970703125
+            },
+            {
+              "text": " for",
+              "start": 14.09,
+              "end": 14.25,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " pulling",
+              "start": 14.25,
+              "end": 14.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " scarfs",
+              "start": 14.57,
+              "end": 15.11,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " off",
+              "start": 15.11,
+              "end": 15.27,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Caesar's",
+              "start": 15.27,
+              "end": 15.83,
+              "probability": 0.950439453125
+            },
+            {
+              "text": " images,",
+              "start": 15.83,
+              "end": 16.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " are",
+              "start": 16.37,
+              "end": 16.53,
+              "probability": 0.9921875
+            },
+            {
+              "text": " put",
+              "start": 16.53,
+              "end": 16.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 16.69,
+              "end": 16.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " silence.",
+              "start": 16.91,
+              "end": 17.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Fare",
+              "start": 18.07,
+              "end": 18.19,
+              "probability": 0.73046875
+            },
+            {
+              "text": " you",
+              "start": 18.19,
+              "end": 18.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " well.",
+              "start": 18.37,
+              "end": 18.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " There",
+              "start": 19.21,
+              "end": 19.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " was",
+              "start": 19.31,
+              "end": 19.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " more",
+              "start": 19.43,
+              "end": 19.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " foolery",
+              "start": 19.63,
+              "end": 20.13,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " yet,",
+              "start": 20.13,
+              "end": 20.35,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " if",
+              "start": 20.45,
+              "end": 20.53,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 20.53,
+              "end": 20.65,
+              "probability": 0.935546875
+            },
+            {
+              "text": " could",
+              "start": 20.65,
+              "end": 20.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " remember",
+              "start": 20.77,
+              "end": 21.07,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it.",
+              "start": 21.07,
+              "end": 21.39,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "tell",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "that,",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "I'll",
+          "start": 2.57,
+          "end": 2.61
+        },
+        {
+          "raw": "ne",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "'er",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "raw": "look",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "raw": "you",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "i'",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "the",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "raw": "face",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "raw": "again.",
+          "start": 3.67,
+          "end": 4.01
+        },
+        {
+          "raw": "But",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "raw": "those",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "raw": "that",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "raw": "understood",
+          "start": 5.17,
+          "end": 5.57
+        },
+        {
+          "raw": "him",
+          "start": 5.57,
+          "end": 5.79
+        },
+        {
+          "raw": "smil'd",
+          "start": 5.79,
+          "end": 6.31
+        },
+        {
+          "raw": "at",
+          "start": 6.31,
+          "end": 6.37
+        },
+        {
+          "raw": "one",
+          "start": 6.37,
+          "end": 6.51
+        },
+        {
+          "raw": "another",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "raw": "and",
+          "start": 6.77,
+          "end": 7.05
+        },
+        {
+          "raw": "shook",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "raw": "their",
+          "start": 7.19,
+          "end": 7.41
+        },
+        {
+          "raw": "heads,",
+          "start": 7.41,
+          "end": 7.73
+        },
+        {
+          "raw": "but",
+          "start": 8.17,
+          "end": 8.33
+        },
+        {
+          "raw": "for",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "raw": "mine",
+          "start": 8.51,
+          "end": 8.75
+        },
+        {
+          "raw": "own",
+          "start": 8.75,
+          "end": 9.03
+        },
+        {
+          "raw": "part,",
+          "start": 9.03,
+          "end": 9.35
+        },
+        {
+          "raw": "it",
+          "start": 9.53,
+          "end": 9.61
+        },
+        {
+          "raw": "was",
+          "start": 9.61,
+          "end": 9.75
+        },
+        {
+          "raw": "Greek",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "raw": "to",
+          "start": 9.97,
+          "end": 10.19
+        },
+        {
+          "raw": "me.",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "raw": "I",
+          "start": 10.99,
+          "end": 11.11
+        },
+        {
+          "raw": "could",
+          "start": 11.11,
+          "end": 11.23
+        },
+        {
+          "raw": "tell",
+          "start": 11.23,
+          "end": 11.39
+        },
+        {
+          "raw": "you",
+          "start": 11.39,
+          "end": 11.55
+        },
+        {
+          "raw": "more",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "raw": "news",
+          "start": 11.73,
+          "end": 11.99
+        },
+        {
+          "raw": "too.",
+          "start": 11.99,
+          "end": 12.35
+        },
+        {
+          "raw": "Marullus",
+          "start": 12.95,
+          "end": 13.29
+        },
+        {
+          "raw": "and",
+          "start": 13.29,
+          "end": 13.47
+        },
+        {
+          "raw": "Flavius,",
+          "start": 13.47,
+          "end": 13.99
+        },
+        {
+          "raw": "for",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "raw": "pulling",
+          "start": 14.25,
+          "end": 14.57
+        },
+        {
+          "raw": "scarfs",
+          "start": 14.57,
+          "end": 15.11
+        },
+        {
+          "raw": "off",
+          "start": 15.11,
+          "end": 15.27
+        },
+        {
+          "raw": "Caesar's",
+          "start": 15.27,
+          "end": 15.83
+        },
+        {
+          "raw": "images,",
+          "start": 15.83,
+          "end": 16.13
+        },
+        {
+          "raw": "are",
+          "start": 16.37,
+          "end": 16.53
+        },
+        {
+          "raw": "put",
+          "start": 16.53,
+          "end": 16.69
+        },
+        {
+          "raw": "to",
+          "start": 16.69,
+          "end": 16.91
+        },
+        {
+          "raw": "silence.",
+          "start": 16.91,
+          "end": 17.21
+        },
+        {
+          "raw": "Fare",
+          "start": 18.07,
+          "end": 18.19
+        },
+        {
+          "raw": "you",
+          "start": 18.19,
+          "end": 18.37
+        },
+        {
+          "raw": "well.",
+          "start": 18.37,
+          "end": 18.63
+        },
+        {
+          "raw": "There",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "raw": "was",
+          "start": 19.31,
+          "end": 19.43
+        },
+        {
+          "raw": "more",
+          "start": 19.43,
+          "end": 19.63
+        },
+        {
+          "raw": "foolery",
+          "start": 19.63,
+          "end": 20.13
+        },
+        {
+          "raw": "yet,",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "raw": "if",
+          "start": 20.45,
+          "end": 20.53
+        },
+        {
+          "raw": "I",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "raw": "could",
+          "start": 20.65,
+          "end": 20.77
+        },
+        {
+          "raw": "remember",
+          "start": 20.77,
+          "end": 21.07
+        },
+        {
+          "raw": "it.",
+          "start": 21.07,
+          "end": 21.39
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Nay,",
+        "and",
+        "I",
+        "tell",
+        "you",
+        "that,",
+        "I'll",
+        "ne'er",
+        "look",
+        "you",
+        "i'",
+        "the",
+        "face",
+        "again.",
+        "But",
+        "those",
+        "that",
+        "understood",
+        "him",
+        "smil'd",
+        "at",
+        "one",
+        "another",
+        "and",
+        "shook",
+        "their",
+        "heads;",
+        "but",
+        "for",
+        "mine",
+        "own",
+        "part,",
+        "it",
+        "was",
+        "Greek",
+        "to",
+        "me.",
+        "I",
+        "could",
+        "tell",
+        "you",
+        "more",
+        "news",
+        "too:",
+        "Marullus",
+        "and",
+        "Flavius,",
+        "for",
+        "pulling",
+        "scarfs",
+        "off",
+        "Caesar's",
+        "images,",
+        "are",
+        "put",
+        "to",
+        "silence.",
+        "Fare",
+        "you",
+        "well.",
+        "There",
+        "was",
+        "more",
+        "foolery",
+        "yet,",
+        "if",
+        "I",
+        "could",
+        "remember",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          71,
+          10,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "casca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.47,
+          "end": 1.49,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.57,
+          "end": 2.61,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "ne",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.75,
+          "end": 2.85,
+          "key": "er",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 2.85,
+          "end": 2.95,
+          "key": "look",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.33,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 3.47,
+          "end": 3.67,
+          "key": "face",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.67,
+          "end": 4.01,
+          "key": "again",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 4.59,
+          "end": 4.75,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 4.75,
+          "end": 4.95,
+          "key": "those",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.95,
+          "end": 5.17,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 5.17,
+          "end": 5.57,
+          "key": "understood",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.57,
+          "end": 5.79,
+          "key": "him",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "smil'd",
+          "start": 5.79,
+          "end": 6.31,
+          "key": "smild",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.31,
+          "end": 6.37,
+          "key": "at",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.37,
+          "end": 6.51,
+          "key": "one",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.51,
+          "end": 6.77,
+          "key": "another",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.77,
+          "end": 7.05,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 7.05,
+          "end": 7.19,
+          "key": "shook",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.19,
+          "end": 7.41,
+          "key": "their",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "heads,",
+          "start": 7.41,
+          "end": 7.73,
+          "key": "heads",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 8.17,
+          "end": 8.33,
+          "key": "but",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.33,
+          "end": 8.51,
+          "key": "for",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 8.51,
+          "end": 8.75,
+          "key": "mine",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 8.75,
+          "end": 9.03,
+          "key": "own",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "part,",
+          "start": 9.03,
+          "end": 9.35,
+          "key": "part",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 9.53,
+          "end": 9.61,
+          "key": "it",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.61,
+          "end": 9.75,
+          "key": "was",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Greek",
+          "start": 9.75,
+          "end": 9.97,
+          "key": "greek",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.97,
+          "end": 10.19,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 10.19,
+          "end": 10.43,
+          "key": "me",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.99,
+          "end": 11.11,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 11.11,
+          "end": 11.23,
+          "key": "could",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 11.23,
+          "end": 11.39,
+          "key": "tell",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.39,
+          "end": 11.55,
+          "key": "you",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.55,
+          "end": 11.73,
+          "key": "more",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 11.73,
+          "end": 11.99,
+          "key": "news",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 11.99,
+          "end": 12.35,
+          "key": "too",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Marullus",
+          "start": 12.95,
+          "end": 13.29,
+          "key": "marullus",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.29,
+          "end": 13.47,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Flavius,",
+          "start": 13.47,
+          "end": 13.99,
+          "key": "flavius",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 14.09,
+          "end": 14.25,
+          "key": "for",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "pulling",
+          "start": 14.25,
+          "end": 14.57,
+          "key": "pulling",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "scarfs",
+          "start": 14.57,
+          "end": 15.11,
+          "key": "scarfs",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 15.11,
+          "end": 15.27,
+          "key": "off",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Caesar's",
+          "start": 15.27,
+          "end": 15.83,
+          "key": "caesars",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "images,",
+          "start": 15.83,
+          "end": 16.13,
+          "key": "images",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 16.37,
+          "end": 16.53,
+          "key": "are",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 16.53,
+          "end": 16.69,
+          "key": "put",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.69,
+          "end": 16.91,
+          "key": "to",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "silence.",
+          "start": 16.91,
+          "end": 17.21,
+          "key": "silence",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 18.07,
+          "end": 18.19,
+          "key": "fare",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 18.19,
+          "end": 18.37,
+          "key": "you",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 18.37,
+          "end": 18.63,
+          "key": "well",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 19.21,
+          "end": 19.31,
+          "key": "there",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.31,
+          "end": 19.43,
+          "key": "was",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 19.43,
+          "end": 19.63,
+          "key": "more",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "foolery",
+          "start": 19.63,
+          "end": 20.13,
+          "key": "foolery",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "yet,",
+          "start": 20.13,
+          "end": 20.35,
+          "key": "yet",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 20.45,
+          "end": 20.53,
+          "key": "if",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 20.53,
+          "end": 20.65,
+          "key": "i",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 20.65,
+          "end": 20.77,
+          "key": "could",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 20.77,
+          "end": 21.07,
+          "key": "remember",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 21.07,
+          "end": 21.39,
+          "key": "it",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Nay,",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "I",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "tell",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "that,",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "I'll",
+          "start": 2.57,
+          "end": 2.61
+        },
+        {
+          "text": "ne'er",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "look",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "text": "you",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "i'",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "text": "the",
+          "start": 3.33,
+          "end": 3.47
+        },
+        {
+          "text": "face",
+          "start": 3.47,
+          "end": 3.67
+        },
+        {
+          "text": "again.",
+          "start": 3.67,
+          "end": 4.01
+        },
+        {
+          "text": "But",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "text": "those",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "text": "that",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "text": "understood",
+          "start": 5.17,
+          "end": 5.57
+        },
+        {
+          "text": "him",
+          "start": 5.57,
+          "end": 5.79
+        },
+        {
+          "text": "smil'd",
+          "start": 5.79,
+          "end": 6.31
+        },
+        {
+          "text": "at",
+          "start": 6.31,
+          "end": 6.37
+        },
+        {
+          "text": "one",
+          "start": 6.37,
+          "end": 6.51
+        },
+        {
+          "text": "another",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "text": "and",
+          "start": 6.77,
+          "end": 7.05
+        },
+        {
+          "text": "shook",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "text": "their",
+          "start": 7.19,
+          "end": 7.41
+        },
+        {
+          "text": "heads;",
+          "start": 7.41,
+          "end": 7.73
+        },
+        {
+          "text": "but",
+          "start": 8.17,
+          "end": 8.33
+        },
+        {
+          "text": "for",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "text": "mine",
+          "start": 8.51,
+          "end": 8.75
+        },
+        {
+          "text": "own",
+          "start": 8.75,
+          "end": 9.03
+        },
+        {
+          "text": "part,",
+          "start": 9.03,
+          "end": 9.35
+        },
+        {
+          "text": "it",
+          "start": 9.53,
+          "end": 9.61
+        },
+        {
+          "text": "was",
+          "start": 9.61,
+          "end": 9.75
+        },
+        {
+          "text": "Greek",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "text": "to",
+          "start": 9.97,
+          "end": 10.19
+        },
+        {
+          "text": "me.",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "text": "I",
+          "start": 10.99,
+          "end": 11.11
+        },
+        {
+          "text": "could",
+          "start": 11.11,
+          "end": 11.23
+        },
+        {
+          "text": "tell",
+          "start": 11.23,
+          "end": 11.39
+        },
+        {
+          "text": "you",
+          "start": 11.39,
+          "end": 11.55
+        },
+        {
+          "text": "more",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "text": "news",
+          "start": 11.73,
+          "end": 11.99
+        },
+        {
+          "text": "too:",
+          "start": 11.99,
+          "end": 12.35
+        },
+        {
+          "text": "Marullus",
+          "start": 12.95,
+          "end": 13.29
+        },
+        {
+          "text": "and",
+          "start": 13.29,
+          "end": 13.47
+        },
+        {
+          "text": "Flavius,",
+          "start": 13.47,
+          "end": 13.99
+        },
+        {
+          "text": "for",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "text": "pulling",
+          "start": 14.25,
+          "end": 14.57
+        },
+        {
+          "text": "scarfs",
+          "start": 14.57,
+          "end": 15.11
+        },
+        {
+          "text": "off",
+          "start": 15.11,
+          "end": 15.27
+        },
+        {
+          "text": "Caesar's",
+          "start": 15.27,
+          "end": 15.83
+        },
+        {
+          "text": "images,",
+          "start": 15.83,
+          "end": 16.13
+        },
+        {
+          "text": "are",
+          "start": 16.37,
+          "end": 16.53
+        },
+        {
+          "text": "put",
+          "start": 16.53,
+          "end": 16.69
+        },
+        {
+          "text": "to",
+          "start": 16.69,
+          "end": 16.91
+        },
+        {
+          "text": "silence.",
+          "start": 16.91,
+          "end": 17.21
+        },
+        {
+          "text": "Fare",
+          "start": 18.07,
+          "end": 18.19
+        },
+        {
+          "text": "you",
+          "start": 18.19,
+          "end": 18.37
+        },
+        {
+          "text": "well.",
+          "start": 18.37,
+          "end": 18.63
+        },
+        {
+          "text": "There",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "text": "was",
+          "start": 19.31,
+          "end": 19.43
+        },
+        {
+          "text": "more",
+          "start": 19.43,
+          "end": 19.63
+        },
+        {
+          "text": "foolery",
+          "start": 19.63,
+          "end": 20.13
+        },
+        {
+          "text": "yet,",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "text": "if",
+          "start": 20.45,
+          "end": 20.53
+        },
+        {
+          "text": "I",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "text": "could",
+          "start": 20.65,
+          "end": 20.77
+        },
+        {
+          "text": "remember",
+          "start": 20.77,
+          "end": 21.07
+        },
+        {
+          "text": "it.",
+          "start": 21.07,
+          "end": 21.39
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 72,
+        "matched_words": 70
+      },
+      "match_ratio": 0.9859154929577465,
+      "rejection_reasons": [],
+      "seconds": 0.8520467200141866
+    },
+    {
+      "asr_seconds": 0.7911283999856096,
+      "alignment_seconds": 0.0009394259832333773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Casca, Nay, I'll, Greek, Marullus, Flavius, Caesar's, Fare, There"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Casca, Nay, and I tell you that I'll ne'er look you eye the face again. But those that",
+          "start": 0.05,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " Casca,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.55133056640625
+            },
+            {
+              "text": " Nay,",
+              "start": 1.47,
+              "end": 1.49,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.970703125
+            },
+            {
+              "text": " I",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " tell",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " I'll",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.934814453125
+            },
+            {
+              "text": " ne",
+              "start": 2.63,
+              "end": 2.75,
+              "probability": 0.9091796875
+            },
+            {
+              "text": "'er",
+              "start": 2.75,
+              "end": 2.85,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " look",
+              "start": 2.85,
+              "end": 2.95,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " you",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.990234375
+            },
+            {
+              "text": " eye",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.47119140625
+            },
+            {
+              "text": " the",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.2841796875
+            },
+            {
+              "text": " face",
+              "start": 3.47,
+              "end": 3.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " again.",
+              "start": 3.69,
+              "end": 4.03,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " But",
+              "start": 4.61,
+              "end": 4.75,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " those",
+              "start": 4.75,
+              "end": 4.97,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 4.97,
+              "end": 5.19,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " understood him smilled at one another and shook their heads, but for mine own part it",
+          "start": 5.19,
+          "end": 9.61,
+          "words": [
+            {
+              "text": " understood",
+              "start": 5.19,
+              "end": 5.57,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " him",
+              "start": 5.57,
+              "end": 5.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " smilled",
+              "start": 5.79,
+              "end": 6.23,
+              "probability": 0.886962890625
+            },
+            {
+              "text": " at",
+              "start": 6.23,
+              "end": 6.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " one",
+              "start": 6.39,
+              "end": 6.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " another",
+              "start": 6.51,
+              "end": 6.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 6.77,
+              "end": 7.05,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " shook",
+              "start": 7.05,
+              "end": 7.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 7.19,
+              "end": 7.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heads,",
+              "start": 7.41,
+              "end": 7.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 8.17,
+              "end": 8.33,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " for",
+              "start": 8.33,
+              "end": 8.51,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " mine",
+              "start": 8.51,
+              "end": 8.77,
+              "probability": 0.951171875
+            },
+            {
+              "text": " own",
+              "start": 8.77,
+              "end": 9.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " part",
+              "start": 9.03,
+              "end": 9.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 9.37,
+              "end": 9.61,
+              "probability": 0.66162109375
+            }
+          ]
+        },
+        {
+          "text": " was Greek to me. I could tell you more news, too. Marullus and Flavius, for pulling scarfs",
+          "start": 9.61,
+          "end": 15.11,
+          "words": [
+            {
+              "text": " was",
+              "start": 9.61,
+              "end": 9.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Greek",
+              "start": 9.75,
+              "end": 9.97,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " to",
+              "start": 9.97,
+              "end": 10.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me.",
+              "start": 10.19,
+              "end": 10.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 10.99,
+              "end": 11.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " could",
+              "start": 11.11,
+              "end": 11.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " tell",
+              "start": 11.23,
+              "end": 11.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 11.39,
+              "end": 11.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " more",
+              "start": 11.55,
+              "end": 11.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " news,",
+              "start": 11.73,
+              "end": 12.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " too.",
+              "start": 12.07,
+              "end": 12.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Marullus",
+              "start": 12.95,
+              "end": 13.29,
+              "probability": 0.5996322631835938
+            },
+            {
+              "text": " and",
+              "start": 13.29,
+              "end": 13.47,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Flavius,",
+              "start": 13.47,
+              "end": 13.99,
+              "probability": 0.970703125
+            },
+            {
+              "text": " for",
+              "start": 14.09,
+              "end": 14.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " pulling",
+              "start": 14.25,
+              "end": 14.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " scarfs",
+              "start": 14.57,
+              "end": 15.11,
+              "probability": 0.944580078125
+            }
+          ]
+        },
+        {
+          "text": " off Caesar's images, are put to silence. Fare you well. There was more foolery yet if",
+          "start": 15.11,
+          "end": 20.53,
+          "words": [
+            {
+              "text": " off",
+              "start": 15.11,
+              "end": 15.27,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Caesar's",
+              "start": 15.27,
+              "end": 15.83,
+              "probability": 0.958740234375
+            },
+            {
+              "text": " images,",
+              "start": 15.83,
+              "end": 16.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are",
+              "start": 16.31,
+              "end": 16.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " put",
+              "start": 16.53,
+              "end": 16.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 16.69,
+              "end": 16.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " silence.",
+              "start": 16.89,
+              "end": 17.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Fare",
+              "start": 18.07,
+              "end": 18.19,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " you",
+              "start": 18.19,
+              "end": 18.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " well.",
+              "start": 18.37,
+              "end": 18.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " There",
+              "start": 19.21,
+              "end": 19.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 19.31,
+              "end": 19.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " more",
+              "start": 19.43,
+              "end": 19.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " foolery",
+              "start": 19.63,
+              "end": 20.13,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " yet",
+              "start": 20.13,
+              "end": 20.35,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " if",
+              "start": 20.35,
+              "end": 20.53,
+              "probability": 0.8955078125
+            }
+          ]
+        },
+        {
+          "text": " I could remember it.",
+          "start": 20.53,
+          "end": 21.41,
+          "words": [
+            {
+              "text": " I",
+              "start": 20.53,
+              "end": 20.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " could",
+              "start": 20.65,
+              "end": 20.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " remember",
+              "start": 20.77,
+              "end": 21.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it.",
+              "start": 21.07,
+              "end": 21.41,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "tell",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "that",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "I'll",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "ne",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "raw": "'er",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "raw": "look",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "raw": "you",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "eye",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "the",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "face",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "raw": "again.",
+          "start": 3.69,
+          "end": 4.03
+        },
+        {
+          "raw": "But",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "raw": "those",
+          "start": 4.75,
+          "end": 4.97
+        },
+        {
+          "raw": "that",
+          "start": 4.97,
+          "end": 5.19
+        },
+        {
+          "raw": "understood",
+          "start": 5.19,
+          "end": 5.57
+        },
+        {
+          "raw": "him",
+          "start": 5.57,
+          "end": 5.79
+        },
+        {
+          "raw": "smilled",
+          "start": 5.79,
+          "end": 6.23
+        },
+        {
+          "raw": "at",
+          "start": 6.23,
+          "end": 6.39
+        },
+        {
+          "raw": "one",
+          "start": 6.39,
+          "end": 6.51
+        },
+        {
+          "raw": "another",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "raw": "and",
+          "start": 6.77,
+          "end": 7.05
+        },
+        {
+          "raw": "shook",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "raw": "their",
+          "start": 7.19,
+          "end": 7.41
+        },
+        {
+          "raw": "heads,",
+          "start": 7.41,
+          "end": 7.77
+        },
+        {
+          "raw": "but",
+          "start": 8.17,
+          "end": 8.33
+        },
+        {
+          "raw": "for",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "raw": "mine",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "raw": "own",
+          "start": 8.77,
+          "end": 9.03
+        },
+        {
+          "raw": "part",
+          "start": 9.03,
+          "end": 9.37
+        },
+        {
+          "raw": "it",
+          "start": 9.37,
+          "end": 9.61
+        },
+        {
+          "raw": "was",
+          "start": 9.61,
+          "end": 9.75
+        },
+        {
+          "raw": "Greek",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "raw": "to",
+          "start": 9.97,
+          "end": 10.19
+        },
+        {
+          "raw": "me.",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "raw": "I",
+          "start": 10.99,
+          "end": 11.11
+        },
+        {
+          "raw": "could",
+          "start": 11.11,
+          "end": 11.23
+        },
+        {
+          "raw": "tell",
+          "start": 11.23,
+          "end": 11.39
+        },
+        {
+          "raw": "you",
+          "start": 11.39,
+          "end": 11.55
+        },
+        {
+          "raw": "more",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "raw": "news,",
+          "start": 11.73,
+          "end": 12.01
+        },
+        {
+          "raw": "too.",
+          "start": 12.07,
+          "end": 12.37
+        },
+        {
+          "raw": "Marullus",
+          "start": 12.95,
+          "end": 13.29
+        },
+        {
+          "raw": "and",
+          "start": 13.29,
+          "end": 13.47
+        },
+        {
+          "raw": "Flavius,",
+          "start": 13.47,
+          "end": 13.99
+        },
+        {
+          "raw": "for",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "raw": "pulling",
+          "start": 14.25,
+          "end": 14.57
+        },
+        {
+          "raw": "scarfs",
+          "start": 14.57,
+          "end": 15.11
+        },
+        {
+          "raw": "off",
+          "start": 15.11,
+          "end": 15.27
+        },
+        {
+          "raw": "Caesar's",
+          "start": 15.27,
+          "end": 15.83
+        },
+        {
+          "raw": "images,",
+          "start": 15.83,
+          "end": 16.15
+        },
+        {
+          "raw": "are",
+          "start": 16.31,
+          "end": 16.53
+        },
+        {
+          "raw": "put",
+          "start": 16.53,
+          "end": 16.69
+        },
+        {
+          "raw": "to",
+          "start": 16.69,
+          "end": 16.89
+        },
+        {
+          "raw": "silence.",
+          "start": 16.89,
+          "end": 17.21
+        },
+        {
+          "raw": "Fare",
+          "start": 18.07,
+          "end": 18.19
+        },
+        {
+          "raw": "you",
+          "start": 18.19,
+          "end": 18.37
+        },
+        {
+          "raw": "well.",
+          "start": 18.37,
+          "end": 18.63
+        },
+        {
+          "raw": "There",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "raw": "was",
+          "start": 19.31,
+          "end": 19.43
+        },
+        {
+          "raw": "more",
+          "start": 19.43,
+          "end": 19.63
+        },
+        {
+          "raw": "foolery",
+          "start": 19.63,
+          "end": 20.13
+        },
+        {
+          "raw": "yet",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "raw": "if",
+          "start": 20.35,
+          "end": 20.53
+        },
+        {
+          "raw": "I",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "raw": "could",
+          "start": 20.65,
+          "end": 20.77
+        },
+        {
+          "raw": "remember",
+          "start": 20.77,
+          "end": 21.07
+        },
+        {
+          "raw": "it.",
+          "start": 21.07,
+          "end": 21.41
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Nay,",
+        "and",
+        "I",
+        "tell",
+        "you",
+        "that,",
+        "I'll",
+        "ne'er",
+        "look",
+        "you",
+        "i'",
+        "the",
+        "face",
+        "again.",
+        "But",
+        "those",
+        "that",
+        "understood",
+        "him",
+        "smil'd",
+        "at",
+        "one",
+        "another",
+        "and",
+        "shook",
+        "their",
+        "heads;",
+        "but",
+        "for",
+        "mine",
+        "own",
+        "part,",
+        "it",
+        "was",
+        "Greek",
+        "to",
+        "me.",
+        "I",
+        "could",
+        "tell",
+        "you",
+        "more",
+        "news",
+        "too:",
+        "Marullus",
+        "and",
+        "Flavius,",
+        "for",
+        "pulling",
+        "scarfs",
+        "off",
+        "Caesar's",
+        "images,",
+        "are",
+        "put",
+        "to",
+        "silence.",
+        "Fare",
+        "you",
+        "well.",
+        "There",
+        "was",
+        "more",
+        "foolery",
+        "yet,",
+        "if",
+        "I",
+        "could",
+        "remember",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "equal",
+          12,
+          20,
+          13,
+          21
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ],
+        [
+          "equal",
+          21,
+          71,
+          22,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "casca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.47,
+          "end": 1.49,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 2.63,
+          "end": 2.75,
+          "key": "ne",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.75,
+          "end": 2.85,
+          "key": "er",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 2.85,
+          "end": 2.95,
+          "key": "look",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "eye",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 3.47,
+          "end": 3.69,
+          "key": "face",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.69,
+          "end": 4.03,
+          "key": "again",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 4.61,
+          "end": 4.75,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 4.75,
+          "end": 4.97,
+          "key": "those",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.97,
+          "end": 5.19,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 5.19,
+          "end": 5.57,
+          "key": "understood",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.57,
+          "end": 5.79,
+          "key": "him",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "smilled",
+          "start": 5.79,
+          "end": 6.23,
+          "key": "smilled",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.23,
+          "end": 6.39,
+          "key": "at",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.39,
+          "end": 6.51,
+          "key": "one",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.51,
+          "end": 6.77,
+          "key": "another",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.77,
+          "end": 7.05,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 7.05,
+          "end": 7.19,
+          "key": "shook",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.19,
+          "end": 7.41,
+          "key": "their",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "heads,",
+          "start": 7.41,
+          "end": 7.77,
+          "key": "heads",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 8.17,
+          "end": 8.33,
+          "key": "but",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.33,
+          "end": 8.51,
+          "key": "for",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 8.51,
+          "end": 8.77,
+          "key": "mine",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 8.77,
+          "end": 9.03,
+          "key": "own",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 9.03,
+          "end": 9.37,
+          "key": "part",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 9.37,
+          "end": 9.61,
+          "key": "it",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.61,
+          "end": 9.75,
+          "key": "was",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Greek",
+          "start": 9.75,
+          "end": 9.97,
+          "key": "greek",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.97,
+          "end": 10.19,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 10.19,
+          "end": 10.43,
+          "key": "me",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.99,
+          "end": 11.11,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 11.11,
+          "end": 11.23,
+          "key": "could",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 11.23,
+          "end": 11.39,
+          "key": "tell",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.39,
+          "end": 11.55,
+          "key": "you",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.55,
+          "end": 11.73,
+          "key": "more",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "news,",
+          "start": 11.73,
+          "end": 12.01,
+          "key": "news",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 12.07,
+          "end": 12.37,
+          "key": "too",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Marullus",
+          "start": 12.95,
+          "end": 13.29,
+          "key": "marullus",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.29,
+          "end": 13.47,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Flavius,",
+          "start": 13.47,
+          "end": 13.99,
+          "key": "flavius",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 14.09,
+          "end": 14.25,
+          "key": "for",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "pulling",
+          "start": 14.25,
+          "end": 14.57,
+          "key": "pulling",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "scarfs",
+          "start": 14.57,
+          "end": 15.11,
+          "key": "scarfs",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 15.11,
+          "end": 15.27,
+          "key": "off",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Caesar's",
+          "start": 15.27,
+          "end": 15.83,
+          "key": "caesars",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "images,",
+          "start": 15.83,
+          "end": 16.15,
+          "key": "images",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 16.31,
+          "end": 16.53,
+          "key": "are",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 16.53,
+          "end": 16.69,
+          "key": "put",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.69,
+          "end": 16.89,
+          "key": "to",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "silence.",
+          "start": 16.89,
+          "end": 17.21,
+          "key": "silence",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 18.07,
+          "end": 18.19,
+          "key": "fare",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 18.19,
+          "end": 18.37,
+          "key": "you",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 18.37,
+          "end": 18.63,
+          "key": "well",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 19.21,
+          "end": 19.31,
+          "key": "there",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.31,
+          "end": 19.43,
+          "key": "was",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 19.43,
+          "end": 19.63,
+          "key": "more",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "foolery",
+          "start": 19.63,
+          "end": 20.13,
+          "key": "foolery",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 20.13,
+          "end": 20.35,
+          "key": "yet",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 20.35,
+          "end": 20.53,
+          "key": "if",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 20.53,
+          "end": 20.65,
+          "key": "i",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 20.65,
+          "end": 20.77,
+          "key": "could",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 20.77,
+          "end": 21.07,
+          "key": "remember",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 21.07,
+          "end": 21.41,
+          "key": "it",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Nay,",
+          "start": 1.47,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "I",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "tell",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "that,",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "text": "I'll",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "ne'er",
+          "start": 2.63,
+          "end": 2.74
+        },
+        {
+          "text": "look",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "text": "you",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "i'",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "text": "the",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "face",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "text": "again.",
+          "start": 3.69,
+          "end": 4.03
+        },
+        {
+          "text": "But",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "text": "those",
+          "start": 4.75,
+          "end": 4.97
+        },
+        {
+          "text": "that",
+          "start": 4.97,
+          "end": 5.19
+        },
+        {
+          "text": "understood",
+          "start": 5.19,
+          "end": 5.57
+        },
+        {
+          "text": "him",
+          "start": 5.57,
+          "end": 5.79
+        },
+        {
+          "text": "smil'd",
+          "start": 5.79,
+          "end": 6.01
+        },
+        {
+          "text": "at",
+          "start": 6.23,
+          "end": 6.39
+        },
+        {
+          "text": "one",
+          "start": 6.39,
+          "end": 6.51
+        },
+        {
+          "text": "another",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "text": "and",
+          "start": 6.77,
+          "end": 7.05
+        },
+        {
+          "text": "shook",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "text": "their",
+          "start": 7.19,
+          "end": 7.41
+        },
+        {
+          "text": "heads;",
+          "start": 7.41,
+          "end": 7.77
+        },
+        {
+          "text": "but",
+          "start": 8.17,
+          "end": 8.33
+        },
+        {
+          "text": "for",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "text": "mine",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "text": "own",
+          "start": 8.77,
+          "end": 9.03
+        },
+        {
+          "text": "part,",
+          "start": 9.03,
+          "end": 9.37
+        },
+        {
+          "text": "it",
+          "start": 9.37,
+          "end": 9.61
+        },
+        {
+          "text": "was",
+          "start": 9.61,
+          "end": 9.75
+        },
+        {
+          "text": "Greek",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "text": "to",
+          "start": 9.97,
+          "end": 10.19
+        },
+        {
+          "text": "me.",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "text": "I",
+          "start": 10.99,
+          "end": 11.11
+        },
+        {
+          "text": "could",
+          "start": 11.11,
+          "end": 11.23
+        },
+        {
+          "text": "tell",
+          "start": 11.23,
+          "end": 11.39
+        },
+        {
+          "text": "you",
+          "start": 11.39,
+          "end": 11.55
+        },
+        {
+          "text": "more",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "text": "news",
+          "start": 11.73,
+          "end": 12.01
+        },
+        {
+          "text": "too:",
+          "start": 12.07,
+          "end": 12.37
+        },
+        {
+          "text": "Marullus",
+          "start": 12.95,
+          "end": 13.29
+        },
+        {
+          "text": "and",
+          "start": 13.29,
+          "end": 13.47
+        },
+        {
+          "text": "Flavius,",
+          "start": 13.47,
+          "end": 13.99
+        },
+        {
+          "text": "for",
+          "start": 14.09,
+          "end": 14.25
+        },
+        {
+          "text": "pulling",
+          "start": 14.25,
+          "end": 14.57
+        },
+        {
+          "text": "scarfs",
+          "start": 14.57,
+          "end": 15.11
+        },
+        {
+          "text": "off",
+          "start": 15.11,
+          "end": 15.27
+        },
+        {
+          "text": "Caesar's",
+          "start": 15.27,
+          "end": 15.83
+        },
+        {
+          "text": "images,",
+          "start": 15.83,
+          "end": 16.15
+        },
+        {
+          "text": "are",
+          "start": 16.31,
+          "end": 16.53
+        },
+        {
+          "text": "put",
+          "start": 16.53,
+          "end": 16.69
+        },
+        {
+          "text": "to",
+          "start": 16.69,
+          "end": 16.89
+        },
+        {
+          "text": "silence.",
+          "start": 16.89,
+          "end": 17.21
+        },
+        {
+          "text": "Fare",
+          "start": 18.07,
+          "end": 18.19
+        },
+        {
+          "text": "you",
+          "start": 18.19,
+          "end": 18.37
+        },
+        {
+          "text": "well.",
+          "start": 18.37,
+          "end": 18.63
+        },
+        {
+          "text": "There",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "text": "was",
+          "start": 19.31,
+          "end": 19.43
+        },
+        {
+          "text": "more",
+          "start": 19.43,
+          "end": 19.63
+        },
+        {
+          "text": "foolery",
+          "start": 19.63,
+          "end": 20.13
+        },
+        {
+          "text": "yet,",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "text": "if",
+          "start": 20.35,
+          "end": 20.53
+        },
+        {
+          "text": "I",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "text": "could",
+          "start": 20.65,
+          "end": 20.77
+        },
+        {
+          "text": "remember",
+          "start": 20.77,
+          "end": 21.07
+        },
+        {
+          "text": "it.",
+          "start": 21.07,
+          "end": 21.41
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 72,
+        "matched_words": 68
+      },
+      "match_ratio": 0.9577464788732394,
+      "rejection_reasons": [],
+      "seconds": 0.7924869359994773
+    },
+    {
+      "asr_seconds": 0.7966838249994908,
+      "alignment_seconds": 0.00238078401889652,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kaska, Nay, and I tell you that I'll ne'er look you eye to face again.",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Kaska,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.43389892578125
+            },
+            {
+              "text": " Nay,",
+              "start": 1.45,
+              "end": 1.49,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " and",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " tell",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 2.25,
+              "end": 2.41,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " I'll",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " ne",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.91748046875
+            },
+            {
+              "text": "'er",
+              "start": 2.75,
+              "end": 2.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " look",
+              "start": 2.85,
+              "end": 2.95,
+              "probability": 0.912109375
+            },
+            {
+              "text": " you",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " eye",
+              "start": 3.15,
+              "end": 3.31,
+              "probability": 0.466064453125
+            },
+            {
+              "text": " to",
+              "start": 3.31,
+              "end": 3.45,
+              "probability": 0.487548828125
+            },
+            {
+              "text": " face",
+              "start": 3.45,
+              "end": 3.69,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " again.",
+              "start": 3.69,
+              "end": 4.05,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " But those that understood him smilled at one another and shook their heads, but for mine",
+          "start": 4.61,
+          "end": 8.77,
+          "words": [
+            {
+              "text": " But",
+              "start": 4.61,
+              "end": 4.75,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " those",
+              "start": 4.75,
+              "end": 4.95,
+              "probability": 0.990234375
+            },
+            {
+              "text": " that",
+              "start": 4.95,
+              "end": 5.17,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " understood",
+              "start": 5.17,
+              "end": 5.57,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " him",
+              "start": 5.57,
+              "end": 5.79,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " smilled",
+              "start": 5.79,
+              "end": 6.23,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " at",
+              "start": 6.23,
+              "end": 6.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " one",
+              "start": 6.39,
+              "end": 6.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " another",
+              "start": 6.51,
+              "end": 6.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 6.77,
+              "end": 7.05,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " shook",
+              "start": 7.05,
+              "end": 7.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 7.19,
+              "end": 7.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " heads,",
+              "start": 7.41,
+              "end": 7.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " but",
+              "start": 8.15,
+              "end": 8.33,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " for",
+              "start": 8.33,
+              "end": 8.51,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " mine",
+              "start": 8.51,
+              "end": 8.77,
+              "probability": 0.9638671875
+            }
+          ]
+        },
+        {
+          "text": " own part it was Greek to me.",
+          "start": 8.77,
+          "end": 10.43,
+          "words": [
+            {
+              "text": " own",
+              "start": 8.77,
+              "end": 9.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " part",
+              "start": 9.03,
+              "end": 9.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 9.37,
+              "end": 9.61,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " was",
+              "start": 9.61,
+              "end": 9.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Greek",
+              "start": 9.75,
+              "end": 9.97,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " to",
+              "start": 9.97,
+              "end": 10.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me.",
+              "start": 10.19,
+              "end": 10.43,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " I could tell you more news too.",
+          "start": 10.99,
+          "end": 12.37,
+          "words": [
+            {
+              "text": " I",
+              "start": 10.99,
+              "end": 11.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " could",
+              "start": 11.11,
+              "end": 11.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " tell",
+              "start": 11.23,
+              "end": 11.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 11.39,
+              "end": 11.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 11.55,
+              "end": 11.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " news",
+              "start": 11.73,
+              "end": 11.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " too.",
+              "start": 11.99,
+              "end": 12.37,
+              "probability": 0.625
+            }
+          ]
+        },
+        {
+          "text": " Marillous and Flavius for pulling scarfs off Caesar's images are put to silence.",
+          "start": 12.95,
+          "end": 17.27,
+          "words": [
+            {
+              "text": " Marillous",
+              "start": 12.95,
+              "end": 13.27,
+              "probability": 0.5670979817708334
+            },
+            {
+              "text": " and",
+              "start": 13.27,
+              "end": 13.47,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Flavius",
+              "start": 13.47,
+              "end": 13.99,
+              "probability": 0.762451171875
+            },
+            {
+              "text": " for",
+              "start": 13.99,
+              "end": 14.25,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " pulling",
+              "start": 14.25,
+              "end": 14.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " scarfs",
+              "start": 14.59,
+              "end": 15.11,
+              "probability": 0.947021484375
+            },
+            {
+              "text": " off",
+              "start": 15.11,
+              "end": 15.27,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Caesar's",
+              "start": 15.27,
+              "end": 15.83,
+              "probability": 0.932861328125
+            },
+            {
+              "text": " images",
+              "start": 15.83,
+              "end": 16.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " are",
+              "start": 16.15,
+              "end": 16.53,
+              "probability": 0.927734375
+            },
+            {
+              "text": " put",
+              "start": 16.53,
+              "end": 16.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 16.69,
+              "end": 16.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " silence.",
+              "start": 16.89,
+              "end": 17.27,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Fare you well.",
+          "start": 17.73,
+          "end": 18.63,
+          "words": [
+            {
+              "text": " Fare",
+              "start": 17.73,
+              "end": 18.17,
+              "probability": 0.1790771484375
+            },
+            {
+              "text": " you",
+              "start": 18.17,
+              "end": 18.37,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " well.",
+              "start": 18.37,
+              "end": 18.63,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " There was more foolery yet if I could remember it.",
+          "start": 19.21,
+          "end": 21.39,
+          "words": [
+            {
+              "text": " There",
+              "start": 19.21,
+              "end": 19.31,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 19.31,
+              "end": 19.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more",
+              "start": 19.41,
+              "end": 19.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " foolery",
+              "start": 19.63,
+              "end": 20.13,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " yet",
+              "start": 20.13,
+              "end": 20.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " if",
+              "start": 20.35,
+              "end": 20.53,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " I",
+              "start": 20.53,
+              "end": 20.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " could",
+              "start": 20.65,
+              "end": 20.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " remember",
+              "start": 20.77,
+              "end": 21.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it.",
+              "start": 21.09,
+              "end": 21.39,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kaska,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "tell",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "that",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "raw": "I'll",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "ne",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "'er",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "raw": "look",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "raw": "you",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "eye",
+          "start": 3.15,
+          "end": 3.31
+        },
+        {
+          "raw": "to",
+          "start": 3.31,
+          "end": 3.45
+        },
+        {
+          "raw": "face",
+          "start": 3.45,
+          "end": 3.69
+        },
+        {
+          "raw": "again.",
+          "start": 3.69,
+          "end": 4.05
+        },
+        {
+          "raw": "But",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "raw": "those",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "raw": "that",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "raw": "understood",
+          "start": 5.17,
+          "end": 5.57
+        },
+        {
+          "raw": "him",
+          "start": 5.57,
+          "end": 5.79
+        },
+        {
+          "raw": "smilled",
+          "start": 5.79,
+          "end": 6.23
+        },
+        {
+          "raw": "at",
+          "start": 6.23,
+          "end": 6.39
+        },
+        {
+          "raw": "one",
+          "start": 6.39,
+          "end": 6.51
+        },
+        {
+          "raw": "another",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "raw": "and",
+          "start": 6.77,
+          "end": 7.05
+        },
+        {
+          "raw": "shook",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "raw": "their",
+          "start": 7.19,
+          "end": 7.41
+        },
+        {
+          "raw": "heads,",
+          "start": 7.41,
+          "end": 7.77
+        },
+        {
+          "raw": "but",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "raw": "for",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "raw": "mine",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "raw": "own",
+          "start": 8.77,
+          "end": 9.03
+        },
+        {
+          "raw": "part",
+          "start": 9.03,
+          "end": 9.37
+        },
+        {
+          "raw": "it",
+          "start": 9.37,
+          "end": 9.61
+        },
+        {
+          "raw": "was",
+          "start": 9.61,
+          "end": 9.75
+        },
+        {
+          "raw": "Greek",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "raw": "to",
+          "start": 9.97,
+          "end": 10.19
+        },
+        {
+          "raw": "me.",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "raw": "I",
+          "start": 10.99,
+          "end": 11.11
+        },
+        {
+          "raw": "could",
+          "start": 11.11,
+          "end": 11.23
+        },
+        {
+          "raw": "tell",
+          "start": 11.23,
+          "end": 11.39
+        },
+        {
+          "raw": "you",
+          "start": 11.39,
+          "end": 11.55
+        },
+        {
+          "raw": "more",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "raw": "news",
+          "start": 11.73,
+          "end": 11.99
+        },
+        {
+          "raw": "too.",
+          "start": 11.99,
+          "end": 12.37
+        },
+        {
+          "raw": "Marillous",
+          "start": 12.95,
+          "end": 13.27
+        },
+        {
+          "raw": "and",
+          "start": 13.27,
+          "end": 13.47
+        },
+        {
+          "raw": "Flavius",
+          "start": 13.47,
+          "end": 13.99
+        },
+        {
+          "raw": "for",
+          "start": 13.99,
+          "end": 14.25
+        },
+        {
+          "raw": "pulling",
+          "start": 14.25,
+          "end": 14.59
+        },
+        {
+          "raw": "scarfs",
+          "start": 14.59,
+          "end": 15.11
+        },
+        {
+          "raw": "off",
+          "start": 15.11,
+          "end": 15.27
+        },
+        {
+          "raw": "Caesar's",
+          "start": 15.27,
+          "end": 15.83
+        },
+        {
+          "raw": "images",
+          "start": 15.83,
+          "end": 16.15
+        },
+        {
+          "raw": "are",
+          "start": 16.15,
+          "end": 16.53
+        },
+        {
+          "raw": "put",
+          "start": 16.53,
+          "end": 16.69
+        },
+        {
+          "raw": "to",
+          "start": 16.69,
+          "end": 16.89
+        },
+        {
+          "raw": "silence.",
+          "start": 16.89,
+          "end": 17.27
+        },
+        {
+          "raw": "Fare",
+          "start": 17.73,
+          "end": 18.17
+        },
+        {
+          "raw": "you",
+          "start": 18.17,
+          "end": 18.37
+        },
+        {
+          "raw": "well.",
+          "start": 18.37,
+          "end": 18.63
+        },
+        {
+          "raw": "There",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "raw": "was",
+          "start": 19.31,
+          "end": 19.41
+        },
+        {
+          "raw": "more",
+          "start": 19.41,
+          "end": 19.63
+        },
+        {
+          "raw": "foolery",
+          "start": 19.63,
+          "end": 20.13
+        },
+        {
+          "raw": "yet",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "raw": "if",
+          "start": 20.35,
+          "end": 20.53
+        },
+        {
+          "raw": "I",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "raw": "could",
+          "start": 20.65,
+          "end": 20.77
+        },
+        {
+          "raw": "remember",
+          "start": 20.77,
+          "end": 21.09
+        },
+        {
+          "raw": "it.",
+          "start": 21.09,
+          "end": 21.39
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Nay,",
+        "and",
+        "I",
+        "tell",
+        "you",
+        "that,",
+        "I'll",
+        "ne'er",
+        "look",
+        "you",
+        "i'",
+        "the",
+        "face",
+        "again.",
+        "But",
+        "those",
+        "that",
+        "understood",
+        "him",
+        "smil'd",
+        "at",
+        "one",
+        "another",
+        "and",
+        "shook",
+        "their",
+        "heads;",
+        "but",
+        "for",
+        "mine",
+        "own",
+        "part,",
+        "it",
+        "was",
+        "Greek",
+        "to",
+        "me.",
+        "I",
+        "could",
+        "tell",
+        "you",
+        "more",
+        "news",
+        "too:",
+        "Marullus",
+        "and",
+        "Flavius,",
+        "for",
+        "pulling",
+        "scarfs",
+        "off",
+        "Caesar's",
+        "images,",
+        "are",
+        "put",
+        "to",
+        "silence.",
+        "Fare",
+        "you",
+        "well.",
+        "There",
+        "was",
+        "more",
+        "foolery",
+        "yet,",
+        "if",
+        "I",
+        "could",
+        "remember",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          11,
+          10,
+          12
+        ],
+        [
+          "replace",
+          11,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          20,
+          14,
+          21
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ],
+        [
+          "equal",
+          21,
+          45,
+          22,
+          46
+        ],
+        [
+          "replace",
+          45,
+          46,
+          46,
+          47
+        ],
+        [
+          "equal",
+          46,
+          71,
+          47,
+          72
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          11,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ],
+        [
+          "replace",
+          45,
+          46,
+          46,
+          47
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kaska,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "kaska",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.45,
+          "end": 1.49,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.25,
+          "end": 2.41,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.41,
+          "end": 2.61,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "ne",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 2.75,
+          "end": 2.85,
+          "key": "er",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 2.85,
+          "end": 2.95,
+          "key": "look",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 3.15,
+          "end": 3.31,
+          "key": "eye",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.31,
+          "end": 3.45,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 3.45,
+          "end": 3.69,
+          "key": "face",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.69,
+          "end": 4.05,
+          "key": "again",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 4.61,
+          "end": 4.75,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 4.75,
+          "end": 4.95,
+          "key": "those",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.95,
+          "end": 5.17,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "understood",
+          "start": 5.17,
+          "end": 5.57,
+          "key": "understood",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 5.57,
+          "end": 5.79,
+          "key": "him",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "smilled",
+          "start": 5.79,
+          "end": 6.23,
+          "key": "smilled",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 6.23,
+          "end": 6.39,
+          "key": "at",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 6.39,
+          "end": 6.51,
+          "key": "one",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.51,
+          "end": 6.77,
+          "key": "another",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.77,
+          "end": 7.05,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "shook",
+          "start": 7.05,
+          "end": 7.19,
+          "key": "shook",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.19,
+          "end": 7.41,
+          "key": "their",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "heads,",
+          "start": 7.41,
+          "end": 7.77,
+          "key": "heads",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 8.15,
+          "end": 8.33,
+          "key": "but",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.33,
+          "end": 8.51,
+          "key": "for",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 8.51,
+          "end": 8.77,
+          "key": "mine",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 8.77,
+          "end": 9.03,
+          "key": "own",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 9.03,
+          "end": 9.37,
+          "key": "part",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 9.37,
+          "end": 9.61,
+          "key": "it",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.61,
+          "end": 9.75,
+          "key": "was",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Greek",
+          "start": 9.75,
+          "end": 9.97,
+          "key": "greek",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.97,
+          "end": 10.19,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 10.19,
+          "end": 10.43,
+          "key": "me",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.99,
+          "end": 11.11,
+          "key": "i",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 11.11,
+          "end": 11.23,
+          "key": "could",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 11.23,
+          "end": 11.39,
+          "key": "tell",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.39,
+          "end": 11.55,
+          "key": "you",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 11.55,
+          "end": 11.73,
+          "key": "more",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 11.73,
+          "end": 11.99,
+          "key": "news",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 11.99,
+          "end": 12.37,
+          "key": "too",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Marillous",
+          "start": 12.95,
+          "end": 13.27,
+          "key": "marillous",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.27,
+          "end": 13.47,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Flavius",
+          "start": 13.47,
+          "end": 13.99,
+          "key": "flavius",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 13.99,
+          "end": 14.25,
+          "key": "for",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "pulling",
+          "start": 14.25,
+          "end": 14.59,
+          "key": "pulling",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "scarfs",
+          "start": 14.59,
+          "end": 15.11,
+          "key": "scarfs",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 15.11,
+          "end": 15.27,
+          "key": "off",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Caesar's",
+          "start": 15.27,
+          "end": 15.83,
+          "key": "caesars",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "images",
+          "start": 15.83,
+          "end": 16.15,
+          "key": "images",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 16.15,
+          "end": 16.53,
+          "key": "are",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 16.53,
+          "end": 16.69,
+          "key": "put",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 16.69,
+          "end": 16.89,
+          "key": "to",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "silence.",
+          "start": 16.89,
+          "end": 17.27,
+          "key": "silence",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 17.73,
+          "end": 18.17,
+          "key": "fare",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 18.17,
+          "end": 18.37,
+          "key": "you",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 18.37,
+          "end": 18.63,
+          "key": "well",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 19.21,
+          "end": 19.31,
+          "key": "there",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.31,
+          "end": 19.41,
+          "key": "was",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 19.41,
+          "end": 19.63,
+          "key": "more",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "foolery",
+          "start": 19.63,
+          "end": 20.13,
+          "key": "foolery",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 20.13,
+          "end": 20.35,
+          "key": "yet",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 20.35,
+          "end": 20.53,
+          "key": "if",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 20.53,
+          "end": 20.65,
+          "key": "i",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 20.65,
+          "end": 20.77,
+          "key": "could",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 20.77,
+          "end": 21.09,
+          "key": "remember",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 21.09,
+          "end": 21.39,
+          "key": "it",
+          "pieces": [
+            71
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.0,
+          "end": 0.725
+        },
+        {
+          "text": "Nay,",
+          "start": 1.45,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "I",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "tell",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "that,",
+          "start": 2.25,
+          "end": 2.41
+        },
+        {
+          "text": "I'll",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "ne'er",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "look",
+          "start": 2.85,
+          "end": 2.95
+        },
+        {
+          "text": "you",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "i'",
+          "start": 3.15,
+          "end": 3.3
+        },
+        {
+          "text": "the",
+          "start": 3.3,
+          "end": 3.375
+        },
+        {
+          "text": "face",
+          "start": 3.45,
+          "end": 3.69
+        },
+        {
+          "text": "again.",
+          "start": 3.69,
+          "end": 4.05
+        },
+        {
+          "text": "But",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "text": "those",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "text": "that",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "text": "understood",
+          "start": 5.17,
+          "end": 5.57
+        },
+        {
+          "text": "him",
+          "start": 5.57,
+          "end": 5.79
+        },
+        {
+          "text": "smil'd",
+          "start": 5.79,
+          "end": 6.01
+        },
+        {
+          "text": "at",
+          "start": 6.23,
+          "end": 6.39
+        },
+        {
+          "text": "one",
+          "start": 6.39,
+          "end": 6.51
+        },
+        {
+          "text": "another",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "text": "and",
+          "start": 6.77,
+          "end": 7.05
+        },
+        {
+          "text": "shook",
+          "start": 7.05,
+          "end": 7.19
+        },
+        {
+          "text": "their",
+          "start": 7.19,
+          "end": 7.41
+        },
+        {
+          "text": "heads;",
+          "start": 7.41,
+          "end": 7.77
+        },
+        {
+          "text": "but",
+          "start": 8.15,
+          "end": 8.33
+        },
+        {
+          "text": "for",
+          "start": 8.33,
+          "end": 8.51
+        },
+        {
+          "text": "mine",
+          "start": 8.51,
+          "end": 8.77
+        },
+        {
+          "text": "own",
+          "start": 8.77,
+          "end": 9.03
+        },
+        {
+          "text": "part,",
+          "start": 9.03,
+          "end": 9.37
+        },
+        {
+          "text": "it",
+          "start": 9.37,
+          "end": 9.61
+        },
+        {
+          "text": "was",
+          "start": 9.61,
+          "end": 9.75
+        },
+        {
+          "text": "Greek",
+          "start": 9.75,
+          "end": 9.97
+        },
+        {
+          "text": "to",
+          "start": 9.97,
+          "end": 10.19
+        },
+        {
+          "text": "me.",
+          "start": 10.19,
+          "end": 10.43
+        },
+        {
+          "text": "I",
+          "start": 10.99,
+          "end": 11.11
+        },
+        {
+          "text": "could",
+          "start": 11.11,
+          "end": 11.23
+        },
+        {
+          "text": "tell",
+          "start": 11.23,
+          "end": 11.39
+        },
+        {
+          "text": "you",
+          "start": 11.39,
+          "end": 11.55
+        },
+        {
+          "text": "more",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "text": "news",
+          "start": 11.73,
+          "end": 11.99
+        },
+        {
+          "text": "too:",
+          "start": 11.99,
+          "end": 12.37
+        },
+        {
+          "text": "Marullus",
+          "start": 12.37,
+          "end": 12.82
+        },
+        {
+          "text": "and",
+          "start": 13.27,
+          "end": 13.47
+        },
+        {
+          "text": "Flavius,",
+          "start": 13.47,
+          "end": 13.99
+        },
+        {
+          "text": "for",
+          "start": 13.99,
+          "end": 14.25
+        },
+        {
+          "text": "pulling",
+          "start": 14.25,
+          "end": 14.59
+        },
+        {
+          "text": "scarfs",
+          "start": 14.59,
+          "end": 15.11
+        },
+        {
+          "text": "off",
+          "start": 15.11,
+          "end": 15.27
+        },
+        {
+          "text": "Caesar's",
+          "start": 15.27,
+          "end": 15.83
+        },
+        {
+          "text": "images,",
+          "start": 15.83,
+          "end": 16.15
+        },
+        {
+          "text": "are",
+          "start": 16.15,
+          "end": 16.53
+        },
+        {
+          "text": "put",
+          "start": 16.53,
+          "end": 16.69
+        },
+        {
+          "text": "to",
+          "start": 16.69,
+          "end": 16.89
+        },
+        {
+          "text": "silence.",
+          "start": 16.89,
+          "end": 17.27
+        },
+        {
+          "text": "Fare",
+          "start": 17.73,
+          "end": 18.17
+        },
+        {
+          "text": "you",
+          "start": 18.17,
+          "end": 18.37
+        },
+        {
+          "text": "well.",
+          "start": 18.37,
+          "end": 18.63
+        },
+        {
+          "text": "There",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "text": "was",
+          "start": 19.31,
+          "end": 19.41
+        },
+        {
+          "text": "more",
+          "start": 19.41,
+          "end": 19.63
+        },
+        {
+          "text": "foolery",
+          "start": 19.63,
+          "end": 20.13
+        },
+        {
+          "text": "yet,",
+          "start": 20.13,
+          "end": 20.35
+        },
+        {
+          "text": "if",
+          "start": 20.35,
+          "end": 20.53
+        },
+        {
+          "text": "I",
+          "start": 20.53,
+          "end": 20.65
+        },
+        {
+          "text": "could",
+          "start": 20.65,
+          "end": 20.77
+        },
+        {
+          "text": "remember",
+          "start": 20.77,
+          "end": 21.09
+        },
+        {
+          "text": "it.",
+          "start": 21.09,
+          "end": 21.39
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 72,
+        "matched_words": 65
+      },
+      "match_ratio": 0.9154929577464789,
+      "rejection_reasons": [],
+      "seconds": 0.8000842400069814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c33b352031e9602986c954834070ffc591a1fc9f748e1926b85f84e617333b79",
+  "selected_reasons": []
+}

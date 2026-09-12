@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "7f56b4377b5abd1ad9b6dfdd25314ba472241ae7ea553209674a0f2c3e82ad3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.06595235504209995,
+      "alignment_seconds": 7.541291415691376e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She's no silly goose. Ingmar broke in.",
+          "start": 0.02,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " She's",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.849853515625
+            },
+            {
+              "text": " no",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " silly",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " goose.",
+              "start": 1.06,
+              "end": 1.46,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Ingmar",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.947509765625
+            },
+            {
+              "text": " broke",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.986328125
+            },
+            {
+              "text": " in.",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She's",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "no",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "silly",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "goose.",
+          "start": 1.06,
+          "end": 1.46
+        },
+        {
+          "raw": "Ingmar",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "broke",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "in.",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "\"She's",
+        "no",
+        "silly",
+        "goose!\"",
+        "Ingmar",
+        "broke",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She's",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "shes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "silly",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "silly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "goose.",
+          "start": 1.06,
+          "end": 1.46,
+          "key": "goose",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 1.98,
+          "end": 2.24,
+          "key": "ingmar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "broke",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"She's",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "no",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "silly",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "goose!\"",
+          "start": 1.06,
+          "end": 1.46
+        },
+        {
+          "text": "Ingmar",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "broke",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "in.",
+          "start": 2.48,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06605353578925133
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ec177490dc0c423cf743dba15f10f514bd9ad65779b462142c464a7a3b1a478c",
+  "selected_reasons": []
+}

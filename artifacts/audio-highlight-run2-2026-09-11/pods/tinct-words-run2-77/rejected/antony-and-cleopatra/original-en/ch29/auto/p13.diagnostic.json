@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "7ecb5935c1d5ccd0c557abdb6d1091c1908c18ce28b1ba1fce6b8b1514d8ff0f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10130966000724584,
+      "alignment_seconds": 0.00018746600835584104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter an Officer, armed.",
+        "hotwords": "Enter, Officer"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter an Officer, armed.",
+          "start": 0.14,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " an",
+              "start": 0.64,
+              "end": 0.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Officer,",
+              "start": 0.78,
+              "end": 1.16,
+              "probability": 0.1617431640625
+            },
+            {
+              "text": " armed.",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.416259765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "an",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "raw": "Officer,",
+          "start": 0.78,
+          "end": 1.16
+        },
+        {
+          "raw": "armed.",
+          "start": 1.5,
+          "end": 1.64
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "an",
+        "Officer,",
+        "armed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.64,
+          "end": 0.78,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Officer,",
+          "start": 0.78,
+          "end": 1.16,
+          "key": "officer",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "armed.",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "armed",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "an",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "text": "Officer,",
+          "start": 0.78,
+          "end": 1.16
+        },
+        {
+          "text": "armed.",
+          "start": 1.5,
+          "end": 1.64
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10155061801197007
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c39ec052cbc3584ada2b755766276b377e136d537e55d49a52814d4f5fbe9dc7",
+  "selected_reasons": []
+}

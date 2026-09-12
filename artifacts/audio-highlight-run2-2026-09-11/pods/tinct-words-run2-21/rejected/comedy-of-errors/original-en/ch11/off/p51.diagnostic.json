@@ -1,0 +1,415 @@
+{
+  "complete": true,
+  "signature": "650b81c4fbbde4c1408856716f63d82963bccb58a4a01257e31370ca217a15ed",
+  "attempts": [
+    {
+      "asr_seconds": 0.17848969204351306,
+      "alignment_seconds": 0.0002694777213037014,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And Jilo, see where they come. We will behold his death.",
+          "start": 0.14,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.14,
+              "end": 0.54,
+              "probability": 0.509765625
+            },
+            {
+              "text": " Jilo,",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.3399658203125
+            },
+            {
+              "text": " see",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " where",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " come.",
+              "start": 1.46,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " We",
+              "start": 2.14,
+              "end": 2.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " will",
+              "start": 2.22,
+              "end": 2.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " behold",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " his",
+              "start": 2.58,
+              "end": 2.8,
+              "probability": 0.9765625
+            },
+            {
+              "text": " death.",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "raw": "Jilo,",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "raw": "see",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "where",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "they",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "come.",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "raw": "We",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "raw": "will",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "raw": "behold",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "his",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "raw": "death.",
+          "start": 2.8,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "Angelo.",
+        "See",
+        "where",
+        "they",
+        "come.",
+        "We",
+        "will",
+        "behold",
+        "his",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          10,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.14,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jilo,",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "jilo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 1.46,
+          "end": 1.74,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 2.14,
+          "end": 2.22,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.22,
+          "end": 2.32,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "behold",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "behold",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.58,
+          "end": 2.8,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 2.8,
+          "end": 3.08,
+          "key": "death",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Angelo.",
+          "start": 0.0,
+          "end": 0.55
+        },
+        {
+          "text": "See",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "where",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "they",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "come.",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "text": "We",
+          "start": 2.14,
+          "end": 2.22
+        },
+        {
+          "text": "will",
+          "start": 2.22,
+          "end": 2.32
+        },
+        {
+          "text": "behold",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "text": "his",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "text": "death.",
+          "start": 2.8,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.17885512486100197
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4538ab407f6da1d15590cbba5514f0b09a2065868d7d8fd8529084fee3565d7b",
+  "selected_reasons": []
+}

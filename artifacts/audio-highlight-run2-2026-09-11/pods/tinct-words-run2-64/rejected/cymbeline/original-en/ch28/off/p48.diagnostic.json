@@ -1,0 +1,564 @@
+{
+  "complete": true,
+  "signature": "4d6acf0a70165d47bab9e23e8106b64ba59e05f57d50d0f4c2fc1c728d84b94d",
+  "attempts": [
+    {
+      "asr_seconds": 0.27419035974889994,
+      "alignment_seconds": 0.0005147848278284073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Post humus thou shalt be then freer than a jailer no bolts for the dead",
+          "start": 0.05,
+          "end": 4.61,
+          "words": [
+            {
+              "text": " Post",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.845703125
+            },
+            {
+              "text": " humus",
+              "start": 0.63,
+              "end": 1.21,
+              "probability": 0.55072021484375
+            },
+            {
+              "text": " thou",
+              "start": 1.21,
+              "end": 1.71,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " shalt",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " then",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " freer",
+              "start": 2.23,
+              "end": 2.61,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " than",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " jailer",
+              "start": 2.83,
+              "end": 3.37,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " no",
+              "start": 3.37,
+              "end": 3.75,
+              "probability": 0.669921875
+            },
+            {
+              "text": " bolts",
+              "start": 3.75,
+              "end": 4.01,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " for",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.21,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " dead",
+              "start": 4.31,
+              "end": 4.61,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Post",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "humus",
+          "start": 0.63,
+          "end": 1.21
+        },
+        {
+          "raw": "thou",
+          "start": 1.21,
+          "end": 1.71
+        },
+        {
+          "raw": "shalt",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "be",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "then",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "freer",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "raw": "than",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "a",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "jailer",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "raw": "no",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "raw": "bolts",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "raw": "for",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "the",
+          "start": 4.21,
+          "end": 4.31
+        },
+        {
+          "raw": "dead",
+          "start": 4.31,
+          "end": 4.61
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "Thou",
+        "shalt",
+        "be",
+        "then",
+        "freer",
+        "than",
+        "a",
+        "gaoler;",
+        "no",
+        "bolts",
+        "for",
+        "the",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          8,
+          2,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          14,
+          10,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Post",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "post",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "humus",
+          "start": 0.63,
+          "end": 1.21,
+          "key": "humus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.21,
+          "end": 1.71,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "shalt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "then",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "freer",
+          "start": 2.23,
+          "end": 2.61,
+          "key": "freer",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "than",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "jailer",
+          "start": 2.83,
+          "end": 3.37,
+          "key": "jailer",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.37,
+          "end": 3.75,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bolts",
+          "start": 3.75,
+          "end": 4.01,
+          "key": "bolts",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.01,
+          "end": 4.21,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.21,
+          "end": 4.31,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 4.31,
+          "end": 4.61,
+          "key": "dead",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.0,
+          "end": 0.605
+        },
+        {
+          "text": "Thou",
+          "start": 1.21,
+          "end": 1.71
+        },
+        {
+          "text": "shalt",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "be",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "then",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "freer",
+          "start": 2.23,
+          "end": 2.61
+        },
+        {
+          "text": "than",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "a",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "gaoler;",
+          "start": 2.83,
+          "end": 3.1
+        },
+        {
+          "text": "no",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "text": "bolts",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "text": "for",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "the",
+          "start": 4.21,
+          "end": 4.31
+        },
+        {
+          "text": "dead.",
+          "start": 4.31,
+          "end": 4.61
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.274915786460042
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f04b44b533fe8452dbcdcd409eae555dd5a587ee6a19e063c1d726844874e53e",
+  "selected_reasons": []
+}

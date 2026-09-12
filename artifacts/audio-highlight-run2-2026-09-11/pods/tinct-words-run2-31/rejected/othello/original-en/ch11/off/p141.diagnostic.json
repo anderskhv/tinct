@@ -1,0 +1,322 @@
+{
+  "complete": true,
+  "signature": "d7a0f33c04874b0b4c169168c2bfbec96e30bb40cf57b8a981b52885199340d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.15549603896215558,
+      "alignment_seconds": 0.0003167870454490185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, I'm glad to see you mad.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.9510091145833334
+            },
+            {
+              "text": " I'm",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " glad",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mad.",
+              "start": 2.01,
+              "end": 2.33,
+              "probability": 0.9013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "I'm",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "glad",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "to",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "see",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "you",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "mad.",
+          "start": 2.01,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "I",
+        "am",
+        "glad",
+        "to",
+        "see",
+        "you",
+        "mad."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          8,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "glad",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "glad",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "mad.",
+          "start": 2.01,
+          "end": 2.33,
+          "key": "mad",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "I",
+          "start": 0.85,
+          "end": 1.12
+        },
+        {
+          "text": "am",
+          "start": 1.12,
+          "end": 1.255
+        },
+        {
+          "text": "glad",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "to",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "see",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "you",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "mad.",
+          "start": 2.01,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1559129348024726
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d36c797dc7ed76d0741773f3a406cee0aed7dd7fe07972b172155f735a944f9c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

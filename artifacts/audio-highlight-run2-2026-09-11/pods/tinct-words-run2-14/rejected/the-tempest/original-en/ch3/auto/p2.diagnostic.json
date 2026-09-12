@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "b0680833b8fdbb5510770845eb9ae27522ee229c9d4720d1fc4c31457b27bc5b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1404186710715294,
+      "alignment_seconds": 0.00024906545877456665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alonso. Prithee, peace.",
+        "hotwords": "Alonso, Prithee"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alonso, Prithee, peace.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Alonso,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.34130859375
+            },
+            {
+              "text": " Prithee,",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.3714090983072917
+            },
+            {
+              "text": " peace.",
+              "start": 1.77,
+              "end": 1.77,
+              "probability": 0.8017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonso,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Prithee,",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "peace.",
+          "start": 1.77,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Alonso.",
+        "Prithee,",
+        "peace."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alonso,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "alonso",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prithee,",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "prithee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace.",
+          "start": 1.77,
+          "end": 1.77,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alonso.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Prithee,",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "peace.",
+          "start": 1.77,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14075786992907524
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d9f7c19a184af47846e4bdc1c38502ac687a52d6d37e115b9b4a1eac5cc9dbc5",
+  "selected_reasons": []
+}

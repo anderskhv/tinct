@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "9791c30282c86a58e02fd3b30930a2834a649a55b1434eb94e80d2ae0f22ac77",
+  "attempts": [
+    {
+      "asr_seconds": 0.16970485681667924,
+      "alignment_seconds": 0.0002528699114918709,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your mother was my father's sister.",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " mother",
+              "start": 0.52,
+              "end": 0.74,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " was",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " father's",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.980712890625
+            },
+            {
+              "text": " sister.",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "mother",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "raw": "was",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "my",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "raw": "father's",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "raw": "sister.",
+          "start": 1.62,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "\"Your",
+        "mother",
+        "was",
+        "my",
+        "father's",
+        "sister?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 0.52,
+          "end": 0.74,
+          "key": "mother",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 1.16,
+          "end": 1.62,
+          "key": "fathers",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sister.",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "sister",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "mother",
+          "start": 0.52,
+          "end": 0.74
+        },
+        {
+          "text": "was",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "my",
+          "start": 0.96,
+          "end": 1.16
+        },
+        {
+          "text": "father's",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "text": "sister?\"",
+          "start": 1.62,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17006040597334504
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "573261d9d476df2802063d6159d39ed8dc75a760bae4ba335b8a0a57436e37d9",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "6f98acbc25e150bcbc9fba5e38df632c674f298fc55e953a83ac5ef1465bdcc8",
+  "attempts": [
+    {
+      "asr_seconds": 0.10793126467615366,
+      "alignment_seconds": 8.88332724571228e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Lucius.",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " Lucius.",
+              "start": 0.64,
+              "end": 0.96,
+              "probability": 0.8876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Lucius.",
+          "start": 0.64,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Lucius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lucius.",
+          "start": 0.64,
+          "end": 0.96,
+          "key": "lucius",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Lucius._]",
+          "start": 0.64,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10804724786430597
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cdef5e854d93edd3cf3b09b1962d0c05fd839ee473b61d328635d4a19c9908ce",
+  "selected_reasons": []
+}

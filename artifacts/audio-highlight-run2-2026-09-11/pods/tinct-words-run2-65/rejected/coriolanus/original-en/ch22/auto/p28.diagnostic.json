@@ -1,0 +1,4017 @@
+{
+  "complete": true,
+  "signature": "39fd9ede0858358acf44d49fd4143b449b28752e8bedcac2e8998a54ef4ea464",
+  "attempts": [
+    {
+      "asr_seconds": 0.42782060895115137,
+      "alignment_seconds": 0.0007765330374240875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aedile. Worthy tribunes, There is a slave, whom we have put in prison, Reports the Volsces with two several powers Are entered in the Roman territories, And with the deepest malice of the war Destroy what lies before 'em.",
+        "hotwords": "Aedile, Worthy, There, Reports, Volsces, Are, Roman, And, Destroy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aedile, Worthy tribunes, There is a slave, whom we have put in prison, Reports the Volsces with two several powers Are entered in the Roman territories, And with the deepest malice of the war Destroy what lies before him.",
+          "start": 0.02,
+          "end": 13.94,
+          "words": [
+            {
+              "text": " Aedile,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.47524261474609375
+            },
+            {
+              "text": " Worthy",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.5157928466796875
+            },
+            {
+              "text": " tribunes,",
+              "start": 1.48,
+              "end": 2.06,
+              "probability": 0.5141754150390625
+            },
+            {
+              "text": " There",
+              "start": 2.4,
+              "end": 2.48,
+              "probability": 0.07196044921875
+            },
+            {
+              "text": " is",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.978515625
+            },
+            {
+              "text": " a",
+              "start": 2.58,
+              "end": 2.8,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " slave,",
+              "start": 2.8,
+              "end": 3.12,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " whom",
+              "start": 3.66,
+              "end": 3.82,
+              "probability": 0.430419921875
+            },
+            {
+              "text": " we",
+              "start": 3.82,
+              "end": 4.0,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " have",
+              "start": 4.0,
+              "end": 4.1,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " put",
+              "start": 4.1,
+              "end": 4.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " prison,",
+              "start": 4.4,
+              "end": 4.68,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Reports",
+              "start": 5.26,
+              "end": 5.52,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " the",
+              "start": 5.52,
+              "end": 5.82,
+              "probability": 0.96875
+            },
+            {
+              "text": " Volsces",
+              "start": 5.82,
+              "end": 6.28,
+              "probability": 0.032770792643229164
+            },
+            {
+              "text": " with",
+              "start": 6.28,
+              "end": 6.46,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " two",
+              "start": 6.46,
+              "end": 6.72,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " several",
+              "start": 6.72,
+              "end": 7.14,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " powers",
+              "start": 7.14,
+              "end": 7.58,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " Are",
+              "start": 7.58,
+              "end": 7.86,
+              "probability": 0.366455078125
+            },
+            {
+              "text": " entered",
+              "start": 7.86,
+              "end": 8.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 8.2,
+              "end": 8.46,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 8.46,
+              "end": 8.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Roman",
+              "start": 8.56,
+              "end": 8.82,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " territories,",
+              "start": 8.82,
+              "end": 9.42,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " And",
+              "start": 10.12,
+              "end": 10.32,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " with",
+              "start": 10.32,
+              "end": 10.44,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 10.44,
+              "end": 10.6,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " deepest",
+              "start": 10.6,
+              "end": 10.96,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " malice",
+              "start": 10.96,
+              "end": 11.38,
+              "probability": 0.921875
+            },
+            {
+              "text": " of",
+              "start": 11.38,
+              "end": 11.62,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " the",
+              "start": 11.62,
+              "end": 11.76,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " war",
+              "start": 11.76,
+              "end": 12.0,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Destroy",
+              "start": 12.0,
+              "end": 12.44,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " what",
+              "start": 12.44,
+              "end": 12.9,
+              "probability": 0.791015625
+            },
+            {
+              "text": " lies",
+              "start": 12.9,
+              "end": 13.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before",
+              "start": 13.2,
+              "end": 13.58,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " him.",
+              "start": 13.58,
+              "end": 13.94,
+              "probability": 0.73388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aedile,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Worthy",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "tribunes,",
+          "start": 1.48,
+          "end": 2.06
+        },
+        {
+          "raw": "There",
+          "start": 2.4,
+          "end": 2.48
+        },
+        {
+          "raw": "is",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "raw": "slave,",
+          "start": 2.8,
+          "end": 3.12
+        },
+        {
+          "raw": "whom",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "raw": "we",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "raw": "have",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "raw": "put",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "raw": "in",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "prison,",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "raw": "Reports",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "raw": "the",
+          "start": 5.52,
+          "end": 5.82
+        },
+        {
+          "raw": "Volsces",
+          "start": 5.82,
+          "end": 6.28
+        },
+        {
+          "raw": "with",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "raw": "two",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "raw": "several",
+          "start": 6.72,
+          "end": 7.14
+        },
+        {
+          "raw": "powers",
+          "start": 7.14,
+          "end": 7.58
+        },
+        {
+          "raw": "Are",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "raw": "entered",
+          "start": 7.86,
+          "end": 8.2
+        },
+        {
+          "raw": "in",
+          "start": 8.2,
+          "end": 8.46
+        },
+        {
+          "raw": "the",
+          "start": 8.46,
+          "end": 8.56
+        },
+        {
+          "raw": "Roman",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "raw": "territories,",
+          "start": 8.82,
+          "end": 9.42
+        },
+        {
+          "raw": "And",
+          "start": 10.12,
+          "end": 10.32
+        },
+        {
+          "raw": "with",
+          "start": 10.32,
+          "end": 10.44
+        },
+        {
+          "raw": "the",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "raw": "deepest",
+          "start": 10.6,
+          "end": 10.96
+        },
+        {
+          "raw": "malice",
+          "start": 10.96,
+          "end": 11.38
+        },
+        {
+          "raw": "of",
+          "start": 11.38,
+          "end": 11.62
+        },
+        {
+          "raw": "the",
+          "start": 11.62,
+          "end": 11.76
+        },
+        {
+          "raw": "war",
+          "start": 11.76,
+          "end": 12.0
+        },
+        {
+          "raw": "Destroy",
+          "start": 12.0,
+          "end": 12.44
+        },
+        {
+          "raw": "what",
+          "start": 12.44,
+          "end": 12.9
+        },
+        {
+          "raw": "lies",
+          "start": 12.9,
+          "end": 13.2
+        },
+        {
+          "raw": "before",
+          "start": 13.2,
+          "end": 13.58
+        },
+        {
+          "raw": "him.",
+          "start": 13.58,
+          "end": 13.94
+        }
+      ],
+      "expected_tokens": [
+        "Aedile.",
+        "Worthy",
+        "tribunes,",
+        "There",
+        "is",
+        "a",
+        "slave,",
+        "whom",
+        "we",
+        "have",
+        "put",
+        "in",
+        "prison,",
+        "Reports",
+        "the",
+        "Volsces",
+        "with",
+        "two",
+        "several",
+        "powers",
+        "Are",
+        "entered",
+        "in",
+        "the",
+        "Roman",
+        "territories,",
+        "And",
+        "with",
+        "the",
+        "deepest",
+        "malice",
+        "of",
+        "the",
+        "war",
+        "Destroy",
+        "what",
+        "lies",
+        "before",
+        "'em."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          38,
+          39,
+          38,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aedile,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "aedile",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Worthy",
+          "start": 1.16,
+          "end": 1.48,
+          "key": "worthy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tribunes,",
+          "start": 1.48,
+          "end": 2.06,
+          "key": "tribunes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.4,
+          "end": 2.48,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.8,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "slave,",
+          "start": 2.8,
+          "end": 3.12,
+          "key": "slave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 3.66,
+          "end": 3.82,
+          "key": "whom",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.82,
+          "end": 4.0,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.0,
+          "end": 4.1,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 4.1,
+          "end": 4.22,
+          "key": "put",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "prison,",
+          "start": 4.4,
+          "end": 4.68,
+          "key": "prison",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Reports",
+          "start": 5.26,
+          "end": 5.52,
+          "key": "reports",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.52,
+          "end": 5.82,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Volsces",
+          "start": 5.82,
+          "end": 6.28,
+          "key": "volsces",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.28,
+          "end": 6.46,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 6.46,
+          "end": 6.72,
+          "key": "two",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 6.72,
+          "end": 7.14,
+          "key": "several",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "powers",
+          "start": 7.14,
+          "end": 7.58,
+          "key": "powers",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 7.58,
+          "end": 7.86,
+          "key": "are",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 7.86,
+          "end": 8.2,
+          "key": "entered",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.2,
+          "end": 8.46,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.46,
+          "end": 8.56,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 8.56,
+          "end": 8.82,
+          "key": "roman",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "territories,",
+          "start": 8.82,
+          "end": 9.42,
+          "key": "territories",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.12,
+          "end": 10.32,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 10.32,
+          "end": 10.44,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.44,
+          "end": 10.6,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "deepest",
+          "start": 10.6,
+          "end": 10.96,
+          "key": "deepest",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "malice",
+          "start": 10.96,
+          "end": 11.38,
+          "key": "malice",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.38,
+          "end": 11.62,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.62,
+          "end": 11.76,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 11.76,
+          "end": 12.0,
+          "key": "war",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Destroy",
+          "start": 12.0,
+          "end": 12.44,
+          "key": "destroy",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 12.44,
+          "end": 12.9,
+          "key": "what",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 12.9,
+          "end": 13.2,
+          "key": "lies",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 13.2,
+          "end": 13.58,
+          "key": "before",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 13.58,
+          "end": 13.94,
+          "key": "him",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aedile.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Worthy",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "tribunes,",
+          "start": 1.48,
+          "end": 2.06
+        },
+        {
+          "text": "There",
+          "start": 2.4,
+          "end": 2.48
+        },
+        {
+          "text": "is",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "a",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "text": "slave,",
+          "start": 2.8,
+          "end": 3.12
+        },
+        {
+          "text": "whom",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "text": "we",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "text": "have",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "text": "put",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "text": "in",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "prison,",
+          "start": 4.4,
+          "end": 4.68
+        },
+        {
+          "text": "Reports",
+          "start": 5.26,
+          "end": 5.52
+        },
+        {
+          "text": "the",
+          "start": 5.52,
+          "end": 5.82
+        },
+        {
+          "text": "Volsces",
+          "start": 5.82,
+          "end": 6.28
+        },
+        {
+          "text": "with",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "text": "two",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "text": "several",
+          "start": 6.72,
+          "end": 7.14
+        },
+        {
+          "text": "powers",
+          "start": 7.14,
+          "end": 7.58
+        },
+        {
+          "text": "Are",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "text": "entered",
+          "start": 7.86,
+          "end": 8.2
+        },
+        {
+          "text": "in",
+          "start": 8.2,
+          "end": 8.46
+        },
+        {
+          "text": "the",
+          "start": 8.46,
+          "end": 8.56
+        },
+        {
+          "text": "Roman",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "text": "territories,",
+          "start": 8.82,
+          "end": 9.42
+        },
+        {
+          "text": "And",
+          "start": 10.12,
+          "end": 10.32
+        },
+        {
+          "text": "with",
+          "start": 10.32,
+          "end": 10.44
+        },
+        {
+          "text": "the",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "text": "deepest",
+          "start": 10.6,
+          "end": 10.96
+        },
+        {
+          "text": "malice",
+          "start": 10.96,
+          "end": 11.38
+        },
+        {
+          "text": "of",
+          "start": 11.38,
+          "end": 11.62
+        },
+        {
+          "text": "the",
+          "start": 11.62,
+          "end": 11.76
+        },
+        {
+          "text": "war",
+          "start": 11.76,
+          "end": 12.0
+        },
+        {
+          "text": "Destroy",
+          "start": 12.0,
+          "end": 12.44
+        },
+        {
+          "text": "what",
+          "start": 12.44,
+          "end": 12.9
+        },
+        {
+          "text": "lies",
+          "start": 12.9,
+          "end": 13.2
+        },
+        {
+          "text": "before",
+          "start": 13.2,
+          "end": 13.58
+        },
+        {
+          "text": "'em.",
+          "start": 13.58,
+          "end": 13.76
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 38
+      },
+      "match_ratio": 0.9743589743589743,
+      "rejection_reasons": [],
+      "seconds": 0.4289342821575701
+    },
+    {
+      "asr_seconds": 0.533507714048028,
+      "alignment_seconds": 0.0007936041802167892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Aedile, Worthy, There, Reports, Volsces, Are, Roman, And, Destroy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Aedile, Worthy Tribunes, There Is A Slave, Whom We Have Put In Prison, Reports The Volsces",
+          "start": 0.02,
+          "end": 6.28,
+          "words": [
+            {
+              "text": " Aedile,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.47524261474609375
+            },
+            {
+              "text": " Worthy",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.5157928466796875
+            },
+            {
+              "text": " Tribunes,",
+              "start": 1.48,
+              "end": 2.06,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " There",
+              "start": 2.4,
+              "end": 2.48,
+              "probability": 0.254638671875
+            },
+            {
+              "text": " Is",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.1474609375
+            },
+            {
+              "text": " A",
+              "start": 2.58,
+              "end": 2.8,
+              "probability": 0.63232421875
+            },
+            {
+              "text": " Slave,",
+              "start": 2.8,
+              "end": 3.14,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Whom",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.978759765625
+            },
+            {
+              "text": " We",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Have",
+              "start": 4.0,
+              "end": 4.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Put",
+              "start": 4.1,
+              "end": 4.22,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " In",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " Prison,",
+              "start": 4.4,
+              "end": 4.7,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Reports",
+              "start": 5.48,
+              "end": 5.52,
+              "probability": 0.5673828125
+            },
+            {
+              "text": " The",
+              "start": 5.52,
+              "end": 5.82,
+              "probability": 0.90625
+            },
+            {
+              "text": " Volsces",
+              "start": 5.82,
+              "end": 6.28,
+              "probability": 0.12812296549479166
+            }
+          ]
+        },
+        {
+          "text": " With Two Several Powers Are Entered In The Roman Territories, And With The Deepest Malice",
+          "start": 6.28,
+          "end": 11.5,
+          "words": [
+            {
+              "text": " With",
+              "start": 6.28,
+              "end": 6.44,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Two",
+              "start": 6.44,
+              "end": 6.72,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Several",
+              "start": 6.72,
+              "end": 7.14,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Powers",
+              "start": 7.14,
+              "end": 7.56,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Are",
+              "start": 7.56,
+              "end": 7.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Entered",
+              "start": 7.88,
+              "end": 8.18,
+              "probability": 0.51171875
+            },
+            {
+              "text": " In",
+              "start": 8.18,
+              "end": 8.46,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " The",
+              "start": 8.46,
+              "end": 8.56,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Roman",
+              "start": 8.56,
+              "end": 8.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Territories,",
+              "start": 8.82,
+              "end": 9.4,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " And",
+              "start": 10.22,
+              "end": 10.32,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " With",
+              "start": 10.32,
+              "end": 10.44,
+              "probability": 0.986328125
+            },
+            {
+              "text": " The",
+              "start": 10.44,
+              "end": 10.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Deepest",
+              "start": 10.6,
+              "end": 11.06,
+              "probability": 0.961181640625
+            },
+            {
+              "text": " Malice",
+              "start": 11.06,
+              "end": 11.5,
+              "probability": 0.932861328125
+            }
+          ]
+        },
+        {
+          "text": " Of The War Destroy What Lies Before Him.",
+          "start": 11.5,
+          "end": 13.92,
+          "words": [
+            {
+              "text": " Of",
+              "start": 11.5,
+              "end": 11.62,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " The",
+              "start": 11.62,
+              "end": 11.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " War",
+              "start": 11.74,
+              "end": 12.0,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Destroy",
+              "start": 12.0,
+              "end": 12.44,
+              "probability": 0.947265625
+            },
+            {
+              "text": " What",
+              "start": 12.44,
+              "end": 12.9,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Lies",
+              "start": 12.9,
+              "end": 13.18,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Before",
+              "start": 13.18,
+              "end": 13.5,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Him.",
+              "start": 13.5,
+              "end": 13.92,
+              "probability": 0.51416015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aedile,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Worthy",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "Tribunes,",
+          "start": 1.48,
+          "end": 2.06
+        },
+        {
+          "raw": "There",
+          "start": 2.4,
+          "end": 2.48
+        },
+        {
+          "raw": "Is",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "A",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "raw": "Slave,",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "raw": "Whom",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "We",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "Have",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "raw": "Put",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "raw": "In",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "Prison,",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "raw": "Reports",
+          "start": 5.48,
+          "end": 5.52
+        },
+        {
+          "raw": "The",
+          "start": 5.52,
+          "end": 5.82
+        },
+        {
+          "raw": "Volsces",
+          "start": 5.82,
+          "end": 6.28
+        },
+        {
+          "raw": "With",
+          "start": 6.28,
+          "end": 6.44
+        },
+        {
+          "raw": "Two",
+          "start": 6.44,
+          "end": 6.72
+        },
+        {
+          "raw": "Several",
+          "start": 6.72,
+          "end": 7.14
+        },
+        {
+          "raw": "Powers",
+          "start": 7.14,
+          "end": 7.56
+        },
+        {
+          "raw": "Are",
+          "start": 7.56,
+          "end": 7.88
+        },
+        {
+          "raw": "Entered",
+          "start": 7.88,
+          "end": 8.18
+        },
+        {
+          "raw": "In",
+          "start": 8.18,
+          "end": 8.46
+        },
+        {
+          "raw": "The",
+          "start": 8.46,
+          "end": 8.56
+        },
+        {
+          "raw": "Roman",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "raw": "Territories,",
+          "start": 8.82,
+          "end": 9.4
+        },
+        {
+          "raw": "And",
+          "start": 10.22,
+          "end": 10.32
+        },
+        {
+          "raw": "With",
+          "start": 10.32,
+          "end": 10.44
+        },
+        {
+          "raw": "The",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "raw": "Deepest",
+          "start": 10.6,
+          "end": 11.06
+        },
+        {
+          "raw": "Malice",
+          "start": 11.06,
+          "end": 11.5
+        },
+        {
+          "raw": "Of",
+          "start": 11.5,
+          "end": 11.62
+        },
+        {
+          "raw": "The",
+          "start": 11.62,
+          "end": 11.74
+        },
+        {
+          "raw": "War",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "raw": "Destroy",
+          "start": 12.0,
+          "end": 12.44
+        },
+        {
+          "raw": "What",
+          "start": 12.44,
+          "end": 12.9
+        },
+        {
+          "raw": "Lies",
+          "start": 12.9,
+          "end": 13.18
+        },
+        {
+          "raw": "Before",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "raw": "Him.",
+          "start": 13.5,
+          "end": 13.92
+        }
+      ],
+      "expected_tokens": [
+        "Aedile.",
+        "Worthy",
+        "tribunes,",
+        "There",
+        "is",
+        "a",
+        "slave,",
+        "whom",
+        "we",
+        "have",
+        "put",
+        "in",
+        "prison,",
+        "Reports",
+        "the",
+        "Volsces",
+        "with",
+        "two",
+        "several",
+        "powers",
+        "Are",
+        "entered",
+        "in",
+        "the",
+        "Roman",
+        "territories,",
+        "And",
+        "with",
+        "the",
+        "deepest",
+        "malice",
+        "of",
+        "the",
+        "war",
+        "Destroy",
+        "what",
+        "lies",
+        "before",
+        "'em."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          38,
+          39,
+          38,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aedile,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "aedile",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Worthy",
+          "start": 1.16,
+          "end": 1.48,
+          "key": "worthy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tribunes,",
+          "start": 1.48,
+          "end": 2.06,
+          "key": "tribunes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.4,
+          "end": 2.48,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.58,
+          "end": 2.8,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Slave,",
+          "start": 2.8,
+          "end": 3.14,
+          "key": "slave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Whom",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "whom",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 3.84,
+          "end": 4.0,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 4.0,
+          "end": 4.1,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Put",
+          "start": 4.1,
+          "end": 4.22,
+          "key": "put",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Prison,",
+          "start": 4.4,
+          "end": 4.7,
+          "key": "prison",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Reports",
+          "start": 5.48,
+          "end": 5.52,
+          "key": "reports",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.52,
+          "end": 5.82,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Volsces",
+          "start": 5.82,
+          "end": 6.28,
+          "key": "volsces",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 6.28,
+          "end": 6.44,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Two",
+          "start": 6.44,
+          "end": 6.72,
+          "key": "two",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Several",
+          "start": 6.72,
+          "end": 7.14,
+          "key": "several",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Powers",
+          "start": 7.14,
+          "end": 7.56,
+          "key": "powers",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 7.56,
+          "end": 7.88,
+          "key": "are",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Entered",
+          "start": 7.88,
+          "end": 8.18,
+          "key": "entered",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 8.18,
+          "end": 8.46,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.46,
+          "end": 8.56,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 8.56,
+          "end": 8.82,
+          "key": "roman",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Territories,",
+          "start": 8.82,
+          "end": 9.4,
+          "key": "territories",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 10.22,
+          "end": 10.32,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 10.32,
+          "end": 10.44,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 10.44,
+          "end": 10.6,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Deepest",
+          "start": 10.6,
+          "end": 11.06,
+          "key": "deepest",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Malice",
+          "start": 11.06,
+          "end": 11.5,
+          "key": "malice",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 11.5,
+          "end": 11.62,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 11.62,
+          "end": 11.74,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "War",
+          "start": 11.74,
+          "end": 12.0,
+          "key": "war",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Destroy",
+          "start": 12.0,
+          "end": 12.44,
+          "key": "destroy",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 12.44,
+          "end": 12.9,
+          "key": "what",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Lies",
+          "start": 12.9,
+          "end": 13.18,
+          "key": "lies",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Before",
+          "start": 13.18,
+          "end": 13.5,
+          "key": "before",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Him.",
+          "start": 13.5,
+          "end": 13.92,
+          "key": "him",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aedile.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "Worthy",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "tribunes,",
+          "start": 1.48,
+          "end": 2.06
+        },
+        {
+          "text": "There",
+          "start": 2.4,
+          "end": 2.48
+        },
+        {
+          "text": "is",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "a",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "text": "slave,",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "text": "whom",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "we",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "have",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "text": "put",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "text": "in",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "prison,",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "text": "Reports",
+          "start": 5.48,
+          "end": 5.52
+        },
+        {
+          "text": "the",
+          "start": 5.52,
+          "end": 5.82
+        },
+        {
+          "text": "Volsces",
+          "start": 5.82,
+          "end": 6.28
+        },
+        {
+          "text": "with",
+          "start": 6.28,
+          "end": 6.44
+        },
+        {
+          "text": "two",
+          "start": 6.44,
+          "end": 6.72
+        },
+        {
+          "text": "several",
+          "start": 6.72,
+          "end": 7.14
+        },
+        {
+          "text": "powers",
+          "start": 7.14,
+          "end": 7.56
+        },
+        {
+          "text": "Are",
+          "start": 7.56,
+          "end": 7.88
+        },
+        {
+          "text": "entered",
+          "start": 7.88,
+          "end": 8.18
+        },
+        {
+          "text": "in",
+          "start": 8.18,
+          "end": 8.46
+        },
+        {
+          "text": "the",
+          "start": 8.46,
+          "end": 8.56
+        },
+        {
+          "text": "Roman",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "text": "territories,",
+          "start": 8.82,
+          "end": 9.4
+        },
+        {
+          "text": "And",
+          "start": 10.22,
+          "end": 10.32
+        },
+        {
+          "text": "with",
+          "start": 10.32,
+          "end": 10.44
+        },
+        {
+          "text": "the",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "text": "deepest",
+          "start": 10.6,
+          "end": 11.06
+        },
+        {
+          "text": "malice",
+          "start": 11.06,
+          "end": 11.5
+        },
+        {
+          "text": "of",
+          "start": 11.5,
+          "end": 11.62
+        },
+        {
+          "text": "the",
+          "start": 11.62,
+          "end": 11.74
+        },
+        {
+          "text": "war",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "text": "Destroy",
+          "start": 12.0,
+          "end": 12.44
+        },
+        {
+          "text": "what",
+          "start": 12.44,
+          "end": 12.9
+        },
+        {
+          "text": "lies",
+          "start": 12.9,
+          "end": 13.18
+        },
+        {
+          "text": "before",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "text": "'em.",
+          "start": 13.5,
+          "end": 13.71
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 38
+      },
+      "match_ratio": 0.9743589743589743,
+      "rejection_reasons": [],
+      "seconds": 0.5346349668689072
+    },
+    {
+      "asr_seconds": 0.48053588764742017,
+      "alignment_seconds": 0.0009393868967890739,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edile, worthy tribunes, there is a slave, whom we have put in prison, reports the valsas",
+          "start": 0.02,
+          "end": 6.28,
+          "words": [
+            {
+              "text": " Edile,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.37457275390625
+            },
+            {
+              "text": " worthy",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " tribunes,",
+              "start": 1.44,
+              "end": 2.04,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " there",
+              "start": 2.4,
+              "end": 2.48,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " is",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 2.58,
+              "end": 2.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " slave,",
+              "start": 2.8,
+              "end": 3.16,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " whom",
+              "start": 3.66,
+              "end": 3.82,
+              "probability": 0.978515625
+            },
+            {
+              "text": " we",
+              "start": 3.82,
+              "end": 4.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 4.0,
+              "end": 4.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " put",
+              "start": 4.1,
+              "end": 4.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 4.22,
+              "end": 4.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " prison,",
+              "start": 4.4,
+              "end": 4.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " reports",
+              "start": 5.24,
+              "end": 5.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 5.54,
+              "end": 5.82,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " valsas",
+              "start": 5.82,
+              "end": 6.28,
+              "probability": 0.516845703125
+            }
+          ]
+        },
+        {
+          "text": " with two several powers are entered in the Roman territories, and with the deepest malice",
+          "start": 6.28,
+          "end": 11.4,
+          "words": [
+            {
+              "text": " with",
+              "start": 6.28,
+              "end": 6.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " two",
+              "start": 6.46,
+              "end": 6.72,
+              "probability": 0.91015625
+            },
+            {
+              "text": " several",
+              "start": 6.72,
+              "end": 7.14,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " powers",
+              "start": 7.14,
+              "end": 7.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " are",
+              "start": 7.6,
+              "end": 7.86,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " entered",
+              "start": 7.86,
+              "end": 8.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 8.22,
+              "end": 8.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 8.46,
+              "end": 8.56,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Roman",
+              "start": 8.56,
+              "end": 8.8,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " territories,",
+              "start": 8.8,
+              "end": 9.44,
+              "probability": 0.96484375
+            },
+            {
+              "text": " and",
+              "start": 10.18,
+              "end": 10.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " with",
+              "start": 10.32,
+              "end": 10.44,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 10.44,
+              "end": 10.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " deepest",
+              "start": 10.6,
+              "end": 10.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " malice",
+              "start": 10.96,
+              "end": 11.4,
+              "probability": 0.98046875
+            }
+          ]
+        },
+        {
+          "text": " of the war destroy what lies before him.",
+          "start": 11.4,
+          "end": 13.92,
+          "words": [
+            {
+              "text": " of",
+              "start": 11.4,
+              "end": 11.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 11.62,
+              "end": 11.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " war",
+              "start": 11.74,
+              "end": 12.0,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " destroy",
+              "start": 12.0,
+              "end": 12.48,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " what",
+              "start": 12.48,
+              "end": 12.88,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " lies",
+              "start": 12.88,
+              "end": 13.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " before",
+              "start": 13.2,
+              "end": 13.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him.",
+              "start": 13.6,
+              "end": 13.92,
+              "probability": 0.81689453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edile,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "worthy",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "tribunes,",
+          "start": 1.44,
+          "end": 2.04
+        },
+        {
+          "raw": "there",
+          "start": 2.4,
+          "end": 2.48
+        },
+        {
+          "raw": "is",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "raw": "slave,",
+          "start": 2.8,
+          "end": 3.16
+        },
+        {
+          "raw": "whom",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "raw": "we",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "raw": "have",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "raw": "put",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "raw": "in",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "raw": "prison,",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "raw": "reports",
+          "start": 5.24,
+          "end": 5.54
+        },
+        {
+          "raw": "the",
+          "start": 5.54,
+          "end": 5.82
+        },
+        {
+          "raw": "valsas",
+          "start": 5.82,
+          "end": 6.28
+        },
+        {
+          "raw": "with",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "raw": "two",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "raw": "several",
+          "start": 6.72,
+          "end": 7.14
+        },
+        {
+          "raw": "powers",
+          "start": 7.14,
+          "end": 7.6
+        },
+        {
+          "raw": "are",
+          "start": 7.6,
+          "end": 7.86
+        },
+        {
+          "raw": "entered",
+          "start": 7.86,
+          "end": 8.22
+        },
+        {
+          "raw": "in",
+          "start": 8.22,
+          "end": 8.46
+        },
+        {
+          "raw": "the",
+          "start": 8.46,
+          "end": 8.56
+        },
+        {
+          "raw": "Roman",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "raw": "territories,",
+          "start": 8.8,
+          "end": 9.44
+        },
+        {
+          "raw": "and",
+          "start": 10.18,
+          "end": 10.32
+        },
+        {
+          "raw": "with",
+          "start": 10.32,
+          "end": 10.44
+        },
+        {
+          "raw": "the",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "raw": "deepest",
+          "start": 10.6,
+          "end": 10.96
+        },
+        {
+          "raw": "malice",
+          "start": 10.96,
+          "end": 11.4
+        },
+        {
+          "raw": "of",
+          "start": 11.4,
+          "end": 11.62
+        },
+        {
+          "raw": "the",
+          "start": 11.62,
+          "end": 11.74
+        },
+        {
+          "raw": "war",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "raw": "destroy",
+          "start": 12.0,
+          "end": 12.48
+        },
+        {
+          "raw": "what",
+          "start": 12.48,
+          "end": 12.88
+        },
+        {
+          "raw": "lies",
+          "start": 12.88,
+          "end": 13.2
+        },
+        {
+          "raw": "before",
+          "start": 13.2,
+          "end": 13.6
+        },
+        {
+          "raw": "him.",
+          "start": 13.6,
+          "end": 13.92
+        }
+      ],
+      "expected_tokens": [
+        "Aedile.",
+        "Worthy",
+        "tribunes,",
+        "There",
+        "is",
+        "a",
+        "slave,",
+        "whom",
+        "we",
+        "have",
+        "put",
+        "in",
+        "prison,",
+        "Reports",
+        "the",
+        "Volsces",
+        "with",
+        "two",
+        "several",
+        "powers",
+        "Are",
+        "entered",
+        "in",
+        "the",
+        "Roman",
+        "territories,",
+        "And",
+        "with",
+        "the",
+        "deepest",
+        "malice",
+        "of",
+        "the",
+        "war",
+        "Destroy",
+        "what",
+        "lies",
+        "before",
+        "'em."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          38,
+          16,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          39
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edile,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "edile",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "worthy",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "worthy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tribunes,",
+          "start": 1.44,
+          "end": 2.04,
+          "key": "tribunes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.4,
+          "end": 2.48,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.58,
+          "end": 2.8,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "slave,",
+          "start": 2.8,
+          "end": 3.16,
+          "key": "slave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 3.66,
+          "end": 3.82,
+          "key": "whom",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 3.82,
+          "end": 4.0,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.0,
+          "end": 4.1,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 4.1,
+          "end": 4.22,
+          "key": "put",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.22,
+          "end": 4.4,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "prison,",
+          "start": 4.4,
+          "end": 4.7,
+          "key": "prison",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "reports",
+          "start": 5.24,
+          "end": 5.54,
+          "key": "reports",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.54,
+          "end": 5.82,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "valsas",
+          "start": 5.82,
+          "end": 6.28,
+          "key": "valsas",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.28,
+          "end": 6.46,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 6.46,
+          "end": 6.72,
+          "key": "two",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 6.72,
+          "end": 7.14,
+          "key": "several",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "powers",
+          "start": 7.14,
+          "end": 7.6,
+          "key": "powers",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 7.6,
+          "end": 7.86,
+          "key": "are",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 7.86,
+          "end": 8.22,
+          "key": "entered",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.22,
+          "end": 8.46,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.46,
+          "end": 8.56,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 8.56,
+          "end": 8.8,
+          "key": "roman",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "territories,",
+          "start": 8.8,
+          "end": 9.44,
+          "key": "territories",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.18,
+          "end": 10.32,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 10.32,
+          "end": 10.44,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.44,
+          "end": 10.6,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "deepest",
+          "start": 10.6,
+          "end": 10.96,
+          "key": "deepest",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "malice",
+          "start": 10.96,
+          "end": 11.4,
+          "key": "malice",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.4,
+          "end": 11.62,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.62,
+          "end": 11.74,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 11.74,
+          "end": 12.0,
+          "key": "war",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "destroy",
+          "start": 12.0,
+          "end": 12.48,
+          "key": "destroy",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 12.48,
+          "end": 12.88,
+          "key": "what",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 12.88,
+          "end": 13.2,
+          "key": "lies",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 13.2,
+          "end": 13.6,
+          "key": "before",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 13.6,
+          "end": 13.92,
+          "key": "him",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aedile.",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "Worthy",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "tribunes,",
+          "start": 1.44,
+          "end": 2.04
+        },
+        {
+          "text": "There",
+          "start": 2.4,
+          "end": 2.48
+        },
+        {
+          "text": "is",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "a",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "text": "slave,",
+          "start": 2.8,
+          "end": 3.16
+        },
+        {
+          "text": "whom",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "text": "we",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "text": "have",
+          "start": 4.0,
+          "end": 4.1
+        },
+        {
+          "text": "put",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "text": "in",
+          "start": 4.22,
+          "end": 4.4
+        },
+        {
+          "text": "prison,",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "text": "Reports",
+          "start": 5.24,
+          "end": 5.54
+        },
+        {
+          "text": "the",
+          "start": 5.54,
+          "end": 5.82
+        },
+        {
+          "text": "Volsces",
+          "start": 5.82,
+          "end": 6.05
+        },
+        {
+          "text": "with",
+          "start": 6.28,
+          "end": 6.46
+        },
+        {
+          "text": "two",
+          "start": 6.46,
+          "end": 6.72
+        },
+        {
+          "text": "several",
+          "start": 6.72,
+          "end": 7.14
+        },
+        {
+          "text": "powers",
+          "start": 7.14,
+          "end": 7.6
+        },
+        {
+          "text": "Are",
+          "start": 7.6,
+          "end": 7.86
+        },
+        {
+          "text": "entered",
+          "start": 7.86,
+          "end": 8.22
+        },
+        {
+          "text": "in",
+          "start": 8.22,
+          "end": 8.46
+        },
+        {
+          "text": "the",
+          "start": 8.46,
+          "end": 8.56
+        },
+        {
+          "text": "Roman",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "text": "territories,",
+          "start": 8.8,
+          "end": 9.44
+        },
+        {
+          "text": "And",
+          "start": 10.18,
+          "end": 10.32
+        },
+        {
+          "text": "with",
+          "start": 10.32,
+          "end": 10.44
+        },
+        {
+          "text": "the",
+          "start": 10.44,
+          "end": 10.6
+        },
+        {
+          "text": "deepest",
+          "start": 10.6,
+          "end": 10.96
+        },
+        {
+          "text": "malice",
+          "start": 10.96,
+          "end": 11.4
+        },
+        {
+          "text": "of",
+          "start": 11.4,
+          "end": 11.62
+        },
+        {
+          "text": "the",
+          "start": 11.62,
+          "end": 11.74
+        },
+        {
+          "text": "war",
+          "start": 11.74,
+          "end": 12.0
+        },
+        {
+          "text": "Destroy",
+          "start": 12.0,
+          "end": 12.48
+        },
+        {
+          "text": "what",
+          "start": 12.48,
+          "end": 12.88
+        },
+        {
+          "text": "lies",
+          "start": 12.88,
+          "end": 13.2
+        },
+        {
+          "text": "before",
+          "start": 13.2,
+          "end": 13.6
+        },
+        {
+          "text": "'em.",
+          "start": 13.6,
+          "end": 13.76
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 36
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.48183551570400596
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8be2b84c65d9345730939670ebdd2293aeb9f37a4e6de8add258ef743a8fc36f",
+  "selected_reasons": []
+}

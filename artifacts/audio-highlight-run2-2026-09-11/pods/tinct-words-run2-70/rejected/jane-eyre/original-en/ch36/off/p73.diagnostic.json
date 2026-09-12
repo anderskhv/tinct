@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "2f75f071db35422dad7dac9e83dd7514e868d482c83753c2e33c4347badad11c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19691809616051614,
+      "alignment_seconds": 0.00043246615678071976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where is he where does he now live?",
+          "start": 0.02,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.935546875
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " he",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " where",
+              "start": 0.9,
+              "end": 1.26,
+              "probability": 0.20361328125
+            },
+            {
+              "text": " does",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " now",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " live?",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "he",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "where",
+          "start": 0.9,
+          "end": 1.26
+        },
+        {
+          "raw": "does",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "now",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "live?",
+          "start": 1.7,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "is",
+        "he?",
+        "Where",
+        "does",
+        "he",
+        "now",
+        "live?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 0.9,
+          "end": 1.26,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "does",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "now",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "live?",
+          "start": 1.7,
+          "end": 1.96,
+          "key": "live",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "he?",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "Where",
+          "start": 0.9,
+          "end": 1.26
+        },
+        {
+          "text": "does",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "he",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "now",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "live?\"",
+          "start": 1.7,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19751631515100598
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7f4a28abed938dff23d1c60e85e46f78c068bcb69947ffcda43ceb0a25bc3fd",
+  "selected_reasons": []
+}

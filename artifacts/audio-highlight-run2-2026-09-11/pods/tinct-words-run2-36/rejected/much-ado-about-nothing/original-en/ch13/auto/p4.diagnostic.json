@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "d01ac7126866f866d49515bb4d47ef604214ae93b55b266f4f49c6547c82ecde",
+  "attempts": [
+    {
+      "asr_seconds": 0.1821141354739666,
+      "alignment_seconds": 0.0003113187849521637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dogberry. Marry, that am I and my partner.",
+        "hotwords": "Dogberry, Marry, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dogberry, Marry, that am I and my partner.",
+          "start": 1.03,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Dogberry,",
+              "start": 1.03,
+              "end": 1.39,
+              "probability": 0.875732421875
+            },
+            {
+              "text": " Marry,",
+              "start": 1.39,
+              "end": 1.75,
+              "probability": 0.49273681640625
+            },
+            {
+              "text": " that",
+              "start": 1.93,
+              "end": 2.01,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " am",
+              "start": 2.01,
+              "end": 2.13,
+              "probability": 0.237548828125
+            },
+            {
+              "text": " I",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 2.31,
+              "end": 2.41,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " my",
+              "start": 2.41,
+              "end": 2.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " partner.",
+              "start": 2.55,
+              "end": 2.87,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dogberry,",
+          "start": 1.03,
+          "end": 1.39
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.39,
+          "end": 1.75
+        },
+        {
+          "raw": "that",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "raw": "am",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "raw": "I",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "and",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "raw": "partner.",
+          "start": 2.55,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "Dogberry.",
+        "Marry,",
+        "that",
+        "am",
+        "I",
+        "and",
+        "my",
+        "partner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dogberry,",
+          "start": 1.03,
+          "end": 1.39,
+          "key": "dogberry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 1.39,
+          "end": 1.75,
+          "key": "marry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.93,
+          "end": 2.01,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.01,
+          "end": 2.13,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.31,
+          "end": 2.41,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.41,
+          "end": 2.55,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "partner.",
+          "start": 2.55,
+          "end": 2.87,
+          "key": "partner",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dogberry.",
+          "start": 1.03,
+          "end": 1.39
+        },
+        {
+          "text": "Marry,",
+          "start": 1.39,
+          "end": 1.75
+        },
+        {
+          "text": "that",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "text": "am",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "text": "I",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "and",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "text": "my",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "text": "partner.",
+          "start": 2.55,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1825544573366642
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "29d6516b2d6b4fb5fb42ab3dc5094cfeeef5e5eb0ae3476998f03cad8ad40111",
+  "selected_reasons": []
+}

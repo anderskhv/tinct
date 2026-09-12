@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "53f5317089059dff873661e40ffaa0b2aeaef94f996d9bb3fd4daa2478f1fce2",
+  "attempts": [
+    {
+      "asr_seconds": 0.21535134501755238,
+      "alignment_seconds": 0.0003692731261253357,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. What means this bloody knife?",
+        "hotwords": "Edgar, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, What means this bloody knife?",
+          "start": 0.11,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.11,
+              "end": 0.67,
+              "probability": 0.90234375
+            },
+            {
+              "text": " What",
+              "start": 1.09,
+              "end": 1.15,
+              "probability": 0.013397216796875
+            },
+            {
+              "text": " means",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " this",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.939453125
+            },
+            {
+              "text": " bloody",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.9375
+            },
+            {
+              "text": " knife?",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.95703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "raw": "What",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "raw": "means",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "this",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "bloody",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "knife?",
+          "start": 1.77,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "What",
+        "means",
+        "this",
+        "bloody",
+        "knife?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.67,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.09,
+          "end": 1.15,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "means",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bloody",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "bloody",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knife?",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "knife",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.11,
+          "end": 0.67
+        },
+        {
+          "text": "What",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "text": "means",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "this",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "bloody",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "knife?",
+          "start": 1.77,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2158626038581133
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d72a526fcf7790dc05bbb3bb523ab8dd2ef922765ce7205f28d896870492428",
+  "selected_reasons": []
+}

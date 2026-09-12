@@ -1,0 +1,3495 @@
+{
+  "complete": true,
+  "signature": "9459bc992a555426a9e0c002104ef526a1c8d136678f5e9f727d06010b67d15c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4689324786886573,
+      "alignment_seconds": 0.0012697391211986542,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. One cried, \"God bless us!\" and, \"Amen,\" the other, As they had seen me with these hangman's hands. List'ning their fear, I could not say \"Amen,\" When they did say, \"God bless us.\"",
+        "hotwords": "Macbeth, One, God, Amen, As, List'ning, I, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth, One, God, Amen, As they had seen me with these hangman's hands. List'ning their fear, I could not say,",
+          "start": 0.5,
+          "end": 9.12,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " One,",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.0257415771484375
+            },
+            {
+              "text": " God,",
+              "start": 1.4,
+              "end": 1.88,
+              "probability": 6.091594696044922e-05
+            },
+            {
+              "text": " Amen,",
+              "start": 2.44,
+              "end": 2.78,
+              "probability": 8.499622344970703e-05
+            },
+            {
+              "text": " As",
+              "start": 4.8,
+              "end": 4.8,
+              "probability": 0.034515380859375
+            },
+            {
+              "text": " they",
+              "start": 4.8,
+              "end": 4.98,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " had",
+              "start": 4.98,
+              "end": 5.12,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " seen",
+              "start": 5.12,
+              "end": 5.34,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " me",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " with",
+              "start": 5.52,
+              "end": 5.68,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " these",
+              "start": 5.68,
+              "end": 5.88,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " hangman's",
+              "start": 5.88,
+              "end": 6.38,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " hands.",
+              "start": 6.38,
+              "end": 6.76,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " List",
+              "start": 7.5,
+              "end": 7.58,
+              "probability": 0.90869140625
+            },
+            {
+              "text": "'ning",
+              "start": 7.58,
+              "end": 7.8,
+              "probability": 0.4519695043563843
+            },
+            {
+              "text": " their",
+              "start": 7.8,
+              "end": 7.96,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " fear,",
+              "start": 7.96,
+              "end": 8.3,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " I",
+              "start": 8.52,
+              "end": 8.52,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " could",
+              "start": 8.52,
+              "end": 8.64,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " not",
+              "start": 8.64,
+              "end": 8.82,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " say,",
+              "start": 8.82,
+              "end": 9.12,
+              "probability": 0.982421875
+            }
+          ]
+        },
+        {
+          "text": " Amen, When they did say, God bless us.",
+          "start": 9.12,
+          "end": 11.82,
+          "words": [
+            {
+              "text": " Amen,",
+              "start": 9.12,
+              "end": 9.5,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " When",
+              "start": 9.92,
+              "end": 10.04,
+              "probability": 0.0045623779296875
+            },
+            {
+              "text": " they",
+              "start": 10.04,
+              "end": 10.2,
+              "probability": 0.90234375
+            },
+            {
+              "text": " did",
+              "start": 10.2,
+              "end": 10.34,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " say,",
+              "start": 10.34,
+              "end": 10.68,
+              "probability": 0.990234375
+            },
+            {
+              "text": " God",
+              "start": 10.98,
+              "end": 11.26,
+              "probability": 0.2418212890625
+            },
+            {
+              "text": " bless",
+              "start": 11.26,
+              "end": 11.5,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " us.",
+              "start": 11.5,
+              "end": 11.82,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "One,",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "raw": "God,",
+          "start": 1.4,
+          "end": 1.88
+        },
+        {
+          "raw": "Amen,",
+          "start": 2.44,
+          "end": 2.78
+        },
+        {
+          "raw": "As",
+          "start": 4.8,
+          "end": 4.8
+        },
+        {
+          "raw": "they",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "raw": "had",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "raw": "seen",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "raw": "me",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "with",
+          "start": 5.52,
+          "end": 5.68
+        },
+        {
+          "raw": "these",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "raw": "hangman's",
+          "start": 5.88,
+          "end": 6.38
+        },
+        {
+          "raw": "hands.",
+          "start": 6.38,
+          "end": 6.76
+        },
+        {
+          "raw": "List",
+          "start": 7.5,
+          "end": 7.58
+        },
+        {
+          "raw": "'ning",
+          "start": 7.58,
+          "end": 7.8
+        },
+        {
+          "raw": "their",
+          "start": 7.8,
+          "end": 7.96
+        },
+        {
+          "raw": "fear,",
+          "start": 7.96,
+          "end": 8.3
+        },
+        {
+          "raw": "I",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "raw": "could",
+          "start": 8.52,
+          "end": 8.64
+        },
+        {
+          "raw": "not",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "raw": "say,",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "raw": "Amen,",
+          "start": 9.12,
+          "end": 9.5
+        },
+        {
+          "raw": "When",
+          "start": 9.92,
+          "end": 10.04
+        },
+        {
+          "raw": "they",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "raw": "did",
+          "start": 10.2,
+          "end": 10.34
+        },
+        {
+          "raw": "say,",
+          "start": 10.34,
+          "end": 10.68
+        },
+        {
+          "raw": "God",
+          "start": 10.98,
+          "end": 11.26
+        },
+        {
+          "raw": "bless",
+          "start": 11.26,
+          "end": 11.5
+        },
+        {
+          "raw": "us.",
+          "start": 11.5,
+          "end": 11.82
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "One",
+        "cried,",
+        "\"God",
+        "bless",
+        "us!\"",
+        "and,",
+        "\"Amen,\"",
+        "the",
+        "other,",
+        "As",
+        "they",
+        "had",
+        "seen",
+        "me",
+        "with",
+        "these",
+        "hangman's",
+        "hands.",
+        "List'ning",
+        "their",
+        "fear,",
+        "I",
+        "could",
+        "not",
+        "say",
+        "\"Amen,\"",
+        "When",
+        "they",
+        "did",
+        "say,",
+        "\"God",
+        "bless",
+        "us.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "delete",
+          4,
+          7,
+          3,
+          3
+        ],
+        [
+          "equal",
+          7,
+          8,
+          3,
+          4
+        ],
+        [
+          "delete",
+          8,
+          10,
+          4,
+          4
+        ],
+        [
+          "equal",
+          10,
+          19,
+          4,
+          13
+        ],
+        [
+          "replace",
+          19,
+          20,
+          13,
+          15
+        ],
+        [
+          "equal",
+          20,
+          34,
+          15,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ],
+        [
+          "delete",
+          4,
+          7,
+          3,
+          3
+        ],
+        [
+          "delete",
+          8,
+          10,
+          4,
+          4
+        ],
+        [
+          "replace",
+          19,
+          20,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One,",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "God,",
+          "start": 1.4,
+          "end": 1.88,
+          "key": "god",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Amen,",
+          "start": 2.44,
+          "end": 2.78,
+          "key": "amen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 4.8,
+          "end": 4.8,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.8,
+          "end": 4.98,
+          "key": "they",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.98,
+          "end": 5.12,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 5.12,
+          "end": 5.34,
+          "key": "seen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.34,
+          "end": 5.52,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.52,
+          "end": 5.68,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 5.68,
+          "end": 5.88,
+          "key": "these",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hangman's",
+          "start": 5.88,
+          "end": 6.38,
+          "key": "hangmans",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 6.38,
+          "end": 6.76,
+          "key": "hands",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "List",
+          "start": 7.5,
+          "end": 7.58,
+          "key": "list",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "'ning",
+          "start": 7.58,
+          "end": 7.8,
+          "key": "ning",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.8,
+          "end": 7.96,
+          "key": "their",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "fear,",
+          "start": 7.96,
+          "end": 8.3,
+          "key": "fear",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.52,
+          "end": 8.52,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 8.52,
+          "end": 8.64,
+          "key": "could",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.64,
+          "end": 8.82,
+          "key": "not",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 8.82,
+          "end": 9.12,
+          "key": "say",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Amen,",
+          "start": 9.12,
+          "end": 9.5,
+          "key": "amen",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 9.92,
+          "end": 10.04,
+          "key": "when",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 10.04,
+          "end": 10.2,
+          "key": "they",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 10.2,
+          "end": 10.34,
+          "key": "did",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 10.34,
+          "end": 10.68,
+          "key": "say",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 10.98,
+          "end": 11.26,
+          "key": "god",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 11.26,
+          "end": 11.5,
+          "key": "bless",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 11.5,
+          "end": 11.82,
+          "key": "us",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "text": "One",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "text": "cried,",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "text": "\"God",
+          "start": 1.4,
+          "end": 1.88
+        },
+        {
+          "text": "bless",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "text": "us!\"",
+          "start": 2.16,
+          "end": 2.3
+        },
+        {
+          "text": "and,",
+          "start": 2.3,
+          "end": 2.37
+        },
+        {
+          "text": "\"Amen,\"",
+          "start": 2.44,
+          "end": 2.78
+        },
+        {
+          "text": "the",
+          "start": 2.78,
+          "end": 3.79
+        },
+        {
+          "text": "other,",
+          "start": 3.79,
+          "end": 4.295
+        },
+        {
+          "text": "As",
+          "start": 4.8,
+          "end": 4.8
+        },
+        {
+          "text": "they",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "text": "had",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "text": "seen",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "text": "me",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "with",
+          "start": 5.52,
+          "end": 5.68
+        },
+        {
+          "text": "these",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "text": "hangman's",
+          "start": 5.88,
+          "end": 6.38
+        },
+        {
+          "text": "hands.",
+          "start": 6.38,
+          "end": 6.76
+        },
+        {
+          "text": "List'ning",
+          "start": 6.76,
+          "end": 7.28
+        },
+        {
+          "text": "their",
+          "start": 7.8,
+          "end": 7.96
+        },
+        {
+          "text": "fear,",
+          "start": 7.96,
+          "end": 8.3
+        },
+        {
+          "text": "I",
+          "start": 8.52,
+          "end": 8.52
+        },
+        {
+          "text": "could",
+          "start": 8.52,
+          "end": 8.64
+        },
+        {
+          "text": "not",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "text": "say",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "text": "\"Amen,\"",
+          "start": 9.12,
+          "end": 9.5
+        },
+        {
+          "text": "When",
+          "start": 9.92,
+          "end": 10.04
+        },
+        {
+          "text": "they",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "text": "did",
+          "start": 10.2,
+          "end": 10.34
+        },
+        {
+          "text": "say,",
+          "start": 10.34,
+          "end": 10.68
+        },
+        {
+          "text": "\"God",
+          "start": 10.98,
+          "end": 11.26
+        },
+        {
+          "text": "bless",
+          "start": 11.26,
+          "end": 11.5
+        },
+        {
+          "text": "us.\"",
+          "start": 11.5,
+          "end": 11.82
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 29,
+        "matched_words": 27
+      },
+      "match_ratio": 0.7941176470588235,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.47065743897110224
+    },
+    {
+      "asr_seconds": 0.50884292088449,
+      "alignment_seconds": 0.0008942112326622009,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Macbeth, One, God, Amen, As, List'ning, I, When"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Macbeth, One, Cried, God, Bless Us, And, Amen, The Other, As, They Had Seen Me, With",
+          "start": 0.54,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.9078776041666666
+            },
+            {
+              "text": " One,",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.0261383056640625
+            },
+            {
+              "text": " Cried,",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.5048828125
+            },
+            {
+              "text": " God,",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.361328125
+            },
+            {
+              "text": " Bless",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " Us,",
+              "start": 2.38,
+              "end": 2.76,
+              "probability": 0.90234375
+            },
+            {
+              "text": " And,",
+              "start": 3.02,
+              "end": 3.4,
+              "probability": 0.427734375
+            },
+            {
+              "text": " Amen,",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.947265625
+            },
+            {
+              "text": " The",
+              "start": 4.2,
+              "end": 4.32,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " Other,",
+              "start": 4.32,
+              "end": 4.52,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " As,",
+              "start": 4.72,
+              "end": 4.84,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " They",
+              "start": 4.84,
+              "end": 5.0,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Had",
+              "start": 5.0,
+              "end": 5.12,
+              "probability": 0.826171875
+            },
+            {
+              "text": " Seen",
+              "start": 5.12,
+              "end": 5.34,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Me,",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " With",
+              "start": 5.58,
+              "end": 5.68,
+              "probability": 0.94580078125
+            }
+          ]
+        },
+        {
+          "text": " These Hangman's Hands, Listening Their Fear, I Could Not Say, Amen, When They Did Say, God,",
+          "start": 5.68,
+          "end": 11.26,
+          "words": [
+            {
+              "text": " These",
+              "start": 5.68,
+              "end": 5.88,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Hangman's",
+              "start": 5.88,
+              "end": 6.4,
+              "probability": 0.8806966145833334
+            },
+            {
+              "text": " Hands,",
+              "start": 6.4,
+              "end": 6.64,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Listening",
+              "start": 7.48,
+              "end": 7.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Their",
+              "start": 7.78,
+              "end": 7.98,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Fear,",
+              "start": 7.98,
+              "end": 8.26,
+              "probability": 0.984375
+            },
+            {
+              "text": " I",
+              "start": 8.44,
+              "end": 8.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Could",
+              "start": 8.54,
+              "end": 8.64,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " Not",
+              "start": 8.64,
+              "end": 8.82,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " Say,",
+              "start": 8.82,
+              "end": 9.12,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Amen,",
+              "start": 9.38,
+              "end": 9.5,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " When",
+              "start": 9.94,
+              "end": 10.04,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " They",
+              "start": 10.04,
+              "end": 10.18,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Did",
+              "start": 10.18,
+              "end": 10.34,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Say,",
+              "start": 10.34,
+              "end": 10.68,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " God,",
+              "start": 10.92,
+              "end": 11.26,
+              "probability": 0.94091796875
+            }
+          ]
+        },
+        {
+          "text": " Bless Us.",
+          "start": 11.3,
+          "end": 11.86,
+          "words": [
+            {
+              "text": " Bless",
+              "start": 11.3,
+              "end": 11.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Us.",
+              "start": 11.5,
+              "end": 11.86,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "One,",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "Cried,",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "God,",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "Bless",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "Us,",
+          "start": 2.38,
+          "end": 2.76
+        },
+        {
+          "raw": "And,",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "raw": "Amen,",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "The",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "raw": "Other,",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "raw": "As,",
+          "start": 4.72,
+          "end": 4.84
+        },
+        {
+          "raw": "They",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "raw": "Had",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "raw": "Seen",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "raw": "Me,",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "With",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "raw": "These",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "raw": "Hangman's",
+          "start": 5.88,
+          "end": 6.4
+        },
+        {
+          "raw": "Hands,",
+          "start": 6.4,
+          "end": 6.64
+        },
+        {
+          "raw": "Listening",
+          "start": 7.48,
+          "end": 7.78
+        },
+        {
+          "raw": "Their",
+          "start": 7.78,
+          "end": 7.98
+        },
+        {
+          "raw": "Fear,",
+          "start": 7.98,
+          "end": 8.26
+        },
+        {
+          "raw": "I",
+          "start": 8.44,
+          "end": 8.54
+        },
+        {
+          "raw": "Could",
+          "start": 8.54,
+          "end": 8.64
+        },
+        {
+          "raw": "Not",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "raw": "Say,",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "raw": "Amen,",
+          "start": 9.38,
+          "end": 9.5
+        },
+        {
+          "raw": "When",
+          "start": 9.94,
+          "end": 10.04
+        },
+        {
+          "raw": "They",
+          "start": 10.04,
+          "end": 10.18
+        },
+        {
+          "raw": "Did",
+          "start": 10.18,
+          "end": 10.34
+        },
+        {
+          "raw": "Say,",
+          "start": 10.34,
+          "end": 10.68
+        },
+        {
+          "raw": "God,",
+          "start": 10.92,
+          "end": 11.26
+        },
+        {
+          "raw": "Bless",
+          "start": 11.3,
+          "end": 11.5
+        },
+        {
+          "raw": "Us.",
+          "start": 11.5,
+          "end": 11.86
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "One",
+        "cried,",
+        "\"God",
+        "bless",
+        "us!\"",
+        "and,",
+        "\"Amen,\"",
+        "the",
+        "other,",
+        "As",
+        "they",
+        "had",
+        "seen",
+        "me",
+        "with",
+        "these",
+        "hangman's",
+        "hands.",
+        "List'ning",
+        "their",
+        "fear,",
+        "I",
+        "could",
+        "not",
+        "say",
+        "\"Amen,\"",
+        "When",
+        "they",
+        "did",
+        "say,",
+        "\"God",
+        "bless",
+        "us.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          34,
+          20,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One,",
+          "start": 1.06,
+          "end": 1.3,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cried,",
+          "start": 1.38,
+          "end": 1.7,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God,",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "god",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bless",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "bless",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Us,",
+          "start": 2.38,
+          "end": 2.76,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "And,",
+          "start": 3.02,
+          "end": 3.4,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Amen,",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "amen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.2,
+          "end": 4.32,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Other,",
+          "start": 4.32,
+          "end": 4.52,
+          "key": "other",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "As,",
+          "start": 4.72,
+          "end": 4.84,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 4.84,
+          "end": 5.0,
+          "key": "they",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Had",
+          "start": 5.0,
+          "end": 5.12,
+          "key": "had",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Seen",
+          "start": 5.12,
+          "end": 5.34,
+          "key": "seen",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Me,",
+          "start": 5.34,
+          "end": 5.52,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 5.58,
+          "end": 5.68,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "These",
+          "start": 5.68,
+          "end": 5.88,
+          "key": "these",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Hangman's",
+          "start": 5.88,
+          "end": 6.4,
+          "key": "hangmans",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Hands,",
+          "start": 6.4,
+          "end": 6.64,
+          "key": "hands",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Listening",
+          "start": 7.48,
+          "end": 7.78,
+          "key": "listening",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 7.78,
+          "end": 7.98,
+          "key": "their",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Fear,",
+          "start": 7.98,
+          "end": 8.26,
+          "key": "fear",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.44,
+          "end": 8.54,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Could",
+          "start": 8.54,
+          "end": 8.64,
+          "key": "could",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 8.64,
+          "end": 8.82,
+          "key": "not",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Say,",
+          "start": 8.82,
+          "end": 9.12,
+          "key": "say",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Amen,",
+          "start": 9.38,
+          "end": 9.5,
+          "key": "amen",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 9.94,
+          "end": 10.04,
+          "key": "when",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 10.04,
+          "end": 10.18,
+          "key": "they",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 10.18,
+          "end": 10.34,
+          "key": "did",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Say,",
+          "start": 10.34,
+          "end": 10.68,
+          "key": "say",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "God,",
+          "start": 10.92,
+          "end": 11.26,
+          "key": "god",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Bless",
+          "start": 11.3,
+          "end": 11.5,
+          "key": "bless",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Us.",
+          "start": 11.5,
+          "end": 11.86,
+          "key": "us",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "One",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "cried,",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "text": "\"God",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "bless",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "us!\"",
+          "start": 2.38,
+          "end": 2.76
+        },
+        {
+          "text": "and,",
+          "start": 3.02,
+          "end": 3.4
+        },
+        {
+          "text": "\"Amen,\"",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "text": "other,",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "text": "As",
+          "start": 4.72,
+          "end": 4.84
+        },
+        {
+          "text": "they",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "text": "had",
+          "start": 5.0,
+          "end": 5.12
+        },
+        {
+          "text": "seen",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "text": "me",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "with",
+          "start": 5.58,
+          "end": 5.68
+        },
+        {
+          "text": "these",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "text": "hangman's",
+          "start": 5.88,
+          "end": 6.4
+        },
+        {
+          "text": "hands.",
+          "start": 6.4,
+          "end": 6.64
+        },
+        {
+          "text": "List'ning",
+          "start": 6.64,
+          "end": 7.21
+        },
+        {
+          "text": "their",
+          "start": 7.78,
+          "end": 7.98
+        },
+        {
+          "text": "fear,",
+          "start": 7.98,
+          "end": 8.26
+        },
+        {
+          "text": "I",
+          "start": 8.44,
+          "end": 8.54
+        },
+        {
+          "text": "could",
+          "start": 8.54,
+          "end": 8.64
+        },
+        {
+          "text": "not",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "text": "say",
+          "start": 8.82,
+          "end": 9.12
+        },
+        {
+          "text": "\"Amen,\"",
+          "start": 9.38,
+          "end": 9.5
+        },
+        {
+          "text": "When",
+          "start": 9.94,
+          "end": 10.04
+        },
+        {
+          "text": "they",
+          "start": 10.04,
+          "end": 10.18
+        },
+        {
+          "text": "did",
+          "start": 10.18,
+          "end": 10.34
+        },
+        {
+          "text": "say,",
+          "start": 10.34,
+          "end": 10.68
+        },
+        {
+          "text": "\"God",
+          "start": 10.92,
+          "end": 11.26
+        },
+        {
+          "text": "bless",
+          "start": 11.3,
+          "end": 11.5
+        },
+        {
+          "text": "us.\"",
+          "start": 11.5,
+          "end": 11.86
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 33
+      },
+      "match_ratio": 0.9705882352941176,
+      "rejection_reasons": [],
+      "seconds": 0.5101225143298507
+    },
+    {
+      "asr_seconds": 0.47955585177987814,
+      "alignment_seconds": 0.0006610872223973274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth, one cried, God bless us, and Amen, the other, as they had seen me with these",
+          "start": 0.02,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.9073893229166666
+            },
+            {
+              "text": " one",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " cried,",
+              "start": 1.3,
+              "end": 1.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " God",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.137939453125
+            },
+            {
+              "text": " bless",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.966796875
+            },
+            {
+              "text": " us,",
+              "start": 2.4,
+              "end": 2.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 3.2,
+              "end": 3.4,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Amen,",
+              "start": 3.4,
+              "end": 3.76,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " the",
+              "start": 4.22,
+              "end": 4.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " other,",
+              "start": 4.32,
+              "end": 4.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 4.74,
+              "end": 4.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " they",
+              "start": 4.82,
+              "end": 5.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 5.0,
+              "end": 5.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " seen",
+              "start": 5.16,
+              "end": 5.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " with",
+              "start": 5.52,
+              "end": 5.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " these",
+              "start": 5.68,
+              "end": 5.88,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " hangman's hands.",
+          "start": 5.88,
+          "end": 6.72,
+          "words": [
+            {
+              "text": " hangman's",
+              "start": 5.88,
+              "end": 6.38,
+              "probability": 0.9290364583333334
+            },
+            {
+              "text": " hands.",
+              "start": 6.38,
+              "end": 6.72,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " Listening their fear, I could not say Amen, when they did say, God bless us.",
+          "start": 7.48,
+          "end": 11.88,
+          "words": [
+            {
+              "text": " Listening",
+              "start": 7.48,
+              "end": 7.78,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " their",
+              "start": 7.78,
+              "end": 7.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fear,",
+              "start": 7.98,
+              "end": 8.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 8.44,
+              "end": 8.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " could",
+              "start": 8.54,
+              "end": 8.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 8.64,
+              "end": 8.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say",
+              "start": 8.82,
+              "end": 9.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Amen,",
+              "start": 9.14,
+              "end": 9.52,
+              "probability": 0.83203125
+            },
+            {
+              "text": " when",
+              "start": 9.9,
+              "end": 10.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " they",
+              "start": 10.04,
+              "end": 10.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " did",
+              "start": 10.2,
+              "end": 10.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " say,",
+              "start": 10.34,
+              "end": 10.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " God",
+              "start": 11.02,
+              "end": 11.24,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " bless",
+              "start": 11.24,
+              "end": 11.5,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " us.",
+              "start": 11.5,
+              "end": 11.88,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "one",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "cried,",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "raw": "God",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "bless",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "raw": "us,",
+          "start": 2.4,
+          "end": 2.8
+        },
+        {
+          "raw": "and",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "raw": "Amen,",
+          "start": 3.4,
+          "end": 3.76
+        },
+        {
+          "raw": "the",
+          "start": 4.22,
+          "end": 4.32
+        },
+        {
+          "raw": "other,",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "raw": "as",
+          "start": 4.74,
+          "end": 4.82
+        },
+        {
+          "raw": "they",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "raw": "had",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "raw": "seen",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "raw": "me",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "with",
+          "start": 5.52,
+          "end": 5.68
+        },
+        {
+          "raw": "these",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "raw": "hangman's",
+          "start": 5.88,
+          "end": 6.38
+        },
+        {
+          "raw": "hands.",
+          "start": 6.38,
+          "end": 6.72
+        },
+        {
+          "raw": "Listening",
+          "start": 7.48,
+          "end": 7.78
+        },
+        {
+          "raw": "their",
+          "start": 7.78,
+          "end": 7.98
+        },
+        {
+          "raw": "fear,",
+          "start": 7.98,
+          "end": 8.28
+        },
+        {
+          "raw": "I",
+          "start": 8.44,
+          "end": 8.54
+        },
+        {
+          "raw": "could",
+          "start": 8.54,
+          "end": 8.64
+        },
+        {
+          "raw": "not",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "raw": "say",
+          "start": 8.82,
+          "end": 9.14
+        },
+        {
+          "raw": "Amen,",
+          "start": 9.14,
+          "end": 9.52
+        },
+        {
+          "raw": "when",
+          "start": 9.9,
+          "end": 10.04
+        },
+        {
+          "raw": "they",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "raw": "did",
+          "start": 10.2,
+          "end": 10.34
+        },
+        {
+          "raw": "say,",
+          "start": 10.34,
+          "end": 10.7
+        },
+        {
+          "raw": "God",
+          "start": 11.02,
+          "end": 11.24
+        },
+        {
+          "raw": "bless",
+          "start": 11.24,
+          "end": 11.5
+        },
+        {
+          "raw": "us.",
+          "start": 11.5,
+          "end": 11.88
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "One",
+        "cried,",
+        "\"God",
+        "bless",
+        "us!\"",
+        "and,",
+        "\"Amen,\"",
+        "the",
+        "other,",
+        "As",
+        "they",
+        "had",
+        "seen",
+        "me",
+        "with",
+        "these",
+        "hangman's",
+        "hands.",
+        "List'ning",
+        "their",
+        "fear,",
+        "I",
+        "could",
+        "not",
+        "say",
+        "\"Amen,\"",
+        "When",
+        "they",
+        "did",
+        "say,",
+        "\"God",
+        "bless",
+        "us.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ],
+        [
+          "equal",
+          20,
+          34,
+          20,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.06,
+          "end": 1.3,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried,",
+          "start": 1.3,
+          "end": 1.6,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "god",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "bless",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 2.4,
+          "end": 2.8,
+          "key": "us",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.2,
+          "end": 3.4,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Amen,",
+          "start": 3.4,
+          "end": 3.76,
+          "key": "amen",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.22,
+          "end": 4.32,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "other,",
+          "start": 4.32,
+          "end": 4.52,
+          "key": "other",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.74,
+          "end": 4.82,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.82,
+          "end": 5.0,
+          "key": "they",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 5.0,
+          "end": 5.16,
+          "key": "had",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 5.16,
+          "end": 5.34,
+          "key": "seen",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.34,
+          "end": 5.52,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.52,
+          "end": 5.68,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 5.68,
+          "end": 5.88,
+          "key": "these",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "hangman's",
+          "start": 5.88,
+          "end": 6.38,
+          "key": "hangmans",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 6.38,
+          "end": 6.72,
+          "key": "hands",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Listening",
+          "start": 7.48,
+          "end": 7.78,
+          "key": "listening",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 7.78,
+          "end": 7.98,
+          "key": "their",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "fear,",
+          "start": 7.98,
+          "end": 8.28,
+          "key": "fear",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.44,
+          "end": 8.54,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 8.54,
+          "end": 8.64,
+          "key": "could",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.64,
+          "end": 8.82,
+          "key": "not",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 8.82,
+          "end": 9.14,
+          "key": "say",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Amen,",
+          "start": 9.14,
+          "end": 9.52,
+          "key": "amen",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 9.9,
+          "end": 10.04,
+          "key": "when",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 10.04,
+          "end": 10.2,
+          "key": "they",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 10.2,
+          "end": 10.34,
+          "key": "did",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 10.34,
+          "end": 10.7,
+          "key": "say",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 11.02,
+          "end": 11.24,
+          "key": "god",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "bless",
+          "start": 11.24,
+          "end": 11.5,
+          "key": "bless",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 11.5,
+          "end": 11.88,
+          "key": "us",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "One",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "cried,",
+          "start": 1.3,
+          "end": 1.6
+        },
+        {
+          "text": "\"God",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "bless",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "text": "us!\"",
+          "start": 2.4,
+          "end": 2.8
+        },
+        {
+          "text": "and,",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "text": "\"Amen,\"",
+          "start": 3.4,
+          "end": 3.76
+        },
+        {
+          "text": "the",
+          "start": 4.22,
+          "end": 4.32
+        },
+        {
+          "text": "other,",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "text": "As",
+          "start": 4.74,
+          "end": 4.82
+        },
+        {
+          "text": "they",
+          "start": 4.82,
+          "end": 5.0
+        },
+        {
+          "text": "had",
+          "start": 5.0,
+          "end": 5.16
+        },
+        {
+          "text": "seen",
+          "start": 5.16,
+          "end": 5.34
+        },
+        {
+          "text": "me",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "with",
+          "start": 5.52,
+          "end": 5.68
+        },
+        {
+          "text": "these",
+          "start": 5.68,
+          "end": 5.88
+        },
+        {
+          "text": "hangman's",
+          "start": 5.88,
+          "end": 6.38
+        },
+        {
+          "text": "hands.",
+          "start": 6.38,
+          "end": 6.72
+        },
+        {
+          "text": "List'ning",
+          "start": 6.72,
+          "end": 7.25
+        },
+        {
+          "text": "their",
+          "start": 7.78,
+          "end": 7.98
+        },
+        {
+          "text": "fear,",
+          "start": 7.98,
+          "end": 8.28
+        },
+        {
+          "text": "I",
+          "start": 8.44,
+          "end": 8.54
+        },
+        {
+          "text": "could",
+          "start": 8.54,
+          "end": 8.64
+        },
+        {
+          "text": "not",
+          "start": 8.64,
+          "end": 8.82
+        },
+        {
+          "text": "say",
+          "start": 8.82,
+          "end": 9.14
+        },
+        {
+          "text": "\"Amen,\"",
+          "start": 9.14,
+          "end": 9.52
+        },
+        {
+          "text": "When",
+          "start": 9.9,
+          "end": 10.04
+        },
+        {
+          "text": "they",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "text": "did",
+          "start": 10.2,
+          "end": 10.34
+        },
+        {
+          "text": "say,",
+          "start": 10.34,
+          "end": 10.7
+        },
+        {
+          "text": "\"God",
+          "start": 11.02,
+          "end": 11.24
+        },
+        {
+          "text": "bless",
+          "start": 11.24,
+          "end": 11.5
+        },
+        {
+          "text": "us.\"",
+          "start": 11.5,
+          "end": 11.88
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 33
+      },
+      "match_ratio": 0.9705882352941176,
+      "rejection_reasons": [],
+      "seconds": 0.4805006356909871
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "52a45173cb5f6f40e7e3a7f8a95100cfe14919332115c0cb0b395c87ba99de61",
+  "selected_reasons": []
+}

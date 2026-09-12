@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "e4a2d6b1ed5c395b6b5dd2893b5f7fa99381292b4efd0a561b7a20ba1d515a36",
+  "attempts": [
+    {
+      "asr_seconds": 0.1928117759525776,
+      "alignment_seconds": 0.0003910437226295471,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buck Mulligan's gay voice went on.",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Buck",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Mulligan's",
+              "start": 0.59,
+              "end": 1.09,
+              "probability": 0.9544270833333334
+            },
+            {
+              "text": " gay",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " voice",
+              "start": 1.23,
+              "end": 1.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " went",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on.",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buck",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Mulligan's",
+          "start": 0.59,
+          "end": 1.09
+        },
+        {
+          "raw": "gay",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "voice",
+          "start": 1.23,
+          "end": 1.57
+        },
+        {
+          "raw": "went",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "on.",
+          "start": 1.71,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Buck",
+        "Mulligan's",
+        "gay",
+        "voice",
+        "went",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buck",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "buck",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mulligan's",
+          "start": 0.59,
+          "end": 1.09,
+          "key": "mulligans",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gay",
+          "start": 1.09,
+          "end": 1.23,
+          "key": "gay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 1.23,
+          "end": 1.57,
+          "key": "voice",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "went",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buck",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Mulligan's",
+          "start": 0.59,
+          "end": 1.09
+        },
+        {
+          "text": "gay",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "voice",
+          "start": 1.23,
+          "end": 1.57
+        },
+        {
+          "text": "went",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "on.",
+          "start": 1.71,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19334644451737404
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3c363e5efd1526c7d5067c29a95b239ad2e5ccfadcef05de0d91d6dc66e5346",
+  "selected_reasons": []
+}

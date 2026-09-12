@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "894ab9a15cf6c9efc24827901db1d6d5c3e79d51da11f8588cf631feec144fe1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09532725997269154,
+      "alignment_seconds": 7.50180333852768e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pindaras",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Pindaras",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.64923095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pindaras",
+          "start": 0.05,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "Pindarus."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pindaras",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "pindaras",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pindarus.",
+          "start": 0.0,
+          "end": 0.525
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09542704839259386
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0f8a7703ee6b9a9afe71e1ba7ced0b7dc1c08bcbfcbfb0acc78307510e46766e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

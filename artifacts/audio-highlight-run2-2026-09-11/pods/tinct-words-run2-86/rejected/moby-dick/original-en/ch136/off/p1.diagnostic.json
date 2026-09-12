@@ -1,0 +1,619 @@
+{
+  "complete": true,
+  "signature": "01651ea5eda943c37ffb70187619793e984f197d651da7f9d51f0fed3958ccc0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3114684522151947,
+      "alignment_seconds": 0.0005426518619060516,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The drama's done. Why then here does anyone step forth? Because one did survive the wreck.",
+          "start": 0.02,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.857421875
+            },
+            {
+              "text": " drama's",
+              "start": 0.48,
+              "end": 0.98,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " done.",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Why",
+              "start": 1.76,
+              "end": 1.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " then",
+              "start": 1.84,
+              "end": 2.02,
+              "probability": 0.91015625
+            },
+            {
+              "text": " here",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " does",
+              "start": 2.24,
+              "end": 2.44,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " anyone",
+              "start": 2.44,
+              "end": 2.68,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " step",
+              "start": 2.68,
+              "end": 3.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " forth?",
+              "start": 3.06,
+              "end": 3.42,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Because",
+              "start": 4.0,
+              "end": 4.06,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " one",
+              "start": 4.06,
+              "end": 4.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " did",
+              "start": 4.3,
+              "end": 4.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " survive",
+              "start": 4.54,
+              "end": 4.96,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 4.96,
+              "end": 5.2,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " wreck.",
+              "start": 5.2,
+              "end": 5.4,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "drama's",
+          "start": 0.48,
+          "end": 0.98
+        },
+        {
+          "raw": "done.",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "raw": "Why",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "raw": "then",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "raw": "here",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "raw": "does",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "raw": "anyone",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "raw": "step",
+          "start": 2.68,
+          "end": 3.06
+        },
+        {
+          "raw": "forth?",
+          "start": 3.06,
+          "end": 3.42
+        },
+        {
+          "raw": "Because",
+          "start": 4.0,
+          "end": 4.06
+        },
+        {
+          "raw": "one",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "raw": "did",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "raw": "survive",
+          "start": 4.54,
+          "end": 4.96
+        },
+        {
+          "raw": "the",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "raw": "wreck.",
+          "start": 5.2,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "drama's",
+        "done.",
+        "Why",
+        "then",
+        "here",
+        "does",
+        "any",
+        "one",
+        "step",
+        "forth?—Because",
+        "one",
+        "did",
+        "survive",
+        "the",
+        "wreck."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          10,
+          8,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          11
+        ],
+        [
+          "equal",
+          11,
+          16,
+          11,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          9,
+          7,
+          8
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "drama's",
+          "start": 0.48,
+          "end": 0.98,
+          "key": "dramas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 1.76,
+          "end": 1.84,
+          "key": "why",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.84,
+          "end": 2.02,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.02,
+          "end": 2.24,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.24,
+          "end": 2.44,
+          "key": "does",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "anyone",
+          "start": 2.44,
+          "end": 2.68,
+          "key": "anyone",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "step",
+          "start": 2.68,
+          "end": 3.06,
+          "key": "step",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forth?",
+          "start": 3.06,
+          "end": 3.42,
+          "key": "forth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Because",
+          "start": 4.0,
+          "end": 4.06,
+          "key": "because",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.06,
+          "end": 4.3,
+          "key": "one",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 4.3,
+          "end": 4.54,
+          "key": "did",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "survive",
+          "start": 4.54,
+          "end": 4.96,
+          "key": "survive",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.96,
+          "end": 5.2,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wreck.",
+          "start": 5.2,
+          "end": 5.4,
+          "key": "wreck",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "drama's",
+          "start": 0.48,
+          "end": 0.98
+        },
+        {
+          "text": "done.",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "text": "Why",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "text": "then",
+          "start": 1.84,
+          "end": 2.02
+        },
+        {
+          "text": "here",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "text": "does",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "text": "any",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "one",
+          "start": 2.56,
+          "end": 2.62
+        },
+        {
+          "text": "step",
+          "start": 2.68,
+          "end": 3.06
+        },
+        {
+          "text": "forth?—Because",
+          "start": 3.06,
+          "end": 3.56
+        },
+        {
+          "text": "one",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "text": "did",
+          "start": 4.3,
+          "end": 4.54
+        },
+        {
+          "text": "survive",
+          "start": 4.54,
+          "end": 4.96
+        },
+        {
+          "text": "the",
+          "start": 4.96,
+          "end": 5.2
+        },
+        {
+          "text": "wreck.",
+          "start": 5.2,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8125,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31221166998147964
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3eba3550a69cb650bf4c1c0c591fa1d897d01ef0f9eb494047c9b23696644bfc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

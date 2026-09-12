@@ -1,0 +1,421 @@
+{
+  "complete": true,
+  "signature": "dbad59be941df4a34a7e4df1804e827b6b5337b58f090a25b49d2eeba765e6db",
+  "attempts": [
+    {
+      "asr_seconds": 0.27339468989521265,
+      "alignment_seconds": 0.0004099251236766577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Katharine. Dat is as it shall please _le roi mon père_.",
+        "hotwords": "Katharine, Dat"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katharine, Dat is as it shall please",
+          "start": 0.61,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Katharine,",
+              "start": 0.61,
+              "end": 0.95,
+              "probability": 0.511688232421875
+            },
+            {
+              "text": " Dat",
+              "start": 1.63,
+              "end": 1.67,
+              "probability": 0.072265625
+            },
+            {
+              "text": " is",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " as",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " it",
+              "start": 1.99,
+              "end": 2.07,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " shall",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " please",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.94091796875
+            }
+          ]
+        },
+        {
+          "text": " le roi mon père.",
+          "start": 2.49,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " le",
+              "start": 2.49,
+              "end": 2.65,
+              "probability": 0.0017862319946289062
+            },
+            {
+              "text": " roi",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.36553955078125
+            },
+            {
+              "text": " mon",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.09161376953125
+            },
+            {
+              "text": " père.",
+              "start": 3.07,
+              "end": 3.49,
+              "probability": 0.130584716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine,",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "raw": "Dat",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "raw": "is",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "as",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "it",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "raw": "shall",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "please",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "le",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "raw": "roi",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "mon",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "père.",
+          "start": 3.07,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "Dat",
+        "is",
+        "as",
+        "it",
+        "shall",
+        "please",
+        "_le",
+        "roi",
+        "mon",
+        "père_."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine,",
+          "start": 0.61,
+          "end": 0.95,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dat",
+          "start": 1.63,
+          "end": 1.67,
+          "key": "dat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.99,
+          "end": 2.07,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "please",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "le",
+          "start": 2.49,
+          "end": 2.65,
+          "key": "le",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "roi",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "roi",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mon",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "mon",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "père.",
+          "start": 3.07,
+          "end": 3.49,
+          "key": "père",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "text": "Dat",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "text": "is",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "as",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "it",
+          "start": 1.99,
+          "end": 2.07
+        },
+        {
+          "text": "shall",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "please",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "_le",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "text": "roi",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "mon",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "père_.",
+          "start": 3.07,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27398118283599615
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "793a609dc98baadccf056b1f76655c7d33c469228fdf01738733805e01f2876d",
+  "selected_reasons": []
+}

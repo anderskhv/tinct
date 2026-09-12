@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "d8e0a02c3a40307153a8ebd6071259bfac31167d1a257bd88e51c4b028887bb6",
+  "attempts": [
+    {
+      "asr_seconds": 0.09052074700593948,
+      "alignment_seconds": 0.0001108907163143158,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Edgar, dragging out the body.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Edgar,",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " dragging",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.91,
+              "end": 2.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " body.",
+              "start": 2.03,
+              "end": 2.29,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Edgar,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "dragging",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "out",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "the",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "raw": "body.",
+          "start": 2.03,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Edgar,",
+        "dragging",
+        "out",
+        "the",
+        "body._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Edgar,",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "edgar",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dragging",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "dragging",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.65,
+          "end": 1.91,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.91,
+          "end": 2.03,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "body.",
+          "start": 2.03,
+          "end": 2.29,
+          "key": "body",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Edgar,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "dragging",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "out",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "the",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "text": "body._]",
+          "start": 2.03,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09067074581980705
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab1668450b38b615d6face1c36ca71590736246df1d870659e5ebfdf5500aa66",
+  "selected_reasons": []
+}

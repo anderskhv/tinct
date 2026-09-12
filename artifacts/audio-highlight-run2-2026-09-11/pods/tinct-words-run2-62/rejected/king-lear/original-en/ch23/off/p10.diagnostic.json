@@ -1,0 +1,724 @@
+{
+  "complete": true,
+  "signature": "fd4801df68c4ea2a6b557f01f06ee7d8bebd11db49844b79b5d208109ee53701",
+  "attempts": [
+    {
+      "asr_seconds": 0.2218838706612587,
+      "alignment_seconds": 0.00033853575587272644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cordelia, be governed by your knowledge and proceed by the sway of your own will.",
+          "start": 0.02,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Cordelia,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.875
+            },
+            {
+              "text": " be",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " governed",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " by",
+              "start": 1.78,
+              "end": 2.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " your",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " knowledge",
+              "start": 2.2,
+              "end": 2.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 2.52,
+              "end": 2.82,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " proceed",
+              "start": 2.82,
+              "end": 3.16,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " by",
+              "start": 3.16,
+              "end": 3.32,
+              "probability": 0.331298828125
+            },
+            {
+              "text": " the",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sway",
+              "start": 3.44,
+              "end": 3.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 3.66,
+              "end": 3.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 3.86,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " own",
+              "start": 3.96,
+              "end": 4.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will.",
+              "start": 4.18,
+              "end": 4.46,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " Is he a raid?",
+          "start": 5.08,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " Is",
+              "start": 5.08,
+              "end": 5.16,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " he",
+              "start": 5.16,
+              "end": 5.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 5.32,
+              "end": 5.42,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " raid?",
+              "start": 5.42,
+              "end": 5.66,
+              "probability": 0.8671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "be",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "governed",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "by",
+          "start": 1.78,
+          "end": 2.06
+        },
+        {
+          "raw": "your",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "knowledge",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "raw": "proceed",
+          "start": 2.82,
+          "end": 3.16
+        },
+        {
+          "raw": "by",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "raw": "the",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "sway",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "raw": "of",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "raw": "your",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "raw": "own",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "raw": "will.",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "raw": "Is",
+          "start": 5.08,
+          "end": 5.16
+        },
+        {
+          "raw": "he",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "raw": "a",
+          "start": 5.32,
+          "end": 5.42
+        },
+        {
+          "raw": "raid?",
+          "start": 5.42,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "Be",
+        "govern'd",
+        "by",
+        "your",
+        "knowledge,",
+        "and",
+        "proceed",
+        "I'",
+        "the",
+        "sway",
+        "of",
+        "your",
+        "own",
+        "will.",
+        "Is",
+        "he",
+        "array'd?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          8,
+          3,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          17,
+          9,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "governed",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "governed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.78,
+          "end": 2.06,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.06,
+          "end": 2.2,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knowledge",
+          "start": 2.2,
+          "end": 2.52,
+          "key": "knowledge",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.82,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "proceed",
+          "start": 2.82,
+          "end": 3.16,
+          "key": "proceed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.16,
+          "end": 3.32,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sway",
+          "start": 3.44,
+          "end": 3.66,
+          "key": "sway",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.66,
+          "end": 3.86,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.86,
+          "end": 3.96,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 3.96,
+          "end": 4.18,
+          "key": "own",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will.",
+          "start": 4.18,
+          "end": 4.46,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 5.08,
+          "end": 5.16,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.16,
+          "end": 5.32,
+          "key": "he",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.32,
+          "end": 5.42,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "raid?",
+          "start": 5.42,
+          "end": 5.66,
+          "key": "raid",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Be",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "govern'd",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "by",
+          "start": 1.78,
+          "end": 2.06
+        },
+        {
+          "text": "your",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "knowledge,",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "text": "and",
+          "start": 2.52,
+          "end": 2.82
+        },
+        {
+          "text": "proceed",
+          "start": 2.82,
+          "end": 3.16
+        },
+        {
+          "text": "I'",
+          "start": 3.16,
+          "end": 3.24
+        },
+        {
+          "text": "the",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "text": "sway",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "text": "of",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "text": "your",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "text": "own",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "text": "will.",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "text": "Is",
+          "start": 5.08,
+          "end": 5.16
+        },
+        {
+          "text": "he",
+          "start": 5.16,
+          "end": 5.32
+        },
+        {
+          "text": "array'd?",
+          "start": 5.32,
+          "end": 5.49
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22235117480158806
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c2fb8db4de295fdaa1c94597ba8f78d2dd8f482441286eb4d1ae4686609e0ec",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

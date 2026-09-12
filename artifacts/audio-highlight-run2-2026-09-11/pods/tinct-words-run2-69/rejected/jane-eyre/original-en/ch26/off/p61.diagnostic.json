@@ -1,0 +1,628 @@
+{
+  "complete": true,
+  "signature": "86c050ddbf00cf2311d0559f464ea33c50fcf36024437917c721045e993793a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2911221096292138,
+      "alignment_seconds": 0.0005809329450130463,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Take it back to the coach house John said mr.. Rochester coolly it will not be wanted today",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Take",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.16845703125
+            },
+            {
+              "text": " it",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " back",
+              "start": 0.67,
+              "end": 0.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.03,
+              "end": 1.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " coach",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " house",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.8203125
+            },
+            {
+              "text": " John",
+              "start": 1.63,
+              "end": 2.05,
+              "probability": 0.388916015625
+            },
+            {
+              "text": " said",
+              "start": 2.05,
+              "end": 2.67,
+              "probability": 0.873046875
+            },
+            {
+              "text": " mr..",
+              "start": 2.67,
+              "end": 3.41,
+              "probability": 0.6407063802083334
+            },
+            {
+              "text": " Rochester",
+              "start": 3.41,
+              "end": 3.47,
+              "probability": 0.951171875
+            },
+            {
+              "text": " coolly",
+              "start": 3.47,
+              "end": 4.09,
+              "probability": 0.5113525390625
+            },
+            {
+              "text": " it",
+              "start": 4.09,
+              "end": 4.73,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " will",
+              "start": 4.73,
+              "end": 4.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 4.85,
+              "end": 5.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 5.05,
+              "end": 5.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wanted",
+              "start": 5.23,
+              "end": 5.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " today",
+              "start": 5.47,
+              "end": 5.89,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "it",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "back",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "raw": "to",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "raw": "coach",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "house",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "John",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "raw": "said",
+          "start": 2.05,
+          "end": 2.67
+        },
+        {
+          "raw": "mr..",
+          "start": 2.67,
+          "end": 3.41
+        },
+        {
+          "raw": "Rochester",
+          "start": 3.41,
+          "end": 3.47
+        },
+        {
+          "raw": "coolly",
+          "start": 3.47,
+          "end": 4.09
+        },
+        {
+          "raw": "it",
+          "start": 4.09,
+          "end": 4.73
+        },
+        {
+          "raw": "will",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "raw": "not",
+          "start": 4.85,
+          "end": 5.05
+        },
+        {
+          "raw": "be",
+          "start": 5.05,
+          "end": 5.23
+        },
+        {
+          "raw": "wanted",
+          "start": 5.23,
+          "end": 5.47
+        },
+        {
+          "raw": "today",
+          "start": 5.47,
+          "end": 5.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Take",
+        "it",
+        "back",
+        "to",
+        "the",
+        "coach-house,",
+        "John,\"",
+        "said",
+        "Mr.",
+        "Rochester",
+        "coolly;",
+        "\"it",
+        "will",
+        "not",
+        "be",
+        "wanted",
+        "to-day.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 0.67,
+          "end": 0.85,
+          "key": "back",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.85,
+          "end": 1.03,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.13,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "coach house",
+          "start": 1.13,
+          "end": 1.63,
+          "key": "coachhouse",
+          "pieces": [
+            5,
+            6
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 1.63,
+          "end": 2.05,
+          "key": "john",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.05,
+          "end": 2.67,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mr..",
+          "start": 2.67,
+          "end": 3.41,
+          "key": "mr",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Rochester",
+          "start": 3.41,
+          "end": 3.47,
+          "key": "rochester",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "coolly",
+          "start": 3.47,
+          "end": 4.09,
+          "key": "coolly",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.09,
+          "end": 4.73,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.73,
+          "end": 4.85,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.85,
+          "end": 5.05,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.05,
+          "end": 5.23,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wanted",
+          "start": 5.23,
+          "end": 5.47,
+          "key": "wanted",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "today",
+          "start": 5.47,
+          "end": 5.89,
+          "key": "today",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 5,
+          "text": "coach-house,",
+          "heard": "coach house",
+          "heard_indexes": [
+            5,
+            6
+          ],
+          "start": 1.13,
+          "end": 1.63
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "it",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "back",
+          "start": 0.67,
+          "end": 0.85
+        },
+        {
+          "text": "to",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "the",
+          "start": 1.03,
+          "end": 1.13
+        },
+        {
+          "text": "coach-house,",
+          "start": 1.13,
+          "end": 1.63
+        },
+        {
+          "text": "John,\"",
+          "start": 1.63,
+          "end": 2.05
+        },
+        {
+          "text": "said",
+          "start": 2.05,
+          "end": 2.67
+        },
+        {
+          "text": "Mr.",
+          "start": 2.67,
+          "end": 3.41
+        },
+        {
+          "text": "Rochester",
+          "start": 3.41,
+          "end": 3.47
+        },
+        {
+          "text": "coolly;",
+          "start": 3.47,
+          "end": 4.09
+        },
+        {
+          "text": "\"it",
+          "start": 4.09,
+          "end": 4.73
+        },
+        {
+          "text": "will",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "text": "not",
+          "start": 4.85,
+          "end": 5.05
+        },
+        {
+          "text": "be",
+          "start": 5.05,
+          "end": 5.23
+        },
+        {
+          "text": "wanted",
+          "start": 5.23,
+          "end": 5.47
+        },
+        {
+          "text": "to-day.\"",
+          "start": 5.47,
+          "end": 5.89
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.291889819316566
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cad0b62a598a8f878a750ee27b31962424d17e147aee16dec56a4e3bda7f58fb",
+  "selected_reasons": []
+}

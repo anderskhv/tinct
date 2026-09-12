@@ -1,0 +1,1423 @@
+{
+  "complete": true,
+  "signature": "2062b71fb688c57eb8f89ee4a971aa8703144c454fafbe42f0b155e116a7005e",
+  "attempts": [
+    {
+      "asr_seconds": 4.1372810220345855,
+      "alignment_seconds": 0.0008759628981351852,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cloten. Soft! What are you That fly me thus? Some villain mountaineers? I have heard of such. What slave art thou?",
+        "hotwords": "Cloten, Soft, What, That, Some, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Some villain mountaineers? I have heard of such. What slave art thou?",
+          "start": 2.55,
+          "end": 6.71,
+          "words": [
+            {
+              "text": " Some",
+              "start": 2.55,
+              "end": 3.07,
+              "probability": 0.005130767822265625
+            },
+            {
+              "text": " villain",
+              "start": 3.07,
+              "end": 3.59,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " mountaineers?",
+              "start": 3.59,
+              "end": 4.35,
+              "probability": 0.9298502604166666
+            },
+            {
+              "text": " I",
+              "start": 4.59,
+              "end": 4.65,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " have",
+              "start": 4.65,
+              "end": 4.75,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " heard",
+              "start": 4.75,
+              "end": 4.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 4.93,
+              "end": 5.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " such.",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " What",
+              "start": 5.67,
+              "end": 5.77,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " slave",
+              "start": 5.77,
+              "end": 6.15,
+              "probability": 0.986328125
+            },
+            {
+              "text": " art",
+              "start": 6.15,
+              "end": 6.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thou?",
+              "start": 6.45,
+              "end": 6.71,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " I have heard of such.",
+          "start": 6.71,
+          "end": 7.37,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.71,
+              "end": 7.37,
+              "probability": 0.00606536865234375
+            },
+            {
+              "text": " have",
+              "start": 7.37,
+              "end": 7.37,
+              "probability": 0.01427459716796875
+            },
+            {
+              "text": " heard",
+              "start": 7.37,
+              "end": 7.37,
+              "probability": 0.002658843994140625
+            },
+            {
+              "text": " of",
+              "start": 7.37,
+              "end": 7.37,
+              "probability": 0.060089111328125
+            },
+            {
+              "text": " such.",
+              "start": 7.37,
+              "end": 7.37,
+              "probability": 0.0022449493408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Some",
+          "start": 2.55,
+          "end": 3.07
+        },
+        {
+          "raw": "villain",
+          "start": 3.07,
+          "end": 3.59
+        },
+        {
+          "raw": "mountaineers?",
+          "start": 3.59,
+          "end": 4.35
+        },
+        {
+          "raw": "I",
+          "start": 4.59,
+          "end": 4.65
+        },
+        {
+          "raw": "have",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "raw": "heard",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "raw": "such.",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "raw": "What",
+          "start": 5.67,
+          "end": 5.77
+        },
+        {
+          "raw": "slave",
+          "start": 5.77,
+          "end": 6.15
+        },
+        {
+          "raw": "art",
+          "start": 6.15,
+          "end": 6.45
+        },
+        {
+          "raw": "thou?",
+          "start": 6.45,
+          "end": 6.71
+        },
+        {
+          "raw": "I",
+          "start": 6.71,
+          "end": 7.37
+        },
+        {
+          "raw": "have",
+          "start": 7.37,
+          "end": 7.37
+        },
+        {
+          "raw": "heard",
+          "start": 7.37,
+          "end": 7.37
+        },
+        {
+          "raw": "of",
+          "start": 7.37,
+          "end": 7.37
+        },
+        {
+          "raw": "such.",
+          "start": 7.37,
+          "end": 7.37
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Soft!",
+        "What",
+        "are",
+        "you",
+        "That",
+        "fly",
+        "me",
+        "thus?",
+        "Some",
+        "villain",
+        "mountaineers?",
+        "I",
+        "have",
+        "heard",
+        "of",
+        "such.",
+        "What",
+        "slave",
+        "art",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          9,
+          0,
+          0
+        ],
+        [
+          "equal",
+          9,
+          21,
+          0,
+          12
+        ],
+        [
+          "insert",
+          21,
+          21,
+          12,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          9,
+          0,
+          0
+        ],
+        [
+          "insert",
+          21,
+          21,
+          12,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Some",
+          "start": 2.55,
+          "end": 3.07,
+          "key": "some",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 3.07,
+          "end": 3.59,
+          "key": "villain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mountaineers?",
+          "start": 3.59,
+          "end": 4.35,
+          "key": "mountaineers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.59,
+          "end": 4.65,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.65,
+          "end": 4.75,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 4.75,
+          "end": 4.93,
+          "key": "heard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.07,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "such.",
+          "start": 5.07,
+          "end": 5.31,
+          "key": "such",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 5.67,
+          "end": 5.77,
+          "key": "what",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slave",
+          "start": 5.77,
+          "end": 6.15,
+          "key": "slave",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 6.15,
+          "end": 6.45,
+          "key": "art",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 6.45,
+          "end": 6.71,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.71,
+          "end": 7.37,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 7.37,
+          "end": 7.37,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 7.37,
+          "end": 7.37,
+          "key": "heard",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.37,
+          "end": 7.37,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "such.",
+          "start": 7.37,
+          "end": 7.37,
+          "key": "such",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.0,
+          "end": 1.275
+        },
+        {
+          "text": "Soft!",
+          "start": 1.275,
+          "end": 1.912
+        },
+        {
+          "text": "What",
+          "start": 1.912,
+          "end": 2.231
+        },
+        {
+          "text": "are",
+          "start": 2.231,
+          "end": 2.39
+        },
+        {
+          "text": "you",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "text": "That",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "text": "fly",
+          "start": 2.51,
+          "end": 2.53
+        },
+        {
+          "text": "me",
+          "start": 2.53,
+          "end": 2.54
+        },
+        {
+          "text": "thus?",
+          "start": 2.54,
+          "end": 2.545
+        },
+        {
+          "text": "Some",
+          "start": 2.55,
+          "end": 3.07
+        },
+        {
+          "text": "villain",
+          "start": 3.07,
+          "end": 3.59
+        },
+        {
+          "text": "mountaineers?",
+          "start": 3.59,
+          "end": 4.35
+        },
+        {
+          "text": "I",
+          "start": 4.59,
+          "end": 4.65
+        },
+        {
+          "text": "have",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "text": "heard",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "text": "of",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "text": "such.",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "text": "What",
+          "start": 5.67,
+          "end": 5.77
+        },
+        {
+          "text": "slave",
+          "start": 5.77,
+          "end": 6.15
+        },
+        {
+          "text": "art",
+          "start": 6.15,
+          "end": 6.45
+        },
+        {
+          "text": "thou?",
+          "start": 6.45,
+          "end": 6.71
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 17,
+        "matched_words": 12
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.138456637039781
+    },
+    {
+      "asr_seconds": 0.37682401202619076,
+      "alignment_seconds": 0.000706106424331665,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Cloten, Soft, What, That, Some, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Cloten, Soft, What are you that fly me thus? Some villain mountaineers, I have heard of",
+          "start": 0.05,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.3047281901041667
+            },
+            {
+              "text": " Soft,",
+              "start": 0.93,
+              "end": 1.21,
+              "probability": 0.07171630859375
+            },
+            {
+              "text": " What",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.203857421875
+            },
+            {
+              "text": " are",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " you",
+              "start": 1.79,
+              "end": 1.87,
+              "probability": 0.890625
+            },
+            {
+              "text": " that",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " fly",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " me",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " thus?",
+              "start": 2.45,
+              "end": 2.71,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Some",
+              "start": 3.23,
+              "end": 3.39,
+              "probability": 0.923828125
+            },
+            {
+              "text": " villain",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " mountaineers,",
+              "start": 3.63,
+              "end": 4.33,
+              "probability": 0.845703125
+            },
+            {
+              "text": " I",
+              "start": 4.57,
+              "end": 4.65,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " have",
+              "start": 4.65,
+              "end": 4.75,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " heard",
+              "start": 4.75,
+              "end": 4.93,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " of",
+              "start": 4.93,
+              "end": 5.07,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " such, What slave art thou?",
+          "start": 5.07,
+          "end": 6.71,
+          "words": [
+            {
+              "text": " such,",
+              "start": 5.07,
+              "end": 5.31,
+              "probability": 0.974609375
+            },
+            {
+              "text": " What",
+              "start": 5.67,
+              "end": 5.77,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " slave",
+              "start": 5.77,
+              "end": 6.13,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " art",
+              "start": 6.13,
+              "end": 6.45,
+              "probability": 0.98828125
+            },
+            {
+              "text": " thou?",
+              "start": 6.45,
+              "end": 6.71,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Soft,",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "raw": "What",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "are",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "you",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "raw": "that",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "fly",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "raw": "me",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "thus?",
+          "start": 2.45,
+          "end": 2.71
+        },
+        {
+          "raw": "Some",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "raw": "villain",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "mountaineers,",
+          "start": 3.63,
+          "end": 4.33
+        },
+        {
+          "raw": "I",
+          "start": 4.57,
+          "end": 4.65
+        },
+        {
+          "raw": "have",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "raw": "heard",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "raw": "such,",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "raw": "What",
+          "start": 5.67,
+          "end": 5.77
+        },
+        {
+          "raw": "slave",
+          "start": 5.77,
+          "end": 6.13
+        },
+        {
+          "raw": "art",
+          "start": 6.13,
+          "end": 6.45
+        },
+        {
+          "raw": "thou?",
+          "start": 6.45,
+          "end": 6.71
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Soft!",
+        "What",
+        "are",
+        "you",
+        "That",
+        "fly",
+        "me",
+        "thus?",
+        "Some",
+        "villain",
+        "mountaineers?",
+        "I",
+        "have",
+        "heard",
+        "of",
+        "such.",
+        "What",
+        "slave",
+        "art",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soft,",
+          "start": 0.93,
+          "end": 1.21,
+          "key": "soft",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.71,
+          "end": 1.79,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.79,
+          "end": 1.87,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fly",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "fly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thus?",
+          "start": 2.45,
+          "end": 2.71,
+          "key": "thus",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 3.23,
+          "end": 3.39,
+          "key": "some",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "villain",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "mountaineers,",
+          "start": 3.63,
+          "end": 4.33,
+          "key": "mountaineers",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.57,
+          "end": 4.65,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.65,
+          "end": 4.75,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 4.75,
+          "end": 4.93,
+          "key": "heard",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.93,
+          "end": 5.07,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "such,",
+          "start": 5.07,
+          "end": 5.31,
+          "key": "such",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 5.67,
+          "end": 5.77,
+          "key": "what",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "slave",
+          "start": 5.77,
+          "end": 6.13,
+          "key": "slave",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 6.13,
+          "end": 6.45,
+          "key": "art",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 6.45,
+          "end": 6.71,
+          "key": "thou",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Soft!",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "text": "What",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "are",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "text": "you",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "text": "That",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "text": "fly",
+          "start": 2.05,
+          "end": 2.29
+        },
+        {
+          "text": "me",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "thus?",
+          "start": 2.45,
+          "end": 2.71
+        },
+        {
+          "text": "Some",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "text": "villain",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "mountaineers?",
+          "start": 3.63,
+          "end": 4.33
+        },
+        {
+          "text": "I",
+          "start": 4.57,
+          "end": 4.65
+        },
+        {
+          "text": "have",
+          "start": 4.65,
+          "end": 4.75
+        },
+        {
+          "text": "heard",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "text": "of",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "text": "such.",
+          "start": 5.07,
+          "end": 5.31
+        },
+        {
+          "text": "What",
+          "start": 5.67,
+          "end": 5.77
+        },
+        {
+          "text": "slave",
+          "start": 5.77,
+          "end": 6.13
+        },
+        {
+          "text": "art",
+          "start": 6.13,
+          "end": 6.45
+        },
+        {
+          "text": "thou?",
+          "start": 6.45,
+          "end": 6.71
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3778786053881049
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "0259aa0806fab86a664995cbc1ec77caf50b757df48ae21a89821fd8cda84026",
+  "selected_reasons": []
+}

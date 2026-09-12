@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "7eda2b063a991eb1018718b10dcf868b8ab451e1c9ce645347a7999ee3ca7fcf",
+  "attempts": [
+    {
+      "asr_seconds": 0.2058689035475254,
+      "alignment_seconds": 0.00022387132048606873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Adrian, though this island seemed to be desert.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " Adrian,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " though",
+              "start": 1.13,
+              "end": 1.39,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " this",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " island",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " seemed",
+              "start": 1.85,
+              "end": 2.13,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " to",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 2.27,
+              "end": 2.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " desert.",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adrian,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "though",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "raw": "this",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "island",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "raw": "seemed",
+          "start": 1.85,
+          "end": 2.13
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "be",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "raw": "desert.",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "Adrian.",
+        "Though",
+        "this",
+        "island",
+        "seem",
+        "to",
+        "be",
+        "desert,--"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Adrian,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "adrian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 1.13,
+          "end": 1.39,
+          "key": "though",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "island",
+          "start": 1.55,
+          "end": 1.85,
+          "key": "island",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "seemed",
+          "start": 1.85,
+          "end": 2.13,
+          "key": "seemed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.27,
+          "end": 2.39,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "desert.",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "desert",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Adrian.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Though",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "text": "this",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "island",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "text": "seem",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "to",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "be",
+          "start": 2.27,
+          "end": 2.39
+        },
+        {
+          "text": "desert,--",
+          "start": 2.39,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.20616695657372475
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "28e3c162aaa5c54a3497d1f6497c99f5cd00f04e8222af79528f6b7eb7c351bb",
+  "selected_reasons": []
+}

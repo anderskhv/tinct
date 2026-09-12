@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "24606190a683439f17859c4ccd0bd667f6913385f3f8e5747b2ec4ba49a99617",
+  "attempts": [
+    {
+      "asr_seconds": 0.10545075684785843,
+      "alignment_seconds": 0.00028631091117858887,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter the two murderers.",
+          "start": 0.08,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " the",
+              "start": 0.58,
+              "end": 0.78,
+              "probability": 0.9921875
+            },
+            {
+              "text": " two",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " murderers.",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "the",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "raw": "two",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "murderers.",
+          "start": 0.98,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "two",
+        "Murderers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.58,
+          "end": 0.78,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "two",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "murderers.",
+          "start": 0.98,
+          "end": 1.34,
+          "key": "murderers",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "the",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "text": "two",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "Murderers.",
+          "start": 0.98,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10584827396087348
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3cf0979778d8d3f800a8fad611e94998ec39e3e512552bac2d1d492533a51162",
+  "selected_reasons": []
+}

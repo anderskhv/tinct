@@ -1,0 +1,658 @@
+{
+  "complete": true,
+  "signature": "795dccf2635b87c7c14d22383dc302d4818792879fc5e03b998f965d72355998",
+  "attempts": [
+    {
+      "asr_seconds": 0.2902499563060701,
+      "alignment_seconds": 0.0006704777479171753,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I did them in the last two vacations I spent at Lode, when I had no other occupation.",
+          "start": 0.08,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " did",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " them",
+              "start": 0.72,
+              "end": 0.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " last",
+              "start": 1.16,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " two",
+              "start": 1.4,
+              "end": 1.7,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " vacations",
+              "start": 1.7,
+              "end": 2.26,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " I",
+              "start": 2.26,
+              "end": 2.64,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " spent",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " at",
+              "start": 2.86,
+              "end": 3.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Lode,",
+              "start": 3.04,
+              "end": 3.42,
+              "probability": 0.4290771484375
+            },
+            {
+              "text": " when",
+              "start": 3.82,
+              "end": 3.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 3.94,
+              "end": 4.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " had",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 4.22,
+              "end": 4.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " other",
+              "start": 4.42,
+              "end": 4.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " occupation.",
+              "start": 4.7,
+              "end": 5.2,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "did",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "them",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "raw": "in",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "last",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "raw": "two",
+          "start": 1.4,
+          "end": 1.7
+        },
+        {
+          "raw": "vacations",
+          "start": 1.7,
+          "end": 2.26
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.64
+        },
+        {
+          "raw": "spent",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "at",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "raw": "Lode,",
+          "start": 3.04,
+          "end": 3.42
+        },
+        {
+          "raw": "when",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "raw": "I",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "raw": "had",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "no",
+          "start": 4.22,
+          "end": 4.42
+        },
+        {
+          "raw": "other",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "raw": "occupation.",
+          "start": 4.7,
+          "end": 5.2
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "did",
+        "them",
+        "in",
+        "the",
+        "last",
+        "two",
+        "vacations",
+        "I",
+        "spent",
+        "at",
+        "Lowood,",
+        "when",
+        "I",
+        "had",
+        "no",
+        "other",
+        "occupation.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          18,
+          12,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 0.72,
+          "end": 0.92,
+          "key": "them",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 1.16,
+          "end": 1.4,
+          "key": "last",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.4,
+          "end": 1.7,
+          "key": "two",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "vacations",
+          "start": 1.7,
+          "end": 2.26,
+          "key": "vacations",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.26,
+          "end": 2.64,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "spent",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "spent",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.86,
+          "end": 3.04,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Lode,",
+          "start": 3.04,
+          "end": 3.42,
+          "key": "lode",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.82,
+          "end": 3.94,
+          "key": "when",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.94,
+          "end": 4.06,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "had",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.22,
+          "end": 4.42,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 4.42,
+          "end": 4.7,
+          "key": "other",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "occupation.",
+          "start": 4.7,
+          "end": 5.2,
+          "key": "occupation",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "did",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "them",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "text": "in",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "last",
+          "start": 1.16,
+          "end": 1.4
+        },
+        {
+          "text": "two",
+          "start": 1.4,
+          "end": 1.7
+        },
+        {
+          "text": "vacations",
+          "start": 1.7,
+          "end": 2.26
+        },
+        {
+          "text": "I",
+          "start": 2.26,
+          "end": 2.64
+        },
+        {
+          "text": "spent",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "at",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "text": "Lowood,",
+          "start": 3.04,
+          "end": 3.43
+        },
+        {
+          "text": "when",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "text": "I",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "text": "had",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "no",
+          "start": 4.22,
+          "end": 4.42
+        },
+        {
+          "text": "other",
+          "start": 4.42,
+          "end": 4.7
+        },
+        {
+          "text": "occupation.\"",
+          "start": 4.7,
+          "end": 5.2
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.29118855530396104
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f018a4ee0d03311e81b07c949ea21c5495e63b10796c280860791446f54c6e89",
+  "selected_reasons": []
+}

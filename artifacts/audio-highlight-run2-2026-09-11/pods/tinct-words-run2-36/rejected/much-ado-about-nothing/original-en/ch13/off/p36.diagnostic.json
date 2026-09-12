@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "8620409d64682855574d0b2443479e7af07fd554a8d1c46b26fa365dc5f49b31",
+  "attempts": [
+    {
+      "asr_seconds": 0.1960395872592926,
+      "alignment_seconds": 0.00030934810638427734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Verges, let them be in the hands.",
+          "start": 0.62,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Verges,",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.6744384765625
+            },
+            {
+              "text": " let",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.990234375
+            },
+            {
+              "text": " them",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 1.58,
+              "end": 1.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.68,
+              "end": 1.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hands.",
+              "start": 1.76,
+              "end": 2.16,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Verges,",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "let",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "them",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "be",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "in",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.76
+        },
+        {
+          "raw": "hands.",
+          "start": 1.76,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Verges.",
+        "Let",
+        "them",
+        "be",
+        "in",
+        "the",
+        "hands—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Verges,",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "verges",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "them",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.58,
+          "end": 1.68,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.68,
+          "end": 1.76,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hands.",
+          "start": 1.76,
+          "end": 2.16,
+          "key": "hands",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Verges.",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "Let",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "them",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "be",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "in",
+          "start": 1.58,
+          "end": 1.68
+        },
+        {
+          "text": "the",
+          "start": 1.68,
+          "end": 1.76
+        },
+        {
+          "text": "hands—",
+          "start": 1.76,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19647792726755142
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dc868f1638c0f200a4b2021d8662bd2b3b9ffef0318b15efef3683487336d063",
+  "selected_reasons": []
+}

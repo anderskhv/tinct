@@ -1,0 +1,363 @@
+{
+  "complete": true,
+  "signature": "0c98b70a6fe1a3c8de158ab2dbdf8f27459260856eaa91444fb2e9cfbe430b77",
+  "attempts": [
+    {
+      "asr_seconds": 0.22286962997168303,
+      "alignment_seconds": 0.00040187896229326725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, Mr. Bloom said, I'm sorry to hear that.",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.5234375
+            },
+            {
+              "text": " Mr.",
+              "start": 0.7,
+              "end": 0.82,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Bloom",
+              "start": 1.08,
+              "end": 1.12,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " said,",
+              "start": 1.12,
+              "end": 1.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I'm",
+              "start": 1.76,
+              "end": 2.02,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " sorry",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hear",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that.",
+              "start": 2.6,
+              "end": 2.9,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.08,
+          "end": 1.12
+        },
+        {
+          "raw": "said,",
+          "start": 1.12,
+          "end": 1.44
+        },
+        {
+          "raw": "I'm",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "raw": "sorry",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "raw": "to",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "hear",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "that.",
+          "start": 2.6,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "Mr",
+        "Bloom",
+        "said.",
+        "I'm",
+        "sorry",
+        "to",
+        "hear",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.7,
+          "end": 0.82,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.08,
+          "end": 1.12,
+          "key": "bloom",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.12,
+          "end": 1.44,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.76,
+          "end": 2.02,
+          "key": "im",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 2.02,
+          "end": 2.24,
+          "key": "sorry",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "hear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.6,
+          "end": 2.9,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "Mr",
+          "start": 0.7,
+          "end": 0.82
+        },
+        {
+          "text": "Bloom",
+          "start": 1.08,
+          "end": 1.12
+        },
+        {
+          "text": "said.",
+          "start": 1.12,
+          "end": 1.44
+        },
+        {
+          "text": "I'm",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "text": "sorry",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "text": "to",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "hear",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "text": "that.",
+          "start": 2.6,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22341514308936894
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d0ed61c7f6eac7e4f07db7eb885449f22d1149a3be8d26ad0d5d2852d16d8aab",
+  "selected_reasons": []
+}

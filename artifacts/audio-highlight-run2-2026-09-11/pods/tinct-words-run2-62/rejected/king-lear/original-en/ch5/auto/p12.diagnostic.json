@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "cab9ffe13d47df05f6f944c40f06990b27b677b26cae09ea49a065b539b9c886",
+  "attempts": [
+    {
+      "asr_seconds": 0.20800020918250084,
+      "alignment_seconds": 0.00026800110936164856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fool. Why, to keep one's eyes of either side's nose, that what a man cannot smell out, he may spy into.",
+        "hotwords": "Fool, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fool, Why, to keep one's eyes of either side's nose, that what a man cannot smell out, he may spy into.",
+          "start": 0.08,
+          "end": 6.78,
+          "words": [
+            {
+              "text": " Fool,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " Why,",
+              "start": 1.12,
+              "end": 1.44,
+              "probability": 0.025299072265625
+            },
+            {
+              "text": " to",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " keep",
+              "start": 1.64,
+              "end": 1.8,
+              "probability": 0.96484375
+            },
+            {
+              "text": " one's",
+              "start": 1.8,
+              "end": 2.12,
+              "probability": 0.963134765625
+            },
+            {
+              "text": " eyes",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " of",
+              "start": 2.28,
+              "end": 2.48,
+              "probability": 0.890625
+            },
+            {
+              "text": " either",
+              "start": 2.48,
+              "end": 2.62,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " side's",
+              "start": 2.62,
+              "end": 3.2,
+              "probability": 0.947265625
+            },
+            {
+              "text": " nose,",
+              "start": 3.2,
+              "end": 3.42,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " that",
+              "start": 3.96,
+              "end": 4.1,
+              "probability": 0.480712890625
+            },
+            {
+              "text": " what",
+              "start": 4.1,
+              "end": 4.22,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " a",
+              "start": 4.22,
+              "end": 4.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " man",
+              "start": 4.34,
+              "end": 4.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cannot",
+              "start": 4.54,
+              "end": 4.88,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " smell",
+              "start": 4.88,
+              "end": 5.26,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " out,",
+              "start": 5.26,
+              "end": 5.6,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " he",
+              "start": 5.88,
+              "end": 5.98,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " may",
+              "start": 5.98,
+              "end": 6.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " spy",
+              "start": 6.14,
+              "end": 6.42,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " into.",
+              "start": 6.42,
+              "end": 6.78,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Why,",
+          "start": 1.12,
+          "end": 1.44
+        },
+        {
+          "raw": "to",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "keep",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "raw": "one's",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "raw": "eyes",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "of",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "raw": "either",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "raw": "side's",
+          "start": 2.62,
+          "end": 3.2
+        },
+        {
+          "raw": "nose,",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "raw": "that",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "raw": "what",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "raw": "man",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "raw": "cannot",
+          "start": 4.54,
+          "end": 4.88
+        },
+        {
+          "raw": "smell",
+          "start": 4.88,
+          "end": 5.26
+        },
+        {
+          "raw": "out,",
+          "start": 5.26,
+          "end": 5.6
+        },
+        {
+          "raw": "he",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "raw": "may",
+          "start": 5.98,
+          "end": 6.14
+        },
+        {
+          "raw": "spy",
+          "start": 6.14,
+          "end": 6.42
+        },
+        {
+          "raw": "into.",
+          "start": 6.42,
+          "end": 6.78
+        }
+      ],
+      "expected_tokens": [
+        "Fool.",
+        "Why,",
+        "to",
+        "keep",
+        "one's",
+        "eyes",
+        "of",
+        "either",
+        "side's",
+        "nose,",
+        "that",
+        "what",
+        "a",
+        "man",
+        "cannot",
+        "smell",
+        "out,",
+        "he",
+        "may",
+        "spy",
+        "into."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.12,
+          "end": 1.44,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 1.64,
+          "end": 1.8,
+          "key": "keep",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "one's",
+          "start": 1.8,
+          "end": 2.12,
+          "key": "ones",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "eyes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.28,
+          "end": 2.48,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 2.48,
+          "end": 2.62,
+          "key": "either",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "side's",
+          "start": 2.62,
+          "end": 3.2,
+          "key": "sides",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "nose,",
+          "start": 3.2,
+          "end": 3.42,
+          "key": "nose",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.96,
+          "end": 4.1,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.1,
+          "end": 4.22,
+          "key": "what",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.22,
+          "end": 4.34,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.34,
+          "end": 4.54,
+          "key": "man",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 4.54,
+          "end": 4.88,
+          "key": "cannot",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "smell",
+          "start": 4.88,
+          "end": 5.26,
+          "key": "smell",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 5.26,
+          "end": 5.6,
+          "key": "out",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.88,
+          "end": 5.98,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 5.98,
+          "end": 6.14,
+          "key": "may",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "spy",
+          "start": 6.14,
+          "end": 6.42,
+          "key": "spy",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "into.",
+          "start": 6.42,
+          "end": 6.78,
+          "key": "into",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fool.",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Why,",
+          "start": 1.12,
+          "end": 1.44
+        },
+        {
+          "text": "to",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "keep",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "text": "one's",
+          "start": 1.8,
+          "end": 2.12
+        },
+        {
+          "text": "eyes",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "of",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "text": "either",
+          "start": 2.48,
+          "end": 2.62
+        },
+        {
+          "text": "side's",
+          "start": 2.62,
+          "end": 3.2
+        },
+        {
+          "text": "nose,",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "text": "that",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "text": "what",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "text": "a",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "text": "man",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "text": "cannot",
+          "start": 4.54,
+          "end": 4.88
+        },
+        {
+          "text": "smell",
+          "start": 4.88,
+          "end": 5.26
+        },
+        {
+          "text": "out,",
+          "start": 5.26,
+          "end": 5.6
+        },
+        {
+          "text": "he",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "text": "may",
+          "start": 5.98,
+          "end": 6.14
+        },
+        {
+          "text": "spy",
+          "start": 6.14,
+          "end": 6.42
+        },
+        {
+          "text": "into.",
+          "start": 6.42,
+          "end": 6.78
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20836800709366798
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "36e31946b048ad097c118e21f61b3691ea6b70a847cb3bc14791a5413fa4e470",
+  "selected_reasons": []
+}

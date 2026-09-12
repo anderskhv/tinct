@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "23ce3b4406ebc53c3a43cd97e1c86d63ef20611f1cc3a171f2622d1397eee952",
+  "attempts": [
+    {
+      "asr_seconds": 0.1474737823009491,
+      "alignment_seconds": 0.0003315545618534088,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fabian. Good, and valiant.",
+        "hotwords": "Fabian, Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fabian, Good, and Valiant.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Fabian,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.975830078125
+            },
+            {
+              "text": " Good,",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.065185546875
+            },
+            {
+              "text": " and",
+              "start": 1.62,
+              "end": 1.66,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Valiant.",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.6806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Good,",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 1.66
+        },
+        {
+          "raw": "Valiant.",
+          "start": 1.66,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "Good,",
+        "and",
+        "valiant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good,",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.62,
+          "end": 1.66,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Valiant.",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "valiant",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Good,",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "and",
+          "start": 1.62,
+          "end": 1.66
+        },
+        {
+          "text": "valiant.",
+          "start": 1.66,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14792755991220474
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3eea66e01ae9e337449076bca1cd2333fdfeffef8ff76e32c7c882b70d09529d",
+  "selected_reasons": []
+}

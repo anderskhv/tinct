@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "8a6c461d72d2e806829c69fe0fe8b941c6455c6041d5e25ca6b6cf056aa98e86",
+  "attempts": [
+    {
+      "asr_seconds": 0.31507458351552486,
+      "alignment_seconds": 0.0004547238349914551,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Katerina Ivanovna!\" Nikolay Parfenovitch exclaimed with wonder. The prosecutor, too, stared.",
+        "hotwords": "Katerina, Ivanovna, Nikolay, Parfenovitch, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katerina Ivanovna, Nikolay Parfenovitch exclaimed with wonder. The prosecutor, too, stared.",
+          "start": 0.02,
+          "end": 6.38,
+          "words": [
+            {
+              "text": " Katerina",
+              "start": 0.02,
+              "end": 0.98,
+              "probability": 0.7373860677083334
+            },
+            {
+              "text": " Ivanovna,",
+              "start": 0.98,
+              "end": 1.84,
+              "probability": 0.9899088541666666
+            },
+            {
+              "text": " Nikolay",
+              "start": 2.16,
+              "end": 2.6,
+              "probability": 0.684326171875
+            },
+            {
+              "text": " Parfenovitch",
+              "start": 2.6,
+              "end": 3.2,
+              "probability": 0.48388671875
+            },
+            {
+              "text": " exclaimed",
+              "start": 3.2,
+              "end": 3.66,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " with",
+              "start": 3.66,
+              "end": 3.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " wonder.",
+              "start": 3.94,
+              "end": 4.3,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " The",
+              "start": 4.86,
+              "end": 4.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " prosecutor,",
+              "start": 4.96,
+              "end": 5.42,
+              "probability": 0.9765625
+            },
+            {
+              "text": " too,",
+              "start": 5.52,
+              "end": 5.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stared.",
+              "start": 5.96,
+              "end": 6.38,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katerina",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "raw": "Ivanovna,",
+          "start": 0.98,
+          "end": 1.84
+        },
+        {
+          "raw": "Nikolay",
+          "start": 2.16,
+          "end": 2.6
+        },
+        {
+          "raw": "Parfenovitch",
+          "start": 2.6,
+          "end": 3.2
+        },
+        {
+          "raw": "exclaimed",
+          "start": 3.2,
+          "end": 3.66
+        },
+        {
+          "raw": "with",
+          "start": 3.66,
+          "end": 3.94
+        },
+        {
+          "raw": "wonder.",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "raw": "The",
+          "start": 4.86,
+          "end": 4.96
+        },
+        {
+          "raw": "prosecutor,",
+          "start": 4.96,
+          "end": 5.42
+        },
+        {
+          "raw": "too,",
+          "start": 5.52,
+          "end": 5.9
+        },
+        {
+          "raw": "stared.",
+          "start": 5.96,
+          "end": 6.38
+        }
+      ],
+      "expected_tokens": [
+        "\"Katerina",
+        "Ivanovna!\"",
+        "Nikolay",
+        "Parfenovitch",
+        "exclaimed",
+        "with",
+        "wonder.",
+        "The",
+        "prosecutor,",
+        "too,",
+        "stared."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katerina",
+          "start": 0.02,
+          "end": 0.98,
+          "key": "katerina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ivanovna,",
+          "start": 0.98,
+          "end": 1.84,
+          "key": "ivanovna",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nikolay",
+          "start": 2.16,
+          "end": 2.6,
+          "key": "nikolay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Parfenovitch",
+          "start": 2.6,
+          "end": 3.2,
+          "key": "parfenovitch",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 3.2,
+          "end": 3.66,
+          "key": "exclaimed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.66,
+          "end": 3.94,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wonder.",
+          "start": 3.94,
+          "end": 4.3,
+          "key": "wonder",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.86,
+          "end": 4.96,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "prosecutor,",
+          "start": 4.96,
+          "end": 5.42,
+          "key": "prosecutor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 5.52,
+          "end": 5.9,
+          "key": "too",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stared.",
+          "start": 5.96,
+          "end": 6.38,
+          "key": "stared",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Katerina",
+          "start": 0.02,
+          "end": 0.98
+        },
+        {
+          "text": "Ivanovna!\"",
+          "start": 0.98,
+          "end": 1.84
+        },
+        {
+          "text": "Nikolay",
+          "start": 2.16,
+          "end": 2.6
+        },
+        {
+          "text": "Parfenovitch",
+          "start": 2.6,
+          "end": 3.2
+        },
+        {
+          "text": "exclaimed",
+          "start": 3.2,
+          "end": 3.66
+        },
+        {
+          "text": "with",
+          "start": 3.66,
+          "end": 3.94
+        },
+        {
+          "text": "wonder.",
+          "start": 3.94,
+          "end": 4.3
+        },
+        {
+          "text": "The",
+          "start": 4.86,
+          "end": 4.96
+        },
+        {
+          "text": "prosecutor,",
+          "start": 4.96,
+          "end": 5.42
+        },
+        {
+          "text": "too,",
+          "start": 5.52,
+          "end": 5.9
+        },
+        {
+          "text": "stared.",
+          "start": 5.96,
+          "end": 6.38
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3156990371644497
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16ffddcd1422165ddceddad5f0a8ebd6f3c88339f2e6586d47b3efd8d941e63e",
+  "selected_reasons": []
+}

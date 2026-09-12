@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "3e16a5fb114371fad3b95442ad22e5f82bdde4c7c5fb3d9613859d0b6af4529c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14951608143746853,
+      "alignment_seconds": 0.000362589955329895,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"So will I,\" said Kalganov.",
+        "hotwords": "So, I, Kalganov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So will I,\" said Kalganov.",
+          "start": 0.11,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.239990234375
+            },
+            {
+              "text": " will",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " I,\"",
+              "start": 0.75,
+              "end": 1.33,
+              "probability": 0.578125
+            },
+            {
+              "text": " said",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Kalganov.",
+              "start": 1.43,
+              "end": 2.01,
+              "probability": 0.7754720052083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "will",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "I,\"",
+          "start": 0.75,
+          "end": 1.33
+        },
+        {
+          "raw": "said",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 1.43,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "\"So",
+        "will",
+        "I,\"",
+        "said",
+        "Kalganov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.59,
+          "end": 0.75,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,\"",
+          "start": 0.75,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Kalganov.",
+          "start": 1.43,
+          "end": 2.01,
+          "key": "kalganov",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"So",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "text": "will",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "I,\"",
+          "start": 0.75,
+          "end": 1.33
+        },
+        {
+          "text": "said",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "Kalganov.",
+          "start": 1.43,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15000380016863346
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8969908b03e6c9e1ec9eee8964a87bd5970338d3bc1a127e5be2ecc4fe6ba9be",
+  "selected_reasons": []
+}

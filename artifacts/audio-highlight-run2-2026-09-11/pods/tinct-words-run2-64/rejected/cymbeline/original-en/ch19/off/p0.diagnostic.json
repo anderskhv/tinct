@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "edc3292f429f9eff1b31514775f640ea5a8965c43d3a702f378d221690691119",
+  "attempts": [
+    {
+      "asr_seconds": 0.1922669569030404,
+      "alignment_seconds": 0.0002513416111469269,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Balerius, Gydreius, and Arvaragus.",
+          "start": 0.14,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.892578125
+            },
+            {
+              "text": " Balerius,",
+              "start": 0.64,
+              "end": 1.26,
+              "probability": 0.5204671223958334
+            },
+            {
+              "text": " Gydreius,",
+              "start": 1.78,
+              "end": 2.16,
+              "probability": 0.64959716796875
+            },
+            {
+              "text": " and",
+              "start": 2.28,
+              "end": 2.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Arvaragus.",
+              "start": 2.42,
+              "end": 2.92,
+              "probability": 0.7315266927083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Balerius,",
+          "start": 0.64,
+          "end": 1.26
+        },
+        {
+          "raw": "Gydreius,",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "raw": "and",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "raw": "Arvaragus.",
+          "start": 2.42,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Belarius,",
+        "Guiderius",
+        "and",
+        "Arviragus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Balerius,",
+          "start": 0.64,
+          "end": 1.26,
+          "key": "balerius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Gydreius,",
+          "start": 1.78,
+          "end": 2.16,
+          "key": "gydreius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.28,
+          "end": 2.42,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Arvaragus.",
+          "start": 2.42,
+          "end": 2.92,
+          "key": "arvaragus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "Belarius,",
+          "start": 0.64,
+          "end": 1.46
+        },
+        {
+          "text": "Guiderius",
+          "start": 1.46,
+          "end": 1.87
+        },
+        {
+          "text": "and",
+          "start": 2.28,
+          "end": 2.42
+        },
+        {
+          "text": "Arviragus.",
+          "start": 2.42,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19259311445057392
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "511b16420726700fec5c05be4042dab63702ef08b1c440012418c905aac1bcb8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

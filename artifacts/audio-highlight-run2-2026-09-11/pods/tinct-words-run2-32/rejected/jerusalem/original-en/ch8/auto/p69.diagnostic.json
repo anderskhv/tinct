@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "20599178290a452bd43f2818573895dfc47a16aef9f4e2142cf6ec5ec1f6e39d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14125448651611805,
+      "alignment_seconds": 0.00017815455794334412,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"So that's the way you take it, eh? I thought you would wonder why Hellgum had given in like that to Gertrude.\"",
+        "hotwords": "So, I, Hellgum, Gertrude"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So that's the way you take it, eh? I thought you would wonder why Hellgum had given in like that to Gertrude.",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " that's",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " the",
+              "start": 0.85,
+              "end": 0.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " way",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 1.11,
+              "end": 1.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " take",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it,",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " eh?",
+              "start": 2.11,
+              "end": 2.11,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " I",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " thought",
+              "start": 2.85,
+              "end": 2.99,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 2.99,
+              "end": 3.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " would",
+              "start": 3.15,
+              "end": 3.25,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " wonder",
+              "start": 3.25,
+              "end": 3.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " why",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Hellgum",
+              "start": 3.71,
+              "end": 4.05,
+              "probability": 0.5176645914713541
+            },
+            {
+              "text": " had",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " given",
+              "start": 4.21,
+              "end": 4.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.39,
+              "end": 4.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " like",
+              "start": 4.61,
+              "end": 4.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 4.81,
+              "end": 5.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.05,
+              "end": 5.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Gertrude.",
+              "start": 5.21,
+              "end": 5.73,
+              "probability": 0.9893798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "that's",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "raw": "way",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "you",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "raw": "take",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "it,",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "eh?",
+          "start": 2.11,
+          "end": 2.11
+        },
+        {
+          "raw": "I",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "thought",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "raw": "you",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "raw": "would",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "raw": "wonder",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "raw": "why",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "Hellgum",
+          "start": 3.71,
+          "end": 4.05
+        },
+        {
+          "raw": "had",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "given",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "raw": "in",
+          "start": 4.39,
+          "end": 4.61
+        },
+        {
+          "raw": "like",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "raw": "that",
+          "start": 4.81,
+          "end": 5.05
+        },
+        {
+          "raw": "to",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "raw": "Gertrude.",
+          "start": 5.21,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "\"So",
+        "that's",
+        "the",
+        "way",
+        "you",
+        "take",
+        "it,",
+        "eh?",
+        "I",
+        "thought",
+        "you",
+        "would",
+        "wonder",
+        "why",
+        "Hellgum",
+        "had",
+        "given",
+        "in",
+        "like",
+        "that",
+        "to",
+        "Gertrude.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "thats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 0.97,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "way",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.11,
+          "end": 1.31,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "take",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eh?",
+          "start": 2.11,
+          "end": 2.11,
+          "key": "eh",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 2.85,
+          "end": 2.99,
+          "key": "thought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.99,
+          "end": 3.15,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.15,
+          "end": 3.25,
+          "key": "would",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wonder",
+          "start": 3.25,
+          "end": 3.49,
+          "key": "wonder",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 3.49,
+          "end": 3.71,
+          "key": "why",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Hellgum",
+          "start": 3.71,
+          "end": 4.05,
+          "key": "hellgum",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.05,
+          "end": 4.21,
+          "key": "had",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 4.21,
+          "end": 4.39,
+          "key": "given",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.39,
+          "end": 4.61,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.61,
+          "end": 4.81,
+          "key": "like",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.81,
+          "end": 5.05,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.05,
+          "end": 5.21,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Gertrude.",
+          "start": 5.21,
+          "end": 5.73,
+          "key": "gertrude",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"So",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "that's",
+          "start": 0.55,
+          "end": 0.85
+        },
+        {
+          "text": "the",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "text": "way",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "you",
+          "start": 1.11,
+          "end": 1.31
+        },
+        {
+          "text": "take",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "it,",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "eh?",
+          "start": 2.11,
+          "end": 2.11
+        },
+        {
+          "text": "I",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "thought",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "text": "you",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "text": "would",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "text": "wonder",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "text": "why",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "Hellgum",
+          "start": 3.71,
+          "end": 4.05
+        },
+        {
+          "text": "had",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "given",
+          "start": 4.21,
+          "end": 4.39
+        },
+        {
+          "text": "in",
+          "start": 4.39,
+          "end": 4.61
+        },
+        {
+          "text": "like",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "text": "that",
+          "start": 4.81,
+          "end": 5.05
+        },
+        {
+          "text": "to",
+          "start": 5.05,
+          "end": 5.21
+        },
+        {
+          "text": "Gertrude.\"",
+          "start": 5.21,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1415211446583271
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "854b9ce9a7dcfb6b83ee07f8e3ed95e5d739ecfd5571823034c6740b5bae8864",
+  "selected_reasons": []
+}

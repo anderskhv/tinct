@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "e8c28027e30d0540f67a7ccb8f8305238d4e1587d5846c1481ea39e10d1fd0cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.09194495601695962,
+      "alignment_seconds": 8.190199150703847e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menas.",
+        "hotwords": "Menas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menas.",
+          "start": 0.08,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Menas.",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.5113372802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menas.",
+          "start": 0.08,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "Menas."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menas.",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "menas",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.08,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.092052068997873
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a5e4a6038746bffb18521020b8e4888c619436b1f256551e30f1327d210b6cc",
+  "selected_reasons": []
+}

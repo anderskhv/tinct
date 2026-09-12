@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "cc95b8f3545d86a8fb977c53f62d2d43c349f25bd0be3d00a9c01ee07881997f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1096912799985148,
+      "alignment_seconds": 0.00013093501911498606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lepidus. Well met here.",
+        "hotwords": "Lepidus, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lepidus, Well met here.",
+          "start": 0.54,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Lepidus,",
+              "start": 0.54,
+              "end": 1.02,
+              "probability": 0.9381510416666666
+            },
+            {
+              "text": " Well",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.01258087158203125
+            },
+            {
+              "text": " met",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.896484375
+            },
+            {
+              "text": " here.",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lepidus,",
+          "start": 0.54,
+          "end": 1.02
+        },
+        {
+          "raw": "Well",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "met",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "here.",
+          "start": 1.54,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Lepidus.",
+        "Well",
+        "met",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lepidus,",
+          "start": 0.54,
+          "end": 1.02,
+          "key": "lepidus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "met",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 1.54,
+          "end": 1.84,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lepidus.",
+          "start": 0.54,
+          "end": 1.02
+        },
+        {
+          "text": "Well",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "met",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "here.",
+          "start": 1.54,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10986616602167487
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b8242a74c30be6f48261d936484b5c2aefa6f0219b66ee39106358b6e0f514ae",
+  "selected_reasons": []
+}

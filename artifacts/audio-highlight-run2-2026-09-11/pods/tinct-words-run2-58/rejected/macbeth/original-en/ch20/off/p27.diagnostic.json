@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "4e03b058a52d8c83fd81f5967e6c1c91aac5dcff097e85e7913e1c3aa0c78040",
+  "attempts": [
+    {
+      "asr_seconds": 0.11890914756804705,
+      "alignment_seconds": 0.00026013515889644623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit doctor.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " doctor.",
+              "start": 0.67,
+              "end": 1.11,
+              "probability": 0.56298828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "doctor.",
+          "start": 0.67,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Doctor.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "doctor.",
+          "start": 0.67,
+          "end": 1.11,
+          "key": "doctor",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Doctor.]",
+          "start": 0.67,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11925841402262449
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4d14569d1736593c53c7a1c00127edeab137b8a5bc6a1350447241400cc36dca",
+  "selected_reasons": []
+}

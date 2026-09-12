@@ -1,0 +1,2277 @@
+{
+  "complete": true,
+  "signature": "f995c199e724451a5d8c557da75e19ce7e9da880fc941e8801a1b16806500a73",
+  "attempts": [
+    {
+      "asr_seconds": 0.6052571110194549,
+      "alignment_seconds": 0.000646313012111932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They looked. Murderer's ground. It passed darkly. Shuttered, tenantless, unweeded garden. Whole place gone to hell. Wrongfully condemned. Murder. The murderer's image in the eye of the murdered. They love reading about it. Man's head found in a garden. Her clothing consisted of. How she met her death. Recent outrage. The weapon used. Murderer is still at large. Clues. A shoelace. The body to be exhumed. Murder will out.",
+        "hotwords": "They, Shuttered, Whole, Wrongfully, Murder, Man's, How, Recent, Murderer, Clues"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They looked. Murderer's ground. It passed darkly. Shuttered, tenantless, unweeded garden. Whole place gone to hell. Wrongfully condemned. Murder. The murderer's image in the eye of the murdered. They love reading about it.",
+          "start": 0.05,
+          "end": 12.75,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " looked.",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Murderer's",
+              "start": 0.89,
+              "end": 1.35,
+              "probability": 0.8727213541666666
+            },
+            {
+              "text": " ground.",
+              "start": 1.35,
+              "end": 1.65,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " It",
+              "start": 2.13,
+              "end": 2.19,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " passed",
+              "start": 2.19,
+              "end": 2.49,
+              "probability": 0.984375
+            },
+            {
+              "text": " darkly.",
+              "start": 2.49,
+              "end": 3.25,
+              "probability": 0.935546875
+            },
+            {
+              "text": " Shuttered,",
+              "start": 3.69,
+              "end": 3.91,
+              "probability": 0.587890625
+            },
+            {
+              "text": " tenantless,",
+              "start": 4.01,
+              "end": 4.47,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " unweeded",
+              "start": 4.71,
+              "end": 5.09,
+              "probability": 0.8707682291666666
+            },
+            {
+              "text": " garden.",
+              "start": 5.09,
+              "end": 5.47,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Whole",
+              "start": 6.03,
+              "end": 6.07,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " place",
+              "start": 6.07,
+              "end": 6.35,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gone",
+              "start": 6.35,
+              "end": 6.59,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 6.59,
+              "end": 6.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hell.",
+              "start": 6.81,
+              "end": 7.01,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " Wrongfully",
+              "start": 7.45,
+              "end": 7.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " condemned.",
+              "start": 7.73,
+              "end": 8.19,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Murder.",
+              "start": 8.87,
+              "end": 8.95,
+              "probability": 0.962890625
+            },
+            {
+              "text": " The",
+              "start": 9.49,
+              "end": 9.57,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " murderer's",
+              "start": 9.57,
+              "end": 10.07,
+              "probability": 0.963623046875
+            },
+            {
+              "text": " image",
+              "start": 10.07,
+              "end": 10.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 10.29,
+              "end": 10.49,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " the",
+              "start": 10.49,
+              "end": 10.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " eye",
+              "start": 10.57,
+              "end": 10.75,
+              "probability": 0.92578125
+            },
+            {
+              "text": " of",
+              "start": 10.75,
+              "end": 10.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.87,
+              "end": 11.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " murdered.",
+              "start": 11.01,
+              "end": 11.23,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " They",
+              "start": 11.57,
+              "end": 11.57,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " love",
+              "start": 11.57,
+              "end": 11.83,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " reading",
+              "start": 11.83,
+              "end": 12.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 12.15,
+              "end": 12.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 12.47,
+              "end": 12.75,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Man's head found in a garden. Her clothing consisted of. How she met her death. Recent outrage. The weapon used. Murderer is still at large. Clues. A shoelace. The body to be exhumed. Murder will out.",
+          "start": 12.75,
+          "end": 24.99,
+          "words": [
+            {
+              "text": " Man's",
+              "start": 12.75,
+              "end": 13.49,
+              "probability": 0.752685546875
+            },
+            {
+              "text": " head",
+              "start": 13.49,
+              "end": 13.63,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " found",
+              "start": 13.63,
+              "end": 13.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 13.95,
+              "end": 14.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 14.13,
+              "end": 14.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " garden.",
+              "start": 14.23,
+              "end": 14.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Her",
+              "start": 14.85,
+              "end": 14.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " clothing",
+              "start": 14.91,
+              "end": 15.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " consisted",
+              "start": 15.21,
+              "end": 15.59,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " of.",
+              "start": 15.59,
+              "end": 15.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " How",
+              "start": 16.21,
+              "end": 16.27,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " she",
+              "start": 16.27,
+              "end": 16.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " met",
+              "start": 16.45,
+              "end": 16.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 16.61,
+              "end": 16.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " death.",
+              "start": 16.77,
+              "end": 17.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Recent",
+              "start": 17.47,
+              "end": 17.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " outrage.",
+              "start": 17.67,
+              "end": 18.17,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " The",
+              "start": 18.63,
+              "end": 18.69,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " weapon",
+              "start": 18.69,
+              "end": 18.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " used.",
+              "start": 18.91,
+              "end": 19.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Murderer",
+              "start": 19.75,
+              "end": 20.03,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " is",
+              "start": 20.03,
+              "end": 20.23,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " still",
+              "start": 20.23,
+              "end": 20.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 20.45,
+              "end": 20.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " large.",
+              "start": 20.61,
+              "end": 20.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Clues.",
+              "start": 21.53,
+              "end": 21.79,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " A",
+              "start": 21.95,
+              "end": 21.99,
+              "probability": 0.986328125
+            },
+            {
+              "text": " shoelace.",
+              "start": 21.99,
+              "end": 22.55,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " The",
+              "start": 22.77,
+              "end": 22.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " body",
+              "start": 22.81,
+              "end": 23.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 23.01,
+              "end": 23.21,
+              "probability": 0.990234375
+            },
+            {
+              "text": " be",
+              "start": 23.21,
+              "end": 23.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " exhumed.",
+              "start": 23.33,
+              "end": 23.93,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Murder",
+              "start": 24.27,
+              "end": 24.39,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " will",
+              "start": 24.39,
+              "end": 24.67,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " out.",
+              "start": 24.67,
+              "end": 24.99,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "looked.",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "Murderer's",
+          "start": 0.89,
+          "end": 1.35
+        },
+        {
+          "raw": "ground.",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "raw": "It",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "raw": "passed",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "raw": "darkly.",
+          "start": 2.49,
+          "end": 3.25
+        },
+        {
+          "raw": "Shuttered,",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "raw": "tenantless,",
+          "start": 4.01,
+          "end": 4.47
+        },
+        {
+          "raw": "unweeded",
+          "start": 4.71,
+          "end": 5.09
+        },
+        {
+          "raw": "garden.",
+          "start": 5.09,
+          "end": 5.47
+        },
+        {
+          "raw": "Whole",
+          "start": 6.03,
+          "end": 6.07
+        },
+        {
+          "raw": "place",
+          "start": 6.07,
+          "end": 6.35
+        },
+        {
+          "raw": "gone",
+          "start": 6.35,
+          "end": 6.59
+        },
+        {
+          "raw": "to",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "raw": "hell.",
+          "start": 6.81,
+          "end": 7.01
+        },
+        {
+          "raw": "Wrongfully",
+          "start": 7.45,
+          "end": 7.73
+        },
+        {
+          "raw": "condemned.",
+          "start": 7.73,
+          "end": 8.19
+        },
+        {
+          "raw": "Murder.",
+          "start": 8.87,
+          "end": 8.95
+        },
+        {
+          "raw": "The",
+          "start": 9.49,
+          "end": 9.57
+        },
+        {
+          "raw": "murderer's",
+          "start": 9.57,
+          "end": 10.07
+        },
+        {
+          "raw": "image",
+          "start": 10.07,
+          "end": 10.29
+        },
+        {
+          "raw": "in",
+          "start": 10.29,
+          "end": 10.49
+        },
+        {
+          "raw": "the",
+          "start": 10.49,
+          "end": 10.57
+        },
+        {
+          "raw": "eye",
+          "start": 10.57,
+          "end": 10.75
+        },
+        {
+          "raw": "of",
+          "start": 10.75,
+          "end": 10.87
+        },
+        {
+          "raw": "the",
+          "start": 10.87,
+          "end": 11.01
+        },
+        {
+          "raw": "murdered.",
+          "start": 11.01,
+          "end": 11.23
+        },
+        {
+          "raw": "They",
+          "start": 11.57,
+          "end": 11.57
+        },
+        {
+          "raw": "love",
+          "start": 11.57,
+          "end": 11.83
+        },
+        {
+          "raw": "reading",
+          "start": 11.83,
+          "end": 12.15
+        },
+        {
+          "raw": "about",
+          "start": 12.15,
+          "end": 12.47
+        },
+        {
+          "raw": "it.",
+          "start": 12.47,
+          "end": 12.75
+        },
+        {
+          "raw": "Man's",
+          "start": 12.75,
+          "end": 13.49
+        },
+        {
+          "raw": "head",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "raw": "found",
+          "start": 13.63,
+          "end": 13.95
+        },
+        {
+          "raw": "in",
+          "start": 13.95,
+          "end": 14.13
+        },
+        {
+          "raw": "a",
+          "start": 14.13,
+          "end": 14.23
+        },
+        {
+          "raw": "garden.",
+          "start": 14.23,
+          "end": 14.53
+        },
+        {
+          "raw": "Her",
+          "start": 14.85,
+          "end": 14.91
+        },
+        {
+          "raw": "clothing",
+          "start": 14.91,
+          "end": 15.21
+        },
+        {
+          "raw": "consisted",
+          "start": 15.21,
+          "end": 15.59
+        },
+        {
+          "raw": "of.",
+          "start": 15.59,
+          "end": 15.97
+        },
+        {
+          "raw": "How",
+          "start": 16.21,
+          "end": 16.27
+        },
+        {
+          "raw": "she",
+          "start": 16.27,
+          "end": 16.45
+        },
+        {
+          "raw": "met",
+          "start": 16.45,
+          "end": 16.61
+        },
+        {
+          "raw": "her",
+          "start": 16.61,
+          "end": 16.77
+        },
+        {
+          "raw": "death.",
+          "start": 16.77,
+          "end": 17.11
+        },
+        {
+          "raw": "Recent",
+          "start": 17.47,
+          "end": 17.67
+        },
+        {
+          "raw": "outrage.",
+          "start": 17.67,
+          "end": 18.17
+        },
+        {
+          "raw": "The",
+          "start": 18.63,
+          "end": 18.69
+        },
+        {
+          "raw": "weapon",
+          "start": 18.69,
+          "end": 18.91
+        },
+        {
+          "raw": "used.",
+          "start": 18.91,
+          "end": 19.39
+        },
+        {
+          "raw": "Murderer",
+          "start": 19.75,
+          "end": 20.03
+        },
+        {
+          "raw": "is",
+          "start": 20.03,
+          "end": 20.23
+        },
+        {
+          "raw": "still",
+          "start": 20.23,
+          "end": 20.45
+        },
+        {
+          "raw": "at",
+          "start": 20.45,
+          "end": 20.61
+        },
+        {
+          "raw": "large.",
+          "start": 20.61,
+          "end": 20.95
+        },
+        {
+          "raw": "Clues.",
+          "start": 21.53,
+          "end": 21.79
+        },
+        {
+          "raw": "A",
+          "start": 21.95,
+          "end": 21.99
+        },
+        {
+          "raw": "shoelace.",
+          "start": 21.99,
+          "end": 22.55
+        },
+        {
+          "raw": "The",
+          "start": 22.77,
+          "end": 22.81
+        },
+        {
+          "raw": "body",
+          "start": 22.81,
+          "end": 23.01
+        },
+        {
+          "raw": "to",
+          "start": 23.01,
+          "end": 23.21
+        },
+        {
+          "raw": "be",
+          "start": 23.21,
+          "end": 23.33
+        },
+        {
+          "raw": "exhumed.",
+          "start": 23.33,
+          "end": 23.93
+        },
+        {
+          "raw": "Murder",
+          "start": 24.27,
+          "end": 24.39
+        },
+        {
+          "raw": "will",
+          "start": 24.39,
+          "end": 24.67
+        },
+        {
+          "raw": "out.",
+          "start": 24.67,
+          "end": 24.99
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "looked.",
+        "Murderer's",
+        "ground.",
+        "It",
+        "passed",
+        "darkly.",
+        "Shuttered,",
+        "tenantless,",
+        "unweeded",
+        "garden.",
+        "Whole",
+        "place",
+        "gone",
+        "to",
+        "hell.",
+        "Wrongfully",
+        "condemned.",
+        "Murder.",
+        "The",
+        "murderer's",
+        "image",
+        "in",
+        "the",
+        "eye",
+        "of",
+        "the",
+        "murdered.",
+        "They",
+        "love",
+        "reading",
+        "about",
+        "it.",
+        "Man's",
+        "head",
+        "found",
+        "in",
+        "a",
+        "garden.",
+        "Her",
+        "clothing",
+        "consisted",
+        "of.",
+        "How",
+        "she",
+        "met",
+        "her",
+        "death.",
+        "Recent",
+        "outrage.",
+        "The",
+        "weapon",
+        "used.",
+        "Murderer",
+        "is",
+        "still",
+        "at",
+        "large.",
+        "Clues.",
+        "A",
+        "shoelace.",
+        "The",
+        "body",
+        "to",
+        "be",
+        "exhumed.",
+        "Murder",
+        "will",
+        "out."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          69,
+          0,
+          69
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked.",
+          "start": 0.53,
+          "end": 0.77,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Murderer's",
+          "start": 0.89,
+          "end": 1.35,
+          "key": "murderers",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ground.",
+          "start": 1.35,
+          "end": 1.65,
+          "key": "ground",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.13,
+          "end": 2.19,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 2.19,
+          "end": 2.49,
+          "key": "passed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "darkly.",
+          "start": 2.49,
+          "end": 3.25,
+          "key": "darkly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Shuttered,",
+          "start": 3.69,
+          "end": 3.91,
+          "key": "shuttered",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tenantless,",
+          "start": 4.01,
+          "end": 4.47,
+          "key": "tenantless",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "unweeded",
+          "start": 4.71,
+          "end": 5.09,
+          "key": "unweeded",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "garden.",
+          "start": 5.09,
+          "end": 5.47,
+          "key": "garden",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Whole",
+          "start": 6.03,
+          "end": 6.07,
+          "key": "whole",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 6.07,
+          "end": 6.35,
+          "key": "place",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 6.35,
+          "end": 6.59,
+          "key": "gone",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.59,
+          "end": 6.81,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "hell.",
+          "start": 6.81,
+          "end": 7.01,
+          "key": "hell",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Wrongfully",
+          "start": 7.45,
+          "end": 7.73,
+          "key": "wrongfully",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "condemned.",
+          "start": 7.73,
+          "end": 8.19,
+          "key": "condemned",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Murder.",
+          "start": 8.87,
+          "end": 8.95,
+          "key": "murder",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 9.49,
+          "end": 9.57,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "murderer's",
+          "start": 9.57,
+          "end": 10.07,
+          "key": "murderers",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "image",
+          "start": 10.07,
+          "end": 10.29,
+          "key": "image",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.29,
+          "end": 10.49,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.49,
+          "end": 10.57,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 10.57,
+          "end": 10.75,
+          "key": "eye",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.75,
+          "end": 10.87,
+          "key": "of",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.87,
+          "end": 11.01,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "murdered.",
+          "start": 11.01,
+          "end": 11.23,
+          "key": "murdered",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 11.57,
+          "end": 11.57,
+          "key": "they",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 11.57,
+          "end": 11.83,
+          "key": "love",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "reading",
+          "start": 11.83,
+          "end": 12.15,
+          "key": "reading",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 12.15,
+          "end": 12.47,
+          "key": "about",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 12.47,
+          "end": 12.75,
+          "key": "it",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Man's",
+          "start": 12.75,
+          "end": 13.49,
+          "key": "mans",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 13.49,
+          "end": 13.63,
+          "key": "head",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 13.63,
+          "end": 13.95,
+          "key": "found",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.95,
+          "end": 14.13,
+          "key": "in",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 14.13,
+          "end": 14.23,
+          "key": "a",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "garden.",
+          "start": 14.23,
+          "end": 14.53,
+          "key": "garden",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Her",
+          "start": 14.85,
+          "end": 14.91,
+          "key": "her",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "clothing",
+          "start": 14.91,
+          "end": 15.21,
+          "key": "clothing",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "consisted",
+          "start": 15.21,
+          "end": 15.59,
+          "key": "consisted",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "of.",
+          "start": 15.59,
+          "end": 15.97,
+          "key": "of",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 16.21,
+          "end": 16.27,
+          "key": "how",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 16.27,
+          "end": 16.45,
+          "key": "she",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "met",
+          "start": 16.45,
+          "end": 16.61,
+          "key": "met",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 16.61,
+          "end": 16.77,
+          "key": "her",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 16.77,
+          "end": 17.11,
+          "key": "death",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Recent",
+          "start": 17.47,
+          "end": 17.67,
+          "key": "recent",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "outrage.",
+          "start": 17.67,
+          "end": 18.17,
+          "key": "outrage",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 18.63,
+          "end": 18.69,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "weapon",
+          "start": 18.69,
+          "end": 18.91,
+          "key": "weapon",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "used.",
+          "start": 18.91,
+          "end": 19.39,
+          "key": "used",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Murderer",
+          "start": 19.75,
+          "end": 20.03,
+          "key": "murderer",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 20.03,
+          "end": 20.23,
+          "key": "is",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 20.23,
+          "end": 20.45,
+          "key": "still",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 20.45,
+          "end": 20.61,
+          "key": "at",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "large.",
+          "start": 20.61,
+          "end": 20.95,
+          "key": "large",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Clues.",
+          "start": 21.53,
+          "end": 21.79,
+          "key": "clues",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 21.95,
+          "end": 21.99,
+          "key": "a",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "shoelace.",
+          "start": 21.99,
+          "end": 22.55,
+          "key": "shoelace",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 22.77,
+          "end": 22.81,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "body",
+          "start": 22.81,
+          "end": 23.01,
+          "key": "body",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.01,
+          "end": 23.21,
+          "key": "to",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 23.21,
+          "end": 23.33,
+          "key": "be",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "exhumed.",
+          "start": 23.33,
+          "end": 23.93,
+          "key": "exhumed",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Murder",
+          "start": 24.27,
+          "end": 24.39,
+          "key": "murder",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 24.39,
+          "end": 24.67,
+          "key": "will",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "out.",
+          "start": 24.67,
+          "end": 24.99,
+          "key": "out",
+          "pieces": [
+            68
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "looked.",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "Murderer's",
+          "start": 0.89,
+          "end": 1.35
+        },
+        {
+          "text": "ground.",
+          "start": 1.35,
+          "end": 1.65
+        },
+        {
+          "text": "It",
+          "start": 2.13,
+          "end": 2.19
+        },
+        {
+          "text": "passed",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "text": "darkly.",
+          "start": 2.49,
+          "end": 3.25
+        },
+        {
+          "text": "Shuttered,",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "text": "tenantless,",
+          "start": 4.01,
+          "end": 4.47
+        },
+        {
+          "text": "unweeded",
+          "start": 4.71,
+          "end": 5.09
+        },
+        {
+          "text": "garden.",
+          "start": 5.09,
+          "end": 5.47
+        },
+        {
+          "text": "Whole",
+          "start": 6.03,
+          "end": 6.07
+        },
+        {
+          "text": "place",
+          "start": 6.07,
+          "end": 6.35
+        },
+        {
+          "text": "gone",
+          "start": 6.35,
+          "end": 6.59
+        },
+        {
+          "text": "to",
+          "start": 6.59,
+          "end": 6.81
+        },
+        {
+          "text": "hell.",
+          "start": 6.81,
+          "end": 7.01
+        },
+        {
+          "text": "Wrongfully",
+          "start": 7.45,
+          "end": 7.73
+        },
+        {
+          "text": "condemned.",
+          "start": 7.73,
+          "end": 8.19
+        },
+        {
+          "text": "Murder.",
+          "start": 8.87,
+          "end": 8.95
+        },
+        {
+          "text": "The",
+          "start": 9.49,
+          "end": 9.57
+        },
+        {
+          "text": "murderer's",
+          "start": 9.57,
+          "end": 10.07
+        },
+        {
+          "text": "image",
+          "start": 10.07,
+          "end": 10.29
+        },
+        {
+          "text": "in",
+          "start": 10.29,
+          "end": 10.49
+        },
+        {
+          "text": "the",
+          "start": 10.49,
+          "end": 10.57
+        },
+        {
+          "text": "eye",
+          "start": 10.57,
+          "end": 10.75
+        },
+        {
+          "text": "of",
+          "start": 10.75,
+          "end": 10.87
+        },
+        {
+          "text": "the",
+          "start": 10.87,
+          "end": 11.01
+        },
+        {
+          "text": "murdered.",
+          "start": 11.01,
+          "end": 11.23
+        },
+        {
+          "text": "They",
+          "start": 11.57,
+          "end": 11.57
+        },
+        {
+          "text": "love",
+          "start": 11.57,
+          "end": 11.83
+        },
+        {
+          "text": "reading",
+          "start": 11.83,
+          "end": 12.15
+        },
+        {
+          "text": "about",
+          "start": 12.15,
+          "end": 12.47
+        },
+        {
+          "text": "it.",
+          "start": 12.47,
+          "end": 12.75
+        },
+        {
+          "text": "Man's",
+          "start": 12.75,
+          "end": 13.49
+        },
+        {
+          "text": "head",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "text": "found",
+          "start": 13.63,
+          "end": 13.95
+        },
+        {
+          "text": "in",
+          "start": 13.95,
+          "end": 14.13
+        },
+        {
+          "text": "a",
+          "start": 14.13,
+          "end": 14.23
+        },
+        {
+          "text": "garden.",
+          "start": 14.23,
+          "end": 14.53
+        },
+        {
+          "text": "Her",
+          "start": 14.85,
+          "end": 14.91
+        },
+        {
+          "text": "clothing",
+          "start": 14.91,
+          "end": 15.21
+        },
+        {
+          "text": "consisted",
+          "start": 15.21,
+          "end": 15.59
+        },
+        {
+          "text": "of.",
+          "start": 15.59,
+          "end": 15.97
+        },
+        {
+          "text": "How",
+          "start": 16.21,
+          "end": 16.27
+        },
+        {
+          "text": "she",
+          "start": 16.27,
+          "end": 16.45
+        },
+        {
+          "text": "met",
+          "start": 16.45,
+          "end": 16.61
+        },
+        {
+          "text": "her",
+          "start": 16.61,
+          "end": 16.77
+        },
+        {
+          "text": "death.",
+          "start": 16.77,
+          "end": 17.11
+        },
+        {
+          "text": "Recent",
+          "start": 17.47,
+          "end": 17.67
+        },
+        {
+          "text": "outrage.",
+          "start": 17.67,
+          "end": 18.17
+        },
+        {
+          "text": "The",
+          "start": 18.63,
+          "end": 18.69
+        },
+        {
+          "text": "weapon",
+          "start": 18.69,
+          "end": 18.91
+        },
+        {
+          "text": "used.",
+          "start": 18.91,
+          "end": 19.39
+        },
+        {
+          "text": "Murderer",
+          "start": 19.75,
+          "end": 20.03
+        },
+        {
+          "text": "is",
+          "start": 20.03,
+          "end": 20.23
+        },
+        {
+          "text": "still",
+          "start": 20.23,
+          "end": 20.45
+        },
+        {
+          "text": "at",
+          "start": 20.45,
+          "end": 20.61
+        },
+        {
+          "text": "large.",
+          "start": 20.61,
+          "end": 20.95
+        },
+        {
+          "text": "Clues.",
+          "start": 21.53,
+          "end": 21.79
+        },
+        {
+          "text": "A",
+          "start": 21.95,
+          "end": 21.99
+        },
+        {
+          "text": "shoelace.",
+          "start": 21.99,
+          "end": 22.55
+        },
+        {
+          "text": "The",
+          "start": 22.77,
+          "end": 22.81
+        },
+        {
+          "text": "body",
+          "start": 22.81,
+          "end": 23.01
+        },
+        {
+          "text": "to",
+          "start": 23.01,
+          "end": 23.21
+        },
+        {
+          "text": "be",
+          "start": 23.21,
+          "end": 23.33
+        },
+        {
+          "text": "exhumed.",
+          "start": 23.33,
+          "end": 23.93
+        },
+        {
+          "text": "Murder",
+          "start": 24.27,
+          "end": 24.39
+        },
+        {
+          "text": "will",
+          "start": 24.39,
+          "end": 24.67
+        },
+        {
+          "text": "out.",
+          "start": 24.67,
+          "end": 24.99
+        }
+      ],
+      "stats": {
+        "expected_words": 69,
+        "heard_words": 69,
+        "matched_words": 69
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6061790859675966
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28f2510bd360e01c3127dea876c8580fed6346f450b138cfe60e62be35f2a320",
+  "selected_reasons": []
+}

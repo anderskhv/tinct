@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "dc3fdb6fc1a47af27ad7a75f8161e3e56d523ca12853b3fb5f96eae277126e1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.10242662951350212,
+      "alignment_seconds": 0.00022300519049167633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Singing",
+          "start": 0.11,
+          "end": 0.91,
+          "words": [
+            {
+              "text": " Singing",
+              "start": 0.11,
+              "end": 0.91,
+              "probability": 0.7354736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Singing",
+          "start": 0.11,
+          "end": 0.91
+        }
+      ],
+      "expected_tokens": [
+        "[_Singing._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Singing",
+          "start": 0.11,
+          "end": 0.91,
+          "key": "singing",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Singing._]",
+          "start": 0.11,
+          "end": 0.91
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10271870531141758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d33a5241ae5a7f5d585d83422c126bb4c7731b442f365aa4f0d9d9f985710b98",
+  "selected_reasons": []
+}

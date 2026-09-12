@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "b021ce047c464db1c0616bdc31ac51a16e097908036cd969d209f7fa30a51d1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.24771636817604303,
+      "alignment_seconds": 0.00021167472004890442,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, the exhalations, whizzing in the air gives so much light that I may read by them.",
+          "start": 0.05,
+          "end": 5.59,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.968017578125
+            },
+            {
+              "text": " the",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.802734375
+            },
+            {
+              "text": " exhalations,",
+              "start": 1.45,
+              "end": 2.27,
+              "probability": 0.8562825520833334
+            },
+            {
+              "text": " whizzing",
+              "start": 2.69,
+              "end": 2.89,
+              "probability": 0.96484375
+            },
+            {
+              "text": " in",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.99,
+              "end": 3.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " air",
+              "start": 3.09,
+              "end": 3.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gives",
+              "start": 3.33,
+              "end": 3.53,
+              "probability": 0.475341796875
+            },
+            {
+              "text": " so",
+              "start": 3.53,
+              "end": 3.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " much",
+              "start": 3.81,
+              "end": 4.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " light",
+              "start": 4.03,
+              "end": 4.33,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " that",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " I",
+              "start": 4.55,
+              "end": 4.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " may",
+              "start": 4.67,
+              "end": 4.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " read",
+              "start": 4.83,
+              "end": 5.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " by",
+              "start": 5.11,
+              "end": 5.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 5.33,
+              "end": 5.59,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "exhalations,",
+          "start": 1.45,
+          "end": 2.27
+        },
+        {
+          "raw": "whizzing",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "the",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "raw": "air",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "raw": "gives",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "raw": "so",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "raw": "much",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "raw": "light",
+          "start": 4.03,
+          "end": 4.33
+        },
+        {
+          "raw": "that",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "raw": "I",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "raw": "may",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "raw": "read",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "raw": "by",
+          "start": 5.11,
+          "end": 5.33
+        },
+        {
+          "raw": "them.",
+          "start": 5.33,
+          "end": 5.59
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "The",
+        "exhalations,",
+        "whizzing",
+        "in",
+        "the",
+        "air",
+        "Give",
+        "so",
+        "much",
+        "light",
+        "that",
+        "I",
+        "may",
+        "read",
+        "by",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          17,
+          8,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "exhalations,",
+          "start": 1.45,
+          "end": 2.27,
+          "key": "exhalations",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "whizzing",
+          "start": 2.69,
+          "end": 2.89,
+          "key": "whizzing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 2.99,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.99,
+          "end": 3.09,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 3.09,
+          "end": 3.33,
+          "key": "air",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 3.33,
+          "end": 3.53,
+          "key": "gives",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.53,
+          "end": 3.81,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.81,
+          "end": 4.03,
+          "key": "much",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 4.03,
+          "end": 4.33,
+          "key": "light",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.33,
+          "end": 4.55,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.55,
+          "end": 4.67,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 4.67,
+          "end": 4.83,
+          "key": "may",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 4.83,
+          "end": 5.11,
+          "key": "read",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.11,
+          "end": 5.33,
+          "key": "by",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 5.33,
+          "end": 5.59,
+          "key": "them",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "The",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "exhalations,",
+          "start": 1.45,
+          "end": 2.27
+        },
+        {
+          "text": "whizzing",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "text": "in",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "the",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "text": "air",
+          "start": 3.09,
+          "end": 3.33
+        },
+        {
+          "text": "Give",
+          "start": 3.33,
+          "end": 3.43
+        },
+        {
+          "text": "so",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "text": "much",
+          "start": 3.81,
+          "end": 4.03
+        },
+        {
+          "text": "light",
+          "start": 4.03,
+          "end": 4.33
+        },
+        {
+          "text": "that",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "text": "I",
+          "start": 4.55,
+          "end": 4.67
+        },
+        {
+          "text": "may",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "text": "read",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "text": "by",
+          "start": 5.11,
+          "end": 5.33
+        },
+        {
+          "text": "them.",
+          "start": 5.33,
+          "end": 5.59
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.24801742006093264
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8feeff1195ab3f7d1e03f01f67026432a8fc1f3bda4750ff4141b6d3e2e336af",
+  "selected_reasons": []
+}

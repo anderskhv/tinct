@@ -1,0 +1,439 @@
+{
+  "complete": true,
+  "signature": "efc2fadce1eb4a8641e1cd833433730b87fbe54d32f28d98e5509359b87c29e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2586261238902807,
+      "alignment_seconds": 0.0005186386406421661,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ye ease, answer to Lushya in a long whisper, gasping for breath.",
+          "start": 0.05,
+          "end": 4.17,
+          "words": [
+            {
+              "text": " Ye",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.406005859375
+            },
+            {
+              "text": " ease,",
+              "start": 0.67,
+              "end": 1.19,
+              "probability": 0.2783203125
+            },
+            {
+              "text": " answer",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " to",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Lushya",
+              "start": 1.99,
+              "end": 2.31,
+              "probability": 0.4471028645833333
+            },
+            {
+              "text": " in",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " a",
+              "start": 2.39,
+              "end": 2.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " long",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " whisper,",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " gasping",
+              "start": 3.35,
+              "end": 3.73,
+              "probability": 0.98828125
+            },
+            {
+              "text": " for",
+              "start": 3.73,
+              "end": 3.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " breath.",
+              "start": 3.91,
+              "end": 4.17,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ye",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "ease,",
+          "start": 0.67,
+          "end": 1.19
+        },
+        {
+          "raw": "answer",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "to",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "Lushya",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "raw": "in",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "a",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "raw": "long",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "whisper,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "gasping",
+          "start": 3.35,
+          "end": 3.73
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "raw": "breath.",
+          "start": 3.91,
+          "end": 4.17
+        }
+      ],
+      "expected_tokens": [
+        "\"Ye—es,\"",
+        "answered",
+        "Ilusha",
+        "in",
+        "a",
+        "long",
+        "whisper,",
+        "gasping",
+        "for",
+        "breath."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          5
+        ],
+        [
+          "equal",
+          3,
+          10,
+          5,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ye",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "ye",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ease,",
+          "start": 0.67,
+          "end": 1.19,
+          "key": "ease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "answer",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lushya",
+          "start": 1.99,
+          "end": 2.31,
+          "key": "lushya",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.39,
+          "end": 2.51,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "whisper,",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "whisper",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gasping",
+          "start": 3.35,
+          "end": 3.73,
+          "key": "gasping",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.73,
+          "end": 3.91,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "breath.",
+          "start": 3.91,
+          "end": 4.17,
+          "key": "breath",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ye—es,\"",
+          "start": 0.0,
+          "end": 1.155
+        },
+        {
+          "text": "answered",
+          "start": 1.155,
+          "end": 1.732
+        },
+        {
+          "text": "Ilusha",
+          "start": 1.732,
+          "end": 2.021
+        },
+        {
+          "text": "in",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "a",
+          "start": 2.39,
+          "end": 2.51
+        },
+        {
+          "text": "long",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "whisper,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "gasping",
+          "start": 3.35,
+          "end": 3.73
+        },
+        {
+          "text": "for",
+          "start": 3.73,
+          "end": 3.91
+        },
+        {
+          "text": "breath.",
+          "start": 3.91,
+          "end": 4.17
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 12,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2593808136880398
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd698d01fa39077f310df9920fe53e4a0e1abf8d83fe0974d22d84aa4006e298",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

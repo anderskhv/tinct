@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "69bcb7ebaf8f502844fc632324c4aeda810017d09df43ea8fb4e9ae5a2e55a5a",
+  "attempts": [
+    {
+      "asr_seconds": 0.17323799803853035,
+      "alignment_seconds": 0.000340217724442482,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Denmark's a prison.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.933837890625
+            },
+            {
+              "text": " Denmark's",
+              "start": 1.3,
+              "end": 1.72,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " a",
+              "start": 1.72,
+              "end": 1.74,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " prison.",
+              "start": 1.74,
+              "end": 2.0,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "Denmark's",
+          "start": 1.3,
+          "end": 1.72
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.74
+        },
+        {
+          "raw": "prison.",
+          "start": 1.74,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Denmark's",
+        "a",
+        "prison."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Denmark's",
+          "start": 1.3,
+          "end": 1.72,
+          "key": "denmarks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.72,
+          "end": 1.74,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prison.",
+          "start": 1.74,
+          "end": 2.0,
+          "key": "prison",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Denmark's",
+          "start": 1.3,
+          "end": 1.72
+        },
+        {
+          "text": "a",
+          "start": 1.72,
+          "end": 1.74
+        },
+        {
+          "text": "prison.",
+          "start": 1.74,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17371788248419762
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c5473fba5cb9cc1253b63a75156059894fe3827e23cac494746af05024bf7fab",
+  "selected_reasons": []
+}

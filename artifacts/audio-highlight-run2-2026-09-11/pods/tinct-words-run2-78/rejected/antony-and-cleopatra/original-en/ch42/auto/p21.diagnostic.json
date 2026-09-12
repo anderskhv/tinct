@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "a47774fb60853a69b281219807c9ff2afd16c1d1bc9db1697ceb8c6e41898ab3",
+  "attempts": [
+    {
+      "asr_seconds": 0.327666693367064,
+      "alignment_seconds": 0.0006793569773435593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Where art thou, Death? Come hither, come! Come, come, and take a queen Worth many babes and beggars!",
+        "hotwords": "Cleopatra, Where, Death, Worth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Where art thou, Death? Come hither, come! Come, come, and take a queen Worth many babes and beggars!",
+          "start": 0.64,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.9850260416666666
+            },
+            {
+              "text": " Where",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.09173583984375
+            },
+            {
+              "text": " art",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " thou,",
+              "start": 1.82,
+              "end": 2.02,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Death?",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.389404296875
+            },
+            {
+              "text": " Come",
+              "start": 2.88,
+              "end": 2.96,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " hither,",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " come!",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.619140625
+            },
+            {
+              "text": " Come,",
+              "start": 4.2,
+              "end": 4.32,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " come,",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.943359375
+            },
+            {
+              "text": " and",
+              "start": 4.84,
+              "end": 4.9,
+              "probability": 0.52685546875
+            },
+            {
+              "text": " take",
+              "start": 4.9,
+              "end": 5.04,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " a",
+              "start": 5.04,
+              "end": 5.18,
+              "probability": 0.84765625
+            },
+            {
+              "text": " queen",
+              "start": 5.18,
+              "end": 5.38,
+              "probability": 0.8125
+            },
+            {
+              "text": " Worth",
+              "start": 5.38,
+              "end": 5.64,
+              "probability": 0.363525390625
+            },
+            {
+              "text": " many",
+              "start": 5.64,
+              "end": 5.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " babes",
+              "start": 5.94,
+              "end": 6.34,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " and",
+              "start": 6.34,
+              "end": 6.48,
+              "probability": 0.978515625
+            },
+            {
+              "text": " beggars!",
+              "start": 6.48,
+              "end": 6.88,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "raw": "Where",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "art",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "thou,",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "raw": "Death?",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "Come",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "raw": "hither,",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "come!",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "Come,",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "raw": "come,",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "and",
+          "start": 4.84,
+          "end": 4.9
+        },
+        {
+          "raw": "take",
+          "start": 4.9,
+          "end": 5.04
+        },
+        {
+          "raw": "a",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "raw": "queen",
+          "start": 5.18,
+          "end": 5.38
+        },
+        {
+          "raw": "Worth",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "raw": "many",
+          "start": 5.64,
+          "end": 5.94
+        },
+        {
+          "raw": "babes",
+          "start": 5.94,
+          "end": 6.34
+        },
+        {
+          "raw": "and",
+          "start": 6.34,
+          "end": 6.48
+        },
+        {
+          "raw": "beggars!",
+          "start": 6.48,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Where",
+        "art",
+        "thou,",
+        "Death?",
+        "Come",
+        "hither,",
+        "come!",
+        "Come,",
+        "come,",
+        "and",
+        "take",
+        "a",
+        "queen",
+        "Worth",
+        "many",
+        "babes",
+        "and",
+        "beggars!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.64,
+          "end": 1.04,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 1.56,
+          "end": 1.82,
+          "key": "art",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 1.82,
+          "end": 2.02,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Death?",
+          "start": 2.2,
+          "end": 2.34,
+          "key": "death",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 2.88,
+          "end": 2.96,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 2.96,
+          "end": 3.16,
+          "key": "hither",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come!",
+          "start": 3.38,
+          "end": 3.52,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 4.2,
+          "end": 4.32,
+          "key": "come",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 4.46,
+          "end": 4.66,
+          "key": "come",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.84,
+          "end": 4.9,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 4.9,
+          "end": 5.04,
+          "key": "take",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.04,
+          "end": 5.18,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "queen",
+          "start": 5.18,
+          "end": 5.38,
+          "key": "queen",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Worth",
+          "start": 5.38,
+          "end": 5.64,
+          "key": "worth",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 5.64,
+          "end": 5.94,
+          "key": "many",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "babes",
+          "start": 5.94,
+          "end": 6.34,
+          "key": "babes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.34,
+          "end": 6.48,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "beggars!",
+          "start": 6.48,
+          "end": 6.88,
+          "key": "beggars",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "text": "Where",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "art",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "thou,",
+          "start": 1.82,
+          "end": 2.02
+        },
+        {
+          "text": "Death?",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "Come",
+          "start": 2.88,
+          "end": 2.96
+        },
+        {
+          "text": "hither,",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "come!",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "Come,",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "text": "come,",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "and",
+          "start": 4.84,
+          "end": 4.9
+        },
+        {
+          "text": "take",
+          "start": 4.9,
+          "end": 5.04
+        },
+        {
+          "text": "a",
+          "start": 5.04,
+          "end": 5.18
+        },
+        {
+          "text": "queen",
+          "start": 5.18,
+          "end": 5.38
+        },
+        {
+          "text": "Worth",
+          "start": 5.38,
+          "end": 5.64
+        },
+        {
+          "text": "many",
+          "start": 5.64,
+          "end": 5.94
+        },
+        {
+          "text": "babes",
+          "start": 5.94,
+          "end": 6.34
+        },
+        {
+          "text": "and",
+          "start": 6.34,
+          "end": 6.48
+        },
+        {
+          "text": "beggars!",
+          "start": 6.48,
+          "end": 6.88
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32859906647354364
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5f7ad58996a95c842baaec9c21d4b1ff7d2122bd731fc9aa644c3e55d414471",
+  "selected_reasons": []
+}

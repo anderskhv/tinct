@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "40567bc31776523028993a79f6cedc0728068f7ef869978a47fcb36bcd49d737",
+  "attempts": [
+    {
+      "asr_seconds": 0.2126774862408638,
+      "alignment_seconds": 0.0005925856530666351,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Passanio. We'll slip you for a season, but our jealousy.",
+          "start": 0.02,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.32666015625
+            },
+            {
+              "text": " Passanio.",
+              "start": 0.5,
+              "end": 1.16,
+              "probability": 0.6239420572916666
+            },
+            {
+              "text": " We'll",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " slip",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " you",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 2.06,
+              "end": 2.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " season,",
+              "start": 2.32,
+              "end": 2.58,
+              "probability": 0.994140625
+            },
+            {
+              "text": " but",
+              "start": 2.9,
+              "end": 2.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " our",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " jealousy.",
+              "start": 3.1,
+              "end": 3.46,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Passanio.",
+          "start": 0.5,
+          "end": 1.16
+        },
+        {
+          "raw": "We'll",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "slip",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "you",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "for",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "season,",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "raw": "but",
+          "start": 2.9,
+          "end": 2.96
+        },
+        {
+          "raw": "our",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "jealousy.",
+          "start": 3.1,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Pisanio._]",
+        "We'll",
+        "slip",
+        "you",
+        "for",
+        "a",
+        "season;",
+        "but",
+        "our",
+        "jealousy"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Passanio.",
+          "start": 0.5,
+          "end": 1.16,
+          "key": "passanio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slip",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "slip",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.06,
+          "end": 2.18,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "season,",
+          "start": 2.32,
+          "end": 2.58,
+          "key": "season",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.9,
+          "end": 2.96,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "our",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "jealousy.",
+          "start": 3.1,
+          "end": 3.46,
+          "key": "jealousy",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Pisanio._]",
+          "start": 0.5,
+          "end": 1.05
+        },
+        {
+          "text": "We'll",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "slip",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "you",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "for",
+          "start": 2.06,
+          "end": 2.18
+        },
+        {
+          "text": "a",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "season;",
+          "start": 2.32,
+          "end": 2.58
+        },
+        {
+          "text": "but",
+          "start": 2.9,
+          "end": 2.96
+        },
+        {
+          "text": "our",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "jealousy",
+          "start": 3.1,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.21347649861127138
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2e2928e5bcf84248c5d85cbb97209bfe16f04b78d60b04a8a09af69f1e2dc733",
+  "selected_reasons": []
+}

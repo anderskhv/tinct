@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "abc97f3bde0ea302306acf297273ba11683f0203f3534a4a0c75288f8e0f3300",
+  "attempts": [
+    {
+      "asr_seconds": 0.23173051979392767,
+      "alignment_seconds": 0.0004235412925481796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pani, I didn't oppose it. I didn't say anything.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Pani,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.30712890625
+            },
+            {
+              "text": " I",
+              "start": 0.87,
+              "end": 1.05,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " didn't",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " oppose",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " it.",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 1.93,
+              "end": 1.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " didn't",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " say",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " anything.",
+              "start": 2.31,
+              "end": 2.73,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pani,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "I",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "raw": "didn't",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": "oppose",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "it.",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "I",
+          "start": 1.93,
+          "end": 1.95
+        },
+        {
+          "raw": "didn't",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "raw": "say",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "anything.",
+          "start": 2.31,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "\"_Pani_,",
+        "I",
+        "didn't",
+        "oppose",
+        "it.",
+        "I",
+        "didn't",
+        "say",
+        "anything.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pani,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "pani",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.87,
+          "end": 1.05,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 1.05,
+          "end": 1.29,
+          "key": "didnt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oppose",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "oppose",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.93,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 1.95,
+          "end": 2.19,
+          "key": "didnt",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "say",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "anything.",
+          "start": 2.31,
+          "end": 2.73,
+          "key": "anything",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Pani_,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "I",
+          "start": 0.87,
+          "end": 1.05
+        },
+        {
+          "text": "didn't",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": "oppose",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "it.",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "I",
+          "start": 1.93,
+          "end": 1.95
+        },
+        {
+          "text": "didn't",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "say",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "anything.\"",
+          "start": 2.31,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23230797797441483
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0fa66811d4c2d257672b420a4b0339ba143fe1fe624cd2be7fce40fd7648ec84",
+  "selected_reasons": []
+}

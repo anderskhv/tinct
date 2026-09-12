@@ -1,0 +1,5562 @@
+{
+  "complete": true,
+  "signature": "f0774463307b1e7f87bc2663f863e692d75122dc8d2908a19f97fd97bc96fd91",
+  "attempts": [
+    {
+      "asr_seconds": 0.8513010782189667,
+      "alignment_seconds": 0.0027065230533480644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lord Albemarle, an elderly paralytic gentleman, was now the only advocate of Phileas Fogg left. This noble lord, who was fastened to his chair, would have given his fortune to be able to make the tour of the world, if it took ten years; and he bet five thousand pounds on Phileas Fogg. When the folly as well as the uselessness of the adventure was pointed out to him, he contented himself with replying, \"If the thing is feasible, the first to do it ought to be an Englishman.\"",
+        "hotwords": "Albemarle, Phileas, Fogg, This, When, Englishman"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This noble lord, who was fastened to his chair, would have given his fortune to be able to make the tour of the world, if it took ten years, and he bet five thousand pounds on Phileas Fogg. When the folly as well as the uselessness of the adventure was pointed out to him, he contented himself with replying,",
+          "start": 6.31,
+          "end": 23.11,
+          "words": [
+            {
+              "text": " This",
+              "start": 6.31,
+              "end": 6.75,
+              "probability": 0.0004673004150390625
+            },
+            {
+              "text": " noble",
+              "start": 6.75,
+              "end": 7.19,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " lord,",
+              "start": 7.19,
+              "end": 7.59,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " who",
+              "start": 7.83,
+              "end": 7.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 7.87,
+              "end": 7.99,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " fastened",
+              "start": 7.99,
+              "end": 8.45,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " to",
+              "start": 8.45,
+              "end": 8.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 8.55,
+              "end": 8.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " chair,",
+              "start": 8.69,
+              "end": 9.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " would",
+              "start": 9.53,
+              "end": 9.53,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " have",
+              "start": 9.53,
+              "end": 9.65,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " given",
+              "start": 9.65,
+              "end": 9.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 9.83,
+              "end": 10.05,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fortune",
+              "start": 10.05,
+              "end": 10.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 10.41,
+              "end": 10.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " be",
+              "start": 10.61,
+              "end": 10.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " able",
+              "start": 10.73,
+              "end": 10.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 10.93,
+              "end": 11.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " make",
+              "start": 11.05,
+              "end": 11.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 11.19,
+              "end": 11.39,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " tour",
+              "start": 11.39,
+              "end": 11.57,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " of",
+              "start": 11.57,
+              "end": 11.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 11.69,
+              "end": 11.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " world,",
+              "start": 11.81,
+              "end": 12.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " if",
+              "start": 12.31,
+              "end": 12.41,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " it",
+              "start": 12.41,
+              "end": 12.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " took",
+              "start": 12.51,
+              "end": 12.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ten",
+              "start": 12.67,
+              "end": 12.93,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " years,",
+              "start": 12.93,
+              "end": 13.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 13.97,
+              "end": 14.05,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " he",
+              "start": 14.05,
+              "end": 14.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " bet",
+              "start": 14.13,
+              "end": 14.29,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " five",
+              "start": 14.29,
+              "end": 14.63,
+              "probability": 0.572265625
+            },
+            {
+              "text": " thousand",
+              "start": 14.63,
+              "end": 15.07,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " pounds",
+              "start": 15.07,
+              "end": 15.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 15.43,
+              "end": 15.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Phileas",
+              "start": 15.67,
+              "end": 16.07,
+              "probability": 0.4385986328125
+            },
+            {
+              "text": " Fogg.",
+              "start": 16.07,
+              "end": 16.41,
+              "probability": 0.7186279296875
+            },
+            {
+              "text": " When",
+              "start": 17.11,
+              "end": 17.19,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " the",
+              "start": 17.19,
+              "end": 17.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " folly",
+              "start": 17.31,
+              "end": 17.59,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " as",
+              "start": 17.59,
+              "end": 17.83,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " well",
+              "start": 17.83,
+              "end": 18.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 18.03,
+              "end": 18.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 18.23,
+              "end": 18.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " uselessness",
+              "start": 18.39,
+              "end": 19.07,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " of",
+              "start": 19.07,
+              "end": 19.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 19.21,
+              "end": 19.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " adventure",
+              "start": 19.31,
+              "end": 19.69,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " was",
+              "start": 19.69,
+              "end": 19.97,
+              "probability": 0.984375
+            },
+            {
+              "text": " pointed",
+              "start": 19.97,
+              "end": 20.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 20.25,
+              "end": 20.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 20.51,
+              "end": 20.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him,",
+              "start": 20.67,
+              "end": 20.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 21.31,
+              "end": 21.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " contented",
+              "start": 21.43,
+              "end": 21.97,
+              "probability": 0.971923828125
+            },
+            {
+              "text": " himself",
+              "start": 21.97,
+              "end": 22.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 22.27,
+              "end": 22.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " replying,",
+              "start": 22.51,
+              "end": 23.11,
+              "probability": 0.997314453125
+            }
+          ]
+        },
+        {
+          "text": " if the thing is feasible, the first to do it ought to be an Englishman.",
+          "start": 23.45,
+          "end": 27.01,
+          "words": [
+            {
+              "text": " if",
+              "start": 23.45,
+              "end": 23.77,
+              "probability": 0.0887451171875
+            },
+            {
+              "text": " the",
+              "start": 23.77,
+              "end": 23.91,
+              "probability": 0.986328125
+            },
+            {
+              "text": " thing",
+              "start": 23.91,
+              "end": 24.07,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " is",
+              "start": 24.07,
+              "end": 24.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " feasible,",
+              "start": 24.23,
+              "end": 24.71,
+              "probability": 0.9765625
+            },
+            {
+              "text": " the",
+              "start": 25.13,
+              "end": 25.27,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " first",
+              "start": 25.27,
+              "end": 25.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 25.49,
+              "end": 25.69,
+              "probability": 0.9921875
+            },
+            {
+              "text": " do",
+              "start": 25.69,
+              "end": 25.83,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it",
+              "start": 25.83,
+              "end": 25.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ought",
+              "start": 25.95,
+              "end": 26.07,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 26.07,
+              "end": 26.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 26.23,
+              "end": 26.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 26.35,
+              "end": 26.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Englishman.",
+              "start": 26.45,
+              "end": 27.01,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 6.31,
+          "end": 6.75
+        },
+        {
+          "raw": "noble",
+          "start": 6.75,
+          "end": 7.19
+        },
+        {
+          "raw": "lord,",
+          "start": 7.19,
+          "end": 7.59
+        },
+        {
+          "raw": "who",
+          "start": 7.83,
+          "end": 7.87
+        },
+        {
+          "raw": "was",
+          "start": 7.87,
+          "end": 7.99
+        },
+        {
+          "raw": "fastened",
+          "start": 7.99,
+          "end": 8.45
+        },
+        {
+          "raw": "to",
+          "start": 8.45,
+          "end": 8.55
+        },
+        {
+          "raw": "his",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "raw": "chair,",
+          "start": 8.69,
+          "end": 9.03
+        },
+        {
+          "raw": "would",
+          "start": 9.53,
+          "end": 9.53
+        },
+        {
+          "raw": "have",
+          "start": 9.53,
+          "end": 9.65
+        },
+        {
+          "raw": "given",
+          "start": 9.65,
+          "end": 9.83
+        },
+        {
+          "raw": "his",
+          "start": 9.83,
+          "end": 10.05
+        },
+        {
+          "raw": "fortune",
+          "start": 10.05,
+          "end": 10.41
+        },
+        {
+          "raw": "to",
+          "start": 10.41,
+          "end": 10.61
+        },
+        {
+          "raw": "be",
+          "start": 10.61,
+          "end": 10.73
+        },
+        {
+          "raw": "able",
+          "start": 10.73,
+          "end": 10.93
+        },
+        {
+          "raw": "to",
+          "start": 10.93,
+          "end": 11.05
+        },
+        {
+          "raw": "make",
+          "start": 11.05,
+          "end": 11.19
+        },
+        {
+          "raw": "the",
+          "start": 11.19,
+          "end": 11.39
+        },
+        {
+          "raw": "tour",
+          "start": 11.39,
+          "end": 11.57
+        },
+        {
+          "raw": "of",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "raw": "the",
+          "start": 11.69,
+          "end": 11.81
+        },
+        {
+          "raw": "world,",
+          "start": 11.81,
+          "end": 12.11
+        },
+        {
+          "raw": "if",
+          "start": 12.31,
+          "end": 12.41
+        },
+        {
+          "raw": "it",
+          "start": 12.41,
+          "end": 12.51
+        },
+        {
+          "raw": "took",
+          "start": 12.51,
+          "end": 12.67
+        },
+        {
+          "raw": "ten",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "raw": "years,",
+          "start": 12.93,
+          "end": 13.37
+        },
+        {
+          "raw": "and",
+          "start": 13.97,
+          "end": 14.05
+        },
+        {
+          "raw": "he",
+          "start": 14.05,
+          "end": 14.13
+        },
+        {
+          "raw": "bet",
+          "start": 14.13,
+          "end": 14.29
+        },
+        {
+          "raw": "five",
+          "start": 14.29,
+          "end": 14.63
+        },
+        {
+          "raw": "thousand",
+          "start": 14.63,
+          "end": 15.07
+        },
+        {
+          "raw": "pounds",
+          "start": 15.07,
+          "end": 15.43
+        },
+        {
+          "raw": "on",
+          "start": 15.43,
+          "end": 15.67
+        },
+        {
+          "raw": "Phileas",
+          "start": 15.67,
+          "end": 16.07
+        },
+        {
+          "raw": "Fogg.",
+          "start": 16.07,
+          "end": 16.41
+        },
+        {
+          "raw": "When",
+          "start": 17.11,
+          "end": 17.19
+        },
+        {
+          "raw": "the",
+          "start": 17.19,
+          "end": 17.31
+        },
+        {
+          "raw": "folly",
+          "start": 17.31,
+          "end": 17.59
+        },
+        {
+          "raw": "as",
+          "start": 17.59,
+          "end": 17.83
+        },
+        {
+          "raw": "well",
+          "start": 17.83,
+          "end": 18.03
+        },
+        {
+          "raw": "as",
+          "start": 18.03,
+          "end": 18.23
+        },
+        {
+          "raw": "the",
+          "start": 18.23,
+          "end": 18.39
+        },
+        {
+          "raw": "uselessness",
+          "start": 18.39,
+          "end": 19.07
+        },
+        {
+          "raw": "of",
+          "start": 19.07,
+          "end": 19.21
+        },
+        {
+          "raw": "the",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "raw": "adventure",
+          "start": 19.31,
+          "end": 19.69
+        },
+        {
+          "raw": "was",
+          "start": 19.69,
+          "end": 19.97
+        },
+        {
+          "raw": "pointed",
+          "start": 19.97,
+          "end": 20.25
+        },
+        {
+          "raw": "out",
+          "start": 20.25,
+          "end": 20.51
+        },
+        {
+          "raw": "to",
+          "start": 20.51,
+          "end": 20.67
+        },
+        {
+          "raw": "him,",
+          "start": 20.67,
+          "end": 20.89
+        },
+        {
+          "raw": "he",
+          "start": 21.31,
+          "end": 21.43
+        },
+        {
+          "raw": "contented",
+          "start": 21.43,
+          "end": 21.97
+        },
+        {
+          "raw": "himself",
+          "start": 21.97,
+          "end": 22.27
+        },
+        {
+          "raw": "with",
+          "start": 22.27,
+          "end": 22.51
+        },
+        {
+          "raw": "replying,",
+          "start": 22.51,
+          "end": 23.11
+        },
+        {
+          "raw": "if",
+          "start": 23.45,
+          "end": 23.77
+        },
+        {
+          "raw": "the",
+          "start": 23.77,
+          "end": 23.91
+        },
+        {
+          "raw": "thing",
+          "start": 23.91,
+          "end": 24.07
+        },
+        {
+          "raw": "is",
+          "start": 24.07,
+          "end": 24.23
+        },
+        {
+          "raw": "feasible,",
+          "start": 24.23,
+          "end": 24.71
+        },
+        {
+          "raw": "the",
+          "start": 25.13,
+          "end": 25.27
+        },
+        {
+          "raw": "first",
+          "start": 25.27,
+          "end": 25.49
+        },
+        {
+          "raw": "to",
+          "start": 25.49,
+          "end": 25.69
+        },
+        {
+          "raw": "do",
+          "start": 25.69,
+          "end": 25.83
+        },
+        {
+          "raw": "it",
+          "start": 25.83,
+          "end": 25.95
+        },
+        {
+          "raw": "ought",
+          "start": 25.95,
+          "end": 26.07
+        },
+        {
+          "raw": "to",
+          "start": 26.07,
+          "end": 26.23
+        },
+        {
+          "raw": "be",
+          "start": 26.23,
+          "end": 26.35
+        },
+        {
+          "raw": "an",
+          "start": 26.35,
+          "end": 26.45
+        },
+        {
+          "raw": "Englishman.",
+          "start": 26.45,
+          "end": 27.01
+        }
+      ],
+      "expected_tokens": [
+        "Lord",
+        "Albemarle,",
+        "an",
+        "elderly",
+        "paralytic",
+        "gentleman,",
+        "was",
+        "now",
+        "the",
+        "only",
+        "advocate",
+        "of",
+        "Phileas",
+        "Fogg",
+        "left.",
+        "This",
+        "noble",
+        "lord,",
+        "who",
+        "was",
+        "fastened",
+        "to",
+        "his",
+        "chair,",
+        "would",
+        "have",
+        "given",
+        "his",
+        "fortune",
+        "to",
+        "be",
+        "able",
+        "to",
+        "make",
+        "the",
+        "tour",
+        "of",
+        "the",
+        "world,",
+        "if",
+        "it",
+        "took",
+        "ten",
+        "years;",
+        "and",
+        "he",
+        "bet",
+        "five",
+        "thousand",
+        "pounds",
+        "on",
+        "Phileas",
+        "Fogg.",
+        "When",
+        "the",
+        "folly",
+        "as",
+        "well",
+        "as",
+        "the",
+        "uselessness",
+        "of",
+        "the",
+        "adventure",
+        "was",
+        "pointed",
+        "out",
+        "to",
+        "him,",
+        "he",
+        "contented",
+        "himself",
+        "with",
+        "replying,",
+        "\"If",
+        "the",
+        "thing",
+        "is",
+        "feasible,",
+        "the",
+        "first",
+        "to",
+        "do",
+        "it",
+        "ought",
+        "to",
+        "be",
+        "an",
+        "Englishman.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          "equal",
+          15,
+          89,
+          0,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 73
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          15,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 6.31,
+          "end": 6.75,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 6.75,
+          "end": 7.19,
+          "key": "noble",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 7.19,
+          "end": 7.59,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 7.83,
+          "end": 7.87,
+          "key": "who",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.87,
+          "end": 7.99,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fastened",
+          "start": 7.99,
+          "end": 8.45,
+          "key": "fastened",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.45,
+          "end": 8.55,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.55,
+          "end": 8.69,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "chair,",
+          "start": 8.69,
+          "end": 9.03,
+          "key": "chair",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 9.53,
+          "end": 9.53,
+          "key": "would",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.53,
+          "end": 9.65,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 9.65,
+          "end": 9.83,
+          "key": "given",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.83,
+          "end": 10.05,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fortune",
+          "start": 10.05,
+          "end": 10.41,
+          "key": "fortune",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.41,
+          "end": 10.61,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 10.61,
+          "end": 10.73,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "able",
+          "start": 10.73,
+          "end": 10.93,
+          "key": "able",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.93,
+          "end": 11.05,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 11.05,
+          "end": 11.19,
+          "key": "make",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.19,
+          "end": 11.39,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "tour",
+          "start": 11.39,
+          "end": 11.57,
+          "key": "tour",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.57,
+          "end": 11.69,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.69,
+          "end": 11.81,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "world,",
+          "start": 11.81,
+          "end": 12.11,
+          "key": "world",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 12.31,
+          "end": 12.41,
+          "key": "if",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.41,
+          "end": 12.51,
+          "key": "it",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 12.51,
+          "end": 12.67,
+          "key": "took",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 12.67,
+          "end": 12.93,
+          "key": "ten",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "years,",
+          "start": 12.93,
+          "end": 13.37,
+          "key": "years",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.97,
+          "end": 14.05,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.05,
+          "end": 14.13,
+          "key": "he",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "bet",
+          "start": 14.13,
+          "end": 14.29,
+          "key": "bet",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 14.29,
+          "end": 14.63,
+          "key": "five",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 14.63,
+          "end": 15.07,
+          "key": "thousand",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 15.07,
+          "end": 15.43,
+          "key": "pounds",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 15.43,
+          "end": 15.67,
+          "key": "on",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Phileas",
+          "start": 15.67,
+          "end": 16.07,
+          "key": "phileas",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Fogg.",
+          "start": 16.07,
+          "end": 16.41,
+          "key": "fogg",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 17.11,
+          "end": 17.19,
+          "key": "when",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.19,
+          "end": 17.31,
+          "key": "the",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "folly",
+          "start": 17.31,
+          "end": 17.59,
+          "key": "folly",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 17.59,
+          "end": 17.83,
+          "key": "as",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 17.83,
+          "end": 18.03,
+          "key": "well",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 18.03,
+          "end": 18.23,
+          "key": "as",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.23,
+          "end": 18.39,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "uselessness",
+          "start": 18.39,
+          "end": 19.07,
+          "key": "uselessness",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.07,
+          "end": 19.21,
+          "key": "of",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.21,
+          "end": 19.31,
+          "key": "the",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "adventure",
+          "start": 19.31,
+          "end": 19.69,
+          "key": "adventure",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.69,
+          "end": 19.97,
+          "key": "was",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "pointed",
+          "start": 19.97,
+          "end": 20.25,
+          "key": "pointed",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 20.25,
+          "end": 20.51,
+          "key": "out",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.51,
+          "end": 20.67,
+          "key": "to",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 20.67,
+          "end": 20.89,
+          "key": "him",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 21.31,
+          "end": 21.43,
+          "key": "he",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "contented",
+          "start": 21.43,
+          "end": 21.97,
+          "key": "contented",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 21.97,
+          "end": 22.27,
+          "key": "himself",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 22.27,
+          "end": 22.51,
+          "key": "with",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "replying,",
+          "start": 22.51,
+          "end": 23.11,
+          "key": "replying",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 23.45,
+          "end": 23.77,
+          "key": "if",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.77,
+          "end": 23.91,
+          "key": "the",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 23.91,
+          "end": 24.07,
+          "key": "thing",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 24.07,
+          "end": 24.23,
+          "key": "is",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "feasible,",
+          "start": 24.23,
+          "end": 24.71,
+          "key": "feasible",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.13,
+          "end": 25.27,
+          "key": "the",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 25.27,
+          "end": 25.49,
+          "key": "first",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 25.49,
+          "end": 25.69,
+          "key": "to",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 25.69,
+          "end": 25.83,
+          "key": "do",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 25.83,
+          "end": 25.95,
+          "key": "it",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 25.95,
+          "end": 26.07,
+          "key": "ought",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 26.07,
+          "end": 26.23,
+          "key": "to",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 26.23,
+          "end": 26.35,
+          "key": "be",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 26.35,
+          "end": 26.45,
+          "key": "an",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Englishman.",
+          "start": 26.45,
+          "end": 27.01,
+          "key": "englishman",
+          "pieces": [
+            73
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lord",
+          "start": 0.0,
+          "end": 3.155
+        },
+        {
+          "text": "Albemarle,",
+          "start": 3.155,
+          "end": 4.732
+        },
+        {
+          "text": "an",
+          "start": 4.732,
+          "end": 5.521
+        },
+        {
+          "text": "elderly",
+          "start": 5.521,
+          "end": 5.915
+        },
+        {
+          "text": "paralytic",
+          "start": 5.915,
+          "end": 6.112
+        },
+        {
+          "text": "gentleman,",
+          "start": 6.112,
+          "end": 6.211
+        },
+        {
+          "text": "was",
+          "start": 6.211,
+          "end": 6.261
+        },
+        {
+          "text": "now",
+          "start": 6.261,
+          "end": 6.285
+        },
+        {
+          "text": "the",
+          "start": 6.285,
+          "end": 6.297
+        },
+        {
+          "text": "only",
+          "start": 6.297,
+          "end": 6.303
+        },
+        {
+          "text": "advocate",
+          "start": 6.303,
+          "end": 6.306
+        },
+        {
+          "text": "of",
+          "start": 6.306,
+          "end": 6.308
+        },
+        {
+          "text": "Phileas",
+          "start": 6.308,
+          "end": 6.309
+        },
+        {
+          "text": "Fogg",
+          "start": 6.309,
+          "end": 6.309
+        },
+        {
+          "text": "left.",
+          "start": 6.309,
+          "end": 6.309
+        },
+        {
+          "text": "This",
+          "start": 6.31,
+          "end": 6.75
+        },
+        {
+          "text": "noble",
+          "start": 6.75,
+          "end": 7.19
+        },
+        {
+          "text": "lord,",
+          "start": 7.19,
+          "end": 7.59
+        },
+        {
+          "text": "who",
+          "start": 7.83,
+          "end": 7.87
+        },
+        {
+          "text": "was",
+          "start": 7.87,
+          "end": 7.99
+        },
+        {
+          "text": "fastened",
+          "start": 7.99,
+          "end": 8.45
+        },
+        {
+          "text": "to",
+          "start": 8.45,
+          "end": 8.55
+        },
+        {
+          "text": "his",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "text": "chair,",
+          "start": 8.69,
+          "end": 9.03
+        },
+        {
+          "text": "would",
+          "start": 9.53,
+          "end": 9.53
+        },
+        {
+          "text": "have",
+          "start": 9.53,
+          "end": 9.65
+        },
+        {
+          "text": "given",
+          "start": 9.65,
+          "end": 9.83
+        },
+        {
+          "text": "his",
+          "start": 9.83,
+          "end": 10.05
+        },
+        {
+          "text": "fortune",
+          "start": 10.05,
+          "end": 10.41
+        },
+        {
+          "text": "to",
+          "start": 10.41,
+          "end": 10.61
+        },
+        {
+          "text": "be",
+          "start": 10.61,
+          "end": 10.73
+        },
+        {
+          "text": "able",
+          "start": 10.73,
+          "end": 10.93
+        },
+        {
+          "text": "to",
+          "start": 10.93,
+          "end": 11.05
+        },
+        {
+          "text": "make",
+          "start": 11.05,
+          "end": 11.19
+        },
+        {
+          "text": "the",
+          "start": 11.19,
+          "end": 11.39
+        },
+        {
+          "text": "tour",
+          "start": 11.39,
+          "end": 11.57
+        },
+        {
+          "text": "of",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "text": "the",
+          "start": 11.69,
+          "end": 11.81
+        },
+        {
+          "text": "world,",
+          "start": 11.81,
+          "end": 12.11
+        },
+        {
+          "text": "if",
+          "start": 12.31,
+          "end": 12.41
+        },
+        {
+          "text": "it",
+          "start": 12.41,
+          "end": 12.51
+        },
+        {
+          "text": "took",
+          "start": 12.51,
+          "end": 12.67
+        },
+        {
+          "text": "ten",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "text": "years;",
+          "start": 12.93,
+          "end": 13.37
+        },
+        {
+          "text": "and",
+          "start": 13.97,
+          "end": 14.05
+        },
+        {
+          "text": "he",
+          "start": 14.05,
+          "end": 14.13
+        },
+        {
+          "text": "bet",
+          "start": 14.13,
+          "end": 14.29
+        },
+        {
+          "text": "five",
+          "start": 14.29,
+          "end": 14.63
+        },
+        {
+          "text": "thousand",
+          "start": 14.63,
+          "end": 15.07
+        },
+        {
+          "text": "pounds",
+          "start": 15.07,
+          "end": 15.43
+        },
+        {
+          "text": "on",
+          "start": 15.43,
+          "end": 15.67
+        },
+        {
+          "text": "Phileas",
+          "start": 15.67,
+          "end": 16.07
+        },
+        {
+          "text": "Fogg.",
+          "start": 16.07,
+          "end": 16.41
+        },
+        {
+          "text": "When",
+          "start": 17.11,
+          "end": 17.19
+        },
+        {
+          "text": "the",
+          "start": 17.19,
+          "end": 17.31
+        },
+        {
+          "text": "folly",
+          "start": 17.31,
+          "end": 17.59
+        },
+        {
+          "text": "as",
+          "start": 17.59,
+          "end": 17.83
+        },
+        {
+          "text": "well",
+          "start": 17.83,
+          "end": 18.03
+        },
+        {
+          "text": "as",
+          "start": 18.03,
+          "end": 18.23
+        },
+        {
+          "text": "the",
+          "start": 18.23,
+          "end": 18.39
+        },
+        {
+          "text": "uselessness",
+          "start": 18.39,
+          "end": 19.07
+        },
+        {
+          "text": "of",
+          "start": 19.07,
+          "end": 19.21
+        },
+        {
+          "text": "the",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "text": "adventure",
+          "start": 19.31,
+          "end": 19.69
+        },
+        {
+          "text": "was",
+          "start": 19.69,
+          "end": 19.97
+        },
+        {
+          "text": "pointed",
+          "start": 19.97,
+          "end": 20.25
+        },
+        {
+          "text": "out",
+          "start": 20.25,
+          "end": 20.51
+        },
+        {
+          "text": "to",
+          "start": 20.51,
+          "end": 20.67
+        },
+        {
+          "text": "him,",
+          "start": 20.67,
+          "end": 20.89
+        },
+        {
+          "text": "he",
+          "start": 21.31,
+          "end": 21.43
+        },
+        {
+          "text": "contented",
+          "start": 21.43,
+          "end": 21.97
+        },
+        {
+          "text": "himself",
+          "start": 21.97,
+          "end": 22.27
+        },
+        {
+          "text": "with",
+          "start": 22.27,
+          "end": 22.51
+        },
+        {
+          "text": "replying,",
+          "start": 22.51,
+          "end": 23.11
+        },
+        {
+          "text": "\"If",
+          "start": 23.45,
+          "end": 23.77
+        },
+        {
+          "text": "the",
+          "start": 23.77,
+          "end": 23.91
+        },
+        {
+          "text": "thing",
+          "start": 23.91,
+          "end": 24.07
+        },
+        {
+          "text": "is",
+          "start": 24.07,
+          "end": 24.23
+        },
+        {
+          "text": "feasible,",
+          "start": 24.23,
+          "end": 24.71
+        },
+        {
+          "text": "the",
+          "start": 25.13,
+          "end": 25.27
+        },
+        {
+          "text": "first",
+          "start": 25.27,
+          "end": 25.49
+        },
+        {
+          "text": "to",
+          "start": 25.49,
+          "end": 25.69
+        },
+        {
+          "text": "do",
+          "start": 25.69,
+          "end": 25.83
+        },
+        {
+          "text": "it",
+          "start": 25.83,
+          "end": 25.95
+        },
+        {
+          "text": "ought",
+          "start": 25.95,
+          "end": 26.07
+        },
+        {
+          "text": "to",
+          "start": 26.07,
+          "end": 26.23
+        },
+        {
+          "text": "be",
+          "start": 26.23,
+          "end": 26.35
+        },
+        {
+          "text": "an",
+          "start": 26.35,
+          "end": 26.45
+        },
+        {
+          "text": "Englishman.\"",
+          "start": 26.45,
+          "end": 27.01
+        }
+      ],
+      "stats": {
+        "expected_words": 89,
+        "heard_words": 74,
+        "matched_words": 74
+      },
+      "match_ratio": 0.8314606741573034,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.8550748701673001
+    },
+    {
+      "asr_seconds": 0.9225542740896344,
+      "alignment_seconds": 0.0014018290676176548,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Albemarle, Phileas, Fogg, This, When, Englishman"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Lord Albemarle, an elderly paralytic gentleman, was now the only advocate of Phileas Fogg left.",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " Lord",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Albemarle,",
+              "start": 0.61,
+              "end": 1.21,
+              "probability": 0.962890625
+            },
+            {
+              "text": " an",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " elderly",
+              "start": 1.59,
+              "end": 2.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " paralytic",
+              "start": 2.01,
+              "end": 2.63,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " gentleman,",
+              "start": 2.63,
+              "end": 3.07,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " was",
+              "start": 3.43,
+              "end": 3.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " now",
+              "start": 3.69,
+              "end": 3.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.89,
+              "end": 4.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " only",
+              "start": 4.03,
+              "end": 4.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " advocate",
+              "start": 4.31,
+              "end": 4.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 4.79,
+              "end": 5.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Phileas",
+              "start": 5.07,
+              "end": 5.37,
+              "probability": 0.3961995442708333
+            },
+            {
+              "text": " Fogg",
+              "start": 5.37,
+              "end": 5.65,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " left.",
+              "start": 5.65,
+              "end": 6.01,
+              "probability": 0.9775390625
+            }
+          ]
+        },
+        {
+          "text": " This noble lord, who was fastened to his chair, would have given his fortune to be able to make the tour of the world if it took ten years.",
+          "start": 6.75,
+          "end": 13.33,
+          "words": [
+            {
+              "text": " This",
+              "start": 6.75,
+              "end": 6.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " noble",
+              "start": 6.93,
+              "end": 7.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " lord,",
+              "start": 7.27,
+              "end": 7.59,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " who",
+              "start": 7.73,
+              "end": 7.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 7.87,
+              "end": 8.01,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " fastened",
+              "start": 8.01,
+              "end": 8.43,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " to",
+              "start": 8.43,
+              "end": 8.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 8.55,
+              "end": 8.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " chair,",
+              "start": 8.69,
+              "end": 9.01,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " would",
+              "start": 9.47,
+              "end": 9.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 9.55,
+              "end": 9.65,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " given",
+              "start": 9.65,
+              "end": 9.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 9.83,
+              "end": 10.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " fortune",
+              "start": 10.05,
+              "end": 10.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 10.35,
+              "end": 10.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 10.61,
+              "end": 10.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " able",
+              "start": 10.73,
+              "end": 10.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 10.91,
+              "end": 11.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " make",
+              "start": 11.05,
+              "end": 11.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 11.19,
+              "end": 11.39,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " tour",
+              "start": 11.39,
+              "end": 11.57,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " of",
+              "start": 11.57,
+              "end": 11.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 11.69,
+              "end": 11.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " world",
+              "start": 11.81,
+              "end": 12.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " if",
+              "start": 12.07,
+              "end": 12.41,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " it",
+              "start": 12.41,
+              "end": 12.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " took",
+              "start": 12.51,
+              "end": 12.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ten",
+              "start": 12.67,
+              "end": 12.93,
+              "probability": 0.75
+            },
+            {
+              "text": " years.",
+              "start": 12.93,
+              "end": 13.33,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " And he bet five thousand pounds on Phileas Fogg.",
+          "start": 13.89,
+          "end": 16.37,
+          "words": [
+            {
+              "text": " And",
+              "start": 13.89,
+              "end": 14.05,
+              "probability": 0.986328125
+            },
+            {
+              "text": " he",
+              "start": 14.05,
+              "end": 14.13,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " bet",
+              "start": 14.13,
+              "end": 14.29,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " five",
+              "start": 14.29,
+              "end": 14.63,
+              "probability": 0.52490234375
+            },
+            {
+              "text": " thousand",
+              "start": 14.63,
+              "end": 15.05,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " pounds",
+              "start": 15.05,
+              "end": 15.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 15.39,
+              "end": 15.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Phileas",
+              "start": 15.63,
+              "end": 15.99,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Fogg.",
+              "start": 15.99,
+              "end": 16.37,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " When the folly as well as the uselessness of the adventure was pointed out to him, he contented himself with replying.",
+          "start": 17.03,
+          "end": 23.07,
+          "words": [
+            {
+              "text": " When",
+              "start": 17.03,
+              "end": 17.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 17.19,
+              "end": 17.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " folly",
+              "start": 17.33,
+              "end": 17.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " as",
+              "start": 17.59,
+              "end": 17.83,
+              "probability": 0.861328125
+            },
+            {
+              "text": " well",
+              "start": 17.83,
+              "end": 18.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 18.03,
+              "end": 18.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 18.23,
+              "end": 18.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " uselessness",
+              "start": 18.39,
+              "end": 19.05,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " of",
+              "start": 19.05,
+              "end": 19.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 19.21,
+              "end": 19.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " adventure",
+              "start": 19.31,
+              "end": 19.67,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " was",
+              "start": 19.67,
+              "end": 19.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pointed",
+              "start": 19.97,
+              "end": 20.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out",
+              "start": 20.25,
+              "end": 20.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 20.51,
+              "end": 20.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him,",
+              "start": 20.67,
+              "end": 20.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 21.23,
+              "end": 21.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " contented",
+              "start": 21.45,
+              "end": 21.95,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " himself",
+              "start": 21.95,
+              "end": 22.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 22.27,
+              "end": 22.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " replying.",
+              "start": 22.51,
+              "end": 23.07,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " If the thing is feasible, the first to do it ought to be an Englishman.",
+          "start": 23.65,
+          "end": 27.01,
+          "words": [
+            {
+              "text": " If",
+              "start": 23.65,
+              "end": 23.77,
+              "probability": 0.464599609375
+            },
+            {
+              "text": " the",
+              "start": 23.77,
+              "end": 23.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thing",
+              "start": 23.93,
+              "end": 24.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 24.07,
+              "end": 24.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " feasible,",
+              "start": 24.25,
+              "end": 24.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 25.13,
+              "end": 25.27,
+              "probability": 0.994140625
+            },
+            {
+              "text": " first",
+              "start": 25.27,
+              "end": 25.49,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 25.49,
+              "end": 25.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " do",
+              "start": 25.69,
+              "end": 25.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it",
+              "start": 25.83,
+              "end": 25.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ought",
+              "start": 25.95,
+              "end": 26.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 26.05,
+              "end": 26.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 26.23,
+              "end": 26.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 26.35,
+              "end": 26.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Englishman.",
+              "start": 26.47,
+              "end": 27.01,
+              "probability": 0.990478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lord",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Albemarle,",
+          "start": 0.61,
+          "end": 1.21
+        },
+        {
+          "raw": "an",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "elderly",
+          "start": 1.59,
+          "end": 2.01
+        },
+        {
+          "raw": "paralytic",
+          "start": 2.01,
+          "end": 2.63
+        },
+        {
+          "raw": "gentleman,",
+          "start": 2.63,
+          "end": 3.07
+        },
+        {
+          "raw": "was",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "raw": "now",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "raw": "the",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "raw": "only",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "raw": "advocate",
+          "start": 4.31,
+          "end": 4.79
+        },
+        {
+          "raw": "of",
+          "start": 4.79,
+          "end": 5.07
+        },
+        {
+          "raw": "Phileas",
+          "start": 5.07,
+          "end": 5.37
+        },
+        {
+          "raw": "Fogg",
+          "start": 5.37,
+          "end": 5.65
+        },
+        {
+          "raw": "left.",
+          "start": 5.65,
+          "end": 6.01
+        },
+        {
+          "raw": "This",
+          "start": 6.75,
+          "end": 6.93
+        },
+        {
+          "raw": "noble",
+          "start": 6.93,
+          "end": 7.27
+        },
+        {
+          "raw": "lord,",
+          "start": 7.27,
+          "end": 7.59
+        },
+        {
+          "raw": "who",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "raw": "was",
+          "start": 7.87,
+          "end": 8.01
+        },
+        {
+          "raw": "fastened",
+          "start": 8.01,
+          "end": 8.43
+        },
+        {
+          "raw": "to",
+          "start": 8.43,
+          "end": 8.55
+        },
+        {
+          "raw": "his",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "raw": "chair,",
+          "start": 8.69,
+          "end": 9.01
+        },
+        {
+          "raw": "would",
+          "start": 9.47,
+          "end": 9.55
+        },
+        {
+          "raw": "have",
+          "start": 9.55,
+          "end": 9.65
+        },
+        {
+          "raw": "given",
+          "start": 9.65,
+          "end": 9.83
+        },
+        {
+          "raw": "his",
+          "start": 9.83,
+          "end": 10.05
+        },
+        {
+          "raw": "fortune",
+          "start": 10.05,
+          "end": 10.35
+        },
+        {
+          "raw": "to",
+          "start": 10.35,
+          "end": 10.61
+        },
+        {
+          "raw": "be",
+          "start": 10.61,
+          "end": 10.73
+        },
+        {
+          "raw": "able",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "raw": "to",
+          "start": 10.91,
+          "end": 11.05
+        },
+        {
+          "raw": "make",
+          "start": 11.05,
+          "end": 11.19
+        },
+        {
+          "raw": "the",
+          "start": 11.19,
+          "end": 11.39
+        },
+        {
+          "raw": "tour",
+          "start": 11.39,
+          "end": 11.57
+        },
+        {
+          "raw": "of",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "raw": "the",
+          "start": 11.69,
+          "end": 11.81
+        },
+        {
+          "raw": "world",
+          "start": 11.81,
+          "end": 12.07
+        },
+        {
+          "raw": "if",
+          "start": 12.07,
+          "end": 12.41
+        },
+        {
+          "raw": "it",
+          "start": 12.41,
+          "end": 12.51
+        },
+        {
+          "raw": "took",
+          "start": 12.51,
+          "end": 12.67
+        },
+        {
+          "raw": "ten",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "raw": "years.",
+          "start": 12.93,
+          "end": 13.33
+        },
+        {
+          "raw": "And",
+          "start": 13.89,
+          "end": 14.05
+        },
+        {
+          "raw": "he",
+          "start": 14.05,
+          "end": 14.13
+        },
+        {
+          "raw": "bet",
+          "start": 14.13,
+          "end": 14.29
+        },
+        {
+          "raw": "five",
+          "start": 14.29,
+          "end": 14.63
+        },
+        {
+          "raw": "thousand",
+          "start": 14.63,
+          "end": 15.05
+        },
+        {
+          "raw": "pounds",
+          "start": 15.05,
+          "end": 15.39
+        },
+        {
+          "raw": "on",
+          "start": 15.39,
+          "end": 15.63
+        },
+        {
+          "raw": "Phileas",
+          "start": 15.63,
+          "end": 15.99
+        },
+        {
+          "raw": "Fogg.",
+          "start": 15.99,
+          "end": 16.37
+        },
+        {
+          "raw": "When",
+          "start": 17.03,
+          "end": 17.19
+        },
+        {
+          "raw": "the",
+          "start": 17.19,
+          "end": 17.33
+        },
+        {
+          "raw": "folly",
+          "start": 17.33,
+          "end": 17.59
+        },
+        {
+          "raw": "as",
+          "start": 17.59,
+          "end": 17.83
+        },
+        {
+          "raw": "well",
+          "start": 17.83,
+          "end": 18.03
+        },
+        {
+          "raw": "as",
+          "start": 18.03,
+          "end": 18.23
+        },
+        {
+          "raw": "the",
+          "start": 18.23,
+          "end": 18.39
+        },
+        {
+          "raw": "uselessness",
+          "start": 18.39,
+          "end": 19.05
+        },
+        {
+          "raw": "of",
+          "start": 19.05,
+          "end": 19.21
+        },
+        {
+          "raw": "the",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "raw": "adventure",
+          "start": 19.31,
+          "end": 19.67
+        },
+        {
+          "raw": "was",
+          "start": 19.67,
+          "end": 19.97
+        },
+        {
+          "raw": "pointed",
+          "start": 19.97,
+          "end": 20.25
+        },
+        {
+          "raw": "out",
+          "start": 20.25,
+          "end": 20.51
+        },
+        {
+          "raw": "to",
+          "start": 20.51,
+          "end": 20.67
+        },
+        {
+          "raw": "him,",
+          "start": 20.67,
+          "end": 20.91
+        },
+        {
+          "raw": "he",
+          "start": 21.23,
+          "end": 21.45
+        },
+        {
+          "raw": "contented",
+          "start": 21.45,
+          "end": 21.95
+        },
+        {
+          "raw": "himself",
+          "start": 21.95,
+          "end": 22.27
+        },
+        {
+          "raw": "with",
+          "start": 22.27,
+          "end": 22.51
+        },
+        {
+          "raw": "replying.",
+          "start": 22.51,
+          "end": 23.07
+        },
+        {
+          "raw": "If",
+          "start": 23.65,
+          "end": 23.77
+        },
+        {
+          "raw": "the",
+          "start": 23.77,
+          "end": 23.93
+        },
+        {
+          "raw": "thing",
+          "start": 23.93,
+          "end": 24.07
+        },
+        {
+          "raw": "is",
+          "start": 24.07,
+          "end": 24.25
+        },
+        {
+          "raw": "feasible,",
+          "start": 24.25,
+          "end": 24.67
+        },
+        {
+          "raw": "the",
+          "start": 25.13,
+          "end": 25.27
+        },
+        {
+          "raw": "first",
+          "start": 25.27,
+          "end": 25.49
+        },
+        {
+          "raw": "to",
+          "start": 25.49,
+          "end": 25.69
+        },
+        {
+          "raw": "do",
+          "start": 25.69,
+          "end": 25.83
+        },
+        {
+          "raw": "it",
+          "start": 25.83,
+          "end": 25.95
+        },
+        {
+          "raw": "ought",
+          "start": 25.95,
+          "end": 26.05
+        },
+        {
+          "raw": "to",
+          "start": 26.05,
+          "end": 26.23
+        },
+        {
+          "raw": "be",
+          "start": 26.23,
+          "end": 26.35
+        },
+        {
+          "raw": "an",
+          "start": 26.35,
+          "end": 26.47
+        },
+        {
+          "raw": "Englishman.",
+          "start": 26.47,
+          "end": 27.01
+        }
+      ],
+      "expected_tokens": [
+        "Lord",
+        "Albemarle,",
+        "an",
+        "elderly",
+        "paralytic",
+        "gentleman,",
+        "was",
+        "now",
+        "the",
+        "only",
+        "advocate",
+        "of",
+        "Phileas",
+        "Fogg",
+        "left.",
+        "This",
+        "noble",
+        "lord,",
+        "who",
+        "was",
+        "fastened",
+        "to",
+        "his",
+        "chair,",
+        "would",
+        "have",
+        "given",
+        "his",
+        "fortune",
+        "to",
+        "be",
+        "able",
+        "to",
+        "make",
+        "the",
+        "tour",
+        "of",
+        "the",
+        "world,",
+        "if",
+        "it",
+        "took",
+        "ten",
+        "years;",
+        "and",
+        "he",
+        "bet",
+        "five",
+        "thousand",
+        "pounds",
+        "on",
+        "Phileas",
+        "Fogg.",
+        "When",
+        "the",
+        "folly",
+        "as",
+        "well",
+        "as",
+        "the",
+        "uselessness",
+        "of",
+        "the",
+        "adventure",
+        "was",
+        "pointed",
+        "out",
+        "to",
+        "him,",
+        "he",
+        "contented",
+        "himself",
+        "with",
+        "replying,",
+        "\"If",
+        "the",
+        "thing",
+        "is",
+        "feasible,",
+        "the",
+        "first",
+        "to",
+        "do",
+        "it",
+        "ought",
+        "to",
+        "be",
+        "an",
+        "Englishman.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          89,
+          0,
+          89
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lord",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "lord",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Albemarle,",
+          "start": 0.61,
+          "end": 1.21,
+          "key": "albemarle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "an",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "elderly",
+          "start": 1.59,
+          "end": 2.01,
+          "key": "elderly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "paralytic",
+          "start": 2.01,
+          "end": 2.63,
+          "key": "paralytic",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 2.63,
+          "end": 3.07,
+          "key": "gentleman",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.43,
+          "end": 3.69,
+          "key": "was",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.69,
+          "end": 3.89,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.89,
+          "end": 4.03,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 4.03,
+          "end": 4.31,
+          "key": "only",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "advocate",
+          "start": 4.31,
+          "end": 4.79,
+          "key": "advocate",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.79,
+          "end": 5.07,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Phileas",
+          "start": 5.07,
+          "end": 5.37,
+          "key": "phileas",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Fogg",
+          "start": 5.37,
+          "end": 5.65,
+          "key": "fogg",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "left.",
+          "start": 5.65,
+          "end": 6.01,
+          "key": "left",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 6.75,
+          "end": 6.93,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 6.93,
+          "end": 7.27,
+          "key": "noble",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 7.27,
+          "end": 7.59,
+          "key": "lord",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 7.73,
+          "end": 7.87,
+          "key": "who",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.87,
+          "end": 8.01,
+          "key": "was",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "fastened",
+          "start": 8.01,
+          "end": 8.43,
+          "key": "fastened",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.43,
+          "end": 8.55,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.55,
+          "end": 8.69,
+          "key": "his",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "chair,",
+          "start": 8.69,
+          "end": 9.01,
+          "key": "chair",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 9.47,
+          "end": 9.55,
+          "key": "would",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 9.55,
+          "end": 9.65,
+          "key": "have",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 9.65,
+          "end": 9.83,
+          "key": "given",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.83,
+          "end": 10.05,
+          "key": "his",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "fortune",
+          "start": 10.05,
+          "end": 10.35,
+          "key": "fortune",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.35,
+          "end": 10.61,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 10.61,
+          "end": 10.73,
+          "key": "be",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "able",
+          "start": 10.73,
+          "end": 10.91,
+          "key": "able",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.91,
+          "end": 11.05,
+          "key": "to",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 11.05,
+          "end": 11.19,
+          "key": "make",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.19,
+          "end": 11.39,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "tour",
+          "start": 11.39,
+          "end": 11.57,
+          "key": "tour",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 11.57,
+          "end": 11.69,
+          "key": "of",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.69,
+          "end": 11.81,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 11.81,
+          "end": 12.07,
+          "key": "world",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 12.07,
+          "end": 12.41,
+          "key": "if",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.41,
+          "end": 12.51,
+          "key": "it",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 12.51,
+          "end": 12.67,
+          "key": "took",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 12.67,
+          "end": 12.93,
+          "key": "ten",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "years.",
+          "start": 12.93,
+          "end": 13.33,
+          "key": "years",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 13.89,
+          "end": 14.05,
+          "key": "and",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.05,
+          "end": 14.13,
+          "key": "he",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "bet",
+          "start": 14.13,
+          "end": 14.29,
+          "key": "bet",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 14.29,
+          "end": 14.63,
+          "key": "five",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "thousand",
+          "start": 14.63,
+          "end": 15.05,
+          "key": "thousand",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "pounds",
+          "start": 15.05,
+          "end": 15.39,
+          "key": "pounds",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 15.39,
+          "end": 15.63,
+          "key": "on",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Phileas",
+          "start": 15.63,
+          "end": 15.99,
+          "key": "phileas",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Fogg.",
+          "start": 15.99,
+          "end": 16.37,
+          "key": "fogg",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 17.03,
+          "end": 17.19,
+          "key": "when",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.19,
+          "end": 17.33,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "folly",
+          "start": 17.33,
+          "end": 17.59,
+          "key": "folly",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 17.59,
+          "end": 17.83,
+          "key": "as",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 17.83,
+          "end": 18.03,
+          "key": "well",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 18.03,
+          "end": 18.23,
+          "key": "as",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.23,
+          "end": 18.39,
+          "key": "the",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "uselessness",
+          "start": 18.39,
+          "end": 19.05,
+          "key": "uselessness",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.05,
+          "end": 19.21,
+          "key": "of",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.21,
+          "end": 19.31,
+          "key": "the",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "adventure",
+          "start": 19.31,
+          "end": 19.67,
+          "key": "adventure",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 19.67,
+          "end": 19.97,
+          "key": "was",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "pointed",
+          "start": 19.97,
+          "end": 20.25,
+          "key": "pointed",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 20.25,
+          "end": 20.51,
+          "key": "out",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 20.51,
+          "end": 20.67,
+          "key": "to",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 20.67,
+          "end": 20.91,
+          "key": "him",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 21.23,
+          "end": 21.45,
+          "key": "he",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "contented",
+          "start": 21.45,
+          "end": 21.95,
+          "key": "contented",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 21.95,
+          "end": 22.27,
+          "key": "himself",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 22.27,
+          "end": 22.51,
+          "key": "with",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "replying.",
+          "start": 22.51,
+          "end": 23.07,
+          "key": "replying",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 23.65,
+          "end": 23.77,
+          "key": "if",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 23.77,
+          "end": 23.93,
+          "key": "the",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 23.93,
+          "end": 24.07,
+          "key": "thing",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 24.07,
+          "end": 24.25,
+          "key": "is",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "feasible,",
+          "start": 24.25,
+          "end": 24.67,
+          "key": "feasible",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.13,
+          "end": 25.27,
+          "key": "the",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 25.27,
+          "end": 25.49,
+          "key": "first",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 25.49,
+          "end": 25.69,
+          "key": "to",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 25.69,
+          "end": 25.83,
+          "key": "do",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 25.83,
+          "end": 25.95,
+          "key": "it",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "ought",
+          "start": 25.95,
+          "end": 26.05,
+          "key": "ought",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 26.05,
+          "end": 26.23,
+          "key": "to",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 26.23,
+          "end": 26.35,
+          "key": "be",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 26.35,
+          "end": 26.47,
+          "key": "an",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "Englishman.",
+          "start": 26.47,
+          "end": 27.01,
+          "key": "englishman",
+          "pieces": [
+            88
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lord",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Albemarle,",
+          "start": 0.61,
+          "end": 1.21
+        },
+        {
+          "text": "an",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "elderly",
+          "start": 1.59,
+          "end": 2.01
+        },
+        {
+          "text": "paralytic",
+          "start": 2.01,
+          "end": 2.63
+        },
+        {
+          "text": "gentleman,",
+          "start": 2.63,
+          "end": 3.07
+        },
+        {
+          "text": "was",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "text": "now",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "text": "the",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "text": "only",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "text": "advocate",
+          "start": 4.31,
+          "end": 4.79
+        },
+        {
+          "text": "of",
+          "start": 4.79,
+          "end": 5.07
+        },
+        {
+          "text": "Phileas",
+          "start": 5.07,
+          "end": 5.37
+        },
+        {
+          "text": "Fogg",
+          "start": 5.37,
+          "end": 5.65
+        },
+        {
+          "text": "left.",
+          "start": 5.65,
+          "end": 6.01
+        },
+        {
+          "text": "This",
+          "start": 6.75,
+          "end": 6.93
+        },
+        {
+          "text": "noble",
+          "start": 6.93,
+          "end": 7.27
+        },
+        {
+          "text": "lord,",
+          "start": 7.27,
+          "end": 7.59
+        },
+        {
+          "text": "who",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "text": "was",
+          "start": 7.87,
+          "end": 8.01
+        },
+        {
+          "text": "fastened",
+          "start": 8.01,
+          "end": 8.43
+        },
+        {
+          "text": "to",
+          "start": 8.43,
+          "end": 8.55
+        },
+        {
+          "text": "his",
+          "start": 8.55,
+          "end": 8.69
+        },
+        {
+          "text": "chair,",
+          "start": 8.69,
+          "end": 9.01
+        },
+        {
+          "text": "would",
+          "start": 9.47,
+          "end": 9.55
+        },
+        {
+          "text": "have",
+          "start": 9.55,
+          "end": 9.65
+        },
+        {
+          "text": "given",
+          "start": 9.65,
+          "end": 9.83
+        },
+        {
+          "text": "his",
+          "start": 9.83,
+          "end": 10.05
+        },
+        {
+          "text": "fortune",
+          "start": 10.05,
+          "end": 10.35
+        },
+        {
+          "text": "to",
+          "start": 10.35,
+          "end": 10.61
+        },
+        {
+          "text": "be",
+          "start": 10.61,
+          "end": 10.73
+        },
+        {
+          "text": "able",
+          "start": 10.73,
+          "end": 10.91
+        },
+        {
+          "text": "to",
+          "start": 10.91,
+          "end": 11.05
+        },
+        {
+          "text": "make",
+          "start": 11.05,
+          "end": 11.19
+        },
+        {
+          "text": "the",
+          "start": 11.19,
+          "end": 11.39
+        },
+        {
+          "text": "tour",
+          "start": 11.39,
+          "end": 11.57
+        },
+        {
+          "text": "of",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "text": "the",
+          "start": 11.69,
+          "end": 11.81
+        },
+        {
+          "text": "world,",
+          "start": 11.81,
+          "end": 12.07
+        },
+        {
+          "text": "if",
+          "start": 12.07,
+          "end": 12.41
+        },
+        {
+          "text": "it",
+          "start": 12.41,
+          "end": 12.51
+        },
+        {
+          "text": "took",
+          "start": 12.51,
+          "end": 12.67
+        },
+        {
+          "text": "ten",
+          "start": 12.67,
+          "end": 12.93
+        },
+        {
+          "text": "years;",
+          "start": 12.93,
+          "end": 13.33
+        },
+        {
+          "text": "and",
+          "start": 13.89,
+          "end": 14.05
+        },
+        {
+          "text": "he",
+          "start": 14.05,
+          "end": 14.13
+        },
+        {
+          "text": "bet",
+          "start": 14.13,
+          "end": 14.29
+        },
+        {
+          "text": "five",
+          "start": 14.29,
+          "end": 14.63
+        },
+        {
+          "text": "thousand",
+          "start": 14.63,
+          "end": 15.05
+        },
+        {
+          "text": "pounds",
+          "start": 15.05,
+          "end": 15.39
+        },
+        {
+          "text": "on",
+          "start": 15.39,
+          "end": 15.63
+        },
+        {
+          "text": "Phileas",
+          "start": 15.63,
+          "end": 15.99
+        },
+        {
+          "text": "Fogg.",
+          "start": 15.99,
+          "end": 16.37
+        },
+        {
+          "text": "When",
+          "start": 17.03,
+          "end": 17.19
+        },
+        {
+          "text": "the",
+          "start": 17.19,
+          "end": 17.33
+        },
+        {
+          "text": "folly",
+          "start": 17.33,
+          "end": 17.59
+        },
+        {
+          "text": "as",
+          "start": 17.59,
+          "end": 17.83
+        },
+        {
+          "text": "well",
+          "start": 17.83,
+          "end": 18.03
+        },
+        {
+          "text": "as",
+          "start": 18.03,
+          "end": 18.23
+        },
+        {
+          "text": "the",
+          "start": 18.23,
+          "end": 18.39
+        },
+        {
+          "text": "uselessness",
+          "start": 18.39,
+          "end": 19.05
+        },
+        {
+          "text": "of",
+          "start": 19.05,
+          "end": 19.21
+        },
+        {
+          "text": "the",
+          "start": 19.21,
+          "end": 19.31
+        },
+        {
+          "text": "adventure",
+          "start": 19.31,
+          "end": 19.67
+        },
+        {
+          "text": "was",
+          "start": 19.67,
+          "end": 19.97
+        },
+        {
+          "text": "pointed",
+          "start": 19.97,
+          "end": 20.25
+        },
+        {
+          "text": "out",
+          "start": 20.25,
+          "end": 20.51
+        },
+        {
+          "text": "to",
+          "start": 20.51,
+          "end": 20.67
+        },
+        {
+          "text": "him,",
+          "start": 20.67,
+          "end": 20.91
+        },
+        {
+          "text": "he",
+          "start": 21.23,
+          "end": 21.45
+        },
+        {
+          "text": "contented",
+          "start": 21.45,
+          "end": 21.95
+        },
+        {
+          "text": "himself",
+          "start": 21.95,
+          "end": 22.27
+        },
+        {
+          "text": "with",
+          "start": 22.27,
+          "end": 22.51
+        },
+        {
+          "text": "replying,",
+          "start": 22.51,
+          "end": 23.07
+        },
+        {
+          "text": "\"If",
+          "start": 23.65,
+          "end": 23.77
+        },
+        {
+          "text": "the",
+          "start": 23.77,
+          "end": 23.93
+        },
+        {
+          "text": "thing",
+          "start": 23.93,
+          "end": 24.07
+        },
+        {
+          "text": "is",
+          "start": 24.07,
+          "end": 24.25
+        },
+        {
+          "text": "feasible,",
+          "start": 24.25,
+          "end": 24.67
+        },
+        {
+          "text": "the",
+          "start": 25.13,
+          "end": 25.27
+        },
+        {
+          "text": "first",
+          "start": 25.27,
+          "end": 25.49
+        },
+        {
+          "text": "to",
+          "start": 25.49,
+          "end": 25.69
+        },
+        {
+          "text": "do",
+          "start": 25.69,
+          "end": 25.83
+        },
+        {
+          "text": "it",
+          "start": 25.83,
+          "end": 25.95
+        },
+        {
+          "text": "ought",
+          "start": 25.95,
+          "end": 26.05
+        },
+        {
+          "text": "to",
+          "start": 26.05,
+          "end": 26.23
+        },
+        {
+          "text": "be",
+          "start": 26.23,
+          "end": 26.35
+        },
+        {
+          "text": "an",
+          "start": 26.35,
+          "end": 26.47
+        },
+        {
+          "text": "Englishman.\"",
+          "start": 26.47,
+          "end": 27.01
+        }
+      ],
+      "stats": {
+        "expected_words": 89,
+        "heard_words": 89,
+        "matched_words": 89
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9246000309940428
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "00f8589b0bce99f94af56f0a6670cecdf277c9aa4f84d33af00a27847f571804",
+  "selected_reasons": []
+}

@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "d8f23f2d38264180a7d12020be71d80f0faa301f771b0f595da8f1ec8f0b2326",
+  "attempts": [
+    {
+      "asr_seconds": 0.18873461708426476,
+      "alignment_seconds": 0.0004901308566331863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Senna, I'm not Senna the Conspirator.",
+          "start": 0.11,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Senna,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " I'm",
+              "start": 0.95,
+              "end": 1.19,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " not",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Senna",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.944091796875
+            },
+            {
+              "text": " the",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " Conspirator.",
+              "start": 1.73,
+              "end": 2.27,
+              "probability": 0.8771158854166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Senna,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "I'm",
+          "start": 0.95,
+          "end": 1.19
+        },
+        {
+          "raw": "not",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "Senna",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "Conspirator.",
+          "start": 1.73,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "I",
+        "am",
+        "not",
+        "Cinna",
+        "the",
+        "conspirator."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          7,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Senna,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "senna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 0.95,
+          "end": 1.19,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Senna",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "senna",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Conspirator.",
+          "start": 1.73,
+          "end": 2.27,
+          "key": "conspirator",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.0,
+          "end": 0.595
+        },
+        {
+          "text": "I",
+          "start": 0.595,
+          "end": 0.892
+        },
+        {
+          "text": "am",
+          "start": 0.892,
+          "end": 1.041
+        },
+        {
+          "text": "not",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "Cinna",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "the",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "conspirator.",
+          "start": 1.73,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.42857142857142855,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18936863169074059
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b7bb46ace0f885249ce71014468bdea5b6b92b7b4726554c1ad6a4f50c74c9b1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

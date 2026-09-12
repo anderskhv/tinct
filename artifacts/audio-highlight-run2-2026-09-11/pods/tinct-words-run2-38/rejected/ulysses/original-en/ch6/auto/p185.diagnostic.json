@@ -1,0 +1,285 @@
+{
+  "complete": true,
+  "signature": "d9cb37807be82b84f12b789b95b533d44c776fbeecbb252f8635155ec1ceeafa",
+  "attempts": [
+    {
+      "asr_seconds": 0.09627151401946321,
+      "alignment_seconds": 0.00015035097021609545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The carriage moved on through the drove."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The carriage moved on through the drove.",
+          "start": 0.02,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.46,
+              "probability": 0.935546875
+            },
+            {
+              "text": " carriage",
+              "start": 0.46,
+              "end": 0.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " moved",
+              "start": 0.78,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " through",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " drove.",
+              "start": 1.54,
+              "end": 1.82,
+              "probability": 0.82177734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "raw": "carriage",
+          "start": 0.46,
+          "end": 0.78
+        },
+        {
+          "raw": "moved",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "raw": "on",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "through",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "drove.",
+          "start": 1.54,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "carriage",
+        "moved",
+        "on",
+        "through",
+        "the",
+        "drove."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.46,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 0.46,
+          "end": 0.78,
+          "key": "carriage",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 0.78,
+          "end": 1.04,
+          "key": "moved",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "through",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "drove.",
+          "start": 1.54,
+          "end": 1.82,
+          "key": "drove",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "text": "carriage",
+          "start": 0.46,
+          "end": 0.78
+        },
+        {
+          "text": "moved",
+          "start": 0.78,
+          "end": 1.04
+        },
+        {
+          "text": "on",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "through",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "drove.",
+          "start": 1.54,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09648226498393342
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2b8365e9e3192c47c78d54765b5b2cbec74bd9c0bffb86da38de71a4ea8b446b",
+  "selected_reasons": []
+}

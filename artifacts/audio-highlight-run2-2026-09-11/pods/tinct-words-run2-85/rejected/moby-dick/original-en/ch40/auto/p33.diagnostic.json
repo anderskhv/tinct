@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "dcfa8f525507bdaf419b69ffd5b6245aa502a184346d7a98f69660338e64de83",
+  "attempts": [
+    {
+      "asr_seconds": 0.1353686130605638,
+      "alignment_seconds": 0.00027981121093034744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. Aye! aye!",
+        "hotwords": "All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All Aye-Aye.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " Aye",
+              "start": 0.71,
+              "end": 1.13,
+              "probability": 0.368194580078125
+            },
+            {
+              "text": "-Aye.",
+              "start": 1.13,
+              "end": 1.43,
+              "probability": 0.73974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Aye",
+          "start": 0.71,
+          "end": 1.13
+        },
+        {
+          "raw": "-Aye.",
+          "start": 1.13,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Aye!",
+        "aye!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aye",
+          "start": 0.71,
+          "end": 1.13,
+          "key": "aye",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-Aye.",
+          "start": 1.13,
+          "end": 1.43,
+          "key": "aye",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Aye!",
+          "start": 0.71,
+          "end": 1.13
+        },
+        {
+          "text": "aye!",
+          "start": 1.13,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13574417307972908
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5a8bd9a894079fd00f2b0a0cb9369f8572a6bb5cfc37239d762d8e804be6ea5f",
+  "selected_reasons": []
+}

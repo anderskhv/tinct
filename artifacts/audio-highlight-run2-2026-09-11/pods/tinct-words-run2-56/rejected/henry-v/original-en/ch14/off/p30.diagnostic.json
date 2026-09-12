@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "0f1f72f452b77159b10dedbd44536e8b8764eb4f9e58390b4ddc368d8521daeb",
+  "attempts": [
+    {
+      "asr_seconds": 0.19440452940762043,
+      "alignment_seconds": 0.00045419204980134964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry and his kinsmen too.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.880859375
+            },
+            {
+              "text": " Henry",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " and",
+              "start": 0.93,
+              "end": 1.45,
+              "probability": 0.66162109375
+            },
+            {
+              "text": " his",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " kinsmen",
+              "start": 1.59,
+              "end": 2.01,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " too.",
+              "start": 2.01,
+              "end": 2.31,
+              "probability": 0.7373046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "and",
+          "start": 0.93,
+          "end": 1.45
+        },
+        {
+          "raw": "his",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "kinsmen",
+          "start": 1.59,
+          "end": 2.01
+        },
+        {
+          "raw": "too.",
+          "start": 2.01,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "And",
+        "his",
+        "kinsman",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.93,
+          "end": 1.45,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kinsmen",
+          "start": 1.59,
+          "end": 2.01,
+          "key": "kinsmen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 2.01,
+          "end": 2.31,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "And",
+          "start": 0.93,
+          "end": 1.45
+        },
+        {
+          "text": "his",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "kinsman",
+          "start": 1.59,
+          "end": 1.8
+        },
+        {
+          "text": "too.",
+          "start": 2.01,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1950015015900135
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6cde1b44cb1b6a8f9d507738c094c0fdcce8cf15a6baa0d917f172fb91130e7b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

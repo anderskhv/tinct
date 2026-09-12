@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "cf79d5604f704ad4ddddb369d8d51a58834415b1ee18cc62695ba5975a5440db",
+  "attempts": [
+    {
+      "asr_seconds": 0.11041510943323374,
+      "alignment_seconds": 0.00012766756117343903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, even so.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " even",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " so.",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "even",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "so.",
+          "start": 1.25,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Even",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "even",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Even",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "so.",
+          "start": 1.25,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11058631166815758
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06facb89e922afc68652d159c3b65c56cf78899a54bffa56be90b004d4c3a59a",
+  "selected_reasons": []
+}

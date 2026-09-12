@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d7262245774c031923abfc0e8bf8cb5abfeedd053494f0e06a8daddede31a9a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.14756540302187204,
+      "alignment_seconds": 0.00033344398252665997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He walked along the curbstone.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He walked along the curbstone.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " walked",
+              "start": 0.49,
+              "end": 0.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " along",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " curbstone.",
+              "start": 1.17,
+              "end": 1.61,
+              "probability": 0.529296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "walked",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "raw": "along",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "the",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "curbstone.",
+          "start": 1.17,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "walked",
+        "along",
+        "the",
+        "curbstone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 0.49,
+          "end": 0.73,
+          "key": "walked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "along",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.97,
+          "end": 1.17,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "curbstone.",
+          "start": 1.17,
+          "end": 1.61,
+          "key": "curbstone",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "walked",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "text": "along",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "text": "the",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "curbstone.",
+          "start": 1.17,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1480419160798192
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e4924e8e660af9faf5b69a585d8cdca6acbb11935223a85e3f6148ad7b7b458",
+  "selected_reasons": []
+}

@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "137f30b561084733d156206c4020ba44a6f8c72241f8b8d5f9d6f653381726b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.14063706621527672,
+      "alignment_seconds": 0.0003635883331298828,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hero, good morrow cause.",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Hero,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " good",
+              "start": 1.11,
+              "end": 1.15,
+              "probability": 0.6484375
+            },
+            {
+              "text": " morrow",
+              "start": 1.15,
+              "end": 1.47,
+              "probability": 0.894775390625
+            },
+            {
+              "text": " cause.",
+              "start": 1.47,
+              "end": 1.73,
+              "probability": 0.5810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "good",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "raw": "morrow",
+          "start": 1.15,
+          "end": 1.47
+        },
+        {
+          "raw": "cause.",
+          "start": 1.47,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "Hero.",
+        "Good",
+        "morrow,",
+        "coz."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "hero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.11,
+          "end": 1.15,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "morrow",
+          "start": 1.15,
+          "end": 1.47,
+          "key": "morrow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cause.",
+          "start": 1.47,
+          "end": 1.73,
+          "key": "cause",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hero.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Good",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "text": "morrow,",
+          "start": 1.15,
+          "end": 1.47
+        },
+        {
+          "text": "coz.",
+          "start": 1.47,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14112185686826706
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c9fcb95588c298d8f1d67524278de6470f1b8071b0b9754f11e31d842558a7ae",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

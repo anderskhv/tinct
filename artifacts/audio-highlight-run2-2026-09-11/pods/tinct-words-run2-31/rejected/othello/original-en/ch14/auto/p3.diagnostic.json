@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "a568f9558589d74ded6d3ed1a8fef923fd015a8cda0722d4cb986a3080a06cc5",
+  "attempts": [
+    {
+      "asr_seconds": 0.18329817615449429,
+      "alignment_seconds": 0.00032264692708849907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Here, at thy hand. Be bold, and take thy stand.",
+        "hotwords": "Iago, Here, Be"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Here, at thy hand. Be bold, and take thy stand.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.0035181045532226562
+            },
+            {
+              "text": " Here,",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.032470703125
+            },
+            {
+              "text": " at",
+              "start": 1.28,
+              "end": 1.32,
+              "probability": 0.908203125
+            },
+            {
+              "text": " thy",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.54443359375
+            },
+            {
+              "text": " hand.",
+              "start": 1.44,
+              "end": 1.82,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " Be",
+              "start": 2.26,
+              "end": 2.34,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " bold,",
+              "start": 2.34,
+              "end": 2.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 2.82,
+              "end": 2.86,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " take",
+              "start": 2.86,
+              "end": 3.04,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " thy",
+              "start": 3.04,
+              "end": 3.24,
+              "probability": 0.97265625
+            },
+            {
+              "text": " stand.",
+              "start": 3.24,
+              "end": 3.64,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "Here,",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "at",
+          "start": 1.28,
+          "end": 1.32
+        },
+        {
+          "raw": "thy",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "hand.",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "raw": "Be",
+          "start": 2.26,
+          "end": 2.34
+        },
+        {
+          "raw": "bold,",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "raw": "and",
+          "start": 2.82,
+          "end": 2.86
+        },
+        {
+          "raw": "take",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "raw": "thy",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "raw": "stand.",
+          "start": 3.24,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Here,",
+        "at",
+        "thy",
+        "hand.",
+        "Be",
+        "bold,",
+        "and",
+        "take",
+        "thy",
+        "stand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here,",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.28,
+          "end": 1.32,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 1.44,
+          "end": 1.82,
+          "key": "hand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 2.26,
+          "end": 2.34,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bold,",
+          "start": 2.34,
+          "end": 2.6,
+          "key": "bold",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.82,
+          "end": 2.86,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.86,
+          "end": 3.04,
+          "key": "take",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.04,
+          "end": 3.24,
+          "key": "thy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stand.",
+          "start": 3.24,
+          "end": 3.64,
+          "key": "stand",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Here,",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "at",
+          "start": 1.28,
+          "end": 1.32
+        },
+        {
+          "text": "thy",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "hand.",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "text": "Be",
+          "start": 2.26,
+          "end": 2.34
+        },
+        {
+          "text": "bold,",
+          "start": 2.34,
+          "end": 2.6
+        },
+        {
+          "text": "and",
+          "start": 2.82,
+          "end": 2.86
+        },
+        {
+          "text": "take",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "text": "thy",
+          "start": 3.04,
+          "end": 3.24
+        },
+        {
+          "text": "stand.",
+          "start": 3.24,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18375257216393948
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b99dac690734eddf2d0fdd596dfecace8f4c49b57803af430811f1cf412d4dc6",
+  "selected_reasons": []
+}

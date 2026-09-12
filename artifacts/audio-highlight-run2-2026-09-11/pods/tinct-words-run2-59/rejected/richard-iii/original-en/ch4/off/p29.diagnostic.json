@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "0d817aa08435665779918640304c8322761d4e93db5c6af5594dca892d53d6be",
+  "attempts": [
+    {
+      "asr_seconds": 0.28715902380645275,
+      "alignment_seconds": 0.0007064691744744778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second murderer the urging of that word judgment hath bred a kind of remorse in me",
+          "start": 0.08,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " murderer",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " the",
+              "start": 1.1,
+              "end": 1.8,
+              "probability": 0.10284423828125
+            },
+            {
+              "text": " urging",
+              "start": 1.8,
+              "end": 2.06,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.26,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " word",
+              "start": 2.44,
+              "end": 2.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " judgment",
+              "start": 2.72,
+              "end": 3.24,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " hath",
+              "start": 3.24,
+              "end": 3.8,
+              "probability": 0.87109375
+            },
+            {
+              "text": " bred",
+              "start": 3.8,
+              "end": 4.04,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " a",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " kind",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.34,
+              "end": 4.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " remorse",
+              "start": 4.46,
+              "end": 4.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " in",
+              "start": 4.78,
+              "end": 5.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 5.04,
+              "end": 5.32,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "murderer",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.8
+        },
+        {
+          "raw": "urging",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "raw": "of",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "that",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "raw": "word",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "raw": "judgment",
+          "start": 2.72,
+          "end": 3.24
+        },
+        {
+          "raw": "hath",
+          "start": 3.24,
+          "end": 3.8
+        },
+        {
+          "raw": "bred",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "raw": "a",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "raw": "kind",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "of",
+          "start": 4.34,
+          "end": 4.46
+        },
+        {
+          "raw": "remorse",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "raw": "in",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "raw": "me",
+          "start": 5.04,
+          "end": 5.32
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "The",
+        "urging",
+        "of",
+        "that",
+        "word",
+        "\"judgement\"",
+        "hath",
+        "bred",
+        "a",
+        "kind",
+        "of",
+        "remorse",
+        "in",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          16,
+          8,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.8,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "urging",
+          "start": 1.8,
+          "end": 2.06,
+          "key": "urging",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.06,
+          "end": 2.26,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.26,
+          "end": 2.44,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 2.44,
+          "end": 2.72,
+          "key": "word",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "judgment",
+          "start": 2.72,
+          "end": 3.24,
+          "key": "judgment",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 3.24,
+          "end": 3.8,
+          "key": "hath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bred",
+          "start": 3.8,
+          "end": 4.04,
+          "key": "bred",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.04,
+          "end": 4.18,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "kind",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.34,
+          "end": 4.46,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "remorse",
+          "start": 4.46,
+          "end": 4.78,
+          "key": "remorse",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.78,
+          "end": 5.04,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.04,
+          "end": 5.32,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "text": "The",
+          "start": 1.1,
+          "end": 1.8
+        },
+        {
+          "text": "urging",
+          "start": 1.8,
+          "end": 2.06
+        },
+        {
+          "text": "of",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "that",
+          "start": 2.26,
+          "end": 2.44
+        },
+        {
+          "text": "word",
+          "start": 2.44,
+          "end": 2.72
+        },
+        {
+          "text": "\"judgement\"",
+          "start": 2.72,
+          "end": 2.98
+        },
+        {
+          "text": "hath",
+          "start": 3.24,
+          "end": 3.8
+        },
+        {
+          "text": "bred",
+          "start": 3.8,
+          "end": 4.04
+        },
+        {
+          "text": "a",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "text": "kind",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "of",
+          "start": 4.34,
+          "end": 4.46
+        },
+        {
+          "text": "remorse",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "text": "in",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "text": "me.",
+          "start": 5.04,
+          "end": 5.32
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.28814511583186686
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9b1f6f5f7b78316b673cec90eea5cc0f2e197f120dd8fc83b07fb7a402293b19",
+  "selected_reasons": []
+}

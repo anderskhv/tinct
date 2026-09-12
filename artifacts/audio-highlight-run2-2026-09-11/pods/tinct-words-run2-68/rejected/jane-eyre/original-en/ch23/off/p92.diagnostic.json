@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "8aff6c3d257844d97fb9ec0ec7b1f7a022d038cacb951b8dbb8755eb9be0a1ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.13369401544332504,
+      "alignment_seconds": 0.00031327828764915466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not a wit.",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " a",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " wit.",
+              "start": 0.65,
+              "end": 0.85,
+              "probability": 0.779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "a",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "wit.",
+          "start": 0.65,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "a",
+        "whit.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wit.",
+          "start": 0.65,
+          "end": 0.85,
+          "key": "wit",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "a",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "whit.\"",
+          "start": 0.65,
+          "end": 0.75
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13411440327763557
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc7dbe94acf46aed00900c646d76d02780964f61144857eaee62caddf014d957",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

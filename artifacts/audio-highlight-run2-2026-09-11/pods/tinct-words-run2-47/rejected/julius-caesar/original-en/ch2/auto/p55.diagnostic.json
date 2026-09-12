@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "a14c6851a73acd278019d5c559f4f29cd2bf368fabe4e0becda701089ee3054e",
+  "attempts": [
+    {
+      "asr_seconds": 0.28732959501212463,
+      "alignment_seconds": 0.0003496799909044057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Fear him not, Caesar; he's not dangerous; He is a noble Roman and well given.",
+        "hotwords": "Antony, Fear, Caesar, He, Roman"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Fear him not, Caesar. He's not dangerous. He is a noble Roman and well given.",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.909423828125
+            },
+            {
+              "text": " Fear",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.0179901123046875
+            },
+            {
+              "text": " him",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " not,",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Caesar.",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.98828125
+            },
+            {
+              "text": " He's",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " not",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " dangerous.",
+              "start": 3.07,
+              "end": 3.53,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " He",
+              "start": 4.17,
+              "end": 4.27,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 4.27,
+              "end": 4.39,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " a",
+              "start": 4.39,
+              "end": 4.51,
+              "probability": 0.986328125
+            },
+            {
+              "text": " noble",
+              "start": 4.51,
+              "end": 4.81,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Roman",
+              "start": 4.81,
+              "end": 5.17,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " and",
+              "start": 5.17,
+              "end": 5.45,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " well",
+              "start": 5.45,
+              "end": 5.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " given.",
+              "start": 5.63,
+              "end": 5.91,
+              "probability": 0.74560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Fear",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "him",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "not,",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "raw": "Caesar.",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "He's",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "not",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "dangerous.",
+          "start": 3.07,
+          "end": 3.53
+        },
+        {
+          "raw": "He",
+          "start": 4.17,
+          "end": 4.27
+        },
+        {
+          "raw": "is",
+          "start": 4.27,
+          "end": 4.39
+        },
+        {
+          "raw": "a",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "raw": "noble",
+          "start": 4.51,
+          "end": 4.81
+        },
+        {
+          "raw": "Roman",
+          "start": 4.81,
+          "end": 5.17
+        },
+        {
+          "raw": "and",
+          "start": 5.17,
+          "end": 5.45
+        },
+        {
+          "raw": "well",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "raw": "given.",
+          "start": 5.63,
+          "end": 5.91
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Fear",
+        "him",
+        "not,",
+        "Caesar;",
+        "he's",
+        "not",
+        "dangerous;",
+        "He",
+        "is",
+        "a",
+        "noble",
+        "Roman",
+        "and",
+        "well",
+        "given."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fear",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "fear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 1.55,
+          "end": 1.85,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "caesar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "hes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dangerous.",
+          "start": 3.07,
+          "end": 3.53,
+          "key": "dangerous",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.17,
+          "end": 4.27,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.27,
+          "end": 4.39,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.39,
+          "end": 4.51,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 4.51,
+          "end": 4.81,
+          "key": "noble",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Roman",
+          "start": 4.81,
+          "end": 5.17,
+          "key": "roman",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.17,
+          "end": 5.45,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 5.45,
+          "end": 5.63,
+          "key": "well",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "given.",
+          "start": 5.63,
+          "end": 5.91,
+          "key": "given",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Fear",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "him",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "not,",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "text": "Caesar;",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "he's",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "not",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "dangerous;",
+          "start": 3.07,
+          "end": 3.53
+        },
+        {
+          "text": "He",
+          "start": 4.17,
+          "end": 4.27
+        },
+        {
+          "text": "is",
+          "start": 4.27,
+          "end": 4.39
+        },
+        {
+          "text": "a",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "text": "noble",
+          "start": 4.51,
+          "end": 4.81
+        },
+        {
+          "text": "Roman",
+          "start": 4.81,
+          "end": 5.17
+        },
+        {
+          "text": "and",
+          "start": 5.17,
+          "end": 5.45
+        },
+        {
+          "text": "well",
+          "start": 5.45,
+          "end": 5.63
+        },
+        {
+          "text": "given.",
+          "start": 5.63,
+          "end": 5.91
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28780761000234634
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae3ebaf2bc537d72685249705e556ba28dc9af7b61952875516ba241935f1cbb",
+  "selected_reasons": []
+}

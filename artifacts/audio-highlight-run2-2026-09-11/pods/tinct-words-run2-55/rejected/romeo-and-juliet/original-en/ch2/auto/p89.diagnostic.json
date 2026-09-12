@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "1c61541c5852315db1d81930545e7166a359166b93967cf819ec51368223d2d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2249978305771947,
+      "alignment_seconds": 0.00021754205226898193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Benvolio. No coz, I rather weep.",
+        "hotwords": "Benvolio, No, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Benvolio, no coz, I rather weep.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.9436848958333334
+            },
+            {
+              "text": " no",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " coz,",
+              "start": 1.52,
+              "end": 1.9,
+              "probability": 0.47670483589172363
+            },
+            {
+              "text": " I",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " rather",
+              "start": 2.02,
+              "end": 2.16,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " weep.",
+              "start": 2.16,
+              "end": 2.42,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "no",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "coz,",
+          "start": 1.52,
+          "end": 1.9
+        },
+        {
+          "raw": "I",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "rather",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "raw": "weep.",
+          "start": 2.16,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "No",
+        "coz,",
+        "I",
+        "rather",
+        "weep."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coz,",
+          "start": 1.52,
+          "end": 1.9,
+          "key": "coz",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.92,
+          "end": 2.02,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 2.02,
+          "end": 2.16,
+          "key": "rather",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "weep.",
+          "start": 2.16,
+          "end": 2.42,
+          "key": "weep",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "No",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "coz,",
+          "start": 1.52,
+          "end": 1.9
+        },
+        {
+          "text": "I",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "rather",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "text": "weep.",
+          "start": 2.16,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2252877652645111
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c960a796701b5bf630d3f455221798ef83937166196e92a525576e5ae6bea6fe",
+  "selected_reasons": []
+}

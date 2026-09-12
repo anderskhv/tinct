@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "427b94be10fb84d019c23c8f2b7fb37436988f2ecdc6b0b9d48a1cd0b5209cc3",
+  "attempts": [
+    {
+      "asr_seconds": 0.22083116602152586,
+      "alignment_seconds": 0.00029610306955873966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Just one word, Jane, were there only ladies in the house where you have been?",
+          "start": 0.02,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " Just",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.90234375
+            },
+            {
+              "text": " one",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " word,",
+              "start": 0.88,
+              "end": 1.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Jane,",
+              "start": 1.56,
+              "end": 1.64,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " were",
+              "start": 2.16,
+              "end": 2.24,
+              "probability": 0.736328125
+            },
+            {
+              "text": " there",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.982421875
+            },
+            {
+              "text": " only",
+              "start": 2.36,
+              "end": 2.62,
+              "probability": 0.978515625
+            },
+            {
+              "text": " ladies",
+              "start": 2.62,
+              "end": 3.02,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " in",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.22,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house",
+              "start": 3.32,
+              "end": 3.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " where",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 3.78,
+              "end": 3.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 3.92,
+              "end": 4.02,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " been?",
+              "start": 4.02,
+              "end": 4.22,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Just",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "one",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "word,",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "raw": "were",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "raw": "there",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "only",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "raw": "ladies",
+          "start": 2.62,
+          "end": 3.02
+        },
+        {
+          "raw": "in",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "raw": "house",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "raw": "where",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "you",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "raw": "have",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "raw": "been?",
+          "start": 4.02,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "\"Just",
+        "one",
+        "word,",
+        "Jane:",
+        "were",
+        "there",
+        "only",
+        "ladies",
+        "in",
+        "the",
+        "house",
+        "where",
+        "you",
+        "have",
+        "been?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Just",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "just",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 0.88,
+          "end": 1.2,
+          "key": "word",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 1.56,
+          "end": 1.64,
+          "key": "jane",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.16,
+          "end": 2.24,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "there",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.36,
+          "end": 2.62,
+          "key": "only",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ladies",
+          "start": 2.62,
+          "end": 3.02,
+          "key": "ladies",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.02,
+          "end": 3.22,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.22,
+          "end": 3.32,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 3.32,
+          "end": 3.54,
+          "key": "house",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "where",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.78,
+          "end": 3.92,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.92,
+          "end": 4.02,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "been?",
+          "start": 4.02,
+          "end": 4.22,
+          "key": "been",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Just",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "one",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "word,",
+          "start": 0.88,
+          "end": 1.2
+        },
+        {
+          "text": "Jane:",
+          "start": 1.56,
+          "end": 1.64
+        },
+        {
+          "text": "were",
+          "start": 2.16,
+          "end": 2.24
+        },
+        {
+          "text": "there",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "only",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "text": "ladies",
+          "start": 2.62,
+          "end": 3.02
+        },
+        {
+          "text": "in",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "the",
+          "start": 3.22,
+          "end": 3.32
+        },
+        {
+          "text": "house",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "text": "where",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "you",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "text": "have",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "text": "been?\"",
+          "start": 4.02,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22125517902895808
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3c81ad0b53aa94742be30b71ce2de4442b14f39fcc6dfbc0c6db5673074d8a5",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "2c5175f2f657b79220c48a6091883849b19c4875b8060ced76d8802f59058c77",
+  "attempts": [
+    {
+      "asr_seconds": 0.17537847300991416,
+      "alignment_seconds": 0.0003795200027525425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham, what my gracious lord.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.96875
+            },
+            {
+              "text": " what",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " my",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.966796875
+            },
+            {
+              "text": " gracious",
+              "start": 1.53,
+              "end": 1.91,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " lord.",
+              "start": 1.91,
+              "end": 2.21,
+              "probability": 0.52294921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "what",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "my",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "gracious",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "raw": "lord.",
+          "start": 1.91,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "What,",
+        "my",
+        "gracious",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gracious",
+          "start": 1.53,
+          "end": 1.91,
+          "key": "gracious",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.91,
+          "end": 2.21,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "What,",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "my",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "gracious",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "text": "lord?",
+          "start": 1.91,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17588589899241924
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "753116dc2d3402b0a96ca5020363a9293f1d3591e4c44354a77040534c7d9e35",
+  "selected_reasons": []
+}

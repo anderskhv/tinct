@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "18ad46ffffc94c6cd75612245e40cb209acef63dc01bcfbdce6cdbc821c57cd1",
+  "attempts": [
+    {
+      "asr_seconds": 0.22982024028897285,
+      "alignment_seconds": 0.0004787072539329529,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, don't then. What does it matter to me? It's cold out; stay at home.\"",
+        "hotwords": "Well, What, It's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, don't then. What does it matter to me? It's cold out, stay at home.",
+          "start": 0.02,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.67578125
+            },
+            {
+              "text": " don't",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " then.",
+              "start": 0.84,
+              "end": 1.08,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " What",
+              "start": 1.48,
+              "end": 1.56,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " does",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " it",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " matter",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me?",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " It's",
+              "start": 2.78,
+              "end": 2.92,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " cold",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.966796875
+            },
+            {
+              "text": " out,",
+              "start": 3.12,
+              "end": 3.42,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " stay",
+              "start": 3.6,
+              "end": 3.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " at",
+              "start": 3.76,
+              "end": 3.9,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " home.",
+              "start": 3.9,
+              "end": 4.2,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "don't",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "then.",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "raw": "What",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "raw": "does",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "it",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "matter",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "to",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "me?",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "It's",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "raw": "cold",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "out,",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "raw": "stay",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "raw": "at",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "raw": "home.",
+          "start": 3.9,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "\"Well,",
+        "don't",
+        "then.",
+        "What",
+        "does",
+        "it",
+        "matter",
+        "to",
+        "me?",
+        "It's",
+        "cold",
+        "out;",
+        "stay",
+        "at",
+        "home.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 0.84,
+          "end": 1.08,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.48,
+          "end": 1.56,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "does",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "matter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 2.2,
+          "end": 2.4,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "It's",
+          "start": 2.78,
+          "end": 2.92,
+          "key": "its",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "cold",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 3.12,
+          "end": 3.42,
+          "key": "out",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 3.6,
+          "end": 3.76,
+          "key": "stay",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.76,
+          "end": 3.9,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "home.",
+          "start": 3.9,
+          "end": 4.2,
+          "key": "home",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "don't",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "then.",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "text": "What",
+          "start": 1.48,
+          "end": 1.56
+        },
+        {
+          "text": "does",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "it",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "matter",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "to",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "me?",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "It's",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "text": "cold",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "out;",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "text": "stay",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "text": "at",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "text": "home.\"",
+          "start": 3.9,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2304958514869213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d97c485d27c585b41430be2938f0e7194f16c96814be80d052babe592eb4ae9e",
+  "selected_reasons": []
+}

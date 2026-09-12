@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "47193488db8e0e1ace9b2bb5bbf9b24712ec16e76da4c06f74ea97a775435dca",
+  "attempts": [
+    {
+      "asr_seconds": 0.0892240279354155,
+      "alignment_seconds": 0.0001395139843225479,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He had",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " had",
+              "start": 0.57,
+              "end": 0.85,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "had",
+          "start": 0.57,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "had."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.57,
+          "end": 0.85,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "had.",
+          "start": 0.57,
+          "end": 0.85
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08941221376881003
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "616e0629d1d94a66124a06b35e2f21a27218d99de0ae33aaf69be7e4c34e4f1a",
+  "selected_reasons": []
+}

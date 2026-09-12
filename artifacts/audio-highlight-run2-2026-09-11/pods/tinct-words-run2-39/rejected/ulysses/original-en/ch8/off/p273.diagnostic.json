@@ -1,0 +1,579 @@
+{
+  "complete": true,
+  "signature": "e4d84f85f9f5dba1805531c799b587685b943ce44e6c2eb7f5c6d73e93698047",
+  "attempts": [
+    {
+      "asr_seconds": 0.2595114051364362,
+      "alignment_seconds": 0.0005398048087954521,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He doesn't buy cream on the ads he picks up.",
+          "start": 0.05,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " doesn't",
+              "start": 0.51,
+              "end": 0.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " buy",
+              "start": 0.79,
+              "end": 0.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " cream",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " on",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ads",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " picks",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " up.",
+              "start": 2.19,
+              "end": 2.53,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " You can make bacon of that.",
+          "start": 2.99,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " You",
+              "start": 2.99,
+              "end": 3.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " can",
+              "start": 3.07,
+              "end": 3.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " make",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bacon",
+              "start": 3.35,
+              "end": 3.71,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 3.71,
+              "end": 3.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that.",
+              "start": 3.87,
+              "end": 4.15,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "doesn't",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "raw": "buy",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "raw": "cream",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "on",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "ads",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "he",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "picks",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "up.",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "raw": "You",
+          "start": 2.99,
+          "end": 3.07
+        },
+        {
+          "raw": "can",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "raw": "make",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "raw": "bacon",
+          "start": 3.35,
+          "end": 3.71
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "raw": "that.",
+          "start": 3.87,
+          "end": 4.15
+        }
+      ],
+      "expected_tokens": [
+        "—He",
+        "doesn't",
+        "buy",
+        "cream",
+        "on",
+        "the",
+        "ads",
+        "he",
+        "picks",
+        "up.",
+        "You",
+        "can",
+        "make",
+        "bacon",
+        "of",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "doesn't",
+          "start": 0.51,
+          "end": 0.79,
+          "key": "doesnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "buy",
+          "start": 0.79,
+          "end": 0.95,
+          "key": "buy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cream",
+          "start": 0.95,
+          "end": 1.23,
+          "key": "cream",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ads",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "ads",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.79,
+          "end": 1.99,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "picks",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "picks",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 2.19,
+          "end": 2.53,
+          "key": "up",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.99,
+          "end": 3.07,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.07,
+          "end": 3.19,
+          "key": "can",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "make",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "bacon",
+          "start": 3.35,
+          "end": 3.71,
+          "key": "bacon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.87,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 3.87,
+          "end": 4.15,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "doesn't",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "text": "buy",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "text": "cream",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "on",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "the",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "ads",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "text": "he",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "picks",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "up.",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "text": "You",
+          "start": 2.99,
+          "end": 3.07
+        },
+        {
+          "text": "can",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "text": "make",
+          "start": 3.19,
+          "end": 3.35
+        },
+        {
+          "text": "bacon",
+          "start": 3.35,
+          "end": 3.71
+        },
+        {
+          "text": "of",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "text": "that.",
+          "start": 3.87,
+          "end": 4.15
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26026594801805913
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "de5bbaf76c39436de44c3d4a421972f736544f64daf0796312679e8ce4198d1c",
+  "selected_reasons": []
+}

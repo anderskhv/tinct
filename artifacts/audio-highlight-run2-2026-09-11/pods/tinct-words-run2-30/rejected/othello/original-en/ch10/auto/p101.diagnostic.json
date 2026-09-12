@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "bd22bcc1e14d95b5e1619b3f732c2957d6b741250fae6b473fa5a30be5ca002e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11307893926277757,
+      "alignment_seconds": 0.0001403200440108776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. Not that I love you not.",
+        "hotwords": "Cassio, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, not that I love you not.",
+          "start": 0.51,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.51,
+              "end": 0.87,
+              "probability": 0.6890869140625
+            },
+            {
+              "text": " not",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " love",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not.",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.93017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "raw": "not",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "that",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "love",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "you",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "not.",
+          "start": 1.91,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Not",
+        "that",
+        "I",
+        "love",
+        "you",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.51,
+          "end": 0.87,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "love",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "text": "Not",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "that",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "love",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "you",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "not.",
+          "start": 1.91,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11327248718589544
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f398d5d0f350dccb43b683d221b583a5e31b43c251376a8da59072f3b3b3c48",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "13374c454034c2c9108174b145bfed056df9b52fbbe53e224f354c70ebb017ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.13012418523430824,
+      "alignment_seconds": 0.00028528645634651184,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Thank you, sir.\"",
+        "hotwords": "Thank"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thank you, sir.",
+          "start": 0.08,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " Thank",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " you,",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " sir.",
+              "start": 0.98,
+              "end": 1.02,
+              "probability": 0.87548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thank",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "you,",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "sir.",
+          "start": 0.98,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "\"Thank",
+        "you,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thank",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "thank",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.98,
+          "end": 1.02,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Thank",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "you,",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "sir.\"",
+          "start": 0.98,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1305159479379654
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d76f52cd968eb396d880ea118acccbb2b8ac07fdc01f30735ab9d51d5d0dd0f",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d1a123de6f3cc5bc00f1d09141f743a830b5dfcc74849071c0ae040465a9c79d",
+  "attempts": [
+    {
+      "asr_seconds": 0.19388528994750232,
+      "alignment_seconds": 0.0003143809735774994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Feast!--O miserable!",
+        "hotwords": "Leader, Feast!--O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Feast!--O miserable!",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.8125
+            },
+            {
+              "text": " Feast!--O",
+              "start": 1.17,
+              "end": 1.61,
+              "probability": 0.20350231726964316
+            },
+            {
+              "text": " miserable!",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.2044677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Feast!--O",
+          "start": 1.17,
+          "end": 1.61
+        },
+        {
+          "raw": "miserable!",
+          "start": 1.61,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Feast!--O",
+        "miserable!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Feast!--O",
+          "start": 1.17,
+          "end": 1.61,
+          "key": "feasto",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "miserable!",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "miserable",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Feast!--O",
+          "start": 1.17,
+          "end": 1.61
+        },
+        {
+          "text": "miserable!",
+          "start": 1.61,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19431099796202034
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b10031c6f3eec21f273c74120bada96287b2639a7c6f3cd8e423d174939456c1",
+  "selected_reasons": []
+}

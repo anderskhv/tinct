@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "4291ea59608bd7eaba6e2e01b38a90559b96d9095a93c3b52eee9acbf24d1f4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.15985256433486938,
+      "alignment_seconds": 0.0003047920763492584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall fetch forth the stocks as I have life and honor there shall he sit till noon",
+          "start": 0.0,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " Cornwall",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " fetch",
+              "start": 0.78,
+              "end": 1.38,
+              "probability": 0.141357421875
+            },
+            {
+              "text": " forth",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " stocks",
+              "start": 1.84,
+              "end": 2.24,
+              "probability": 0.78125
+            },
+            {
+              "text": " as",
+              "start": 2.24,
+              "end": 2.92,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " I",
+              "start": 2.92,
+              "end": 3.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " have",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " life",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 3.48,
+              "end": 3.66,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " honor",
+              "start": 3.66,
+              "end": 3.94,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " there",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " shall",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " he",
+              "start": 4.36,
+              "end": 4.54,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " sit",
+              "start": 4.54,
+              "end": 4.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " till",
+              "start": 4.76,
+              "end": 4.96,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " noon",
+              "start": 4.96,
+              "end": 5.24,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "fetch",
+          "start": 0.78,
+          "end": 1.38
+        },
+        {
+          "raw": "forth",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "stocks",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "raw": "as",
+          "start": 2.24,
+          "end": 2.92
+        },
+        {
+          "raw": "I",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "raw": "have",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "life",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.66
+        },
+        {
+          "raw": "honor",
+          "start": 3.66,
+          "end": 3.94
+        },
+        {
+          "raw": "there",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "raw": "shall",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "he",
+          "start": 4.36,
+          "end": 4.54
+        },
+        {
+          "raw": "sit",
+          "start": 4.54,
+          "end": 4.76
+        },
+        {
+          "raw": "till",
+          "start": 4.76,
+          "end": 4.96
+        },
+        {
+          "raw": "noon",
+          "start": 4.96,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Fetch",
+        "forth",
+        "the",
+        "stocks!",
+        "As",
+        "I",
+        "have",
+        "life",
+        "and",
+        "honour,",
+        "there",
+        "shall",
+        "he",
+        "sit",
+        "till",
+        "noon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          17,
+          11,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 0.78,
+          "end": 1.38,
+          "key": "fetch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "forth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stocks",
+          "start": 1.84,
+          "end": 2.24,
+          "key": "stocks",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.24,
+          "end": 2.92,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.92,
+          "end": 3.06,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.06,
+          "end": 3.22,
+          "key": "have",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 3.22,
+          "end": 3.48,
+          "key": "life",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.48,
+          "end": 3.66,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 3.66,
+          "end": 3.94,
+          "key": "honor",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "there",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.22,
+          "end": 4.36,
+          "key": "shall",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.36,
+          "end": 4.54,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 4.54,
+          "end": 4.76,
+          "key": "sit",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 4.76,
+          "end": 4.96,
+          "key": "till",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "noon",
+          "start": 4.96,
+          "end": 5.24,
+          "key": "noon",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "Fetch",
+          "start": 0.78,
+          "end": 1.38
+        },
+        {
+          "text": "forth",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "stocks!",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "text": "As",
+          "start": 2.24,
+          "end": 2.92
+        },
+        {
+          "text": "I",
+          "start": 2.92,
+          "end": 3.06
+        },
+        {
+          "text": "have",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "life",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "text": "and",
+          "start": 3.48,
+          "end": 3.66
+        },
+        {
+          "text": "honour,",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "there",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "text": "shall",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "he",
+          "start": 4.36,
+          "end": 4.54
+        },
+        {
+          "text": "sit",
+          "start": 4.54,
+          "end": 4.76
+        },
+        {
+          "text": "till",
+          "start": 4.76,
+          "end": 4.96
+        },
+        {
+          "text": "noon.",
+          "start": 4.96,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.16027934849262238
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7f2909719274d5441d0d8677757106b6eeb73dcad7720f1247e519363dd0c81e",
+  "selected_reasons": []
+}

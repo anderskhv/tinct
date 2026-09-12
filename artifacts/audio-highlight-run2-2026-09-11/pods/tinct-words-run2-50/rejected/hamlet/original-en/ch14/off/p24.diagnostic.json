@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "7724ec14a728d3073b5c154f8dc1715899fe72ae9ce8d81b01f30132e3c3d788",
+  "attempts": [
+    {
+      "asr_seconds": 0.10458269529044628,
+      "alignment_seconds": 0.00021995976567268372,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet for England",
+          "start": 0.05,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.94921875
+            },
+            {
+              "text": " for",
+              "start": 0.79,
+              "end": 0.99,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " England",
+              "start": 0.99,
+              "end": 1.27,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "for",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "raw": "England",
+          "start": 0.99,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "For",
+        "England?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.79,
+          "end": 0.99,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "England",
+          "start": 0.99,
+          "end": 1.27,
+          "key": "england",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "For",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "text": "England?",
+          "start": 0.99,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10488668084144592
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a917c38ed129acbc4ac50b5e1c1db7b2481a362dc288180f51616e14f40f68b7",
+  "selected_reasons": []
+}

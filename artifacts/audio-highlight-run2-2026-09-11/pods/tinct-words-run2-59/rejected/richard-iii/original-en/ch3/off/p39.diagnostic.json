@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "a6c25de054f1e440baa401242ba4e1aad28a72d2437fa22823f499119d50d5c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.19709438388235867,
+      "alignment_seconds": 0.0004951129667460918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Small joy have I am being England's queen.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Small",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " joy",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " have",
+              "start": 0.88,
+              "end": 1.12,
+              "probability": 0.873046875
+            },
+            {
+              "text": " I",
+              "start": 1.12,
+              "end": 1.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " am",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.316650390625
+            },
+            {
+              "text": " being",
+              "start": 1.36,
+              "end": 1.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " England's",
+              "start": 1.52,
+              "end": 2.02,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " queen.",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.6376953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Small",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "joy",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "have",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "raw": "am",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "being",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "raw": "England's",
+          "start": 1.52,
+          "end": 2.02
+        },
+        {
+          "raw": "queen.",
+          "start": 2.02,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Small",
+        "joy",
+        "have",
+        "I",
+        "in",
+        "being",
+        "England's",
+        "queen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Small",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "small",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "joy",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "joy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.88,
+          "end": 1.12,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.26,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 1.36,
+          "end": 1.52,
+          "key": "being",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "England's",
+          "start": 1.52,
+          "end": 2.02,
+          "key": "englands",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "queen.",
+          "start": 2.02,
+          "end": 2.24,
+          "key": "queen",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Small",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "joy",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "have",
+          "start": 0.88,
+          "end": 1.12
+        },
+        {
+          "text": "I",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "text": "in",
+          "start": 1.26,
+          "end": 1.31
+        },
+        {
+          "text": "being",
+          "start": 1.36,
+          "end": 1.52
+        },
+        {
+          "text": "England's",
+          "start": 1.52,
+          "end": 2.02
+        },
+        {
+          "text": "queen.",
+          "start": 2.02,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.19775707507506013
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "86a6ea9b035caea3581c6506744aaff24ea2c93d10dc423dc3ed7ab470eee74b",
+  "selected_reasons": []
+}

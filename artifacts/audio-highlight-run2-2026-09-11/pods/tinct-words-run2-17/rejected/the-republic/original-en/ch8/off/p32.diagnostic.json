@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "afdde989938c2ea0c35e8803460017f00d4046a8ac47be517da5e623f59d20b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3695357758551836,
+      "alignment_seconds": 0.0004925951361656189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and the new government, which thus arises, will be of a form intermediate between oligarchy and aristocracy.",
+          "start": 0.05,
+          "end": 6.35,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.9921875
+            },
+            {
+              "text": " new",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " government,",
+              "start": 0.85,
+              "end": 1.29,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " which",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thus",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " arises,",
+              "start": 1.95,
+              "end": 2.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " will",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.27,
+              "end": 3.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " form",
+              "start": 3.53,
+              "end": 3.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " intermediate",
+              "start": 3.85,
+              "end": 4.47,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " between",
+              "start": 4.47,
+              "end": 5.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " oligarchy",
+              "start": 5.01,
+              "end": 5.61,
+              "probability": 0.994384765625
+            },
+            {
+              "text": " and",
+              "start": 5.61,
+              "end": 5.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " aristocracy.",
+              "start": 5.87,
+              "end": 6.35,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "new",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "government,",
+          "start": 0.85,
+          "end": 1.29
+        },
+        {
+          "raw": "which",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "thus",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "arises,",
+          "start": 1.95,
+          "end": 2.47
+        },
+        {
+          "raw": "will",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "be",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "of",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "raw": "a",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "form",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "raw": "intermediate",
+          "start": 3.85,
+          "end": 4.47
+        },
+        {
+          "raw": "between",
+          "start": 4.47,
+          "end": 5.01
+        },
+        {
+          "raw": "oligarchy",
+          "start": 5.01,
+          "end": 5.61
+        },
+        {
+          "raw": "and",
+          "start": 5.61,
+          "end": 5.87
+        },
+        {
+          "raw": "aristocracy.",
+          "start": 5.87,
+          "end": 6.35
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "new",
+        "government",
+        "which",
+        "thus",
+        "arises",
+        "will",
+        "be",
+        "of",
+        "a",
+        "form",
+        "intermediate",
+        "between",
+        "oligarchy",
+        "and",
+        "aristocracy?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "new",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "government,",
+          "start": 0.85,
+          "end": 1.29,
+          "key": "government",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "which",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "thus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "arises,",
+          "start": 1.95,
+          "end": 2.47,
+          "key": "arises",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.27,
+          "end": 3.37,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.37,
+          "end": 3.53,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "form",
+          "start": 3.53,
+          "end": 3.85,
+          "key": "form",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "intermediate",
+          "start": 3.85,
+          "end": 4.47,
+          "key": "intermediate",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 4.47,
+          "end": 5.01,
+          "key": "between",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "oligarchy",
+          "start": 5.01,
+          "end": 5.61,
+          "key": "oligarchy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.61,
+          "end": 5.87,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "aristocracy.",
+          "start": 5.87,
+          "end": 6.35,
+          "key": "aristocracy",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "new",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "government",
+          "start": 0.85,
+          "end": 1.29
+        },
+        {
+          "text": "which",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "thus",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "arises",
+          "start": 1.95,
+          "end": 2.47
+        },
+        {
+          "text": "will",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "be",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "of",
+          "start": 3.27,
+          "end": 3.37
+        },
+        {
+          "text": "a",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "form",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "text": "intermediate",
+          "start": 3.85,
+          "end": 4.47
+        },
+        {
+          "text": "between",
+          "start": 4.47,
+          "end": 5.01
+        },
+        {
+          "text": "oligarchy",
+          "start": 5.01,
+          "end": 5.61
+        },
+        {
+          "text": "and",
+          "start": 5.61,
+          "end": 5.87
+        },
+        {
+          "text": "aristocracy?",
+          "start": 5.87,
+          "end": 6.35
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3702167756855488
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "569e1acdcf11215adbad7bfed46192b9bc0b56f64b9ed13dee8e21730065215f",
+  "selected_reasons": []
+}

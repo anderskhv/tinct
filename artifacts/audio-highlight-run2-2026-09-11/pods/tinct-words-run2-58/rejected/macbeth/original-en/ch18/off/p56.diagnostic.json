@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "465ea8c60e26ebc96752355b56ba0e60ea61ce1c8da283610163fcb3b59b5228",
+  "attempts": [
+    {
+      "asr_seconds": 0.38535543251782656,
+      "alignment_seconds": 0.0007842648774385452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth, where are they—gone? Let this pernicious hour stand I accursed in the calendar. Come",
+          "start": 0.02,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.7315266927083334
+            },
+            {
+              "text": " where",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " are",
+              "start": 1.18,
+              "end": 1.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " they—gone?",
+              "start": 1.3,
+              "end": 1.98,
+              "probability": 0.7596028645833334
+            },
+            {
+              "text": " Let",
+              "start": 2.52,
+              "end": 2.62,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " this",
+              "start": 2.62,
+              "end": 2.8,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " pernicious",
+              "start": 2.8,
+              "end": 3.14,
+              "probability": 0.9977213541666666
+            },
+            {
+              "text": " hour",
+              "start": 3.14,
+              "end": 3.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " stand",
+              "start": 3.46,
+              "end": 3.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 3.82,
+              "end": 4.02,
+              "probability": 0.56103515625
+            },
+            {
+              "text": " accursed",
+              "start": 4.02,
+              "end": 4.42,
+              "probability": 0.971923828125
+            },
+            {
+              "text": " in",
+              "start": 4.42,
+              "end": 4.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 4.62,
+              "end": 4.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " calendar.",
+              "start": 4.74,
+              "end": 5.1,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " Come",
+              "start": 5.74,
+              "end": 5.88,
+              "probability": 0.98681640625
+            }
+          ]
+        },
+        {
+          "text": " in without there.",
+          "start": 5.88,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " in",
+              "start": 5.88,
+              "end": 6.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " without",
+              "start": 6.06,
+              "end": 6.32,
+              "probability": 0.9609375
+            },
+            {
+              "text": " there.",
+              "start": 6.32,
+              "end": 6.66,
+              "probability": 0.88671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "where",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "are",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "raw": "they—gone?",
+          "start": 1.3,
+          "end": 1.98
+        },
+        {
+          "raw": "Let",
+          "start": 2.52,
+          "end": 2.62
+        },
+        {
+          "raw": "this",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "raw": "pernicious",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "raw": "hour",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "raw": "stand",
+          "start": 3.46,
+          "end": 3.82
+        },
+        {
+          "raw": "I",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "raw": "accursed",
+          "start": 4.02,
+          "end": 4.42
+        },
+        {
+          "raw": "in",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "raw": "the",
+          "start": 4.62,
+          "end": 4.74
+        },
+        {
+          "raw": "calendar.",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "raw": "Come",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "raw": "in",
+          "start": 5.88,
+          "end": 6.06
+        },
+        {
+          "raw": "without",
+          "start": 6.06,
+          "end": 6.32
+        },
+        {
+          "raw": "there.",
+          "start": 6.32,
+          "end": 6.66
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Where",
+        "are",
+        "they?",
+        "Gone?—Let",
+        "this",
+        "pernicious",
+        "hour",
+        "Stand",
+        "aye",
+        "accursed",
+        "in",
+        "the",
+        "calendar!—",
+        "Come",
+        "in,",
+        "without",
+        "there!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          18,
+          10,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 0.98,
+          "end": 1.18,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.18,
+          "end": 1.3,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they—gone?",
+          "start": 1.3,
+          "end": 1.98,
+          "key": "theygone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 2.52,
+          "end": 2.62,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.62,
+          "end": 2.8,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pernicious",
+          "start": 2.8,
+          "end": 3.14,
+          "key": "pernicious",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hour",
+          "start": 3.14,
+          "end": 3.46,
+          "key": "hour",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stand",
+          "start": 3.46,
+          "end": 3.82,
+          "key": "stand",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.82,
+          "end": 4.02,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "accursed",
+          "start": 4.02,
+          "end": 4.42,
+          "key": "accursed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.42,
+          "end": 4.62,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.62,
+          "end": 4.74,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "calendar.",
+          "start": 4.74,
+          "end": 5.1,
+          "key": "calendar",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 5.74,
+          "end": 5.88,
+          "key": "come",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.88,
+          "end": 6.06,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 6.06,
+          "end": 6.32,
+          "key": "without",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 6.32,
+          "end": 6.66,
+          "key": "there",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Where",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "are",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "text": "they?",
+          "start": 1.3,
+          "end": 1.96
+        },
+        {
+          "text": "Gone?—Let",
+          "start": 1.96,
+          "end": 2.29
+        },
+        {
+          "text": "this",
+          "start": 2.62,
+          "end": 2.8
+        },
+        {
+          "text": "pernicious",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "text": "hour",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "Stand",
+          "start": 3.46,
+          "end": 3.82
+        },
+        {
+          "text": "aye",
+          "start": 3.82,
+          "end": 3.92
+        },
+        {
+          "text": "accursed",
+          "start": 4.02,
+          "end": 4.42
+        },
+        {
+          "text": "in",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "text": "the",
+          "start": 4.62,
+          "end": 4.74
+        },
+        {
+          "text": "calendar!—",
+          "start": 4.74,
+          "end": 5.1
+        },
+        {
+          "text": "Come",
+          "start": 5.74,
+          "end": 5.88
+        },
+        {
+          "text": "in,",
+          "start": 5.88,
+          "end": 6.06
+        },
+        {
+          "text": "without",
+          "start": 6.06,
+          "end": 6.32
+        },
+        {
+          "text": "there!",
+          "start": 6.32,
+          "end": 6.66
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3863844024017453
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8c6963454b951fc786daffa58c20f0ea3a915aaaefbe5a3ff8563df24d6f1a5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

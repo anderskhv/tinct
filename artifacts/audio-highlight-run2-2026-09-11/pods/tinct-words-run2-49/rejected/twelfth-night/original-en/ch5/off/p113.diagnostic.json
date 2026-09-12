@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "e83ecd4c3e2d75562fee0275d290eae672a6a7b88a32235792b5c697d096c620",
+  "attempts": [
+    {
+      "asr_seconds": 0.20604882389307022,
+      "alignment_seconds": 0.0003940686583518982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Viola, good madam, let me see your face.",
+          "start": 0.5,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.5,
+              "end": 0.94,
+              "probability": 0.75390625
+            },
+            {
+              "text": " good",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " madam,",
+              "start": 1.42,
+              "end": 1.8,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " let",
+              "start": 1.92,
+              "end": 1.96,
+              "probability": 0.9921875
+            },
+            {
+              "text": " me",
+              "start": 1.96,
+              "end": 2.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 2.08,
+              "end": 2.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.9921875
+            },
+            {
+              "text": " face.",
+              "start": 2.34,
+              "end": 2.6,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "raw": "good",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "madam,",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "raw": "let",
+          "start": 1.92,
+          "end": 1.96
+        },
+        {
+          "raw": "me",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "raw": "see",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "raw": "your",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "face.",
+          "start": 2.34,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "Good",
+        "madam,",
+        "let",
+        "me",
+        "see",
+        "your",
+        "face."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.5,
+          "end": 0.94,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.16,
+          "end": 1.42,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.42,
+          "end": 1.8,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.92,
+          "end": 1.96,
+          "key": "let",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.96,
+          "end": 2.08,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.08,
+          "end": 2.2,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.2,
+          "end": 2.34,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 2.34,
+          "end": 2.6,
+          "key": "face",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.5,
+          "end": 0.94
+        },
+        {
+          "text": "Good",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "madam,",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "text": "let",
+          "start": 1.92,
+          "end": 1.96
+        },
+        {
+          "text": "me",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "text": "see",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "text": "your",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "face.",
+          "start": 2.34,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20659088343381882
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4668dce970d2b2147af53d3d7728619dd00fbc812e0577b28854b56140fa047b",
+  "selected_reasons": []
+}

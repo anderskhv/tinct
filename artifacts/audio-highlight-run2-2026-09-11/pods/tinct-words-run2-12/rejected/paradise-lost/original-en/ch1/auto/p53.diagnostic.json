@@ -1,0 +1,5788 @@
+{
+  "complete": true,
+  "signature": "48ce6cc753275e41d6cf88bd4e3400672fe6bae54939767b39cbe6545c713b15",
+  "attempts": [
+    {
+      "asr_seconds": 1.5886643738485873,
+      "alignment_seconds": 0.0017928469460457563,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then straight commands that, at the warlike sound Of trumpets loud and clarions, be upreared His mighty standard. That proud honour claimed Azazel as his right, a Cherub tall: Who forthwith from the glittering staff unfurled Th' imperial ensign; which, full high advanced, Shone like a meteor streaming to the wind, With gems and golden lustre rich emblazed, Seraphic arms and trophies; all the while Sonorous metal blowing martial sounds:",
+        "hotwords": "Then, Of, Azazel, Cherub, Who, Th, Shone, With, Seraphic, Sonorous"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Th'",
+          "start": 0.08,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Th'",
+              "start": 0.08,
+              "end": 1.6,
+              "probability": 7.528066635131836e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Th'",
+          "start": 0.08,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "straight",
+        "commands",
+        "that,",
+        "at",
+        "the",
+        "warlike",
+        "sound",
+        "Of",
+        "trumpets",
+        "loud",
+        "and",
+        "clarions,",
+        "be",
+        "upreared",
+        "His",
+        "mighty",
+        "standard.",
+        "That",
+        "proud",
+        "honour",
+        "claimed",
+        "Azazel",
+        "as",
+        "his",
+        "right,",
+        "a",
+        "Cherub",
+        "tall:",
+        "Who",
+        "forthwith",
+        "from",
+        "the",
+        "glittering",
+        "staff",
+        "unfurled",
+        "Th'",
+        "imperial",
+        "ensign;",
+        "which,",
+        "full",
+        "high",
+        "advanced,",
+        "Shone",
+        "like",
+        "a",
+        "meteor",
+        "streaming",
+        "to",
+        "the",
+        "wind,",
+        "With",
+        "gems",
+        "and",
+        "golden",
+        "lustre",
+        "rich",
+        "emblazed,",
+        "Seraphic",
+        "arms",
+        "and",
+        "trophies;",
+        "all",
+        "the",
+        "while",
+        "Sonorous",
+        "metal",
+        "blowing",
+        "martial",
+        "sounds:"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          36,
+          0,
+          0
+        ],
+        [
+          "equal",
+          36,
+          37,
+          0,
+          1
+        ],
+        [
+          "delete",
+          37,
+          70,
+          1,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          36,
+          0,
+          0
+        ],
+        [
+          "delete",
+          37,
+          70,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Th'",
+          "start": 0.08,
+          "end": 1.6,
+          "key": "th",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "straight",
+          "start": 0.04,
+          "end": 0.06
+        },
+        {
+          "text": "commands",
+          "start": 0.06,
+          "end": 0.07
+        },
+        {
+          "text": "that,",
+          "start": 0.07,
+          "end": 0.075
+        },
+        {
+          "text": "at",
+          "start": 0.075,
+          "end": 0.077
+        },
+        {
+          "text": "the",
+          "start": 0.077,
+          "end": 0.079
+        },
+        {
+          "text": "warlike",
+          "start": 0.079,
+          "end": 0.08
+        },
+        {
+          "text": "sound",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "Of",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "trumpets",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "loud",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "and",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "clarions,",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "be",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "upreared",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "His",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "mighty",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "standard.",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "That",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "proud",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "honour",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "claimed",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "Azazel",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "as",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "his",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "right,",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "a",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "Cherub",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "tall:",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "Who",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "forthwith",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "from",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "the",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "glittering",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "staff",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "unfurled",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "Th'",
+          "start": 0.08,
+          "end": 1.6
+        },
+        {
+          "text": "imperial",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "ensign;",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "which,",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "full",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "high",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "advanced,",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "Shone",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "like",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "a",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "meteor",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "streaming",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "to",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "wind,",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "With",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "gems",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "and",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "golden",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "lustre",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "rich",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "emblazed,",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "Seraphic",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "arms",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "and",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "trophies;",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "all",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "while",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "Sonorous",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "metal",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "blowing",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "martial",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "sounds:",
+          "start": 1.6,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 70,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 0.014285714285714285,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.590527509804815
+    },
+    {
+      "asr_seconds": 0.8384574339725077,
+      "alignment_seconds": 0.002353504067286849,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Then, Of, Azazel, Cherub, Who, Th, Shone, With, Seraphic, Sonorous"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Then straight commands that, At the warlike sound of trumpets loud and clarions, Be upreared",
+          "start": 0.08,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.46533203125
+            },
+            {
+              "text": " straight",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " commands",
+              "start": 0.86,
+              "end": 1.34,
+              "probability": 0.958984375
+            },
+            {
+              "text": " that,",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " At",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.011260986328125
+            },
+            {
+              "text": " the",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " warlike",
+              "start": 2.1,
+              "end": 2.48,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " sound",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " trumpets",
+              "start": 3.0,
+              "end": 3.34,
+              "probability": 0.89453125
+            },
+            {
+              "text": " loud",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " and",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.716796875
+            },
+            {
+              "text": " clarions,",
+              "start": 3.78,
+              "end": 4.3,
+              "probability": 0.768310546875
+            },
+            {
+              "text": " Be",
+              "start": 4.8,
+              "end": 4.88,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " upreared",
+              "start": 4.88,
+              "end": 5.32,
+              "probability": 0.9544270833333334
+            }
+          ]
+        },
+        {
+          "text": " his mighty standard. That proud honor claimed Azazel as his right, a cherub tall, Who forthwith",
+          "start": 5.32,
+          "end": 11.42,
+          "words": [
+            {
+              "text": " his",
+              "start": 5.32,
+              "end": 5.48,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " mighty",
+              "start": 5.48,
+              "end": 5.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " standard.",
+              "start": 5.72,
+              "end": 6.26,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " That",
+              "start": 6.86,
+              "end": 7.18,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " proud",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " honor",
+              "start": 7.42,
+              "end": 7.64,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " claimed",
+              "start": 7.64,
+              "end": 7.92,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Azazel",
+              "start": 7.92,
+              "end": 8.52,
+              "probability": 0.878662109375
+            },
+            {
+              "text": " as",
+              "start": 8.52,
+              "end": 8.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 8.72,
+              "end": 8.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " right,",
+              "start": 8.9,
+              "end": 9.14,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " a",
+              "start": 9.52,
+              "end": 9.64,
+              "probability": 0.260986328125
+            },
+            {
+              "text": " cherub",
+              "start": 9.64,
+              "end": 9.98,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " tall,",
+              "start": 9.98,
+              "end": 10.22,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " Who",
+              "start": 10.8,
+              "end": 10.98,
+              "probability": 0.94921875
+            },
+            {
+              "text": " forthwith",
+              "start": 10.98,
+              "end": 11.42,
+              "probability": 0.966064453125
+            }
+          ]
+        },
+        {
+          "text": " from the glittering staff unfurled Th imperial ensign, Which full high advanced, shone like",
+          "start": 11.42,
+          "end": 17.2,
+          "words": [
+            {
+              "text": " from",
+              "start": 11.42,
+              "end": 11.62,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 11.62,
+              "end": 11.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " glittering",
+              "start": 11.76,
+              "end": 12.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " staff",
+              "start": 12.16,
+              "end": 12.44,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " unfurled",
+              "start": 12.44,
+              "end": 13.08,
+              "probability": 0.8092447916666666
+            },
+            {
+              "text": " Th",
+              "start": 13.08,
+              "end": 13.42,
+              "probability": 0.065185546875
+            },
+            {
+              "text": " imperial",
+              "start": 13.42,
+              "end": 14.04,
+              "probability": 0.377685546875
+            },
+            {
+              "text": " ensign,",
+              "start": 14.04,
+              "end": 14.62,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Which",
+              "start": 15.04,
+              "end": 15.3,
+              "probability": 0.974609375
+            },
+            {
+              "text": " full",
+              "start": 15.3,
+              "end": 15.62,
+              "probability": 0.767578125
+            },
+            {
+              "text": " high",
+              "start": 15.62,
+              "end": 15.88,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " advanced,",
+              "start": 15.88,
+              "end": 16.36,
+              "probability": 0.90625
+            },
+            {
+              "text": " shone",
+              "start": 16.94,
+              "end": 16.98,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " like",
+              "start": 16.98,
+              "end": 17.2,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " a meteor streaming to the wind, With gems and golden luster rich and blazed,",
+          "start": 17.2,
+          "end": 21.74,
+          "words": [
+            {
+              "text": " a",
+              "start": 17.2,
+              "end": 17.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " meteor",
+              "start": 17.32,
+              "end": 17.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " streaming",
+              "start": 17.58,
+              "end": 17.96,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 17.96,
+              "end": 18.22,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " the",
+              "start": 18.22,
+              "end": 18.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wind,",
+              "start": 18.36,
+              "end": 18.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " With",
+              "start": 19.1,
+              "end": 19.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " gems",
+              "start": 19.32,
+              "end": 19.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 19.62,
+              "end": 19.96,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " golden",
+              "start": 19.96,
+              "end": 20.28,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " luster",
+              "start": 20.28,
+              "end": 20.7,
+              "probability": 0.872314453125
+            },
+            {
+              "text": " rich",
+              "start": 20.7,
+              "end": 20.98,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " and",
+              "start": 20.98,
+              "end": 21.22,
+              "probability": 0.49462890625
+            },
+            {
+              "text": " blazed,",
+              "start": 21.22,
+              "end": 21.74,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " Seraphic arms and trophies, All the while sonorous metal-blowing marshal sounds.",
+          "start": 21.74,
+          "end": 26.84,
+          "words": [
+            {
+              "text": " Seraphic",
+              "start": 21.74,
+              "end": 22.64,
+              "probability": 0.5079193115234375
+            },
+            {
+              "text": " arms",
+              "start": 22.64,
+              "end": 22.92,
+              "probability": 0.67578125
+            },
+            {
+              "text": " and",
+              "start": 22.92,
+              "end": 23.16,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " trophies,",
+              "start": 23.16,
+              "end": 23.58,
+              "probability": 0.982421875
+            },
+            {
+              "text": " All",
+              "start": 24.24,
+              "end": 24.38,
+              "probability": 0.013580322265625
+            },
+            {
+              "text": " the",
+              "start": 24.38,
+              "end": 24.5,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " while",
+              "start": 24.5,
+              "end": 24.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sonorous",
+              "start": 24.7,
+              "end": 25.24,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " metal",
+              "start": 25.24,
+              "end": 25.58,
+              "probability": 0.912109375
+            },
+            {
+              "text": "-blowing",
+              "start": 25.58,
+              "end": 26.0,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " marshal",
+              "start": 26.0,
+              "end": 26.46,
+              "probability": 0.529449462890625
+            },
+            {
+              "text": " sounds.",
+              "start": 26.46,
+              "end": 26.84,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "straight",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "commands",
+          "start": 0.86,
+          "end": 1.34
+        },
+        {
+          "raw": "that,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "At",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "the",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "warlike",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "raw": "sound",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "trumpets",
+          "start": 3.0,
+          "end": 3.34
+        },
+        {
+          "raw": "loud",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "and",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "clarions,",
+          "start": 3.78,
+          "end": 4.3
+        },
+        {
+          "raw": "Be",
+          "start": 4.8,
+          "end": 4.88
+        },
+        {
+          "raw": "upreared",
+          "start": 4.88,
+          "end": 5.32
+        },
+        {
+          "raw": "his",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "raw": "mighty",
+          "start": 5.48,
+          "end": 5.72
+        },
+        {
+          "raw": "standard.",
+          "start": 5.72,
+          "end": 6.26
+        },
+        {
+          "raw": "That",
+          "start": 6.86,
+          "end": 7.18
+        },
+        {
+          "raw": "proud",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "honor",
+          "start": 7.42,
+          "end": 7.64
+        },
+        {
+          "raw": "claimed",
+          "start": 7.64,
+          "end": 7.92
+        },
+        {
+          "raw": "Azazel",
+          "start": 7.92,
+          "end": 8.52
+        },
+        {
+          "raw": "as",
+          "start": 8.52,
+          "end": 8.72
+        },
+        {
+          "raw": "his",
+          "start": 8.72,
+          "end": 8.9
+        },
+        {
+          "raw": "right,",
+          "start": 8.9,
+          "end": 9.14
+        },
+        {
+          "raw": "a",
+          "start": 9.52,
+          "end": 9.64
+        },
+        {
+          "raw": "cherub",
+          "start": 9.64,
+          "end": 9.98
+        },
+        {
+          "raw": "tall,",
+          "start": 9.98,
+          "end": 10.22
+        },
+        {
+          "raw": "Who",
+          "start": 10.8,
+          "end": 10.98
+        },
+        {
+          "raw": "forthwith",
+          "start": 10.98,
+          "end": 11.42
+        },
+        {
+          "raw": "from",
+          "start": 11.42,
+          "end": 11.62
+        },
+        {
+          "raw": "the",
+          "start": 11.62,
+          "end": 11.76
+        },
+        {
+          "raw": "glittering",
+          "start": 11.76,
+          "end": 12.16
+        },
+        {
+          "raw": "staff",
+          "start": 12.16,
+          "end": 12.44
+        },
+        {
+          "raw": "unfurled",
+          "start": 12.44,
+          "end": 13.08
+        },
+        {
+          "raw": "Th",
+          "start": 13.08,
+          "end": 13.42
+        },
+        {
+          "raw": "imperial",
+          "start": 13.42,
+          "end": 14.04
+        },
+        {
+          "raw": "ensign,",
+          "start": 14.04,
+          "end": 14.62
+        },
+        {
+          "raw": "Which",
+          "start": 15.04,
+          "end": 15.3
+        },
+        {
+          "raw": "full",
+          "start": 15.3,
+          "end": 15.62
+        },
+        {
+          "raw": "high",
+          "start": 15.62,
+          "end": 15.88
+        },
+        {
+          "raw": "advanced,",
+          "start": 15.88,
+          "end": 16.36
+        },
+        {
+          "raw": "shone",
+          "start": 16.94,
+          "end": 16.98
+        },
+        {
+          "raw": "like",
+          "start": 16.98,
+          "end": 17.2
+        },
+        {
+          "raw": "a",
+          "start": 17.2,
+          "end": 17.32
+        },
+        {
+          "raw": "meteor",
+          "start": 17.32,
+          "end": 17.58
+        },
+        {
+          "raw": "streaming",
+          "start": 17.58,
+          "end": 17.96
+        },
+        {
+          "raw": "to",
+          "start": 17.96,
+          "end": 18.22
+        },
+        {
+          "raw": "the",
+          "start": 18.22,
+          "end": 18.36
+        },
+        {
+          "raw": "wind,",
+          "start": 18.36,
+          "end": 18.68
+        },
+        {
+          "raw": "With",
+          "start": 19.1,
+          "end": 19.32
+        },
+        {
+          "raw": "gems",
+          "start": 19.32,
+          "end": 19.62
+        },
+        {
+          "raw": "and",
+          "start": 19.62,
+          "end": 19.96
+        },
+        {
+          "raw": "golden",
+          "start": 19.96,
+          "end": 20.28
+        },
+        {
+          "raw": "luster",
+          "start": 20.28,
+          "end": 20.7
+        },
+        {
+          "raw": "rich",
+          "start": 20.7,
+          "end": 20.98
+        },
+        {
+          "raw": "and",
+          "start": 20.98,
+          "end": 21.22
+        },
+        {
+          "raw": "blazed,",
+          "start": 21.22,
+          "end": 21.74
+        },
+        {
+          "raw": "Seraphic",
+          "start": 21.74,
+          "end": 22.64
+        },
+        {
+          "raw": "arms",
+          "start": 22.64,
+          "end": 22.92
+        },
+        {
+          "raw": "and",
+          "start": 22.92,
+          "end": 23.16
+        },
+        {
+          "raw": "trophies,",
+          "start": 23.16,
+          "end": 23.58
+        },
+        {
+          "raw": "All",
+          "start": 24.24,
+          "end": 24.38
+        },
+        {
+          "raw": "the",
+          "start": 24.38,
+          "end": 24.5
+        },
+        {
+          "raw": "while",
+          "start": 24.5,
+          "end": 24.7
+        },
+        {
+          "raw": "sonorous",
+          "start": 24.7,
+          "end": 25.24
+        },
+        {
+          "raw": "metal",
+          "start": 25.24,
+          "end": 25.58
+        },
+        {
+          "raw": "-blowing",
+          "start": 25.58,
+          "end": 26.0
+        },
+        {
+          "raw": "marshal",
+          "start": 26.0,
+          "end": 26.46
+        },
+        {
+          "raw": "sounds.",
+          "start": 26.46,
+          "end": 26.84
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "straight",
+        "commands",
+        "that,",
+        "at",
+        "the",
+        "warlike",
+        "sound",
+        "Of",
+        "trumpets",
+        "loud",
+        "and",
+        "clarions,",
+        "be",
+        "upreared",
+        "His",
+        "mighty",
+        "standard.",
+        "That",
+        "proud",
+        "honour",
+        "claimed",
+        "Azazel",
+        "as",
+        "his",
+        "right,",
+        "a",
+        "Cherub",
+        "tall:",
+        "Who",
+        "forthwith",
+        "from",
+        "the",
+        "glittering",
+        "staff",
+        "unfurled",
+        "Th'",
+        "imperial",
+        "ensign;",
+        "which,",
+        "full",
+        "high",
+        "advanced,",
+        "Shone",
+        "like",
+        "a",
+        "meteor",
+        "streaming",
+        "to",
+        "the",
+        "wind,",
+        "With",
+        "gems",
+        "and",
+        "golden",
+        "lustre",
+        "rich",
+        "emblazed,",
+        "Seraphic",
+        "arms",
+        "and",
+        "trophies;",
+        "all",
+        "the",
+        "while",
+        "Sonorous",
+        "metal",
+        "blowing",
+        "martial",
+        "sounds:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          55,
+          21,
+          55
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          56
+        ],
+        [
+          "equal",
+          56,
+          57,
+          56,
+          57
+        ],
+        [
+          "replace",
+          57,
+          58,
+          57,
+          59
+        ],
+        [
+          "equal",
+          58,
+          68,
+          59,
+          69
+        ],
+        [
+          "replace",
+          68,
+          69,
+          69,
+          70
+        ],
+        [
+          "equal",
+          69,
+          70,
+          70,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "replace",
+          55,
+          56,
+          55,
+          56
+        ],
+        [
+          "replace",
+          57,
+          58,
+          57,
+          59
+        ],
+        [
+          "replace",
+          68,
+          69,
+          69,
+          70
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "straight",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "straight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "commands",
+          "start": 0.86,
+          "end": 1.34,
+          "key": "commands",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "warlike",
+          "start": 2.1,
+          "end": 2.48,
+          "key": "warlike",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sound",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "sound",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "trumpets",
+          "start": 3.0,
+          "end": 3.34,
+          "key": "trumpets",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "loud",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "loud",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "clarions,",
+          "start": 3.78,
+          "end": 4.3,
+          "key": "clarions",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 4.8,
+          "end": 4.88,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "upreared",
+          "start": 4.88,
+          "end": 5.32,
+          "key": "upreared",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.32,
+          "end": 5.48,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mighty",
+          "start": 5.48,
+          "end": 5.72,
+          "key": "mighty",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "standard.",
+          "start": 5.72,
+          "end": 6.26,
+          "key": "standard",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 6.86,
+          "end": 7.18,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "proud",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "proud",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 7.42,
+          "end": 7.64,
+          "key": "honor",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "claimed",
+          "start": 7.64,
+          "end": 7.92,
+          "key": "claimed",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Azazel",
+          "start": 7.92,
+          "end": 8.52,
+          "key": "azazel",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.52,
+          "end": 8.72,
+          "key": "as",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.72,
+          "end": 8.9,
+          "key": "his",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 8.9,
+          "end": 9.14,
+          "key": "right",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.52,
+          "end": 9.64,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "cherub",
+          "start": 9.64,
+          "end": 9.98,
+          "key": "cherub",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "tall,",
+          "start": 9.98,
+          "end": 10.22,
+          "key": "tall",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 10.8,
+          "end": 10.98,
+          "key": "who",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "forthwith",
+          "start": 10.98,
+          "end": 11.42,
+          "key": "forthwith",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 11.42,
+          "end": 11.62,
+          "key": "from",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.62,
+          "end": 11.76,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "glittering",
+          "start": 11.76,
+          "end": 12.16,
+          "key": "glittering",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "staff",
+          "start": 12.16,
+          "end": 12.44,
+          "key": "staff",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "unfurled",
+          "start": 12.44,
+          "end": 13.08,
+          "key": "unfurled",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Th",
+          "start": 13.08,
+          "end": 13.42,
+          "key": "th",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "imperial",
+          "start": 13.42,
+          "end": 14.04,
+          "key": "imperial",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "ensign,",
+          "start": 14.04,
+          "end": 14.62,
+          "key": "ensign",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 15.04,
+          "end": 15.3,
+          "key": "which",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 15.3,
+          "end": 15.62,
+          "key": "full",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "high",
+          "start": 15.62,
+          "end": 15.88,
+          "key": "high",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "advanced,",
+          "start": 15.88,
+          "end": 16.36,
+          "key": "advanced",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "shone",
+          "start": 16.94,
+          "end": 16.98,
+          "key": "shone",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 16.98,
+          "end": 17.2,
+          "key": "like",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.2,
+          "end": 17.32,
+          "key": "a",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "meteor",
+          "start": 17.32,
+          "end": 17.58,
+          "key": "meteor",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "streaming",
+          "start": 17.58,
+          "end": 17.96,
+          "key": "streaming",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.96,
+          "end": 18.22,
+          "key": "to",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.22,
+          "end": 18.36,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "wind,",
+          "start": 18.36,
+          "end": 18.68,
+          "key": "wind",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 19.1,
+          "end": 19.32,
+          "key": "with",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "gems",
+          "start": 19.32,
+          "end": 19.62,
+          "key": "gems",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.62,
+          "end": 19.96,
+          "key": "and",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "golden",
+          "start": 19.96,
+          "end": 20.28,
+          "key": "golden",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "luster",
+          "start": 20.28,
+          "end": 20.7,
+          "key": "luster",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "rich",
+          "start": 20.7,
+          "end": 20.98,
+          "key": "rich",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 20.98,
+          "end": 21.22,
+          "key": "and",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "blazed,",
+          "start": 21.22,
+          "end": 21.74,
+          "key": "blazed",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Seraphic",
+          "start": 21.74,
+          "end": 22.64,
+          "key": "seraphic",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 22.64,
+          "end": 22.92,
+          "key": "arms",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.92,
+          "end": 23.16,
+          "key": "and",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "trophies,",
+          "start": 23.16,
+          "end": 23.58,
+          "key": "trophies",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 24.24,
+          "end": 24.38,
+          "key": "all",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.38,
+          "end": 24.5,
+          "key": "the",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 24.5,
+          "end": 24.7,
+          "key": "while",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "sonorous",
+          "start": 24.7,
+          "end": 25.24,
+          "key": "sonorous",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "metal",
+          "start": 25.24,
+          "end": 25.58,
+          "key": "metal",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "-blowing",
+          "start": 25.58,
+          "end": 26.0,
+          "key": "blowing",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "marshal",
+          "start": 26.0,
+          "end": 26.46,
+          "key": "marshal",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "sounds.",
+          "start": 26.46,
+          "end": 26.84,
+          "key": "sounds",
+          "pieces": [
+            70
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "straight",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "commands",
+          "start": 0.86,
+          "end": 1.34
+        },
+        {
+          "text": "that,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "at",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "the",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "warlike",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "text": "sound",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "text": "Of",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "trumpets",
+          "start": 3.0,
+          "end": 3.34
+        },
+        {
+          "text": "loud",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "and",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "clarions,",
+          "start": 3.78,
+          "end": 4.3
+        },
+        {
+          "text": "be",
+          "start": 4.8,
+          "end": 4.88
+        },
+        {
+          "text": "upreared",
+          "start": 4.88,
+          "end": 5.32
+        },
+        {
+          "text": "His",
+          "start": 5.32,
+          "end": 5.48
+        },
+        {
+          "text": "mighty",
+          "start": 5.48,
+          "end": 5.72
+        },
+        {
+          "text": "standard.",
+          "start": 5.72,
+          "end": 6.26
+        },
+        {
+          "text": "That",
+          "start": 6.86,
+          "end": 7.18
+        },
+        {
+          "text": "proud",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "honour",
+          "start": 7.42,
+          "end": 7.53
+        },
+        {
+          "text": "claimed",
+          "start": 7.64,
+          "end": 7.92
+        },
+        {
+          "text": "Azazel",
+          "start": 7.92,
+          "end": 8.52
+        },
+        {
+          "text": "as",
+          "start": 8.52,
+          "end": 8.72
+        },
+        {
+          "text": "his",
+          "start": 8.72,
+          "end": 8.9
+        },
+        {
+          "text": "right,",
+          "start": 8.9,
+          "end": 9.14
+        },
+        {
+          "text": "a",
+          "start": 9.52,
+          "end": 9.64
+        },
+        {
+          "text": "Cherub",
+          "start": 9.64,
+          "end": 9.98
+        },
+        {
+          "text": "tall:",
+          "start": 9.98,
+          "end": 10.22
+        },
+        {
+          "text": "Who",
+          "start": 10.8,
+          "end": 10.98
+        },
+        {
+          "text": "forthwith",
+          "start": 10.98,
+          "end": 11.42
+        },
+        {
+          "text": "from",
+          "start": 11.42,
+          "end": 11.62
+        },
+        {
+          "text": "the",
+          "start": 11.62,
+          "end": 11.76
+        },
+        {
+          "text": "glittering",
+          "start": 11.76,
+          "end": 12.16
+        },
+        {
+          "text": "staff",
+          "start": 12.16,
+          "end": 12.44
+        },
+        {
+          "text": "unfurled",
+          "start": 12.44,
+          "end": 13.08
+        },
+        {
+          "text": "Th'",
+          "start": 13.08,
+          "end": 13.42
+        },
+        {
+          "text": "imperial",
+          "start": 13.42,
+          "end": 14.04
+        },
+        {
+          "text": "ensign;",
+          "start": 14.04,
+          "end": 14.62
+        },
+        {
+          "text": "which,",
+          "start": 15.04,
+          "end": 15.3
+        },
+        {
+          "text": "full",
+          "start": 15.3,
+          "end": 15.62
+        },
+        {
+          "text": "high",
+          "start": 15.62,
+          "end": 15.88
+        },
+        {
+          "text": "advanced,",
+          "start": 15.88,
+          "end": 16.36
+        },
+        {
+          "text": "Shone",
+          "start": 16.94,
+          "end": 16.98
+        },
+        {
+          "text": "like",
+          "start": 16.98,
+          "end": 17.2
+        },
+        {
+          "text": "a",
+          "start": 17.2,
+          "end": 17.32
+        },
+        {
+          "text": "meteor",
+          "start": 17.32,
+          "end": 17.58
+        },
+        {
+          "text": "streaming",
+          "start": 17.58,
+          "end": 17.96
+        },
+        {
+          "text": "to",
+          "start": 17.96,
+          "end": 18.22
+        },
+        {
+          "text": "the",
+          "start": 18.22,
+          "end": 18.36
+        },
+        {
+          "text": "wind,",
+          "start": 18.36,
+          "end": 18.68
+        },
+        {
+          "text": "With",
+          "start": 19.1,
+          "end": 19.32
+        },
+        {
+          "text": "gems",
+          "start": 19.32,
+          "end": 19.62
+        },
+        {
+          "text": "and",
+          "start": 19.62,
+          "end": 19.96
+        },
+        {
+          "text": "golden",
+          "start": 19.96,
+          "end": 20.28
+        },
+        {
+          "text": "lustre",
+          "start": 20.28,
+          "end": 20.49
+        },
+        {
+          "text": "rich",
+          "start": 20.7,
+          "end": 20.98
+        },
+        {
+          "text": "emblazed,",
+          "start": 20.98,
+          "end": 21.36
+        },
+        {
+          "text": "Seraphic",
+          "start": 21.74,
+          "end": 22.64
+        },
+        {
+          "text": "arms",
+          "start": 22.64,
+          "end": 22.92
+        },
+        {
+          "text": "and",
+          "start": 22.92,
+          "end": 23.16
+        },
+        {
+          "text": "trophies;",
+          "start": 23.16,
+          "end": 23.58
+        },
+        {
+          "text": "all",
+          "start": 24.24,
+          "end": 24.38
+        },
+        {
+          "text": "the",
+          "start": 24.38,
+          "end": 24.5
+        },
+        {
+          "text": "while",
+          "start": 24.5,
+          "end": 24.7
+        },
+        {
+          "text": "Sonorous",
+          "start": 24.7,
+          "end": 25.24
+        },
+        {
+          "text": "metal",
+          "start": 25.24,
+          "end": 25.58
+        },
+        {
+          "text": "blowing",
+          "start": 25.58,
+          "end": 26.0
+        },
+        {
+          "text": "martial",
+          "start": 26.0,
+          "end": 26.23
+        },
+        {
+          "text": "sounds:",
+          "start": 26.46,
+          "end": 26.84
+        }
+      ],
+      "stats": {
+        "expected_words": 70,
+        "heard_words": 71,
+        "matched_words": 66
+      },
+      "match_ratio": 0.9428571428571428,
+      "rejection_reasons": [],
+      "seconds": 0.8418360070791095
+    },
+    {
+      "asr_seconds": 0.9561231951229274,
+      "alignment_seconds": 0.0024144079070538282,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then straight commands that, at the warlike sound of trumpets loud and clarions, be upreared",
+          "start": 0.08,
+          "end": 5.34,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.46826171875
+            },
+            {
+              "text": " straight",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " commands",
+              "start": 0.86,
+              "end": 1.34,
+              "probability": 0.958984375
+            },
+            {
+              "text": " that,",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " at",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " warlike",
+              "start": 2.1,
+              "end": 2.48,
+              "probability": 0.949951171875
+            },
+            {
+              "text": " sound",
+              "start": 2.48,
+              "end": 2.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 2.8,
+              "end": 3.06,
+              "probability": 0.94921875
+            },
+            {
+              "text": " trumpets",
+              "start": 3.06,
+              "end": 3.34,
+              "probability": 0.826171875
+            },
+            {
+              "text": " loud",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.85546875
+            },
+            {
+              "text": " and",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.58642578125
+            },
+            {
+              "text": " clarions,",
+              "start": 3.78,
+              "end": 4.3,
+              "probability": 0.771484375
+            },
+            {
+              "text": " be",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.5625
+            },
+            {
+              "text": " upreared",
+              "start": 4.9,
+              "end": 5.34,
+              "probability": 0.9518229166666666
+            }
+          ]
+        },
+        {
+          "text": " his mighty standard.",
+          "start": 5.34,
+          "end": 6.26,
+          "words": [
+            {
+              "text": " his",
+              "start": 5.34,
+              "end": 5.5,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " mighty",
+              "start": 5.5,
+              "end": 5.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " standard.",
+              "start": 5.72,
+              "end": 6.26,
+              "probability": 0.94384765625
+            }
+          ]
+        },
+        {
+          "text": " That proud honor claimed Azazel as his right, a cherub tall, who forthwith from the glittering",
+          "start": 6.86,
+          "end": 12.16,
+          "words": [
+            {
+              "text": " That",
+              "start": 6.86,
+              "end": 7.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " proud",
+              "start": 7.18,
+              "end": 7.42,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " honor",
+              "start": 7.42,
+              "end": 7.64,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " claimed",
+              "start": 7.64,
+              "end": 7.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Azazel",
+              "start": 7.92,
+              "end": 8.52,
+              "probability": 0.898681640625
+            },
+            {
+              "text": " as",
+              "start": 8.52,
+              "end": 8.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " his",
+              "start": 8.72,
+              "end": 8.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " right,",
+              "start": 8.9,
+              "end": 9.14,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " a",
+              "start": 9.54,
+              "end": 9.64,
+              "probability": 0.970703125
+            },
+            {
+              "text": " cherub",
+              "start": 9.64,
+              "end": 9.98,
+              "probability": 0.967529296875
+            },
+            {
+              "text": " tall,",
+              "start": 9.98,
+              "end": 10.22,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " who",
+              "start": 10.78,
+              "end": 10.98,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " forthwith",
+              "start": 10.98,
+              "end": 11.42,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " from",
+              "start": 11.42,
+              "end": 11.62,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 11.62,
+              "end": 11.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " glittering",
+              "start": 11.76,
+              "end": 12.16,
+              "probability": 0.996826171875
+            }
+          ]
+        },
+        {
+          "text": " staff unfurled T.H. imperial ensign, which full high advanced, shone like a meteor streaming",
+          "start": 12.16,
+          "end": 17.96,
+          "words": [
+            {
+              "text": " staff",
+              "start": 12.16,
+              "end": 12.44,
+              "probability": 0.982421875
+            },
+            {
+              "text": " unfurled",
+              "start": 12.44,
+              "end": 13.08,
+              "probability": 0.9757486979166666
+            },
+            {
+              "text": " T",
+              "start": 13.08,
+              "end": 13.3,
+              "probability": 0.43505859375
+            },
+            {
+              "text": ".H.",
+              "start": 13.3,
+              "end": 13.58,
+              "probability": 0.863525390625
+            },
+            {
+              "text": " imperial",
+              "start": 13.64,
+              "end": 14.08,
+              "probability": 0.431396484375
+            },
+            {
+              "text": " ensign,",
+              "start": 14.08,
+              "end": 14.62,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " which",
+              "start": 15.06,
+              "end": 15.3,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " full",
+              "start": 15.3,
+              "end": 15.62,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " high",
+              "start": 15.62,
+              "end": 15.88,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " advanced,",
+              "start": 15.88,
+              "end": 16.38,
+              "probability": 0.921875
+            },
+            {
+              "text": " shone",
+              "start": 16.94,
+              "end": 16.98,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " like",
+              "start": 16.98,
+              "end": 17.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 17.2,
+              "end": 17.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " meteor",
+              "start": 17.32,
+              "end": 17.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " streaming",
+              "start": 17.58,
+              "end": 17.96,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " to the wind, with gems and golden luster rich emblazed, seraphic arms and trophies, all",
+          "start": 17.96,
+          "end": 24.4,
+          "words": [
+            {
+              "text": " to",
+              "start": 17.96,
+              "end": 18.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 18.22,
+              "end": 18.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wind,",
+              "start": 18.36,
+              "end": 18.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 19.12,
+              "end": 19.32,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " gems",
+              "start": 19.32,
+              "end": 19.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 19.62,
+              "end": 19.96,
+              "probability": 0.982421875
+            },
+            {
+              "text": " golden",
+              "start": 19.96,
+              "end": 20.28,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " luster",
+              "start": 20.28,
+              "end": 20.7,
+              "probability": 0.904296875
+            },
+            {
+              "text": " rich",
+              "start": 20.7,
+              "end": 20.98,
+              "probability": 0.9140625
+            },
+            {
+              "text": " emblazed,",
+              "start": 20.98,
+              "end": 21.74,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " seraphic",
+              "start": 22.18,
+              "end": 22.56,
+              "probability": 0.9607747395833334
+            },
+            {
+              "text": " arms",
+              "start": 22.56,
+              "end": 22.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 22.92,
+              "end": 23.16,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " trophies,",
+              "start": 23.16,
+              "end": 23.56,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 24.18,
+              "end": 24.4,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " the while sonorous metal-blowing martial sounds.",
+          "start": 24.4,
+          "end": 26.9,
+          "words": [
+            {
+              "text": " the",
+              "start": 24.4,
+              "end": 24.5,
+              "probability": 0.427734375
+            },
+            {
+              "text": " while",
+              "start": 24.5,
+              "end": 24.7,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " sonorous",
+              "start": 24.7,
+              "end": 25.24,
+              "probability": 0.890625
+            },
+            {
+              "text": " metal",
+              "start": 25.24,
+              "end": 25.6,
+              "probability": 0.88134765625
+            },
+            {
+              "text": "-blowing",
+              "start": 25.6,
+              "end": 26.0,
+              "probability": 0.9015299479166666
+            },
+            {
+              "text": " martial",
+              "start": 26.0,
+              "end": 26.3,
+              "probability": 0.6318359375
+            },
+            {
+              "text": " sounds.",
+              "start": 26.3,
+              "end": 26.9,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "straight",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "commands",
+          "start": 0.86,
+          "end": 1.34
+        },
+        {
+          "raw": "that,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "at",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "the",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "warlike",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "raw": "sound",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "raw": "trumpets",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "raw": "loud",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "and",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "clarions,",
+          "start": 3.78,
+          "end": 4.3
+        },
+        {
+          "raw": "be",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "raw": "upreared",
+          "start": 4.9,
+          "end": 5.34
+        },
+        {
+          "raw": "his",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "raw": "mighty",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "raw": "standard.",
+          "start": 5.72,
+          "end": 6.26
+        },
+        {
+          "raw": "That",
+          "start": 6.86,
+          "end": 7.18
+        },
+        {
+          "raw": "proud",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "raw": "honor",
+          "start": 7.42,
+          "end": 7.64
+        },
+        {
+          "raw": "claimed",
+          "start": 7.64,
+          "end": 7.92
+        },
+        {
+          "raw": "Azazel",
+          "start": 7.92,
+          "end": 8.52
+        },
+        {
+          "raw": "as",
+          "start": 8.52,
+          "end": 8.72
+        },
+        {
+          "raw": "his",
+          "start": 8.72,
+          "end": 8.9
+        },
+        {
+          "raw": "right,",
+          "start": 8.9,
+          "end": 9.14
+        },
+        {
+          "raw": "a",
+          "start": 9.54,
+          "end": 9.64
+        },
+        {
+          "raw": "cherub",
+          "start": 9.64,
+          "end": 9.98
+        },
+        {
+          "raw": "tall,",
+          "start": 9.98,
+          "end": 10.22
+        },
+        {
+          "raw": "who",
+          "start": 10.78,
+          "end": 10.98
+        },
+        {
+          "raw": "forthwith",
+          "start": 10.98,
+          "end": 11.42
+        },
+        {
+          "raw": "from",
+          "start": 11.42,
+          "end": 11.62
+        },
+        {
+          "raw": "the",
+          "start": 11.62,
+          "end": 11.76
+        },
+        {
+          "raw": "glittering",
+          "start": 11.76,
+          "end": 12.16
+        },
+        {
+          "raw": "staff",
+          "start": 12.16,
+          "end": 12.44
+        },
+        {
+          "raw": "unfurled",
+          "start": 12.44,
+          "end": 13.08
+        },
+        {
+          "raw": "T",
+          "start": 13.08,
+          "end": 13.3
+        },
+        {
+          "raw": ".H.",
+          "start": 13.3,
+          "end": 13.58
+        },
+        {
+          "raw": "imperial",
+          "start": 13.64,
+          "end": 14.08
+        },
+        {
+          "raw": "ensign,",
+          "start": 14.08,
+          "end": 14.62
+        },
+        {
+          "raw": "which",
+          "start": 15.06,
+          "end": 15.3
+        },
+        {
+          "raw": "full",
+          "start": 15.3,
+          "end": 15.62
+        },
+        {
+          "raw": "high",
+          "start": 15.62,
+          "end": 15.88
+        },
+        {
+          "raw": "advanced,",
+          "start": 15.88,
+          "end": 16.38
+        },
+        {
+          "raw": "shone",
+          "start": 16.94,
+          "end": 16.98
+        },
+        {
+          "raw": "like",
+          "start": 16.98,
+          "end": 17.2
+        },
+        {
+          "raw": "a",
+          "start": 17.2,
+          "end": 17.32
+        },
+        {
+          "raw": "meteor",
+          "start": 17.32,
+          "end": 17.58
+        },
+        {
+          "raw": "streaming",
+          "start": 17.58,
+          "end": 17.96
+        },
+        {
+          "raw": "to",
+          "start": 17.96,
+          "end": 18.22
+        },
+        {
+          "raw": "the",
+          "start": 18.22,
+          "end": 18.36
+        },
+        {
+          "raw": "wind,",
+          "start": 18.36,
+          "end": 18.68
+        },
+        {
+          "raw": "with",
+          "start": 19.12,
+          "end": 19.32
+        },
+        {
+          "raw": "gems",
+          "start": 19.32,
+          "end": 19.62
+        },
+        {
+          "raw": "and",
+          "start": 19.62,
+          "end": 19.96
+        },
+        {
+          "raw": "golden",
+          "start": 19.96,
+          "end": 20.28
+        },
+        {
+          "raw": "luster",
+          "start": 20.28,
+          "end": 20.7
+        },
+        {
+          "raw": "rich",
+          "start": 20.7,
+          "end": 20.98
+        },
+        {
+          "raw": "emblazed,",
+          "start": 20.98,
+          "end": 21.74
+        },
+        {
+          "raw": "seraphic",
+          "start": 22.18,
+          "end": 22.56
+        },
+        {
+          "raw": "arms",
+          "start": 22.56,
+          "end": 22.92
+        },
+        {
+          "raw": "and",
+          "start": 22.92,
+          "end": 23.16
+        },
+        {
+          "raw": "trophies,",
+          "start": 23.16,
+          "end": 23.56
+        },
+        {
+          "raw": "all",
+          "start": 24.18,
+          "end": 24.4
+        },
+        {
+          "raw": "the",
+          "start": 24.4,
+          "end": 24.5
+        },
+        {
+          "raw": "while",
+          "start": 24.5,
+          "end": 24.7
+        },
+        {
+          "raw": "sonorous",
+          "start": 24.7,
+          "end": 25.24
+        },
+        {
+          "raw": "metal",
+          "start": 25.24,
+          "end": 25.6
+        },
+        {
+          "raw": "-blowing",
+          "start": 25.6,
+          "end": 26.0
+        },
+        {
+          "raw": "martial",
+          "start": 26.0,
+          "end": 26.3
+        },
+        {
+          "raw": "sounds.",
+          "start": 26.3,
+          "end": 26.9
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "straight",
+        "commands",
+        "that,",
+        "at",
+        "the",
+        "warlike",
+        "sound",
+        "Of",
+        "trumpets",
+        "loud",
+        "and",
+        "clarions,",
+        "be",
+        "upreared",
+        "His",
+        "mighty",
+        "standard.",
+        "That",
+        "proud",
+        "honour",
+        "claimed",
+        "Azazel",
+        "as",
+        "his",
+        "right,",
+        "a",
+        "Cherub",
+        "tall:",
+        "Who",
+        "forthwith",
+        "from",
+        "the",
+        "glittering",
+        "staff",
+        "unfurled",
+        "Th'",
+        "imperial",
+        "ensign;",
+        "which,",
+        "full",
+        "high",
+        "advanced,",
+        "Shone",
+        "like",
+        "a",
+        "meteor",
+        "streaming",
+        "to",
+        "the",
+        "wind,",
+        "With",
+        "gems",
+        "and",
+        "golden",
+        "lustre",
+        "rich",
+        "emblazed,",
+        "Seraphic",
+        "arms",
+        "and",
+        "trophies;",
+        "all",
+        "the",
+        "while",
+        "Sonorous",
+        "metal",
+        "blowing",
+        "martial",
+        "sounds:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          36,
+          21,
+          36
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "equal",
+          37,
+          55,
+          38,
+          56
+        ],
+        [
+          "replace",
+          55,
+          56,
+          56,
+          57
+        ],
+        [
+          "equal",
+          56,
+          70,
+          57,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "replace",
+          55,
+          56,
+          56,
+          57
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "straight",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "straight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "commands",
+          "start": 0.86,
+          "end": 1.34,
+          "key": "commands",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "warlike",
+          "start": 2.1,
+          "end": 2.48,
+          "key": "warlike",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sound",
+          "start": 2.48,
+          "end": 2.8,
+          "key": "sound",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 3.06,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "trumpets",
+          "start": 3.06,
+          "end": 3.34,
+          "key": "trumpets",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "loud",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "loud",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "clarions,",
+          "start": 3.78,
+          "end": 4.3,
+          "key": "clarions",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.78,
+          "end": 4.9,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "upreared",
+          "start": 4.9,
+          "end": 5.34,
+          "key": "upreared",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.34,
+          "end": 5.5,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mighty",
+          "start": 5.5,
+          "end": 5.72,
+          "key": "mighty",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "standard.",
+          "start": 5.72,
+          "end": 6.26,
+          "key": "standard",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 6.86,
+          "end": 7.18,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "proud",
+          "start": 7.18,
+          "end": 7.42,
+          "key": "proud",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 7.42,
+          "end": 7.64,
+          "key": "honor",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "claimed",
+          "start": 7.64,
+          "end": 7.92,
+          "key": "claimed",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Azazel",
+          "start": 7.92,
+          "end": 8.52,
+          "key": "azazel",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.52,
+          "end": 8.72,
+          "key": "as",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.72,
+          "end": 8.9,
+          "key": "his",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 8.9,
+          "end": 9.14,
+          "key": "right",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.54,
+          "end": 9.64,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "cherub",
+          "start": 9.64,
+          "end": 9.98,
+          "key": "cherub",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "tall,",
+          "start": 9.98,
+          "end": 10.22,
+          "key": "tall",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 10.78,
+          "end": 10.98,
+          "key": "who",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "forthwith",
+          "start": 10.98,
+          "end": 11.42,
+          "key": "forthwith",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 11.42,
+          "end": 11.62,
+          "key": "from",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.62,
+          "end": 11.76,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "glittering",
+          "start": 11.76,
+          "end": 12.16,
+          "key": "glittering",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "staff",
+          "start": 12.16,
+          "end": 12.44,
+          "key": "staff",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "unfurled",
+          "start": 12.44,
+          "end": 13.08,
+          "key": "unfurled",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 13.08,
+          "end": 13.3,
+          "key": "t",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 13.3,
+          "end": 13.58,
+          "key": "h",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "imperial",
+          "start": 13.64,
+          "end": 14.08,
+          "key": "imperial",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "ensign,",
+          "start": 14.08,
+          "end": 14.62,
+          "key": "ensign",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 15.06,
+          "end": 15.3,
+          "key": "which",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 15.3,
+          "end": 15.62,
+          "key": "full",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "high",
+          "start": 15.62,
+          "end": 15.88,
+          "key": "high",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "advanced,",
+          "start": 15.88,
+          "end": 16.38,
+          "key": "advanced",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "shone",
+          "start": 16.94,
+          "end": 16.98,
+          "key": "shone",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 16.98,
+          "end": 17.2,
+          "key": "like",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 17.2,
+          "end": 17.32,
+          "key": "a",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "meteor",
+          "start": 17.32,
+          "end": 17.58,
+          "key": "meteor",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "streaming",
+          "start": 17.58,
+          "end": 17.96,
+          "key": "streaming",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.96,
+          "end": 18.22,
+          "key": "to",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.22,
+          "end": 18.36,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "wind,",
+          "start": 18.36,
+          "end": 18.68,
+          "key": "wind",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 19.12,
+          "end": 19.32,
+          "key": "with",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "gems",
+          "start": 19.32,
+          "end": 19.62,
+          "key": "gems",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.62,
+          "end": 19.96,
+          "key": "and",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "golden",
+          "start": 19.96,
+          "end": 20.28,
+          "key": "golden",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "luster",
+          "start": 20.28,
+          "end": 20.7,
+          "key": "luster",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "rich",
+          "start": 20.7,
+          "end": 20.98,
+          "key": "rich",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "emblazed,",
+          "start": 20.98,
+          "end": 21.74,
+          "key": "emblazed",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "seraphic",
+          "start": 22.18,
+          "end": 22.56,
+          "key": "seraphic",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "arms",
+          "start": 22.56,
+          "end": 22.92,
+          "key": "arms",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.92,
+          "end": 23.16,
+          "key": "and",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "trophies,",
+          "start": 23.16,
+          "end": 23.56,
+          "key": "trophies",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 24.18,
+          "end": 24.4,
+          "key": "all",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.4,
+          "end": 24.5,
+          "key": "the",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 24.5,
+          "end": 24.7,
+          "key": "while",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "sonorous",
+          "start": 24.7,
+          "end": 25.24,
+          "key": "sonorous",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "metal",
+          "start": 25.24,
+          "end": 25.6,
+          "key": "metal",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "-blowing",
+          "start": 25.6,
+          "end": 26.0,
+          "key": "blowing",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "martial",
+          "start": 26.0,
+          "end": 26.3,
+          "key": "martial",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "sounds.",
+          "start": 26.3,
+          "end": 26.9,
+          "key": "sounds",
+          "pieces": [
+            70
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "straight",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "commands",
+          "start": 0.86,
+          "end": 1.34
+        },
+        {
+          "text": "that,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "at",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "the",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "warlike",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "text": "sound",
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "text": "Of",
+          "start": 2.8,
+          "end": 3.06
+        },
+        {
+          "text": "trumpets",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "text": "loud",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "and",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "clarions,",
+          "start": 3.78,
+          "end": 4.3
+        },
+        {
+          "text": "be",
+          "start": 4.78,
+          "end": 4.9
+        },
+        {
+          "text": "upreared",
+          "start": 4.9,
+          "end": 5.34
+        },
+        {
+          "text": "His",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "text": "mighty",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "text": "standard.",
+          "start": 5.72,
+          "end": 6.26
+        },
+        {
+          "text": "That",
+          "start": 6.86,
+          "end": 7.18
+        },
+        {
+          "text": "proud",
+          "start": 7.18,
+          "end": 7.42
+        },
+        {
+          "text": "honour",
+          "start": 7.42,
+          "end": 7.53
+        },
+        {
+          "text": "claimed",
+          "start": 7.64,
+          "end": 7.92
+        },
+        {
+          "text": "Azazel",
+          "start": 7.92,
+          "end": 8.52
+        },
+        {
+          "text": "as",
+          "start": 8.52,
+          "end": 8.72
+        },
+        {
+          "text": "his",
+          "start": 8.72,
+          "end": 8.9
+        },
+        {
+          "text": "right,",
+          "start": 8.9,
+          "end": 9.14
+        },
+        {
+          "text": "a",
+          "start": 9.54,
+          "end": 9.64
+        },
+        {
+          "text": "Cherub",
+          "start": 9.64,
+          "end": 9.98
+        },
+        {
+          "text": "tall:",
+          "start": 9.98,
+          "end": 10.22
+        },
+        {
+          "text": "Who",
+          "start": 10.78,
+          "end": 10.98
+        },
+        {
+          "text": "forthwith",
+          "start": 10.98,
+          "end": 11.42
+        },
+        {
+          "text": "from",
+          "start": 11.42,
+          "end": 11.62
+        },
+        {
+          "text": "the",
+          "start": 11.62,
+          "end": 11.76
+        },
+        {
+          "text": "glittering",
+          "start": 11.76,
+          "end": 12.16
+        },
+        {
+          "text": "staff",
+          "start": 12.16,
+          "end": 12.44
+        },
+        {
+          "text": "unfurled",
+          "start": 12.44,
+          "end": 13.08
+        },
+        {
+          "text": "Th'",
+          "start": 13.08,
+          "end": 13.36
+        },
+        {
+          "text": "imperial",
+          "start": 13.64,
+          "end": 14.08
+        },
+        {
+          "text": "ensign;",
+          "start": 14.08,
+          "end": 14.62
+        },
+        {
+          "text": "which,",
+          "start": 15.06,
+          "end": 15.3
+        },
+        {
+          "text": "full",
+          "start": 15.3,
+          "end": 15.62
+        },
+        {
+          "text": "high",
+          "start": 15.62,
+          "end": 15.88
+        },
+        {
+          "text": "advanced,",
+          "start": 15.88,
+          "end": 16.38
+        },
+        {
+          "text": "Shone",
+          "start": 16.94,
+          "end": 16.98
+        },
+        {
+          "text": "like",
+          "start": 16.98,
+          "end": 17.2
+        },
+        {
+          "text": "a",
+          "start": 17.2,
+          "end": 17.32
+        },
+        {
+          "text": "meteor",
+          "start": 17.32,
+          "end": 17.58
+        },
+        {
+          "text": "streaming",
+          "start": 17.58,
+          "end": 17.96
+        },
+        {
+          "text": "to",
+          "start": 17.96,
+          "end": 18.22
+        },
+        {
+          "text": "the",
+          "start": 18.22,
+          "end": 18.36
+        },
+        {
+          "text": "wind,",
+          "start": 18.36,
+          "end": 18.68
+        },
+        {
+          "text": "With",
+          "start": 19.12,
+          "end": 19.32
+        },
+        {
+          "text": "gems",
+          "start": 19.32,
+          "end": 19.62
+        },
+        {
+          "text": "and",
+          "start": 19.62,
+          "end": 19.96
+        },
+        {
+          "text": "golden",
+          "start": 19.96,
+          "end": 20.28
+        },
+        {
+          "text": "lustre",
+          "start": 20.28,
+          "end": 20.49
+        },
+        {
+          "text": "rich",
+          "start": 20.7,
+          "end": 20.98
+        },
+        {
+          "text": "emblazed,",
+          "start": 20.98,
+          "end": 21.74
+        },
+        {
+          "text": "Seraphic",
+          "start": 22.18,
+          "end": 22.56
+        },
+        {
+          "text": "arms",
+          "start": 22.56,
+          "end": 22.92
+        },
+        {
+          "text": "and",
+          "start": 22.92,
+          "end": 23.16
+        },
+        {
+          "text": "trophies;",
+          "start": 23.16,
+          "end": 23.56
+        },
+        {
+          "text": "all",
+          "start": 24.18,
+          "end": 24.4
+        },
+        {
+          "text": "the",
+          "start": 24.4,
+          "end": 24.5
+        },
+        {
+          "text": "while",
+          "start": 24.5,
+          "end": 24.7
+        },
+        {
+          "text": "Sonorous",
+          "start": 24.7,
+          "end": 25.24
+        },
+        {
+          "text": "metal",
+          "start": 25.24,
+          "end": 25.6
+        },
+        {
+          "text": "blowing",
+          "start": 25.6,
+          "end": 26.0
+        },
+        {
+          "text": "martial",
+          "start": 26.0,
+          "end": 26.3
+        },
+        {
+          "text": "sounds:",
+          "start": 26.3,
+          "end": 26.9
+        }
+      ],
+      "stats": {
+        "expected_words": 70,
+        "heard_words": 71,
+        "matched_words": 67
+      },
+      "match_ratio": 0.9571428571428572,
+      "rejection_reasons": [],
+      "seconds": 0.9595579782035202
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "23d82db7e7670882e9a33dd3b65ba92a72aa02c3bce63c9d5c7dddc28832369f",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "651d1057c22fb718dfdd3632329cdab10b89350ca5e081717cfa2d0a443b02df",
+  "attempts": [
+    {
+      "asr_seconds": 0.11909689381718636,
+      "alignment_seconds": 0.00031365733593702316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Though you were ill?\"",
+        "hotwords": "Though"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Though you were ill?",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Though",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7060546875
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " were",
+              "start": 0.63,
+              "end": 0.73,
+              "probability": 0.970703125
+            },
+            {
+              "text": " ill?",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Though",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "were",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "raw": "ill?",
+          "start": 0.73,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "\"Though",
+        "you",
+        "were",
+        "ill?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Though",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "though",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.63,
+          "end": 0.73,
+          "key": "were",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ill?",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "ill",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Though",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "were",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "text": "ill?\"",
+          "start": 0.73,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11952286399900913
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce4e869891bb4338e0ef80381563f76ed902e8a504cb3a9ac5e4e96103b41522",
+  "selected_reasons": []
+}

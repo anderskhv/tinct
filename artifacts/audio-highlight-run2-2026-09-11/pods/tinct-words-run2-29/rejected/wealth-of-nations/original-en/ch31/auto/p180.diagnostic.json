@@ -1,0 +1,7572 @@
+{
+  "complete": true,
+  "signature": "aa74d720cead086829fdc100fa99c1991087b622486f4e5ad60ab8f86dcb604c",
+  "attempts": [
+    {
+      "asr_seconds": 0.5452992310747504,
+      "alignment_seconds": 0.0015138564631342888,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In consequence of that system, the importation of several sorts of goods has been prohibited altogether. This prohibition has, in some cases, entirely prevented, and in others has very much diminished, the importation of those commodities, by reducing the importers to the necessity of smuggling. It has entirely prevented the importation of foreign wollens; and it has very much diminished that of foreign silks and velvets, In both cases, it has entirely annihilated the revenue of customs which might have been levied upon such importation.",
+        "hotwords": "This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In both cases, it has entirely diminished the revenue of customs which might have been levied upon such importation.",
+          "start": 7.28,
+          "end": 29.98,
+          "words": [
+            {
+              "text": " In",
+              "start": 7.28,
+              "end": 8.68,
+              "probability": 0.3896484375
+            },
+            {
+              "text": " both",
+              "start": 8.68,
+              "end": 8.9,
+              "probability": 0.0012273788452148438
+            },
+            {
+              "text": " cases,",
+              "start": 8.9,
+              "end": 9.4,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " it",
+              "start": 9.4,
+              "end": 9.4,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " has",
+              "start": 9.4,
+              "end": 9.4,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " entirely",
+              "start": 9.4,
+              "end": 9.4,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " diminished",
+              "start": 9.4,
+              "end": 13.4,
+              "probability": 0.09210205078125
+            },
+            {
+              "text": " the",
+              "start": 13.4,
+              "end": 14.08,
+              "probability": 0.72509765625
+            },
+            {
+              "text": " revenue",
+              "start": 14.08,
+              "end": 14.82,
+              "probability": 4.5299530029296875e-06
+            },
+            {
+              "text": " of",
+              "start": 14.82,
+              "end": 22.62,
+              "probability": 0.48681640625
+            },
+            {
+              "text": " customs",
+              "start": 22.62,
+              "end": 23.24,
+              "probability": 6.198883056640625e-05
+            },
+            {
+              "text": " which",
+              "start": 23.24,
+              "end": 24.08,
+              "probability": 0.0008864402770996094
+            },
+            {
+              "text": " might",
+              "start": 24.08,
+              "end": 24.44,
+              "probability": 0.002910614013671875
+            },
+            {
+              "text": " have",
+              "start": 24.44,
+              "end": 24.44,
+              "probability": 0.1953125
+            },
+            {
+              "text": " been",
+              "start": 24.44,
+              "end": 24.66,
+              "probability": 0.398681640625
+            },
+            {
+              "text": " levied",
+              "start": 24.66,
+              "end": 25.5,
+              "probability": 0.00055694580078125
+            },
+            {
+              "text": " upon",
+              "start": 25.5,
+              "end": 28.12,
+              "probability": 0.0103759765625
+            },
+            {
+              "text": " such",
+              "start": 28.12,
+              "end": 28.34,
+              "probability": 0.0020771026611328125
+            },
+            {
+              "text": " importation.",
+              "start": 28.34,
+              "end": 29.98,
+              "probability": 0.04150390625
+            }
+          ]
+        },
+        {
+          "text": " In both cases, it has entirely eliminated the revenue of customs which might have been levied upon such importation.",
+          "start": 30.02,
+          "end": 34.96,
+          "words": [
+            {
+              "text": " In",
+              "start": 30.02,
+              "end": 30.24,
+              "probability": 0.0013704299926757812
+            },
+            {
+              "text": " both",
+              "start": 30.24,
+              "end": 30.24,
+              "probability": 0.00028777122497558594
+            },
+            {
+              "text": " cases,",
+              "start": 30.24,
+              "end": 30.24,
+              "probability": 0.33837890625
+            },
+            {
+              "text": " it",
+              "start": 30.24,
+              "end": 30.24,
+              "probability": 0.0784912109375
+            },
+            {
+              "text": " has",
+              "start": 30.24,
+              "end": 30.24,
+              "probability": 0.030731201171875
+            },
+            {
+              "text": " entirely",
+              "start": 30.24,
+              "end": 30.24,
+              "probability": 0.0266876220703125
+            },
+            {
+              "text": " eliminated",
+              "start": 30.24,
+              "end": 30.9,
+              "probability": 0.00022017955780029297
+            },
+            {
+              "text": " the",
+              "start": 30.9,
+              "end": 31.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " revenue",
+              "start": 31.08,
+              "end": 31.44,
+              "probability": 0.982421875
+            },
+            {
+              "text": " of",
+              "start": 31.44,
+              "end": 31.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " customs",
+              "start": 31.7,
+              "end": 32.12,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " which",
+              "start": 32.12,
+              "end": 32.66,
+              "probability": 0.337890625
+            },
+            {
+              "text": " might",
+              "start": 32.66,
+              "end": 32.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " have",
+              "start": 32.86,
+              "end": 33.0,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " been",
+              "start": 33.0,
+              "end": 33.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " levied",
+              "start": 33.16,
+              "end": 33.44,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " upon",
+              "start": 33.44,
+              "end": 33.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 33.82,
+              "end": 34.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " importation.",
+              "start": 34.14,
+              "end": 34.96,
+              "probability": 0.994873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 7.28,
+          "end": 8.68
+        },
+        {
+          "raw": "both",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "raw": "cases,",
+          "start": 8.9,
+          "end": 9.4
+        },
+        {
+          "raw": "it",
+          "start": 9.4,
+          "end": 9.4
+        },
+        {
+          "raw": "has",
+          "start": 9.4,
+          "end": 9.4
+        },
+        {
+          "raw": "entirely",
+          "start": 9.4,
+          "end": 9.4
+        },
+        {
+          "raw": "diminished",
+          "start": 9.4,
+          "end": 13.4
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 14.08
+        },
+        {
+          "raw": "revenue",
+          "start": 14.08,
+          "end": 14.82
+        },
+        {
+          "raw": "of",
+          "start": 14.82,
+          "end": 22.62
+        },
+        {
+          "raw": "customs",
+          "start": 22.62,
+          "end": 23.24
+        },
+        {
+          "raw": "which",
+          "start": 23.24,
+          "end": 24.08
+        },
+        {
+          "raw": "might",
+          "start": 24.08,
+          "end": 24.44
+        },
+        {
+          "raw": "have",
+          "start": 24.44,
+          "end": 24.44
+        },
+        {
+          "raw": "been",
+          "start": 24.44,
+          "end": 24.66
+        },
+        {
+          "raw": "levied",
+          "start": 24.66,
+          "end": 25.5
+        },
+        {
+          "raw": "upon",
+          "start": 25.5,
+          "end": 28.12
+        },
+        {
+          "raw": "such",
+          "start": 28.12,
+          "end": 28.34
+        },
+        {
+          "raw": "importation.",
+          "start": 28.34,
+          "end": 29.98
+        },
+        {
+          "raw": "In",
+          "start": 30.02,
+          "end": 30.24
+        },
+        {
+          "raw": "both",
+          "start": 30.24,
+          "end": 30.24
+        },
+        {
+          "raw": "cases,",
+          "start": 30.24,
+          "end": 30.24
+        },
+        {
+          "raw": "it",
+          "start": 30.24,
+          "end": 30.24
+        },
+        {
+          "raw": "has",
+          "start": 30.24,
+          "end": 30.24
+        },
+        {
+          "raw": "entirely",
+          "start": 30.24,
+          "end": 30.24
+        },
+        {
+          "raw": "eliminated",
+          "start": 30.24,
+          "end": 30.9
+        },
+        {
+          "raw": "the",
+          "start": 30.9,
+          "end": 31.08
+        },
+        {
+          "raw": "revenue",
+          "start": 31.08,
+          "end": 31.44
+        },
+        {
+          "raw": "of",
+          "start": 31.44,
+          "end": 31.7
+        },
+        {
+          "raw": "customs",
+          "start": 31.7,
+          "end": 32.12
+        },
+        {
+          "raw": "which",
+          "start": 32.12,
+          "end": 32.66
+        },
+        {
+          "raw": "might",
+          "start": 32.66,
+          "end": 32.86
+        },
+        {
+          "raw": "have",
+          "start": 32.86,
+          "end": 33.0
+        },
+        {
+          "raw": "been",
+          "start": 33.0,
+          "end": 33.16
+        },
+        {
+          "raw": "levied",
+          "start": 33.16,
+          "end": 33.44
+        },
+        {
+          "raw": "upon",
+          "start": 33.44,
+          "end": 33.82
+        },
+        {
+          "raw": "such",
+          "start": 33.82,
+          "end": 34.14
+        },
+        {
+          "raw": "importation.",
+          "start": 34.14,
+          "end": 34.96
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "consequence",
+        "of",
+        "that",
+        "system,",
+        "the",
+        "importation",
+        "of",
+        "several",
+        "sorts",
+        "of",
+        "goods",
+        "has",
+        "been",
+        "prohibited",
+        "altogether.",
+        "This",
+        "prohibition",
+        "has,",
+        "in",
+        "some",
+        "cases,",
+        "entirely",
+        "prevented,",
+        "and",
+        "in",
+        "others",
+        "has",
+        "very",
+        "much",
+        "diminished,",
+        "the",
+        "importation",
+        "of",
+        "those",
+        "commodities,",
+        "by",
+        "reducing",
+        "the",
+        "importers",
+        "to",
+        "the",
+        "necessity",
+        "of",
+        "smuggling.",
+        "It",
+        "has",
+        "entirely",
+        "prevented",
+        "the",
+        "importation",
+        "of",
+        "foreign",
+        "wollens;",
+        "and",
+        "it",
+        "has",
+        "very",
+        "much",
+        "diminished",
+        "that",
+        "of",
+        "foreign",
+        "silks",
+        "and",
+        "velvets,",
+        "In",
+        "both",
+        "cases,",
+        "it",
+        "has",
+        "entirely",
+        "annihilated",
+        "the",
+        "revenue",
+        "of",
+        "customs",
+        "which",
+        "might",
+        "have",
+        "been",
+        "levied",
+        "upon",
+        "such",
+        "importation."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          66,
+          0,
+          0
+        ],
+        [
+          "equal",
+          66,
+          72,
+          0,
+          6
+        ],
+        [
+          "replace",
+          72,
+          73,
+          6,
+          7
+        ],
+        [
+          "equal",
+          73,
+          85,
+          7,
+          19
+        ],
+        [
+          "insert",
+          85,
+          85,
+          19,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          66,
+          0,
+          0
+        ],
+        [
+          "replace",
+          72,
+          73,
+          6,
+          7
+        ],
+        [
+          "insert",
+          85,
+          85,
+          19,
+          38
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 7.28,
+          "end": 8.68,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 8.68,
+          "end": 8.9,
+          "key": "both",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cases,",
+          "start": 8.9,
+          "end": 9.4,
+          "key": "cases",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 9.4,
+          "end": 9.4,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 9.4,
+          "end": 9.4,
+          "key": "has",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "entirely",
+          "start": 9.4,
+          "end": 9.4,
+          "key": "entirely",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "diminished",
+          "start": 9.4,
+          "end": 13.4,
+          "key": "diminished",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 14.08,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "revenue",
+          "start": 14.08,
+          "end": 14.82,
+          "key": "revenue",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.82,
+          "end": 22.62,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "customs",
+          "start": 22.62,
+          "end": 23.24,
+          "key": "customs",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 23.24,
+          "end": 24.08,
+          "key": "which",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 24.08,
+          "end": 24.44,
+          "key": "might",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 24.44,
+          "end": 24.44,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 24.44,
+          "end": 24.66,
+          "key": "been",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "levied",
+          "start": 24.66,
+          "end": 25.5,
+          "key": "levied",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 25.5,
+          "end": 28.12,
+          "key": "upon",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 28.12,
+          "end": 28.34,
+          "key": "such",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "importation.",
+          "start": 28.34,
+          "end": 29.98,
+          "key": "importation",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 30.02,
+          "end": 30.24,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 30.24,
+          "end": 30.24,
+          "key": "both",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "cases,",
+          "start": 30.24,
+          "end": 30.24,
+          "key": "cases",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 30.24,
+          "end": 30.24,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 30.24,
+          "end": 30.24,
+          "key": "has",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "entirely",
+          "start": 30.24,
+          "end": 30.24,
+          "key": "entirely",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "eliminated",
+          "start": 30.24,
+          "end": 30.9,
+          "key": "eliminated",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.9,
+          "end": 31.08,
+          "key": "the",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "revenue",
+          "start": 31.08,
+          "end": 31.44,
+          "key": "revenue",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 31.44,
+          "end": 31.7,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "customs",
+          "start": 31.7,
+          "end": 32.12,
+          "key": "customs",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 32.12,
+          "end": 32.66,
+          "key": "which",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 32.66,
+          "end": 32.86,
+          "key": "might",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 32.86,
+          "end": 33.0,
+          "key": "have",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 33.0,
+          "end": 33.16,
+          "key": "been",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "levied",
+          "start": 33.16,
+          "end": 33.44,
+          "key": "levied",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 33.44,
+          "end": 33.82,
+          "key": "upon",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 33.82,
+          "end": 34.14,
+          "key": "such",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "importation.",
+          "start": 34.14,
+          "end": 34.96,
+          "key": "importation",
+          "pieces": [
+            37
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.0,
+          "end": 3.64
+        },
+        {
+          "text": "consequence",
+          "start": 3.64,
+          "end": 5.46
+        },
+        {
+          "text": "of",
+          "start": 5.46,
+          "end": 6.37
+        },
+        {
+          "text": "that",
+          "start": 6.37,
+          "end": 6.825
+        },
+        {
+          "text": "system,",
+          "start": 6.825,
+          "end": 7.053
+        },
+        {
+          "text": "the",
+          "start": 7.053,
+          "end": 7.167
+        },
+        {
+          "text": "importation",
+          "start": 7.167,
+          "end": 7.223
+        },
+        {
+          "text": "of",
+          "start": 7.223,
+          "end": 7.252
+        },
+        {
+          "text": "several",
+          "start": 7.252,
+          "end": 7.266
+        },
+        {
+          "text": "sorts",
+          "start": 7.266,
+          "end": 7.273
+        },
+        {
+          "text": "of",
+          "start": 7.273,
+          "end": 7.277
+        },
+        {
+          "text": "goods",
+          "start": 7.277,
+          "end": 7.279
+        },
+        {
+          "text": "has",
+          "start": 7.279,
+          "end": 7.28
+        },
+        {
+          "text": "been",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "prohibited",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "altogether.",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "This",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "prohibition",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "has,",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "in",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "some",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "cases,",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "entirely",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "prevented,",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "and",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "in",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "others",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "has",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "very",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "much",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "diminished,",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "the",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "importation",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "of",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "those",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "commodities,",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "by",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "reducing",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "the",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "importers",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "to",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "the",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "necessity",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "of",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "smuggling.",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "It",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "has",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "entirely",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "prevented",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "the",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "importation",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "of",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "foreign",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "wollens;",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "and",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "it",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "has",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "very",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "much",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "diminished",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "that",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "of",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "foreign",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "silks",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "and",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "velvets,",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "In",
+          "start": 7.28,
+          "end": 8.68
+        },
+        {
+          "text": "both",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "text": "cases,",
+          "start": 8.9,
+          "end": 9.4
+        },
+        {
+          "text": "it",
+          "start": 9.4,
+          "end": 9.4
+        },
+        {
+          "text": "has",
+          "start": 9.4,
+          "end": 9.4
+        },
+        {
+          "text": "entirely",
+          "start": 9.4,
+          "end": 9.4
+        },
+        {
+          "text": "annihilated",
+          "start": 9.4,
+          "end": 11.4
+        },
+        {
+          "text": "the",
+          "start": 13.4,
+          "end": 14.08
+        },
+        {
+          "text": "revenue",
+          "start": 14.08,
+          "end": 14.82
+        },
+        {
+          "text": "of",
+          "start": 14.82,
+          "end": 22.62
+        },
+        {
+          "text": "customs",
+          "start": 22.62,
+          "end": 23.24
+        },
+        {
+          "text": "which",
+          "start": 23.24,
+          "end": 24.08
+        },
+        {
+          "text": "might",
+          "start": 24.08,
+          "end": 24.44
+        },
+        {
+          "text": "have",
+          "start": 24.44,
+          "end": 24.44
+        },
+        {
+          "text": "been",
+          "start": 24.44,
+          "end": 24.66
+        },
+        {
+          "text": "levied",
+          "start": 24.66,
+          "end": 25.5
+        },
+        {
+          "text": "upon",
+          "start": 25.5,
+          "end": 28.12
+        },
+        {
+          "text": "such",
+          "start": 28.12,
+          "end": 28.34
+        },
+        {
+          "text": "importation.",
+          "start": 28.34,
+          "end": 29.98
+        }
+      ],
+      "stats": {
+        "expected_words": 85,
+        "heard_words": 38,
+        "matched_words": 18
+      },
+      "match_ratio": 0.21176470588235294,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5471940822899342
+    },
+    {
+      "asr_seconds": 0.9327636975795031,
+      "alignment_seconds": 0.001664147712290287,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "This"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " In consequence of that system, the importation of several sorts of goods has been prohibited altogether.",
+          "start": 0.02,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.39208984375
+            },
+            {
+              "text": " consequence",
+              "start": 0.54,
+              "end": 1.04,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " of",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " system,",
+              "start": 1.46,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.5,
+              "probability": 0.986328125
+            },
+            {
+              "text": " importation",
+              "start": 2.5,
+              "end": 3.2,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " of",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " several",
+              "start": 3.38,
+              "end": 3.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sorts",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " goods",
+              "start": 4.2,
+              "end": 4.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 4.5,
+              "end": 4.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " been",
+              "start": 4.78,
+              "end": 4.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " prohibited",
+              "start": 4.98,
+              "end": 5.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " altogether.",
+              "start": 5.46,
+              "end": 6.08,
+              "probability": 0.95556640625
+            }
+          ]
+        },
+        {
+          "text": " This prohibition has, in some cases, entirely prevented and in others has very much diminished",
+          "start": 7.02,
+          "end": 13.56,
+          "words": [
+            {
+              "text": " This",
+              "start": 7.02,
+              "end": 7.2,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " prohibition",
+              "start": 7.2,
+              "end": 7.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " has,",
+              "start": 7.74,
+              "end": 8.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 8.56,
+              "end": 8.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " some",
+              "start": 8.68,
+              "end": 8.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cases,",
+              "start": 8.9,
+              "end": 9.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " entirely",
+              "start": 10.0,
+              "end": 10.24,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " prevented",
+              "start": 10.24,
+              "end": 10.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 10.98,
+              "end": 11.64,
+              "probability": 0.54541015625
+            },
+            {
+              "text": " in",
+              "start": 11.64,
+              "end": 11.74,
+              "probability": 0.935546875
+            },
+            {
+              "text": " others",
+              "start": 11.74,
+              "end": 12.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " has",
+              "start": 12.04,
+              "end": 12.32,
+              "probability": 0.955078125
+            },
+            {
+              "text": " very",
+              "start": 12.32,
+              "end": 12.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " much",
+              "start": 12.66,
+              "end": 12.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " diminished",
+              "start": 12.92,
+              "end": 13.56,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " the importation of those commodities by reducing the importers to the necessity of smuggling.",
+          "start": 13.56,
+          "end": 19.08,
+          "words": [
+            {
+              "text": " the",
+              "start": 13.56,
+              "end": 14.1,
+              "probability": 0.931640625
+            },
+            {
+              "text": " importation",
+              "start": 14.1,
+              "end": 14.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 14.84,
+              "end": 15.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " those",
+              "start": 15.02,
+              "end": 15.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " commodities",
+              "start": 15.2,
+              "end": 15.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 15.74,
+              "end": 16.46,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " reducing",
+              "start": 16.46,
+              "end": 16.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 16.86,
+              "end": 17.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " importers",
+              "start": 17.1,
+              "end": 17.5,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " to",
+              "start": 17.5,
+              "end": 17.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 17.78,
+              "end": 17.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " necessity",
+              "start": 17.88,
+              "end": 18.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 18.28,
+              "end": 18.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " smuggling.",
+              "start": 18.6,
+              "end": 19.08,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " It has entirely prevented the importation of foreign Wollans and it has very much diminished",
+          "start": 20.12,
+          "end": 25.62,
+          "words": [
+            {
+              "text": " It",
+              "start": 20.12,
+              "end": 20.26,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " has",
+              "start": 20.26,
+              "end": 20.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " entirely",
+              "start": 20.38,
+              "end": 20.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " prevented",
+              "start": 20.86,
+              "end": 21.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 21.5,
+              "end": 21.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " importation",
+              "start": 21.72,
+              "end": 22.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 22.46,
+              "end": 22.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " foreign",
+              "start": 22.68,
+              "end": 23.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Wollans",
+              "start": 23.0,
+              "end": 23.58,
+              "probability": 0.5944010416666666
+            },
+            {
+              "text": " and",
+              "start": 23.58,
+              "end": 24.26,
+              "probability": 0.4794921875
+            },
+            {
+              "text": " it",
+              "start": 24.26,
+              "end": 24.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " has",
+              "start": 24.34,
+              "end": 24.48,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " very",
+              "start": 24.48,
+              "end": 24.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " much",
+              "start": 24.76,
+              "end": 25.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " diminished",
+              "start": 25.0,
+              "end": 25.62,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " that of foreign silks and velvets.",
+          "start": 25.62,
+          "end": 27.56,
+          "words": [
+            {
+              "text": " that",
+              "start": 25.62,
+              "end": 25.84,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " of",
+              "start": 25.84,
+              "end": 26.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " foreign",
+              "start": 26.02,
+              "end": 26.4,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " silks",
+              "start": 26.4,
+              "end": 26.9,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " and",
+              "start": 26.9,
+              "end": 27.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " velvets.",
+              "start": 27.08,
+              "end": 27.56,
+              "probability": 0.927734375
+            }
+          ]
+        },
+        {
+          "text": " In both cases, it has entirely annihilated the revenue of customs which might have been",
+          "start": 27.9,
+          "end": 33.14,
+          "words": [
+            {
+              "text": " In",
+              "start": 27.9,
+              "end": 28.08,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " both",
+              "start": 28.08,
+              "end": 28.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cases,",
+              "start": 28.28,
+              "end": 28.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 29.26,
+              "end": 29.44,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " has",
+              "start": 29.44,
+              "end": 29.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " entirely",
+              "start": 29.56,
+              "end": 30.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " annihilated",
+              "start": 30.08,
+              "end": 30.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 30.92,
+              "end": 31.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " revenue",
+              "start": 31.1,
+              "end": 31.42,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 31.42,
+              "end": 31.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " customs",
+              "start": 31.7,
+              "end": 32.1,
+              "probability": 0.98046875
+            },
+            {
+              "text": " which",
+              "start": 32.1,
+              "end": 32.66,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " might",
+              "start": 32.66,
+              "end": 32.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 32.86,
+              "end": 33.0,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " been",
+              "start": 33.0,
+              "end": 33.14,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " levied upon such importation.",
+          "start": 33.14,
+          "end": 34.96,
+          "words": [
+            {
+              "text": " levied",
+              "start": 33.14,
+              "end": 33.42,
+              "probability": 0.974609375
+            },
+            {
+              "text": " upon",
+              "start": 33.42,
+              "end": 33.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " such",
+              "start": 33.82,
+              "end": 34.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " importation.",
+              "start": 34.14,
+              "end": 34.96,
+              "probability": 0.996337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "consequence",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "system,",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.5
+        },
+        {
+          "raw": "importation",
+          "start": 2.5,
+          "end": 3.2
+        },
+        {
+          "raw": "of",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "several",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "raw": "sorts",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "goods",
+          "start": 4.2,
+          "end": 4.5
+        },
+        {
+          "raw": "has",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "raw": "been",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "raw": "prohibited",
+          "start": 4.98,
+          "end": 5.46
+        },
+        {
+          "raw": "altogether.",
+          "start": 5.46,
+          "end": 6.08
+        },
+        {
+          "raw": "This",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "raw": "prohibition",
+          "start": 7.2,
+          "end": 7.74
+        },
+        {
+          "raw": "has,",
+          "start": 7.74,
+          "end": 8.26
+        },
+        {
+          "raw": "in",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "raw": "some",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "raw": "cases,",
+          "start": 8.9,
+          "end": 9.34
+        },
+        {
+          "raw": "entirely",
+          "start": 10.0,
+          "end": 10.24
+        },
+        {
+          "raw": "prevented",
+          "start": 10.24,
+          "end": 10.98
+        },
+        {
+          "raw": "and",
+          "start": 10.98,
+          "end": 11.64
+        },
+        {
+          "raw": "in",
+          "start": 11.64,
+          "end": 11.74
+        },
+        {
+          "raw": "others",
+          "start": 11.74,
+          "end": 12.04
+        },
+        {
+          "raw": "has",
+          "start": 12.04,
+          "end": 12.32
+        },
+        {
+          "raw": "very",
+          "start": 12.32,
+          "end": 12.66
+        },
+        {
+          "raw": "much",
+          "start": 12.66,
+          "end": 12.92
+        },
+        {
+          "raw": "diminished",
+          "start": 12.92,
+          "end": 13.56
+        },
+        {
+          "raw": "the",
+          "start": 13.56,
+          "end": 14.1
+        },
+        {
+          "raw": "importation",
+          "start": 14.1,
+          "end": 14.84
+        },
+        {
+          "raw": "of",
+          "start": 14.84,
+          "end": 15.02
+        },
+        {
+          "raw": "those",
+          "start": 15.02,
+          "end": 15.2
+        },
+        {
+          "raw": "commodities",
+          "start": 15.2,
+          "end": 15.74
+        },
+        {
+          "raw": "by",
+          "start": 15.74,
+          "end": 16.46
+        },
+        {
+          "raw": "reducing",
+          "start": 16.46,
+          "end": 16.86
+        },
+        {
+          "raw": "the",
+          "start": 16.86,
+          "end": 17.1
+        },
+        {
+          "raw": "importers",
+          "start": 17.1,
+          "end": 17.5
+        },
+        {
+          "raw": "to",
+          "start": 17.5,
+          "end": 17.78
+        },
+        {
+          "raw": "the",
+          "start": 17.78,
+          "end": 17.88
+        },
+        {
+          "raw": "necessity",
+          "start": 17.88,
+          "end": 18.28
+        },
+        {
+          "raw": "of",
+          "start": 18.28,
+          "end": 18.6
+        },
+        {
+          "raw": "smuggling.",
+          "start": 18.6,
+          "end": 19.08
+        },
+        {
+          "raw": "It",
+          "start": 20.12,
+          "end": 20.26
+        },
+        {
+          "raw": "has",
+          "start": 20.26,
+          "end": 20.38
+        },
+        {
+          "raw": "entirely",
+          "start": 20.38,
+          "end": 20.86
+        },
+        {
+          "raw": "prevented",
+          "start": 20.86,
+          "end": 21.5
+        },
+        {
+          "raw": "the",
+          "start": 21.5,
+          "end": 21.72
+        },
+        {
+          "raw": "importation",
+          "start": 21.72,
+          "end": 22.46
+        },
+        {
+          "raw": "of",
+          "start": 22.46,
+          "end": 22.68
+        },
+        {
+          "raw": "foreign",
+          "start": 22.68,
+          "end": 23.0
+        },
+        {
+          "raw": "Wollans",
+          "start": 23.0,
+          "end": 23.58
+        },
+        {
+          "raw": "and",
+          "start": 23.58,
+          "end": 24.26
+        },
+        {
+          "raw": "it",
+          "start": 24.26,
+          "end": 24.34
+        },
+        {
+          "raw": "has",
+          "start": 24.34,
+          "end": 24.48
+        },
+        {
+          "raw": "very",
+          "start": 24.48,
+          "end": 24.76
+        },
+        {
+          "raw": "much",
+          "start": 24.76,
+          "end": 25.0
+        },
+        {
+          "raw": "diminished",
+          "start": 25.0,
+          "end": 25.62
+        },
+        {
+          "raw": "that",
+          "start": 25.62,
+          "end": 25.84
+        },
+        {
+          "raw": "of",
+          "start": 25.84,
+          "end": 26.02
+        },
+        {
+          "raw": "foreign",
+          "start": 26.02,
+          "end": 26.4
+        },
+        {
+          "raw": "silks",
+          "start": 26.4,
+          "end": 26.9
+        },
+        {
+          "raw": "and",
+          "start": 26.9,
+          "end": 27.08
+        },
+        {
+          "raw": "velvets.",
+          "start": 27.08,
+          "end": 27.56
+        },
+        {
+          "raw": "In",
+          "start": 27.9,
+          "end": 28.08
+        },
+        {
+          "raw": "both",
+          "start": 28.08,
+          "end": 28.28
+        },
+        {
+          "raw": "cases,",
+          "start": 28.28,
+          "end": 28.76
+        },
+        {
+          "raw": "it",
+          "start": 29.26,
+          "end": 29.44
+        },
+        {
+          "raw": "has",
+          "start": 29.44,
+          "end": 29.56
+        },
+        {
+          "raw": "entirely",
+          "start": 29.56,
+          "end": 30.08
+        },
+        {
+          "raw": "annihilated",
+          "start": 30.08,
+          "end": 30.92
+        },
+        {
+          "raw": "the",
+          "start": 30.92,
+          "end": 31.1
+        },
+        {
+          "raw": "revenue",
+          "start": 31.1,
+          "end": 31.42
+        },
+        {
+          "raw": "of",
+          "start": 31.42,
+          "end": 31.7
+        },
+        {
+          "raw": "customs",
+          "start": 31.7,
+          "end": 32.1
+        },
+        {
+          "raw": "which",
+          "start": 32.1,
+          "end": 32.66
+        },
+        {
+          "raw": "might",
+          "start": 32.66,
+          "end": 32.86
+        },
+        {
+          "raw": "have",
+          "start": 32.86,
+          "end": 33.0
+        },
+        {
+          "raw": "been",
+          "start": 33.0,
+          "end": 33.14
+        },
+        {
+          "raw": "levied",
+          "start": 33.14,
+          "end": 33.42
+        },
+        {
+          "raw": "upon",
+          "start": 33.42,
+          "end": 33.82
+        },
+        {
+          "raw": "such",
+          "start": 33.82,
+          "end": 34.14
+        },
+        {
+          "raw": "importation.",
+          "start": 34.14,
+          "end": 34.96
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "consequence",
+        "of",
+        "that",
+        "system,",
+        "the",
+        "importation",
+        "of",
+        "several",
+        "sorts",
+        "of",
+        "goods",
+        "has",
+        "been",
+        "prohibited",
+        "altogether.",
+        "This",
+        "prohibition",
+        "has,",
+        "in",
+        "some",
+        "cases,",
+        "entirely",
+        "prevented,",
+        "and",
+        "in",
+        "others",
+        "has",
+        "very",
+        "much",
+        "diminished,",
+        "the",
+        "importation",
+        "of",
+        "those",
+        "commodities,",
+        "by",
+        "reducing",
+        "the",
+        "importers",
+        "to",
+        "the",
+        "necessity",
+        "of",
+        "smuggling.",
+        "It",
+        "has",
+        "entirely",
+        "prevented",
+        "the",
+        "importation",
+        "of",
+        "foreign",
+        "wollens;",
+        "and",
+        "it",
+        "has",
+        "very",
+        "much",
+        "diminished",
+        "that",
+        "of",
+        "foreign",
+        "silks",
+        "and",
+        "velvets,",
+        "In",
+        "both",
+        "cases,",
+        "it",
+        "has",
+        "entirely",
+        "annihilated",
+        "the",
+        "revenue",
+        "of",
+        "customs",
+        "which",
+        "might",
+        "have",
+        "been",
+        "levied",
+        "upon",
+        "such",
+        "importation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          53,
+          0,
+          53
+        ],
+        [
+          "replace",
+          53,
+          54,
+          53,
+          54
+        ],
+        [
+          "equal",
+          54,
+          85,
+          54,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          53,
+          54,
+          53,
+          54
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "consequence",
+          "start": 0.54,
+          "end": 1.04,
+          "key": "consequence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "system,",
+          "start": 1.46,
+          "end": 1.94,
+          "key": "system",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.5,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "importation",
+          "start": 2.5,
+          "end": 3.2,
+          "key": "importation",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 3.38,
+          "end": 3.7,
+          "key": "several",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sorts",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "sorts",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "goods",
+          "start": 4.2,
+          "end": 4.5,
+          "key": "goods",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.5,
+          "end": 4.78,
+          "key": "has",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 4.78,
+          "end": 4.98,
+          "key": "been",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "prohibited",
+          "start": 4.98,
+          "end": 5.46,
+          "key": "prohibited",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "altogether.",
+          "start": 5.46,
+          "end": 6.08,
+          "key": "altogether",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 7.02,
+          "end": 7.2,
+          "key": "this",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "prohibition",
+          "start": 7.2,
+          "end": 7.74,
+          "key": "prohibition",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "has,",
+          "start": 7.74,
+          "end": 8.26,
+          "key": "has",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.56,
+          "end": 8.68,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 8.68,
+          "end": 8.9,
+          "key": "some",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "cases,",
+          "start": 8.9,
+          "end": 9.34,
+          "key": "cases",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "entirely",
+          "start": 10.0,
+          "end": 10.24,
+          "key": "entirely",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "prevented",
+          "start": 10.24,
+          "end": 10.98,
+          "key": "prevented",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.98,
+          "end": 11.64,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.64,
+          "end": 11.74,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 11.74,
+          "end": 12.04,
+          "key": "others",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 12.04,
+          "end": 12.32,
+          "key": "has",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 12.32,
+          "end": 12.66,
+          "key": "very",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 12.66,
+          "end": 12.92,
+          "key": "much",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "diminished",
+          "start": 12.92,
+          "end": 13.56,
+          "key": "diminished",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.56,
+          "end": 14.1,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "importation",
+          "start": 14.1,
+          "end": 14.84,
+          "key": "importation",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.84,
+          "end": 15.02,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 15.02,
+          "end": 15.2,
+          "key": "those",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "commodities",
+          "start": 15.2,
+          "end": 15.74,
+          "key": "commodities",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 15.74,
+          "end": 16.46,
+          "key": "by",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "reducing",
+          "start": 16.46,
+          "end": 16.86,
+          "key": "reducing",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.86,
+          "end": 17.1,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "importers",
+          "start": 17.1,
+          "end": 17.5,
+          "key": "importers",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.5,
+          "end": 17.78,
+          "key": "to",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.78,
+          "end": 17.88,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "necessity",
+          "start": 17.88,
+          "end": 18.28,
+          "key": "necessity",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.28,
+          "end": 18.6,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "smuggling.",
+          "start": 18.6,
+          "end": 19.08,
+          "key": "smuggling",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 20.12,
+          "end": 20.26,
+          "key": "it",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 20.26,
+          "end": 20.38,
+          "key": "has",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "entirely",
+          "start": 20.38,
+          "end": 20.86,
+          "key": "entirely",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "prevented",
+          "start": 20.86,
+          "end": 21.5,
+          "key": "prevented",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.5,
+          "end": 21.72,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "importation",
+          "start": 21.72,
+          "end": 22.46,
+          "key": "importation",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.46,
+          "end": 22.68,
+          "key": "of",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "foreign",
+          "start": 22.68,
+          "end": 23.0,
+          "key": "foreign",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Wollans",
+          "start": 23.0,
+          "end": 23.58,
+          "key": "wollans",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.58,
+          "end": 24.26,
+          "key": "and",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 24.26,
+          "end": 24.34,
+          "key": "it",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 24.34,
+          "end": 24.48,
+          "key": "has",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 24.48,
+          "end": 24.76,
+          "key": "very",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 24.76,
+          "end": 25.0,
+          "key": "much",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "diminished",
+          "start": 25.0,
+          "end": 25.62,
+          "key": "diminished",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 25.62,
+          "end": 25.84,
+          "key": "that",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.84,
+          "end": 26.02,
+          "key": "of",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "foreign",
+          "start": 26.02,
+          "end": 26.4,
+          "key": "foreign",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "silks",
+          "start": 26.4,
+          "end": 26.9,
+          "key": "silks",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 26.9,
+          "end": 27.08,
+          "key": "and",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "velvets.",
+          "start": 27.08,
+          "end": 27.56,
+          "key": "velvets",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 27.9,
+          "end": 28.08,
+          "key": "in",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 28.08,
+          "end": 28.28,
+          "key": "both",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "cases,",
+          "start": 28.28,
+          "end": 28.76,
+          "key": "cases",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 29.26,
+          "end": 29.44,
+          "key": "it",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 29.44,
+          "end": 29.56,
+          "key": "has",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "entirely",
+          "start": 29.56,
+          "end": 30.08,
+          "key": "entirely",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "annihilated",
+          "start": 30.08,
+          "end": 30.92,
+          "key": "annihilated",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.92,
+          "end": 31.1,
+          "key": "the",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "revenue",
+          "start": 31.1,
+          "end": 31.42,
+          "key": "revenue",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 31.42,
+          "end": 31.7,
+          "key": "of",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "customs",
+          "start": 31.7,
+          "end": 32.1,
+          "key": "customs",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 32.1,
+          "end": 32.66,
+          "key": "which",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 32.66,
+          "end": 32.86,
+          "key": "might",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 32.86,
+          "end": 33.0,
+          "key": "have",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 33.0,
+          "end": 33.14,
+          "key": "been",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "levied",
+          "start": 33.14,
+          "end": 33.42,
+          "key": "levied",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 33.42,
+          "end": 33.82,
+          "key": "upon",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 33.82,
+          "end": 34.14,
+          "key": "such",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "importation.",
+          "start": 34.14,
+          "end": 34.96,
+          "key": "importation",
+          "pieces": [
+            84
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "consequence",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "text": "of",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "that",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "system,",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.5
+        },
+        {
+          "text": "importation",
+          "start": 2.5,
+          "end": 3.2
+        },
+        {
+          "text": "of",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "several",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "text": "sorts",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "of",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "goods",
+          "start": 4.2,
+          "end": 4.5
+        },
+        {
+          "text": "has",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "text": "been",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "text": "prohibited",
+          "start": 4.98,
+          "end": 5.46
+        },
+        {
+          "text": "altogether.",
+          "start": 5.46,
+          "end": 6.08
+        },
+        {
+          "text": "This",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "text": "prohibition",
+          "start": 7.2,
+          "end": 7.74
+        },
+        {
+          "text": "has,",
+          "start": 7.74,
+          "end": 8.26
+        },
+        {
+          "text": "in",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "text": "some",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "text": "cases,",
+          "start": 8.9,
+          "end": 9.34
+        },
+        {
+          "text": "entirely",
+          "start": 10.0,
+          "end": 10.24
+        },
+        {
+          "text": "prevented,",
+          "start": 10.24,
+          "end": 10.98
+        },
+        {
+          "text": "and",
+          "start": 10.98,
+          "end": 11.64
+        },
+        {
+          "text": "in",
+          "start": 11.64,
+          "end": 11.74
+        },
+        {
+          "text": "others",
+          "start": 11.74,
+          "end": 12.04
+        },
+        {
+          "text": "has",
+          "start": 12.04,
+          "end": 12.32
+        },
+        {
+          "text": "very",
+          "start": 12.32,
+          "end": 12.66
+        },
+        {
+          "text": "much",
+          "start": 12.66,
+          "end": 12.92
+        },
+        {
+          "text": "diminished,",
+          "start": 12.92,
+          "end": 13.56
+        },
+        {
+          "text": "the",
+          "start": 13.56,
+          "end": 14.1
+        },
+        {
+          "text": "importation",
+          "start": 14.1,
+          "end": 14.84
+        },
+        {
+          "text": "of",
+          "start": 14.84,
+          "end": 15.02
+        },
+        {
+          "text": "those",
+          "start": 15.02,
+          "end": 15.2
+        },
+        {
+          "text": "commodities,",
+          "start": 15.2,
+          "end": 15.74
+        },
+        {
+          "text": "by",
+          "start": 15.74,
+          "end": 16.46
+        },
+        {
+          "text": "reducing",
+          "start": 16.46,
+          "end": 16.86
+        },
+        {
+          "text": "the",
+          "start": 16.86,
+          "end": 17.1
+        },
+        {
+          "text": "importers",
+          "start": 17.1,
+          "end": 17.5
+        },
+        {
+          "text": "to",
+          "start": 17.5,
+          "end": 17.78
+        },
+        {
+          "text": "the",
+          "start": 17.78,
+          "end": 17.88
+        },
+        {
+          "text": "necessity",
+          "start": 17.88,
+          "end": 18.28
+        },
+        {
+          "text": "of",
+          "start": 18.28,
+          "end": 18.6
+        },
+        {
+          "text": "smuggling.",
+          "start": 18.6,
+          "end": 19.08
+        },
+        {
+          "text": "It",
+          "start": 20.12,
+          "end": 20.26
+        },
+        {
+          "text": "has",
+          "start": 20.26,
+          "end": 20.38
+        },
+        {
+          "text": "entirely",
+          "start": 20.38,
+          "end": 20.86
+        },
+        {
+          "text": "prevented",
+          "start": 20.86,
+          "end": 21.5
+        },
+        {
+          "text": "the",
+          "start": 21.5,
+          "end": 21.72
+        },
+        {
+          "text": "importation",
+          "start": 21.72,
+          "end": 22.46
+        },
+        {
+          "text": "of",
+          "start": 22.46,
+          "end": 22.68
+        },
+        {
+          "text": "foreign",
+          "start": 22.68,
+          "end": 23.0
+        },
+        {
+          "text": "wollens;",
+          "start": 23.0,
+          "end": 23.29
+        },
+        {
+          "text": "and",
+          "start": 23.58,
+          "end": 24.26
+        },
+        {
+          "text": "it",
+          "start": 24.26,
+          "end": 24.34
+        },
+        {
+          "text": "has",
+          "start": 24.34,
+          "end": 24.48
+        },
+        {
+          "text": "very",
+          "start": 24.48,
+          "end": 24.76
+        },
+        {
+          "text": "much",
+          "start": 24.76,
+          "end": 25.0
+        },
+        {
+          "text": "diminished",
+          "start": 25.0,
+          "end": 25.62
+        },
+        {
+          "text": "that",
+          "start": 25.62,
+          "end": 25.84
+        },
+        {
+          "text": "of",
+          "start": 25.84,
+          "end": 26.02
+        },
+        {
+          "text": "foreign",
+          "start": 26.02,
+          "end": 26.4
+        },
+        {
+          "text": "silks",
+          "start": 26.4,
+          "end": 26.9
+        },
+        {
+          "text": "and",
+          "start": 26.9,
+          "end": 27.08
+        },
+        {
+          "text": "velvets,",
+          "start": 27.08,
+          "end": 27.56
+        },
+        {
+          "text": "In",
+          "start": 27.9,
+          "end": 28.08
+        },
+        {
+          "text": "both",
+          "start": 28.08,
+          "end": 28.28
+        },
+        {
+          "text": "cases,",
+          "start": 28.28,
+          "end": 28.76
+        },
+        {
+          "text": "it",
+          "start": 29.26,
+          "end": 29.44
+        },
+        {
+          "text": "has",
+          "start": 29.44,
+          "end": 29.56
+        },
+        {
+          "text": "entirely",
+          "start": 29.56,
+          "end": 30.08
+        },
+        {
+          "text": "annihilated",
+          "start": 30.08,
+          "end": 30.92
+        },
+        {
+          "text": "the",
+          "start": 30.92,
+          "end": 31.1
+        },
+        {
+          "text": "revenue",
+          "start": 31.1,
+          "end": 31.42
+        },
+        {
+          "text": "of",
+          "start": 31.42,
+          "end": 31.7
+        },
+        {
+          "text": "customs",
+          "start": 31.7,
+          "end": 32.1
+        },
+        {
+          "text": "which",
+          "start": 32.1,
+          "end": 32.66
+        },
+        {
+          "text": "might",
+          "start": 32.66,
+          "end": 32.86
+        },
+        {
+          "text": "have",
+          "start": 32.86,
+          "end": 33.0
+        },
+        {
+          "text": "been",
+          "start": 33.0,
+          "end": 33.14
+        },
+        {
+          "text": "levied",
+          "start": 33.14,
+          "end": 33.42
+        },
+        {
+          "text": "upon",
+          "start": 33.42,
+          "end": 33.82
+        },
+        {
+          "text": "such",
+          "start": 33.82,
+          "end": 34.14
+        },
+        {
+          "text": "importation.",
+          "start": 34.14,
+          "end": 34.96
+        }
+      ],
+      "stats": {
+        "expected_words": 85,
+        "heard_words": 85,
+        "matched_words": 84
+      },
+      "match_ratio": 0.9882352941176471,
+      "rejection_reasons": [],
+      "seconds": 0.935141053982079
+    },
+    {
+      "asr_seconds": 0.899745836853981,
+      "alignment_seconds": 0.0016814377158880234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In consequence of that system, the importation of several sorts of goods has been prohibited altogether.",
+          "start": 0.02,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.39208984375
+            },
+            {
+              "text": " consequence",
+              "start": 0.54,
+              "end": 1.04,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " of",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " system,",
+              "start": 1.46,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.48,
+              "end": 2.5,
+              "probability": 0.986328125
+            },
+            {
+              "text": " importation",
+              "start": 2.5,
+              "end": 3.2,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " of",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " several",
+              "start": 3.38,
+              "end": 3.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sorts",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " goods",
+              "start": 4.2,
+              "end": 4.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 4.5,
+              "end": 4.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " been",
+              "start": 4.78,
+              "end": 4.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " prohibited",
+              "start": 4.98,
+              "end": 5.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " altogether.",
+              "start": 5.46,
+              "end": 6.08,
+              "probability": 0.9560546875
+            }
+          ]
+        },
+        {
+          "text": " This prohibition has, in some cases, entirely prevented, and in others has very much diminished,",
+          "start": 7.02,
+          "end": 13.56,
+          "words": [
+            {
+              "text": " This",
+              "start": 7.02,
+              "end": 7.2,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " prohibition",
+              "start": 7.2,
+              "end": 7.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " has,",
+              "start": 7.74,
+              "end": 8.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 8.56,
+              "end": 8.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " some",
+              "start": 8.68,
+              "end": 8.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cases,",
+              "start": 8.9,
+              "end": 9.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " entirely",
+              "start": 10.0,
+              "end": 10.24,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " prevented,",
+              "start": 10.24,
+              "end": 10.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 11.52,
+              "end": 11.64,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 11.64,
+              "end": 11.74,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " others",
+              "start": 11.74,
+              "end": 12.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " has",
+              "start": 12.04,
+              "end": 12.32,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " very",
+              "start": 12.32,
+              "end": 12.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " much",
+              "start": 12.66,
+              "end": 12.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " diminished,",
+              "start": 12.92,
+              "end": 13.56,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " the importation of those commodities, by reducing the importers to the necessity of smuggling.",
+          "start": 13.94,
+          "end": 19.06,
+          "words": [
+            {
+              "text": " the",
+              "start": 13.94,
+              "end": 14.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " importation",
+              "start": 14.1,
+              "end": 14.84,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " of",
+              "start": 14.84,
+              "end": 15.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " those",
+              "start": 15.02,
+              "end": 15.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " commodities,",
+              "start": 15.2,
+              "end": 15.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " by",
+              "start": 16.32,
+              "end": 16.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " reducing",
+              "start": 16.48,
+              "end": 16.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 16.86,
+              "end": 17.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " importers",
+              "start": 17.1,
+              "end": 17.5,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " to",
+              "start": 17.5,
+              "end": 17.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 17.78,
+              "end": 17.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " necessity",
+              "start": 17.88,
+              "end": 18.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 18.26,
+              "end": 18.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " smuggling.",
+              "start": 18.6,
+              "end": 19.06,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " It has entirely prevented the importation of foreign wolans,",
+          "start": 20.12,
+          "end": 23.56,
+          "words": [
+            {
+              "text": " It",
+              "start": 20.12,
+              "end": 20.26,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " has",
+              "start": 20.26,
+              "end": 20.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " entirely",
+              "start": 20.38,
+              "end": 20.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " prevented",
+              "start": 20.86,
+              "end": 21.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 21.5,
+              "end": 21.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " importation",
+              "start": 21.72,
+              "end": 22.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 22.46,
+              "end": 22.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " foreign",
+              "start": 22.68,
+              "end": 23.0,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " wolans,",
+              "start": 23.0,
+              "end": 23.56,
+              "probability": 0.4326171875
+            }
+          ]
+        },
+        {
+          "text": " and it has very much diminished that of foreign silks and velvets.",
+          "start": 24.08,
+          "end": 27.54,
+          "words": [
+            {
+              "text": " and",
+              "start": 24.08,
+              "end": 24.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 24.26,
+              "end": 24.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 24.34,
+              "end": 24.5,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " very",
+              "start": 24.5,
+              "end": 24.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " much",
+              "start": 24.76,
+              "end": 25.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " diminished",
+              "start": 25.0,
+              "end": 25.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 25.6,
+              "end": 25.86,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 25.86,
+              "end": 26.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " foreign",
+              "start": 26.02,
+              "end": 26.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " silks",
+              "start": 26.38,
+              "end": 26.88,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " and",
+              "start": 26.88,
+              "end": 27.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " velvets.",
+              "start": 27.08,
+              "end": 27.54,
+              "probability": 0.9363606770833334
+            }
+          ]
+        },
+        {
+          "text": " In both cases, it has entirely annihilated the revenue of customs,",
+          "start": 27.54,
+          "end": 32.1,
+          "words": [
+            {
+              "text": " In",
+              "start": 27.54,
+              "end": 28.06,
+              "probability": 0.79296875
+            },
+            {
+              "text": " both",
+              "start": 28.06,
+              "end": 28.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cases,",
+              "start": 28.28,
+              "end": 28.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 29.26,
+              "end": 29.44,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " has",
+              "start": 29.44,
+              "end": 29.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " entirely",
+              "start": 29.56,
+              "end": 30.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " annihilated",
+              "start": 30.06,
+              "end": 30.92,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " the",
+              "start": 30.92,
+              "end": 31.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " revenue",
+              "start": 31.1,
+              "end": 31.42,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 31.42,
+              "end": 31.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " customs,",
+              "start": 31.7,
+              "end": 32.1,
+              "probability": 0.931640625
+            }
+          ]
+        },
+        {
+          "text": " which might have been levied upon such importation.",
+          "start": 32.52,
+          "end": 34.94,
+          "words": [
+            {
+              "text": " which",
+              "start": 32.52,
+              "end": 32.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " might",
+              "start": 32.68,
+              "end": 32.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 32.86,
+              "end": 33.0,
+              "probability": 0.966796875
+            },
+            {
+              "text": " been",
+              "start": 33.0,
+              "end": 33.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " levied",
+              "start": 33.16,
+              "end": 33.44,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " upon",
+              "start": 33.44,
+              "end": 33.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " such",
+              "start": 33.8,
+              "end": 34.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " importation.",
+              "start": 34.12,
+              "end": 34.94,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "consequence",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "system,",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.5
+        },
+        {
+          "raw": "importation",
+          "start": 2.5,
+          "end": 3.2
+        },
+        {
+          "raw": "of",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "several",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "raw": "sorts",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "goods",
+          "start": 4.2,
+          "end": 4.5
+        },
+        {
+          "raw": "has",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "raw": "been",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "raw": "prohibited",
+          "start": 4.98,
+          "end": 5.46
+        },
+        {
+          "raw": "altogether.",
+          "start": 5.46,
+          "end": 6.08
+        },
+        {
+          "raw": "This",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "raw": "prohibition",
+          "start": 7.2,
+          "end": 7.74
+        },
+        {
+          "raw": "has,",
+          "start": 7.74,
+          "end": 8.26
+        },
+        {
+          "raw": "in",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "raw": "some",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "raw": "cases,",
+          "start": 8.9,
+          "end": 9.34
+        },
+        {
+          "raw": "entirely",
+          "start": 10.0,
+          "end": 10.24
+        },
+        {
+          "raw": "prevented,",
+          "start": 10.24,
+          "end": 10.98
+        },
+        {
+          "raw": "and",
+          "start": 11.52,
+          "end": 11.64
+        },
+        {
+          "raw": "in",
+          "start": 11.64,
+          "end": 11.74
+        },
+        {
+          "raw": "others",
+          "start": 11.74,
+          "end": 12.04
+        },
+        {
+          "raw": "has",
+          "start": 12.04,
+          "end": 12.32
+        },
+        {
+          "raw": "very",
+          "start": 12.32,
+          "end": 12.66
+        },
+        {
+          "raw": "much",
+          "start": 12.66,
+          "end": 12.92
+        },
+        {
+          "raw": "diminished,",
+          "start": 12.92,
+          "end": 13.56
+        },
+        {
+          "raw": "the",
+          "start": 13.94,
+          "end": 14.1
+        },
+        {
+          "raw": "importation",
+          "start": 14.1,
+          "end": 14.84
+        },
+        {
+          "raw": "of",
+          "start": 14.84,
+          "end": 15.02
+        },
+        {
+          "raw": "those",
+          "start": 15.02,
+          "end": 15.2
+        },
+        {
+          "raw": "commodities,",
+          "start": 15.2,
+          "end": 15.74
+        },
+        {
+          "raw": "by",
+          "start": 16.32,
+          "end": 16.48
+        },
+        {
+          "raw": "reducing",
+          "start": 16.48,
+          "end": 16.86
+        },
+        {
+          "raw": "the",
+          "start": 16.86,
+          "end": 17.1
+        },
+        {
+          "raw": "importers",
+          "start": 17.1,
+          "end": 17.5
+        },
+        {
+          "raw": "to",
+          "start": 17.5,
+          "end": 17.78
+        },
+        {
+          "raw": "the",
+          "start": 17.78,
+          "end": 17.88
+        },
+        {
+          "raw": "necessity",
+          "start": 17.88,
+          "end": 18.26
+        },
+        {
+          "raw": "of",
+          "start": 18.26,
+          "end": 18.6
+        },
+        {
+          "raw": "smuggling.",
+          "start": 18.6,
+          "end": 19.06
+        },
+        {
+          "raw": "It",
+          "start": 20.12,
+          "end": 20.26
+        },
+        {
+          "raw": "has",
+          "start": 20.26,
+          "end": 20.38
+        },
+        {
+          "raw": "entirely",
+          "start": 20.38,
+          "end": 20.86
+        },
+        {
+          "raw": "prevented",
+          "start": 20.86,
+          "end": 21.5
+        },
+        {
+          "raw": "the",
+          "start": 21.5,
+          "end": 21.72
+        },
+        {
+          "raw": "importation",
+          "start": 21.72,
+          "end": 22.46
+        },
+        {
+          "raw": "of",
+          "start": 22.46,
+          "end": 22.68
+        },
+        {
+          "raw": "foreign",
+          "start": 22.68,
+          "end": 23.0
+        },
+        {
+          "raw": "wolans,",
+          "start": 23.0,
+          "end": 23.56
+        },
+        {
+          "raw": "and",
+          "start": 24.08,
+          "end": 24.26
+        },
+        {
+          "raw": "it",
+          "start": 24.26,
+          "end": 24.34
+        },
+        {
+          "raw": "has",
+          "start": 24.34,
+          "end": 24.5
+        },
+        {
+          "raw": "very",
+          "start": 24.5,
+          "end": 24.76
+        },
+        {
+          "raw": "much",
+          "start": 24.76,
+          "end": 25.0
+        },
+        {
+          "raw": "diminished",
+          "start": 25.0,
+          "end": 25.6
+        },
+        {
+          "raw": "that",
+          "start": 25.6,
+          "end": 25.86
+        },
+        {
+          "raw": "of",
+          "start": 25.86,
+          "end": 26.02
+        },
+        {
+          "raw": "foreign",
+          "start": 26.02,
+          "end": 26.38
+        },
+        {
+          "raw": "silks",
+          "start": 26.38,
+          "end": 26.88
+        },
+        {
+          "raw": "and",
+          "start": 26.88,
+          "end": 27.08
+        },
+        {
+          "raw": "velvets.",
+          "start": 27.08,
+          "end": 27.54
+        },
+        {
+          "raw": "In",
+          "start": 27.54,
+          "end": 28.06
+        },
+        {
+          "raw": "both",
+          "start": 28.06,
+          "end": 28.28
+        },
+        {
+          "raw": "cases,",
+          "start": 28.28,
+          "end": 28.76
+        },
+        {
+          "raw": "it",
+          "start": 29.26,
+          "end": 29.44
+        },
+        {
+          "raw": "has",
+          "start": 29.44,
+          "end": 29.56
+        },
+        {
+          "raw": "entirely",
+          "start": 29.56,
+          "end": 30.06
+        },
+        {
+          "raw": "annihilated",
+          "start": 30.06,
+          "end": 30.92
+        },
+        {
+          "raw": "the",
+          "start": 30.92,
+          "end": 31.1
+        },
+        {
+          "raw": "revenue",
+          "start": 31.1,
+          "end": 31.42
+        },
+        {
+          "raw": "of",
+          "start": 31.42,
+          "end": 31.7
+        },
+        {
+          "raw": "customs,",
+          "start": 31.7,
+          "end": 32.1
+        },
+        {
+          "raw": "which",
+          "start": 32.52,
+          "end": 32.68
+        },
+        {
+          "raw": "might",
+          "start": 32.68,
+          "end": 32.86
+        },
+        {
+          "raw": "have",
+          "start": 32.86,
+          "end": 33.0
+        },
+        {
+          "raw": "been",
+          "start": 33.0,
+          "end": 33.16
+        },
+        {
+          "raw": "levied",
+          "start": 33.16,
+          "end": 33.44
+        },
+        {
+          "raw": "upon",
+          "start": 33.44,
+          "end": 33.8
+        },
+        {
+          "raw": "such",
+          "start": 33.8,
+          "end": 34.12
+        },
+        {
+          "raw": "importation.",
+          "start": 34.12,
+          "end": 34.94
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "consequence",
+        "of",
+        "that",
+        "system,",
+        "the",
+        "importation",
+        "of",
+        "several",
+        "sorts",
+        "of",
+        "goods",
+        "has",
+        "been",
+        "prohibited",
+        "altogether.",
+        "This",
+        "prohibition",
+        "has,",
+        "in",
+        "some",
+        "cases,",
+        "entirely",
+        "prevented,",
+        "and",
+        "in",
+        "others",
+        "has",
+        "very",
+        "much",
+        "diminished,",
+        "the",
+        "importation",
+        "of",
+        "those",
+        "commodities,",
+        "by",
+        "reducing",
+        "the",
+        "importers",
+        "to",
+        "the",
+        "necessity",
+        "of",
+        "smuggling.",
+        "It",
+        "has",
+        "entirely",
+        "prevented",
+        "the",
+        "importation",
+        "of",
+        "foreign",
+        "wollens;",
+        "and",
+        "it",
+        "has",
+        "very",
+        "much",
+        "diminished",
+        "that",
+        "of",
+        "foreign",
+        "silks",
+        "and",
+        "velvets,",
+        "In",
+        "both",
+        "cases,",
+        "it",
+        "has",
+        "entirely",
+        "annihilated",
+        "the",
+        "revenue",
+        "of",
+        "customs",
+        "which",
+        "might",
+        "have",
+        "been",
+        "levied",
+        "upon",
+        "such",
+        "importation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          53,
+          0,
+          53
+        ],
+        [
+          "replace",
+          53,
+          54,
+          53,
+          54
+        ],
+        [
+          "equal",
+          54,
+          85,
+          54,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          53,
+          54,
+          53,
+          54
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "consequence",
+          "start": 0.54,
+          "end": 1.04,
+          "key": "consequence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "system,",
+          "start": 1.46,
+          "end": 1.94,
+          "key": "system",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.48,
+          "end": 2.5,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "importation",
+          "start": 2.5,
+          "end": 3.2,
+          "key": "importation",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "several",
+          "start": 3.38,
+          "end": 3.7,
+          "key": "several",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sorts",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "sorts",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "goods",
+          "start": 4.2,
+          "end": 4.5,
+          "key": "goods",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 4.5,
+          "end": 4.78,
+          "key": "has",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 4.78,
+          "end": 4.98,
+          "key": "been",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "prohibited",
+          "start": 4.98,
+          "end": 5.46,
+          "key": "prohibited",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "altogether.",
+          "start": 5.46,
+          "end": 6.08,
+          "key": "altogether",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 7.02,
+          "end": 7.2,
+          "key": "this",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "prohibition",
+          "start": 7.2,
+          "end": 7.74,
+          "key": "prohibition",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "has,",
+          "start": 7.74,
+          "end": 8.26,
+          "key": "has",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.56,
+          "end": 8.68,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 8.68,
+          "end": 8.9,
+          "key": "some",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "cases,",
+          "start": 8.9,
+          "end": 9.34,
+          "key": "cases",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "entirely",
+          "start": 10.0,
+          "end": 10.24,
+          "key": "entirely",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "prevented,",
+          "start": 10.24,
+          "end": 10.98,
+          "key": "prevented",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.52,
+          "end": 11.64,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.64,
+          "end": 11.74,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 11.74,
+          "end": 12.04,
+          "key": "others",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 12.04,
+          "end": 12.32,
+          "key": "has",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 12.32,
+          "end": 12.66,
+          "key": "very",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 12.66,
+          "end": 12.92,
+          "key": "much",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "diminished,",
+          "start": 12.92,
+          "end": 13.56,
+          "key": "diminished",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.94,
+          "end": 14.1,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "importation",
+          "start": 14.1,
+          "end": 14.84,
+          "key": "importation",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.84,
+          "end": 15.02,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 15.02,
+          "end": 15.2,
+          "key": "those",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "commodities,",
+          "start": 15.2,
+          "end": 15.74,
+          "key": "commodities",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 16.32,
+          "end": 16.48,
+          "key": "by",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "reducing",
+          "start": 16.48,
+          "end": 16.86,
+          "key": "reducing",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.86,
+          "end": 17.1,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "importers",
+          "start": 17.1,
+          "end": 17.5,
+          "key": "importers",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 17.5,
+          "end": 17.78,
+          "key": "to",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.78,
+          "end": 17.88,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "necessity",
+          "start": 17.88,
+          "end": 18.26,
+          "key": "necessity",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.26,
+          "end": 18.6,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "smuggling.",
+          "start": 18.6,
+          "end": 19.06,
+          "key": "smuggling",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 20.12,
+          "end": 20.26,
+          "key": "it",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 20.26,
+          "end": 20.38,
+          "key": "has",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "entirely",
+          "start": 20.38,
+          "end": 20.86,
+          "key": "entirely",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "prevented",
+          "start": 20.86,
+          "end": 21.5,
+          "key": "prevented",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.5,
+          "end": 21.72,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "importation",
+          "start": 21.72,
+          "end": 22.46,
+          "key": "importation",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.46,
+          "end": 22.68,
+          "key": "of",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "foreign",
+          "start": 22.68,
+          "end": 23.0,
+          "key": "foreign",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "wolans,",
+          "start": 23.0,
+          "end": 23.56,
+          "key": "wolans",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 24.08,
+          "end": 24.26,
+          "key": "and",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 24.26,
+          "end": 24.34,
+          "key": "it",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 24.34,
+          "end": 24.5,
+          "key": "has",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 24.5,
+          "end": 24.76,
+          "key": "very",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 24.76,
+          "end": 25.0,
+          "key": "much",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "diminished",
+          "start": 25.0,
+          "end": 25.6,
+          "key": "diminished",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 25.6,
+          "end": 25.86,
+          "key": "that",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.86,
+          "end": 26.02,
+          "key": "of",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "foreign",
+          "start": 26.02,
+          "end": 26.38,
+          "key": "foreign",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "silks",
+          "start": 26.38,
+          "end": 26.88,
+          "key": "silks",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 26.88,
+          "end": 27.08,
+          "key": "and",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "velvets.",
+          "start": 27.08,
+          "end": 27.54,
+          "key": "velvets",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 27.54,
+          "end": 28.06,
+          "key": "in",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 28.06,
+          "end": 28.28,
+          "key": "both",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "cases,",
+          "start": 28.28,
+          "end": 28.76,
+          "key": "cases",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 29.26,
+          "end": 29.44,
+          "key": "it",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 29.44,
+          "end": 29.56,
+          "key": "has",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "entirely",
+          "start": 29.56,
+          "end": 30.06,
+          "key": "entirely",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "annihilated",
+          "start": 30.06,
+          "end": 30.92,
+          "key": "annihilated",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.92,
+          "end": 31.1,
+          "key": "the",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "revenue",
+          "start": 31.1,
+          "end": 31.42,
+          "key": "revenue",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 31.42,
+          "end": 31.7,
+          "key": "of",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "customs,",
+          "start": 31.7,
+          "end": 32.1,
+          "key": "customs",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 32.52,
+          "end": 32.68,
+          "key": "which",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 32.68,
+          "end": 32.86,
+          "key": "might",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 32.86,
+          "end": 33.0,
+          "key": "have",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 33.0,
+          "end": 33.16,
+          "key": "been",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "levied",
+          "start": 33.16,
+          "end": 33.44,
+          "key": "levied",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 33.44,
+          "end": 33.8,
+          "key": "upon",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 33.8,
+          "end": 34.12,
+          "key": "such",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "importation.",
+          "start": 34.12,
+          "end": 34.94,
+          "key": "importation",
+          "pieces": [
+            84
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "consequence",
+          "start": 0.54,
+          "end": 1.04
+        },
+        {
+          "text": "of",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "that",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "system,",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "text": "the",
+          "start": 2.48,
+          "end": 2.5
+        },
+        {
+          "text": "importation",
+          "start": 2.5,
+          "end": 3.2
+        },
+        {
+          "text": "of",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "several",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "text": "sorts",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "of",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "goods",
+          "start": 4.2,
+          "end": 4.5
+        },
+        {
+          "text": "has",
+          "start": 4.5,
+          "end": 4.78
+        },
+        {
+          "text": "been",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "text": "prohibited",
+          "start": 4.98,
+          "end": 5.46
+        },
+        {
+          "text": "altogether.",
+          "start": 5.46,
+          "end": 6.08
+        },
+        {
+          "text": "This",
+          "start": 7.02,
+          "end": 7.2
+        },
+        {
+          "text": "prohibition",
+          "start": 7.2,
+          "end": 7.74
+        },
+        {
+          "text": "has,",
+          "start": 7.74,
+          "end": 8.26
+        },
+        {
+          "text": "in",
+          "start": 8.56,
+          "end": 8.68
+        },
+        {
+          "text": "some",
+          "start": 8.68,
+          "end": 8.9
+        },
+        {
+          "text": "cases,",
+          "start": 8.9,
+          "end": 9.34
+        },
+        {
+          "text": "entirely",
+          "start": 10.0,
+          "end": 10.24
+        },
+        {
+          "text": "prevented,",
+          "start": 10.24,
+          "end": 10.98
+        },
+        {
+          "text": "and",
+          "start": 11.52,
+          "end": 11.64
+        },
+        {
+          "text": "in",
+          "start": 11.64,
+          "end": 11.74
+        },
+        {
+          "text": "others",
+          "start": 11.74,
+          "end": 12.04
+        },
+        {
+          "text": "has",
+          "start": 12.04,
+          "end": 12.32
+        },
+        {
+          "text": "very",
+          "start": 12.32,
+          "end": 12.66
+        },
+        {
+          "text": "much",
+          "start": 12.66,
+          "end": 12.92
+        },
+        {
+          "text": "diminished,",
+          "start": 12.92,
+          "end": 13.56
+        },
+        {
+          "text": "the",
+          "start": 13.94,
+          "end": 14.1
+        },
+        {
+          "text": "importation",
+          "start": 14.1,
+          "end": 14.84
+        },
+        {
+          "text": "of",
+          "start": 14.84,
+          "end": 15.02
+        },
+        {
+          "text": "those",
+          "start": 15.02,
+          "end": 15.2
+        },
+        {
+          "text": "commodities,",
+          "start": 15.2,
+          "end": 15.74
+        },
+        {
+          "text": "by",
+          "start": 16.32,
+          "end": 16.48
+        },
+        {
+          "text": "reducing",
+          "start": 16.48,
+          "end": 16.86
+        },
+        {
+          "text": "the",
+          "start": 16.86,
+          "end": 17.1
+        },
+        {
+          "text": "importers",
+          "start": 17.1,
+          "end": 17.5
+        },
+        {
+          "text": "to",
+          "start": 17.5,
+          "end": 17.78
+        },
+        {
+          "text": "the",
+          "start": 17.78,
+          "end": 17.88
+        },
+        {
+          "text": "necessity",
+          "start": 17.88,
+          "end": 18.26
+        },
+        {
+          "text": "of",
+          "start": 18.26,
+          "end": 18.6
+        },
+        {
+          "text": "smuggling.",
+          "start": 18.6,
+          "end": 19.06
+        },
+        {
+          "text": "It",
+          "start": 20.12,
+          "end": 20.26
+        },
+        {
+          "text": "has",
+          "start": 20.26,
+          "end": 20.38
+        },
+        {
+          "text": "entirely",
+          "start": 20.38,
+          "end": 20.86
+        },
+        {
+          "text": "prevented",
+          "start": 20.86,
+          "end": 21.5
+        },
+        {
+          "text": "the",
+          "start": 21.5,
+          "end": 21.72
+        },
+        {
+          "text": "importation",
+          "start": 21.72,
+          "end": 22.46
+        },
+        {
+          "text": "of",
+          "start": 22.46,
+          "end": 22.68
+        },
+        {
+          "text": "foreign",
+          "start": 22.68,
+          "end": 23.0
+        },
+        {
+          "text": "wollens;",
+          "start": 23.0,
+          "end": 23.54
+        },
+        {
+          "text": "and",
+          "start": 24.08,
+          "end": 24.26
+        },
+        {
+          "text": "it",
+          "start": 24.26,
+          "end": 24.34
+        },
+        {
+          "text": "has",
+          "start": 24.34,
+          "end": 24.5
+        },
+        {
+          "text": "very",
+          "start": 24.5,
+          "end": 24.76
+        },
+        {
+          "text": "much",
+          "start": 24.76,
+          "end": 25.0
+        },
+        {
+          "text": "diminished",
+          "start": 25.0,
+          "end": 25.6
+        },
+        {
+          "text": "that",
+          "start": 25.6,
+          "end": 25.86
+        },
+        {
+          "text": "of",
+          "start": 25.86,
+          "end": 26.02
+        },
+        {
+          "text": "foreign",
+          "start": 26.02,
+          "end": 26.38
+        },
+        {
+          "text": "silks",
+          "start": 26.38,
+          "end": 26.88
+        },
+        {
+          "text": "and",
+          "start": 26.88,
+          "end": 27.08
+        },
+        {
+          "text": "velvets,",
+          "start": 27.08,
+          "end": 27.54
+        },
+        {
+          "text": "In",
+          "start": 27.54,
+          "end": 28.06
+        },
+        {
+          "text": "both",
+          "start": 28.06,
+          "end": 28.28
+        },
+        {
+          "text": "cases,",
+          "start": 28.28,
+          "end": 28.76
+        },
+        {
+          "text": "it",
+          "start": 29.26,
+          "end": 29.44
+        },
+        {
+          "text": "has",
+          "start": 29.44,
+          "end": 29.56
+        },
+        {
+          "text": "entirely",
+          "start": 29.56,
+          "end": 30.06
+        },
+        {
+          "text": "annihilated",
+          "start": 30.06,
+          "end": 30.92
+        },
+        {
+          "text": "the",
+          "start": 30.92,
+          "end": 31.1
+        },
+        {
+          "text": "revenue",
+          "start": 31.1,
+          "end": 31.42
+        },
+        {
+          "text": "of",
+          "start": 31.42,
+          "end": 31.7
+        },
+        {
+          "text": "customs",
+          "start": 31.7,
+          "end": 32.1
+        },
+        {
+          "text": "which",
+          "start": 32.52,
+          "end": 32.68
+        },
+        {
+          "text": "might",
+          "start": 32.68,
+          "end": 32.86
+        },
+        {
+          "text": "have",
+          "start": 32.86,
+          "end": 33.0
+        },
+        {
+          "text": "been",
+          "start": 33.0,
+          "end": 33.16
+        },
+        {
+          "text": "levied",
+          "start": 33.16,
+          "end": 33.44
+        },
+        {
+          "text": "upon",
+          "start": 33.44,
+          "end": 33.8
+        },
+        {
+          "text": "such",
+          "start": 33.8,
+          "end": 34.12
+        },
+        {
+          "text": "importation.",
+          "start": 34.12,
+          "end": 34.94
+        }
+      ],
+      "stats": {
+        "expected_words": 85,
+        "heard_words": 85,
+        "matched_words": 84
+      },
+      "match_ratio": 0.9882352941176471,
+      "rejection_reasons": [],
+      "seconds": 0.90214376244694
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "b780b263a5e6c24084010c370e9cfdc12657b70957d9ea6f4245009e7f63bf7c",
+  "selected_reasons": []
+}

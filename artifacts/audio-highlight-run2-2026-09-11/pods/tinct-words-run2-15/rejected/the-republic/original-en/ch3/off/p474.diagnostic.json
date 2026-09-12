@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "414431b6f53e7606be943c2be820545f258370e9547033b590ca292d36cc35b0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1436186395585537,
+      "alignment_seconds": 0.00042366981506347656,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Speak he said and fear not",
+          "start": 0.14,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Speak",
+              "start": 0.14,
+              "end": 0.68,
+              "probability": 0.367919921875
+            },
+            {
+              "text": " he",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.2861328125
+            },
+            {
+              "text": " said",
+              "start": 0.92,
+              "end": 1.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.14,
+              "end": 1.42,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " fear",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Speak",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "raw": "he",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "said",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "raw": "and",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "raw": "fear",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "not",
+          "start": 1.6,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Speak,",
+        "he",
+        "said,",
+        "and",
+        "fear",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Speak",
+          "start": 0.14,
+          "end": 0.68,
+          "key": "speak",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.92,
+          "end": 1.14,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.14,
+          "end": 1.42,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "fear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Speak,",
+          "start": 0.14,
+          "end": 0.68
+        },
+        {
+          "text": "he",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "said,",
+          "start": 0.92,
+          "end": 1.14
+        },
+        {
+          "text": "and",
+          "start": 1.14,
+          "end": 1.42
+        },
+        {
+          "text": "fear",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "not.",
+          "start": 1.6,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14418036490678787
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "130252c2d60d8917cc61f4a210cf02855b3b23af9d1bb18fa9349fe1db4079bf",
+  "selected_reasons": []
+}

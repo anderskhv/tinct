@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "2138201110ed4710d1b7bc34b486f1a7e8e249d26ac0df6e1d4245d46a97447a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15256134793162346,
+      "alignment_seconds": 0.0002868371084332466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, they are loves I bear to you.",
+          "start": 0.53,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.65399169921875
+            },
+            {
+              "text": " they",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " are",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " loves",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " I",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " bear",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.923828125
+            },
+            {
+              "text": " to",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you.",
+              "start": 2.41,
+              "end": 2.75,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "they",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "are",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "loves",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "I",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "bear",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "you.",
+          "start": 2.41,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "They",
+        "are",
+        "loves",
+        "I",
+        "bear",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.43,
+          "end": 1.51,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "loves",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "loves",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "bear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.41,
+          "end": 2.75,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "They",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "are",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "loves",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "I",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "bear",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "to",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "you.",
+          "start": 2.41,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.1529503338970244
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4964800958d492728e1d3ea8321ac0db0cc5787b22f787f4516cdbc38250c0a7",
+  "selected_reasons": []
+}

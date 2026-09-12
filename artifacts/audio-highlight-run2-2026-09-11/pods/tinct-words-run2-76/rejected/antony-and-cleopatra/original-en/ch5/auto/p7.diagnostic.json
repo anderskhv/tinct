@@ -1,0 +1,379 @@
+{
+  "complete": true,
+  "signature": "28449220745d763982e4a18d24b215204d1bd8e3cbef2eb57cdbb1186216c799",
+  "attempts": [
+    {
+      "asr_seconds": 0.375022002030164,
+      "alignment_seconds": 0.0005391519516706467,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. O, 'tis treason!",
+        "hotwords": "Cleopatra, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, O, ''tis treason!",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.9503580729166666
+            },
+            {
+              "text": " O,",
+              "start": 1.49,
+              "end": 1.53,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " ''tis",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.011833548545837402
+            },
+            {
+              "text": " treason!",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.66943359375
+            }
+          ]
+        },
+        {
+          "text": " Cleopatra, O, ''tis treason!",
+          "start": 2.03,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 2.03,
+              "end": 2.07,
+              "probability": 0.2800496419270833
+            },
+            {
+              "text": " O,",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 0.00039386749267578125
+            },
+            {
+              "text": " ''tis",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 7.361173629760742e-06
+            },
+            {
+              "text": " treason!",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 2.9087066650390625e-05
+            }
+          ]
+        },
+        {
+          "text": " Cleopatra, O, ''tis treason!",
+          "start": 2.21,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 2.21,
+              "end": 2.21,
+              "probability": 0.2944130301475525
+            },
+            {
+              "text": " O,",
+              "start": 2.21,
+              "end": 2.27,
+              "probability": 0.0002422332763671875
+            },
+            {
+              "text": " ''tis",
+              "start": 2.27,
+              "end": 2.27,
+              "probability": 6.854534149169922e-06
+            },
+            {
+              "text": " treason!",
+              "start": 2.27,
+              "end": 2.29,
+              "probability": 4.231929779052734e-06
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "O,",
+          "start": 1.49,
+          "end": 1.53
+        },
+        {
+          "raw": "''tis",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "treason!",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "Cleopatra,",
+          "start": 2.03,
+          "end": 2.07
+        },
+        {
+          "raw": "O,",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "raw": "''tis",
+          "start": 2.07,
+          "end": 2.07
+        },
+        {
+          "raw": "treason!",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "Cleopatra,",
+          "start": 2.21,
+          "end": 2.21
+        },
+        {
+          "raw": "O,",
+          "start": 2.21,
+          "end": 2.27
+        },
+        {
+          "raw": "''tis",
+          "start": 2.27,
+          "end": 2.27
+        },
+        {
+          "raw": "treason!",
+          "start": 2.27,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "O,",
+        "'tis",
+        "treason!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.49,
+          "end": 1.53,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "''tis",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "treason!",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "treason",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cleopatra,",
+          "start": 2.03,
+          "end": 2.07,
+          "key": "cleopatra",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 2.07,
+          "end": 2.07,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "''tis",
+          "start": 2.07,
+          "end": 2.07,
+          "key": "tis",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "treason!",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "treason",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Cleopatra,",
+          "start": 2.21,
+          "end": 2.21,
+          "key": "cleopatra",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 2.21,
+          "end": 2.27,
+          "key": "o",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "''tis",
+          "start": 2.27,
+          "end": 2.27,
+          "key": "tis",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "treason!",
+          "start": 2.27,
+          "end": 2.29,
+          "key": "treason",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "O,",
+          "start": 1.49,
+          "end": 1.53
+        },
+        {
+          "text": "'tis",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "treason!",
+          "start": 1.73,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 12,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37578514125198126
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "00942f43ce08290ec972ea5574dc9be7b0352e760fd1dfd31ab4f4e2b8230516",
+  "selected_reasons": []
+}

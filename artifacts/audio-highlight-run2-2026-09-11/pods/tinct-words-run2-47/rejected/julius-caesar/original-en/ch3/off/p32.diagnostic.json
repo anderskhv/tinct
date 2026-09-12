@@ -1,0 +1,381 @@
+{
+  "complete": true,
+  "signature": "d398663fc9f8431ca9e65eefbd3831b89dfa38e59243c14d0719d497b1fa8412",
+  "attempts": [
+    {
+      "asr_seconds": 0.24312102599651553,
+      "alignment_seconds": 0.00034240298555232584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Senna to find out you. Who's that meatless Simber?",
+          "start": 0.08,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Senna",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.5084228515625
+            },
+            {
+              "text": " to",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " find",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 1.04,
+              "end": 1.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Who's",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " that",
+              "start": 1.88,
+              "end": 2.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " meatless",
+              "start": 2.16,
+              "end": 2.86,
+              "probability": 0.248779296875
+            },
+            {
+              "text": " Simber?",
+              "start": 2.86,
+              "end": 3.42,
+              "probability": 0.661376953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Senna",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "to",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "find",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "out",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "raw": "you.",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "Who's",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "that",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "raw": "meatless",
+          "start": 2.16,
+          "end": 2.86
+        },
+        {
+          "raw": "Simber?",
+          "start": 2.86,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "To",
+        "find",
+        "out",
+        "you.",
+        "Who's",
+        "that?",
+        "Metellus",
+        "Cimber?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Senna",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "senna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "find",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.04,
+          "end": 1.2,
+          "key": "out",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Who's",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "whos",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.88,
+          "end": 2.16,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "meatless",
+          "start": 2.16,
+          "end": 2.86,
+          "key": "meatless",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Simber?",
+          "start": 2.86,
+          "end": 3.42,
+          "key": "simber",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.0,
+          "end": 0.33
+        },
+        {
+          "text": "To",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "find",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "out",
+          "start": 1.04,
+          "end": 1.2
+        },
+        {
+          "text": "you.",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "Who's",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "that?",
+          "start": 1.88,
+          "end": 2.16
+        },
+        {
+          "text": "Metellus",
+          "start": 2.16,
+          "end": 2.79
+        },
+        {
+          "text": "Cimber?",
+          "start": 2.79,
+          "end": 3.105
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24359283701051027
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3472497bb715477e417ed7336f2a97bbfd13de355ce943b96aaedf6ef7bd1fce",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

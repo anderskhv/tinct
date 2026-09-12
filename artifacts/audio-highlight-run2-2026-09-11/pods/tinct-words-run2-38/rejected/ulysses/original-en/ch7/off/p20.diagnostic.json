@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "171f0a964267d8f6c111af6ee8cc6086a7acc901e1e33f28ebfbff1925b42c4d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11223513801814988,
+      "alignment_seconds": 0.00010798103176057339,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Braden",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " Braden",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.753173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Braden",
+          "start": 0.05,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "—Brayden."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Braden",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "braden",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Brayden.",
+          "start": 0.0,
+          "end": 0.425
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11237420898396522
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "09536dbb449aec940518f856c0aadcda733ccd8143bddabf9c9cb529ddd05287",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

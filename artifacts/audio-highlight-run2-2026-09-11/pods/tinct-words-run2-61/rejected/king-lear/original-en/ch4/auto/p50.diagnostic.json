@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "99d99dc9dd3052885819125f195f58c9ca75ff1e82dc0e0833f286bcab865a5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.36136662028729916,
+      "alignment_seconds": 0.0006101243197917938,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. My lady's father! my lord's knave: you whoreson dog! you slave! you cur!",
+        "hotwords": "Lear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear. My lady's father! my lord's knave! you whoreson dog! you slave! you cur!",
+          "start": 0.08,
+          "end": 4.78,
+          "words": [
+            {
+              "text": " Lear.",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.55029296875
+            },
+            {
+              "text": " My",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.919921875
+            },
+            {
+              "text": " lady's",
+              "start": 0.9,
+              "end": 1.24,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " father!",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " my",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.037445068359375
+            },
+            {
+              "text": " lord's",
+              "start": 1.78,
+              "end": 2.1,
+              "probability": 0.766845703125
+            },
+            {
+              "text": " knave!",
+              "start": 2.1,
+              "end": 2.48,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " you",
+              "start": 2.76,
+              "end": 2.84,
+              "probability": 0.29443359375
+            },
+            {
+              "text": " whoreson",
+              "start": 2.84,
+              "end": 3.22,
+              "probability": 0.26344823837280273
+            },
+            {
+              "text": " dog!",
+              "start": 3.22,
+              "end": 3.5,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " you",
+              "start": 3.72,
+              "end": 3.78,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " slave!",
+              "start": 3.78,
+              "end": 4.1,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " you",
+              "start": 4.46,
+              "end": 4.54,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " cur!",
+              "start": 4.54,
+              "end": 4.78,
+              "probability": 0.8583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "My",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "lady's",
+          "start": 0.9,
+          "end": 1.24
+        },
+        {
+          "raw": "father!",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "my",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "lord's",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "raw": "knave!",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "raw": "whoreson",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "raw": "dog!",
+          "start": 3.22,
+          "end": 3.5
+        },
+        {
+          "raw": "you",
+          "start": 3.72,
+          "end": 3.78
+        },
+        {
+          "raw": "slave!",
+          "start": 3.78,
+          "end": 4.1
+        },
+        {
+          "raw": "you",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "raw": "cur!",
+          "start": 4.54,
+          "end": 4.78
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "My",
+        "lady's",
+        "father!",
+        "my",
+        "lord's",
+        "knave:",
+        "you",
+        "whoreson",
+        "dog!",
+        "you",
+        "slave!",
+        "you",
+        "cur!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear.",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady's",
+          "start": 0.9,
+          "end": 1.24,
+          "key": "ladys",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "father!",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "father",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord's",
+          "start": 1.78,
+          "end": 2.1,
+          "key": "lords",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "knave!",
+          "start": 2.1,
+          "end": 2.48,
+          "key": "knave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.76,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "whoreson",
+          "start": 2.84,
+          "end": 3.22,
+          "key": "whoreson",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dog!",
+          "start": 3.22,
+          "end": 3.5,
+          "key": "dog",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.72,
+          "end": 3.78,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "slave!",
+          "start": 3.78,
+          "end": 4.1,
+          "key": "slave",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.46,
+          "end": 4.54,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cur!",
+          "start": 4.54,
+          "end": 4.78,
+          "key": "cur",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "My",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "lady's",
+          "start": 0.9,
+          "end": 1.24
+        },
+        {
+          "text": "father!",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "my",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "lord's",
+          "start": 1.78,
+          "end": 2.1
+        },
+        {
+          "text": "knave:",
+          "start": 2.1,
+          "end": 2.48
+        },
+        {
+          "text": "you",
+          "start": 2.76,
+          "end": 2.84
+        },
+        {
+          "text": "whoreson",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "text": "dog!",
+          "start": 3.22,
+          "end": 3.5
+        },
+        {
+          "text": "you",
+          "start": 3.72,
+          "end": 3.78
+        },
+        {
+          "text": "slave!",
+          "start": 3.78,
+          "end": 4.1
+        },
+        {
+          "text": "you",
+          "start": 4.46,
+          "end": 4.54
+        },
+        {
+          "text": "cur!",
+          "start": 4.54,
+          "end": 4.78
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3622428048402071
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3dcd2b3ee6beb69a4650f200decca830f116c9959d4ce880510fc34f525b2620",
+  "selected_reasons": []
+}

@@ -1,0 +1,5326 @@
+{
+  "complete": true,
+  "signature": "99a9786eff4fb93777795e257373ab362dfaa5d6fa2cf9c197745a3aedaba16a",
+  "attempts": [
+    {
+      "asr_seconds": 0.5712015549652278,
+      "alignment_seconds": 0.0008548719342797995,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clarence. Methought I had; and often did I strive To yield the ghost, but still the envious flood Stopped in my soul, and would not let it forth To find the empty, vast, and wand'ring air, But smothered it within my panting bulk, Who almost burst to belch it in the sea.",
+        "hotwords": "Clarence, Methought, I, Stopped, Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clarence, Methought I had, and often did I strive To yield the ghost, but still the envious flood Stopped in my soul, And would not let it forth To find the empty, vast, and wand'ring air, But smothered it within my panting bulk, Who almost burst to belch it in the sea.",
+          "start": 0.05,
+          "end": 16.43,
+          "words": [
+            {
+              "text": " Clarence,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " Methought",
+              "start": 1.33,
+              "end": 1.79,
+              "probability": 0.4930572509765625
+            },
+            {
+              "text": " I",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " had,",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.765625
+            },
+            {
+              "text": " often",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " did",
+              "start": 3.11,
+              "end": 3.27,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " I",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.984375
+            },
+            {
+              "text": " strive",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " To",
+              "start": 3.73,
+              "end": 4.01,
+              "probability": 0.1514892578125
+            },
+            {
+              "text": " yield",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 4.19,
+              "end": 4.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ghost,",
+              "start": 4.39,
+              "end": 4.67,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " but",
+              "start": 4.95,
+              "end": 5.09,
+              "probability": 0.98828125
+            },
+            {
+              "text": " still",
+              "start": 5.09,
+              "end": 5.39,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 5.39,
+              "end": 5.61,
+              "probability": 0.59375
+            },
+            {
+              "text": " envious",
+              "start": 5.61,
+              "end": 6.09,
+              "probability": 0.890380859375
+            },
+            {
+              "text": " flood",
+              "start": 6.09,
+              "end": 6.43,
+              "probability": 0.161865234375
+            },
+            {
+              "text": " Stopped",
+              "start": 6.43,
+              "end": 6.91,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " in",
+              "start": 6.91,
+              "end": 7.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 7.03,
+              "end": 7.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " soul,",
+              "start": 7.21,
+              "end": 7.53,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " And",
+              "start": 8.01,
+              "end": 8.17,
+              "probability": 0.00656890869140625
+            },
+            {
+              "text": " would",
+              "start": 8.17,
+              "end": 8.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 8.27,
+              "end": 8.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " let",
+              "start": 8.45,
+              "end": 8.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 8.59,
+              "end": 8.77,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " forth",
+              "start": 8.77,
+              "end": 8.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " To",
+              "start": 8.95,
+              "end": 9.19,
+              "probability": 0.1522216796875
+            },
+            {
+              "text": " find",
+              "start": 9.19,
+              "end": 9.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 9.39,
+              "end": 9.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " empty,",
+              "start": 9.55,
+              "end": 9.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " vast,",
+              "start": 10.23,
+              "end": 10.53,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " and",
+              "start": 10.81,
+              "end": 10.89,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " wand",
+              "start": 10.89,
+              "end": 11.13,
+              "probability": 0.00275421142578125
+            },
+            {
+              "text": "'ring",
+              "start": 11.13,
+              "end": 11.33,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " air,",
+              "start": 11.33,
+              "end": 11.59,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " But",
+              "start": 12.03,
+              "end": 12.21,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " smothered",
+              "start": 12.21,
+              "end": 12.69,
+              "probability": 0.9752604166666666
+            },
+            {
+              "text": " it",
+              "start": 12.69,
+              "end": 12.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " within",
+              "start": 12.85,
+              "end": 13.07,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " my",
+              "start": 13.07,
+              "end": 13.25,
+              "probability": 0.9765625
+            },
+            {
+              "text": " panting",
+              "start": 13.25,
+              "end": 13.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " bulk,",
+              "start": 13.75,
+              "end": 13.99,
+              "probability": 0.6015625
+            },
+            {
+              "text": " Who",
+              "start": 14.39,
+              "end": 14.57,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " almost",
+              "start": 14.57,
+              "end": 14.91,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " burst",
+              "start": 14.91,
+              "end": 15.23,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " to",
+              "start": 15.23,
+              "end": 15.51,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " belch",
+              "start": 15.51,
+              "end": 15.83,
+              "probability": 0.865234375
+            },
+            {
+              "text": " it",
+              "start": 15.83,
+              "end": 15.93,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " in",
+              "start": 15.93,
+              "end": 16.05,
+              "probability": 0.986328125
+            },
+            {
+              "text": " the",
+              "start": 16.05,
+              "end": 16.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sea.",
+              "start": 16.17,
+              "end": 16.43,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clarence,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Methought",
+          "start": 1.33,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "had,",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "often",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "raw": "did",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "raw": "I",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "strive",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "To",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "raw": "yield",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "raw": "ghost,",
+          "start": 4.39,
+          "end": 4.67
+        },
+        {
+          "raw": "but",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "raw": "still",
+          "start": 5.09,
+          "end": 5.39
+        },
+        {
+          "raw": "the",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "raw": "envious",
+          "start": 5.61,
+          "end": 6.09
+        },
+        {
+          "raw": "flood",
+          "start": 6.09,
+          "end": 6.43
+        },
+        {
+          "raw": "Stopped",
+          "start": 6.43,
+          "end": 6.91
+        },
+        {
+          "raw": "in",
+          "start": 6.91,
+          "end": 7.03
+        },
+        {
+          "raw": "my",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "raw": "soul,",
+          "start": 7.21,
+          "end": 7.53
+        },
+        {
+          "raw": "And",
+          "start": 8.01,
+          "end": 8.17
+        },
+        {
+          "raw": "would",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "raw": "not",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "raw": "let",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "raw": "it",
+          "start": 8.59,
+          "end": 8.77
+        },
+        {
+          "raw": "forth",
+          "start": 8.77,
+          "end": 8.95
+        },
+        {
+          "raw": "To",
+          "start": 8.95,
+          "end": 9.19
+        },
+        {
+          "raw": "find",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "raw": "the",
+          "start": 9.39,
+          "end": 9.55
+        },
+        {
+          "raw": "empty,",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "raw": "vast,",
+          "start": 10.23,
+          "end": 10.53
+        },
+        {
+          "raw": "and",
+          "start": 10.81,
+          "end": 10.89
+        },
+        {
+          "raw": "wand",
+          "start": 10.89,
+          "end": 11.13
+        },
+        {
+          "raw": "'ring",
+          "start": 11.13,
+          "end": 11.33
+        },
+        {
+          "raw": "air,",
+          "start": 11.33,
+          "end": 11.59
+        },
+        {
+          "raw": "But",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "raw": "smothered",
+          "start": 12.21,
+          "end": 12.69
+        },
+        {
+          "raw": "it",
+          "start": 12.69,
+          "end": 12.85
+        },
+        {
+          "raw": "within",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "raw": "my",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "raw": "panting",
+          "start": 13.25,
+          "end": 13.75
+        },
+        {
+          "raw": "bulk,",
+          "start": 13.75,
+          "end": 13.99
+        },
+        {
+          "raw": "Who",
+          "start": 14.39,
+          "end": 14.57
+        },
+        {
+          "raw": "almost",
+          "start": 14.57,
+          "end": 14.91
+        },
+        {
+          "raw": "burst",
+          "start": 14.91,
+          "end": 15.23
+        },
+        {
+          "raw": "to",
+          "start": 15.23,
+          "end": 15.51
+        },
+        {
+          "raw": "belch",
+          "start": 15.51,
+          "end": 15.83
+        },
+        {
+          "raw": "it",
+          "start": 15.83,
+          "end": 15.93
+        },
+        {
+          "raw": "in",
+          "start": 15.93,
+          "end": 16.05
+        },
+        {
+          "raw": "the",
+          "start": 16.05,
+          "end": 16.17
+        },
+        {
+          "raw": "sea.",
+          "start": 16.17,
+          "end": 16.43
+        }
+      ],
+      "expected_tokens": [
+        "Clarence.",
+        "Methought",
+        "I",
+        "had;",
+        "and",
+        "often",
+        "did",
+        "I",
+        "strive",
+        "To",
+        "yield",
+        "the",
+        "ghost,",
+        "but",
+        "still",
+        "the",
+        "envious",
+        "flood",
+        "Stopped",
+        "in",
+        "my",
+        "soul,",
+        "and",
+        "would",
+        "not",
+        "let",
+        "it",
+        "forth",
+        "To",
+        "find",
+        "the",
+        "empty,",
+        "vast,",
+        "and",
+        "wand'ring",
+        "air,",
+        "But",
+        "smothered",
+        "it",
+        "within",
+        "my",
+        "panting",
+        "bulk,",
+        "Who",
+        "almost",
+        "burst",
+        "to",
+        "belch",
+        "it",
+        "in",
+        "the",
+        "sea."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ],
+        [
+          "replace",
+          34,
+          35,
+          34,
+          36
+        ],
+        [
+          "equal",
+          35,
+          52,
+          36,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          34,
+          35,
+          34,
+          36
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clarence,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "clarence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Methought",
+          "start": 1.33,
+          "end": 1.79,
+          "key": "methought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 1.95,
+          "end": 2.27,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "often",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.11,
+          "end": 3.27,
+          "key": "did",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.27,
+          "end": 3.43,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "strive",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "strive",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.73,
+          "end": 4.01,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yield",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "yield",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.39,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ghost,",
+          "start": 4.39,
+          "end": 4.67,
+          "key": "ghost",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.95,
+          "end": 5.09,
+          "key": "but",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 5.09,
+          "end": 5.39,
+          "key": "still",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.39,
+          "end": 5.61,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "envious",
+          "start": 5.61,
+          "end": 6.09,
+          "key": "envious",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "flood",
+          "start": 6.09,
+          "end": 6.43,
+          "key": "flood",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Stopped",
+          "start": 6.43,
+          "end": 6.91,
+          "key": "stopped",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.91,
+          "end": 7.03,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.03,
+          "end": 7.21,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 7.21,
+          "end": 7.53,
+          "key": "soul",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.01,
+          "end": 8.17,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 8.17,
+          "end": 8.27,
+          "key": "would",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.27,
+          "end": 8.45,
+          "key": "not",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 8.45,
+          "end": 8.59,
+          "key": "let",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.59,
+          "end": 8.77,
+          "key": "it",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 8.77,
+          "end": 8.95,
+          "key": "forth",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 8.95,
+          "end": 9.19,
+          "key": "to",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 9.19,
+          "end": 9.39,
+          "key": "find",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.39,
+          "end": 9.55,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "empty,",
+          "start": 9.55,
+          "end": 9.99,
+          "key": "empty",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "vast,",
+          "start": 10.23,
+          "end": 10.53,
+          "key": "vast",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.81,
+          "end": 10.89,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "wand",
+          "start": 10.89,
+          "end": 11.13,
+          "key": "wand",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "'ring",
+          "start": 11.13,
+          "end": 11.33,
+          "key": "ring",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "air,",
+          "start": 11.33,
+          "end": 11.59,
+          "key": "air",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 12.03,
+          "end": 12.21,
+          "key": "but",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "smothered",
+          "start": 12.21,
+          "end": 12.69,
+          "key": "smothered",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.69,
+          "end": 12.85,
+          "key": "it",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 12.85,
+          "end": 13.07,
+          "key": "within",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.07,
+          "end": 13.25,
+          "key": "my",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "panting",
+          "start": 13.25,
+          "end": 13.75,
+          "key": "panting",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "bulk,",
+          "start": 13.75,
+          "end": 13.99,
+          "key": "bulk",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 14.39,
+          "end": 14.57,
+          "key": "who",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 14.57,
+          "end": 14.91,
+          "key": "almost",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "burst",
+          "start": 14.91,
+          "end": 15.23,
+          "key": "burst",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.23,
+          "end": 15.51,
+          "key": "to",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "belch",
+          "start": 15.51,
+          "end": 15.83,
+          "key": "belch",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.83,
+          "end": 15.93,
+          "key": "it",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.93,
+          "end": 16.05,
+          "key": "in",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.05,
+          "end": 16.17,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "sea.",
+          "start": 16.17,
+          "end": 16.43,
+          "key": "sea",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clarence.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Methought",
+          "start": 1.33,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "had;",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "text": "and",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "often",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "text": "did",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "text": "I",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "strive",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "To",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "text": "yield",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "text": "the",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "text": "ghost,",
+          "start": 4.39,
+          "end": 4.67
+        },
+        {
+          "text": "but",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "text": "still",
+          "start": 5.09,
+          "end": 5.39
+        },
+        {
+          "text": "the",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "text": "envious",
+          "start": 5.61,
+          "end": 6.09
+        },
+        {
+          "text": "flood",
+          "start": 6.09,
+          "end": 6.43
+        },
+        {
+          "text": "Stopped",
+          "start": 6.43,
+          "end": 6.91
+        },
+        {
+          "text": "in",
+          "start": 6.91,
+          "end": 7.03
+        },
+        {
+          "text": "my",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "text": "soul,",
+          "start": 7.21,
+          "end": 7.53
+        },
+        {
+          "text": "and",
+          "start": 8.01,
+          "end": 8.17
+        },
+        {
+          "text": "would",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "text": "not",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "text": "let",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "text": "it",
+          "start": 8.59,
+          "end": 8.77
+        },
+        {
+          "text": "forth",
+          "start": 8.77,
+          "end": 8.95
+        },
+        {
+          "text": "To",
+          "start": 8.95,
+          "end": 9.19
+        },
+        {
+          "text": "find",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "text": "the",
+          "start": 9.39,
+          "end": 9.55
+        },
+        {
+          "text": "empty,",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "text": "vast,",
+          "start": 10.23,
+          "end": 10.53
+        },
+        {
+          "text": "and",
+          "start": 10.81,
+          "end": 10.89
+        },
+        {
+          "text": "wand'ring",
+          "start": 10.89,
+          "end": 11.11
+        },
+        {
+          "text": "air,",
+          "start": 11.33,
+          "end": 11.59
+        },
+        {
+          "text": "But",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "text": "smothered",
+          "start": 12.21,
+          "end": 12.69
+        },
+        {
+          "text": "it",
+          "start": 12.69,
+          "end": 12.85
+        },
+        {
+          "text": "within",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "text": "my",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "text": "panting",
+          "start": 13.25,
+          "end": 13.75
+        },
+        {
+          "text": "bulk,",
+          "start": 13.75,
+          "end": 13.99
+        },
+        {
+          "text": "Who",
+          "start": 14.39,
+          "end": 14.57
+        },
+        {
+          "text": "almost",
+          "start": 14.57,
+          "end": 14.91
+        },
+        {
+          "text": "burst",
+          "start": 14.91,
+          "end": 15.23
+        },
+        {
+          "text": "to",
+          "start": 15.23,
+          "end": 15.51
+        },
+        {
+          "text": "belch",
+          "start": 15.51,
+          "end": 15.83
+        },
+        {
+          "text": "it",
+          "start": 15.83,
+          "end": 15.93
+        },
+        {
+          "text": "in",
+          "start": 15.93,
+          "end": 16.05
+        },
+        {
+          "text": "the",
+          "start": 16.05,
+          "end": 16.17
+        },
+        {
+          "text": "sea.",
+          "start": 16.17,
+          "end": 16.43
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 53,
+        "matched_words": 51
+      },
+      "match_ratio": 0.9807692307692307,
+      "rejection_reasons": [],
+      "seconds": 0.5724296921398491
+    },
+    {
+      "asr_seconds": 0.6405894639901817,
+      "alignment_seconds": 0.0010154361370950937,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Clarence, Methought, I, Stopped, Who"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Clarence, Methought I had, And often did I strive to yield the ghost,",
+          "start": 0.05,
+          "end": 4.69,
+          "words": [
+            {
+              "text": " Clarence,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " Methought",
+              "start": 1.33,
+              "end": 1.79,
+              "probability": 0.4930572509765625
+            },
+            {
+              "text": " I",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " had,",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.984375
+            },
+            {
+              "text": " And",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.222900390625
+            },
+            {
+              "text": " often",
+              "start": 2.83,
+              "end": 3.11,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " did",
+              "start": 3.11,
+              "end": 3.27,
+              "probability": 0.970703125
+            },
+            {
+              "text": " I",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.990234375
+            },
+            {
+              "text": " strive",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.93359375
+            },
+            {
+              "text": " to",
+              "start": 3.73,
+              "end": 4.01,
+              "probability": 0.80859375
+            },
+            {
+              "text": " yield",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " the",
+              "start": 4.19,
+              "end": 4.39,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " ghost,",
+              "start": 4.39,
+              "end": 4.69,
+              "probability": 0.63671875
+            }
+          ]
+        },
+        {
+          "text": " But still the envious flood stopped in my soul, And would not let it forth to find the",
+          "start": 4.95,
+          "end": 9.55,
+          "words": [
+            {
+              "text": " But",
+              "start": 4.95,
+              "end": 5.09,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " still",
+              "start": 5.09,
+              "end": 5.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 5.39,
+              "end": 5.63,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " envious",
+              "start": 5.63,
+              "end": 6.07,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " flood",
+              "start": 6.07,
+              "end": 6.43,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " stopped",
+              "start": 6.43,
+              "end": 6.83,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " in",
+              "start": 6.83,
+              "end": 7.03,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 7.03,
+              "end": 7.21,
+              "probability": 0.9921875
+            },
+            {
+              "text": " soul,",
+              "start": 7.21,
+              "end": 7.55,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " And",
+              "start": 8.03,
+              "end": 8.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " would",
+              "start": 8.17,
+              "end": 8.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not",
+              "start": 8.27,
+              "end": 8.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " let",
+              "start": 8.45,
+              "end": 8.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 8.59,
+              "end": 8.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " forth",
+              "start": 8.79,
+              "end": 8.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 8.95,
+              "end": 9.19,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " find",
+              "start": 9.19,
+              "end": 9.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 9.39,
+              "end": 9.55,
+              "probability": 0.796875
+            }
+          ]
+        },
+        {
+          "text": " empty, vast, and wandering air, But smothered it within my panting bulk,",
+          "start": 9.55,
+          "end": 13.99,
+          "words": [
+            {
+              "text": " empty,",
+              "start": 9.55,
+              "end": 9.99,
+              "probability": 0.9765625
+            },
+            {
+              "text": " vast,",
+              "start": 10.25,
+              "end": 10.53,
+              "probability": 0.44384765625
+            },
+            {
+              "text": " and",
+              "start": 10.81,
+              "end": 10.89,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " wandering",
+              "start": 10.89,
+              "end": 11.29,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " air,",
+              "start": 11.29,
+              "end": 11.61,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " But",
+              "start": 12.01,
+              "end": 12.21,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " smothered",
+              "start": 12.21,
+              "end": 12.69,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " it",
+              "start": 12.69,
+              "end": 12.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " within",
+              "start": 12.85,
+              "end": 13.07,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " my",
+              "start": 13.07,
+              "end": 13.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " panting",
+              "start": 13.25,
+              "end": 13.75,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " bulk,",
+              "start": 13.75,
+              "end": 13.99,
+              "probability": 0.43359375
+            }
+          ]
+        },
+        {
+          "text": " Who almost burst to belch it in the sea.",
+          "start": 14.37,
+          "end": 16.43,
+          "words": [
+            {
+              "text": " Who",
+              "start": 14.37,
+              "end": 14.57,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " almost",
+              "start": 14.57,
+              "end": 14.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " burst",
+              "start": 14.91,
+              "end": 15.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 15.23,
+              "end": 15.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " belch",
+              "start": 15.51,
+              "end": 15.83,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " it",
+              "start": 15.83,
+              "end": 15.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 15.93,
+              "end": 16.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 16.05,
+              "end": 16.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sea.",
+              "start": 16.17,
+              "end": 16.43,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clarence,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Methought",
+          "start": 1.33,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "had,",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "raw": "And",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "often",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "raw": "did",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "raw": "I",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "strive",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "to",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "raw": "yield",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "raw": "ghost,",
+          "start": 4.39,
+          "end": 4.69
+        },
+        {
+          "raw": "But",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "raw": "still",
+          "start": 5.09,
+          "end": 5.39
+        },
+        {
+          "raw": "the",
+          "start": 5.39,
+          "end": 5.63
+        },
+        {
+          "raw": "envious",
+          "start": 5.63,
+          "end": 6.07
+        },
+        {
+          "raw": "flood",
+          "start": 6.07,
+          "end": 6.43
+        },
+        {
+          "raw": "stopped",
+          "start": 6.43,
+          "end": 6.83
+        },
+        {
+          "raw": "in",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "raw": "my",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "raw": "soul,",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "raw": "And",
+          "start": 8.03,
+          "end": 8.17
+        },
+        {
+          "raw": "would",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "raw": "not",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "raw": "let",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "raw": "it",
+          "start": 8.59,
+          "end": 8.79
+        },
+        {
+          "raw": "forth",
+          "start": 8.79,
+          "end": 8.95
+        },
+        {
+          "raw": "to",
+          "start": 8.95,
+          "end": 9.19
+        },
+        {
+          "raw": "find",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "raw": "the",
+          "start": 9.39,
+          "end": 9.55
+        },
+        {
+          "raw": "empty,",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "raw": "vast,",
+          "start": 10.25,
+          "end": 10.53
+        },
+        {
+          "raw": "and",
+          "start": 10.81,
+          "end": 10.89
+        },
+        {
+          "raw": "wandering",
+          "start": 10.89,
+          "end": 11.29
+        },
+        {
+          "raw": "air,",
+          "start": 11.29,
+          "end": 11.61
+        },
+        {
+          "raw": "But",
+          "start": 12.01,
+          "end": 12.21
+        },
+        {
+          "raw": "smothered",
+          "start": 12.21,
+          "end": 12.69
+        },
+        {
+          "raw": "it",
+          "start": 12.69,
+          "end": 12.85
+        },
+        {
+          "raw": "within",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "raw": "my",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "raw": "panting",
+          "start": 13.25,
+          "end": 13.75
+        },
+        {
+          "raw": "bulk,",
+          "start": 13.75,
+          "end": 13.99
+        },
+        {
+          "raw": "Who",
+          "start": 14.37,
+          "end": 14.57
+        },
+        {
+          "raw": "almost",
+          "start": 14.57,
+          "end": 14.91
+        },
+        {
+          "raw": "burst",
+          "start": 14.91,
+          "end": 15.23
+        },
+        {
+          "raw": "to",
+          "start": 15.23,
+          "end": 15.51
+        },
+        {
+          "raw": "belch",
+          "start": 15.51,
+          "end": 15.83
+        },
+        {
+          "raw": "it",
+          "start": 15.83,
+          "end": 15.93
+        },
+        {
+          "raw": "in",
+          "start": 15.93,
+          "end": 16.05
+        },
+        {
+          "raw": "the",
+          "start": 16.05,
+          "end": 16.17
+        },
+        {
+          "raw": "sea.",
+          "start": 16.17,
+          "end": 16.43
+        }
+      ],
+      "expected_tokens": [
+        "Clarence.",
+        "Methought",
+        "I",
+        "had;",
+        "and",
+        "often",
+        "did",
+        "I",
+        "strive",
+        "To",
+        "yield",
+        "the",
+        "ghost,",
+        "but",
+        "still",
+        "the",
+        "envious",
+        "flood",
+        "Stopped",
+        "in",
+        "my",
+        "soul,",
+        "and",
+        "would",
+        "not",
+        "let",
+        "it",
+        "forth",
+        "To",
+        "find",
+        "the",
+        "empty,",
+        "vast,",
+        "and",
+        "wand'ring",
+        "air,",
+        "But",
+        "smothered",
+        "it",
+        "within",
+        "my",
+        "panting",
+        "bulk,",
+        "Who",
+        "almost",
+        "burst",
+        "to",
+        "belch",
+        "it",
+        "in",
+        "the",
+        "sea."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ],
+        [
+          "replace",
+          34,
+          35,
+          34,
+          35
+        ],
+        [
+          "equal",
+          35,
+          52,
+          35,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          34,
+          35,
+          34,
+          35
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clarence,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "clarence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Methought",
+          "start": 1.33,
+          "end": 1.79,
+          "key": "methought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 1.95,
+          "end": 2.27,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 2.83,
+          "end": 3.11,
+          "key": "often",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.11,
+          "end": 3.27,
+          "key": "did",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.27,
+          "end": 3.43,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "strive",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "strive",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.73,
+          "end": 4.01,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yield",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "yield",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.39,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ghost,",
+          "start": 4.39,
+          "end": 4.69,
+          "key": "ghost",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 4.95,
+          "end": 5.09,
+          "key": "but",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 5.09,
+          "end": 5.39,
+          "key": "still",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.39,
+          "end": 5.63,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "envious",
+          "start": 5.63,
+          "end": 6.07,
+          "key": "envious",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "flood",
+          "start": 6.07,
+          "end": 6.43,
+          "key": "flood",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 6.43,
+          "end": 6.83,
+          "key": "stopped",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.83,
+          "end": 7.03,
+          "key": "in",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.03,
+          "end": 7.21,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 7.21,
+          "end": 7.55,
+          "key": "soul",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 8.03,
+          "end": 8.17,
+          "key": "and",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 8.17,
+          "end": 8.27,
+          "key": "would",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.27,
+          "end": 8.45,
+          "key": "not",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 8.45,
+          "end": 8.59,
+          "key": "let",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.59,
+          "end": 8.79,
+          "key": "it",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 8.79,
+          "end": 8.95,
+          "key": "forth",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.95,
+          "end": 9.19,
+          "key": "to",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 9.19,
+          "end": 9.39,
+          "key": "find",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.39,
+          "end": 9.55,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "empty,",
+          "start": 9.55,
+          "end": 9.99,
+          "key": "empty",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "vast,",
+          "start": 10.25,
+          "end": 10.53,
+          "key": "vast",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.81,
+          "end": 10.89,
+          "key": "and",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "wandering",
+          "start": 10.89,
+          "end": 11.29,
+          "key": "wandering",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "air,",
+          "start": 11.29,
+          "end": 11.61,
+          "key": "air",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 12.01,
+          "end": 12.21,
+          "key": "but",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "smothered",
+          "start": 12.21,
+          "end": 12.69,
+          "key": "smothered",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.69,
+          "end": 12.85,
+          "key": "it",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 12.85,
+          "end": 13.07,
+          "key": "within",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.07,
+          "end": 13.25,
+          "key": "my",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "panting",
+          "start": 13.25,
+          "end": 13.75,
+          "key": "panting",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "bulk,",
+          "start": 13.75,
+          "end": 13.99,
+          "key": "bulk",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 14.37,
+          "end": 14.57,
+          "key": "who",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 14.57,
+          "end": 14.91,
+          "key": "almost",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "burst",
+          "start": 14.91,
+          "end": 15.23,
+          "key": "burst",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.23,
+          "end": 15.51,
+          "key": "to",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "belch",
+          "start": 15.51,
+          "end": 15.83,
+          "key": "belch",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.83,
+          "end": 15.93,
+          "key": "it",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.93,
+          "end": 16.05,
+          "key": "in",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.05,
+          "end": 16.17,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "sea.",
+          "start": 16.17,
+          "end": 16.43,
+          "key": "sea",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clarence.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Methought",
+          "start": 1.33,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "had;",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "text": "and",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "often",
+          "start": 2.83,
+          "end": 3.11
+        },
+        {
+          "text": "did",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "text": "I",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "strive",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "To",
+          "start": 3.73,
+          "end": 4.01
+        },
+        {
+          "text": "yield",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "text": "the",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "text": "ghost,",
+          "start": 4.39,
+          "end": 4.69
+        },
+        {
+          "text": "but",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "text": "still",
+          "start": 5.09,
+          "end": 5.39
+        },
+        {
+          "text": "the",
+          "start": 5.39,
+          "end": 5.63
+        },
+        {
+          "text": "envious",
+          "start": 5.63,
+          "end": 6.07
+        },
+        {
+          "text": "flood",
+          "start": 6.07,
+          "end": 6.43
+        },
+        {
+          "text": "Stopped",
+          "start": 6.43,
+          "end": 6.83
+        },
+        {
+          "text": "in",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "text": "my",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "text": "soul,",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "text": "and",
+          "start": 8.03,
+          "end": 8.17
+        },
+        {
+          "text": "would",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "text": "not",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "text": "let",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "text": "it",
+          "start": 8.59,
+          "end": 8.79
+        },
+        {
+          "text": "forth",
+          "start": 8.79,
+          "end": 8.95
+        },
+        {
+          "text": "To",
+          "start": 8.95,
+          "end": 9.19
+        },
+        {
+          "text": "find",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "text": "the",
+          "start": 9.39,
+          "end": 9.55
+        },
+        {
+          "text": "empty,",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "text": "vast,",
+          "start": 10.25,
+          "end": 10.53
+        },
+        {
+          "text": "and",
+          "start": 10.81,
+          "end": 10.89
+        },
+        {
+          "text": "wand'ring",
+          "start": 10.89,
+          "end": 11.09
+        },
+        {
+          "text": "air,",
+          "start": 11.29,
+          "end": 11.61
+        },
+        {
+          "text": "But",
+          "start": 12.01,
+          "end": 12.21
+        },
+        {
+          "text": "smothered",
+          "start": 12.21,
+          "end": 12.69
+        },
+        {
+          "text": "it",
+          "start": 12.69,
+          "end": 12.85
+        },
+        {
+          "text": "within",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "text": "my",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "text": "panting",
+          "start": 13.25,
+          "end": 13.75
+        },
+        {
+          "text": "bulk,",
+          "start": 13.75,
+          "end": 13.99
+        },
+        {
+          "text": "Who",
+          "start": 14.37,
+          "end": 14.57
+        },
+        {
+          "text": "almost",
+          "start": 14.57,
+          "end": 14.91
+        },
+        {
+          "text": "burst",
+          "start": 14.91,
+          "end": 15.23
+        },
+        {
+          "text": "to",
+          "start": 15.23,
+          "end": 15.51
+        },
+        {
+          "text": "belch",
+          "start": 15.51,
+          "end": 15.83
+        },
+        {
+          "text": "it",
+          "start": 15.83,
+          "end": 15.93
+        },
+        {
+          "text": "in",
+          "start": 15.93,
+          "end": 16.05
+        },
+        {
+          "text": "the",
+          "start": 16.05,
+          "end": 16.17
+        },
+        {
+          "text": "sea.",
+          "start": 16.17,
+          "end": 16.43
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 52,
+        "matched_words": 51
+      },
+      "match_ratio": 0.9807692307692307,
+      "rejection_reasons": [],
+      "seconds": 0.6420513358898461
+    },
+    {
+      "asr_seconds": 0.5987245640717447,
+      "alignment_seconds": 0.0009757508523762226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clarence, me thought I had, and often did I strive to yield the ghost, but still the",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " Clarence,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.77294921875
+            },
+            {
+              "text": " me",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.5712890625
+            },
+            {
+              "text": " thought",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " had,",
+              "start": 1.97,
+              "end": 2.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " often",
+              "start": 2.83,
+              "end": 3.09,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " did",
+              "start": 3.09,
+              "end": 3.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " strive",
+              "start": 3.43,
+              "end": 3.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 3.75,
+              "end": 4.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " yield",
+              "start": 4.01,
+              "end": 4.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.19,
+              "end": 4.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ghost,",
+              "start": 4.39,
+              "end": 4.69,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " but",
+              "start": 4.95,
+              "end": 5.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " still",
+              "start": 5.09,
+              "end": 5.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 5.39,
+              "end": 5.61,
+              "probability": 0.96337890625
+            }
+          ]
+        },
+        {
+          "text": " envious flood stopped in my soul, and would not let it forth to find the empty, vast,",
+          "start": 5.61,
+          "end": 10.55,
+          "words": [
+            {
+              "text": " envious",
+              "start": 5.61,
+              "end": 6.07,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " flood",
+              "start": 6.07,
+              "end": 6.43,
+              "probability": 0.6640625
+            },
+            {
+              "text": " stopped",
+              "start": 6.43,
+              "end": 6.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 6.83,
+              "end": 7.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 7.03,
+              "end": 7.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " soul,",
+              "start": 7.21,
+              "end": 7.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 8.03,
+              "end": 8.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " would",
+              "start": 8.17,
+              "end": 8.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 8.27,
+              "end": 8.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " let",
+              "start": 8.45,
+              "end": 8.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 8.59,
+              "end": 8.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " forth",
+              "start": 8.77,
+              "end": 8.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 8.95,
+              "end": 9.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " find",
+              "start": 9.19,
+              "end": 9.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 9.39,
+              "end": 9.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " empty,",
+              "start": 9.55,
+              "end": 9.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " vast,",
+              "start": 10.25,
+              "end": 10.55,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " and wandering air, but smothered it within my panting bulk, who almost burst to belch",
+          "start": 10.81,
+          "end": 15.81,
+          "words": [
+            {
+              "text": " and",
+              "start": 10.81,
+              "end": 10.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wandering",
+              "start": 10.89,
+              "end": 11.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " air,",
+              "start": 11.29,
+              "end": 11.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " but",
+              "start": 12.03,
+              "end": 12.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " smothered",
+              "start": 12.21,
+              "end": 12.69,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " it",
+              "start": 12.69,
+              "end": 12.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " within",
+              "start": 12.85,
+              "end": 13.07,
+              "probability": 0.986328125
+            },
+            {
+              "text": " my",
+              "start": 13.07,
+              "end": 13.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " panting",
+              "start": 13.25,
+              "end": 13.75,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " bulk,",
+              "start": 13.75,
+              "end": 14.01,
+              "probability": 0.740234375
+            },
+            {
+              "text": " who",
+              "start": 14.35,
+              "end": 14.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " almost",
+              "start": 14.57,
+              "end": 14.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " burst",
+              "start": 14.91,
+              "end": 15.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 15.25,
+              "end": 15.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " belch",
+              "start": 15.51,
+              "end": 15.81,
+              "probability": 0.904052734375
+            }
+          ]
+        },
+        {
+          "text": " it in the sea.",
+          "start": 15.81,
+          "end": 16.41,
+          "words": [
+            {
+              "text": " it",
+              "start": 15.81,
+              "end": 15.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 15.93,
+              "end": 16.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 16.07,
+              "end": 16.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sea.",
+              "start": 16.17,
+              "end": 16.41,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clarence,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "me",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "thought",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "had,",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "often",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "raw": "did",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "raw": "I",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "strive",
+          "start": 3.43,
+          "end": 3.75
+        },
+        {
+          "raw": "to",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "raw": "yield",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "raw": "ghost,",
+          "start": 4.39,
+          "end": 4.69
+        },
+        {
+          "raw": "but",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "raw": "still",
+          "start": 5.09,
+          "end": 5.39
+        },
+        {
+          "raw": "the",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "raw": "envious",
+          "start": 5.61,
+          "end": 6.07
+        },
+        {
+          "raw": "flood",
+          "start": 6.07,
+          "end": 6.43
+        },
+        {
+          "raw": "stopped",
+          "start": 6.43,
+          "end": 6.83
+        },
+        {
+          "raw": "in",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "raw": "my",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "raw": "soul,",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "raw": "and",
+          "start": 8.03,
+          "end": 8.17
+        },
+        {
+          "raw": "would",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "raw": "not",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "raw": "let",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "raw": "it",
+          "start": 8.59,
+          "end": 8.77
+        },
+        {
+          "raw": "forth",
+          "start": 8.77,
+          "end": 8.95
+        },
+        {
+          "raw": "to",
+          "start": 8.95,
+          "end": 9.19
+        },
+        {
+          "raw": "find",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "raw": "the",
+          "start": 9.39,
+          "end": 9.55
+        },
+        {
+          "raw": "empty,",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "raw": "vast,",
+          "start": 10.25,
+          "end": 10.55
+        },
+        {
+          "raw": "and",
+          "start": 10.81,
+          "end": 10.89
+        },
+        {
+          "raw": "wandering",
+          "start": 10.89,
+          "end": 11.29
+        },
+        {
+          "raw": "air,",
+          "start": 11.29,
+          "end": 11.59
+        },
+        {
+          "raw": "but",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "raw": "smothered",
+          "start": 12.21,
+          "end": 12.69
+        },
+        {
+          "raw": "it",
+          "start": 12.69,
+          "end": 12.85
+        },
+        {
+          "raw": "within",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "raw": "my",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "raw": "panting",
+          "start": 13.25,
+          "end": 13.75
+        },
+        {
+          "raw": "bulk,",
+          "start": 13.75,
+          "end": 14.01
+        },
+        {
+          "raw": "who",
+          "start": 14.35,
+          "end": 14.57
+        },
+        {
+          "raw": "almost",
+          "start": 14.57,
+          "end": 14.91
+        },
+        {
+          "raw": "burst",
+          "start": 14.91,
+          "end": 15.25
+        },
+        {
+          "raw": "to",
+          "start": 15.25,
+          "end": 15.51
+        },
+        {
+          "raw": "belch",
+          "start": 15.51,
+          "end": 15.81
+        },
+        {
+          "raw": "it",
+          "start": 15.81,
+          "end": 15.93
+        },
+        {
+          "raw": "in",
+          "start": 15.93,
+          "end": 16.07
+        },
+        {
+          "raw": "the",
+          "start": 16.07,
+          "end": 16.17
+        },
+        {
+          "raw": "sea.",
+          "start": 16.17,
+          "end": 16.41
+        }
+      ],
+      "expected_tokens": [
+        "Clarence.",
+        "Methought",
+        "I",
+        "had;",
+        "and",
+        "often",
+        "did",
+        "I",
+        "strive",
+        "To",
+        "yield",
+        "the",
+        "ghost,",
+        "but",
+        "still",
+        "the",
+        "envious",
+        "flood",
+        "Stopped",
+        "in",
+        "my",
+        "soul,",
+        "and",
+        "would",
+        "not",
+        "let",
+        "it",
+        "forth",
+        "To",
+        "find",
+        "the",
+        "empty,",
+        "vast,",
+        "and",
+        "wand'ring",
+        "air,",
+        "But",
+        "smothered",
+        "it",
+        "within",
+        "my",
+        "panting",
+        "bulk,",
+        "Who",
+        "almost",
+        "burst",
+        "to",
+        "belch",
+        "it",
+        "in",
+        "the",
+        "sea."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          34,
+          3,
+          35
+        ],
+        [
+          "replace",
+          34,
+          35,
+          35,
+          36
+        ],
+        [
+          "equal",
+          35,
+          52,
+          36,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          34,
+          35,
+          35,
+          36
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clarence,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "clarence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "thought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.77,
+          "end": 1.97,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 1.97,
+          "end": 2.29,
+          "key": "had",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 2.83,
+          "end": 3.09,
+          "key": "often",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.09,
+          "end": 3.27,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.27,
+          "end": 3.43,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "strive",
+          "start": 3.43,
+          "end": 3.75,
+          "key": "strive",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.75,
+          "end": 4.01,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "yield",
+          "start": 4.01,
+          "end": 4.19,
+          "key": "yield",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.19,
+          "end": 4.39,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ghost,",
+          "start": 4.39,
+          "end": 4.69,
+          "key": "ghost",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.95,
+          "end": 5.09,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 5.09,
+          "end": 5.39,
+          "key": "still",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.39,
+          "end": 5.61,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "envious",
+          "start": 5.61,
+          "end": 6.07,
+          "key": "envious",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "flood",
+          "start": 6.07,
+          "end": 6.43,
+          "key": "flood",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "stopped",
+          "start": 6.43,
+          "end": 6.83,
+          "key": "stopped",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.83,
+          "end": 7.03,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.03,
+          "end": 7.21,
+          "key": "my",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "soul,",
+          "start": 7.21,
+          "end": 7.55,
+          "key": "soul",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.03,
+          "end": 8.17,
+          "key": "and",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 8.17,
+          "end": 8.27,
+          "key": "would",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.27,
+          "end": 8.45,
+          "key": "not",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 8.45,
+          "end": 8.59,
+          "key": "let",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 8.59,
+          "end": 8.77,
+          "key": "it",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 8.77,
+          "end": 8.95,
+          "key": "forth",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.95,
+          "end": 9.19,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 9.19,
+          "end": 9.39,
+          "key": "find",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.39,
+          "end": 9.55,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "empty,",
+          "start": 9.55,
+          "end": 9.99,
+          "key": "empty",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "vast,",
+          "start": 10.25,
+          "end": 10.55,
+          "key": "vast",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.81,
+          "end": 10.89,
+          "key": "and",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "wandering",
+          "start": 10.89,
+          "end": 11.29,
+          "key": "wandering",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "air,",
+          "start": 11.29,
+          "end": 11.59,
+          "key": "air",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 12.03,
+          "end": 12.21,
+          "key": "but",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "smothered",
+          "start": 12.21,
+          "end": 12.69,
+          "key": "smothered",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 12.69,
+          "end": 12.85,
+          "key": "it",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 12.85,
+          "end": 13.07,
+          "key": "within",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.07,
+          "end": 13.25,
+          "key": "my",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "panting",
+          "start": 13.25,
+          "end": 13.75,
+          "key": "panting",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "bulk,",
+          "start": 13.75,
+          "end": 14.01,
+          "key": "bulk",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 14.35,
+          "end": 14.57,
+          "key": "who",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 14.57,
+          "end": 14.91,
+          "key": "almost",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "burst",
+          "start": 14.91,
+          "end": 15.25,
+          "key": "burst",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.25,
+          "end": 15.51,
+          "key": "to",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "belch",
+          "start": 15.51,
+          "end": 15.81,
+          "key": "belch",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 15.81,
+          "end": 15.93,
+          "key": "it",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.93,
+          "end": 16.07,
+          "key": "in",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.07,
+          "end": 16.17,
+          "key": "the",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "sea.",
+          "start": 16.17,
+          "end": 16.41,
+          "key": "sea",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clarence.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Methought",
+          "start": 0.73,
+          "end": 1.25
+        },
+        {
+          "text": "I",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "text": "had;",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "text": "and",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "often",
+          "start": 2.83,
+          "end": 3.09
+        },
+        {
+          "text": "did",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "text": "I",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "strive",
+          "start": 3.43,
+          "end": 3.75
+        },
+        {
+          "text": "To",
+          "start": 3.75,
+          "end": 4.01
+        },
+        {
+          "text": "yield",
+          "start": 4.01,
+          "end": 4.19
+        },
+        {
+          "text": "the",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "text": "ghost,",
+          "start": 4.39,
+          "end": 4.69
+        },
+        {
+          "text": "but",
+          "start": 4.95,
+          "end": 5.09
+        },
+        {
+          "text": "still",
+          "start": 5.09,
+          "end": 5.39
+        },
+        {
+          "text": "the",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "text": "envious",
+          "start": 5.61,
+          "end": 6.07
+        },
+        {
+          "text": "flood",
+          "start": 6.07,
+          "end": 6.43
+        },
+        {
+          "text": "Stopped",
+          "start": 6.43,
+          "end": 6.83
+        },
+        {
+          "text": "in",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "text": "my",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "text": "soul,",
+          "start": 7.21,
+          "end": 7.55
+        },
+        {
+          "text": "and",
+          "start": 8.03,
+          "end": 8.17
+        },
+        {
+          "text": "would",
+          "start": 8.17,
+          "end": 8.27
+        },
+        {
+          "text": "not",
+          "start": 8.27,
+          "end": 8.45
+        },
+        {
+          "text": "let",
+          "start": 8.45,
+          "end": 8.59
+        },
+        {
+          "text": "it",
+          "start": 8.59,
+          "end": 8.77
+        },
+        {
+          "text": "forth",
+          "start": 8.77,
+          "end": 8.95
+        },
+        {
+          "text": "To",
+          "start": 8.95,
+          "end": 9.19
+        },
+        {
+          "text": "find",
+          "start": 9.19,
+          "end": 9.39
+        },
+        {
+          "text": "the",
+          "start": 9.39,
+          "end": 9.55
+        },
+        {
+          "text": "empty,",
+          "start": 9.55,
+          "end": 9.99
+        },
+        {
+          "text": "vast,",
+          "start": 10.25,
+          "end": 10.55
+        },
+        {
+          "text": "and",
+          "start": 10.81,
+          "end": 10.89
+        },
+        {
+          "text": "wand'ring",
+          "start": 10.89,
+          "end": 11.09
+        },
+        {
+          "text": "air,",
+          "start": 11.29,
+          "end": 11.59
+        },
+        {
+          "text": "But",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "text": "smothered",
+          "start": 12.21,
+          "end": 12.69
+        },
+        {
+          "text": "it",
+          "start": 12.69,
+          "end": 12.85
+        },
+        {
+          "text": "within",
+          "start": 12.85,
+          "end": 13.07
+        },
+        {
+          "text": "my",
+          "start": 13.07,
+          "end": 13.25
+        },
+        {
+          "text": "panting",
+          "start": 13.25,
+          "end": 13.75
+        },
+        {
+          "text": "bulk,",
+          "start": 13.75,
+          "end": 14.01
+        },
+        {
+          "text": "Who",
+          "start": 14.35,
+          "end": 14.57
+        },
+        {
+          "text": "almost",
+          "start": 14.57,
+          "end": 14.91
+        },
+        {
+          "text": "burst",
+          "start": 14.91,
+          "end": 15.25
+        },
+        {
+          "text": "to",
+          "start": 15.25,
+          "end": 15.51
+        },
+        {
+          "text": "belch",
+          "start": 15.51,
+          "end": 15.81
+        },
+        {
+          "text": "it",
+          "start": 15.81,
+          "end": 15.93
+        },
+        {
+          "text": "in",
+          "start": 15.93,
+          "end": 16.07
+        },
+        {
+          "text": "the",
+          "start": 16.07,
+          "end": 16.17
+        },
+        {
+          "text": "sea.",
+          "start": 16.17,
+          "end": 16.41
+        }
+      ],
+      "stats": {
+        "expected_words": 52,
+        "heard_words": 53,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.6001218380406499
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63cda2af3cefc6694bb6c6143cd0553b1f974f4ce7551a17021933efaba49f9d",
+  "selected_reasons": []
+}

@@ -1,0 +1,248 @@
+{
+  "complete": true,
+  "signature": "52437dc04d566c20ffab22a3c35cd7e9042581a158a3754813cd207cd7d43ce3",
+  "attempts": [
+    {
+      "asr_seconds": 0.2078090338036418,
+      "alignment_seconds": 0.0004022987559437752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pistol, nosede thou flu'in.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " nosede",
+              "start": 1.07,
+              "end": 1.55,
+              "probability": 0.5703938802083334
+            },
+            {
+              "text": " thou",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " flu",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.66650390625
+            },
+            {
+              "text": "'in.",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.3255615234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "nosede",
+          "start": 1.07,
+          "end": 1.55
+        },
+        {
+          "raw": "thou",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "flu",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "'in.",
+          "start": 1.95,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Know'st",
+        "thou",
+        "Fluellen?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nosede",
+          "start": 1.07,
+          "end": 1.55,
+          "key": "nosede",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "flu",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "flu",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'in.",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Know'st",
+          "start": 0.75,
+          "end": 1.15
+        },
+        {
+          "text": "thou",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "Fluellen?",
+          "start": 1.71,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20833951979875565
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "06d018fd3f48c4a2060a83200cf0117d08772881aaf215e7024d1da3128d666f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

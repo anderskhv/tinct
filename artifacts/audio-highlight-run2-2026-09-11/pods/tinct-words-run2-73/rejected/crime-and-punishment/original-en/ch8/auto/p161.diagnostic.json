@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "0ed4b488e8491da75f0ce0e17a0bff503c1466c8d86f7202add7380996dbebad",
+  "attempts": [
+    {
+      "asr_seconds": 0.1357233254238963,
+      "alignment_seconds": 0.00028982292860746384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"At what time?\"",
+        "hotwords": "At"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " At what time?",
+          "start": 0.08,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " what",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " time?",
+              "start": 0.64,
+              "end": 0.96,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "what",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "time?",
+          "start": 0.64,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "\"At",
+        "what",
+        "time?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "time?",
+          "start": 0.64,
+          "end": 0.96,
+          "key": "time",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"At",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "what",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "time?\"",
+          "start": 0.64,
+          "end": 0.96
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1361213093623519
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "504430bbfd1aa87c36b7bbe9e3e295012f5204081ac3b2b16772174b8a386c43",
+  "selected_reasons": []
+}

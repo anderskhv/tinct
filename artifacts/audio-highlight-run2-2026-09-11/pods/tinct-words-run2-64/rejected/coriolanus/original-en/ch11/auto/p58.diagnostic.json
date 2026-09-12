@@ -1,0 +1,406 @@
+{
+  "complete": true,
+  "signature": "f44c5a318a0fcc5045be7e58d53ff5085b8b9cd814aeedd04914d6aca93630c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2379755349829793,
+      "alignment_seconds": 0.0004823124036192894,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. Now it's twenty-seven. Every gash was an enemy's grave.",
+        "hotwords": "Menenius, Now, Every"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius, Now it's twenty-seven. Every gash was an enemy's grave.",
+          "start": 0.05,
+          "end": 4.29,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.612548828125
+            },
+            {
+              "text": " Now",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.01129150390625
+            },
+            {
+              "text": " it's",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.910400390625
+            },
+            {
+              "text": " twenty",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.06781005859375
+            },
+            {
+              "text": "-seven.",
+              "start": 2.03,
+              "end": 2.45,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " Every",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " gash",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " was",
+              "start": 3.35,
+              "end": 3.51,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " an",
+              "start": 3.51,
+              "end": 3.65,
+              "probability": 0.970703125
+            },
+            {
+              "text": " enemy's",
+              "start": 3.65,
+              "end": 4.01,
+              "probability": 0.951904296875
+            },
+            {
+              "text": " grave.",
+              "start": 4.01,
+              "end": 4.29,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Now",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "it's",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "twenty",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "-seven.",
+          "start": 2.03,
+          "end": 2.45
+        },
+        {
+          "raw": "Every",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "gash",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "raw": "was",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "raw": "an",
+          "start": 3.51,
+          "end": 3.65
+        },
+        {
+          "raw": "enemy's",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "raw": "grave.",
+          "start": 4.01,
+          "end": 4.29
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Now",
+        "it's",
+        "twenty-seven.",
+        "Every",
+        "gash",
+        "was",
+        "an",
+        "enemy's",
+        "grave."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "its",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "twenty -seven.",
+          "start": 1.85,
+          "end": 2.45,
+          "key": "twentyseven",
+          "pieces": [
+            3,
+            4
+          ]
+        },
+        {
+          "raw": "Every",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "every",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gash",
+          "start": 3.05,
+          "end": 3.35,
+          "key": "gash",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.35,
+          "end": 3.51,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.51,
+          "end": 3.65,
+          "key": "an",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "enemy's",
+          "start": 3.65,
+          "end": 4.01,
+          "key": "enemys",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "grave.",
+          "start": 4.01,
+          "end": 4.29,
+          "key": "grave",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 3,
+          "text": "twenty-seven.",
+          "heard": "twenty -seven.",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 1.85,
+          "end": 2.45
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Now",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "it's",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "twenty-seven.",
+          "start": 1.85,
+          "end": 2.45
+        },
+        {
+          "text": "Every",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "gash",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "text": "was",
+          "start": 3.35,
+          "end": 3.51
+        },
+        {
+          "text": "an",
+          "start": 3.51,
+          "end": 3.65
+        },
+        {
+          "text": "enemy's",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "text": "grave.",
+          "start": 4.01,
+          "end": 4.29
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23860806971788406
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b27e9e2acd4789a39c6a3f8c422f900356a952e52ec83dbbc055f65bc945445b",
+  "selected_reasons": []
+}

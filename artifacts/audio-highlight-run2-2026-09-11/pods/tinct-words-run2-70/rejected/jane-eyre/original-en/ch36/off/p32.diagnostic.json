@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "fa5db475abe6d8dc488ace001279e61efa578131e1844bb00e48799a725dad6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.18849905207753181,
+      "alignment_seconds": 0.0004736378323286772,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I was the late Mr. Rochester's butler,\" he added.",
+          "start": 0.11,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.278076171875
+            },
+            {
+              "text": " was",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 0.69,
+              "end": 0.85,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " late",
+              "start": 0.85,
+              "end": 1.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Mr.",
+              "start": 1.09,
+              "end": 1.43,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Rochester's",
+              "start": 1.87,
+              "end": 2.23,
+              "probability": 0.953125
+            },
+            {
+              "text": " butler,\"",
+              "start": 2.23,
+              "end": 2.91,
+              "probability": 0.8146158854166666
+            },
+            {
+              "text": " he",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " added.",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "was",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "the",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "raw": "late",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "raw": "Rochester's",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "raw": "butler,\"",
+          "start": 2.23,
+          "end": 2.91
+        },
+        {
+          "raw": "he",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "added.",
+          "start": 3.11,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "was",
+        "the",
+        "late",
+        "Mr.",
+        "Rochester's",
+        "butler,\"",
+        "he",
+        "added."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.69,
+          "end": 0.85,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "late",
+          "start": 0.85,
+          "end": 1.09,
+          "key": "late",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.09,
+          "end": 1.43,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Rochester's",
+          "start": 1.87,
+          "end": 2.23,
+          "key": "rochesters",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "butler,\"",
+          "start": 2.23,
+          "end": 2.91,
+          "key": "butler",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.91,
+          "end": 3.11,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "added.",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "added",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "was",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "the",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "text": "late",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "text": "Mr.",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "text": "Rochester's",
+          "start": 1.87,
+          "end": 2.23
+        },
+        {
+          "text": "butler,\"",
+          "start": 2.23,
+          "end": 2.91
+        },
+        {
+          "text": "he",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "added.",
+          "start": 3.11,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1891561329830438
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fccc0bb1b2c453d4aa3f048fae6e309cc7825f8dbf874b6bf92518dd72801310",
+  "selected_reasons": []
+}

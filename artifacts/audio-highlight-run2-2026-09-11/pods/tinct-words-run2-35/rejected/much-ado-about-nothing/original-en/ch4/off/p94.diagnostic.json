@@ -1,0 +1,180 @@
+{
+  "complete": true,
+  "signature": "990fb7dc8d8ade98fbf1de8c9cf776be2f73f00acf40e877e449e8abb4b86fac",
+  "attempts": [
+    {
+      "asr_seconds": 0.1116398461163044,
+      "alignment_seconds": 0.00035726651549339294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Re-enter Don Pedro.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Re",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.8818359375
+            },
+            {
+              "text": "-enter",
+              "start": 0.57,
+              "end": 0.77,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " Don",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " Pedro.",
+              "start": 1.05,
+              "end": 1.37,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Re",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "-enter",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "raw": "Don",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "Pedro.",
+          "start": 1.05,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "Re-enter",
+        "Don",
+        "Pedro."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Re -enter",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "reenter",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "don",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pedro.",
+          "start": 1.05,
+          "end": 1.37,
+          "key": "pedro",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "Re-enter",
+          "heard": "Re -enter",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Re-enter",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Don",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "Pedro.",
+          "start": 1.05,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11210526153445244
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fdf107e4eb8e92b043f5fcc260b5a40157de87184ceaeb316c3ebf629bf0e84e",
+  "selected_reasons": []
+}

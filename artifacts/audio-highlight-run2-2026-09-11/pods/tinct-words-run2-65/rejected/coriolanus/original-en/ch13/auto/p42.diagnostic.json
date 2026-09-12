@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "121493ae3376a5bc0dc41788e06ff42c71099537db4ca7d293d6c7437ae0a617",
+  "attempts": [
+    {
+      "asr_seconds": 0.25968438014388084,
+      "alignment_seconds": 0.00019090576097369194,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fourth Citizen. You have deserved nobly of your country, and you have not deserved nobly.",
+        "hotwords": "Fourth, Citizen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fourth Citizen. You have deserved nobly of your country, and you have not deserved nobly.",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " Fourth",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " Citizen.",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " You",
+              "start": 1.83,
+              "end": 1.85,
+              "probability": 0.951171875
+            },
+            {
+              "text": " have",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " deserved",
+              "start": 2.03,
+              "end": 2.53,
+              "probability": 0.982421875
+            },
+            {
+              "text": " nobly",
+              "start": 2.53,
+              "end": 3.03,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " of",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 3.17,
+              "end": 3.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " country,",
+              "start": 3.29,
+              "end": 3.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 4.03,
+              "end": 4.11,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 4.11,
+              "end": 4.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " have",
+              "start": 4.21,
+              "end": 4.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 4.33,
+              "end": 4.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " deserved",
+              "start": 4.57,
+              "end": 5.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " nobly.",
+              "start": 5.01,
+              "end": 5.61,
+              "probability": 0.980712890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fourth",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Citizen.",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "You",
+          "start": 1.83,
+          "end": 1.85
+        },
+        {
+          "raw": "have",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "deserved",
+          "start": 2.03,
+          "end": 2.53
+        },
+        {
+          "raw": "nobly",
+          "start": 2.53,
+          "end": 3.03
+        },
+        {
+          "raw": "of",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "your",
+          "start": 3.17,
+          "end": 3.29
+        },
+        {
+          "raw": "country,",
+          "start": 3.29,
+          "end": 3.67
+        },
+        {
+          "raw": "and",
+          "start": 4.03,
+          "end": 4.11
+        },
+        {
+          "raw": "you",
+          "start": 4.11,
+          "end": 4.21
+        },
+        {
+          "raw": "have",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "raw": "not",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "raw": "deserved",
+          "start": 4.57,
+          "end": 5.01
+        },
+        {
+          "raw": "nobly.",
+          "start": 5.01,
+          "end": 5.61
+        }
+      ],
+      "expected_tokens": [
+        "Fourth",
+        "Citizen.",
+        "You",
+        "have",
+        "deserved",
+        "nobly",
+        "of",
+        "your",
+        "country,",
+        "and",
+        "you",
+        "have",
+        "not",
+        "deserved",
+        "nobly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fourth",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "fourth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Citizen.",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "citizen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.83,
+          "end": 1.85,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "deserved",
+          "start": 2.03,
+          "end": 2.53,
+          "key": "deserved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nobly",
+          "start": 2.53,
+          "end": 3.03,
+          "key": "nobly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.17,
+          "end": 3.29,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "country,",
+          "start": 3.29,
+          "end": 3.67,
+          "key": "country",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.03,
+          "end": 4.11,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.11,
+          "end": 4.21,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.21,
+          "end": 4.33,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.33,
+          "end": 4.57,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "deserved",
+          "start": 4.57,
+          "end": 5.01,
+          "key": "deserved",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nobly.",
+          "start": 5.01,
+          "end": 5.61,
+          "key": "nobly",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fourth",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Citizen.",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "You",
+          "start": 1.83,
+          "end": 1.85
+        },
+        {
+          "text": "have",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "deserved",
+          "start": 2.03,
+          "end": 2.53
+        },
+        {
+          "text": "nobly",
+          "start": 2.53,
+          "end": 3.03
+        },
+        {
+          "text": "of",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "your",
+          "start": 3.17,
+          "end": 3.29
+        },
+        {
+          "text": "country,",
+          "start": 3.29,
+          "end": 3.67
+        },
+        {
+          "text": "and",
+          "start": 4.03,
+          "end": 4.11
+        },
+        {
+          "text": "you",
+          "start": 4.11,
+          "end": 4.21
+        },
+        {
+          "text": "have",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "text": "not",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "text": "deserved",
+          "start": 4.57,
+          "end": 5.01
+        },
+        {
+          "text": "nobly.",
+          "start": 5.01,
+          "end": 5.61
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2599480082280934
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d163a873912a430447283442e21906d655c3f2b8afea05084ec83b05e3b89190",
+  "selected_reasons": []
+}

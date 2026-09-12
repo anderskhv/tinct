@@ -1,0 +1,155 @@
+{
+  "complete": true,
+  "signature": "770b5b3ea7af0802017e697573598717074c9b5dcb8cf5cdcffe205a6d02180f",
+  "attempts": [
+    {
+      "asr_seconds": 0.11119459103792906,
+      "alignment_seconds": 0.0002491550985723734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Afeudal socialism.",
+          "start": 0.08,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Afeudal",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.689300537109375
+            },
+            {
+              "text": " socialism.",
+              "start": 0.98,
+              "end": 1.4,
+              "probability": 0.67578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Afeudal",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "socialism.",
+          "start": 0.98,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "_A.",
+        "Feudal",
+        "Socialism_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Afeudal",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "afeudal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "socialism.",
+          "start": 0.98,
+          "end": 1.4,
+          "key": "socialism",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_A.",
+          "start": 0.0,
+          "end": 0.49
+        },
+        {
+          "text": "Feudal",
+          "start": 0.49,
+          "end": 0.735
+        },
+        {
+          "text": "Socialism_",
+          "start": 0.98,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11151871806941926
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "900c668b1414d0ddbe81f4723082dae175ebf884846918ac87a16dc3b463eda9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

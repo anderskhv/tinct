@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "5e85a89385a27621aad025023f2582479d46dd4bed04c9c807e803b4548432c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3851596247404814,
+      "alignment_seconds": 0.0005767792463302612,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "93. In affability there is no hatred of men, but precisely on that account a great deal too much contempt of men.",
+        "hotwords": "In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 93. In affability there is no hatred of men, but precisely on that account a great deal too much contempt of men.",
+          "start": 0.08,
+          "end": 7.68,
+          "words": [
+            {
+              "text": " 93.",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " In",
+              "start": 1.74,
+              "end": 1.8,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " affability",
+              "start": 1.8,
+              "end": 2.3,
+              "probability": 0.765625
+            },
+            {
+              "text": " there",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.720703125
+            },
+            {
+              "text": " is",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hatred",
+              "start": 2.98,
+              "end": 3.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " men,",
+              "start": 3.52,
+              "end": 3.76,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " but",
+              "start": 4.16,
+              "end": 4.32,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " precisely",
+              "start": 4.32,
+              "end": 4.7,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " on",
+              "start": 4.7,
+              "end": 5.04,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 5.04,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " account",
+              "start": 5.22,
+              "end": 5.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 5.5,
+              "end": 5.72,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " great",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " deal",
+              "start": 5.98,
+              "end": 6.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too",
+              "start": 6.28,
+              "end": 6.58,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " much",
+              "start": 6.58,
+              "end": 6.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " contempt",
+              "start": 6.82,
+              "end": 7.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 7.2,
+              "end": 7.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " men.",
+              "start": 7.42,
+              "end": 7.68,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "93.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "In",
+          "start": 1.74,
+          "end": 1.8
+        },
+        {
+          "raw": "affability",
+          "start": 1.8,
+          "end": 2.3
+        },
+        {
+          "raw": "there",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "raw": "is",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "no",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "raw": "hatred",
+          "start": 2.98,
+          "end": 3.32
+        },
+        {
+          "raw": "of",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "men,",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "raw": "but",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "raw": "precisely",
+          "start": 4.32,
+          "end": 4.7
+        },
+        {
+          "raw": "on",
+          "start": 4.7,
+          "end": 5.04
+        },
+        {
+          "raw": "that",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "raw": "account",
+          "start": 5.22,
+          "end": 5.5
+        },
+        {
+          "raw": "a",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "raw": "great",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "raw": "deal",
+          "start": 5.98,
+          "end": 6.28
+        },
+        {
+          "raw": "too",
+          "start": 6.28,
+          "end": 6.58
+        },
+        {
+          "raw": "much",
+          "start": 6.58,
+          "end": 6.82
+        },
+        {
+          "raw": "contempt",
+          "start": 6.82,
+          "end": 7.2
+        },
+        {
+          "raw": "of",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "raw": "men.",
+          "start": 7.42,
+          "end": 7.68
+        }
+      ],
+      "expected_tokens": [
+        "93.",
+        "In",
+        "affability",
+        "there",
+        "is",
+        "no",
+        "hatred",
+        "of",
+        "men,",
+        "but",
+        "precisely",
+        "on",
+        "that",
+        "account",
+        "a",
+        "great",
+        "deal",
+        "too",
+        "much",
+        "contempt",
+        "of",
+        "men."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "93.",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "ninetythree",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.74,
+          "end": 1.8,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "affability",
+          "start": 1.8,
+          "end": 2.3,
+          "key": "affability",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.74,
+          "end": 2.98,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hatred",
+          "start": 2.98,
+          "end": 3.32,
+          "key": "hatred",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.32,
+          "end": 3.52,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "men,",
+          "start": 3.52,
+          "end": 3.76,
+          "key": "men",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.16,
+          "end": 4.32,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "precisely",
+          "start": 4.32,
+          "end": 4.7,
+          "key": "precisely",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.7,
+          "end": 5.04,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.04,
+          "end": 5.22,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "account",
+          "start": 5.22,
+          "end": 5.5,
+          "key": "account",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.5,
+          "end": 5.72,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 5.72,
+          "end": 5.98,
+          "key": "great",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 5.98,
+          "end": 6.28,
+          "key": "deal",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 6.28,
+          "end": 6.58,
+          "key": "too",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 6.58,
+          "end": 6.82,
+          "key": "much",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "contempt",
+          "start": 6.82,
+          "end": 7.2,
+          "key": "contempt",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.2,
+          "end": 7.42,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 7.42,
+          "end": 7.68,
+          "key": "men",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "93.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "In",
+          "start": 1.74,
+          "end": 1.8
+        },
+        {
+          "text": "affability",
+          "start": 1.8,
+          "end": 2.3
+        },
+        {
+          "text": "there",
+          "start": 2.3,
+          "end": 2.6
+        },
+        {
+          "text": "is",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "no",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "text": "hatred",
+          "start": 2.98,
+          "end": 3.32
+        },
+        {
+          "text": "of",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "men,",
+          "start": 3.52,
+          "end": 3.76
+        },
+        {
+          "text": "but",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "precisely",
+          "start": 4.32,
+          "end": 4.7
+        },
+        {
+          "text": "on",
+          "start": 4.7,
+          "end": 5.04
+        },
+        {
+          "text": "that",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "text": "account",
+          "start": 5.22,
+          "end": 5.5
+        },
+        {
+          "text": "a",
+          "start": 5.5,
+          "end": 5.72
+        },
+        {
+          "text": "great",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "text": "deal",
+          "start": 5.98,
+          "end": 6.28
+        },
+        {
+          "text": "too",
+          "start": 6.28,
+          "end": 6.58
+        },
+        {
+          "text": "much",
+          "start": 6.58,
+          "end": 6.82
+        },
+        {
+          "text": "contempt",
+          "start": 6.82,
+          "end": 7.2
+        },
+        {
+          "text": "of",
+          "start": 7.2,
+          "end": 7.42
+        },
+        {
+          "text": "men.",
+          "start": 7.42,
+          "end": 7.68
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.38596575800329447
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3ed775c4e0a3c8a32181d7aa5c2d218212808d862b3aae6979c80693aebbe694",
+  "selected_reasons": []
+}

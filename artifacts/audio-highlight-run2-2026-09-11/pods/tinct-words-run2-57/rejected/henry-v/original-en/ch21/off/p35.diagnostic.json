@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "a81cdb98665133327291c13725045f8dd8106cff6b3a39a9ba9641a69a3e59c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.18920159107074142,
+      "alignment_seconds": 0.0004151009488850832,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, what prisoners of good sort are taken, Uncle?",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " Henry,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " what",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " prisoners",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 1.91,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.900390625
+            },
+            {
+              "text": " sort",
+              "start": 2.31,
+              "end": 2.53,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " are",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " taken,",
+              "start": 2.69,
+              "end": 2.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Uncle?",
+              "start": 3.19,
+              "end": 3.35,
+              "probability": 0.494384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "what",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "prisoners",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "raw": "of",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "raw": "good",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "sort",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "raw": "are",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "taken,",
+          "start": 2.69,
+          "end": 2.99
+        },
+        {
+          "raw": "Uncle?",
+          "start": 3.19,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "What",
+        "prisoners",
+        "of",
+        "good",
+        "sort",
+        "are",
+        "taken,",
+        "uncle?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "prisoners",
+          "start": 1.63,
+          "end": 1.91,
+          "key": "prisoners",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.91,
+          "end": 2.19,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 2.31,
+          "end": 2.53,
+          "key": "sort",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "taken,",
+          "start": 2.69,
+          "end": 2.99,
+          "key": "taken",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Uncle?",
+          "start": 3.19,
+          "end": 3.35,
+          "key": "uncle",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "What",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "prisoners",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "text": "of",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "text": "good",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "sort",
+          "start": 2.31,
+          "end": 2.53
+        },
+        {
+          "text": "are",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "taken,",
+          "start": 2.69,
+          "end": 2.99
+        },
+        {
+          "text": "uncle?",
+          "start": 3.19,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18977565504610538
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b1c298d37701bbc45f9eff61ac2162985717f375932b10c6954b809fd77c8eb",
+  "selected_reasons": []
+}

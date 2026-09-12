@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "756df92f4bdab86b589885548b275a2b5a0eb2c48e840c8051dc8990bc9b4b33",
+  "attempts": [
+    {
+      "asr_seconds": 0.250002215616405,
+      "alignment_seconds": 0.00020596943795681,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt prints in attendance. Capulet, Lady Capulet, Tybalt.",
+          "start": 0.02,
+          "end": 4.22,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.6213582356770834
+            },
+            {
+              "text": " prints",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.397216796875
+            },
+            {
+              "text": " in",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.3623046875
+            },
+            {
+              "text": " attendance.",
+              "start": 1.18,
+              "end": 1.64,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Capulet,",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Lady",
+              "start": 2.9,
+              "end": 2.98,
+              "probability": 0.66015625
+            },
+            {
+              "text": " Capulet,",
+              "start": 2.98,
+              "end": 3.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Tybalt.",
+              "start": 3.86,
+              "end": 4.22,
+              "probability": 0.83984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "prints",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "in",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "raw": "Capulet,",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "raw": "Lady",
+          "start": 2.9,
+          "end": 2.98
+        },
+        {
+          "raw": "Capulet,",
+          "start": 2.98,
+          "end": 3.56
+        },
+        {
+          "raw": "Tybalt.",
+          "start": 3.86,
+          "end": 4.22
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Prince",
+        "and",
+        "Attendants;",
+        "Capulet,",
+        "Lady",
+        "Capulet,",
+        "Tybalt,]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "prints",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "prints",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 1.18,
+          "end": 1.64,
+          "key": "attendance",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Capulet,",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "capulet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 2.9,
+          "end": 2.98,
+          "key": "lady",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Capulet,",
+          "start": 2.98,
+          "end": 3.56,
+          "key": "capulet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Tybalt.",
+          "start": 3.86,
+          "end": 4.22,
+          "key": "tybalt",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Prince",
+          "start": 0.8,
+          "end": 1.58
+        },
+        {
+          "text": "and",
+          "start": 1.58,
+          "end": 1.97
+        },
+        {
+          "text": "Attendants;",
+          "start": 1.97,
+          "end": 2.165
+        },
+        {
+          "text": "Capulet,",
+          "start": 2.36,
+          "end": 2.64
+        },
+        {
+          "text": "Lady",
+          "start": 2.9,
+          "end": 2.98
+        },
+        {
+          "text": "Capulet,",
+          "start": 2.98,
+          "end": 3.56
+        },
+        {
+          "text": "Tybalt,]",
+          "start": 3.86,
+          "end": 4.22
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25027316622436047
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eb3dbbc5455e25f6f7453a704af0de158f5e8ba5be8f5c707603dde503cee8cb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

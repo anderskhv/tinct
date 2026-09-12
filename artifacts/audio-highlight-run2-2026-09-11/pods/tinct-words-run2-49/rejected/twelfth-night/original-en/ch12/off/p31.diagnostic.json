@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "9b40426b7d719fad8c5552349819d705075f8ab6b7e73c1e68ad3baec9807e85",
+  "attempts": [
+    {
+      "asr_seconds": 0.11575856059789658,
+      "alignment_seconds": 0.00023632124066352844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.6287434895833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt._]",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11606568843126297
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a0e0ec00a1986e89a83517121bcfebd66a6c1dd87d6b913ba8991b09b4dd9e2",
+  "selected_reasons": []
+}

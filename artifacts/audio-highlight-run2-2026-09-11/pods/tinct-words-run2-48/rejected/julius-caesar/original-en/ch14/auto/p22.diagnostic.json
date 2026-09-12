@@ -1,0 +1,2213 @@
+{
+  "complete": true,
+  "signature": "04f31ba3e2d6ad56c0371f6447df4d116a4d87fc8736258754e997e80ff587c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.4207238079980016,
+      "alignment_seconds": 0.0006963666528463364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. O yes, and soundless too, For you have stol'n their buzzing, Antony, And very wisely threat before you sting.",
+        "hotwords": "Brutus, O, For, Antony"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, O yes, and soundless too, For you have stol'n their buzzing, Antony,",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.966796875
+            },
+            {
+              "text": " O",
+              "start": 1.17,
+              "end": 1.47,
+              "probability": 0.0941162109375
+            },
+            {
+              "text": " yes,",
+              "start": 1.47,
+              "end": 1.75,
+              "probability": 0.548828125
+            },
+            {
+              "text": " and",
+              "start": 2.11,
+              "end": 2.15,
+              "probability": 0.947265625
+            },
+            {
+              "text": " soundless",
+              "start": 2.15,
+              "end": 2.63,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " too,",
+              "start": 2.63,
+              "end": 2.93,
+              "probability": 0.765625
+            },
+            {
+              "text": " For",
+              "start": 3.39,
+              "end": 3.49,
+              "probability": 0.28271484375
+            },
+            {
+              "text": " you",
+              "start": 3.49,
+              "end": 3.61,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " have",
+              "start": 3.61,
+              "end": 3.71,
+              "probability": 0.984375
+            },
+            {
+              "text": " stol",
+              "start": 3.71,
+              "end": 4.03,
+              "probability": 0.4541501998901367
+            },
+            {
+              "text": "'n",
+              "start": 4.03,
+              "end": 4.15,
+              "probability": 0.4786567687988281
+            },
+            {
+              "text": " their",
+              "start": 4.15,
+              "end": 4.27,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " buzzing,",
+              "start": 4.27,
+              "end": 4.61,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Antony,",
+              "start": 4.83,
+              "end": 5.23,
+              "probability": 0.6966552734375
+            }
+          ]
+        },
+        {
+          "text": " And very wisely threat before you sting.",
+          "start": 5.47,
+          "end": 7.49,
+          "words": [
+            {
+              "text": " And",
+              "start": 5.47,
+              "end": 5.53,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " very",
+              "start": 5.53,
+              "end": 5.81,
+              "probability": 0.9375
+            },
+            {
+              "text": " wisely",
+              "start": 5.81,
+              "end": 6.29,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " threat",
+              "start": 6.29,
+              "end": 6.67,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " before",
+              "start": 6.67,
+              "end": 7.03,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " you",
+              "start": 7.03,
+              "end": 7.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sting.",
+              "start": 7.23,
+              "end": 7.49,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "O",
+          "start": 1.17,
+          "end": 1.47
+        },
+        {
+          "raw": "yes,",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.15
+        },
+        {
+          "raw": "soundless",
+          "start": 2.15,
+          "end": 2.63
+        },
+        {
+          "raw": "too,",
+          "start": 2.63,
+          "end": 2.93
+        },
+        {
+          "raw": "For",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "raw": "you",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "raw": "have",
+          "start": 3.61,
+          "end": 3.71
+        },
+        {
+          "raw": "stol",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "raw": "'n",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "raw": "their",
+          "start": 4.15,
+          "end": 4.27
+        },
+        {
+          "raw": "buzzing,",
+          "start": 4.27,
+          "end": 4.61
+        },
+        {
+          "raw": "Antony,",
+          "start": 4.83,
+          "end": 5.23
+        },
+        {
+          "raw": "And",
+          "start": 5.47,
+          "end": 5.53
+        },
+        {
+          "raw": "very",
+          "start": 5.53,
+          "end": 5.81
+        },
+        {
+          "raw": "wisely",
+          "start": 5.81,
+          "end": 6.29
+        },
+        {
+          "raw": "threat",
+          "start": 6.29,
+          "end": 6.67
+        },
+        {
+          "raw": "before",
+          "start": 6.67,
+          "end": 7.03
+        },
+        {
+          "raw": "you",
+          "start": 7.03,
+          "end": 7.23
+        },
+        {
+          "raw": "sting.",
+          "start": 7.23,
+          "end": 7.49
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "O",
+        "yes,",
+        "and",
+        "soundless",
+        "too,",
+        "For",
+        "you",
+        "have",
+        "stol'n",
+        "their",
+        "buzzing,",
+        "Antony,",
+        "And",
+        "very",
+        "wisely",
+        "threat",
+        "before",
+        "you",
+        "sting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          20,
+          11,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.17,
+          "end": 1.47,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 1.47,
+          "end": 1.75,
+          "key": "yes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soundless",
+          "start": 2.15,
+          "end": 2.63,
+          "key": "soundless",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 2.63,
+          "end": 2.93,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.39,
+          "end": 3.49,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.49,
+          "end": 3.61,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.61,
+          "end": 3.71,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stol",
+          "start": 3.71,
+          "end": 4.03,
+          "key": "stol",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "'n",
+          "start": 4.03,
+          "end": 4.15,
+          "key": "n",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.15,
+          "end": 4.27,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "buzzing,",
+          "start": 4.27,
+          "end": 4.61,
+          "key": "buzzing",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 4.83,
+          "end": 5.23,
+          "key": "antony",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.47,
+          "end": 5.53,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 5.53,
+          "end": 5.81,
+          "key": "very",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wisely",
+          "start": 5.81,
+          "end": 6.29,
+          "key": "wisely",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "threat",
+          "start": 6.29,
+          "end": 6.67,
+          "key": "threat",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 6.67,
+          "end": 7.03,
+          "key": "before",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.03,
+          "end": 7.23,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sting.",
+          "start": 7.23,
+          "end": 7.49,
+          "key": "sting",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "O",
+          "start": 1.17,
+          "end": 1.47
+        },
+        {
+          "text": "yes,",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "text": "and",
+          "start": 2.11,
+          "end": 2.15
+        },
+        {
+          "text": "soundless",
+          "start": 2.15,
+          "end": 2.63
+        },
+        {
+          "text": "too,",
+          "start": 2.63,
+          "end": 2.93
+        },
+        {
+          "text": "For",
+          "start": 3.39,
+          "end": 3.49
+        },
+        {
+          "text": "you",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "text": "have",
+          "start": 3.61,
+          "end": 3.71
+        },
+        {
+          "text": "stol'n",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "text": "their",
+          "start": 4.15,
+          "end": 4.27
+        },
+        {
+          "text": "buzzing,",
+          "start": 4.27,
+          "end": 4.61
+        },
+        {
+          "text": "Antony,",
+          "start": 4.83,
+          "end": 5.23
+        },
+        {
+          "text": "And",
+          "start": 5.47,
+          "end": 5.53
+        },
+        {
+          "text": "very",
+          "start": 5.53,
+          "end": 5.81
+        },
+        {
+          "text": "wisely",
+          "start": 5.81,
+          "end": 6.29
+        },
+        {
+          "text": "threat",
+          "start": 6.29,
+          "end": 6.67
+        },
+        {
+          "text": "before",
+          "start": 6.67,
+          "end": 7.03
+        },
+        {
+          "text": "you",
+          "start": 7.03,
+          "end": 7.23
+        },
+        {
+          "text": "sting.",
+          "start": 7.23,
+          "end": 7.49
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.4217125019058585
+    },
+    {
+      "asr_seconds": 0.38941913563758135,
+      "alignment_seconds": 0.0005386443808674812,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Brutus, O, For, Antony"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Brutus, O, Yes, and Soundless, too, For you have stalling their buzzing, Antony,",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.966796875
+            },
+            {
+              "text": " O,",
+              "start": 1.19,
+              "end": 1.47,
+              "probability": 0.0941162109375
+            },
+            {
+              "text": " Yes,",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.1922607421875
+            },
+            {
+              "text": " and",
+              "start": 2.09,
+              "end": 2.15,
+              "probability": 0.888671875
+            },
+            {
+              "text": " Soundless,",
+              "start": 2.15,
+              "end": 2.63,
+              "probability": 0.938232421875
+            },
+            {
+              "text": " too,",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " For",
+              "start": 3.37,
+              "end": 3.49,
+              "probability": 0.26953125
+            },
+            {
+              "text": " you",
+              "start": 3.49,
+              "end": 3.61,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " have",
+              "start": 3.61,
+              "end": 3.71,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " stalling",
+              "start": 3.71,
+              "end": 4.03,
+              "probability": 0.496246337890625
+            },
+            {
+              "text": " their",
+              "start": 4.03,
+              "end": 4.27,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " buzzing,",
+              "start": 4.27,
+              "end": 4.61,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Antony,",
+              "start": 4.83,
+              "end": 5.23,
+              "probability": 0.7474365234375
+            }
+          ]
+        },
+        {
+          "text": " And very wisely threat before you sting.",
+          "start": 5.47,
+          "end": 7.49,
+          "words": [
+            {
+              "text": " And",
+              "start": 5.47,
+              "end": 5.53,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " very",
+              "start": 5.53,
+              "end": 5.83,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " wisely",
+              "start": 5.83,
+              "end": 6.29,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " threat",
+              "start": 6.29,
+              "end": 6.67,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " before",
+              "start": 6.67,
+              "end": 7.03,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " you",
+              "start": 7.03,
+              "end": 7.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " sting.",
+              "start": 7.23,
+              "end": 7.49,
+              "probability": 0.94189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "O,",
+          "start": 1.19,
+          "end": 1.47
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "and",
+          "start": 2.09,
+          "end": 2.15
+        },
+        {
+          "raw": "Soundless,",
+          "start": 2.15,
+          "end": 2.63
+        },
+        {
+          "raw": "too,",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "For",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "raw": "you",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "raw": "have",
+          "start": 3.61,
+          "end": 3.71
+        },
+        {
+          "raw": "stalling",
+          "start": 3.71,
+          "end": 4.03
+        },
+        {
+          "raw": "their",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "raw": "buzzing,",
+          "start": 4.27,
+          "end": 4.61
+        },
+        {
+          "raw": "Antony,",
+          "start": 4.83,
+          "end": 5.23
+        },
+        {
+          "raw": "And",
+          "start": 5.47,
+          "end": 5.53
+        },
+        {
+          "raw": "very",
+          "start": 5.53,
+          "end": 5.83
+        },
+        {
+          "raw": "wisely",
+          "start": 5.83,
+          "end": 6.29
+        },
+        {
+          "raw": "threat",
+          "start": 6.29,
+          "end": 6.67
+        },
+        {
+          "raw": "before",
+          "start": 6.67,
+          "end": 7.03
+        },
+        {
+          "raw": "you",
+          "start": 7.03,
+          "end": 7.23
+        },
+        {
+          "raw": "sting.",
+          "start": 7.23,
+          "end": 7.49
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "O",
+        "yes,",
+        "and",
+        "soundless",
+        "too,",
+        "For",
+        "you",
+        "have",
+        "stol'n",
+        "their",
+        "buzzing,",
+        "Antony,",
+        "And",
+        "very",
+        "wisely",
+        "threat",
+        "before",
+        "you",
+        "sting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          20,
+          10,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.19,
+          "end": 1.47,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "yes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.09,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Soundless,",
+          "start": 2.15,
+          "end": 2.63,
+          "key": "soundless",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.37,
+          "end": 3.49,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.49,
+          "end": 3.61,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.61,
+          "end": 3.71,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stalling",
+          "start": 3.71,
+          "end": 4.03,
+          "key": "stalling",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.03,
+          "end": 4.27,
+          "key": "their",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "buzzing,",
+          "start": 4.27,
+          "end": 4.61,
+          "key": "buzzing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 4.83,
+          "end": 5.23,
+          "key": "antony",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 5.47,
+          "end": 5.53,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 5.53,
+          "end": 5.83,
+          "key": "very",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wisely",
+          "start": 5.83,
+          "end": 6.29,
+          "key": "wisely",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "threat",
+          "start": 6.29,
+          "end": 6.67,
+          "key": "threat",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 6.67,
+          "end": 7.03,
+          "key": "before",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.03,
+          "end": 7.23,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sting.",
+          "start": 7.23,
+          "end": 7.49,
+          "key": "sting",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "O",
+          "start": 1.19,
+          "end": 1.47
+        },
+        {
+          "text": "yes,",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "and",
+          "start": 2.09,
+          "end": 2.15
+        },
+        {
+          "text": "soundless",
+          "start": 2.15,
+          "end": 2.63
+        },
+        {
+          "text": "too,",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "text": "For",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "text": "you",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "text": "have",
+          "start": 3.61,
+          "end": 3.71
+        },
+        {
+          "text": "stol'n",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "text": "their",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "text": "buzzing,",
+          "start": 4.27,
+          "end": 4.61
+        },
+        {
+          "text": "Antony,",
+          "start": 4.83,
+          "end": 5.23
+        },
+        {
+          "text": "And",
+          "start": 5.47,
+          "end": 5.53
+        },
+        {
+          "text": "very",
+          "start": 5.53,
+          "end": 5.83
+        },
+        {
+          "text": "wisely",
+          "start": 5.83,
+          "end": 6.29
+        },
+        {
+          "text": "threat",
+          "start": 6.29,
+          "end": 6.67
+        },
+        {
+          "text": "before",
+          "start": 6.67,
+          "end": 7.03
+        },
+        {
+          "text": "you",
+          "start": 7.03,
+          "end": 7.23
+        },
+        {
+          "text": "sting.",
+          "start": 7.23,
+          "end": 7.49
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.3901778506115079
+    },
+    {
+      "asr_seconds": 0.4101303406059742,
+      "alignment_seconds": 0.0004652952775359154,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, oh yes, and Soundless too, for you have stalled their buzzing, antony, and very",
+          "start": 0.05,
+          "end": 5.81,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.966796875
+            },
+            {
+              "text": " oh",
+              "start": 1.19,
+              "end": 1.47,
+              "probability": 0.763671875
+            },
+            {
+              "text": " yes,",
+              "start": 1.47,
+              "end": 1.77,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " and",
+              "start": 2.09,
+              "end": 2.15,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Soundless",
+              "start": 2.15,
+              "end": 2.61,
+              "probability": 0.822509765625
+            },
+            {
+              "text": " too,",
+              "start": 2.61,
+              "end": 2.93,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " for",
+              "start": 3.37,
+              "end": 3.49,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " you",
+              "start": 3.49,
+              "end": 3.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " have",
+              "start": 3.61,
+              "end": 3.73,
+              "probability": 0.990234375
+            },
+            {
+              "text": " stalled",
+              "start": 3.73,
+              "end": 4.03,
+              "probability": 0.48870849609375
+            },
+            {
+              "text": " their",
+              "start": 4.03,
+              "end": 4.25,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " buzzing,",
+              "start": 4.25,
+              "end": 4.63,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " antony,",
+              "start": 4.83,
+              "end": 5.31,
+              "probability": 0.6842447916666666
+            },
+            {
+              "text": " and",
+              "start": 5.45,
+              "end": 5.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " very",
+              "start": 5.53,
+              "end": 5.81,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " wisely threat before you sting.",
+          "start": 5.81,
+          "end": 7.51,
+          "words": [
+            {
+              "text": " wisely",
+              "start": 5.81,
+              "end": 6.31,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " threat",
+              "start": 6.31,
+              "end": 6.67,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " before",
+              "start": 6.67,
+              "end": 7.03,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you",
+              "start": 7.03,
+              "end": 7.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sting.",
+              "start": 7.23,
+              "end": 7.51,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "oh",
+          "start": 1.19,
+          "end": 1.47
+        },
+        {
+          "raw": "yes,",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "raw": "and",
+          "start": 2.09,
+          "end": 2.15
+        },
+        {
+          "raw": "Soundless",
+          "start": 2.15,
+          "end": 2.61
+        },
+        {
+          "raw": "too,",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "raw": "for",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "raw": "you",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "raw": "have",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "raw": "stalled",
+          "start": 3.73,
+          "end": 4.03
+        },
+        {
+          "raw": "their",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "raw": "buzzing,",
+          "start": 4.25,
+          "end": 4.63
+        },
+        {
+          "raw": "antony,",
+          "start": 4.83,
+          "end": 5.31
+        },
+        {
+          "raw": "and",
+          "start": 5.45,
+          "end": 5.53
+        },
+        {
+          "raw": "very",
+          "start": 5.53,
+          "end": 5.81
+        },
+        {
+          "raw": "wisely",
+          "start": 5.81,
+          "end": 6.31
+        },
+        {
+          "raw": "threat",
+          "start": 6.31,
+          "end": 6.67
+        },
+        {
+          "raw": "before",
+          "start": 6.67,
+          "end": 7.03
+        },
+        {
+          "raw": "you",
+          "start": 7.03,
+          "end": 7.23
+        },
+        {
+          "raw": "sting.",
+          "start": 7.23,
+          "end": 7.51
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "O",
+        "yes,",
+        "and",
+        "soundless",
+        "too,",
+        "For",
+        "you",
+        "have",
+        "stol'n",
+        "their",
+        "buzzing,",
+        "Antony,",
+        "And",
+        "very",
+        "wisely",
+        "threat",
+        "before",
+        "you",
+        "sting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          20,
+          10,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.19,
+          "end": 1.47,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 1.47,
+          "end": 1.77,
+          "key": "yes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.09,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Soundless",
+          "start": 2.15,
+          "end": 2.61,
+          "key": "soundless",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 2.61,
+          "end": 2.93,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.37,
+          "end": 3.49,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.49,
+          "end": 3.61,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.61,
+          "end": 3.73,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stalled",
+          "start": 3.73,
+          "end": 4.03,
+          "key": "stalled",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.03,
+          "end": 4.25,
+          "key": "their",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "buzzing,",
+          "start": 4.25,
+          "end": 4.63,
+          "key": "buzzing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "antony,",
+          "start": 4.83,
+          "end": 5.31,
+          "key": "antony",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.45,
+          "end": 5.53,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 5.53,
+          "end": 5.81,
+          "key": "very",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wisely",
+          "start": 5.81,
+          "end": 6.31,
+          "key": "wisely",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "threat",
+          "start": 6.31,
+          "end": 6.67,
+          "key": "threat",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 6.67,
+          "end": 7.03,
+          "key": "before",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.03,
+          "end": 7.23,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sting.",
+          "start": 7.23,
+          "end": 7.51,
+          "key": "sting",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "O",
+          "start": 0.89,
+          "end": 1.18
+        },
+        {
+          "text": "yes,",
+          "start": 1.47,
+          "end": 1.77
+        },
+        {
+          "text": "and",
+          "start": 2.09,
+          "end": 2.15
+        },
+        {
+          "text": "soundless",
+          "start": 2.15,
+          "end": 2.61
+        },
+        {
+          "text": "too,",
+          "start": 2.61,
+          "end": 2.93
+        },
+        {
+          "text": "For",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "text": "you",
+          "start": 3.49,
+          "end": 3.61
+        },
+        {
+          "text": "have",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "text": "stol'n",
+          "start": 3.73,
+          "end": 3.88
+        },
+        {
+          "text": "their",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "text": "buzzing,",
+          "start": 4.25,
+          "end": 4.63
+        },
+        {
+          "text": "Antony,",
+          "start": 4.83,
+          "end": 5.31
+        },
+        {
+          "text": "And",
+          "start": 5.45,
+          "end": 5.53
+        },
+        {
+          "text": "very",
+          "start": 5.53,
+          "end": 5.81
+        },
+        {
+          "text": "wisely",
+          "start": 5.81,
+          "end": 6.31
+        },
+        {
+          "text": "threat",
+          "start": 6.31,
+          "end": 6.67
+        },
+        {
+          "text": "before",
+          "start": 6.67,
+          "end": 7.03
+        },
+        {
+          "text": "you",
+          "start": 7.03,
+          "end": 7.23
+        },
+        {
+          "text": "sting.",
+          "start": 7.23,
+          "end": 7.51
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.4107778798788786
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "abd5352ee945c994e75785086568cd4973f074c3623f01821cc03eab958afd48",
+  "selected_reasons": []
+}

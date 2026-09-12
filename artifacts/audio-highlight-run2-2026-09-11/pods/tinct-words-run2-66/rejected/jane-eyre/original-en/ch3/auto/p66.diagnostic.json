@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "7d7a4543655ff5ee6687b9b24fd1fa5a5eb87719b259c2c186527694e7bf6eef",
+  "attempts": [
+    {
+      "asr_seconds": 0.138740636408329,
+      "alignment_seconds": 0.0003410438075661659,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I think not, sir.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I think not, sir.",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " think",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " not,",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sir.",
+              "start": 1.08,
+              "end": 1.14,
+              "probability": 0.88330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "think",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "not,",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "sir.",
+          "start": 1.08,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "think",
+        "not,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.08,
+          "end": 1.14,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "think",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "not,",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "sir.\"",
+          "start": 1.08,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.139204990118742
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "492ae2848d04261dc27f570a7be69c95adb6fe99807a9b4c4d2e5257187fc3f4",
+  "selected_reasons": []
+}

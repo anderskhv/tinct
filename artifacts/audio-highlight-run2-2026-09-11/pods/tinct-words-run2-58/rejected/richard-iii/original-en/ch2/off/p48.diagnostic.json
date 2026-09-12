@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "604adfa8c2eec2612f42adeb95bdb79fa897014e4a97d9457a975f1a5470ff34",
+  "attempts": [
+    {
+      "asr_seconds": 0.19525061175227165,
+      "alignment_seconds": 0.00040148384869098663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Anne, black night or shade thy day, and death thy life.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.1297607421875
+            },
+            {
+              "text": " black",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.3330078125
+            },
+            {
+              "text": " night",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.47802734375
+            },
+            {
+              "text": " or",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " shade",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.943359375
+            },
+            {
+              "text": " thy",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " day,",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " death",
+              "start": 2.69,
+              "end": 2.89,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " thy",
+              "start": 2.89,
+              "end": 3.11,
+              "probability": 0.94921875
+            },
+            {
+              "text": " life.",
+              "start": 3.11,
+              "end": 3.41,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "black",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "night",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "or",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "shade",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "thy",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "day,",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "death",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "raw": "thy",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "raw": "life.",
+          "start": 3.11,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Black",
+        "night",
+        "o'ershade",
+        "thy",
+        "day,",
+        "and",
+        "death",
+        "thy",
+        "life."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          10,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "black",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "or",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shade",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "shade",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "thy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "day",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "death",
+          "start": 2.69,
+          "end": 2.89,
+          "key": "death",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.89,
+          "end": 3.11,
+          "key": "thy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "life.",
+          "start": 3.11,
+          "end": 3.41,
+          "key": "life",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Black",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "night",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "o'ershade",
+          "start": 1.49,
+          "end": 1.68
+        },
+        {
+          "text": "thy",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "day,",
+          "start": 2.03,
+          "end": 2.27
+        },
+        {
+          "text": "and",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "death",
+          "start": 2.69,
+          "end": 2.89
+        },
+        {
+          "text": "thy",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "text": "life.",
+          "start": 3.11,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.19580417778342962
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "882a6efe6bb232b469bdb26058a13f5605add4e63ad6427a735b151b88a49bf5",
+  "selected_reasons": []
+}

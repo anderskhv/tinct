@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "c1bc75c0b10ac4ba5a114b9102edb2a838b1775af6970d6d69300ed0bf770780",
+  "attempts": [
+    {
+      "asr_seconds": 0.225521519780159,
+      "alignment_seconds": 0.000312095507979393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Borachio, so did I too, and he swore he would marry her tonight.",
+          "start": 0.59,
+          "end": 3.93,
+          "words": [
+            {
+              "text": " Borachio,",
+              "start": 0.59,
+              "end": 1.03,
+              "probability": 0.6481119791666666
+            },
+            {
+              "text": " so",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " did",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.9921875
+            },
+            {
+              "text": " too,",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.76611328125
+            },
+            {
+              "text": " and",
+              "start": 2.55,
+              "end": 2.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " swore",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 1.0
+            },
+            {
+              "text": " he",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " would",
+              "start": 3.13,
+              "end": 3.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " marry",
+              "start": 3.23,
+              "end": 3.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " tonight.",
+              "start": 3.65,
+              "end": 3.93,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Borachio,",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "raw": "so",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "did",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "too,",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "and",
+          "start": 2.55,
+          "end": 2.59
+        },
+        {
+          "raw": "he",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "swore",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "raw": "he",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "would",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "raw": "marry",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "raw": "her",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "tonight.",
+          "start": 3.65,
+          "end": 3.93
+        }
+      ],
+      "expected_tokens": [
+        "Borachio.",
+        "So",
+        "did",
+        "I",
+        "too;",
+        "and",
+        "he",
+        "swore",
+        "he",
+        "would",
+        "marry",
+        "her",
+        "tonight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Borachio,",
+          "start": 0.59,
+          "end": 1.03,
+          "key": "borachio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.55,
+          "end": 2.59,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "swore",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "swore",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.95,
+          "end": 3.13,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.13,
+          "end": 3.23,
+          "key": "would",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "marry",
+          "start": 3.23,
+          "end": 3.47,
+          "key": "marry",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.47,
+          "end": 3.65,
+          "key": "her",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "tonight.",
+          "start": 3.65,
+          "end": 3.93,
+          "key": "tonight",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Borachio.",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "text": "So",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "did",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "I",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "too;",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "and",
+          "start": 2.55,
+          "end": 2.59
+        },
+        {
+          "text": "he",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "swore",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "text": "he",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "would",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "text": "marry",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "text": "her",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "tonight.",
+          "start": 3.65,
+          "end": 3.93
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22595507837831974
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25d741be921a6e8d922bd658edc7f176a4d40cf615d75f0c6a854f2a38c29a4d",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "99d8593a5426f4c89354ab2411fb9b0bbb7dca9980b3d83fa6345cec9cad0f5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.17165163531899452,
+      "alignment_seconds": 0.00031672045588493347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Camillo, Florizel and Perdita come forward.",
+        "hotwords": "Camillo, Florizel, Perdita"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Camillo, Florizel and Perdita come forward.",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " Camillo,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " Florizel",
+              "start": 1.35,
+              "end": 1.67,
+              "probability": 0.4296162923177083
+            },
+            {
+              "text": " and",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " Perdita",
+              "start": 1.85,
+              "end": 2.29,
+              "probability": 0.9453125
+            },
+            {
+              "text": " come",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " forward.",
+              "start": 2.43,
+              "end": 2.79,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Florizel",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "raw": "and",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "raw": "Perdita",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "raw": "come",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "forward.",
+          "start": 2.43,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "Camillo,",
+        "Florizel",
+        "and",
+        "Perdita",
+        "come",
+        "forward."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Florizel",
+          "start": 1.35,
+          "end": 1.67,
+          "key": "florizel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Perdita",
+          "start": 1.85,
+          "end": 2.29,
+          "key": "perdita",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "forward.",
+          "start": 2.43,
+          "end": 2.79,
+          "key": "forward",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Florizel",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "text": "and",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "text": "Perdita",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "text": "come",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "forward.",
+          "start": 2.43,
+          "end": 2.79
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1720985248684883
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6a94659a5e1dddee1021554e76248b1a40865cd5ec00937f2cb3710c4f1b757d",
+  "selected_reasons": []
+}

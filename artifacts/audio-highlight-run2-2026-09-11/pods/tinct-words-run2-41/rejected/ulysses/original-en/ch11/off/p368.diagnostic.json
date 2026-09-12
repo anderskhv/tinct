@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "1768addee4a7ec2fe124a88005b00b773ff225fefd229398e13a69542bd7b9c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.23854091903194785,
+      "alignment_seconds": 0.0004488751292228699,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The keys obedient, rose higher, told, faltered, confessed, confused.",
+          "start": 0.02,
+          "end": 4.36,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " keys",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " obedient,",
+              "start": 0.8,
+              "end": 1.32,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " rose",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " higher,",
+              "start": 1.88,
+              "end": 2.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " told,",
+              "start": 2.58,
+              "end": 2.68,
+              "probability": 0.580078125
+            },
+            {
+              "text": " faltered,",
+              "start": 2.96,
+              "end": 3.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " confessed,",
+              "start": 3.48,
+              "end": 3.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " confused.",
+              "start": 4.04,
+              "end": 4.36,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "keys",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "obedient,",
+          "start": 0.8,
+          "end": 1.32
+        },
+        {
+          "raw": "rose",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "higher,",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "raw": "told,",
+          "start": 2.58,
+          "end": 2.68
+        },
+        {
+          "raw": "faltered,",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "raw": "confessed,",
+          "start": 3.48,
+          "end": 3.8
+        },
+        {
+          "raw": "confused.",
+          "start": 4.04,
+          "end": 4.36
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "keys,",
+        "obedient,",
+        "rose",
+        "higher,",
+        "told,",
+        "faltered,",
+        "confessed,",
+        "confused."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "keys",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "keys",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "obedient,",
+          "start": 0.8,
+          "end": 1.32,
+          "key": "obedient",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rose",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "rose",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "higher,",
+          "start": 1.88,
+          "end": 2.26,
+          "key": "higher",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "told,",
+          "start": 2.58,
+          "end": 2.68,
+          "key": "told",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "faltered,",
+          "start": 2.96,
+          "end": 3.28,
+          "key": "faltered",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "confessed,",
+          "start": 3.48,
+          "end": 3.8,
+          "key": "confessed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "confused.",
+          "start": 4.04,
+          "end": 4.36,
+          "key": "confused",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "keys,",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "obedient,",
+          "start": 0.8,
+          "end": 1.32
+        },
+        {
+          "text": "rose",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "higher,",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "text": "told,",
+          "start": 2.58,
+          "end": 2.68
+        },
+        {
+          "text": "faltered,",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "text": "confessed,",
+          "start": 3.48,
+          "end": 3.8
+        },
+        {
+          "text": "confused.",
+          "start": 4.04,
+          "end": 4.36
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23915389133617282
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c9a5784d3c418497b94acfed0780d75570a52a5b9b3fbfe161f0c5ab738fe9b4",
+  "selected_reasons": []
+}

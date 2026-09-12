@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "95e9708af42767f63b71eccc5f2b737acbef29511b76357771133bde318b5cb5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1906542107462883,
+      "alignment_seconds": 0.00033364444971084595,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. Of your complexion.",
+        "hotwords": "Viola, Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, Of Your Complexion.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " Of",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.0224761962890625
+            },
+            {
+              "text": " Your",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " Complexion.",
+              "start": 1.39,
+              "end": 2.07,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Of",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": "Your",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "Complexion.",
+          "start": 1.39,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "Of",
+        "your",
+        "complexion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.05,
+          "end": 1.29,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Complexion.",
+          "start": 1.39,
+          "end": 2.07,
+          "key": "complexion",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Of",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": "your",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "complexion.",
+          "start": 1.39,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19110684096813202
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a529af00b34a7e00eb921cdf2821f0da5850c1931dc052d762912b0f20d2e2e7",
+  "selected_reasons": []
+}

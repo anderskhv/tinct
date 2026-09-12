@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "36a98ac91ccaca9b5dd7bd5b1d33b6b0c6e267e01f25ff064db1d632c7d14bf6",
+  "attempts": [
+    {
+      "asr_seconds": 0.36918340623378754,
+      "alignment_seconds": 0.000383659265935421,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 168. Christianity gave Eros poison to drink. He did not die of it, certainly, but degenerated to vice.",
+          "start": 0.05,
+          "end": 8.03,
+          "words": [
+            {
+              "text": " 168.",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Christianity",
+              "start": 2.69,
+              "end": 2.69,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " gave",
+              "start": 2.69,
+              "end": 3.13,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Eros",
+              "start": 3.13,
+              "end": 3.49,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " poison",
+              "start": 3.49,
+              "end": 3.87,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " to",
+              "start": 3.87,
+              "end": 4.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " drink.",
+              "start": 4.21,
+              "end": 4.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " He",
+              "start": 4.93,
+              "end": 5.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " did",
+              "start": 5.01,
+              "end": 5.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 5.11,
+              "end": 5.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " die",
+              "start": 5.31,
+              "end": 5.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 5.61,
+              "end": 5.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it,",
+              "start": 5.77,
+              "end": 5.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " certainly,",
+              "start": 6.07,
+              "end": 6.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 6.83,
+              "end": 6.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " degenerated",
+              "start": 6.95,
+              "end": 7.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 7.61,
+              "end": 7.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " vice.",
+              "start": 7.79,
+              "end": 8.03,
+              "probability": 0.94287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "168.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "Christianity",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "raw": "gave",
+          "start": 2.69,
+          "end": 3.13
+        },
+        {
+          "raw": "Eros",
+          "start": 3.13,
+          "end": 3.49
+        },
+        {
+          "raw": "poison",
+          "start": 3.49,
+          "end": 3.87
+        },
+        {
+          "raw": "to",
+          "start": 3.87,
+          "end": 4.21
+        },
+        {
+          "raw": "drink.",
+          "start": 4.21,
+          "end": 4.47
+        },
+        {
+          "raw": "He",
+          "start": 4.93,
+          "end": 5.01
+        },
+        {
+          "raw": "did",
+          "start": 5.01,
+          "end": 5.11
+        },
+        {
+          "raw": "not",
+          "start": 5.11,
+          "end": 5.31
+        },
+        {
+          "raw": "die",
+          "start": 5.31,
+          "end": 5.61
+        },
+        {
+          "raw": "of",
+          "start": 5.61,
+          "end": 5.77
+        },
+        {
+          "raw": "it,",
+          "start": 5.77,
+          "end": 5.91
+        },
+        {
+          "raw": "certainly,",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "raw": "but",
+          "start": 6.83,
+          "end": 6.95
+        },
+        {
+          "raw": "degenerated",
+          "start": 6.95,
+          "end": 7.61
+        },
+        {
+          "raw": "to",
+          "start": 7.61,
+          "end": 7.79
+        },
+        {
+          "raw": "vice.",
+          "start": 7.79,
+          "end": 8.03
+        }
+      ],
+      "expected_tokens": [
+        "168.",
+        "Christianity",
+        "gave",
+        "Eros",
+        "poison",
+        "to",
+        "drink;",
+        "he",
+        "did",
+        "not",
+        "die",
+        "of",
+        "it,",
+        "certainly,",
+        "but",
+        "degenerated",
+        "to",
+        "Vice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "168.",
+          "start": 0.05,
+          "end": 1.17,
+          "key": "168",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Christianity",
+          "start": 2.69,
+          "end": 2.69,
+          "key": "christianity",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 2.69,
+          "end": 3.13,
+          "key": "gave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Eros",
+          "start": 3.13,
+          "end": 3.49,
+          "key": "eros",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "poison",
+          "start": 3.49,
+          "end": 3.87,
+          "key": "poison",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.87,
+          "end": 4.21,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "drink.",
+          "start": 4.21,
+          "end": 4.47,
+          "key": "drink",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.93,
+          "end": 5.01,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.01,
+          "end": 5.11,
+          "key": "did",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.11,
+          "end": 5.31,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 5.31,
+          "end": 5.61,
+          "key": "die",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.61,
+          "end": 5.77,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 5.77,
+          "end": 5.91,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "certainly,",
+          "start": 6.07,
+          "end": 6.37,
+          "key": "certainly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.83,
+          "end": 6.95,
+          "key": "but",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "degenerated",
+          "start": 6.95,
+          "end": 7.61,
+          "key": "degenerated",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.61,
+          "end": 7.79,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "vice.",
+          "start": 7.79,
+          "end": 8.03,
+          "key": "vice",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "168.",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "text": "Christianity",
+          "start": 2.69,
+          "end": 2.69
+        },
+        {
+          "text": "gave",
+          "start": 2.69,
+          "end": 3.13
+        },
+        {
+          "text": "Eros",
+          "start": 3.13,
+          "end": 3.49
+        },
+        {
+          "text": "poison",
+          "start": 3.49,
+          "end": 3.87
+        },
+        {
+          "text": "to",
+          "start": 3.87,
+          "end": 4.21
+        },
+        {
+          "text": "drink;",
+          "start": 4.21,
+          "end": 4.47
+        },
+        {
+          "text": "he",
+          "start": 4.93,
+          "end": 5.01
+        },
+        {
+          "text": "did",
+          "start": 5.01,
+          "end": 5.11
+        },
+        {
+          "text": "not",
+          "start": 5.11,
+          "end": 5.31
+        },
+        {
+          "text": "die",
+          "start": 5.31,
+          "end": 5.61
+        },
+        {
+          "text": "of",
+          "start": 5.61,
+          "end": 5.77
+        },
+        {
+          "text": "it,",
+          "start": 5.77,
+          "end": 5.91
+        },
+        {
+          "text": "certainly,",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "text": "but",
+          "start": 6.83,
+          "end": 6.95
+        },
+        {
+          "text": "degenerated",
+          "start": 6.95,
+          "end": 7.61
+        },
+        {
+          "text": "to",
+          "start": 7.61,
+          "end": 7.79
+        },
+        {
+          "text": "Vice.",
+          "start": 7.79,
+          "end": 8.03
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3697043228894472
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "632b2163dd1ab732726aa50a5d89260fe9c415b0c17d709f227f20a64fe75c84",
+  "selected_reasons": []
+}

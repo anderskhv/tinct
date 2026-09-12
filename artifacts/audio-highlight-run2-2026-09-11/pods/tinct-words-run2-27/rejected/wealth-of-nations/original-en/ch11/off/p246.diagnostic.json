@@ -1,0 +1,459 @@
+{
+  "complete": true,
+  "signature": "7fc4b81a459e3d8a782724424f0a4ee1014bbcc31d9530c2819a0ffbddbb6211",
+  "attempts": [
+    {
+      "asr_seconds": 0.271525664255023,
+      "alignment_seconds": 0.0005053970962762833,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " effects of the progress of improvement upon the real price of manufacturers.",
+          "start": 0.05,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " effects",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.525390625
+            },
+            {
+              "text": " of",
+              "start": 0.69,
+              "end": 0.99,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 0.99,
+              "end": 1.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " progress",
+              "start": 1.07,
+              "end": 1.45,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " improvement",
+              "start": 1.65,
+              "end": 2.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " upon",
+              "start": 2.23,
+              "end": 2.95,
+              "probability": 0.97265625
+            },
+            {
+              "text": " the",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " real",
+              "start": 3.11,
+              "end": 3.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " price",
+              "start": 3.31,
+              "end": 3.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.61,
+              "end": 3.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " manufacturers.",
+              "start": 3.81,
+              "end": 4.47,
+              "probability": 0.9287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "effects",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "of",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.07
+        },
+        {
+          "raw": "progress",
+          "start": 1.07,
+          "end": 1.45
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "improvement",
+          "start": 1.65,
+          "end": 2.23
+        },
+        {
+          "raw": "upon",
+          "start": 2.23,
+          "end": 2.95
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "real",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "raw": "price",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "raw": "of",
+          "start": 3.61,
+          "end": 3.81
+        },
+        {
+          "raw": "manufacturers.",
+          "start": 3.81,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "_Effects",
+        "of",
+        "the",
+        "Progress",
+        "of",
+        "Improvement",
+        "upon",
+        "the",
+        "real",
+        "Price",
+        "of",
+        "Manufactures._"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "effects",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "effects",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.69,
+          "end": 0.99,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.99,
+          "end": 1.07,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "progress",
+          "start": 1.07,
+          "end": 1.45,
+          "key": "progress",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "improvement",
+          "start": 1.65,
+          "end": 2.23,
+          "key": "improvement",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.23,
+          "end": 2.95,
+          "key": "upon",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "real",
+          "start": 3.11,
+          "end": 3.31,
+          "key": "real",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "price",
+          "start": 3.31,
+          "end": 3.61,
+          "key": "price",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.61,
+          "end": 3.81,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "manufacturers.",
+          "start": 3.81,
+          "end": 4.47,
+          "key": "manufacturers",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Effects",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "of",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "text": "the",
+          "start": 0.99,
+          "end": 1.07
+        },
+        {
+          "text": "Progress",
+          "start": 1.07,
+          "end": 1.45
+        },
+        {
+          "text": "of",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "Improvement",
+          "start": 1.65,
+          "end": 2.23
+        },
+        {
+          "text": "upon",
+          "start": 2.23,
+          "end": 2.95
+        },
+        {
+          "text": "the",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "real",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "text": "Price",
+          "start": 3.31,
+          "end": 3.61
+        },
+        {
+          "text": "of",
+          "start": 3.61,
+          "end": 3.81
+        },
+        {
+          "text": "Manufactures._",
+          "start": 3.81,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2722260821610689
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "199db78068580aed440747b3a7de1a183b29fc11eea498f8d69cf46dd6cd8ced",
+  "selected_reasons": []
+}

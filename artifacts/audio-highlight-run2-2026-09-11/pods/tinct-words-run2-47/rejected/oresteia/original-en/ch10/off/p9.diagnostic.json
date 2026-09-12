@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "f0afbc5ad7535e0cbcacac594ce127af9e26bd1ba192a6185711eef38bdb421f",
+  "attempts": [
+    {
+      "asr_seconds": 0.328865809016861,
+      "alignment_seconds": 0.0006183699879329652,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " One of the chorus tees best I judge allowed for aid to call ho loyal archives to the palace all",
+          "start": 0.05,
+          "end": 6.67,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " of",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 0.67,
+              "end": 0.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " chorus",
+              "start": 0.79,
+              "end": 1.15,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " tees",
+              "start": 1.15,
+              "end": 2.03,
+              "probability": 0.50335693359375
+            },
+            {
+              "text": " best",
+              "start": 2.03,
+              "end": 2.25,
+              "probability": 0.947265625
+            },
+            {
+              "text": " I",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " judge",
+              "start": 2.49,
+              "end": 2.77,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " allowed",
+              "start": 2.77,
+              "end": 3.09,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " for",
+              "start": 3.09,
+              "end": 3.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " aid",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " to",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " call",
+              "start": 3.61,
+              "end": 3.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ho",
+              "start": 3.91,
+              "end": 4.45,
+              "probability": 0.5029296875
+            },
+            {
+              "text": " loyal",
+              "start": 4.45,
+              "end": 4.95,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " archives",
+              "start": 4.95,
+              "end": 5.43,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " to",
+              "start": 5.43,
+              "end": 5.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.75,
+              "end": 5.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " palace",
+              "start": 5.87,
+              "end": 6.19,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " all",
+              "start": 6.19,
+              "end": 6.67,
+              "probability": 0.88916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "of",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "the",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "raw": "chorus",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "raw": "tees",
+          "start": 1.15,
+          "end": 2.03
+        },
+        {
+          "raw": "best",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "raw": "I",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "judge",
+          "start": 2.49,
+          "end": 2.77
+        },
+        {
+          "raw": "allowed",
+          "start": 2.77,
+          "end": 3.09
+        },
+        {
+          "raw": "for",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "raw": "aid",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "to",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "call",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "raw": "ho",
+          "start": 3.91,
+          "end": 4.45
+        },
+        {
+          "raw": "loyal",
+          "start": 4.45,
+          "end": 4.95
+        },
+        {
+          "raw": "archives",
+          "start": 4.95,
+          "end": 5.43
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.75
+        },
+        {
+          "raw": "the",
+          "start": 5.75,
+          "end": 5.87
+        },
+        {
+          "raw": "palace",
+          "start": 5.87,
+          "end": 6.19
+        },
+        {
+          "raw": "all",
+          "start": 6.19,
+          "end": 6.67
+        }
+      ],
+      "expected_tokens": [
+        "One",
+        "Of",
+        "The",
+        "Chorus.",
+        "'Tis",
+        "best,",
+        "I",
+        "judge,",
+        "aloud",
+        "for",
+        "aid",
+        "to",
+        "call,",
+        "\"Ho!",
+        "loyal",
+        "Argives!",
+        "to",
+        "the",
+        "palace,",
+        "all!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          15,
+          9,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          20,
+          16,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.67,
+          "end": 0.79,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chorus",
+          "start": 0.79,
+          "end": 1.15,
+          "key": "chorus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tees",
+          "start": 1.15,
+          "end": 2.03,
+          "key": "tees",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 2.03,
+          "end": 2.25,
+          "key": "best",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "judge",
+          "start": 2.49,
+          "end": 2.77,
+          "key": "judge",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "allowed",
+          "start": 2.77,
+          "end": 3.09,
+          "key": "allowed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.09,
+          "end": 3.31,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "aid",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "aid",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 3.61,
+          "end": 3.91,
+          "key": "call",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ho",
+          "start": 3.91,
+          "end": 4.45,
+          "key": "ho",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "loyal",
+          "start": 4.45,
+          "end": 4.95,
+          "key": "loyal",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "archives",
+          "start": 4.95,
+          "end": 5.43,
+          "key": "archives",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.75,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.75,
+          "end": 5.87,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "palace",
+          "start": 5.87,
+          "end": 6.19,
+          "key": "palace",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.19,
+          "end": 6.67,
+          "key": "all",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "One",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Of",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "The",
+          "start": 0.67,
+          "end": 0.79
+        },
+        {
+          "text": "Chorus.",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "'Tis",
+          "start": 1.15,
+          "end": 1.59
+        },
+        {
+          "text": "best,",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "text": "I",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "judge,",
+          "start": 2.49,
+          "end": 2.77
+        },
+        {
+          "text": "aloud",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "for",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "text": "aid",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "to",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "text": "call,",
+          "start": 3.61,
+          "end": 3.91
+        },
+        {
+          "text": "\"Ho!",
+          "start": 3.91,
+          "end": 4.45
+        },
+        {
+          "text": "loyal",
+          "start": 4.45,
+          "end": 4.95
+        },
+        {
+          "text": "Argives!",
+          "start": 4.95,
+          "end": 5.19
+        },
+        {
+          "text": "to",
+          "start": 5.43,
+          "end": 5.75
+        },
+        {
+          "text": "the",
+          "start": 5.75,
+          "end": 5.87
+        },
+        {
+          "text": "palace,",
+          "start": 5.87,
+          "end": 6.19
+        },
+        {
+          "text": "all!\"",
+          "start": 6.19,
+          "end": 6.67
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.3297355660179164
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "32a475ecb89be3db9b3816e75fbb6664bc90538f34a3a9a18d9459b1f2c47a36",
+  "selected_reasons": []
+}

@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "4aca8a3b60804719f53091e662a0990cc87c8b5e0485f29d161d512964d2b94f",
+  "attempts": [
+    {
+      "asr_seconds": 0.31599750998429954,
+      "alignment_seconds": 0.00043381506111472845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dionysus. Doth it change So soon, all thy desire to see this strange Adoring?",
+        "hotwords": "Dionysus, Doth, So, Adoring"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dionysus, Doth it change So soon, all thy desire to see this strange Adoring?",
+          "start": 0.67,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " Dionysus,",
+              "start": 0.67,
+              "end": 1.23,
+              "probability": 0.947265625
+            },
+            {
+              "text": " Doth",
+              "start": 1.55,
+              "end": 1.77,
+              "probability": 0.5003089904785156
+            },
+            {
+              "text": " it",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.951171875
+            },
+            {
+              "text": " change",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " So",
+              "start": 2.11,
+              "end": 2.41,
+              "probability": 0.004787445068359375
+            },
+            {
+              "text": " soon,",
+              "start": 2.41,
+              "end": 2.83,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " all",
+              "start": 3.11,
+              "end": 3.25,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " thy",
+              "start": 3.25,
+              "end": 3.39,
+              "probability": 0.6279296875
+            },
+            {
+              "text": " desire",
+              "start": 3.39,
+              "end": 3.69,
+              "probability": 0.861328125
+            },
+            {
+              "text": " to",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " see",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " this",
+              "start": 4.09,
+              "end": 4.29,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " strange",
+              "start": 4.29,
+              "end": 4.67,
+              "probability": 0.65185546875
+            },
+            {
+              "text": " Adoring?",
+              "start": 4.67,
+              "end": 5.19,
+              "probability": 0.6177978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.67,
+          "end": 1.23
+        },
+        {
+          "raw": "Doth",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "raw": "it",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "change",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": "So",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "raw": "soon,",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "raw": "all",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "raw": "thy",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "raw": "desire",
+          "start": 3.39,
+          "end": 3.69
+        },
+        {
+          "raw": "to",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "see",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "this",
+          "start": 4.09,
+          "end": 4.29
+        },
+        {
+          "raw": "strange",
+          "start": 4.29,
+          "end": 4.67
+        },
+        {
+          "raw": "Adoring?",
+          "start": 4.67,
+          "end": 5.19
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "Doth",
+        "it",
+        "change",
+        "So",
+        "soon,",
+        "all",
+        "thy",
+        "desire",
+        "to",
+        "see",
+        "this",
+        "strange",
+        "Adoring?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.67,
+          "end": 1.23,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Doth",
+          "start": 1.55,
+          "end": 1.77,
+          "key": "doth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "change",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 2.11,
+          "end": 2.41,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "soon,",
+          "start": 2.41,
+          "end": 2.83,
+          "key": "soon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 3.11,
+          "end": 3.25,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.25,
+          "end": 3.39,
+          "key": "thy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 3.39,
+          "end": 3.69,
+          "key": "desire",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.93,
+          "end": 4.09,
+          "key": "see",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.09,
+          "end": 4.29,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 4.29,
+          "end": 4.67,
+          "key": "strange",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Adoring?",
+          "start": 4.67,
+          "end": 5.19,
+          "key": "adoring",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.67,
+          "end": 1.23
+        },
+        {
+          "text": "Doth",
+          "start": 1.55,
+          "end": 1.77
+        },
+        {
+          "text": "it",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "change",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "So",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "text": "soon,",
+          "start": 2.41,
+          "end": 2.83
+        },
+        {
+          "text": "all",
+          "start": 3.11,
+          "end": 3.25
+        },
+        {
+          "text": "thy",
+          "start": 3.25,
+          "end": 3.39
+        },
+        {
+          "text": "desire",
+          "start": 3.39,
+          "end": 3.69
+        },
+        {
+          "text": "to",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "see",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "this",
+          "start": 4.09,
+          "end": 4.29
+        },
+        {
+          "text": "strange",
+          "start": 4.29,
+          "end": 4.67
+        },
+        {
+          "text": "Adoring?",
+          "start": 4.67,
+          "end": 5.19
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3166016290197149
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d40bd5db9c6c99263c95a232d1b97bd05493a99e599b310370fa3bc6da72679",
+  "selected_reasons": []
+}

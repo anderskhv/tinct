@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "2e9416f620ed969c32f40a90448ecece1943249fcaa3d232014c8d38d89a0f6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.15449534077197313,
+      "alignment_seconds": 0.00033955322578549385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. But yet, madam—",
+        "hotwords": "Messenger, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger, But yet, madam—",
+          "start": 0.02,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " But",
+              "start": 1.24,
+              "end": 1.32,
+              "probability": 0.005611419677734375
+            },
+            {
+              "text": " yet,",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.25146484375
+            },
+            {
+              "text": " madam—",
+              "start": 1.7,
+              "end": 2.52,
+              "probability": 0.39286168416341144
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "But",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "raw": "yet,",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "madam—",
+          "start": 1.7,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "But",
+        "yet,",
+        "madam—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.24,
+          "end": 1.32,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yet,",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "yet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madam—",
+          "start": 1.7,
+          "end": 2.52,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "text": "But",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "text": "yet,",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "madam—",
+          "start": 1.7,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1549545549787581
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "065255414313274834c97d282691da32a4ee6525810b50304ac24d42d99e677e",
+  "selected_reasons": []
+}

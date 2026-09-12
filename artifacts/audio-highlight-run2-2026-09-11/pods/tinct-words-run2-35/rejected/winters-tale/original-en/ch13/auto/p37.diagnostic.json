@@ -1,0 +1,1078 @@
+{
+  "complete": true,
+  "signature": "790f298b3ca085299a50c4ff465141d297e104999ca22a37ce29d76a1ac477ff",
+  "attempts": [
+    {
+      "asr_seconds": 2.895735513418913,
+      "alignment_seconds": 0.0005232449620962143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Still, 'tis strange He thus should steal upon us.",
+        "hotwords": "Still, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Still, he still should steal upon us.",
+          "start": 0.11,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " Still,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " he",
+              "start": 1.01,
+              "end": 1.13,
+              "probability": 0.0013275146484375
+            },
+            {
+              "text": " still",
+              "start": 1.13,
+              "end": 1.37,
+              "probability": 0.0008997917175292969
+            },
+            {
+              "text": " should",
+              "start": 1.37,
+              "end": 1.73,
+              "probability": 0.050323486328125
+            },
+            {
+              "text": " steal",
+              "start": 1.73,
+              "end": 2.27,
+              "probability": 0.25927734375
+            },
+            {
+              "text": " upon",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.440185546875
+            },
+            {
+              "text": " us.",
+              "start": 2.53,
+              "end": 2.81,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Still,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "he",
+          "start": 1.01,
+          "end": 1.13
+        },
+        {
+          "raw": "still",
+          "start": 1.13,
+          "end": 1.37
+        },
+        {
+          "raw": "should",
+          "start": 1.37,
+          "end": 1.73
+        },
+        {
+          "raw": "steal",
+          "start": 1.73,
+          "end": 2.27
+        },
+        {
+          "raw": "upon",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "us.",
+          "start": 2.53,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "Still,",
+        "'tis",
+        "strange",
+        "He",
+        "thus",
+        "should",
+        "steal",
+        "upon",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          "equal",
+          5,
+          9,
+          3,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Still,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "still",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.01,
+          "end": 1.13,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.13,
+          "end": 1.37,
+          "key": "still",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.37,
+          "end": 1.73,
+          "key": "should",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "steal",
+          "start": 1.73,
+          "end": 2.27,
+          "key": "steal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.27,
+          "end": 2.53,
+          "key": "upon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.53,
+          "end": 2.81,
+          "key": "us",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Still,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "'tis",
+          "start": 0.69,
+          "end": 0.85
+        },
+        {
+          "text": "strange",
+          "start": 0.85,
+          "end": 0.93
+        },
+        {
+          "text": "He",
+          "start": 1.01,
+          "end": 1.13
+        },
+        {
+          "text": "thus",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "should",
+          "start": 1.37,
+          "end": 1.73
+        },
+        {
+          "text": "steal",
+          "start": 1.73,
+          "end": 2.27
+        },
+        {
+          "text": "upon",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "us.",
+          "start": 2.53,
+          "end": 2.81
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 2.8964136876165867
+    },
+    {
+      "asr_seconds": 0.2332904040813446,
+      "alignment_seconds": 0.0005012471228837967,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Still, He"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Still, tease strange he thus should steal upon us.",
+          "start": 0.11,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " Still,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " tease",
+              "start": 1.01,
+              "end": 1.19,
+              "probability": 0.5546875
+            },
+            {
+              "text": " strange",
+              "start": 1.19,
+              "end": 1.53,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " he",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " thus",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " should",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " steal",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " upon",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us.",
+              "start": 2.55,
+              "end": 2.81,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Still,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "tease",
+          "start": 1.01,
+          "end": 1.19
+        },
+        {
+          "raw": "strange",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "thus",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "raw": "should",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "steal",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "upon",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "us.",
+          "start": 2.55,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "Still,",
+        "'tis",
+        "strange",
+        "He",
+        "thus",
+        "should",
+        "steal",
+        "upon",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Still,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "still",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.01,
+          "end": 1.19,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.19,
+          "end": 1.53,
+          "key": "strange",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "thus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "should",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "steal",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "steal",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.55,
+          "end": 2.81,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Still,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "'tis",
+          "start": 0.69,
+          "end": 0.94
+        },
+        {
+          "text": "strange",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "text": "He",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "thus",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "text": "should",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "steal",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "upon",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "us.",
+          "start": 2.55,
+          "end": 2.81
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.23400485329329967
+    },
+    {
+      "asr_seconds": 0.21766171604394913,
+      "alignment_seconds": 0.0004995353519916534,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Still, tease strange he thus should steal upon us.",
+          "start": 0.11,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " Still,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " tease",
+              "start": 1.01,
+              "end": 1.19,
+              "probability": 0.5546875
+            },
+            {
+              "text": " strange",
+              "start": 1.19,
+              "end": 1.53,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " he",
+              "start": 1.53,
+              "end": 1.67,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " thus",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " should",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " steal",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " upon",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us.",
+              "start": 2.55,
+              "end": 2.81,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Still,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "tease",
+          "start": 1.01,
+          "end": 1.19
+        },
+        {
+          "raw": "strange",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "raw": "thus",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "raw": "should",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "steal",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "upon",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "us.",
+          "start": 2.55,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "Still,",
+        "'tis",
+        "strange",
+        "He",
+        "thus",
+        "should",
+        "steal",
+        "upon",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Still,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "still",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.01,
+          "end": 1.19,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.19,
+          "end": 1.53,
+          "key": "strange",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.53,
+          "end": 1.67,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "thus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "should",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "steal",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "steal",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 2.55,
+          "end": 2.81,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Still,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "'tis",
+          "start": 0.69,
+          "end": 0.94
+        },
+        {
+          "text": "strange",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "text": "He",
+          "start": 1.53,
+          "end": 1.67
+        },
+        {
+          "text": "thus",
+          "start": 1.67,
+          "end": 1.85
+        },
+        {
+          "text": "should",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "steal",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "upon",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "us.",
+          "start": 2.55,
+          "end": 2.81
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.21835463494062424
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "cca4e1c94c6ab18d1508a6f1dd0af620aa9a1771d4d2a815492e64bd8dcdcd94",
+  "selected_reasons": []
+}

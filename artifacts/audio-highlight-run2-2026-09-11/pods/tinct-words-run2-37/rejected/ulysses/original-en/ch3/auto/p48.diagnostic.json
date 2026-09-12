@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "ac83558c5eedf61156d08426765105f3a1e00868531b5c58595b35e069df509d",
+  "attempts": [
+    {
+      "asr_seconds": 0.13538962899474427,
+      "alignment_seconds": 0.00029727499349974096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Schluss_. He laps.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Schluss. He laps.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Schluss.",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.4134318033854167
+            },
+            {
+              "text": " He",
+              "start": 1.06,
+              "end": 1.12,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " laps.",
+              "start": 1.12,
+              "end": 1.38,
+              "probability": 0.89697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Schluss.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "He",
+          "start": 1.06,
+          "end": 1.12
+        },
+        {
+          "raw": "laps.",
+          "start": 1.12,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "_Schluss_.",
+        "He",
+        "laps."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Schluss.",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "schluss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.06,
+          "end": 1.12,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "laps.",
+          "start": 1.12,
+          "end": 1.38,
+          "key": "laps",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Schluss_.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "He",
+          "start": 1.06,
+          "end": 1.12
+        },
+        {
+          "text": "laps.",
+          "start": 1.12,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1358184609853197
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6cf2a9bd875cb1a9b7ee219af9b4299cd63197597e9305fcb6fd7b55c70efa0",
+  "selected_reasons": []
+}

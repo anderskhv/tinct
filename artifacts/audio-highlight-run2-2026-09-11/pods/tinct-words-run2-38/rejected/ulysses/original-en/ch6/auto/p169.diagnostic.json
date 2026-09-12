@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "6890855fc723c64a57f9349ba7774b600e9605420139a91076fa68d97306f2df",
+  "attempts": [
+    {
+      "asr_seconds": 0.14973243698477745,
+      "alignment_seconds": 0.00019904098007827997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And they call me the jewel of Asia, Of Asia, The geisha.",
+        "hotwords": "And, Asia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And they call me the jewel of Asia, Of Asia, The geisha.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " they",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " call",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me",
+              "start": 0.81,
+              "end": 0.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " jewel",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.257080078125
+            },
+            {
+              "text": " of",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Asia,",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Of",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.0186920166015625
+            },
+            {
+              "text": " Asia,",
+              "start": 2.39,
+              "end": 2.75,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " The",
+              "start": 3.05,
+              "end": 3.11,
+              "probability": 0.307373046875
+            },
+            {
+              "text": " geisha.",
+              "start": 3.11,
+              "end": 3.45,
+              "probability": 0.52716064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "they",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "call",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "me",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "raw": "the",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "jewel",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "of",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "Asia,",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "raw": "Of",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "Asia,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "raw": "The",
+          "start": 3.05,
+          "end": 3.11
+        },
+        {
+          "raw": "geisha.",
+          "start": 3.11,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "they",
+        "call",
+        "me",
+        "the",
+        "jewel",
+        "of",
+        "Asia,",
+        "Of",
+        "Asia,",
+        "The",
+        "geisha."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "call",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.81,
+          "end": 0.97,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "jewel",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "jewel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Asia,",
+          "start": 1.49,
+          "end": 1.79,
+          "key": "asia",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Asia,",
+          "start": 2.39,
+          "end": 2.75,
+          "key": "asia",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.05,
+          "end": 3.11,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "geisha.",
+          "start": 3.11,
+          "end": 3.45,
+          "key": "geisha",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "they",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "call",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "me",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "text": "the",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "jewel",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "of",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "Asia,",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "text": "Of",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "Asia,",
+          "start": 2.39,
+          "end": 2.75
+        },
+        {
+          "text": "The",
+          "start": 3.05,
+          "end": 3.11
+        },
+        {
+          "text": "geisha.",
+          "start": 3.11,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14999764796812087
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef34d51172732323f7be2a224c55502c50d1601791186d9a0e5a10ad0cfd9759",
+  "selected_reasons": []
+}

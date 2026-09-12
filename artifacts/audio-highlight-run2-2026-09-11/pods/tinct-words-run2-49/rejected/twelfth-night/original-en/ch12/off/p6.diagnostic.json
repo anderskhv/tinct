@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "ccb5b49c04eca37ec74cc2016c56ad7ad9e6916cc2f91bbe7288a297341087bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.21217511221766472,
+      "alignment_seconds": 0.0003292448818683624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew as plain as I see you now",
+          "start": 0.08,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " Andrew",
+              "start": 0.56,
+              "end": 0.94,
+              "probability": 0.982421875
+            },
+            {
+              "text": " as",
+              "start": 0.94,
+              "end": 1.46,
+              "probability": 0.1446533203125
+            },
+            {
+              "text": " plain",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " as",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " see",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " now",
+              "start": 2.3,
+              "end": 2.6,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Andrew",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "raw": "as",
+          "start": 0.94,
+          "end": 1.46
+        },
+        {
+          "raw": "plain",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "as",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "I",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "see",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "you",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "now",
+          "start": 2.3,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "As",
+        "plain",
+        "as",
+        "I",
+        "see",
+        "you",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 0.56,
+          "end": 0.94,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.94,
+          "end": 1.46,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "plain",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "plain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.3,
+          "end": 2.6,
+          "key": "now",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "text": "As",
+          "start": 0.94,
+          "end": 1.46
+        },
+        {
+          "text": "plain",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "as",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "I",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "see",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "you",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "now.",
+          "start": 2.3,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21264911442995071
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2e220fa07c9b3ee69d7df292926c0c83d9eb8aa671ce43e5ff959d5d7a12b999",
+  "selected_reasons": []
+}

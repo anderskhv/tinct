@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "487fff5a92b895bd3059e2abf97f444cd87fadda99acb2a99e947c9886751999",
+  "attempts": [
+    {
+      "asr_seconds": 0.24436734151095152,
+      "alignment_seconds": 0.0005731889978051186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This is I think a fair account of current views on the matter",
+          "start": 0.02,
+          "end": 3.88,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 0.86,
+              "end": 1.16,
+              "probability": 0.1368408203125
+            },
+            {
+              "text": " think",
+              "start": 1.16,
+              "end": 1.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.46,
+              "end": 1.98,
+              "probability": 0.908203125
+            },
+            {
+              "text": " fair",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " account",
+              "start": 2.18,
+              "end": 2.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " current",
+              "start": 2.68,
+              "end": 2.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " views",
+              "start": 2.98,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " on",
+              "start": 3.28,
+              "end": 3.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.48,
+              "end": 3.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " matter",
+              "start": 3.58,
+              "end": 3.88,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "I",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "raw": "think",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "raw": "a",
+          "start": 1.46,
+          "end": 1.98
+        },
+        {
+          "raw": "fair",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "account",
+          "start": 2.18,
+          "end": 2.48
+        },
+        {
+          "raw": "of",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "current",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "raw": "views",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "raw": "on",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "raw": "matter",
+          "start": 3.58,
+          "end": 3.88
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "is,",
+        "I",
+        "think,",
+        "a",
+        "fair",
+        "account",
+        "of",
+        "current",
+        "views",
+        "on",
+        "the",
+        "matter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.86,
+          "end": 1.16,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.16,
+          "end": 1.46,
+          "key": "think",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.46,
+          "end": 1.98,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "fair",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "account",
+          "start": 2.18,
+          "end": 2.48,
+          "key": "account",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "current",
+          "start": 2.68,
+          "end": 2.98,
+          "key": "current",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "views",
+          "start": 2.98,
+          "end": 3.28,
+          "key": "views",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.28,
+          "end": 3.48,
+          "key": "on",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 3.58,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 3.58,
+          "end": 3.88,
+          "key": "matter",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "is,",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "I",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "text": "think,",
+          "start": 1.16,
+          "end": 1.46
+        },
+        {
+          "text": "a",
+          "start": 1.46,
+          "end": 1.98
+        },
+        {
+          "text": "fair",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "account",
+          "start": 2.18,
+          "end": 2.48
+        },
+        {
+          "text": "of",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "current",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "text": "views",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "text": "on",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "text": "the",
+          "start": 3.48,
+          "end": 3.58
+        },
+        {
+          "text": "matter.",
+          "start": 3.58,
+          "end": 3.88
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2451754454523325
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8966eef3c9c1092ee660dcb487c3c348a5dcb1026512ade3db23697370996190",
+  "selected_reasons": []
+}

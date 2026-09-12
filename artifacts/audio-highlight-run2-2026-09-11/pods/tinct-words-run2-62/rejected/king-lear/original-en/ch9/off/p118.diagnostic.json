@@ -1,0 +1,761 @@
+{
+  "complete": true,
+  "signature": "ecdc2b719e8edb00c7be7de720114d229967001bb73f6aa3d3f2d3224112667d",
+  "attempts": [
+    {
+      "asr_seconds": 0.21829867362976074,
+      "alignment_seconds": 0.0003723539412021637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester, alack, the night comes on, and the high winds do sorely ruffle, for many",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.764404296875
+            },
+            {
+              "text": " alack,",
+              "start": 1.44,
+              "end": 1.86,
+              "probability": 0.6241455078125
+            },
+            {
+              "text": " the",
+              "start": 2.14,
+              "end": 2.18,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " night",
+              "start": 2.18,
+              "end": 2.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " comes",
+              "start": 2.34,
+              "end": 2.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on,",
+              "start": 2.62,
+              "end": 2.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 3.28,
+              "end": 3.34,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " the",
+              "start": 3.34,
+              "end": 3.44,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " high",
+              "start": 3.44,
+              "end": 3.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " winds",
+              "start": 3.66,
+              "end": 4.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " do",
+              "start": 4.0,
+              "end": 4.28,
+              "probability": 0.982421875
+            },
+            {
+              "text": " sorely",
+              "start": 4.28,
+              "end": 4.7,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " ruffle,",
+              "start": 4.7,
+              "end": 5.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " for",
+              "start": 5.52,
+              "end": 5.62,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " many",
+              "start": 5.62,
+              "end": 5.82,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " miles about their scarce a bush.",
+          "start": 5.82,
+          "end": 7.36,
+          "words": [
+            {
+              "text": " miles",
+              "start": 5.82,
+              "end": 6.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " about",
+              "start": 6.14,
+              "end": 6.4,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " their",
+              "start": 6.4,
+              "end": 6.6,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " scarce",
+              "start": 6.6,
+              "end": 6.94,
+              "probability": 0.64013671875
+            },
+            {
+              "text": " a",
+              "start": 6.94,
+              "end": 7.14,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " bush.",
+              "start": 7.14,
+              "end": 7.36,
+              "probability": 0.89892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "raw": "alack,",
+          "start": 1.44,
+          "end": 1.86
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "raw": "night",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "raw": "comes",
+          "start": 2.34,
+          "end": 2.62
+        },
+        {
+          "raw": "on,",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "raw": "and",
+          "start": 3.28,
+          "end": 3.34
+        },
+        {
+          "raw": "the",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "raw": "high",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "raw": "winds",
+          "start": 3.66,
+          "end": 4.0
+        },
+        {
+          "raw": "do",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "raw": "sorely",
+          "start": 4.28,
+          "end": 4.7
+        },
+        {
+          "raw": "ruffle,",
+          "start": 4.7,
+          "end": 5.1
+        },
+        {
+          "raw": "for",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "raw": "many",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "raw": "miles",
+          "start": 5.82,
+          "end": 6.14
+        },
+        {
+          "raw": "about",
+          "start": 6.14,
+          "end": 6.4
+        },
+        {
+          "raw": "their",
+          "start": 6.4,
+          "end": 6.6
+        },
+        {
+          "raw": "scarce",
+          "start": 6.6,
+          "end": 6.94
+        },
+        {
+          "raw": "a",
+          "start": 6.94,
+          "end": 7.14
+        },
+        {
+          "raw": "bush.",
+          "start": 7.14,
+          "end": 7.36
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "Alack,",
+        "the",
+        "night",
+        "comes",
+        "on,",
+        "and",
+        "the",
+        "high",
+        "winds",
+        "Do",
+        "sorely",
+        "ruffle;",
+        "for",
+        "many",
+        "miles",
+        "about",
+        "There's",
+        "scarce",
+        "a",
+        "bush."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          21,
+          18,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "alack,",
+          "start": 1.44,
+          "end": 1.86,
+          "key": "alack",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 2.18,
+          "end": 2.34,
+          "key": "night",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.34,
+          "end": 2.62,
+          "key": "comes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 2.62,
+          "end": 2.98,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.28,
+          "end": 3.34,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.34,
+          "end": 3.44,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "high",
+          "start": 3.44,
+          "end": 3.66,
+          "key": "high",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "winds",
+          "start": 3.66,
+          "end": 4.0,
+          "key": "winds",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.0,
+          "end": 4.28,
+          "key": "do",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sorely",
+          "start": 4.28,
+          "end": 4.7,
+          "key": "sorely",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ruffle,",
+          "start": 4.7,
+          "end": 5.1,
+          "key": "ruffle",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.52,
+          "end": 5.62,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 5.62,
+          "end": 5.82,
+          "key": "many",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "miles",
+          "start": 5.82,
+          "end": 6.14,
+          "key": "miles",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 6.14,
+          "end": 6.4,
+          "key": "about",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 6.4,
+          "end": 6.6,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "scarce",
+          "start": 6.6,
+          "end": 6.94,
+          "key": "scarce",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.94,
+          "end": 7.14,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "bush.",
+          "start": 7.14,
+          "end": 7.36,
+          "key": "bush",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.92
+        },
+        {
+          "text": "Alack,",
+          "start": 1.44,
+          "end": 1.86
+        },
+        {
+          "text": "the",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "text": "night",
+          "start": 2.18,
+          "end": 2.34
+        },
+        {
+          "text": "comes",
+          "start": 2.34,
+          "end": 2.62
+        },
+        {
+          "text": "on,",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "text": "and",
+          "start": 3.28,
+          "end": 3.34
+        },
+        {
+          "text": "the",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "text": "high",
+          "start": 3.44,
+          "end": 3.66
+        },
+        {
+          "text": "winds",
+          "start": 3.66,
+          "end": 4.0
+        },
+        {
+          "text": "Do",
+          "start": 4.0,
+          "end": 4.28
+        },
+        {
+          "text": "sorely",
+          "start": 4.28,
+          "end": 4.7
+        },
+        {
+          "text": "ruffle;",
+          "start": 4.7,
+          "end": 5.1
+        },
+        {
+          "text": "for",
+          "start": 5.52,
+          "end": 5.62
+        },
+        {
+          "text": "many",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "text": "miles",
+          "start": 5.82,
+          "end": 6.14
+        },
+        {
+          "text": "about",
+          "start": 6.14,
+          "end": 6.4
+        },
+        {
+          "text": "There's",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "text": "scarce",
+          "start": 6.6,
+          "end": 6.94
+        },
+        {
+          "text": "a",
+          "start": 6.94,
+          "end": 7.14
+        },
+        {
+          "text": "bush.",
+          "start": 7.14,
+          "end": 7.36
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.2188090719282627
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a2c28e8f258c03a6820013d60ea81e1279006ba795eae0baf89a844a1995f8ff",
+  "selected_reasons": []
+}

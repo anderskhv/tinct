@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "a823d56f28af64ee3a7e0da4ee232eb8c843b309fd6ea6eb70185660519ef2fc",
+  "attempts": [
+    {
+      "asr_seconds": 0.10096824797801673,
+      "alignment_seconds": 0.000125174003187567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Aside, you will be whipped.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.69921875
+            },
+            {
+              "text": " you",
+              "start": 1.23,
+              "end": 1.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.98828125
+            },
+            {
+              "text": " be",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whipped.",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "you",
+          "start": 1.23,
+          "end": 1.31
+        },
+        {
+          "raw": "will",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "be",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "whipped.",
+          "start": 1.53,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_.]",
+        "You",
+        "will",
+        "be",
+        "whipped."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.23,
+          "end": 1.31,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.31,
+          "end": 1.39,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whipped.",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "whipped",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_.]",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "You",
+          "start": 1.23,
+          "end": 1.31
+        },
+        {
+          "text": "will",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "text": "be",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "whipped.",
+          "start": 1.53,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10113558397279121
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6820b3a7d18ef6b0b68dcd7caa9457c5d2dbe3c637b745d93e6da1b7d437a58f",
+  "selected_reasons": []
+}

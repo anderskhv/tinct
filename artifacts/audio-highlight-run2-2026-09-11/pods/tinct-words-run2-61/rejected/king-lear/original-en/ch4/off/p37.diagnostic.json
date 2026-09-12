@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "6e50575096d1058a7b47354d425c709558e8a3f798e295e27ad0fb8d8496379a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15245872363448143,
+      "alignment_seconds": 0.00033392198383808136,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, he would not.",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.52001953125
+            },
+            {
+              "text": " he",
+              "start": 1.0,
+              "end": 1.02,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " would",
+              "start": 1.02,
+              "end": 1.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not.",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "he",
+          "start": 1.0,
+          "end": 1.02
+        },
+        {
+          "raw": "would",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "raw": "not.",
+          "start": 1.12,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "He",
+        "would",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.0,
+          "end": 1.02,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.02,
+          "end": 1.12,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "He",
+          "start": 1.0,
+          "end": 1.02
+        },
+        {
+          "text": "would",
+          "start": 1.02,
+          "end": 1.12
+        },
+        {
+          "text": "not?",
+          "start": 1.12,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15291797928512096
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "57123289e3fb06c08e128790a0189b317815765870d0628bddd0a901b6d4f727",
+  "selected_reasons": []
+}

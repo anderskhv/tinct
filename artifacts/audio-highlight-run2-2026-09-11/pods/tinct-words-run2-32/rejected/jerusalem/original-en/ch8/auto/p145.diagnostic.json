@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "2720e58f5963521b7b00e5f86b37e3921e8329042c4d7a23fb8079cf13439474",
+  "attempts": [
+    {
+      "asr_seconds": 0.10900577157735825,
+      "alignment_seconds": 0.00013985112309455872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I'm obliged to you for telling me what a good stroke of business it would be for me to adopt your faith.\"",
+        "hotwords": "I'm"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I'm obliged to you for telling me what a good stroke of business it would be for me to adopt your faith.",
+          "start": 0.11,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " I'm",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " obliged",
+              "start": 0.59,
+              "end": 0.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 0.93,
+              "end": 1.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " for",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " telling",
+              "start": 1.51,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 1.77,
+              "end": 2.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 2.13,
+              "end": 2.53,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " a",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " good",
+              "start": 2.67,
+              "end": 2.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " stroke",
+              "start": 2.81,
+              "end": 3.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 3.15,
+              "end": 3.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " business",
+              "start": 3.35,
+              "end": 3.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " would",
+              "start": 3.93,
+              "end": 4.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 4.05,
+              "end": 4.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me",
+              "start": 4.37,
+              "end": 4.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 4.51,
+              "end": 4.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " adopt",
+              "start": 4.69,
+              "end": 4.99,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " your",
+              "start": 4.99,
+              "end": 5.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " faith.",
+              "start": 5.19,
+              "end": 5.51,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'm",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "obliged",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "raw": "you",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "for",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "telling",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "raw": "me",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "raw": "what",
+          "start": 2.13,
+          "end": 2.53
+        },
+        {
+          "raw": "a",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "good",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "raw": "stroke",
+          "start": 2.81,
+          "end": 3.15
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "raw": "business",
+          "start": 3.35,
+          "end": 3.69
+        },
+        {
+          "raw": "it",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "would",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "raw": "be",
+          "start": 4.05,
+          "end": 4.19
+        },
+        {
+          "raw": "for",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "me",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "raw": "to",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "raw": "adopt",
+          "start": 4.69,
+          "end": 4.99
+        },
+        {
+          "raw": "your",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "raw": "faith.",
+          "start": 5.19,
+          "end": 5.51
+        }
+      ],
+      "expected_tokens": [
+        "\"I'm",
+        "obliged",
+        "to",
+        "you",
+        "for",
+        "telling",
+        "me",
+        "what",
+        "a",
+        "good",
+        "stroke",
+        "of",
+        "business",
+        "it",
+        "would",
+        "be",
+        "for",
+        "me",
+        "to",
+        "adopt",
+        "your",
+        "faith.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'm",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "im",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "obliged",
+          "start": 0.59,
+          "end": 0.93,
+          "key": "obliged",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.93,
+          "end": 1.21,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "telling",
+          "start": 1.51,
+          "end": 1.77,
+          "key": "telling",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.77,
+          "end": 2.13,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.13,
+          "end": 2.53,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.67,
+          "end": 2.81,
+          "key": "good",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stroke",
+          "start": 2.81,
+          "end": 3.15,
+          "key": "stroke",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.35,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 3.35,
+          "end": 3.69,
+          "key": "business",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.93,
+          "end": 4.05,
+          "key": "would",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.05,
+          "end": 4.19,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.19,
+          "end": 4.37,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.37,
+          "end": 4.51,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.51,
+          "end": 4.69,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "adopt",
+          "start": 4.69,
+          "end": 4.99,
+          "key": "adopt",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.99,
+          "end": 5.19,
+          "key": "your",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "faith.",
+          "start": 5.19,
+          "end": 5.51,
+          "key": "faith",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I'm",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "text": "obliged",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "text": "to",
+          "start": 0.93,
+          "end": 1.21
+        },
+        {
+          "text": "you",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "for",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "telling",
+          "start": 1.51,
+          "end": 1.77
+        },
+        {
+          "text": "me",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "text": "what",
+          "start": 2.13,
+          "end": 2.53
+        },
+        {
+          "text": "a",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "good",
+          "start": 2.67,
+          "end": 2.81
+        },
+        {
+          "text": "stroke",
+          "start": 2.81,
+          "end": 3.15
+        },
+        {
+          "text": "of",
+          "start": 3.15,
+          "end": 3.35
+        },
+        {
+          "text": "business",
+          "start": 3.35,
+          "end": 3.69
+        },
+        {
+          "text": "it",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "would",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "text": "be",
+          "start": 4.05,
+          "end": 4.19
+        },
+        {
+          "text": "for",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "me",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "text": "to",
+          "start": 4.51,
+          "end": 4.69
+        },
+        {
+          "text": "adopt",
+          "start": 4.69,
+          "end": 4.99
+        },
+        {
+          "text": "your",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "text": "faith.\"",
+          "start": 5.19,
+          "end": 5.51
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10920168831944466
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dfbbe201dd7c65de10dbbd71e350206a9a0cb96a605e9da74c65e4c747ec6953",
+  "selected_reasons": []
+}

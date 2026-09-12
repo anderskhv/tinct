@@ -1,0 +1,369 @@
+{
+  "complete": true,
+  "signature": "d68a596c154d9044fa18de4ff3b33c1ba41bdc1e2c113a151b4e979c3d14832c",
+  "attempts": [
+    {
+      "asr_seconds": 0.11035626701777801,
+      "alignment_seconds": 0.00020350102568045259,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miles Crawford crammed the sheets into a side pocket.",
+          "start": 0.05,
+          "end": 2.79,
+          "words": [
+            {
+              "text": " Miles",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.48046875
+            },
+            {
+              "text": " Crawford",
+              "start": 0.71,
+              "end": 1.11,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " crammed",
+              "start": 1.11,
+              "end": 1.43,
+              "probability": 0.97265625
+            },
+            {
+              "text": " the",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sheets",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " into",
+              "start": 1.85,
+              "end": 2.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.11,
+              "end": 2.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " side",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pocket.",
+              "start": 2.47,
+              "end": 2.79,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miles",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Crawford",
+          "start": 0.71,
+          "end": 1.11
+        },
+        {
+          "raw": "crammed",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "sheets",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "into",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "raw": "a",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "raw": "side",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "pocket.",
+          "start": 2.47,
+          "end": 2.79
+        }
+      ],
+      "expected_tokens": [
+        "Myles",
+        "Crawford",
+        "crammed",
+        "the",
+        "sheets",
+        "into",
+        "a",
+        "sidepocket."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miles",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "miles",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Crawford",
+          "start": 0.71,
+          "end": 1.11,
+          "key": "crawford",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "crammed",
+          "start": 1.11,
+          "end": 1.43,
+          "key": "crammed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sheets",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "sheets",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.85,
+          "end": 2.11,
+          "key": "into",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.11,
+          "end": 2.27,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "side",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "side",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pocket.",
+          "start": 2.47,
+          "end": 2.79,
+          "key": "pocket",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Myles",
+          "start": 0.0,
+          "end": 0.355
+        },
+        {
+          "text": "Crawford",
+          "start": 0.71,
+          "end": 1.11
+        },
+        {
+          "text": "crammed",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "text": "the",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "sheets",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "into",
+          "start": 1.85,
+          "end": 2.11
+        },
+        {
+          "text": "a",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "text": "sidepocket.",
+          "start": 2.27,
+          "end": 2.53
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11063403898151591
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0242e741259843322d8da697e7bb56bbdd33c13d801611ee223ea0ba11515b9e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

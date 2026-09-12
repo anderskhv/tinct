@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "1c839fb7777ec51b384cca5f8ac73e8e7f6bec9d78cd94adf8e2d68bffb3c7af",
+  "attempts": [
+    {
+      "asr_seconds": 0.1057136245071888,
+      "alignment_seconds": 0.0002364516258239746,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Malvolio.",
+          "start": 0.08,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.9375
+            },
+            {
+              "text": " Malvolio.",
+              "start": 0.66,
+              "end": 1.32,
+              "probability": 0.8507486979166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Malvolio.",
+          "start": 0.66,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Malvolio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Malvolio.",
+          "start": 0.66,
+          "end": 1.32,
+          "key": "malvolio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Malvolio.",
+          "start": 0.66,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10603239387273788
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "94b348cc493bd662e312d5b21c60f37718f0088b7bd3076f705b515493547011",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "e7342c3f8546ec31a5a1a944119bd946ee2604a5260eee17768ad6ffb47195e5",
+  "attempts": [
+    {
+      "asr_seconds": 0.15342944813892245,
+      "alignment_seconds": 0.00020629586651921272,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenius, nay temperately your promise.",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.6256510416666666
+            },
+            {
+              "text": " nay",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " temperately",
+              "start": 1.61,
+              "end": 2.07,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " your",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " promise.",
+              "start": 2.29,
+              "end": 2.69,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "nay",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "temperately",
+          "start": 1.61,
+          "end": 2.07
+        },
+        {
+          "raw": "your",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "promise.",
+          "start": 2.29,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Nay,",
+        "temperately!",
+        "Your",
+        "promise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nay",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "temperately",
+          "start": 1.61,
+          "end": 2.07,
+          "key": "temperately",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "promise.",
+          "start": 2.29,
+          "end": 2.69,
+          "key": "promise",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Nay,",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "temperately!",
+          "start": 1.61,
+          "end": 2.07
+        },
+        {
+          "text": "Your",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "promise.",
+          "start": 2.29,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15371092595160007
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7b8274671b44713a6f87719219f4d239d67c551da0aed6179c08d09e5eb56b1",
+  "selected_reasons": []
+}

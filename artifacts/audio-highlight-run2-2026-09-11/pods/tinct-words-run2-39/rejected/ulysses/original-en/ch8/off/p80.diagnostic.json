@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "b7ccc7b333b9043eabb1ae3075faa2e756d74c3003db55578c8987ce2dbfd2e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.19015884608961642,
+      "alignment_seconds": 0.00026808097027242184,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She folded the card into her untidy bag and snapped the catch.",
+          "start": 0.0,
+          "end": 3.82,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " folded",
+              "start": 0.52,
+              "end": 0.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " card",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " into",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.994140625
+            },
+            {
+              "text": " her",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " untidy",
+              "start": 1.6,
+              "end": 2.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bag",
+              "start": 2.08,
+              "end": 2.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.5,
+              "end": 3.0,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " snapped",
+              "start": 3.0,
+              "end": 3.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " catch.",
+              "start": 3.5,
+              "end": 3.82,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "raw": "folded",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "card",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "raw": "into",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "her",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "untidy",
+          "start": 1.6,
+          "end": 2.08
+        },
+        {
+          "raw": "bag",
+          "start": 2.08,
+          "end": 2.5
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 3.0
+        },
+        {
+          "raw": "snapped",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "catch.",
+          "start": 3.5,
+          "end": 3.82
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "folded",
+        "the",
+        "card",
+        "into",
+        "her",
+        "untidy",
+        "bag",
+        "and",
+        "snapped",
+        "the",
+        "catch."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.52,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "folded",
+          "start": 0.52,
+          "end": 0.78,
+          "key": "folded",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "card",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "card",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "into",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "untidy",
+          "start": 1.6,
+          "end": 2.08,
+          "key": "untidy",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bag",
+          "start": 2.08,
+          "end": 2.5,
+          "key": "bag",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 3.0,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "snapped",
+          "start": 3.0,
+          "end": 3.28,
+          "key": "snapped",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "catch.",
+          "start": 3.5,
+          "end": 3.82,
+          "key": "catch",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "folded",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "text": "card",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "text": "into",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "her",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "untidy",
+          "start": 1.6,
+          "end": 2.08
+        },
+        {
+          "text": "bag",
+          "start": 2.08,
+          "end": 2.5
+        },
+        {
+          "text": "and",
+          "start": 2.5,
+          "end": 3.0
+        },
+        {
+          "text": "snapped",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "text": "the",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "catch.",
+          "start": 3.5,
+          "end": 3.82
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19053723895922303
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "50feb09368caa5ee8e8e755edda1a86cef63a83b3b171207eec271af5f4b1429",
+  "selected_reasons": []
+}

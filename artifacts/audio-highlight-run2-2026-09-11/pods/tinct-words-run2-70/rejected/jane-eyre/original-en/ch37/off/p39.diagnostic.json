@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "a0421ec36b7b00bf75b517a10ef31cf9928ac4126452a19d17d3993430c0baf4",
+  "attempts": [
+    {
+      "asr_seconds": 0.4060300749260932,
+      "alignment_seconds": 0.0007125809788703918,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The muscular hand broke from my custody.",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.916015625
+            },
+            {
+              "text": " muscular",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " hand",
+              "start": 0.84,
+              "end": 1.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " broke",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " custody.",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " My arm was seized, my shoulder.",
+          "start": 2.96,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " My",
+              "start": 2.96,
+              "end": 3.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " arm",
+              "start": 3.06,
+              "end": 3.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 3.34,
+              "end": 3.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seized,",
+              "start": 3.52,
+              "end": 3.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 4.08,
+              "end": 4.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shoulder.",
+              "start": 4.18,
+              "end": 4.52,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Neck, waist.",
+          "start": 5.3,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " Neck,",
+              "start": 5.3,
+              "end": 5.3,
+              "probability": 0.990234375
+            },
+            {
+              "text": " waist.",
+              "start": 5.54,
+              "end": 5.78,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " I was entwined and gathered to him.",
+          "start": 6.28,
+          "end": 7.94,
+          "words": [
+            {
+              "text": " I",
+              "start": 6.28,
+              "end": 6.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " was",
+              "start": 6.36,
+              "end": 6.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " entwined",
+              "start": 6.46,
+              "end": 7.0,
+              "probability": 0.9983723958333334
+            },
+            {
+              "text": " and",
+              "start": 7.0,
+              "end": 7.2,
+              "probability": 0.96484375
+            },
+            {
+              "text": " gathered",
+              "start": 7.2,
+              "end": 7.44,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 7.44,
+              "end": 7.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 7.7,
+              "end": 7.94,
+              "probability": 0.89599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "muscular",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "raw": "hand",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "raw": "broke",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "from",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "my",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "custody.",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "raw": "My",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "raw": "arm",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "raw": "was",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "raw": "seized,",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "raw": "my",
+          "start": 4.08,
+          "end": 4.18
+        },
+        {
+          "raw": "shoulder.",
+          "start": 4.18,
+          "end": 4.52
+        },
+        {
+          "raw": "Neck,",
+          "start": 5.3,
+          "end": 5.3
+        },
+        {
+          "raw": "waist.",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "raw": "I",
+          "start": 6.28,
+          "end": 6.36
+        },
+        {
+          "raw": "was",
+          "start": 6.36,
+          "end": 6.46
+        },
+        {
+          "raw": "entwined",
+          "start": 6.46,
+          "end": 7.0
+        },
+        {
+          "raw": "and",
+          "start": 7.0,
+          "end": 7.2
+        },
+        {
+          "raw": "gathered",
+          "start": 7.2,
+          "end": 7.44
+        },
+        {
+          "raw": "to",
+          "start": 7.44,
+          "end": 7.7
+        },
+        {
+          "raw": "him.",
+          "start": 7.7,
+          "end": 7.94
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "muscular",
+        "hand",
+        "broke",
+        "from",
+        "my",
+        "custody;",
+        "my",
+        "arm",
+        "was",
+        "seized,",
+        "my",
+        "shoulder—neck—waist—I",
+        "was",
+        "entwined",
+        "and",
+        "gathered",
+        "to",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          16
+        ],
+        [
+          "equal",
+          13,
+          19,
+          16,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "muscular",
+          "start": 0.48,
+          "end": 0.84,
+          "key": "muscular",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 0.84,
+          "end": 1.32,
+          "key": "hand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "broke",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "custody.",
+          "start": 1.98,
+          "end": 2.36,
+          "key": "custody",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.96,
+          "end": 3.06,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "arm",
+          "start": 3.06,
+          "end": 3.34,
+          "key": "arm",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.34,
+          "end": 3.52,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "seized,",
+          "start": 3.52,
+          "end": 3.88,
+          "key": "seized",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.08,
+          "end": 4.18,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shoulder.",
+          "start": 4.18,
+          "end": 4.52,
+          "key": "shoulder",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Neck,",
+          "start": 5.3,
+          "end": 5.3,
+          "key": "neck",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "waist.",
+          "start": 5.54,
+          "end": 5.78,
+          "key": "waist",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.28,
+          "end": 6.36,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 6.36,
+          "end": 6.46,
+          "key": "was",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "entwined",
+          "start": 6.46,
+          "end": 7.0,
+          "key": "entwined",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.0,
+          "end": 7.2,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "gathered",
+          "start": 7.2,
+          "end": 7.44,
+          "key": "gathered",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.44,
+          "end": 7.7,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 7.7,
+          "end": 7.94,
+          "key": "him",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "muscular",
+          "start": 0.48,
+          "end": 0.84
+        },
+        {
+          "text": "hand",
+          "start": 0.84,
+          "end": 1.32
+        },
+        {
+          "text": "broke",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "from",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "my",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "custody;",
+          "start": 1.98,
+          "end": 2.36
+        },
+        {
+          "text": "my",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "text": "arm",
+          "start": 3.06,
+          "end": 3.34
+        },
+        {
+          "text": "was",
+          "start": 3.34,
+          "end": 3.52
+        },
+        {
+          "text": "seized,",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "text": "my",
+          "start": 4.08,
+          "end": 4.18
+        },
+        {
+          "text": "shoulder—neck—waist—I",
+          "start": 4.18,
+          "end": 5.27
+        },
+        {
+          "text": "was",
+          "start": 6.36,
+          "end": 6.46
+        },
+        {
+          "text": "entwined",
+          "start": 6.46,
+          "end": 7.0
+        },
+        {
+          "text": "and",
+          "start": 7.0,
+          "end": 7.2
+        },
+        {
+          "text": "gathered",
+          "start": 7.2,
+          "end": 7.44
+        },
+        {
+          "text": "to",
+          "start": 7.44,
+          "end": 7.7
+        },
+        {
+          "text": "him.",
+          "start": 7.7,
+          "end": 7.94
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 22,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.4070365170482546
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e6e89658afa5f9fb41d29740cfac9620eb45f6cfd3f803c408a912f585babe3c",
+  "selected_reasons": []
+}

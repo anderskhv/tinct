@@ -1,0 +1,564 @@
+{
+  "complete": true,
+  "signature": "b6400920dc5f35e3b7aa23239f661b3ff1dc43c6082334d576d721e97db1d6ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.16131840198067948,
+      "alignment_seconds": 0.00026264198822900653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jessis Mario with rowdy cheeks, doublet and spindle legs, hand on his heart, in Martha.",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Jessis",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.156494140625
+            },
+            {
+              "text": " Mario",
+              "start": 0.81,
+              "end": 1.11,
+              "probability": 0.49609375
+            },
+            {
+              "text": " with",
+              "start": 1.11,
+              "end": 1.37,
+              "probability": 0.892578125
+            },
+            {
+              "text": " rowdy",
+              "start": 1.37,
+              "end": 1.67,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " cheeks,",
+              "start": 1.67,
+              "end": 2.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " doublet",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " and",
+              "start": 2.67,
+              "end": 2.75,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " spindle",
+              "start": 2.75,
+              "end": 3.07,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " legs,",
+              "start": 3.07,
+              "end": 3.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hand",
+              "start": 4.17,
+              "end": 4.19,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " on",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 4.37,
+              "end": 4.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " heart,",
+              "start": 4.51,
+              "end": 4.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 5.29,
+              "end": 5.43,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " Martha.",
+              "start": 5.43,
+              "end": 5.73,
+              "probability": 0.90576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jessis",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Mario",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "raw": "with",
+          "start": 1.11,
+          "end": 1.37
+        },
+        {
+          "raw": "rowdy",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "raw": "cheeks,",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "raw": "doublet",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "and",
+          "start": 2.67,
+          "end": 2.75
+        },
+        {
+          "raw": "spindle",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "raw": "legs,",
+          "start": 3.07,
+          "end": 3.51
+        },
+        {
+          "raw": "hand",
+          "start": 4.17,
+          "end": 4.19
+        },
+        {
+          "raw": "on",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "his",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "raw": "heart,",
+          "start": 4.51,
+          "end": 4.83
+        },
+        {
+          "raw": "in",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "raw": "Martha.",
+          "start": 5.43,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Jesusmario",
+        "with",
+        "rougy",
+        "cheeks,",
+        "doublet",
+        "and",
+        "spindle",
+        "legs.",
+        "Hand",
+        "on",
+        "his",
+        "heart.",
+        "In",
+        "_Martha._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          14,
+          4,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jessis",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "jessis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mario",
+          "start": 0.81,
+          "end": 1.11,
+          "key": "mario",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.11,
+          "end": 1.37,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rowdy",
+          "start": 1.37,
+          "end": 1.67,
+          "key": "rowdy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cheeks,",
+          "start": 1.67,
+          "end": 2.01,
+          "key": "cheeks",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doublet",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "doublet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.67,
+          "end": 2.75,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "spindle",
+          "start": 2.75,
+          "end": 3.07,
+          "key": "spindle",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "legs,",
+          "start": 3.07,
+          "end": 3.51,
+          "key": "legs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 4.17,
+          "end": 4.19,
+          "key": "hand",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.19,
+          "end": 4.37,
+          "key": "on",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.37,
+          "end": 4.51,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "heart,",
+          "start": 4.51,
+          "end": 4.83,
+          "key": "heart",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.29,
+          "end": 5.43,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Martha.",
+          "start": 5.43,
+          "end": 5.73,
+          "key": "martha",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Jesusmario",
+          "start": 0.0,
+          "end": 0.555
+        },
+        {
+          "text": "with",
+          "start": 1.11,
+          "end": 1.37
+        },
+        {
+          "text": "rougy",
+          "start": 1.37,
+          "end": 1.52
+        },
+        {
+          "text": "cheeks,",
+          "start": 1.67,
+          "end": 2.01
+        },
+        {
+          "text": "doublet",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "and",
+          "start": 2.67,
+          "end": 2.75
+        },
+        {
+          "text": "spindle",
+          "start": 2.75,
+          "end": 3.07
+        },
+        {
+          "text": "legs.",
+          "start": 3.07,
+          "end": 3.51
+        },
+        {
+          "text": "Hand",
+          "start": 4.17,
+          "end": 4.19
+        },
+        {
+          "text": "on",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "his",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "text": "heart.",
+          "start": 4.51,
+          "end": 4.83
+        },
+        {
+          "text": "In",
+          "start": 5.29,
+          "end": 5.43
+        },
+        {
+          "text": "_Martha._",
+          "start": 5.43,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1616829740232788
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e9c4f135b5a4a0b97ffab88b91ca9b9c624a6dc588f2b1048de6f03989afcb4",
+  "selected_reasons": []
+}

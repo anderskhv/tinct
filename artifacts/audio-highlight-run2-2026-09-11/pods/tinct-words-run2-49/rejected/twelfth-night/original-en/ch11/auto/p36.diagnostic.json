@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "e8eee1793f53bb4037762f1f825a0efd84a96e4aef8b4609a0a5fe2b86f51f59",
+  "attempts": [
+    {
+      "asr_seconds": 0.26533884182572365,
+      "alignment_seconds": 0.00031894072890281677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Viola. I am bound to your niece, sir, I mean, she is the list of my voyage.",
+        "hotwords": "Viola, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Viola, I am bound to your niece, sir, I mean, she is the list of my voyage.",
+          "start": 0.57,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Viola,",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.80078125
+            },
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.43,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " am",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.986328125
+            },
+            {
+              "text": " bound",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " your",
+              "start": 1.93,
+              "end": 2.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " niece,",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sir,",
+              "start": 2.45,
+              "end": 2.49,
+              "probability": 0.9140625
+            },
+            {
+              "text": " I",
+              "start": 2.61,
+              "end": 2.67,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " mean,",
+              "start": 2.67,
+              "end": 2.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " she",
+              "start": 3.19,
+              "end": 3.29,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 3.29,
+              "end": 3.41,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 3.41,
+              "end": 3.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " list",
+              "start": 3.53,
+              "end": 3.71,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " of",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 3.85,
+              "end": 3.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voyage.",
+              "start": 3.99,
+              "end": 4.37,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Viola,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "raw": "am",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "bound",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "to",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "your",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "raw": "niece,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "sir,",
+          "start": 2.45,
+          "end": 2.49
+        },
+        {
+          "raw": "I",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "raw": "mean,",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "raw": "she",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "raw": "is",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "raw": "list",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "my",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "raw": "voyage.",
+          "start": 3.99,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "Viola.",
+        "I",
+        "am",
+        "bound",
+        "to",
+        "your",
+        "niece,",
+        "sir,",
+        "I",
+        "mean,",
+        "she",
+        "is",
+        "the",
+        "list",
+        "of",
+        "my",
+        "voyage."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Viola,",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "viola",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.43,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bound",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "bound",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.93,
+          "end": 2.03,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "niece,",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "niece",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.45,
+          "end": 2.49,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.61,
+          "end": 2.67,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mean,",
+          "start": 2.67,
+          "end": 2.87,
+          "key": "mean",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 3.19,
+          "end": 3.29,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.29,
+          "end": 3.41,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.41,
+          "end": 3.53,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "list",
+          "start": 3.53,
+          "end": 3.71,
+          "key": "list",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.85,
+          "end": 3.99,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "voyage.",
+          "start": 3.99,
+          "end": 4.37,
+          "key": "voyage",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Viola.",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.13,
+          "end": 1.43
+        },
+        {
+          "text": "am",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "bound",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "to",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "your",
+          "start": 1.93,
+          "end": 2.03
+        },
+        {
+          "text": "niece,",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "sir,",
+          "start": 2.45,
+          "end": 2.49
+        },
+        {
+          "text": "I",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "text": "mean,",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "text": "she",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "text": "is",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "text": "the",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "text": "list",
+          "start": 3.53,
+          "end": 3.71
+        },
+        {
+          "text": "of",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "my",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "text": "voyage.",
+          "start": 3.99,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2657794654369354
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0b28c9ca661d8f1592fbc8f5cbc41fbacff519abee8f3d7cfae437130ff2713b",
+  "selected_reasons": []
+}

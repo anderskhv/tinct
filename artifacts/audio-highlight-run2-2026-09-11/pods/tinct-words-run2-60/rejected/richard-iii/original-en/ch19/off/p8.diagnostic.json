@@ -1,0 +1,831 @@
+{
+  "complete": true,
+  "signature": "22e31064c1d986fbd1bd672d7dd7cf383c6a4c9f2b1c334e058307b3f58c196a",
+  "attempts": [
+    {
+      "asr_seconds": 0.38416070491075516,
+      "alignment_seconds": 0.0006688199937343597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dutchess, so many miseries have crazed my voice that my woe-wearied tongue is still",
+          "start": 0.08,
+          "end": 4.7,
+          "words": [
+            {
+              "text": " Dutchess,",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.66644287109375
+            },
+            {
+              "text": " so",
+              "start": 1.28,
+              "end": 1.5,
+              "probability": 0.94921875
+            },
+            {
+              "text": " many",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " miseries",
+              "start": 1.66,
+              "end": 2.06,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " have",
+              "start": 2.06,
+              "end": 2.26,
+              "probability": 0.892578125
+            },
+            {
+              "text": " crazed",
+              "start": 2.26,
+              "end": 2.62,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " my",
+              "start": 2.62,
+              "end": 2.74,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " voice",
+              "start": 2.74,
+              "end": 3.0,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " that",
+              "start": 3.0,
+              "end": 3.18,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " my",
+              "start": 3.18,
+              "end": 3.36,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " woe",
+              "start": 3.36,
+              "end": 3.6,
+              "probability": 0.8564453125
+            },
+            {
+              "text": "-wearied",
+              "start": 3.6,
+              "end": 3.98,
+              "probability": 0.9407552083333334
+            },
+            {
+              "text": " tongue",
+              "start": 3.98,
+              "end": 4.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.974609375
+            },
+            {
+              "text": " still",
+              "start": 4.4,
+              "end": 4.7,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " in mute. Edward Plantagenet, why art thou dead?",
+          "start": 4.7,
+          "end": 8.3,
+          "words": [
+            {
+              "text": " in",
+              "start": 4.7,
+              "end": 4.92,
+              "probability": 0.1348876953125
+            },
+            {
+              "text": " mute.",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Edward",
+              "start": 5.96,
+              "end": 6.18,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " Plantagenet,",
+              "start": 6.18,
+              "end": 7.08,
+              "probability": 0.9376627604166666
+            },
+            {
+              "text": " why",
+              "start": 7.4,
+              "end": 7.56,
+              "probability": 0.443115234375
+            },
+            {
+              "text": " art",
+              "start": 7.56,
+              "end": 7.8,
+              "probability": 0.982421875
+            },
+            {
+              "text": " thou",
+              "start": 7.8,
+              "end": 8.04,
+              "probability": 0.990234375
+            },
+            {
+              "text": " dead?",
+              "start": 8.04,
+              "end": 8.3,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dutchess,",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "so",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "raw": "many",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "miseries",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "raw": "have",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "raw": "crazed",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "raw": "my",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "raw": "voice",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "raw": "that",
+          "start": 3.0,
+          "end": 3.18
+        },
+        {
+          "raw": "my",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "raw": "woe",
+          "start": 3.36,
+          "end": 3.6
+        },
+        {
+          "raw": "-wearied",
+          "start": 3.6,
+          "end": 3.98
+        },
+        {
+          "raw": "tongue",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "raw": "is",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "still",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "raw": "in",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "raw": "mute.",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "Edward",
+          "start": 5.96,
+          "end": 6.18
+        },
+        {
+          "raw": "Plantagenet,",
+          "start": 6.18,
+          "end": 7.08
+        },
+        {
+          "raw": "why",
+          "start": 7.4,
+          "end": 7.56
+        },
+        {
+          "raw": "art",
+          "start": 7.56,
+          "end": 7.8
+        },
+        {
+          "raw": "thou",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "raw": "dead?",
+          "start": 8.04,
+          "end": 8.3
+        }
+      ],
+      "expected_tokens": [
+        "Duchess.",
+        "So",
+        "many",
+        "miseries",
+        "have",
+        "crazed",
+        "my",
+        "voice",
+        "That",
+        "my",
+        "woe-wearied",
+        "tongue",
+        "is",
+        "still",
+        "and",
+        "mute.",
+        "Edward",
+        "Plantagenet,",
+        "why",
+        "art",
+        "thou",
+        "dead?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          14,
+          1,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          22,
+          15,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dutchess,",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "dutchess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.28,
+          "end": 1.5,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "many",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "miseries",
+          "start": 1.66,
+          "end": 2.06,
+          "key": "miseries",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.06,
+          "end": 2.26,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "crazed",
+          "start": 2.26,
+          "end": 2.62,
+          "key": "crazed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.62,
+          "end": 2.74,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 2.74,
+          "end": 3.0,
+          "key": "voice",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.0,
+          "end": 3.18,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.18,
+          "end": 3.36,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "woe -wearied",
+          "start": 3.36,
+          "end": 3.98,
+          "key": "woewearied",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 3.98,
+          "end": 4.2,
+          "key": "tongue",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 4.4,
+          "end": 4.7,
+          "key": "still",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.7,
+          "end": 4.92,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mute.",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "mute",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Edward",
+          "start": 5.96,
+          "end": 6.18,
+          "key": "edward",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Plantagenet,",
+          "start": 6.18,
+          "end": 7.08,
+          "key": "plantagenet",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 7.4,
+          "end": 7.56,
+          "key": "why",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 7.56,
+          "end": 7.8,
+          "key": "art",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 7.8,
+          "end": 8.04,
+          "key": "thou",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "dead?",
+          "start": 8.04,
+          "end": 8.3,
+          "key": "dead",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "woe-wearied",
+          "heard": "woe -wearied",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 3.36,
+          "end": 3.98
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Duchess.",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "So",
+          "start": 1.28,
+          "end": 1.5
+        },
+        {
+          "text": "many",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "miseries",
+          "start": 1.66,
+          "end": 2.06
+        },
+        {
+          "text": "have",
+          "start": 2.06,
+          "end": 2.26
+        },
+        {
+          "text": "crazed",
+          "start": 2.26,
+          "end": 2.62
+        },
+        {
+          "text": "my",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "voice",
+          "start": 2.74,
+          "end": 3.0
+        },
+        {
+          "text": "That",
+          "start": 3.0,
+          "end": 3.18
+        },
+        {
+          "text": "my",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "text": "woe-wearied",
+          "start": 3.36,
+          "end": 3.98
+        },
+        {
+          "text": "tongue",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "text": "is",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "still",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "text": "and",
+          "start": 4.7,
+          "end": 4.81
+        },
+        {
+          "text": "mute.",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "Edward",
+          "start": 5.96,
+          "end": 6.18
+        },
+        {
+          "text": "Plantagenet,",
+          "start": 6.18,
+          "end": 7.08
+        },
+        {
+          "text": "why",
+          "start": 7.4,
+          "end": 7.56
+        },
+        {
+          "text": "art",
+          "start": 7.56,
+          "end": 7.8
+        },
+        {
+          "text": "thou",
+          "start": 7.8,
+          "end": 8.04
+        },
+        {
+          "text": "dead?",
+          "start": 8.04,
+          "end": 8.3
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.38510197773575783
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bcd3ff3318d1894a1c22e3704f9a0026957df1dabde0706b5923e5de5b0545ad",
+  "selected_reasons": []
+}

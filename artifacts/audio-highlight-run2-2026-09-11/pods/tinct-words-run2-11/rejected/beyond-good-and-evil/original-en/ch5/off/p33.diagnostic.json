@@ -1,0 +1,660 @@
+{
+  "complete": true,
+  "signature": "56d1d8007a6eb1238405bbe9d98e90a45617371604cdca50425f7c41286a9e41",
+  "attempts": [
+    {
+      "asr_seconds": 0.27155912294983864,
+      "alignment_seconds": 0.000431181862950325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " 96. One should part from life as Ulysses parted from Nausicaa blessing it, rather than in love with it.",
+          "start": 0.05,
+          "end": 6.95,
+          "words": [
+            {
+              "text": " 96.",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " One",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " should",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " part",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " life",
+              "start": 2.55,
+              "end": 2.81,
+              "probability": 0.955078125
+            },
+            {
+              "text": " as",
+              "start": 2.81,
+              "end": 3.09,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Ulysses",
+              "start": 3.09,
+              "end": 3.63,
+              "probability": 0.9752604166666666
+            },
+            {
+              "text": " parted",
+              "start": 3.63,
+              "end": 3.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 3.93,
+              "end": 4.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Nausicaa",
+              "start": 4.25,
+              "end": 4.89,
+              "probability": 0.844970703125
+            },
+            {
+              "text": " blessing",
+              "start": 4.89,
+              "end": 5.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " it,",
+              "start": 5.07,
+              "end": 5.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rather",
+              "start": 5.75,
+              "end": 5.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " than",
+              "start": 5.95,
+              "end": 6.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 6.25,
+              "end": 6.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " love",
+              "start": 6.39,
+              "end": 6.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 6.55,
+              "end": 6.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 6.73,
+              "end": 6.95,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "96.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "One",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "should",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "part",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "from",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "life",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "raw": "as",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "raw": "Ulysses",
+          "start": 3.09,
+          "end": 3.63
+        },
+        {
+          "raw": "parted",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "raw": "from",
+          "start": 3.93,
+          "end": 4.25
+        },
+        {
+          "raw": "Nausicaa",
+          "start": 4.25,
+          "end": 4.89
+        },
+        {
+          "raw": "blessing",
+          "start": 4.89,
+          "end": 5.07
+        },
+        {
+          "raw": "it,",
+          "start": 5.07,
+          "end": 5.49
+        },
+        {
+          "raw": "rather",
+          "start": 5.75,
+          "end": 5.95
+        },
+        {
+          "raw": "than",
+          "start": 5.95,
+          "end": 6.25
+        },
+        {
+          "raw": "in",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "raw": "love",
+          "start": 6.39,
+          "end": 6.55
+        },
+        {
+          "raw": "with",
+          "start": 6.55,
+          "end": 6.73
+        },
+        {
+          "raw": "it.",
+          "start": 6.73,
+          "end": 6.95
+        }
+      ],
+      "expected_tokens": [
+        "96.",
+        "One",
+        "should",
+        "part",
+        "from",
+        "life",
+        "as",
+        "Ulysses",
+        "parted",
+        "from",
+        "Nausicaa--blessing",
+        "it",
+        "rather",
+        "than",
+        "in",
+        "love",
+        "with",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "96.",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "ninetysix",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "one",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "should",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 2.07,
+          "end": 2.31,
+          "key": "part",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 2.55,
+          "end": 2.81,
+          "key": "life",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.81,
+          "end": 3.09,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ulysses",
+          "start": 3.09,
+          "end": 3.63,
+          "key": "ulysses",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "parted",
+          "start": 3.63,
+          "end": 3.93,
+          "key": "parted",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.93,
+          "end": 4.25,
+          "key": "from",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Nausicaa blessing",
+          "start": 4.25,
+          "end": 5.07,
+          "key": "nausicaablessing",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 5.07,
+          "end": 5.49,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 5.75,
+          "end": 5.95,
+          "key": "rather",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.95,
+          "end": 6.25,
+          "key": "than",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.25,
+          "end": 6.39,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 6.39,
+          "end": 6.55,
+          "key": "love",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.55,
+          "end": 6.73,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 6.73,
+          "end": 6.95,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "Nausicaa--blessing",
+          "heard": "Nausicaa blessing",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 4.25,
+          "end": 5.07
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "96.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "One",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "should",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "part",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "from",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "text": "life",
+          "start": 2.55,
+          "end": 2.81
+        },
+        {
+          "text": "as",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "text": "Ulysses",
+          "start": 3.09,
+          "end": 3.63
+        },
+        {
+          "text": "parted",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "text": "from",
+          "start": 3.93,
+          "end": 4.25
+        },
+        {
+          "text": "Nausicaa--blessing",
+          "start": 4.25,
+          "end": 5.07
+        },
+        {
+          "text": "it",
+          "start": 5.07,
+          "end": 5.49
+        },
+        {
+          "text": "rather",
+          "start": 5.75,
+          "end": 5.95
+        },
+        {
+          "text": "than",
+          "start": 5.95,
+          "end": 6.25
+        },
+        {
+          "text": "in",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "text": "love",
+          "start": 6.39,
+          "end": 6.55
+        },
+        {
+          "text": "with",
+          "start": 6.55,
+          "end": 6.73
+        },
+        {
+          "text": "it.",
+          "start": 6.73,
+          "end": 6.95
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.272241098806262
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab8181e7613bb9f0beec8e267cf617f896947738503f79732c6126a8c7691735",
+  "selected_reasons": []
+}

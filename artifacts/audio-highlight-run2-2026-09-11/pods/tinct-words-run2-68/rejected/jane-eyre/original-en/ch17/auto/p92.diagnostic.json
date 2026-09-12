@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "a02d73198f7702433f0eff360f088f1844f440bf8b3a9461e3afe627b715b20b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2369287945330143,
+      "alignment_seconds": 0.00044994428753852844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I could not afford it: schools are so dear.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I could not afford it. Schools are so dear.",
+          "start": 0.08,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " could",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " not",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " afford",
+              "start": 0.76,
+              "end": 1.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it.",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Schools",
+              "start": 1.72,
+              "end": 1.76,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " are",
+              "start": 1.76,
+              "end": 2.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dear.",
+              "start": 2.2,
+              "end": 2.48,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "could",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "afford",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "raw": "it.",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "raw": "Schools",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "raw": "are",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "raw": "so",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "dear.",
+          "start": 2.2,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "could",
+        "not",
+        "afford",
+        "it:",
+        "schools",
+        "are",
+        "so",
+        "dear.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "could",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "afford",
+          "start": 0.76,
+          "end": 1.06,
+          "key": "afford",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Schools",
+          "start": 1.72,
+          "end": 1.76,
+          "key": "schools",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.76,
+          "end": 2.02,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dear.",
+          "start": 2.2,
+          "end": 2.48,
+          "key": "dear",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "could",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "not",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "afford",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "it:",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "text": "schools",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "text": "are",
+          "start": 1.76,
+          "end": 2.02
+        },
+        {
+          "text": "so",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "dear.\"",
+          "start": 2.2,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23755652457475662
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4397551ce9967371b273b872f0919b54989b4300cff48dd77009e7bb0a378e66",
+  "selected_reasons": []
+}

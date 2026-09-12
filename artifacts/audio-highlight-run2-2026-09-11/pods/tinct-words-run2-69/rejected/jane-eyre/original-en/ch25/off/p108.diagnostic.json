@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "15a4459b4c1c2140a21e2cdb4d4adb2f482491b64fdf6b5021d1e3c35f7dd413",
+  "attempts": [
+    {
+      "asr_seconds": 0.3244461640715599,
+      "alignment_seconds": 0.0005077598616480827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And you will not dream of separation and sorrow tonight, but of happy love and blissful union.",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " you",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " will",
+              "start": 0.65,
+              "end": 0.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 0.77,
+              "end": 1.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " dream",
+              "start": 1.01,
+              "end": 1.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 1.31,
+              "end": 1.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " separation",
+              "start": 1.53,
+              "end": 1.97,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 1.97,
+              "end": 2.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sorrow",
+              "start": 2.37,
+              "end": 2.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tonight,",
+              "start": 2.73,
+              "end": 3.11,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " but",
+              "start": 3.69,
+              "end": 3.77,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " of",
+              "start": 3.77,
+              "end": 3.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " happy",
+              "start": 3.87,
+              "end": 4.19,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " love",
+              "start": 4.19,
+              "end": 4.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 4.53,
+              "end": 4.87,
+              "probability": 0.9921875
+            },
+            {
+              "text": " blissful",
+              "start": 4.87,
+              "end": 5.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " union.",
+              "start": 5.25,
+              "end": 5.61,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "will",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "raw": "not",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "raw": "dream",
+          "start": 1.01,
+          "end": 1.31
+        },
+        {
+          "raw": "of",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "raw": "separation",
+          "start": 1.53,
+          "end": 1.97
+        },
+        {
+          "raw": "and",
+          "start": 1.97,
+          "end": 2.37
+        },
+        {
+          "raw": "sorrow",
+          "start": 2.37,
+          "end": 2.73
+        },
+        {
+          "raw": "tonight,",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "raw": "but",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "raw": "of",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "raw": "happy",
+          "start": 3.87,
+          "end": 4.19
+        },
+        {
+          "raw": "love",
+          "start": 4.19,
+          "end": 4.53
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.87
+        },
+        {
+          "raw": "blissful",
+          "start": 4.87,
+          "end": 5.25
+        },
+        {
+          "raw": "union.",
+          "start": 5.25,
+          "end": 5.61
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "you",
+        "will",
+        "not",
+        "dream",
+        "of",
+        "separation",
+        "and",
+        "sorrow",
+        "to-night;",
+        "but",
+        "of",
+        "happy",
+        "love",
+        "and",
+        "blissful",
+        "union.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.65,
+          "end": 0.77,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.77,
+          "end": 1.01,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dream",
+          "start": 1.01,
+          "end": 1.31,
+          "key": "dream",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.31,
+          "end": 1.53,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "separation",
+          "start": 1.53,
+          "end": 1.97,
+          "key": "separation",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.97,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sorrow",
+          "start": 2.37,
+          "end": 2.73,
+          "key": "sorrow",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tonight,",
+          "start": 2.73,
+          "end": 3.11,
+          "key": "tonight",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.69,
+          "end": 3.77,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.77,
+          "end": 3.87,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "happy",
+          "start": 3.87,
+          "end": 4.19,
+          "key": "happy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "love",
+          "start": 4.19,
+          "end": 4.53,
+          "key": "love",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.87,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "blissful",
+          "start": 4.87,
+          "end": 5.25,
+          "key": "blissful",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "union.",
+          "start": 5.25,
+          "end": 5.61,
+          "key": "union",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "you",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "will",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "text": "not",
+          "start": 0.77,
+          "end": 1.01
+        },
+        {
+          "text": "dream",
+          "start": 1.01,
+          "end": 1.31
+        },
+        {
+          "text": "of",
+          "start": 1.31,
+          "end": 1.53
+        },
+        {
+          "text": "separation",
+          "start": 1.53,
+          "end": 1.97
+        },
+        {
+          "text": "and",
+          "start": 1.97,
+          "end": 2.37
+        },
+        {
+          "text": "sorrow",
+          "start": 2.37,
+          "end": 2.73
+        },
+        {
+          "text": "to-night;",
+          "start": 2.73,
+          "end": 3.11
+        },
+        {
+          "text": "but",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "text": "of",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "text": "happy",
+          "start": 3.87,
+          "end": 4.19
+        },
+        {
+          "text": "love",
+          "start": 4.19,
+          "end": 4.53
+        },
+        {
+          "text": "and",
+          "start": 4.53,
+          "end": 4.87
+        },
+        {
+          "text": "blissful",
+          "start": 4.87,
+          "end": 5.25
+        },
+        {
+          "text": "union.\"",
+          "start": 5.25,
+          "end": 5.61
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32517534028738737
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ae7822d3b2f808e0e88a6155095721b0fdf04bfc1a4ecc8917afd14fae63322e",
+  "selected_reasons": []
+}

@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "6472551b48acd80dad81e52885ebf8e0ba3406e2f8f734668215dcbd36e285bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.10894216084852815,
+      "alignment_seconds": 0.00021031894721090794,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Darling.",
+          "start": 0.05,
+          "end": 0.73,
+          "words": [
+            {
+              "text": " Darling.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Darling.",
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "expected_tokens": [
+        "—Darling!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Darling.",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "darling",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Darling!",
+          "start": 0.05,
+          "end": 0.73
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10922005004249513
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0065ed610f6fef5c1dfcbeb7ff8338ad6196c47e598fcf6691c82ae0547d941d",
+  "selected_reasons": []
+}

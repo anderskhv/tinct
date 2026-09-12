@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "22d2f0c0e556a9c5f4f98a368dc7e34266a8faf87885dd5d21a0ee4467c98eec",
+  "attempts": [
+    {
+      "asr_seconds": 0.1921195713803172,
+      "alignment_seconds": 0.0003460422158241272,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Anne, I fear me both are false.",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.32470703125
+            },
+            {
+              "text": " I",
+              "start": 1.04,
+              "end": 1.12,
+              "probability": 0.982421875
+            },
+            {
+              "text": " fear",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " both",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " are",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.9921875
+            },
+            {
+              "text": " false.",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.409423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "raw": "fear",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "me",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "both",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "are",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "false.",
+          "start": 1.74,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "I",
+        "fear",
+        "me",
+        "both",
+        "are",
+        "false."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.12,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "fear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "both",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "false.",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "false",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "I",
+          "start": 1.04,
+          "end": 1.12
+        },
+        {
+          "text": "fear",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "me",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "both",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "are",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "false.",
+          "start": 1.74,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19259116984903812
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c303ec3c56134bf6fb0f82f62c693d810f830804566133dc5e2815b057a80a4d",
+  "selected_reasons": []
+}

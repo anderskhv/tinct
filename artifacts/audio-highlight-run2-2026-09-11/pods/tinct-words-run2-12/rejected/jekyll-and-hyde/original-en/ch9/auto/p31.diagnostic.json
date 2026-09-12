@@ -1,0 +1,1228 @@
+{
+  "complete": true,
+  "signature": "7dc7afd4d70ff50d729fac38d21abb542b83275478b629a15768d9b066a659bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.5112077328376472,
+      "alignment_seconds": 0.0006078740116208792,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"O God!\" I screamed, and \"O God!\" again and again; for there before my eyes—pale and shaken, and half fainting, and groping before him with his hands, like a man restored from death—there stood Henry Jekyll!",
+        "hotwords": "O, God, I, Henry, Jekyll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O God! I screamed, and O God! again and again, for there before my eyes—pale and shaken,",
+          "start": 0.02,
+          "end": 6.66,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.09014892578125
+            },
+            {
+              "text": " God!",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.87109375
+            },
+            {
+              "text": " I",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " screamed,",
+              "start": 1.42,
+              "end": 1.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.08,
+              "end": 2.14,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " O",
+              "start": 2.14,
+              "end": 2.36,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " God!",
+              "start": 2.36,
+              "end": 2.8,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " again",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.239990234375
+            },
+            {
+              "text": " and",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " again,",
+              "start": 3.84,
+              "end": 4.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 4.56,
+              "end": 4.68,
+              "probability": 0.81640625
+            },
+            {
+              "text": " there",
+              "start": 4.68,
+              "end": 4.84,
+              "probability": 0.984375
+            },
+            {
+              "text": " before",
+              "start": 4.84,
+              "end": 5.16,
+              "probability": 0.95703125
+            },
+            {
+              "text": " my",
+              "start": 5.16,
+              "end": 5.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " eyes—pale",
+              "start": 5.36,
+              "end": 6.16,
+              "probability": 0.6299069076776505
+            },
+            {
+              "text": " and",
+              "start": 6.16,
+              "end": 6.36,
+              "probability": 0.96875
+            },
+            {
+              "text": " shaken,",
+              "start": 6.36,
+              "end": 6.66,
+              "probability": 0.96728515625
+            }
+          ]
+        },
+        {
+          "text": " and half fainting, and groping before him with his hands, like a man restored from death—there",
+          "start": 6.94,
+          "end": 12.02,
+          "words": [
+            {
+              "text": " and",
+              "start": 6.94,
+              "end": 7.02,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " half",
+              "start": 7.02,
+              "end": 7.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fainting,",
+              "start": 7.24,
+              "end": 7.68,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " and",
+              "start": 7.84,
+              "end": 7.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " groping",
+              "start": 7.96,
+              "end": 8.38,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " before",
+              "start": 8.38,
+              "end": 8.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " him",
+              "start": 8.68,
+              "end": 8.94,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " with",
+              "start": 8.94,
+              "end": 9.1,
+              "probability": 0.990234375
+            },
+            {
+              "text": " his",
+              "start": 9.1,
+              "end": 9.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hands,",
+              "start": 9.26,
+              "end": 9.66,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " like",
+              "start": 9.88,
+              "end": 9.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 9.98,
+              "end": 10.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " man",
+              "start": 10.12,
+              "end": 10.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " restored",
+              "start": 10.34,
+              "end": 10.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " from",
+              "start": 10.74,
+              "end": 11.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " death—there",
+              "start": 11.02,
+              "end": 12.02,
+              "probability": 0.8543294270833334
+            }
+          ]
+        },
+        {
+          "text": " stood Henry Jekyll!",
+          "start": 12.02,
+          "end": 13.06,
+          "words": [
+            {
+              "text": " stood",
+              "start": 12.02,
+              "end": 12.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Henry",
+              "start": 12.26,
+              "end": 12.62,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Jekyll!",
+              "start": 12.62,
+              "end": 13.06,
+              "probability": 0.9894205729166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "God!",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "screamed,",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "raw": "and",
+          "start": 2.08,
+          "end": 2.14
+        },
+        {
+          "raw": "O",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "raw": "God!",
+          "start": 2.36,
+          "end": 2.8
+        },
+        {
+          "raw": "again",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "again,",
+          "start": 3.84,
+          "end": 4.12
+        },
+        {
+          "raw": "for",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "raw": "there",
+          "start": 4.68,
+          "end": 4.84
+        },
+        {
+          "raw": "before",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "raw": "my",
+          "start": 5.16,
+          "end": 5.36
+        },
+        {
+          "raw": "eyes—pale",
+          "start": 5.36,
+          "end": 6.16
+        },
+        {
+          "raw": "and",
+          "start": 6.16,
+          "end": 6.36
+        },
+        {
+          "raw": "shaken,",
+          "start": 6.36,
+          "end": 6.66
+        },
+        {
+          "raw": "and",
+          "start": 6.94,
+          "end": 7.02
+        },
+        {
+          "raw": "half",
+          "start": 7.02,
+          "end": 7.24
+        },
+        {
+          "raw": "fainting,",
+          "start": 7.24,
+          "end": 7.68
+        },
+        {
+          "raw": "and",
+          "start": 7.84,
+          "end": 7.96
+        },
+        {
+          "raw": "groping",
+          "start": 7.96,
+          "end": 8.38
+        },
+        {
+          "raw": "before",
+          "start": 8.38,
+          "end": 8.68
+        },
+        {
+          "raw": "him",
+          "start": 8.68,
+          "end": 8.94
+        },
+        {
+          "raw": "with",
+          "start": 8.94,
+          "end": 9.1
+        },
+        {
+          "raw": "his",
+          "start": 9.1,
+          "end": 9.26
+        },
+        {
+          "raw": "hands,",
+          "start": 9.26,
+          "end": 9.66
+        },
+        {
+          "raw": "like",
+          "start": 9.88,
+          "end": 9.98
+        },
+        {
+          "raw": "a",
+          "start": 9.98,
+          "end": 10.12
+        },
+        {
+          "raw": "man",
+          "start": 10.12,
+          "end": 10.34
+        },
+        {
+          "raw": "restored",
+          "start": 10.34,
+          "end": 10.74
+        },
+        {
+          "raw": "from",
+          "start": 10.74,
+          "end": 11.02
+        },
+        {
+          "raw": "death—there",
+          "start": 11.02,
+          "end": 12.02
+        },
+        {
+          "raw": "stood",
+          "start": 12.02,
+          "end": 12.26
+        },
+        {
+          "raw": "Henry",
+          "start": 12.26,
+          "end": 12.62
+        },
+        {
+          "raw": "Jekyll!",
+          "start": 12.62,
+          "end": 13.06
+        }
+      ],
+      "expected_tokens": [
+        "\"O",
+        "God!\"",
+        "I",
+        "screamed,",
+        "and",
+        "\"O",
+        "God!\"",
+        "again",
+        "and",
+        "again;",
+        "for",
+        "there",
+        "before",
+        "my",
+        "eyes—pale",
+        "and",
+        "shaken,",
+        "and",
+        "half",
+        "fainting,",
+        "and",
+        "groping",
+        "before",
+        "him",
+        "with",
+        "his",
+        "hands,",
+        "like",
+        "a",
+        "man",
+        "restored",
+        "from",
+        "death—there",
+        "stood",
+        "Henry",
+        "Jekyll!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          36,
+          0,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God!",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "god",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "screamed,",
+          "start": 1.42,
+          "end": 1.8,
+          "key": "screamed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.08,
+          "end": 2.14,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.14,
+          "end": 2.36,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "God!",
+          "start": 2.36,
+          "end": 2.8,
+          "key": "god",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "again",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 3.84,
+          "end": 4.12,
+          "key": "again",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.56,
+          "end": 4.68,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.68,
+          "end": 4.84,
+          "key": "there",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 4.84,
+          "end": 5.16,
+          "key": "before",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.16,
+          "end": 5.36,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "eyes—pale",
+          "start": 5.36,
+          "end": 6.16,
+          "key": "eyespale",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.16,
+          "end": 6.36,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "shaken,",
+          "start": 6.36,
+          "end": 6.66,
+          "key": "shaken",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.94,
+          "end": 7.02,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "half",
+          "start": 7.02,
+          "end": 7.24,
+          "key": "half",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fainting,",
+          "start": 7.24,
+          "end": 7.68,
+          "key": "fainting",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.84,
+          "end": 7.96,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "groping",
+          "start": 7.96,
+          "end": 8.38,
+          "key": "groping",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 8.38,
+          "end": 8.68,
+          "key": "before",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 8.68,
+          "end": 8.94,
+          "key": "him",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.94,
+          "end": 9.1,
+          "key": "with",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 9.1,
+          "end": 9.26,
+          "key": "his",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "hands,",
+          "start": 9.26,
+          "end": 9.66,
+          "key": "hands",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 9.88,
+          "end": 9.98,
+          "key": "like",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.98,
+          "end": 10.12,
+          "key": "a",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 10.12,
+          "end": 10.34,
+          "key": "man",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "restored",
+          "start": 10.34,
+          "end": 10.74,
+          "key": "restored",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 10.74,
+          "end": 11.02,
+          "key": "from",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "death—there",
+          "start": 11.02,
+          "end": 12.02,
+          "key": "deaththere",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "stood",
+          "start": 12.02,
+          "end": 12.26,
+          "key": "stood",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Henry",
+          "start": 12.26,
+          "end": 12.62,
+          "key": "henry",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Jekyll!",
+          "start": 12.62,
+          "end": 13.06,
+          "key": "jekyll",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"O",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "God!\"",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "I",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "screamed,",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "text": "and",
+          "start": 2.08,
+          "end": 2.14
+        },
+        {
+          "text": "\"O",
+          "start": 2.14,
+          "end": 2.36
+        },
+        {
+          "text": "God!\"",
+          "start": 2.36,
+          "end": 2.8
+        },
+        {
+          "text": "again",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "and",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "again;",
+          "start": 3.84,
+          "end": 4.12
+        },
+        {
+          "text": "for",
+          "start": 4.56,
+          "end": 4.68
+        },
+        {
+          "text": "there",
+          "start": 4.68,
+          "end": 4.84
+        },
+        {
+          "text": "before",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "text": "my",
+          "start": 5.16,
+          "end": 5.36
+        },
+        {
+          "text": "eyes—pale",
+          "start": 5.36,
+          "end": 6.16
+        },
+        {
+          "text": "and",
+          "start": 6.16,
+          "end": 6.36
+        },
+        {
+          "text": "shaken,",
+          "start": 6.36,
+          "end": 6.66
+        },
+        {
+          "text": "and",
+          "start": 6.94,
+          "end": 7.02
+        },
+        {
+          "text": "half",
+          "start": 7.02,
+          "end": 7.24
+        },
+        {
+          "text": "fainting,",
+          "start": 7.24,
+          "end": 7.68
+        },
+        {
+          "text": "and",
+          "start": 7.84,
+          "end": 7.96
+        },
+        {
+          "text": "groping",
+          "start": 7.96,
+          "end": 8.38
+        },
+        {
+          "text": "before",
+          "start": 8.38,
+          "end": 8.68
+        },
+        {
+          "text": "him",
+          "start": 8.68,
+          "end": 8.94
+        },
+        {
+          "text": "with",
+          "start": 8.94,
+          "end": 9.1
+        },
+        {
+          "text": "his",
+          "start": 9.1,
+          "end": 9.26
+        },
+        {
+          "text": "hands,",
+          "start": 9.26,
+          "end": 9.66
+        },
+        {
+          "text": "like",
+          "start": 9.88,
+          "end": 9.98
+        },
+        {
+          "text": "a",
+          "start": 9.98,
+          "end": 10.12
+        },
+        {
+          "text": "man",
+          "start": 10.12,
+          "end": 10.34
+        },
+        {
+          "text": "restored",
+          "start": 10.34,
+          "end": 10.74
+        },
+        {
+          "text": "from",
+          "start": 10.74,
+          "end": 11.02
+        },
+        {
+          "text": "death—there",
+          "start": 11.02,
+          "end": 12.02
+        },
+        {
+          "text": "stood",
+          "start": 12.02,
+          "end": 12.26
+        },
+        {
+          "text": "Henry",
+          "start": 12.26,
+          "end": 12.62
+        },
+        {
+          "text": "Jekyll!",
+          "start": 12.62,
+          "end": 13.06
+        }
+      ],
+      "stats": {
+        "expected_words": 36,
+        "heard_words": 36,
+        "matched_words": 36
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.512086828937754
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e1a350e04501e6167859602452c9446729e67ba7cd48b881e8fe284e53aaaa36",
+  "selected_reasons": []
+}

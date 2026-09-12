@@ -1,0 +1,330 @@
+{
+  "complete": true,
+  "signature": "129c7b5e97071b19f9bd8fc6ed5413f272bbdbd886798939e5381b502d1e3ac8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1643362119793892,
+      "alignment_seconds": 0.00028949417173862457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Leance, Cleo means Dion, Paulina, and others.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Leance,",
+              "start": 0.66,
+              "end": 1.12,
+              "probability": 0.46160888671875
+            },
+            {
+              "text": " Cleo",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.7376708984375
+            },
+            {
+              "text": " means",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Dion,",
+              "start": 1.96,
+              "end": 2.38,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " Paulina,",
+              "start": 2.62,
+              "end": 2.9,
+              "probability": 0.97265625
+            },
+            {
+              "text": " and",
+              "start": 3.06,
+              "end": 3.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " others.",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Leance,",
+          "start": 0.66,
+          "end": 1.12
+        },
+        {
+          "raw": "Cleo",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "means",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "Dion,",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "raw": "Paulina,",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.1
+        },
+        {
+          "raw": "others.",
+          "start": 3.1,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Leontes,",
+        "Cleomenes,",
+        "Dion,",
+        "Paulina",
+        "and",
+        "others."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ],
+        [
+          "equal",
+          3,
+          7,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Leance,",
+          "start": 0.66,
+          "end": 1.12,
+          "key": "leance",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cleo",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "cleo",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "means",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dion,",
+          "start": 1.96,
+          "end": 2.38,
+          "key": "dion",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Paulina,",
+          "start": 2.62,
+          "end": 2.9,
+          "key": "paulina",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.1,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "others.",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "others",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Leontes,",
+          "start": 0.66,
+          "end": 1.31
+        },
+        {
+          "text": "Cleomenes,",
+          "start": 1.31,
+          "end": 1.635
+        },
+        {
+          "text": "Dion,",
+          "start": 1.96,
+          "end": 2.38
+        },
+        {
+          "text": "Paulina",
+          "start": 2.62,
+          "end": 2.9
+        },
+        {
+          "text": "and",
+          "start": 3.06,
+          "end": 3.1
+        },
+        {
+          "text": "others.",
+          "start": 3.1,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16472544893622398
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "80f3c681e33841a08d6bf16b21e5445d9843c3058738dbadfee33dd1222b2b02",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

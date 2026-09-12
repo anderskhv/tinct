@@ -1,0 +1,209 @@
+{
+  "complete": true,
+  "signature": "692877543ca81e1421e30ada102dda9e1ccffc5e12dec0bd3cfb726a1f108ffd",
+  "attempts": [
+    {
+      "asr_seconds": 0.1352572739124298,
+      "alignment_seconds": 0.0003725476562976837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And no, whispered Sonya.",
+          "start": 0.08,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.3984375
+            },
+            {
+              "text": " no,",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " whispered",
+              "start": 1.44,
+              "end": 1.44,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Sonya.",
+              "start": 1.44,
+              "end": 2.06,
+              "probability": 0.755126953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "no,",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "raw": "whispered",
+          "start": 1.44,
+          "end": 1.44
+        },
+        {
+          "raw": "Sonya.",
+          "start": 1.44,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "\"N-no...\"",
+        "whispered",
+        "Sonia."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 0.56,
+          "end": 0.82,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whispered",
+          "start": 1.44,
+          "end": 1.44,
+          "key": "whispered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sonya.",
+          "start": 1.44,
+          "end": 2.06,
+          "key": "sonya",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"N-no...\"",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "whispered",
+          "start": 1.44,
+          "end": 1.44
+        },
+        {
+          "text": "Sonia.",
+          "start": 1.44,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13574880361557007
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0175356d2d118eb3a85fcea38282669ac57c090269424be72e550db067b94a2d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

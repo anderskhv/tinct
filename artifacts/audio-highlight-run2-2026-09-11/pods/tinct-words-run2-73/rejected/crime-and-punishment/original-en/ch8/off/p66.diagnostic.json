@@ -1,0 +1,603 @@
+{
+  "complete": true,
+  "signature": "fa41afdcfd6de0290dc7876d548d4b8d222d7dd199a7d74e417b120604a5d5e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2672315165400505,
+      "alignment_seconds": 0.0005461284890770912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " If they question me, perhaps I'll simply tell,\" he thought, as he drew near the police",
+          "start": 0.02,
+          "end": 5.08,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.234619140625
+            },
+            {
+              "text": " they",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " question",
+              "start": 0.74,
+              "end": 1.06,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " me,",
+              "start": 1.06,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " perhaps",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I'll",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.987548828125
+            },
+            {
+              "text": " simply",
+              "start": 2.2,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tell,\"",
+              "start": 2.48,
+              "end": 3.26,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " he",
+              "start": 3.26,
+              "end": 3.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thought,",
+              "start": 3.38,
+              "end": 3.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 4.08,
+              "end": 4.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 4.14,
+              "end": 4.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " drew",
+              "start": 4.28,
+              "end": 4.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " near",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.66,
+              "end": 4.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " police",
+              "start": 4.82,
+              "end": 5.08,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " station.",
+          "start": 5.08,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " station.",
+              "start": 5.08,
+              "end": 5.56,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "they",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "question",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "raw": "me,",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "raw": "perhaps",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "I'll",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "simply",
+          "start": 2.2,
+          "end": 2.48
+        },
+        {
+          "raw": "tell,\"",
+          "start": 2.48,
+          "end": 3.26
+        },
+        {
+          "raw": "he",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "raw": "thought,",
+          "start": 3.38,
+          "end": 3.64
+        },
+        {
+          "raw": "as",
+          "start": 4.08,
+          "end": 4.14
+        },
+        {
+          "raw": "he",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "raw": "drew",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "raw": "near",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "raw": "police",
+          "start": 4.82,
+          "end": 5.08
+        },
+        {
+          "raw": "station.",
+          "start": 5.08,
+          "end": 5.56
+        }
+      ],
+      "expected_tokens": [
+        "\"If",
+        "they",
+        "question",
+        "me,",
+        "perhaps",
+        "I'll",
+        "simply",
+        "tell,\"",
+        "he",
+        "thought,",
+        "as",
+        "he",
+        "drew",
+        "near",
+        "the",
+        "police-station."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "If",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "if",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.56,
+          "end": 0.74,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "question",
+          "start": 0.74,
+          "end": 1.06,
+          "key": "question",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.06,
+          "end": 1.42,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "perhaps",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "perhaps",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.9,
+          "end": 2.2,
+          "key": "ill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "simply",
+          "start": 2.2,
+          "end": 2.48,
+          "key": "simply",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tell,\"",
+          "start": 2.48,
+          "end": 3.26,
+          "key": "tell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.26,
+          "end": 3.38,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 3.38,
+          "end": 3.64,
+          "key": "thought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.08,
+          "end": 4.14,
+          "key": "as",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.14,
+          "end": 4.28,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 4.28,
+          "end": 4.46,
+          "key": "drew",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 4.46,
+          "end": 4.66,
+          "key": "near",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.66,
+          "end": 4.82,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "police station.",
+          "start": 4.82,
+          "end": 5.56,
+          "key": "policestation",
+          "pieces": [
+            15,
+            16
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 15,
+          "text": "police-station.",
+          "heard": "police station.",
+          "heard_indexes": [
+            15,
+            16
+          ],
+          "start": 4.82,
+          "end": 5.56
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"If",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "they",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "question",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "text": "me,",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "text": "perhaps",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "I'll",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "simply",
+          "start": 2.2,
+          "end": 2.48
+        },
+        {
+          "text": "tell,\"",
+          "start": 2.48,
+          "end": 3.26
+        },
+        {
+          "text": "he",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "text": "thought,",
+          "start": 3.38,
+          "end": 3.64
+        },
+        {
+          "text": "as",
+          "start": 4.08,
+          "end": 4.14
+        },
+        {
+          "text": "he",
+          "start": 4.14,
+          "end": 4.28
+        },
+        {
+          "text": "drew",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "text": "near",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "the",
+          "start": 4.66,
+          "end": 4.82
+        },
+        {
+          "text": "police-station.",
+          "start": 4.82,
+          "end": 5.56
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.267979284748435
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7d0d4c8354efef96ffaa8b2a37e2f8da614f72c3d926342b57b5892a1dc85620",
+  "selected_reasons": []
+}

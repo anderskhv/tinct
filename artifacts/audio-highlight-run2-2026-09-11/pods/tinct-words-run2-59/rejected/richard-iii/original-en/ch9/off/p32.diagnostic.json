@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "774f8f27ce9b856e33d4f0ef44e08061d6a28cb0d966938138b3d3020a8928a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.20496861706487834,
+      "alignment_seconds": 0.0004328701179474592,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " aside, thus like the formal vice-iniquity.",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " aside,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " thus",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " like",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.7421875
+            },
+            {
+              "text": " the",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " formal",
+              "start": 1.93,
+              "end": 2.19,
+              "probability": 0.98828125
+            },
+            {
+              "text": " vice",
+              "start": 2.19,
+              "end": 2.53,
+              "probability": 0.9072265625
+            },
+            {
+              "text": "-iniquity.",
+              "start": 2.53,
+              "end": 3.11,
+              "probability": 0.827392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "aside,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "thus",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "like",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "formal",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "raw": "vice",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "raw": "-iniquity.",
+          "start": 2.53,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_.]",
+        "Thus,",
+        "like",
+        "the",
+        "formal",
+        "Vice,",
+        "Iniquity,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "aside,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.35,
+          "end": 1.57,
+          "key": "thus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "formal",
+          "start": 1.93,
+          "end": 2.19,
+          "key": "formal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vice",
+          "start": 2.19,
+          "end": 2.53,
+          "key": "vice",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "-iniquity.",
+          "start": 2.53,
+          "end": 3.11,
+          "key": "iniquity",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_.]",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Thus,",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "like",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "the",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "formal",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "text": "Vice,",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "text": "Iniquity,",
+          "start": 2.53,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20555211789906025
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e710c0d9416b7a187ab180745f5d4404cfcba4ee657f24ff4c69d741db36f8b5",
+  "selected_reasons": []
+}

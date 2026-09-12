@@ -1,0 +1,400 @@
+{
+  "complete": true,
+  "signature": "02f452f8771eca34374d0373226fb4f011cb99cd731f1a0ac5a3cd30100ddf86",
+  "attempts": [
+    {
+      "asr_seconds": 0.1953184469603002,
+      "alignment_seconds": 0.00026712287217378616,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " by Defpat and the doorway straining ear bloom past.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " by",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " Defpat",
+              "start": 0.54,
+              "end": 1.0,
+              "probability": 0.462158203125
+            },
+            {
+              "text": " and",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.53076171875
+            },
+            {
+              "text": " the",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " doorway",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " straining",
+              "start": 1.52,
+              "end": 2.02,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " ear",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.415771484375
+            },
+            {
+              "text": " bloom",
+              "start": 2.24,
+              "end": 2.52,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " past.",
+              "start": 2.52,
+              "end": 2.92,
+              "probability": 0.75048828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "by",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "Defpat",
+          "start": 0.54,
+          "end": 1.0
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "doorway",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "straining",
+          "start": 1.52,
+          "end": 2.02
+        },
+        {
+          "raw": "ear",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "raw": "bloom",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "raw": "past.",
+          "start": 2.52,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "deaf",
+        "Pat",
+        "in",
+        "the",
+        "doorway",
+        "straining",
+        "ear",
+        "Bloom",
+        "passed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          3
+        ],
+        [
+          "equal",
+          4,
+          9,
+          3,
+          8
+        ],
+        [
+          "replace",
+          9,
+          10,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "by",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Defpat",
+          "start": 0.54,
+          "end": 1.0,
+          "key": "defpat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "doorway",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "doorway",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "straining",
+          "start": 1.52,
+          "end": 2.02,
+          "key": "straining",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ear",
+          "start": 2.02,
+          "end": 2.24,
+          "key": "ear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bloom",
+          "start": 2.24,
+          "end": 2.52,
+          "key": "bloom",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "past.",
+          "start": 2.52,
+          "end": 2.92,
+          "key": "past",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "deaf",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "text": "Pat",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "in",
+          "start": 1.02,
+          "end": 1.1
+        },
+        {
+          "text": "the",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "doorway",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "straining",
+          "start": 1.52,
+          "end": 2.02
+        },
+        {
+          "text": "ear",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "text": "Bloom",
+          "start": 2.24,
+          "end": 2.52
+        },
+        {
+          "text": "passed.",
+          "start": 2.52,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1956934849731624
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "96801201a08364526cf2236bd26eae10826b41aff92d8d7e8495382614ae3225",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "complete": true,
+  "signature": "46d6e9a682683b5a31ca597ce7779d34dadb92d1ce0690277f50f5390e240aaf",
+  "attempts": [
+    {
+      "asr_seconds": 0.10076111415401101,
+      "alignment_seconds": 0.00013458915054798126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio, goodnight, Honest Diego.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Casio,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.781005859375
+            },
+            {
+              "text": " goodnight,",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 0.823974609375
+            },
+            {
+              "text": " Honest",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " Diego.",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.5771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "goodnight,",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "raw": "Honest",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "Diego.",
+          "start": 1.91,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Good",
+        "night,",
+        "honest",
+        "Iago."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "goodnight,",
+          "start": 1.29,
+          "end": 1.57,
+          "key": "goodnight",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Honest",
+          "start": 1.69,
+          "end": 1.91,
+          "key": "honest",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Diego.",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "diego",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.845
+        },
+        {
+          "text": "Good",
+          "start": 0.845,
+          "end": 1.268
+        },
+        {
+          "text": "night,",
+          "start": 1.268,
+          "end": 1.479
+        },
+        {
+          "text": "honest",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "Iago.",
+          "start": 1.91,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10093434294685721
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cd0461ea85bf98f01f8d3d4c7daa1058054ce6c019ff1020eb1e35649b1a53f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

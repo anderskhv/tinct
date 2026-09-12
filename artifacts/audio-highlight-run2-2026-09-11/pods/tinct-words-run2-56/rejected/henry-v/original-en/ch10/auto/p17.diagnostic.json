@@ -1,0 +1,1721 @@
+{
+  "complete": true,
+  "signature": "f004dab10735c9c2119a65555c4edb4844c0ca93a46f2a813daa68b1e0b4405f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3654381241649389,
+      "alignment_seconds": 0.0008087018504738808,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Katharine. _Excusez-moi, Alice. Écoutez:_ d'hand, de fingres, de nails, d'arm, de bilbow.",
+        "hotwords": "Katharine, Alice, Écoutez:_"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Katharine. Excusez-moi, Alice. Écoutez. d'hand, de fingers, de nails, d'arm, de bilbow.",
+          "start": 0.05,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Katharine.",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.267578125
+            },
+            {
+              "text": " Excusez",
+              "start": 1.53,
+              "end": 1.97,
+              "probability": 0.6042887369791666
+            },
+            {
+              "text": "-moi,",
+              "start": 1.97,
+              "end": 2.27,
+              "probability": 0.7111002604166666
+            },
+            {
+              "text": " Alice.",
+              "start": 2.61,
+              "end": 2.61,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Écoutez.",
+              "start": 3.17,
+              "end": 3.69,
+              "probability": 0.44773101806640625
+            },
+            {
+              "text": " d",
+              "start": 4.05,
+              "end": 4.05,
+              "probability": 0.0003325939178466797
+            },
+            {
+              "text": "'hand,",
+              "start": 4.05,
+              "end": 4.35,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " de",
+              "start": 4.51,
+              "end": 4.55,
+              "probability": 0.04437255859375
+            },
+            {
+              "text": " fingers,",
+              "start": 4.55,
+              "end": 4.83,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " de",
+              "start": 5.13,
+              "end": 5.15,
+              "probability": 0.880859375
+            },
+            {
+              "text": " nails,",
+              "start": 5.15,
+              "end": 5.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " d",
+              "start": 5.89,
+              "end": 5.89,
+              "probability": 0.90673828125
+            },
+            {
+              "text": "'arm,",
+              "start": 5.89,
+              "end": 5.99,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " de",
+              "start": 6.15,
+              "end": 6.23,
+              "probability": 0.96875
+            },
+            {
+              "text": " bilbow.",
+              "start": 6.23,
+              "end": 6.59,
+              "probability": 0.35443878173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Excusez",
+          "start": 1.53,
+          "end": 1.97
+        },
+        {
+          "raw": "-moi,",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "raw": "Alice.",
+          "start": 2.61,
+          "end": 2.61
+        },
+        {
+          "raw": "Écoutez.",
+          "start": 3.17,
+          "end": 3.69
+        },
+        {
+          "raw": "d",
+          "start": 4.05,
+          "end": 4.05
+        },
+        {
+          "raw": "'hand,",
+          "start": 4.05,
+          "end": 4.35
+        },
+        {
+          "raw": "de",
+          "start": 4.51,
+          "end": 4.55
+        },
+        {
+          "raw": "fingers,",
+          "start": 4.55,
+          "end": 4.83
+        },
+        {
+          "raw": "de",
+          "start": 5.13,
+          "end": 5.15
+        },
+        {
+          "raw": "nails,",
+          "start": 5.15,
+          "end": 5.55
+        },
+        {
+          "raw": "d",
+          "start": 5.89,
+          "end": 5.89
+        },
+        {
+          "raw": "'arm,",
+          "start": 5.89,
+          "end": 5.99
+        },
+        {
+          "raw": "de",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "raw": "bilbow.",
+          "start": 6.23,
+          "end": 6.59
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Excusez-moi,",
+        "Alice.",
+        "Écoutez:_",
+        "d'hand,",
+        "de",
+        "fingres,",
+        "de",
+        "nails,",
+        "d'arm,",
+        "de",
+        "bilbow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "equal",
+          7,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ],
+        [
+          "equal",
+          10,
+          12,
+          12,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          9,
+          10,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine.",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Excusez -moi,",
+          "start": 1.53,
+          "end": 2.27,
+          "key": "excusezmoi",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "Alice.",
+          "start": 2.61,
+          "end": 2.61,
+          "key": "alice",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Écoutez.",
+          "start": 3.17,
+          "end": 3.69,
+          "key": "écoutez",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 4.05,
+          "end": 4.05,
+          "key": "d",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'hand,",
+          "start": 4.05,
+          "end": 4.35,
+          "key": "hand",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 4.51,
+          "end": 4.55,
+          "key": "de",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fingers,",
+          "start": 4.55,
+          "end": 4.83,
+          "key": "fingers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 5.13,
+          "end": 5.15,
+          "key": "de",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "nails,",
+          "start": 5.15,
+          "end": 5.55,
+          "key": "nails",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 5.89,
+          "end": 5.89,
+          "key": "d",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "'arm,",
+          "start": 5.89,
+          "end": 5.99,
+          "key": "arm",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 6.15,
+          "end": 6.23,
+          "key": "de",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bilbow.",
+          "start": 6.23,
+          "end": 6.59,
+          "key": "bilbow",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "_Excusez-moi,",
+          "heard": "Excusez -moi,",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.53,
+          "end": 2.27
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "_Excusez-moi,",
+          "start": 1.53,
+          "end": 2.27
+        },
+        {
+          "text": "Alice.",
+          "start": 2.61,
+          "end": 2.61
+        },
+        {
+          "text": "Écoutez:_",
+          "start": 3.17,
+          "end": 3.69
+        },
+        {
+          "text": "d'hand,",
+          "start": 3.69,
+          "end": 4.1
+        },
+        {
+          "text": "de",
+          "start": 4.51,
+          "end": 4.55
+        },
+        {
+          "text": "fingres,",
+          "start": 4.55,
+          "end": 4.84
+        },
+        {
+          "text": "de",
+          "start": 5.13,
+          "end": 5.15
+        },
+        {
+          "text": "nails,",
+          "start": 5.15,
+          "end": 5.55
+        },
+        {
+          "text": "d'arm,",
+          "start": 5.55,
+          "end": 5.85
+        },
+        {
+          "text": "de",
+          "start": 6.15,
+          "end": 6.23
+        },
+        {
+          "text": "bilbow.",
+          "start": 6.23,
+          "end": 6.59
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 14,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3665194222703576
+    },
+    {
+      "asr_seconds": 0.36975252348929644,
+      "alignment_seconds": 0.0006863623857498169,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Katharine, Alice, Écoutez:_"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Katharine, excuse as moi, Alice, Écoutez, de hand de fingers de nails, darm de bilbo.",
+          "start": 0.05,
+          "end": 6.59,
+          "words": [
+            {
+              "text": " Katharine,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.266632080078125
+            },
+            {
+              "text": " excuse",
+              "start": 1.47,
+              "end": 1.75,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " as",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.2286376953125
+            },
+            {
+              "text": " moi,",
+              "start": 1.97,
+              "end": 2.29,
+              "probability": 0.938720703125
+            },
+            {
+              "text": " Alice,",
+              "start": 2.37,
+              "end": 2.65,
+              "probability": 0.927734375
+            },
+            {
+              "text": " Écoutez,",
+              "start": 3.17,
+              "end": 3.71,
+              "probability": 0.4430675506591797
+            },
+            {
+              "text": " de",
+              "start": 4.05,
+              "end": 4.07,
+              "probability": 0.488037109375
+            },
+            {
+              "text": " hand",
+              "start": 4.07,
+              "end": 4.37,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " de",
+              "start": 4.37,
+              "end": 4.55,
+              "probability": 0.830078125
+            },
+            {
+              "text": " fingers",
+              "start": 4.55,
+              "end": 4.89,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " de",
+              "start": 4.89,
+              "end": 5.15,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " nails,",
+              "start": 5.15,
+              "end": 5.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " darm",
+              "start": 5.91,
+              "end": 6.01,
+              "probability": 0.5018310546875
+            },
+            {
+              "text": " de",
+              "start": 6.01,
+              "end": 6.23,
+              "probability": 0.87890625
+            },
+            {
+              "text": " bilbo.",
+              "start": 6.23,
+              "end": 6.59,
+              "probability": 0.634033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "excuse",
+          "start": 1.47,
+          "end": 1.75
+        },
+        {
+          "raw": "as",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "moi,",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "raw": "Alice,",
+          "start": 2.37,
+          "end": 2.65
+        },
+        {
+          "raw": "Écoutez,",
+          "start": 3.17,
+          "end": 3.71
+        },
+        {
+          "raw": "de",
+          "start": 4.05,
+          "end": 4.07
+        },
+        {
+          "raw": "hand",
+          "start": 4.07,
+          "end": 4.37
+        },
+        {
+          "raw": "de",
+          "start": 4.37,
+          "end": 4.55
+        },
+        {
+          "raw": "fingers",
+          "start": 4.55,
+          "end": 4.89
+        },
+        {
+          "raw": "de",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "raw": "nails,",
+          "start": 5.15,
+          "end": 5.59
+        },
+        {
+          "raw": "darm",
+          "start": 5.91,
+          "end": 6.01
+        },
+        {
+          "raw": "de",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "raw": "bilbo.",
+          "start": 6.23,
+          "end": 6.59
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Excusez-moi,",
+        "Alice.",
+        "Écoutez:_",
+        "d'hand,",
+        "de",
+        "fingres,",
+        "de",
+        "nails,",
+        "d'arm,",
+        "de",
+        "bilbow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "equal",
+          2,
+          4,
+          4,
+          6
+        ],
+        [
+          "delete",
+          4,
+          5,
+          6,
+          6
+        ],
+        [
+          "equal",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          10
+        ],
+        [
+          "equal",
+          7,
+          11,
+          10,
+          14
+        ],
+        [
+          "replace",
+          11,
+          12,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "delete",
+          4,
+          5,
+          6,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          7,
+          10
+        ],
+        [
+          "replace",
+          11,
+          12,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katharine,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "katharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "excuse",
+          "start": 1.47,
+          "end": 1.75,
+          "key": "excuse",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "moi,",
+          "start": 1.97,
+          "end": 2.29,
+          "key": "moi",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Alice,",
+          "start": 2.37,
+          "end": 2.65,
+          "key": "alice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Écoutez,",
+          "start": 3.17,
+          "end": 3.71,
+          "key": "écoutez",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 4.05,
+          "end": 4.07,
+          "key": "de",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 4.07,
+          "end": 4.37,
+          "key": "hand",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 4.37,
+          "end": 4.55,
+          "key": "de",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 4.55,
+          "end": 4.89,
+          "key": "fingers",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 4.89,
+          "end": 5.15,
+          "key": "de",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nails,",
+          "start": 5.15,
+          "end": 5.59,
+          "key": "nails",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "darm",
+          "start": 5.91,
+          "end": 6.01,
+          "key": "darm",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 6.01,
+          "end": 6.23,
+          "key": "de",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bilbo.",
+          "start": 6.23,
+          "end": 6.59,
+          "key": "bilbo",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "_Excusez-moi,",
+          "start": 0.99,
+          "end": 1.68
+        },
+        {
+          "text": "Alice.",
+          "start": 2.37,
+          "end": 2.65
+        },
+        {
+          "text": "Écoutez:_",
+          "start": 3.17,
+          "end": 3.71
+        },
+        {
+          "text": "d'hand,",
+          "start": 3.71,
+          "end": 3.88
+        },
+        {
+          "text": "de",
+          "start": 4.05,
+          "end": 4.07
+        },
+        {
+          "text": "fingres,",
+          "start": 4.07,
+          "end": 4.48
+        },
+        {
+          "text": "de",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "text": "nails,",
+          "start": 5.15,
+          "end": 5.59
+        },
+        {
+          "text": "d'arm,",
+          "start": 5.91,
+          "end": 6.01
+        },
+        {
+          "text": "de",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "text": "bilbow.",
+          "start": 6.23,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 15,
+        "matched_words": 8
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3706683777272701
+    },
+    {
+      "asr_seconds": 0.2821863293647766,
+      "alignment_seconds": 0.0006361100822687149,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catharine excuse as moi Alice account is to hand to fingers to nails darn to Bilbo",
+          "start": 0.05,
+          "end": 6.63,
+          "words": [
+            {
+              "text": " Catharine",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.47003173828125
+            },
+            {
+              "text": " excuse",
+              "start": 0.97,
+              "end": 1.73,
+              "probability": 0.318115234375
+            },
+            {
+              "text": " as",
+              "start": 1.73,
+              "end": 1.95,
+              "probability": 0.443603515625
+            },
+            {
+              "text": " moi",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.904052734375
+            },
+            {
+              "text": " Alice",
+              "start": 2.29,
+              "end": 2.71,
+              "probability": 0.869140625
+            },
+            {
+              "text": " account",
+              "start": 2.71,
+              "end": 3.31,
+              "probability": 0.2203369140625
+            },
+            {
+              "text": " is",
+              "start": 3.31,
+              "end": 3.71,
+              "probability": 0.236328125
+            },
+            {
+              "text": " to",
+              "start": 3.71,
+              "end": 4.09,
+              "probability": 0.517578125
+            },
+            {
+              "text": " hand",
+              "start": 4.09,
+              "end": 4.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 4.39,
+              "end": 4.55,
+              "probability": 0.369873046875
+            },
+            {
+              "text": " fingers",
+              "start": 4.55,
+              "end": 4.95,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " to",
+              "start": 4.95,
+              "end": 5.15,
+              "probability": 0.58056640625
+            },
+            {
+              "text": " nails",
+              "start": 5.15,
+              "end": 5.57,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " darn",
+              "start": 5.57,
+              "end": 5.99,
+              "probability": 0.07366943359375
+            },
+            {
+              "text": " to",
+              "start": 5.99,
+              "end": 6.23,
+              "probability": 0.66455078125
+            },
+            {
+              "text": " Bilbo",
+              "start": 6.23,
+              "end": 6.63,
+              "probability": 0.973876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catharine",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "excuse",
+          "start": 0.97,
+          "end": 1.73
+        },
+        {
+          "raw": "as",
+          "start": 1.73,
+          "end": 1.95
+        },
+        {
+          "raw": "moi",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "raw": "Alice",
+          "start": 2.29,
+          "end": 2.71
+        },
+        {
+          "raw": "account",
+          "start": 2.71,
+          "end": 3.31
+        },
+        {
+          "raw": "is",
+          "start": 3.31,
+          "end": 3.71
+        },
+        {
+          "raw": "to",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "raw": "hand",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "raw": "to",
+          "start": 4.39,
+          "end": 4.55
+        },
+        {
+          "raw": "fingers",
+          "start": 4.55,
+          "end": 4.95
+        },
+        {
+          "raw": "to",
+          "start": 4.95,
+          "end": 5.15
+        },
+        {
+          "raw": "nails",
+          "start": 5.15,
+          "end": 5.57
+        },
+        {
+          "raw": "darn",
+          "start": 5.57,
+          "end": 5.99
+        },
+        {
+          "raw": "to",
+          "start": 5.99,
+          "end": 6.23
+        },
+        {
+          "raw": "Bilbo",
+          "start": 6.23,
+          "end": 6.63
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Excusez-moi,",
+        "Alice.",
+        "Écoutez:_",
+        "d'hand,",
+        "de",
+        "fingres,",
+        "de",
+        "nails,",
+        "d'arm,",
+        "de",
+        "bilbow."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          "replace",
+          3,
+          8,
+          5,
+          12
+        ],
+        [
+          "equal",
+          8,
+          9,
+          12,
+          13
+        ],
+        [
+          "replace",
+          9,
+          12,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "replace",
+          3,
+          8,
+          5,
+          12
+        ],
+        [
+          "replace",
+          9,
+          12,
+          13,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catharine",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "catharine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "excuse",
+          "start": 0.97,
+          "end": 1.73,
+          "key": "excuse",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.73,
+          "end": 1.95,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "moi",
+          "start": 1.95,
+          "end": 2.29,
+          "key": "moi",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Alice",
+          "start": 2.29,
+          "end": 2.71,
+          "key": "alice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "account",
+          "start": 2.71,
+          "end": 3.31,
+          "key": "account",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.31,
+          "end": 3.71,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.71,
+          "end": 4.09,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 4.09,
+          "end": 4.39,
+          "key": "hand",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.39,
+          "end": 4.55,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fingers",
+          "start": 4.55,
+          "end": 4.95,
+          "key": "fingers",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.95,
+          "end": 5.15,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "nails",
+          "start": 5.15,
+          "end": 5.57,
+          "key": "nails",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "darn",
+          "start": 5.57,
+          "end": 5.99,
+          "key": "darn",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.99,
+          "end": 6.23,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Bilbo",
+          "start": 6.23,
+          "end": 6.63,
+          "key": "bilbo",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 1.145
+        },
+        {
+          "text": "_Excusez-moi,",
+          "start": 1.145,
+          "end": 1.718
+        },
+        {
+          "text": "Alice.",
+          "start": 2.29,
+          "end": 2.71
+        },
+        {
+          "text": "Écoutez:_",
+          "start": 2.71,
+          "end": 3.93
+        },
+        {
+          "text": "d'hand,",
+          "start": 3.93,
+          "end": 4.54
+        },
+        {
+          "text": "de",
+          "start": 4.54,
+          "end": 4.845
+        },
+        {
+          "text": "fingres,",
+          "start": 4.845,
+          "end": 4.998
+        },
+        {
+          "text": "de",
+          "start": 4.998,
+          "end": 5.074
+        },
+        {
+          "text": "nails,",
+          "start": 5.15,
+          "end": 5.57
+        },
+        {
+          "text": "d'arm,",
+          "start": 5.57,
+          "end": 6.1
+        },
+        {
+          "text": "de",
+          "start": 6.1,
+          "end": 6.365
+        },
+        {
+          "text": "bilbow.",
+          "start": 6.365,
+          "end": 6.498
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 16,
+        "matched_words": 2
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2830646364018321
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe982662b4da26921e6e28703a5e15a8f89d5e5dc21dc824dd66f42d2679f705",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "db62431968d0592e50cfa1a9e977ffb9c023734a4ea82cb017716697deb84443",
+  "attempts": [
+    {
+      "asr_seconds": 0.36178672686219215,
+      "alignment_seconds": 0.0007533468306064606,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet in the secret parts of fortune. Oh most true. She is a strumpet. What's the news?",
+          "start": 0.05,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " in",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.51806640625
+            },
+            {
+              "text": " the",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " secret",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.849609375
+            },
+            {
+              "text": " parts",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " of",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " fortune.",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " Oh",
+              "start": 2.83,
+              "end": 2.95,
+              "probability": 0.4462890625
+            },
+            {
+              "text": " most",
+              "start": 2.95,
+              "end": 3.19,
+              "probability": 0.481689453125
+            },
+            {
+              "text": " true.",
+              "start": 3.19,
+              "end": 3.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " She",
+              "start": 3.57,
+              "end": 3.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " a",
+              "start": 4.01,
+              "end": 4.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " strumpet.",
+              "start": 4.13,
+              "end": 4.61,
+              "probability": 0.8795572916666666
+            },
+            {
+              "text": " What's",
+              "start": 4.77,
+              "end": 5.09,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " the",
+              "start": 5.09,
+              "end": 5.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " news?",
+              "start": 5.19,
+              "end": 5.53,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "in",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "secret",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "parts",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "raw": "of",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "fortune.",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "Oh",
+          "start": 2.83,
+          "end": 2.95
+        },
+        {
+          "raw": "most",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "raw": "true.",
+          "start": 3.19,
+          "end": 3.55
+        },
+        {
+          "raw": "She",
+          "start": 3.57,
+          "end": 3.87
+        },
+        {
+          "raw": "is",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.13
+        },
+        {
+          "raw": "strumpet.",
+          "start": 4.13,
+          "end": 4.61
+        },
+        {
+          "raw": "What's",
+          "start": 4.77,
+          "end": 5.09
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "raw": "news?",
+          "start": 5.19,
+          "end": 5.53
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "In",
+        "the",
+        "secret",
+        "parts",
+        "of",
+        "Fortune?",
+        "O,",
+        "most",
+        "true;",
+        "she",
+        "is",
+        "a",
+        "strumpet.",
+        "What's",
+        "the",
+        "news?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          17,
+          8,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.81,
+          "end": 1.03,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "secret",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "secret",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "parts",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "parts",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fortune.",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "fortune",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 2.83,
+          "end": 2.95,
+          "key": "oh",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.95,
+          "end": 3.19,
+          "key": "most",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 3.19,
+          "end": 3.55,
+          "key": "true",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.57,
+          "end": 3.87,
+          "key": "she",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.01,
+          "end": 4.13,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "strumpet.",
+          "start": 4.13,
+          "end": 4.61,
+          "key": "strumpet",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 4.77,
+          "end": 5.09,
+          "key": "whats",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.09,
+          "end": 5.19,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "news?",
+          "start": 5.19,
+          "end": 5.53,
+          "key": "news",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "In",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "text": "the",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "secret",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "parts",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "text": "of",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "Fortune?",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "O,",
+          "start": 2.21,
+          "end": 2.58
+        },
+        {
+          "text": "most",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "text": "true;",
+          "start": 3.19,
+          "end": 3.55
+        },
+        {
+          "text": "she",
+          "start": 3.57,
+          "end": 3.87
+        },
+        {
+          "text": "is",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "text": "a",
+          "start": 4.01,
+          "end": 4.13
+        },
+        {
+          "text": "strumpet.",
+          "start": 4.13,
+          "end": 4.61
+        },
+        {
+          "text": "What's",
+          "start": 4.77,
+          "end": 5.09
+        },
+        {
+          "text": "the",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "text": "news?",
+          "start": 5.19,
+          "end": 5.53
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.36283143050968647
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "46a27106e411421f869dc2da4a83209a9ed3e82a4d5b7aa43f0488eb7ad085f2",
+  "selected_reasons": []
+}

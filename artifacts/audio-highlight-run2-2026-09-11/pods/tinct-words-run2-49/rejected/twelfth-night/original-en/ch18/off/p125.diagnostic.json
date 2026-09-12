@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "5a1a2d0e07a80f4c416284f2f3296f0164c8640cdc084bce98be8956d13b5116",
+  "attempts": [
+    {
+      "asr_seconds": 0.11321547254920006,
+      "alignment_seconds": 0.00021036341786384583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia.",
+          "start": 0.02,
+          "end": 0.7,
+          "words": [
+            {
+              "text": " Olivia.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.88427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia.",
+          "start": 0.02,
+          "end": 0.7
+        }
+      ],
+      "expected_tokens": [
+        "Olivia."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia.",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.02,
+          "end": 0.7
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11349647119641304
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6c930210b43636763a3b3a5e84e7e53a73503122c70802f01c543eb1c2c39ba9",
+  "selected_reasons": []
+}

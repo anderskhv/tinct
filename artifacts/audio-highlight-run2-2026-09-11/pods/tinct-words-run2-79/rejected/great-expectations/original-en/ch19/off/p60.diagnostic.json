@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "0922060c2d7982b3519658419ca92fd6cd7f7a3e4fc96ecd975d394850c057d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.34306942485272884,
+      "alignment_seconds": 0.0003788117319345474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This may I meant might he shake hands I consented and he was fervent and then sat down again",
+          "start": 0.02,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.89453125
+            },
+            {
+              "text": " may",
+              "start": 0.56,
+              "end": 0.78,
+              "probability": 0.3916015625
+            },
+            {
+              "text": " I",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " meant",
+              "start": 1.02,
+              "end": 1.26,
+              "probability": 0.92578125
+            },
+            {
+              "text": " might",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " he",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " shake",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.990234375
+            },
+            {
+              "text": " hands",
+              "start": 1.8,
+              "end": 2.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 2.28,
+              "end": 2.94,
+              "probability": 0.5
+            },
+            {
+              "text": " consented",
+              "start": 2.94,
+              "end": 3.52,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " and",
+              "start": 3.52,
+              "end": 3.88,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " he",
+              "start": 3.88,
+              "end": 3.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 3.98,
+              "end": 4.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fervent",
+              "start": 4.12,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " then",
+              "start": 4.74,
+              "end": 4.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sat",
+              "start": 4.88,
+              "end": 5.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " down",
+              "start": 5.16,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again",
+              "start": 5.4,
+              "end": 5.74,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "may",
+          "start": 0.56,
+          "end": 0.78
+        },
+        {
+          "raw": "I",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "meant",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "raw": "might",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "he",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "shake",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "hands",
+          "start": 1.8,
+          "end": 2.28
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.94
+        },
+        {
+          "raw": "consented",
+          "start": 2.94,
+          "end": 3.52
+        },
+        {
+          "raw": "and",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "raw": "he",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "raw": "was",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "raw": "fervent",
+          "start": 4.12,
+          "end": 4.6
+        },
+        {
+          "raw": "and",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "then",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "raw": "sat",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "raw": "down",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "raw": "again",
+          "start": 5.4,
+          "end": 5.74
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "May",
+        "I,",
+        "meant",
+        "might",
+        "he",
+        "shake",
+        "hands?",
+        "I",
+        "consented,",
+        "and",
+        "he",
+        "was",
+        "fervent,",
+        "and",
+        "then",
+        "sat",
+        "down",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 0.56,
+          "end": 0.78,
+          "key": "may",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "meant",
+          "start": 1.02,
+          "end": 1.26,
+          "key": "meant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "might",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "shake",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "shake",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 1.8,
+          "end": 2.28,
+          "key": "hands",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.94,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "consented",
+          "start": 2.94,
+          "end": 3.52,
+          "key": "consented",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.52,
+          "end": 3.88,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.88,
+          "end": 3.98,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.98,
+          "end": 4.12,
+          "key": "was",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fervent",
+          "start": 4.12,
+          "end": 4.6,
+          "key": "fervent",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.6,
+          "end": 4.74,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.74,
+          "end": 4.88,
+          "key": "then",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 4.88,
+          "end": 5.16,
+          "key": "sat",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 5.16,
+          "end": 5.4,
+          "key": "down",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 5.4,
+          "end": 5.74,
+          "key": "again",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "May",
+          "start": 0.56,
+          "end": 0.78
+        },
+        {
+          "text": "I,",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "text": "meant",
+          "start": 1.02,
+          "end": 1.26
+        },
+        {
+          "text": "might",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "he",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "shake",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "hands?",
+          "start": 1.8,
+          "end": 2.28
+        },
+        {
+          "text": "I",
+          "start": 2.28,
+          "end": 2.94
+        },
+        {
+          "text": "consented,",
+          "start": 2.94,
+          "end": 3.52
+        },
+        {
+          "text": "and",
+          "start": 3.52,
+          "end": 3.88
+        },
+        {
+          "text": "he",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "text": "was",
+          "start": 3.98,
+          "end": 4.12
+        },
+        {
+          "text": "fervent,",
+          "start": 4.12,
+          "end": 4.6
+        },
+        {
+          "text": "and",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "then",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "text": "sat",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "text": "down",
+          "start": 5.16,
+          "end": 5.4
+        },
+        {
+          "text": "again.",
+          "start": 5.4,
+          "end": 5.74
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3436041600070894
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "350d3f41f3cefa6cac127cd8cba785504bfca82cc22efde678c4699cc7d1d038",
+  "selected_reasons": []
+}

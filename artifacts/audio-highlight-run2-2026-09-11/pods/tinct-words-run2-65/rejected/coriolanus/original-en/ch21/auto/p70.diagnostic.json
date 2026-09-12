@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "3338b655f5920059108814b37cc915e6f08a651d4975480320890a589df30ba6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1554192858748138,
+      "alignment_seconds": 0.00020224601030349731,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Servingman. Who, my master?",
+        "hotwords": "Second, Servingman, Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Servingman, Who, my master?",
+          "start": 0.08,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " Servingman,",
+              "start": 0.98,
+              "end": 1.28,
+              "probability": 0.36322021484375
+            },
+            {
+              "text": " Who,",
+              "start": 1.64,
+              "end": 1.7,
+              "probability": 0.11151123046875
+            },
+            {
+              "text": " my",
+              "start": 1.78,
+              "end": 1.86,
+              "probability": 0.1934814453125
+            },
+            {
+              "text": " master?",
+              "start": 1.86,
+              "end": 2.2,
+              "probability": 0.21337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "raw": "Who,",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "raw": "my",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "raw": "master?",
+          "start": 1.86,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Servingman.",
+        "Who,",
+        "my",
+        "master?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.98,
+          "end": 1.28,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Who,",
+          "start": 1.64,
+          "end": 1.7,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.78,
+          "end": 1.86,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "master?",
+          "start": 1.86,
+          "end": 2.2,
+          "key": "master",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "text": "Who,",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "text": "my",
+          "start": 1.78,
+          "end": 1.86
+        },
+        {
+          "text": "master?",
+          "start": 1.86,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15569851407781243
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1095e60559d1ae2072f90d64d5ea8a5b95e46681f90f3de5d6253c067ffb5779",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "abe1c0e5e565ae42b88746553d94ff43a456e1b5e6f59b2136f8ca52cfec82e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.16806363873183727,
+      "alignment_seconds": 0.00025360845029354095,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. Uncertain favour!",
+        "hotwords": "Guiderius, Uncertain"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, Uncertain favour!",
+          "start": 0.05,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.27188364664713544
+            },
+            {
+              "text": " Uncertain",
+              "start": 1.33,
+              "end": 1.71,
+              "probability": 0.54681396484375
+            },
+            {
+              "text": " favour!",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.0014171600341796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Uncertain",
+          "start": 1.33,
+          "end": 1.71
+        },
+        {
+          "raw": "favour!",
+          "start": 1.71,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "Uncertain",
+        "favour!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Uncertain",
+          "start": 1.33,
+          "end": 1.71,
+          "key": "uncertain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "favour!",
+          "start": 1.71,
+          "end": 1.97,
+          "key": "favour",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "Uncertain",
+          "start": 1.33,
+          "end": 1.71
+        },
+        {
+          "text": "favour!",
+          "start": 1.71,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.168411273509264
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "951fd35633445195b6a5e9bb27bed5783e02953948c5828c99ffb1f587ace2e3",
+  "selected_reasons": []
+}

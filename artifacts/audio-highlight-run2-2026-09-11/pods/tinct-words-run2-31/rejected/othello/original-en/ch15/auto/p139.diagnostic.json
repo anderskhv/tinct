@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "21a223a15c2ad13503860ae3bb650811ef58091f6ce000892bb6237e1ca539c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.13263376289978623,
+      "alignment_seconds": 0.00026014726608991623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Iago offers to stab his wife.]",
+        "hotwords": "Iago"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago offers to stab his wife.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Iago",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.23818135261535645
+            },
+            {
+              "text": " offers",
+              "start": 0.77,
+              "end": 1.13,
+              "probability": 0.978515625
+            },
+            {
+              "text": " to",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stab",
+              "start": 1.35,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wife.",
+              "start": 1.77,
+              "end": 2.07,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "offers",
+          "start": 0.77,
+          "end": 1.13
+        },
+        {
+          "raw": "to",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "stab",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "raw": "his",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "wife.",
+          "start": 1.77,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "[Iago",
+        "offers",
+        "to",
+        "stab",
+        "his",
+        "wife.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "offers",
+          "start": 0.77,
+          "end": 1.13,
+          "key": "offers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stab",
+          "start": 1.35,
+          "end": 1.61,
+          "key": "stab",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wife.",
+          "start": 1.77,
+          "end": 2.07,
+          "key": "wife",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Iago",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "offers",
+          "start": 0.77,
+          "end": 1.13
+        },
+        {
+          "text": "to",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "stab",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "text": "his",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "wife.]",
+          "start": 1.77,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13298126915469766
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c4c0022b0544ed6ac37c6b9587ed762b99e2ccea3ce40cc584f96cf8b5579610",
+  "selected_reasons": []
+}

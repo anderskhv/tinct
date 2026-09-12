@@ -1,0 +1,1879 @@
+{
+  "complete": true,
+  "signature": "825403ab0218a341c250c593f62354ece69a560bab3189c44aed0a6cde170dc3",
+  "attempts": [
+    {
+      "asr_seconds": 0.24817253090441227,
+      "alignment_seconds": 0.0003112093545496464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Nay, good lieutenant, God's will, gentlemen. Help, ho!—Lieutenant,—sir,—Montano,—sir:— Help, masters! Here's a goodly watch indeed!]",
+        "hotwords": "Nay, God's, Help, Here's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nay, good lieutenant, God's will, gentlemen. Help, ho!—Lieutenant,—sir,—Montano,—sir. Help, masters! Here's a goodly watch indeed!",
+          "start": 0.02,
+          "end": 8.24,
+          "words": [
+            {
+              "text": " Nay,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.921875
+            },
+            {
+              "text": " good",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " lieutenant,",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.48046875
+            },
+            {
+              "text": " God's",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.873046875
+            },
+            {
+              "text": " will,",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " gentlemen.",
+              "start": 2.36,
+              "end": 2.36,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Help,",
+              "start": 2.88,
+              "end": 2.98,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " ho",
+              "start": 3.16,
+              "end": 3.26,
+              "probability": 0.79833984375
+            },
+            {
+              "text": "!—Lieutenant,—sir,—Montano,—sir.",
+              "start": 3.26,
+              "end": 5.6,
+              "probability": 0.4974419382902292
+            },
+            {
+              "text": " Help,",
+              "start": 5.92,
+              "end": 6.16,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " masters!",
+              "start": 6.36,
+              "end": 6.54,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " Here's",
+              "start": 7.08,
+              "end": 7.26,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " a",
+              "start": 7.26,
+              "end": 7.34,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " goodly",
+              "start": 7.34,
+              "end": 7.58,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " watch",
+              "start": 7.58,
+              "end": 7.86,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " indeed!",
+              "start": 7.86,
+              "end": 8.24,
+              "probability": 0.271240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nay,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "good",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "lieutenant,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "God's",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "raw": "will,",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 2.36,
+          "end": 2.36
+        },
+        {
+          "raw": "Help,",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "raw": "ho",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "raw": "!—Lieutenant,—sir,—Montano,—sir.",
+          "start": 3.26,
+          "end": 5.6
+        },
+        {
+          "raw": "Help,",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "raw": "masters!",
+          "start": 6.36,
+          "end": 6.54
+        },
+        {
+          "raw": "Here's",
+          "start": 7.08,
+          "end": 7.26
+        },
+        {
+          "raw": "a",
+          "start": 7.26,
+          "end": 7.34
+        },
+        {
+          "raw": "goodly",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "raw": "watch",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "raw": "indeed!",
+          "start": 7.86,
+          "end": 8.24
+        }
+      ],
+      "expected_tokens": [
+        "[Nay,",
+        "good",
+        "lieutenant,",
+        "God's",
+        "will,",
+        "gentlemen.",
+        "Help,",
+        "ho!—Lieutenant,—sir,—Montano,—sir:—",
+        "Help,",
+        "masters!",
+        "Here's",
+        "a",
+        "goodly",
+        "watch",
+        "indeed!]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ],
+        [
+          "equal",
+          8,
+          15,
+          9,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nay,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "nay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lieutenant,",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "lieutenant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "gods",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 2.36,
+          "end": 2.36,
+          "key": "gentlemen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Help,",
+          "start": 2.88,
+          "end": 2.98,
+          "key": "help",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ho",
+          "start": 3.16,
+          "end": 3.26,
+          "key": "ho",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!—Lieutenant,—sir,—Montano,—sir.",
+          "start": 3.26,
+          "end": 5.6,
+          "key": "lieutenantsirmontanosir",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Help,",
+          "start": 5.92,
+          "end": 6.16,
+          "key": "help",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "masters!",
+          "start": 6.36,
+          "end": 6.54,
+          "key": "masters",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 7.08,
+          "end": 7.26,
+          "key": "heres",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.26,
+          "end": 7.34,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "goodly",
+          "start": 7.34,
+          "end": 7.58,
+          "key": "goodly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 7.58,
+          "end": 7.86,
+          "key": "watch",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "indeed!",
+          "start": 7.86,
+          "end": 8.24,
+          "key": "indeed",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Nay,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "good",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "lieutenant,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "God's",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "text": "will,",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "gentlemen.",
+          "start": 2.36,
+          "end": 2.36
+        },
+        {
+          "text": "Help,",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "text": "ho!—Lieutenant,—sir,—Montano,—sir:—",
+          "start": 2.98,
+          "end": 4.45
+        },
+        {
+          "text": "Help,",
+          "start": 5.92,
+          "end": 6.16
+        },
+        {
+          "text": "masters!",
+          "start": 6.36,
+          "end": 6.54
+        },
+        {
+          "text": "Here's",
+          "start": 7.08,
+          "end": 7.26
+        },
+        {
+          "text": "a",
+          "start": 7.26,
+          "end": 7.34
+        },
+        {
+          "text": "goodly",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "text": "watch",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "text": "indeed!]",
+          "start": 7.86,
+          "end": 8.24
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.2485873787663877
+    },
+    {
+      "asr_seconds": 0.24399796407669783,
+      "alignment_seconds": 0.00030147796496748924,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Nay, God's, Help, Here's"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Nay, Good Lieutenant, God's will, Gentlemen, Help, Ho, Lieutenant, Sir, Montano, Sir,",
+          "start": 0.02,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " Nay,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.921875
+            },
+            {
+              "text": " Good",
+              "start": 0.72,
+              "end": 0.82,
+              "probability": 0.078857421875
+            },
+            {
+              "text": " Lieutenant,",
+              "start": 0.82,
+              "end": 1.18,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " God's",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.94140625
+            },
+            {
+              "text": " will,",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " Gentlemen,",
+              "start": 2.08,
+              "end": 2.54,
+              "probability": 0.546539306640625
+            },
+            {
+              "text": " Help,",
+              "start": 2.98,
+              "end": 2.98,
+              "probability": 0.3515625
+            },
+            {
+              "text": " Ho,",
+              "start": 3.16,
+              "end": 3.26,
+              "probability": 0.4716796875
+            },
+            {
+              "text": " Lieutenant,",
+              "start": 4.04,
+              "end": 4.08,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " Sir,",
+              "start": 4.54,
+              "end": 4.54,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " Montano,",
+              "start": 4.8,
+              "end": 5.12,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " Sir,",
+              "start": 5.36,
+              "end": 5.48,
+              "probability": 0.95458984375
+            }
+          ]
+        },
+        {
+          "text": " Help, Masters, Here's a Goodly Watch, Indeed.",
+          "start": 6.12,
+          "end": 8.24,
+          "words": [
+            {
+              "text": " Help,",
+              "start": 6.12,
+              "end": 6.18,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " Masters,",
+              "start": 6.38,
+              "end": 6.58,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " Here's",
+              "start": 7.1,
+              "end": 7.26,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " a",
+              "start": 7.26,
+              "end": 7.36,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Goodly",
+              "start": 7.36,
+              "end": 7.58,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Watch,",
+              "start": 7.58,
+              "end": 7.86,
+              "probability": 0.62109375
+            },
+            {
+              "text": " Indeed.",
+              "start": 7.98,
+              "end": 8.24,
+              "probability": 0.408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nay,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Good",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "raw": "Lieutenant,",
+          "start": 0.82,
+          "end": 1.18
+        },
+        {
+          "raw": "God's",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "raw": "will,",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "Gentlemen,",
+          "start": 2.08,
+          "end": 2.54
+        },
+        {
+          "raw": "Help,",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "raw": "Ho,",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "raw": "Lieutenant,",
+          "start": 4.04,
+          "end": 4.08
+        },
+        {
+          "raw": "Sir,",
+          "start": 4.54,
+          "end": 4.54
+        },
+        {
+          "raw": "Montano,",
+          "start": 4.8,
+          "end": 5.12
+        },
+        {
+          "raw": "Sir,",
+          "start": 5.36,
+          "end": 5.48
+        },
+        {
+          "raw": "Help,",
+          "start": 6.12,
+          "end": 6.18
+        },
+        {
+          "raw": "Masters,",
+          "start": 6.38,
+          "end": 6.58
+        },
+        {
+          "raw": "Here's",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "raw": "a",
+          "start": 7.26,
+          "end": 7.36
+        },
+        {
+          "raw": "Goodly",
+          "start": 7.36,
+          "end": 7.58
+        },
+        {
+          "raw": "Watch,",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "raw": "Indeed.",
+          "start": 7.98,
+          "end": 8.24
+        }
+      ],
+      "expected_tokens": [
+        "[Nay,",
+        "good",
+        "lieutenant,",
+        "God's",
+        "will,",
+        "gentlemen.",
+        "Help,",
+        "ho!—Lieutenant,—sir,—Montano,—sir:—",
+        "Help,",
+        "masters!",
+        "Here's",
+        "a",
+        "goodly",
+        "watch",
+        "indeed!]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          12
+        ],
+        [
+          "equal",
+          8,
+          15,
+          12,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nay,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "nay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 0.72,
+          "end": 0.82,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lieutenant,",
+          "start": 0.82,
+          "end": 1.18,
+          "key": "lieutenant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "gods",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Gentlemen,",
+          "start": 2.08,
+          "end": 2.54,
+          "key": "gentlemen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Help,",
+          "start": 2.98,
+          "end": 2.98,
+          "key": "help",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ho,",
+          "start": 3.16,
+          "end": 3.26,
+          "key": "ho",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lieutenant,",
+          "start": 4.04,
+          "end": 4.08,
+          "key": "lieutenant",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 4.54,
+          "end": 4.54,
+          "key": "sir",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Montano,",
+          "start": 4.8,
+          "end": 5.12,
+          "key": "montano",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 5.36,
+          "end": 5.48,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Help,",
+          "start": 6.12,
+          "end": 6.18,
+          "key": "help",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Masters,",
+          "start": 6.38,
+          "end": 6.58,
+          "key": "masters",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 7.1,
+          "end": 7.26,
+          "key": "heres",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.26,
+          "end": 7.36,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Goodly",
+          "start": 7.36,
+          "end": 7.58,
+          "key": "goodly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Watch,",
+          "start": 7.58,
+          "end": 7.86,
+          "key": "watch",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Indeed.",
+          "start": 7.98,
+          "end": 8.24,
+          "key": "indeed",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Nay,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "good",
+          "start": 0.72,
+          "end": 0.82
+        },
+        {
+          "text": "lieutenant,",
+          "start": 0.82,
+          "end": 1.18
+        },
+        {
+          "text": "God's",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "text": "will,",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "gentlemen.",
+          "start": 2.08,
+          "end": 2.54
+        },
+        {
+          "text": "Help,",
+          "start": 2.98,
+          "end": 2.98
+        },
+        {
+          "text": "ho!—Lieutenant,—sir,—Montano,—sir:—",
+          "start": 2.98,
+          "end": 4.55
+        },
+        {
+          "text": "Help,",
+          "start": 6.12,
+          "end": 6.18
+        },
+        {
+          "text": "masters!",
+          "start": 6.38,
+          "end": 6.58
+        },
+        {
+          "text": "Here's",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "text": "a",
+          "start": 7.26,
+          "end": 7.36
+        },
+        {
+          "text": "goodly",
+          "start": 7.36,
+          "end": 7.58
+        },
+        {
+          "text": "watch",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "text": "indeed!]",
+          "start": 7.98,
+          "end": 8.24
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 19,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.24442462110891938
+    },
+    {
+      "asr_seconds": 0.28668700670823455,
+      "alignment_seconds": 0.00031328899785876274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nay, good lieutenant, God's will, gentlemen.",
+          "start": 0.02,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Nay,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.921875
+            },
+            {
+              "text": " good",
+              "start": 0.72,
+              "end": 0.84,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " lieutenant,",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.48046875
+            },
+            {
+              "text": " God's",
+              "start": 1.48,
+              "end": 1.72,
+              "probability": 0.873046875
+            },
+            {
+              "text": " will,",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " gentlemen.",
+              "start": 2.36,
+              "end": 2.36,
+              "probability": 0.85302734375
+            }
+          ]
+        },
+        {
+          "text": " Help ho, Lieutenant Sir Montano, sir.",
+          "start": 2.9,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " Help",
+              "start": 2.9,
+              "end": 2.98,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " ho,",
+              "start": 2.98,
+              "end": 3.26,
+              "probability": 0.299072265625
+            },
+            {
+              "text": " Lieutenant",
+              "start": 4.1,
+              "end": 4.1,
+              "probability": 0.583984375
+            },
+            {
+              "text": " Sir",
+              "start": 4.1,
+              "end": 4.56,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " Montano,",
+              "start": 4.56,
+              "end": 5.16,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " sir.",
+              "start": 5.46,
+              "end": 5.46,
+              "probability": 0.84619140625
+            }
+          ]
+        },
+        {
+          "text": " Help masters.",
+          "start": 6.02,
+          "end": 6.64,
+          "words": [
+            {
+              "text": " Help",
+              "start": 6.02,
+              "end": 6.16,
+              "probability": 0.982421875
+            },
+            {
+              "text": " masters.",
+              "start": 6.16,
+              "end": 6.64,
+              "probability": 0.1341552734375
+            }
+          ]
+        },
+        {
+          "text": " Here's a goodly watch indeed.",
+          "start": 7.1,
+          "end": 8.24,
+          "words": [
+            {
+              "text": " Here's",
+              "start": 7.1,
+              "end": 7.26,
+              "probability": 0.974609375
+            },
+            {
+              "text": " a",
+              "start": 7.26,
+              "end": 7.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " goodly",
+              "start": 7.34,
+              "end": 7.58,
+              "probability": 0.948486328125
+            },
+            {
+              "text": " watch",
+              "start": 7.58,
+              "end": 7.86,
+              "probability": 0.98046875
+            },
+            {
+              "text": " indeed.",
+              "start": 7.86,
+              "end": 8.24,
+              "probability": 0.60009765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nay,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "good",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "raw": "lieutenant,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "God's",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "raw": "will,",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 2.36,
+          "end": 2.36
+        },
+        {
+          "raw": "Help",
+          "start": 2.9,
+          "end": 2.98
+        },
+        {
+          "raw": "ho,",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "raw": "Lieutenant",
+          "start": 4.1,
+          "end": 4.1
+        },
+        {
+          "raw": "Sir",
+          "start": 4.1,
+          "end": 4.56
+        },
+        {
+          "raw": "Montano,",
+          "start": 4.56,
+          "end": 5.16
+        },
+        {
+          "raw": "sir.",
+          "start": 5.46,
+          "end": 5.46
+        },
+        {
+          "raw": "Help",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "raw": "masters.",
+          "start": 6.16,
+          "end": 6.64
+        },
+        {
+          "raw": "Here's",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "raw": "a",
+          "start": 7.26,
+          "end": 7.34
+        },
+        {
+          "raw": "goodly",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "raw": "watch",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "raw": "indeed.",
+          "start": 7.86,
+          "end": 8.24
+        }
+      ],
+      "expected_tokens": [
+        "[Nay,",
+        "good",
+        "lieutenant,",
+        "God's",
+        "will,",
+        "gentlemen.",
+        "Help,",
+        "ho!—Lieutenant,—sir,—Montano,—sir:—",
+        "Help,",
+        "masters!",
+        "Here's",
+        "a",
+        "goodly",
+        "watch",
+        "indeed!]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          12
+        ],
+        [
+          "equal",
+          8,
+          15,
+          12,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nay,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "nay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.72,
+          "end": 0.84,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lieutenant,",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "lieutenant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "God's",
+          "start": 1.48,
+          "end": 1.72,
+          "key": "gods",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gentlemen.",
+          "start": 2.36,
+          "end": 2.36,
+          "key": "gentlemen",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Help",
+          "start": 2.9,
+          "end": 2.98,
+          "key": "help",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ho,",
+          "start": 2.98,
+          "end": 3.26,
+          "key": "ho",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lieutenant",
+          "start": 4.1,
+          "end": 4.1,
+          "key": "lieutenant",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 4.1,
+          "end": 4.56,
+          "key": "sir",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Montano,",
+          "start": 4.56,
+          "end": 5.16,
+          "key": "montano",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 5.46,
+          "end": 5.46,
+          "key": "sir",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Help",
+          "start": 6.02,
+          "end": 6.16,
+          "key": "help",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "masters.",
+          "start": 6.16,
+          "end": 6.64,
+          "key": "masters",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 7.1,
+          "end": 7.26,
+          "key": "heres",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.26,
+          "end": 7.34,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "goodly",
+          "start": 7.34,
+          "end": 7.58,
+          "key": "goodly",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 7.58,
+          "end": 7.86,
+          "key": "watch",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "indeed.",
+          "start": 7.86,
+          "end": 8.24,
+          "key": "indeed",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Nay,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "good",
+          "start": 0.72,
+          "end": 0.84
+        },
+        {
+          "text": "lieutenant,",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "God's",
+          "start": 1.48,
+          "end": 1.72
+        },
+        {
+          "text": "will,",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "gentlemen.",
+          "start": 2.36,
+          "end": 2.36
+        },
+        {
+          "text": "Help,",
+          "start": 2.9,
+          "end": 2.98
+        },
+        {
+          "text": "ho!—Lieutenant,—sir,—Montano,—sir:—",
+          "start": 2.98,
+          "end": 4.5
+        },
+        {
+          "text": "Help,",
+          "start": 6.02,
+          "end": 6.16
+        },
+        {
+          "text": "masters!",
+          "start": 6.16,
+          "end": 6.64
+        },
+        {
+          "text": "Here's",
+          "start": 7.1,
+          "end": 7.26
+        },
+        {
+          "text": "a",
+          "start": 7.26,
+          "end": 7.34
+        },
+        {
+          "text": "goodly",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "text": "watch",
+          "start": 7.58,
+          "end": 7.86
+        },
+        {
+          "text": "indeed!]",
+          "start": 7.86,
+          "end": 8.24
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 19,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.2871139948256314
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "17abc2548e05353f33bb3a9d309f5f34e5ba3c6986890d5c206291f9206b2e96",
+  "selected_reasons": []
+}

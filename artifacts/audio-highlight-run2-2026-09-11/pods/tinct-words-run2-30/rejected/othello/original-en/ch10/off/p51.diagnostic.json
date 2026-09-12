@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "0a5c062b837e92119c1a255b38b415988db10e2a869fc1bba691af7c00874c05",
+  "attempts": [
+    {
+      "asr_seconds": 0.10770559683442116,
+      "alignment_seconds": 0.00014653895050287247,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona. I say it is not lost.",
+          "start": 0.63,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Distimona.",
+              "start": 0.63,
+              "end": 0.99,
+              "probability": 0.6553955078125
+            },
+            {
+              "text": " I",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " say",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 1.75,
+              "end": 1.83,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 1.83,
+              "end": 2.01,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lost.",
+              "start": 2.01,
+              "end": 2.29,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona.",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "say",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "it",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "is",
+          "start": 1.75,
+          "end": 1.83
+        },
+        {
+          "raw": "not",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "raw": "lost.",
+          "start": 2.01,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "say",
+        "it",
+        "is",
+        "not",
+        "lost."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona.",
+          "start": 0.63,
+          "end": 0.99,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.49,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.75,
+          "end": 1.83,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.83,
+          "end": 2.01,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lost.",
+          "start": 2.01,
+          "end": 2.29,
+          "key": "lost",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "I",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "say",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "it",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "is",
+          "start": 1.75,
+          "end": 1.83
+        },
+        {
+          "text": "not",
+          "start": 1.83,
+          "end": 2.01
+        },
+        {
+          "text": "lost.",
+          "start": 2.01,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.10790663585066795
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "210962932240dd401f818e3f4f539ba6e64d62f4d61adacbd2c6292052535869",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "ea96613b74c9ccfa06196c103b7443504cd6f85afd4686bc2b2fc46ea18e9844",
+  "attempts": [
+    {
+      "asr_seconds": 0.20530394208617508,
+      "alignment_seconds": 0.0005267199594527483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. Now, in good time here comes the Duke of York.",
+        "hotwords": "Buckingham, Now, Duke, York"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham. Now, in good time here comes the Duke of York.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Buckingham.",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Now,",
+              "start": 1.59,
+              "end": 1.59,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " in",
+              "start": 1.69,
+              "end": 1.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " good",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " time",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " here",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.10418701171875
+            },
+            {
+              "text": " comes",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " the",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Duke",
+              "start": 2.83,
+              "end": 3.01,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " of",
+              "start": 3.01,
+              "end": 3.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " York.",
+              "start": 3.19,
+              "end": 3.41,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Now,",
+          "start": 1.59,
+          "end": 1.59
+        },
+        {
+          "raw": "in",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "raw": "good",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "time",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "here",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "comes",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "the",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "Duke",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "raw": "of",
+          "start": 3.01,
+          "end": 3.19
+        },
+        {
+          "raw": "York.",
+          "start": 3.19,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Now,",
+        "in",
+        "good",
+        "time",
+        "here",
+        "comes",
+        "the",
+        "Duke",
+        "of",
+        "York."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham.",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 1.59,
+          "end": 1.59,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.69,
+          "end": 1.77,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "time",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "comes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Duke",
+          "start": 2.83,
+          "end": 3.01,
+          "key": "duke",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.01,
+          "end": 3.19,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "York.",
+          "start": 3.19,
+          "end": 3.41,
+          "key": "york",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Now,",
+          "start": 1.59,
+          "end": 1.59
+        },
+        {
+          "text": "in",
+          "start": 1.69,
+          "end": 1.77
+        },
+        {
+          "text": "good",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "time",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "here",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "comes",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "the",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "Duke",
+          "start": 2.83,
+          "end": 3.01
+        },
+        {
+          "text": "of",
+          "start": 3.01,
+          "end": 3.19
+        },
+        {
+          "text": "York.",
+          "start": 3.19,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20604080497287214
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e665161912d1fe1a59a3e1d2303b674a2b80c2a48a0f4e3fab7ee66fe3bf5afe",
+  "selected_reasons": []
+}

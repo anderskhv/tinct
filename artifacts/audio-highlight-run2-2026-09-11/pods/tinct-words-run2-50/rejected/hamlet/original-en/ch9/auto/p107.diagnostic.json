@@ -1,0 +1,894 @@
+{
+  "complete": true,
+  "signature": "88fab102f1242303e6f3ab429092c8a89db421fd8c2eac14c61a98f3d9e20a14",
+  "attempts": [
+    {
+      "asr_seconds": 0.407710537314415,
+      "alignment_seconds": 0.0006992202252149582,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. A whole one, I. For thou dost know, O Damon dear, This realm dismantled was Of Jove himself, and now reigns here A very, very—pajock.",
+        "hotwords": "Hamlet, A, I, For, O, Damon, This, Of, Jove"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, A whole one, I. For thou dost know, O Damon dear, This realm dismantled was Of Jove himself, and now reigns here A very, very—pajock.",
+          "start": 0.05,
+          "end": 9.89,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.869873046875
+            },
+            {
+              "text": " A",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.0894775390625
+            },
+            {
+              "text": " whole",
+              "start": 1.37,
+              "end": 1.55,
+              "probability": 0.6044921875
+            },
+            {
+              "text": " one,",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.962890625
+            },
+            {
+              "text": " I.",
+              "start": 2.17,
+              "end": 2.23,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " For",
+              "start": 2.31,
+              "end": 2.39,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " thou",
+              "start": 2.39,
+              "end": 2.59,
+              "probability": 0.609375
+            },
+            {
+              "text": " dost",
+              "start": 2.59,
+              "end": 2.83,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " know,",
+              "start": 2.83,
+              "end": 3.17,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " O",
+              "start": 3.51,
+              "end": 3.53,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " Damon",
+              "start": 3.53,
+              "end": 3.87,
+              "probability": 0.29345703125
+            },
+            {
+              "text": " dear,",
+              "start": 3.87,
+              "end": 4.17,
+              "probability": 0.51611328125
+            },
+            {
+              "text": " This",
+              "start": 4.73,
+              "end": 4.89,
+              "probability": 0.6484375
+            },
+            {
+              "text": " realm",
+              "start": 4.89,
+              "end": 5.15,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " dismantled",
+              "start": 5.15,
+              "end": 5.73,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " was",
+              "start": 5.73,
+              "end": 6.05,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " Of",
+              "start": 6.05,
+              "end": 6.23,
+              "probability": 0.01123046875
+            },
+            {
+              "text": " Jove",
+              "start": 6.23,
+              "end": 6.49,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " himself,",
+              "start": 6.49,
+              "end": 6.91,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " and",
+              "start": 7.45,
+              "end": 7.57,
+              "probability": 0.10699462890625
+            },
+            {
+              "text": " now",
+              "start": 7.57,
+              "end": 7.83,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " reigns",
+              "start": 7.83,
+              "end": 8.25,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " here",
+              "start": 8.25,
+              "end": 8.39,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " A",
+              "start": 8.39,
+              "end": 8.55,
+              "probability": 0.52685546875
+            },
+            {
+              "text": " very,",
+              "start": 8.55,
+              "end": 8.91,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " very—pajock.",
+              "start": 9.09,
+              "end": 9.89,
+              "probability": 0.5059071183204651
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "A",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "whole",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "raw": "one,",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "I.",
+          "start": 2.17,
+          "end": 2.23
+        },
+        {
+          "raw": "For",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "raw": "thou",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "raw": "dost",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "raw": "know,",
+          "start": 2.83,
+          "end": 3.17
+        },
+        {
+          "raw": "O",
+          "start": 3.51,
+          "end": 3.53
+        },
+        {
+          "raw": "Damon",
+          "start": 3.53,
+          "end": 3.87
+        },
+        {
+          "raw": "dear,",
+          "start": 3.87,
+          "end": 4.17
+        },
+        {
+          "raw": "This",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "raw": "realm",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "raw": "dismantled",
+          "start": 5.15,
+          "end": 5.73
+        },
+        {
+          "raw": "was",
+          "start": 5.73,
+          "end": 6.05
+        },
+        {
+          "raw": "Of",
+          "start": 6.05,
+          "end": 6.23
+        },
+        {
+          "raw": "Jove",
+          "start": 6.23,
+          "end": 6.49
+        },
+        {
+          "raw": "himself,",
+          "start": 6.49,
+          "end": 6.91
+        },
+        {
+          "raw": "and",
+          "start": 7.45,
+          "end": 7.57
+        },
+        {
+          "raw": "now",
+          "start": 7.57,
+          "end": 7.83
+        },
+        {
+          "raw": "reigns",
+          "start": 7.83,
+          "end": 8.25
+        },
+        {
+          "raw": "here",
+          "start": 8.25,
+          "end": 8.39
+        },
+        {
+          "raw": "A",
+          "start": 8.39,
+          "end": 8.55
+        },
+        {
+          "raw": "very,",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "raw": "very—pajock.",
+          "start": 9.09,
+          "end": 9.89
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "A",
+        "whole",
+        "one,",
+        "I.",
+        "For",
+        "thou",
+        "dost",
+        "know,",
+        "O",
+        "Damon",
+        "dear,",
+        "This",
+        "realm",
+        "dismantled",
+        "was",
+        "Of",
+        "Jove",
+        "himself,",
+        "and",
+        "now",
+        "reigns",
+        "here",
+        "A",
+        "very,",
+        "very—pajock."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 1.37,
+          "end": 1.55,
+          "key": "whole",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 2.17,
+          "end": 2.23,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 2.31,
+          "end": 2.39,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.39,
+          "end": 2.59,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 2.59,
+          "end": 2.83,
+          "key": "dost",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 2.83,
+          "end": 3.17,
+          "key": "know",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 3.51,
+          "end": 3.53,
+          "key": "o",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Damon",
+          "start": 3.53,
+          "end": 3.87,
+          "key": "damon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dear,",
+          "start": 3.87,
+          "end": 4.17,
+          "key": "dear",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.73,
+          "end": 4.89,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "realm",
+          "start": 4.89,
+          "end": 5.15,
+          "key": "realm",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dismantled",
+          "start": 5.15,
+          "end": 5.73,
+          "key": "dismantled",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.73,
+          "end": 6.05,
+          "key": "was",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 6.05,
+          "end": 6.23,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Jove",
+          "start": 6.23,
+          "end": 6.49,
+          "key": "jove",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 6.49,
+          "end": 6.91,
+          "key": "himself",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.45,
+          "end": 7.57,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 7.57,
+          "end": 7.83,
+          "key": "now",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "reigns",
+          "start": 7.83,
+          "end": 8.25,
+          "key": "reigns",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 8.25,
+          "end": 8.39,
+          "key": "here",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 8.39,
+          "end": 8.55,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "very,",
+          "start": 8.55,
+          "end": 8.91,
+          "key": "very",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "very—pajock.",
+          "start": 9.09,
+          "end": 9.89,
+          "key": "verypajock",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "A",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "whole",
+          "start": 1.37,
+          "end": 1.55
+        },
+        {
+          "text": "one,",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "I.",
+          "start": 2.17,
+          "end": 2.23
+        },
+        {
+          "text": "For",
+          "start": 2.31,
+          "end": 2.39
+        },
+        {
+          "text": "thou",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "text": "dost",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "text": "know,",
+          "start": 2.83,
+          "end": 3.17
+        },
+        {
+          "text": "O",
+          "start": 3.51,
+          "end": 3.53
+        },
+        {
+          "text": "Damon",
+          "start": 3.53,
+          "end": 3.87
+        },
+        {
+          "text": "dear,",
+          "start": 3.87,
+          "end": 4.17
+        },
+        {
+          "text": "This",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "text": "realm",
+          "start": 4.89,
+          "end": 5.15
+        },
+        {
+          "text": "dismantled",
+          "start": 5.15,
+          "end": 5.73
+        },
+        {
+          "text": "was",
+          "start": 5.73,
+          "end": 6.05
+        },
+        {
+          "text": "Of",
+          "start": 6.05,
+          "end": 6.23
+        },
+        {
+          "text": "Jove",
+          "start": 6.23,
+          "end": 6.49
+        },
+        {
+          "text": "himself,",
+          "start": 6.49,
+          "end": 6.91
+        },
+        {
+          "text": "and",
+          "start": 7.45,
+          "end": 7.57
+        },
+        {
+          "text": "now",
+          "start": 7.57,
+          "end": 7.83
+        },
+        {
+          "text": "reigns",
+          "start": 7.83,
+          "end": 8.25
+        },
+        {
+          "text": "here",
+          "start": 8.25,
+          "end": 8.39
+        },
+        {
+          "text": "A",
+          "start": 8.39,
+          "end": 8.55
+        },
+        {
+          "text": "very,",
+          "start": 8.55,
+          "end": 8.91
+        },
+        {
+          "text": "very—pajock.",
+          "start": 9.09,
+          "end": 9.89
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40871952287852764
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f0c07a9f223a23de3b1c857056e28ddee3a65c267165e0613f823737051173c9",
+  "selected_reasons": []
+}

@@ -1,0 +1,2409 @@
+{
+  "complete": true,
+  "signature": "89618d8c2084d86a81bddfc060fed46812a96e6c1bf06b64038631cf4c904c4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.64899932872504,
+      "alignment_seconds": 0.001604846678674221,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, for her. Foma has a room in the house of these sluts here. Foma comes from our parts; he was a soldier in our regiment. He does jobs for them. He's watchman at night and goes grouse-shooting in the day-time; and that's how he lives. I've established myself in his room. Neither he nor the women of the house know the secret—that is, that I am on the watch here.\"",
+        "hotwords": "Yes, Foma, He's, I've, Neither, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, for her. Foma has a room in the house of these sluts here. Foma comes from our parts.",
+          "start": 0.05,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.4423828125
+            },
+            {
+              "text": " for",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " her.",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Foma",
+              "start": 1.83,
+              "end": 1.93,
+              "probability": 0.857421875
+            },
+            {
+              "text": " has",
+              "start": 1.93,
+              "end": 2.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " room",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.71,
+              "end": 2.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " house",
+              "start": 2.79,
+              "end": 2.95,
+              "probability": 0.939453125
+            },
+            {
+              "text": " of",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " these",
+              "start": 3.13,
+              "end": 3.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sluts",
+              "start": 3.29,
+              "end": 3.65,
+              "probability": 0.937255859375
+            },
+            {
+              "text": " here.",
+              "start": 3.65,
+              "end": 3.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Foma",
+              "start": 4.59,
+              "end": 4.73,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " comes",
+              "start": 4.73,
+              "end": 4.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 4.97,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 5.17,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " parts.",
+              "start": 5.33,
+              "end": 5.63,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " He was a soldier in our regiment. He does jobs for them. He's watchman at night and",
+          "start": 5.87,
+          "end": 10.55,
+          "words": [
+            {
+              "text": " He",
+              "start": 5.87,
+              "end": 5.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " was",
+              "start": 5.95,
+              "end": 6.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 6.07,
+              "end": 6.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " soldier",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " in",
+              "start": 6.51,
+              "end": 6.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 6.79,
+              "end": 6.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " regiment.",
+              "start": 6.93,
+              "end": 7.17,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " He",
+              "start": 7.79,
+              "end": 7.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " does",
+              "start": 7.89,
+              "end": 8.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " jobs",
+              "start": 8.09,
+              "end": 8.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " for",
+              "start": 8.43,
+              "end": 8.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them.",
+              "start": 8.69,
+              "end": 8.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " He's",
+              "start": 9.37,
+              "end": 9.57,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " watchman",
+              "start": 9.57,
+              "end": 9.95,
+              "probability": 0.716796875
+            },
+            {
+              "text": " at",
+              "start": 9.95,
+              "end": 10.11,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " night",
+              "start": 10.11,
+              "end": 10.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 10.33,
+              "end": 10.55,
+              "probability": 0.92822265625
+            }
+          ]
+        },
+        {
+          "text": " goes grouse-shooting in the day-time, and that's how he lives. I've established myself",
+          "start": 10.55,
+          "end": 15.29,
+          "words": [
+            {
+              "text": " goes",
+              "start": 10.55,
+              "end": 10.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " grouse",
+              "start": 10.83,
+              "end": 11.29,
+              "probability": 0.978271484375
+            },
+            {
+              "text": "-shooting",
+              "start": 11.29,
+              "end": 11.55,
+              "probability": 0.7491048177083334
+            },
+            {
+              "text": " in",
+              "start": 11.55,
+              "end": 11.73,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 11.73,
+              "end": 11.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " day",
+              "start": 11.85,
+              "end": 11.99,
+              "probability": 0.1065673828125
+            },
+            {
+              "text": "-time,",
+              "start": 11.99,
+              "end": 12.37,
+              "probability": 0.6319580078125
+            },
+            {
+              "text": " and",
+              "start": 12.69,
+              "end": 12.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that's",
+              "start": 12.83,
+              "end": 13.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " how",
+              "start": 13.07,
+              "end": 13.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 13.21,
+              "end": 13.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lives.",
+              "start": 13.37,
+              "end": 13.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I've",
+              "start": 14.41,
+              "end": 14.55,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " established",
+              "start": 14.55,
+              "end": 14.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " myself",
+              "start": 14.97,
+              "end": 15.29,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " in his room. Neither he nor the women of the house know the secret—that is, that I am",
+          "start": 15.29,
+          "end": 20.35,
+          "words": [
+            {
+              "text": " in",
+              "start": 15.29,
+              "end": 15.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 15.57,
+              "end": 15.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " room.",
+              "start": 15.71,
+              "end": 16.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Neither",
+              "start": 16.63,
+              "end": 16.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 16.73,
+              "end": 17.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nor",
+              "start": 17.03,
+              "end": 17.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 17.17,
+              "end": 17.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " women",
+              "start": 17.37,
+              "end": 17.55,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " of",
+              "start": 17.55,
+              "end": 17.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 17.75,
+              "end": 17.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " house",
+              "start": 17.85,
+              "end": 18.13,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " know",
+              "start": 18.13,
+              "end": 18.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 18.37,
+              "end": 18.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " secret—that",
+              "start": 18.53,
+              "end": 19.45,
+              "probability": 0.6776123046875
+            },
+            {
+              "text": " is,",
+              "start": 19.45,
+              "end": 19.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 19.91,
+              "end": 20.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 20.07,
+              "end": 20.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " am",
+              "start": 20.23,
+              "end": 20.35,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " on the watch here.",
+          "start": 20.35,
+          "end": 21.13,
+          "words": [
+            {
+              "text": " on",
+              "start": 20.35,
+              "end": 20.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 20.47,
+              "end": 20.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " watch",
+              "start": 20.59,
+              "end": 20.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " here.",
+              "start": 20.81,
+              "end": 21.13,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "for",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "raw": "her.",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "Foma",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "raw": "has",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "raw": "a",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "room",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "in",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.79
+        },
+        {
+          "raw": "house",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "raw": "of",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "these",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "raw": "sluts",
+          "start": 3.29,
+          "end": 3.65
+        },
+        {
+          "raw": "here.",
+          "start": 3.65,
+          "end": 3.93
+        },
+        {
+          "raw": "Foma",
+          "start": 4.59,
+          "end": 4.73
+        },
+        {
+          "raw": "comes",
+          "start": 4.73,
+          "end": 4.97
+        },
+        {
+          "raw": "from",
+          "start": 4.97,
+          "end": 5.17
+        },
+        {
+          "raw": "our",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "raw": "parts.",
+          "start": 5.33,
+          "end": 5.63
+        },
+        {
+          "raw": "He",
+          "start": 5.87,
+          "end": 5.95
+        },
+        {
+          "raw": "was",
+          "start": 5.95,
+          "end": 6.07
+        },
+        {
+          "raw": "a",
+          "start": 6.07,
+          "end": 6.23
+        },
+        {
+          "raw": "soldier",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "raw": "in",
+          "start": 6.51,
+          "end": 6.79
+        },
+        {
+          "raw": "our",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "raw": "regiment.",
+          "start": 6.93,
+          "end": 7.17
+        },
+        {
+          "raw": "He",
+          "start": 7.79,
+          "end": 7.89
+        },
+        {
+          "raw": "does",
+          "start": 7.89,
+          "end": 8.09
+        },
+        {
+          "raw": "jobs",
+          "start": 8.09,
+          "end": 8.43
+        },
+        {
+          "raw": "for",
+          "start": 8.43,
+          "end": 8.69
+        },
+        {
+          "raw": "them.",
+          "start": 8.69,
+          "end": 8.93
+        },
+        {
+          "raw": "He's",
+          "start": 9.37,
+          "end": 9.57
+        },
+        {
+          "raw": "watchman",
+          "start": 9.57,
+          "end": 9.95
+        },
+        {
+          "raw": "at",
+          "start": 9.95,
+          "end": 10.11
+        },
+        {
+          "raw": "night",
+          "start": 10.11,
+          "end": 10.33
+        },
+        {
+          "raw": "and",
+          "start": 10.33,
+          "end": 10.55
+        },
+        {
+          "raw": "goes",
+          "start": 10.55,
+          "end": 10.83
+        },
+        {
+          "raw": "grouse",
+          "start": 10.83,
+          "end": 11.29
+        },
+        {
+          "raw": "-shooting",
+          "start": 11.29,
+          "end": 11.55
+        },
+        {
+          "raw": "in",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "raw": "the",
+          "start": 11.73,
+          "end": 11.85
+        },
+        {
+          "raw": "day",
+          "start": 11.85,
+          "end": 11.99
+        },
+        {
+          "raw": "-time,",
+          "start": 11.99,
+          "end": 12.37
+        },
+        {
+          "raw": "and",
+          "start": 12.69,
+          "end": 12.83
+        },
+        {
+          "raw": "that's",
+          "start": 12.83,
+          "end": 13.07
+        },
+        {
+          "raw": "how",
+          "start": 13.07,
+          "end": 13.21
+        },
+        {
+          "raw": "he",
+          "start": 13.21,
+          "end": 13.37
+        },
+        {
+          "raw": "lives.",
+          "start": 13.37,
+          "end": 13.61
+        },
+        {
+          "raw": "I've",
+          "start": 14.41,
+          "end": 14.55
+        },
+        {
+          "raw": "established",
+          "start": 14.55,
+          "end": 14.97
+        },
+        {
+          "raw": "myself",
+          "start": 14.97,
+          "end": 15.29
+        },
+        {
+          "raw": "in",
+          "start": 15.29,
+          "end": 15.57
+        },
+        {
+          "raw": "his",
+          "start": 15.57,
+          "end": 15.71
+        },
+        {
+          "raw": "room.",
+          "start": 15.71,
+          "end": 16.03
+        },
+        {
+          "raw": "Neither",
+          "start": 16.63,
+          "end": 16.73
+        },
+        {
+          "raw": "he",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "raw": "nor",
+          "start": 17.03,
+          "end": 17.17
+        },
+        {
+          "raw": "the",
+          "start": 17.17,
+          "end": 17.37
+        },
+        {
+          "raw": "women",
+          "start": 17.37,
+          "end": 17.55
+        },
+        {
+          "raw": "of",
+          "start": 17.55,
+          "end": 17.75
+        },
+        {
+          "raw": "the",
+          "start": 17.75,
+          "end": 17.85
+        },
+        {
+          "raw": "house",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "raw": "know",
+          "start": 18.13,
+          "end": 18.37
+        },
+        {
+          "raw": "the",
+          "start": 18.37,
+          "end": 18.53
+        },
+        {
+          "raw": "secret—that",
+          "start": 18.53,
+          "end": 19.45
+        },
+        {
+          "raw": "is,",
+          "start": 19.45,
+          "end": 19.73
+        },
+        {
+          "raw": "that",
+          "start": 19.91,
+          "end": 20.07
+        },
+        {
+          "raw": "I",
+          "start": 20.07,
+          "end": 20.23
+        },
+        {
+          "raw": "am",
+          "start": 20.23,
+          "end": 20.35
+        },
+        {
+          "raw": "on",
+          "start": 20.35,
+          "end": 20.47
+        },
+        {
+          "raw": "the",
+          "start": 20.47,
+          "end": 20.59
+        },
+        {
+          "raw": "watch",
+          "start": 20.59,
+          "end": 20.81
+        },
+        {
+          "raw": "here.",
+          "start": 20.81,
+          "end": 21.13
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "for",
+        "her.",
+        "Foma",
+        "has",
+        "a",
+        "room",
+        "in",
+        "the",
+        "house",
+        "of",
+        "these",
+        "sluts",
+        "here.",
+        "Foma",
+        "comes",
+        "from",
+        "our",
+        "parts;",
+        "he",
+        "was",
+        "a",
+        "soldier",
+        "in",
+        "our",
+        "regiment.",
+        "He",
+        "does",
+        "jobs",
+        "for",
+        "them.",
+        "He's",
+        "watchman",
+        "at",
+        "night",
+        "and",
+        "goes",
+        "grouse-shooting",
+        "in",
+        "the",
+        "day-time;",
+        "and",
+        "that's",
+        "how",
+        "he",
+        "lives.",
+        "I've",
+        "established",
+        "myself",
+        "in",
+        "his",
+        "room.",
+        "Neither",
+        "he",
+        "nor",
+        "the",
+        "women",
+        "of",
+        "the",
+        "house",
+        "know",
+        "the",
+        "secret—that",
+        "is,",
+        "that",
+        "I",
+        "am",
+        "on",
+        "the",
+        "watch",
+        "here.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          71,
+          0,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.83,
+          "end": 0.95,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 0.95,
+          "end": 1.17,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Foma",
+          "start": 1.83,
+          "end": 1.93,
+          "key": "foma",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.93,
+          "end": 2.17,
+          "key": "has",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "room",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "room",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.71,
+          "end": 2.79,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 2.79,
+          "end": 2.95,
+          "key": "house",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.95,
+          "end": 3.13,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.13,
+          "end": 3.29,
+          "key": "these",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sluts",
+          "start": 3.29,
+          "end": 3.65,
+          "key": "sluts",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 3.65,
+          "end": 3.93,
+          "key": "here",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Foma",
+          "start": 4.59,
+          "end": 4.73,
+          "key": "foma",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 4.73,
+          "end": 4.97,
+          "key": "comes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.97,
+          "end": 5.17,
+          "key": "from",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.17,
+          "end": 5.33,
+          "key": "our",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "parts.",
+          "start": 5.33,
+          "end": 5.63,
+          "key": "parts",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 5.87,
+          "end": 5.95,
+          "key": "he",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.95,
+          "end": 6.07,
+          "key": "was",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.07,
+          "end": 6.23,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "soldier",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.51,
+          "end": 6.79,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 6.79,
+          "end": 6.93,
+          "key": "our",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "regiment.",
+          "start": 6.93,
+          "end": 7.17,
+          "key": "regiment",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 7.79,
+          "end": 7.89,
+          "key": "he",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 7.89,
+          "end": 8.09,
+          "key": "does",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "jobs",
+          "start": 8.09,
+          "end": 8.43,
+          "key": "jobs",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.43,
+          "end": 8.69,
+          "key": "for",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 8.69,
+          "end": 8.93,
+          "key": "them",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 9.37,
+          "end": 9.57,
+          "key": "hes",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "watchman",
+          "start": 9.57,
+          "end": 9.95,
+          "key": "watchman",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 9.95,
+          "end": 10.11,
+          "key": "at",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 10.11,
+          "end": 10.33,
+          "key": "night",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 10.33,
+          "end": 10.55,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 10.55,
+          "end": 10.83,
+          "key": "goes",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "grouse -shooting",
+          "start": 10.83,
+          "end": 11.55,
+          "key": "grouseshooting",
+          "pieces": [
+            37,
+            38
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.55,
+          "end": 11.73,
+          "key": "in",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.73,
+          "end": 11.85,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "day -time,",
+          "start": 11.85,
+          "end": 12.37,
+          "key": "daytime",
+          "pieces": [
+            41,
+            42
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.69,
+          "end": 12.83,
+          "key": "and",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 12.83,
+          "end": 13.07,
+          "key": "thats",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 13.07,
+          "end": 13.21,
+          "key": "how",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 13.21,
+          "end": 13.37,
+          "key": "he",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "lives.",
+          "start": 13.37,
+          "end": 13.61,
+          "key": "lives",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "I've",
+          "start": 14.41,
+          "end": 14.55,
+          "key": "ive",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "established",
+          "start": 14.55,
+          "end": 14.97,
+          "key": "established",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 14.97,
+          "end": 15.29,
+          "key": "myself",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.29,
+          "end": 15.57,
+          "key": "in",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 15.57,
+          "end": 15.71,
+          "key": "his",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "room.",
+          "start": 15.71,
+          "end": 16.03,
+          "key": "room",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Neither",
+          "start": 16.63,
+          "end": 16.73,
+          "key": "neither",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 16.73,
+          "end": 17.03,
+          "key": "he",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 17.03,
+          "end": 17.17,
+          "key": "nor",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.17,
+          "end": 17.37,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "women",
+          "start": 17.37,
+          "end": 17.55,
+          "key": "women",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 17.55,
+          "end": 17.75,
+          "key": "of",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.75,
+          "end": 17.85,
+          "key": "the",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 17.85,
+          "end": 18.13,
+          "key": "house",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 18.13,
+          "end": 18.37,
+          "key": "know",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 18.37,
+          "end": 18.53,
+          "key": "the",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "secret—that",
+          "start": 18.53,
+          "end": 19.45,
+          "key": "secretthat",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 19.45,
+          "end": 19.73,
+          "key": "is",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 19.91,
+          "end": 20.07,
+          "key": "that",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 20.07,
+          "end": 20.23,
+          "key": "i",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 20.23,
+          "end": 20.35,
+          "key": "am",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 20.35,
+          "end": 20.47,
+          "key": "on",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.47,
+          "end": 20.59,
+          "key": "the",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 20.59,
+          "end": 20.81,
+          "key": "watch",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 20.81,
+          "end": 21.13,
+          "key": "here",
+          "pieces": [
+            72
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 37,
+          "text": "grouse-shooting",
+          "heard": "grouse -shooting",
+          "heard_indexes": [
+            37,
+            38
+          ],
+          "start": 10.83,
+          "end": 11.55
+        },
+        {
+          "expected_index": 40,
+          "text": "day-time;",
+          "heard": "day -time,",
+          "heard_indexes": [
+            41,
+            42
+          ],
+          "start": 11.85,
+          "end": 12.37
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "for",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "text": "her.",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "text": "Foma",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "text": "has",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "text": "a",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "room",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "in",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "text": "the",
+          "start": 2.71,
+          "end": 2.79
+        },
+        {
+          "text": "house",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "text": "of",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "these",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "text": "sluts",
+          "start": 3.29,
+          "end": 3.65
+        },
+        {
+          "text": "here.",
+          "start": 3.65,
+          "end": 3.93
+        },
+        {
+          "text": "Foma",
+          "start": 4.59,
+          "end": 4.73
+        },
+        {
+          "text": "comes",
+          "start": 4.73,
+          "end": 4.97
+        },
+        {
+          "text": "from",
+          "start": 4.97,
+          "end": 5.17
+        },
+        {
+          "text": "our",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "text": "parts;",
+          "start": 5.33,
+          "end": 5.63
+        },
+        {
+          "text": "he",
+          "start": 5.87,
+          "end": 5.95
+        },
+        {
+          "text": "was",
+          "start": 5.95,
+          "end": 6.07
+        },
+        {
+          "text": "a",
+          "start": 6.07,
+          "end": 6.23
+        },
+        {
+          "text": "soldier",
+          "start": 6.23,
+          "end": 6.51
+        },
+        {
+          "text": "in",
+          "start": 6.51,
+          "end": 6.79
+        },
+        {
+          "text": "our",
+          "start": 6.79,
+          "end": 6.93
+        },
+        {
+          "text": "regiment.",
+          "start": 6.93,
+          "end": 7.17
+        },
+        {
+          "text": "He",
+          "start": 7.79,
+          "end": 7.89
+        },
+        {
+          "text": "does",
+          "start": 7.89,
+          "end": 8.09
+        },
+        {
+          "text": "jobs",
+          "start": 8.09,
+          "end": 8.43
+        },
+        {
+          "text": "for",
+          "start": 8.43,
+          "end": 8.69
+        },
+        {
+          "text": "them.",
+          "start": 8.69,
+          "end": 8.93
+        },
+        {
+          "text": "He's",
+          "start": 9.37,
+          "end": 9.57
+        },
+        {
+          "text": "watchman",
+          "start": 9.57,
+          "end": 9.95
+        },
+        {
+          "text": "at",
+          "start": 9.95,
+          "end": 10.11
+        },
+        {
+          "text": "night",
+          "start": 10.11,
+          "end": 10.33
+        },
+        {
+          "text": "and",
+          "start": 10.33,
+          "end": 10.55
+        },
+        {
+          "text": "goes",
+          "start": 10.55,
+          "end": 10.83
+        },
+        {
+          "text": "grouse-shooting",
+          "start": 10.83,
+          "end": 11.55
+        },
+        {
+          "text": "in",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "text": "the",
+          "start": 11.73,
+          "end": 11.85
+        },
+        {
+          "text": "day-time;",
+          "start": 11.85,
+          "end": 12.37
+        },
+        {
+          "text": "and",
+          "start": 12.69,
+          "end": 12.83
+        },
+        {
+          "text": "that's",
+          "start": 12.83,
+          "end": 13.07
+        },
+        {
+          "text": "how",
+          "start": 13.07,
+          "end": 13.21
+        },
+        {
+          "text": "he",
+          "start": 13.21,
+          "end": 13.37
+        },
+        {
+          "text": "lives.",
+          "start": 13.37,
+          "end": 13.61
+        },
+        {
+          "text": "I've",
+          "start": 14.41,
+          "end": 14.55
+        },
+        {
+          "text": "established",
+          "start": 14.55,
+          "end": 14.97
+        },
+        {
+          "text": "myself",
+          "start": 14.97,
+          "end": 15.29
+        },
+        {
+          "text": "in",
+          "start": 15.29,
+          "end": 15.57
+        },
+        {
+          "text": "his",
+          "start": 15.57,
+          "end": 15.71
+        },
+        {
+          "text": "room.",
+          "start": 15.71,
+          "end": 16.03
+        },
+        {
+          "text": "Neither",
+          "start": 16.63,
+          "end": 16.73
+        },
+        {
+          "text": "he",
+          "start": 16.73,
+          "end": 17.03
+        },
+        {
+          "text": "nor",
+          "start": 17.03,
+          "end": 17.17
+        },
+        {
+          "text": "the",
+          "start": 17.17,
+          "end": 17.37
+        },
+        {
+          "text": "women",
+          "start": 17.37,
+          "end": 17.55
+        },
+        {
+          "text": "of",
+          "start": 17.55,
+          "end": 17.75
+        },
+        {
+          "text": "the",
+          "start": 17.75,
+          "end": 17.85
+        },
+        {
+          "text": "house",
+          "start": 17.85,
+          "end": 18.13
+        },
+        {
+          "text": "know",
+          "start": 18.13,
+          "end": 18.37
+        },
+        {
+          "text": "the",
+          "start": 18.37,
+          "end": 18.53
+        },
+        {
+          "text": "secret—that",
+          "start": 18.53,
+          "end": 19.45
+        },
+        {
+          "text": "is,",
+          "start": 19.45,
+          "end": 19.73
+        },
+        {
+          "text": "that",
+          "start": 19.91,
+          "end": 20.07
+        },
+        {
+          "text": "I",
+          "start": 20.07,
+          "end": 20.23
+        },
+        {
+          "text": "am",
+          "start": 20.23,
+          "end": 20.35
+        },
+        {
+          "text": "on",
+          "start": 20.35,
+          "end": 20.47
+        },
+        {
+          "text": "the",
+          "start": 20.47,
+          "end": 20.59
+        },
+        {
+          "text": "watch",
+          "start": 20.59,
+          "end": 20.81
+        },
+        {
+          "text": "here.\"",
+          "start": 20.81,
+          "end": 21.13
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 71,
+        "matched_words": 71
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6512172371149063
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "875d47bef4b92006b408095da203b8da0c8f2106f1c4768b429abb7a9706f8c4",
+  "selected_reasons": []
+}

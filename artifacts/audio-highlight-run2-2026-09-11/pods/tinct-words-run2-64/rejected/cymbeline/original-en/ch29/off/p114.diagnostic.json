@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "fd83b77b02af84d9b2ccd81562d671f88363a14e94b2be8e3c144e14bbe05add",
+  "attempts": [
+    {
+      "asr_seconds": 0.13697088416665792,
+      "alignment_seconds": 0.00037907250225543976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gaidrias, and our good his.",
+          "start": 0.55,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Gaidrias,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.490386962890625
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " our",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " good",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.859375
+            },
+            {
+              "text": " his.",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.646484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gaidrias,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "our",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "good",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "his.",
+          "start": 1.65,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "And",
+        "our",
+        "good",
+        "his."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gaidrias,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "gaidrias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "our",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his.",
+          "start": 1.65,
+          "end": 1.91,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.0,
+          "end": 0.635
+        },
+        {
+          "text": "And",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "our",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "good",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "his.",
+          "start": 1.65,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13747783936560154
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "806b8559be94d93cb7914493bd360553f3634dbbb601188654ae106586a00ef9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

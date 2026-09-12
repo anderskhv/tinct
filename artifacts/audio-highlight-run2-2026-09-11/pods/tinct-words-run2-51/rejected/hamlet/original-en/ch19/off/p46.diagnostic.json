@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "d161d1f5db8c12c262944cf9949566c09d7e1fc572ed70ce480c0a614950e1f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.24008207488805056,
+      "alignment_seconds": 0.000385957770049572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet is not parchment made of sheepskins.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.947021484375
+            },
+            {
+              "text": " is",
+              "start": 0.83,
+              "end": 1.29,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " not",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " parchment",
+              "start": 1.47,
+              "end": 1.85,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " made",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sheepskins.",
+              "start": 2.21,
+              "end": 2.73,
+              "probability": 0.819580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "is",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "raw": "not",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "parchment",
+          "start": 1.47,
+          "end": 1.85
+        },
+        {
+          "raw": "made",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "sheepskins.",
+          "start": 2.21,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Is",
+        "not",
+        "parchment",
+        "made",
+        "of",
+        "sheep-skins?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.83,
+          "end": 1.29,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "parchment",
+          "start": 1.47,
+          "end": 1.85,
+          "key": "parchment",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "made",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sheepskins.",
+          "start": 2.21,
+          "end": 2.73,
+          "key": "sheepskins",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Is",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "text": "not",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "parchment",
+          "start": 1.47,
+          "end": 1.85
+        },
+        {
+          "text": "made",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "of",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "sheep-skins?",
+          "start": 2.21,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2406067969277501
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "18931958383077066dd65e69803547bd608ec1e4ad83b2ebed83c35a32f61d94",
+  "selected_reasons": []
+}

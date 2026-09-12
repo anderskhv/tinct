@@ -1,0 +1,422 @@
+{
+  "complete": true,
+  "signature": "3dc27c284815fa67c81f7fb17513a9481ab50930736267f66eb1a5116c36719c",
+  "attempts": [
+    {
+      "asr_seconds": 0.15332238748669624,
+      "alignment_seconds": 0.0003729797899723053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[4] i.e. setter dog."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 4. i.e. setter dog.",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " 4.",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.013519287109375
+            },
+            {
+              "text": " i",
+              "start": 0.8,
+              "end": 0.84,
+              "probability": 0.0257110595703125
+            },
+            {
+              "text": ".e.",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.28289031982421875
+            },
+            {
+              "text": " setter",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.537445068359375
+            },
+            {
+              "text": " dog.",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.91796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "4.",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "i",
+          "start": 0.8,
+          "end": 0.84
+        },
+        {
+          "raw": ".e.",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "setter",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "dog.",
+          "start": 1.28,
+          "end": 1.56
+        }
+      ],
+      "expected_tokens": [
+        "[4]",
+        "i.e.",
+        "setter",
+        "dog."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          3,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "4.",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "four",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "i",
+          "start": 0.8,
+          "end": 0.84,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": ".e.",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "e",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "setter",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "setter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dog.",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "dog",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[4]",
+          "start": 0.0,
+          "end": 0.55
+        },
+        {
+          "text": "i.e.",
+          "start": 0.55,
+          "end": 0.825
+        },
+        {
+          "text": "setter",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "dog.",
+          "start": 1.28,
+          "end": 1.56
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15382039174437523
+    },
+    {
+      "asr_seconds": 0.13743385300040245,
+      "alignment_seconds": 0.0004526861011981964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " For IE Setter Dog",
+          "start": 0.08,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " For",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.5703125
+            },
+            {
+              "text": " IE",
+              "start": 0.6,
+              "end": 0.92,
+              "probability": 0.33935546875
+            },
+            {
+              "text": " Setter",
+              "start": 0.92,
+              "end": 1.28,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " Dog",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.68603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "For",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "IE",
+          "start": 0.6,
+          "end": 0.92
+        },
+        {
+          "raw": "Setter",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "raw": "Dog",
+          "start": 1.28,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "[4]",
+        "i.e.",
+        "setter",
+        "dog."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          3,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "For",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "for",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "IE",
+          "start": 0.6,
+          "end": 0.92,
+          "key": "ie",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Setter",
+          "start": 0.92,
+          "end": 1.28,
+          "key": "setter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dog",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "dog",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[4]",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "i.e.",
+          "start": 0.6,
+          "end": 0.92
+        },
+        {
+          "text": "setter",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "text": "dog.",
+          "start": 1.28,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13800551369786263
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "89b3b827e1b893a92f2ab152b9ca8857318f8e838ae694adbf620e2c1d721ea6",
+  "selected_reasons": []
+}

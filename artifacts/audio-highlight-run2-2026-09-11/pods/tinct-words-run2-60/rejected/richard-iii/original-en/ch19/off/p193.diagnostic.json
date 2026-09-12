@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "7e7580fd75add627a16e3a2783c0f13b75cdac02f761a05ebebb0582d60eddb4",
+  "attempts": [
+    {
+      "asr_seconds": 0.354190144687891,
+      "alignment_seconds": 0.0005244240164756775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard cold friends to me. What do they in the north when they should serve their sovereign in the west?",
+          "start": 0.0,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " Richard",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " cold",
+              "start": 0.96,
+              "end": 1.72,
+              "probability": 0.06121826171875
+            },
+            {
+              "text": " friends",
+              "start": 1.72,
+              "end": 2.16,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " to",
+              "start": 2.16,
+              "end": 2.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me.",
+              "start": 2.36,
+              "end": 2.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " What",
+              "start": 2.74,
+              "end": 3.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " do",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " they",
+              "start": 3.28,
+              "end": 3.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.4,
+              "end": 3.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.52,
+              "end": 3.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " north",
+              "start": 3.64,
+              "end": 3.86,
+              "probability": 0.794921875
+            },
+            {
+              "text": " when",
+              "start": 3.86,
+              "end": 4.18,
+              "probability": 0.966796875
+            },
+            {
+              "text": " they",
+              "start": 4.18,
+              "end": 4.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " should",
+              "start": 4.32,
+              "end": 4.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " serve",
+              "start": 4.48,
+              "end": 4.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 4.78,
+              "end": 4.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " sovereign",
+              "start": 4.98,
+              "end": 5.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 5.6,
+              "end": 5.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " west?",
+              "start": 5.7,
+              "end": 5.92,
+              "probability": 0.52294921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "Richard",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "cold",
+          "start": 0.96,
+          "end": 1.72
+        },
+        {
+          "raw": "friends",
+          "start": 1.72,
+          "end": 2.16
+        },
+        {
+          "raw": "to",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "raw": "me.",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "raw": "What",
+          "start": 2.74,
+          "end": 3.16
+        },
+        {
+          "raw": "do",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "they",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "raw": "in",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "raw": "the",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "raw": "north",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "raw": "when",
+          "start": 3.86,
+          "end": 4.18
+        },
+        {
+          "raw": "they",
+          "start": 4.18,
+          "end": 4.32
+        },
+        {
+          "raw": "should",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "raw": "serve",
+          "start": 4.48,
+          "end": 4.78
+        },
+        {
+          "raw": "their",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "raw": "sovereign",
+          "start": 4.98,
+          "end": 5.42
+        },
+        {
+          "raw": "in",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "raw": "west?",
+          "start": 5.7,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Cold",
+        "friends",
+        "to",
+        "me.",
+        "What",
+        "do",
+        "they",
+        "in",
+        "the",
+        "north,",
+        "When",
+        "they",
+        "should",
+        "serve",
+        "their",
+        "sovereign",
+        "in",
+        "the",
+        "west?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 0.96,
+          "end": 1.72,
+          "key": "cold",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 1.72,
+          "end": 2.16,
+          "key": "friends",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.16,
+          "end": 2.36,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.36,
+          "end": 2.72,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.74,
+          "end": 3.16,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.28,
+          "end": 3.4,
+          "key": "they",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.4,
+          "end": 3.52,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.52,
+          "end": 3.64,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "north",
+          "start": 3.64,
+          "end": 3.86,
+          "key": "north",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.86,
+          "end": 4.18,
+          "key": "when",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.18,
+          "end": 4.32,
+          "key": "they",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.32,
+          "end": 4.48,
+          "key": "should",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "serve",
+          "start": 4.48,
+          "end": 4.78,
+          "key": "serve",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.78,
+          "end": 4.98,
+          "key": "their",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sovereign",
+          "start": 4.98,
+          "end": 5.42,
+          "key": "sovereign",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.42,
+          "end": 5.6,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.6,
+          "end": 5.7,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "west?",
+          "start": 5.7,
+          "end": 5.92,
+          "key": "west",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "Richard.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "Cold",
+          "start": 0.96,
+          "end": 1.72
+        },
+        {
+          "text": "friends",
+          "start": 1.72,
+          "end": 2.16
+        },
+        {
+          "text": "to",
+          "start": 2.16,
+          "end": 2.36
+        },
+        {
+          "text": "me.",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "text": "What",
+          "start": 2.74,
+          "end": 3.16
+        },
+        {
+          "text": "do",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "text": "they",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "text": "in",
+          "start": 3.4,
+          "end": 3.52
+        },
+        {
+          "text": "the",
+          "start": 3.52,
+          "end": 3.64
+        },
+        {
+          "text": "north,",
+          "start": 3.64,
+          "end": 3.86
+        },
+        {
+          "text": "When",
+          "start": 3.86,
+          "end": 4.18
+        },
+        {
+          "text": "they",
+          "start": 4.18,
+          "end": 4.32
+        },
+        {
+          "text": "should",
+          "start": 4.32,
+          "end": 4.48
+        },
+        {
+          "text": "serve",
+          "start": 4.48,
+          "end": 4.78
+        },
+        {
+          "text": "their",
+          "start": 4.78,
+          "end": 4.98
+        },
+        {
+          "text": "sovereign",
+          "start": 4.98,
+          "end": 5.42
+        },
+        {
+          "text": "in",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "text": "the",
+          "start": 5.6,
+          "end": 5.7
+        },
+        {
+          "text": "west?",
+          "start": 5.7,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3549751937389374
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c91ac04a3a89a063302ce09b39d4bdac2bf3e7b822056b896117c1071f708737",
+  "selected_reasons": []
+}

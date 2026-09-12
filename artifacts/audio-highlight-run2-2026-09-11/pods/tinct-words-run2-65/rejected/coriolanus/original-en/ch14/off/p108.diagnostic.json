@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "dbdfe582c8cd03a7bc9d91526beac4fb6e0c154aa59525c9199c74fd9fda7efe",
+  "attempts": [
+    {
+      "asr_seconds": 0.14070517383515835,
+      "alignment_seconds": 0.00020677689462900162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All plebeians, yield, Martius, yield.",
+          "start": 0.08,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.857421875
+            },
+            {
+              "text": " plebeians,",
+              "start": 0.58,
+              "end": 1.16,
+              "probability": 0.9830729166666666
+            },
+            {
+              "text": " yield,",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " Martius,",
+              "start": 1.92,
+              "end": 2.3,
+              "probability": 0.638671875
+            },
+            {
+              "text": " yield.",
+              "start": 2.44,
+              "end": 2.66,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "plebeians,",
+          "start": 0.58,
+          "end": 1.16
+        },
+        {
+          "raw": "yield,",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "Martius,",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "raw": "yield.",
+          "start": 2.44,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "Plebeians.",
+        "Yield,",
+        "Martius,",
+        "yield!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "plebeians,",
+          "start": 0.58,
+          "end": 1.16,
+          "key": "plebeians",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yield,",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "yield",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Martius,",
+          "start": 1.92,
+          "end": 2.3,
+          "key": "martius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yield.",
+          "start": 2.44,
+          "end": 2.66,
+          "key": "yield",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Plebeians.",
+          "start": 0.58,
+          "end": 1.16
+        },
+        {
+          "text": "Yield,",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "Martius,",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "text": "yield!",
+          "start": 2.44,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17815693514421582
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d824c1443c92174130ccbec0ce28820feced7288a05100fd520a4b8364bec376",
+  "selected_reasons": []
+}

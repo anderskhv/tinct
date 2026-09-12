@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "70b37e41a331b25fb9f8eb5113f6ec2a0ad69a31ae85201b040edbdfca0ca0d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.21298388112336397,
+      "alignment_seconds": 0.000620134174823761,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your honor will be satisfied with her. Is it for a sea excursion?",
+          "start": 0.02,
+          "end": 3.7,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " honor",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " will",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 1.04,
+              "end": 1.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " satisfied",
+              "start": 1.18,
+              "end": 1.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her.",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Is",
+              "start": 2.44,
+              "end": 2.64,
+              "probability": 0.98828125
+            },
+            {
+              "text": " it",
+              "start": 2.64,
+              "end": 2.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sea",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " excursion?",
+              "start": 3.2,
+              "end": 3.7,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "honor",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "raw": "will",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "be",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "raw": "satisfied",
+          "start": 1.18,
+          "end": 1.66
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "her.",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "Is",
+          "start": 2.44,
+          "end": 2.64
+        },
+        {
+          "raw": "it",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "raw": "for",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "sea",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "excursion?",
+          "start": 3.2,
+          "end": 3.7
+        }
+      ],
+      "expected_tokens": [
+        "\"Your",
+        "honour",
+        "will",
+        "be",
+        "satisfied",
+        "with",
+        "her.",
+        "Is",
+        "it",
+        "for",
+        "a",
+        "sea",
+        "excursion?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          13,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "honor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.04,
+          "end": 1.18,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "satisfied",
+          "start": 1.18,
+          "end": 1.66,
+          "key": "satisfied",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "her",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.44,
+          "end": 2.64,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.64,
+          "end": 2.74,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sea",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "sea",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "excursion?",
+          "start": 3.2,
+          "end": 3.7,
+          "key": "excursion",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Your",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "honour",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "will",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "be",
+          "start": 1.04,
+          "end": 1.18
+        },
+        {
+          "text": "satisfied",
+          "start": 1.18,
+          "end": 1.66
+        },
+        {
+          "text": "with",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "text": "her.",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "Is",
+          "start": 2.44,
+          "end": 2.64
+        },
+        {
+          "text": "it",
+          "start": 2.64,
+          "end": 2.74
+        },
+        {
+          "text": "for",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "a",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "sea",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "excursion?\"",
+          "start": 3.2,
+          "end": 3.7
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.21383889485150576
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1d7deeb9794510cc77946250d04f00d3f3de47b6ac2dabade5e2344b74c321d6",
+  "selected_reasons": []
+}

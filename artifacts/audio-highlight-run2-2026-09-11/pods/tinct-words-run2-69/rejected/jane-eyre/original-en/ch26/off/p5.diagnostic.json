@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "6bc429cb4b66cf094de661298ff5d71608ebfc1a4fff892b79c4ed4a5ddc54cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.199383364059031,
+      "alignment_seconds": 0.00039467960596084595,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Is John getting the carriage ready?",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.89453125
+            },
+            {
+              "text": " John",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " getting",
+              "start": 0.81,
+              "end": 1.09,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " carriage",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ready?",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "John",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "getting",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "raw": "the",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "carriage",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "ready?",
+          "start": 1.57,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "John",
+        "getting",
+        "the",
+        "carriage",
+        "ready?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 0.55,
+          "end": 0.81,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "getting",
+          "start": 0.81,
+          "end": 1.09,
+          "key": "getting",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "carriage",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ready?",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "ready",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "John",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "getting",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "text": "the",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "carriage",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "ready?\"",
+          "start": 1.57,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1999204596504569
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0133cb994f63e97dbb81a1c19312ea0501704d83bf54de3854ca242f24d89129",
+  "selected_reasons": []
+}

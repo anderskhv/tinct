@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "d397f3a259c042d057a1a55513f8195d389d92177bd45a4b9dc5c95851be3c3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19427841808646917,
+      "alignment_seconds": 0.00022423453629016876,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[To Laertes]",
+        "hotwords": "To, Laertes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To, Laertes",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " To,",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.0919189453125
+            },
+            {
+              "text": " Laertes",
+              "start": 0.58,
+              "end": 1.5,
+              "probability": 0.4724070231119792
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To,",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Laertes",
+          "start": 0.58,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "[To",
+        "Laertes]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To,",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Laertes",
+          "start": 0.58,
+          "end": 1.5,
+          "key": "laertes",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Laertes]",
+          "start": 0.58,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19457418657839298
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b52d95f513e69b8e8032041d222cb3bdc1539aad73831e26fb5c4fec36267d0d",
+  "selected_reasons": []
+}

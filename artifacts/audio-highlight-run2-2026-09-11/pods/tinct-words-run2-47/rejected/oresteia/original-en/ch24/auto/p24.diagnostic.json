@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "5df95f0a7b9e09d30f46286da429d29102c3b1e5ad34ab8cc4418fd4ceed126f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2378126920084469,
+      "alignment_seconds": 0.00042922800639644265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Chorus. She was not kin by blood to him she slew.",
+        "hotwords": "Chorus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Chorus. She was not kin by blood to him she slew.",
+          "start": 0.08,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " Chorus.",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.6551513671875
+            },
+            {
+              "text": " She",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " was",
+              "start": 1.36,
+              "end": 1.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " kin",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.796875
+            },
+            {
+              "text": " by",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.677734375
+            },
+            {
+              "text": " blood",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " him",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " she",
+              "start": 2.54,
+              "end": 2.76,
+              "probability": 0.322265625
+            },
+            {
+              "text": " slew.",
+              "start": 2.76,
+              "end": 3.02,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "She",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "was",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "raw": "not",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "kin",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "by",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "raw": "blood",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "to",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "him",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "she",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "raw": "slew.",
+          "start": 2.76,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "She",
+        "was",
+        "not",
+        "kin",
+        "by",
+        "blood",
+        "to",
+        "him",
+        "she",
+        "slew."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus.",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.36,
+          "end": 1.44,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "kin",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "kin",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blood",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "blood",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.42,
+          "end": 2.54,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.54,
+          "end": 2.76,
+          "key": "she",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "slew.",
+          "start": 2.76,
+          "end": 3.02,
+          "key": "slew",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "She",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "was",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "text": "not",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "kin",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "by",
+          "start": 1.8,
+          "end": 2.04
+        },
+        {
+          "text": "blood",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "to",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "him",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "text": "she",
+          "start": 2.54,
+          "end": 2.76
+        },
+        {
+          "text": "slew.",
+          "start": 2.76,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23841525200987235
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b73e7b786356ab2a691761f86b7eb9933901cdbbfb9ce46a893d5c96a45631fa",
+  "selected_reasons": []
+}

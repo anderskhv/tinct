@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "e9a62fd7fb11bdd6044f8a9593c57eaa2ad8c7c0612340b999a564cf00672324",
+  "attempts": [
+    {
+      "asr_seconds": 0.12168968841433525,
+      "alignment_seconds": 0.0004065297544002533,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And she snatched up her cape.",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And she snatched up her cape.",
+          "start": 0.08,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.359130859375
+            },
+            {
+              "text": " she",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " snatched",
+              "start": 0.64,
+              "end": 1.0,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " up",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " her",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cape.",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "she",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "snatched",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "raw": "up",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "her",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "cape.",
+          "start": 1.3,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "she",
+        "snatched",
+        "up",
+        "her",
+        "cape."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "snatched",
+          "start": 0.64,
+          "end": 1.0,
+          "key": "snatched",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "up",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cape.",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "cape",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "she",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "snatched",
+          "start": 0.64,
+          "end": 1.0
+        },
+        {
+          "text": "up",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "her",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "cape.",
+          "start": 1.3,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12224762886762619
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1df7520a6d8d4d0449369a13a29d5a1ff6d7f2818d4db7d350d1ecef665a312",
+  "selected_reasons": []
+}

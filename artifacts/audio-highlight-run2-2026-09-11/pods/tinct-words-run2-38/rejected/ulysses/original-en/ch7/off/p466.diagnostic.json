@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "a2f5104c97901aa058799653b4e67066f175c0413c2fcf490e3cfc9768d237c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12735200102906674,
+      "alignment_seconds": 0.00018800102407112718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Another newsboy shot past them, yelling as he ran.",
+          "start": 0.08,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " Another",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " newsboy",
+              "start": 0.66,
+              "end": 1.12,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " shot",
+              "start": 1.12,
+              "end": 1.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " past",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.958984375
+            },
+            {
+              "text": " them,",
+              "start": 1.72,
+              "end": 2.06,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " yelling",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " as",
+              "start": 2.6,
+              "end": 2.88,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 2.88,
+              "end": 3.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ran.",
+              "start": 3.02,
+              "end": 3.3,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Another",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "newsboy",
+          "start": 0.66,
+          "end": 1.12
+        },
+        {
+          "raw": "shot",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "raw": "past",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "raw": "them,",
+          "start": 1.72,
+          "end": 2.06
+        },
+        {
+          "raw": "yelling",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "as",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "raw": "he",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "raw": "ran.",
+          "start": 3.02,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "Another",
+        "newsboy",
+        "shot",
+        "past",
+        "them,",
+        "yelling",
+        "as",
+        "he",
+        "ran:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Another",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "another",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "newsboy",
+          "start": 0.66,
+          "end": 1.12,
+          "key": "newsboy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shot",
+          "start": 1.12,
+          "end": 1.42,
+          "key": "shot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "past",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 1.72,
+          "end": 2.06,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "yelling",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "yelling",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.6,
+          "end": 2.88,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.88,
+          "end": 3.02,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ran.",
+          "start": 3.02,
+          "end": 3.3,
+          "key": "ran",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Another",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "newsboy",
+          "start": 0.66,
+          "end": 1.12
+        },
+        {
+          "text": "shot",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "text": "past",
+          "start": 1.42,
+          "end": 1.72
+        },
+        {
+          "text": "them,",
+          "start": 1.72,
+          "end": 2.06
+        },
+        {
+          "text": "yelling",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "as",
+          "start": 2.6,
+          "end": 2.88
+        },
+        {
+          "text": "he",
+          "start": 2.88,
+          "end": 3.02
+        },
+        {
+          "text": "ran:",
+          "start": 3.02,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1276161930290982
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "af6b9e7ca174f6cc1b3c9fdcb0b92d99bec96df0e256ee680a560f75c3c7185c",
+  "selected_reasons": []
+}

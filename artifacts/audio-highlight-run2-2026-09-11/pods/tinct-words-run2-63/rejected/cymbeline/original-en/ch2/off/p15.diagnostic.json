@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "58a6b9f6fc28e5032391ed845e0349ded08343292ce743f62ab466e639d1b6a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12503462098538876,
+      "alignment_seconds": 0.00038306601345539093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Puts a bracelet on her arm",
+          "start": 0.08,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Puts",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.6705322265625
+            },
+            {
+              "text": " a",
+              "start": 0.58,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bracelet",
+              "start": 0.7,
+              "end": 1.02,
+              "probability": 0.98828125
+            },
+            {
+              "text": " on",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " arm",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Puts",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "a",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "raw": "bracelet",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "raw": "on",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "her",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "arm",
+          "start": 1.36,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "[_Puts",
+        "a",
+        "bracelet",
+        "on",
+        "her",
+        "arm._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Puts",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "puts",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.58,
+          "end": 0.7,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bracelet",
+          "start": 0.7,
+          "end": 1.02,
+          "key": "bracelet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "arm",
+          "start": 1.36,
+          "end": 1.66,
+          "key": "arm",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Puts",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "a",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "text": "bracelet",
+          "start": 0.7,
+          "end": 1.02
+        },
+        {
+          "text": "on",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "her",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "arm._]",
+          "start": 1.36,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12559514679014683
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "34170e0039fc5e9589f6459958e562161974cc12479f22fcc09f48c1b00b8d05",
+  "selected_reasons": []
+}

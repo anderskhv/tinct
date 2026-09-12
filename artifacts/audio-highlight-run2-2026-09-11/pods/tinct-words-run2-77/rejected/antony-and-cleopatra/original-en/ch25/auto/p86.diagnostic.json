@@ -1,0 +1,656 @@
+{
+  "complete": true,
+  "signature": "c77fc9d70be875e3012ba63de8b4ba265afda87d287fa3c4aad3331f54789ba1",
+  "attempts": [
+    {
+      "asr_seconds": 0.11723877198528498,
+      "alignment_seconds": 0.0001355649728793651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt all but Enobarbus._]",
+        "hotwords": "Enobarbus._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt all but Enobarbus._",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.49289703369140625
+            },
+            {
+              "text": " all",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " but",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " Enobarbus._",
+              "start": 1.11,
+              "end": 2.33,
+              "probability": 0.23841270804405212
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "all",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "but",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "Enobarbus._",
+          "start": 1.11,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "all",
+        "but",
+        "Enobarbus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enobarbus._",
+          "start": 1.11,
+          "end": 2.33,
+          "key": "enobarbus_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "all",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "but",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "Enobarbus._]",
+          "start": 1.11,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1174201880057808
+    },
+    {
+      "asr_seconds": 0.12859328498598188,
+      "alignment_seconds": 0.00023866898845881224,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Enobarbus._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exune all but Enobarbus.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " Exune",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6885986328125
+            },
+            {
+              "text": " all",
+              "start": 0.77,
+              "end": 0.97,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " but",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " Enobarbus.",
+              "start": 1.11,
+              "end": 1.71,
+              "probability": 0.31656962633132935
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "all",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "raw": "but",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "Enobarbus.",
+          "start": 1.11,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "all",
+        "but",
+        "Enobarbus._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exune",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.77,
+          "end": 0.97,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enobarbus.",
+          "start": 1.11,
+          "end": 1.71,
+          "key": "enobarbus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.385
+        },
+        {
+          "text": "all",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "text": "but",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "Enobarbus._]",
+          "start": 1.11,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12890597598743625
+    },
+    {
+      "asr_seconds": 0.12725709800724871,
+      "alignment_seconds": 0.00022855799761600792,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exune all but a knob purpose.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Exune",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6885986328125
+            },
+            {
+              "text": " all",
+              "start": 0.77,
+              "end": 0.97,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " but",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " a",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " knob",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.7060546875
+            },
+            {
+              "text": " purpose.",
+              "start": 1.37,
+              "end": 1.63,
+              "probability": 0.15087890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "all",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "raw": "but",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "a",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "knob",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "purpose.",
+          "start": 1.37,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "all",
+        "but",
+        "Enobarbus._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exune",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.77,
+          "end": 0.97,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "knob",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "knob",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "purpose.",
+          "start": 1.37,
+          "end": 1.63,
+          "key": "purpose",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.385
+        },
+        {
+          "text": "all",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "text": "but",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "Enobarbus._]",
+          "start": 1.11,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12757294898619875
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "84d886fb2de963c99265e8f41cedb818df1f2a1ba577e753f8e0000632d00e2b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

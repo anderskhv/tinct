@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "816ac773c6b4a675606c4739f8c2253d36ac806ad32609126bb8b90b3c1d93e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16888850927352905,
+      "alignment_seconds": 0.00033433735370635986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Olivia with Malvolio",
+          "start": 0.14,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Olivia",
+              "start": 0.66,
+              "end": 0.96,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " with",
+              "start": 0.96,
+              "end": 1.3,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " Malvolio",
+              "start": 1.3,
+              "end": 1.94,
+              "probability": 0.8483072916666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "Olivia",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "raw": "with",
+          "start": 0.96,
+          "end": 1.3
+        },
+        {
+          "raw": "Malvolio",
+          "start": 1.3,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Olivia",
+        "with",
+        "Malvolio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Olivia",
+          "start": 0.66,
+          "end": 0.96,
+          "key": "olivia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.96,
+          "end": 1.3,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Malvolio",
+          "start": 1.3,
+          "end": 1.94,
+          "key": "malvolio",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Olivia",
+          "start": 0.66,
+          "end": 0.96
+        },
+        {
+          "text": "with",
+          "start": 0.96,
+          "end": 1.3
+        },
+        {
+          "text": "Malvolio.",
+          "start": 1.3,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16934505105018616
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "754c6c475391096c4c4d169a203c35a90f31af4bfdbbae04dd5b2bd12ba9695d",
+  "selected_reasons": []
+}

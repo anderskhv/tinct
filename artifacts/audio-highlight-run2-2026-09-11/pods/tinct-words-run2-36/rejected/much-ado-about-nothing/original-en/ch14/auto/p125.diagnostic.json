@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "0b7ab6788036eba7be3799bba595958c08667c089db1d915a6a328f9ca350f07",
+  "attempts": [
+    {
+      "asr_seconds": 0.20351848751306534,
+      "alignment_seconds": 0.0004196874797344208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[To the Watch.] Bring you these fellows on. We'll talk with",
+        "hotwords": "To, Watch, Bring, We'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " to the watch bring you these fellows on we'll talk with",
+          "start": 0.02,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " to",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.141357421875
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.630859375
+            },
+            {
+              "text": " watch",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " bring",
+              "start": 1.04,
+              "end": 1.6,
+              "probability": 0.3046875
+            },
+            {
+              "text": " you",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " these",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " fellows",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " on",
+              "start": 2.18,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " we'll",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " talk",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 3.08,
+              "end": 3.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "watch",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "raw": "bring",
+          "start": 1.04,
+          "end": 1.6
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "these",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "fellows",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "on",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "raw": "we'll",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "talk",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "raw": "with",
+          "start": 3.08,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "[To",
+        "the",
+        "Watch.]",
+        "Bring",
+        "you",
+        "these",
+        "fellows",
+        "on.",
+        "We'll",
+        "talk",
+        "with"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 0.64,
+          "end": 1.04,
+          "key": "watch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 1.04,
+          "end": 1.6,
+          "key": "bring",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "these",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fellows",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "fellows",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.18,
+          "end": 2.52,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we'll",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "talk",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.08,
+          "end": 3.38,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "Watch.]",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "text": "Bring",
+          "start": 1.04,
+          "end": 1.6
+        },
+        {
+          "text": "you",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "these",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "fellows",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "on.",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "text": "We'll",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "talk",
+          "start": 2.9,
+          "end": 3.08
+        },
+        {
+          "text": "with",
+          "start": 3.08,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20410653203725815
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "873207f8b8b1a39db657ef423c0904c82a5666aade353687cc134488e9e4d02d",
+  "selected_reasons": []
+}

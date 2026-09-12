@@ -1,0 +1,743 @@
+{
+  "complete": true,
+  "signature": "ca2094ecd0d98487198988dba344a559f9a6d70dd4522af105927d4d289c149f",
+  "attempts": [
+    {
+      "asr_seconds": 0.38634404726326466,
+      "alignment_seconds": 0.0007165325805544853,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bravo, Midia, you're a Trump Midia,\" cried Grushinka, and there was a note of fierce anger",
+          "start": 0.45,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Bravo,",
+              "start": 0.45,
+              "end": 0.81,
+              "probability": 0.0300140380859375
+            },
+            {
+              "text": " Midia,",
+              "start": 0.97,
+              "end": 1.21,
+              "probability": 0.596923828125
+            },
+            {
+              "text": " you're",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " a",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Trump",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Midia,\"",
+              "start": 2.13,
+              "end": 2.97,
+              "probability": 0.744873046875
+            },
+            {
+              "text": " cried",
+              "start": 2.97,
+              "end": 3.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Grushinka,",
+              "start": 3.29,
+              "end": 3.79,
+              "probability": 0.5140787760416666
+            },
+            {
+              "text": " and",
+              "start": 4.27,
+              "end": 4.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " there",
+              "start": 4.37,
+              "end": 4.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 4.47,
+              "end": 4.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.57,
+              "end": 4.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " note",
+              "start": 4.69,
+              "end": 4.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.85,
+              "end": 5.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " fierce",
+              "start": 5.01,
+              "end": 5.27,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " anger",
+              "start": 5.27,
+              "end": 5.73,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " in the exclamation.",
+          "start": 5.73,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " in",
+              "start": 5.73,
+              "end": 5.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.91,
+              "end": 6.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " exclamation.",
+              "start": 6.01,
+              "end": 6.51,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bravo,",
+          "start": 0.45,
+          "end": 0.81
+        },
+        {
+          "raw": "Midia,",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "raw": "you're",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "Trump",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "Midia,\"",
+          "start": 2.13,
+          "end": 2.97
+        },
+        {
+          "raw": "cried",
+          "start": 2.97,
+          "end": 3.29
+        },
+        {
+          "raw": "Grushinka,",
+          "start": 3.29,
+          "end": 3.79
+        },
+        {
+          "raw": "and",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "raw": "there",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "raw": "was",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "raw": "a",
+          "start": 4.57,
+          "end": 4.69
+        },
+        {
+          "raw": "note",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "raw": "of",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "raw": "fierce",
+          "start": 5.01,
+          "end": 5.27
+        },
+        {
+          "raw": "anger",
+          "start": 5.27,
+          "end": 5.73
+        },
+        {
+          "raw": "in",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "raw": "the",
+          "start": 5.91,
+          "end": 6.01
+        },
+        {
+          "raw": "exclamation.",
+          "start": 6.01,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "\"Bravo,",
+        "Mitya!",
+        "You're",
+        "a",
+        "trump,",
+        "Mitya!\"",
+        "cried",
+        "Grushenka,",
+        "and",
+        "there",
+        "was",
+        "a",
+        "note",
+        "of",
+        "fierce",
+        "anger",
+        "in",
+        "the",
+        "exclamation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          19,
+          8,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bravo,",
+          "start": 0.45,
+          "end": 0.81,
+          "key": "bravo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Midia,",
+          "start": 0.97,
+          "end": 1.21,
+          "key": "midia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "youre",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Trump",
+          "start": 1.95,
+          "end": 2.13,
+          "key": "trump",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Midia,\"",
+          "start": 2.13,
+          "end": 2.97,
+          "key": "midia",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.97,
+          "end": 3.29,
+          "key": "cried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Grushinka,",
+          "start": 3.29,
+          "end": 3.79,
+          "key": "grushinka",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.27,
+          "end": 4.37,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.37,
+          "end": 4.47,
+          "key": "there",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.47,
+          "end": 4.57,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.57,
+          "end": 4.69,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "note",
+          "start": 4.69,
+          "end": 4.85,
+          "key": "note",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.85,
+          "end": 5.01,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fierce",
+          "start": 5.01,
+          "end": 5.27,
+          "key": "fierce",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "anger",
+          "start": 5.27,
+          "end": 5.73,
+          "key": "anger",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.73,
+          "end": 5.91,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.91,
+          "end": 6.01,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "exclamation.",
+          "start": 6.01,
+          "end": 6.51,
+          "key": "exclamation",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Bravo,",
+          "start": 0.45,
+          "end": 0.81
+        },
+        {
+          "text": "Mitya!",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "text": "You're",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "a",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "trump,",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "Mitya!\"",
+          "start": 2.13,
+          "end": 2.55
+        },
+        {
+          "text": "cried",
+          "start": 2.97,
+          "end": 3.29
+        },
+        {
+          "text": "Grushenka,",
+          "start": 3.29,
+          "end": 3.78
+        },
+        {
+          "text": "and",
+          "start": 4.27,
+          "end": 4.37
+        },
+        {
+          "text": "there",
+          "start": 4.37,
+          "end": 4.47
+        },
+        {
+          "text": "was",
+          "start": 4.47,
+          "end": 4.57
+        },
+        {
+          "text": "a",
+          "start": 4.57,
+          "end": 4.69
+        },
+        {
+          "text": "note",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "text": "of",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "text": "fierce",
+          "start": 5.01,
+          "end": 5.27
+        },
+        {
+          "text": "anger",
+          "start": 5.27,
+          "end": 5.73
+        },
+        {
+          "text": "in",
+          "start": 5.73,
+          "end": 5.91
+        },
+        {
+          "text": "the",
+          "start": 5.91,
+          "end": 6.01
+        },
+        {
+          "text": "exclamation.",
+          "start": 6.01,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3873707251623273
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7935f227b0103e543fe1dbb19edf86c97cf2c9a62e2412860de08923ae31951",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

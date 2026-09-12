@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "db4702135538f5c474396da481011643c76c987820d20e1f15b7443bb63bf17a",
+  "attempts": [
+    {
+      "asr_seconds": 0.14488471392542124,
+      "alignment_seconds": 0.0003172669094055891,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. My lord—",
+        "hotwords": "Buckingham, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham, My Lord.",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " My",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.03558349609375
+            },
+            {
+              "text": " Lord.",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.87548828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "My",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "Lord.",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "My",
+        "lord—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord.",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "My",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "lord—",
+          "start": 1.27,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14530196995474398
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "98e7cbbaced7dab72112467aea891688d32b22933e992aea076edb1459b37c76",
+  "selected_reasons": []
+}

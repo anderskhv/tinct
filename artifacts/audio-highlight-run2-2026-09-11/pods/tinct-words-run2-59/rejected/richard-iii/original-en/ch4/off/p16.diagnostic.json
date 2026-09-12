@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "22083febaa0dd1d1a560d5d98d25e8672af88bdf676ca5fd89e5332de85abbc9",
+  "attempts": [
+    {
+      "asr_seconds": 0.20230760402046144,
+      "alignment_seconds": 0.00035940599627792835,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First murderer. Oh, who's here?",
+          "start": 0.08,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " murderer.",
+              "start": 0.66,
+              "end": 1.1,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " Oh,",
+              "start": 1.58,
+              "end": 1.64,
+              "probability": 0.1549072265625
+            },
+            {
+              "text": " who's",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " here?",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "murderer.",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.58,
+          "end": 1.64
+        },
+        {
+          "raw": "who's",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "here?",
+          "start": 1.94,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "Ho,",
+        "who's",
+        "here?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer.",
+          "start": 0.66,
+          "end": 1.1,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.58,
+          "end": 1.64,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "whos",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 1.94,
+          "end": 2.18,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.66,
+          "end": 1.1
+        },
+        {
+          "text": "Ho,",
+          "start": 1.1,
+          "end": 1.42
+        },
+        {
+          "text": "who's",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "here?",
+          "start": 1.94,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2027774800080806
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "363711a99d8381fd4c8af9a05da690aacbbc7ee0c6861620dad70dcfdc50a1e5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

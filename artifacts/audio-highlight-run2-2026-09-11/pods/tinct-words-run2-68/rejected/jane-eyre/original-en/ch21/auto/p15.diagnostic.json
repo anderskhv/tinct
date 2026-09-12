@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "bda799a0288c9f154be6ab5c4651d15e15faad01c85cafea65f49c4d615a9cb5",
+  "attempts": [
+    {
+      "asr_seconds": 0.16843897849321365,
+      "alignment_seconds": 0.00045680999755859375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I heard from Bessie he was not doing well.\"",
+        "hotwords": "I, Bessie"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I heard from Bessie he was not doing well.",
+          "start": 0.08,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " heard",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " from",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Bessie",
+              "start": 0.9,
+              "end": 1.3,
+              "probability": 0.9700520833333334
+            },
+            {
+              "text": " he",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.33251953125
+            },
+            {
+              "text": " was",
+              "start": 1.54,
+              "end": 1.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " not",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " doing",
+              "start": 1.8,
+              "end": 2.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " well.",
+              "start": 2.02,
+              "end": 2.34,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "heard",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "from",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "Bessie",
+          "start": 0.9,
+          "end": 1.3
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "was",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "raw": "not",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "doing",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "raw": "well.",
+          "start": 2.02,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "heard",
+        "from",
+        "Bessie",
+        "he",
+        "was",
+        "not",
+        "doing",
+        "well.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "heard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bessie",
+          "start": 0.9,
+          "end": 1.3,
+          "key": "bessie",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.54,
+          "end": 1.62,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "doing",
+          "start": 1.8,
+          "end": 2.02,
+          "key": "doing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 2.02,
+          "end": 2.34,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "heard",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "from",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "Bessie",
+          "start": 0.9,
+          "end": 1.3
+        },
+        {
+          "text": "he",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "was",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "text": "not",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "doing",
+          "start": 1.8,
+          "end": 2.02
+        },
+        {
+          "text": "well.\"",
+          "start": 2.02,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16907944902777672
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ef96b101416a64b93d5328ed342f37f278c6e9d1ac3b7f48392a0a2247e79ff",
+  "selected_reasons": []
+}

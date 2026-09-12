@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "777e97dc494f32ca90780d98dbeab1c9f47168bfee81f2ca1b03781de83dd53b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1494271350093186,
+      "alignment_seconds": 0.0002608619979582727,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The doorknob hit Mr Bloom in the small of the back as the door was pushed in.",
+        "hotwords": "Mr, Bloom"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The doorknob hit Mr Bloom in the small of the back as the door was pushed in.",
+          "start": 0.02,
+          "end": 4.56,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.94921875
+            },
+            {
+              "text": " doorknob",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.9510091145833334
+            },
+            {
+              "text": " hit",
+              "start": 0.86,
+              "end": 1.16,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Mr",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.49072265625
+            },
+            {
+              "text": " Bloom",
+              "start": 1.54,
+              "end": 1.94,
+              "probability": 0.032257080078125
+            },
+            {
+              "text": " in",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.93359375
+            },
+            {
+              "text": " the",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " small",
+              "start": 2.26,
+              "end": 2.52,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " of",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 2.68,
+              "end": 2.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " back",
+              "start": 2.78,
+              "end": 3.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 3.08,
+              "end": 3.5,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " the",
+              "start": 3.5,
+              "end": 3.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " door",
+              "start": 3.62,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 3.78,
+              "end": 3.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pushed",
+              "start": 3.96,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in.",
+              "start": 4.24,
+              "end": 4.56,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "doorknob",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "hit",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "raw": "Mr",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.54,
+          "end": 1.94
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "small",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "the",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "raw": "back",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "raw": "as",
+          "start": 3.08,
+          "end": 3.5
+        },
+        {
+          "raw": "the",
+          "start": 3.5,
+          "end": 3.62
+        },
+        {
+          "raw": "door",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "raw": "was",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "raw": "pushed",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "raw": "in.",
+          "start": 4.24,
+          "end": 4.56
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "doorknob",
+        "hit",
+        "Mr",
+        "Bloom",
+        "in",
+        "the",
+        "small",
+        "of",
+        "the",
+        "back",
+        "as",
+        "the",
+        "door",
+        "was",
+        "pushed",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "doorknob",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "doorknob",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hit",
+          "start": 0.86,
+          "end": 1.16,
+          "key": "hit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Bloom",
+          "start": 1.54,
+          "end": 1.94,
+          "key": "bloom",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.14,
+          "end": 2.26,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "small",
+          "start": 2.26,
+          "end": 2.52,
+          "key": "small",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.68,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.68,
+          "end": 2.78,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 2.78,
+          "end": 3.08,
+          "key": "back",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.08,
+          "end": 3.5,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.5,
+          "end": 3.62,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "door",
+          "start": 3.62,
+          "end": 3.78,
+          "key": "door",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.78,
+          "end": 3.96,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pushed",
+          "start": 3.96,
+          "end": 4.24,
+          "key": "pushed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in.",
+          "start": 4.24,
+          "end": 4.56,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "doorknob",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "text": "hit",
+          "start": 0.86,
+          "end": 1.16
+        },
+        {
+          "text": "Mr",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "Bloom",
+          "start": 1.54,
+          "end": 1.94
+        },
+        {
+          "text": "in",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "the",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "small",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "text": "of",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "the",
+          "start": 2.68,
+          "end": 2.78
+        },
+        {
+          "text": "back",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "text": "as",
+          "start": 3.08,
+          "end": 3.5
+        },
+        {
+          "text": "the",
+          "start": 3.5,
+          "end": 3.62
+        },
+        {
+          "text": "door",
+          "start": 3.62,
+          "end": 3.78
+        },
+        {
+          "text": "was",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "text": "pushed",
+          "start": 3.96,
+          "end": 4.24
+        },
+        {
+          "text": "in.",
+          "start": 4.24,
+          "end": 4.56
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14979285799199715
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fcc7ec4d74feaa8e166ae5e81e7e2cd72b85c4123920321993e3544e1415a825",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "4a124990311305fde02f36b20c06d236a9a190008b5cc8cfc45bb96f31aadb34",
+  "attempts": [
+    {
+      "asr_seconds": 0.18264601565897465,
+      "alignment_seconds": 0.0003852434456348419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mopsa. Pray you now, buy it.",
+        "hotwords": "Mopsa, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mopsa, Pray you now, buy it.",
+          "start": 0.68,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Mopsa,",
+              "start": 0.68,
+              "end": 0.96,
+              "probability": 0.6529947916666666
+            },
+            {
+              "text": " Pray",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.557586669921875
+            },
+            {
+              "text": " you",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " now,",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " buy",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.6328125
+            },
+            {
+              "text": " it.",
+              "start": 1.78,
+              "end": 2.02,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "raw": "Pray",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "you",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "now,",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "buy",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "it.",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Mopsa.",
+        "Pray",
+        "you",
+        "now,",
+        "buy",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.68,
+          "end": 0.96,
+          "key": "mopsa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "buy",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "buy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.78,
+          "end": 2.02,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mopsa.",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "text": "Pray",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "you",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "now,",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "buy",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "it.",
+          "start": 1.78,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18316981941461563
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "24c71f63ef376f0801a92539cb85b8b655cc848e14a705ad99bff957c31316f0",
+  "selected_reasons": []
+}

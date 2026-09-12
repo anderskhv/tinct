@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "75a8202d61bc44590686145779749fa5176e9eea878d6e1d2186e228bc147e16",
+  "attempts": [
+    {
+      "asr_seconds": 0.12080289795994759,
+      "alignment_seconds": 0.0002953559160232544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ghost of Ann.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Ghost",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " of",
+              "start": 0.61,
+              "end": 0.83,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " Ann.",
+              "start": 0.83,
+              "end": 1.07,
+              "probability": 0.430908203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ghost",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "of",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "raw": "Ann.",
+          "start": 0.83,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "Ghost",
+        "Of",
+        "Anne."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ghost",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "ghost",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.61,
+          "end": 0.83,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ann.",
+          "start": 0.83,
+          "end": 1.07,
+          "key": "ann",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ghost",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Of",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "text": "Anne.",
+          "start": 0.83,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12120496481657028
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f8ca68dadbbf5b16f40cfd1fab2007aecaedb147b1cea50d047aae01e2d92217",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "bc8eca492067f2aad2277140fbeed1c130ecce70e54d658ba2c375c3b49921c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1373370005749166,
+      "alignment_seconds": 0.0002713371068239212,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. I will not stay to offend you.",
+        "hotwords": "Desdemona, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, I will not stay to offend you.",
+          "start": 0.05,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.6519292195638021
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " will",
+              "start": 1.49,
+              "end": 1.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stay",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " offend",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " you.",
+              "start": 2.37,
+              "end": 2.71,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "will",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "raw": "not",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "stay",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "offend",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "you.",
+          "start": 2.37,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "will",
+        "not",
+        "stay",
+        "to",
+        "offend",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.49,
+          "end": 1.57,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 1.71,
+          "end": 1.97,
+          "key": "stay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "offend",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "offend",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.37,
+          "end": 2.71,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "will",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "text": "not",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "stay",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "text": "to",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "offend",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "you.",
+          "start": 2.37,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13771454663947225
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13e4d2f0fea6cd5b1abee7bab5ff7a1423a2b792eede2ed0b0e87dd2861408f5",
+  "selected_reasons": []
+}

@@ -1,0 +1,168 @@
+{
+  "complete": true,
+  "signature": "8ef67ca54485fbf17d55108f7580a7ec8482eb1138dd5fc166cbf06e8608f262",
+  "attempts": [
+    {
+      "asr_seconds": 0.17910871468484402,
+      "alignment_seconds": 0.00016169250011444092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Within.] Madam.]",
+        "hotwords": "Within, Madam"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Within, Madam",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Within,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.49951171875
+            },
+            {
+              "text": " Madam",
+              "start": 1.29,
+              "end": 1.59,
+              "probability": 0.6815185546875
+            }
+          ]
+        },
+        {
+          "text": " Madam.",
+          "start": 1.59,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Madam.",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.21498078107833862
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Within,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Madam",
+          "start": 1.29,
+          "end": 1.59
+        },
+        {
+          "raw": "Madam.",
+          "start": 1.59,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "[Within.]",
+        "Madam.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Within,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "within",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam",
+          "start": 1.29,
+          "end": 1.59,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Madam.",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Within.]",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Madam.]",
+          "start": 1.29,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17932462319731712
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ff37348f49b583f4b6855012984dbbcbbe1e523ed9c88cdd50af793ff2c58d5",
+  "selected_reasons": []
+}

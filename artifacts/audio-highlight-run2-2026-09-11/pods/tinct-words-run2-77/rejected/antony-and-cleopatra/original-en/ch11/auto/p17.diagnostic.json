@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "454f4b456cad7eadd8b6672f389c2b93bd1c6d614e8ba10e97908e326110d3c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.20855804497841746,
+      "alignment_seconds": 0.00030846099252812564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. Since I saw you last, There is a change upon you.",
+        "hotwords": "Caesar, Since, I, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, Since I saw you last, There is a change upon you.",
+          "start": 0.08,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.84375
+            },
+            {
+              "text": " Since",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.0158843994140625
+            },
+            {
+              "text": " I",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " saw",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " last,",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.986328125
+            },
+            {
+              "text": " There",
+              "start": 2.58,
+              "end": 2.6,
+              "probability": 0.0625
+            },
+            {
+              "text": " is",
+              "start": 2.6,
+              "end": 2.7,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " a",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " change",
+              "start": 2.82,
+              "end": 3.02,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " upon",
+              "start": 3.02,
+              "end": 3.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you.",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "Since",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "saw",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "you",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "last,",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "There",
+          "start": 2.58,
+          "end": 2.6
+        },
+        {
+          "raw": "is",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "raw": "a",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "change",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "raw": "upon",
+          "start": 3.02,
+          "end": 3.34
+        },
+        {
+          "raw": "you.",
+          "start": 3.34,
+          "end": 3.6
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Since",
+        "I",
+        "saw",
+        "you",
+        "last,",
+        "There",
+        "is",
+        "a",
+        "change",
+        "upon",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Since",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "since",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "saw",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "saw",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.8,
+          "end": 1.98,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "last,",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "last",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.58,
+          "end": 2.6,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.6,
+          "end": 2.7,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.7,
+          "end": 2.82,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 2.82,
+          "end": 3.02,
+          "key": "change",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.02,
+          "end": 3.34,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.34,
+          "end": 3.6,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "Since",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "I",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "saw",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "you",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "last,",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "There",
+          "start": 2.58,
+          "end": 2.6
+        },
+        {
+          "text": "is",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "text": "a",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "change",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "text": "upon",
+          "start": 3.02,
+          "end": 3.34
+        },
+        {
+          "text": "you.",
+          "start": 3.34,
+          "end": 3.6
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2089748900034465
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "245a2b709b6befceded6d98254a8bc9955491606eeb573bf1d84637b10a40ac1",
+  "selected_reasons": []
+}

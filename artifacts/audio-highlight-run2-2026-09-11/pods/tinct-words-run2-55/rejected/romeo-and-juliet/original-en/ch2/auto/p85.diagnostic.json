@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1317d0ba2def4b2b2d34805d7b4957f424b2e318d415cc4b91f1c30871c6aed1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12768191378563643,
+      "alignment_seconds": 0.00016322080045938492,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Benvolio. Of love?",
+        "hotwords": "Benvolio, Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Benvolio, Of love?",
+          "start": 0.08,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Benvolio,",
+              "start": 0.08,
+              "end": 1.04,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Of",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.044952392578125
+            },
+            {
+              "text": " love?",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.11151123046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "raw": "Of",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "love?",
+          "start": 1.36,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Benvolio.",
+        "Of",
+        "love?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benvolio,",
+          "start": 0.08,
+          "end": 1.04,
+          "key": "benvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "love?",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "love",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benvolio.",
+          "start": 0.08,
+          "end": 1.04
+        },
+        {
+          "text": "Of",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "love?",
+          "start": 1.36,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12789808306843042
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8865a1fbbd1335f81a27e3f2d268a6b2b2f4225d23001389f09e9a3282505191",
+  "selected_reasons": []
+}

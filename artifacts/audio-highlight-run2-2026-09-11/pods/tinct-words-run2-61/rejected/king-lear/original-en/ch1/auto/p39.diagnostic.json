@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "9af2f63437125632d24fc58f89acc4a270a2fe45b343b276749a1d999734afcc",
+  "attempts": [
+    {
+      "asr_seconds": 0.24320420250296593,
+      "alignment_seconds": 0.00041399337351322174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. So young, and so untender?",
+        "hotwords": "Lear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear. So young, and so untender?",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Lear.",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " So",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " young,",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 1.55,
+              "end": 1.63,
+              "probability": 0.841796875
+            },
+            {
+              "text": " so",
+              "start": 1.63,
+              "end": 1.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " untender?",
+              "start": 1.79,
+              "end": 2.27,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "So",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "young,",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "raw": "so",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "raw": "untender?",
+          "start": 1.79,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "So",
+        "young,",
+        "and",
+        "so",
+        "untender?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear.",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "young,",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "young",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.55,
+          "end": 1.63,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.63,
+          "end": 1.79,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "untender?",
+          "start": 1.79,
+          "end": 2.27,
+          "key": "untender",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "So",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "young,",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "and",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "text": "so",
+          "start": 1.63,
+          "end": 1.79
+        },
+        {
+          "text": "untender?",
+          "start": 1.79,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24375948682427406
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0b31403b660c1132186483e681e1ca0e76c7eceac6b2e7b167ab62802ff5165d",
+  "selected_reasons": []
+}

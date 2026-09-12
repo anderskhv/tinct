@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "d277647787de57d36356fb6f1f29bfe56b14e55e31fc00ab08f53dd2ed2b58fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.22987534012645483,
+      "alignment_seconds": 0.000514463521540165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Murderer. A light, a light!",
+        "hotwords": "Second, Murderer"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Murderer. A light, a light!",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.720703125
+            },
+            {
+              "text": " Murderer.",
+              "start": 0.68,
+              "end": 1.12,
+              "probability": 0.6204833984375
+            },
+            {
+              "text": " A",
+              "start": 1.58,
+              "end": 1.58,
+              "probability": 0.2734375
+            },
+            {
+              "text": " light,",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.755859375
+            },
+            {
+              "text": " a",
+              "start": 1.9,
+              "end": 1.92,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " light!",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Murderer.",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "raw": "A",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "raw": "light,",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 1.92
+        },
+        {
+          "raw": "light!",
+          "start": 1.92,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "A",
+        "light,",
+        "a",
+        "light!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer.",
+          "start": 0.68,
+          "end": 1.12,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.58,
+          "end": 1.58,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "light,",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "light",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 1.92,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "light!",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "light",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "text": "A",
+          "start": 1.58,
+          "end": 1.58
+        },
+        {
+          "text": "light,",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "a",
+          "start": 1.9,
+          "end": 1.92
+        },
+        {
+          "text": "light!",
+          "start": 1.92,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23056186363101006
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd54111751c76b48c79622796d2d78d7b58bd3a812796ae8b03e3ffb67b60ae4",
+  "selected_reasons": []
+}

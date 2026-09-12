@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "c30362df16125116d31f89f5086a37d5db5cec12ee4ab2723ebe750ea46cc565",
+  "attempts": [
+    {
+      "asr_seconds": 0.15492395032197237,
+      "alignment_seconds": 0.00037867389619350433,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You not you had a motive fort",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.318603515625
+            },
+            {
+              "text": " not",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " you",
+              "start": 0.81,
+              "end": 1.25,
+              "probability": 0.587890625
+            },
+            {
+              "text": " had",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " motive",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " fort",
+              "start": 1.69,
+              "end": 2.03,
+              "probability": 0.378173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "not",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "you",
+          "start": 0.81,
+          "end": 1.25
+        },
+        {
+          "raw": "had",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "a",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "motive",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "fort",
+          "start": 1.69,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "ye",
+        "not;",
+        "You",
+        "had",
+        "a",
+        "motive",
+        "for't."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.55,
+          "end": 0.81,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.81,
+          "end": 1.25,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "motive",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "motive",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fort",
+          "start": 1.69,
+          "end": 2.03,
+          "key": "fort",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "ye",
+          "start": 0.0,
+          "end": 0.275
+        },
+        {
+          "text": "not;",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "You",
+          "start": 0.81,
+          "end": 1.25
+        },
+        {
+          "text": "had",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "a",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "motive",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "for't.",
+          "start": 1.69,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.15542741026729345
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0073a134e62ac9cb0309d2721834718ff4ca074d2f2e253e0f6a383da640d6e0",
+  "selected_reasons": []
+}

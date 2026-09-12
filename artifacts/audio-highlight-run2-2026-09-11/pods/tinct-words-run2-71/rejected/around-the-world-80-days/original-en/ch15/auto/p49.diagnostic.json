@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "3a2cb694b5de687a36710e8a90d0cc3699ee9294cbbfd6693e71a8d7c68cdf0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.365143951959908,
+      "alignment_seconds": 0.0006687156856060028,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Certainly. We are not talking of the pagoda of Pillaji, but of the pagoda of Malabar Hill, at Bombay.\"",
+        "hotwords": "Certainly, We, Pillaji, Malabar, Hill, Bombay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Certainly. We are not talking of the pagoda of Pillaji, but of the pagoda of Malabar Hill, at Bombay.",
+          "start": 0.14,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " Certainly.",
+              "start": 0.14,
+              "end": 0.82,
+              "probability": 0.837890625
+            },
+            {
+              "text": " We",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.986328125
+            },
+            {
+              "text": " are",
+              "start": 1.54,
+              "end": 1.62,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " not",
+              "start": 1.62,
+              "end": 1.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " talking",
+              "start": 1.82,
+              "end": 2.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " pagoda",
+              "start": 2.5,
+              "end": 2.8,
+              "probability": 0.629638671875
+            },
+            {
+              "text": " of",
+              "start": 2.8,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Pillaji,",
+              "start": 3.0,
+              "end": 3.36,
+              "probability": 0.3491668701171875
+            },
+            {
+              "text": " but",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 3.94,
+              "end": 4.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.06,
+              "end": 4.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pagoda",
+              "start": 4.2,
+              "end": 4.56,
+              "probability": 0.938232421875
+            },
+            {
+              "text": " of",
+              "start": 4.56,
+              "end": 4.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Malabar",
+              "start": 4.74,
+              "end": 5.24,
+              "probability": 0.9759114583333334
+            },
+            {
+              "text": " Hill,",
+              "start": 5.24,
+              "end": 5.52,
+              "probability": 0.64404296875
+            },
+            {
+              "text": " at",
+              "start": 5.82,
+              "end": 5.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Bombay.",
+              "start": 5.92,
+              "end": 6.18,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly.",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "raw": "We",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "are",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "raw": "not",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "raw": "talking",
+          "start": 1.82,
+          "end": 2.2
+        },
+        {
+          "raw": "of",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "the",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "pagoda",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "raw": "Pillaji,",
+          "start": 3.0,
+          "end": 3.36
+        },
+        {
+          "raw": "but",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "of",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "raw": "the",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "raw": "pagoda",
+          "start": 4.2,
+          "end": 4.56
+        },
+        {
+          "raw": "of",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "raw": "Malabar",
+          "start": 4.74,
+          "end": 5.24
+        },
+        {
+          "raw": "Hill,",
+          "start": 5.24,
+          "end": 5.52
+        },
+        {
+          "raw": "at",
+          "start": 5.82,
+          "end": 5.92
+        },
+        {
+          "raw": "Bombay.",
+          "start": 5.92,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "\"Certainly.",
+        "We",
+        "are",
+        "not",
+        "talking",
+        "of",
+        "the",
+        "pagoda",
+        "of",
+        "Pillaji,",
+        "but",
+        "of",
+        "the",
+        "pagoda",
+        "of",
+        "Malabar",
+        "Hill,",
+        "at",
+        "Bombay.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Certainly.",
+          "start": 0.14,
+          "end": 0.82,
+          "key": "certainly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.54,
+          "end": 1.62,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.62,
+          "end": 1.82,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "talking",
+          "start": 1.82,
+          "end": 2.2,
+          "key": "talking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pagoda",
+          "start": 2.5,
+          "end": 2.8,
+          "key": "pagoda",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.8,
+          "end": 3.0,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Pillaji,",
+          "start": 3.0,
+          "end": 3.36,
+          "key": "pillaji",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.94,
+          "end": 4.06,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.06,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pagoda",
+          "start": 4.2,
+          "end": 4.56,
+          "key": "pagoda",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.56,
+          "end": 4.74,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Malabar",
+          "start": 4.74,
+          "end": 5.24,
+          "key": "malabar",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Hill,",
+          "start": 5.24,
+          "end": 5.52,
+          "key": "hill",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.82,
+          "end": 5.92,
+          "key": "at",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Bombay.",
+          "start": 5.92,
+          "end": 6.18,
+          "key": "bombay",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Certainly.",
+          "start": 0.14,
+          "end": 0.82
+        },
+        {
+          "text": "We",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "are",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "text": "not",
+          "start": 1.62,
+          "end": 1.82
+        },
+        {
+          "text": "talking",
+          "start": 1.82,
+          "end": 2.2
+        },
+        {
+          "text": "of",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "the",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "pagoda",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "text": "of",
+          "start": 2.8,
+          "end": 3.0
+        },
+        {
+          "text": "Pillaji,",
+          "start": 3.0,
+          "end": 3.36
+        },
+        {
+          "text": "but",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "of",
+          "start": 3.94,
+          "end": 4.06
+        },
+        {
+          "text": "the",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "text": "pagoda",
+          "start": 4.2,
+          "end": 4.56
+        },
+        {
+          "text": "of",
+          "start": 4.56,
+          "end": 4.74
+        },
+        {
+          "text": "Malabar",
+          "start": 4.74,
+          "end": 5.24
+        },
+        {
+          "text": "Hill,",
+          "start": 5.24,
+          "end": 5.52
+        },
+        {
+          "text": "at",
+          "start": 5.82,
+          "end": 5.92
+        },
+        {
+          "text": "Bombay.\"",
+          "start": 5.92,
+          "end": 6.18
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3661343017593026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51d37d1dcbced538e48a76deca924baafcd015f286e6c8afc322f9235ff7c8f3",
+  "selected_reasons": []
+}

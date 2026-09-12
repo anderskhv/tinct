@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "signature": "3758f069657158ae2aa58ec9c797d7efd0dbcef5514894b2a39b0ba91f072ea6",
+  "attempts": [
+    {
+      "asr_seconds": 0.11599437799304724,
+      "alignment_seconds": 0.0001808510278351605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " JJ O'Mall resumed molding his words.",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " JJ",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.55224609375
+            },
+            {
+              "text": " O",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.453857421875
+            },
+            {
+              "text": "'Mall",
+              "start": 1.03,
+              "end": 1.35,
+              "probability": 0.665283203125
+            },
+            {
+              "text": " resumed",
+              "start": 1.35,
+              "end": 1.99,
+              "probability": 0.96484375
+            },
+            {
+              "text": " molding",
+              "start": 1.99,
+              "end": 2.65,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " his",
+              "start": 2.65,
+              "end": 2.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " words.",
+              "start": 2.77,
+              "end": 3.07,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "JJ",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "O",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "'Mall",
+          "start": 1.03,
+          "end": 1.35
+        },
+        {
+          "raw": "resumed",
+          "start": 1.35,
+          "end": 1.99
+        },
+        {
+          "raw": "molding",
+          "start": 1.99,
+          "end": 2.65
+        },
+        {
+          "raw": "his",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "raw": "words.",
+          "start": 2.77,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "J.",
+        "J.",
+        "O'Molloy",
+        "resumed,",
+        "moulding",
+        "his",
+        "words:"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "JJ",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "jj",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.81,
+          "end": 1.03,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'Mall",
+          "start": 1.03,
+          "end": 1.35,
+          "key": "mall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "resumed",
+          "start": 1.35,
+          "end": 1.99,
+          "key": "resumed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "molding",
+          "start": 1.99,
+          "end": 2.65,
+          "key": "molding",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.65,
+          "end": 2.77,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 2.77,
+          "end": 3.07,
+          "key": "words",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "J.",
+          "start": 0.0,
+          "end": 0.675
+        },
+        {
+          "text": "J.",
+          "start": 0.675,
+          "end": 1.013
+        },
+        {
+          "text": "O'Molloy",
+          "start": 1.013,
+          "end": 1.181
+        },
+        {
+          "text": "resumed,",
+          "start": 1.35,
+          "end": 1.99
+        },
+        {
+          "text": "moulding",
+          "start": 1.99,
+          "end": 2.32
+        },
+        {
+          "text": "his",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "text": "words:",
+          "start": 2.77,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 3
+      },
+      "match_ratio": 0.42857142857142855,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11623777903150767
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cbfe4271826d03132105f14df3c4ba6780c9a9403ba0d5793c37b6681a77fd2f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

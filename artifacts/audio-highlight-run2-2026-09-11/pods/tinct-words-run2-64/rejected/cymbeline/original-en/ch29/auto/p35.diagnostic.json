@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "2377c6422e9f0dbd9fa2909da6b25f2577bbae252183dc7e94b9285dab6488b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.14470858220010996,
+      "alignment_seconds": 0.00033311545848846436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Imogen. Fidele, sir.",
+        "hotwords": "Imogen, Fidele"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Imogen, Fidele, sir.",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " Fidele,",
+              "start": 1.06,
+              "end": 1.44,
+              "probability": 0.4688669840494792
+            },
+            {
+              "text": " sir.",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.62060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Fidele,",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "raw": "sir.",
+          "start": 1.52,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "Fidele,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fidele,",
+          "start": 1.06,
+          "end": 1.44,
+          "key": "fidele",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Fidele,",
+          "start": 1.06,
+          "end": 1.44
+        },
+        {
+          "text": "sir.",
+          "start": 1.52,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14515436440706253
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7ad6c3b865a0f66c3be9d56d68266023d468543a6948d6e2d657f7269da1aa43",
+  "selected_reasons": []
+}

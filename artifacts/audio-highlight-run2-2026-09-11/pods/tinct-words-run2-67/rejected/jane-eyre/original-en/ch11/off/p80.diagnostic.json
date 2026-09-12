@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "2d7e6d8d85f17f97c0b151297bd1fb5a5c649f36b3cb707f967feb69fd701365",
+  "attempts": [
+    {
+      "asr_seconds": 0.3315332131460309,
+      "alignment_seconds": 0.0005510449409484863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, that will do. But after your mama went to the Holy Virgin, as you say, with whom",
+          "start": 0.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " that",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " do.",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " But",
+              "start": 2.11,
+              "end": 2.25,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " after",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.98828125
+            },
+            {
+              "text": " your",
+              "start": 2.49,
+              "end": 2.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " mama",
+              "start": 2.71,
+              "end": 3.03,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " went",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 3.49,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Holy",
+              "start": 3.49,
+              "end": 3.77,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " Virgin,",
+              "start": 3.77,
+              "end": 4.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " as",
+              "start": 4.49,
+              "end": 4.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 4.57,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " say,",
+              "start": 4.69,
+              "end": 4.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 5.37,
+              "end": 5.45,
+              "probability": 0.939453125
+            },
+            {
+              "text": " whom",
+              "start": 5.45,
+              "end": 5.69,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " did you live then?",
+          "start": 5.69,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " did",
+              "start": 5.69,
+              "end": 5.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 5.87,
+              "end": 6.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " live",
+              "start": 6.05,
+              "end": 6.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " then?",
+              "start": 6.21,
+              "end": 6.51,
+              "probability": 0.90185546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "that",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "will",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "do.",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "But",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "raw": "after",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "your",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "raw": "mama",
+          "start": 2.71,
+          "end": 3.03
+        },
+        {
+          "raw": "went",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "to",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.49
+        },
+        {
+          "raw": "Holy",
+          "start": 3.49,
+          "end": 3.77
+        },
+        {
+          "raw": "Virgin,",
+          "start": 3.77,
+          "end": 4.17
+        },
+        {
+          "raw": "as",
+          "start": 4.49,
+          "end": 4.57
+        },
+        {
+          "raw": "you",
+          "start": 4.57,
+          "end": 4.69
+        },
+        {
+          "raw": "say,",
+          "start": 4.69,
+          "end": 4.99
+        },
+        {
+          "raw": "with",
+          "start": 5.37,
+          "end": 5.45
+        },
+        {
+          "raw": "whom",
+          "start": 5.45,
+          "end": 5.69
+        },
+        {
+          "raw": "did",
+          "start": 5.69,
+          "end": 5.87
+        },
+        {
+          "raw": "you",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "raw": "live",
+          "start": 6.05,
+          "end": 6.21
+        },
+        {
+          "raw": "then?",
+          "start": 6.21,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "that",
+        "will",
+        "do:",
+        "but",
+        "after",
+        "your",
+        "mama",
+        "went",
+        "to",
+        "the",
+        "Holy",
+        "Virgin,",
+        "as",
+        "you",
+        "say,",
+        "with",
+        "whom",
+        "did",
+        "you",
+        "live",
+        "then?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.87,
+          "end": 1.09,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.11,
+          "end": 2.25,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "after",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.49,
+          "end": 2.71,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mama",
+          "start": 2.71,
+          "end": 3.03,
+          "key": "mama",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "went",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.21,
+          "end": 3.35,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 3.49,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Holy",
+          "start": 3.49,
+          "end": 3.77,
+          "key": "holy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Virgin,",
+          "start": 3.77,
+          "end": 4.17,
+          "key": "virgin",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.49,
+          "end": 4.57,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.57,
+          "end": 4.69,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 4.69,
+          "end": 4.99,
+          "key": "say",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.37,
+          "end": 5.45,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 5.45,
+          "end": 5.69,
+          "key": "whom",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.69,
+          "end": 5.87,
+          "key": "did",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.87,
+          "end": 6.05,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 6.05,
+          "end": 6.21,
+          "key": "live",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 6.21,
+          "end": 6.51,
+          "key": "then",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "that",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "will",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "do:",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "but",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "text": "after",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "your",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "text": "mama",
+          "start": 2.71,
+          "end": 3.03
+        },
+        {
+          "text": "went",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "to",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "text": "the",
+          "start": 3.35,
+          "end": 3.49
+        },
+        {
+          "text": "Holy",
+          "start": 3.49,
+          "end": 3.77
+        },
+        {
+          "text": "Virgin,",
+          "start": 3.77,
+          "end": 4.17
+        },
+        {
+          "text": "as",
+          "start": 4.49,
+          "end": 4.57
+        },
+        {
+          "text": "you",
+          "start": 4.57,
+          "end": 4.69
+        },
+        {
+          "text": "say,",
+          "start": 4.69,
+          "end": 4.99
+        },
+        {
+          "text": "with",
+          "start": 5.37,
+          "end": 5.45
+        },
+        {
+          "text": "whom",
+          "start": 5.45,
+          "end": 5.69
+        },
+        {
+          "text": "did",
+          "start": 5.69,
+          "end": 5.87
+        },
+        {
+          "text": "you",
+          "start": 5.87,
+          "end": 6.05
+        },
+        {
+          "text": "live",
+          "start": 6.05,
+          "end": 6.21
+        },
+        {
+          "text": "then?\"",
+          "start": 6.21,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3323214170522988
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "72ecd047f595c5e73ca92d9ed711c5d62260d4c83fea7a2f3458305f13654142",
+  "selected_reasons": []
+}

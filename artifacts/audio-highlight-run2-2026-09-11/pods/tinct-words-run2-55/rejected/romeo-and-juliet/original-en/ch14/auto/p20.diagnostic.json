@@ -1,0 +1,5003 @@
+{
+  "complete": true,
+  "signature": "5c74689bb5892da7aa02ce2a0fa6c583631140b8a7d16771fef777f50898269c",
+  "attempts": [
+    {
+      "asr_seconds": 0.6098996149376035,
+      "alignment_seconds": 0.0010132016614079475,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Juliet. Blister'd be thy tongue For such a wish! He was not born to shame. Upon his brow shame is asham'd to sit; For 'tis a throne where honour may be crown'd Sole monarch of the universal earth. O, what a beast was I to chide at him!",
+        "hotwords": "Juliet, Blister'd, For, He, Upon, Sole, O, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Juliet, Blister'd be thy tongue For such a wish! He was not born to shame. Upon his brow shame is asham'd to sit, For, Tis a throne where honour may be sole monarch of the universal earth. O, what a beast was I to chide at him!",
+          "start": 0.02,
+          "end": 14.7,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " Blister'd",
+              "start": 1.38,
+              "end": 1.82,
+              "probability": 0.16871134440104166
+            },
+            {
+              "text": " be",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " thy",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " tongue",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " For",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.006534576416015625
+            },
+            {
+              "text": " such",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wish!",
+              "start": 2.9,
+              "end": 3.14,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " He",
+              "start": 3.66,
+              "end": 3.72,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " was",
+              "start": 3.72,
+              "end": 3.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 3.82,
+              "end": 4.02,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " born",
+              "start": 4.02,
+              "end": 4.22,
+              "probability": 0.912109375
+            },
+            {
+              "text": " to",
+              "start": 4.22,
+              "end": 4.46,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " shame.",
+              "start": 4.46,
+              "end": 4.78,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Upon",
+              "start": 5.62,
+              "end": 5.64,
+              "probability": 0.990234375
+            },
+            {
+              "text": " his",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " brow",
+              "start": 5.88,
+              "end": 6.16,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " shame",
+              "start": 6.16,
+              "end": 6.52,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " is",
+              "start": 6.52,
+              "end": 6.74,
+              "probability": 0.28271484375
+            },
+            {
+              "text": " asham'd",
+              "start": 6.74,
+              "end": 7.28,
+              "probability": 0.3442586263020833
+            },
+            {
+              "text": " to",
+              "start": 7.28,
+              "end": 7.38,
+              "probability": 0.962890625
+            },
+            {
+              "text": " sit,",
+              "start": 7.38,
+              "end": 7.7,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " For,",
+              "start": 8.14,
+              "end": 8.22,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " Tis",
+              "start": 8.24,
+              "end": 8.58,
+              "probability": 0.045139312744140625
+            },
+            {
+              "text": " a",
+              "start": 8.58,
+              "end": 8.74,
+              "probability": 0.54248046875
+            },
+            {
+              "text": " throne",
+              "start": 8.74,
+              "end": 9.02,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " where",
+              "start": 9.02,
+              "end": 9.36,
+              "probability": 0.75390625
+            },
+            {
+              "text": " honour",
+              "start": 9.36,
+              "end": 9.68,
+              "probability": 0.458251953125
+            },
+            {
+              "text": " may",
+              "start": 9.68,
+              "end": 9.92,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " be",
+              "start": 9.92,
+              "end": 10.12,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " sole",
+              "start": 10.12,
+              "end": 10.52,
+              "probability": 0.2020263671875
+            },
+            {
+              "text": " monarch",
+              "start": 10.52,
+              "end": 10.88,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " of",
+              "start": 10.88,
+              "end": 11.1,
+              "probability": 0.2213134765625
+            },
+            {
+              "text": " the",
+              "start": 11.1,
+              "end": 11.22,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " universal",
+              "start": 11.22,
+              "end": 11.6,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " earth.",
+              "start": 11.6,
+              "end": 12.04,
+              "probability": 0.830078125
+            },
+            {
+              "text": " O,",
+              "start": 12.76,
+              "end": 12.98,
+              "probability": 0.47119140625
+            },
+            {
+              "text": " what",
+              "start": 13.16,
+              "end": 13.26,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " a",
+              "start": 13.26,
+              "end": 13.4,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " beast",
+              "start": 13.4,
+              "end": 13.62,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " was",
+              "start": 13.62,
+              "end": 13.8,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " I",
+              "start": 13.8,
+              "end": 13.98,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " to",
+              "start": 13.98,
+              "end": 14.1,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " chide",
+              "start": 14.1,
+              "end": 14.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " at",
+              "start": 14.34,
+              "end": 14.52,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " him!",
+              "start": 14.52,
+              "end": 14.7,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "Blister'd",
+          "start": 1.38,
+          "end": 1.82
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "thy",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "tongue",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "For",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "such",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "wish!",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "raw": "He",
+          "start": 3.66,
+          "end": 3.72
+        },
+        {
+          "raw": "was",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "raw": "not",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "raw": "born",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "raw": "to",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "raw": "shame.",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "raw": "Upon",
+          "start": 5.62,
+          "end": 5.64
+        },
+        {
+          "raw": "his",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "raw": "brow",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "raw": "shame",
+          "start": 6.16,
+          "end": 6.52
+        },
+        {
+          "raw": "is",
+          "start": 6.52,
+          "end": 6.74
+        },
+        {
+          "raw": "asham'd",
+          "start": 6.74,
+          "end": 7.28
+        },
+        {
+          "raw": "to",
+          "start": 7.28,
+          "end": 7.38
+        },
+        {
+          "raw": "sit,",
+          "start": 7.38,
+          "end": 7.7
+        },
+        {
+          "raw": "For,",
+          "start": 8.14,
+          "end": 8.22
+        },
+        {
+          "raw": "Tis",
+          "start": 8.24,
+          "end": 8.58
+        },
+        {
+          "raw": "a",
+          "start": 8.58,
+          "end": 8.74
+        },
+        {
+          "raw": "throne",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "raw": "where",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "raw": "honour",
+          "start": 9.36,
+          "end": 9.68
+        },
+        {
+          "raw": "may",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "raw": "be",
+          "start": 9.92,
+          "end": 10.12
+        },
+        {
+          "raw": "sole",
+          "start": 10.12,
+          "end": 10.52
+        },
+        {
+          "raw": "monarch",
+          "start": 10.52,
+          "end": 10.88
+        },
+        {
+          "raw": "of",
+          "start": 10.88,
+          "end": 11.1
+        },
+        {
+          "raw": "the",
+          "start": 11.1,
+          "end": 11.22
+        },
+        {
+          "raw": "universal",
+          "start": 11.22,
+          "end": 11.6
+        },
+        {
+          "raw": "earth.",
+          "start": 11.6,
+          "end": 12.04
+        },
+        {
+          "raw": "O,",
+          "start": 12.76,
+          "end": 12.98
+        },
+        {
+          "raw": "what",
+          "start": 13.16,
+          "end": 13.26
+        },
+        {
+          "raw": "a",
+          "start": 13.26,
+          "end": 13.4
+        },
+        {
+          "raw": "beast",
+          "start": 13.4,
+          "end": 13.62
+        },
+        {
+          "raw": "was",
+          "start": 13.62,
+          "end": 13.8
+        },
+        {
+          "raw": "I",
+          "start": 13.8,
+          "end": 13.98
+        },
+        {
+          "raw": "to",
+          "start": 13.98,
+          "end": 14.1
+        },
+        {
+          "raw": "chide",
+          "start": 14.1,
+          "end": 14.34
+        },
+        {
+          "raw": "at",
+          "start": 14.34,
+          "end": 14.52
+        },
+        {
+          "raw": "him!",
+          "start": 14.52,
+          "end": 14.7
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Blister'd",
+        "be",
+        "thy",
+        "tongue",
+        "For",
+        "such",
+        "a",
+        "wish!",
+        "He",
+        "was",
+        "not",
+        "born",
+        "to",
+        "shame.",
+        "Upon",
+        "his",
+        "brow",
+        "shame",
+        "is",
+        "asham'd",
+        "to",
+        "sit;",
+        "For",
+        "'tis",
+        "a",
+        "throne",
+        "where",
+        "honour",
+        "may",
+        "be",
+        "crown'd",
+        "Sole",
+        "monarch",
+        "of",
+        "the",
+        "universal",
+        "earth.",
+        "O,",
+        "what",
+        "a",
+        "beast",
+        "was",
+        "I",
+        "to",
+        "chide",
+        "at",
+        "him!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          31,
+          0,
+          31
+        ],
+        [
+          "delete",
+          31,
+          32,
+          31,
+          31
+        ],
+        [
+          "equal",
+          32,
+          48,
+          31,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          31,
+          32,
+          31,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Blister'd",
+          "start": 1.38,
+          "end": 1.82,
+          "key": "blisterd",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "tongue",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "such",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wish!",
+          "start": 2.9,
+          "end": 3.14,
+          "key": "wish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.66,
+          "end": 3.72,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.72,
+          "end": 3.82,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.82,
+          "end": 4.02,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "born",
+          "start": 4.02,
+          "end": 4.22,
+          "key": "born",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.22,
+          "end": 4.46,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shame.",
+          "start": 4.46,
+          "end": 4.78,
+          "key": "shame",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 5.62,
+          "end": 5.64,
+          "key": "upon",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.64,
+          "end": 5.88,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "brow",
+          "start": 5.88,
+          "end": 6.16,
+          "key": "brow",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 6.16,
+          "end": 6.52,
+          "key": "shame",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.52,
+          "end": 6.74,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "asham'd",
+          "start": 6.74,
+          "end": 7.28,
+          "key": "ashamd",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.28,
+          "end": 7.38,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "sit,",
+          "start": 7.38,
+          "end": 7.7,
+          "key": "sit",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "For,",
+          "start": 8.14,
+          "end": 8.22,
+          "key": "for",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 8.24,
+          "end": 8.58,
+          "key": "tis",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.58,
+          "end": 8.74,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "throne",
+          "start": 8.74,
+          "end": 9.02,
+          "key": "throne",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 9.02,
+          "end": 9.36,
+          "key": "where",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "honour",
+          "start": 9.36,
+          "end": 9.68,
+          "key": "honour",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 9.68,
+          "end": 9.92,
+          "key": "may",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.92,
+          "end": 10.12,
+          "key": "be",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sole",
+          "start": 10.12,
+          "end": 10.52,
+          "key": "sole",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "monarch",
+          "start": 10.52,
+          "end": 10.88,
+          "key": "monarch",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.88,
+          "end": 11.1,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.1,
+          "end": 11.22,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "universal",
+          "start": 11.22,
+          "end": 11.6,
+          "key": "universal",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "earth.",
+          "start": 11.6,
+          "end": 12.04,
+          "key": "earth",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 12.76,
+          "end": 12.98,
+          "key": "o",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 13.16,
+          "end": 13.26,
+          "key": "what",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 13.26,
+          "end": 13.4,
+          "key": "a",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "beast",
+          "start": 13.4,
+          "end": 13.62,
+          "key": "beast",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 13.62,
+          "end": 13.8,
+          "key": "was",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.8,
+          "end": 13.98,
+          "key": "i",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.98,
+          "end": 14.1,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "chide",
+          "start": 14.1,
+          "end": 14.34,
+          "key": "chide",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 14.34,
+          "end": 14.52,
+          "key": "at",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 14.52,
+          "end": 14.7,
+          "key": "him",
+          "pieces": [
+            46
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Blister'd",
+          "start": 1.38,
+          "end": 1.82
+        },
+        {
+          "text": "be",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "thy",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "tongue",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "For",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "such",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "a",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "wish!",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "text": "He",
+          "start": 3.66,
+          "end": 3.72
+        },
+        {
+          "text": "was",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "text": "not",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "text": "born",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "text": "to",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "text": "shame.",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "text": "Upon",
+          "start": 5.62,
+          "end": 5.64
+        },
+        {
+          "text": "his",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "text": "brow",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "text": "shame",
+          "start": 6.16,
+          "end": 6.52
+        },
+        {
+          "text": "is",
+          "start": 6.52,
+          "end": 6.74
+        },
+        {
+          "text": "asham'd",
+          "start": 6.74,
+          "end": 7.28
+        },
+        {
+          "text": "to",
+          "start": 7.28,
+          "end": 7.38
+        },
+        {
+          "text": "sit;",
+          "start": 7.38,
+          "end": 7.7
+        },
+        {
+          "text": "For",
+          "start": 8.14,
+          "end": 8.22
+        },
+        {
+          "text": "'tis",
+          "start": 8.24,
+          "end": 8.58
+        },
+        {
+          "text": "a",
+          "start": 8.58,
+          "end": 8.74
+        },
+        {
+          "text": "throne",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "text": "where",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "text": "honour",
+          "start": 9.36,
+          "end": 9.68
+        },
+        {
+          "text": "may",
+          "start": 9.68,
+          "end": 9.92
+        },
+        {
+          "text": "be",
+          "start": 9.92,
+          "end": 10.12
+        },
+        {
+          "text": "crown'd",
+          "start": 10.12,
+          "end": 10.12
+        },
+        {
+          "text": "Sole",
+          "start": 10.12,
+          "end": 10.52
+        },
+        {
+          "text": "monarch",
+          "start": 10.52,
+          "end": 10.88
+        },
+        {
+          "text": "of",
+          "start": 10.88,
+          "end": 11.1
+        },
+        {
+          "text": "the",
+          "start": 11.1,
+          "end": 11.22
+        },
+        {
+          "text": "universal",
+          "start": 11.22,
+          "end": 11.6
+        },
+        {
+          "text": "earth.",
+          "start": 11.6,
+          "end": 12.04
+        },
+        {
+          "text": "O,",
+          "start": 12.76,
+          "end": 12.98
+        },
+        {
+          "text": "what",
+          "start": 13.16,
+          "end": 13.26
+        },
+        {
+          "text": "a",
+          "start": 13.26,
+          "end": 13.4
+        },
+        {
+          "text": "beast",
+          "start": 13.4,
+          "end": 13.62
+        },
+        {
+          "text": "was",
+          "start": 13.62,
+          "end": 13.8
+        },
+        {
+          "text": "I",
+          "start": 13.8,
+          "end": 13.98
+        },
+        {
+          "text": "to",
+          "start": 13.98,
+          "end": 14.1
+        },
+        {
+          "text": "chide",
+          "start": 14.1,
+          "end": 14.34
+        },
+        {
+          "text": "at",
+          "start": 14.34,
+          "end": 14.52
+        },
+        {
+          "text": "him!",
+          "start": 14.52,
+          "end": 14.7
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 47,
+        "matched_words": 47
+      },
+      "match_ratio": 0.9791666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.6113786371424794
+    },
+    {
+      "asr_seconds": 0.5995166953653097,
+      "alignment_seconds": 0.0009092194959521294,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Juliet, Blister'd, For, He, Upon, Sole, O, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Juliet, Blister'd be thy tongue for such a wish. He was not born to shame. Upon his",
+          "start": 0.02,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.728515625
+            },
+            {
+              "text": " Blister'd",
+              "start": 1.38,
+              "end": 1.82,
+              "probability": 0.167327880859375
+            },
+            {
+              "text": " be",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " thy",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " tongue",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " for",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.970703125
+            },
+            {
+              "text": " such",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wish.",
+              "start": 2.92,
+              "end": 3.14,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " He",
+              "start": 3.66,
+              "end": 3.72,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " was",
+              "start": 3.72,
+              "end": 3.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 3.82,
+              "end": 4.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " born",
+              "start": 4.02,
+              "end": 4.22,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " to",
+              "start": 4.22,
+              "end": 4.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shame.",
+              "start": 4.48,
+              "end": 4.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Upon",
+              "start": 5.62,
+              "end": 5.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " his",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.98095703125
+            }
+          ]
+        },
+        {
+          "text": " brow shame is ashamed to sit, for tease a throne where honor may be sole monarch of",
+          "start": 5.88,
+          "end": 11.1,
+          "words": [
+            {
+              "text": " brow",
+              "start": 5.88,
+              "end": 6.16,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " shame",
+              "start": 6.16,
+              "end": 6.52,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " is",
+              "start": 6.52,
+              "end": 6.74,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " ashamed",
+              "start": 6.74,
+              "end": 7.1,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " to",
+              "start": 7.1,
+              "end": 7.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sit,",
+              "start": 7.4,
+              "end": 7.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 8.16,
+              "end": 8.22,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " tease",
+              "start": 8.22,
+              "end": 8.5,
+              "probability": 0.473876953125
+            },
+            {
+              "text": " a",
+              "start": 8.5,
+              "end": 8.74,
+              "probability": 0.8828125
+            },
+            {
+              "text": " throne",
+              "start": 8.74,
+              "end": 9.02,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " where",
+              "start": 9.02,
+              "end": 9.36,
+              "probability": 0.9375
+            },
+            {
+              "text": " honor",
+              "start": 9.36,
+              "end": 9.68,
+              "probability": 0.59326171875
+            },
+            {
+              "text": " may",
+              "start": 9.68,
+              "end": 9.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " be",
+              "start": 9.94,
+              "end": 10.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sole",
+              "start": 10.16,
+              "end": 10.52,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " monarch",
+              "start": 10.52,
+              "end": 10.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 10.88,
+              "end": 11.1,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " the universal earth. Oh, what a beast was I to chide at him!",
+          "start": 11.1,
+          "end": 14.7,
+          "words": [
+            {
+              "text": " the",
+              "start": 11.1,
+              "end": 11.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " universal",
+              "start": 11.22,
+              "end": 11.6,
+              "probability": 0.796875
+            },
+            {
+              "text": " earth.",
+              "start": 11.6,
+              "end": 12.04,
+              "probability": 0.744140625
+            },
+            {
+              "text": " Oh,",
+              "start": 12.78,
+              "end": 13.0,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " what",
+              "start": 13.14,
+              "end": 13.26,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " a",
+              "start": 13.26,
+              "end": 13.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " beast",
+              "start": 13.4,
+              "end": 13.62,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " was",
+              "start": 13.62,
+              "end": 13.82,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 13.82,
+              "end": 13.98,
+              "probability": 0.978515625
+            },
+            {
+              "text": " to",
+              "start": 13.98,
+              "end": 14.12,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " chide",
+              "start": 14.12,
+              "end": 14.34,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " at",
+              "start": 14.34,
+              "end": 14.52,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " him!",
+              "start": 14.52,
+              "end": 14.7,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "Blister'd",
+          "start": 1.38,
+          "end": 1.82
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "thy",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "tongue",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "for",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "such",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "wish.",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "raw": "He",
+          "start": 3.66,
+          "end": 3.72
+        },
+        {
+          "raw": "was",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "raw": "not",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "raw": "born",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "raw": "to",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "raw": "shame.",
+          "start": 4.48,
+          "end": 4.78
+        },
+        {
+          "raw": "Upon",
+          "start": 5.62,
+          "end": 5.64
+        },
+        {
+          "raw": "his",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "raw": "brow",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "raw": "shame",
+          "start": 6.16,
+          "end": 6.52
+        },
+        {
+          "raw": "is",
+          "start": 6.52,
+          "end": 6.74
+        },
+        {
+          "raw": "ashamed",
+          "start": 6.74,
+          "end": 7.1
+        },
+        {
+          "raw": "to",
+          "start": 7.1,
+          "end": 7.4
+        },
+        {
+          "raw": "sit,",
+          "start": 7.4,
+          "end": 7.7
+        },
+        {
+          "raw": "for",
+          "start": 8.16,
+          "end": 8.22
+        },
+        {
+          "raw": "tease",
+          "start": 8.22,
+          "end": 8.5
+        },
+        {
+          "raw": "a",
+          "start": 8.5,
+          "end": 8.74
+        },
+        {
+          "raw": "throne",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "raw": "where",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "raw": "honor",
+          "start": 9.36,
+          "end": 9.68
+        },
+        {
+          "raw": "may",
+          "start": 9.68,
+          "end": 9.94
+        },
+        {
+          "raw": "be",
+          "start": 9.94,
+          "end": 10.16
+        },
+        {
+          "raw": "sole",
+          "start": 10.16,
+          "end": 10.52
+        },
+        {
+          "raw": "monarch",
+          "start": 10.52,
+          "end": 10.88
+        },
+        {
+          "raw": "of",
+          "start": 10.88,
+          "end": 11.1
+        },
+        {
+          "raw": "the",
+          "start": 11.1,
+          "end": 11.22
+        },
+        {
+          "raw": "universal",
+          "start": 11.22,
+          "end": 11.6
+        },
+        {
+          "raw": "earth.",
+          "start": 11.6,
+          "end": 12.04
+        },
+        {
+          "raw": "Oh,",
+          "start": 12.78,
+          "end": 13.0
+        },
+        {
+          "raw": "what",
+          "start": 13.14,
+          "end": 13.26
+        },
+        {
+          "raw": "a",
+          "start": 13.26,
+          "end": 13.4
+        },
+        {
+          "raw": "beast",
+          "start": 13.4,
+          "end": 13.62
+        },
+        {
+          "raw": "was",
+          "start": 13.62,
+          "end": 13.82
+        },
+        {
+          "raw": "I",
+          "start": 13.82,
+          "end": 13.98
+        },
+        {
+          "raw": "to",
+          "start": 13.98,
+          "end": 14.12
+        },
+        {
+          "raw": "chide",
+          "start": 14.12,
+          "end": 14.34
+        },
+        {
+          "raw": "at",
+          "start": 14.34,
+          "end": 14.52
+        },
+        {
+          "raw": "him!",
+          "start": 14.52,
+          "end": 14.7
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Blister'd",
+        "be",
+        "thy",
+        "tongue",
+        "For",
+        "such",
+        "a",
+        "wish!",
+        "He",
+        "was",
+        "not",
+        "born",
+        "to",
+        "shame.",
+        "Upon",
+        "his",
+        "brow",
+        "shame",
+        "is",
+        "asham'd",
+        "to",
+        "sit;",
+        "For",
+        "'tis",
+        "a",
+        "throne",
+        "where",
+        "honour",
+        "may",
+        "be",
+        "crown'd",
+        "Sole",
+        "monarch",
+        "of",
+        "the",
+        "universal",
+        "earth.",
+        "O,",
+        "what",
+        "a",
+        "beast",
+        "was",
+        "I",
+        "to",
+        "chide",
+        "at",
+        "him!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          24,
+          21,
+          24
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "equal",
+          25,
+          28,
+          25,
+          28
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "equal",
+          29,
+          31,
+          29,
+          31
+        ],
+        [
+          "delete",
+          31,
+          32,
+          31,
+          31
+        ],
+        [
+          "equal",
+          32,
+          38,
+          31,
+          37
+        ],
+        [
+          "replace",
+          38,
+          39,
+          37,
+          38
+        ],
+        [
+          "equal",
+          39,
+          48,
+          38,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "delete",
+          31,
+          32,
+          31,
+          31
+        ],
+        [
+          "replace",
+          38,
+          39,
+          37,
+          38
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Blister'd",
+          "start": 1.38,
+          "end": 1.82,
+          "key": "blisterd",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "tongue",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "such",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wish.",
+          "start": 2.92,
+          "end": 3.14,
+          "key": "wish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.66,
+          "end": 3.72,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.72,
+          "end": 3.82,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.82,
+          "end": 4.02,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "born",
+          "start": 4.02,
+          "end": 4.22,
+          "key": "born",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.22,
+          "end": 4.48,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shame.",
+          "start": 4.48,
+          "end": 4.78,
+          "key": "shame",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 5.62,
+          "end": 5.64,
+          "key": "upon",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.64,
+          "end": 5.88,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "brow",
+          "start": 5.88,
+          "end": 6.16,
+          "key": "brow",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 6.16,
+          "end": 6.52,
+          "key": "shame",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.52,
+          "end": 6.74,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ashamed",
+          "start": 6.74,
+          "end": 7.1,
+          "key": "ashamed",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.1,
+          "end": 7.4,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "sit,",
+          "start": 7.4,
+          "end": 7.7,
+          "key": "sit",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.16,
+          "end": 8.22,
+          "key": "for",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 8.22,
+          "end": 8.5,
+          "key": "tease",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.5,
+          "end": 8.74,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "throne",
+          "start": 8.74,
+          "end": 9.02,
+          "key": "throne",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 9.02,
+          "end": 9.36,
+          "key": "where",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 9.36,
+          "end": 9.68,
+          "key": "honor",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 9.68,
+          "end": 9.94,
+          "key": "may",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.94,
+          "end": 10.16,
+          "key": "be",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sole",
+          "start": 10.16,
+          "end": 10.52,
+          "key": "sole",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "monarch",
+          "start": 10.52,
+          "end": 10.88,
+          "key": "monarch",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.88,
+          "end": 11.1,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.1,
+          "end": 11.22,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "universal",
+          "start": 11.22,
+          "end": 11.6,
+          "key": "universal",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "earth.",
+          "start": 11.6,
+          "end": 12.04,
+          "key": "earth",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 12.78,
+          "end": 13.0,
+          "key": "oh",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 13.14,
+          "end": 13.26,
+          "key": "what",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 13.26,
+          "end": 13.4,
+          "key": "a",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "beast",
+          "start": 13.4,
+          "end": 13.62,
+          "key": "beast",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 13.62,
+          "end": 13.82,
+          "key": "was",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.82,
+          "end": 13.98,
+          "key": "i",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.98,
+          "end": 14.12,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "chide",
+          "start": 14.12,
+          "end": 14.34,
+          "key": "chide",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 14.34,
+          "end": 14.52,
+          "key": "at",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 14.52,
+          "end": 14.7,
+          "key": "him",
+          "pieces": [
+            46
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Blister'd",
+          "start": 1.38,
+          "end": 1.82
+        },
+        {
+          "text": "be",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "thy",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "tongue",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "For",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "such",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "a",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "wish!",
+          "start": 2.92,
+          "end": 3.14
+        },
+        {
+          "text": "He",
+          "start": 3.66,
+          "end": 3.72
+        },
+        {
+          "text": "was",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "text": "not",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "text": "born",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "text": "to",
+          "start": 4.22,
+          "end": 4.48
+        },
+        {
+          "text": "shame.",
+          "start": 4.48,
+          "end": 4.78
+        },
+        {
+          "text": "Upon",
+          "start": 5.62,
+          "end": 5.64
+        },
+        {
+          "text": "his",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "text": "brow",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "text": "shame",
+          "start": 6.16,
+          "end": 6.52
+        },
+        {
+          "text": "is",
+          "start": 6.52,
+          "end": 6.74
+        },
+        {
+          "text": "asham'd",
+          "start": 6.74,
+          "end": 6.92
+        },
+        {
+          "text": "to",
+          "start": 7.1,
+          "end": 7.4
+        },
+        {
+          "text": "sit;",
+          "start": 7.4,
+          "end": 7.7
+        },
+        {
+          "text": "For",
+          "start": 8.16,
+          "end": 8.22
+        },
+        {
+          "text": "'tis",
+          "start": 8.22,
+          "end": 8.36
+        },
+        {
+          "text": "a",
+          "start": 8.5,
+          "end": 8.74
+        },
+        {
+          "text": "throne",
+          "start": 8.74,
+          "end": 9.02
+        },
+        {
+          "text": "where",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "text": "honour",
+          "start": 9.36,
+          "end": 9.52
+        },
+        {
+          "text": "may",
+          "start": 9.68,
+          "end": 9.94
+        },
+        {
+          "text": "be",
+          "start": 9.94,
+          "end": 10.16
+        },
+        {
+          "text": "crown'd",
+          "start": 10.16,
+          "end": 10.16
+        },
+        {
+          "text": "Sole",
+          "start": 10.16,
+          "end": 10.52
+        },
+        {
+          "text": "monarch",
+          "start": 10.52,
+          "end": 10.88
+        },
+        {
+          "text": "of",
+          "start": 10.88,
+          "end": 11.1
+        },
+        {
+          "text": "the",
+          "start": 11.1,
+          "end": 11.22
+        },
+        {
+          "text": "universal",
+          "start": 11.22,
+          "end": 11.6
+        },
+        {
+          "text": "earth.",
+          "start": 11.6,
+          "end": 12.04
+        },
+        {
+          "text": "O,",
+          "start": 12.04,
+          "end": 12.59
+        },
+        {
+          "text": "what",
+          "start": 13.14,
+          "end": 13.26
+        },
+        {
+          "text": "a",
+          "start": 13.26,
+          "end": 13.4
+        },
+        {
+          "text": "beast",
+          "start": 13.4,
+          "end": 13.62
+        },
+        {
+          "text": "was",
+          "start": 13.62,
+          "end": 13.82
+        },
+        {
+          "text": "I",
+          "start": 13.82,
+          "end": 13.98
+        },
+        {
+          "text": "to",
+          "start": 13.98,
+          "end": 14.12
+        },
+        {
+          "text": "chide",
+          "start": 14.12,
+          "end": 14.34
+        },
+        {
+          "text": "at",
+          "start": 14.34,
+          "end": 14.52
+        },
+        {
+          "text": "him!",
+          "start": 14.52,
+          "end": 14.7
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 47,
+        "matched_words": 43
+      },
+      "match_ratio": 0.8958333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.6008534412831068
+    },
+    {
+      "asr_seconds": 0.6438085604459047,
+      "alignment_seconds": 0.000776262953877449,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, blistered be thy tongue for such a wish, he was not born to shame.",
+          "start": 0.02,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.728515625
+            },
+            {
+              "text": " blistered",
+              "start": 1.4,
+              "end": 1.68,
+              "probability": 0.826416015625
+            },
+            {
+              "text": " be",
+              "start": 1.68,
+              "end": 1.92,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " thy",
+              "start": 1.92,
+              "end": 2.1,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " tongue",
+              "start": 2.1,
+              "end": 2.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " such",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wish,",
+              "start": 2.9,
+              "end": 3.16,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " he",
+              "start": 3.64,
+              "end": 3.72,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " was",
+              "start": 3.72,
+              "end": 3.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 3.82,
+              "end": 4.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " born",
+              "start": 4.02,
+              "end": 4.22,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " to",
+              "start": 4.22,
+              "end": 4.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " shame.",
+              "start": 4.46,
+              "end": 4.8,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Upon his brow shame is ashamed to sit, for tease a throne where honor may be sole monarch",
+          "start": 5.62,
+          "end": 10.9,
+          "words": [
+            {
+              "text": " Upon",
+              "start": 5.62,
+              "end": 5.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " brow",
+              "start": 5.88,
+              "end": 6.16,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " shame",
+              "start": 6.16,
+              "end": 6.52,
+              "probability": 0.927734375
+            },
+            {
+              "text": " is",
+              "start": 6.52,
+              "end": 6.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " ashamed",
+              "start": 6.74,
+              "end": 7.1,
+              "probability": 0.69921875
+            },
+            {
+              "text": " to",
+              "start": 7.1,
+              "end": 7.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sit,",
+              "start": 7.4,
+              "end": 7.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 8.16,
+              "end": 8.22,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " tease",
+              "start": 8.22,
+              "end": 8.52,
+              "probability": 0.65185546875
+            },
+            {
+              "text": " a",
+              "start": 8.52,
+              "end": 8.72,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " throne",
+              "start": 8.72,
+              "end": 9.02,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " where",
+              "start": 9.02,
+              "end": 9.36,
+              "probability": 0.955078125
+            },
+            {
+              "text": " honor",
+              "start": 9.36,
+              "end": 9.68,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " may",
+              "start": 9.68,
+              "end": 9.94,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " be",
+              "start": 9.94,
+              "end": 10.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sole",
+              "start": 10.16,
+              "end": 10.52,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " monarch",
+              "start": 10.52,
+              "end": 10.9,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " of the universal earth.",
+          "start": 10.9,
+          "end": 12.04,
+          "words": [
+            {
+              "text": " of",
+              "start": 10.9,
+              "end": 11.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 11.1,
+              "end": 11.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " universal",
+              "start": 11.2,
+              "end": 11.6,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " earth.",
+              "start": 11.6,
+              "end": 12.04,
+              "probability": 0.7724609375
+            }
+          ]
+        },
+        {
+          "text": " Oh, what a beast was I to chide at him!",
+          "start": 12.78,
+          "end": 14.7,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 12.78,
+              "end": 13.0,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " what",
+              "start": 13.14,
+              "end": 13.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 13.26,
+              "end": 13.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " beast",
+              "start": 13.4,
+              "end": 13.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " was",
+              "start": 13.62,
+              "end": 13.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 13.82,
+              "end": 13.98,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " to",
+              "start": 13.98,
+              "end": 14.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " chide",
+              "start": 14.12,
+              "end": 14.34,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " at",
+              "start": 14.34,
+              "end": 14.52,
+              "probability": 0.986328125
+            },
+            {
+              "text": " him!",
+              "start": 14.52,
+              "end": 14.7,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "blistered",
+          "start": 1.4,
+          "end": 1.68
+        },
+        {
+          "raw": "be",
+          "start": 1.68,
+          "end": 1.92
+        },
+        {
+          "raw": "thy",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "raw": "tongue",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "raw": "for",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "such",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "wish,",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "raw": "he",
+          "start": 3.64,
+          "end": 3.72
+        },
+        {
+          "raw": "was",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "raw": "not",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "raw": "born",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "raw": "to",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "raw": "shame.",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "raw": "Upon",
+          "start": 5.62,
+          "end": 5.64
+        },
+        {
+          "raw": "his",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "raw": "brow",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "raw": "shame",
+          "start": 6.16,
+          "end": 6.52
+        },
+        {
+          "raw": "is",
+          "start": 6.52,
+          "end": 6.74
+        },
+        {
+          "raw": "ashamed",
+          "start": 6.74,
+          "end": 7.1
+        },
+        {
+          "raw": "to",
+          "start": 7.1,
+          "end": 7.4
+        },
+        {
+          "raw": "sit,",
+          "start": 7.4,
+          "end": 7.72
+        },
+        {
+          "raw": "for",
+          "start": 8.16,
+          "end": 8.22
+        },
+        {
+          "raw": "tease",
+          "start": 8.22,
+          "end": 8.52
+        },
+        {
+          "raw": "a",
+          "start": 8.52,
+          "end": 8.72
+        },
+        {
+          "raw": "throne",
+          "start": 8.72,
+          "end": 9.02
+        },
+        {
+          "raw": "where",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "raw": "honor",
+          "start": 9.36,
+          "end": 9.68
+        },
+        {
+          "raw": "may",
+          "start": 9.68,
+          "end": 9.94
+        },
+        {
+          "raw": "be",
+          "start": 9.94,
+          "end": 10.16
+        },
+        {
+          "raw": "sole",
+          "start": 10.16,
+          "end": 10.52
+        },
+        {
+          "raw": "monarch",
+          "start": 10.52,
+          "end": 10.9
+        },
+        {
+          "raw": "of",
+          "start": 10.9,
+          "end": 11.1
+        },
+        {
+          "raw": "the",
+          "start": 11.1,
+          "end": 11.2
+        },
+        {
+          "raw": "universal",
+          "start": 11.2,
+          "end": 11.6
+        },
+        {
+          "raw": "earth.",
+          "start": 11.6,
+          "end": 12.04
+        },
+        {
+          "raw": "Oh,",
+          "start": 12.78,
+          "end": 13.0
+        },
+        {
+          "raw": "what",
+          "start": 13.14,
+          "end": 13.26
+        },
+        {
+          "raw": "a",
+          "start": 13.26,
+          "end": 13.4
+        },
+        {
+          "raw": "beast",
+          "start": 13.4,
+          "end": 13.62
+        },
+        {
+          "raw": "was",
+          "start": 13.62,
+          "end": 13.82
+        },
+        {
+          "raw": "I",
+          "start": 13.82,
+          "end": 13.98
+        },
+        {
+          "raw": "to",
+          "start": 13.98,
+          "end": 14.12
+        },
+        {
+          "raw": "chide",
+          "start": 14.12,
+          "end": 14.34
+        },
+        {
+          "raw": "at",
+          "start": 14.34,
+          "end": 14.52
+        },
+        {
+          "raw": "him!",
+          "start": 14.52,
+          "end": 14.7
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Blister'd",
+        "be",
+        "thy",
+        "tongue",
+        "For",
+        "such",
+        "a",
+        "wish!",
+        "He",
+        "was",
+        "not",
+        "born",
+        "to",
+        "shame.",
+        "Upon",
+        "his",
+        "brow",
+        "shame",
+        "is",
+        "asham'd",
+        "to",
+        "sit;",
+        "For",
+        "'tis",
+        "a",
+        "throne",
+        "where",
+        "honour",
+        "may",
+        "be",
+        "crown'd",
+        "Sole",
+        "monarch",
+        "of",
+        "the",
+        "universal",
+        "earth.",
+        "O,",
+        "what",
+        "a",
+        "beast",
+        "was",
+        "I",
+        "to",
+        "chide",
+        "at",
+        "him!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          20,
+          2,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          24,
+          21,
+          24
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "equal",
+          25,
+          28,
+          25,
+          28
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "equal",
+          29,
+          31,
+          29,
+          31
+        ],
+        [
+          "delete",
+          31,
+          32,
+          31,
+          31
+        ],
+        [
+          "equal",
+          32,
+          38,
+          31,
+          37
+        ],
+        [
+          "replace",
+          38,
+          39,
+          37,
+          38
+        ],
+        [
+          "equal",
+          39,
+          48,
+          38,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "replace",
+          24,
+          25,
+          24,
+          25
+        ],
+        [
+          "replace",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "delete",
+          31,
+          32,
+          31,
+          31
+        ],
+        [
+          "replace",
+          38,
+          39,
+          37,
+          38
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "blistered",
+          "start": 1.4,
+          "end": 1.68,
+          "key": "blistered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.68,
+          "end": 1.92,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.92,
+          "end": 2.1,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 2.1,
+          "end": 2.36,
+          "key": "tongue",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "such",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wish,",
+          "start": 2.9,
+          "end": 3.16,
+          "key": "wish",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.64,
+          "end": 3.72,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.72,
+          "end": 3.82,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.82,
+          "end": 4.02,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "born",
+          "start": 4.02,
+          "end": 4.22,
+          "key": "born",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.22,
+          "end": 4.46,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shame.",
+          "start": 4.46,
+          "end": 4.8,
+          "key": "shame",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 5.62,
+          "end": 5.64,
+          "key": "upon",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.64,
+          "end": 5.88,
+          "key": "his",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "brow",
+          "start": 5.88,
+          "end": 6.16,
+          "key": "brow",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shame",
+          "start": 6.16,
+          "end": 6.52,
+          "key": "shame",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.52,
+          "end": 6.74,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "ashamed",
+          "start": 6.74,
+          "end": 7.1,
+          "key": "ashamed",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.1,
+          "end": 7.4,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "sit,",
+          "start": 7.4,
+          "end": 7.72,
+          "key": "sit",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 8.16,
+          "end": 8.22,
+          "key": "for",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 8.22,
+          "end": 8.52,
+          "key": "tease",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.52,
+          "end": 8.72,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "throne",
+          "start": 8.72,
+          "end": 9.02,
+          "key": "throne",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 9.02,
+          "end": 9.36,
+          "key": "where",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 9.36,
+          "end": 9.68,
+          "key": "honor",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 9.68,
+          "end": 9.94,
+          "key": "may",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 9.94,
+          "end": 10.16,
+          "key": "be",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "sole",
+          "start": 10.16,
+          "end": 10.52,
+          "key": "sole",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "monarch",
+          "start": 10.52,
+          "end": 10.9,
+          "key": "monarch",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.9,
+          "end": 11.1,
+          "key": "of",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.1,
+          "end": 11.2,
+          "key": "the",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "universal",
+          "start": 11.2,
+          "end": 11.6,
+          "key": "universal",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "earth.",
+          "start": 11.6,
+          "end": 12.04,
+          "key": "earth",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 12.78,
+          "end": 13.0,
+          "key": "oh",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 13.14,
+          "end": 13.26,
+          "key": "what",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 13.26,
+          "end": 13.4,
+          "key": "a",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "beast",
+          "start": 13.4,
+          "end": 13.62,
+          "key": "beast",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 13.62,
+          "end": 13.82,
+          "key": "was",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 13.82,
+          "end": 13.98,
+          "key": "i",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 13.98,
+          "end": 14.12,
+          "key": "to",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "chide",
+          "start": 14.12,
+          "end": 14.34,
+          "key": "chide",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 14.34,
+          "end": 14.52,
+          "key": "at",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "him!",
+          "start": 14.52,
+          "end": 14.7,
+          "key": "him",
+          "pieces": [
+            46
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Blister'd",
+          "start": 0.82,
+          "end": 1.25
+        },
+        {
+          "text": "be",
+          "start": 1.68,
+          "end": 1.92
+        },
+        {
+          "text": "thy",
+          "start": 1.92,
+          "end": 2.1
+        },
+        {
+          "text": "tongue",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "text": "For",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "such",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "a",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "wish!",
+          "start": 2.9,
+          "end": 3.16
+        },
+        {
+          "text": "He",
+          "start": 3.64,
+          "end": 3.72
+        },
+        {
+          "text": "was",
+          "start": 3.72,
+          "end": 3.82
+        },
+        {
+          "text": "not",
+          "start": 3.82,
+          "end": 4.02
+        },
+        {
+          "text": "born",
+          "start": 4.02,
+          "end": 4.22
+        },
+        {
+          "text": "to",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "text": "shame.",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "text": "Upon",
+          "start": 5.62,
+          "end": 5.64
+        },
+        {
+          "text": "his",
+          "start": 5.64,
+          "end": 5.88
+        },
+        {
+          "text": "brow",
+          "start": 5.88,
+          "end": 6.16
+        },
+        {
+          "text": "shame",
+          "start": 6.16,
+          "end": 6.52
+        },
+        {
+          "text": "is",
+          "start": 6.52,
+          "end": 6.74
+        },
+        {
+          "text": "asham'd",
+          "start": 6.74,
+          "end": 6.92
+        },
+        {
+          "text": "to",
+          "start": 7.1,
+          "end": 7.4
+        },
+        {
+          "text": "sit;",
+          "start": 7.4,
+          "end": 7.72
+        },
+        {
+          "text": "For",
+          "start": 8.16,
+          "end": 8.22
+        },
+        {
+          "text": "'tis",
+          "start": 8.22,
+          "end": 8.37
+        },
+        {
+          "text": "a",
+          "start": 8.52,
+          "end": 8.72
+        },
+        {
+          "text": "throne",
+          "start": 8.72,
+          "end": 9.02
+        },
+        {
+          "text": "where",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "text": "honour",
+          "start": 9.36,
+          "end": 9.52
+        },
+        {
+          "text": "may",
+          "start": 9.68,
+          "end": 9.94
+        },
+        {
+          "text": "be",
+          "start": 9.94,
+          "end": 10.16
+        },
+        {
+          "text": "crown'd",
+          "start": 10.16,
+          "end": 10.16
+        },
+        {
+          "text": "Sole",
+          "start": 10.16,
+          "end": 10.52
+        },
+        {
+          "text": "monarch",
+          "start": 10.52,
+          "end": 10.9
+        },
+        {
+          "text": "of",
+          "start": 10.9,
+          "end": 11.1
+        },
+        {
+          "text": "the",
+          "start": 11.1,
+          "end": 11.2
+        },
+        {
+          "text": "universal",
+          "start": 11.2,
+          "end": 11.6
+        },
+        {
+          "text": "earth.",
+          "start": 11.6,
+          "end": 12.04
+        },
+        {
+          "text": "O,",
+          "start": 12.04,
+          "end": 12.59
+        },
+        {
+          "text": "what",
+          "start": 13.14,
+          "end": 13.26
+        },
+        {
+          "text": "a",
+          "start": 13.26,
+          "end": 13.4
+        },
+        {
+          "text": "beast",
+          "start": 13.4,
+          "end": 13.62
+        },
+        {
+          "text": "was",
+          "start": 13.62,
+          "end": 13.82
+        },
+        {
+          "text": "I",
+          "start": 13.82,
+          "end": 13.98
+        },
+        {
+          "text": "to",
+          "start": 13.98,
+          "end": 14.12
+        },
+        {
+          "text": "chide",
+          "start": 14.12,
+          "end": 14.34
+        },
+        {
+          "text": "at",
+          "start": 14.34,
+          "end": 14.52
+        },
+        {
+          "text": "him!",
+          "start": 14.52,
+          "end": 14.7
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 47,
+        "matched_words": 42
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.6449505556374788
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6f23a5e9780352f3eb66b763a6fb123fe52d8589fb8078196c8c1a504b22e38",
+  "selected_reasons": []
+}

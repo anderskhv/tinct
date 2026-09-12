@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "c228263883f92718eb43674c9908835cb522abcb7c330e1710ff83a09331c649",
+  "attempts": [
+    {
+      "asr_seconds": 0.14761208277195692,
+      "alignment_seconds": 0.00034779496490955353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Daughter of the regiment.",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Daughter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " of",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.966796875
+            },
+            {
+              "text": " regiment.",
+              "start": 1.0,
+              "end": 1.26,
+              "probability": 0.37890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Daughter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "of",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "regiment.",
+          "start": 1.0,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "—Daughter",
+        "of",
+        "the",
+        "regiment."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Daughter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "daughter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.68,
+          "end": 0.88,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 1.0,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "regiment.",
+          "start": 1.0,
+          "end": 1.26,
+          "key": "regiment",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Daughter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "of",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "the",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "regiment.",
+          "start": 1.0,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.148099472746253
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d55c04b79225ba72c513aaae5a4a071d1bbf06724830ac593f820acecd2628fe",
+  "selected_reasons": []
+}

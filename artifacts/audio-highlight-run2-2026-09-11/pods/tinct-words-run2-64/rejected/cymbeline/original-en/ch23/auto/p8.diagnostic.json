@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "2e6da27c7db0e6d38fd99cb884a5cb8298dd042453052bac9035e8ce9eb3bf63",
+  "attempts": [
+    {
+      "asr_seconds": 0.11590423248708248,
+      "alignment_seconds": 0.00030795857310295105,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Does yet depend.",
+        "hotwords": "Does"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Does yet depend.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Does",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " yet",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " depend.",
+              "start": 0.73,
+              "end": 1.05,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Does",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "yet",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "depend.",
+          "start": 0.73,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "Does",
+        "yet",
+        "depend."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Does",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "does",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 0.59,
+          "end": 0.73,
+          "key": "yet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "depend.",
+          "start": 0.73,
+          "end": 1.05,
+          "key": "depend",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Does",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "yet",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "depend.",
+          "start": 0.73,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11631730198860168
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "59051255b39e9dba28c7f95f403418a37027e4e3dc0bc16c0013086e87d43e16",
+  "selected_reasons": []
+}

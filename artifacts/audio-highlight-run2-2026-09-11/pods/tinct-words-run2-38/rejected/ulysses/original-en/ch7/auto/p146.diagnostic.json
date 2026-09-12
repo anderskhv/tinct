@@ -1,0 +1,2095 @@
+{
+  "complete": true,
+  "signature": "7f912bbbef6e08e257a0239dd3d937851916f5aa28b319eecee5a8557b38e5b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.18026391800958663,
+      "alignment_seconds": 0.00031732197385281324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "J. J. O'Molloy strolled to the sloping desk and began to turn back the pink pages of the file.",
+        "hotwords": "J, O'Molloy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " J. J. O'Molloy strolled to the sloping desk and began to turn back the pink pages of the file.",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " J.",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.42578125
+            },
+            {
+              "text": " J.",
+              "start": 0.83,
+              "end": 0.87,
+              "probability": 0.24365234375
+            },
+            {
+              "text": " O",
+              "start": 1.03,
+              "end": 1.11,
+              "probability": 0.437255859375
+            },
+            {
+              "text": "'Molloy",
+              "start": 1.11,
+              "end": 1.37,
+              "probability": 0.3646317422389984
+            },
+            {
+              "text": " strolled",
+              "start": 1.37,
+              "end": 2.19,
+              "probability": 0.5260009765625
+            },
+            {
+              "text": " to",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sloping",
+              "start": 2.51,
+              "end": 2.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " desk",
+              "start": 2.87,
+              "end": 3.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 3.27,
+              "end": 3.75,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " began",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " turn",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back",
+              "start": 4.35,
+              "end": 4.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.61,
+              "end": 4.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " pink",
+              "start": 4.81,
+              "end": 5.03,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " pages",
+              "start": 5.03,
+              "end": 5.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 5.47,
+              "end": 5.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " file.",
+              "start": 5.75,
+              "end": 6.05,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "J.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "J.",
+          "start": 0.83,
+          "end": 0.87
+        },
+        {
+          "raw": "O",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "raw": "'Molloy",
+          "start": 1.11,
+          "end": 1.37
+        },
+        {
+          "raw": "strolled",
+          "start": 1.37,
+          "end": 2.19
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "sloping",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "raw": "desk",
+          "start": 2.87,
+          "end": 3.27
+        },
+        {
+          "raw": "and",
+          "start": 3.27,
+          "end": 3.75
+        },
+        {
+          "raw": "began",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "turn",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "back",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "raw": "pink",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "raw": "pages",
+          "start": 5.03,
+          "end": 5.47
+        },
+        {
+          "raw": "of",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.75
+        },
+        {
+          "raw": "file.",
+          "start": 5.75,
+          "end": 6.05
+        }
+      ],
+      "expected_tokens": [
+        "J.",
+        "J.",
+        "O'Molloy",
+        "strolled",
+        "to",
+        "the",
+        "sloping",
+        "desk",
+        "and",
+        "began",
+        "to",
+        "turn",
+        "back",
+        "the",
+        "pink",
+        "pages",
+        "of",
+        "the",
+        "file."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          19,
+          4,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "J.",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "j",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "J.",
+          "start": 0.83,
+          "end": 0.87,
+          "key": "j",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.03,
+          "end": 1.11,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'Molloy",
+          "start": 1.11,
+          "end": 1.37,
+          "key": "molloy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strolled",
+          "start": 1.37,
+          "end": 2.19,
+          "key": "strolled",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sloping",
+          "start": 2.51,
+          "end": 2.87,
+          "key": "sloping",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "desk",
+          "start": 2.87,
+          "end": 3.27,
+          "key": "desk",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.27,
+          "end": 3.75,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 3.75,
+          "end": 3.99,
+          "key": "began",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "turn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 4.35,
+          "end": 4.61,
+          "key": "back",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.81,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pink",
+          "start": 4.81,
+          "end": 5.03,
+          "key": "pink",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pages",
+          "start": 5.03,
+          "end": 5.47,
+          "key": "pages",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.47,
+          "end": 5.65,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.75,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "file.",
+          "start": 5.75,
+          "end": 6.05,
+          "key": "file",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "J.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "J.",
+          "start": 0.83,
+          "end": 0.87
+        },
+        {
+          "text": "O'Molloy",
+          "start": 0.87,
+          "end": 1.12
+        },
+        {
+          "text": "strolled",
+          "start": 1.37,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "the",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "sloping",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "text": "desk",
+          "start": 2.87,
+          "end": 3.27
+        },
+        {
+          "text": "and",
+          "start": 3.27,
+          "end": 3.75
+        },
+        {
+          "text": "began",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "text": "to",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "turn",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "back",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "text": "the",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "text": "pink",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "text": "pages",
+          "start": 5.03,
+          "end": 5.47
+        },
+        {
+          "text": "of",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.75
+        },
+        {
+          "text": "file.",
+          "start": 5.75,
+          "end": 6.05
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.18072043103165925
+    },
+    {
+      "asr_seconds": 0.1763924959814176,
+      "alignment_seconds": 0.000319471990223974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "J, O'Molloy"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " J.J. O'Moll, strolled to the sloping desk and began to turn back the pink pages of the file.",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " J",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.42578125
+            },
+            {
+              "text": ".J.",
+              "start": 0.59,
+              "end": 0.89,
+              "probability": 0.862548828125
+            },
+            {
+              "text": " O",
+              "start": 0.93,
+              "end": 1.11,
+              "probability": 0.48828125
+            },
+            {
+              "text": "'Moll,",
+              "start": 1.11,
+              "end": 1.41,
+              "probability": 0.4901529947916667
+            },
+            {
+              "text": " strolled",
+              "start": 1.79,
+              "end": 2.21,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " to",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sloping",
+              "start": 2.51,
+              "end": 2.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " desk",
+              "start": 2.87,
+              "end": 3.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 3.25,
+              "end": 3.75,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " began",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " turn",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " back",
+              "start": 4.35,
+              "end": 4.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 4.61,
+              "end": 4.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pink",
+              "start": 4.81,
+              "end": 5.03,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " pages",
+              "start": 5.03,
+              "end": 5.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 5.47,
+              "end": 5.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " file.",
+              "start": 5.75,
+              "end": 6.05,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "J",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": ".J.",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "raw": "O",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "raw": "'Moll,",
+          "start": 1.11,
+          "end": 1.41
+        },
+        {
+          "raw": "strolled",
+          "start": 1.79,
+          "end": 2.21
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "sloping",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "raw": "desk",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "raw": "and",
+          "start": 3.25,
+          "end": 3.75
+        },
+        {
+          "raw": "began",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "turn",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "back",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "raw": "pink",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "raw": "pages",
+          "start": 5.03,
+          "end": 5.47
+        },
+        {
+          "raw": "of",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.75
+        },
+        {
+          "raw": "file.",
+          "start": 5.75,
+          "end": 6.05
+        }
+      ],
+      "expected_tokens": [
+        "J.",
+        "J.",
+        "O'Molloy",
+        "strolled",
+        "to",
+        "the",
+        "sloping",
+        "desk",
+        "and",
+        "began",
+        "to",
+        "turn",
+        "back",
+        "the",
+        "pink",
+        "pages",
+        "of",
+        "the",
+        "file."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          19,
+          4,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "J",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "j",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".J.",
+          "start": 0.59,
+          "end": 0.89,
+          "key": "j",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 0.93,
+          "end": 1.11,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'Moll,",
+          "start": 1.11,
+          "end": 1.41,
+          "key": "moll",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strolled",
+          "start": 1.79,
+          "end": 2.21,
+          "key": "strolled",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sloping",
+          "start": 2.51,
+          "end": 2.87,
+          "key": "sloping",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "desk",
+          "start": 2.87,
+          "end": 3.25,
+          "key": "desk",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.25,
+          "end": 3.75,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 3.75,
+          "end": 3.99,
+          "key": "began",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "turn",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 4.35,
+          "end": 4.61,
+          "key": "back",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.81,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pink",
+          "start": 4.81,
+          "end": 5.03,
+          "key": "pink",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pages",
+          "start": 5.03,
+          "end": 5.47,
+          "key": "pages",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.47,
+          "end": 5.65,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.75,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "file.",
+          "start": 5.75,
+          "end": 6.05,
+          "key": "file",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "J.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "J.",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "text": "O'Molloy",
+          "start": 0.89,
+          "end": 1.34
+        },
+        {
+          "text": "strolled",
+          "start": 1.79,
+          "end": 2.21
+        },
+        {
+          "text": "to",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "the",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "sloping",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "text": "desk",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "text": "and",
+          "start": 3.25,
+          "end": 3.75
+        },
+        {
+          "text": "began",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "text": "to",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "turn",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "back",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "text": "the",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "text": "pink",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "text": "pages",
+          "start": 5.03,
+          "end": 5.47
+        },
+        {
+          "text": "of",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.75
+        },
+        {
+          "text": "file.",
+          "start": 5.75,
+          "end": 6.05
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.17685406899545342
+    },
+    {
+      "asr_seconds": 0.18223901896271855,
+      "alignment_seconds": 0.00033333199098706245,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " J.J. Omal strolled to the sloping desk and began to turn back the pink pages of the file.",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " J",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.42578125
+            },
+            {
+              "text": ".J.",
+              "start": 0.59,
+              "end": 0.89,
+              "probability": 0.862548828125
+            },
+            {
+              "text": " Omal",
+              "start": 0.93,
+              "end": 1.35,
+              "probability": 0.44970703125
+            },
+            {
+              "text": " strolled",
+              "start": 1.35,
+              "end": 2.19,
+              "probability": 0.753662109375
+            },
+            {
+              "text": " to",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sloping",
+              "start": 2.51,
+              "end": 2.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " desk",
+              "start": 2.87,
+              "end": 3.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 3.25,
+              "end": 3.75,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " began",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " turn",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " back",
+              "start": 4.35,
+              "end": 4.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.61,
+              "end": 4.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " pink",
+              "start": 4.81,
+              "end": 5.03,
+              "probability": 0.986328125
+            },
+            {
+              "text": " pages",
+              "start": 5.03,
+              "end": 5.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 5.47,
+              "end": 5.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.65,
+              "end": 5.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " file.",
+              "start": 5.75,
+              "end": 6.05,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "J",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": ".J.",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "raw": "Omal",
+          "start": 0.93,
+          "end": 1.35
+        },
+        {
+          "raw": "strolled",
+          "start": 1.35,
+          "end": 2.19
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "sloping",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "raw": "desk",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "raw": "and",
+          "start": 3.25,
+          "end": 3.75
+        },
+        {
+          "raw": "began",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "turn",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "back",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "raw": "pink",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "raw": "pages",
+          "start": 5.03,
+          "end": 5.47
+        },
+        {
+          "raw": "of",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.75
+        },
+        {
+          "raw": "file.",
+          "start": 5.75,
+          "end": 6.05
+        }
+      ],
+      "expected_tokens": [
+        "J.",
+        "J.",
+        "O'Molloy",
+        "strolled",
+        "to",
+        "the",
+        "sloping",
+        "desk",
+        "and",
+        "began",
+        "to",
+        "turn",
+        "back",
+        "the",
+        "pink",
+        "pages",
+        "of",
+        "the",
+        "file."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          19,
+          3,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "J",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "j",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".J.",
+          "start": 0.59,
+          "end": 0.89,
+          "key": "j",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Omal",
+          "start": 0.93,
+          "end": 1.35,
+          "key": "omal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strolled",
+          "start": 1.35,
+          "end": 2.19,
+          "key": "strolled",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sloping",
+          "start": 2.51,
+          "end": 2.87,
+          "key": "sloping",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "desk",
+          "start": 2.87,
+          "end": 3.25,
+          "key": "desk",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.25,
+          "end": 3.75,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 3.75,
+          "end": 3.99,
+          "key": "began",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "turn",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 4.35,
+          "end": 4.61,
+          "key": "back",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.61,
+          "end": 4.81,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "pink",
+          "start": 4.81,
+          "end": 5.03,
+          "key": "pink",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pages",
+          "start": 5.03,
+          "end": 5.47,
+          "key": "pages",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.47,
+          "end": 5.65,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.65,
+          "end": 5.75,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "file.",
+          "start": 5.75,
+          "end": 6.05,
+          "key": "file",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "J.",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "J.",
+          "start": 0.59,
+          "end": 0.89
+        },
+        {
+          "text": "O'Molloy",
+          "start": 0.89,
+          "end": 1.12
+        },
+        {
+          "text": "strolled",
+          "start": 1.35,
+          "end": 2.19
+        },
+        {
+          "text": "to",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "the",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "sloping",
+          "start": 2.51,
+          "end": 2.87
+        },
+        {
+          "text": "desk",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "text": "and",
+          "start": 3.25,
+          "end": 3.75
+        },
+        {
+          "text": "began",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "text": "to",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "turn",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "back",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "text": "the",
+          "start": 4.61,
+          "end": 4.81
+        },
+        {
+          "text": "pink",
+          "start": 4.81,
+          "end": 5.03
+        },
+        {
+          "text": "pages",
+          "start": 5.03,
+          "end": 5.47
+        },
+        {
+          "text": "of",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "text": "the",
+          "start": 5.65,
+          "end": 5.75
+        },
+        {
+          "text": "file.",
+          "start": 5.75,
+          "end": 6.05
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.1827044920064509
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1c341fcc117101cd26befe6d758d75cdd0270593469ea82973478257fbdafa3c",
+  "selected_reasons": []
+}

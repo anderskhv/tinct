@@ -1,0 +1,491 @@
+{
+  "complete": true,
+  "signature": "fe02465893b309dc35fe632431bb278c8fad29c5510661eff86dd6c005338610",
+  "attempts": [
+    {
+      "asr_seconds": 0.14642160199582577,
+      "alignment_seconds": 0.0002007591538131237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello. No, not much mauved. I do not think but Distimona's honest.",
+          "start": 0.21,
+          "end": 4.53,
+          "words": [
+            {
+              "text": " Othello.",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.8875325520833334
+            },
+            {
+              "text": " No,",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.96484375
+            },
+            {
+              "text": " not",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " much",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mauved.",
+              "start": 1.87,
+              "end": 2.31,
+              "probability": 0.5982259114583334
+            },
+            {
+              "text": " I",
+              "start": 2.75,
+              "end": 2.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " do",
+              "start": 2.85,
+              "end": 2.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 2.93,
+              "end": 3.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " think",
+              "start": 3.07,
+              "end": 3.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 3.31,
+              "end": 3.53,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " Distimona's",
+              "start": 3.53,
+              "end": 4.29,
+              "probability": 0.6011962890625
+            },
+            {
+              "text": " honest.",
+              "start": 4.29,
+              "end": 4.53,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "No,",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "mauved.",
+          "start": 1.87,
+          "end": 2.31
+        },
+        {
+          "raw": "I",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "raw": "do",
+          "start": 2.85,
+          "end": 2.93
+        },
+        {
+          "raw": "not",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "raw": "think",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "raw": "but",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "raw": "Distimona's",
+          "start": 3.53,
+          "end": 4.29
+        },
+        {
+          "raw": "honest.",
+          "start": 4.29,
+          "end": 4.53
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "No,",
+        "not",
+        "much",
+        "mov'd.",
+        "I",
+        "do",
+        "not",
+        "think",
+        "but",
+        "Desdemona's",
+        "honest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          10,
+          5,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello.",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mauved.",
+          "start": 1.87,
+          "end": 2.31,
+          "key": "mauved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.75,
+          "end": 2.85,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.85,
+          "end": 2.93,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.93,
+          "end": 3.07,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.07,
+          "end": 3.31,
+          "key": "think",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.31,
+          "end": 3.53,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Distimona's",
+          "start": 3.53,
+          "end": 4.29,
+          "key": "distimonas",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "honest.",
+          "start": 4.29,
+          "end": 4.53,
+          "key": "honest",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "No,",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "much",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "mov'd.",
+          "start": 1.87,
+          "end": 2.31
+        },
+        {
+          "text": "I",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "text": "do",
+          "start": 2.85,
+          "end": 2.93
+        },
+        {
+          "text": "not",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "text": "think",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "text": "but",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "text": "Desdemona's",
+          "start": 3.53,
+          "end": 3.91
+        },
+        {
+          "text": "honest.",
+          "start": 4.29,
+          "end": 4.53
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.146688980050385
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1ccb4b33a3059fad3fb176b85260e8792d09a14d7078182c4d6c741e4265400d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

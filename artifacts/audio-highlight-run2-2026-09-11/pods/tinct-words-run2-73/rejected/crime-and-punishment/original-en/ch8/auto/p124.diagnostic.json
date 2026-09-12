@@ -1,0 +1,3471 @@
+{
+  "complete": true,
+  "signature": "0e5deb83fd3e44529f3050bcaa637042f3d6086fecc7eaba0081fc9ce92ab736",
+  "attempts": [
+    {
+      "asr_seconds": 0.9329667231068015,
+      "alignment_seconds": 0.00316478218883276,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Well, what then!\" Ilya Petrovitch drawled with gentlemanly nonchalance; and he walked with some papers to another table, with a jaunty swing of his shoulders at each step. \"Here, if you will kindly look: an author, or a student, has been one at least, does not pay his debts, has given an I O U, won't clear out of his room, and complaints are constantly being lodged against him, and here he has been pleased to make a protest against my smoking in his presence! He behaves like a cad himself, and just look at him, please. Here's the gentleman, and very attractive he is!\"",
+        "hotwords": "Well, Ilya, Petrovitch, I, O, U, Here's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, what then? Ilya Petrovitch drawled with gentlemanly nonchalance, and he walked with",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.0938720703125
+            },
+            {
+              "text": " what",
+              "start": 0.81,
+              "end": 1.03,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " then?",
+              "start": 1.03,
+              "end": 1.43,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Ilya",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.694091796875
+            },
+            {
+              "text": " Petrovitch",
+              "start": 2.31,
+              "end": 2.79,
+              "probability": 0.727783203125
+            },
+            {
+              "text": " drawled",
+              "start": 2.79,
+              "end": 3.23,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " with",
+              "start": 3.23,
+              "end": 3.39,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " gentlemanly",
+              "start": 3.39,
+              "end": 3.97,
+              "probability": 0.9453125
+            },
+            {
+              "text": " nonchalance,",
+              "start": 3.97,
+              "end": 4.65,
+              "probability": 0.9864908854166666
+            },
+            {
+              "text": " and",
+              "start": 4.75,
+              "end": 5.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 5.23,
+              "end": 5.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " walked",
+              "start": 5.35,
+              "end": 5.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 5.57,
+              "end": 5.79,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " some papers to another table, with a jaunty swing of his shoulders at each step.",
+          "start": 5.79,
+          "end": 10.03,
+          "words": [
+            {
+              "text": " some",
+              "start": 5.79,
+              "end": 6.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " papers",
+              "start": 6.01,
+              "end": 6.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 6.35,
+              "end": 6.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " another",
+              "start": 6.61,
+              "end": 6.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " table,",
+              "start": 6.85,
+              "end": 7.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 7.59,
+              "end": 7.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 7.75,
+              "end": 7.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " jaunty",
+              "start": 7.95,
+              "end": 8.25,
+              "probability": 0.9817708333333334
+            },
+            {
+              "text": " swing",
+              "start": 8.25,
+              "end": 8.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 8.61,
+              "end": 8.75,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 8.75,
+              "end": 8.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shoulders",
+              "start": 8.91,
+              "end": 9.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " each",
+              "start": 9.47,
+              "end": 9.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " step.",
+              "start": 9.67,
+              "end": 10.03,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Here, if you will kindly look, an author, or a student, has been one at least, does",
+          "start": 10.65,
+          "end": 15.33,
+          "words": [
+            {
+              "text": " Here,",
+              "start": 10.65,
+              "end": 11.03,
+              "probability": 0.51611328125
+            },
+            {
+              "text": " if",
+              "start": 11.31,
+              "end": 11.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 11.47,
+              "end": 11.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 11.57,
+              "end": 11.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kindly",
+              "start": 11.69,
+              "end": 11.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " look,",
+              "start": 11.95,
+              "end": 12.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 12.69,
+              "end": 12.89,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " author,",
+              "start": 12.89,
+              "end": 13.19,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " or",
+              "start": 13.37,
+              "end": 13.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 13.49,
+              "end": 13.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " student,",
+              "start": 13.63,
+              "end": 13.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " has",
+              "start": 14.05,
+              "end": 14.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " been",
+              "start": 14.19,
+              "end": 14.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 14.35,
+              "end": 14.51,
+              "probability": 0.828125
+            },
+            {
+              "text": " at",
+              "start": 14.51,
+              "end": 14.63,
+              "probability": 0.962890625
+            },
+            {
+              "text": " least,",
+              "start": 14.63,
+              "end": 14.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " does",
+              "start": 15.21,
+              "end": 15.33,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " not pay his debts, has given an I O U, won't clear out of his room, and complaints are",
+          "start": 15.33,
+          "end": 20.05,
+          "words": [
+            {
+              "text": " not",
+              "start": 15.33,
+              "end": 15.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pay",
+              "start": 15.53,
+              "end": 15.71,
+              "probability": 1.0
+            },
+            {
+              "text": " his",
+              "start": 15.71,
+              "end": 15.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " debts,",
+              "start": 15.89,
+              "end": 16.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " has",
+              "start": 16.51,
+              "end": 16.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " given",
+              "start": 16.63,
+              "end": 16.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 16.87,
+              "end": 17.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 17.01,
+              "end": 17.17,
+              "probability": 0.8515625
+            },
+            {
+              "text": " O",
+              "start": 17.17,
+              "end": 17.35,
+              "probability": 0.03240966796875
+            },
+            {
+              "text": " U,",
+              "start": 17.35,
+              "end": 17.61,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " won't",
+              "start": 17.89,
+              "end": 18.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " clear",
+              "start": 18.13,
+              "end": 18.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " out",
+              "start": 18.31,
+              "end": 18.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 18.47,
+              "end": 18.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 18.57,
+              "end": 18.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " room,",
+              "start": 18.71,
+              "end": 18.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 19.35,
+              "end": 19.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " complaints",
+              "start": 19.51,
+              "end": 19.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 19.87,
+              "end": 20.05,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " constantly being lodged against him, and here he has been pleased to make a protest against",
+          "start": 20.05,
+          "end": 24.31,
+          "words": [
+            {
+              "text": " constantly",
+              "start": 20.05,
+              "end": 20.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " being",
+              "start": 20.45,
+              "end": 20.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " lodged",
+              "start": 20.85,
+              "end": 21.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " against",
+              "start": 21.19,
+              "end": 21.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him,",
+              "start": 21.53,
+              "end": 21.87,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 22.27,
+              "end": 22.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " here",
+              "start": 22.43,
+              "end": 22.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 22.61,
+              "end": 22.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " has",
+              "start": 22.77,
+              "end": 22.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " been",
+              "start": 22.85,
+              "end": 22.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pleased",
+              "start": 22.99,
+              "end": 23.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 23.23,
+              "end": 23.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " make",
+              "start": 23.43,
+              "end": 23.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 23.53,
+              "end": 23.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " protest",
+              "start": 23.67,
+              "end": 24.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " against",
+              "start": 24.01,
+              "end": 24.31,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " my smoking in his presence!",
+          "start": 24.31,
+          "end": 25.65,
+          "words": [
+            {
+              "text": " my",
+              "start": 24.31,
+              "end": 24.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " smoking",
+              "start": 24.55,
+              "end": 24.95,
+              "probability": 0.974609375
+            },
+            {
+              "text": " in",
+              "start": 24.95,
+              "end": 25.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " his",
+              "start": 25.17,
+              "end": 25.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " presence!",
+              "start": 25.29,
+              "end": 25.65,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " He behaves like a cad himself, and just look at him, please. Here's the gentleman, and",
+          "start": 26.37,
+          "end": 31.85,
+          "words": [
+            {
+              "text": " He",
+              "start": 26.37,
+              "end": 26.89,
+              "probability": 0.435791015625
+            },
+            {
+              "text": " behaves",
+              "start": 26.89,
+              "end": 27.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 27.27,
+              "end": 27.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 27.57,
+              "end": 27.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cad",
+              "start": 27.71,
+              "end": 27.93,
+              "probability": 0.004314422607421875
+            },
+            {
+              "text": " himself,",
+              "start": 27.93,
+              "end": 28.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 28.81,
+              "end": 28.93,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " just",
+              "start": 28.93,
+              "end": 29.09,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " look",
+              "start": 29.09,
+              "end": 29.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " at",
+              "start": 29.31,
+              "end": 29.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him,",
+              "start": 29.43,
+              "end": 29.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " please.",
+              "start": 29.73,
+              "end": 29.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Here's",
+              "start": 30.73,
+              "end": 30.93,
+              "probability": 0.954345703125
+            },
+            {
+              "text": " the",
+              "start": 30.93,
+              "end": 31.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " gentleman,",
+              "start": 31.09,
+              "end": 31.49,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " and",
+              "start": 31.77,
+              "end": 31.85,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " very attractive he is!",
+          "start": 31.85,
+          "end": 33.09,
+          "words": [
+            {
+              "text": " very",
+              "start": 31.85,
+              "end": 32.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " attractive",
+              "start": 32.13,
+              "end": 32.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 32.57,
+              "end": 32.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is!",
+              "start": 32.83,
+              "end": 33.09,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "what",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "raw": "then?",
+          "start": 1.03,
+          "end": 1.43
+        },
+        {
+          "raw": "Ilya",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "Petrovitch",
+          "start": 2.31,
+          "end": 2.79
+        },
+        {
+          "raw": "drawled",
+          "start": 2.79,
+          "end": 3.23
+        },
+        {
+          "raw": "with",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "raw": "gentlemanly",
+          "start": 3.39,
+          "end": 3.97
+        },
+        {
+          "raw": "nonchalance,",
+          "start": 3.97,
+          "end": 4.65
+        },
+        {
+          "raw": "and",
+          "start": 4.75,
+          "end": 5.23
+        },
+        {
+          "raw": "he",
+          "start": 5.23,
+          "end": 5.35
+        },
+        {
+          "raw": "walked",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "raw": "with",
+          "start": 5.57,
+          "end": 5.79
+        },
+        {
+          "raw": "some",
+          "start": 5.79,
+          "end": 6.01
+        },
+        {
+          "raw": "papers",
+          "start": 6.01,
+          "end": 6.35
+        },
+        {
+          "raw": "to",
+          "start": 6.35,
+          "end": 6.61
+        },
+        {
+          "raw": "another",
+          "start": 6.61,
+          "end": 6.85
+        },
+        {
+          "raw": "table,",
+          "start": 6.85,
+          "end": 7.25
+        },
+        {
+          "raw": "with",
+          "start": 7.59,
+          "end": 7.75
+        },
+        {
+          "raw": "a",
+          "start": 7.75,
+          "end": 7.95
+        },
+        {
+          "raw": "jaunty",
+          "start": 7.95,
+          "end": 8.25
+        },
+        {
+          "raw": "swing",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "raw": "of",
+          "start": 8.61,
+          "end": 8.75
+        },
+        {
+          "raw": "his",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "raw": "shoulders",
+          "start": 8.91,
+          "end": 9.19
+        },
+        {
+          "raw": "at",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "raw": "each",
+          "start": 9.47,
+          "end": 9.67
+        },
+        {
+          "raw": "step.",
+          "start": 9.67,
+          "end": 10.03
+        },
+        {
+          "raw": "Here,",
+          "start": 10.65,
+          "end": 11.03
+        },
+        {
+          "raw": "if",
+          "start": 11.31,
+          "end": 11.47
+        },
+        {
+          "raw": "you",
+          "start": 11.47,
+          "end": 11.57
+        },
+        {
+          "raw": "will",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "raw": "kindly",
+          "start": 11.69,
+          "end": 11.95
+        },
+        {
+          "raw": "look,",
+          "start": 11.95,
+          "end": 12.29
+        },
+        {
+          "raw": "an",
+          "start": 12.69,
+          "end": 12.89
+        },
+        {
+          "raw": "author,",
+          "start": 12.89,
+          "end": 13.19
+        },
+        {
+          "raw": "or",
+          "start": 13.37,
+          "end": 13.49
+        },
+        {
+          "raw": "a",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "raw": "student,",
+          "start": 13.63,
+          "end": 13.91
+        },
+        {
+          "raw": "has",
+          "start": 14.05,
+          "end": 14.19
+        },
+        {
+          "raw": "been",
+          "start": 14.19,
+          "end": 14.35
+        },
+        {
+          "raw": "one",
+          "start": 14.35,
+          "end": 14.51
+        },
+        {
+          "raw": "at",
+          "start": 14.51,
+          "end": 14.63
+        },
+        {
+          "raw": "least,",
+          "start": 14.63,
+          "end": 14.89
+        },
+        {
+          "raw": "does",
+          "start": 15.21,
+          "end": 15.33
+        },
+        {
+          "raw": "not",
+          "start": 15.33,
+          "end": 15.53
+        },
+        {
+          "raw": "pay",
+          "start": 15.53,
+          "end": 15.71
+        },
+        {
+          "raw": "his",
+          "start": 15.71,
+          "end": 15.89
+        },
+        {
+          "raw": "debts,",
+          "start": 15.89,
+          "end": 16.17
+        },
+        {
+          "raw": "has",
+          "start": 16.51,
+          "end": 16.63
+        },
+        {
+          "raw": "given",
+          "start": 16.63,
+          "end": 16.87
+        },
+        {
+          "raw": "an",
+          "start": 16.87,
+          "end": 17.01
+        },
+        {
+          "raw": "I",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "raw": "O",
+          "start": 17.17,
+          "end": 17.35
+        },
+        {
+          "raw": "U,",
+          "start": 17.35,
+          "end": 17.61
+        },
+        {
+          "raw": "won't",
+          "start": 17.89,
+          "end": 18.13
+        },
+        {
+          "raw": "clear",
+          "start": 18.13,
+          "end": 18.31
+        },
+        {
+          "raw": "out",
+          "start": 18.31,
+          "end": 18.47
+        },
+        {
+          "raw": "of",
+          "start": 18.47,
+          "end": 18.57
+        },
+        {
+          "raw": "his",
+          "start": 18.57,
+          "end": 18.71
+        },
+        {
+          "raw": "room,",
+          "start": 18.71,
+          "end": 18.99
+        },
+        {
+          "raw": "and",
+          "start": 19.35,
+          "end": 19.51
+        },
+        {
+          "raw": "complaints",
+          "start": 19.51,
+          "end": 19.87
+        },
+        {
+          "raw": "are",
+          "start": 19.87,
+          "end": 20.05
+        },
+        {
+          "raw": "constantly",
+          "start": 20.05,
+          "end": 20.45
+        },
+        {
+          "raw": "being",
+          "start": 20.45,
+          "end": 20.85
+        },
+        {
+          "raw": "lodged",
+          "start": 20.85,
+          "end": 21.19
+        },
+        {
+          "raw": "against",
+          "start": 21.19,
+          "end": 21.53
+        },
+        {
+          "raw": "him,",
+          "start": 21.53,
+          "end": 21.87
+        },
+        {
+          "raw": "and",
+          "start": 22.27,
+          "end": 22.43
+        },
+        {
+          "raw": "here",
+          "start": 22.43,
+          "end": 22.61
+        },
+        {
+          "raw": "he",
+          "start": 22.61,
+          "end": 22.77
+        },
+        {
+          "raw": "has",
+          "start": 22.77,
+          "end": 22.85
+        },
+        {
+          "raw": "been",
+          "start": 22.85,
+          "end": 22.99
+        },
+        {
+          "raw": "pleased",
+          "start": 22.99,
+          "end": 23.23
+        },
+        {
+          "raw": "to",
+          "start": 23.23,
+          "end": 23.43
+        },
+        {
+          "raw": "make",
+          "start": 23.43,
+          "end": 23.53
+        },
+        {
+          "raw": "a",
+          "start": 23.53,
+          "end": 23.67
+        },
+        {
+          "raw": "protest",
+          "start": 23.67,
+          "end": 24.01
+        },
+        {
+          "raw": "against",
+          "start": 24.01,
+          "end": 24.31
+        },
+        {
+          "raw": "my",
+          "start": 24.31,
+          "end": 24.55
+        },
+        {
+          "raw": "smoking",
+          "start": 24.55,
+          "end": 24.95
+        },
+        {
+          "raw": "in",
+          "start": 24.95,
+          "end": 25.17
+        },
+        {
+          "raw": "his",
+          "start": 25.17,
+          "end": 25.29
+        },
+        {
+          "raw": "presence!",
+          "start": 25.29,
+          "end": 25.65
+        },
+        {
+          "raw": "He",
+          "start": 26.37,
+          "end": 26.89
+        },
+        {
+          "raw": "behaves",
+          "start": 26.89,
+          "end": 27.27
+        },
+        {
+          "raw": "like",
+          "start": 27.27,
+          "end": 27.57
+        },
+        {
+          "raw": "a",
+          "start": 27.57,
+          "end": 27.71
+        },
+        {
+          "raw": "cad",
+          "start": 27.71,
+          "end": 27.93
+        },
+        {
+          "raw": "himself,",
+          "start": 27.93,
+          "end": 28.37
+        },
+        {
+          "raw": "and",
+          "start": 28.81,
+          "end": 28.93
+        },
+        {
+          "raw": "just",
+          "start": 28.93,
+          "end": 29.09
+        },
+        {
+          "raw": "look",
+          "start": 29.09,
+          "end": 29.31
+        },
+        {
+          "raw": "at",
+          "start": 29.31,
+          "end": 29.43
+        },
+        {
+          "raw": "him,",
+          "start": 29.43,
+          "end": 29.61
+        },
+        {
+          "raw": "please.",
+          "start": 29.73,
+          "end": 29.97
+        },
+        {
+          "raw": "Here's",
+          "start": 30.73,
+          "end": 30.93
+        },
+        {
+          "raw": "the",
+          "start": 30.93,
+          "end": 31.09
+        },
+        {
+          "raw": "gentleman,",
+          "start": 31.09,
+          "end": 31.49
+        },
+        {
+          "raw": "and",
+          "start": 31.77,
+          "end": 31.85
+        },
+        {
+          "raw": "very",
+          "start": 31.85,
+          "end": 32.13
+        },
+        {
+          "raw": "attractive",
+          "start": 32.13,
+          "end": 32.57
+        },
+        {
+          "raw": "he",
+          "start": 32.57,
+          "end": 32.83
+        },
+        {
+          "raw": "is!",
+          "start": 32.83,
+          "end": 33.09
+        }
+      ],
+      "expected_tokens": [
+        "\"Well,",
+        "what",
+        "then!\"",
+        "Ilya",
+        "Petrovitch",
+        "drawled",
+        "with",
+        "gentlemanly",
+        "nonchalance;",
+        "and",
+        "he",
+        "walked",
+        "with",
+        "some",
+        "papers",
+        "to",
+        "another",
+        "table,",
+        "with",
+        "a",
+        "jaunty",
+        "swing",
+        "of",
+        "his",
+        "shoulders",
+        "at",
+        "each",
+        "step.",
+        "\"Here,",
+        "if",
+        "you",
+        "will",
+        "kindly",
+        "look:",
+        "an",
+        "author,",
+        "or",
+        "a",
+        "student,",
+        "has",
+        "been",
+        "one",
+        "at",
+        "least,",
+        "does",
+        "not",
+        "pay",
+        "his",
+        "debts,",
+        "has",
+        "given",
+        "an",
+        "I",
+        "O",
+        "U,",
+        "won't",
+        "clear",
+        "out",
+        "of",
+        "his",
+        "room,",
+        "and",
+        "complaints",
+        "are",
+        "constantly",
+        "being",
+        "lodged",
+        "against",
+        "him,",
+        "and",
+        "here",
+        "he",
+        "has",
+        "been",
+        "pleased",
+        "to",
+        "make",
+        "a",
+        "protest",
+        "against",
+        "my",
+        "smoking",
+        "in",
+        "his",
+        "presence!",
+        "He",
+        "behaves",
+        "like",
+        "a",
+        "cad",
+        "himself,",
+        "and",
+        "just",
+        "look",
+        "at",
+        "him,",
+        "please.",
+        "Here's",
+        "the",
+        "gentleman,",
+        "and",
+        "very",
+        "attractive",
+        "he",
+        "is!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          105,
+          0,
+          105
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 104
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 0.81,
+          "end": 1.03,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 1.03,
+          "end": 1.43,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ilya",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "ilya",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Petrovitch",
+          "start": 2.31,
+          "end": 2.79,
+          "key": "petrovitch",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "drawled",
+          "start": 2.79,
+          "end": 3.23,
+          "key": "drawled",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.23,
+          "end": 3.39,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gentlemanly",
+          "start": 3.39,
+          "end": 3.97,
+          "key": "gentlemanly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nonchalance,",
+          "start": 3.97,
+          "end": 4.65,
+          "key": "nonchalance",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.75,
+          "end": 5.23,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.23,
+          "end": 5.35,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 5.35,
+          "end": 5.57,
+          "key": "walked",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.57,
+          "end": 5.79,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 5.79,
+          "end": 6.01,
+          "key": "some",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "papers",
+          "start": 6.01,
+          "end": 6.35,
+          "key": "papers",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.35,
+          "end": 6.61,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 6.61,
+          "end": 6.85,
+          "key": "another",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "table,",
+          "start": 6.85,
+          "end": 7.25,
+          "key": "table",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.59,
+          "end": 7.75,
+          "key": "with",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.75,
+          "end": 7.95,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "jaunty",
+          "start": 7.95,
+          "end": 8.25,
+          "key": "jaunty",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "swing",
+          "start": 8.25,
+          "end": 8.61,
+          "key": "swing",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.61,
+          "end": 8.75,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 8.75,
+          "end": 8.91,
+          "key": "his",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "shoulders",
+          "start": 8.91,
+          "end": 9.19,
+          "key": "shoulders",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 9.19,
+          "end": 9.47,
+          "key": "at",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 9.47,
+          "end": 9.67,
+          "key": "each",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "step.",
+          "start": 9.67,
+          "end": 10.03,
+          "key": "step",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Here,",
+          "start": 10.65,
+          "end": 11.03,
+          "key": "here",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 11.31,
+          "end": 11.47,
+          "key": "if",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.47,
+          "end": 11.57,
+          "key": "you",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 11.57,
+          "end": 11.69,
+          "key": "will",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "kindly",
+          "start": 11.69,
+          "end": 11.95,
+          "key": "kindly",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "look,",
+          "start": 11.95,
+          "end": 12.29,
+          "key": "look",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 12.69,
+          "end": 12.89,
+          "key": "an",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "author,",
+          "start": 12.89,
+          "end": 13.19,
+          "key": "author",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 13.37,
+          "end": 13.49,
+          "key": "or",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 13.49,
+          "end": 13.63,
+          "key": "a",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "student,",
+          "start": 13.63,
+          "end": 13.91,
+          "key": "student",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 14.05,
+          "end": 14.19,
+          "key": "has",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 14.19,
+          "end": 14.35,
+          "key": "been",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 14.35,
+          "end": 14.51,
+          "key": "one",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 14.51,
+          "end": 14.63,
+          "key": "at",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "least,",
+          "start": 14.63,
+          "end": 14.89,
+          "key": "least",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 15.21,
+          "end": 15.33,
+          "key": "does",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 15.33,
+          "end": 15.53,
+          "key": "not",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 15.53,
+          "end": 15.71,
+          "key": "pay",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 15.71,
+          "end": 15.89,
+          "key": "his",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "debts,",
+          "start": 15.89,
+          "end": 16.17,
+          "key": "debts",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 16.51,
+          "end": 16.63,
+          "key": "has",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 16.63,
+          "end": 16.87,
+          "key": "given",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 16.87,
+          "end": 17.01,
+          "key": "an",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 17.01,
+          "end": 17.17,
+          "key": "i",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 17.17,
+          "end": 17.35,
+          "key": "o",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "U,",
+          "start": 17.35,
+          "end": 17.61,
+          "key": "u",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 17.89,
+          "end": 18.13,
+          "key": "wont",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "clear",
+          "start": 18.13,
+          "end": 18.31,
+          "key": "clear",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 18.31,
+          "end": 18.47,
+          "key": "out",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.47,
+          "end": 18.57,
+          "key": "of",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 18.57,
+          "end": 18.71,
+          "key": "his",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "room,",
+          "start": 18.71,
+          "end": 18.99,
+          "key": "room",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.35,
+          "end": 19.51,
+          "key": "and",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "complaints",
+          "start": 19.51,
+          "end": 19.87,
+          "key": "complaints",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 19.87,
+          "end": 20.05,
+          "key": "are",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "constantly",
+          "start": 20.05,
+          "end": 20.45,
+          "key": "constantly",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 20.45,
+          "end": 20.85,
+          "key": "being",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "lodged",
+          "start": 20.85,
+          "end": 21.19,
+          "key": "lodged",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 21.19,
+          "end": 21.53,
+          "key": "against",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 21.53,
+          "end": 21.87,
+          "key": "him",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 22.27,
+          "end": 22.43,
+          "key": "and",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 22.43,
+          "end": 22.61,
+          "key": "here",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 22.61,
+          "end": 22.77,
+          "key": "he",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 22.77,
+          "end": 22.85,
+          "key": "has",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 22.85,
+          "end": 22.99,
+          "key": "been",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "pleased",
+          "start": 22.99,
+          "end": 23.23,
+          "key": "pleased",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 23.23,
+          "end": 23.43,
+          "key": "to",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 23.43,
+          "end": 23.53,
+          "key": "make",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 23.53,
+          "end": 23.67,
+          "key": "a",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "protest",
+          "start": 23.67,
+          "end": 24.01,
+          "key": "protest",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 24.01,
+          "end": 24.31,
+          "key": "against",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 24.31,
+          "end": 24.55,
+          "key": "my",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "smoking",
+          "start": 24.55,
+          "end": 24.95,
+          "key": "smoking",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 24.95,
+          "end": 25.17,
+          "key": "in",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 25.17,
+          "end": 25.29,
+          "key": "his",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "presence!",
+          "start": 25.29,
+          "end": 25.65,
+          "key": "presence",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 26.37,
+          "end": 26.89,
+          "key": "he",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "behaves",
+          "start": 26.89,
+          "end": 27.27,
+          "key": "behaves",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 27.27,
+          "end": 27.57,
+          "key": "like",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 27.57,
+          "end": 27.71,
+          "key": "a",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "cad",
+          "start": 27.71,
+          "end": 27.93,
+          "key": "cad",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 27.93,
+          "end": 28.37,
+          "key": "himself",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 28.81,
+          "end": 28.93,
+          "key": "and",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 28.93,
+          "end": 29.09,
+          "key": "just",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 29.09,
+          "end": 29.31,
+          "key": "look",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 29.31,
+          "end": 29.43,
+          "key": "at",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 29.43,
+          "end": 29.61,
+          "key": "him",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "please.",
+          "start": 29.73,
+          "end": 29.97,
+          "key": "please",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 30.73,
+          "end": 30.93,
+          "key": "heres",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 30.93,
+          "end": 31.09,
+          "key": "the",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 31.09,
+          "end": 31.49,
+          "key": "gentleman",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 31.77,
+          "end": 31.85,
+          "key": "and",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 31.85,
+          "end": 32.13,
+          "key": "very",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "attractive",
+          "start": 32.13,
+          "end": 32.57,
+          "key": "attractive",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 32.57,
+          "end": 32.83,
+          "key": "he",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "is!",
+          "start": 32.83,
+          "end": 33.09,
+          "key": "is",
+          "pieces": [
+            104
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "what",
+          "start": 0.81,
+          "end": 1.03
+        },
+        {
+          "text": "then!\"",
+          "start": 1.03,
+          "end": 1.43
+        },
+        {
+          "text": "Ilya",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "Petrovitch",
+          "start": 2.31,
+          "end": 2.79
+        },
+        {
+          "text": "drawled",
+          "start": 2.79,
+          "end": 3.23
+        },
+        {
+          "text": "with",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "text": "gentlemanly",
+          "start": 3.39,
+          "end": 3.97
+        },
+        {
+          "text": "nonchalance;",
+          "start": 3.97,
+          "end": 4.65
+        },
+        {
+          "text": "and",
+          "start": 4.75,
+          "end": 5.23
+        },
+        {
+          "text": "he",
+          "start": 5.23,
+          "end": 5.35
+        },
+        {
+          "text": "walked",
+          "start": 5.35,
+          "end": 5.57
+        },
+        {
+          "text": "with",
+          "start": 5.57,
+          "end": 5.79
+        },
+        {
+          "text": "some",
+          "start": 5.79,
+          "end": 6.01
+        },
+        {
+          "text": "papers",
+          "start": 6.01,
+          "end": 6.35
+        },
+        {
+          "text": "to",
+          "start": 6.35,
+          "end": 6.61
+        },
+        {
+          "text": "another",
+          "start": 6.61,
+          "end": 6.85
+        },
+        {
+          "text": "table,",
+          "start": 6.85,
+          "end": 7.25
+        },
+        {
+          "text": "with",
+          "start": 7.59,
+          "end": 7.75
+        },
+        {
+          "text": "a",
+          "start": 7.75,
+          "end": 7.95
+        },
+        {
+          "text": "jaunty",
+          "start": 7.95,
+          "end": 8.25
+        },
+        {
+          "text": "swing",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "text": "of",
+          "start": 8.61,
+          "end": 8.75
+        },
+        {
+          "text": "his",
+          "start": 8.75,
+          "end": 8.91
+        },
+        {
+          "text": "shoulders",
+          "start": 8.91,
+          "end": 9.19
+        },
+        {
+          "text": "at",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "text": "each",
+          "start": 9.47,
+          "end": 9.67
+        },
+        {
+          "text": "step.",
+          "start": 9.67,
+          "end": 10.03
+        },
+        {
+          "text": "\"Here,",
+          "start": 10.65,
+          "end": 11.03
+        },
+        {
+          "text": "if",
+          "start": 11.31,
+          "end": 11.47
+        },
+        {
+          "text": "you",
+          "start": 11.47,
+          "end": 11.57
+        },
+        {
+          "text": "will",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "text": "kindly",
+          "start": 11.69,
+          "end": 11.95
+        },
+        {
+          "text": "look:",
+          "start": 11.95,
+          "end": 12.29
+        },
+        {
+          "text": "an",
+          "start": 12.69,
+          "end": 12.89
+        },
+        {
+          "text": "author,",
+          "start": 12.89,
+          "end": 13.19
+        },
+        {
+          "text": "or",
+          "start": 13.37,
+          "end": 13.49
+        },
+        {
+          "text": "a",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "text": "student,",
+          "start": 13.63,
+          "end": 13.91
+        },
+        {
+          "text": "has",
+          "start": 14.05,
+          "end": 14.19
+        },
+        {
+          "text": "been",
+          "start": 14.19,
+          "end": 14.35
+        },
+        {
+          "text": "one",
+          "start": 14.35,
+          "end": 14.51
+        },
+        {
+          "text": "at",
+          "start": 14.51,
+          "end": 14.63
+        },
+        {
+          "text": "least,",
+          "start": 14.63,
+          "end": 14.89
+        },
+        {
+          "text": "does",
+          "start": 15.21,
+          "end": 15.33
+        },
+        {
+          "text": "not",
+          "start": 15.33,
+          "end": 15.53
+        },
+        {
+          "text": "pay",
+          "start": 15.53,
+          "end": 15.71
+        },
+        {
+          "text": "his",
+          "start": 15.71,
+          "end": 15.89
+        },
+        {
+          "text": "debts,",
+          "start": 15.89,
+          "end": 16.17
+        },
+        {
+          "text": "has",
+          "start": 16.51,
+          "end": 16.63
+        },
+        {
+          "text": "given",
+          "start": 16.63,
+          "end": 16.87
+        },
+        {
+          "text": "an",
+          "start": 16.87,
+          "end": 17.01
+        },
+        {
+          "text": "I",
+          "start": 17.01,
+          "end": 17.17
+        },
+        {
+          "text": "O",
+          "start": 17.17,
+          "end": 17.35
+        },
+        {
+          "text": "U,",
+          "start": 17.35,
+          "end": 17.61
+        },
+        {
+          "text": "won't",
+          "start": 17.89,
+          "end": 18.13
+        },
+        {
+          "text": "clear",
+          "start": 18.13,
+          "end": 18.31
+        },
+        {
+          "text": "out",
+          "start": 18.31,
+          "end": 18.47
+        },
+        {
+          "text": "of",
+          "start": 18.47,
+          "end": 18.57
+        },
+        {
+          "text": "his",
+          "start": 18.57,
+          "end": 18.71
+        },
+        {
+          "text": "room,",
+          "start": 18.71,
+          "end": 18.99
+        },
+        {
+          "text": "and",
+          "start": 19.35,
+          "end": 19.51
+        },
+        {
+          "text": "complaints",
+          "start": 19.51,
+          "end": 19.87
+        },
+        {
+          "text": "are",
+          "start": 19.87,
+          "end": 20.05
+        },
+        {
+          "text": "constantly",
+          "start": 20.05,
+          "end": 20.45
+        },
+        {
+          "text": "being",
+          "start": 20.45,
+          "end": 20.85
+        },
+        {
+          "text": "lodged",
+          "start": 20.85,
+          "end": 21.19
+        },
+        {
+          "text": "against",
+          "start": 21.19,
+          "end": 21.53
+        },
+        {
+          "text": "him,",
+          "start": 21.53,
+          "end": 21.87
+        },
+        {
+          "text": "and",
+          "start": 22.27,
+          "end": 22.43
+        },
+        {
+          "text": "here",
+          "start": 22.43,
+          "end": 22.61
+        },
+        {
+          "text": "he",
+          "start": 22.61,
+          "end": 22.77
+        },
+        {
+          "text": "has",
+          "start": 22.77,
+          "end": 22.85
+        },
+        {
+          "text": "been",
+          "start": 22.85,
+          "end": 22.99
+        },
+        {
+          "text": "pleased",
+          "start": 22.99,
+          "end": 23.23
+        },
+        {
+          "text": "to",
+          "start": 23.23,
+          "end": 23.43
+        },
+        {
+          "text": "make",
+          "start": 23.43,
+          "end": 23.53
+        },
+        {
+          "text": "a",
+          "start": 23.53,
+          "end": 23.67
+        },
+        {
+          "text": "protest",
+          "start": 23.67,
+          "end": 24.01
+        },
+        {
+          "text": "against",
+          "start": 24.01,
+          "end": 24.31
+        },
+        {
+          "text": "my",
+          "start": 24.31,
+          "end": 24.55
+        },
+        {
+          "text": "smoking",
+          "start": 24.55,
+          "end": 24.95
+        },
+        {
+          "text": "in",
+          "start": 24.95,
+          "end": 25.17
+        },
+        {
+          "text": "his",
+          "start": 25.17,
+          "end": 25.29
+        },
+        {
+          "text": "presence!",
+          "start": 25.29,
+          "end": 25.65
+        },
+        {
+          "text": "He",
+          "start": 26.37,
+          "end": 26.89
+        },
+        {
+          "text": "behaves",
+          "start": 26.89,
+          "end": 27.27
+        },
+        {
+          "text": "like",
+          "start": 27.27,
+          "end": 27.57
+        },
+        {
+          "text": "a",
+          "start": 27.57,
+          "end": 27.71
+        },
+        {
+          "text": "cad",
+          "start": 27.71,
+          "end": 27.93
+        },
+        {
+          "text": "himself,",
+          "start": 27.93,
+          "end": 28.37
+        },
+        {
+          "text": "and",
+          "start": 28.81,
+          "end": 28.93
+        },
+        {
+          "text": "just",
+          "start": 28.93,
+          "end": 29.09
+        },
+        {
+          "text": "look",
+          "start": 29.09,
+          "end": 29.31
+        },
+        {
+          "text": "at",
+          "start": 29.31,
+          "end": 29.43
+        },
+        {
+          "text": "him,",
+          "start": 29.43,
+          "end": 29.61
+        },
+        {
+          "text": "please.",
+          "start": 29.73,
+          "end": 29.97
+        },
+        {
+          "text": "Here's",
+          "start": 30.73,
+          "end": 30.93
+        },
+        {
+          "text": "the",
+          "start": 30.93,
+          "end": 31.09
+        },
+        {
+          "text": "gentleman,",
+          "start": 31.09,
+          "end": 31.49
+        },
+        {
+          "text": "and",
+          "start": 31.77,
+          "end": 31.85
+        },
+        {
+          "text": "very",
+          "start": 31.85,
+          "end": 32.13
+        },
+        {
+          "text": "attractive",
+          "start": 32.13,
+          "end": 32.57
+        },
+        {
+          "text": "he",
+          "start": 32.57,
+          "end": 32.83
+        },
+        {
+          "text": "is!\"",
+          "start": 32.83,
+          "end": 33.09
+        }
+      ],
+      "stats": {
+        "expected_words": 105,
+        "heard_words": 105,
+        "matched_words": 105
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9376969961449504
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e44a4d0ec007b28f9c8a4b2c4ecf1c367db887fe24eee1710965817081941828",
+  "selected_reasons": []
+}

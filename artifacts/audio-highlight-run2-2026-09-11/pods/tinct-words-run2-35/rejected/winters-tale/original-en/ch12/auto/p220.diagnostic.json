@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "65a24ba1f199b8fa62986d12ae76a08feb80d34dd78edffffebbd371e4fa033d",
+  "attempts": [
+    {
+      "asr_seconds": 0.14263690449297428,
+      "alignment_seconds": 0.00023934431374073029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_They converse apart._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They converse apart.",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " converse",
+              "start": 0.54,
+              "end": 0.94,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " apart.",
+              "start": 0.94,
+              "end": 1.34,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "converse",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "raw": "apart.",
+          "start": 0.94,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "converse",
+        "apart._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "converse",
+          "start": 0.54,
+          "end": 0.94,
+          "key": "converse",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "apart.",
+          "start": 0.94,
+          "end": 1.34,
+          "key": "apart",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "converse",
+          "start": 0.54,
+          "end": 0.94
+        },
+        {
+          "text": "apart._]",
+          "start": 0.94,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14296157471835613
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b95a5b8a99d55a1df163bf6e3b1cbac85bb664db6de5a995baf3853a5ed4ca2d",
+  "selected_reasons": []
+}

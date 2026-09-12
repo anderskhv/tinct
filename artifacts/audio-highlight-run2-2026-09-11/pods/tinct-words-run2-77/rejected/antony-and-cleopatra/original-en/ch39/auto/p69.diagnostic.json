@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "16c746d3852377c5bafc2b96e48eea9d18a851670bea275a99063b2fd79a4f21",
+  "attempts": [
+    {
+      "asr_seconds": 0.3247293700114824,
+      "alignment_seconds": 0.0005219079903326929,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Bear me, good friends, where Cleopatra bides. 'Tis the last service that I shall command you.",
+        "hotwords": "Antony, Bear, Cleopatra, Tis, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Bear me, good friends, where Cleopatra bides.",
+          "start": 0.02,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.777587890625
+            },
+            {
+              "text": " Bear",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.0550537109375
+            },
+            {
+              "text": " me,",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.943359375
+            },
+            {
+              "text": " good",
+              "start": 1.78,
+              "end": 1.88,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " friends,",
+              "start": 1.88,
+              "end": 2.4,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " where",
+              "start": 2.58,
+              "end": 2.68,
+              "probability": 0.677734375
+            },
+            {
+              "text": " Cleopatra",
+              "start": 2.68,
+              "end": 3.28,
+              "probability": 0.9915364583333334
+            },
+            {
+              "text": " bides.",
+              "start": 3.28,
+              "end": 3.8,
+              "probability": 0.826416015625
+            }
+          ]
+        },
+        {
+          "text": " Tis the last service that I shall command you.",
+          "start": 3.8,
+          "end": 6.6,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 3.8,
+              "end": 4.58,
+              "probability": 0.05853271484375
+            },
+            {
+              "text": " the",
+              "start": 4.58,
+              "end": 4.74,
+              "probability": 0.98828125
+            },
+            {
+              "text": " last",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " service",
+              "start": 5.04,
+              "end": 5.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 5.46,
+              "end": 5.7,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I",
+              "start": 5.7,
+              "end": 5.84,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " shall",
+              "start": 5.84,
+              "end": 5.98,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " command",
+              "start": 5.98,
+              "end": 6.3,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you.",
+              "start": 6.3,
+              "end": 6.6,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Bear",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "me,",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "good",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "raw": "friends,",
+          "start": 1.88,
+          "end": 2.4
+        },
+        {
+          "raw": "where",
+          "start": 2.58,
+          "end": 2.68
+        },
+        {
+          "raw": "Cleopatra",
+          "start": 2.68,
+          "end": 3.28
+        },
+        {
+          "raw": "bides.",
+          "start": 3.28,
+          "end": 3.8
+        },
+        {
+          "raw": "Tis",
+          "start": 3.8,
+          "end": 4.58
+        },
+        {
+          "raw": "the",
+          "start": 4.58,
+          "end": 4.74
+        },
+        {
+          "raw": "last",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "service",
+          "start": 5.04,
+          "end": 5.46
+        },
+        {
+          "raw": "that",
+          "start": 5.46,
+          "end": 5.7
+        },
+        {
+          "raw": "I",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "raw": "shall",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "raw": "command",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "raw": "you.",
+          "start": 6.3,
+          "end": 6.6
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Bear",
+        "me,",
+        "good",
+        "friends,",
+        "where",
+        "Cleopatra",
+        "bides.",
+        "'Tis",
+        "the",
+        "last",
+        "service",
+        "that",
+        "I",
+        "shall",
+        "command",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bear",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "bear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.78,
+          "end": 1.88,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "friends,",
+          "start": 1.88,
+          "end": 2.4,
+          "key": "friends",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 2.58,
+          "end": 2.68,
+          "key": "where",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cleopatra",
+          "start": 2.68,
+          "end": 3.28,
+          "key": "cleopatra",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bides.",
+          "start": 3.28,
+          "end": 3.8,
+          "key": "bides",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 3.8,
+          "end": 4.58,
+          "key": "tis",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.58,
+          "end": 4.74,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 4.74,
+          "end": 5.04,
+          "key": "last",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "service",
+          "start": 5.04,
+          "end": 5.46,
+          "key": "service",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.46,
+          "end": 5.7,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.7,
+          "end": 5.84,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 5.84,
+          "end": 5.98,
+          "key": "shall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "command",
+          "start": 5.98,
+          "end": 6.3,
+          "key": "command",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 6.3,
+          "end": 6.6,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Bear",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "me,",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "good",
+          "start": 1.78,
+          "end": 1.88
+        },
+        {
+          "text": "friends,",
+          "start": 1.88,
+          "end": 2.4
+        },
+        {
+          "text": "where",
+          "start": 2.58,
+          "end": 2.68
+        },
+        {
+          "text": "Cleopatra",
+          "start": 2.68,
+          "end": 3.28
+        },
+        {
+          "text": "bides.",
+          "start": 3.28,
+          "end": 3.8
+        },
+        {
+          "text": "'Tis",
+          "start": 3.8,
+          "end": 4.58
+        },
+        {
+          "text": "the",
+          "start": 4.58,
+          "end": 4.74
+        },
+        {
+          "text": "last",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "service",
+          "start": 5.04,
+          "end": 5.46
+        },
+        {
+          "text": "that",
+          "start": 5.46,
+          "end": 5.7
+        },
+        {
+          "text": "I",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "text": "shall",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "text": "command",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "text": "you.",
+          "start": 6.3,
+          "end": 6.6
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32543111400445923
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cde23fecbdd67156b2e76160d04a219e83452e83a85d67298ca2397fefa2a022",
+  "selected_reasons": []
+}

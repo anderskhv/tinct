@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "763a6d98a7d0b2a87e9a0a1858abfd175b026fde8781ce6e0217c9e887379fa6",
+  "attempts": [
+    {
+      "asr_seconds": 0.15365000441670418,
+      "alignment_seconds": 0.00032020173966884613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. Fled to England!",
+        "hotwords": "Macbeth, Fled, England"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth. Fled to England.",
+          "start": 0.56,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Macbeth.",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.8961588541666666
+            },
+            {
+              "text": " Fled",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.529296875
+            },
+            {
+              "text": " to",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " England.",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "Fled",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "England.",
+          "start": 1.42,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Fled",
+        "to",
+        "England!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth.",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fled",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "fled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "England.",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "england",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "Fled",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "to",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "England!",
+          "start": 1.42,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15408415254205465
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8a280ff250bcfbdc308309d21753803754ef7734ce2f6e8f66efe2d020aad1b0",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "7918022aeb9be83d620e11f9f6517f4a0aa95c522b440dbd5375a7cd28675f6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.22463056817650795,
+      "alignment_seconds": 0.0003652796149253845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Go where?\" asked Sonia timidly.",
+        "hotwords": "Go, Sonia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Go where? asked Sonia timidly.",
+          "start": 0.02,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.474609375
+            },
+            {
+              "text": " where?",
+              "start": 0.54,
+              "end": 0.84,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " asked",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.728515625
+            },
+            {
+              "text": " Sonia",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.30517578125
+            },
+            {
+              "text": " timidly.",
+              "start": 1.74,
+              "end": 2.34,
+              "probability": 0.741455078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "where?",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "raw": "asked",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "Sonia",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "raw": "timidly.",
+          "start": 1.74,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "where?\"",
+        "asked",
+        "Sonia",
+        "timidly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where?",
+          "start": 0.54,
+          "end": 0.84,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "asked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sonia",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "sonia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "timidly.",
+          "start": 1.74,
+          "end": 2.34,
+          "key": "timidly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "where?\"",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "text": "asked",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "Sonia",
+          "start": 1.42,
+          "end": 1.74
+        },
+        {
+          "text": "timidly.",
+          "start": 1.74,
+          "end": 2.34
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22512565553188324
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c368a56ff56da26af518b5e33001891a8181ab448df2c54bfd8be49a32182e37",
+  "selected_reasons": []
+}

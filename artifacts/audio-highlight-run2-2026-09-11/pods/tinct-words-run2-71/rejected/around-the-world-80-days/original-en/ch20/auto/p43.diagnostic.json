@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "fbab964d30fb3835a2421c5295a9fbec99a33d6c44424bc66f4961512441685f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13424007687717676,
+      "alignment_seconds": 0.0003698812797665596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fix ceased to breathe at all.",
+        "hotwords": "Fix"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fix ceased to breathe at all.",
+          "start": 0.08,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Fix",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " ceased",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 7.814168930053711e-05
+            },
+            {
+              "text": " to",
+              "start": 0.88,
+              "end": 1.02,
+              "probability": 0.939453125
+            },
+            {
+              "text": " breathe",
+              "start": 1.02,
+              "end": 1.18,
+              "probability": 0.9140625
+            },
+            {
+              "text": " at",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " all.",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fix",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "ceased",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "raw": "breathe",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "raw": "at",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "all.",
+          "start": 1.32,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Fix",
+        "ceased",
+        "to",
+        "breathe",
+        "at",
+        "all."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fix",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "fix",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ceased",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "ceased",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.88,
+          "end": 1.02,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "breathe",
+          "start": 1.02,
+          "end": 1.18,
+          "key": "breathe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fix",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "ceased",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "to",
+          "start": 0.88,
+          "end": 1.02
+        },
+        {
+          "text": "breathe",
+          "start": 1.02,
+          "end": 1.18
+        },
+        {
+          "text": "at",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "all.",
+          "start": 1.32,
+          "end": 1.6
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13474450074136257
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b75f1cc6c82f9db47e28d3092d7cc454cd9c11d401d9c6ebe0308e07a7775e02",
+  "selected_reasons": []
+}

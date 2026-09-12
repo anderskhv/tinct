@@ -1,0 +1,1732 @@
+{
+  "complete": true,
+  "signature": "e6d43587845f527ea12e012c7631dd9090f7d7478945c84906fc6436d8a6348f",
+  "attempts": [
+    {
+      "asr_seconds": 0.30214032903313637,
+      "alignment_seconds": 0.000281275250017643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nurse. Weeping and wailing over Tybalt's corse. Will you go to them? I will bring you thither.",
+        "hotwords": "Nurse, Weeping, Tybalt's, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nurse, Weeping and wailing over Tybalt's course. Will you go to them? I will bring you thither.",
+          "start": 0.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Nurse,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " Weeping",
+              "start": 1.09,
+              "end": 1.43,
+              "probability": 0.5002079010009766
+            },
+            {
+              "text": " and",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.880859375
+            },
+            {
+              "text": " wailing",
+              "start": 1.65,
+              "end": 1.99,
+              "probability": 0.662353515625
+            },
+            {
+              "text": " over",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Tybalt's",
+              "start": 2.21,
+              "end": 2.77,
+              "probability": 0.9285888671875
+            },
+            {
+              "text": " course.",
+              "start": 2.77,
+              "end": 2.99,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Will",
+              "start": 3.65,
+              "end": 3.71,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " you",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " go",
+              "start": 3.85,
+              "end": 3.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " them?",
+              "start": 4.13,
+              "end": 4.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " I",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " will",
+              "start": 4.83,
+              "end": 4.97,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " bring",
+              "start": 4.97,
+              "end": 5.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 5.15,
+              "end": 5.35,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thither.",
+              "start": 5.35,
+              "end": 5.69,
+              "probability": 0.8701171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nurse,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Weeping",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "wailing",
+          "start": 1.65,
+          "end": 1.99
+        },
+        {
+          "raw": "over",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "Tybalt's",
+          "start": 2.21,
+          "end": 2.77
+        },
+        {
+          "raw": "course.",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "raw": "Will",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "go",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "them?",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "raw": "I",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "will",
+          "start": 4.83,
+          "end": 4.97
+        },
+        {
+          "raw": "bring",
+          "start": 4.97,
+          "end": 5.15
+        },
+        {
+          "raw": "you",
+          "start": 5.15,
+          "end": 5.35
+        },
+        {
+          "raw": "thither.",
+          "start": 5.35,
+          "end": 5.69
+        }
+      ],
+      "expected_tokens": [
+        "Nurse.",
+        "Weeping",
+        "and",
+        "wailing",
+        "over",
+        "Tybalt's",
+        "corse.",
+        "Will",
+        "you",
+        "go",
+        "to",
+        "them?",
+        "I",
+        "will",
+        "bring",
+        "you",
+        "thither."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          17,
+          7,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nurse,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "nurse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Weeping",
+          "start": 1.09,
+          "end": 1.43,
+          "key": "weeping",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wailing",
+          "start": 1.65,
+          "end": 1.99,
+          "key": "wailing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "over",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tybalt's",
+          "start": 2.21,
+          "end": 2.77,
+          "key": "tybalts",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "course.",
+          "start": 2.77,
+          "end": 2.99,
+          "key": "course",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 3.65,
+          "end": 3.71,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.85,
+          "end": 3.99,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.13,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "them?",
+          "start": 4.13,
+          "end": 4.31,
+          "key": "them",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.83,
+          "end": 4.97,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 4.97,
+          "end": 5.15,
+          "key": "bring",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.15,
+          "end": 5.35,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thither.",
+          "start": 5.35,
+          "end": 5.69,
+          "key": "thither",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nurse.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Weeping",
+          "start": 1.09,
+          "end": 1.43
+        },
+        {
+          "text": "and",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "wailing",
+          "start": 1.65,
+          "end": 1.99
+        },
+        {
+          "text": "over",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "Tybalt's",
+          "start": 2.21,
+          "end": 2.77
+        },
+        {
+          "text": "corse.",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "text": "Will",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "text": "you",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "go",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "text": "to",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "them?",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "text": "I",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "will",
+          "start": 4.83,
+          "end": 4.97
+        },
+        {
+          "text": "bring",
+          "start": 4.97,
+          "end": 5.15
+        },
+        {
+          "text": "you",
+          "start": 5.15,
+          "end": 5.35
+        },
+        {
+          "text": "thither.",
+          "start": 5.35,
+          "end": 5.69
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.30253810714930296
+    },
+    {
+      "asr_seconds": 0.2479304801672697,
+      "alignment_seconds": 0.0003297831863164902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Nurse, Weeping, Tybalt's, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Will you go to them. I will bring you thither.",
+          "start": 3.07,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Will",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.0001150369644165039
+            },
+            {
+              "text": " you",
+              "start": 3.45,
+              "end": 3.83,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " go",
+              "start": 3.83,
+              "end": 3.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " them.",
+              "start": 4.13,
+              "end": 4.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 4.73,
+              "end": 4.81,
+              "probability": 0.986328125
+            },
+            {
+              "text": " will",
+              "start": 4.81,
+              "end": 4.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " bring",
+              "start": 4.97,
+              "end": 5.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 5.13,
+              "end": 5.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thither.",
+              "start": 5.33,
+              "end": 5.73,
+              "probability": 0.907470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "raw": "you",
+          "start": 3.45,
+          "end": 3.83
+        },
+        {
+          "raw": "go",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "them.",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "raw": "I",
+          "start": 4.73,
+          "end": 4.81
+        },
+        {
+          "raw": "will",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "raw": "bring",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "raw": "you",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "raw": "thither.",
+          "start": 5.33,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Nurse.",
+        "Weeping",
+        "and",
+        "wailing",
+        "over",
+        "Tybalt's",
+        "corse.",
+        "Will",
+        "you",
+        "go",
+        "to",
+        "them?",
+        "I",
+        "will",
+        "bring",
+        "you",
+        "thither."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          7,
+          0,
+          0
+        ],
+        [
+          "equal",
+          7,
+          17,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          7,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Will",
+          "start": 3.07,
+          "end": 3.45,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.45,
+          "end": 3.83,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.83,
+          "end": 3.99,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.13,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 4.13,
+          "end": 4.31,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.73,
+          "end": 4.81,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.81,
+          "end": 4.97,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 4.97,
+          "end": 5.13,
+          "key": "bring",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.13,
+          "end": 5.33,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thither.",
+          "start": 5.33,
+          "end": 5.73,
+          "key": "thither",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nurse.",
+          "start": 0.0,
+          "end": 1.535
+        },
+        {
+          "text": "Weeping",
+          "start": 1.535,
+          "end": 2.302
+        },
+        {
+          "text": "and",
+          "start": 2.302,
+          "end": 2.686
+        },
+        {
+          "text": "wailing",
+          "start": 2.686,
+          "end": 2.878
+        },
+        {
+          "text": "over",
+          "start": 2.878,
+          "end": 2.974
+        },
+        {
+          "text": "Tybalt's",
+          "start": 2.974,
+          "end": 3.022
+        },
+        {
+          "text": "corse.",
+          "start": 3.022,
+          "end": 3.046
+        },
+        {
+          "text": "Will",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "text": "you",
+          "start": 3.45,
+          "end": 3.83
+        },
+        {
+          "text": "go",
+          "start": 3.83,
+          "end": 3.99
+        },
+        {
+          "text": "to",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "them?",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "text": "I",
+          "start": 4.73,
+          "end": 4.81
+        },
+        {
+          "text": "will",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "text": "bring",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "text": "you",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "text": "thither.",
+          "start": 5.33,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 0.5882352941176471,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24835980869829655
+    },
+    {
+      "asr_seconds": 0.360147712752223,
+      "alignment_seconds": 0.0005615595728158951,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nurse, weeping and wailing over Tybalt's course.",
+          "start": 0.05,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Nurse,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " weeping",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " and",
+              "start": 1.31,
+              "end": 1.63,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " wailing",
+              "start": 1.63,
+              "end": 1.99,
+              "probability": 0.974609375
+            },
+            {
+              "text": " over",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Tybalt's",
+              "start": 2.23,
+              "end": 2.75,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " course.",
+              "start": 2.75,
+              "end": 3.01,
+              "probability": 0.9462890625
+            }
+          ]
+        },
+        {
+          "text": " Will you go to them?",
+          "start": 3.65,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " Will",
+              "start": 3.65,
+              "end": 3.71,
+              "probability": 0.978515625
+            },
+            {
+              "text": " you",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " go",
+              "start": 3.85,
+              "end": 3.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " them?",
+              "start": 4.13,
+              "end": 4.31,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I will bring you thither.",
+          "start": 4.69,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.69,
+              "end": 4.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 4.83,
+              "end": 4.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " bring",
+              "start": 4.97,
+              "end": 5.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 5.15,
+              "end": 5.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thither.",
+              "start": 5.35,
+              "end": 5.69,
+              "probability": 0.920654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nurse,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "weeping",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "and",
+          "start": 1.31,
+          "end": 1.63
+        },
+        {
+          "raw": "wailing",
+          "start": 1.63,
+          "end": 1.99
+        },
+        {
+          "raw": "over",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "Tybalt's",
+          "start": 2.23,
+          "end": 2.75
+        },
+        {
+          "raw": "course.",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "raw": "Will",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "go",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "them?",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "raw": "I",
+          "start": 4.69,
+          "end": 4.83
+        },
+        {
+          "raw": "will",
+          "start": 4.83,
+          "end": 4.97
+        },
+        {
+          "raw": "bring",
+          "start": 4.97,
+          "end": 5.15
+        },
+        {
+          "raw": "you",
+          "start": 5.15,
+          "end": 5.35
+        },
+        {
+          "raw": "thither.",
+          "start": 5.35,
+          "end": 5.69
+        }
+      ],
+      "expected_tokens": [
+        "Nurse.",
+        "Weeping",
+        "and",
+        "wailing",
+        "over",
+        "Tybalt's",
+        "corse.",
+        "Will",
+        "you",
+        "go",
+        "to",
+        "them?",
+        "I",
+        "will",
+        "bring",
+        "you",
+        "thither."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          17,
+          7,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nurse,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "nurse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "weeping",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "weeping",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.31,
+          "end": 1.63,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wailing",
+          "start": 1.63,
+          "end": 1.99,
+          "key": "wailing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.99,
+          "end": 2.23,
+          "key": "over",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tybalt's",
+          "start": 2.23,
+          "end": 2.75,
+          "key": "tybalts",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "course.",
+          "start": 2.75,
+          "end": 3.01,
+          "key": "course",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 3.65,
+          "end": 3.71,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.85,
+          "end": 3.99,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.99,
+          "end": 4.13,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "them?",
+          "start": 4.13,
+          "end": 4.31,
+          "key": "them",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.69,
+          "end": 4.83,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.83,
+          "end": 4.97,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 4.97,
+          "end": 5.15,
+          "key": "bring",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.15,
+          "end": 5.35,
+          "key": "you",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thither.",
+          "start": 5.35,
+          "end": 5.69,
+          "key": "thither",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nurse.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Weeping",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "and",
+          "start": 1.31,
+          "end": 1.63
+        },
+        {
+          "text": "wailing",
+          "start": 1.63,
+          "end": 1.99
+        },
+        {
+          "text": "over",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "Tybalt's",
+          "start": 2.23,
+          "end": 2.75
+        },
+        {
+          "text": "corse.",
+          "start": 2.75,
+          "end": 3.2
+        },
+        {
+          "text": "Will",
+          "start": 3.65,
+          "end": 3.71
+        },
+        {
+          "text": "you",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "go",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "text": "to",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "them?",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "text": "I",
+          "start": 4.69,
+          "end": 4.83
+        },
+        {
+          "text": "will",
+          "start": 4.83,
+          "end": 4.97
+        },
+        {
+          "text": "bring",
+          "start": 4.97,
+          "end": 5.15
+        },
+        {
+          "text": "you",
+          "start": 5.15,
+          "end": 5.35
+        },
+        {
+          "text": "thither.",
+          "start": 5.35,
+          "end": 5.69
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.3609283799305558
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe0bcd62a3838ef84d4666d293281d104d2a3c8d8e2ea2297ce20885253551ff",
+  "selected_reasons": []
+}

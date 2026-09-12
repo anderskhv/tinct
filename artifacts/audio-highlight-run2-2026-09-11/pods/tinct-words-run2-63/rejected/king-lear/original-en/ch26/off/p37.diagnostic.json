@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "c631d1dca3f2b46f1ad7a4af13aac5fc78147d873733c281f16a87d386f01a0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12117606587707996,
+      "alignment_seconds": 0.00028334930539131165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter a herald.",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " a",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.982421875
+            },
+            {
+              "text": " herald.",
+              "start": 0.77,
+              "end": 1.11,
+              "probability": 0.55224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "herald.",
+          "start": 0.77,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "Herald."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "herald.",
+          "start": 0.77,
+          "end": 1.11,
+          "key": "herald",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "a",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "Herald.",
+          "start": 0.77,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12156739644706249
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf43d8ad9c740e90e185036301d1521d569f36f842e9efa337d849636558b507",
+  "selected_reasons": []
+}

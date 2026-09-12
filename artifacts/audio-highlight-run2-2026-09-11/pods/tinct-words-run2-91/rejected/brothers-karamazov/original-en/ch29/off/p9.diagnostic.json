@@ -1,0 +1,483 @@
+{
+  "complete": true,
+  "signature": "c0f7a022e568571d5ed78986487ff91df8f1e72a5f653db0ef7f8244e1569232",
+  "attempts": [
+    {
+      "asr_seconds": 0.24073141068220139,
+      "alignment_seconds": 0.0004195459187030792,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I approve of it.",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.640625
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " approve",
+              "start": 0.91,
+              "end": 1.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it.",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Ivan assented, in a subdued but firm voice.",
+          "start": 2.11,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Ivan",
+              "start": 2.11,
+              "end": 2.15,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " assented,",
+              "start": 2.15,
+              "end": 2.61,
+              "probability": 0.945556640625
+            },
+            {
+              "text": " in",
+              "start": 2.89,
+              "end": 2.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 2.95,
+              "end": 3.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " subdued",
+              "start": 3.07,
+              "end": 3.47,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " but",
+              "start": 3.47,
+              "end": 3.75,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " firm",
+              "start": 3.75,
+              "end": 4.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " voice.",
+              "start": 4.07,
+              "end": 4.37,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "raw": "approve",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "raw": "of",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "it.",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "Ivan",
+          "start": 2.11,
+          "end": 2.15
+        },
+        {
+          "raw": "assented,",
+          "start": 2.15,
+          "end": 2.61
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "raw": "a",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "raw": "subdued",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "raw": "but",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "raw": "firm",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "raw": "voice.",
+          "start": 4.07,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "I",
+        "approve",
+        "of",
+        "it,\"",
+        "Ivan",
+        "assented,",
+        "in",
+        "a",
+        "subdued",
+        "but",
+        "firm",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.91,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "approve",
+          "start": 0.91,
+          "end": 1.21,
+          "key": "approve",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ivan",
+          "start": 2.11,
+          "end": 2.15,
+          "key": "ivan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "assented,",
+          "start": 2.15,
+          "end": 2.61,
+          "key": "assented",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.89,
+          "end": 2.95,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.95,
+          "end": 3.07,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "subdued",
+          "start": 3.07,
+          "end": 3.47,
+          "key": "subdued",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.47,
+          "end": 3.75,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "firm",
+          "start": 3.75,
+          "end": 4.07,
+          "key": "firm",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 4.07,
+          "end": 4.37,
+          "key": "voice",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "I",
+          "start": 0.83,
+          "end": 0.91
+        },
+        {
+          "text": "approve",
+          "start": 0.91,
+          "end": 1.21
+        },
+        {
+          "text": "of",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "it,\"",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "Ivan",
+          "start": 2.11,
+          "end": 2.15
+        },
+        {
+          "text": "assented,",
+          "start": 2.15,
+          "end": 2.61
+        },
+        {
+          "text": "in",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "text": "a",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "text": "subdued",
+          "start": 3.07,
+          "end": 3.47
+        },
+        {
+          "text": "but",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "text": "firm",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "text": "voice.",
+          "start": 4.07,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2413090467453003
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fba39099893fef9915044d4fef715585e01fc3933f8bbb5799a4265326bcfe61",
+  "selected_reasons": []
+}

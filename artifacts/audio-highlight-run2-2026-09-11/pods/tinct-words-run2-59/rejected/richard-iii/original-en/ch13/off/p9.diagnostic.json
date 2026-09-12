@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "54ff6827f6c41557e7798fc6f65bed563816acb2b2202140598723d32a02ba61",
+  "attempts": [
+    {
+      "asr_seconds": 0.17310258303768933,
+      "alignment_seconds": 0.00040023610927164555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Buckingham, Lord Mayor, the reason we have sent.",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Lord",
+              "start": 1.58,
+              "end": 1.62,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Mayor,",
+              "start": 1.62,
+              "end": 1.98,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " the",
+              "start": 2.12,
+              "end": 2.2,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " reason",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " we",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sent.",
+              "start": 2.72,
+              "end": 2.98,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "Lord",
+          "start": 1.58,
+          "end": 1.62
+        },
+        {
+          "raw": "Mayor,",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "raw": "the",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "raw": "reason",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "raw": "we",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "have",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "sent.",
+          "start": 2.72,
+          "end": 2.98
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "Lord",
+        "Mayor,",
+        "the",
+        "reason",
+        "we",
+        "have",
+        "sent—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 1.58,
+          "end": 1.62,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mayor,",
+          "start": 1.62,
+          "end": 1.98,
+          "key": "mayor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.12,
+          "end": 2.2,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 2.2,
+          "end": 2.4,
+          "key": "reason",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.62,
+          "end": 2.72,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sent.",
+          "start": 2.72,
+          "end": 2.98,
+          "key": "sent",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "Lord",
+          "start": 1.58,
+          "end": 1.62
+        },
+        {
+          "text": "Mayor,",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "text": "the",
+          "start": 2.12,
+          "end": 2.2
+        },
+        {
+          "text": "reason",
+          "start": 2.2,
+          "end": 2.4
+        },
+        {
+          "text": "we",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "have",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "sent—",
+          "start": 2.72,
+          "end": 2.98
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17365186498500407
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1ad88933adb1f0a742d8c8553a6bc55d579ba879c98138e9f68ec7d217136cc7",
+  "selected_reasons": []
+}

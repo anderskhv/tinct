@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "4967e5ce43cbf56f2b6f0ccbf02852889691ae76507bec555443bb11133d5c75",
+  "attempts": [
+    {
+      "asr_seconds": 0.2917945380322635,
+      "alignment_seconds": 0.0003025298938155174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—I'll complain to Mrs de Massey on you if I hear any more of your impertinent insolence.",
+        "hotwords": "I'll, Mrs, Massey, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I'll complain to Mrs de Massey on you if I hear any more of your impertinent insolence.",
+          "start": 0.08,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " I'll",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.931884765625
+            },
+            {
+              "text": " complain",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 0.94,
+              "end": 1.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Mrs",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.984375
+            },
+            {
+              "text": " de",
+              "start": 1.38,
+              "end": 1.6,
+              "probability": 0.0017642974853515625
+            },
+            {
+              "text": " Massey",
+              "start": 1.6,
+              "end": 2.04,
+              "probability": 0.753173828125
+            },
+            {
+              "text": " on",
+              "start": 2.04,
+              "end": 2.3,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " you",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " if",
+              "start": 2.52,
+              "end": 3.06,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " I",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " hear",
+              "start": 3.2,
+              "end": 3.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any",
+              "start": 3.4,
+              "end": 3.72,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " more",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 3.96,
+              "end": 4.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 4.1,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " impertinent",
+              "start": 4.22,
+              "end": 4.78,
+              "probability": 0.9910481770833334
+            },
+            {
+              "text": " insolence.",
+              "start": 4.78,
+              "end": 5.4,
+              "probability": 0.991943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I'll",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "complain",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "to",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "raw": "Mrs",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "de",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "raw": "Massey",
+          "start": 1.6,
+          "end": 2.04
+        },
+        {
+          "raw": "on",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "raw": "you",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "if",
+          "start": 2.52,
+          "end": 3.06
+        },
+        {
+          "raw": "I",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "hear",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "raw": "any",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "raw": "more",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "raw": "your",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "raw": "impertinent",
+          "start": 4.22,
+          "end": 4.78
+        },
+        {
+          "raw": "insolence.",
+          "start": 4.78,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "—I'll",
+        "complain",
+        "to",
+        "Mrs",
+        "de",
+        "Massey",
+        "on",
+        "you",
+        "if",
+        "I",
+        "hear",
+        "any",
+        "more",
+        "of",
+        "your",
+        "impertinent",
+        "insolence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I'll",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "complain",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "complain",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.94,
+          "end": 1.2,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mrs",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "mrs",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 1.38,
+          "end": 1.6,
+          "key": "de",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Massey",
+          "start": 1.6,
+          "end": 2.04,
+          "key": "massey",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.04,
+          "end": 2.3,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.52,
+          "end": 3.06,
+          "key": "if",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 3.2,
+          "end": 3.4,
+          "key": "hear",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 3.4,
+          "end": 3.72,
+          "key": "any",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.72,
+          "end": 3.96,
+          "key": "more",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.96,
+          "end": 4.1,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.1,
+          "end": 4.22,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "impertinent",
+          "start": 4.22,
+          "end": 4.78,
+          "key": "impertinent",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "insolence.",
+          "start": 4.78,
+          "end": 5.4,
+          "key": "insolence",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I'll",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "complain",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "to",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "text": "Mrs",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "de",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "text": "Massey",
+          "start": 1.6,
+          "end": 2.04
+        },
+        {
+          "text": "on",
+          "start": 2.04,
+          "end": 2.3
+        },
+        {
+          "text": "you",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "if",
+          "start": 2.52,
+          "end": 3.06
+        },
+        {
+          "text": "I",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "hear",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "text": "any",
+          "start": 3.4,
+          "end": 3.72
+        },
+        {
+          "text": "more",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "text": "of",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "text": "your",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "text": "impertinent",
+          "start": 4.22,
+          "end": 4.78
+        },
+        {
+          "text": "insolence.",
+          "start": 4.78,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29222693108022213
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b060aabeaeeb7538168b482c5adf4b1daf413f3f4a8f131b7a5c9a006ef3405f",
+  "selected_reasons": []
+}

@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "45cb49004771c22c89418170a3777c75ce5a77bd87a6246029b6f1ee6cf93214",
+  "attempts": [
+    {
+      "asr_seconds": 0.2718966417014599,
+      "alignment_seconds": 0.0006483476608991623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloten, come out of my chamber, with there had been some hurt done.",
+          "start": 0.54,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.465576171875
+            },
+            {
+              "text": " come",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " out",
+              "start": 1.24,
+              "end": 1.48,
+              "probability": 0.8046875
+            },
+            {
+              "text": " of",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " my",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " chamber,",
+              "start": 1.7,
+              "end": 2.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 2.6,
+              "end": 2.68,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " there",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.962890625
+            },
+            {
+              "text": " had",
+              "start": 2.82,
+              "end": 2.92,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " been",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " some",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hurt",
+              "start": 3.22,
+              "end": 3.46,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " done.",
+              "start": 3.46,
+              "end": 3.78,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "come",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "out",
+          "start": 1.24,
+          "end": 1.48
+        },
+        {
+          "raw": "of",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "my",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "chamber,",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "raw": "with",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "raw": "there",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "had",
+          "start": 2.82,
+          "end": 2.92
+        },
+        {
+          "raw": "been",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "some",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "hurt",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "raw": "done.",
+          "start": 3.46,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "Come,",
+        "I'll",
+        "to",
+        "my",
+        "chamber.",
+        "Would",
+        "there",
+        "had",
+        "been",
+        "some",
+        "hurt",
+        "done!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          13,
+          7,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 1.24,
+          "end": 1.48,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "chamber,",
+          "start": 1.7,
+          "end": 2.04,
+          "key": "chamber",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.6,
+          "end": 2.68,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.68,
+          "end": 2.82,
+          "key": "there",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.82,
+          "end": 2.92,
+          "key": "had",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "been",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "some",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hurt",
+          "start": 3.22,
+          "end": 3.46,
+          "key": "hurt",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 3.46,
+          "end": 3.78,
+          "key": "done",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "Come,",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "I'll",
+          "start": 1.24,
+          "end": 1.41
+        },
+        {
+          "text": "to",
+          "start": 1.41,
+          "end": 1.495
+        },
+        {
+          "text": "my",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "chamber.",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "text": "Would",
+          "start": 2.04,
+          "end": 2.36
+        },
+        {
+          "text": "there",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "had",
+          "start": 2.82,
+          "end": 2.92
+        },
+        {
+          "text": "been",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "some",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "hurt",
+          "start": 3.22,
+          "end": 3.46
+        },
+        {
+          "text": "done!",
+          "start": 3.46,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.27277717366814613
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "384572373b0ca41e5a3e4b523d6b270e95a1a1407d480a9299b2c3f25baab735",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

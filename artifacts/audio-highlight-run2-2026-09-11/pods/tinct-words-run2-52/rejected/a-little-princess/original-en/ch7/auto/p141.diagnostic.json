@@ -1,0 +1,1307 @@
+{
+  "complete": true,
+  "signature": "4ba4755be7447bf3677397aa5f8477e7852e81f4b5a66d9c2b5177993812de60",
+  "attempts": [
+    {
+      "asr_seconds": 0.5275322608649731,
+      "alignment_seconds": 0.0009924396872520447,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, mum,\" Becky protested, bobbing curtsies. \"Not listenin'--I thought I could slip out without your noticin', but I couldn't an' I had to stay. But I didn't listen, mum--I wouldn't for nothin'. But I couldn't help hearin'.\"",
+        "hotwords": "No, Becky, Not, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, mum, Becky protested, bobbing curtsies. Not listenin', I thought I could slip out without",
+          "start": 0.02,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.0308685302734375
+            },
+            {
+              "text": " mum,",
+              "start": 1.2,
+              "end": 1.2,
+              "probability": 0.291748046875
+            },
+            {
+              "text": " Becky",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " protested,",
+              "start": 1.9,
+              "end": 2.52,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " bobbing",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " curtsies.",
+              "start": 3.08,
+              "end": 3.56,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " Not",
+              "start": 4.18,
+              "end": 4.4,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " listenin',",
+              "start": 4.4,
+              "end": 4.94,
+              "probability": 0.5692138671875
+            },
+            {
+              "text": " I",
+              "start": 4.94,
+              "end": 5.14,
+              "probability": 0.98828125
+            },
+            {
+              "text": " thought",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 5.34,
+              "end": 5.52,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " could",
+              "start": 5.52,
+              "end": 5.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " slip",
+              "start": 5.66,
+              "end": 5.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " out",
+              "start": 5.9,
+              "end": 6.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " without",
+              "start": 6.12,
+              "end": 6.32,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " your noticin', but I couldn't an' I had to stay. But I didn't listen, mum I wouldn't",
+          "start": 6.32,
+          "end": 11.02,
+          "words": [
+            {
+              "text": " your",
+              "start": 6.32,
+              "end": 6.52,
+              "probability": 0.984375
+            },
+            {
+              "text": " noticin',",
+              "start": 6.52,
+              "end": 7.46,
+              "probability": 0.6519775390625
+            },
+            {
+              "text": " but",
+              "start": 7.46,
+              "end": 7.62,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " I",
+              "start": 7.62,
+              "end": 7.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " couldn't",
+              "start": 7.74,
+              "end": 7.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " an'",
+              "start": 7.98,
+              "end": 8.12,
+              "probability": 0.016510009765625
+            },
+            {
+              "text": " I",
+              "start": 8.2,
+              "end": 8.3,
+              "probability": 0.96875
+            },
+            {
+              "text": " had",
+              "start": 8.3,
+              "end": 8.48,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 8.48,
+              "end": 8.6,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " stay.",
+              "start": 8.6,
+              "end": 8.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " But",
+              "start": 9.44,
+              "end": 9.54,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I",
+              "start": 9.54,
+              "end": 9.66,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " didn't",
+              "start": 9.66,
+              "end": 9.9,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " listen,",
+              "start": 9.9,
+              "end": 10.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " mum",
+              "start": 10.48,
+              "end": 10.52,
+              "probability": 0.8671875
+            },
+            {
+              "text": " I",
+              "start": 10.52,
+              "end": 10.72,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " wouldn't",
+              "start": 10.72,
+              "end": 11.02,
+              "probability": 0.99072265625
+            }
+          ]
+        },
+        {
+          "text": " for nothin'. But I couldn't help hearin'.\"",
+          "start": 11.02,
+          "end": 13.48,
+          "words": [
+            {
+              "text": " for",
+              "start": 11.02,
+              "end": 11.12,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " nothin'.",
+              "start": 11.12,
+              "end": 11.92,
+              "probability": 0.6798502604166666
+            },
+            {
+              "text": " But",
+              "start": 11.92,
+              "end": 12.08,
+              "probability": 0.986328125
+            },
+            {
+              "text": " I",
+              "start": 12.08,
+              "end": 12.18,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " couldn't",
+              "start": 12.18,
+              "end": 12.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " help",
+              "start": 12.44,
+              "end": 12.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hearin'.\"",
+              "start": 12.58,
+              "end": 13.48,
+              "probability": 0.5289306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "mum,",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "raw": "Becky",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "protested,",
+          "start": 1.9,
+          "end": 2.52
+        },
+        {
+          "raw": "bobbing",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "curtsies.",
+          "start": 3.08,
+          "end": 3.56
+        },
+        {
+          "raw": "Not",
+          "start": 4.18,
+          "end": 4.4
+        },
+        {
+          "raw": "listenin',",
+          "start": 4.4,
+          "end": 4.94
+        },
+        {
+          "raw": "I",
+          "start": 4.94,
+          "end": 5.14
+        },
+        {
+          "raw": "thought",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "I",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "raw": "could",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "raw": "slip",
+          "start": 5.66,
+          "end": 5.9
+        },
+        {
+          "raw": "out",
+          "start": 5.9,
+          "end": 6.12
+        },
+        {
+          "raw": "without",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "raw": "your",
+          "start": 6.32,
+          "end": 6.52
+        },
+        {
+          "raw": "noticin',",
+          "start": 6.52,
+          "end": 7.46
+        },
+        {
+          "raw": "but",
+          "start": 7.46,
+          "end": 7.62
+        },
+        {
+          "raw": "I",
+          "start": 7.62,
+          "end": 7.74
+        },
+        {
+          "raw": "couldn't",
+          "start": 7.74,
+          "end": 7.98
+        },
+        {
+          "raw": "an'",
+          "start": 7.98,
+          "end": 8.12
+        },
+        {
+          "raw": "I",
+          "start": 8.2,
+          "end": 8.3
+        },
+        {
+          "raw": "had",
+          "start": 8.3,
+          "end": 8.48
+        },
+        {
+          "raw": "to",
+          "start": 8.48,
+          "end": 8.6
+        },
+        {
+          "raw": "stay.",
+          "start": 8.6,
+          "end": 8.88
+        },
+        {
+          "raw": "But",
+          "start": 9.44,
+          "end": 9.54
+        },
+        {
+          "raw": "I",
+          "start": 9.54,
+          "end": 9.66
+        },
+        {
+          "raw": "didn't",
+          "start": 9.66,
+          "end": 9.9
+        },
+        {
+          "raw": "listen,",
+          "start": 9.9,
+          "end": 10.18
+        },
+        {
+          "raw": "mum",
+          "start": 10.48,
+          "end": 10.52
+        },
+        {
+          "raw": "I",
+          "start": 10.52,
+          "end": 10.72
+        },
+        {
+          "raw": "wouldn't",
+          "start": 10.72,
+          "end": 11.02
+        },
+        {
+          "raw": "for",
+          "start": 11.02,
+          "end": 11.12
+        },
+        {
+          "raw": "nothin'.",
+          "start": 11.12,
+          "end": 11.92
+        },
+        {
+          "raw": "But",
+          "start": 11.92,
+          "end": 12.08
+        },
+        {
+          "raw": "I",
+          "start": 12.08,
+          "end": 12.18
+        },
+        {
+          "raw": "couldn't",
+          "start": 12.18,
+          "end": 12.44
+        },
+        {
+          "raw": "help",
+          "start": 12.44,
+          "end": 12.58
+        },
+        {
+          "raw": "hearin'.\"",
+          "start": 12.58,
+          "end": 13.48
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "mum,\"",
+        "Becky",
+        "protested,",
+        "bobbing",
+        "curtsies.",
+        "\"Not",
+        "listenin'--I",
+        "thought",
+        "I",
+        "could",
+        "slip",
+        "out",
+        "without",
+        "your",
+        "noticin',",
+        "but",
+        "I",
+        "couldn't",
+        "an'",
+        "I",
+        "had",
+        "to",
+        "stay.",
+        "But",
+        "I",
+        "didn't",
+        "listen,",
+        "mum--I",
+        "wouldn't",
+        "for",
+        "nothin'.",
+        "But",
+        "I",
+        "couldn't",
+        "help",
+        "hearin'.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          37,
+          0,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mum,",
+          "start": 1.2,
+          "end": 1.2,
+          "key": "mum",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Becky",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "becky",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "protested,",
+          "start": 1.9,
+          "end": 2.52,
+          "key": "protested",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bobbing",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "bobbing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "curtsies.",
+          "start": 3.08,
+          "end": 3.56,
+          "key": "curtsies",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 4.18,
+          "end": 4.4,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "listenin', I",
+          "start": 4.4,
+          "end": 5.14,
+          "key": "listenini",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "thought",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.34,
+          "end": 5.52,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 5.52,
+          "end": 5.66,
+          "key": "could",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "slip",
+          "start": 5.66,
+          "end": 5.9,
+          "key": "slip",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 5.9,
+          "end": 6.12,
+          "key": "out",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 6.12,
+          "end": 6.32,
+          "key": "without",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.32,
+          "end": 6.52,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "noticin',",
+          "start": 6.52,
+          "end": 7.46,
+          "key": "noticin",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.46,
+          "end": 7.62,
+          "key": "but",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.62,
+          "end": 7.74,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "couldn't",
+          "start": 7.74,
+          "end": 7.98,
+          "key": "couldnt",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "an'",
+          "start": 7.98,
+          "end": 8.12,
+          "key": "an",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 8.2,
+          "end": 8.3,
+          "key": "i",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 8.3,
+          "end": 8.48,
+          "key": "had",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.48,
+          "end": 8.6,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "stay.",
+          "start": 8.6,
+          "end": 8.88,
+          "key": "stay",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 9.44,
+          "end": 9.54,
+          "key": "but",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.54,
+          "end": 9.66,
+          "key": "i",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 9.66,
+          "end": 9.9,
+          "key": "didnt",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "listen,",
+          "start": 9.9,
+          "end": 10.18,
+          "key": "listen",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "mum I",
+          "start": 10.48,
+          "end": 10.72,
+          "key": "mumi",
+          "pieces": [
+            29,
+            30
+          ]
+        },
+        {
+          "raw": "wouldn't",
+          "start": 10.72,
+          "end": 11.02,
+          "key": "wouldnt",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 11.02,
+          "end": 11.12,
+          "key": "for",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "nothin'.",
+          "start": 11.12,
+          "end": 11.92,
+          "key": "nothin",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 11.92,
+          "end": 12.08,
+          "key": "but",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 12.08,
+          "end": 12.18,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "couldn't",
+          "start": 12.18,
+          "end": 12.44,
+          "key": "couldnt",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 12.44,
+          "end": 12.58,
+          "key": "help",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "hearin'.\"",
+          "start": 12.58,
+          "end": 13.48,
+          "key": "hearin",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "listenin'--I",
+          "heard": "listenin', I",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 4.4,
+          "end": 5.14
+        },
+        {
+          "expected_index": 28,
+          "text": "mum--I",
+          "heard": "mum I",
+          "heard_indexes": [
+            29,
+            30
+          ],
+          "start": 10.48,
+          "end": 10.72
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "mum,\"",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "text": "Becky",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "protested,",
+          "start": 1.9,
+          "end": 2.52
+        },
+        {
+          "text": "bobbing",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "curtsies.",
+          "start": 3.08,
+          "end": 3.56
+        },
+        {
+          "text": "\"Not",
+          "start": 4.18,
+          "end": 4.4
+        },
+        {
+          "text": "listenin'--I",
+          "start": 4.4,
+          "end": 5.14
+        },
+        {
+          "text": "thought",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "I",
+          "start": 5.34,
+          "end": 5.52
+        },
+        {
+          "text": "could",
+          "start": 5.52,
+          "end": 5.66
+        },
+        {
+          "text": "slip",
+          "start": 5.66,
+          "end": 5.9
+        },
+        {
+          "text": "out",
+          "start": 5.9,
+          "end": 6.12
+        },
+        {
+          "text": "without",
+          "start": 6.12,
+          "end": 6.32
+        },
+        {
+          "text": "your",
+          "start": 6.32,
+          "end": 6.52
+        },
+        {
+          "text": "noticin',",
+          "start": 6.52,
+          "end": 7.46
+        },
+        {
+          "text": "but",
+          "start": 7.46,
+          "end": 7.62
+        },
+        {
+          "text": "I",
+          "start": 7.62,
+          "end": 7.74
+        },
+        {
+          "text": "couldn't",
+          "start": 7.74,
+          "end": 7.98
+        },
+        {
+          "text": "an'",
+          "start": 7.98,
+          "end": 8.12
+        },
+        {
+          "text": "I",
+          "start": 8.2,
+          "end": 8.3
+        },
+        {
+          "text": "had",
+          "start": 8.3,
+          "end": 8.48
+        },
+        {
+          "text": "to",
+          "start": 8.48,
+          "end": 8.6
+        },
+        {
+          "text": "stay.",
+          "start": 8.6,
+          "end": 8.88
+        },
+        {
+          "text": "But",
+          "start": 9.44,
+          "end": 9.54
+        },
+        {
+          "text": "I",
+          "start": 9.54,
+          "end": 9.66
+        },
+        {
+          "text": "didn't",
+          "start": 9.66,
+          "end": 9.9
+        },
+        {
+          "text": "listen,",
+          "start": 9.9,
+          "end": 10.18
+        },
+        {
+          "text": "mum--I",
+          "start": 10.48,
+          "end": 10.72
+        },
+        {
+          "text": "wouldn't",
+          "start": 10.72,
+          "end": 11.02
+        },
+        {
+          "text": "for",
+          "start": 11.02,
+          "end": 11.12
+        },
+        {
+          "text": "nothin'.",
+          "start": 11.12,
+          "end": 11.92
+        },
+        {
+          "text": "But",
+          "start": 11.92,
+          "end": 12.08
+        },
+        {
+          "text": "I",
+          "start": 12.08,
+          "end": 12.18
+        },
+        {
+          "text": "couldn't",
+          "start": 12.18,
+          "end": 12.44
+        },
+        {
+          "text": "help",
+          "start": 12.44,
+          "end": 12.58
+        },
+        {
+          "text": "hearin'.\"",
+          "start": 12.58,
+          "end": 13.48
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 37,
+        "matched_words": 37
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5288940332829952
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e325f6651236b0c38850a96ef6e47c110dc9b89e001993f7611af7926ebf5ca",
+  "selected_reasons": []
+}

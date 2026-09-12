@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d818dd5aeb0e3bbd7db18c49ee576fbb01177b1a2d52f4e7e8619867a4fd64b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.24633974954485893,
+      "alignment_seconds": 0.0003215419128537178,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Present,\" responded Passepartout.",
+        "hotwords": "Present, Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Present, responded Passepartout.",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " Present,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.56689453125
+            },
+            {
+              "text": " responded",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " Passepartout.",
+              "start": 1.55,
+              "end": 2.45,
+              "probability": 0.4771401882171631
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Present,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "responded",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "Passepartout.",
+          "start": 1.55,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "\"Present,\"",
+        "responded",
+        "Passepartout."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Present,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "present",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "responded",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "responded",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Passepartout.",
+          "start": 1.55,
+          "end": 2.45,
+          "key": "passepartout",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Present,\"",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "responded",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "Passepartout.",
+          "start": 1.55,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24677007552236319
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63cbe3273b0fd4f8f10442ce8c8fc88ec274c6bc140cd3f93a686992aea74488",
+  "selected_reasons": []
+}

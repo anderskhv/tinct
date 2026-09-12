@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "1453d1a658bf5b108896761404b7af28b1adc1576e336ccf22ec9438feca339b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20016607642173767,
+      "alignment_seconds": 0.00039434805512428284,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well pilot said mr. Fogg",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Well",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.1988525390625
+            },
+            {
+              "text": " pilot",
+              "start": 0.6,
+              "end": 1.02,
+              "probability": 0.486328125
+            },
+            {
+              "text": " said",
+              "start": 1.02,
+              "end": 1.52,
+              "probability": 0.59375
+            },
+            {
+              "text": " mr.",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.6365966796875
+            },
+            {
+              "text": " Fogg",
+              "start": 2.0,
+              "end": 2.16,
+              "probability": 0.763427734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "pilot",
+          "start": 0.6,
+          "end": 1.02
+        },
+        {
+          "raw": "said",
+          "start": 1.02,
+          "end": 1.52
+        },
+        {
+          "raw": "mr.",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "Fogg",
+          "start": 2.0,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "\"Well,",
+        "pilot?\"",
+        "said",
+        "Mr.",
+        "Fogg."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Well",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "well",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pilot",
+          "start": 0.6,
+          "end": 1.02,
+          "key": "pilot",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.02,
+          "end": 1.52,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mr.",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Fogg",
+          "start": 2.0,
+          "end": 2.16,
+          "key": "fogg",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Well,",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "pilot?\"",
+          "start": 0.6,
+          "end": 1.02
+        },
+        {
+          "text": "said",
+          "start": 1.02,
+          "end": 1.52
+        },
+        {
+          "text": "Mr.",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "Fogg.",
+          "start": 2.0,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2006876189261675
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a1e57e05d7d5e5ad12c87f1812df726a3f3ed3e310c9b064648ec0dd11a7b0ef",
+  "selected_reasons": []
+}

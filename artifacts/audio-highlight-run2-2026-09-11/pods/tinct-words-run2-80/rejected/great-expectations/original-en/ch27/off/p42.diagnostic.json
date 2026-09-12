@@ -1,0 +1,351 @@
+{
+  "complete": true,
+  "signature": "684dce6baf8d546816d0ca7f98a3ad9cc8837157c87afb0c28325b769e72a05d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2129463106393814,
+      "alignment_seconds": 0.0005164258182048798,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Us, too, being now alone, sir, began Joe.",
+          "start": 0.14,
+          "end": 2.74,
+          "words": [
+            {
+              "text": " Us,",
+              "start": 0.14,
+              "end": 0.54,
+              "probability": 0.720703125
+            },
+            {
+              "text": " too,",
+              "start": 0.68,
+              "end": 0.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " being",
+              "start": 0.88,
+              "end": 0.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " now",
+              "start": 0.96,
+              "end": 1.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " alone,",
+              "start": 1.2,
+              "end": 1.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sir,",
+              "start": 1.8,
+              "end": 1.8,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " began",
+              "start": 2.4,
+              "end": 2.42,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Joe.",
+              "start": 2.42,
+              "end": 2.74,
+              "probability": 0.5
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Us,",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "raw": "too,",
+          "start": 0.68,
+          "end": 0.74
+        },
+        {
+          "raw": "being",
+          "start": 0.88,
+          "end": 0.96
+        },
+        {
+          "raw": "now",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "raw": "alone,",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "raw": "sir,",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "raw": "began",
+          "start": 2.4,
+          "end": 2.42
+        },
+        {
+          "raw": "Joe.",
+          "start": 2.42,
+          "end": 2.74
+        }
+      ],
+      "expected_tokens": [
+        "\"Us",
+        "two",
+        "being",
+        "now",
+        "alone,",
+        "sir,\"—began",
+        "Joe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Us,",
+          "start": 0.14,
+          "end": 0.54,
+          "key": "us",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "too,",
+          "start": 0.68,
+          "end": 0.74,
+          "key": "too",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 0.88,
+          "end": 0.96,
+          "key": "being",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.96,
+          "end": 1.2,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "alone,",
+          "start": 1.2,
+          "end": 1.46,
+          "key": "alone",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.8,
+          "end": 1.8,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 2.4,
+          "end": 2.42,
+          "key": "began",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Joe.",
+          "start": 2.42,
+          "end": 2.74,
+          "key": "joe",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Us",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "text": "two",
+          "start": 0.54,
+          "end": 0.71
+        },
+        {
+          "text": "being",
+          "start": 0.88,
+          "end": 0.96
+        },
+        {
+          "text": "now",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "text": "alone,",
+          "start": 1.2,
+          "end": 1.46
+        },
+        {
+          "text": "sir,\"—began",
+          "start": 1.46,
+          "end": 1.94
+        },
+        {
+          "text": "Joe.",
+          "start": 2.42,
+          "end": 2.74
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2136324718594551
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b291b2f2d4027aabe9aac388ec290eab2c0f8b4f6cd475c15014397896a066c5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

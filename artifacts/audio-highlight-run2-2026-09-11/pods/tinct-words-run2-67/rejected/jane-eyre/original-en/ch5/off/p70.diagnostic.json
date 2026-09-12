@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "83ddf4008e01eb2cb2fccc978e6372a1cfaf79bad58d9406c1206ce627f5fada",
+  "attempts": [
+    {
+      "asr_seconds": 0.14900523470714688,
+      "alignment_seconds": 0.0002459688112139702,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You may look at it replied the girl offering me the book",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.1640625
+            },
+            {
+              "text": " may",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " look",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 1.05,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " replied",
+              "start": 1.43,
+              "end": 1.85,
+              "probability": 0.281982421875
+            },
+            {
+              "text": " the",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " girl",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " offering",
+              "start": 2.31,
+              "end": 2.75,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me",
+              "start": 2.75,
+              "end": 2.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " book",
+              "start": 3.07,
+              "end": 3.37,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "may",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "look",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "at",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "it",
+          "start": 1.05,
+          "end": 1.43
+        },
+        {
+          "raw": "replied",
+          "start": 1.43,
+          "end": 1.85
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "girl",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "offering",
+          "start": 2.31,
+          "end": 2.75
+        },
+        {
+          "raw": "me",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "raw": "the",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "book",
+          "start": 3.07,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "may",
+        "look",
+        "at",
+        "it,\"",
+        "replied",
+        "the",
+        "girl,",
+        "offering",
+        "me",
+        "the",
+        "book."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 0.55,
+          "end": 0.69,
+          "key": "may",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.69,
+          "end": 0.89,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.05,
+          "end": 1.43,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.43,
+          "end": 1.85,
+          "key": "replied",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "girl",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "girl",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "offering",
+          "start": 2.31,
+          "end": 2.75,
+          "key": "offering",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.75,
+          "end": 2.97,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.97,
+          "end": 3.07,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "book",
+          "start": 3.07,
+          "end": 3.37,
+          "key": "book",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "may",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "look",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "text": "at",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "text": "it,\"",
+          "start": 1.05,
+          "end": 1.43
+        },
+        {
+          "text": "replied",
+          "start": 1.43,
+          "end": 1.85
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "girl,",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "offering",
+          "start": 2.31,
+          "end": 2.75
+        },
+        {
+          "text": "me",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "text": "the",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "book.",
+          "start": 3.07,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1493586990982294
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "86cafa262a7d357fb9e404885ecfebed860e4b3042ce2f4e44c2f04b2c3dc914",
+  "selected_reasons": []
+}

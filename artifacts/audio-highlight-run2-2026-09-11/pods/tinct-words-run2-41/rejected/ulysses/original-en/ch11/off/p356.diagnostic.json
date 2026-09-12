@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "be7f0cffa4c02987331e21bb8cad4cc4987f401af19c07b6d23567920cc151d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.24154733261093497,
+      "alignment_seconds": 0.0003890441730618477,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ah, I couldn't, man. Mr. Daedalus said, shy, listless.",
+          "start": 0.21,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.21,
+              "end": 0.61,
+              "probability": 0.135498046875
+            },
+            {
+              "text": " I",
+              "start": 0.71,
+              "end": 0.79,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " couldn't,",
+              "start": 0.79,
+              "end": 1.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man.",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " Daedalus",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.7061360677083334
+            },
+            {
+              "text": " said,",
+              "start": 2.07,
+              "end": 2.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " shy,",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.167724609375
+            },
+            {
+              "text": " listless.",
+              "start": 2.89,
+              "end": 3.25,
+              "probability": 0.8876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.21,
+          "end": 0.61
+        },
+        {
+          "raw": "I",
+          "start": 0.71,
+          "end": 0.79
+        },
+        {
+          "raw": "couldn't,",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "raw": "man.",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "Daedalus",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "said,",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "raw": "shy,",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "listless.",
+          "start": 2.89,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "—Ah,",
+        "I",
+        "couldn't,",
+        "man,",
+        "Mr",
+        "Dedalus",
+        "said,",
+        "shy,",
+        "listless."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.21,
+          "end": 0.61,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.71,
+          "end": 0.79,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "couldn't,",
+          "start": 0.79,
+          "end": 1.11,
+          "key": "couldnt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Daedalus",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "daedalus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.07,
+          "end": 2.37,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shy,",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "shy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "listless.",
+          "start": 2.89,
+          "end": 3.25,
+          "key": "listless",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ah,",
+          "start": 0.21,
+          "end": 0.61
+        },
+        {
+          "text": "I",
+          "start": 0.71,
+          "end": 0.79
+        },
+        {
+          "text": "couldn't,",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "text": "man,",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "Mr",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "Dedalus",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "said,",
+          "start": 2.07,
+          "end": 2.37
+        },
+        {
+          "text": "shy,",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "text": "listless.",
+          "start": 2.89,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.24205944268032908
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da9871163dd2298353c701789ab1b2a2a3469b522c39dc6cbeae6918faef7e7e",
+  "selected_reasons": []
+}

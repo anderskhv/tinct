@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "7a978902e1683db424aa9fa233a2a202c4d77a538d5fba090ddbb9372e1a48fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.22567576076835394,
+      "alignment_seconds": 0.00036226119846105576,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lartius. He had, my lord, and that it was which caused Our swifter composition.",
+        "hotwords": "Lartius, He, Our"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lartius, He had, my lord, and that it was which caused Our swifter composition.",
+          "start": 0.05,
+          "end": 4.85,
+          "words": [
+            {
+              "text": " Lartius,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.3770701090494792
+            },
+            {
+              "text": " He",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.09893798828125
+            },
+            {
+              "text": " had,",
+              "start": 1.65,
+              "end": 1.95,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " my",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " lord,",
+              "start": 2.19,
+              "end": 2.49,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " and",
+              "start": 2.89,
+              "end": 2.97,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " that",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it",
+              "start": 3.07,
+              "end": 3.15,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " was",
+              "start": 3.15,
+              "end": 3.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " which",
+              "start": 3.25,
+              "end": 3.43,
+              "probability": 0.974609375
+            },
+            {
+              "text": " caused",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Our",
+              "start": 3.73,
+              "end": 3.93,
+              "probability": 0.0025424957275390625
+            },
+            {
+              "text": " swifter",
+              "start": 3.93,
+              "end": 4.27,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " composition.",
+              "start": 4.27,
+              "end": 4.85,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lartius,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "He",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "had,",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "raw": "my",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "lord,",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 2.97
+        },
+        {
+          "raw": "that",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "it",
+          "start": 3.07,
+          "end": 3.15
+        },
+        {
+          "raw": "was",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "raw": "which",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "raw": "caused",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "Our",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "raw": "swifter",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "raw": "composition.",
+          "start": 4.27,
+          "end": 4.85
+        }
+      ],
+      "expected_tokens": [
+        "Lartius.",
+        "He",
+        "had,",
+        "my",
+        "lord,",
+        "and",
+        "that",
+        "it",
+        "was",
+        "which",
+        "caused",
+        "Our",
+        "swifter",
+        "composition."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lartius,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "lartius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 1.65,
+          "end": 1.95,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.19,
+          "end": 2.49,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 2.97,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.97,
+          "end": 3.07,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.07,
+          "end": 3.15,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.15,
+          "end": 3.25,
+          "key": "was",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.25,
+          "end": 3.43,
+          "key": "which",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "caused",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "caused",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 3.73,
+          "end": 3.93,
+          "key": "our",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "swifter",
+          "start": 3.93,
+          "end": 4.27,
+          "key": "swifter",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "composition.",
+          "start": 4.27,
+          "end": 4.85,
+          "key": "composition",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lartius.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "He",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "had,",
+          "start": 1.65,
+          "end": 1.95
+        },
+        {
+          "text": "my",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "lord,",
+          "start": 2.19,
+          "end": 2.49
+        },
+        {
+          "text": "and",
+          "start": 2.89,
+          "end": 2.97
+        },
+        {
+          "text": "that",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "it",
+          "start": 3.07,
+          "end": 3.15
+        },
+        {
+          "text": "was",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "text": "which",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "text": "caused",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "Our",
+          "start": 3.73,
+          "end": 3.93
+        },
+        {
+          "text": "swifter",
+          "start": 3.93,
+          "end": 4.27
+        },
+        {
+          "text": "composition.",
+          "start": 4.27,
+          "end": 4.85
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2261878359131515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "68dc2acf000f5f9407c7193135e422333a875c962a689f583a3f8034106c7e78",
+  "selected_reasons": []
+}

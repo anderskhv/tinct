@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "001f38527020a1ee37778a171038c503a6cc89e7163f1cb2fe639655aef1f27e",
+  "attempts": [
+    {
+      "asr_seconds": 0.22423511929810047,
+      "alignment_seconds": 0.0005294419825077057,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cloten. There is gold for you; sell me your good report.",
+        "hotwords": "Cloten, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cloten, There is gold for you. Sell me your good report.",
+          "start": 0.0,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.0,
+              "end": 0.78,
+              "probability": 0.4283854166666667
+            },
+            {
+              "text": " There",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.007904052734375
+            },
+            {
+              "text": " is",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " gold",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " for",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you.",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Sell",
+              "start": 2.4,
+              "end": 2.44,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " me",
+              "start": 2.44,
+              "end": 2.58,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " your",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " good",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " report.",
+              "start": 2.84,
+              "end": 3.26,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "raw": "There",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "is",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "gold",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "for",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "you.",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "Sell",
+          "start": 2.4,
+          "end": 2.44
+        },
+        {
+          "raw": "me",
+          "start": 2.44,
+          "end": 2.58
+        },
+        {
+          "raw": "your",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "good",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "report.",
+          "start": 2.84,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "There",
+        "is",
+        "gold",
+        "for",
+        "you;",
+        "sell",
+        "me",
+        "your",
+        "good",
+        "report."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.0,
+          "end": 0.78,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "gold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Sell",
+          "start": 2.4,
+          "end": 2.44,
+          "key": "sell",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.44,
+          "end": 2.58,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "good",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "report.",
+          "start": 2.84,
+          "end": 3.26,
+          "key": "report",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "There",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "is",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "gold",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "for",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "you;",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "sell",
+          "start": 2.4,
+          "end": 2.44
+        },
+        {
+          "text": "me",
+          "start": 2.44,
+          "end": 2.58
+        },
+        {
+          "text": "your",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "good",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "report.",
+          "start": 2.84,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22497327625751495
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1b50f153213b078aede5525643b10fa87c45903ab6bbcc8b9fd97dbc443fb26",
+  "selected_reasons": []
+}

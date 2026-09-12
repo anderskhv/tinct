@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "ec16988b4913e4c992fedca13200f6018edaa1392d2ab3801d598bfe481a24c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.2526879906654358,
+      "alignment_seconds": 0.0004524253308773041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. Let's to bed, knight. Thou hadst need send for more money.",
+        "hotwords": "Sir, Toby, Let's, Thou"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Toby, Let's to bed, knight. Thou hadst need send for more money.",
+          "start": 0.05,
+          "end": 4.29,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.935546875
+            },
+            {
+              "text": " Toby,",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " Let's",
+              "start": 1.11,
+              "end": 1.55,
+              "probability": 0.4747161865234375
+            },
+            {
+              "text": " to",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.96484375
+            },
+            {
+              "text": " bed,",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " knight.",
+              "start": 2.07,
+              "end": 2.17,
+              "probability": 0.2437744140625
+            },
+            {
+              "text": " Thou",
+              "start": 2.73,
+              "end": 2.77,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " hadst",
+              "start": 2.77,
+              "end": 3.13,
+              "probability": 0.6202392578125
+            },
+            {
+              "text": " need",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " send",
+              "start": 3.27,
+              "end": 3.59,
+              "probability": 0.916015625
+            },
+            {
+              "text": " for",
+              "start": 3.59,
+              "end": 3.81,
+              "probability": 0.95703125
+            },
+            {
+              "text": " more",
+              "start": 3.81,
+              "end": 3.99,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " money.",
+              "start": 3.99,
+              "end": 4.29,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "Let's",
+          "start": 1.11,
+          "end": 1.55
+        },
+        {
+          "raw": "to",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "bed,",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "knight.",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "raw": "Thou",
+          "start": 2.73,
+          "end": 2.77
+        },
+        {
+          "raw": "hadst",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "raw": "need",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "send",
+          "start": 3.27,
+          "end": 3.59
+        },
+        {
+          "raw": "for",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "raw": "more",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "raw": "money.",
+          "start": 3.99,
+          "end": 4.29
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "Let's",
+        "to",
+        "bed,",
+        "knight.",
+        "Thou",
+        "hadst",
+        "need",
+        "send",
+        "for",
+        "more",
+        "money."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Let's",
+          "start": 1.11,
+          "end": 1.55,
+          "key": "lets",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bed,",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "bed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knight.",
+          "start": 2.07,
+          "end": 2.17,
+          "key": "knight",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 2.73,
+          "end": 2.77,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hadst",
+          "start": 2.77,
+          "end": 3.13,
+          "key": "hadst",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "need",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "need",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 3.27,
+          "end": 3.59,
+          "key": "send",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.59,
+          "end": 3.81,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.81,
+          "end": 3.99,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "money.",
+          "start": 3.99,
+          "end": 4.29,
+          "key": "money",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "Let's",
+          "start": 1.11,
+          "end": 1.55
+        },
+        {
+          "text": "to",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "bed,",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "knight.",
+          "start": 2.07,
+          "end": 2.17
+        },
+        {
+          "text": "Thou",
+          "start": 2.73,
+          "end": 2.77
+        },
+        {
+          "text": "hadst",
+          "start": 2.77,
+          "end": 3.13
+        },
+        {
+          "text": "need",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "send",
+          "start": 3.27,
+          "end": 3.59
+        },
+        {
+          "text": "for",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "text": "more",
+          "start": 3.81,
+          "end": 3.99
+        },
+        {
+          "text": "money.",
+          "start": 3.99,
+          "end": 4.29
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2533995546400547
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8352cbd34761664925b04fdcfa63dc44964136dbdb6bfb51dbfd2a46919e20fa",
+  "selected_reasons": []
+}

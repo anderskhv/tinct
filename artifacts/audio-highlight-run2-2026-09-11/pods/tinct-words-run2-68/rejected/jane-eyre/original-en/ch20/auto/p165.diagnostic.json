@@ -1,0 +1,1292 @@
+{
+  "complete": true,
+  "signature": "7e3268bda6a75ae9f956bc7eb6a3edf1bf4c69e5539cdc0e1c5d8796ec49df46",
+  "attempts": [
+    {
+      "asr_seconds": 0.5471176505088806,
+      "alignment_seconds": 0.0007972083985805511,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A strapper—a real strapper, Jane: big, brown, and buxom; with hair just such as the ladies of Carthage must have had. Bless me! there's Dent and Lynn in the stables! Go in by the shrubbery, through that wicket.\"",
+        "hotwords": "A, Jane, Carthage, Bless, Dent, Lynn, Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A strapper—a real strapper, Jane, big, brown, and buxom, with hair just such as the ladies",
+          "start": 0.05,
+          "end": 6.03,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " strapper—a",
+              "start": 0.49,
+              "end": 1.19,
+              "probability": 0.6806564331054688
+            },
+            {
+              "text": " real",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " strapper,",
+              "start": 1.43,
+              "end": 1.97,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Jane,",
+              "start": 2.27,
+              "end": 2.37,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " big,",
+              "start": 2.97,
+              "end": 3.03,
+              "probability": 0.1837158203125
+            },
+            {
+              "text": " brown,",
+              "start": 3.47,
+              "end": 3.55,
+              "probability": 0.931640625
+            },
+            {
+              "text": " and",
+              "start": 3.77,
+              "end": 3.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " buxom,",
+              "start": 3.85,
+              "end": 4.31,
+              "probability": 0.9059244791666666
+            },
+            {
+              "text": " with",
+              "start": 4.63,
+              "end": 4.75,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " hair",
+              "start": 4.75,
+              "end": 4.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " just",
+              "start": 4.97,
+              "end": 5.21,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " such",
+              "start": 5.21,
+              "end": 5.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 5.39,
+              "end": 5.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.59,
+              "end": 5.73,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " ladies",
+              "start": 5.73,
+              "end": 6.03,
+              "probability": 0.9306640625
+            }
+          ]
+        },
+        {
+          "text": " of Carthage must have had! Bless me! there's Dent and Lynn in the stables! Go in by the",
+          "start": 6.03,
+          "end": 12.21,
+          "words": [
+            {
+              "text": " of",
+              "start": 6.03,
+              "end": 6.29,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Carthage",
+              "start": 6.29,
+              "end": 6.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " must",
+              "start": 6.77,
+              "end": 6.93,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " have",
+              "start": 6.93,
+              "end": 7.11,
+              "probability": 0.9453125
+            },
+            {
+              "text": " had!",
+              "start": 7.11,
+              "end": 7.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Bless",
+              "start": 8.13,
+              "end": 8.33,
+              "probability": 0.904296875
+            },
+            {
+              "text": " me!",
+              "start": 8.33,
+              "end": 8.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " there's",
+              "start": 9.09,
+              "end": 9.37,
+              "probability": 0.521942138671875
+            },
+            {
+              "text": " Dent",
+              "start": 9.37,
+              "end": 9.61,
+              "probability": 0.057037353515625
+            },
+            {
+              "text": " and",
+              "start": 9.61,
+              "end": 9.95,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Lynn",
+              "start": 9.95,
+              "end": 10.13,
+              "probability": 0.439697265625
+            },
+            {
+              "text": " in",
+              "start": 10.13,
+              "end": 10.31,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 10.31,
+              "end": 10.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " stables!",
+              "start": 10.45,
+              "end": 10.87,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Go",
+              "start": 11.45,
+              "end": 11.63,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " in",
+              "start": 11.63,
+              "end": 11.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 11.85,
+              "end": 12.03,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 12.03,
+              "end": 12.21,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " shrubbery, through that wicket.",
+          "start": 12.21,
+          "end": 13.49,
+          "words": [
+            {
+              "text": " shrubbery,",
+              "start": 12.21,
+              "end": 12.67,
+              "probability": 0.9964192708333334
+            },
+            {
+              "text": " through",
+              "start": 12.81,
+              "end": 12.93,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " that",
+              "start": 12.93,
+              "end": 13.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " wicket.",
+              "start": 13.17,
+              "end": 13.49,
+              "probability": 0.990966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "strapper—a",
+          "start": 0.49,
+          "end": 1.19
+        },
+        {
+          "raw": "real",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "strapper,",
+          "start": 1.43,
+          "end": 1.97
+        },
+        {
+          "raw": "Jane,",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "raw": "big,",
+          "start": 2.97,
+          "end": 3.03
+        },
+        {
+          "raw": "brown,",
+          "start": 3.47,
+          "end": 3.55
+        },
+        {
+          "raw": "and",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "raw": "buxom,",
+          "start": 3.85,
+          "end": 4.31
+        },
+        {
+          "raw": "with",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "raw": "hair",
+          "start": 4.75,
+          "end": 4.97
+        },
+        {
+          "raw": "just",
+          "start": 4.97,
+          "end": 5.21
+        },
+        {
+          "raw": "such",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "raw": "as",
+          "start": 5.39,
+          "end": 5.59
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.73
+        },
+        {
+          "raw": "ladies",
+          "start": 5.73,
+          "end": 6.03
+        },
+        {
+          "raw": "of",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "raw": "Carthage",
+          "start": 6.29,
+          "end": 6.77
+        },
+        {
+          "raw": "must",
+          "start": 6.77,
+          "end": 6.93
+        },
+        {
+          "raw": "have",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "raw": "had!",
+          "start": 7.11,
+          "end": 7.49
+        },
+        {
+          "raw": "Bless",
+          "start": 8.13,
+          "end": 8.33
+        },
+        {
+          "raw": "me!",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "raw": "there's",
+          "start": 9.09,
+          "end": 9.37
+        },
+        {
+          "raw": "Dent",
+          "start": 9.37,
+          "end": 9.61
+        },
+        {
+          "raw": "and",
+          "start": 9.61,
+          "end": 9.95
+        },
+        {
+          "raw": "Lynn",
+          "start": 9.95,
+          "end": 10.13
+        },
+        {
+          "raw": "in",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "raw": "the",
+          "start": 10.31,
+          "end": 10.45
+        },
+        {
+          "raw": "stables!",
+          "start": 10.45,
+          "end": 10.87
+        },
+        {
+          "raw": "Go",
+          "start": 11.45,
+          "end": 11.63
+        },
+        {
+          "raw": "in",
+          "start": 11.63,
+          "end": 11.85
+        },
+        {
+          "raw": "by",
+          "start": 11.85,
+          "end": 12.03
+        },
+        {
+          "raw": "the",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "raw": "shrubbery,",
+          "start": 12.21,
+          "end": 12.67
+        },
+        {
+          "raw": "through",
+          "start": 12.81,
+          "end": 12.93
+        },
+        {
+          "raw": "that",
+          "start": 12.93,
+          "end": 13.17
+        },
+        {
+          "raw": "wicket.",
+          "start": 13.17,
+          "end": 13.49
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "strapper—a",
+        "real",
+        "strapper,",
+        "Jane:",
+        "big,",
+        "brown,",
+        "and",
+        "buxom;",
+        "with",
+        "hair",
+        "just",
+        "such",
+        "as",
+        "the",
+        "ladies",
+        "of",
+        "Carthage",
+        "must",
+        "have",
+        "had.",
+        "Bless",
+        "me!",
+        "there's",
+        "Dent",
+        "and",
+        "Lynn",
+        "in",
+        "the",
+        "stables!",
+        "Go",
+        "in",
+        "by",
+        "the",
+        "shrubbery,",
+        "through",
+        "that",
+        "wicket.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "strapper—a",
+          "start": 0.49,
+          "end": 1.19,
+          "key": "strappera",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "real",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "real",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "strapper,",
+          "start": 1.43,
+          "end": 1.97,
+          "key": "strapper",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jane,",
+          "start": 2.27,
+          "end": 2.37,
+          "key": "jane",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "big,",
+          "start": 2.97,
+          "end": 3.03,
+          "key": "big",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "brown,",
+          "start": 3.47,
+          "end": 3.55,
+          "key": "brown",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.77,
+          "end": 3.85,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "buxom,",
+          "start": 3.85,
+          "end": 4.31,
+          "key": "buxom",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.63,
+          "end": 4.75,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hair",
+          "start": 4.75,
+          "end": 4.97,
+          "key": "hair",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 4.97,
+          "end": 5.21,
+          "key": "just",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 5.21,
+          "end": 5.39,
+          "key": "such",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.39,
+          "end": 5.59,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.73,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ladies",
+          "start": 5.73,
+          "end": 6.03,
+          "key": "ladies",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.03,
+          "end": 6.29,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Carthage",
+          "start": 6.29,
+          "end": 6.77,
+          "key": "carthage",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 6.77,
+          "end": 6.93,
+          "key": "must",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.93,
+          "end": 7.11,
+          "key": "have",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "had!",
+          "start": 7.11,
+          "end": 7.49,
+          "key": "had",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Bless",
+          "start": 8.13,
+          "end": 8.33,
+          "key": "bless",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "me!",
+          "start": 8.33,
+          "end": 8.63,
+          "key": "me",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 9.09,
+          "end": 9.37,
+          "key": "theres",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Dent",
+          "start": 9.37,
+          "end": 9.61,
+          "key": "dent",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.61,
+          "end": 9.95,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Lynn",
+          "start": 9.95,
+          "end": 10.13,
+          "key": "lynn",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.13,
+          "end": 10.31,
+          "key": "in",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.31,
+          "end": 10.45,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "stables!",
+          "start": 10.45,
+          "end": 10.87,
+          "key": "stables",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 11.45,
+          "end": 11.63,
+          "key": "go",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.63,
+          "end": 11.85,
+          "key": "in",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 11.85,
+          "end": 12.03,
+          "key": "by",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.03,
+          "end": 12.21,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "shrubbery,",
+          "start": 12.21,
+          "end": 12.67,
+          "key": "shrubbery",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 12.81,
+          "end": 12.93,
+          "key": "through",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 12.93,
+          "end": 13.17,
+          "key": "that",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "wicket.",
+          "start": 13.17,
+          "end": 13.49,
+          "key": "wicket",
+          "pieces": [
+            37
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "strapper—a",
+          "start": 0.49,
+          "end": 1.19
+        },
+        {
+          "text": "real",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "text": "strapper,",
+          "start": 1.43,
+          "end": 1.97
+        },
+        {
+          "text": "Jane:",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "text": "big,",
+          "start": 2.97,
+          "end": 3.03
+        },
+        {
+          "text": "brown,",
+          "start": 3.47,
+          "end": 3.55
+        },
+        {
+          "text": "and",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "text": "buxom;",
+          "start": 3.85,
+          "end": 4.31
+        },
+        {
+          "text": "with",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "text": "hair",
+          "start": 4.75,
+          "end": 4.97
+        },
+        {
+          "text": "just",
+          "start": 4.97,
+          "end": 5.21
+        },
+        {
+          "text": "such",
+          "start": 5.21,
+          "end": 5.39
+        },
+        {
+          "text": "as",
+          "start": 5.39,
+          "end": 5.59
+        },
+        {
+          "text": "the",
+          "start": 5.59,
+          "end": 5.73
+        },
+        {
+          "text": "ladies",
+          "start": 5.73,
+          "end": 6.03
+        },
+        {
+          "text": "of",
+          "start": 6.03,
+          "end": 6.29
+        },
+        {
+          "text": "Carthage",
+          "start": 6.29,
+          "end": 6.77
+        },
+        {
+          "text": "must",
+          "start": 6.77,
+          "end": 6.93
+        },
+        {
+          "text": "have",
+          "start": 6.93,
+          "end": 7.11
+        },
+        {
+          "text": "had.",
+          "start": 7.11,
+          "end": 7.49
+        },
+        {
+          "text": "Bless",
+          "start": 8.13,
+          "end": 8.33
+        },
+        {
+          "text": "me!",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "text": "there's",
+          "start": 9.09,
+          "end": 9.37
+        },
+        {
+          "text": "Dent",
+          "start": 9.37,
+          "end": 9.61
+        },
+        {
+          "text": "and",
+          "start": 9.61,
+          "end": 9.95
+        },
+        {
+          "text": "Lynn",
+          "start": 9.95,
+          "end": 10.13
+        },
+        {
+          "text": "in",
+          "start": 10.13,
+          "end": 10.31
+        },
+        {
+          "text": "the",
+          "start": 10.31,
+          "end": 10.45
+        },
+        {
+          "text": "stables!",
+          "start": 10.45,
+          "end": 10.87
+        },
+        {
+          "text": "Go",
+          "start": 11.45,
+          "end": 11.63
+        },
+        {
+          "text": "in",
+          "start": 11.63,
+          "end": 11.85
+        },
+        {
+          "text": "by",
+          "start": 11.85,
+          "end": 12.03
+        },
+        {
+          "text": "the",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "text": "shrubbery,",
+          "start": 12.21,
+          "end": 12.67
+        },
+        {
+          "text": "through",
+          "start": 12.81,
+          "end": 12.93
+        },
+        {
+          "text": "that",
+          "start": 12.93,
+          "end": 13.17
+        },
+        {
+          "text": "wicket.\"",
+          "start": 13.17,
+          "end": 13.49
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 38,
+        "matched_words": 38
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5482537783682346
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "be8b709538cdd606d8a8ecb8111332c28c2e6d12d120bfc233c164870edecebd",
+  "selected_reasons": []
+}

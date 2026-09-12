@@ -1,0 +1,253 @@
+{
+  "complete": true,
+  "signature": "6ee2ec5ac5903eb4c902898d19a3b6c25d175f586fe0d7a829368e87fd7ae673",
+  "attempts": [
+    {
+      "asr_seconds": 0.13585505401715636,
+      "alignment_seconds": 0.0003072326071560383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, welcome back, Miss Deuce.",
+          "start": 0.02,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " welcome",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " back,",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Miss",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.578125
+            },
+            {
+              "text": " Deuce.",
+              "start": 1.42,
+              "end": 1.72,
+              "probability": 0.759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "welcome",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "back,",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "raw": "Miss",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "Deuce.",
+          "start": 1.42,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "welcome",
+        "back,",
+        "miss",
+        "Douce."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "welcome",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "welcome",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "back,",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "back",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Deuce.",
+          "start": 1.42,
+          "end": 1.72,
+          "key": "deuce",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.0,
+          "end": 0.35
+        },
+        {
+          "text": "welcome",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "back,",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "miss",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "Douce.",
+          "start": 1.42,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13626663014292717
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e68e638603d066bef9eec99613b1dc60cb4aa6ae271bdd43ff4e4d46f2f0340f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

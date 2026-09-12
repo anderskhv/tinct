@@ -1,0 +1,454 @@
+{
+  "complete": true,
+  "signature": "08ca08b163703d635e393e6d2a1bf9efd6c5ab6e2ba0be9b6c06030323d9e99f",
+  "attempts": [
+    {
+      "asr_seconds": 0.21006178949028254,
+      "alignment_seconds": 0.00043268967419862747,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth, I have done the deed. Didst thou not hear a noise?",
+          "start": 0.58,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.8658854166666666
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 1.16,
+              "end": 1.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " done",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.38,
+              "end": 1.54,
+              "probability": 0.986328125
+            },
+            {
+              "text": " deed.",
+              "start": 1.54,
+              "end": 1.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Didst",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " thou",
+              "start": 2.54,
+              "end": 2.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not",
+              "start": 2.68,
+              "end": 2.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " hear",
+              "start": 2.86,
+              "end": 3.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " noise?",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.16
+        },
+        {
+          "raw": "have",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "raw": "done",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "the",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "raw": "deed.",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "raw": "Didst",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "thou",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "raw": "not",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "raw": "hear",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "raw": "a",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "noise?",
+          "start": 3.18,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "I",
+        "have",
+        "done",
+        "the",
+        "deed.—Didst",
+        "thou",
+        "not",
+        "hear",
+        "a",
+        "noise?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          11,
+          7,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.16,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.16,
+          "end": 1.26,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "done",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.38,
+          "end": 1.54,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "deed.",
+          "start": 1.54,
+          "end": 1.8,
+          "key": "deed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Didst",
+          "start": 2.36,
+          "end": 2.54,
+          "key": "didst",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.54,
+          "end": 2.68,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.68,
+          "end": 2.86,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.86,
+          "end": 3.04,
+          "key": "hear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.04,
+          "end": 3.18,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "noise?",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "noise",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "I",
+          "start": 1.08,
+          "end": 1.16
+        },
+        {
+          "text": "have",
+          "start": 1.16,
+          "end": 1.26
+        },
+        {
+          "text": "done",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "the",
+          "start": 1.38,
+          "end": 1.54
+        },
+        {
+          "text": "deed.—Didst",
+          "start": 1.54,
+          "end": 2.04
+        },
+        {
+          "text": "thou",
+          "start": 2.54,
+          "end": 2.68
+        },
+        {
+          "text": "not",
+          "start": 2.68,
+          "end": 2.86
+        },
+        {
+          "text": "hear",
+          "start": 2.86,
+          "end": 3.04
+        },
+        {
+          "text": "a",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "noise?",
+          "start": 3.18,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2106590550392866
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ad33be83e84b4693070231cab2f582d4609cf864f2e0f12b3b495d771bf5a62",
+  "selected_reasons": []
+}

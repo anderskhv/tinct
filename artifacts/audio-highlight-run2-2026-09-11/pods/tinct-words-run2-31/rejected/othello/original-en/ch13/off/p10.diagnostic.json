@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "d6744648f161a54e923ec66430255b33b30c7107de89c4dcfd156e9a5b45dc38",
+  "attempts": [
+    {
+      "asr_seconds": 0.16242154175415635,
+      "alignment_seconds": 0.0003511756658554077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Emilia, how goes it now? He looks gentler than he did.",
+          "start": 0.08,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.6424560546875
+            },
+            {
+              "text": " how",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " goes",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.990234375
+            },
+            {
+              "text": " it",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " now?",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " He",
+              "start": 2.28,
+              "end": 2.36,
+              "probability": 0.984375
+            },
+            {
+              "text": " looks",
+              "start": 2.36,
+              "end": 2.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gentler",
+              "start": 2.54,
+              "end": 2.94,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " than",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " did.",
+              "start": 3.2,
+              "end": 3.5,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "how",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "goes",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "it",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "now?",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "He",
+          "start": 2.28,
+          "end": 2.36
+        },
+        {
+          "raw": "looks",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "raw": "gentler",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "raw": "than",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "he",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "did.",
+          "start": 3.2,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "How",
+        "goes",
+        "it",
+        "now?",
+        "He",
+        "looks",
+        "gentler",
+        "than",
+        "he",
+        "did."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "goes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.28,
+          "end": 2.36,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "looks",
+          "start": 2.36,
+          "end": 2.54,
+          "key": "looks",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gentler",
+          "start": 2.54,
+          "end": 2.94,
+          "key": "gentler",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "than",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did.",
+          "start": 3.2,
+          "end": 3.5,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "How",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "goes",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "it",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "now?",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "He",
+          "start": 2.28,
+          "end": 2.36
+        },
+        {
+          "text": "looks",
+          "start": 2.36,
+          "end": 2.54
+        },
+        {
+          "text": "gentler",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "text": "than",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "he",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "did.",
+          "start": 3.2,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16290371678769588
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "37002532506cfe9b922f68b84093c5c2f5e9687cd623fbbbd9067cdadc68048d",
+  "selected_reasons": []
+}

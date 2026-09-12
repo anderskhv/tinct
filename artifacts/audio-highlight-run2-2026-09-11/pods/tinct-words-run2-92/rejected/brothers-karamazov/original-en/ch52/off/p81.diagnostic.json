@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "4f87b1fd656920d5649d1c9e1b8b0f20550168aab332a9844021f47e275acbe0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2323846686631441,
+      "alignment_seconds": 0.00037503987550735474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Poland, Panowie, I drink to your Poland, cried Midia.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.44287109375
+            },
+            {
+              "text": " Poland,",
+              "start": 0.51,
+              "end": 0.87,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Panowie,",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.4605712890625
+            },
+            {
+              "text": " I",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " drink",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " your",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.984375
+            },
+            {
+              "text": " Poland,",
+              "start": 2.15,
+              "end": 2.51,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " cried",
+              "start": 3.19,
+              "end": 3.27,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Midia.",
+              "start": 3.27,
+              "end": 3.71,
+              "probability": 0.56591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Poland,",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "raw": "Panowie,",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "drink",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "to",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "your",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "Poland,",
+          "start": 2.15,
+          "end": 2.51
+        },
+        {
+          "raw": "cried",
+          "start": 3.19,
+          "end": 3.27
+        },
+        {
+          "raw": "Midia.",
+          "start": 3.27,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "\"To",
+        "Poland,",
+        "_panovie_,",
+        "I",
+        "drink",
+        "to",
+        "your",
+        "Poland!\"",
+        "cried",
+        "Mitya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          9,
+          3,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Poland,",
+          "start": 0.51,
+          "end": 0.87,
+          "key": "poland",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Panowie,",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "panowie",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "drink",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Poland,",
+          "start": 2.15,
+          "end": 2.51,
+          "key": "poland",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 3.19,
+          "end": 3.27,
+          "key": "cried",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Midia.",
+          "start": 3.27,
+          "end": 3.71,
+          "key": "midia",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"To",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "Poland,",
+          "start": 0.51,
+          "end": 0.87
+        },
+        {
+          "text": "_panovie_,",
+          "start": 0.87,
+          "end": 1.26
+        },
+        {
+          "text": "I",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "drink",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "to",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "your",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "Poland!\"",
+          "start": 2.15,
+          "end": 2.51
+        },
+        {
+          "text": "cried",
+          "start": 3.19,
+          "end": 3.27
+        },
+        {
+          "text": "Mitya.",
+          "start": 3.27,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2328897211700678
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "064b07273b74d69c28868a793eb3011c8fffc5bf04956829a63e1c5c10b97886",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

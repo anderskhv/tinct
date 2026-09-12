@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "fc9821acc426af7ed1550bf81e59a9ce15d2a7bc46790078ee569316013fe7a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.35798960202373564,
+      "alignment_seconds": 0.0007365630008280277,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You do not look as if you realize that you are in disgrace. She said are you absolutely hardened?",
+          "start": 0.02,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.277099609375
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " look",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " if",
+              "start": 1.12,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " realize",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.9296875
+            },
+            {
+              "text": " that",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " disgrace.",
+              "start": 2.42,
+              "end": 2.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " She",
+              "start": 3.34,
+              "end": 3.48,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " said",
+              "start": 3.48,
+              "end": 3.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 3.78,
+              "end": 4.38,
+              "probability": 0.67431640625
+            },
+            {
+              "text": " you",
+              "start": 4.38,
+              "end": 4.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " absolutely",
+              "start": 4.54,
+              "end": 5.12,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " hardened?",
+              "start": 5.12,
+              "end": 5.66,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "not",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "look",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "as",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "raw": "if",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "realize",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "that",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "raw": "you",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "raw": "are",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "in",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "disgrace.",
+          "start": 2.42,
+          "end": 2.86
+        },
+        {
+          "raw": "She",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "raw": "said",
+          "start": 3.48,
+          "end": 3.78
+        },
+        {
+          "raw": "are",
+          "start": 3.78,
+          "end": 4.38
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "raw": "absolutely",
+          "start": 4.54,
+          "end": 5.12
+        },
+        {
+          "raw": "hardened?",
+          "start": 5.12,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "do",
+        "not",
+        "look",
+        "as",
+        "if",
+        "you",
+        "realize",
+        "that",
+        "you",
+        "are",
+        "in",
+        "disgrace,\"",
+        "she",
+        "said.",
+        "\"Are",
+        "you",
+        "absolutely",
+        "hardened?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "look",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.12,
+          "end": 1.22,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "realize",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "realize",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.7,
+          "end": 1.96,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "are",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.3,
+          "end": 2.42,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "disgrace.",
+          "start": 2.42,
+          "end": 2.86,
+          "key": "disgrace",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 3.34,
+          "end": 3.48,
+          "key": "she",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.48,
+          "end": 3.78,
+          "key": "said",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.78,
+          "end": 4.38,
+          "key": "are",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.38,
+          "end": 4.54,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "absolutely",
+          "start": 4.54,
+          "end": 5.12,
+          "key": "absolutely",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "hardened?",
+          "start": 5.12,
+          "end": 5.66,
+          "key": "hardened",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "do",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "not",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "look",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "as",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "if",
+          "start": 1.12,
+          "end": 1.22
+        },
+        {
+          "text": "you",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "realize",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "that",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "text": "you",
+          "start": 1.96,
+          "end": 2.14
+        },
+        {
+          "text": "are",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "in",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "disgrace,\"",
+          "start": 2.42,
+          "end": 2.86
+        },
+        {
+          "text": "she",
+          "start": 3.34,
+          "end": 3.48
+        },
+        {
+          "text": "said.",
+          "start": 3.48,
+          "end": 3.78
+        },
+        {
+          "text": "\"Are",
+          "start": 3.78,
+          "end": 4.38
+        },
+        {
+          "text": "you",
+          "start": 4.38,
+          "end": 4.54
+        },
+        {
+          "text": "absolutely",
+          "start": 4.54,
+          "end": 5.12
+        },
+        {
+          "text": "hardened?\"",
+          "start": 5.12,
+          "end": 5.66
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3590336851775646
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "800951e618dfa9f44c7025917540faeba5bbb8d85bcd74b0ffd50e4859bd9e84",
+  "selected_reasons": []
+}

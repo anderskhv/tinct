@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "456ccc0321ea85ef2b48bb93a01cb6e08e39d44af1a7b5e3ed892a0b087ceb2a",
+  "attempts": [
+    {
+      "asr_seconds": 0.30581654980778694,
+      "alignment_seconds": 0.0008589308708906174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Albany. My lord, I am guiltless, as I am ignorant Of what hath moved you.",
+        "hotwords": "Albany, My, I, Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Albany, My lord, I am guiltless, As I am ignorant Of what hath moved you.",
+          "start": 0.08,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " Albany,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " My",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.03558349609375
+            },
+            {
+              "text": " lord,",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.2353515625
+            },
+            {
+              "text": " I",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " am",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " guiltless,",
+              "start": 2.48,
+              "end": 3.06,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " As",
+              "start": 3.28,
+              "end": 3.36,
+              "probability": 0.0689697265625
+            },
+            {
+              "text": " I",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " am",
+              "start": 3.52,
+              "end": 3.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ignorant",
+              "start": 3.66,
+              "end": 4.02,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Of",
+              "start": 4.02,
+              "end": 4.26,
+              "probability": 0.004425048828125
+            },
+            {
+              "text": " what",
+              "start": 4.26,
+              "end": 4.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hath",
+              "start": 4.38,
+              "end": 4.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " moved",
+              "start": 4.5,
+              "end": 4.74,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you.",
+              "start": 4.74,
+              "end": 5.06,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "My",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "lord,",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "raw": "I",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "am",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "guiltless,",
+          "start": 2.48,
+          "end": 3.06
+        },
+        {
+          "raw": "As",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "raw": "I",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "am",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "raw": "ignorant",
+          "start": 3.66,
+          "end": 4.02
+        },
+        {
+          "raw": "Of",
+          "start": 4.02,
+          "end": 4.26
+        },
+        {
+          "raw": "what",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "raw": "hath",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "raw": "moved",
+          "start": 4.5,
+          "end": 4.74
+        },
+        {
+          "raw": "you.",
+          "start": 4.74,
+          "end": 5.06
+        }
+      ],
+      "expected_tokens": [
+        "Albany.",
+        "My",
+        "lord,",
+        "I",
+        "am",
+        "guiltless,",
+        "as",
+        "I",
+        "am",
+        "ignorant",
+        "Of",
+        "what",
+        "hath",
+        "moved",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "guiltless,",
+          "start": 2.48,
+          "end": 3.06,
+          "key": "guiltless",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 3.28,
+          "end": 3.36,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.36,
+          "end": 3.52,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.52,
+          "end": 3.66,
+          "key": "am",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ignorant",
+          "start": 3.66,
+          "end": 4.02,
+          "key": "ignorant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 4.02,
+          "end": 4.26,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 4.26,
+          "end": 4.38,
+          "key": "what",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 4.38,
+          "end": 4.5,
+          "key": "hath",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "moved",
+          "start": 4.5,
+          "end": 4.74,
+          "key": "moved",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 4.74,
+          "end": 5.06,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "My",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "lord,",
+          "start": 1.42,
+          "end": 1.68
+        },
+        {
+          "text": "I",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "am",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "guiltless,",
+          "start": 2.48,
+          "end": 3.06
+        },
+        {
+          "text": "as",
+          "start": 3.28,
+          "end": 3.36
+        },
+        {
+          "text": "I",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "am",
+          "start": 3.52,
+          "end": 3.66
+        },
+        {
+          "text": "ignorant",
+          "start": 3.66,
+          "end": 4.02
+        },
+        {
+          "text": "Of",
+          "start": 4.02,
+          "end": 4.26
+        },
+        {
+          "text": "what",
+          "start": 4.26,
+          "end": 4.38
+        },
+        {
+          "text": "hath",
+          "start": 4.38,
+          "end": 4.5
+        },
+        {
+          "text": "moved",
+          "start": 4.5,
+          "end": 4.74
+        },
+        {
+          "text": "you.",
+          "start": 4.74,
+          "end": 5.06
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3070597145706415
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "faaf353b9682708534fd4be6e60c733148f5b120ab9001f29d11bcaca6658105",
+  "selected_reasons": []
+}

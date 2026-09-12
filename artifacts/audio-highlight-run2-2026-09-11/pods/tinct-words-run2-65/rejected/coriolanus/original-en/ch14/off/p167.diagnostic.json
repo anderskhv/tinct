@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "b12c77e07a2fbf10a037fa8b2650413dab89c000b760c473bd259e678b378a9b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3012110199779272,
+      "alignment_seconds": 0.0005563171580433846,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, what do we talk? Have we not had a taste of his obedience? Our etiles smote,",
+          "start": 0.54,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.54,
+              "end": 1.0,
+              "probability": 0.545867919921875
+            },
+            {
+              "text": " what",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.95703125
+            },
+            {
+              "text": " do",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " we",
+              "start": 1.6,
+              "end": 1.68,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " talk?",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Have",
+              "start": 2.42,
+              "end": 2.48,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " we",
+              "start": 2.48,
+              "end": 2.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " had",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " taste",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 3.16,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " obedience?",
+              "start": 3.46,
+              "end": 3.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Our",
+              "start": 4.4,
+              "end": 4.5,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " etiles",
+              "start": 4.5,
+              "end": 4.86,
+              "probability": 0.5599365234375
+            },
+            {
+              "text": " smote,",
+              "start": 4.86,
+              "end": 5.38,
+              "probability": 0.96142578125
+            }
+          ]
+        },
+        {
+          "text": " ourselves resisted. Come.",
+          "start": 5.46,
+          "end": 7.1,
+          "words": [
+            {
+              "text": " ourselves",
+              "start": 5.46,
+              "end": 5.82,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " resisted.",
+              "start": 5.82,
+              "end": 6.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Come.",
+              "start": 6.84,
+              "end": 7.1,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.54,
+          "end": 1.0
+        },
+        {
+          "raw": "what",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "do",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "we",
+          "start": 1.6,
+          "end": 1.68
+        },
+        {
+          "raw": "talk?",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "Have",
+          "start": 2.42,
+          "end": 2.48
+        },
+        {
+          "raw": "we",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "raw": "not",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "had",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "taste",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "raw": "his",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "obedience?",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "raw": "Our",
+          "start": 4.4,
+          "end": 4.5
+        },
+        {
+          "raw": "etiles",
+          "start": 4.5,
+          "end": 4.86
+        },
+        {
+          "raw": "smote,",
+          "start": 4.86,
+          "end": 5.38
+        },
+        {
+          "raw": "ourselves",
+          "start": 5.46,
+          "end": 5.82
+        },
+        {
+          "raw": "resisted.",
+          "start": 5.82,
+          "end": 6.38
+        },
+        {
+          "raw": "Come.",
+          "start": 6.84,
+          "end": 7.1
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "What",
+        "do",
+        "ye",
+        "talk?",
+        "Have",
+        "we",
+        "not",
+        "had",
+        "a",
+        "taste",
+        "of",
+        "his",
+        "obedience?",
+        "Our",
+        "aediles",
+        "smote!",
+        "Ourselves",
+        "resisted?",
+        "Come."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          15,
+          4,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          20,
+          16,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.54,
+          "end": 1.0,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.32,
+          "end": 1.52,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.6,
+          "end": 1.68,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "talk?",
+          "start": 1.68,
+          "end": 1.98,
+          "key": "talk",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 2.42,
+          "end": 2.48,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.48,
+          "end": 2.58,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "had",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "taste",
+          "start": 2.96,
+          "end": 3.16,
+          "key": "taste",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.16,
+          "end": 3.32,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "obedience?",
+          "start": 3.46,
+          "end": 3.86,
+          "key": "obedience",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 4.4,
+          "end": 4.5,
+          "key": "our",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "etiles",
+          "start": 4.5,
+          "end": 4.86,
+          "key": "etiles",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "smote,",
+          "start": 4.86,
+          "end": 5.38,
+          "key": "smote",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "ourselves",
+          "start": 5.46,
+          "end": 5.82,
+          "key": "ourselves",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "resisted.",
+          "start": 5.82,
+          "end": 6.38,
+          "key": "resisted",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Come.",
+          "start": 6.84,
+          "end": 7.1,
+          "key": "come",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "What",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "do",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "ye",
+          "start": 1.6,
+          "end": 1.64
+        },
+        {
+          "text": "talk?",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "Have",
+          "start": 2.42,
+          "end": 2.48
+        },
+        {
+          "text": "we",
+          "start": 2.48,
+          "end": 2.58
+        },
+        {
+          "text": "not",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "had",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "a",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "taste",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "of",
+          "start": 3.16,
+          "end": 3.32
+        },
+        {
+          "text": "his",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "obedience?",
+          "start": 3.46,
+          "end": 3.86
+        },
+        {
+          "text": "Our",
+          "start": 4.4,
+          "end": 4.5
+        },
+        {
+          "text": "aediles",
+          "start": 4.5,
+          "end": 4.68
+        },
+        {
+          "text": "smote!",
+          "start": 4.86,
+          "end": 5.38
+        },
+        {
+          "text": "Ourselves",
+          "start": 5.46,
+          "end": 5.82
+        },
+        {
+          "text": "resisted?",
+          "start": 5.82,
+          "end": 6.38
+        },
+        {
+          "text": "Come.",
+          "start": 6.84,
+          "end": 7.1
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.3019850831478834
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd6c75a2d0cc7ec3256e30cacb7989070c2bccdd23277c61b5918ae721ea4e34",
+  "selected_reasons": []
+}

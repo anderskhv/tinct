@@ -1,0 +1,2151 @@
+{
+  "complete": true,
+  "signature": "055435312e501844109868d54eddfa0bb468aae2806a60b6c3a27a16aa666ad0",
+  "attempts": [
+    {
+      "asr_seconds": 0.3598005622625351,
+      "alignment_seconds": 0.000505838543176651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. If you go on thus, you will kill yourself And 'tis not wisdom thus to second grief Against yourself.",
+        "hotwords": "Antonio, If, And, Against"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio, If you go on thus, you will kill yourself And tease not wisdom thus to second grief Against yourself.",
+          "start": 0.08,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.642578125
+            },
+            {
+              "text": " If",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.05523681640625
+            },
+            {
+              "text": " you",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " go",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thus,",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 2.8,
+              "end": 2.84,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " will",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " kill",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " yourself",
+              "start": 3.16,
+              "end": 3.6,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " And",
+              "start": 3.6,
+              "end": 3.92,
+              "probability": 0.0259246826171875
+            },
+            {
+              "text": " tease",
+              "start": 3.92,
+              "end": 4.26,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " not",
+              "start": 4.26,
+              "end": 4.56,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " wisdom",
+              "start": 4.56,
+              "end": 4.9,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " thus",
+              "start": 4.9,
+              "end": 5.22,
+              "probability": 0.939453125
+            },
+            {
+              "text": " to",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.468017578125
+            },
+            {
+              "text": " second",
+              "start": 5.44,
+              "end": 5.72,
+              "probability": 0.951171875
+            },
+            {
+              "text": " grief",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Against",
+              "start": 5.98,
+              "end": 6.26,
+              "probability": 0.2271728515625
+            },
+            {
+              "text": " yourself.",
+              "start": 6.26,
+              "end": 6.74,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "If",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "you",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "go",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "raw": "thus,",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "raw": "you",
+          "start": 2.8,
+          "end": 2.84
+        },
+        {
+          "raw": "will",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "kill",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "yourself",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "raw": "And",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "raw": "tease",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "raw": "not",
+          "start": 4.26,
+          "end": 4.56
+        },
+        {
+          "raw": "wisdom",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "raw": "thus",
+          "start": 4.9,
+          "end": 5.22
+        },
+        {
+          "raw": "to",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "second",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "raw": "grief",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "raw": "Against",
+          "start": 5.98,
+          "end": 6.26
+        },
+        {
+          "raw": "yourself.",
+          "start": 6.26,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "If",
+        "you",
+        "go",
+        "on",
+        "thus,",
+        "you",
+        "will",
+        "kill",
+        "yourself",
+        "And",
+        "'tis",
+        "not",
+        "wisdom",
+        "thus",
+        "to",
+        "second",
+        "grief",
+        "Against",
+        "yourself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          20,
+          12,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thus,",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "thus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.8,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.96,
+          "end": 3.16,
+          "key": "kill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 3.16,
+          "end": 3.6,
+          "key": "yourself",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.6,
+          "end": 3.92,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.92,
+          "end": 4.26,
+          "key": "tease",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.26,
+          "end": 4.56,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wisdom",
+          "start": 4.56,
+          "end": 4.9,
+          "key": "wisdom",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 4.9,
+          "end": 5.22,
+          "key": "thus",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 5.44,
+          "end": 5.72,
+          "key": "second",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 5.72,
+          "end": 5.98,
+          "key": "grief",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Against",
+          "start": 5.98,
+          "end": 6.26,
+          "key": "against",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "yourself.",
+          "start": 6.26,
+          "end": 6.74,
+          "key": "yourself",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "If",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "you",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "go",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "on",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "text": "thus,",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "text": "you",
+          "start": 2.8,
+          "end": 2.84
+        },
+        {
+          "text": "will",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "kill",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "yourself",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "text": "And",
+          "start": 3.6,
+          "end": 3.92
+        },
+        {
+          "text": "'tis",
+          "start": 3.92,
+          "end": 4.09
+        },
+        {
+          "text": "not",
+          "start": 4.26,
+          "end": 4.56
+        },
+        {
+          "text": "wisdom",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "text": "thus",
+          "start": 4.9,
+          "end": 5.22
+        },
+        {
+          "text": "to",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "second",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "text": "grief",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "text": "Against",
+          "start": 5.98,
+          "end": 6.26
+        },
+        {
+          "text": "yourself.",
+          "start": 6.26,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.3605433963239193
+    },
+    {
+      "asr_seconds": 0.30952996388077736,
+      "alignment_seconds": 0.0005412660539150238,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Antonio, If, And, Against"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Antonio, If you go on thus, you will kill yourself and tease not wisdom thus to second grief against yourself.",
+          "start": 0.08,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.642578125
+            },
+            {
+              "text": " If",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.05523681640625
+            },
+            {
+              "text": " you",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " go",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thus,",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " you",
+              "start": 2.8,
+              "end": 2.84,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " will",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " kill",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " yourself",
+              "start": 3.16,
+              "end": 3.6,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 3.6,
+              "end": 3.9,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " tease",
+              "start": 3.9,
+              "end": 4.26,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " not",
+              "start": 4.26,
+              "end": 4.56,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " wisdom",
+              "start": 4.56,
+              "end": 4.9,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " thus",
+              "start": 4.9,
+              "end": 5.22,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " to",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " second",
+              "start": 5.44,
+              "end": 5.72,
+              "probability": 0.982421875
+            },
+            {
+              "text": " grief",
+              "start": 5.72,
+              "end": 6.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " against",
+              "start": 6.0,
+              "end": 6.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " yourself.",
+              "start": 6.3,
+              "end": 6.74,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "If",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "you",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "go",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "raw": "thus,",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "raw": "you",
+          "start": 2.8,
+          "end": 2.84
+        },
+        {
+          "raw": "will",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "kill",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "yourself",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "raw": "and",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "raw": "tease",
+          "start": 3.9,
+          "end": 4.26
+        },
+        {
+          "raw": "not",
+          "start": 4.26,
+          "end": 4.56
+        },
+        {
+          "raw": "wisdom",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "raw": "thus",
+          "start": 4.9,
+          "end": 5.22
+        },
+        {
+          "raw": "to",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "second",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "raw": "grief",
+          "start": 5.72,
+          "end": 6.0
+        },
+        {
+          "raw": "against",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "raw": "yourself.",
+          "start": 6.3,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "If",
+        "you",
+        "go",
+        "on",
+        "thus,",
+        "you",
+        "will",
+        "kill",
+        "yourself",
+        "And",
+        "'tis",
+        "not",
+        "wisdom",
+        "thus",
+        "to",
+        "second",
+        "grief",
+        "Against",
+        "yourself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          20,
+          12,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thus,",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "thus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.8,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.96,
+          "end": 3.16,
+          "key": "kill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 3.16,
+          "end": 3.6,
+          "key": "yourself",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.6,
+          "end": 3.9,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.9,
+          "end": 4.26,
+          "key": "tease",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.26,
+          "end": 4.56,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wisdom",
+          "start": 4.56,
+          "end": 4.9,
+          "key": "wisdom",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 4.9,
+          "end": 5.22,
+          "key": "thus",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 5.44,
+          "end": 5.72,
+          "key": "second",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 5.72,
+          "end": 6.0,
+          "key": "grief",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 6.0,
+          "end": 6.3,
+          "key": "against",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "yourself.",
+          "start": 6.3,
+          "end": 6.74,
+          "key": "yourself",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "If",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "you",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "go",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "on",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "text": "thus,",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "text": "you",
+          "start": 2.8,
+          "end": 2.84
+        },
+        {
+          "text": "will",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "kill",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "yourself",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "text": "And",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "text": "'tis",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "not",
+          "start": 4.26,
+          "end": 4.56
+        },
+        {
+          "text": "wisdom",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "text": "thus",
+          "start": 4.9,
+          "end": 5.22
+        },
+        {
+          "text": "to",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "second",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "text": "grief",
+          "start": 5.72,
+          "end": 6.0
+        },
+        {
+          "text": "Against",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "text": "yourself.",
+          "start": 6.3,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.3103346489369869
+    },
+    {
+      "asr_seconds": 0.3092881962656975,
+      "alignment_seconds": 0.000551808625459671,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, if you go on thus, you will kill yourself and tease not wisdom thus to second grief against yourself.",
+          "start": 0.08,
+          "end": 6.72,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.642578125
+            },
+            {
+              "text": " if",
+              "start": 1.5,
+              "end": 1.72,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " you",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " go",
+              "start": 1.86,
+              "end": 2.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 2.0,
+              "end": 2.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thus,",
+              "start": 2.22,
+              "end": 2.5,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 2.82,
+              "end": 2.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " will",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " kill",
+              "start": 2.96,
+              "end": 3.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " yourself",
+              "start": 3.16,
+              "end": 3.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 3.6,
+              "end": 3.9,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " tease",
+              "start": 3.9,
+              "end": 4.26,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " not",
+              "start": 4.26,
+              "end": 4.56,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " wisdom",
+              "start": 4.56,
+              "end": 4.9,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thus",
+              "start": 4.9,
+              "end": 5.22,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " second",
+              "start": 5.44,
+              "end": 5.72,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " grief",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " against",
+              "start": 5.98,
+              "end": 6.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " yourself.",
+              "start": 6.3,
+              "end": 6.72,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "if",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "raw": "you",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "go",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "raw": "thus,",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "raw": "you",
+          "start": 2.82,
+          "end": 2.84
+        },
+        {
+          "raw": "will",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "kill",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "raw": "yourself",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "raw": "and",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "raw": "tease",
+          "start": 3.9,
+          "end": 4.26
+        },
+        {
+          "raw": "not",
+          "start": 4.26,
+          "end": 4.56
+        },
+        {
+          "raw": "wisdom",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "raw": "thus",
+          "start": 4.9,
+          "end": 5.22
+        },
+        {
+          "raw": "to",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "second",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "raw": "grief",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "raw": "against",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "raw": "yourself.",
+          "start": 6.3,
+          "end": 6.72
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "If",
+        "you",
+        "go",
+        "on",
+        "thus,",
+        "you",
+        "will",
+        "kill",
+        "yourself",
+        "And",
+        "'tis",
+        "not",
+        "wisdom",
+        "thus",
+        "to",
+        "second",
+        "grief",
+        "Against",
+        "yourself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          20,
+          12,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.5,
+          "end": 1.72,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.86,
+          "end": 2.0,
+          "key": "go",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.0,
+          "end": 2.22,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thus,",
+          "start": 2.22,
+          "end": 2.5,
+          "key": "thus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.82,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.96,
+          "end": 3.16,
+          "key": "kill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 3.16,
+          "end": 3.6,
+          "key": "yourself",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.6,
+          "end": 3.9,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.9,
+          "end": 4.26,
+          "key": "tease",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.26,
+          "end": 4.56,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wisdom",
+          "start": 4.56,
+          "end": 4.9,
+          "key": "wisdom",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 4.9,
+          "end": 5.22,
+          "key": "thus",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 5.44,
+          "end": 5.72,
+          "key": "second",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "grief",
+          "start": 5.72,
+          "end": 5.98,
+          "key": "grief",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 5.98,
+          "end": 6.3,
+          "key": "against",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "yourself.",
+          "start": 6.3,
+          "end": 6.72,
+          "key": "yourself",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "If",
+          "start": 1.5,
+          "end": 1.72
+        },
+        {
+          "text": "you",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "go",
+          "start": 1.86,
+          "end": 2.0
+        },
+        {
+          "text": "on",
+          "start": 2.0,
+          "end": 2.22
+        },
+        {
+          "text": "thus,",
+          "start": 2.22,
+          "end": 2.5
+        },
+        {
+          "text": "you",
+          "start": 2.82,
+          "end": 2.84
+        },
+        {
+          "text": "will",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "kill",
+          "start": 2.96,
+          "end": 3.16
+        },
+        {
+          "text": "yourself",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "text": "And",
+          "start": 3.6,
+          "end": 3.9
+        },
+        {
+          "text": "'tis",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "not",
+          "start": 4.26,
+          "end": 4.56
+        },
+        {
+          "text": "wisdom",
+          "start": 4.56,
+          "end": 4.9
+        },
+        {
+          "text": "thus",
+          "start": 4.9,
+          "end": 5.22
+        },
+        {
+          "text": "to",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "second",
+          "start": 5.44,
+          "end": 5.72
+        },
+        {
+          "text": "grief",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "text": "Against",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "text": "yourself.",
+          "start": 6.3,
+          "end": 6.72
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.310099046677351
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "abf08e25431a42e312c07c597cbd99f562f6574fa5a2133aa091322f09179767",
+  "selected_reasons": []
+}

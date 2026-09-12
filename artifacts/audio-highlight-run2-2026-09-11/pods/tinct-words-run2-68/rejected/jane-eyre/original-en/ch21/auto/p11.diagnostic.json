@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "c73be491cb50e35e2ed85e8ed8fb5018aba4b95342ec7d198be7befabfc2fab4",
+  "attempts": [
+    {
+      "asr_seconds": 0.19350674375891685,
+      "alignment_seconds": 0.00027739256620407104,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Mr. John?\"",
+        "hotwords": "Mr, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. John",
+          "start": 0.02,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.82421875
+            },
+            {
+              "text": " John",
+              "start": 0.94,
+              "end": 1.06,
+              "probability": 0.9306640625
+            }
+          ]
+        },
+        {
+          "text": " Mr. John?",
+          "start": 1.06,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 1.823902130126953e-05
+            },
+            {
+              "text": " John?",
+              "start": 1.06,
+              "end": 1.16,
+              "probability": 0.002109527587890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "John",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "John?",
+          "start": 1.06,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "\"Mr.",
+        "John?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 0.94,
+          "end": 1.06,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "mr",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "John?",
+          "start": 1.06,
+          "end": 1.16,
+          "key": "john",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mr.",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "John?\"",
+          "start": 0.94,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19390849769115448
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c104af77b0560b4a072c032a18bc5125908cb33552e9a84805eb29be0b62777c",
+  "selected_reasons": []
+}

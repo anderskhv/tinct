@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "e27eb4170c57db8b9b0d2ab8815f245d2cb2e709bfbe5171dd5c774011c508c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.13195133581757545,
+      "alignment_seconds": 0.00036361441016197205,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I am said Joe",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.19140625
+            },
+            {
+              "text": " I",
+              "start": 0.81,
+              "end": 0.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " am",
+              "start": 0.81,
+              "end": 1.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said",
+              "start": 1.11,
+              "end": 1.47,
+              "probability": 0.1849365234375
+            },
+            {
+              "text": " Joe",
+              "start": 1.47,
+              "end": 1.77,
+              "probability": 0.748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "I",
+          "start": 0.81,
+          "end": 0.81
+        },
+        {
+          "raw": "am",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "raw": "said",
+          "start": 1.11,
+          "end": 1.47
+        },
+        {
+          "raw": "Joe",
+          "start": 1.47,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes",
+        "I",
+        "am,\"",
+        "said",
+        "Joe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.81,
+          "end": 0.81,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.81,
+          "end": 1.11,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.11,
+          "end": 1.47,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 1.47,
+          "end": 1.77,
+          "key": "joe",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "I",
+          "start": 0.81,
+          "end": 0.81
+        },
+        {
+          "text": "am,\"",
+          "start": 0.81,
+          "end": 1.11
+        },
+        {
+          "text": "said",
+          "start": 1.11,
+          "end": 1.47
+        },
+        {
+          "text": "Joe.",
+          "start": 1.47,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13245312310755253
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "87e517c46ed745afa93e673dd5106b82a9debbf98e5d68be557fe23ebee066b6",
+  "selected_reasons": []
+}

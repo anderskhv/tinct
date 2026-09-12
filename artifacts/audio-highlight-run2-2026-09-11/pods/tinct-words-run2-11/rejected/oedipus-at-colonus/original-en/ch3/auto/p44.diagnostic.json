@@ -1,0 +1,559 @@
+{
+  "complete": true,
+  "signature": "66ba3eed8cd36da849c51e1c1bf04fb1fb9a39dc2c33c93f4dd047d348c39178",
+  "attempts": [
+    {
+      "asr_seconds": 4.445706085301936,
+      "alignment_seconds": 0.0004771864041686058,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oedipus. Hath Phoebus spoken thus concerning me?",
+        "hotwords": "Oedipus, Hath, Phoebus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oedipus, Hath, Phoebus Oedipus, Hath, Phoebus",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.9451904296875
+            },
+            {
+              "text": " Hath,",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " Phoebus",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " Oedipus,",
+              "start": 1.7,
+              "end": 3.64,
+              "probability": 0.6489273905754089
+            },
+            {
+              "text": " Hath,",
+              "start": 3.64,
+              "end": 3.64,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " Phoebus",
+              "start": 3.64,
+              "end": 3.64,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Hath,",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "Phoebus",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "Oedipus,",
+          "start": 1.7,
+          "end": 3.64
+        },
+        {
+          "raw": "Hath,",
+          "start": 3.64,
+          "end": 3.64
+        },
+        {
+          "raw": "Phoebus",
+          "start": 3.64,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "Hath",
+        "Phoebus",
+        "spoken",
+        "thus",
+        "concerning",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          7,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          7,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "oedipus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hath,",
+          "start": 1.28,
+          "end": 1.36,
+          "key": "hath",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Phoebus",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "phoebus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oedipus,",
+          "start": 1.7,
+          "end": 3.64,
+          "key": "oedipus",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hath,",
+          "start": 3.64,
+          "end": 3.64,
+          "key": "hath",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Phoebus",
+          "start": 3.64,
+          "end": 3.64,
+          "key": "phoebus",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Hath",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "Phoebus",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "spoken",
+          "start": 1.7,
+          "end": 2.67
+        },
+        {
+          "text": "thus",
+          "start": 2.67,
+          "end": 3.155
+        },
+        {
+          "text": "concerning",
+          "start": 3.155,
+          "end": 3.397
+        },
+        {
+          "text": "me?",
+          "start": 3.397,
+          "end": 3.518
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.42857142857142855,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.446330735459924
+    },
+    {
+      "asr_seconds": 0.22587727569043636,
+      "alignment_seconds": 0.00043675024062395096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Oedipus, Hath, Phoebus"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Oedipus, Hath, Phoebus spoken thus concerning me.",
+          "start": 0.08,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Oedipus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.9451904296875
+            },
+            {
+              "text": " Hath,",
+              "start": 1.3,
+              "end": 1.36,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " Phoebus",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " spoken",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.249755859375
+            },
+            {
+              "text": " thus",
+              "start": 1.98,
+              "end": 2.32,
+              "probability": 0.84716796875
+            },
+            {
+              "text": " concerning",
+              "start": 2.32,
+              "end": 2.76,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " me.",
+              "start": 2.76,
+              "end": 3.08,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Hath,",
+          "start": 1.3,
+          "end": 1.36
+        },
+        {
+          "raw": "Phoebus",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "spoken",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "thus",
+          "start": 1.98,
+          "end": 2.32
+        },
+        {
+          "raw": "concerning",
+          "start": 2.32,
+          "end": 2.76
+        },
+        {
+          "raw": "me.",
+          "start": 2.76,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "Oedipus.",
+        "Hath",
+        "Phoebus",
+        "spoken",
+        "thus",
+        "concerning",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oedipus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "oedipus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hath,",
+          "start": 1.3,
+          "end": 1.36,
+          "key": "hath",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Phoebus",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "phoebus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "spoken",
+          "start": 1.7,
+          "end": 1.98,
+          "key": "spoken",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.98,
+          "end": 2.32,
+          "key": "thus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "concerning",
+          "start": 2.32,
+          "end": 2.76,
+          "key": "concerning",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.76,
+          "end": 3.08,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oedipus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Hath",
+          "start": 1.3,
+          "end": 1.36
+        },
+        {
+          "text": "Phoebus",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "spoken",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "thus",
+          "start": 1.98,
+          "end": 2.32
+        },
+        {
+          "text": "concerning",
+          "start": 2.32,
+          "end": 2.76
+        },
+        {
+          "text": "me?",
+          "start": 2.76,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22647360153496265
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "1aa2a9f32e4567647b36592060fb39af300936cba34fad58ab95420e0eae9d75",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d91c2c09ea59e21f8260cbbb8797e2f22cad10b58c047a1c3e76fd7ef4773d0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1182799618691206,
+      "alignment_seconds": 0.0002639554440975189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Is that all?\"",
+        "hotwords": "Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is that all?",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Is",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " that",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " all?",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "that",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "all?",
+          "start": 0.71,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "\"Is",
+        "that",
+        "all?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all?",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Is",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "that",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "all?\"",
+          "start": 0.71,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11863593384623528
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60fc7415e59d197439981421cfd1df0a3744f25d0a0b4f173a138b145a0eac9a",
+  "selected_reasons": []
+}

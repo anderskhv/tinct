@@ -1,0 +1,356 @@
+{
+  "complete": true,
+  "signature": "22b951922a3ef02f67c78062bf06a58d4ffdc24fa84f9787e9cb323ec26050db",
+  "attempts": [
+    {
+      "asr_seconds": 0.16177569283172488,
+      "alignment_seconds": 0.0001470949500799179,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter two tribunes, Sesinius Brutus with the Edyle.",
+          "start": 0.08,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " two",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " tribunes,",
+              "start": 0.88,
+              "end": 1.44,
+              "probability": 0.884033203125
+            },
+            {
+              "text": " Sesinius",
+              "start": 1.88,
+              "end": 2.32,
+              "probability": 0.5640869140625
+            },
+            {
+              "text": " Brutus",
+              "start": 2.32,
+              "end": 2.84,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " with",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Edyle.",
+              "start": 3.08,
+              "end": 3.46,
+              "probability": 0.41162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "two",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "tribunes,",
+          "start": 0.88,
+          "end": 1.44
+        },
+        {
+          "raw": "Sesinius",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "raw": "Brutus",
+          "start": 2.32,
+          "end": 2.84
+        },
+        {
+          "raw": "with",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "raw": "Edyle.",
+          "start": 3.08,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "two",
+        "Tribunes,",
+        "Sicinius,",
+        "Brutus",
+        "with",
+        "the",
+        "Aedile."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tribunes,",
+          "start": 0.88,
+          "end": 1.44,
+          "key": "tribunes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sesinius",
+          "start": 1.88,
+          "end": 2.32,
+          "key": "sesinius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 2.32,
+          "end": 2.84,
+          "key": "brutus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.08,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Edyle.",
+          "start": 3.08,
+          "end": 3.46,
+          "key": "edyle",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "two",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "Tribunes,",
+          "start": 0.88,
+          "end": 1.44
+        },
+        {
+          "text": "Sicinius,",
+          "start": 1.44,
+          "end": 1.88
+        },
+        {
+          "text": "Brutus",
+          "start": 2.32,
+          "end": 2.84
+        },
+        {
+          "text": "with",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.08
+        },
+        {
+          "text": "Aedile.",
+          "start": 3.08,
+          "end": 3.27
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1619738689623773
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "be02895745d7e08c8466cad351fdf69414c8d815644f9c10b5f502cfeb8621bc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

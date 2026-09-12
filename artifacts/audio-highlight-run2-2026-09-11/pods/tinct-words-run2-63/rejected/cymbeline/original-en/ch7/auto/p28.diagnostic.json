@@ -1,0 +1,566 @@
+{
+  "complete": true,
+  "signature": "bcf722b441da088c1d67f8977a27da0f5ec17d955beb8523194dabc21e815c14",
+  "attempts": [
+    {
+      "asr_seconds": 0.35456107929348946,
+      "alignment_seconds": 0.0007863957434892654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Imogen. When he was here He did incline to sadness, and oft-times Not knowing why.",
+        "hotwords": "Imogen, When, Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Imogen, When he was here He did incline to sadness, and oft-times Not knowing why.",
+          "start": 0.02,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.914306640625
+            },
+            {
+              "text": " When",
+              "start": 1.26,
+              "end": 1.44,
+              "probability": 0.0173797607421875
+            },
+            {
+              "text": " he",
+              "start": 1.44,
+              "end": 1.54,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " was",
+              "start": 1.54,
+              "end": 1.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " here",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " He",
+              "start": 1.86,
+              "end": 2.08,
+              "probability": 0.01055908203125
+            },
+            {
+              "text": " did",
+              "start": 2.08,
+              "end": 2.24,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " incline",
+              "start": 2.24,
+              "end": 2.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " sadness,",
+              "start": 2.88,
+              "end": 3.3,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " and",
+              "start": 3.74,
+              "end": 3.86,
+              "probability": 0.420654296875
+            },
+            {
+              "text": " oft",
+              "start": 3.86,
+              "end": 4.06,
+              "probability": 0.88330078125
+            },
+            {
+              "text": "-times",
+              "start": 4.06,
+              "end": 4.4,
+              "probability": 0.4766845703125
+            },
+            {
+              "text": " Not",
+              "start": 4.4,
+              "end": 4.7,
+              "probability": 0.1201171875
+            },
+            {
+              "text": " knowing",
+              "start": 4.7,
+              "end": 4.98,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " why.",
+              "start": 4.98,
+              "end": 5.32,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "When",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "raw": "he",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "raw": "was",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "raw": "here",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "He",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "raw": "did",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "raw": "incline",
+          "start": 2.24,
+          "end": 2.74
+        },
+        {
+          "raw": "to",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "sadness,",
+          "start": 2.88,
+          "end": 3.3
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 3.86
+        },
+        {
+          "raw": "oft",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "raw": "-times",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "raw": "Not",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "raw": "knowing",
+          "start": 4.7,
+          "end": 4.98
+        },
+        {
+          "raw": "why.",
+          "start": 4.98,
+          "end": 5.32
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "When",
+        "he",
+        "was",
+        "here",
+        "He",
+        "did",
+        "incline",
+        "to",
+        "sadness,",
+        "and",
+        "oft-times",
+        "Not",
+        "knowing",
+        "why."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 1.26,
+          "end": 1.44,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.44,
+          "end": 1.54,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.54,
+          "end": 1.64,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "here",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.86,
+          "end": 2.08,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.08,
+          "end": 2.24,
+          "key": "did",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "incline",
+          "start": 2.24,
+          "end": 2.74,
+          "key": "incline",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sadness,",
+          "start": 2.88,
+          "end": 3.3,
+          "key": "sadness",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.74,
+          "end": 3.86,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "oft -times",
+          "start": 3.86,
+          "end": 4.4,
+          "key": "ofttimes",
+          "pieces": [
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 4.4,
+          "end": 4.7,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "knowing",
+          "start": 4.7,
+          "end": 4.98,
+          "key": "knowing",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "why.",
+          "start": 4.98,
+          "end": 5.32,
+          "key": "why",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 11,
+          "text": "oft-times",
+          "heard": "oft -times",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 3.86,
+          "end": 4.4
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "When",
+          "start": 1.26,
+          "end": 1.44
+        },
+        {
+          "text": "he",
+          "start": 1.44,
+          "end": 1.54
+        },
+        {
+          "text": "was",
+          "start": 1.54,
+          "end": 1.64
+        },
+        {
+          "text": "here",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "He",
+          "start": 1.86,
+          "end": 2.08
+        },
+        {
+          "text": "did",
+          "start": 2.08,
+          "end": 2.24
+        },
+        {
+          "text": "incline",
+          "start": 2.24,
+          "end": 2.74
+        },
+        {
+          "text": "to",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "sadness,",
+          "start": 2.88,
+          "end": 3.3
+        },
+        {
+          "text": "and",
+          "start": 3.74,
+          "end": 3.86
+        },
+        {
+          "text": "oft-times",
+          "start": 3.86,
+          "end": 4.4
+        },
+        {
+          "text": "Not",
+          "start": 4.4,
+          "end": 4.7
+        },
+        {
+          "text": "knowing",
+          "start": 4.7,
+          "end": 4.98
+        },
+        {
+          "text": "why.",
+          "start": 4.98,
+          "end": 5.32
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3556341137737036
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d2b3e1226347170d06d0c9e558bf6a275a2f065327e395092e8d905197757b99",
+  "selected_reasons": []
+}

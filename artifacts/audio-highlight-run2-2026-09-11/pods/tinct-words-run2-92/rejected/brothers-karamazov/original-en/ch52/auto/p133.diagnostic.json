@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "422686873fee668bd61ba67aa280359471a207e05a645fde46f23533f7b183fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.16164045967161655,
+      "alignment_seconds": 0.00027143489569425583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What Podvysotsky?\"",
+        "hotwords": "What, Podvysotsky"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What Podvysotsky?",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " Podvysotsky?",
+              "start": 0.52,
+              "end": 1.34,
+              "probability": 0.42725830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "Podvysotsky?",
+          "start": 0.52,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "Podvysotsky?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Podvysotsky?",
+          "start": 0.52,
+          "end": 1.34,
+          "key": "podvysotsky",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "Podvysotsky?\"",
+          "start": 0.52,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1620218465104699
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "50fb2730dd30d2e17eec6dd1a40f1822f943d2616c8918481182a57c305cee9b",
+  "selected_reasons": []
+}

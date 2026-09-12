@@ -1,0 +1,383 @@
+{
+  "complete": true,
+  "signature": "6f813f0add9583a8fbba774cf1c2a6b2445ba4d77cc3408ab983a6c4265c5d66",
+  "attempts": [
+    {
+      "asr_seconds": 0.14996395801426843,
+      "alignment_seconds": 0.00020349101396277547,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dames donate Dublin-S at Speedpills Velocidus Aeroliths, belief.",
+          "start": 0.08,
+          "end": 4.18,
+          "words": [
+            {
+              "text": " Dames",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " donate",
+              "start": 0.74,
+              "end": 1.14,
+              "probability": 0.86572265625
+            },
+            {
+              "text": " Dublin",
+              "start": 1.14,
+              "end": 1.5,
+              "probability": 0.86083984375
+            },
+            {
+              "text": "-S",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.5147705078125
+            },
+            {
+              "text": " at",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Speedpills",
+              "start": 1.88,
+              "end": 2.36,
+              "probability": 0.8160807291666666
+            },
+            {
+              "text": " Velocidus",
+              "start": 2.36,
+              "end": 3.08,
+              "probability": 0.66717529296875
+            },
+            {
+              "text": " Aeroliths,",
+              "start": 3.08,
+              "end": 3.68,
+              "probability": 0.7362060546875
+            },
+            {
+              "text": " belief.",
+              "start": 3.88,
+              "end": 4.18,
+              "probability": 0.4912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dames",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "donate",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "raw": "Dublin",
+          "start": 1.14,
+          "end": 1.5
+        },
+        {
+          "raw": "-S",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "at",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "Speedpills",
+          "start": 1.88,
+          "end": 2.36
+        },
+        {
+          "raw": "Velocidus",
+          "start": 2.36,
+          "end": 3.08
+        },
+        {
+          "raw": "Aeroliths,",
+          "start": 3.08,
+          "end": 3.68
+        },
+        {
+          "raw": "belief.",
+          "start": 3.88,
+          "end": 4.18
+        }
+      ],
+      "expected_tokens": [
+        "Dames",
+        "Donate",
+        "Dublin'S",
+        "Cits",
+        "Speedpills",
+        "Velocitous",
+        "Aeroliths,",
+        "Belief"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dames",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "dames",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "donate",
+          "start": 0.74,
+          "end": 1.14,
+          "key": "donate",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dublin",
+          "start": 1.14,
+          "end": 1.5,
+          "key": "dublin",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-S",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "s",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Speedpills",
+          "start": 1.88,
+          "end": 2.36,
+          "key": "speedpills",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Velocidus",
+          "start": 2.36,
+          "end": 3.08,
+          "key": "velocidus",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Aeroliths,",
+          "start": 3.08,
+          "end": 3.68,
+          "key": "aeroliths",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "belief.",
+          "start": 3.88,
+          "end": 4.18,
+          "key": "belief",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dames",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Donate",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "text": "Dublin'S",
+          "start": 1.14,
+          "end": 1.51
+        },
+        {
+          "text": "Cits",
+          "start": 1.51,
+          "end": 1.695
+        },
+        {
+          "text": "Speedpills",
+          "start": 1.88,
+          "end": 2.36
+        },
+        {
+          "text": "Velocitous",
+          "start": 2.36,
+          "end": 2.72
+        },
+        {
+          "text": "Aeroliths,",
+          "start": 3.08,
+          "end": 3.68
+        },
+        {
+          "text": "Belief",
+          "start": 3.88,
+          "end": 4.18
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15023045998532325
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "82fe0a1e2f11bed21a3c2f04e3e1f71bd4efcbe3e53b0dae4fb0877eb2ffbe0a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

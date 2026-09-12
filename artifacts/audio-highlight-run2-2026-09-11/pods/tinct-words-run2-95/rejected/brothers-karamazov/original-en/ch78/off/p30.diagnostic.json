@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "34f70071ee2e8743532358f9412cd031cec953ea2a6e69cf5fa8a632f31e3d5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1137399971485138,
+      "alignment_seconds": 0.0003076232969760895,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fool repeated Ivan",
+          "start": 0.11,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Fool",
+              "start": 0.11,
+              "end": 0.75,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " repeated",
+              "start": 0.75,
+              "end": 1.45,
+              "probability": 0.299072265625
+            },
+            {
+              "text": " Ivan",
+              "start": 1.45,
+              "end": 1.79,
+              "probability": 0.93505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fool",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "raw": "repeated",
+          "start": 0.75,
+          "end": 1.45
+        },
+        {
+          "raw": "Ivan",
+          "start": 1.45,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "\"Fool!\"",
+        "repeated",
+        "Ivan."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fool",
+          "start": 0.11,
+          "end": 0.75,
+          "key": "fool",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 0.75,
+          "end": 1.45,
+          "key": "repeated",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ivan",
+          "start": 1.45,
+          "end": 1.79,
+          "key": "ivan",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Fool!\"",
+          "start": 0.11,
+          "end": 0.75
+        },
+        {
+          "text": "repeated",
+          "start": 0.75,
+          "end": 1.45
+        },
+        {
+          "text": "Ivan.",
+          "start": 1.45,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11415664479136467
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "060f48f39d8c335d05ab032767673c166bf8a7bf22dd6e60060c567cb01a8746",
+  "selected_reasons": []
+}

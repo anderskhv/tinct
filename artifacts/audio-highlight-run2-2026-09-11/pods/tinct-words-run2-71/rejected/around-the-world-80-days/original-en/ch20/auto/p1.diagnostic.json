@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "6df6c5d49456db53fc7e2476f79e592ad7094621f0610717677c44ff33b078b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.19457633886486292,
+      "alignment_seconds": 0.0005487790331244469,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It is in the interest of my journey—a part of my programme.\"",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It is in the interest of my journey—a part of my programme.",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " the",
+              "start": 0.89,
+              "end": 1.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " interest",
+              "start": 1.01,
+              "end": 1.33,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " journey—a",
+              "start": 1.71,
+              "end": 2.63,
+              "probability": 0.6158599853515625
+            },
+            {
+              "text": " part",
+              "start": 2.63,
+              "end": 2.77,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 2.91,
+              "end": 3.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " programme.",
+              "start": 3.05,
+              "end": 3.47,
+              "probability": 0.00698089599609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "in",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.01
+        },
+        {
+          "raw": "interest",
+          "start": 1.01,
+          "end": 1.33
+        },
+        {
+          "raw": "of",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "journey—a",
+          "start": 1.71,
+          "end": 2.63
+        },
+        {
+          "raw": "part",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "raw": "of",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "my",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "raw": "programme.",
+          "start": 3.05,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "in",
+        "the",
+        "interest",
+        "of",
+        "my",
+        "journey—a",
+        "part",
+        "of",
+        "my",
+        "programme.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.01,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "interest",
+          "start": 1.01,
+          "end": 1.33,
+          "key": "interest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.33,
+          "end": 1.55,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "journey—a",
+          "start": 1.71,
+          "end": 2.63,
+          "key": "journeya",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 2.63,
+          "end": 2.77,
+          "key": "part",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.91,
+          "end": 3.05,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "programme.",
+          "start": 3.05,
+          "end": 3.47,
+          "key": "programme",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "in",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "the",
+          "start": 0.89,
+          "end": 1.01
+        },
+        {
+          "text": "interest",
+          "start": 1.01,
+          "end": 1.33
+        },
+        {
+          "text": "of",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "my",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "journey—a",
+          "start": 1.71,
+          "end": 2.63
+        },
+        {
+          "text": "part",
+          "start": 2.63,
+          "end": 2.77
+        },
+        {
+          "text": "of",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "my",
+          "start": 2.91,
+          "end": 3.05
+        },
+        {
+          "text": "programme.\"",
+          "start": 3.05,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19540030602365732
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cebba1a14b4e1ced231b499bfe45059a93384fe8312e4d097832be00cc27264f",
+  "selected_reasons": []
+}

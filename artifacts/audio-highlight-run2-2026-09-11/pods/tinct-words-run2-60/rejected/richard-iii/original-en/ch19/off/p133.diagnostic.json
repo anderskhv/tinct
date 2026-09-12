@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "099f68230e89cca501fa8b52ac415b9eafbffed7d4040e0d13e93156371f441b",
+  "attempts": [
+    {
+      "asr_seconds": 0.20055271312594414,
+      "alignment_seconds": 0.0005210228264331818,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Richard now by my George my garter and my crown",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Richard",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " now",
+              "start": 0.93,
+              "end": 1.65,
+              "probability": 0.482421875
+            },
+            {
+              "text": " by",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " my",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " George",
+              "start": 2.05,
+              "end": 2.33,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " garter",
+              "start": 2.59,
+              "end": 2.83,
+              "probability": 0.905517578125
+            },
+            {
+              "text": " and",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " my",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " crown",
+              "start": 3.21,
+              "end": 3.55,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Richard",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "now",
+          "start": 0.93,
+          "end": 1.65
+        },
+        {
+          "raw": "by",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "my",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "George",
+          "start": 2.05,
+          "end": 2.33
+        },
+        {
+          "raw": "my",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "garter",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "raw": "and",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "my",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "crown",
+          "start": 3.21,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "Now,",
+        "by",
+        "my",
+        "George,",
+        "my",
+        "Garter,",
+        "and",
+        "my",
+        "crown—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.93,
+          "end": 1.65,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "by",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "George",
+          "start": 2.05,
+          "end": 2.33,
+          "key": "george",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.33,
+          "end": 2.59,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "garter",
+          "start": 2.59,
+          "end": 2.83,
+          "key": "garter",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.03,
+          "end": 3.21,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "crown",
+          "start": 3.21,
+          "end": 3.55,
+          "key": "crown",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Richard.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Now,",
+          "start": 0.93,
+          "end": 1.65
+        },
+        {
+          "text": "by",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "my",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "George,",
+          "start": 2.05,
+          "end": 2.33
+        },
+        {
+          "text": "my",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "Garter,",
+          "start": 2.59,
+          "end": 2.83
+        },
+        {
+          "text": "and",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "my",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "crown—",
+          "start": 3.21,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2012736201286316
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1c515145dd376bc7d5f3c2f4c1aee6420f4d424626301ac1ebcf23c7cf62fc22",
+  "selected_reasons": []
+}

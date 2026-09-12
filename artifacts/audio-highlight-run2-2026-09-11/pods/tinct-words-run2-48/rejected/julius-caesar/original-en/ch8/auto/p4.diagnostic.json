@@ -1,0 +1,1580 @@
+{
+  "complete": true,
+  "signature": "f7071f4860a8aa834d7ad8aa7ad2dad411ec327ec964048bbe4558ecc5becaed",
+  "attempts": [
+    {
+      "asr_seconds": 0.297250852920115,
+      "alignment_seconds": 0.0005286438390612602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Decius. Trebonius doth desire you to o'er-read, At your best leisure, this his humble suit.",
+        "hotwords": "Decius, Trebonius, At"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Decius, Trebonius doth desire you to o'er-read, At your best leisure, this his humble suit.",
+          "start": 0.08,
+          "end": 6.14,
+          "words": [
+            {
+              "text": " Decius,",
+              "start": 0.08,
+              "end": 1.02,
+              "probability": 0.207916259765625
+            },
+            {
+              "text": " Trebonius",
+              "start": 1.58,
+              "end": 2.1,
+              "probability": 0.8255208333333334
+            },
+            {
+              "text": " doth",
+              "start": 2.1,
+              "end": 2.34,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " desire",
+              "start": 2.34,
+              "end": 2.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " to",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.966796875
+            },
+            {
+              "text": " o",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.53662109375
+            },
+            {
+              "text": "'er",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.5875244140625
+            },
+            {
+              "text": "-read,",
+              "start": 3.46,
+              "end": 3.66,
+              "probability": 0.473480224609375
+            },
+            {
+              "text": " At",
+              "start": 3.92,
+              "end": 3.98,
+              "probability": 0.370849609375
+            },
+            {
+              "text": " your",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " best",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " leisure,",
+              "start": 4.34,
+              "end": 4.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 5.12,
+              "end": 5.24,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " his",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " humble",
+              "start": 5.4,
+              "end": 5.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " suit.",
+              "start": 5.74,
+              "end": 6.14,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Decius,",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "raw": "Trebonius",
+          "start": 1.58,
+          "end": 2.1
+        },
+        {
+          "raw": "doth",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "raw": "desire",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "raw": "you",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "to",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "o",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "'er",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "-read,",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "raw": "At",
+          "start": 3.92,
+          "end": 3.98
+        },
+        {
+          "raw": "your",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "best",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "leisure,",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "raw": "this",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "raw": "his",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "humble",
+          "start": 5.4,
+          "end": 5.74
+        },
+        {
+          "raw": "suit.",
+          "start": 5.74,
+          "end": 6.14
+        }
+      ],
+      "expected_tokens": [
+        "Decius.",
+        "Trebonius",
+        "doth",
+        "desire",
+        "you",
+        "to",
+        "o'er-read,",
+        "At",
+        "your",
+        "best",
+        "leisure,",
+        "this",
+        "his",
+        "humble",
+        "suit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          9
+        ],
+        [
+          "equal",
+          7,
+          15,
+          9,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Decius,",
+          "start": 0.08,
+          "end": 1.02,
+          "key": "decius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Trebonius",
+          "start": 1.58,
+          "end": 2.1,
+          "key": "trebonius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.1,
+          "end": 2.34,
+          "key": "doth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 2.34,
+          "end": 2.72,
+          "key": "desire",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.02,
+          "end": 3.18,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "er",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "-read,",
+          "start": 3.46,
+          "end": 3.66,
+          "key": "read",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 3.92,
+          "end": 3.98,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.98,
+          "end": 4.1,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "best",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "leisure,",
+          "start": 4.34,
+          "end": 4.74,
+          "key": "leisure",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.12,
+          "end": 5.24,
+          "key": "this",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "humble",
+          "start": 5.4,
+          "end": 5.74,
+          "key": "humble",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "suit.",
+          "start": 5.74,
+          "end": 6.14,
+          "key": "suit",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Decius.",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "text": "Trebonius",
+          "start": 1.58,
+          "end": 2.1
+        },
+        {
+          "text": "doth",
+          "start": 2.1,
+          "end": 2.34
+        },
+        {
+          "text": "desire",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "text": "you",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "text": "to",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "o'er-read,",
+          "start": 3.18,
+          "end": 3.55
+        },
+        {
+          "text": "At",
+          "start": 3.92,
+          "end": 3.98
+        },
+        {
+          "text": "your",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "best",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "leisure,",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "text": "this",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "text": "his",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "humble",
+          "start": 5.4,
+          "end": 5.74
+        },
+        {
+          "text": "suit.",
+          "start": 5.74,
+          "end": 6.14
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.2980062710121274
+    },
+    {
+      "asr_seconds": 0.23243421036750078,
+      "alignment_seconds": 0.00038767606019973755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Decius, Trebonius, At"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " your best leisure, this his humble suit.",
+          "start": 2.68,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " your",
+              "start": 2.68,
+              "end": 3.48,
+              "probability": 7.68899917602539e-06
+            },
+            {
+              "text": " best",
+              "start": 3.48,
+              "end": 4.28,
+              "probability": 0.576171875
+            },
+            {
+              "text": " leisure,",
+              "start": 4.28,
+              "end": 4.76,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " this",
+              "start": 5.14,
+              "end": 5.22,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " his",
+              "start": 5.22,
+              "end": 5.4,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " humble",
+              "start": 5.4,
+              "end": 5.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " suit.",
+              "start": 5.76,
+              "end": 6.16,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "your",
+          "start": 2.68,
+          "end": 3.48
+        },
+        {
+          "raw": "best",
+          "start": 3.48,
+          "end": 4.28
+        },
+        {
+          "raw": "leisure,",
+          "start": 4.28,
+          "end": 4.76
+        },
+        {
+          "raw": "this",
+          "start": 5.14,
+          "end": 5.22
+        },
+        {
+          "raw": "his",
+          "start": 5.22,
+          "end": 5.4
+        },
+        {
+          "raw": "humble",
+          "start": 5.4,
+          "end": 5.76
+        },
+        {
+          "raw": "suit.",
+          "start": 5.76,
+          "end": 6.16
+        }
+      ],
+      "expected_tokens": [
+        "Decius.",
+        "Trebonius",
+        "doth",
+        "desire",
+        "you",
+        "to",
+        "o'er-read,",
+        "At",
+        "your",
+        "best",
+        "leisure,",
+        "this",
+        "his",
+        "humble",
+        "suit."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "equal",
+          8,
+          15,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "your",
+          "start": 2.68,
+          "end": 3.48,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 3.48,
+          "end": 4.28,
+          "key": "best",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "leisure,",
+          "start": 4.28,
+          "end": 4.76,
+          "key": "leisure",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.14,
+          "end": 5.22,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.22,
+          "end": 5.4,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "humble",
+          "start": 5.4,
+          "end": 5.76,
+          "key": "humble",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "suit.",
+          "start": 5.76,
+          "end": 6.16,
+          "key": "suit",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Decius.",
+          "start": 0.0,
+          "end": 1.34
+        },
+        {
+          "text": "Trebonius",
+          "start": 1.34,
+          "end": 2.01
+        },
+        {
+          "text": "doth",
+          "start": 2.01,
+          "end": 2.345
+        },
+        {
+          "text": "desire",
+          "start": 2.345,
+          "end": 2.513
+        },
+        {
+          "text": "you",
+          "start": 2.513,
+          "end": 2.596
+        },
+        {
+          "text": "to",
+          "start": 2.596,
+          "end": 2.638
+        },
+        {
+          "text": "o'er-read,",
+          "start": 2.638,
+          "end": 2.659
+        },
+        {
+          "text": "At",
+          "start": 2.659,
+          "end": 2.67
+        },
+        {
+          "text": "your",
+          "start": 2.68,
+          "end": 3.48
+        },
+        {
+          "text": "best",
+          "start": 3.48,
+          "end": 4.28
+        },
+        {
+          "text": "leisure,",
+          "start": 4.28,
+          "end": 4.76
+        },
+        {
+          "text": "this",
+          "start": 5.14,
+          "end": 5.22
+        },
+        {
+          "text": "his",
+          "start": 5.22,
+          "end": 5.4
+        },
+        {
+          "text": "humble",
+          "start": 5.4,
+          "end": 5.76
+        },
+        {
+          "text": "suit.",
+          "start": 5.76,
+          "end": 6.16
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 0.4666666666666667,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2329119872301817
+    },
+    {
+      "asr_seconds": 0.33053143229335546,
+      "alignment_seconds": 0.00039840489625930786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Decious, Trebonius doth desire you to o'erread, At your best leisure, this his humble suit.",
+          "start": 0.08,
+          "end": 6.14,
+          "words": [
+            {
+              "text": " Decious,",
+              "start": 0.08,
+              "end": 1.02,
+              "probability": 0.521484375
+            },
+            {
+              "text": " Trebonius",
+              "start": 1.58,
+              "end": 2.12,
+              "probability": 0.6805013020833334
+            },
+            {
+              "text": " doth",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " desire",
+              "start": 2.34,
+              "end": 2.72,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.982421875
+            },
+            {
+              "text": " to",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " o",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.48828125
+            },
+            {
+              "text": "'erread,",
+              "start": 3.32,
+              "end": 3.68,
+              "probability": 0.560302734375
+            },
+            {
+              "text": " At",
+              "start": 3.9,
+              "end": 3.98,
+              "probability": 0.403564453125
+            },
+            {
+              "text": " your",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.966796875
+            },
+            {
+              "text": " best",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " leisure,",
+              "start": 4.34,
+              "end": 4.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 5.12,
+              "end": 5.24,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " his",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.96484375
+            },
+            {
+              "text": " humble",
+              "start": 5.4,
+              "end": 5.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " suit.",
+              "start": 5.74,
+              "end": 6.14,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Decious,",
+          "start": 0.08,
+          "end": 1.02
+        },
+        {
+          "raw": "Trebonius",
+          "start": 1.58,
+          "end": 2.12
+        },
+        {
+          "raw": "doth",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "desire",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "raw": "you",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "to",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "o",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "'erread,",
+          "start": 3.32,
+          "end": 3.68
+        },
+        {
+          "raw": "At",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "raw": "your",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "best",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "leisure,",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "raw": "this",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "raw": "his",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "humble",
+          "start": 5.4,
+          "end": 5.74
+        },
+        {
+          "raw": "suit.",
+          "start": 5.74,
+          "end": 6.14
+        }
+      ],
+      "expected_tokens": [
+        "Decius.",
+        "Trebonius",
+        "doth",
+        "desire",
+        "you",
+        "to",
+        "o'er-read,",
+        "At",
+        "your",
+        "best",
+        "leisure,",
+        "this",
+        "his",
+        "humble",
+        "suit."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          15,
+          8,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Decious,",
+          "start": 0.08,
+          "end": 1.02,
+          "key": "decious",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Trebonius",
+          "start": 1.58,
+          "end": 2.12,
+          "key": "trebonius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.12,
+          "end": 2.34,
+          "key": "doth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 2.34,
+          "end": 2.72,
+          "key": "desire",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.02,
+          "end": 3.18,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "'erread,",
+          "start": 3.32,
+          "end": 3.68,
+          "key": "erread",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 3.9,
+          "end": 3.98,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.98,
+          "end": 4.1,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "best",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "leisure,",
+          "start": 4.34,
+          "end": 4.74,
+          "key": "leisure",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.12,
+          "end": 5.24,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "humble",
+          "start": 5.4,
+          "end": 5.74,
+          "key": "humble",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "suit.",
+          "start": 5.74,
+          "end": 6.14,
+          "key": "suit",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Decius.",
+          "start": 0.0,
+          "end": 0.79
+        },
+        {
+          "text": "Trebonius",
+          "start": 1.58,
+          "end": 2.12
+        },
+        {
+          "text": "doth",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "text": "desire",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "text": "you",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "text": "to",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "o'er-read,",
+          "start": 3.18,
+          "end": 3.54
+        },
+        {
+          "text": "At",
+          "start": 3.9,
+          "end": 3.98
+        },
+        {
+          "text": "your",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "best",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "leisure,",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "text": "this",
+          "start": 5.12,
+          "end": 5.24
+        },
+        {
+          "text": "his",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "humble",
+          "start": 5.4,
+          "end": 5.74
+        },
+        {
+          "text": "suit.",
+          "start": 5.74,
+          "end": 6.14
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3310824492946267
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6957c7e599c04296f3ab0d9692951cfb38d4079c495e8a012004d9013000cedb",
+  "selected_reasons": []
+}

@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "eef1eff3befd37a9b8ea50257eef325cde31559579bea2638c7e3ade9b70add9",
+  "attempts": [
+    {
+      "asr_seconds": 0.14643386751413345,
+      "alignment_seconds": 0.00036504119634628296,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen. Oh, no, no.",
+          "start": 0.45,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Imogen.",
+              "start": 0.45,
+              "end": 0.77,
+              "probability": 0.838134765625
+            },
+            {
+              "text": " Oh,",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " no,",
+              "start": 1.41,
+              "end": 1.47,
+              "probability": 0.919921875
+            },
+            {
+              "text": " no.",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.7822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen.",
+          "start": 0.45,
+          "end": 0.77
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "no,",
+          "start": 1.41,
+          "end": 1.47
+        },
+        {
+          "raw": "no.",
+          "start": 1.65,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "O,",
+        "no,",
+        "no."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen.",
+          "start": 0.45,
+          "end": 0.77,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.41,
+          "end": 1.47,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.45,
+          "end": 0.77
+        },
+        {
+          "text": "O,",
+          "start": 0.77,
+          "end": 1.09
+        },
+        {
+          "text": "no,",
+          "start": 1.41,
+          "end": 1.47
+        },
+        {
+          "text": "no.",
+          "start": 1.65,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1469421312212944
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "21db6fb68011ee0913f8ffb410581a6eb2ee331c9d70fc15af81a16368a19731",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

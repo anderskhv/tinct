@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "d4d9dfd4bd5e4978ecad4be7310450ff11e3884e518db29e2e59fb589e1b712b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2263011522591114,
+      "alignment_seconds": 0.0004943814128637314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Imogen, no, I rather added a luster to it.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " no,",
+              "start": 1.11,
+              "end": 1.45,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " I",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " rather",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " added",
+              "start": 1.97,
+              "end": 2.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " luster",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.932861328125
+            },
+            {
+              "text": " to",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 2.89,
+              "end": 3.19,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "no,",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "rather",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "added",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "luster",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "to",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "it.",
+          "start": 2.89,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "No;",
+        "I",
+        "rather",
+        "added",
+        "A",
+        "lustre",
+        "to",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.11,
+          "end": 1.45,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "rather",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "added",
+          "start": 1.97,
+          "end": 2.27,
+          "key": "added",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "luster",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "luster",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.89,
+          "end": 3.19,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "No;",
+          "start": 1.11,
+          "end": 1.45
+        },
+        {
+          "text": "I",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "text": "rather",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "added",
+          "start": 1.97,
+          "end": 2.27
+        },
+        {
+          "text": "A",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "lustre",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "to",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "it.",
+          "start": 2.89,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.22697481699287891
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8c1e1ca2e3fd62d100a0305e1299a2c6f82a180fdd69038afa472ecbba19925d",
+  "selected_reasons": []
+}

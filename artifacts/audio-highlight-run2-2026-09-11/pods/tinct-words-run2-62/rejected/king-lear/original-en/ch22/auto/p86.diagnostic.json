@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "b8b18d44019cf08e8cfa7951435790abbf0f70b9f08b52ab2e5195b721a1d7a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.08475721254944801,
+      "alignment_seconds": 0.00011751800775527954,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. Well pray you, father.",
+        "hotwords": "Edgar, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, Well pray you, father.",
+          "start": 0.11,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Well",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.0006747245788574219
+            },
+            {
+              "text": " pray",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.265625
+            },
+            {
+              "text": " you,",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " father.",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.278076171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "raw": "Well",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "pray",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "you,",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "father.",
+          "start": 1.69,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "Well",
+        "pray",
+        "you,",
+        "father."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.71,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 1.05,
+          "end": 1.21,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "father",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "text": "Well",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "pray",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "you,",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "father.",
+          "start": 1.69,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08491173759102821
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48b83bdf49ac0e30c04ebde342920814a53d50477451cde62ad0cf95ad69ecf3",
+  "selected_reasons": []
+}

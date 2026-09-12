@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "1640962e0c96398ddf244b85712781a592ff3fecccc15e8f59d54afdabb82bb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3333116788417101,
+      "alignment_seconds": 0.0005448460578918457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. He's a good fellow, I can tell you that; He'll strike, and quickly too:. He's dead and rotten.",
+        "hotwords": "Lear, He's, I, He'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, He's a good fellow, I can tell you that. He'll strike, and quickly too. He's dead and rotten.",
+          "start": 0.05,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.3349609375
+            },
+            {
+              "text": " He's",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.4876976013183594
+            },
+            {
+              "text": " a",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " good",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " fellow,",
+              "start": 1.35,
+              "end": 1.61,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " I",
+              "start": 1.81,
+              "end": 1.89,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " can",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tell",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that.",
+              "start": 2.37,
+              "end": 2.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " He'll",
+              "start": 2.79,
+              "end": 2.87,
+              "probability": 0.982421875
+            },
+            {
+              "text": " strike,",
+              "start": 2.87,
+              "end": 3.19,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 3.37,
+              "end": 3.43,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " quickly",
+              "start": 3.43,
+              "end": 3.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " too.",
+              "start": 3.65,
+              "end": 4.05,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " He's",
+              "start": 4.69,
+              "end": 4.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " dead",
+              "start": 4.91,
+              "end": 5.09,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " and",
+              "start": 5.09,
+              "end": 5.27,
+              "probability": 0.896484375
+            },
+            {
+              "text": " rotten.",
+              "start": 5.27,
+              "end": 5.53,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "He's",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "raw": "a",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "good",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "fellow,",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "raw": "can",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "tell",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "you",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "that.",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "raw": "He'll",
+          "start": 2.79,
+          "end": 2.87
+        },
+        {
+          "raw": "strike,",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "raw": "and",
+          "start": 3.37,
+          "end": 3.43
+        },
+        {
+          "raw": "quickly",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "raw": "too.",
+          "start": 3.65,
+          "end": 4.05
+        },
+        {
+          "raw": "He's",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "raw": "dead",
+          "start": 4.91,
+          "end": 5.09
+        },
+        {
+          "raw": "and",
+          "start": 5.09,
+          "end": 5.27
+        },
+        {
+          "raw": "rotten.",
+          "start": 5.27,
+          "end": 5.53
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "He's",
+        "a",
+        "good",
+        "fellow,",
+        "I",
+        "can",
+        "tell",
+        "you",
+        "that;",
+        "He'll",
+        "strike,",
+        "and",
+        "quickly",
+        "too:.",
+        "He's",
+        "dead",
+        "and",
+        "rotten."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 0.95,
+          "end": 1.13,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fellow,",
+          "start": 1.35,
+          "end": 1.61,
+          "key": "fellow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.81,
+          "end": 1.89,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "can",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "tell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.19,
+          "end": 2.37,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.37,
+          "end": 2.59,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "He'll",
+          "start": 2.79,
+          "end": 2.87,
+          "key": "hell",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "strike,",
+          "start": 2.87,
+          "end": 3.19,
+          "key": "strike",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.37,
+          "end": 3.43,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 3.43,
+          "end": 3.65,
+          "key": "quickly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "too.",
+          "start": 3.65,
+          "end": 4.05,
+          "key": "too",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 4.69,
+          "end": 4.91,
+          "key": "hes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 4.91,
+          "end": 5.09,
+          "key": "dead",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.09,
+          "end": 5.27,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "rotten.",
+          "start": 5.27,
+          "end": 5.53,
+          "key": "rotten",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "He's",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "text": "a",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "good",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "fellow,",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "text": "I",
+          "start": 1.81,
+          "end": 1.89
+        },
+        {
+          "text": "can",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "text": "tell",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "you",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "text": "that;",
+          "start": 2.37,
+          "end": 2.59
+        },
+        {
+          "text": "He'll",
+          "start": 2.79,
+          "end": 2.87
+        },
+        {
+          "text": "strike,",
+          "start": 2.87,
+          "end": 3.19
+        },
+        {
+          "text": "and",
+          "start": 3.37,
+          "end": 3.43
+        },
+        {
+          "text": "quickly",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "text": "too:.",
+          "start": 3.65,
+          "end": 4.05
+        },
+        {
+          "text": "He's",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "text": "dead",
+          "start": 4.91,
+          "end": 5.09
+        },
+        {
+          "text": "and",
+          "start": 5.09,
+          "end": 5.27
+        },
+        {
+          "text": "rotten.",
+          "start": 5.27,
+          "end": 5.53
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3341346066445112
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ac80c0fa21f4e85f827a9b1d2df468feed05aab346bd0efcca23e9b34243d122",
+  "selected_reasons": []
+}

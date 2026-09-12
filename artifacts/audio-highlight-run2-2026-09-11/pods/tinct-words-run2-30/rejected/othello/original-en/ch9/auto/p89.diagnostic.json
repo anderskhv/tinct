@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e324157456701fe62f30e190989eb47931892dfd5e0336bdc950b414cf7ce3cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.145608551800251,
+      "alignment_seconds": 0.0002449178136885166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. No, not much mov'd. I do not think but Desdemona's honest.",
+        "hotwords": "Othello, No, I, Desdemona's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, No, not much mov'd. I do not think but Desdemona's honest.",
+          "start": 0.21,
+          "end": 4.51,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.91,
+              "probability": 0.8875325520833334
+            },
+            {
+              "text": " No,",
+              "start": 1.21,
+              "end": 1.49,
+              "probability": 0.017303466796875
+            },
+            {
+              "text": " not",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " much",
+              "start": 1.69,
+              "end": 1.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mov'd.",
+              "start": 1.85,
+              "end": 2.35,
+              "probability": 0.41337084770202637
+            },
+            {
+              "text": " I",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.986328125
+            },
+            {
+              "text": " do",
+              "start": 2.85,
+              "end": 2.93,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " not",
+              "start": 2.93,
+              "end": 3.07,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " think",
+              "start": 3.07,
+              "end": 3.31,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " but",
+              "start": 3.31,
+              "end": 3.53,
+              "probability": 0.57958984375
+            },
+            {
+              "text": " Desdemona's",
+              "start": 3.53,
+              "end": 4.31,
+              "probability": 0.7078876495361328
+            },
+            {
+              "text": " honest.",
+              "start": 4.31,
+              "end": 4.51,
+              "probability": 0.94677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "raw": "No,",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "raw": "mov'd.",
+          "start": 1.85,
+          "end": 2.35
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "do",
+          "start": 2.85,
+          "end": 2.93
+        },
+        {
+          "raw": "not",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "raw": "think",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "raw": "but",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "raw": "Desdemona's",
+          "start": 3.53,
+          "end": 4.31
+        },
+        {
+          "raw": "honest.",
+          "start": 4.31,
+          "end": 4.51
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "No,",
+        "not",
+        "much",
+        "mov'd.",
+        "I",
+        "do",
+        "not",
+        "think",
+        "but",
+        "Desdemona's",
+        "honest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.91,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.21,
+          "end": 1.49,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.85,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mov'd.",
+          "start": 1.85,
+          "end": 2.35,
+          "key": "movd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.85,
+          "end": 2.93,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.93,
+          "end": 3.07,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 3.07,
+          "end": 3.31,
+          "key": "think",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.31,
+          "end": 3.53,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Desdemona's",
+          "start": 3.53,
+          "end": 4.31,
+          "key": "desdemonas",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "honest.",
+          "start": 4.31,
+          "end": 4.51,
+          "key": "honest",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.91
+        },
+        {
+          "text": "No,",
+          "start": 1.21,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "much",
+          "start": 1.69,
+          "end": 1.85
+        },
+        {
+          "text": "mov'd.",
+          "start": 1.85,
+          "end": 2.35
+        },
+        {
+          "text": "I",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "do",
+          "start": 2.85,
+          "end": 2.93
+        },
+        {
+          "text": "not",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "text": "think",
+          "start": 3.07,
+          "end": 3.31
+        },
+        {
+          "text": "but",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "text": "Desdemona's",
+          "start": 3.53,
+          "end": 4.31
+        },
+        {
+          "text": "honest.",
+          "start": 4.31,
+          "end": 4.51
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14594817999750376
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1ccb4b33a3059fad3fb176b85260e8792d09a14d7078182c4d6c741e4265400d",
+  "selected_reasons": []
+}

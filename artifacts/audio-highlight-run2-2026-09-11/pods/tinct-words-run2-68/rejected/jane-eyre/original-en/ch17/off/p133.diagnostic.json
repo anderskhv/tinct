@@ -1,0 +1,533 @@
+{
+  "complete": true,
+  "signature": "8229dc55e9d7b2853adaa629bf5d3ebe100a2f129787d10759919da0e281da9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3116895668208599,
+      "alignment_seconds": 0.0007866658270359039,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gardez vous en bien.",
+          "start": 0.02,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Gardez",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.4610595703125
+            },
+            {
+              "text": " vous",
+              "start": 0.86,
+              "end": 1.18,
+              "probability": 0.6622314453125
+            },
+            {
+              "text": " en",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.76953125
+            },
+            {
+              "text": " bien.",
+              "start": 1.42,
+              "end": 1.8,
+              "probability": 0.62353515625
+            }
+          ]
+        },
+        {
+          "text": " If you are willfully, I shall devise a proportionate punishment.",
+          "start": 2.38,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " If",
+              "start": 2.38,
+              "end": 2.56,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " you",
+              "start": 2.56,
+              "end": 2.72,
+              "probability": 0.966796875
+            },
+            {
+              "text": " are",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " willfully,",
+              "start": 2.88,
+              "end": 3.28,
+              "probability": 0.791015625
+            },
+            {
+              "text": " I",
+              "start": 3.74,
+              "end": 3.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shall",
+              "start": 3.76,
+              "end": 3.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " devise",
+              "start": 3.9,
+              "end": 4.24,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " proportionate",
+              "start": 4.48,
+              "end": 5.08,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " punishment.",
+              "start": 5.08,
+              "end": 5.48,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gardez",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "vous",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "raw": "en",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "bien.",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "raw": "If",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "raw": "you",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "raw": "are",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "willfully,",
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "raw": "I",
+          "start": 3.74,
+          "end": 3.76
+        },
+        {
+          "raw": "shall",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "raw": "devise",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "raw": "a",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "proportionate",
+          "start": 4.48,
+          "end": 5.08
+        },
+        {
+          "raw": "punishment.",
+          "start": 5.08,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "\"Gardez-vous",
+        "en",
+        "bien!",
+        "If",
+        "you",
+        "err",
+        "wilfully,",
+        "I",
+        "shall",
+        "devise",
+        "a",
+        "proportionate",
+        "punishment.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          13,
+          7,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gardez vous",
+          "start": 0.02,
+          "end": 1.18,
+          "key": "gardezvous",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "en",
+          "start": 1.18,
+          "end": 1.42,
+          "key": "en",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bien.",
+          "start": 1.42,
+          "end": 1.8,
+          "key": "bien",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 2.38,
+          "end": 2.56,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.56,
+          "end": 2.72,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "willfully,",
+          "start": 2.88,
+          "end": 3.28,
+          "key": "willfully",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.74,
+          "end": 3.76,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.76,
+          "end": 3.9,
+          "key": "shall",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "devise",
+          "start": 3.9,
+          "end": 4.24,
+          "key": "devise",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "proportionate",
+          "start": 4.48,
+          "end": 5.08,
+          "key": "proportionate",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "punishment.",
+          "start": 5.08,
+          "end": 5.48,
+          "key": "punishment",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Gardez-vous",
+          "heard": "Gardez vous",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.02,
+          "end": 1.18
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Gardez-vous",
+          "start": 0.02,
+          "end": 1.18
+        },
+        {
+          "text": "en",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "bien!",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "text": "If",
+          "start": 2.38,
+          "end": 2.56
+        },
+        {
+          "text": "you",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "text": "err",
+          "start": 2.72,
+          "end": 3.23
+        },
+        {
+          "text": "wilfully,",
+          "start": 3.23,
+          "end": 3.485
+        },
+        {
+          "text": "I",
+          "start": 3.74,
+          "end": 3.76
+        },
+        {
+          "text": "shall",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "text": "devise",
+          "start": 3.9,
+          "end": 4.24
+        },
+        {
+          "text": "a",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "proportionate",
+          "start": 4.48,
+          "end": 5.08
+        },
+        {
+          "text": "punishment.\"",
+          "start": 5.08,
+          "end": 5.48
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31271983310580254
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d0a30d76d53ae4caa7d94d2e9ba48e2f9f6786c24ec8cf123b429db014c2c6da",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

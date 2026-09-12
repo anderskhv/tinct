@@ -1,0 +1,403 @@
+{
+  "complete": true,
+  "signature": "a04ba77d043a2107cb00dbc5698a752098b4f37589529ca566adf3bde3d2f357",
+  "attempts": [
+    {
+      "asr_seconds": 0.11949880607426167,
+      "alignment_seconds": 0.0002631228417158127,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Musicians._]",
+        "hotwords": "Musicians._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Musicians._",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.4007466634114583
+            },
+            {
+              "text": " Musicians._",
+              "start": 0.76,
+              "end": 1.98,
+              "probability": 0.5615234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Musicians._",
+          "start": 0.76,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Musicians._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Musicians._",
+          "start": 0.76,
+          "end": 1.98,
+          "key": "musicians_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Musicians._]",
+          "start": 0.76,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11985152214765549
+    },
+    {
+      "asr_seconds": 0.1350005902349949,
+      "alignment_seconds": 0.0002674441784620285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Musicians._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exhute Musicians._",
+          "start": 0.02,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Exhute",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.3550211588541667
+            },
+            {
+              "text": " Musicians._",
+              "start": 0.74,
+              "end": 1.98,
+              "probability": 0.3903401692708333
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhute",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Musicians._",
+          "start": 0.74,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Musicians._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhute",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "exhute",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Musicians._",
+          "start": 0.74,
+          "end": 1.98,
+          "key": "musicians_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.99
+        },
+        {
+          "text": "Musicians._]",
+          "start": 0.99,
+          "end": 1.485
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13535737805068493
+    },
+    {
+      "asr_seconds": 0.1285430993884802,
+      "alignment_seconds": 0.00028391554951667786,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhute musicians.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " Exhute",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.3550211588541667
+            },
+            {
+              "text": " musicians.",
+              "start": 0.74,
+              "end": 1.18,
+              "probability": 0.8203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhute",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "musicians.",
+          "start": 0.74,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Musicians._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhute",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "exhute",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "musicians.",
+          "start": 0.74,
+          "end": 1.18,
+          "key": "musicians",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "Musicians._]",
+          "start": 0.74,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1289169155061245
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ab60cddebf1f2445c97c45d96049a3fe754e44a6a70bc6df411ac165be56b77",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

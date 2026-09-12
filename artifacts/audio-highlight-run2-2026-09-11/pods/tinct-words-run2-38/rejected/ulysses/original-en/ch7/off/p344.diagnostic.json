@@ -1,0 +1,591 @@
+{
+  "complete": true,
+  "signature": "947d6937b2c898de10b1b3825d05e4584bd445c916018aef1a190277b411acb7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16405456804204732,
+      "alignment_seconds": 0.0003022410091944039,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " T is vice regal lodge C is where murder took place K is knock maroon gate",
+          "start": 0.08,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " T",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.76,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " vice",
+              "start": 0.76,
+              "end": 0.98,
+              "probability": 0.1505126953125
+            },
+            {
+              "text": " regal",
+              "start": 0.98,
+              "end": 1.36,
+              "probability": 0.786376953125
+            },
+            {
+              "text": " lodge",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " C",
+              "start": 1.66,
+              "end": 2.28,
+              "probability": 0.3623046875
+            },
+            {
+              "text": " is",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " where",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " murder",
+              "start": 2.56,
+              "end": 2.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " took",
+              "start": 2.78,
+              "end": 3.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " place",
+              "start": 3.0,
+              "end": 3.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " K",
+              "start": 3.46,
+              "end": 3.98,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " is",
+              "start": 3.98,
+              "end": 4.2,
+              "probability": 0.951171875
+            },
+            {
+              "text": " knock",
+              "start": 4.2,
+              "end": 4.48,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " maroon",
+              "start": 4.48,
+              "end": 4.82,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " gate",
+              "start": 4.82,
+              "end": 5.1,
+              "probability": 0.95068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "T",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "raw": "vice",
+          "start": 0.76,
+          "end": 0.98
+        },
+        {
+          "raw": "regal",
+          "start": 0.98,
+          "end": 1.36
+        },
+        {
+          "raw": "lodge",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "raw": "C",
+          "start": 1.66,
+          "end": 2.28
+        },
+        {
+          "raw": "is",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "where",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "murder",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "raw": "took",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "raw": "place",
+          "start": 3.0,
+          "end": 3.46
+        },
+        {
+          "raw": "K",
+          "start": 3.46,
+          "end": 3.98
+        },
+        {
+          "raw": "is",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "raw": "knock",
+          "start": 4.2,
+          "end": 4.48
+        },
+        {
+          "raw": "maroon",
+          "start": 4.48,
+          "end": 4.82
+        },
+        {
+          "raw": "gate",
+          "start": 4.82,
+          "end": 5.1
+        }
+      ],
+      "expected_tokens": [
+        "—T",
+        "is",
+        "viceregal",
+        "lodge.",
+        "C",
+        "is",
+        "where",
+        "murder",
+        "took",
+        "place.",
+        "K",
+        "is",
+        "Knockmaroon",
+        "gate."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          12,
+          4,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ],
+        [
+          "equal",
+          13,
+          14,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "T",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "t",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.76,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vice",
+          "start": 0.76,
+          "end": 0.98,
+          "key": "vice",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "regal",
+          "start": 0.98,
+          "end": 1.36,
+          "key": "regal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lodge",
+          "start": 1.36,
+          "end": 1.66,
+          "key": "lodge",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "C",
+          "start": 1.66,
+          "end": 2.28,
+          "key": "c",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 2.4,
+          "end": 2.56,
+          "key": "where",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "murder",
+          "start": 2.56,
+          "end": 2.78,
+          "key": "murder",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 2.78,
+          "end": 3.0,
+          "key": "took",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 3.0,
+          "end": 3.46,
+          "key": "place",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "K",
+          "start": 3.46,
+          "end": 3.98,
+          "key": "k",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.98,
+          "end": 4.2,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "knock",
+          "start": 4.2,
+          "end": 4.48,
+          "key": "knock",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "maroon",
+          "start": 4.48,
+          "end": 4.82,
+          "key": "maroon",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "gate",
+          "start": 4.82,
+          "end": 5.1,
+          "key": "gate",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—T",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "is",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "text": "viceregal",
+          "start": 0.76,
+          "end": 1.06
+        },
+        {
+          "text": "lodge.",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "text": "C",
+          "start": 1.66,
+          "end": 2.28
+        },
+        {
+          "text": "is",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "where",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "murder",
+          "start": 2.56,
+          "end": 2.78
+        },
+        {
+          "text": "took",
+          "start": 2.78,
+          "end": 3.0
+        },
+        {
+          "text": "place.",
+          "start": 3.0,
+          "end": 3.46
+        },
+        {
+          "text": "K",
+          "start": 3.46,
+          "end": 3.98
+        },
+        {
+          "text": "is",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "text": "Knockmaroon",
+          "start": 4.2,
+          "end": 4.51
+        },
+        {
+          "text": "gate.",
+          "start": 4.82,
+          "end": 5.1
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.16447367001092061
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9af75bad138fb962b72cfc231d077005f40295fd8bb9328488a72f364263da5f",
+  "selected_reasons": []
+}

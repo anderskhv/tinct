@@ -1,0 +1,208 @@
+{
+  "complete": true,
+  "signature": "9cfcee2d39fbdb393da7e45ec45b8cf09fabd4153ab443f5debb1b0b63c5ce4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15846947953104973,
+      "alignment_seconds": 0.0003249645233154297,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rug, elaster I cannot fence.",
+          "start": 0.02,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " Rug,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.60791015625
+            },
+            {
+              "text": " elaster",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.4918212890625
+            },
+            {
+              "text": " I",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " cannot",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " fence.",
+              "start": 1.9,
+              "end": 2.28,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rug,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "elaster",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "cannot",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "fence.",
+          "start": 1.9,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "_Enter",
+        "Mistress",
+        "Quickly._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rug,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "rug",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "elaster",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "elaster",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "cannot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fence.",
+          "start": 1.9,
+          "end": 2.28,
+          "key": "fence",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Enter",
+          "start": 0.0,
+          "end": 1.14
+        },
+        {
+          "text": "Mistress",
+          "start": 1.14,
+          "end": 1.71
+        },
+        {
+          "text": "Quickly._",
+          "start": 1.71,
+          "end": 1.995
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 5,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1589213153347373
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "53e8b01c61aa0365e9014cf72d44149b4c79365b61361e7f54ab2f9aaf7c9f5e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

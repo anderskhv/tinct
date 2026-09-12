@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "61f125e7797e90539806729ae140ff2f09e01e9b95ba69c5da6c56e2bcc16df5",
+  "attempts": [
+    {
+      "asr_seconds": 0.14960036426782608,
+      "alignment_seconds": 0.00039094965904951096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, sir. I will, sir.",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " sir.",
+              "start": 0.8,
+              "end": 0.86,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will,",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sir.",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "sir.",
+          "start": 0.8,
+          "end": 0.86
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.2
+        },
+        {
+          "raw": "will,",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "sir.",
+          "start": 1.54,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "—Yes,",
+        "sir.",
+        "I",
+        "will,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.8,
+          "end": 0.86,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.2,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Yes,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "sir.",
+          "start": 0.8,
+          "end": 0.86
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.2
+        },
+        {
+          "text": "will,",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "text": "sir.",
+          "start": 1.54,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1501138862222433
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a77c44b5f416cf0fd2f0c067c148dc74abe762571daa287ceb6cade0fcd57ba8",
+  "selected_reasons": []
+}

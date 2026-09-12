@@ -1,0 +1,662 @@
+{
+  "complete": true,
+  "signature": "224ed970d37dab8fe904a0cb9302f0f1f74e7037ae6b8b369368d3ae2128d631",
+  "attempts": [
+    {
+      "asr_seconds": 0.31172016682103276,
+      "alignment_seconds": 0.0006341850385069847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Good-bye to Gateshead!\" cried I, as we passed through the hall and went out at the front door.",
+        "hotwords": "Good-bye, Gateshead, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good-bye to Gateshead! cried I, as we passed through the hall and went out at the front door.",
+          "start": 0.05,
+          "end": 5.21,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.0120697021484375
+            },
+            {
+              "text": "-bye",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.6900634765625
+            },
+            {
+              "text": " to",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Gateshead!",
+              "start": 0.95,
+              "end": 1.59,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " cried",
+              "start": 2.17,
+              "end": 2.17,
+              "probability": 0.978515625
+            },
+            {
+              "text": " I,",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " as",
+              "start": 2.61,
+              "end": 2.89,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " we",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " passed",
+              "start": 3.03,
+              "end": 3.29,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " through",
+              "start": 3.29,
+              "end": 3.57,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hall",
+              "start": 3.71,
+              "end": 3.99,
+              "probability": 0.94921875
+            },
+            {
+              "text": " and",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " went",
+              "start": 4.17,
+              "end": 4.31,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " out",
+              "start": 4.31,
+              "end": 4.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 4.51,
+              "end": 4.63,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 4.63,
+              "end": 4.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " front",
+              "start": 4.75,
+              "end": 4.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " door.",
+              "start": 4.91,
+              "end": 5.21,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "-bye",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "to",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "Gateshead!",
+          "start": 0.95,
+          "end": 1.59
+        },
+        {
+          "raw": "cried",
+          "start": 2.17,
+          "end": 2.17
+        },
+        {
+          "raw": "I,",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "as",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "raw": "we",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "passed",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "raw": "through",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "raw": "the",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "hall",
+          "start": 3.71,
+          "end": 3.99
+        },
+        {
+          "raw": "and",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "went",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "raw": "out",
+          "start": 4.31,
+          "end": 4.51
+        },
+        {
+          "raw": "at",
+          "start": 4.51,
+          "end": 4.63
+        },
+        {
+          "raw": "the",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "raw": "front",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "raw": "door.",
+          "start": 4.91,
+          "end": 5.21
+        }
+      ],
+      "expected_tokens": [
+        "\"Good-bye",
+        "to",
+        "Gateshead!\"",
+        "cried",
+        "I,",
+        "as",
+        "we",
+        "passed",
+        "through",
+        "the",
+        "hall",
+        "and",
+        "went",
+        "out",
+        "at",
+        "the",
+        "front",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good -bye",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "goodbye",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Gateshead!",
+          "start": 0.95,
+          "end": 1.59,
+          "key": "gateshead",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.17,
+          "end": 2.17,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.61,
+          "end": 2.89,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.89,
+          "end": 3.03,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 3.03,
+          "end": 3.29,
+          "key": "passed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 3.29,
+          "end": 3.57,
+          "key": "through",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hall",
+          "start": 3.71,
+          "end": 3.99,
+          "key": "hall",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 4.17,
+          "end": 4.31,
+          "key": "went",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.31,
+          "end": 4.51,
+          "key": "out",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.51,
+          "end": 4.63,
+          "key": "at",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.63,
+          "end": 4.75,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "front",
+          "start": 4.75,
+          "end": 4.91,
+          "key": "front",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 4.91,
+          "end": 5.21,
+          "key": "door",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Good-bye",
+          "heard": "Good -bye",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 0.77
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Good-bye",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "to",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "Gateshead!\"",
+          "start": 0.95,
+          "end": 1.59
+        },
+        {
+          "text": "cried",
+          "start": 2.17,
+          "end": 2.17
+        },
+        {
+          "text": "I,",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "as",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "text": "we",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "passed",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "text": "through",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "text": "the",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "hall",
+          "start": 3.71,
+          "end": 3.99
+        },
+        {
+          "text": "and",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "went",
+          "start": 4.17,
+          "end": 4.31
+        },
+        {
+          "text": "out",
+          "start": 4.31,
+          "end": 4.51
+        },
+        {
+          "text": "at",
+          "start": 4.51,
+          "end": 4.63
+        },
+        {
+          "text": "the",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "text": "front",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "text": "door.",
+          "start": 4.91,
+          "end": 5.21
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3126021819189191
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "604908f61f63c35c10adf89a411912782e8b62146caf4e58187af32f3a3a0f03",
+  "selected_reasons": []
+}

@@ -1,0 +1,2631 @@
+{
+  "complete": true,
+  "signature": "0f1b2ef884e4755d290e888da37c0040401d2c633aa052954895011e73d2d0fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.449938396923244,
+      "alignment_seconds": 0.0005739312618970871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Impossible!—when I told you how she, on the contrary, deserted me: the idea of my insolvency cooled, or rather extinguished, her flame in a moment.\"",
+        "hotwords": "Impossible!—when, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Impossible!—when, I told you how she, on the contrary, deserted me, the idea of my insolvency",
+          "start": 0.05,
+          "end": 6.67,
+          "words": [
+            {
+              "text": " Impossible",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.62255859375
+            },
+            {
+              "text": "!—when,",
+              "start": 0.81,
+              "end": 1.71,
+              "probability": 0.32886091868082684
+            },
+            {
+              "text": " I",
+              "start": 1.79,
+              "end": 1.85,
+              "probability": 0.95703125
+            },
+            {
+              "text": " told",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " how",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " she,",
+              "start": 2.45,
+              "end": 2.75,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " on",
+              "start": 2.95,
+              "end": 3.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.05,
+              "end": 3.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " contrary,",
+              "start": 3.19,
+              "end": 3.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " deserted",
+              "start": 4.15,
+              "end": 4.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me,",
+              "start": 4.19,
+              "end": 4.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " idea",
+              "start": 5.23,
+              "end": 5.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 5.53,
+              "end": 5.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 5.75,
+              "end": 5.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " insolvency",
+              "start": 5.93,
+              "end": 6.67,
+              "probability": 0.9943033854166666
+            }
+          ]
+        },
+        {
+          "text": " cooled, or rather extinguished, her flame in a moment.",
+          "start": 6.67,
+          "end": 9.81,
+          "words": [
+            {
+              "text": " cooled,",
+              "start": 6.67,
+              "end": 7.01,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " or",
+              "start": 7.29,
+              "end": 7.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rather",
+              "start": 7.45,
+              "end": 7.73,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " extinguished,",
+              "start": 7.73,
+              "end": 8.37,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " her",
+              "start": 8.75,
+              "end": 8.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " flame",
+              "start": 8.87,
+              "end": 9.23,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " in",
+              "start": 9.23,
+              "end": 9.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 9.45,
+              "end": 9.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " moment.",
+              "start": 9.55,
+              "end": 9.81,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Impossible",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "!—when,",
+          "start": 0.81,
+          "end": 1.71
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.85
+        },
+        {
+          "raw": "told",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "how",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "she,",
+          "start": 2.45,
+          "end": 2.75
+        },
+        {
+          "raw": "on",
+          "start": 2.95,
+          "end": 3.05
+        },
+        {
+          "raw": "the",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "raw": "contrary,",
+          "start": 3.19,
+          "end": 3.65
+        },
+        {
+          "raw": "deserted",
+          "start": 4.15,
+          "end": 4.19
+        },
+        {
+          "raw": "me,",
+          "start": 4.19,
+          "end": 4.59
+        },
+        {
+          "raw": "the",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "idea",
+          "start": 5.23,
+          "end": 5.53
+        },
+        {
+          "raw": "of",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "raw": "my",
+          "start": 5.75,
+          "end": 5.93
+        },
+        {
+          "raw": "insolvency",
+          "start": 5.93,
+          "end": 6.67
+        },
+        {
+          "raw": "cooled,",
+          "start": 6.67,
+          "end": 7.01
+        },
+        {
+          "raw": "or",
+          "start": 7.29,
+          "end": 7.45
+        },
+        {
+          "raw": "rather",
+          "start": 7.45,
+          "end": 7.73
+        },
+        {
+          "raw": "extinguished,",
+          "start": 7.73,
+          "end": 8.37
+        },
+        {
+          "raw": "her",
+          "start": 8.75,
+          "end": 8.87
+        },
+        {
+          "raw": "flame",
+          "start": 8.87,
+          "end": 9.23
+        },
+        {
+          "raw": "in",
+          "start": 9.23,
+          "end": 9.45
+        },
+        {
+          "raw": "a",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "raw": "moment.",
+          "start": 9.55,
+          "end": 9.81
+        }
+      ],
+      "expected_tokens": [
+        "\"Impossible!—when",
+        "I",
+        "told",
+        "you",
+        "how",
+        "she,",
+        "on",
+        "the",
+        "contrary,",
+        "deserted",
+        "me:",
+        "the",
+        "idea",
+        "of",
+        "my",
+        "insolvency",
+        "cooled,",
+        "or",
+        "rather",
+        "extinguished,",
+        "her",
+        "flame",
+        "in",
+        "a",
+        "moment.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          25,
+          2,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Impossible",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "impossible",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "!—when,",
+          "start": 0.81,
+          "end": 1.71,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.85,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "told",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she,",
+          "start": 2.45,
+          "end": 2.75,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.95,
+          "end": 3.05,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.05,
+          "end": 3.19,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "contrary,",
+          "start": 3.19,
+          "end": 3.65,
+          "key": "contrary",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deserted",
+          "start": 4.15,
+          "end": 4.19,
+          "key": "deserted",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 4.19,
+          "end": 4.59,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "idea",
+          "start": 5.23,
+          "end": 5.53,
+          "key": "idea",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.53,
+          "end": 5.75,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.75,
+          "end": 5.93,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "insolvency",
+          "start": 5.93,
+          "end": 6.67,
+          "key": "insolvency",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cooled,",
+          "start": 6.67,
+          "end": 7.01,
+          "key": "cooled",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.29,
+          "end": 7.45,
+          "key": "or",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 7.45,
+          "end": 7.73,
+          "key": "rather",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "extinguished,",
+          "start": 7.73,
+          "end": 8.37,
+          "key": "extinguished",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.75,
+          "end": 8.87,
+          "key": "her",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "flame",
+          "start": 8.87,
+          "end": 9.23,
+          "key": "flame",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.23,
+          "end": 9.45,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.45,
+          "end": 9.55,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "moment.",
+          "start": 9.55,
+          "end": 9.81,
+          "key": "moment",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Impossible!—when",
+          "start": 0.0,
+          "end": 0.895
+        },
+        {
+          "text": "I",
+          "start": 1.79,
+          "end": 1.85
+        },
+        {
+          "text": "told",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "how",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "she,",
+          "start": 2.45,
+          "end": 2.75
+        },
+        {
+          "text": "on",
+          "start": 2.95,
+          "end": 3.05
+        },
+        {
+          "text": "the",
+          "start": 3.05,
+          "end": 3.19
+        },
+        {
+          "text": "contrary,",
+          "start": 3.19,
+          "end": 3.65
+        },
+        {
+          "text": "deserted",
+          "start": 4.15,
+          "end": 4.19
+        },
+        {
+          "text": "me:",
+          "start": 4.19,
+          "end": 4.59
+        },
+        {
+          "text": "the",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "idea",
+          "start": 5.23,
+          "end": 5.53
+        },
+        {
+          "text": "of",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "text": "my",
+          "start": 5.75,
+          "end": 5.93
+        },
+        {
+          "text": "insolvency",
+          "start": 5.93,
+          "end": 6.67
+        },
+        {
+          "text": "cooled,",
+          "start": 6.67,
+          "end": 7.01
+        },
+        {
+          "text": "or",
+          "start": 7.29,
+          "end": 7.45
+        },
+        {
+          "text": "rather",
+          "start": 7.45,
+          "end": 7.73
+        },
+        {
+          "text": "extinguished,",
+          "start": 7.73,
+          "end": 8.37
+        },
+        {
+          "text": "her",
+          "start": 8.75,
+          "end": 8.87
+        },
+        {
+          "text": "flame",
+          "start": 8.87,
+          "end": 9.23
+        },
+        {
+          "text": "in",
+          "start": 9.23,
+          "end": 9.45
+        },
+        {
+          "text": "a",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "text": "moment.\"",
+          "start": 9.55,
+          "end": 9.81
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 26,
+        "matched_words": 24
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.4507473036646843
+    },
+    {
+      "asr_seconds": 0.37470757961273193,
+      "alignment_seconds": 0.000643937848508358,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Impossible!—when, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " told you how she, on the contrary, deserted me. The idea of my insolvency cooled, or rather",
+          "start": 0.05,
+          "end": 7.73,
+          "words": [
+            {
+              "text": " told",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 5.602836608886719e-06
+            },
+            {
+              "text": " you",
+              "start": 0.79,
+              "end": 2.23,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " how",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.982421875
+            },
+            {
+              "text": " she,",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " on",
+              "start": 2.99,
+              "end": 3.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.05,
+              "end": 3.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " contrary,",
+              "start": 3.17,
+              "end": 3.67,
+              "probability": 1.0
+            },
+            {
+              "text": " deserted",
+              "start": 4.09,
+              "end": 4.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me.",
+              "start": 4.21,
+              "end": 4.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " The",
+              "start": 5.09,
+              "end": 5.23,
+              "probability": 0.986328125
+            },
+            {
+              "text": " idea",
+              "start": 5.23,
+              "end": 5.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 5.53,
+              "end": 5.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 5.75,
+              "end": 5.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " insolvency",
+              "start": 5.93,
+              "end": 6.69,
+              "probability": 0.9952799479166666
+            },
+            {
+              "text": " cooled,",
+              "start": 6.69,
+              "end": 7.01,
+              "probability": 0.9921875
+            },
+            {
+              "text": " or",
+              "start": 7.29,
+              "end": 7.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " rather",
+              "start": 7.45,
+              "end": 7.73,
+              "probability": 0.98291015625
+            }
+          ]
+        },
+        {
+          "text": " extinguished, her flame in a moment.",
+          "start": 7.73,
+          "end": 9.81,
+          "words": [
+            {
+              "text": " extinguished,",
+              "start": 7.73,
+              "end": 8.37,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " her",
+              "start": 8.75,
+              "end": 8.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flame",
+              "start": 8.85,
+              "end": 9.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 9.23,
+              "end": 9.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 9.43,
+              "end": 9.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " moment.",
+              "start": 9.55,
+              "end": 9.81,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "told",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "you",
+          "start": 0.79,
+          "end": 2.23
+        },
+        {
+          "raw": "how",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "she,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "on",
+          "start": 2.99,
+          "end": 3.05
+        },
+        {
+          "raw": "the",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "raw": "contrary,",
+          "start": 3.17,
+          "end": 3.67
+        },
+        {
+          "raw": "deserted",
+          "start": 4.09,
+          "end": 4.21
+        },
+        {
+          "raw": "me.",
+          "start": 4.21,
+          "end": 4.57
+        },
+        {
+          "raw": "The",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "raw": "idea",
+          "start": 5.23,
+          "end": 5.53
+        },
+        {
+          "raw": "of",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "raw": "my",
+          "start": 5.75,
+          "end": 5.93
+        },
+        {
+          "raw": "insolvency",
+          "start": 5.93,
+          "end": 6.69
+        },
+        {
+          "raw": "cooled,",
+          "start": 6.69,
+          "end": 7.01
+        },
+        {
+          "raw": "or",
+          "start": 7.29,
+          "end": 7.45
+        },
+        {
+          "raw": "rather",
+          "start": 7.45,
+          "end": 7.73
+        },
+        {
+          "raw": "extinguished,",
+          "start": 7.73,
+          "end": 8.37
+        },
+        {
+          "raw": "her",
+          "start": 8.75,
+          "end": 8.85
+        },
+        {
+          "raw": "flame",
+          "start": 8.85,
+          "end": 9.23
+        },
+        {
+          "raw": "in",
+          "start": 9.23,
+          "end": 9.43
+        },
+        {
+          "raw": "a",
+          "start": 9.43,
+          "end": 9.55
+        },
+        {
+          "raw": "moment.",
+          "start": 9.55,
+          "end": 9.81
+        }
+      ],
+      "expected_tokens": [
+        "\"Impossible!—when",
+        "I",
+        "told",
+        "you",
+        "how",
+        "she,",
+        "on",
+        "the",
+        "contrary,",
+        "deserted",
+        "me:",
+        "the",
+        "idea",
+        "of",
+        "my",
+        "insolvency",
+        "cooled,",
+        "or",
+        "rather",
+        "extinguished,",
+        "her",
+        "flame",
+        "in",
+        "a",
+        "moment.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          25,
+          0,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "told",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "told",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.79,
+          "end": 2.23,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she,",
+          "start": 2.43,
+          "end": 2.75,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.99,
+          "end": 3.05,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.05,
+          "end": 3.17,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "contrary,",
+          "start": 3.17,
+          "end": 3.67,
+          "key": "contrary",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "deserted",
+          "start": 4.09,
+          "end": 4.21,
+          "key": "deserted",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.21,
+          "end": 4.57,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.09,
+          "end": 5.23,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "idea",
+          "start": 5.23,
+          "end": 5.53,
+          "key": "idea",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.53,
+          "end": 5.75,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.75,
+          "end": 5.93,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "insolvency",
+          "start": 5.93,
+          "end": 6.69,
+          "key": "insolvency",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cooled,",
+          "start": 6.69,
+          "end": 7.01,
+          "key": "cooled",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.29,
+          "end": 7.45,
+          "key": "or",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 7.45,
+          "end": 7.73,
+          "key": "rather",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "extinguished,",
+          "start": 7.73,
+          "end": 8.37,
+          "key": "extinguished",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.75,
+          "end": 8.85,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "flame",
+          "start": 8.85,
+          "end": 9.23,
+          "key": "flame",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.23,
+          "end": 9.43,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.43,
+          "end": 9.55,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "moment.",
+          "start": 9.55,
+          "end": 9.81,
+          "key": "moment",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Impossible!—when",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "I",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "told",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "you",
+          "start": 0.79,
+          "end": 2.23
+        },
+        {
+          "text": "how",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "she,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "text": "on",
+          "start": 2.99,
+          "end": 3.05
+        },
+        {
+          "text": "the",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "text": "contrary,",
+          "start": 3.17,
+          "end": 3.67
+        },
+        {
+          "text": "deserted",
+          "start": 4.09,
+          "end": 4.21
+        },
+        {
+          "text": "me:",
+          "start": 4.21,
+          "end": 4.57
+        },
+        {
+          "text": "the",
+          "start": 5.09,
+          "end": 5.23
+        },
+        {
+          "text": "idea",
+          "start": 5.23,
+          "end": 5.53
+        },
+        {
+          "text": "of",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "text": "my",
+          "start": 5.75,
+          "end": 5.93
+        },
+        {
+          "text": "insolvency",
+          "start": 5.93,
+          "end": 6.69
+        },
+        {
+          "text": "cooled,",
+          "start": 6.69,
+          "end": 7.01
+        },
+        {
+          "text": "or",
+          "start": 7.29,
+          "end": 7.45
+        },
+        {
+          "text": "rather",
+          "start": 7.45,
+          "end": 7.73
+        },
+        {
+          "text": "extinguished,",
+          "start": 7.73,
+          "end": 8.37
+        },
+        {
+          "text": "her",
+          "start": 8.75,
+          "end": 8.85
+        },
+        {
+          "text": "flame",
+          "start": 8.85,
+          "end": 9.23
+        },
+        {
+          "text": "in",
+          "start": 9.23,
+          "end": 9.43
+        },
+        {
+          "text": "a",
+          "start": 9.43,
+          "end": 9.55
+        },
+        {
+          "text": "moment.\"",
+          "start": 9.55,
+          "end": 9.81
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 23,
+        "matched_words": 23
+      },
+      "match_ratio": 0.92,
+      "rejection_reasons": [],
+      "seconds": 0.37561055831611156
+    },
+    {
+      "asr_seconds": 0.452328541316092,
+      "alignment_seconds": 0.0007472522556781769,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Impossible, when I told you how she, on the contrary, deserted me.",
+          "start": 0.05,
+          "end": 4.61,
+          "words": [
+            {
+              "text": " Impossible,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.62353515625
+            },
+            {
+              "text": " when",
+              "start": 1.59,
+              "end": 1.71,
+              "probability": 0.98828125
+            },
+            {
+              "text": " I",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " told",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " how",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " she,",
+              "start": 2.45,
+              "end": 2.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " on",
+              "start": 2.99,
+              "end": 3.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.05,
+              "end": 3.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " contrary,",
+              "start": 3.17,
+              "end": 3.67,
+              "probability": 1.0
+            },
+            {
+              "text": " deserted",
+              "start": 4.13,
+              "end": 4.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me.",
+              "start": 4.19,
+              "end": 4.61,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " The idea of my insolvency cooled, or rather extinguished, her flame in a moment.",
+          "start": 5.11,
+          "end": 9.81,
+          "words": [
+            {
+              "text": " The",
+              "start": 5.11,
+              "end": 5.23,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " idea",
+              "start": 5.23,
+              "end": 5.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 5.53,
+              "end": 5.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 5.75,
+              "end": 5.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " insolvency",
+              "start": 5.93,
+              "end": 6.67,
+              "probability": 0.9954427083333334
+            },
+            {
+              "text": " cooled,",
+              "start": 6.67,
+              "end": 7.03,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " or",
+              "start": 7.33,
+              "end": 7.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " rather",
+              "start": 7.45,
+              "end": 7.73,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " extinguished,",
+              "start": 7.73,
+              "end": 8.37,
+              "probability": 0.927734375
+            },
+            {
+              "text": " her",
+              "start": 8.75,
+              "end": 8.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " flame",
+              "start": 8.85,
+              "end": 9.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 9.21,
+              "end": 9.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 9.45,
+              "end": 9.55,
+              "probability": 0.99609375
+            },
+            {
+              "text": " moment.",
+              "start": 9.55,
+              "end": 9.81,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Impossible,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "when",
+          "start": 1.59,
+          "end": 1.71
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "told",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "raw": "how",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "she,",
+          "start": 2.45,
+          "end": 2.75
+        },
+        {
+          "raw": "on",
+          "start": 2.99,
+          "end": 3.05
+        },
+        {
+          "raw": "the",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "raw": "contrary,",
+          "start": 3.17,
+          "end": 3.67
+        },
+        {
+          "raw": "deserted",
+          "start": 4.13,
+          "end": 4.19
+        },
+        {
+          "raw": "me.",
+          "start": 4.19,
+          "end": 4.61
+        },
+        {
+          "raw": "The",
+          "start": 5.11,
+          "end": 5.23
+        },
+        {
+          "raw": "idea",
+          "start": 5.23,
+          "end": 5.53
+        },
+        {
+          "raw": "of",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "raw": "my",
+          "start": 5.75,
+          "end": 5.93
+        },
+        {
+          "raw": "insolvency",
+          "start": 5.93,
+          "end": 6.67
+        },
+        {
+          "raw": "cooled,",
+          "start": 6.67,
+          "end": 7.03
+        },
+        {
+          "raw": "or",
+          "start": 7.33,
+          "end": 7.45
+        },
+        {
+          "raw": "rather",
+          "start": 7.45,
+          "end": 7.73
+        },
+        {
+          "raw": "extinguished,",
+          "start": 7.73,
+          "end": 8.37
+        },
+        {
+          "raw": "her",
+          "start": 8.75,
+          "end": 8.85
+        },
+        {
+          "raw": "flame",
+          "start": 8.85,
+          "end": 9.21
+        },
+        {
+          "raw": "in",
+          "start": 9.21,
+          "end": 9.45
+        },
+        {
+          "raw": "a",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "raw": "moment.",
+          "start": 9.55,
+          "end": 9.81
+        }
+      ],
+      "expected_tokens": [
+        "\"Impossible!—when",
+        "I",
+        "told",
+        "you",
+        "how",
+        "she,",
+        "on",
+        "the",
+        "contrary,",
+        "deserted",
+        "me:",
+        "the",
+        "idea",
+        "of",
+        "my",
+        "insolvency",
+        "cooled,",
+        "or",
+        "rather",
+        "extinguished,",
+        "her",
+        "flame",
+        "in",
+        "a",
+        "moment.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          25,
+          2,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Impossible,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "impossible",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.59,
+          "end": 1.71,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "told",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.25,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.25,
+          "end": 2.45,
+          "key": "how",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she,",
+          "start": 2.45,
+          "end": 2.75,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.99,
+          "end": 3.05,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.05,
+          "end": 3.17,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "contrary,",
+          "start": 3.17,
+          "end": 3.67,
+          "key": "contrary",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deserted",
+          "start": 4.13,
+          "end": 4.19,
+          "key": "deserted",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.19,
+          "end": 4.61,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.11,
+          "end": 5.23,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "idea",
+          "start": 5.23,
+          "end": 5.53,
+          "key": "idea",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.53,
+          "end": 5.75,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.75,
+          "end": 5.93,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "insolvency",
+          "start": 5.93,
+          "end": 6.67,
+          "key": "insolvency",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "cooled,",
+          "start": 6.67,
+          "end": 7.03,
+          "key": "cooled",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.33,
+          "end": 7.45,
+          "key": "or",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 7.45,
+          "end": 7.73,
+          "key": "rather",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "extinguished,",
+          "start": 7.73,
+          "end": 8.37,
+          "key": "extinguished",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 8.75,
+          "end": 8.85,
+          "key": "her",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "flame",
+          "start": 8.85,
+          "end": 9.21,
+          "key": "flame",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.21,
+          "end": 9.45,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.45,
+          "end": 9.55,
+          "key": "a",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "moment.",
+          "start": 9.55,
+          "end": 9.81,
+          "key": "moment",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Impossible!—when",
+          "start": 0.0,
+          "end": 0.855
+        },
+        {
+          "text": "I",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "told",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.25
+        },
+        {
+          "text": "how",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "she,",
+          "start": 2.45,
+          "end": 2.75
+        },
+        {
+          "text": "on",
+          "start": 2.99,
+          "end": 3.05
+        },
+        {
+          "text": "the",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "text": "contrary,",
+          "start": 3.17,
+          "end": 3.67
+        },
+        {
+          "text": "deserted",
+          "start": 4.13,
+          "end": 4.19
+        },
+        {
+          "text": "me:",
+          "start": 4.19,
+          "end": 4.61
+        },
+        {
+          "text": "the",
+          "start": 5.11,
+          "end": 5.23
+        },
+        {
+          "text": "idea",
+          "start": 5.23,
+          "end": 5.53
+        },
+        {
+          "text": "of",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "text": "my",
+          "start": 5.75,
+          "end": 5.93
+        },
+        {
+          "text": "insolvency",
+          "start": 5.93,
+          "end": 6.67
+        },
+        {
+          "text": "cooled,",
+          "start": 6.67,
+          "end": 7.03
+        },
+        {
+          "text": "or",
+          "start": 7.33,
+          "end": 7.45
+        },
+        {
+          "text": "rather",
+          "start": 7.45,
+          "end": 7.73
+        },
+        {
+          "text": "extinguished,",
+          "start": 7.73,
+          "end": 8.37
+        },
+        {
+          "text": "her",
+          "start": 8.75,
+          "end": 8.85
+        },
+        {
+          "text": "flame",
+          "start": 8.85,
+          "end": 9.21
+        },
+        {
+          "text": "in",
+          "start": 9.21,
+          "end": 9.45
+        },
+        {
+          "text": "a",
+          "start": 9.45,
+          "end": 9.55
+        },
+        {
+          "text": "moment.\"",
+          "start": 9.55,
+          "end": 9.81
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 26,
+        "matched_words": 24
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.4533766284584999
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "977db001d5f20e4f473b69f590ed6b944fd7f8aac669cdfdb8676e11c35c6001",
+  "selected_reasons": []
+}

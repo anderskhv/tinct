@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c1e3a565a1bd6a2ab5d4b1b602c4852f3d16ea1e23e59250d15127fdceca5610",
+  "attempts": [
+    {
+      "asr_seconds": 0.09537749300943688,
+      "alignment_seconds": 0.00016431097174063325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Thank you, he said shortly.",
+        "hotwords": "Thank"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thank you, he said shortly.",
+          "start": 0.08,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Thank",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.1778564453125
+            },
+            {
+              "text": " you,",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " he",
+              "start": 1.1,
+              "end": 1.18,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " said",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shortly.",
+              "start": 1.38,
+              "end": 1.78,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thank",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "you,",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "he",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "raw": "said",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "shortly.",
+          "start": 1.38,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "—Thank",
+        "you,",
+        "he",
+        "said",
+        "shortly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thank",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "thank",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.62,
+          "end": 0.88,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.1,
+          "end": 1.18,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shortly.",
+          "start": 1.38,
+          "end": 1.78,
+          "key": "shortly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Thank",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "you,",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "he",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "text": "said",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "shortly.",
+          "start": 1.38,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09560065501136705
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b526ca440ba518ffdf3e8c87c619468e25f1d1c53638992a5b492c5737690658",
+  "selected_reasons": []
+}

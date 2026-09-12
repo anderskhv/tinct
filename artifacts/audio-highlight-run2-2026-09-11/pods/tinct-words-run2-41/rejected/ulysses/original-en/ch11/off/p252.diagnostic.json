@@ -1,0 +1,635 @@
+{
+  "complete": true,
+  "signature": "6eded7b72aa2acb1a39b61340b35372aa96c81842c8c0a3dfbcfb6d9e40df11e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2874666368588805,
+      "alignment_seconds": 0.0003567938692867756,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clock word miss Kennedy passed their way flower wonder who gave bearing away tea tray clock clacked",
+          "start": 0.05,
+          "end": 6.45,
+          "words": [
+            {
+              "text": " Clock",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " word",
+              "start": 0.57,
+              "end": 0.89,
+              "probability": 0.716796875
+            },
+            {
+              "text": " miss",
+              "start": 0.89,
+              "end": 1.59,
+              "probability": 0.2049560546875
+            },
+            {
+              "text": " Kennedy",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " passed",
+              "start": 1.87,
+              "end": 2.19,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " their",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " way",
+              "start": 2.39,
+              "end": 2.59,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " flower",
+              "start": 2.59,
+              "end": 2.97,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " wonder",
+              "start": 2.97,
+              "end": 3.31,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " who",
+              "start": 3.31,
+              "end": 3.53,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " gave",
+              "start": 3.53,
+              "end": 3.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bearing",
+              "start": 3.81,
+              "end": 4.33,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " away",
+              "start": 4.33,
+              "end": 4.65,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " tea",
+              "start": 4.65,
+              "end": 4.87,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " tray",
+              "start": 4.87,
+              "end": 5.31,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " clock",
+              "start": 5.31,
+              "end": 5.85,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " clacked",
+              "start": 5.85,
+              "end": 6.45,
+              "probability": 0.925537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clock",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "word",
+          "start": 0.57,
+          "end": 0.89
+        },
+        {
+          "raw": "miss",
+          "start": 0.89,
+          "end": 1.59
+        },
+        {
+          "raw": "Kennedy",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "passed",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "raw": "their",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "way",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "raw": "flower",
+          "start": 2.59,
+          "end": 2.97
+        },
+        {
+          "raw": "wonder",
+          "start": 2.97,
+          "end": 3.31
+        },
+        {
+          "raw": "who",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "raw": "gave",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "raw": "bearing",
+          "start": 3.81,
+          "end": 4.33
+        },
+        {
+          "raw": "away",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "raw": "tea",
+          "start": 4.65,
+          "end": 4.87
+        },
+        {
+          "raw": "tray",
+          "start": 4.87,
+          "end": 5.31
+        },
+        {
+          "raw": "clock",
+          "start": 5.31,
+          "end": 5.85
+        },
+        {
+          "raw": "clacked",
+          "start": 5.85,
+          "end": 6.45
+        }
+      ],
+      "expected_tokens": [
+        "Clock",
+        "whirred.",
+        "Miss",
+        "Kennedy",
+        "passed",
+        "their",
+        "way",
+        "(flower,",
+        "wonder",
+        "who",
+        "gave),",
+        "bearing",
+        "away",
+        "teatray.",
+        "Clock",
+        "clacked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          13,
+          2,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "equal",
+          14,
+          16,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clock",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "clock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 0.57,
+          "end": 0.89,
+          "key": "word",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "miss",
+          "start": 0.89,
+          "end": 1.59,
+          "key": "miss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kennedy",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "kennedy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 1.87,
+          "end": 2.19,
+          "key": "passed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 2.39,
+          "end": 2.59,
+          "key": "way",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flower",
+          "start": 2.59,
+          "end": 2.97,
+          "key": "flower",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wonder",
+          "start": 2.97,
+          "end": 3.31,
+          "key": "wonder",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.31,
+          "end": 3.53,
+          "key": "who",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 3.53,
+          "end": 3.81,
+          "key": "gave",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bearing",
+          "start": 3.81,
+          "end": 4.33,
+          "key": "bearing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 4.33,
+          "end": 4.65,
+          "key": "away",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 4.65,
+          "end": 4.87,
+          "key": "tea",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tray",
+          "start": 4.87,
+          "end": 5.31,
+          "key": "tray",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "clock",
+          "start": 5.31,
+          "end": 5.85,
+          "key": "clock",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "clacked",
+          "start": 5.85,
+          "end": 6.45,
+          "key": "clacked",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clock",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "whirred.",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "Miss",
+          "start": 0.89,
+          "end": 1.59
+        },
+        {
+          "text": "Kennedy",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "passed",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "text": "their",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "way",
+          "start": 2.39,
+          "end": 2.59
+        },
+        {
+          "text": "(flower,",
+          "start": 2.59,
+          "end": 2.97
+        },
+        {
+          "text": "wonder",
+          "start": 2.97,
+          "end": 3.31
+        },
+        {
+          "text": "who",
+          "start": 3.31,
+          "end": 3.53
+        },
+        {
+          "text": "gave),",
+          "start": 3.53,
+          "end": 3.81
+        },
+        {
+          "text": "bearing",
+          "start": 3.81,
+          "end": 4.33
+        },
+        {
+          "text": "away",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "text": "teatray.",
+          "start": 4.65,
+          "end": 4.98
+        },
+        {
+          "text": "Clock",
+          "start": 5.31,
+          "end": 5.85
+        },
+        {
+          "text": "clacked.",
+          "start": 5.85,
+          "end": 6.45
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.28795850183814764
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "faa75848724f0d960daaf162d5c8d6dd7acb98cc6d479dee2fe30970a6989f65",
+  "selected_reasons": []
+}

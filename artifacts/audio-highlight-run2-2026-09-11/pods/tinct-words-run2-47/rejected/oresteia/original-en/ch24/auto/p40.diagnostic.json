@@ -1,0 +1,965 @@
+{
+  "complete": true,
+  "signature": "9280f7169fb58338ce81784ae02ce7975508159b4d31644a18f82c9c9e3b2ed5",
+  "attempts": [
+    {
+      "asr_seconds": 0.4173316960223019,
+      "alignment_seconds": 0.000629153975751251,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[The twelve judges come forward, one by one, to the urns of decision; the first votes; as each of the others follows, the Chorus and Apollo speak alternately]",
+        "hotwords": "Chorus, Apollo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The twelve judges come forward, one by one, to the urns of decision, the first votes.",
+          "start": 0.02,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " twelve",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.47021484375
+            },
+            {
+              "text": " judges",
+              "start": 0.74,
+              "end": 1.12,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " come",
+              "start": 1.12,
+              "end": 1.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " forward,",
+              "start": 1.4,
+              "end": 1.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " one",
+              "start": 2.18,
+              "end": 2.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.94921875
+            },
+            {
+              "text": " one,",
+              "start": 2.62,
+              "end": 3.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.18,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.28,
+              "end": 3.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " urns",
+              "start": 3.4,
+              "end": 3.78,
+              "probability": 0.7352701822916666
+            },
+            {
+              "text": " of",
+              "start": 3.78,
+              "end": 3.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " decision,",
+              "start": 3.84,
+              "end": 4.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 4.8,
+              "end": 4.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " first",
+              "start": 4.98,
+              "end": 5.26,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " votes.",
+              "start": 5.26,
+              "end": 5.62,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " As each of the others follows, the Chorus and Apollo speak alternately.",
+          "start": 6.38,
+          "end": 10.1,
+          "words": [
+            {
+              "text": " As",
+              "start": 6.38,
+              "end": 6.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " each",
+              "start": 6.52,
+              "end": 6.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 6.7,
+              "end": 6.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 6.86,
+              "end": 6.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " others",
+              "start": 6.96,
+              "end": 7.24,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " follows,",
+              "start": 7.24,
+              "end": 7.62,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 8.04,
+              "end": 8.12,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Chorus",
+              "start": 8.12,
+              "end": 8.46,
+              "probability": 0.5124969482421875
+            },
+            {
+              "text": " and",
+              "start": 8.46,
+              "end": 8.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Apollo",
+              "start": 8.72,
+              "end": 9.08,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " speak",
+              "start": 9.08,
+              "end": 9.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " alternately.",
+              "start": 9.48,
+              "end": 10.1,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "twelve",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "judges",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "raw": "come",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "raw": "forward,",
+          "start": 1.4,
+          "end": 1.84
+        },
+        {
+          "raw": "one",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "raw": "by",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "one,",
+          "start": 2.62,
+          "end": 3.0
+        },
+        {
+          "raw": "to",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "raw": "urns",
+          "start": 3.4,
+          "end": 3.78
+        },
+        {
+          "raw": "of",
+          "start": 3.78,
+          "end": 3.84
+        },
+        {
+          "raw": "decision,",
+          "start": 3.84,
+          "end": 4.2
+        },
+        {
+          "raw": "the",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "raw": "first",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "raw": "votes.",
+          "start": 5.26,
+          "end": 5.62
+        },
+        {
+          "raw": "As",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "raw": "each",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "raw": "of",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "raw": "the",
+          "start": 6.86,
+          "end": 6.96
+        },
+        {
+          "raw": "others",
+          "start": 6.96,
+          "end": 7.24
+        },
+        {
+          "raw": "follows,",
+          "start": 7.24,
+          "end": 7.62
+        },
+        {
+          "raw": "the",
+          "start": 8.04,
+          "end": 8.12
+        },
+        {
+          "raw": "Chorus",
+          "start": 8.12,
+          "end": 8.46
+        },
+        {
+          "raw": "and",
+          "start": 8.46,
+          "end": 8.72
+        },
+        {
+          "raw": "Apollo",
+          "start": 8.72,
+          "end": 9.08
+        },
+        {
+          "raw": "speak",
+          "start": 9.08,
+          "end": 9.48
+        },
+        {
+          "raw": "alternately.",
+          "start": 9.48,
+          "end": 10.1
+        }
+      ],
+      "expected_tokens": [
+        "[The",
+        "twelve",
+        "judges",
+        "come",
+        "forward,",
+        "one",
+        "by",
+        "one,",
+        "to",
+        "the",
+        "urns",
+        "of",
+        "decision;",
+        "the",
+        "first",
+        "votes;",
+        "as",
+        "each",
+        "of",
+        "the",
+        "others",
+        "follows,",
+        "the",
+        "Chorus",
+        "and",
+        "Apollo",
+        "speak",
+        "alternately]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "twelve",
+          "start": 0.48,
+          "end": 0.74,
+          "key": "twelve",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "judges",
+          "start": 0.74,
+          "end": 1.12,
+          "key": "judges",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.12,
+          "end": 1.4,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "forward,",
+          "start": 1.4,
+          "end": 1.84,
+          "key": "forward",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.18,
+          "end": 2.44,
+          "key": "one",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 2.62,
+          "end": 3.0,
+          "key": "one",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.18,
+          "end": 3.28,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.28,
+          "end": 3.4,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "urns",
+          "start": 3.4,
+          "end": 3.78,
+          "key": "urns",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.78,
+          "end": 3.84,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "decision,",
+          "start": 3.84,
+          "end": 4.2,
+          "key": "decision",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.8,
+          "end": 4.98,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 4.98,
+          "end": 5.26,
+          "key": "first",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "votes.",
+          "start": 5.26,
+          "end": 5.62,
+          "key": "votes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 6.38,
+          "end": 6.52,
+          "key": "as",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 6.52,
+          "end": 6.7,
+          "key": "each",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.7,
+          "end": 6.86,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.86,
+          "end": 6.96,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 6.96,
+          "end": 7.24,
+          "key": "others",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "follows,",
+          "start": 7.24,
+          "end": 7.62,
+          "key": "follows",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.04,
+          "end": 8.12,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Chorus",
+          "start": 8.12,
+          "end": 8.46,
+          "key": "chorus",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.46,
+          "end": 8.72,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Apollo",
+          "start": 8.72,
+          "end": 9.08,
+          "key": "apollo",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 9.08,
+          "end": 9.48,
+          "key": "speak",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "alternately.",
+          "start": 9.48,
+          "end": 10.1,
+          "key": "alternately",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "twelve",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "judges",
+          "start": 0.74,
+          "end": 1.12
+        },
+        {
+          "text": "come",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "text": "forward,",
+          "start": 1.4,
+          "end": 1.84
+        },
+        {
+          "text": "one",
+          "start": 2.18,
+          "end": 2.44
+        },
+        {
+          "text": "by",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "one,",
+          "start": 2.62,
+          "end": 3.0
+        },
+        {
+          "text": "to",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "text": "the",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "text": "urns",
+          "start": 3.4,
+          "end": 3.78
+        },
+        {
+          "text": "of",
+          "start": 3.78,
+          "end": 3.84
+        },
+        {
+          "text": "decision;",
+          "start": 3.84,
+          "end": 4.2
+        },
+        {
+          "text": "the",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "text": "first",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "text": "votes;",
+          "start": 5.26,
+          "end": 5.62
+        },
+        {
+          "text": "as",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "text": "each",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "text": "of",
+          "start": 6.7,
+          "end": 6.86
+        },
+        {
+          "text": "the",
+          "start": 6.86,
+          "end": 6.96
+        },
+        {
+          "text": "others",
+          "start": 6.96,
+          "end": 7.24
+        },
+        {
+          "text": "follows,",
+          "start": 7.24,
+          "end": 7.62
+        },
+        {
+          "text": "the",
+          "start": 8.04,
+          "end": 8.12
+        },
+        {
+          "text": "Chorus",
+          "start": 8.12,
+          "end": 8.46
+        },
+        {
+          "text": "and",
+          "start": 8.46,
+          "end": 8.72
+        },
+        {
+          "text": "Apollo",
+          "start": 8.72,
+          "end": 9.08
+        },
+        {
+          "text": "speak",
+          "start": 9.08,
+          "end": 9.48
+        },
+        {
+          "text": "alternately]",
+          "start": 9.48,
+          "end": 10.1
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.41822988900821656
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "baee0a11ae60e3f7f81ef167b1555e9665b815376fb37a5dda756c7c6d83f371",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "0681bb22fc7d4e03813df3564af622cb22b8ef106f55782777a0ad34e5bfdee4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11765074499999173,
+      "alignment_seconds": 0.0002490490151103586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pompey. Hast thou drunk well?",
+        "hotwords": "Pompey, Hast"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pompey, Hast thou drunk well?",
+          "start": 0.05,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Pompey,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.818359375
+            },
+            {
+              "text": " Hast",
+              "start": 1.05,
+              "end": 1.29,
+              "probability": 0.03778076171875
+            },
+            {
+              "text": " thou",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.71875
+            },
+            {
+              "text": " drunk",
+              "start": 1.51,
+              "end": 1.73,
+              "probability": 0.916015625
+            },
+            {
+              "text": " well?",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pompey,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Hast",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "raw": "thou",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "drunk",
+          "start": 1.51,
+          "end": 1.73
+        },
+        {
+          "raw": "well?",
+          "start": 1.73,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Pompey.",
+        "Hast",
+        "thou",
+        "drunk",
+        "well?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pompey,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "pompey",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hast",
+          "start": 1.05,
+          "end": 1.29,
+          "key": "hast",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "drunk",
+          "start": 1.51,
+          "end": 1.73,
+          "key": "drunk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well?",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pompey.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "Hast",
+          "start": 1.05,
+          "end": 1.29
+        },
+        {
+          "text": "thou",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "drunk",
+          "start": 1.51,
+          "end": 1.73
+        },
+        {
+          "text": "well?",
+          "start": 1.73,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11799348698696122
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "129a86de40883090818419a9f35c0fd22ea63d75635692bb69e3c215aa280d1f",
+  "selected_reasons": []
+}

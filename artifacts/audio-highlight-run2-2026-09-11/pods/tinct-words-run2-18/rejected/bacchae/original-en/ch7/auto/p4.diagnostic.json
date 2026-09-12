@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "732bf8ce2affb45ff3645a3cfd1e38c31a18dbed5267dc6eee710f928aa2b850",
+  "attempts": [
+    {
+      "asr_seconds": 0.28218596801161766,
+      "alignment_seconds": 0.0005785940447822213,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dionysus. I had no pain nor peril; 'twas mine own hand set me free.",
+        "hotwords": "Dionysus, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dionysus, I had no pain nor peril. Twas mine own hand set me free.",
+          "start": 0.57,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Dionysus,",
+              "start": 0.57,
+              "end": 1.09,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " I",
+              "start": 1.35,
+              "end": 1.67,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " had",
+              "start": 1.67,
+              "end": 1.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pain",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nor",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " peril.",
+              "start": 2.49,
+              "end": 2.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Twas",
+              "start": 3.49,
+              "end": 3.67,
+              "probability": 0.5218505859375
+            },
+            {
+              "text": " mine",
+              "start": 3.67,
+              "end": 3.89,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " own",
+              "start": 3.89,
+              "end": 4.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hand",
+              "start": 4.09,
+              "end": 4.39,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " set",
+              "start": 4.39,
+              "end": 4.63,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " me",
+              "start": 4.63,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " free.",
+              "start": 4.79,
+              "end": 5.05,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.57,
+          "end": 1.09
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "raw": "had",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "raw": "no",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "pain",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "raw": "nor",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "peril.",
+          "start": 2.49,
+          "end": 2.87
+        },
+        {
+          "raw": "Twas",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "raw": "mine",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "raw": "own",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "raw": "hand",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "raw": "set",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "raw": "me",
+          "start": 4.63,
+          "end": 4.79
+        },
+        {
+          "raw": "free.",
+          "start": 4.79,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "I",
+        "had",
+        "no",
+        "pain",
+        "nor",
+        "peril;",
+        "'twas",
+        "mine",
+        "own",
+        "hand",
+        "set",
+        "me",
+        "free."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.57,
+          "end": 1.09,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.67,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.67,
+          "end": 1.79,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pain",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "pain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "nor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "peril.",
+          "start": 2.49,
+          "end": 2.87,
+          "key": "peril",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Twas",
+          "start": 3.49,
+          "end": 3.67,
+          "key": "twas",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 3.67,
+          "end": 3.89,
+          "key": "mine",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 3.89,
+          "end": 4.09,
+          "key": "own",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 4.09,
+          "end": 4.39,
+          "key": "hand",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 4.39,
+          "end": 4.63,
+          "key": "set",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.63,
+          "end": 4.79,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "free.",
+          "start": 4.79,
+          "end": 5.05,
+          "key": "free",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.57,
+          "end": 1.09
+        },
+        {
+          "text": "I",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "text": "had",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "text": "no",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "pain",
+          "start": 2.01,
+          "end": 2.27
+        },
+        {
+          "text": "nor",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "text": "peril;",
+          "start": 2.49,
+          "end": 2.87
+        },
+        {
+          "text": "'twas",
+          "start": 3.49,
+          "end": 3.67
+        },
+        {
+          "text": "mine",
+          "start": 3.67,
+          "end": 3.89
+        },
+        {
+          "text": "own",
+          "start": 3.89,
+          "end": 4.09
+        },
+        {
+          "text": "hand",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "text": "set",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "text": "me",
+          "start": 4.63,
+          "end": 4.79
+        },
+        {
+          "text": "free.",
+          "start": 4.79,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2830320190405473
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ccad6763637ae041ef7877144904910c7b52a98b62b11a555f1ac85f7218f67b",
+  "selected_reasons": []
+}

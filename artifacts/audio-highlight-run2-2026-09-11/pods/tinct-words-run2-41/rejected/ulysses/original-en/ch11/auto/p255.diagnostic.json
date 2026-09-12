@@ -1,0 +1,353 @@
+{
+  "complete": true,
+  "signature": "8dc3b6d2f1f9a8ad366b5d0bad0df6856c43774904407d8022afb0d18c1df856",
+  "attempts": [
+    {
+      "asr_seconds": 0.13733981177210808,
+      "alignment_seconds": 0.00017663929611444473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "O'clock.",
+        "hotwords": "O'clock"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O'clock.",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.015899658203125
+            },
+            {
+              "text": "'clock.",
+              "start": 0.51,
+              "end": 0.85,
+              "probability": 0.6939697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "'clock.",
+          "start": 0.51,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "O'clock."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'clock.",
+          "start": 0.51,
+          "end": 0.85,
+          "key": "clock",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "O'clock.",
+          "start": 0.0,
+          "end": 0.425
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13758174888789654
+    },
+    {
+      "asr_seconds": 0.14226427115499973,
+      "alignment_seconds": 0.00020330678671598434,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "O'clock"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " O'clock",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.015899658203125
+            },
+            {
+              "text": "'clock",
+              "start": 0.51,
+              "end": 0.85,
+              "probability": 0.6939697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "'clock",
+          "start": 0.51,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "O'clock."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 0.51,
+          "end": 0.85,
+          "key": "clock",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "O'clock.",
+          "start": 0.0,
+          "end": 0.425
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1425445252098143
+    },
+    {
+      "asr_seconds": 0.13540406059473753,
+      "alignment_seconds": 0.00022799894213676453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A clock.",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.5966796875
+            },
+            {
+              "text": " clock.",
+              "start": 0.51,
+              "end": 0.85,
+              "probability": 0.89306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "clock.",
+          "start": 0.51,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "O'clock."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clock.",
+          "start": 0.51,
+          "end": 0.85,
+          "key": "clock",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "O'clock.",
+          "start": 0.0,
+          "end": 0.425
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13572043692693114
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1297ef9d75b6269e57568fa1bf2d8699f6ee7f59646605a7dde30fc4c035570",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

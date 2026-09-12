@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "ffa11ee785431f17235966cd8266eb3bd1bb44f53d4a5385718dd71818e02c30",
+  "attempts": [
+    {
+      "asr_seconds": 0.08930768899153918,
+      "alignment_seconds": 0.00016058096662163734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He flung the pages down.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " flung",
+              "start": 0.49,
+              "end": 0.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 0.73,
+              "end": 0.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pages",
+              "start": 0.89,
+              "end": 1.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " down.",
+              "start": 1.17,
+              "end": 1.51,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "flung",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "raw": "the",
+          "start": 0.73,
+          "end": 0.89
+        },
+        {
+          "raw": "pages",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "raw": "down.",
+          "start": 1.17,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "flung",
+        "the",
+        "pages",
+        "down."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "flung",
+          "start": 0.49,
+          "end": 0.73,
+          "key": "flung",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.73,
+          "end": 0.89,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pages",
+          "start": 0.89,
+          "end": 1.17,
+          "key": "pages",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "down.",
+          "start": 1.17,
+          "end": 1.51,
+          "key": "down",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "flung",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "text": "the",
+          "start": 0.73,
+          "end": 0.89
+        },
+        {
+          "text": "pages",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "text": "down.",
+          "start": 1.17,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08952829102054238
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1e2cf9de099348ddf83ac88e51a03bc572bd2460a684a70f7e27dd64690e2845",
+  "selected_reasons": []
+}

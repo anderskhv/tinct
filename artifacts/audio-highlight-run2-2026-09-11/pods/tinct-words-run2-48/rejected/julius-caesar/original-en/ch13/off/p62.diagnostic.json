@@ -1,0 +1,768 @@
+{
+  "complete": true,
+  "signature": "152a3355945e9e98741505e37e3d8fc9b94f83768e6819e8f64aa76cb0240f88",
+  "attempts": [
+    {
+      "asr_seconds": 0.3838085699826479,
+      "alignment_seconds": 0.00043881963938474655,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, I'll know his humor when he knows his time.",
+          "start": 0.05,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " I'll",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " know",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " humor",
+              "start": 1.61,
+              "end": 1.91,
+              "probability": 0.884765625
+            },
+            {
+              "text": " when",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " knows",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 2.43,
+              "end": 2.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time.",
+              "start": 2.63,
+              "end": 2.97,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " What should the wars do with these jigging fools?",
+          "start": 3.57,
+          "end": 5.55,
+          "words": [
+            {
+              "text": " What",
+              "start": 3.57,
+              "end": 3.63,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " should",
+              "start": 3.63,
+              "end": 3.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.79,
+              "end": 3.91,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wars",
+              "start": 3.91,
+              "end": 4.15,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " do",
+              "start": 4.15,
+              "end": 4.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 4.45,
+              "end": 4.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " these",
+              "start": 4.63,
+              "end": 4.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " jigging",
+              "start": 4.85,
+              "end": 5.23,
+              "probability": 0.9786783854166666
+            },
+            {
+              "text": " fools?",
+              "start": 5.23,
+              "end": 5.55,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " Companion hence.",
+          "start": 6.51,
+          "end": 7.01,
+          "words": [
+            {
+              "text": " Companion",
+              "start": 6.51,
+              "end": 6.59,
+              "probability": 0.892578125
+            },
+            {
+              "text": " hence.",
+              "start": 6.59,
+              "end": 7.01,
+              "probability": 0.625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "I'll",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "know",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "his",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "humor",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "raw": "when",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "he",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "knows",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "his",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "raw": "time.",
+          "start": 2.63,
+          "end": 2.97
+        },
+        {
+          "raw": "What",
+          "start": 3.57,
+          "end": 3.63
+        },
+        {
+          "raw": "should",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "raw": "the",
+          "start": 3.79,
+          "end": 3.91
+        },
+        {
+          "raw": "wars",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "raw": "do",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "raw": "with",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "raw": "these",
+          "start": 4.63,
+          "end": 4.85
+        },
+        {
+          "raw": "jigging",
+          "start": 4.85,
+          "end": 5.23
+        },
+        {
+          "raw": "fools?",
+          "start": 5.23,
+          "end": 5.55
+        },
+        {
+          "raw": "Companion",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "raw": "hence.",
+          "start": 6.59,
+          "end": 7.01
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "I'll",
+        "know",
+        "his",
+        "humour",
+        "when",
+        "he",
+        "knows",
+        "his",
+        "time.",
+        "What",
+        "should",
+        "the",
+        "wars",
+        "do",
+        "with",
+        "these",
+        "jigging",
+        "fools?",
+        "Companion,",
+        "hence!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          21,
+          5,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.43,
+          "end": 1.61,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "humor",
+          "start": 1.61,
+          "end": 1.91,
+          "key": "humor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "when",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "knows",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.43,
+          "end": 2.63,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 2.63,
+          "end": 2.97,
+          "key": "time",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 3.57,
+          "end": 3.63,
+          "key": "what",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.63,
+          "end": 3.79,
+          "key": "should",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.79,
+          "end": 3.91,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "wars",
+          "start": 3.91,
+          "end": 4.15,
+          "key": "wars",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.15,
+          "end": 4.45,
+          "key": "do",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.45,
+          "end": 4.63,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 4.63,
+          "end": 4.85,
+          "key": "these",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "jigging",
+          "start": 4.85,
+          "end": 5.23,
+          "key": "jigging",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fools?",
+          "start": 5.23,
+          "end": 5.55,
+          "key": "fools",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Companion",
+          "start": 6.51,
+          "end": 6.59,
+          "key": "companion",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "hence.",
+          "start": 6.59,
+          "end": 7.01,
+          "key": "hence",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "I'll",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "know",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "his",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "humour",
+          "start": 1.61,
+          "end": 1.76
+        },
+        {
+          "text": "when",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "he",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "knows",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "his",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "text": "time.",
+          "start": 2.63,
+          "end": 2.97
+        },
+        {
+          "text": "What",
+          "start": 3.57,
+          "end": 3.63
+        },
+        {
+          "text": "should",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "text": "the",
+          "start": 3.79,
+          "end": 3.91
+        },
+        {
+          "text": "wars",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "text": "do",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "text": "with",
+          "start": 4.45,
+          "end": 4.63
+        },
+        {
+          "text": "these",
+          "start": 4.63,
+          "end": 4.85
+        },
+        {
+          "text": "jigging",
+          "start": 4.85,
+          "end": 5.23
+        },
+        {
+          "text": "fools?",
+          "start": 5.23,
+          "end": 5.55
+        },
+        {
+          "text": "Companion,",
+          "start": 6.51,
+          "end": 6.59
+        },
+        {
+          "text": "hence!",
+          "start": 6.59,
+          "end": 7.01
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.38442171085625887
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c7f988743b1c8f21697becd94f2eef9bd5af0db757f14b6ea506194a6c099c32",
+  "selected_reasons": []
+}

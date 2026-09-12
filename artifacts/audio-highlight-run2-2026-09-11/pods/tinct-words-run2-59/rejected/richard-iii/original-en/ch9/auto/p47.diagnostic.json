@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "9c046844d1f15b6932644a53e94e9a88d5b5dfee9a2f6b568b083cdc05f9c078",
+  "attempts": [
+    {
+      "asr_seconds": 0.21127653098665178,
+      "alignment_seconds": 0.00039947289042174816,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "York. And therefore is he idle?",
+        "hotwords": "York, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " York. And therefore is he idle?",
+          "start": 0.02,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " York.",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " And",
+              "start": 1.1,
+              "end": 1.12,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " therefore",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.955078125
+            },
+            {
+              "text": " is",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.75
+            },
+            {
+              "text": " he",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.9921875
+            },
+            {
+              "text": " idle?",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.94580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "York.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "And",
+          "start": 1.1,
+          "end": 1.12
+        },
+        {
+          "raw": "therefore",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "he",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "idle?",
+          "start": 1.72,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "York.",
+        "And",
+        "therefore",
+        "is",
+        "he",
+        "idle?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "York.",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "york",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.1,
+          "end": 1.12,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "therefore",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "idle?",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "idle",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "York.",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "And",
+          "start": 1.1,
+          "end": 1.12
+        },
+        {
+          "text": "therefore",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "is",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "he",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "idle?",
+          "start": 1.72,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.211818752810359
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "111810908a4b3defadb704f660284ea0be778a40842caa9b91a3dea10b581bdb",
+  "selected_reasons": []
+}

@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "232d4a37a373414802d0f2a1fcb646b6933441be95a810f5f745165df9a67384",
+  "attempts": [
+    {
+      "asr_seconds": 0.2257024124264717,
+      "alignment_seconds": 0.0004766881465911865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He turned to her and looked very intently at her.",
+          "start": 0.02,
+          "end": 3.06,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.90625
+            },
+            {
+              "text": " turned",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 0.72,
+              "end": 0.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " her",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.16,
+              "end": 1.64,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " looked",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " very",
+              "start": 1.76,
+              "end": 2.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " intently",
+              "start": 2.1,
+              "end": 2.64,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " at",
+              "start": 2.64,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her.",
+              "start": 2.86,
+              "end": 3.06,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "turned",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "raw": "her",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "and",
+          "start": 1.16,
+          "end": 1.64
+        },
+        {
+          "raw": "looked",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "very",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "raw": "intently",
+          "start": 2.1,
+          "end": 2.64
+        },
+        {
+          "raw": "at",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "raw": "her.",
+          "start": 2.86,
+          "end": 3.06
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "turned",
+        "to",
+        "her",
+        "and",
+        "looked",
+        "very",
+        "intently",
+        "at",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "turned",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.72,
+          "end": 0.98,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.16,
+          "end": 1.64,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "looked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.76,
+          "end": 2.1,
+          "key": "very",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "intently",
+          "start": 2.1,
+          "end": 2.64,
+          "key": "intently",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.64,
+          "end": 2.86,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 2.86,
+          "end": 3.06,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "turned",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "to",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "text": "her",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "and",
+          "start": 1.16,
+          "end": 1.64
+        },
+        {
+          "text": "looked",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "very",
+          "start": 1.76,
+          "end": 2.1
+        },
+        {
+          "text": "intently",
+          "start": 2.1,
+          "end": 2.64
+        },
+        {
+          "text": "at",
+          "start": 2.64,
+          "end": 2.86
+        },
+        {
+          "text": "her.",
+          "start": 2.86,
+          "end": 3.06
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22637639939785004
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1625272a1a03a797d3fba4db0111d68717caa6d99fe506d34a2b18198b0b9a79",
+  "selected_reasons": []
+}

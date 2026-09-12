@@ -1,0 +1,304 @@
+{
+  "complete": true,
+  "signature": "1eadc40edbb205ff0517c9d0b08f090af980b563355f217dac5ee4dc7e1baa5f",
+  "attempts": [
+    {
+      "asr_seconds": 0.13555121794342995,
+      "alignment_seconds": 0.0004558637738227844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But who's coming like that mama?",
+          "start": 0.02,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " who's",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " coming",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " like",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " mama?",
+              "start": 1.38,
+              "end": 1.72,
+              "probability": 0.582763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "who's",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "coming",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "like",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "that",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "raw": "mama?",
+          "start": 1.38,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "who's",
+        "come",
+        "in",
+        "like",
+        "that,",
+        "mamma?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          6,
+          3,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "coming",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mama?",
+          "start": 1.38,
+          "end": 1.72,
+          "key": "mama",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "who's",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "come",
+          "start": 0.7,
+          "end": 0.79
+        },
+        {
+          "text": "in",
+          "start": 0.79,
+          "end": 0.835
+        },
+        {
+          "text": "like",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "that,",
+          "start": 1.1,
+          "end": 1.38
+        },
+        {
+          "text": "mamma?\"",
+          "start": 1.38,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1361449435353279
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "15a7fe24cc54c277fee86b5eac7e70bfcd27296e03806c52add954938a5acbde",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

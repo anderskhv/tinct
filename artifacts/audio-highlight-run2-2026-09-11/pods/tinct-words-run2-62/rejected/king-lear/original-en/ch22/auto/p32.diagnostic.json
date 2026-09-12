@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "5d9df063c8f704aa81ac19e9a50f7dcfa703d2568711fed5ab99339a9e0e29d4",
+  "attempts": [
+    {
+      "asr_seconds": 0.07472190633416176,
+      "alignment_seconds": 9.828060865402222e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gloucester. A poor unfortunate beggar.",
+        "hotwords": "Gloucester, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gloucester, A poor unfortunate beggar.",
+          "start": 0.02,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.6951904296875
+            },
+            {
+              "text": " A",
+              "start": 1.32,
+              "end": 1.36,
+              "probability": 0.0220184326171875
+            },
+            {
+              "text": " poor",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.1763916015625
+            },
+            {
+              "text": " unfortunate",
+              "start": 1.54,
+              "end": 2.16,
+              "probability": 0.736328125
+            },
+            {
+              "text": " beggar.",
+              "start": 2.16,
+              "end": 2.72,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "A",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "raw": "poor",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "unfortunate",
+          "start": 1.54,
+          "end": 2.16
+        },
+        {
+          "raw": "beggar.",
+          "start": 2.16,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "A",
+        "poor",
+        "unfortunate",
+        "beggar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.32,
+          "end": 1.36,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "poor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "unfortunate",
+          "start": 1.54,
+          "end": 2.16,
+          "key": "unfortunate",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beggar.",
+          "start": 2.16,
+          "end": 2.72,
+          "key": "beggar",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "A",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "text": "poor",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "unfortunate",
+          "start": 1.54,
+          "end": 2.16
+        },
+        {
+          "text": "beggar.",
+          "start": 2.16,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07485659793019295
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f785d9a479411699ea010b8a4990acc0b6eec07dd0f6877cd04bfe2b535d32d2",
+  "selected_reasons": []
+}

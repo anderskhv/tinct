@@ -1,0 +1,189 @@
+{
+  "complete": true,
+  "signature": "080fff65f50c6e6a39ba988aeb37811ec4e85249d2ba9541c91f153276252c1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.06973199918866158,
+      "alignment_seconds": 9.66973602771759e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_A drum afar off._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A drum afar off.",
+          "start": 0.05,
+          "end": 1.33,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " drum",
+              "start": 0.49,
+              "end": 0.69,
+              "probability": 0.009857177734375
+            },
+            {
+              "text": " afar",
+              "start": 0.69,
+              "end": 0.99,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " off.",
+              "start": 0.99,
+              "end": 1.33,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "drum",
+          "start": 0.49,
+          "end": 0.69
+        },
+        {
+          "raw": "afar",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "raw": "off.",
+          "start": 0.99,
+          "end": 1.33
+        }
+      ],
+      "expected_tokens": [
+        "[_A",
+        "drum",
+        "afar",
+        "off._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "drum",
+          "start": 0.49,
+          "end": 0.69,
+          "key": "drum",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "afar",
+          "start": 0.69,
+          "end": 0.99,
+          "key": "afar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 0.99,
+          "end": 1.33,
+          "key": "off",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "drum",
+          "start": 0.49,
+          "end": 0.69
+        },
+        {
+          "text": "afar",
+          "start": 0.69,
+          "end": 0.99
+        },
+        {
+          "text": "off._]",
+          "start": 0.99,
+          "end": 1.33
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06986486539244652
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "39e911ab57eb947af17f08acb0805daca0763b171c6b2320673a232a4b02168a",
+  "selected_reasons": []
+}

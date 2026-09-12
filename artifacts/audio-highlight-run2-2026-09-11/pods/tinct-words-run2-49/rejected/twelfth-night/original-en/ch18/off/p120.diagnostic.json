@@ -1,0 +1,611 @@
+{
+  "complete": true,
+  "signature": "568e8c3fb624f2110133d66d9b7dec9e5db40ff989974560b4fe1471379b3fe6",
+  "attempts": [
+    {
+      "asr_seconds": 0.3523031659424305,
+      "alignment_seconds": 0.0006411969661712646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown, look then to be well edified when the fool delivers the madman, by the Lord",
+          "start": 0.02,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " look",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.966796875
+            },
+            {
+              "text": " then",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.9765625
+            },
+            {
+              "text": " to",
+              "start": 1.62,
+              "end": 1.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " be",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.9921875
+            },
+            {
+              "text": " well",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " edified",
+              "start": 2.1,
+              "end": 2.6,
+              "probability": 0.937744140625
+            },
+            {
+              "text": " when",
+              "start": 2.6,
+              "end": 2.96,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " fool",
+              "start": 3.1,
+              "end": 3.34,
+              "probability": 0.64453125
+            },
+            {
+              "text": " delivers",
+              "start": 3.34,
+              "end": 3.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 3.76,
+              "end": 4.0,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " madman,",
+              "start": 4.0,
+              "end": 4.52,
+              "probability": 0.875244140625
+            },
+            {
+              "text": " by",
+              "start": 5.16,
+              "end": 5.28,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " the",
+              "start": 5.28,
+              "end": 5.44,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Lord",
+              "start": 5.44,
+              "end": 5.68,
+              "probability": 0.70361328125
+            }
+          ]
+        },
+        {
+          "text": " Madam.",
+          "start": 5.68,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " Madam.",
+              "start": 5.68,
+              "end": 6.22,
+              "probability": 0.8056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "look",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "then",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "raw": "be",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "well",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "edified",
+          "start": 2.1,
+          "end": 2.6
+        },
+        {
+          "raw": "when",
+          "start": 2.6,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "fool",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "raw": "delivers",
+          "start": 3.34,
+          "end": 3.76
+        },
+        {
+          "raw": "the",
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "raw": "madman,",
+          "start": 4.0,
+          "end": 4.52
+        },
+        {
+          "raw": "by",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "raw": "the",
+          "start": 5.28,
+          "end": 5.44
+        },
+        {
+          "raw": "Lord",
+          "start": 5.44,
+          "end": 5.68
+        },
+        {
+          "raw": "Madam.",
+          "start": 5.68,
+          "end": 6.22
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Look",
+        "then",
+        "to",
+        "be",
+        "well",
+        "edified,",
+        "when",
+        "the",
+        "fool",
+        "delivers",
+        "the",
+        "madman.",
+        "_By",
+        "the",
+        "Lord,",
+        "madam,—_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.62,
+          "end": 1.78,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "edified",
+          "start": 2.1,
+          "end": 2.6,
+          "key": "edified",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.6,
+          "end": 2.96,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 3.1,
+          "end": 3.34,
+          "key": "fool",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "delivers",
+          "start": 3.34,
+          "end": 3.76,
+          "key": "delivers",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.76,
+          "end": 4.0,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "madman,",
+          "start": 4.0,
+          "end": 4.52,
+          "key": "madman",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 5.16,
+          "end": 5.28,
+          "key": "by",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.28,
+          "end": 5.44,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 5.44,
+          "end": 5.68,
+          "key": "lord",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Madam.",
+          "start": 5.68,
+          "end": 6.22,
+          "key": "madam",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Look",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "then",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "to",
+          "start": 1.62,
+          "end": 1.78
+        },
+        {
+          "text": "be",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "well",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "edified,",
+          "start": 2.1,
+          "end": 2.6
+        },
+        {
+          "text": "when",
+          "start": 2.6,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "fool",
+          "start": 3.1,
+          "end": 3.34
+        },
+        {
+          "text": "delivers",
+          "start": 3.34,
+          "end": 3.76
+        },
+        {
+          "text": "the",
+          "start": 3.76,
+          "end": 4.0
+        },
+        {
+          "text": "madman.",
+          "start": 4.0,
+          "end": 4.52
+        },
+        {
+          "text": "_By",
+          "start": 5.16,
+          "end": 5.28
+        },
+        {
+          "text": "the",
+          "start": 5.28,
+          "end": 5.44
+        },
+        {
+          "text": "Lord,",
+          "start": 5.44,
+          "end": 5.68
+        },
+        {
+          "text": "madam,—_",
+          "start": 5.68,
+          "end": 6.22
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35320499911904335
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc3aa278203d57c87724205d1e356eeb3c94d57ae11d8431737005701e58671a",
+  "selected_reasons": []
+}

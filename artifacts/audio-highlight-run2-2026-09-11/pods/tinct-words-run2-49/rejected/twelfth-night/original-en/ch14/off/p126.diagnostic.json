@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "3d188cd7815e67ebdfb730798adc26a9256a77f43fc5723ab875bc7f82f134c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.15036270394921303,
+      "alignment_seconds": 0.00045805424451828003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew, pox aunt, I'll not meddle with him.",
+          "start": 0.08,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " Andrew,",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " pox",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " aunt,",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " I'll",
+              "start": 2.14,
+              "end": 2.18,
+              "probability": 0.957763671875
+            },
+            {
+              "text": " not",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " meddle",
+              "start": 2.32,
+              "end": 2.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.994140625
+            },
+            {
+              "text": " him.",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "pox",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "aunt,",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "raw": "I'll",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "raw": "not",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "meddle",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "raw": "with",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "him.",
+          "start": 2.72,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "Pox",
+        "on't,",
+        "I'll",
+        "not",
+        "meddle",
+        "with",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.58,
+          "end": 0.98,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pox",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "pox",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "aunt,",
+          "start": 1.7,
+          "end": 1.96,
+          "key": "aunt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.14,
+          "end": 2.18,
+          "key": "ill",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "meddle",
+          "start": 2.32,
+          "end": 2.62,
+          "key": "meddle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.62,
+          "end": 2.72,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "text": "Pox",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "on't,",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "I'll",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "text": "not",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "meddle",
+          "start": 2.32,
+          "end": 2.62
+        },
+        {
+          "text": "with",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "him.",
+          "start": 2.72,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.15098125487565994
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fcca455ac8dc8fd1af6685c9154eadc16fb945da52b376bcfc3093059d1e354e",
+  "selected_reasons": []
+}

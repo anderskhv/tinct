@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "7108bd582fcbad077beb76611adc69913691793aee54a7c9504cbd09107a8b8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13195708207786083,
+      "alignment_seconds": 0.00023396499454975128,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter two Murderers.",
+        "hotwords": "Enter, Murderers"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter two Murderers.",
+          "start": 0.08,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " two",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " Murderers.",
+              "start": 0.94,
+              "end": 1.4,
+              "probability": 0.49202728271484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "two",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "raw": "Murderers.",
+          "start": 0.94,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "two",
+        "Murderers."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 0.64,
+          "end": 0.94,
+          "key": "two",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Murderers.",
+          "start": 0.94,
+          "end": 1.4,
+          "key": "murderers",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "two",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "text": "Murderers.",
+          "start": 0.94,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1322689380031079
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a04b61a6730d6962cdedba191b04b09303a13b6eeaf2200fe94095d2eb42074",
+  "selected_reasons": []
+}

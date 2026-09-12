@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "571921066bdc3fcb5b77fac04f351ffd9937213461a2b893091addc8008ac150",
+  "attempts": [
+    {
+      "asr_seconds": 0.22064196318387985,
+      "alignment_seconds": 0.0003875885158777237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Leonardo, Antonio, Hiro, Beatrice, and others.",
+          "start": 0.08,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " Leonardo,",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.890625
+            },
+            {
+              "text": " Antonio,",
+              "start": 1.62,
+              "end": 1.94,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Hiro,",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.4921875
+            },
+            {
+              "text": " Beatrice,",
+              "start": 2.72,
+              "end": 3.14,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 3.26,
+              "end": 3.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " others.",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Leonardo,",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "raw": "Antonio,",
+          "start": 1.62,
+          "end": 1.94
+        },
+        {
+          "raw": "Hiro,",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "Beatrice,",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "raw": "and",
+          "start": 3.26,
+          "end": 3.28
+        },
+        {
+          "raw": "others.",
+          "start": 3.28,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Leonato,",
+        "Antonio,",
+        "Hero,",
+        "Beatrice",
+        "and",
+        "others."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Leonardo,",
+          "start": 0.64,
+          "end": 1.08,
+          "key": "leonardo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antonio,",
+          "start": 1.62,
+          "end": 1.94,
+          "key": "antonio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hiro,",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "hiro",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Beatrice,",
+          "start": 2.72,
+          "end": 3.14,
+          "key": "beatrice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.26,
+          "end": 3.28,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "others.",
+          "start": 3.28,
+          "end": 3.54,
+          "key": "others",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Leonato,",
+          "start": 0.64,
+          "end": 1.13
+        },
+        {
+          "text": "Antonio,",
+          "start": 1.62,
+          "end": 1.94
+        },
+        {
+          "text": "Hero,",
+          "start": 1.94,
+          "end": 2.33
+        },
+        {
+          "text": "Beatrice",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "text": "and",
+          "start": 3.26,
+          "end": 3.28
+        },
+        {
+          "text": "others.",
+          "start": 3.28,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2211515512317419
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "92b6520c92d290829f5e0f6dbca5f7813f5af6d038a1fda5359d090681f9b152",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

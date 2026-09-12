@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "96e5081b37d9cf143577c9ede66ad926481929c945bcffb5c9ec96c32228065b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13374248798936605,
+      "alignment_seconds": 0.0003258008509874344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " McDuff. Oh Scotland, Scotland.",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " McDuff.",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.753173828125
+            },
+            {
+              "text": " Oh",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.677734375
+            },
+            {
+              "text": " Scotland,",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " Scotland.",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "McDuff.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "Oh",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "Scotland,",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "raw": "Scotland.",
+          "start": 1.96,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Macduff.",
+        "O",
+        "Scotland,",
+        "Scotland!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "McDuff.",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "mcduff",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 1.16,
+          "end": 1.32,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Scotland,",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "scotland",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Scotland.",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "scotland",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macduff.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "O",
+          "start": 0.66,
+          "end": 0.99
+        },
+        {
+          "text": "Scotland,",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "text": "Scotland!",
+          "start": 1.96,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13418210484087467
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "56df55d81ab131f7486f00a57aa1eff8fa4c914c9fa6d508f55876edf4a9931e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

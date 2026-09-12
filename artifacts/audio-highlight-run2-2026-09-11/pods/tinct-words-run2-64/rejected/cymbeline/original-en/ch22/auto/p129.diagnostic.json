@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "09a398c05bcb6b7f832aabd5998cbfbed563d85ca7182d81a57c1d016a82264f",
+  "attempts": [
+    {
+      "asr_seconds": 0.22224915586411953,
+      "alignment_seconds": 0.00042371638119220734,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Belarius with the body of Cloten.",
+        "hotwords": "Enter, Belarius, Cloten"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Belarius with the body of Cloten.",
+          "start": 0.11,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.86328125
+            },
+            {
+              "text": " Belarius",
+              "start": 0.63,
+              "end": 1.13,
+              "probability": 0.31964111328125
+            },
+            {
+              "text": " with",
+              "start": 1.13,
+              "end": 1.47,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " the",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.927734375
+            },
+            {
+              "text": " body",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " of",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Cloten.",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.5330403645833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Belarius",
+          "start": 0.63,
+          "end": 1.13
+        },
+        {
+          "raw": "with",
+          "start": 1.13,
+          "end": 1.47
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "body",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "Cloten.",
+          "start": 1.97,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Belarius",
+        "with",
+        "the",
+        "body",
+        "of",
+        "Cloten."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Belarius",
+          "start": 0.63,
+          "end": 1.13,
+          "key": "belarius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.13,
+          "end": 1.47,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "body",
+          "start": 1.57,
+          "end": 1.79,
+          "key": "body",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cloten.",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "cloten",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Belarius",
+          "start": 0.63,
+          "end": 1.13
+        },
+        {
+          "text": "with",
+          "start": 1.13,
+          "end": 1.47
+        },
+        {
+          "text": "the",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "body",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "text": "of",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "Cloten.",
+          "start": 1.97,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22282147966325283
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b39962eea55b19e0361b44bca50f2c7ae50149774392cdae8629cab9531188e",
+  "selected_reasons": []
+}

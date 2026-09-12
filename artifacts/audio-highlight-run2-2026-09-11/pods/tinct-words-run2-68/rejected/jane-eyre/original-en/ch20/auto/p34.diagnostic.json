@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "992c3d52033ec0e6e15440d1f2e5d45043eba07a4a1645d708dc5537ca58f182",
+  "attempts": [
+    {
+      "asr_seconds": 0.13623623177409172,
+      "alignment_seconds": 0.00036251917481422424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Go back and fetch both.\"",
+        "hotwords": "Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Go back and fetch both.",
+          "start": 0.02,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " back",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 0.74,
+              "end": 0.92,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " fetch",
+              "start": 0.92,
+              "end": 1.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " both.",
+              "start": 1.1,
+              "end": 1.38,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "back",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "and",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "raw": "fetch",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "raw": "both.",
+          "start": 1.1,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "back",
+        "and",
+        "fetch",
+        "both.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "back",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.74,
+          "end": 0.92,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 0.92,
+          "end": 1.1,
+          "key": "fetch",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "both.",
+          "start": 1.1,
+          "end": 1.38,
+          "key": "both",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "back",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "and",
+          "start": 0.74,
+          "end": 0.92
+        },
+        {
+          "text": "fetch",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "text": "both.\"",
+          "start": 1.1,
+          "end": 1.38
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13672102987766266
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb568b611789377bbdc35ac669732493f7750fdb1e4517407feb3dc40b0b5131",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "4da168faed567c0e0df4114356c010c6879602bdbc99affa2fe9ee2754b6f216",
+  "attempts": [
+    {
+      "asr_seconds": 0.12485200725495815,
+      "alignment_seconds": 0.00026533566415309906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.6650390625
+            },
+            {
+              "text": " Pedro",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12520676292479038
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "901e1e5d90d4901da75910515cd7559b4364b2016c9a2245fa9cec86e283ede1",
+  "selected_reasons": []
+}

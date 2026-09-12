@@ -1,0 +1,371 @@
+{
+  "complete": true,
+  "signature": "cec9e196ea8574f686116ae7cb0316d4229d33bfe040f9723d0258529e878b26",
+  "attempts": [
+    {
+      "asr_seconds": 0.2251843586564064,
+      "alignment_seconds": 0.0005038753151893616,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth Hark, Who Lies I.T.H., Second Chamber.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Macbeth",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.8141276041666666
+            },
+            {
+              "text": " Hark,",
+              "start": 0.89,
+              "end": 1.17,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " Who",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.50439453125
+            },
+            {
+              "text": " Lies",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " I",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.876953125
+            },
+            {
+              "text": ".T",
+              "start": 2.11,
+              "end": 2.27,
+              "probability": 0.730224609375
+            },
+            {
+              "text": ".H.,",
+              "start": 2.27,
+              "end": 2.85,
+              "probability": 0.7360026041666666
+            },
+            {
+              "text": " Second",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.7734375
+            },
+            {
+              "text": " Chamber.",
+              "start": 3.05,
+              "end": 3.41,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Hark,",
+          "start": 0.89,
+          "end": 1.17
+        },
+        {
+          "raw": "Who",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "Lies",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": ".T",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "raw": ".H.,",
+          "start": 2.27,
+          "end": 2.85
+        },
+        {
+          "raw": "Second",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "Chamber.",
+          "start": 3.05,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Hark!—Who",
+        "lies",
+        "i'",
+        "th'",
+        "second",
+        "chamber?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ],
+        [
+          "equal",
+          5,
+          7,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hark,",
+          "start": 0.89,
+          "end": 1.17,
+          "key": "hark",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lies",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "lies",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ".T",
+          "start": 2.11,
+          "end": 2.27,
+          "key": "t",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".H.,",
+          "start": 2.27,
+          "end": 2.85,
+          "key": "h",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "second",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Chamber.",
+          "start": 3.05,
+          "end": 3.41,
+          "key": "chamber",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Hark!—Who",
+          "start": 0.89,
+          "end": 1.31
+        },
+        {
+          "text": "lies",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "i'",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "th'",
+          "start": 2.11,
+          "end": 2.48
+        },
+        {
+          "text": "second",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "chamber?",
+          "start": 3.05,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22586842440068722
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b868a275caba1df1f95e4939db9832c576a376dd2b50c3935a14f0b7d459fdfb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

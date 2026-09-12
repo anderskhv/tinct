@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "4c930da8d2cd598508787e08c2aeea0c901fb4f27ba856306a39141f023acbe5",
+  "attempts": [
+    {
+      "asr_seconds": 0.21305628691334277,
+      "alignment_seconds": 0.00043161504436284304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. And Pentheus, O Mother, Thy child?",
+        "hotwords": "Leader, And, Pentheus, O, Mother, Thy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, And, Pentheus, O Mother, Thy Child.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " And,",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.0113983154296875
+            },
+            {
+              "text": " Pentheus,",
+              "start": 1.41,
+              "end": 1.79,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " O",
+              "start": 1.89,
+              "end": 1.97,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " Mother,",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.78125
+            },
+            {
+              "text": " Thy",
+              "start": 2.33,
+              "end": 2.37,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " Child.",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.92919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "And,",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "Pentheus,",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "raw": "O",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "raw": "Mother,",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "raw": "Thy",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "raw": "Child.",
+          "start": 2.37,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "And",
+        "Pentheus,",
+        "O",
+        "Mother,",
+        "Thy",
+        "child?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And,",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pentheus,",
+          "start": 1.41,
+          "end": 1.79,
+          "key": "pentheus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.89,
+          "end": 1.97,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mother,",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "mother",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 2.33,
+          "end": 2.37,
+          "key": "thy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Child.",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "child",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "And",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "Pentheus,",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "text": "O",
+          "start": 1.89,
+          "end": 1.97
+        },
+        {
+          "text": "Mother,",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "text": "Thy",
+          "start": 2.33,
+          "end": 2.37
+        },
+        {
+          "text": "child?",
+          "start": 2.37,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21364541293587536
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f46d8dd181891f80ccfec0ff2fefebb9362fc9eb09f5aad125dfa73b19c812e1",
+  "selected_reasons": []
+}

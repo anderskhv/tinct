@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "3b51c6ef57165cc931a5cb29c437ef5a1100791c81a6fd1b96885fe0df7d3586",
+  "attempts": [
+    {
+      "asr_seconds": 0.055601056665182114,
+      "alignment_seconds": 4.968233406543732e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But Gertrude.",
+          "start": 0.08,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " Gertrude.",
+              "start": 0.52,
+              "end": 1.14,
+              "probability": 0.963134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "Gertrude.",
+          "start": 0.52,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "\"But,",
+        "Gertrude--\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gertrude.",
+          "start": 0.52,
+          "end": 1.14,
+          "key": "gertrude",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But,",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "Gertrude--\"",
+          "start": 0.52,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.05566555634140968
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "02a32c88f7ebd99407e4564bd7f17c91f46d3889b9612b38def087c90b9e14bb",
+  "selected_reasons": []
+}

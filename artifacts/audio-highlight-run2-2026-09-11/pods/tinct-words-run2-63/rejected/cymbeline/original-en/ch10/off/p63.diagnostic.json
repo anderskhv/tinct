@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "40a2cb12dd6ac69c98bd82da0ad81bc455f2ead84a16a56994548107fa988ffd",
+  "attempts": [
+    {
+      "asr_seconds": 0.13536189682781696,
+      "alignment_seconds": 0.0002871789038181305,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Pisanio.",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.8154296875
+            },
+            {
+              "text": " Pisanio.",
+              "start": 0.66,
+              "end": 1.28,
+              "probability": 0.5413411458333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Pisanio.",
+          "start": 0.66,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Pisanio._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pisanio.",
+          "start": 0.66,
+          "end": 1.28,
+          "key": "pisanio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Pisanio._]",
+          "start": 0.66,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13574326783418655
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fb22f2b44e42b30960382cc67d820eb3bb504a5cb65e3bdd2070a96a9c0f6338",
+  "selected_reasons": []
+}

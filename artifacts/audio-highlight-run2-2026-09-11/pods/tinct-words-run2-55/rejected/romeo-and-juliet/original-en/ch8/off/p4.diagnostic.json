@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "26c1289ded9efea6b0ab1eafa8efb59f86bf054c6902ca3806c6be7149185204",
+  "attempts": [
+    {
+      "asr_seconds": 0.11235114187002182,
+      "alignment_seconds": 0.00022944342344999313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, I'm me.",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " I'm",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " me.",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "I'm",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "me.",
+          "start": 1.25,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Ay",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Ay",
+          "start": 0.75,
+          "end": 1.0
+        },
+        {
+          "text": "me.",
+          "start": 1.25,
+          "end": 1.39
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1126520186662674
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9be475760c601ebef58a73dab2c8822b2531f8b5e800b496c6833885540a00e9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

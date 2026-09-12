@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "30d98b67865eedbcdc6617c18f9f0696674597e25cba1afd82e6a40442f6cc40",
+  "attempts": [
+    {
+      "asr_seconds": 0.21638068975880742,
+      "alignment_seconds": 0.000414219219237566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who's that? Ned Lambert asked. Is that Crotty?",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Who's",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " that?",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Ned",
+              "start": 1.25,
+              "end": 1.27,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Lambert",
+              "start": 1.27,
+              "end": 1.57,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " asked.",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Is",
+              "start": 2.23,
+              "end": 2.27,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " that",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Crotty?",
+              "start": 2.47,
+              "end": 2.83,
+              "probability": 0.7275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who's",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "that?",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "raw": "Ned",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "raw": "Lambert",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "raw": "asked.",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "Is",
+          "start": 2.23,
+          "end": 2.27
+        },
+        {
+          "raw": "that",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "Crotty?",
+          "start": 2.47,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "—Who's",
+        "that?",
+        "Ned",
+        "Lambert",
+        "asked.",
+        "Is",
+        "that",
+        "Crotty?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who's",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "whos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ned",
+          "start": 1.25,
+          "end": 1.27,
+          "key": "ned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lambert",
+          "start": 1.27,
+          "end": 1.57,
+          "key": "lambert",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.57,
+          "end": 1.93,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.23,
+          "end": 2.27,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Crotty?",
+          "start": 2.47,
+          "end": 2.83,
+          "key": "crotty",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Who's",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "that?",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "text": "Ned",
+          "start": 1.25,
+          "end": 1.27
+        },
+        {
+          "text": "Lambert",
+          "start": 1.27,
+          "end": 1.57
+        },
+        {
+          "text": "asked.",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "Is",
+          "start": 2.23,
+          "end": 2.27
+        },
+        {
+          "text": "that",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "Crotty?",
+          "start": 2.47,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21694153593853116
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ec35551ad5fcc4f82fd42c3a0bcbeb05a6df8be74e766f97127bf58275836d98",
+  "selected_reasons": []
+}

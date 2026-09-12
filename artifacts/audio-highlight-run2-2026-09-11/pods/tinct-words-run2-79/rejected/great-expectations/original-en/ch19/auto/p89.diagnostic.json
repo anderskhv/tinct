@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "11e20932218363a088a9c52e216edf72ad82c28a783ec2590bcfb6556726eaa0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1427972111850977,
+      "alignment_seconds": 0.0003060540184378624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, Miss Havisham.\"",
+        "hotwords": "Yes, Miss, Havisham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, Miss Havisham.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.75244140625
+            },
+            {
+              "text": " Miss",
+              "start": 0.85,
+              "end": 0.91,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " Havisham.",
+              "start": 0.91,
+              "end": 1.47,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Miss",
+          "start": 0.85,
+          "end": 0.91
+        },
+        {
+          "raw": "Havisham.",
+          "start": 0.91,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "Miss",
+        "Havisham.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 0.85,
+          "end": 0.91,
+          "key": "miss",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Havisham.",
+          "start": 0.91,
+          "end": 1.47,
+          "key": "havisham",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Miss",
+          "start": 0.85,
+          "end": 0.91
+        },
+        {
+          "text": "Havisham.\"",
+          "start": 0.91,
+          "end": 1.47
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14321249118074775
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd4f2d847990fa9425fd24e785885642efbe9b811ecbae119004e726a088af83",
+  "selected_reasons": []
+}

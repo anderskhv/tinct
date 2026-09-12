@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "ee8898da9328acccd1d7cf9eab31ee8116953d725c20cbe4d709acf2fe6fdbe3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1554196341894567,
+      "alignment_seconds": 0.00015896884724497795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Roderigo.]",
+        "hotwords": "Enter, Roderigo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Roderigo",
+          "start": 0.08,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Roderigo",
+              "start": 0.82,
+              "end": 1.26,
+              "probability": 0.09107462565104167
+            }
+          ]
+        },
+        {
+          "text": " Enter, Roderigo",
+          "start": 1.26,
+          "end": 1.38,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 1.26,
+              "end": 1.26,
+              "probability": 4.887580871582031e-06
+            },
+            {
+              "text": " Roderigo",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.0016898711522420247
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Roderigo",
+          "start": 0.82,
+          "end": 1.26
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.26,
+          "end": 1.26
+        },
+        {
+          "raw": "Roderigo",
+          "start": 1.26,
+          "end": 1.38
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Roderigo.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Roderigo",
+          "start": 0.82,
+          "end": 1.26,
+          "key": "roderigo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Enter,",
+          "start": 1.26,
+          "end": 1.26,
+          "key": "enter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Roderigo",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "roderigo",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Roderigo.]",
+          "start": 0.82,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1556438528932631
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ab52aec51356046f6d70fe73e22b93234b0be1e21a12807ba4f6526ff5d4ac3",
+  "selected_reasons": []
+}

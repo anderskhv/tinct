@@ -1,0 +1,9140 @@
+{
+  "complete": true,
+  "signature": "bb33ea2f7c07804449f65c6dcb001e1c161d86999234549f6fe9ee40b7566be5",
+  "attempts": [
+    {
+      "asr_seconds": 1.4472703960200306,
+      "alignment_seconds": 0.003125715011265129,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Baldhead over the blind. Cute old codger. No use canvassing him for an ad. Still he knows his own business best. There he is, sure enough, my bold Larry, leaning against the sugarbin in his shirtsleeves watching the aproned curate swab up with mop and bucket. Simon Dedalus takes him off to a tee with his eyes screwed up. Do you know what I'm going to tell you? What's that, Mr O'Rourke? Do you know what? The Russians, they'd only be an eight o'clock breakfast for the Japanese.",
+        "hotwords": "Baldhead, Cute, No, Still, There, Larry, Simon, Dedalus, Do, I'm, What's, Mr, O'Rourke, Russians, Japanese"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cute old codger. No use canvassing him for an ad. Still he knows his own business best. There he is, sure enough, my bold Larry, leaning against the sugarbin in his shirtsleeves watching the aproned curate swab up with mop and bucket. Simon Dedalus takes him off to a tee with his eyes screwed up. Do you know what I'm going to tell you? What's that, Mr O'Rourke? Do you know what? The Russians, they'd only be an eight o'clock breakfast for the Japanese.",
+          "start": 1.68,
+          "end": 25.36,
+          "words": [
+            {
+              "text": " Cute",
+              "start": 1.68,
+              "end": 2.08,
+              "probability": 0.49699974060058594
+            },
+            {
+              "text": " old",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.88671875
+            },
+            {
+              "text": " codger.",
+              "start": 2.28,
+              "end": 2.72,
+              "probability": 0.57781982421875
+            },
+            {
+              "text": " No",
+              "start": 3.06,
+              "end": 3.14,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " use",
+              "start": 3.14,
+              "end": 3.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " canvassing",
+              "start": 3.38,
+              "end": 3.82,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " him",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " an",
+              "start": 4.2,
+              "end": 4.32,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " ad.",
+              "start": 4.32,
+              "end": 4.56,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Still",
+              "start": 5.04,
+              "end": 5.14,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " he",
+              "start": 5.14,
+              "end": 5.32,
+              "probability": 0.44384765625
+            },
+            {
+              "text": " knows",
+              "start": 5.32,
+              "end": 5.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 5.5,
+              "end": 5.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " own",
+              "start": 5.7,
+              "end": 5.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " business",
+              "start": 5.92,
+              "end": 6.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " best.",
+              "start": 6.3,
+              "end": 6.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " There",
+              "start": 7.3,
+              "end": 7.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " he",
+              "start": 7.36,
+              "end": 7.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is,",
+              "start": 7.52,
+              "end": 7.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sure",
+              "start": 7.96,
+              "end": 8.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " enough,",
+              "start": 8.04,
+              "end": 8.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 8.4,
+              "end": 8.5,
+              "probability": 0.98828125
+            },
+            {
+              "text": " bold",
+              "start": 8.5,
+              "end": 8.76,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Larry,",
+              "start": 8.76,
+              "end": 9.04,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " leaning",
+              "start": 9.22,
+              "end": 9.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " against",
+              "start": 9.38,
+              "end": 9.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 9.66,
+              "end": 9.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sugarbin",
+              "start": 9.86,
+              "end": 10.3,
+              "probability": 0.5050201416015625
+            },
+            {
+              "text": " in",
+              "start": 10.3,
+              "end": 10.42,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " his",
+              "start": 10.42,
+              "end": 10.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shirtsleeves",
+              "start": 10.54,
+              "end": 11.12,
+              "probability": 0.6769205729166666
+            },
+            {
+              "text": " watching",
+              "start": 11.12,
+              "end": 11.4,
+              "probability": 0.37451171875
+            },
+            {
+              "text": " the",
+              "start": 11.4,
+              "end": 11.64,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " aproned",
+              "start": 11.64,
+              "end": 12.04,
+              "probability": 0.42218017578125
+            },
+            {
+              "text": " curate",
+              "start": 12.04,
+              "end": 12.42,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " swab",
+              "start": 12.42,
+              "end": 12.68,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " up",
+              "start": 12.68,
+              "end": 12.84,
+              "probability": 0.98046875
+            },
+            {
+              "text": " with",
+              "start": 12.84,
+              "end": 12.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " mop",
+              "start": 12.96,
+              "end": 13.28,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " and",
+              "start": 13.28,
+              "end": 13.46,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " bucket.",
+              "start": 13.46,
+              "end": 13.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Simon",
+              "start": 14.52,
+              "end": 14.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Dedalus",
+              "start": 14.74,
+              "end": 15.18,
+              "probability": 0.632568359375
+            },
+            {
+              "text": " takes",
+              "start": 15.18,
+              "end": 15.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " him",
+              "start": 15.46,
+              "end": 15.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " off",
+              "start": 15.64,
+              "end": 15.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 15.78,
+              "end": 15.92,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 15.92,
+              "end": 16.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tee",
+              "start": 16.04,
+              "end": 16.22,
+              "probability": 0.619140625
+            },
+            {
+              "text": " with",
+              "start": 16.22,
+              "end": 16.38,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " his",
+              "start": 16.38,
+              "end": 16.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " eyes",
+              "start": 16.54,
+              "end": 16.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " screwed",
+              "start": 16.82,
+              "end": 17.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " up.",
+              "start": 17.2,
+              "end": 17.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Do",
+              "start": 17.94,
+              "end": 18.02,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " you",
+              "start": 18.02,
+              "end": 18.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " know",
+              "start": 18.1,
+              "end": 18.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " what",
+              "start": 18.2,
+              "end": 18.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I'm",
+              "start": 18.32,
+              "end": 18.46,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " going",
+              "start": 18.46,
+              "end": 18.56,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to",
+              "start": 18.56,
+              "end": 18.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tell",
+              "start": 18.7,
+              "end": 18.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you?",
+              "start": 18.88,
+              "end": 19.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " What's",
+              "start": 19.56,
+              "end": 19.76,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that,",
+              "start": 19.76,
+              "end": 20.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Mr",
+              "start": 20.14,
+              "end": 20.3,
+              "probability": 0.93359375
+            },
+            {
+              "text": " O",
+              "start": 20.3,
+              "end": 20.44,
+              "probability": 0.0216217041015625
+            },
+            {
+              "text": "'Rourke?",
+              "start": 20.44,
+              "end": 20.66,
+              "probability": 0.9308268229166666
+            },
+            {
+              "text": " Do",
+              "start": 21.08,
+              "end": 21.16,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you",
+              "start": 21.16,
+              "end": 21.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know",
+              "start": 21.24,
+              "end": 21.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " what?",
+              "start": 21.38,
+              "end": 21.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " The",
+              "start": 22.1,
+              "end": 22.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Russians,",
+              "start": 22.28,
+              "end": 22.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they'd",
+              "start": 23.0,
+              "end": 23.16,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " only",
+              "start": 23.16,
+              "end": 23.34,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 23.34,
+              "end": 23.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 23.56,
+              "end": 23.72,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " eight",
+              "start": 23.72,
+              "end": 23.9,
+              "probability": 0.55224609375
+            },
+            {
+              "text": " o",
+              "start": 23.9,
+              "end": 24.02,
+              "probability": 0.982421875
+            },
+            {
+              "text": "'clock",
+              "start": 24.02,
+              "end": 24.28,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " breakfast",
+              "start": 24.28,
+              "end": 24.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 24.66,
+              "end": 24.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 24.9,
+              "end": 25.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Japanese.",
+              "start": 25.04,
+              "end": 25.36,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cute",
+          "start": 1.68,
+          "end": 2.08
+        },
+        {
+          "raw": "old",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "codger.",
+          "start": 2.28,
+          "end": 2.72
+        },
+        {
+          "raw": "No",
+          "start": 3.06,
+          "end": 3.14
+        },
+        {
+          "raw": "use",
+          "start": 3.14,
+          "end": 3.38
+        },
+        {
+          "raw": "canvassing",
+          "start": 3.38,
+          "end": 3.82
+        },
+        {
+          "raw": "him",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "for",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "an",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "raw": "ad.",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "raw": "Still",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "raw": "he",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "raw": "knows",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "raw": "his",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "raw": "own",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "raw": "business",
+          "start": 5.92,
+          "end": 6.3
+        },
+        {
+          "raw": "best.",
+          "start": 6.3,
+          "end": 6.74
+        },
+        {
+          "raw": "There",
+          "start": 7.3,
+          "end": 7.36
+        },
+        {
+          "raw": "he",
+          "start": 7.36,
+          "end": 7.52
+        },
+        {
+          "raw": "is,",
+          "start": 7.52,
+          "end": 7.78
+        },
+        {
+          "raw": "sure",
+          "start": 7.96,
+          "end": 8.04
+        },
+        {
+          "raw": "enough,",
+          "start": 8.04,
+          "end": 8.28
+        },
+        {
+          "raw": "my",
+          "start": 8.4,
+          "end": 8.5
+        },
+        {
+          "raw": "bold",
+          "start": 8.5,
+          "end": 8.76
+        },
+        {
+          "raw": "Larry,",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "raw": "leaning",
+          "start": 9.22,
+          "end": 9.38
+        },
+        {
+          "raw": "against",
+          "start": 9.38,
+          "end": 9.66
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "raw": "sugarbin",
+          "start": 9.86,
+          "end": 10.3
+        },
+        {
+          "raw": "in",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "raw": "his",
+          "start": 10.42,
+          "end": 10.54
+        },
+        {
+          "raw": "shirtsleeves",
+          "start": 10.54,
+          "end": 11.12
+        },
+        {
+          "raw": "watching",
+          "start": 11.12,
+          "end": 11.4
+        },
+        {
+          "raw": "the",
+          "start": 11.4,
+          "end": 11.64
+        },
+        {
+          "raw": "aproned",
+          "start": 11.64,
+          "end": 12.04
+        },
+        {
+          "raw": "curate",
+          "start": 12.04,
+          "end": 12.42
+        },
+        {
+          "raw": "swab",
+          "start": 12.42,
+          "end": 12.68
+        },
+        {
+          "raw": "up",
+          "start": 12.68,
+          "end": 12.84
+        },
+        {
+          "raw": "with",
+          "start": 12.84,
+          "end": 12.96
+        },
+        {
+          "raw": "mop",
+          "start": 12.96,
+          "end": 13.28
+        },
+        {
+          "raw": "and",
+          "start": 13.28,
+          "end": 13.46
+        },
+        {
+          "raw": "bucket.",
+          "start": 13.46,
+          "end": 13.76
+        },
+        {
+          "raw": "Simon",
+          "start": 14.52,
+          "end": 14.74
+        },
+        {
+          "raw": "Dedalus",
+          "start": 14.74,
+          "end": 15.18
+        },
+        {
+          "raw": "takes",
+          "start": 15.18,
+          "end": 15.46
+        },
+        {
+          "raw": "him",
+          "start": 15.46,
+          "end": 15.64
+        },
+        {
+          "raw": "off",
+          "start": 15.64,
+          "end": 15.78
+        },
+        {
+          "raw": "to",
+          "start": 15.78,
+          "end": 15.92
+        },
+        {
+          "raw": "a",
+          "start": 15.92,
+          "end": 16.04
+        },
+        {
+          "raw": "tee",
+          "start": 16.04,
+          "end": 16.22
+        },
+        {
+          "raw": "with",
+          "start": 16.22,
+          "end": 16.38
+        },
+        {
+          "raw": "his",
+          "start": 16.38,
+          "end": 16.54
+        },
+        {
+          "raw": "eyes",
+          "start": 16.54,
+          "end": 16.82
+        },
+        {
+          "raw": "screwed",
+          "start": 16.82,
+          "end": 17.2
+        },
+        {
+          "raw": "up.",
+          "start": 17.2,
+          "end": 17.46
+        },
+        {
+          "raw": "Do",
+          "start": 17.94,
+          "end": 18.02
+        },
+        {
+          "raw": "you",
+          "start": 18.02,
+          "end": 18.1
+        },
+        {
+          "raw": "know",
+          "start": 18.1,
+          "end": 18.2
+        },
+        {
+          "raw": "what",
+          "start": 18.2,
+          "end": 18.32
+        },
+        {
+          "raw": "I'm",
+          "start": 18.32,
+          "end": 18.46
+        },
+        {
+          "raw": "going",
+          "start": 18.46,
+          "end": 18.56
+        },
+        {
+          "raw": "to",
+          "start": 18.56,
+          "end": 18.7
+        },
+        {
+          "raw": "tell",
+          "start": 18.7,
+          "end": 18.88
+        },
+        {
+          "raw": "you?",
+          "start": 18.88,
+          "end": 19.14
+        },
+        {
+          "raw": "What's",
+          "start": 19.56,
+          "end": 19.76
+        },
+        {
+          "raw": "that,",
+          "start": 19.76,
+          "end": 20.0
+        },
+        {
+          "raw": "Mr",
+          "start": 20.14,
+          "end": 20.3
+        },
+        {
+          "raw": "O",
+          "start": 20.3,
+          "end": 20.44
+        },
+        {
+          "raw": "'Rourke?",
+          "start": 20.44,
+          "end": 20.66
+        },
+        {
+          "raw": "Do",
+          "start": 21.08,
+          "end": 21.16
+        },
+        {
+          "raw": "you",
+          "start": 21.16,
+          "end": 21.24
+        },
+        {
+          "raw": "know",
+          "start": 21.24,
+          "end": 21.38
+        },
+        {
+          "raw": "what?",
+          "start": 21.38,
+          "end": 21.62
+        },
+        {
+          "raw": "The",
+          "start": 22.1,
+          "end": 22.28
+        },
+        {
+          "raw": "Russians,",
+          "start": 22.28,
+          "end": 22.6
+        },
+        {
+          "raw": "they'd",
+          "start": 23.0,
+          "end": 23.16
+        },
+        {
+          "raw": "only",
+          "start": 23.16,
+          "end": 23.34
+        },
+        {
+          "raw": "be",
+          "start": 23.34,
+          "end": 23.56
+        },
+        {
+          "raw": "an",
+          "start": 23.56,
+          "end": 23.72
+        },
+        {
+          "raw": "eight",
+          "start": 23.72,
+          "end": 23.9
+        },
+        {
+          "raw": "o",
+          "start": 23.9,
+          "end": 24.02
+        },
+        {
+          "raw": "'clock",
+          "start": 24.02,
+          "end": 24.28
+        },
+        {
+          "raw": "breakfast",
+          "start": 24.28,
+          "end": 24.66
+        },
+        {
+          "raw": "for",
+          "start": 24.66,
+          "end": 24.9
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.04
+        },
+        {
+          "raw": "Japanese.",
+          "start": 25.04,
+          "end": 25.36
+        }
+      ],
+      "expected_tokens": [
+        "Baldhead",
+        "over",
+        "the",
+        "blind.",
+        "Cute",
+        "old",
+        "codger.",
+        "No",
+        "use",
+        "canvassing",
+        "him",
+        "for",
+        "an",
+        "ad.",
+        "Still",
+        "he",
+        "knows",
+        "his",
+        "own",
+        "business",
+        "best.",
+        "There",
+        "he",
+        "is,",
+        "sure",
+        "enough,",
+        "my",
+        "bold",
+        "Larry,",
+        "leaning",
+        "against",
+        "the",
+        "sugarbin",
+        "in",
+        "his",
+        "shirtsleeves",
+        "watching",
+        "the",
+        "aproned",
+        "curate",
+        "swab",
+        "up",
+        "with",
+        "mop",
+        "and",
+        "bucket.",
+        "Simon",
+        "Dedalus",
+        "takes",
+        "him",
+        "off",
+        "to",
+        "a",
+        "tee",
+        "with",
+        "his",
+        "eyes",
+        "screwed",
+        "up.",
+        "Do",
+        "you",
+        "know",
+        "what",
+        "I'm",
+        "going",
+        "to",
+        "tell",
+        "you?",
+        "What's",
+        "that,",
+        "Mr",
+        "O'Rourke?",
+        "Do",
+        "you",
+        "know",
+        "what?",
+        "The",
+        "Russians,",
+        "they'd",
+        "only",
+        "be",
+        "an",
+        "eight",
+        "o'clock",
+        "breakfast",
+        "for",
+        "the",
+        "Japanese."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "equal",
+          4,
+          71,
+          0,
+          67
+        ],
+        [
+          "replace",
+          71,
+          72,
+          67,
+          69
+        ],
+        [
+          "equal",
+          72,
+          83,
+          69,
+          80
+        ],
+        [
+          "replace",
+          83,
+          84,
+          80,
+          82
+        ],
+        [
+          "equal",
+          84,
+          88,
+          82,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 85
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          "replace",
+          71,
+          72,
+          67,
+          69
+        ],
+        [
+          "replace",
+          83,
+          84,
+          80,
+          82
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cute",
+          "start": 1.68,
+          "end": 2.08,
+          "key": "cute",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "codger.",
+          "start": 2.28,
+          "end": 2.72,
+          "key": "codger",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.06,
+          "end": 3.14,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 3.14,
+          "end": 3.38,
+          "key": "use",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "canvassing",
+          "start": 3.38,
+          "end": 3.82,
+          "key": "canvassing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 4.2,
+          "end": 4.32,
+          "key": "an",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ad.",
+          "start": 4.32,
+          "end": 4.56,
+          "key": "ad",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Still",
+          "start": 5.04,
+          "end": 5.14,
+          "key": "still",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.14,
+          "end": 5.32,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 5.32,
+          "end": 5.5,
+          "key": "knows",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.5,
+          "end": 5.7,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 5.7,
+          "end": 5.92,
+          "key": "own",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 5.92,
+          "end": 6.3,
+          "key": "business",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "best.",
+          "start": 6.3,
+          "end": 6.74,
+          "key": "best",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 7.3,
+          "end": 7.36,
+          "key": "there",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.36,
+          "end": 7.52,
+          "key": "he",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 7.52,
+          "end": 7.78,
+          "key": "is",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 7.96,
+          "end": 8.04,
+          "key": "sure",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "enough,",
+          "start": 8.04,
+          "end": 8.28,
+          "key": "enough",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.4,
+          "end": 8.5,
+          "key": "my",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 8.5,
+          "end": 8.76,
+          "key": "bold",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Larry,",
+          "start": 8.76,
+          "end": 9.04,
+          "key": "larry",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "leaning",
+          "start": 9.22,
+          "end": 9.38,
+          "key": "leaning",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 9.38,
+          "end": 9.66,
+          "key": "against",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.86,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "sugarbin",
+          "start": 9.86,
+          "end": 10.3,
+          "key": "sugarbin",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.3,
+          "end": 10.42,
+          "key": "in",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.42,
+          "end": 10.54,
+          "key": "his",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "shirtsleeves",
+          "start": 10.54,
+          "end": 11.12,
+          "key": "shirtsleeves",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "watching",
+          "start": 11.12,
+          "end": 11.4,
+          "key": "watching",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.4,
+          "end": 11.64,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "aproned",
+          "start": 11.64,
+          "end": 12.04,
+          "key": "aproned",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "curate",
+          "start": 12.04,
+          "end": 12.42,
+          "key": "curate",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "swab",
+          "start": 12.42,
+          "end": 12.68,
+          "key": "swab",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 12.68,
+          "end": 12.84,
+          "key": "up",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.84,
+          "end": 12.96,
+          "key": "with",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "mop",
+          "start": 12.96,
+          "end": 13.28,
+          "key": "mop",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.28,
+          "end": 13.46,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "bucket.",
+          "start": 13.46,
+          "end": 13.76,
+          "key": "bucket",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Simon",
+          "start": 14.52,
+          "end": 14.74,
+          "key": "simon",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 14.74,
+          "end": 15.18,
+          "key": "dedalus",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "takes",
+          "start": 15.18,
+          "end": 15.46,
+          "key": "takes",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 15.46,
+          "end": 15.64,
+          "key": "him",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 15.64,
+          "end": 15.78,
+          "key": "off",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.78,
+          "end": 15.92,
+          "key": "to",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.92,
+          "end": 16.04,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "tee",
+          "start": 16.04,
+          "end": 16.22,
+          "key": "tee",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.22,
+          "end": 16.38,
+          "key": "with",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 16.38,
+          "end": 16.54,
+          "key": "his",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 16.54,
+          "end": 16.82,
+          "key": "eyes",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "screwed",
+          "start": 16.82,
+          "end": 17.2,
+          "key": "screwed",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 17.2,
+          "end": 17.46,
+          "key": "up",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 17.94,
+          "end": 18.02,
+          "key": "do",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 18.02,
+          "end": 18.1,
+          "key": "you",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 18.1,
+          "end": 18.2,
+          "key": "know",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 18.2,
+          "end": 18.32,
+          "key": "what",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 18.32,
+          "end": 18.46,
+          "key": "im",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 18.46,
+          "end": 18.56,
+          "key": "going",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.56,
+          "end": 18.7,
+          "key": "to",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 18.7,
+          "end": 18.88,
+          "key": "tell",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 18.88,
+          "end": 19.14,
+          "key": "you",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 19.56,
+          "end": 19.76,
+          "key": "whats",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 19.76,
+          "end": 20.0,
+          "key": "that",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 20.14,
+          "end": 20.3,
+          "key": "mr",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 20.3,
+          "end": 20.44,
+          "key": "o",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "'Rourke?",
+          "start": 20.44,
+          "end": 20.66,
+          "key": "rourke",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 21.08,
+          "end": 21.16,
+          "key": "do",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 21.16,
+          "end": 21.24,
+          "key": "you",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 21.24,
+          "end": 21.38,
+          "key": "know",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "what?",
+          "start": 21.38,
+          "end": 21.62,
+          "key": "what",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 22.1,
+          "end": 22.28,
+          "key": "the",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Russians,",
+          "start": 22.28,
+          "end": 22.6,
+          "key": "russians",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "they'd",
+          "start": 23.0,
+          "end": 23.16,
+          "key": "theyd",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 23.16,
+          "end": 23.34,
+          "key": "only",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 23.34,
+          "end": 23.56,
+          "key": "be",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 23.56,
+          "end": 23.72,
+          "key": "an",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "eight",
+          "start": 23.72,
+          "end": 23.9,
+          "key": "eight",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 23.9,
+          "end": 24.02,
+          "key": "o",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 24.02,
+          "end": 24.28,
+          "key": "clock",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "breakfast",
+          "start": 24.28,
+          "end": 24.66,
+          "key": "breakfast",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 24.66,
+          "end": 24.9,
+          "key": "for",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.04,
+          "key": "the",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "Japanese.",
+          "start": 25.04,
+          "end": 25.36,
+          "key": "japanese",
+          "pieces": [
+            85
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Baldhead",
+          "start": 0.0,
+          "end": 0.84
+        },
+        {
+          "text": "over",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "the",
+          "start": 1.26,
+          "end": 1.47
+        },
+        {
+          "text": "blind.",
+          "start": 1.47,
+          "end": 1.575
+        },
+        {
+          "text": "Cute",
+          "start": 1.68,
+          "end": 2.08
+        },
+        {
+          "text": "old",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "codger.",
+          "start": 2.28,
+          "end": 2.72
+        },
+        {
+          "text": "No",
+          "start": 3.06,
+          "end": 3.14
+        },
+        {
+          "text": "use",
+          "start": 3.14,
+          "end": 3.38
+        },
+        {
+          "text": "canvassing",
+          "start": 3.38,
+          "end": 3.82
+        },
+        {
+          "text": "him",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "for",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "an",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "text": "ad.",
+          "start": 4.32,
+          "end": 4.56
+        },
+        {
+          "text": "Still",
+          "start": 5.04,
+          "end": 5.14
+        },
+        {
+          "text": "he",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "text": "knows",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "text": "his",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "text": "own",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "text": "business",
+          "start": 5.92,
+          "end": 6.3
+        },
+        {
+          "text": "best.",
+          "start": 6.3,
+          "end": 6.74
+        },
+        {
+          "text": "There",
+          "start": 7.3,
+          "end": 7.36
+        },
+        {
+          "text": "he",
+          "start": 7.36,
+          "end": 7.52
+        },
+        {
+          "text": "is,",
+          "start": 7.52,
+          "end": 7.78
+        },
+        {
+          "text": "sure",
+          "start": 7.96,
+          "end": 8.04
+        },
+        {
+          "text": "enough,",
+          "start": 8.04,
+          "end": 8.28
+        },
+        {
+          "text": "my",
+          "start": 8.4,
+          "end": 8.5
+        },
+        {
+          "text": "bold",
+          "start": 8.5,
+          "end": 8.76
+        },
+        {
+          "text": "Larry,",
+          "start": 8.76,
+          "end": 9.04
+        },
+        {
+          "text": "leaning",
+          "start": 9.22,
+          "end": 9.38
+        },
+        {
+          "text": "against",
+          "start": 9.38,
+          "end": 9.66
+        },
+        {
+          "text": "the",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "text": "sugarbin",
+          "start": 9.86,
+          "end": 10.3
+        },
+        {
+          "text": "in",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "text": "his",
+          "start": 10.42,
+          "end": 10.54
+        },
+        {
+          "text": "shirtsleeves",
+          "start": 10.54,
+          "end": 11.12
+        },
+        {
+          "text": "watching",
+          "start": 11.12,
+          "end": 11.4
+        },
+        {
+          "text": "the",
+          "start": 11.4,
+          "end": 11.64
+        },
+        {
+          "text": "aproned",
+          "start": 11.64,
+          "end": 12.04
+        },
+        {
+          "text": "curate",
+          "start": 12.04,
+          "end": 12.42
+        },
+        {
+          "text": "swab",
+          "start": 12.42,
+          "end": 12.68
+        },
+        {
+          "text": "up",
+          "start": 12.68,
+          "end": 12.84
+        },
+        {
+          "text": "with",
+          "start": 12.84,
+          "end": 12.96
+        },
+        {
+          "text": "mop",
+          "start": 12.96,
+          "end": 13.28
+        },
+        {
+          "text": "and",
+          "start": 13.28,
+          "end": 13.46
+        },
+        {
+          "text": "bucket.",
+          "start": 13.46,
+          "end": 13.76
+        },
+        {
+          "text": "Simon",
+          "start": 14.52,
+          "end": 14.74
+        },
+        {
+          "text": "Dedalus",
+          "start": 14.74,
+          "end": 15.18
+        },
+        {
+          "text": "takes",
+          "start": 15.18,
+          "end": 15.46
+        },
+        {
+          "text": "him",
+          "start": 15.46,
+          "end": 15.64
+        },
+        {
+          "text": "off",
+          "start": 15.64,
+          "end": 15.78
+        },
+        {
+          "text": "to",
+          "start": 15.78,
+          "end": 15.92
+        },
+        {
+          "text": "a",
+          "start": 15.92,
+          "end": 16.04
+        },
+        {
+          "text": "tee",
+          "start": 16.04,
+          "end": 16.22
+        },
+        {
+          "text": "with",
+          "start": 16.22,
+          "end": 16.38
+        },
+        {
+          "text": "his",
+          "start": 16.38,
+          "end": 16.54
+        },
+        {
+          "text": "eyes",
+          "start": 16.54,
+          "end": 16.82
+        },
+        {
+          "text": "screwed",
+          "start": 16.82,
+          "end": 17.2
+        },
+        {
+          "text": "up.",
+          "start": 17.2,
+          "end": 17.46
+        },
+        {
+          "text": "Do",
+          "start": 17.94,
+          "end": 18.02
+        },
+        {
+          "text": "you",
+          "start": 18.02,
+          "end": 18.1
+        },
+        {
+          "text": "know",
+          "start": 18.1,
+          "end": 18.2
+        },
+        {
+          "text": "what",
+          "start": 18.2,
+          "end": 18.32
+        },
+        {
+          "text": "I'm",
+          "start": 18.32,
+          "end": 18.46
+        },
+        {
+          "text": "going",
+          "start": 18.46,
+          "end": 18.56
+        },
+        {
+          "text": "to",
+          "start": 18.56,
+          "end": 18.7
+        },
+        {
+          "text": "tell",
+          "start": 18.7,
+          "end": 18.88
+        },
+        {
+          "text": "you?",
+          "start": 18.88,
+          "end": 19.14
+        },
+        {
+          "text": "What's",
+          "start": 19.56,
+          "end": 19.76
+        },
+        {
+          "text": "that,",
+          "start": 19.76,
+          "end": 20.0
+        },
+        {
+          "text": "Mr",
+          "start": 20.14,
+          "end": 20.3
+        },
+        {
+          "text": "O'Rourke?",
+          "start": 20.3,
+          "end": 20.69
+        },
+        {
+          "text": "Do",
+          "start": 21.08,
+          "end": 21.16
+        },
+        {
+          "text": "you",
+          "start": 21.16,
+          "end": 21.24
+        },
+        {
+          "text": "know",
+          "start": 21.24,
+          "end": 21.38
+        },
+        {
+          "text": "what?",
+          "start": 21.38,
+          "end": 21.62
+        },
+        {
+          "text": "The",
+          "start": 22.1,
+          "end": 22.28
+        },
+        {
+          "text": "Russians,",
+          "start": 22.28,
+          "end": 22.6
+        },
+        {
+          "text": "they'd",
+          "start": 23.0,
+          "end": 23.16
+        },
+        {
+          "text": "only",
+          "start": 23.16,
+          "end": 23.34
+        },
+        {
+          "text": "be",
+          "start": 23.34,
+          "end": 23.56
+        },
+        {
+          "text": "an",
+          "start": 23.56,
+          "end": 23.72
+        },
+        {
+          "text": "eight",
+          "start": 23.72,
+          "end": 23.9
+        },
+        {
+          "text": "o'clock",
+          "start": 23.9,
+          "end": 24.09
+        },
+        {
+          "text": "breakfast",
+          "start": 24.28,
+          "end": 24.66
+        },
+        {
+          "text": "for",
+          "start": 24.66,
+          "end": 24.9
+        },
+        {
+          "text": "the",
+          "start": 24.9,
+          "end": 25.04
+        },
+        {
+          "text": "Japanese.",
+          "start": 25.04,
+          "end": 25.36
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 86,
+        "matched_words": 82
+      },
+      "match_ratio": 0.9318181818181818,
+      "rejection_reasons": [],
+      "seconds": 1.4516489230154548
+    },
+    {
+      "asr_seconds": 0.9710143569973297,
+      "alignment_seconds": 0.001483025000197813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Baldhead, Cute, No, Still, There, Larry, Simon, Dedalus, Do, I'm, What's, Mr, O'Rourke, Russians, Japanese"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Baldhead over the blind cute old cotter no use canvassing him for an ad still he knows his own business best",
+          "start": 0.08,
+          "end": 6.82,
+          "words": [
+            {
+              "text": " Baldhead",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.3477325439453125
+            },
+            {
+              "text": " over",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.990234375
+            },
+            {
+              "text": " blind",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " cute",
+              "start": 1.46,
+              "end": 2.06,
+              "probability": 0.365234375
+            },
+            {
+              "text": " old",
+              "start": 2.06,
+              "end": 2.3,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " cotter",
+              "start": 2.3,
+              "end": 2.72,
+              "probability": 0.6502278645833334
+            },
+            {
+              "text": " no",
+              "start": 2.72,
+              "end": 3.14,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " use",
+              "start": 3.14,
+              "end": 3.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " canvassing",
+              "start": 3.36,
+              "end": 3.82,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " him",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " an",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ad",
+              "start": 4.3,
+              "end": 4.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " still",
+              "start": 4.6,
+              "end": 5.12,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " he",
+              "start": 5.12,
+              "end": 5.32,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " knows",
+              "start": 5.32,
+              "end": 5.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 5.5,
+              "end": 5.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " own",
+              "start": 5.7,
+              "end": 5.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " business",
+              "start": 5.92,
+              "end": 6.28,
+              "probability": 0.98828125
+            },
+            {
+              "text": " best",
+              "start": 6.28,
+              "end": 6.82,
+              "probability": 0.92529296875
+            }
+          ]
+        },
+        {
+          "text": " There he is sure enough my bold Larry leaning against the sugar bin in his shirt sleeves watching the apron curate swab up with mop",
+          "start": 6.82,
+          "end": 13.28,
+          "words": [
+            {
+              "text": " There",
+              "start": 6.82,
+              "end": 7.36,
+              "probability": 0.845703125
+            },
+            {
+              "text": " he",
+              "start": 7.36,
+              "end": 7.52,
+              "probability": 0.978515625
+            },
+            {
+              "text": " is",
+              "start": 7.52,
+              "end": 7.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sure",
+              "start": 7.78,
+              "end": 8.04,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " enough",
+              "start": 8.04,
+              "end": 8.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 8.28,
+              "end": 8.48,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " bold",
+              "start": 8.48,
+              "end": 8.78,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Larry",
+              "start": 8.78,
+              "end": 9.04,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " leaning",
+              "start": 9.04,
+              "end": 9.38,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " against",
+              "start": 9.38,
+              "end": 9.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.66,
+              "end": 9.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sugar",
+              "start": 9.86,
+              "end": 10.1,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " bin",
+              "start": 10.1,
+              "end": 10.3,
+              "probability": 0.83203125
+            },
+            {
+              "text": " in",
+              "start": 10.3,
+              "end": 10.42,
+              "probability": 0.74951171875
+            },
+            {
+              "text": " his",
+              "start": 10.42,
+              "end": 10.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shirt",
+              "start": 10.54,
+              "end": 10.74,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " sleeves",
+              "start": 10.74,
+              "end": 11.02,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " watching",
+              "start": 11.02,
+              "end": 11.38,
+              "probability": 0.892578125
+            },
+            {
+              "text": " the",
+              "start": 11.38,
+              "end": 11.64,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " apron",
+              "start": 11.64,
+              "end": 11.92,
+              "probability": 0.950439453125
+            },
+            {
+              "text": " curate",
+              "start": 11.92,
+              "end": 12.4,
+              "probability": 0.741455078125
+            },
+            {
+              "text": " swab",
+              "start": 12.4,
+              "end": 12.68,
+              "probability": 0.945068359375
+            },
+            {
+              "text": " up",
+              "start": 12.68,
+              "end": 12.82,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " with",
+              "start": 12.82,
+              "end": 12.96,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " mop",
+              "start": 12.96,
+              "end": 13.28,
+              "probability": 0.971435546875
+            }
+          ]
+        },
+        {
+          "text": " And bucket Simon Dedalus takes him off to a tee with his eyes screwed up. Do you know what I'm going to tell you?",
+          "start": 13.28,
+          "end": 19.22,
+          "words": [
+            {
+              "text": " And",
+              "start": 13.28,
+              "end": 13.44,
+              "probability": 0.01251983642578125
+            },
+            {
+              "text": " bucket",
+              "start": 13.44,
+              "end": 13.98,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Simon",
+              "start": 13.98,
+              "end": 14.7,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Dedalus",
+              "start": 14.7,
+              "end": 15.18,
+              "probability": 0.371368408203125
+            },
+            {
+              "text": " takes",
+              "start": 15.18,
+              "end": 15.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " him",
+              "start": 15.46,
+              "end": 15.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " off",
+              "start": 15.62,
+              "end": 15.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 15.78,
+              "end": 15.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 15.92,
+              "end": 16.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " tee",
+              "start": 16.02,
+              "end": 16.22,
+              "probability": 0.7470703125
+            },
+            {
+              "text": " with",
+              "start": 16.22,
+              "end": 16.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 16.38,
+              "end": 16.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eyes",
+              "start": 16.52,
+              "end": 16.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " screwed",
+              "start": 16.82,
+              "end": 17.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up.",
+              "start": 17.2,
+              "end": 17.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Do",
+              "start": 17.54,
+              "end": 18.02,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 18.02,
+              "end": 18.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " know",
+              "start": 18.08,
+              "end": 18.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 18.2,
+              "end": 18.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I'm",
+              "start": 18.32,
+              "end": 18.46,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " going",
+              "start": 18.46,
+              "end": 18.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 18.56,
+              "end": 18.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tell",
+              "start": 18.7,
+              "end": 18.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you?",
+              "start": 18.88,
+              "end": 19.22,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " What's that? Mr. O'Rourke? Do you know what the Russians they'd only be an 8 o'clock breakfast for the Japanese?",
+          "start": 19.28,
+          "end": 25.44,
+          "words": [
+            {
+              "text": " What's",
+              "start": 19.28,
+              "end": 19.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that?",
+              "start": 19.76,
+              "end": 20.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Mr.",
+              "start": 20.0,
+              "end": 20.3,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " O",
+              "start": 20.38,
+              "end": 20.44,
+              "probability": 0.53076171875
+            },
+            {
+              "text": "'Rourke?",
+              "start": 20.44,
+              "end": 20.7,
+              "probability": 0.8986002604166666
+            },
+            {
+              "text": " Do",
+              "start": 20.84,
+              "end": 21.16,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 21.16,
+              "end": 21.24,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " know",
+              "start": 21.24,
+              "end": 21.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 21.38,
+              "end": 21.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 21.64,
+              "end": 22.28,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " Russians",
+              "start": 22.28,
+              "end": 22.62,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " they'd",
+              "start": 22.62,
+              "end": 23.16,
+              "probability": 0.872802734375
+            },
+            {
+              "text": " only",
+              "start": 23.16,
+              "end": 23.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 23.34,
+              "end": 23.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 23.56,
+              "end": 23.7,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " 8",
+              "start": 23.7,
+              "end": 23.9,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " o",
+              "start": 23.9,
+              "end": 24.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "'clock",
+              "start": 24.16,
+              "end": 24.28,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " breakfast",
+              "start": 24.28,
+              "end": 24.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 24.66,
+              "end": 24.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 24.9,
+              "end": 25.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Japanese?",
+              "start": 25.04,
+              "end": 25.44,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Baldhead",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "over",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "blind",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "raw": "cute",
+          "start": 1.46,
+          "end": 2.06
+        },
+        {
+          "raw": "old",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "raw": "cotter",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "raw": "no",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "raw": "use",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "raw": "canvassing",
+          "start": 3.36,
+          "end": 3.82
+        },
+        {
+          "raw": "him",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "for",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "an",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "ad",
+          "start": 4.3,
+          "end": 4.6
+        },
+        {
+          "raw": "still",
+          "start": 4.6,
+          "end": 5.12
+        },
+        {
+          "raw": "he",
+          "start": 5.12,
+          "end": 5.32
+        },
+        {
+          "raw": "knows",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "raw": "his",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "raw": "own",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "raw": "business",
+          "start": 5.92,
+          "end": 6.28
+        },
+        {
+          "raw": "best",
+          "start": 6.28,
+          "end": 6.82
+        },
+        {
+          "raw": "There",
+          "start": 6.82,
+          "end": 7.36
+        },
+        {
+          "raw": "he",
+          "start": 7.36,
+          "end": 7.52
+        },
+        {
+          "raw": "is",
+          "start": 7.52,
+          "end": 7.78
+        },
+        {
+          "raw": "sure",
+          "start": 7.78,
+          "end": 8.04
+        },
+        {
+          "raw": "enough",
+          "start": 8.04,
+          "end": 8.28
+        },
+        {
+          "raw": "my",
+          "start": 8.28,
+          "end": 8.48
+        },
+        {
+          "raw": "bold",
+          "start": 8.48,
+          "end": 8.78
+        },
+        {
+          "raw": "Larry",
+          "start": 8.78,
+          "end": 9.04
+        },
+        {
+          "raw": "leaning",
+          "start": 9.04,
+          "end": 9.38
+        },
+        {
+          "raw": "against",
+          "start": 9.38,
+          "end": 9.66
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "raw": "sugar",
+          "start": 9.86,
+          "end": 10.1
+        },
+        {
+          "raw": "bin",
+          "start": 10.1,
+          "end": 10.3
+        },
+        {
+          "raw": "in",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "raw": "his",
+          "start": 10.42,
+          "end": 10.54
+        },
+        {
+          "raw": "shirt",
+          "start": 10.54,
+          "end": 10.74
+        },
+        {
+          "raw": "sleeves",
+          "start": 10.74,
+          "end": 11.02
+        },
+        {
+          "raw": "watching",
+          "start": 11.02,
+          "end": 11.38
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.64
+        },
+        {
+          "raw": "apron",
+          "start": 11.64,
+          "end": 11.92
+        },
+        {
+          "raw": "curate",
+          "start": 11.92,
+          "end": 12.4
+        },
+        {
+          "raw": "swab",
+          "start": 12.4,
+          "end": 12.68
+        },
+        {
+          "raw": "up",
+          "start": 12.68,
+          "end": 12.82
+        },
+        {
+          "raw": "with",
+          "start": 12.82,
+          "end": 12.96
+        },
+        {
+          "raw": "mop",
+          "start": 12.96,
+          "end": 13.28
+        },
+        {
+          "raw": "And",
+          "start": 13.28,
+          "end": 13.44
+        },
+        {
+          "raw": "bucket",
+          "start": 13.44,
+          "end": 13.98
+        },
+        {
+          "raw": "Simon",
+          "start": 13.98,
+          "end": 14.7
+        },
+        {
+          "raw": "Dedalus",
+          "start": 14.7,
+          "end": 15.18
+        },
+        {
+          "raw": "takes",
+          "start": 15.18,
+          "end": 15.46
+        },
+        {
+          "raw": "him",
+          "start": 15.46,
+          "end": 15.62
+        },
+        {
+          "raw": "off",
+          "start": 15.62,
+          "end": 15.78
+        },
+        {
+          "raw": "to",
+          "start": 15.78,
+          "end": 15.92
+        },
+        {
+          "raw": "a",
+          "start": 15.92,
+          "end": 16.02
+        },
+        {
+          "raw": "tee",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "raw": "with",
+          "start": 16.22,
+          "end": 16.38
+        },
+        {
+          "raw": "his",
+          "start": 16.38,
+          "end": 16.52
+        },
+        {
+          "raw": "eyes",
+          "start": 16.52,
+          "end": 16.82
+        },
+        {
+          "raw": "screwed",
+          "start": 16.82,
+          "end": 17.2
+        },
+        {
+          "raw": "up.",
+          "start": 17.2,
+          "end": 17.52
+        },
+        {
+          "raw": "Do",
+          "start": 17.54,
+          "end": 18.02
+        },
+        {
+          "raw": "you",
+          "start": 18.02,
+          "end": 18.08
+        },
+        {
+          "raw": "know",
+          "start": 18.08,
+          "end": 18.2
+        },
+        {
+          "raw": "what",
+          "start": 18.2,
+          "end": 18.32
+        },
+        {
+          "raw": "I'm",
+          "start": 18.32,
+          "end": 18.46
+        },
+        {
+          "raw": "going",
+          "start": 18.46,
+          "end": 18.56
+        },
+        {
+          "raw": "to",
+          "start": 18.56,
+          "end": 18.7
+        },
+        {
+          "raw": "tell",
+          "start": 18.7,
+          "end": 18.88
+        },
+        {
+          "raw": "you?",
+          "start": 18.88,
+          "end": 19.22
+        },
+        {
+          "raw": "What's",
+          "start": 19.28,
+          "end": 19.76
+        },
+        {
+          "raw": "that?",
+          "start": 19.76,
+          "end": 20.0
+        },
+        {
+          "raw": "Mr.",
+          "start": 20.0,
+          "end": 20.3
+        },
+        {
+          "raw": "O",
+          "start": 20.38,
+          "end": 20.44
+        },
+        {
+          "raw": "'Rourke?",
+          "start": 20.44,
+          "end": 20.7
+        },
+        {
+          "raw": "Do",
+          "start": 20.84,
+          "end": 21.16
+        },
+        {
+          "raw": "you",
+          "start": 21.16,
+          "end": 21.24
+        },
+        {
+          "raw": "know",
+          "start": 21.24,
+          "end": 21.38
+        },
+        {
+          "raw": "what",
+          "start": 21.38,
+          "end": 21.64
+        },
+        {
+          "raw": "the",
+          "start": 21.64,
+          "end": 22.28
+        },
+        {
+          "raw": "Russians",
+          "start": 22.28,
+          "end": 22.62
+        },
+        {
+          "raw": "they'd",
+          "start": 22.62,
+          "end": 23.16
+        },
+        {
+          "raw": "only",
+          "start": 23.16,
+          "end": 23.34
+        },
+        {
+          "raw": "be",
+          "start": 23.34,
+          "end": 23.56
+        },
+        {
+          "raw": "an",
+          "start": 23.56,
+          "end": 23.7
+        },
+        {
+          "raw": "8",
+          "start": 23.7,
+          "end": 23.9
+        },
+        {
+          "raw": "o",
+          "start": 23.9,
+          "end": 24.16
+        },
+        {
+          "raw": "'clock",
+          "start": 24.16,
+          "end": 24.28
+        },
+        {
+          "raw": "breakfast",
+          "start": 24.28,
+          "end": 24.66
+        },
+        {
+          "raw": "for",
+          "start": 24.66,
+          "end": 24.9
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.04
+        },
+        {
+          "raw": "Japanese?",
+          "start": 25.04,
+          "end": 25.44
+        }
+      ],
+      "expected_tokens": [
+        "Baldhead",
+        "over",
+        "the",
+        "blind.",
+        "Cute",
+        "old",
+        "codger.",
+        "No",
+        "use",
+        "canvassing",
+        "him",
+        "for",
+        "an",
+        "ad.",
+        "Still",
+        "he",
+        "knows",
+        "his",
+        "own",
+        "business",
+        "best.",
+        "There",
+        "he",
+        "is,",
+        "sure",
+        "enough,",
+        "my",
+        "bold",
+        "Larry,",
+        "leaning",
+        "against",
+        "the",
+        "sugarbin",
+        "in",
+        "his",
+        "shirtsleeves",
+        "watching",
+        "the",
+        "aproned",
+        "curate",
+        "swab",
+        "up",
+        "with",
+        "mop",
+        "and",
+        "bucket.",
+        "Simon",
+        "Dedalus",
+        "takes",
+        "him",
+        "off",
+        "to",
+        "a",
+        "tee",
+        "with",
+        "his",
+        "eyes",
+        "screwed",
+        "up.",
+        "Do",
+        "you",
+        "know",
+        "what",
+        "I'm",
+        "going",
+        "to",
+        "tell",
+        "you?",
+        "What's",
+        "that,",
+        "Mr",
+        "O'Rourke?",
+        "Do",
+        "you",
+        "know",
+        "what?",
+        "The",
+        "Russians,",
+        "they'd",
+        "only",
+        "be",
+        "an",
+        "eight",
+        "o'clock",
+        "breakfast",
+        "for",
+        "the",
+        "Japanese."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          32,
+          7,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          35,
+          34,
+          36
+        ],
+        [
+          "replace",
+          35,
+          36,
+          36,
+          38
+        ],
+        [
+          "equal",
+          36,
+          38,
+          38,
+          40
+        ],
+        [
+          "replace",
+          38,
+          39,
+          40,
+          41
+        ],
+        [
+          "equal",
+          39,
+          71,
+          41,
+          73
+        ],
+        [
+          "replace",
+          71,
+          72,
+          73,
+          75
+        ],
+        [
+          "equal",
+          72,
+          83,
+          75,
+          86
+        ],
+        [
+          "replace",
+          83,
+          84,
+          86,
+          88
+        ],
+        [
+          "equal",
+          84,
+          88,
+          88,
+          92
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 91
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "replace",
+          35,
+          36,
+          36,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          40,
+          41
+        ],
+        [
+          "replace",
+          71,
+          72,
+          73,
+          75
+        ],
+        [
+          "replace",
+          83,
+          84,
+          86,
+          88
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Baldhead",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "baldhead",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 0.78,
+          "end": 0.96,
+          "key": "over",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.1,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "blind",
+          "start": 1.1,
+          "end": 1.46,
+          "key": "blind",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cute",
+          "start": 1.46,
+          "end": 2.06,
+          "key": "cute",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.06,
+          "end": 2.3,
+          "key": "old",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cotter",
+          "start": 2.3,
+          "end": 2.72,
+          "key": "cotter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.72,
+          "end": 3.14,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 3.14,
+          "end": 3.36,
+          "key": "use",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "canvassing",
+          "start": 3.36,
+          "end": 3.82,
+          "key": "canvassing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 4.2,
+          "end": 4.3,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ad",
+          "start": 4.3,
+          "end": 4.6,
+          "key": "ad",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 4.6,
+          "end": 5.12,
+          "key": "still",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.12,
+          "end": 5.32,
+          "key": "he",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 5.32,
+          "end": 5.5,
+          "key": "knows",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.5,
+          "end": 5.7,
+          "key": "his",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 5.7,
+          "end": 5.92,
+          "key": "own",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 5.92,
+          "end": 6.28,
+          "key": "business",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 6.28,
+          "end": 6.82,
+          "key": "best",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 6.82,
+          "end": 7.36,
+          "key": "there",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.36,
+          "end": 7.52,
+          "key": "he",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.52,
+          "end": 7.78,
+          "key": "is",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 7.78,
+          "end": 8.04,
+          "key": "sure",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 8.04,
+          "end": 8.28,
+          "key": "enough",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.28,
+          "end": 8.48,
+          "key": "my",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 8.48,
+          "end": 8.78,
+          "key": "bold",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Larry",
+          "start": 8.78,
+          "end": 9.04,
+          "key": "larry",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "leaning",
+          "start": 9.04,
+          "end": 9.38,
+          "key": "leaning",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 9.38,
+          "end": 9.66,
+          "key": "against",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.86,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "sugar",
+          "start": 9.86,
+          "end": 10.1,
+          "key": "sugar",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "bin",
+          "start": 10.1,
+          "end": 10.3,
+          "key": "bin",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.3,
+          "end": 10.42,
+          "key": "in",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.42,
+          "end": 10.54,
+          "key": "his",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "shirt",
+          "start": 10.54,
+          "end": 10.74,
+          "key": "shirt",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "sleeves",
+          "start": 10.74,
+          "end": 11.02,
+          "key": "sleeves",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "watching",
+          "start": 11.02,
+          "end": 11.38,
+          "key": "watching",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.64,
+          "key": "the",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "apron",
+          "start": 11.64,
+          "end": 11.92,
+          "key": "apron",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "curate",
+          "start": 11.92,
+          "end": 12.4,
+          "key": "curate",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "swab",
+          "start": 12.4,
+          "end": 12.68,
+          "key": "swab",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 12.68,
+          "end": 12.82,
+          "key": "up",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.82,
+          "end": 12.96,
+          "key": "with",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "mop",
+          "start": 12.96,
+          "end": 13.28,
+          "key": "mop",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 13.28,
+          "end": 13.44,
+          "key": "and",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "bucket",
+          "start": 13.44,
+          "end": 13.98,
+          "key": "bucket",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Simon",
+          "start": 13.98,
+          "end": 14.7,
+          "key": "simon",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 14.7,
+          "end": 15.18,
+          "key": "dedalus",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "takes",
+          "start": 15.18,
+          "end": 15.46,
+          "key": "takes",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 15.46,
+          "end": 15.62,
+          "key": "him",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 15.62,
+          "end": 15.78,
+          "key": "off",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.78,
+          "end": 15.92,
+          "key": "to",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.92,
+          "end": 16.02,
+          "key": "a",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "tee",
+          "start": 16.02,
+          "end": 16.22,
+          "key": "tee",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.22,
+          "end": 16.38,
+          "key": "with",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 16.38,
+          "end": 16.52,
+          "key": "his",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 16.52,
+          "end": 16.82,
+          "key": "eyes",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "screwed",
+          "start": 16.82,
+          "end": 17.2,
+          "key": "screwed",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 17.2,
+          "end": 17.52,
+          "key": "up",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 17.54,
+          "end": 18.02,
+          "key": "do",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 18.02,
+          "end": 18.08,
+          "key": "you",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 18.08,
+          "end": 18.2,
+          "key": "know",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 18.2,
+          "end": 18.32,
+          "key": "what",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 18.32,
+          "end": 18.46,
+          "key": "im",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 18.46,
+          "end": 18.56,
+          "key": "going",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.56,
+          "end": 18.7,
+          "key": "to",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 18.7,
+          "end": 18.88,
+          "key": "tell",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 18.88,
+          "end": 19.22,
+          "key": "you",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 19.28,
+          "end": 19.76,
+          "key": "whats",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 19.76,
+          "end": 20.0,
+          "key": "that",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 20.0,
+          "end": 20.3,
+          "key": "mr",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 20.38,
+          "end": 20.44,
+          "key": "o",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "'Rourke?",
+          "start": 20.44,
+          "end": 20.7,
+          "key": "rourke",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 20.84,
+          "end": 21.16,
+          "key": "do",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 21.16,
+          "end": 21.24,
+          "key": "you",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 21.24,
+          "end": 21.38,
+          "key": "know",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 21.38,
+          "end": 21.64,
+          "key": "what",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.64,
+          "end": 22.28,
+          "key": "the",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Russians",
+          "start": 22.28,
+          "end": 22.62,
+          "key": "russians",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "they'd",
+          "start": 22.62,
+          "end": 23.16,
+          "key": "theyd",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 23.16,
+          "end": 23.34,
+          "key": "only",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 23.34,
+          "end": 23.56,
+          "key": "be",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 23.56,
+          "end": 23.7,
+          "key": "an",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "8",
+          "start": 23.7,
+          "end": 23.9,
+          "key": "eight",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 23.9,
+          "end": 24.16,
+          "key": "o",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 24.16,
+          "end": 24.28,
+          "key": "clock",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "breakfast",
+          "start": 24.28,
+          "end": 24.66,
+          "key": "breakfast",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 24.66,
+          "end": 24.9,
+          "key": "for",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.04,
+          "key": "the",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "Japanese?",
+          "start": 25.04,
+          "end": 25.44,
+          "key": "japanese",
+          "pieces": [
+            91
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Baldhead",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "over",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "blind.",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "Cute",
+          "start": 1.46,
+          "end": 2.06
+        },
+        {
+          "text": "old",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "text": "codger.",
+          "start": 2.3,
+          "end": 2.51
+        },
+        {
+          "text": "No",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "text": "use",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "canvassing",
+          "start": 3.36,
+          "end": 3.82
+        },
+        {
+          "text": "him",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "for",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "an",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "ad.",
+          "start": 4.3,
+          "end": 4.6
+        },
+        {
+          "text": "Still",
+          "start": 4.6,
+          "end": 5.12
+        },
+        {
+          "text": "he",
+          "start": 5.12,
+          "end": 5.32
+        },
+        {
+          "text": "knows",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "text": "his",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "text": "own",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "text": "business",
+          "start": 5.92,
+          "end": 6.28
+        },
+        {
+          "text": "best.",
+          "start": 6.28,
+          "end": 6.82
+        },
+        {
+          "text": "There",
+          "start": 6.82,
+          "end": 7.36
+        },
+        {
+          "text": "he",
+          "start": 7.36,
+          "end": 7.52
+        },
+        {
+          "text": "is,",
+          "start": 7.52,
+          "end": 7.78
+        },
+        {
+          "text": "sure",
+          "start": 7.78,
+          "end": 8.04
+        },
+        {
+          "text": "enough,",
+          "start": 8.04,
+          "end": 8.28
+        },
+        {
+          "text": "my",
+          "start": 8.28,
+          "end": 8.48
+        },
+        {
+          "text": "bold",
+          "start": 8.48,
+          "end": 8.78
+        },
+        {
+          "text": "Larry,",
+          "start": 8.78,
+          "end": 9.04
+        },
+        {
+          "text": "leaning",
+          "start": 9.04,
+          "end": 9.38
+        },
+        {
+          "text": "against",
+          "start": 9.38,
+          "end": 9.66
+        },
+        {
+          "text": "the",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "text": "sugarbin",
+          "start": 9.86,
+          "end": 10.08
+        },
+        {
+          "text": "in",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "text": "his",
+          "start": 10.42,
+          "end": 10.54
+        },
+        {
+          "text": "shirtsleeves",
+          "start": 10.54,
+          "end": 10.78
+        },
+        {
+          "text": "watching",
+          "start": 11.02,
+          "end": 11.38
+        },
+        {
+          "text": "the",
+          "start": 11.38,
+          "end": 11.64
+        },
+        {
+          "text": "aproned",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "text": "curate",
+          "start": 11.92,
+          "end": 12.4
+        },
+        {
+          "text": "swab",
+          "start": 12.4,
+          "end": 12.68
+        },
+        {
+          "text": "up",
+          "start": 12.68,
+          "end": 12.82
+        },
+        {
+          "text": "with",
+          "start": 12.82,
+          "end": 12.96
+        },
+        {
+          "text": "mop",
+          "start": 12.96,
+          "end": 13.28
+        },
+        {
+          "text": "and",
+          "start": 13.28,
+          "end": 13.44
+        },
+        {
+          "text": "bucket.",
+          "start": 13.44,
+          "end": 13.98
+        },
+        {
+          "text": "Simon",
+          "start": 13.98,
+          "end": 14.7
+        },
+        {
+          "text": "Dedalus",
+          "start": 14.7,
+          "end": 15.18
+        },
+        {
+          "text": "takes",
+          "start": 15.18,
+          "end": 15.46
+        },
+        {
+          "text": "him",
+          "start": 15.46,
+          "end": 15.62
+        },
+        {
+          "text": "off",
+          "start": 15.62,
+          "end": 15.78
+        },
+        {
+          "text": "to",
+          "start": 15.78,
+          "end": 15.92
+        },
+        {
+          "text": "a",
+          "start": 15.92,
+          "end": 16.02
+        },
+        {
+          "text": "tee",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "text": "with",
+          "start": 16.22,
+          "end": 16.38
+        },
+        {
+          "text": "his",
+          "start": 16.38,
+          "end": 16.52
+        },
+        {
+          "text": "eyes",
+          "start": 16.52,
+          "end": 16.82
+        },
+        {
+          "text": "screwed",
+          "start": 16.82,
+          "end": 17.2
+        },
+        {
+          "text": "up.",
+          "start": 17.2,
+          "end": 17.52
+        },
+        {
+          "text": "Do",
+          "start": 17.54,
+          "end": 18.02
+        },
+        {
+          "text": "you",
+          "start": 18.02,
+          "end": 18.08
+        },
+        {
+          "text": "know",
+          "start": 18.08,
+          "end": 18.2
+        },
+        {
+          "text": "what",
+          "start": 18.2,
+          "end": 18.32
+        },
+        {
+          "text": "I'm",
+          "start": 18.32,
+          "end": 18.46
+        },
+        {
+          "text": "going",
+          "start": 18.46,
+          "end": 18.56
+        },
+        {
+          "text": "to",
+          "start": 18.56,
+          "end": 18.7
+        },
+        {
+          "text": "tell",
+          "start": 18.7,
+          "end": 18.88
+        },
+        {
+          "text": "you?",
+          "start": 18.88,
+          "end": 19.22
+        },
+        {
+          "text": "What's",
+          "start": 19.28,
+          "end": 19.76
+        },
+        {
+          "text": "that,",
+          "start": 19.76,
+          "end": 20.0
+        },
+        {
+          "text": "Mr",
+          "start": 20.0,
+          "end": 20.3
+        },
+        {
+          "text": "O'Rourke?",
+          "start": 20.3,
+          "end": 20.57
+        },
+        {
+          "text": "Do",
+          "start": 20.84,
+          "end": 21.16
+        },
+        {
+          "text": "you",
+          "start": 21.16,
+          "end": 21.24
+        },
+        {
+          "text": "know",
+          "start": 21.24,
+          "end": 21.38
+        },
+        {
+          "text": "what?",
+          "start": 21.38,
+          "end": 21.64
+        },
+        {
+          "text": "The",
+          "start": 21.64,
+          "end": 22.28
+        },
+        {
+          "text": "Russians,",
+          "start": 22.28,
+          "end": 22.62
+        },
+        {
+          "text": "they'd",
+          "start": 22.62,
+          "end": 23.16
+        },
+        {
+          "text": "only",
+          "start": 23.16,
+          "end": 23.34
+        },
+        {
+          "text": "be",
+          "start": 23.34,
+          "end": 23.56
+        },
+        {
+          "text": "an",
+          "start": 23.56,
+          "end": 23.7
+        },
+        {
+          "text": "eight",
+          "start": 23.7,
+          "end": 23.9
+        },
+        {
+          "text": "o'clock",
+          "start": 23.9,
+          "end": 24.09
+        },
+        {
+          "text": "breakfast",
+          "start": 24.28,
+          "end": 24.66
+        },
+        {
+          "text": "for",
+          "start": 24.66,
+          "end": 24.9
+        },
+        {
+          "text": "the",
+          "start": 24.9,
+          "end": 25.04
+        },
+        {
+          "text": "Japanese.",
+          "start": 25.04,
+          "end": 25.44
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 92,
+        "matched_words": 82
+      },
+      "match_ratio": 0.9318181818181818,
+      "rejection_reasons": [],
+      "seconds": 0.9731461800110992
+    },
+    {
+      "asr_seconds": 0.8907590829767287,
+      "alignment_seconds": 0.0014223290199879557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bald head over the blind cute old codger no use canvassing him for an ad still he knows his own business best",
+          "start": 0.08,
+          "end": 6.82,
+          "words": [
+            {
+              "text": " Bald",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " head",
+              "start": 0.62,
+              "end": 0.78,
+              "probability": 0.86328125
+            },
+            {
+              "text": " over",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " blind",
+              "start": 1.1,
+              "end": 1.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cute",
+              "start": 1.48,
+              "end": 2.06,
+              "probability": 0.31396484375
+            },
+            {
+              "text": " old",
+              "start": 2.06,
+              "end": 2.3,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " codger",
+              "start": 2.3,
+              "end": 2.72,
+              "probability": 0.6807861328125
+            },
+            {
+              "text": " no",
+              "start": 2.72,
+              "end": 3.14,
+              "probability": 0.64697265625
+            },
+            {
+              "text": " use",
+              "start": 3.14,
+              "end": 3.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " canvassing",
+              "start": 3.36,
+              "end": 3.82,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " him",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ad",
+              "start": 4.3,
+              "end": 4.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " still",
+              "start": 4.6,
+              "end": 5.12,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " he",
+              "start": 5.12,
+              "end": 5.32,
+              "probability": 0.576171875
+            },
+            {
+              "text": " knows",
+              "start": 5.32,
+              "end": 5.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 5.5,
+              "end": 5.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " own",
+              "start": 5.7,
+              "end": 5.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " business",
+              "start": 5.92,
+              "end": 6.28,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " best",
+              "start": 6.28,
+              "end": 6.82,
+              "probability": 0.92431640625
+            }
+          ]
+        },
+        {
+          "text": " There he is sure enough my bold Larry leaning against the sugar bin in his shirt sleeves watching the apron curate swab up with mop",
+          "start": 6.82,
+          "end": 13.28,
+          "words": [
+            {
+              "text": " There",
+              "start": 6.82,
+              "end": 7.36,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " he",
+              "start": 7.36,
+              "end": 7.52,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " is",
+              "start": 7.52,
+              "end": 7.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sure",
+              "start": 7.78,
+              "end": 8.04,
+              "probability": 0.72265625
+            },
+            {
+              "text": " enough",
+              "start": 8.04,
+              "end": 8.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 8.28,
+              "end": 8.48,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " bold",
+              "start": 8.48,
+              "end": 8.78,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Larry",
+              "start": 8.78,
+              "end": 9.04,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " leaning",
+              "start": 9.04,
+              "end": 9.38,
+              "probability": 0.984375
+            },
+            {
+              "text": " against",
+              "start": 9.38,
+              "end": 9.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 9.66,
+              "end": 9.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sugar",
+              "start": 9.86,
+              "end": 10.1,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " bin",
+              "start": 10.1,
+              "end": 10.3,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " in",
+              "start": 10.3,
+              "end": 10.42,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " his",
+              "start": 10.42,
+              "end": 10.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shirt",
+              "start": 10.54,
+              "end": 10.74,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " sleeves",
+              "start": 10.74,
+              "end": 11.0,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " watching",
+              "start": 11.0,
+              "end": 11.38,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " the",
+              "start": 11.38,
+              "end": 11.64,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " apron",
+              "start": 11.64,
+              "end": 11.92,
+              "probability": 0.951171875
+            },
+            {
+              "text": " curate",
+              "start": 11.92,
+              "end": 12.4,
+              "probability": 0.744384765625
+            },
+            {
+              "text": " swab",
+              "start": 12.4,
+              "end": 12.68,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " up",
+              "start": 12.68,
+              "end": 12.82,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " with",
+              "start": 12.82,
+              "end": 12.96,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " mop",
+              "start": 12.96,
+              "end": 13.28,
+              "probability": 0.97265625
+            }
+          ]
+        },
+        {
+          "text": " And bucket Simon dead Alice takes him off to a tee with his eyes screwed up. Do you know what I'm going to tell you?",
+          "start": 13.28,
+          "end": 19.22,
+          "words": [
+            {
+              "text": " And",
+              "start": 13.28,
+              "end": 13.44,
+              "probability": 0.01271820068359375
+            },
+            {
+              "text": " bucket",
+              "start": 13.44,
+              "end": 13.98,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Simon",
+              "start": 13.98,
+              "end": 14.7,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " dead",
+              "start": 14.7,
+              "end": 14.96,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " Alice",
+              "start": 14.96,
+              "end": 15.2,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " takes",
+              "start": 15.2,
+              "end": 15.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him",
+              "start": 15.46,
+              "end": 15.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " off",
+              "start": 15.62,
+              "end": 15.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 15.78,
+              "end": 15.92,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 15.92,
+              "end": 16.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " tee",
+              "start": 16.02,
+              "end": 16.22,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " with",
+              "start": 16.22,
+              "end": 16.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 16.38,
+              "end": 16.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " eyes",
+              "start": 16.52,
+              "end": 16.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " screwed",
+              "start": 16.82,
+              "end": 17.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up.",
+              "start": 17.2,
+              "end": 17.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Do",
+              "start": 17.54,
+              "end": 18.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 18.02,
+              "end": 18.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " know",
+              "start": 18.08,
+              "end": 18.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 18.2,
+              "end": 18.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I'm",
+              "start": 18.32,
+              "end": 18.46,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " going",
+              "start": 18.46,
+              "end": 18.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 18.56,
+              "end": 18.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tell",
+              "start": 18.7,
+              "end": 18.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you?",
+              "start": 18.88,
+              "end": 19.22,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " What's that? Mr. O'Rourke? Do you know what the Russians they'd only be an 8 o'clock breakfast for the Japanese?",
+          "start": 19.28,
+          "end": 25.44,
+          "words": [
+            {
+              "text": " What's",
+              "start": 19.28,
+              "end": 19.76,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " that?",
+              "start": 19.76,
+              "end": 20.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Mr.",
+              "start": 20.0,
+              "end": 20.3,
+              "probability": 0.95703125
+            },
+            {
+              "text": " O",
+              "start": 20.36,
+              "end": 20.44,
+              "probability": 0.5048828125
+            },
+            {
+              "text": "'Rourke?",
+              "start": 20.44,
+              "end": 20.7,
+              "probability": 0.8860677083333334
+            },
+            {
+              "text": " Do",
+              "start": 20.84,
+              "end": 21.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " you",
+              "start": 21.16,
+              "end": 21.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " know",
+              "start": 21.24,
+              "end": 21.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " what",
+              "start": 21.38,
+              "end": 21.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 21.64,
+              "end": 22.28,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " Russians",
+              "start": 22.28,
+              "end": 22.62,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " they'd",
+              "start": 22.62,
+              "end": 23.16,
+              "probability": 0.87109375
+            },
+            {
+              "text": " only",
+              "start": 23.16,
+              "end": 23.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 23.34,
+              "end": 23.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " an",
+              "start": 23.56,
+              "end": 23.7,
+              "probability": 0.974609375
+            },
+            {
+              "text": " 8",
+              "start": 23.7,
+              "end": 23.9,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " o",
+              "start": 23.9,
+              "end": 24.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "'clock",
+              "start": 24.16,
+              "end": 24.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " breakfast",
+              "start": 24.28,
+              "end": 24.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 24.66,
+              "end": 24.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 24.9,
+              "end": 25.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Japanese?",
+              "start": 25.04,
+              "end": 25.44,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bald",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "head",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "raw": "over",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "blind",
+          "start": 1.1,
+          "end": 1.48
+        },
+        {
+          "raw": "cute",
+          "start": 1.48,
+          "end": 2.06
+        },
+        {
+          "raw": "old",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "raw": "codger",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "raw": "no",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "raw": "use",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "raw": "canvassing",
+          "start": 3.36,
+          "end": 3.82
+        },
+        {
+          "raw": "him",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "for",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "an",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "ad",
+          "start": 4.3,
+          "end": 4.6
+        },
+        {
+          "raw": "still",
+          "start": 4.6,
+          "end": 5.12
+        },
+        {
+          "raw": "he",
+          "start": 5.12,
+          "end": 5.32
+        },
+        {
+          "raw": "knows",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "raw": "his",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "raw": "own",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "raw": "business",
+          "start": 5.92,
+          "end": 6.28
+        },
+        {
+          "raw": "best",
+          "start": 6.28,
+          "end": 6.82
+        },
+        {
+          "raw": "There",
+          "start": 6.82,
+          "end": 7.36
+        },
+        {
+          "raw": "he",
+          "start": 7.36,
+          "end": 7.52
+        },
+        {
+          "raw": "is",
+          "start": 7.52,
+          "end": 7.78
+        },
+        {
+          "raw": "sure",
+          "start": 7.78,
+          "end": 8.04
+        },
+        {
+          "raw": "enough",
+          "start": 8.04,
+          "end": 8.28
+        },
+        {
+          "raw": "my",
+          "start": 8.28,
+          "end": 8.48
+        },
+        {
+          "raw": "bold",
+          "start": 8.48,
+          "end": 8.78
+        },
+        {
+          "raw": "Larry",
+          "start": 8.78,
+          "end": 9.04
+        },
+        {
+          "raw": "leaning",
+          "start": 9.04,
+          "end": 9.38
+        },
+        {
+          "raw": "against",
+          "start": 9.38,
+          "end": 9.66
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "raw": "sugar",
+          "start": 9.86,
+          "end": 10.1
+        },
+        {
+          "raw": "bin",
+          "start": 10.1,
+          "end": 10.3
+        },
+        {
+          "raw": "in",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "raw": "his",
+          "start": 10.42,
+          "end": 10.54
+        },
+        {
+          "raw": "shirt",
+          "start": 10.54,
+          "end": 10.74
+        },
+        {
+          "raw": "sleeves",
+          "start": 10.74,
+          "end": 11.0
+        },
+        {
+          "raw": "watching",
+          "start": 11.0,
+          "end": 11.38
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.64
+        },
+        {
+          "raw": "apron",
+          "start": 11.64,
+          "end": 11.92
+        },
+        {
+          "raw": "curate",
+          "start": 11.92,
+          "end": 12.4
+        },
+        {
+          "raw": "swab",
+          "start": 12.4,
+          "end": 12.68
+        },
+        {
+          "raw": "up",
+          "start": 12.68,
+          "end": 12.82
+        },
+        {
+          "raw": "with",
+          "start": 12.82,
+          "end": 12.96
+        },
+        {
+          "raw": "mop",
+          "start": 12.96,
+          "end": 13.28
+        },
+        {
+          "raw": "And",
+          "start": 13.28,
+          "end": 13.44
+        },
+        {
+          "raw": "bucket",
+          "start": 13.44,
+          "end": 13.98
+        },
+        {
+          "raw": "Simon",
+          "start": 13.98,
+          "end": 14.7
+        },
+        {
+          "raw": "dead",
+          "start": 14.7,
+          "end": 14.96
+        },
+        {
+          "raw": "Alice",
+          "start": 14.96,
+          "end": 15.2
+        },
+        {
+          "raw": "takes",
+          "start": 15.2,
+          "end": 15.46
+        },
+        {
+          "raw": "him",
+          "start": 15.46,
+          "end": 15.62
+        },
+        {
+          "raw": "off",
+          "start": 15.62,
+          "end": 15.78
+        },
+        {
+          "raw": "to",
+          "start": 15.78,
+          "end": 15.92
+        },
+        {
+          "raw": "a",
+          "start": 15.92,
+          "end": 16.02
+        },
+        {
+          "raw": "tee",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "raw": "with",
+          "start": 16.22,
+          "end": 16.38
+        },
+        {
+          "raw": "his",
+          "start": 16.38,
+          "end": 16.52
+        },
+        {
+          "raw": "eyes",
+          "start": 16.52,
+          "end": 16.82
+        },
+        {
+          "raw": "screwed",
+          "start": 16.82,
+          "end": 17.2
+        },
+        {
+          "raw": "up.",
+          "start": 17.2,
+          "end": 17.52
+        },
+        {
+          "raw": "Do",
+          "start": 17.54,
+          "end": 18.02
+        },
+        {
+          "raw": "you",
+          "start": 18.02,
+          "end": 18.08
+        },
+        {
+          "raw": "know",
+          "start": 18.08,
+          "end": 18.2
+        },
+        {
+          "raw": "what",
+          "start": 18.2,
+          "end": 18.32
+        },
+        {
+          "raw": "I'm",
+          "start": 18.32,
+          "end": 18.46
+        },
+        {
+          "raw": "going",
+          "start": 18.46,
+          "end": 18.56
+        },
+        {
+          "raw": "to",
+          "start": 18.56,
+          "end": 18.7
+        },
+        {
+          "raw": "tell",
+          "start": 18.7,
+          "end": 18.88
+        },
+        {
+          "raw": "you?",
+          "start": 18.88,
+          "end": 19.22
+        },
+        {
+          "raw": "What's",
+          "start": 19.28,
+          "end": 19.76
+        },
+        {
+          "raw": "that?",
+          "start": 19.76,
+          "end": 20.0
+        },
+        {
+          "raw": "Mr.",
+          "start": 20.0,
+          "end": 20.3
+        },
+        {
+          "raw": "O",
+          "start": 20.36,
+          "end": 20.44
+        },
+        {
+          "raw": "'Rourke?",
+          "start": 20.44,
+          "end": 20.7
+        },
+        {
+          "raw": "Do",
+          "start": 20.84,
+          "end": 21.16
+        },
+        {
+          "raw": "you",
+          "start": 21.16,
+          "end": 21.24
+        },
+        {
+          "raw": "know",
+          "start": 21.24,
+          "end": 21.38
+        },
+        {
+          "raw": "what",
+          "start": 21.38,
+          "end": 21.64
+        },
+        {
+          "raw": "the",
+          "start": 21.64,
+          "end": 22.28
+        },
+        {
+          "raw": "Russians",
+          "start": 22.28,
+          "end": 22.62
+        },
+        {
+          "raw": "they'd",
+          "start": 22.62,
+          "end": 23.16
+        },
+        {
+          "raw": "only",
+          "start": 23.16,
+          "end": 23.34
+        },
+        {
+          "raw": "be",
+          "start": 23.34,
+          "end": 23.56
+        },
+        {
+          "raw": "an",
+          "start": 23.56,
+          "end": 23.7
+        },
+        {
+          "raw": "8",
+          "start": 23.7,
+          "end": 23.9
+        },
+        {
+          "raw": "o",
+          "start": 23.9,
+          "end": 24.16
+        },
+        {
+          "raw": "'clock",
+          "start": 24.16,
+          "end": 24.28
+        },
+        {
+          "raw": "breakfast",
+          "start": 24.28,
+          "end": 24.66
+        },
+        {
+          "raw": "for",
+          "start": 24.66,
+          "end": 24.9
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.04
+        },
+        {
+          "raw": "Japanese?",
+          "start": 25.04,
+          "end": 25.44
+        }
+      ],
+      "expected_tokens": [
+        "Baldhead",
+        "over",
+        "the",
+        "blind.",
+        "Cute",
+        "old",
+        "codger.",
+        "No",
+        "use",
+        "canvassing",
+        "him",
+        "for",
+        "an",
+        "ad.",
+        "Still",
+        "he",
+        "knows",
+        "his",
+        "own",
+        "business",
+        "best.",
+        "There",
+        "he",
+        "is,",
+        "sure",
+        "enough,",
+        "my",
+        "bold",
+        "Larry,",
+        "leaning",
+        "against",
+        "the",
+        "sugarbin",
+        "in",
+        "his",
+        "shirtsleeves",
+        "watching",
+        "the",
+        "aproned",
+        "curate",
+        "swab",
+        "up",
+        "with",
+        "mop",
+        "and",
+        "bucket.",
+        "Simon",
+        "Dedalus",
+        "takes",
+        "him",
+        "off",
+        "to",
+        "a",
+        "tee",
+        "with",
+        "his",
+        "eyes",
+        "screwed",
+        "up.",
+        "Do",
+        "you",
+        "know",
+        "what",
+        "I'm",
+        "going",
+        "to",
+        "tell",
+        "you?",
+        "What's",
+        "that,",
+        "Mr",
+        "O'Rourke?",
+        "Do",
+        "you",
+        "know",
+        "what?",
+        "The",
+        "Russians,",
+        "they'd",
+        "only",
+        "be",
+        "an",
+        "eight",
+        "o'clock",
+        "breakfast",
+        "for",
+        "the",
+        "Japanese."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          32,
+          2,
+          33
+        ],
+        [
+          "replace",
+          32,
+          33,
+          33,
+          35
+        ],
+        [
+          "equal",
+          33,
+          35,
+          35,
+          37
+        ],
+        [
+          "replace",
+          35,
+          36,
+          37,
+          39
+        ],
+        [
+          "equal",
+          36,
+          38,
+          39,
+          41
+        ],
+        [
+          "replace",
+          38,
+          39,
+          41,
+          42
+        ],
+        [
+          "equal",
+          39,
+          47,
+          42,
+          50
+        ],
+        [
+          "replace",
+          47,
+          48,
+          50,
+          52
+        ],
+        [
+          "equal",
+          48,
+          71,
+          52,
+          75
+        ],
+        [
+          "replace",
+          71,
+          72,
+          75,
+          77
+        ],
+        [
+          "equal",
+          72,
+          83,
+          77,
+          88
+        ],
+        [
+          "replace",
+          83,
+          84,
+          88,
+          90
+        ],
+        [
+          "equal",
+          84,
+          88,
+          90,
+          94
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 93
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          32,
+          33,
+          33,
+          35
+        ],
+        [
+          "replace",
+          35,
+          36,
+          37,
+          39
+        ],
+        [
+          "replace",
+          38,
+          39,
+          41,
+          42
+        ],
+        [
+          "replace",
+          47,
+          48,
+          50,
+          52
+        ],
+        [
+          "replace",
+          71,
+          72,
+          75,
+          77
+        ],
+        [
+          "replace",
+          83,
+          84,
+          88,
+          90
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bald",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "bald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 0.62,
+          "end": 0.78,
+          "key": "head",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 0.78,
+          "end": 0.96,
+          "key": "over",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.1,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "blind",
+          "start": 1.1,
+          "end": 1.48,
+          "key": "blind",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cute",
+          "start": 1.48,
+          "end": 2.06,
+          "key": "cute",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 2.06,
+          "end": 2.3,
+          "key": "old",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "codger",
+          "start": 2.3,
+          "end": 2.72,
+          "key": "codger",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.72,
+          "end": 3.14,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 3.14,
+          "end": 3.36,
+          "key": "use",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "canvassing",
+          "start": 3.36,
+          "end": 3.82,
+          "key": "canvassing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 4.2,
+          "end": 4.3,
+          "key": "an",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "ad",
+          "start": 4.3,
+          "end": 4.6,
+          "key": "ad",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 4.6,
+          "end": 5.12,
+          "key": "still",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.12,
+          "end": 5.32,
+          "key": "he",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 5.32,
+          "end": 5.5,
+          "key": "knows",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.5,
+          "end": 5.7,
+          "key": "his",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 5.7,
+          "end": 5.92,
+          "key": "own",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "business",
+          "start": 5.92,
+          "end": 6.28,
+          "key": "business",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 6.28,
+          "end": 6.82,
+          "key": "best",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 6.82,
+          "end": 7.36,
+          "key": "there",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.36,
+          "end": 7.52,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.52,
+          "end": 7.78,
+          "key": "is",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 7.78,
+          "end": 8.04,
+          "key": "sure",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 8.04,
+          "end": 8.28,
+          "key": "enough",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.28,
+          "end": 8.48,
+          "key": "my",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "bold",
+          "start": 8.48,
+          "end": 8.78,
+          "key": "bold",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Larry",
+          "start": 8.78,
+          "end": 9.04,
+          "key": "larry",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "leaning",
+          "start": 9.04,
+          "end": 9.38,
+          "key": "leaning",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 9.38,
+          "end": 9.66,
+          "key": "against",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.66,
+          "end": 9.86,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "sugar",
+          "start": 9.86,
+          "end": 10.1,
+          "key": "sugar",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "bin",
+          "start": 10.1,
+          "end": 10.3,
+          "key": "bin",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.3,
+          "end": 10.42,
+          "key": "in",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.42,
+          "end": 10.54,
+          "key": "his",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "shirt",
+          "start": 10.54,
+          "end": 10.74,
+          "key": "shirt",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "sleeves",
+          "start": 10.74,
+          "end": 11.0,
+          "key": "sleeves",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "watching",
+          "start": 11.0,
+          "end": 11.38,
+          "key": "watching",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 11.38,
+          "end": 11.64,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "apron",
+          "start": 11.64,
+          "end": 11.92,
+          "key": "apron",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "curate",
+          "start": 11.92,
+          "end": 12.4,
+          "key": "curate",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "swab",
+          "start": 12.4,
+          "end": 12.68,
+          "key": "swab",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 12.68,
+          "end": 12.82,
+          "key": "up",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 12.82,
+          "end": 12.96,
+          "key": "with",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "mop",
+          "start": 12.96,
+          "end": 13.28,
+          "key": "mop",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 13.28,
+          "end": 13.44,
+          "key": "and",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "bucket",
+          "start": 13.44,
+          "end": 13.98,
+          "key": "bucket",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Simon",
+          "start": 13.98,
+          "end": 14.7,
+          "key": "simon",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 14.7,
+          "end": 14.96,
+          "key": "dead",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Alice",
+          "start": 14.96,
+          "end": 15.2,
+          "key": "alice",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "takes",
+          "start": 15.2,
+          "end": 15.46,
+          "key": "takes",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 15.46,
+          "end": 15.62,
+          "key": "him",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 15.62,
+          "end": 15.78,
+          "key": "off",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.78,
+          "end": 15.92,
+          "key": "to",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.92,
+          "end": 16.02,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "tee",
+          "start": 16.02,
+          "end": 16.22,
+          "key": "tee",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 16.22,
+          "end": 16.38,
+          "key": "with",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 16.38,
+          "end": 16.52,
+          "key": "his",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 16.52,
+          "end": 16.82,
+          "key": "eyes",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "screwed",
+          "start": 16.82,
+          "end": 17.2,
+          "key": "screwed",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "up.",
+          "start": 17.2,
+          "end": 17.52,
+          "key": "up",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 17.54,
+          "end": 18.02,
+          "key": "do",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 18.02,
+          "end": 18.08,
+          "key": "you",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 18.08,
+          "end": 18.2,
+          "key": "know",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 18.2,
+          "end": 18.32,
+          "key": "what",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 18.32,
+          "end": 18.46,
+          "key": "im",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 18.46,
+          "end": 18.56,
+          "key": "going",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 18.56,
+          "end": 18.7,
+          "key": "to",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 18.7,
+          "end": 18.88,
+          "key": "tell",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 18.88,
+          "end": 19.22,
+          "key": "you",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 19.28,
+          "end": 19.76,
+          "key": "whats",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 19.76,
+          "end": 20.0,
+          "key": "that",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 20.0,
+          "end": 20.3,
+          "key": "mr",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 20.36,
+          "end": 20.44,
+          "key": "o",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "'Rourke?",
+          "start": 20.44,
+          "end": 20.7,
+          "key": "rourke",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 20.84,
+          "end": 21.16,
+          "key": "do",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 21.16,
+          "end": 21.24,
+          "key": "you",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 21.24,
+          "end": 21.38,
+          "key": "know",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 21.38,
+          "end": 21.64,
+          "key": "what",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.64,
+          "end": 22.28,
+          "key": "the",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "Russians",
+          "start": 22.28,
+          "end": 22.62,
+          "key": "russians",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "they'd",
+          "start": 22.62,
+          "end": 23.16,
+          "key": "theyd",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 23.16,
+          "end": 23.34,
+          "key": "only",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 23.34,
+          "end": 23.56,
+          "key": "be",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 23.56,
+          "end": 23.7,
+          "key": "an",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "8",
+          "start": 23.7,
+          "end": 23.9,
+          "key": "eight",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 23.9,
+          "end": 24.16,
+          "key": "o",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "'clock",
+          "start": 24.16,
+          "end": 24.28,
+          "key": "clock",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "breakfast",
+          "start": 24.28,
+          "end": 24.66,
+          "key": "breakfast",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 24.66,
+          "end": 24.9,
+          "key": "for",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 24.9,
+          "end": 25.04,
+          "key": "the",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "Japanese?",
+          "start": 25.04,
+          "end": 25.44,
+          "key": "japanese",
+          "pieces": [
+            93
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Baldhead",
+          "start": 0.0,
+          "end": 0.39
+        },
+        {
+          "text": "over",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "blind.",
+          "start": 1.1,
+          "end": 1.48
+        },
+        {
+          "text": "Cute",
+          "start": 1.48,
+          "end": 2.06
+        },
+        {
+          "text": "old",
+          "start": 2.06,
+          "end": 2.3
+        },
+        {
+          "text": "codger.",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "text": "No",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "text": "use",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "canvassing",
+          "start": 3.36,
+          "end": 3.82
+        },
+        {
+          "text": "him",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "for",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "an",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "ad.",
+          "start": 4.3,
+          "end": 4.6
+        },
+        {
+          "text": "Still",
+          "start": 4.6,
+          "end": 5.12
+        },
+        {
+          "text": "he",
+          "start": 5.12,
+          "end": 5.32
+        },
+        {
+          "text": "knows",
+          "start": 5.32,
+          "end": 5.5
+        },
+        {
+          "text": "his",
+          "start": 5.5,
+          "end": 5.7
+        },
+        {
+          "text": "own",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "text": "business",
+          "start": 5.92,
+          "end": 6.28
+        },
+        {
+          "text": "best.",
+          "start": 6.28,
+          "end": 6.82
+        },
+        {
+          "text": "There",
+          "start": 6.82,
+          "end": 7.36
+        },
+        {
+          "text": "he",
+          "start": 7.36,
+          "end": 7.52
+        },
+        {
+          "text": "is,",
+          "start": 7.52,
+          "end": 7.78
+        },
+        {
+          "text": "sure",
+          "start": 7.78,
+          "end": 8.04
+        },
+        {
+          "text": "enough,",
+          "start": 8.04,
+          "end": 8.28
+        },
+        {
+          "text": "my",
+          "start": 8.28,
+          "end": 8.48
+        },
+        {
+          "text": "bold",
+          "start": 8.48,
+          "end": 8.78
+        },
+        {
+          "text": "Larry,",
+          "start": 8.78,
+          "end": 9.04
+        },
+        {
+          "text": "leaning",
+          "start": 9.04,
+          "end": 9.38
+        },
+        {
+          "text": "against",
+          "start": 9.38,
+          "end": 9.66
+        },
+        {
+          "text": "the",
+          "start": 9.66,
+          "end": 9.86
+        },
+        {
+          "text": "sugarbin",
+          "start": 9.86,
+          "end": 10.08
+        },
+        {
+          "text": "in",
+          "start": 10.3,
+          "end": 10.42
+        },
+        {
+          "text": "his",
+          "start": 10.42,
+          "end": 10.54
+        },
+        {
+          "text": "shirtsleeves",
+          "start": 10.54,
+          "end": 10.77
+        },
+        {
+          "text": "watching",
+          "start": 11.0,
+          "end": 11.38
+        },
+        {
+          "text": "the",
+          "start": 11.38,
+          "end": 11.64
+        },
+        {
+          "text": "aproned",
+          "start": 11.64,
+          "end": 11.78
+        },
+        {
+          "text": "curate",
+          "start": 11.92,
+          "end": 12.4
+        },
+        {
+          "text": "swab",
+          "start": 12.4,
+          "end": 12.68
+        },
+        {
+          "text": "up",
+          "start": 12.68,
+          "end": 12.82
+        },
+        {
+          "text": "with",
+          "start": 12.82,
+          "end": 12.96
+        },
+        {
+          "text": "mop",
+          "start": 12.96,
+          "end": 13.28
+        },
+        {
+          "text": "and",
+          "start": 13.28,
+          "end": 13.44
+        },
+        {
+          "text": "bucket.",
+          "start": 13.44,
+          "end": 13.98
+        },
+        {
+          "text": "Simon",
+          "start": 13.98,
+          "end": 14.7
+        },
+        {
+          "text": "Dedalus",
+          "start": 14.7,
+          "end": 14.95
+        },
+        {
+          "text": "takes",
+          "start": 15.2,
+          "end": 15.46
+        },
+        {
+          "text": "him",
+          "start": 15.46,
+          "end": 15.62
+        },
+        {
+          "text": "off",
+          "start": 15.62,
+          "end": 15.78
+        },
+        {
+          "text": "to",
+          "start": 15.78,
+          "end": 15.92
+        },
+        {
+          "text": "a",
+          "start": 15.92,
+          "end": 16.02
+        },
+        {
+          "text": "tee",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "text": "with",
+          "start": 16.22,
+          "end": 16.38
+        },
+        {
+          "text": "his",
+          "start": 16.38,
+          "end": 16.52
+        },
+        {
+          "text": "eyes",
+          "start": 16.52,
+          "end": 16.82
+        },
+        {
+          "text": "screwed",
+          "start": 16.82,
+          "end": 17.2
+        },
+        {
+          "text": "up.",
+          "start": 17.2,
+          "end": 17.52
+        },
+        {
+          "text": "Do",
+          "start": 17.54,
+          "end": 18.02
+        },
+        {
+          "text": "you",
+          "start": 18.02,
+          "end": 18.08
+        },
+        {
+          "text": "know",
+          "start": 18.08,
+          "end": 18.2
+        },
+        {
+          "text": "what",
+          "start": 18.2,
+          "end": 18.32
+        },
+        {
+          "text": "I'm",
+          "start": 18.32,
+          "end": 18.46
+        },
+        {
+          "text": "going",
+          "start": 18.46,
+          "end": 18.56
+        },
+        {
+          "text": "to",
+          "start": 18.56,
+          "end": 18.7
+        },
+        {
+          "text": "tell",
+          "start": 18.7,
+          "end": 18.88
+        },
+        {
+          "text": "you?",
+          "start": 18.88,
+          "end": 19.22
+        },
+        {
+          "text": "What's",
+          "start": 19.28,
+          "end": 19.76
+        },
+        {
+          "text": "that,",
+          "start": 19.76,
+          "end": 20.0
+        },
+        {
+          "text": "Mr",
+          "start": 20.0,
+          "end": 20.3
+        },
+        {
+          "text": "O'Rourke?",
+          "start": 20.3,
+          "end": 20.57
+        },
+        {
+          "text": "Do",
+          "start": 20.84,
+          "end": 21.16
+        },
+        {
+          "text": "you",
+          "start": 21.16,
+          "end": 21.24
+        },
+        {
+          "text": "know",
+          "start": 21.24,
+          "end": 21.38
+        },
+        {
+          "text": "what?",
+          "start": 21.38,
+          "end": 21.64
+        },
+        {
+          "text": "The",
+          "start": 21.64,
+          "end": 22.28
+        },
+        {
+          "text": "Russians,",
+          "start": 22.28,
+          "end": 22.62
+        },
+        {
+          "text": "they'd",
+          "start": 22.62,
+          "end": 23.16
+        },
+        {
+          "text": "only",
+          "start": 23.16,
+          "end": 23.34
+        },
+        {
+          "text": "be",
+          "start": 23.34,
+          "end": 23.56
+        },
+        {
+          "text": "an",
+          "start": 23.56,
+          "end": 23.7
+        },
+        {
+          "text": "eight",
+          "start": 23.7,
+          "end": 23.9
+        },
+        {
+          "text": "o'clock",
+          "start": 23.9,
+          "end": 24.09
+        },
+        {
+          "text": "breakfast",
+          "start": 24.28,
+          "end": 24.66
+        },
+        {
+          "text": "for",
+          "start": 24.66,
+          "end": 24.9
+        },
+        {
+          "text": "the",
+          "start": 24.9,
+          "end": 25.04
+        },
+        {
+          "text": "Japanese.",
+          "start": 25.04,
+          "end": 25.44
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 94,
+        "matched_words": 81
+      },
+      "match_ratio": 0.9204545454545454,
+      "rejection_reasons": [],
+      "seconds": 0.8927933639788534
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "998ff4d57d93bcd15603184f8d68749314fa1f4139453115f2b82889f701d37c",
+  "selected_reasons": []
+}

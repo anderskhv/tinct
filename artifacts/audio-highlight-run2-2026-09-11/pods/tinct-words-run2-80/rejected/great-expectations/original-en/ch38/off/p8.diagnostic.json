@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "837c8d744333507508a8899ee4a919018a9fd947762d4bae89276475d5c2b17f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14574816450476646,
+      "alignment_seconds": 0.0002746265381574631,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " of me.",
+          "start": 0.05,
+          "end": 0.79,
+          "words": [
+            {
+              "text": " of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.36865234375
+            },
+            {
+              "text": " me.",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.96630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "me.",
+          "start": 0.53,
+          "end": 0.79
+        }
+      ],
+      "expected_tokens": [
+        "\"Of",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "of",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "me.\"",
+          "start": 0.53,
+          "end": 0.79
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14611873589456081
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd202c81f318127553c451700721bbae52a734468ea285a412f138df738bcefb",
+  "selected_reasons": []
+}

@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "7e030267544cddd7d3df583eba34bda5fb951ddcd9fd505d2593aba4c62e5664",
+  "attempts": [
+    {
+      "asr_seconds": 0.19359140703454614,
+      "alignment_seconds": 0.0003597140312194824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Woke me up in the night, she said. Dream he had, a nightmare.",
+        "hotwords": "Woke, Dream"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Woke me up in the night, she said. Dream he had, a nightmare.",
+          "start": 0.32,
+          "end": 3.54,
+          "words": [
+            {
+              "text": " Woke",
+              "start": 0.32,
+              "end": 0.56,
+              "probability": 0.7095947265625
+            },
+            {
+              "text": " me",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " up",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 0.78,
+              "end": 0.88,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " night,",
+              "start": 0.98,
+              "end": 1.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " said.",
+              "start": 1.52,
+              "end": 1.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Dream",
+              "start": 2.42,
+              "end": 2.52,
+              "probability": 0.953125
+            },
+            {
+              "text": " he",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " had,",
+              "start": 2.76,
+              "end": 3.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.978515625
+            },
+            {
+              "text": " nightmare.",
+              "start": 3.2,
+              "end": 3.54,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Woke",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "raw": "me",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "up",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "in",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "night,",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "raw": "she",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "said.",
+          "start": 1.52,
+          "end": 1.86
+        },
+        {
+          "raw": "Dream",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "raw": "he",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "had,",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "raw": "a",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "nightmare.",
+          "start": 3.2,
+          "end": 3.54
+        }
+      ],
+      "expected_tokens": [
+        "—Woke",
+        "me",
+        "up",
+        "in",
+        "the",
+        "night,",
+        "she",
+        "said.",
+        "Dream",
+        "he",
+        "had,",
+        "a",
+        "nightmare."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Woke",
+          "start": 0.32,
+          "end": 0.56,
+          "key": "woke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.56,
+          "end": 0.68,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 0.68,
+          "end": 0.78,
+          "key": "up",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.78,
+          "end": 0.88,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.88,
+          "end": 0.98,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 0.98,
+          "end": 1.3,
+          "key": "night",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.52,
+          "end": 1.86,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Dream",
+          "start": 2.42,
+          "end": 2.52,
+          "key": "dream",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "had,",
+          "start": 2.76,
+          "end": 3.06,
+          "key": "had",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.1,
+          "end": 3.2,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "nightmare.",
+          "start": 3.2,
+          "end": 3.54,
+          "key": "nightmare",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Woke",
+          "start": 0.32,
+          "end": 0.56
+        },
+        {
+          "text": "me",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "up",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "in",
+          "start": 0.78,
+          "end": 0.88
+        },
+        {
+          "text": "the",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "text": "night,",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "text": "she",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "said.",
+          "start": 1.52,
+          "end": 1.86
+        },
+        {
+          "text": "Dream",
+          "start": 2.42,
+          "end": 2.52
+        },
+        {
+          "text": "he",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "had,",
+          "start": 2.76,
+          "end": 3.06
+        },
+        {
+          "text": "a",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "nightmare.",
+          "start": 3.2,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19413445005193353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4a8e79400aabd2d6a0b48b63cb8aa7f54aa83ebcf7c511ebbd7ce8f686ee58b",
+  "selected_reasons": []
+}

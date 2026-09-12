@@ -1,0 +1,596 @@
+{
+  "complete": true,
+  "signature": "54ddcd159b9d7981f4f585d52da5089477d0436826744c12b94f268a2ecbaf2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3057087757624686,
+      "alignment_seconds": 0.0005622608587145805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They listened tankards and Miss Kennedy George Lidwell eyelid well expressive full busted satin kernan see",
+          "start": 0.02,
+          "end": 7.56,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.908203125
+            },
+            {
+              "text": " listened",
+              "start": 0.52,
+              "end": 0.94,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " tankards",
+              "start": 0.94,
+              "end": 1.88,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " and",
+              "start": 1.88,
+              "end": 2.02,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Miss",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.68798828125
+            },
+            {
+              "text": " Kennedy",
+              "start": 2.2,
+              "end": 2.58,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " George",
+              "start": 2.58,
+              "end": 3.3,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " Lidwell",
+              "start": 3.3,
+              "end": 3.8,
+              "probability": 0.7730305989583334
+            },
+            {
+              "text": " eyelid",
+              "start": 3.8,
+              "end": 4.3,
+              "probability": 0.620849609375
+            },
+            {
+              "text": " well",
+              "start": 4.3,
+              "end": 4.5,
+              "probability": 0.9296875
+            },
+            {
+              "text": " expressive",
+              "start": 4.5,
+              "end": 4.96,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " full",
+              "start": 4.96,
+              "end": 5.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " busted",
+              "start": 5.46,
+              "end": 5.8,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " satin",
+              "start": 5.8,
+              "end": 6.62,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " kernan",
+              "start": 6.62,
+              "end": 7.24,
+              "probability": 0.6822916666666666
+            },
+            {
+              "text": " see",
+              "start": 7.24,
+              "end": 7.56,
+              "probability": 0.46435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "listened",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "raw": "tankards",
+          "start": 0.94,
+          "end": 1.88
+        },
+        {
+          "raw": "and",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "raw": "Miss",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "Kennedy",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "raw": "George",
+          "start": 2.58,
+          "end": 3.3
+        },
+        {
+          "raw": "Lidwell",
+          "start": 3.3,
+          "end": 3.8
+        },
+        {
+          "raw": "eyelid",
+          "start": 3.8,
+          "end": 4.3
+        },
+        {
+          "raw": "well",
+          "start": 4.3,
+          "end": 4.5
+        },
+        {
+          "raw": "expressive",
+          "start": 4.5,
+          "end": 4.96
+        },
+        {
+          "raw": "full",
+          "start": 4.96,
+          "end": 5.46
+        },
+        {
+          "raw": "busted",
+          "start": 5.46,
+          "end": 5.8
+        },
+        {
+          "raw": "satin",
+          "start": 5.8,
+          "end": 6.62
+        },
+        {
+          "raw": "kernan",
+          "start": 6.62,
+          "end": 7.24
+        },
+        {
+          "raw": "see",
+          "start": 7.24,
+          "end": 7.56
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "listened.",
+        "Tankards",
+        "and",
+        "miss",
+        "Kennedy.",
+        "George",
+        "Lidwell,",
+        "eyelid",
+        "well",
+        "expressive,",
+        "fullbusted",
+        "satin.",
+        "Kernan.",
+        "Si."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          14,
+          13,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "listened",
+          "start": 0.52,
+          "end": 0.94,
+          "key": "listened",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tankards",
+          "start": 0.94,
+          "end": 1.88,
+          "key": "tankards",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.88,
+          "end": 2.02,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Kennedy",
+          "start": 2.2,
+          "end": 2.58,
+          "key": "kennedy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "George",
+          "start": 2.58,
+          "end": 3.3,
+          "key": "george",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Lidwell",
+          "start": 3.3,
+          "end": 3.8,
+          "key": "lidwell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "eyelid",
+          "start": 3.8,
+          "end": 4.3,
+          "key": "eyelid",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 4.3,
+          "end": 4.5,
+          "key": "well",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "expressive",
+          "start": 4.5,
+          "end": 4.96,
+          "key": "expressive",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 4.96,
+          "end": 5.46,
+          "key": "full",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "busted",
+          "start": 5.46,
+          "end": 5.8,
+          "key": "busted",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "satin",
+          "start": 5.8,
+          "end": 6.62,
+          "key": "satin",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "kernan",
+          "start": 6.62,
+          "end": 7.24,
+          "key": "kernan",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 7.24,
+          "end": 7.56,
+          "key": "see",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "listened.",
+          "start": 0.52,
+          "end": 0.94
+        },
+        {
+          "text": "Tankards",
+          "start": 0.94,
+          "end": 1.88
+        },
+        {
+          "text": "and",
+          "start": 1.88,
+          "end": 2.02
+        },
+        {
+          "text": "miss",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "Kennedy.",
+          "start": 2.2,
+          "end": 2.58
+        },
+        {
+          "text": "George",
+          "start": 2.58,
+          "end": 3.3
+        },
+        {
+          "text": "Lidwell,",
+          "start": 3.3,
+          "end": 3.8
+        },
+        {
+          "text": "eyelid",
+          "start": 3.8,
+          "end": 4.3
+        },
+        {
+          "text": "well",
+          "start": 4.3,
+          "end": 4.5
+        },
+        {
+          "text": "expressive,",
+          "start": 4.5,
+          "end": 4.96
+        },
+        {
+          "text": "fullbusted",
+          "start": 4.96,
+          "end": 5.38
+        },
+        {
+          "text": "satin.",
+          "start": 5.8,
+          "end": 6.62
+        },
+        {
+          "text": "Kernan.",
+          "start": 6.62,
+          "end": 7.24
+        },
+        {
+          "text": "Si.",
+          "start": 7.24,
+          "end": 7.4
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3065050709992647
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "71e2ae8a01539a16b423d3ed5670b17ec2896a6e9bf04ebb73cf0dd67acd239a",
+  "selected_reasons": []
+}

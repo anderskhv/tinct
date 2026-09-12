@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "a0832e50f8ec8eefeb55c20d49acb04c39ebd429578c2a024390196424cfe5c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11552408523857594,
+      "alignment_seconds": 0.00012581003829836845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. Is not this man jealous?",
+        "hotwords": "Emilia, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, Is not this man jealous?",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.54132080078125
+            },
+            {
+              "text": " Is",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.0257110595703125
+            },
+            {
+              "text": " not",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.734375
+            },
+            {
+              "text": " this",
+              "start": 1.47,
+              "end": 1.63,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " man",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.966796875
+            },
+            {
+              "text": " jealous?",
+              "start": 1.85,
+              "end": 2.15,
+              "probability": 0.89697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Is",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "not",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "this",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "raw": "man",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "jealous?",
+          "start": 1.85,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Is",
+        "not",
+        "this",
+        "man",
+        "jealous?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.47,
+          "end": 1.63,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "jealous?",
+          "start": 1.85,
+          "end": 2.15,
+          "key": "jealous",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Is",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "not",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "this",
+          "start": 1.47,
+          "end": 1.63
+        },
+        {
+          "text": "man",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "jealous?",
+          "start": 1.85,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11569676408544183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e9060142d2a5666292a2440202ca90254ec4121c61bbb67e8d34170b8d6a8c2e",
+  "selected_reasons": []
+}

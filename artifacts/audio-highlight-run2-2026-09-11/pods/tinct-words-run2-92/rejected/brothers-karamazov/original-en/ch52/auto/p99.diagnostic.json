@@ -1,0 +1,1029 @@
+{
+  "complete": true,
+  "signature": "3f66f4467099c7abdcb5af8f12e30eb9fae9eb902add331b92f9f4edfea822e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2690723082050681,
+      "alignment_seconds": 0.0005144262686371803,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You're fools, you _panovie_,\" broke suddenly from Mitya.",
+        "hotwords": "You're, Mitya"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You're fools, you panovy, broke suddenly from Mitya.",
+          "start": 0.02,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.389801025390625
+            },
+            {
+              "text": " fools,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 1.14,
+              "end": 1.16,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " panovy,",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.52655029296875
+            },
+            {
+              "text": " broke",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " suddenly",
+              "start": 2.26,
+              "end": 2.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Mitya.",
+              "start": 2.9,
+              "end": 3.3,
+              "probability": 0.3527374267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "fools,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "you",
+          "start": 1.14,
+          "end": 1.16
+        },
+        {
+          "raw": "panovy,",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "raw": "broke",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.26,
+          "end": 2.68
+        },
+        {
+          "raw": "from",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "Mitya.",
+          "start": 2.9,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "\"You're",
+        "fools,",
+        "you",
+        "_panovie_,\"",
+        "broke",
+        "suddenly",
+        "from",
+        "Mitya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "youre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fools,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "fools",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.14,
+          "end": 1.16,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "panovy,",
+          "start": 1.16,
+          "end": 1.62,
+          "key": "panovy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "broke",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.26,
+          "end": 2.68,
+          "key": "suddenly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.68,
+          "end": 2.9,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mitya.",
+          "start": 2.9,
+          "end": 3.3,
+          "key": "mitya",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You're",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "fools,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "you",
+          "start": 1.14,
+          "end": 1.16
+        },
+        {
+          "text": "_panovie_,\"",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "text": "broke",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "suddenly",
+          "start": 2.26,
+          "end": 2.68
+        },
+        {
+          "text": "from",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "Mitya.",
+          "start": 2.9,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2697570249438286
+    },
+    {
+      "asr_seconds": 0.17585294879972935,
+      "alignment_seconds": 0.000492471270263195,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "You're, Mitya"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " You're fools you panovy broke suddenly from Mitya",
+          "start": 0.02,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.38980865478515625
+            },
+            {
+              "text": " fools",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 0.94,
+              "end": 1.16,
+              "probability": 0.28662109375
+            },
+            {
+              "text": " panovy",
+              "start": 1.16,
+              "end": 1.66,
+              "probability": 0.501434326171875
+            },
+            {
+              "text": " broke",
+              "start": 1.66,
+              "end": 2.24,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " suddenly",
+              "start": 2.24,
+              "end": 2.68,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " from",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Mitya",
+              "start": 2.9,
+              "end": 3.42,
+              "probability": 0.3532969156901042
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "fools",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "you",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "raw": "panovy",
+          "start": 1.16,
+          "end": 1.66
+        },
+        {
+          "raw": "broke",
+          "start": 1.66,
+          "end": 2.24
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "raw": "from",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "Mitya",
+          "start": 2.9,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "\"You're",
+        "fools,",
+        "you",
+        "_panovie_,\"",
+        "broke",
+        "suddenly",
+        "from",
+        "Mitya."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "youre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fools",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "fools",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.94,
+          "end": 1.16,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "panovy",
+          "start": 1.16,
+          "end": 1.66,
+          "key": "panovy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 1.66,
+          "end": 2.24,
+          "key": "broke",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.24,
+          "end": 2.68,
+          "key": "suddenly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.68,
+          "end": 2.9,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mitya",
+          "start": 2.9,
+          "end": 3.42,
+          "key": "mitya",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You're",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "fools,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "you",
+          "start": 0.94,
+          "end": 1.16
+        },
+        {
+          "text": "_panovie_,\"",
+          "start": 1.16,
+          "end": 1.41
+        },
+        {
+          "text": "broke",
+          "start": 1.66,
+          "end": 2.24
+        },
+        {
+          "text": "suddenly",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "text": "from",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "Mitya.",
+          "start": 2.9,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.17651141434907913
+    },
+    {
+      "asr_seconds": 0.21916085947304964,
+      "alignment_seconds": 0.0005393074825406075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your fools, you panovy, broke suddenly from Midia.",
+          "start": 0.02,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " fools,",
+              "start": 0.52,
+              "end": 0.98,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " you",
+              "start": 1.1,
+              "end": 1.16,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " panovy,",
+              "start": 1.16,
+              "end": 1.62,
+              "probability": 0.508148193359375
+            },
+            {
+              "text": " broke",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " suddenly",
+              "start": 2.26,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Midia.",
+              "start": 2.9,
+              "end": 3.26,
+              "probability": 0.6258544921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "fools,",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "raw": "you",
+          "start": 1.1,
+          "end": 1.16
+        },
+        {
+          "raw": "panovy,",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "raw": "broke",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.26,
+          "end": 2.68
+        },
+        {
+          "raw": "from",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "Midia.",
+          "start": 2.9,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "\"You're",
+        "fools,",
+        "you",
+        "_panovie_,\"",
+        "broke",
+        "suddenly",
+        "from",
+        "Mitya."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fools,",
+          "start": 0.52,
+          "end": 0.98,
+          "key": "fools",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.1,
+          "end": 1.16,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "panovy,",
+          "start": 1.16,
+          "end": 1.62,
+          "key": "panovy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "broke",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 2.26,
+          "end": 2.68,
+          "key": "suddenly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.68,
+          "end": 2.9,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Midia.",
+          "start": 2.9,
+          "end": 3.26,
+          "key": "midia",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You're",
+          "start": 0.0,
+          "end": 0.26
+        },
+        {
+          "text": "fools,",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "text": "you",
+          "start": 1.1,
+          "end": 1.16
+        },
+        {
+          "text": "_panovie_,\"",
+          "start": 1.16,
+          "end": 1.62
+        },
+        {
+          "text": "broke",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "suddenly",
+          "start": 2.26,
+          "end": 2.68
+        },
+        {
+          "text": "from",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "Mitya.",
+          "start": 2.9,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2198683312162757
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6eb2847af0fca6764f98034d2fdf3d2ffacc4629a1d56a91b646be9c069c288",
+  "selected_reasons": []
+}

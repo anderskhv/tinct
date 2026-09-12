@@ -1,0 +1,5439 @@
+{
+  "complete": true,
+  "signature": "5e3afcf299aa10b66ce87f6eff5c8256f76ae74c633cf44641200ef3b3c5d302",
+  "attempts": [
+    {
+      "asr_seconds": 0.603697756305337,
+      "alignment_seconds": 0.0005520978011190891,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sixtly, the Deniall of Marriage to Priests, serveth to assure this Power of the pope over Kings. For if a King be a Priest, he cannot Marry, and transmit his Kingdome to his Posterity; If he be not a Priest then the Pope pretendeth this Authority Ecclesiasticall over him, and over his people.",
+        "hotwords": "Sixtly, Deniall, Marriage, Priests, Power, Kings, For, King, Priest, Marry, Kingdome, Posterity, Authority, Ecclesiasticall"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sixtly, Deniall of Marriage to Priests, serveth to assure this Power of the pope over Kings.",
+          "start": 0.08,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " Sixtly,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.2795461018880208
+            },
+            {
+              "text": " Deniall",
+              "start": 1.02,
+              "end": 1.62,
+              "probability": 0.19978986183802286
+            },
+            {
+              "text": " of",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " Marriage",
+              "start": 1.84,
+              "end": 2.08,
+              "probability": 0.1082763671875
+            },
+            {
+              "text": " to",
+              "start": 2.08,
+              "end": 2.4,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Priests,",
+              "start": 2.4,
+              "end": 2.92,
+              "probability": 0.868896484375
+            },
+            {
+              "text": " serveth",
+              "start": 3.26,
+              "end": 3.74,
+              "probability": 0.5012016296386719
+            },
+            {
+              "text": " to",
+              "start": 3.74,
+              "end": 3.9,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " assure",
+              "start": 3.9,
+              "end": 4.18,
+              "probability": 0.9453125
+            },
+            {
+              "text": " this",
+              "start": 4.18,
+              "end": 4.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Power",
+              "start": 4.46,
+              "end": 4.74,
+              "probability": 0.280029296875
+            },
+            {
+              "text": " of",
+              "start": 4.74,
+              "end": 5.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 5.0,
+              "end": 5.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " pope",
+              "start": 5.1,
+              "end": 5.32,
+              "probability": 0.032928466796875
+            },
+            {
+              "text": " over",
+              "start": 5.32,
+              "end": 5.6,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Kings.",
+              "start": 5.6,
+              "end": 5.9,
+              "probability": 0.094970703125
+            }
+          ]
+        },
+        {
+          "text": " For if a King be a Priest, he cannot Marry, and transmit his Kingdom to his Posterity.",
+          "start": 6.76,
+          "end": 11.74,
+          "words": [
+            {
+              "text": " For",
+              "start": 6.76,
+              "end": 6.92,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " if",
+              "start": 6.92,
+              "end": 7.02,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " a",
+              "start": 7.02,
+              "end": 7.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " King",
+              "start": 7.14,
+              "end": 7.3,
+              "probability": 0.34765625
+            },
+            {
+              "text": " be",
+              "start": 7.3,
+              "end": 7.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 7.54,
+              "end": 7.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Priest,",
+              "start": 7.68,
+              "end": 7.96,
+              "probability": 0.3759765625
+            },
+            {
+              "text": " he",
+              "start": 8.42,
+              "end": 8.56,
+              "probability": 0.8671875
+            },
+            {
+              "text": " cannot",
+              "start": 8.56,
+              "end": 8.82,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Marry,",
+              "start": 8.82,
+              "end": 9.32,
+              "probability": 0.5501708984375
+            },
+            {
+              "text": " and",
+              "start": 9.66,
+              "end": 9.82,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " transmit",
+              "start": 9.82,
+              "end": 10.16,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " his",
+              "start": 10.16,
+              "end": 10.44,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Kingdom",
+              "start": 10.44,
+              "end": 10.64,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " to",
+              "start": 10.64,
+              "end": 10.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 10.98,
+              "end": 11.14,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Posterity.",
+              "start": 11.14,
+              "end": 11.74,
+              "probability": 0.87646484375
+            }
+          ]
+        },
+        {
+          "text": " If he be not a Priest then the Pope pretendeth this Authority Ecclesiasticall over him, and",
+          "start": 12.22,
+          "end": 17.48,
+          "words": [
+            {
+              "text": " If",
+              "start": 12.22,
+              "end": 12.4,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " he",
+              "start": 12.4,
+              "end": 12.48,
+              "probability": 0.916015625
+            },
+            {
+              "text": " be",
+              "start": 12.48,
+              "end": 12.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 12.58,
+              "end": 12.76,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " a",
+              "start": 12.76,
+              "end": 12.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Priest",
+              "start": 12.96,
+              "end": 13.12,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " then",
+              "start": 13.12,
+              "end": 13.48,
+              "probability": 0.248046875
+            },
+            {
+              "text": " the",
+              "start": 13.48,
+              "end": 13.66,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Pope",
+              "start": 13.66,
+              "end": 13.88,
+              "probability": 0.662109375
+            },
+            {
+              "text": " pretendeth",
+              "start": 13.88,
+              "end": 14.46,
+              "probability": 0.733642578125
+            },
+            {
+              "text": " this",
+              "start": 14.46,
+              "end": 14.7,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Authority",
+              "start": 14.7,
+              "end": 15.14,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Ecclesiasticall",
+              "start": 15.14,
+              "end": 16.4,
+              "probability": 0.6212158203125
+            },
+            {
+              "text": " over",
+              "start": 16.4,
+              "end": 16.68,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " him,",
+              "start": 16.68,
+              "end": 16.94,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " and",
+              "start": 17.32,
+              "end": 17.48,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " over his people.",
+          "start": 17.48,
+          "end": 18.2,
+          "words": [
+            {
+              "text": " over",
+              "start": 17.48,
+              "end": 17.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 17.72,
+              "end": 17.92,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " people.",
+              "start": 17.92,
+              "end": 18.2,
+              "probability": 0.806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sixtly,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "Deniall",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "raw": "of",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "Marriage",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.4
+        },
+        {
+          "raw": "Priests,",
+          "start": 2.4,
+          "end": 2.92
+        },
+        {
+          "raw": "serveth",
+          "start": 3.26,
+          "end": 3.74
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "raw": "assure",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "raw": "this",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "raw": "Power",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "raw": "of",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "raw": "the",
+          "start": 5.0,
+          "end": 5.1
+        },
+        {
+          "raw": "pope",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "raw": "over",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "raw": "Kings.",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "raw": "For",
+          "start": 6.76,
+          "end": 6.92
+        },
+        {
+          "raw": "if",
+          "start": 6.92,
+          "end": 7.02
+        },
+        {
+          "raw": "a",
+          "start": 7.02,
+          "end": 7.14
+        },
+        {
+          "raw": "King",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "raw": "be",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "raw": "a",
+          "start": 7.54,
+          "end": 7.68
+        },
+        {
+          "raw": "Priest,",
+          "start": 7.68,
+          "end": 7.96
+        },
+        {
+          "raw": "he",
+          "start": 8.42,
+          "end": 8.56
+        },
+        {
+          "raw": "cannot",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "raw": "Marry,",
+          "start": 8.82,
+          "end": 9.32
+        },
+        {
+          "raw": "and",
+          "start": 9.66,
+          "end": 9.82
+        },
+        {
+          "raw": "transmit",
+          "start": 9.82,
+          "end": 10.16
+        },
+        {
+          "raw": "his",
+          "start": 10.16,
+          "end": 10.44
+        },
+        {
+          "raw": "Kingdom",
+          "start": 10.44,
+          "end": 10.64
+        },
+        {
+          "raw": "to",
+          "start": 10.64,
+          "end": 10.98
+        },
+        {
+          "raw": "his",
+          "start": 10.98,
+          "end": 11.14
+        },
+        {
+          "raw": "Posterity.",
+          "start": 11.14,
+          "end": 11.74
+        },
+        {
+          "raw": "If",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "raw": "he",
+          "start": 12.4,
+          "end": 12.48
+        },
+        {
+          "raw": "be",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "raw": "not",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "raw": "a",
+          "start": 12.76,
+          "end": 12.96
+        },
+        {
+          "raw": "Priest",
+          "start": 12.96,
+          "end": 13.12
+        },
+        {
+          "raw": "then",
+          "start": 13.12,
+          "end": 13.48
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.66
+        },
+        {
+          "raw": "Pope",
+          "start": 13.66,
+          "end": 13.88
+        },
+        {
+          "raw": "pretendeth",
+          "start": 13.88,
+          "end": 14.46
+        },
+        {
+          "raw": "this",
+          "start": 14.46,
+          "end": 14.7
+        },
+        {
+          "raw": "Authority",
+          "start": 14.7,
+          "end": 15.14
+        },
+        {
+          "raw": "Ecclesiasticall",
+          "start": 15.14,
+          "end": 16.4
+        },
+        {
+          "raw": "over",
+          "start": 16.4,
+          "end": 16.68
+        },
+        {
+          "raw": "him,",
+          "start": 16.68,
+          "end": 16.94
+        },
+        {
+          "raw": "and",
+          "start": 17.32,
+          "end": 17.48
+        },
+        {
+          "raw": "over",
+          "start": 17.48,
+          "end": 17.72
+        },
+        {
+          "raw": "his",
+          "start": 17.72,
+          "end": 17.92
+        },
+        {
+          "raw": "people.",
+          "start": 17.92,
+          "end": 18.2
+        }
+      ],
+      "expected_tokens": [
+        "Sixtly,",
+        "the",
+        "Deniall",
+        "of",
+        "Marriage",
+        "to",
+        "Priests,",
+        "serveth",
+        "to",
+        "assure",
+        "this",
+        "Power",
+        "of",
+        "the",
+        "pope",
+        "over",
+        "Kings.",
+        "For",
+        "if",
+        "a",
+        "King",
+        "be",
+        "a",
+        "Priest,",
+        "he",
+        "cannot",
+        "Marry,",
+        "and",
+        "transmit",
+        "his",
+        "Kingdome",
+        "to",
+        "his",
+        "Posterity;",
+        "If",
+        "he",
+        "be",
+        "not",
+        "a",
+        "Priest",
+        "then",
+        "the",
+        "Pope",
+        "pretendeth",
+        "this",
+        "Authority",
+        "Ecclesiasticall",
+        "over",
+        "him,",
+        "and",
+        "over",
+        "his",
+        "people."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          30,
+          1,
+          29
+        ],
+        [
+          "replace",
+          30,
+          31,
+          29,
+          30
+        ],
+        [
+          "equal",
+          31,
+          53,
+          30,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "replace",
+          30,
+          31,
+          29,
+          30
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sixtly,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "sixtly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Deniall",
+          "start": 1.02,
+          "end": 1.62,
+          "key": "deniall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Marriage",
+          "start": 1.84,
+          "end": 2.08,
+          "key": "marriage",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.4,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Priests,",
+          "start": 2.4,
+          "end": 2.92,
+          "key": "priests",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "serveth",
+          "start": 3.26,
+          "end": 3.74,
+          "key": "serveth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.74,
+          "end": 3.9,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "assure",
+          "start": 3.9,
+          "end": 4.18,
+          "key": "assure",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.18,
+          "end": 4.46,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 4.46,
+          "end": 4.74,
+          "key": "power",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.74,
+          "end": 5.0,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.0,
+          "end": 5.1,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pope",
+          "start": 5.1,
+          "end": 5.32,
+          "key": "pope",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 5.32,
+          "end": 5.6,
+          "key": "over",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Kings.",
+          "start": 5.6,
+          "end": 5.9,
+          "key": "kings",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 6.76,
+          "end": 6.92,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.92,
+          "end": 7.02,
+          "key": "if",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.02,
+          "end": 7.14,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 7.14,
+          "end": 7.3,
+          "key": "king",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 7.3,
+          "end": 7.54,
+          "key": "be",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.54,
+          "end": 7.68,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Priest,",
+          "start": 7.68,
+          "end": 7.96,
+          "key": "priest",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.42,
+          "end": 8.56,
+          "key": "he",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 8.56,
+          "end": 8.82,
+          "key": "cannot",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 8.82,
+          "end": 9.32,
+          "key": "marry",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.66,
+          "end": 9.82,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "transmit",
+          "start": 9.82,
+          "end": 10.16,
+          "key": "transmit",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.16,
+          "end": 10.44,
+          "key": "his",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Kingdom",
+          "start": 10.44,
+          "end": 10.64,
+          "key": "kingdom",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.64,
+          "end": 10.98,
+          "key": "to",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.98,
+          "end": 11.14,
+          "key": "his",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Posterity.",
+          "start": 11.14,
+          "end": 11.74,
+          "key": "posterity",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 12.22,
+          "end": 12.4,
+          "key": "if",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.4,
+          "end": 12.48,
+          "key": "he",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 12.48,
+          "end": 12.58,
+          "key": "be",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 12.58,
+          "end": 12.76,
+          "key": "not",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.76,
+          "end": 12.96,
+          "key": "a",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Priest",
+          "start": 12.96,
+          "end": 13.12,
+          "key": "priest",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 13.12,
+          "end": 13.48,
+          "key": "then",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.66,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Pope",
+          "start": 13.66,
+          "end": 13.88,
+          "key": "pope",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "pretendeth",
+          "start": 13.88,
+          "end": 14.46,
+          "key": "pretendeth",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 14.46,
+          "end": 14.7,
+          "key": "this",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Authority",
+          "start": 14.7,
+          "end": 15.14,
+          "key": "authority",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Ecclesiasticall",
+          "start": 15.14,
+          "end": 16.4,
+          "key": "ecclesiasticall",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 16.4,
+          "end": 16.68,
+          "key": "over",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 16.68,
+          "end": 16.94,
+          "key": "him",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.32,
+          "end": 17.48,
+          "key": "and",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 17.48,
+          "end": 17.72,
+          "key": "over",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 17.72,
+          "end": 17.92,
+          "key": "his",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 17.92,
+          "end": 18.2,
+          "key": "people",
+          "pieces": [
+            51
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sixtly,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "the",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "text": "Deniall",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "text": "of",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "Marriage",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "text": "to",
+          "start": 2.08,
+          "end": 2.4
+        },
+        {
+          "text": "Priests,",
+          "start": 2.4,
+          "end": 2.92
+        },
+        {
+          "text": "serveth",
+          "start": 3.26,
+          "end": 3.74
+        },
+        {
+          "text": "to",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "assure",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "text": "this",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "text": "Power",
+          "start": 4.46,
+          "end": 4.74
+        },
+        {
+          "text": "of",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "text": "the",
+          "start": 5.0,
+          "end": 5.1
+        },
+        {
+          "text": "pope",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "text": "over",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "text": "Kings.",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "text": "For",
+          "start": 6.76,
+          "end": 6.92
+        },
+        {
+          "text": "if",
+          "start": 6.92,
+          "end": 7.02
+        },
+        {
+          "text": "a",
+          "start": 7.02,
+          "end": 7.14
+        },
+        {
+          "text": "King",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "text": "be",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "text": "a",
+          "start": 7.54,
+          "end": 7.68
+        },
+        {
+          "text": "Priest,",
+          "start": 7.68,
+          "end": 7.96
+        },
+        {
+          "text": "he",
+          "start": 8.42,
+          "end": 8.56
+        },
+        {
+          "text": "cannot",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "text": "Marry,",
+          "start": 8.82,
+          "end": 9.32
+        },
+        {
+          "text": "and",
+          "start": 9.66,
+          "end": 9.82
+        },
+        {
+          "text": "transmit",
+          "start": 9.82,
+          "end": 10.16
+        },
+        {
+          "text": "his",
+          "start": 10.16,
+          "end": 10.44
+        },
+        {
+          "text": "Kingdome",
+          "start": 10.44,
+          "end": 10.54
+        },
+        {
+          "text": "to",
+          "start": 10.64,
+          "end": 10.98
+        },
+        {
+          "text": "his",
+          "start": 10.98,
+          "end": 11.14
+        },
+        {
+          "text": "Posterity;",
+          "start": 11.14,
+          "end": 11.74
+        },
+        {
+          "text": "If",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "text": "he",
+          "start": 12.4,
+          "end": 12.48
+        },
+        {
+          "text": "be",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "text": "not",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "text": "a",
+          "start": 12.76,
+          "end": 12.96
+        },
+        {
+          "text": "Priest",
+          "start": 12.96,
+          "end": 13.12
+        },
+        {
+          "text": "then",
+          "start": 13.12,
+          "end": 13.48
+        },
+        {
+          "text": "the",
+          "start": 13.48,
+          "end": 13.66
+        },
+        {
+          "text": "Pope",
+          "start": 13.66,
+          "end": 13.88
+        },
+        {
+          "text": "pretendeth",
+          "start": 13.88,
+          "end": 14.46
+        },
+        {
+          "text": "this",
+          "start": 14.46,
+          "end": 14.7
+        },
+        {
+          "text": "Authority",
+          "start": 14.7,
+          "end": 15.14
+        },
+        {
+          "text": "Ecclesiasticall",
+          "start": 15.14,
+          "end": 16.4
+        },
+        {
+          "text": "over",
+          "start": 16.4,
+          "end": 16.68
+        },
+        {
+          "text": "him,",
+          "start": 16.68,
+          "end": 16.94
+        },
+        {
+          "text": "and",
+          "start": 17.32,
+          "end": 17.48
+        },
+        {
+          "text": "over",
+          "start": 17.48,
+          "end": 17.72
+        },
+        {
+          "text": "his",
+          "start": 17.72,
+          "end": 17.92
+        },
+        {
+          "text": "people.",
+          "start": 17.92,
+          "end": 18.2
+        }
+      ],
+      "stats": {
+        "expected_words": 53,
+        "heard_words": 52,
+        "matched_words": 51
+      },
+      "match_ratio": 0.9622641509433962,
+      "rejection_reasons": [],
+      "seconds": 0.6044754632748663
+    },
+    {
+      "asr_seconds": 0.5914887799881399,
+      "alignment_seconds": 0.0007669171318411827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Sixtly, Deniall, Marriage, Priests, Power, Kings, For, King, Priest, Marry, Kingdome, Posterity, Authority, Ecclesiasticall"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Sixtly, The Deniall of Marriage to Priests, Serveth to Assure this Power of the Pope over Kings.",
+          "start": 0.08,
+          "end": 5.9,
+          "words": [
+            {
+              "text": " Sixtly,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.2793935139973958
+            },
+            {
+              "text": " The",
+              "start": 1.02,
+              "end": 1.08,
+              "probability": 0.03302001953125
+            },
+            {
+              "text": " Deniall",
+              "start": 1.08,
+              "end": 1.62,
+              "probability": 0.4049949645996094
+            },
+            {
+              "text": " of",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Marriage",
+              "start": 1.84,
+              "end": 2.08,
+              "probability": 0.517578125
+            },
+            {
+              "text": " to",
+              "start": 2.08,
+              "end": 2.4,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Priests,",
+              "start": 2.4,
+              "end": 2.92,
+              "probability": 0.902099609375
+            },
+            {
+              "text": " Serveth",
+              "start": 3.26,
+              "end": 3.72,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " to",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Assure",
+              "start": 3.92,
+              "end": 4.22,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " this",
+              "start": 4.22,
+              "end": 4.44,
+              "probability": 0.77734375
+            },
+            {
+              "text": " Power",
+              "start": 4.44,
+              "end": 4.74,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " of",
+              "start": 4.74,
+              "end": 5.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 5.0,
+              "end": 5.1,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Pope",
+              "start": 5.1,
+              "end": 5.32,
+              "probability": 0.9921875
+            },
+            {
+              "text": " over",
+              "start": 5.32,
+              "end": 5.62,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " Kings.",
+              "start": 5.62,
+              "end": 5.9,
+              "probability": 0.873046875
+            }
+          ]
+        },
+        {
+          "text": " For if a King be a Priest, he cannot Marry, and Transmit his Kingdom to his Posterity.",
+          "start": 6.74,
+          "end": 11.74,
+          "words": [
+            {
+              "text": " For",
+              "start": 6.74,
+              "end": 6.92,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " if",
+              "start": 6.92,
+              "end": 7.02,
+              "probability": 0.89453125
+            },
+            {
+              "text": " a",
+              "start": 7.02,
+              "end": 7.14,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " King",
+              "start": 7.14,
+              "end": 7.3,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " be",
+              "start": 7.3,
+              "end": 7.54,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " a",
+              "start": 7.54,
+              "end": 7.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Priest,",
+              "start": 7.68,
+              "end": 7.98,
+              "probability": 0.603515625
+            },
+            {
+              "text": " he",
+              "start": 8.44,
+              "end": 8.56,
+              "probability": 0.63671875
+            },
+            {
+              "text": " cannot",
+              "start": 8.56,
+              "end": 8.82,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Marry,",
+              "start": 8.82,
+              "end": 9.32,
+              "probability": 0.6407470703125
+            },
+            {
+              "text": " and",
+              "start": 9.66,
+              "end": 9.82,
+              "probability": 0.900390625
+            },
+            {
+              "text": " Transmit",
+              "start": 9.82,
+              "end": 10.24,
+              "probability": 0.868896484375
+            },
+            {
+              "text": " his",
+              "start": 10.24,
+              "end": 10.44,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Kingdom",
+              "start": 10.44,
+              "end": 10.66,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " to",
+              "start": 10.66,
+              "end": 10.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 10.98,
+              "end": 11.14,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Posterity.",
+              "start": 11.14,
+              "end": 11.74,
+              "probability": 0.88623046875
+            }
+          ]
+        },
+        {
+          "text": " If he be not a Priest, then the Pope Pretendeth this Authority Ecclesiasticall over him, and over his people.",
+          "start": 12.22,
+          "end": 18.22,
+          "words": [
+            {
+              "text": " If",
+              "start": 12.22,
+              "end": 12.4,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " he",
+              "start": 12.4,
+              "end": 12.48,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " be",
+              "start": 12.48,
+              "end": 12.58,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " not",
+              "start": 12.58,
+              "end": 12.76,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " a",
+              "start": 12.76,
+              "end": 12.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Priest,",
+              "start": 12.96,
+              "end": 13.14,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " then",
+              "start": 13.38,
+              "end": 13.48,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " the",
+              "start": 13.48,
+              "end": 13.66,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Pope",
+              "start": 13.66,
+              "end": 13.88,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Pretendeth",
+              "start": 13.88,
+              "end": 14.46,
+              "probability": 0.9000651041666666
+            },
+            {
+              "text": " this",
+              "start": 14.46,
+              "end": 14.7,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Authority",
+              "start": 14.7,
+              "end": 15.12,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Ecclesiasticall",
+              "start": 15.12,
+              "end": 16.4,
+              "probability": 0.753662109375
+            },
+            {
+              "text": " over",
+              "start": 16.4,
+              "end": 16.68,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " him,",
+              "start": 16.68,
+              "end": 16.94,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " and",
+              "start": 17.28,
+              "end": 17.48,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " over",
+              "start": 17.48,
+              "end": 17.72,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " his",
+              "start": 17.72,
+              "end": 17.92,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " people.",
+              "start": 17.92,
+              "end": 18.22,
+              "probability": 0.6357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sixtly,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "The",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "raw": "Deniall",
+          "start": 1.08,
+          "end": 1.62
+        },
+        {
+          "raw": "of",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "Marriage",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.4
+        },
+        {
+          "raw": "Priests,",
+          "start": 2.4,
+          "end": 2.92
+        },
+        {
+          "raw": "Serveth",
+          "start": 3.26,
+          "end": 3.72
+        },
+        {
+          "raw": "to",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "Assure",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "raw": "this",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "raw": "Power",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "raw": "of",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "raw": "the",
+          "start": 5.0,
+          "end": 5.1
+        },
+        {
+          "raw": "Pope",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "raw": "over",
+          "start": 5.32,
+          "end": 5.62
+        },
+        {
+          "raw": "Kings.",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "raw": "For",
+          "start": 6.74,
+          "end": 6.92
+        },
+        {
+          "raw": "if",
+          "start": 6.92,
+          "end": 7.02
+        },
+        {
+          "raw": "a",
+          "start": 7.02,
+          "end": 7.14
+        },
+        {
+          "raw": "King",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "raw": "be",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "raw": "a",
+          "start": 7.54,
+          "end": 7.68
+        },
+        {
+          "raw": "Priest,",
+          "start": 7.68,
+          "end": 7.98
+        },
+        {
+          "raw": "he",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "raw": "cannot",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "raw": "Marry,",
+          "start": 8.82,
+          "end": 9.32
+        },
+        {
+          "raw": "and",
+          "start": 9.66,
+          "end": 9.82
+        },
+        {
+          "raw": "Transmit",
+          "start": 9.82,
+          "end": 10.24
+        },
+        {
+          "raw": "his",
+          "start": 10.24,
+          "end": 10.44
+        },
+        {
+          "raw": "Kingdom",
+          "start": 10.44,
+          "end": 10.66
+        },
+        {
+          "raw": "to",
+          "start": 10.66,
+          "end": 10.98
+        },
+        {
+          "raw": "his",
+          "start": 10.98,
+          "end": 11.14
+        },
+        {
+          "raw": "Posterity.",
+          "start": 11.14,
+          "end": 11.74
+        },
+        {
+          "raw": "If",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "raw": "he",
+          "start": 12.4,
+          "end": 12.48
+        },
+        {
+          "raw": "be",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "raw": "not",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "raw": "a",
+          "start": 12.76,
+          "end": 12.96
+        },
+        {
+          "raw": "Priest,",
+          "start": 12.96,
+          "end": 13.14
+        },
+        {
+          "raw": "then",
+          "start": 13.38,
+          "end": 13.48
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.66
+        },
+        {
+          "raw": "Pope",
+          "start": 13.66,
+          "end": 13.88
+        },
+        {
+          "raw": "Pretendeth",
+          "start": 13.88,
+          "end": 14.46
+        },
+        {
+          "raw": "this",
+          "start": 14.46,
+          "end": 14.7
+        },
+        {
+          "raw": "Authority",
+          "start": 14.7,
+          "end": 15.12
+        },
+        {
+          "raw": "Ecclesiasticall",
+          "start": 15.12,
+          "end": 16.4
+        },
+        {
+          "raw": "over",
+          "start": 16.4,
+          "end": 16.68
+        },
+        {
+          "raw": "him,",
+          "start": 16.68,
+          "end": 16.94
+        },
+        {
+          "raw": "and",
+          "start": 17.28,
+          "end": 17.48
+        },
+        {
+          "raw": "over",
+          "start": 17.48,
+          "end": 17.72
+        },
+        {
+          "raw": "his",
+          "start": 17.72,
+          "end": 17.92
+        },
+        {
+          "raw": "people.",
+          "start": 17.92,
+          "end": 18.22
+        }
+      ],
+      "expected_tokens": [
+        "Sixtly,",
+        "the",
+        "Deniall",
+        "of",
+        "Marriage",
+        "to",
+        "Priests,",
+        "serveth",
+        "to",
+        "assure",
+        "this",
+        "Power",
+        "of",
+        "the",
+        "pope",
+        "over",
+        "Kings.",
+        "For",
+        "if",
+        "a",
+        "King",
+        "be",
+        "a",
+        "Priest,",
+        "he",
+        "cannot",
+        "Marry,",
+        "and",
+        "transmit",
+        "his",
+        "Kingdome",
+        "to",
+        "his",
+        "Posterity;",
+        "If",
+        "he",
+        "be",
+        "not",
+        "a",
+        "Priest",
+        "then",
+        "the",
+        "Pope",
+        "pretendeth",
+        "this",
+        "Authority",
+        "Ecclesiasticall",
+        "over",
+        "him,",
+        "and",
+        "over",
+        "his",
+        "people."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "equal",
+          31,
+          53,
+          31,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sixtly,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "sixtly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.02,
+          "end": 1.08,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Deniall",
+          "start": 1.08,
+          "end": 1.62,
+          "key": "deniall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Marriage",
+          "start": 1.84,
+          "end": 2.08,
+          "key": "marriage",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.08,
+          "end": 2.4,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Priests,",
+          "start": 2.4,
+          "end": 2.92,
+          "key": "priests",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Serveth",
+          "start": 3.26,
+          "end": 3.72,
+          "key": "serveth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Assure",
+          "start": 3.92,
+          "end": 4.22,
+          "key": "assure",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.22,
+          "end": 4.44,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 4.44,
+          "end": 4.74,
+          "key": "power",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.74,
+          "end": 5.0,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.0,
+          "end": 5.1,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Pope",
+          "start": 5.1,
+          "end": 5.32,
+          "key": "pope",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 5.32,
+          "end": 5.62,
+          "key": "over",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Kings.",
+          "start": 5.62,
+          "end": 5.9,
+          "key": "kings",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 6.74,
+          "end": 6.92,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.92,
+          "end": 7.02,
+          "key": "if",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.02,
+          "end": 7.14,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 7.14,
+          "end": 7.3,
+          "key": "king",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 7.3,
+          "end": 7.54,
+          "key": "be",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.54,
+          "end": 7.68,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Priest,",
+          "start": 7.68,
+          "end": 7.98,
+          "key": "priest",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.44,
+          "end": 8.56,
+          "key": "he",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 8.56,
+          "end": 8.82,
+          "key": "cannot",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Marry,",
+          "start": 8.82,
+          "end": 9.32,
+          "key": "marry",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.66,
+          "end": 9.82,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Transmit",
+          "start": 9.82,
+          "end": 10.24,
+          "key": "transmit",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.24,
+          "end": 10.44,
+          "key": "his",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Kingdom",
+          "start": 10.44,
+          "end": 10.66,
+          "key": "kingdom",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.66,
+          "end": 10.98,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.98,
+          "end": 11.14,
+          "key": "his",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Posterity.",
+          "start": 11.14,
+          "end": 11.74,
+          "key": "posterity",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 12.22,
+          "end": 12.4,
+          "key": "if",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.4,
+          "end": 12.48,
+          "key": "he",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 12.48,
+          "end": 12.58,
+          "key": "be",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 12.58,
+          "end": 12.76,
+          "key": "not",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.76,
+          "end": 12.96,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Priest,",
+          "start": 12.96,
+          "end": 13.14,
+          "key": "priest",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 13.38,
+          "end": 13.48,
+          "key": "then",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.66,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Pope",
+          "start": 13.66,
+          "end": 13.88,
+          "key": "pope",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Pretendeth",
+          "start": 13.88,
+          "end": 14.46,
+          "key": "pretendeth",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 14.46,
+          "end": 14.7,
+          "key": "this",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Authority",
+          "start": 14.7,
+          "end": 15.12,
+          "key": "authority",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Ecclesiasticall",
+          "start": 15.12,
+          "end": 16.4,
+          "key": "ecclesiasticall",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 16.4,
+          "end": 16.68,
+          "key": "over",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 16.68,
+          "end": 16.94,
+          "key": "him",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.28,
+          "end": 17.48,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 17.48,
+          "end": 17.72,
+          "key": "over",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 17.72,
+          "end": 17.92,
+          "key": "his",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 17.92,
+          "end": 18.22,
+          "key": "people",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sixtly,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "the",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "text": "Deniall",
+          "start": 1.08,
+          "end": 1.62
+        },
+        {
+          "text": "of",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "Marriage",
+          "start": 1.84,
+          "end": 2.08
+        },
+        {
+          "text": "to",
+          "start": 2.08,
+          "end": 2.4
+        },
+        {
+          "text": "Priests,",
+          "start": 2.4,
+          "end": 2.92
+        },
+        {
+          "text": "serveth",
+          "start": 3.26,
+          "end": 3.72
+        },
+        {
+          "text": "to",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "assure",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "text": "this",
+          "start": 4.22,
+          "end": 4.44
+        },
+        {
+          "text": "Power",
+          "start": 4.44,
+          "end": 4.74
+        },
+        {
+          "text": "of",
+          "start": 4.74,
+          "end": 5.0
+        },
+        {
+          "text": "the",
+          "start": 5.0,
+          "end": 5.1
+        },
+        {
+          "text": "pope",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "text": "over",
+          "start": 5.32,
+          "end": 5.62
+        },
+        {
+          "text": "Kings.",
+          "start": 5.62,
+          "end": 5.9
+        },
+        {
+          "text": "For",
+          "start": 6.74,
+          "end": 6.92
+        },
+        {
+          "text": "if",
+          "start": 6.92,
+          "end": 7.02
+        },
+        {
+          "text": "a",
+          "start": 7.02,
+          "end": 7.14
+        },
+        {
+          "text": "King",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "text": "be",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "text": "a",
+          "start": 7.54,
+          "end": 7.68
+        },
+        {
+          "text": "Priest,",
+          "start": 7.68,
+          "end": 7.98
+        },
+        {
+          "text": "he",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "text": "cannot",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "text": "Marry,",
+          "start": 8.82,
+          "end": 9.32
+        },
+        {
+          "text": "and",
+          "start": 9.66,
+          "end": 9.82
+        },
+        {
+          "text": "transmit",
+          "start": 9.82,
+          "end": 10.24
+        },
+        {
+          "text": "his",
+          "start": 10.24,
+          "end": 10.44
+        },
+        {
+          "text": "Kingdome",
+          "start": 10.44,
+          "end": 10.55
+        },
+        {
+          "text": "to",
+          "start": 10.66,
+          "end": 10.98
+        },
+        {
+          "text": "his",
+          "start": 10.98,
+          "end": 11.14
+        },
+        {
+          "text": "Posterity;",
+          "start": 11.14,
+          "end": 11.74
+        },
+        {
+          "text": "If",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "text": "he",
+          "start": 12.4,
+          "end": 12.48
+        },
+        {
+          "text": "be",
+          "start": 12.48,
+          "end": 12.58
+        },
+        {
+          "text": "not",
+          "start": 12.58,
+          "end": 12.76
+        },
+        {
+          "text": "a",
+          "start": 12.76,
+          "end": 12.96
+        },
+        {
+          "text": "Priest",
+          "start": 12.96,
+          "end": 13.14
+        },
+        {
+          "text": "then",
+          "start": 13.38,
+          "end": 13.48
+        },
+        {
+          "text": "the",
+          "start": 13.48,
+          "end": 13.66
+        },
+        {
+          "text": "Pope",
+          "start": 13.66,
+          "end": 13.88
+        },
+        {
+          "text": "pretendeth",
+          "start": 13.88,
+          "end": 14.46
+        },
+        {
+          "text": "this",
+          "start": 14.46,
+          "end": 14.7
+        },
+        {
+          "text": "Authority",
+          "start": 14.7,
+          "end": 15.12
+        },
+        {
+          "text": "Ecclesiasticall",
+          "start": 15.12,
+          "end": 16.4
+        },
+        {
+          "text": "over",
+          "start": 16.4,
+          "end": 16.68
+        },
+        {
+          "text": "him,",
+          "start": 16.68,
+          "end": 16.94
+        },
+        {
+          "text": "and",
+          "start": 17.28,
+          "end": 17.48
+        },
+        {
+          "text": "over",
+          "start": 17.48,
+          "end": 17.72
+        },
+        {
+          "text": "his",
+          "start": 17.72,
+          "end": 17.92
+        },
+        {
+          "text": "people.",
+          "start": 17.92,
+          "end": 18.22
+        }
+      ],
+      "stats": {
+        "expected_words": 53,
+        "heard_words": 53,
+        "matched_words": 52
+      },
+      "match_ratio": 0.9811320754716981,
+      "rejection_reasons": [],
+      "seconds": 0.5925832111388445
+    },
+    {
+      "asr_seconds": 0.6030014110729098,
+      "alignment_seconds": 0.0007528290152549744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sixthly, the denial of marriage to priests serveth to assure this power of the pope over",
+          "start": 0.08,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Sixthly,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.652099609375
+            },
+            {
+              "text": " the",
+              "start": 1.06,
+              "end": 1.08,
+              "probability": 0.896484375
+            },
+            {
+              "text": " denial",
+              "start": 1.08,
+              "end": 1.42,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " of",
+              "start": 1.42,
+              "end": 1.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " marriage",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.1,
+              "end": 2.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " priests",
+              "start": 2.42,
+              "end": 2.86,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " serveth",
+              "start": 2.86,
+              "end": 3.76,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " to",
+              "start": 3.76,
+              "end": 3.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " assure",
+              "start": 3.9,
+              "end": 4.18,
+              "probability": 0.974609375
+            },
+            {
+              "text": " this",
+              "start": 4.18,
+              "end": 4.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " power",
+              "start": 4.46,
+              "end": 4.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 4.78,
+              "end": 5.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 5.0,
+              "end": 5.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pope",
+              "start": 5.1,
+              "end": 5.32,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " over",
+              "start": 5.32,
+              "end": 5.6,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " kings.",
+          "start": 5.6,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " kings.",
+              "start": 5.6,
+              "end": 5.92,
+              "probability": 0.9541015625
+            }
+          ]
+        },
+        {
+          "text": " For if a king be a priest, he cannot marry and transmit his kingdom to his posterity.",
+          "start": 6.72,
+          "end": 11.8,
+          "words": [
+            {
+              "text": " For",
+              "start": 6.72,
+              "end": 6.92,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " if",
+              "start": 6.92,
+              "end": 7.02,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " a",
+              "start": 7.02,
+              "end": 7.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " king",
+              "start": 7.14,
+              "end": 7.3,
+              "probability": 0.9765625
+            },
+            {
+              "text": " be",
+              "start": 7.3,
+              "end": 7.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 7.54,
+              "end": 7.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " priest,",
+              "start": 7.66,
+              "end": 8.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 8.38,
+              "end": 8.56,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cannot",
+              "start": 8.56,
+              "end": 8.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " marry",
+              "start": 8.82,
+              "end": 9.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 9.24,
+              "end": 9.76,
+              "probability": 0.84375
+            },
+            {
+              "text": " transmit",
+              "start": 9.76,
+              "end": 10.18,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " his",
+              "start": 10.18,
+              "end": 10.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " kingdom",
+              "start": 10.44,
+              "end": 10.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 10.68,
+              "end": 10.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 10.98,
+              "end": 11.12,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " posterity.",
+              "start": 11.12,
+              "end": 11.8,
+              "probability": 0.993408203125
+            }
+          ]
+        },
+        {
+          "text": " If he be not a priest, then the pope pretendeth this authority ecclesiastical over him and",
+          "start": 12.22,
+          "end": 17.46,
+          "words": [
+            {
+              "text": " If",
+              "start": 12.22,
+              "end": 12.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " he",
+              "start": 12.4,
+              "end": 12.5,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " be",
+              "start": 12.5,
+              "end": 12.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 12.58,
+              "end": 12.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 12.78,
+              "end": 12.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " priest,",
+              "start": 12.92,
+              "end": 13.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " then",
+              "start": 13.34,
+              "end": 13.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 13.48,
+              "end": 13.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " pope",
+              "start": 13.66,
+              "end": 13.88,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " pretendeth",
+              "start": 13.88,
+              "end": 14.46,
+              "probability": 0.755859375
+            },
+            {
+              "text": " this",
+              "start": 14.46,
+              "end": 14.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " authority",
+              "start": 14.68,
+              "end": 15.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ecclesiastical",
+              "start": 15.18,
+              "end": 16.4,
+              "probability": 0.706695556640625
+            },
+            {
+              "text": " over",
+              "start": 16.4,
+              "end": 16.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him",
+              "start": 16.68,
+              "end": 16.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 16.96,
+              "end": 17.46,
+              "probability": 0.87939453125
+            }
+          ]
+        },
+        {
+          "text": " over his people.",
+          "start": 17.46,
+          "end": 18.24,
+          "words": [
+            {
+              "text": " over",
+              "start": 17.46,
+              "end": 17.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 17.72,
+              "end": 17.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " people.",
+              "start": 17.9,
+              "end": 18.24,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sixthly,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "raw": "denial",
+          "start": 1.08,
+          "end": 1.42
+        },
+        {
+          "raw": "of",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "raw": "marriage",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "raw": "to",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "raw": "priests",
+          "start": 2.42,
+          "end": 2.86
+        },
+        {
+          "raw": "serveth",
+          "start": 2.86,
+          "end": 3.76
+        },
+        {
+          "raw": "to",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "raw": "assure",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "raw": "this",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "raw": "power",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "raw": "of",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "raw": "the",
+          "start": 5.0,
+          "end": 5.1
+        },
+        {
+          "raw": "pope",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "raw": "over",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "raw": "kings.",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "raw": "For",
+          "start": 6.72,
+          "end": 6.92
+        },
+        {
+          "raw": "if",
+          "start": 6.92,
+          "end": 7.02
+        },
+        {
+          "raw": "a",
+          "start": 7.02,
+          "end": 7.14
+        },
+        {
+          "raw": "king",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "raw": "be",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "raw": "a",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "raw": "priest,",
+          "start": 7.66,
+          "end": 8.02
+        },
+        {
+          "raw": "he",
+          "start": 8.38,
+          "end": 8.56
+        },
+        {
+          "raw": "cannot",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "raw": "marry",
+          "start": 8.82,
+          "end": 9.24
+        },
+        {
+          "raw": "and",
+          "start": 9.24,
+          "end": 9.76
+        },
+        {
+          "raw": "transmit",
+          "start": 9.76,
+          "end": 10.18
+        },
+        {
+          "raw": "his",
+          "start": 10.18,
+          "end": 10.44
+        },
+        {
+          "raw": "kingdom",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "raw": "to",
+          "start": 10.68,
+          "end": 10.98
+        },
+        {
+          "raw": "his",
+          "start": 10.98,
+          "end": 11.12
+        },
+        {
+          "raw": "posterity.",
+          "start": 11.12,
+          "end": 11.8
+        },
+        {
+          "raw": "If",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "raw": "he",
+          "start": 12.4,
+          "end": 12.5
+        },
+        {
+          "raw": "be",
+          "start": 12.5,
+          "end": 12.58
+        },
+        {
+          "raw": "not",
+          "start": 12.58,
+          "end": 12.78
+        },
+        {
+          "raw": "a",
+          "start": 12.78,
+          "end": 12.92
+        },
+        {
+          "raw": "priest,",
+          "start": 12.92,
+          "end": 13.16
+        },
+        {
+          "raw": "then",
+          "start": 13.34,
+          "end": 13.48
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.66
+        },
+        {
+          "raw": "pope",
+          "start": 13.66,
+          "end": 13.88
+        },
+        {
+          "raw": "pretendeth",
+          "start": 13.88,
+          "end": 14.46
+        },
+        {
+          "raw": "this",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "raw": "authority",
+          "start": 14.68,
+          "end": 15.18
+        },
+        {
+          "raw": "ecclesiastical",
+          "start": 15.18,
+          "end": 16.4
+        },
+        {
+          "raw": "over",
+          "start": 16.4,
+          "end": 16.68
+        },
+        {
+          "raw": "him",
+          "start": 16.68,
+          "end": 16.96
+        },
+        {
+          "raw": "and",
+          "start": 16.96,
+          "end": 17.46
+        },
+        {
+          "raw": "over",
+          "start": 17.46,
+          "end": 17.72
+        },
+        {
+          "raw": "his",
+          "start": 17.72,
+          "end": 17.9
+        },
+        {
+          "raw": "people.",
+          "start": 17.9,
+          "end": 18.24
+        }
+      ],
+      "expected_tokens": [
+        "Sixtly,",
+        "the",
+        "Deniall",
+        "of",
+        "Marriage",
+        "to",
+        "Priests,",
+        "serveth",
+        "to",
+        "assure",
+        "this",
+        "Power",
+        "of",
+        "the",
+        "pope",
+        "over",
+        "Kings.",
+        "For",
+        "if",
+        "a",
+        "King",
+        "be",
+        "a",
+        "Priest,",
+        "he",
+        "cannot",
+        "Marry,",
+        "and",
+        "transmit",
+        "his",
+        "Kingdome",
+        "to",
+        "his",
+        "Posterity;",
+        "If",
+        "he",
+        "be",
+        "not",
+        "a",
+        "Priest",
+        "then",
+        "the",
+        "Pope",
+        "pretendeth",
+        "this",
+        "Authority",
+        "Ecclesiasticall",
+        "over",
+        "him,",
+        "and",
+        "over",
+        "his",
+        "people."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          30,
+          3,
+          30
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "equal",
+          31,
+          46,
+          31,
+          46
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          47
+        ],
+        [
+          "equal",
+          47,
+          53,
+          47,
+          53
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          30,
+          31,
+          30,
+          31
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          47
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sixthly,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "sixthly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.06,
+          "end": 1.08,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "denial",
+          "start": 1.08,
+          "end": 1.42,
+          "key": "denial",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.42,
+          "end": 1.8,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "marriage",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "marriage",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.1,
+          "end": 2.42,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "priests",
+          "start": 2.42,
+          "end": 2.86,
+          "key": "priests",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "serveth",
+          "start": 2.86,
+          "end": 3.76,
+          "key": "serveth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.76,
+          "end": 3.9,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "assure",
+          "start": 3.9,
+          "end": 4.18,
+          "key": "assure",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 4.18,
+          "end": 4.46,
+          "key": "this",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "power",
+          "start": 4.46,
+          "end": 4.78,
+          "key": "power",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.78,
+          "end": 5.0,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.0,
+          "end": 5.1,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "pope",
+          "start": 5.1,
+          "end": 5.32,
+          "key": "pope",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 5.32,
+          "end": 5.6,
+          "key": "over",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "kings.",
+          "start": 5.6,
+          "end": 5.92,
+          "key": "kings",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 6.72,
+          "end": 6.92,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 6.92,
+          "end": 7.02,
+          "key": "if",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.02,
+          "end": 7.14,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "king",
+          "start": 7.14,
+          "end": 7.3,
+          "key": "king",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 7.3,
+          "end": 7.54,
+          "key": "be",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.54,
+          "end": 7.66,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "priest,",
+          "start": 7.66,
+          "end": 8.02,
+          "key": "priest",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.38,
+          "end": 8.56,
+          "key": "he",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 8.56,
+          "end": 8.82,
+          "key": "cannot",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "marry",
+          "start": 8.82,
+          "end": 9.24,
+          "key": "marry",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.24,
+          "end": 9.76,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "transmit",
+          "start": 9.76,
+          "end": 10.18,
+          "key": "transmit",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.18,
+          "end": 10.44,
+          "key": "his",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "kingdom",
+          "start": 10.44,
+          "end": 10.68,
+          "key": "kingdom",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 10.68,
+          "end": 10.98,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.98,
+          "end": 11.12,
+          "key": "his",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "posterity.",
+          "start": 11.12,
+          "end": 11.8,
+          "key": "posterity",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 12.22,
+          "end": 12.4,
+          "key": "if",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 12.4,
+          "end": 12.5,
+          "key": "he",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 12.5,
+          "end": 12.58,
+          "key": "be",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 12.58,
+          "end": 12.78,
+          "key": "not",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 12.78,
+          "end": 12.92,
+          "key": "a",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "priest,",
+          "start": 12.92,
+          "end": 13.16,
+          "key": "priest",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 13.34,
+          "end": 13.48,
+          "key": "then",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.48,
+          "end": 13.66,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "pope",
+          "start": 13.66,
+          "end": 13.88,
+          "key": "pope",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "pretendeth",
+          "start": 13.88,
+          "end": 14.46,
+          "key": "pretendeth",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 14.46,
+          "end": 14.68,
+          "key": "this",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "authority",
+          "start": 14.68,
+          "end": 15.18,
+          "key": "authority",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "ecclesiastical",
+          "start": 15.18,
+          "end": 16.4,
+          "key": "ecclesiastical",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 16.4,
+          "end": 16.68,
+          "key": "over",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 16.68,
+          "end": 16.96,
+          "key": "him",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.96,
+          "end": 17.46,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 17.46,
+          "end": 17.72,
+          "key": "over",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 17.72,
+          "end": 17.9,
+          "key": "his",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "people.",
+          "start": 17.9,
+          "end": 18.24,
+          "key": "people",
+          "pieces": [
+            52
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sixtly,",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "text": "Deniall",
+          "start": 1.08,
+          "end": 1.25
+        },
+        {
+          "text": "of",
+          "start": 1.42,
+          "end": 1.8
+        },
+        {
+          "text": "Marriage",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "text": "to",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "text": "Priests,",
+          "start": 2.42,
+          "end": 2.86
+        },
+        {
+          "text": "serveth",
+          "start": 2.86,
+          "end": 3.76
+        },
+        {
+          "text": "to",
+          "start": 3.76,
+          "end": 3.9
+        },
+        {
+          "text": "assure",
+          "start": 3.9,
+          "end": 4.18
+        },
+        {
+          "text": "this",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "text": "Power",
+          "start": 4.46,
+          "end": 4.78
+        },
+        {
+          "text": "of",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "text": "the",
+          "start": 5.0,
+          "end": 5.1
+        },
+        {
+          "text": "pope",
+          "start": 5.1,
+          "end": 5.32
+        },
+        {
+          "text": "over",
+          "start": 5.32,
+          "end": 5.6
+        },
+        {
+          "text": "Kings.",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "text": "For",
+          "start": 6.72,
+          "end": 6.92
+        },
+        {
+          "text": "if",
+          "start": 6.92,
+          "end": 7.02
+        },
+        {
+          "text": "a",
+          "start": 7.02,
+          "end": 7.14
+        },
+        {
+          "text": "King",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "text": "be",
+          "start": 7.3,
+          "end": 7.54
+        },
+        {
+          "text": "a",
+          "start": 7.54,
+          "end": 7.66
+        },
+        {
+          "text": "Priest,",
+          "start": 7.66,
+          "end": 8.02
+        },
+        {
+          "text": "he",
+          "start": 8.38,
+          "end": 8.56
+        },
+        {
+          "text": "cannot",
+          "start": 8.56,
+          "end": 8.82
+        },
+        {
+          "text": "Marry,",
+          "start": 8.82,
+          "end": 9.24
+        },
+        {
+          "text": "and",
+          "start": 9.24,
+          "end": 9.76
+        },
+        {
+          "text": "transmit",
+          "start": 9.76,
+          "end": 10.18
+        },
+        {
+          "text": "his",
+          "start": 10.18,
+          "end": 10.44
+        },
+        {
+          "text": "Kingdome",
+          "start": 10.44,
+          "end": 10.56
+        },
+        {
+          "text": "to",
+          "start": 10.68,
+          "end": 10.98
+        },
+        {
+          "text": "his",
+          "start": 10.98,
+          "end": 11.12
+        },
+        {
+          "text": "Posterity;",
+          "start": 11.12,
+          "end": 11.8
+        },
+        {
+          "text": "If",
+          "start": 12.22,
+          "end": 12.4
+        },
+        {
+          "text": "he",
+          "start": 12.4,
+          "end": 12.5
+        },
+        {
+          "text": "be",
+          "start": 12.5,
+          "end": 12.58
+        },
+        {
+          "text": "not",
+          "start": 12.58,
+          "end": 12.78
+        },
+        {
+          "text": "a",
+          "start": 12.78,
+          "end": 12.92
+        },
+        {
+          "text": "Priest",
+          "start": 12.92,
+          "end": 13.16
+        },
+        {
+          "text": "then",
+          "start": 13.34,
+          "end": 13.48
+        },
+        {
+          "text": "the",
+          "start": 13.48,
+          "end": 13.66
+        },
+        {
+          "text": "Pope",
+          "start": 13.66,
+          "end": 13.88
+        },
+        {
+          "text": "pretendeth",
+          "start": 13.88,
+          "end": 14.46
+        },
+        {
+          "text": "this",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "text": "Authority",
+          "start": 14.68,
+          "end": 15.18
+        },
+        {
+          "text": "Ecclesiasticall",
+          "start": 15.18,
+          "end": 15.79
+        },
+        {
+          "text": "over",
+          "start": 16.4,
+          "end": 16.68
+        },
+        {
+          "text": "him,",
+          "start": 16.68,
+          "end": 16.96
+        },
+        {
+          "text": "and",
+          "start": 16.96,
+          "end": 17.46
+        },
+        {
+          "text": "over",
+          "start": 17.46,
+          "end": 17.72
+        },
+        {
+          "text": "his",
+          "start": 17.72,
+          "end": 17.9
+        },
+        {
+          "text": "people.",
+          "start": 17.9,
+          "end": 18.24
+        }
+      ],
+      "stats": {
+        "expected_words": 53,
+        "heard_words": 53,
+        "matched_words": 49
+      },
+      "match_ratio": 0.9245283018867925,
+      "rejection_reasons": [],
+      "seconds": 0.6040720352903008
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "ebebfceb97de07a4e852bbe715c6d97012ccb0db79350e64b74cb3aaa00faa31",
+  "selected_reasons": []
+}

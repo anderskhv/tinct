@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "46dbf023642f2489ebd7a4a5c463ea9e1b0fa930c185acbb21eac9116e4755b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.40450382698327303,
+      "alignment_seconds": 0.0004604663699865341,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, Mr. Captain, and what an ungentlemanly visitor in an honourable house....\"",
+        "hotwords": "Yes, Mr, Captain"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, Mr. Captain, and what an ungentlemanly visitor in an honourable house....",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.38037109375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Captain,",
+              "start": 1.63,
+              "end": 1.67,
+              "probability": 0.9765625
+            },
+            {
+              "text": " and",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " what",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " an",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " ungentlemanly",
+              "start": 2.55,
+              "end": 3.37,
+              "probability": 0.908984375
+            },
+            {
+              "text": " visitor",
+              "start": 3.37,
+              "end": 3.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " in",
+              "start": 3.65,
+              "end": 3.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " an",
+              "start": 3.91,
+              "end": 4.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " honourable",
+              "start": 4.05,
+              "end": 4.55,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " house....",
+              "start": 4.55,
+              "end": 5.05,
+              "probability": 0.46909236907958984
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "Captain,",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "what",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "an",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "ungentlemanly",
+          "start": 2.55,
+          "end": 3.37
+        },
+        {
+          "raw": "visitor",
+          "start": 3.37,
+          "end": 3.65
+        },
+        {
+          "raw": "in",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "raw": "an",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "raw": "honourable",
+          "start": 4.05,
+          "end": 4.55
+        },
+        {
+          "raw": "house....",
+          "start": 4.55,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "Mr.",
+        "Captain,",
+        "and",
+        "what",
+        "an",
+        "ungentlemanly",
+        "visitor",
+        "in",
+        "an",
+        "honourable",
+        "house....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Captain,",
+          "start": 1.63,
+          "end": 1.67,
+          "key": "captain",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "an",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ungentlemanly",
+          "start": 2.55,
+          "end": 3.37,
+          "key": "ungentlemanly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "visitor",
+          "start": 3.37,
+          "end": 3.65,
+          "key": "visitor",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.65,
+          "end": 3.91,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.91,
+          "end": 4.05,
+          "key": "an",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "honourable",
+          "start": 4.05,
+          "end": 4.55,
+          "key": "honourable",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "house....",
+          "start": 4.55,
+          "end": 5.05,
+          "key": "house",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Mr.",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "Captain,",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "what",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "an",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "ungentlemanly",
+          "start": 2.55,
+          "end": 3.37
+        },
+        {
+          "text": "visitor",
+          "start": 3.37,
+          "end": 3.65
+        },
+        {
+          "text": "in",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "text": "an",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "text": "honourable",
+          "start": 4.05,
+          "end": 4.55
+        },
+        {
+          "text": "house....\"",
+          "start": 4.55,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40516271721571684
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf0455bac9874dcc7d491a75b9bbba5b160e797db64ffa78bf00e06cfb330d22",
+  "selected_reasons": []
+}

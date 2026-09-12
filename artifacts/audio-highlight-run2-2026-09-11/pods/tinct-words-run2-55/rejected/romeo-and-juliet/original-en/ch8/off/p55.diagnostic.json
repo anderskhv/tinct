@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "b18cf14603c6bedb532ed7005d407aa2355b25edb065f801f88d34fb972c2079",
+  "attempts": [
+    {
+      "asr_seconds": 0.1150644039735198,
+      "alignment_seconds": 0.00017869845032691956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Romeo, my dear.",
+          "start": 0.02,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Romeo,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.955078125
+            },
+            {
+              "text": " my",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " dear.",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Romeo,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "my",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "dear.",
+          "start": 1.2,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "Romeo.",
+        "My",
+        "dear?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Romeo,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "romeo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dear.",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "dear",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Romeo.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "My",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "dear?",
+          "start": 1.2,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11529988422989845
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3b30d1c40d1dbd2db9ea7406666fe0b6bb90aad522f6e68ea85a125ef4af8461",
+  "selected_reasons": []
+}

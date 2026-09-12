@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "84137c4f97c3f3054f229215425de7ec43aa84e3364ef93f15e6cd460341acd5",
+  "attempts": [
+    {
+      "asr_seconds": 0.10448383999755606,
+      "alignment_seconds": 0.00020455699996091425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Eros with armor.",
+          "start": 0.08,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Eros",
+              "start": 0.68,
+              "end": 1.0,
+              "probability": 0.7890625
+            },
+            {
+              "text": " with",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " armor.",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.4541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Eros",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "raw": "with",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "armor.",
+          "start": 1.2,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Eros",
+        "with",
+        "armour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Eros",
+          "start": 0.68,
+          "end": 1.0,
+          "key": "eros",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "armor.",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "armor",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Eros",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "text": "with",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "armour.",
+          "start": 1.2,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10475867000059225
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1f7e68d40d29dc6a907b7c2f668118dba9db01912233fe6497ec2243eebfbdd9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

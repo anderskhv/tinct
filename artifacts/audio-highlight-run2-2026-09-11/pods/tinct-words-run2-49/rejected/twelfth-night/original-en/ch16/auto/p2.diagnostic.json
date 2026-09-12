@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "3142c2f90454b7c370182b219ff5aa1a49af794d51004a81207570378c71d34a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10061260685324669,
+      "alignment_seconds": 0.0002708323299884796,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Maria._]",
+        "hotwords": "Maria._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Maria._",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " Maria._",
+              "start": 0.64,
+              "end": 1.68,
+              "probability": 0.0860595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Maria._",
+          "start": 0.64,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Maria._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Maria._",
+          "start": 0.64,
+          "end": 1.68,
+          "key": "maria_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Maria._]",
+          "start": 0.64,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10097041353583336
+    },
+    {
+      "asr_seconds": 0.12625837326049805,
+      "alignment_seconds": 0.0002946034073829651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Maria._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Maria.",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " Maria.",
+              "start": 0.64,
+              "end": 0.98,
+              "probability": 0.172119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Maria.",
+          "start": 0.64,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Maria._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Maria.",
+          "start": 0.64,
+          "end": 0.98,
+          "key": "maria",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Maria._]",
+          "start": 0.64,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12664536014199257
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "a5a3040e81127792148ea1dc51caece5514383707718419e504d02385e86f362",
+  "selected_reasons": []
+}

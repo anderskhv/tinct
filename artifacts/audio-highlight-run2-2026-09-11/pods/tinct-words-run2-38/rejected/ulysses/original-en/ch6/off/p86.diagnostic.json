@@ -1,0 +1,451 @@
+{
+  "complete": true,
+  "signature": "055b01a4a8e44ee3849348a346246acb5cb51d0899369f02f1815edece791161",
+  "attempts": [
+    {
+      "asr_seconds": 0.14590933901490644,
+      "alignment_seconds": 0.0002349410206079483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Blaze is boiling, Mr. Power said, there he is airing his quiff.",
+          "start": 0.05,
+          "end": 4.01,
+          "words": [
+            {
+              "text": " Blaze",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.1787109375
+            },
+            {
+              "text": " is",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.921875
+            },
+            {
+              "text": " boiling,",
+              "start": 0.83,
+              "end": 1.13,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " Power",
+              "start": 1.89,
+              "end": 1.93,
+              "probability": 0.939453125
+            },
+            {
+              "text": " said,",
+              "start": 1.93,
+              "end": 2.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " there",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " he",
+              "start": 2.85,
+              "end": 3.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " is",
+              "start": 3.01,
+              "end": 3.11,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " airing",
+              "start": 3.11,
+              "end": 3.41,
+              "probability": 0.888671875
+            },
+            {
+              "text": " his",
+              "start": 3.41,
+              "end": 3.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " quiff.",
+              "start": 3.61,
+              "end": 4.01,
+              "probability": 0.922119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Blaze",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "is",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "boiling,",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "Power",
+          "start": 1.89,
+          "end": 1.93
+        },
+        {
+          "raw": "said,",
+          "start": 1.93,
+          "end": 2.33
+        },
+        {
+          "raw": "there",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "he",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "raw": "is",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "raw": "airing",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "raw": "his",
+          "start": 3.41,
+          "end": 3.61
+        },
+        {
+          "raw": "quiff.",
+          "start": 3.61,
+          "end": 4.01
+        }
+      ],
+      "expected_tokens": [
+        "—Blazes",
+        "Boylan,",
+        "Mr",
+        "Power",
+        "said.",
+        "There",
+        "he",
+        "is",
+        "airing",
+        "his",
+        "quiff."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          11,
+          3,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Blaze",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "blaze",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.63,
+          "end": 0.83,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boiling,",
+          "start": 0.83,
+          "end": 1.13,
+          "key": "boiling",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 1.89,
+          "end": 1.93,
+          "key": "power",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.93,
+          "end": 2.33,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.85,
+          "end": 3.01,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.01,
+          "end": 3.11,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "airing",
+          "start": 3.11,
+          "end": 3.41,
+          "key": "airing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.41,
+          "end": 3.61,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quiff.",
+          "start": 3.61,
+          "end": 4.01,
+          "key": "quiff",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Blazes",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "Boylan,",
+          "start": 0.715,
+          "end": 1.073
+        },
+        {
+          "text": "Mr",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "Power",
+          "start": 1.89,
+          "end": 1.93
+        },
+        {
+          "text": "said.",
+          "start": 1.93,
+          "end": 2.33
+        },
+        {
+          "text": "There",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "he",
+          "start": 2.85,
+          "end": 3.01
+        },
+        {
+          "text": "is",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "text": "airing",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "text": "his",
+          "start": 3.41,
+          "end": 3.61
+        },
+        {
+          "text": "quiff.",
+          "start": 3.61,
+          "end": 4.01
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14622158999554813
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a263883d5dddd346ba854276f3cc4c60a02b0dd486d18a65beb59463b9da405c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

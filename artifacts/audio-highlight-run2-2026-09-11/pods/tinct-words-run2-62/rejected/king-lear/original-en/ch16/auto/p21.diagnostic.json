@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "7e466d6ab2e2f69bfd82efc537ee151c0ddbe8d49da9e74a5db4c3d9dfdf943c",
+  "attempts": [
+    {
+      "asr_seconds": 0.06463225558400154,
+      "alignment_seconds": 0.0001324005424976349,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Servants bind him._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Servants bind him.",
+          "start": 0.08,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Servants",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " bind",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " him.",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servants",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "bind",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "him.",
+          "start": 1.04,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "[_Servants",
+        "bind",
+        "him._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servants",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "servants",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bind",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "bind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Servants",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "bind",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "him._]",
+          "start": 1.04,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06480851769447327
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7371afd06b1dab1a32680334e18216744cb5ce94c4b5fba3b822c35bd8a5fdec",
+  "selected_reasons": []
+}

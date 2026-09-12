@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "2ca67dbec107513f66983f7d9dabb45a9497c02e81df8e1d9051e46c1188e36c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09747431986033916,
+      "alignment_seconds": 0.00023797526955604553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Falls and dies.]",
+        "hotwords": "Falls"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Falls and dies.",
+          "start": 0.08,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Falls",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.4755859375
+            },
+            {
+              "text": " and",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " dies.",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.65283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Falls",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "and",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "dies.",
+          "start": 0.86,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "[Falls",
+        "and",
+        "dies.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Falls",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "falls",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.68,
+          "end": 0.86,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dies.",
+          "start": 0.86,
+          "end": 1.1,
+          "key": "dies",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Falls",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "and",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "dies.]",
+          "start": 0.86,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0978021901100874
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "040f22aa3c867e7efbfea7a966c216894e0c47895bc9007a45553309682e353e",
+  "selected_reasons": []
+}

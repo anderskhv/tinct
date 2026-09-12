@@ -1,0 +1,267 @@
+{
+  "complete": true,
+  "signature": "da958236fd8267b41980b99c8d1d630d4730221328044ef0a6c7f1dfb8bb80c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08449609950184822,
+      "alignment_seconds": 0.00015477091073989868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Edmond and Curin meeting.",
+          "start": 0.11,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.921875
+            },
+            {
+              "text": " Edmond",
+              "start": 0.63,
+              "end": 0.95,
+              "probability": 0.63525390625
+            },
+            {
+              "text": " and",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " Curin",
+              "start": 1.13,
+              "end": 1.57,
+              "probability": 0.3524169921875
+            },
+            {
+              "text": " meeting.",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.732421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Edmond",
+          "start": 0.63,
+          "end": 0.95
+        },
+        {
+          "raw": "and",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "raw": "Curin",
+          "start": 1.13,
+          "end": 1.57
+        },
+        {
+          "raw": "meeting.",
+          "start": 1.57,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Edmund",
+        "and",
+        "Curan,",
+        "meeting."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Edmond",
+          "start": 0.63,
+          "end": 0.95,
+          "key": "edmond",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.95,
+          "end": 1.13,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Curin",
+          "start": 1.13,
+          "end": 1.57,
+          "key": "curin",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "meeting.",
+          "start": 1.57,
+          "end": 1.85,
+          "key": "meeting",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Edmund",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "and",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "text": "Curan,",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "meeting.",
+          "start": 1.57,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08469771221280098
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cac554b56093ffba0c40b48865742f37ee2adc4b9a963dc58593e25826644f54",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

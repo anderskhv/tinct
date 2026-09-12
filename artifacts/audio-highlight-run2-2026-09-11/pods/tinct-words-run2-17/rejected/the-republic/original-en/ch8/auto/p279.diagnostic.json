@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "082c94940d3474c99ac87166d901b0be6beca4433a82051f1c8e104d6821acf1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1956014446914196,
+      "alignment_seconds": 0.0001666257157921791,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, he said; that is the way with him.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, he said. That is the way with him.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.26123046875
+            },
+            {
+              "text": " he",
+              "start": 0.77,
+              "end": 0.87,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " said.",
+              "start": 0.87,
+              "end": 1.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " That",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " way",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "he",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "raw": "said.",
+          "start": 0.87,
+          "end": 1.15
+        },
+        {
+          "raw": "That",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "is",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "the",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "way",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "with",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "him.",
+          "start": 2.23,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said;",
+        "that",
+        "is",
+        "the",
+        "way",
+        "with",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.77,
+          "end": 0.87,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 0.87,
+          "end": 1.15,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "way",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "he",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "text": "said;",
+          "start": 0.87,
+          "end": 1.15
+        },
+        {
+          "text": "that",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "is",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "the",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "way",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "with",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "him.",
+          "start": 2.23,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19582953304052353
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "625bb3431bfc69ab087b3e21e649e86d19a09bee9942f9e203332912781f930b",
+  "selected_reasons": []
+}

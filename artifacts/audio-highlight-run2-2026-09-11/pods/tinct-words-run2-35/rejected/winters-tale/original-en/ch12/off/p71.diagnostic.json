@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "e043188ae52ecfe05fd7cdc4fecf707038cf73709ccca5b0bf3dab6b98aa407c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19686969183385372,
+      "alignment_seconds": 0.000402769073843956,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mopsa, is it true? Thank you.",
+          "start": 0.02,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " Mopsa,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.5782063802083334
+            },
+            {
+              "text": " is",
+              "start": 1.24,
+              "end": 1.26,
+              "probability": 0.966796875
+            },
+            {
+              "text": " it",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " true?",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Thank",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " you.",
+              "start": 1.78,
+              "end": 2.06,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "is",
+          "start": 1.24,
+          "end": 1.26
+        },
+        {
+          "raw": "it",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "true?",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "Thank",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "you.",
+          "start": 1.78,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "Mopsa.",
+        "Is",
+        "it",
+        "true,",
+        "think",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "mopsa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.24,
+          "end": 1.26,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true?",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thank",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "thank",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.78,
+          "end": 2.06,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mopsa.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "Is",
+          "start": 1.24,
+          "end": 1.26
+        },
+        {
+          "text": "it",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "true,",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "think",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "you?",
+          "start": 1.78,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1974054016172886
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9968723d60a053968b447f2548b4a3cc002f253c64309b64941a0cf7b2207afb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,754 @@
+{
+  "complete": true,
+  "signature": "5a8fa6db0aed892b8941c6617d401cc08290055d5c5e6539f50650173facf768",
+  "attempts": [
+    {
+      "asr_seconds": 0.3304588794708252,
+      "alignment_seconds": 0.0007719546556472778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tell me then, oh thou heir of the argument, what did Simonides say and according to you truly say about justice?",
+          "start": 0.05,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " Tell",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " me",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " then,",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " oh",
+              "start": 1.41,
+              "end": 1.41,
+              "probability": 0.5625
+            },
+            {
+              "text": " thou",
+              "start": 1.41,
+              "end": 1.61,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " heir",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.489990234375
+            },
+            {
+              "text": " of",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " argument,",
+              "start": 2.15,
+              "end": 2.55,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " what",
+              "start": 3.05,
+              "end": 3.21,
+              "probability": 0.947265625
+            },
+            {
+              "text": " did",
+              "start": 3.21,
+              "end": 3.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Simonides",
+              "start": 3.43,
+              "end": 4.09,
+              "probability": 0.940673828125
+            },
+            {
+              "text": " say",
+              "start": 4.09,
+              "end": 4.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 4.47,
+              "end": 5.01,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " according",
+              "start": 5.01,
+              "end": 5.29,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " to",
+              "start": 5.29,
+              "end": 5.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 5.53,
+              "end": 5.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " truly",
+              "start": 5.67,
+              "end": 5.95,
+              "probability": 0.8828125
+            },
+            {
+              "text": " say",
+              "start": 5.95,
+              "end": 6.39,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " about",
+              "start": 6.39,
+              "end": 6.73,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " justice?",
+              "start": 6.73,
+              "end": 7.23,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tell",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "me",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "then,",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "oh",
+          "start": 1.41,
+          "end": 1.41
+        },
+        {
+          "raw": "thou",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "raw": "heir",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "of",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "argument,",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "raw": "what",
+          "start": 3.05,
+          "end": 3.21
+        },
+        {
+          "raw": "did",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "raw": "Simonides",
+          "start": 3.43,
+          "end": 4.09
+        },
+        {
+          "raw": "say",
+          "start": 4.09,
+          "end": 4.47
+        },
+        {
+          "raw": "and",
+          "start": 4.47,
+          "end": 5.01
+        },
+        {
+          "raw": "according",
+          "start": 5.01,
+          "end": 5.29
+        },
+        {
+          "raw": "to",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "raw": "you",
+          "start": 5.53,
+          "end": 5.67
+        },
+        {
+          "raw": "truly",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "raw": "say",
+          "start": 5.95,
+          "end": 6.39
+        },
+        {
+          "raw": "about",
+          "start": 6.39,
+          "end": 6.73
+        },
+        {
+          "raw": "justice?",
+          "start": 6.73,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "Tell",
+        "me",
+        "then,",
+        "O",
+        "thou",
+        "heir",
+        "of",
+        "the",
+        "argument,",
+        "what",
+        "did",
+        "Simonides",
+        "say,",
+        "and",
+        "according",
+        "to",
+        "you",
+        "truly",
+        "say,",
+        "about",
+        "justice?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          21,
+          4,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tell",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "tell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.41,
+          "end": 1.41,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.41,
+          "end": 1.61,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "heir",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "heir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "argument,",
+          "start": 2.15,
+          "end": 2.55,
+          "key": "argument",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.05,
+          "end": 3.21,
+          "key": "what",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 3.21,
+          "end": 3.43,
+          "key": "did",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Simonides",
+          "start": 3.43,
+          "end": 4.09,
+          "key": "simonides",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 4.09,
+          "end": 4.47,
+          "key": "say",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.47,
+          "end": 5.01,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "according",
+          "start": 5.01,
+          "end": 5.29,
+          "key": "according",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.29,
+          "end": 5.53,
+          "key": "to",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.53,
+          "end": 5.67,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "truly",
+          "start": 5.67,
+          "end": 5.95,
+          "key": "truly",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 5.95,
+          "end": 6.39,
+          "key": "say",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 6.39,
+          "end": 6.73,
+          "key": "about",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "justice?",
+          "start": 6.73,
+          "end": 7.23,
+          "key": "justice",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tell",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "me",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "then,",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "text": "O",
+          "start": 0.95,
+          "end": 1.18
+        },
+        {
+          "text": "thou",
+          "start": 1.41,
+          "end": 1.61
+        },
+        {
+          "text": "heir",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "of",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "the",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "argument,",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "text": "what",
+          "start": 3.05,
+          "end": 3.21
+        },
+        {
+          "text": "did",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "text": "Simonides",
+          "start": 3.43,
+          "end": 4.09
+        },
+        {
+          "text": "say,",
+          "start": 4.09,
+          "end": 4.47
+        },
+        {
+          "text": "and",
+          "start": 4.47,
+          "end": 5.01
+        },
+        {
+          "text": "according",
+          "start": 5.01,
+          "end": 5.29
+        },
+        {
+          "text": "to",
+          "start": 5.29,
+          "end": 5.53
+        },
+        {
+          "text": "you",
+          "start": 5.53,
+          "end": 5.67
+        },
+        {
+          "text": "truly",
+          "start": 5.67,
+          "end": 5.95
+        },
+        {
+          "text": "say,",
+          "start": 5.95,
+          "end": 6.39
+        },
+        {
+          "text": "about",
+          "start": 6.39,
+          "end": 6.73
+        },
+        {
+          "text": "justice?",
+          "start": 6.73,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.33150338008999825
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7e5522312aa58f02e69dbbefb22d93a9148d5111396ae6b101d2efd368fbb5e1",
+  "selected_reasons": []
+}

@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "610fb337c9a53301d4b5e9bac92e2e3ef8eb6387c6dea2e69eeba5d178c41155",
+  "attempts": [
+    {
+      "asr_seconds": 0.2267679859942291,
+      "alignment_seconds": 0.0004766560159623623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. The April's in her eyes. It is love's spring, And these the showers to bring it on.—Be cheerful.",
+        "hotwords": "Antony, April's, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, The April's in her eyes. It is love's spring, And these the showers to bring it on.—Be cheerful.",
+          "start": 0.05,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6519775390625
+            },
+            {
+              "text": " The",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.06488037109375
+            },
+            {
+              "text": " April's",
+              "start": 1.09,
+              "end": 1.55,
+              "probability": 0.48358154296875
+            },
+            {
+              "text": " in",
+              "start": 1.55,
+              "end": 1.63,
+              "probability": 0.7890625
+            },
+            {
+              "text": " her",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " eyes.",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.84375
+            },
+            {
+              "text": " It",
+              "start": 2.63,
+              "end": 2.71,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " is",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " love's",
+              "start": 2.87,
+              "end": 3.17,
+              "probability": 0.55865478515625
+            },
+            {
+              "text": " spring,",
+              "start": 3.17,
+              "end": 3.53,
+              "probability": 0.9765625
+            },
+            {
+              "text": " And",
+              "start": 3.73,
+              "end": 3.77,
+              "probability": 0.176513671875
+            },
+            {
+              "text": " these",
+              "start": 3.77,
+              "end": 3.97,
+              "probability": 0.953125
+            },
+            {
+              "text": " the",
+              "start": 3.97,
+              "end": 4.17,
+              "probability": 0.953125
+            },
+            {
+              "text": " showers",
+              "start": 4.17,
+              "end": 4.47,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " to",
+              "start": 4.47,
+              "end": 4.73,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " bring",
+              "start": 4.73,
+              "end": 4.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " it",
+              "start": 4.87,
+              "end": 4.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " on.—Be",
+              "start": 4.97,
+              "end": 6.01,
+              "probability": 0.6293949882189432
+            },
+            {
+              "text": " cheerful.",
+              "start": 6.01,
+              "end": 6.37,
+              "probability": 0.87451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "The",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "April's",
+          "start": 1.09,
+          "end": 1.55
+        },
+        {
+          "raw": "in",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "raw": "her",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "eyes.",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "It",
+          "start": 2.63,
+          "end": 2.71
+        },
+        {
+          "raw": "is",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": "love's",
+          "start": 2.87,
+          "end": 3.17
+        },
+        {
+          "raw": "spring,",
+          "start": 3.17,
+          "end": 3.53
+        },
+        {
+          "raw": "And",
+          "start": 3.73,
+          "end": 3.77
+        },
+        {
+          "raw": "these",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "raw": "the",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "raw": "showers",
+          "start": 4.17,
+          "end": 4.47
+        },
+        {
+          "raw": "to",
+          "start": 4.47,
+          "end": 4.73
+        },
+        {
+          "raw": "bring",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "raw": "it",
+          "start": 4.87,
+          "end": 4.97
+        },
+        {
+          "raw": "on.—Be",
+          "start": 4.97,
+          "end": 6.01
+        },
+        {
+          "raw": "cheerful.",
+          "start": 6.01,
+          "end": 6.37
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "The",
+        "April's",
+        "in",
+        "her",
+        "eyes.",
+        "It",
+        "is",
+        "love's",
+        "spring,",
+        "And",
+        "these",
+        "the",
+        "showers",
+        "to",
+        "bring",
+        "it",
+        "on.—Be",
+        "cheerful."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 0.97,
+          "end": 1.09,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "April's",
+          "start": 1.09,
+          "end": 1.55,
+          "key": "aprils",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.55,
+          "end": 1.63,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 1.75,
+          "end": 2.07,
+          "key": "eyes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 2.63,
+          "end": 2.71,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love's",
+          "start": 2.87,
+          "end": 3.17,
+          "key": "loves",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "spring,",
+          "start": 3.17,
+          "end": 3.53,
+          "key": "spring",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.73,
+          "end": 3.77,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.77,
+          "end": 3.97,
+          "key": "these",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.97,
+          "end": 4.17,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "showers",
+          "start": 4.17,
+          "end": 4.47,
+          "key": "showers",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.47,
+          "end": 4.73,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 4.73,
+          "end": 4.87,
+          "key": "bring",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.87,
+          "end": 4.97,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on.—Be",
+          "start": 4.97,
+          "end": 6.01,
+          "key": "onbe",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "cheerful.",
+          "start": 6.01,
+          "end": 6.37,
+          "key": "cheerful",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "The",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "April's",
+          "start": 1.09,
+          "end": 1.55
+        },
+        {
+          "text": "in",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "text": "her",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "eyes.",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "It",
+          "start": 2.63,
+          "end": 2.71
+        },
+        {
+          "text": "is",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "text": "love's",
+          "start": 2.87,
+          "end": 3.17
+        },
+        {
+          "text": "spring,",
+          "start": 3.17,
+          "end": 3.53
+        },
+        {
+          "text": "And",
+          "start": 3.73,
+          "end": 3.77
+        },
+        {
+          "text": "these",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "text": "the",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "text": "showers",
+          "start": 4.17,
+          "end": 4.47
+        },
+        {
+          "text": "to",
+          "start": 4.47,
+          "end": 4.73
+        },
+        {
+          "text": "bring",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "text": "it",
+          "start": 4.87,
+          "end": 4.97
+        },
+        {
+          "text": "on.—Be",
+          "start": 4.97,
+          "end": 6.01
+        },
+        {
+          "text": "cheerful.",
+          "start": 6.01,
+          "end": 6.37
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2274851209949702
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "49381c466f4f5eaf66bd3ad52574927fff354ecd2a9ce901a31ba813f1b145d5",
+  "selected_reasons": []
+}

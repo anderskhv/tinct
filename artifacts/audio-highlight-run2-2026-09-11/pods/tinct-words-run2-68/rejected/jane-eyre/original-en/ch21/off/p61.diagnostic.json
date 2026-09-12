@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "00750816c75a193ed56fd8b31bfdb267af9b1e370708913b8bf5194efa4e9fd1",
+  "attempts": [
+    {
+      "asr_seconds": 0.20026221498847008,
+      "alignment_seconds": 0.00045606866478919983,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, sir, but now you owe me five.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " sir,",
+              "start": 0.79,
+              "end": 0.87,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " but",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " now",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " owe",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " five.",
+              "start": 1.81,
+              "end": 2.05,
+              "probability": 0.81640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "sir,",
+          "start": 0.79,
+          "end": 0.87
+        },
+        {
+          "raw": "but",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "now",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "owe",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "me",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "five.",
+          "start": 1.81,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "sir,",
+        "but",
+        "now",
+        "you",
+        "owe",
+        "me",
+        "five.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.79,
+          "end": 0.87,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "owe",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "owe",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "five.",
+          "start": 1.81,
+          "end": 2.05,
+          "key": "five",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "sir,",
+          "start": 0.79,
+          "end": 0.87
+        },
+        {
+          "text": "but",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "now",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "you",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "owe",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "me",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "five.\"",
+          "start": 1.81,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2008843906223774
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2147c7dbaa5fea6058176c66413066a0a0c3c7227d19bb97c4ea51af58159413",
+  "selected_reasons": []
+}

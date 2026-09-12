@@ -1,0 +1,777 @@
+{
+  "complete": true,
+  "signature": "acfcffe8c00467ba22f3e76529b3d1dd3d3bdc17f58c24ff0d06e6f646bd6738",
+  "attempts": [
+    {
+      "asr_seconds": 0.3630529008805752,
+      "alignment_seconds": 0.0005771834403276443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Our Veragas you help us sir as you did mean indeed to be our brother. Joyed are we that you are",
+          "start": 0.02,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " Our",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.308837890625
+            },
+            {
+              "text": " Veragas",
+              "start": 0.58,
+              "end": 1.14,
+              "probability": 0.5880533854166666
+            },
+            {
+              "text": " you",
+              "start": 1.14,
+              "end": 1.74,
+              "probability": 0.2587890625
+            },
+            {
+              "text": " help",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " us",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sir",
+              "start": 2.26,
+              "end": 2.46,
+              "probability": 0.833984375
+            },
+            {
+              "text": " as",
+              "start": 2.46,
+              "end": 2.84,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " you",
+              "start": 2.84,
+              "end": 2.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " did",
+              "start": 2.96,
+              "end": 3.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mean",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " indeed",
+              "start": 3.38,
+              "end": 3.7,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 3.88,
+              "end": 4.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " our",
+              "start": 4.0,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " brother.",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Joyed",
+              "start": 4.78,
+              "end": 5.2,
+              "probability": 0.6893310546875
+            },
+            {
+              "text": " are",
+              "start": 5.2,
+              "end": 5.28,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " we",
+              "start": 5.28,
+              "end": 5.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " that",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 5.56,
+              "end": 5.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 5.76,
+              "end": 6.08,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Our",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "Veragas",
+          "start": 0.58,
+          "end": 1.14
+        },
+        {
+          "raw": "you",
+          "start": 1.14,
+          "end": 1.74
+        },
+        {
+          "raw": "help",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "us",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "sir",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "raw": "as",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "raw": "you",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "raw": "did",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "raw": "mean",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "raw": "indeed",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "raw": "to",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "be",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "raw": "our",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "raw": "brother.",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "Joyed",
+          "start": 4.78,
+          "end": 5.2
+        },
+        {
+          "raw": "are",
+          "start": 5.2,
+          "end": 5.28
+        },
+        {
+          "raw": "we",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "raw": "that",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "you",
+          "start": 5.56,
+          "end": 5.76
+        },
+        {
+          "raw": "are",
+          "start": 5.76,
+          "end": 6.08
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "You",
+        "holp",
+        "us,",
+        "sir,",
+        "As",
+        "you",
+        "did",
+        "mean",
+        "indeed",
+        "to",
+        "be",
+        "our",
+        "brother;",
+        "Joy'd",
+        "are",
+        "we",
+        "that",
+        "you",
+        "are."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          14,
+          4,
+          15
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          16
+        ],
+        [
+          "equal",
+          15,
+          20,
+          16,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "replace",
+          14,
+          15,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Our",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "our",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Veragas",
+          "start": 0.58,
+          "end": 1.14,
+          "key": "veragas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.14,
+          "end": 1.74,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "us",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 2.26,
+          "end": 2.46,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.46,
+          "end": 2.84,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.84,
+          "end": 2.96,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.96,
+          "end": 3.18,
+          "key": "did",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "mean",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "indeed",
+          "start": 3.38,
+          "end": 3.7,
+          "key": "indeed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.7,
+          "end": 3.88,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.88,
+          "end": 4.0,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.0,
+          "end": 4.16,
+          "key": "our",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "brother.",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "brother",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Joyed",
+          "start": 4.78,
+          "end": 5.2,
+          "key": "joyed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.2,
+          "end": 5.28,
+          "key": "are",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.28,
+          "end": 5.42,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.42,
+          "end": 5.56,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.56,
+          "end": 5.76,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.76,
+          "end": 6.08,
+          "key": "are",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "You",
+          "start": 1.14,
+          "end": 1.74
+        },
+        {
+          "text": "holp",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "us,",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "sir,",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "text": "As",
+          "start": 2.46,
+          "end": 2.84
+        },
+        {
+          "text": "you",
+          "start": 2.84,
+          "end": 2.96
+        },
+        {
+          "text": "did",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "text": "mean",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "text": "indeed",
+          "start": 3.38,
+          "end": 3.7
+        },
+        {
+          "text": "to",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "be",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "text": "our",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "text": "brother;",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "Joy'd",
+          "start": 4.48,
+          "end": 4.84
+        },
+        {
+          "text": "are",
+          "start": 5.2,
+          "end": 5.28
+        },
+        {
+          "text": "we",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "text": "that",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "you",
+          "start": 5.56,
+          "end": 5.76
+        },
+        {
+          "text": "are.",
+          "start": 5.76,
+          "end": 6.08
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.3639093590900302
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4d66e022cd2d5d381c717a01b91a2dcb4998a4f9fa75f160743fc7ae4132fa77",
+  "selected_reasons": []
+}

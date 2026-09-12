@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1edf6614077cacc1735231ff1e09ef34b53849e066d317e4d190a16a913c0039",
+  "attempts": [
+    {
+      "asr_seconds": 0.09928345307707787,
+      "alignment_seconds": 0.00017105787992477417,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Or drought moisture?",
+        "hotwords": "Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Or drought moisture?",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Or",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.1357421875
+            },
+            {
+              "text": " drought",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " moisture?",
+              "start": 0.74,
+              "end": 1.16,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Or",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "drought",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "moisture?",
+          "start": 0.74,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "Or",
+        "drought",
+        "moisture?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Or",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "or",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "drought",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "drought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moisture?",
+          "start": 0.74,
+          "end": 1.16,
+          "key": "moisture",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Or",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "drought",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "moisture?",
+          "start": 0.74,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09951279312372208
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cf2d03312126f9b232284b521a45d5e8a2f9a4d98948bddce35b3494200a69aa",
+  "selected_reasons": []
+}

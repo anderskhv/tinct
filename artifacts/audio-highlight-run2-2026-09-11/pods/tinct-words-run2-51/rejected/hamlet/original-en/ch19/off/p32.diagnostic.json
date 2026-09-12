@@ -1,0 +1,482 @@
+{
+  "complete": true,
+  "signature": "7912332ad92c15ab9cce2f9e350d6c297eb558bf0b600698a8bd29b1cfbbfbd5",
+  "attempts": [
+    {
+      "asr_seconds": 0.33397109247744083,
+      "alignment_seconds": 0.000574970617890358,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, teasing so, the hand of little employment hath the daintier sense.",
+          "start": 0.08,
+          "end": 4.62,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " teasing",
+              "start": 1.24,
+              "end": 1.6,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " so,",
+              "start": 1.6,
+              "end": 2.02,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 2.36,
+              "end": 2.44,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " hand",
+              "start": 2.44,
+              "end": 2.64,
+              "probability": 0.984375
+            },
+            {
+              "text": " of",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " little",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " employment",
+              "start": 2.96,
+              "end": 3.44,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hath",
+              "start": 3.44,
+              "end": 3.7,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " daintier",
+              "start": 3.88,
+              "end": 4.32,
+              "probability": 0.6783854166666666
+            },
+            {
+              "text": " sense.",
+              "start": 4.32,
+              "end": 4.62,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "teasing",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "raw": "so,",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "raw": "the",
+          "start": 2.36,
+          "end": 2.44
+        },
+        {
+          "raw": "hand",
+          "start": 2.44,
+          "end": 2.64
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "little",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "employment",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "raw": "hath",
+          "start": 3.44,
+          "end": 3.7
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "daintier",
+          "start": 3.88,
+          "end": 4.32
+        },
+        {
+          "raw": "sense.",
+          "start": 4.32,
+          "end": 4.62
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "'Tis",
+        "e'en",
+        "so;",
+        "the",
+        "hand",
+        "of",
+        "little",
+        "employment",
+        "hath",
+        "the",
+        "daintier",
+        "sense."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          13,
+          2,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "teasing",
+          "start": 1.24,
+          "end": 1.6,
+          "key": "teasing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.6,
+          "end": 2.02,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.36,
+          "end": 2.44,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 2.44,
+          "end": 2.64,
+          "key": "hand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "little",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "employment",
+          "start": 2.96,
+          "end": 3.44,
+          "key": "employment",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 3.44,
+          "end": 3.7,
+          "key": "hath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.88,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "daintier",
+          "start": 3.88,
+          "end": 4.32,
+          "key": "daintier",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sense.",
+          "start": 4.32,
+          "end": 4.62,
+          "key": "sense",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "'Tis",
+          "start": 0.9,
+          "end": 1.25
+        },
+        {
+          "text": "e'en",
+          "start": 1.25,
+          "end": 1.425
+        },
+        {
+          "text": "so;",
+          "start": 1.6,
+          "end": 2.02
+        },
+        {
+          "text": "the",
+          "start": 2.36,
+          "end": 2.44
+        },
+        {
+          "text": "hand",
+          "start": 2.44,
+          "end": 2.64
+        },
+        {
+          "text": "of",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "little",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "text": "employment",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "text": "hath",
+          "start": 3.44,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "daintier",
+          "start": 3.88,
+          "end": 4.32
+        },
+        {
+          "text": "sense.",
+          "start": 4.32,
+          "end": 4.62
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3347420645877719
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25241cfee58ce18f95c8ceb5cd29c1cc00a9e8f2d74a67d2f161fc02c3957d07",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "2521565e4da298d5e6f6e8768e5613886c3698d18425123346c1b79bad83e172",
+  "attempts": [
+    {
+      "asr_seconds": 0.1863559726625681,
+      "alignment_seconds": 0.000509878620505333,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown this cannot be but a great courtier",
+          "start": 0.08,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Clown",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " this",
+              "start": 0.7,
+              "end": 1.3,
+              "probability": 0.1947021484375
+            },
+            {
+              "text": " cannot",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.966796875
+            },
+            {
+              "text": " a",
+              "start": 1.98,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " great",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " courtier",
+              "start": 2.32,
+              "end": 2.86,
+              "probability": 0.808837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "this",
+          "start": 0.7,
+          "end": 1.3
+        },
+        {
+          "raw": "cannot",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "be",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "but",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "a",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "raw": "great",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "courtier",
+          "start": 2.32,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "This",
+        "cannot",
+        "be",
+        "but",
+        "a",
+        "great",
+        "courtier."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.7,
+          "end": 1.3,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "cannot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.98,
+          "end": 2.08,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "great",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "courtier",
+          "start": 2.32,
+          "end": 2.86,
+          "key": "courtier",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "This",
+          "start": 0.7,
+          "end": 1.3
+        },
+        {
+          "text": "cannot",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "be",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "text": "but",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "a",
+          "start": 1.98,
+          "end": 2.08
+        },
+        {
+          "text": "great",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "courtier.",
+          "start": 2.32,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18703557178378105
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0f6912bd04d4c65ceec85410ddf03042c8b506a9c56b20b2bbd4a1390cf6aae7",
+  "selected_reasons": []
+}

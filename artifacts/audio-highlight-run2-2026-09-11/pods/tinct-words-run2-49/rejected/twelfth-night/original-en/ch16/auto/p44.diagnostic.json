@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "85c6090bc9d08ddcbb3387ded94cfa0557eb10d35871777e1dd9a03cb27da69f",
+  "attempts": [
+    {
+      "asr_seconds": 0.16853035986423492,
+      "alignment_seconds": 0.00028591975569725037,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Master Malvolio?",
+        "hotwords": "Clown, Master, Malvolio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Master Malvolio",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.447265625
+            },
+            {
+              "text": " Master",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Malvolio",
+              "start": 1.42,
+              "end": 2.0,
+              "probability": 0.8859049479166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Master",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "Malvolio",
+          "start": 1.42,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Master",
+        "Malvolio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "master",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Malvolio",
+          "start": 1.42,
+          "end": 2.0,
+          "key": "malvolio",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Master",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "text": "Malvolio?",
+          "start": 1.42,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1689162515103817
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d11c869e44bfa252ee229b91522140d4040a6063884b68bd1ea25f32ac20a1d1",
+  "selected_reasons": []
+}

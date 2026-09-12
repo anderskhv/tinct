@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "f2f491b89b595d5e02ef368668ea0cb094a42f267cfca15b0bf7827751af3f4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.156657412648201,
+      "alignment_seconds": 0.0003939494490623474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You have a kind aunt and cousins.\"",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You have a kind aunt and cousins.",
+          "start": 0.02,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.90625
+            },
+            {
+              "text": " have",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " kind",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " aunt",
+              "start": 1.0,
+              "end": 1.26,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " and",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " cousins.",
+              "start": 1.42,
+              "end": 1.68,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "have",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "kind",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "aunt",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "raw": "and",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "cousins.",
+          "start": 1.42,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "have",
+        "a",
+        "kind",
+        "aunt",
+        "and",
+        "cousins.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.78,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "kind",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "aunt",
+          "start": 1.0,
+          "end": 1.26,
+          "key": "aunt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cousins.",
+          "start": 1.42,
+          "end": 1.68,
+          "key": "cousins",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "have",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "a",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "kind",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "aunt",
+          "start": 1.0,
+          "end": 1.26
+        },
+        {
+          "text": "and",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "cousins.\"",
+          "start": 1.42,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15720420982688665
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b90c95cd6bed6d6c1b5657eeac262dd9bee19e480e145717d529a85429715a82",
+  "selected_reasons": []
+}

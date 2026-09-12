@@ -1,0 +1,837 @@
+{
+  "complete": true,
+  "signature": "ce567d6cb5e0624e2ccefa3d7a7a3a70948a35b3f09334da54b0e93d8ff9e03b",
+  "attempts": [
+    {
+      "asr_seconds": 0.4879314387217164,
+      "alignment_seconds": 0.0009157052263617516,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Cominius the General and Titus Lartius, between them Coriolanus crowned with an oaken garland, with Captains and Soldiers and a Herald. Trumpets sound.",
+        "hotwords": "Enter, Cominius, General, Titus, Lartius, Coriolanus, Captains, Soldiers, Herald, Trumpets"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cominius the General and Titus Lartius, between them Coriolanus crowned with an oaken garland, with Captains and Soldiers and a Herald.",
+          "start": 0.02,
+          "end": 8.9,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " Cominius",
+              "start": 0.66,
+              "end": 1.22,
+              "probability": 0.5668131510416666
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " General",
+              "start": 1.46,
+              "end": 1.82,
+              "probability": 0.400390625
+            },
+            {
+              "text": " and",
+              "start": 1.82,
+              "end": 2.08,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Titus",
+              "start": 2.08,
+              "end": 2.42,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Lartius,",
+              "start": 2.42,
+              "end": 2.94,
+              "probability": 0.5676854451497396
+            },
+            {
+              "text": " between",
+              "start": 3.4,
+              "end": 3.66,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " them",
+              "start": 3.66,
+              "end": 3.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Coriolanus",
+              "start": 3.88,
+              "end": 4.68,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " crowned",
+              "start": 4.68,
+              "end": 5.1,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " with",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " an",
+              "start": 5.4,
+              "end": 5.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " oaken",
+              "start": 5.52,
+              "end": 5.88,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " garland,",
+              "start": 5.88,
+              "end": 6.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " with",
+              "start": 6.84,
+              "end": 6.96,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Captains",
+              "start": 6.96,
+              "end": 7.56,
+              "probability": 0.5102005004882812
+            },
+            {
+              "text": " and",
+              "start": 7.56,
+              "end": 7.76,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Soldiers",
+              "start": 7.76,
+              "end": 8.08,
+              "probability": 0.1221923828125
+            },
+            {
+              "text": " and",
+              "start": 8.08,
+              "end": 8.44,
+              "probability": 0.9140625
+            },
+            {
+              "text": " a",
+              "start": 8.44,
+              "end": 8.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Herald.",
+              "start": 8.54,
+              "end": 8.9,
+              "probability": 0.09918212890625
+            }
+          ]
+        },
+        {
+          "text": " Trumpets sound.",
+          "start": 8.9,
+          "end": 10.3,
+          "words": [
+            {
+              "text": " Trumpets",
+              "start": 8.9,
+              "end": 10.0,
+              "probability": 0.3494873046875
+            },
+            {
+              "text": " sound.",
+              "start": 10.0,
+              "end": 10.3,
+              "probability": 0.66552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Cominius",
+          "start": 0.66,
+          "end": 1.22
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "General",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "raw": "and",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "raw": "Titus",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "raw": "Lartius,",
+          "start": 2.42,
+          "end": 2.94
+        },
+        {
+          "raw": "between",
+          "start": 3.4,
+          "end": 3.66
+        },
+        {
+          "raw": "them",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "raw": "Coriolanus",
+          "start": 3.88,
+          "end": 4.68
+        },
+        {
+          "raw": "crowned",
+          "start": 4.68,
+          "end": 5.1
+        },
+        {
+          "raw": "with",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "raw": "an",
+          "start": 5.4,
+          "end": 5.52
+        },
+        {
+          "raw": "oaken",
+          "start": 5.52,
+          "end": 5.88
+        },
+        {
+          "raw": "garland,",
+          "start": 5.88,
+          "end": 6.42
+        },
+        {
+          "raw": "with",
+          "start": 6.84,
+          "end": 6.96
+        },
+        {
+          "raw": "Captains",
+          "start": 6.96,
+          "end": 7.56
+        },
+        {
+          "raw": "and",
+          "start": 7.56,
+          "end": 7.76
+        },
+        {
+          "raw": "Soldiers",
+          "start": 7.76,
+          "end": 8.08
+        },
+        {
+          "raw": "and",
+          "start": 8.08,
+          "end": 8.44
+        },
+        {
+          "raw": "a",
+          "start": 8.44,
+          "end": 8.54
+        },
+        {
+          "raw": "Herald.",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "raw": "Trumpets",
+          "start": 8.9,
+          "end": 10.0
+        },
+        {
+          "raw": "sound.",
+          "start": 10.0,
+          "end": 10.3
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cominius",
+        "the",
+        "General",
+        "and",
+        "Titus",
+        "Lartius,",
+        "between",
+        "them",
+        "Coriolanus",
+        "crowned",
+        "with",
+        "an",
+        "oaken",
+        "garland,",
+        "with",
+        "Captains",
+        "and",
+        "Soldiers",
+        "and",
+        "a",
+        "Herald.",
+        "Trumpets",
+        "sound."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cominius",
+          "start": 0.66,
+          "end": 1.22,
+          "key": "cominius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "General",
+          "start": 1.46,
+          "end": 1.82,
+          "key": "general",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.82,
+          "end": 2.08,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Titus",
+          "start": 2.08,
+          "end": 2.42,
+          "key": "titus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lartius,",
+          "start": 2.42,
+          "end": 2.94,
+          "key": "lartius",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 3.4,
+          "end": 3.66,
+          "key": "between",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.66,
+          "end": 3.88,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Coriolanus",
+          "start": 3.88,
+          "end": 4.68,
+          "key": "coriolanus",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "crowned",
+          "start": 4.68,
+          "end": 5.1,
+          "key": "crowned",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.1,
+          "end": 5.4,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 5.4,
+          "end": 5.52,
+          "key": "an",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "oaken",
+          "start": 5.52,
+          "end": 5.88,
+          "key": "oaken",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "garland,",
+          "start": 5.88,
+          "end": 6.42,
+          "key": "garland",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.84,
+          "end": 6.96,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Captains",
+          "start": 6.96,
+          "end": 7.56,
+          "key": "captains",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.56,
+          "end": 7.76,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Soldiers",
+          "start": 7.76,
+          "end": 8.08,
+          "key": "soldiers",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.08,
+          "end": 8.44,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.44,
+          "end": 8.54,
+          "key": "a",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Herald.",
+          "start": 8.54,
+          "end": 8.9,
+          "key": "herald",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Trumpets",
+          "start": 8.9,
+          "end": 10.0,
+          "key": "trumpets",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "sound.",
+          "start": 10.0,
+          "end": 10.3,
+          "key": "sound",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Cominius",
+          "start": 0.66,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "General",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "text": "and",
+          "start": 1.82,
+          "end": 2.08
+        },
+        {
+          "text": "Titus",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "text": "Lartius,",
+          "start": 2.42,
+          "end": 2.94
+        },
+        {
+          "text": "between",
+          "start": 3.4,
+          "end": 3.66
+        },
+        {
+          "text": "them",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "text": "Coriolanus",
+          "start": 3.88,
+          "end": 4.68
+        },
+        {
+          "text": "crowned",
+          "start": 4.68,
+          "end": 5.1
+        },
+        {
+          "text": "with",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "text": "an",
+          "start": 5.4,
+          "end": 5.52
+        },
+        {
+          "text": "oaken",
+          "start": 5.52,
+          "end": 5.88
+        },
+        {
+          "text": "garland,",
+          "start": 5.88,
+          "end": 6.42
+        },
+        {
+          "text": "with",
+          "start": 6.84,
+          "end": 6.96
+        },
+        {
+          "text": "Captains",
+          "start": 6.96,
+          "end": 7.56
+        },
+        {
+          "text": "and",
+          "start": 7.56,
+          "end": 7.76
+        },
+        {
+          "text": "Soldiers",
+          "start": 7.76,
+          "end": 8.08
+        },
+        {
+          "text": "and",
+          "start": 8.08,
+          "end": 8.44
+        },
+        {
+          "text": "a",
+          "start": 8.44,
+          "end": 8.54
+        },
+        {
+          "text": "Herald.",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "text": "Trumpets",
+          "start": 8.9,
+          "end": 10.0
+        },
+        {
+          "text": "sound.",
+          "start": 10.0,
+          "end": 10.3
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4893475705757737
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5586317e74cd4e70dc952e33c1d4bf982077bb5b7e6d214c8fb22f810c999e3",
+  "selected_reasons": []
+}

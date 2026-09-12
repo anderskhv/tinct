@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "1012b07cf4ec04c4c7a0f0d7628d3369415c5f1225618b21be65edb9b4c4cf87",
+  "attempts": [
+    {
+      "asr_seconds": 0.10076942201703787,
+      "alignment_seconds": 0.00010487530380487442,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"He speaks.\"",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He speaks.",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " speaks.",
+              "start": 0.54,
+              "end": 0.86,
+              "probability": 0.88232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "speaks.",
+          "start": 0.54,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "speaks.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "speaks.",
+          "start": 0.54,
+          "end": 0.86,
+          "key": "speaks",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "speaks.\"",
+          "start": 0.54,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10090533643960953
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dc8cbe734e7a7dc8fca2945c7eb98c23ece93db7e4bd386da311a353c9df137b",
+  "selected_reasons": []
+}

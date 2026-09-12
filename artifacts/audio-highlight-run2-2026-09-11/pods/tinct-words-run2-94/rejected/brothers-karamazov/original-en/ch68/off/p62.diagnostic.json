@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "34492f12c213af466d16076f0f836d10dc9d3acf74a2c86a83f5e58a65f4762a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10929530300199986,
+      "alignment_seconds": 0.00026509538292884827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why ashamed?",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " ashamed?",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.83837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "ashamed?",
+          "start": 0.56,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "ashamed?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ashamed?",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "ashamed",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "ashamed?\"",
+          "start": 0.56,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10965441167354584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dfd3d914f39250d1962029f0f94068632a0bab5d9f5a2365a590119ca8a769a0",
+  "selected_reasons": []
+}

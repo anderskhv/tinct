@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "9f56896bcebc69c7224a68614119f11cf5c4cde18ad6b7ce3972b451e03221a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.09527915017679334,
+      "alignment_seconds": 0.00016433512791991234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All content content.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " content",
+              "start": 0.71,
+              "end": 1.33,
+              "probability": 0.40478515625
+            },
+            {
+              "text": " content.",
+              "start": 1.33,
+              "end": 1.91,
+              "probability": 0.896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "content",
+          "start": 0.71,
+          "end": 1.33
+        },
+        {
+          "raw": "content.",
+          "start": 1.33,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Content,",
+        "content."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 0.71,
+          "end": 1.33,
+          "key": "content",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 1.33,
+          "end": 1.91,
+          "key": "content",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Content,",
+          "start": 0.71,
+          "end": 1.33
+        },
+        {
+          "text": "content.",
+          "start": 1.33,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09550078585743904
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6b6088598dc7d4da049f74c296fe3bae7742887169a06ebcd27010b6bb0afcfc",
+  "selected_reasons": []
+}

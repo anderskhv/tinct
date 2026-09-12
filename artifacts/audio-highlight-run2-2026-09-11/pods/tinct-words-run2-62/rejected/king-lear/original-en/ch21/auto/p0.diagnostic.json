@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "2785a863d328883abb032cdbfccd20e120f4852fefc3f33b5d59a4ac75213a9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.06824978440999985,
+      "alignment_seconds": 8.483231067657471e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Regan and Oswald.",
+        "hotwords": "Enter, Regan, Oswald"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Regan and Oswald.",
+          "start": 0.08,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " Regan",
+              "start": 0.68,
+              "end": 1.0,
+              "probability": 0.7452392578125
+            },
+            {
+              "text": " and",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " Oswald.",
+              "start": 1.2,
+              "end": 1.54,
+              "probability": 0.91357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Regan",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "Oswald.",
+          "start": 1.2,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Regan",
+        "and",
+        "Oswald."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Regan",
+          "start": 0.68,
+          "end": 1.0,
+          "key": "regan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.0,
+          "end": 1.2,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oswald.",
+          "start": 1.2,
+          "end": 1.54,
+          "key": "oswald",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Regan",
+          "start": 0.68,
+          "end": 1.0
+        },
+        {
+          "text": "and",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "Oswald.",
+          "start": 1.2,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06836384534835815
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce8b35a3fde4026720d9edf851898d8ee5723eb915a10bebbf77e2f3b11cf4ae",
+  "selected_reasons": []
+}

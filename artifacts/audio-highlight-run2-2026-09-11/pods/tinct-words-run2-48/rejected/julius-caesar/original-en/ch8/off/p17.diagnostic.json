@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "899ef4a23f19db9ad4f042f45f503d81e9a46d0ca8776e713b2d923b4a3c20a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.30308823473751545,
+      "alignment_seconds": 0.00038201548159122467,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius. He wished today our enterprise might thrive. I fear our purpose is discovered.",
+          "start": 0.02,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " Cassius.",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.941650390625
+            },
+            {
+              "text": " He",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " wished",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " today",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " our",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " enterprise",
+              "start": 2.2,
+              "end": 2.66,
+              "probability": 0.7734375
+            },
+            {
+              "text": " might",
+              "start": 2.66,
+              "end": 2.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thrive.",
+              "start": 2.94,
+              "end": 3.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 3.92,
+              "end": 4.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fear",
+              "start": 4.0,
+              "end": 4.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 4.18,
+              "end": 4.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " purpose",
+              "start": 4.36,
+              "end": 4.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 4.7,
+              "end": 4.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " discovered.",
+              "start": 4.94,
+              "end": 5.4,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "He",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "wished",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "today",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "our",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "enterprise",
+          "start": 2.2,
+          "end": 2.66
+        },
+        {
+          "raw": "might",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "raw": "thrive.",
+          "start": 2.94,
+          "end": 3.34
+        },
+        {
+          "raw": "I",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "raw": "fear",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "raw": "our",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "raw": "purpose",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "raw": "is",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "raw": "discovered.",
+          "start": 4.94,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "He",
+        "wish'd",
+        "today",
+        "our",
+        "enterprise",
+        "might",
+        "thrive.",
+        "I",
+        "fear",
+        "our",
+        "purpose",
+        "is",
+        "discovered."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          14,
+          3,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius.",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wished",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "wished",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "today",
+          "start": 1.7,
+          "end": 2.02,
+          "key": "today",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "enterprise",
+          "start": 2.2,
+          "end": 2.66,
+          "key": "enterprise",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 2.66,
+          "end": 2.94,
+          "key": "might",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thrive.",
+          "start": 2.94,
+          "end": 3.34,
+          "key": "thrive",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.92,
+          "end": 4.0,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fear",
+          "start": 4.0,
+          "end": 4.18,
+          "key": "fear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.18,
+          "end": 4.36,
+          "key": "our",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "purpose",
+          "start": 4.36,
+          "end": 4.7,
+          "key": "purpose",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.7,
+          "end": 4.94,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "discovered.",
+          "start": 4.94,
+          "end": 5.4,
+          "key": "discovered",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "He",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "wish'd",
+          "start": 1.52,
+          "end": 1.61
+        },
+        {
+          "text": "today",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "our",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "enterprise",
+          "start": 2.2,
+          "end": 2.66
+        },
+        {
+          "text": "might",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "text": "thrive.",
+          "start": 2.94,
+          "end": 3.34
+        },
+        {
+          "text": "I",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "text": "fear",
+          "start": 4.0,
+          "end": 4.18
+        },
+        {
+          "text": "our",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "text": "purpose",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "text": "is",
+          "start": 4.7,
+          "end": 4.94
+        },
+        {
+          "text": "discovered.",
+          "start": 4.94,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.3036051047965884
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "221a3c5cb7e344f2937c6c19c510e626e53441903f96ec608e4417ba63024745",
+  "selected_reasons": []
+}

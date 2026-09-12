@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "0571a587f64d112d3c73bffbec4ee618966de496149b8685b61c234257047002",
+  "attempts": [
+    {
+      "asr_seconds": 0.11458440776914358,
+      "alignment_seconds": 9.910017251968384e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Belarius.",
+        "hotwords": "Belarius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Belarius.",
+          "start": 0.08,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " Belarius.",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.0341339111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarius.",
+          "start": 0.08,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "Belarius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarius.",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "belarius",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.08,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11471610236912966
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "884e2c3760604be37b0e0bb523bebc9b227903e095f120429849506851f69818",
+  "selected_reasons": []
+}

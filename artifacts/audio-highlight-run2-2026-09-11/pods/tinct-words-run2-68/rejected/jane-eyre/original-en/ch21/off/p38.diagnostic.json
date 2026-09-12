@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "85b32ce5c87cf7a689f09b40c8b0b190a411546cbc50aeba48056722c454cf29",
+  "attempts": [
+    {
+      "asr_seconds": 0.11124126613140106,
+      "alignment_seconds": 0.0002037547528743744,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why?",
+          "start": 0.02,
+          "end": 0.62,
+          "words": [
+            {
+              "text": " Why?",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.7255859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why?",
+          "start": 0.02,
+          "end": 0.62
+        }
+      ],
+      "expected_tokens": [
+        "\"Why?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why?",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Why?\"",
+          "start": 0.02,
+          "end": 0.62
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11152971163392067
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5b4ddddbce3357085a57bd69cb36f8786991246f808833feedb58a8ba7a6ec23",
+  "selected_reasons": []
+}

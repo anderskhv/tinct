@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "13fc5d70edba6d0f7a3817177bb1ec56c854f62322b8019663f07d9f0747dfa4",
+  "attempts": [
+    {
+      "asr_seconds": 0.303140252828598,
+      "alignment_seconds": 0.00046178512275218964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen, this hath been your faithful servant. I dare lay mine honor. He will remain so",
+          "start": 0.08,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.927734375
+            },
+            {
+              "text": " this",
+              "start": 1.14,
+              "end": 1.44,
+              "probability": 0.978515625
+            },
+            {
+              "text": " hath",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " been",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " faithful",
+              "start": 1.92,
+              "end": 2.3,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " servant.",
+              "start": 2.3,
+              "end": 2.72,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 3.28,
+              "end": 3.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " dare",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " lay",
+              "start": 3.62,
+              "end": 3.88,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " mine",
+              "start": 3.88,
+              "end": 4.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " honor.",
+              "start": 4.2,
+              "end": 4.5,
+              "probability": 0.85546875
+            },
+            {
+              "text": " He",
+              "start": 4.64,
+              "end": 4.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " will",
+              "start": 4.74,
+              "end": 4.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " remain",
+              "start": 4.86,
+              "end": 5.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 5.18,
+              "end": 5.58,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "this",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "raw": "hath",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "been",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "your",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "faithful",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "raw": "servant.",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "raw": "dare",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "lay",
+          "start": 3.62,
+          "end": 3.88
+        },
+        {
+          "raw": "mine",
+          "start": 3.88,
+          "end": 4.2
+        },
+        {
+          "raw": "honor.",
+          "start": 4.2,
+          "end": 4.5
+        },
+        {
+          "raw": "He",
+          "start": 4.64,
+          "end": 4.74
+        },
+        {
+          "raw": "will",
+          "start": 4.74,
+          "end": 4.86
+        },
+        {
+          "raw": "remain",
+          "start": 4.86,
+          "end": 5.18
+        },
+        {
+          "raw": "so",
+          "start": 5.18,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "This",
+        "hath",
+        "been",
+        "Your",
+        "faithful",
+        "servant.",
+        "I",
+        "dare",
+        "lay",
+        "mine",
+        "honour",
+        "He",
+        "will",
+        "remain",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          16,
+          12,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.14,
+          "end": 1.44,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "faithful",
+          "start": 1.92,
+          "end": 2.3,
+          "key": "faithful",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 2.3,
+          "end": 2.72,
+          "key": "servant",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.4,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 3.4,
+          "end": 3.62,
+          "key": "dare",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 3.62,
+          "end": 3.88,
+          "key": "lay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 3.88,
+          "end": 4.2,
+          "key": "mine",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "honor.",
+          "start": 4.2,
+          "end": 4.5,
+          "key": "honor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.64,
+          "end": 4.74,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.74,
+          "end": 4.86,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "remain",
+          "start": 4.86,
+          "end": 5.18,
+          "key": "remain",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.18,
+          "end": 5.58,
+          "key": "so",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "This",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "text": "hath",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "been",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "Your",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "faithful",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "text": "servant.",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "text": "I",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "text": "dare",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "lay",
+          "start": 3.62,
+          "end": 3.88
+        },
+        {
+          "text": "mine",
+          "start": 3.88,
+          "end": 4.2
+        },
+        {
+          "text": "honour",
+          "start": 4.2,
+          "end": 4.42
+        },
+        {
+          "text": "He",
+          "start": 4.64,
+          "end": 4.74
+        },
+        {
+          "text": "will",
+          "start": 4.74,
+          "end": 4.86
+        },
+        {
+          "text": "remain",
+          "start": 4.86,
+          "end": 5.18
+        },
+        {
+          "text": "so.",
+          "start": 5.18,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3037908058613539
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a9e6b4eb6aa1f87dc43b0db466fa7504083ff9e66072732da95b60d6fea594f",
+  "selected_reasons": []
+}

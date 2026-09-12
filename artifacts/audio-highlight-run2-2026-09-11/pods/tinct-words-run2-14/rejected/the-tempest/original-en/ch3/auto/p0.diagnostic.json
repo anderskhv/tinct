@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "2d864783b153e74507d69359adeb4cafad227d684890856083bab7eda29f4f38",
+  "attempts": [
+    {
+      "asr_seconds": 0.21471703425049782,
+      "alignment_seconds": 0.0002934187650680542,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Alonso, Sebastian, Antonio, Gonzalo, Adrian, Francisco, and others]",
+        "hotwords": "Enter, Alonso, Sebastian, Antonio, Gonzalo, Adrian, Francisco"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Alonso, Sebastian, Antonio, Gonzalo, Adrian, Francisco, and others",
+          "start": 0.08,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " Alonso,",
+              "start": 0.7,
+              "end": 1.18,
+              "probability": 0.397705078125
+            },
+            {
+              "text": " Sebastian,",
+              "start": 1.92,
+              "end": 1.94,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " Antonio,",
+              "start": 2.42,
+              "end": 2.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Gonzalo,",
+              "start": 3.08,
+              "end": 3.48,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Adrian,",
+              "start": 3.86,
+              "end": 4.02,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Francisco,",
+              "start": 4.32,
+              "end": 4.7,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " and",
+              "start": 5.0,
+              "end": 5.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " others",
+              "start": 5.04,
+              "end": 5.28,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Alonso,",
+          "start": 0.7,
+          "end": 1.18
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 1.92,
+          "end": 1.94
+        },
+        {
+          "raw": "Antonio,",
+          "start": 2.42,
+          "end": 2.74
+        },
+        {
+          "raw": "Gonzalo,",
+          "start": 3.08,
+          "end": 3.48
+        },
+        {
+          "raw": "Adrian,",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "raw": "Francisco,",
+          "start": 4.32,
+          "end": 4.7
+        },
+        {
+          "raw": "and",
+          "start": 5.0,
+          "end": 5.04
+        },
+        {
+          "raw": "others",
+          "start": 5.04,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Alonso,",
+        "Sebastian,",
+        "Antonio,",
+        "Gonzalo,",
+        "Adrian,",
+        "Francisco,",
+        "and",
+        "others]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alonso,",
+          "start": 0.7,
+          "end": 1.18,
+          "key": "alonso",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 1.92,
+          "end": 1.94,
+          "key": "sebastian",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antonio,",
+          "start": 2.42,
+          "end": 2.74,
+          "key": "antonio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Gonzalo,",
+          "start": 3.08,
+          "end": 3.48,
+          "key": "gonzalo",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Adrian,",
+          "start": 3.86,
+          "end": 4.02,
+          "key": "adrian",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Francisco,",
+          "start": 4.32,
+          "end": 4.7,
+          "key": "francisco",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.0,
+          "end": 5.04,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "others",
+          "start": 5.04,
+          "end": 5.28,
+          "key": "others",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Alonso,",
+          "start": 0.7,
+          "end": 1.18
+        },
+        {
+          "text": "Sebastian,",
+          "start": 1.92,
+          "end": 1.94
+        },
+        {
+          "text": "Antonio,",
+          "start": 2.42,
+          "end": 2.74
+        },
+        {
+          "text": "Gonzalo,",
+          "start": 3.08,
+          "end": 3.48
+        },
+        {
+          "text": "Adrian,",
+          "start": 3.86,
+          "end": 4.02
+        },
+        {
+          "text": "Francisco,",
+          "start": 4.32,
+          "end": 4.7
+        },
+        {
+          "text": "and",
+          "start": 5.0,
+          "end": 5.04
+        },
+        {
+          "text": "others]",
+          "start": 5.04,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2151244953274727
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9140d4713343c9c0064ada82d64070273a8bfa12ae2e2ee66638f8c7ae156f54",
+  "selected_reasons": []
+}

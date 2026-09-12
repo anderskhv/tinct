@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "5c24af0097f924f0bd436ff7f99d6ea6fc607d4cc56d96292d574e002f9471e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3435668919701129,
+      "alignment_seconds": 0.0004533680621534586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your funeral's tomorrow while you're coming through the rye. Diddle diddle dum dum diddle diddle",
+          "start": 0.02,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " funeral's",
+              "start": 0.52,
+              "end": 1.06,
+              "probability": 0.685791015625
+            },
+            {
+              "text": " tomorrow",
+              "start": 1.06,
+              "end": 1.42,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " while",
+              "start": 1.42,
+              "end": 1.9,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " you're",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " coming",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " through",
+              "start": 2.26,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.52,
+              "end": 2.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " rye.",
+              "start": 2.68,
+              "end": 2.94,
+              "probability": 0.5634765625
+            },
+            {
+              "text": " Diddle",
+              "start": 3.66,
+              "end": 3.76,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " diddle",
+              "start": 3.76,
+              "end": 4.04,
+              "probability": 0.7329508463541666
+            },
+            {
+              "text": " dum",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " dum",
+              "start": 4.3,
+              "end": 4.56,
+              "probability": 0.832275390625
+            },
+            {
+              "text": " diddle",
+              "start": 4.56,
+              "end": 4.92,
+              "probability": 0.9108072916666666
+            },
+            {
+              "text": " diddle",
+              "start": 4.92,
+              "end": 5.32,
+              "probability": 0.9422200520833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "funeral's",
+          "start": 0.52,
+          "end": 1.06
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "raw": "while",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "raw": "you're",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "coming",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "through",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "raw": "the",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "raw": "rye.",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "raw": "Diddle",
+          "start": 3.66,
+          "end": 3.76
+        },
+        {
+          "raw": "diddle",
+          "start": 3.76,
+          "end": 4.04
+        },
+        {
+          "raw": "dum",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "raw": "dum",
+          "start": 4.3,
+          "end": 4.56
+        },
+        {
+          "raw": "diddle",
+          "start": 4.56,
+          "end": 4.92
+        },
+        {
+          "raw": "diddle",
+          "start": 4.92,
+          "end": 5.32
+        }
+      ],
+      "expected_tokens": [
+        "Your",
+        "funeral's",
+        "tomorrow",
+        "While",
+        "you're",
+        "coming",
+        "through",
+        "the",
+        "rye.",
+        "Diddlediddle",
+        "dumdum",
+        "Diddlediddle..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          12,
+          9,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          12,
+          9,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "funeral's",
+          "start": 0.52,
+          "end": 1.06,
+          "key": "funerals",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 1.06,
+          "end": 1.42,
+          "key": "tomorrow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 1.42,
+          "end": 1.9,
+          "key": "while",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you're",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "youre",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "coming",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 2.26,
+          "end": 2.52,
+          "key": "through",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.52,
+          "end": 2.68,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "rye.",
+          "start": 2.68,
+          "end": 2.94,
+          "key": "rye",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Diddle",
+          "start": 3.66,
+          "end": 3.76,
+          "key": "diddle",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "diddle",
+          "start": 3.76,
+          "end": 4.04,
+          "key": "diddle",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dum",
+          "start": 4.04,
+          "end": 4.3,
+          "key": "dum",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dum",
+          "start": 4.3,
+          "end": 4.56,
+          "key": "dum",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "diddle",
+          "start": 4.56,
+          "end": 4.92,
+          "key": "diddle",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "diddle",
+          "start": 4.92,
+          "end": 5.32,
+          "key": "diddle",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "funeral's",
+          "start": 0.52,
+          "end": 1.06
+        },
+        {
+          "text": "tomorrow",
+          "start": 1.06,
+          "end": 1.42
+        },
+        {
+          "text": "While",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "text": "you're",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "coming",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "through",
+          "start": 2.26,
+          "end": 2.52
+        },
+        {
+          "text": "the",
+          "start": 2.52,
+          "end": 2.68
+        },
+        {
+          "text": "rye.",
+          "start": 2.68,
+          "end": 2.94
+        },
+        {
+          "text": "Diddlediddle",
+          "start": 2.94,
+          "end": 4.13
+        },
+        {
+          "text": "dumdum",
+          "start": 4.13,
+          "end": 4.725
+        },
+        {
+          "text": "Diddlediddle...",
+          "start": 4.725,
+          "end": 5.022
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 15,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3442132999189198
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "993793c7d47465eff2df04bd12bc54b731d876714d1113199b12d9cd068bdaef",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

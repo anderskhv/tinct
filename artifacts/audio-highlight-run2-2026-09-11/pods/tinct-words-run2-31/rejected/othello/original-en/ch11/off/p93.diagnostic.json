@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "afa6c3e24535d28e148ae9171f8d87fa7dc73261e9751141039ffe0d6e39f00e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1491300668567419,
+      "alignment_seconds": 0.00016446877270936966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lego, and did you see the handkerchief?",
+          "start": 0.02,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Lego,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " and",
+              "start": 1.18,
+              "end": 1.3,
+              "probability": 0.98828125
+            },
+            {
+              "text": " did",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " handkerchief?",
+              "start": 1.88,
+              "end": 2.32,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lego,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "and",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "raw": "did",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "you",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "see",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "handkerchief?",
+          "start": 1.88,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "And",
+        "did",
+        "you",
+        "see",
+        "the",
+        "handkerchief?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lego,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "lego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.18,
+          "end": 1.3,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "handkerchief?",
+          "start": 1.88,
+          "end": 2.32,
+          "key": "handkerchief",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.59
+        },
+        {
+          "text": "And",
+          "start": 1.18,
+          "end": 1.3
+        },
+        {
+          "text": "did",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "you",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "see",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "the",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "handkerchief?",
+          "start": 1.88,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.14934520469978452
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4dbf74ce5603dfd140b6f3e7475660bbe6683a85c56aa16a2f8a085deeb84886",
+  "selected_reasons": []
+}

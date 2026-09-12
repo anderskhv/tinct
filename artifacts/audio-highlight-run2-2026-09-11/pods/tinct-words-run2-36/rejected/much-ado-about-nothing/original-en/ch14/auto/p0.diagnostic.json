@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "95adc22131c8680277dcb12e16e3b42bb8d27f51b58e3dd3f393e6ff4416879d",
+  "attempts": [
+    {
+      "asr_seconds": 0.10002391412854195,
+      "alignment_seconds": 0.00022851303219795227,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Leonato and Antonio.",
+        "hotwords": "Enter, Leonato, Antonio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Leonato and Antonio.",
+          "start": 0.14,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " Leonato",
+              "start": 0.66,
+              "end": 1.14,
+              "probability": 0.1805419921875
+            },
+            {
+              "text": " and",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Antonio.",
+              "start": 1.36,
+              "end": 1.74,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "Leonato",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "raw": "and",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "Antonio.",
+          "start": 1.36,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Leonato",
+        "and",
+        "Antonio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Leonato",
+          "start": 0.66,
+          "end": 1.14,
+          "key": "leonato",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antonio.",
+          "start": 1.36,
+          "end": 1.74,
+          "key": "antonio",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Leonato",
+          "start": 0.66,
+          "end": 1.14
+        },
+        {
+          "text": "and",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "Antonio.",
+          "start": 1.36,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10034513846039772
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9152a06fd991e6aec1662c768f5e696ac10a7e43613762ba273ec99955580634",
+  "selected_reasons": []
+}

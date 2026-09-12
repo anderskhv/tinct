@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "3335aba96f1ff38b6e89ceca6bf04390d7c34b66b1090202edd4b017b9348e84",
+  "attempts": [
+    {
+      "asr_seconds": 0.10424879402853549,
+      "alignment_seconds": 0.00014967098832130432,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We See The Canvasser At Work",
+        "hotwords": "We, See, The, Canvasser, At, Work"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We See The Canvasser At Work",
+          "start": 0.02,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " See",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.0015926361083984375
+            },
+            {
+              "text": " The",
+              "start": 0.72,
+              "end": 0.86,
+              "probability": 0.3525390625
+            },
+            {
+              "text": " Canvasser",
+              "start": 0.86,
+              "end": 1.26,
+              "probability": 0.3908487955729167
+            },
+            {
+              "text": " At",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.433837890625
+            },
+            {
+              "text": " Work",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "See",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "The",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "raw": "Canvasser",
+          "start": 0.86,
+          "end": 1.26
+        },
+        {
+          "raw": "At",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "Work",
+          "start": 1.48,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "See",
+        "The",
+        "Canvasser",
+        "At",
+        "Work"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 0.72,
+          "end": 0.86,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Canvasser",
+          "start": 0.86,
+          "end": 1.26,
+          "key": "canvasser",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "At",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Work",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "work",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "See",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "The",
+          "start": 0.72,
+          "end": 0.86
+        },
+        {
+          "text": "Canvasser",
+          "start": 0.86,
+          "end": 1.26
+        },
+        {
+          "text": "At",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "Work",
+          "start": 1.48,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10445217503001913
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27df0168f7bd1b9644edc6566c53e04809b2b523d7f642745cfd8924fc308d57",
+  "selected_reasons": []
+}

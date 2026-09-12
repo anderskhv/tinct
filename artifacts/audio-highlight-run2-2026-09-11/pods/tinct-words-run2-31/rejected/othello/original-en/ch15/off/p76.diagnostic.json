@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "94f5385447f2326b9bee84e86b984272c59df91f81c385b7b4f9fa6b069b43e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.14489228092134,
+      "alignment_seconds": 0.0002536168321967125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, alas, what cry is that?",
+          "start": 0.05,
+          "end": 2.45,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.560546875
+            },
+            {
+              "text": " alas,",
+              "start": 1.49,
+              "end": 1.49,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " what",
+              "start": 1.67,
+              "end": 1.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " cry",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that?",
+              "start": 2.15,
+              "end": 2.45,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "alas,",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "raw": "what",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "raw": "cry",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "is",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "that?",
+          "start": 2.15,
+          "end": 2.45
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Alas,",
+        "what",
+        "cry",
+        "is",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "alas,",
+          "start": 1.49,
+          "end": 1.49,
+          "key": "alas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.67,
+          "end": 1.75,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "cry",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 2.15,
+          "end": 2.45,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.745
+        },
+        {
+          "text": "Alas,",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "what",
+          "start": 1.67,
+          "end": 1.75
+        },
+        {
+          "text": "cry",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "is",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "that?",
+          "start": 2.15,
+          "end": 2.45
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14523304672911763
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "39b45de0b8e5770d06c7a146690e33e15e486a7c6341984bc98df7cde70b56de",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

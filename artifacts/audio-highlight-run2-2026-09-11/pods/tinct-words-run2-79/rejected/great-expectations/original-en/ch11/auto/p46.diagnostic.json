@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "7b102c84b101f7137d69eb4ba46c363a17a7b84c88b5fcba3c6cbc7a72877103",
+  "attempts": [
+    {
+      "asr_seconds": 0.15151478722691536,
+      "alignment_seconds": 0.00039690081030130386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, ma'am. To-day is—\"",
+        "hotwords": "Yes, To-day"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am. To-day is—\"",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.833984375
+            },
+            {
+              "text": " ma",
+              "start": 0.85,
+              "end": 0.89,
+              "probability": 0.9013671875
+            },
+            {
+              "text": "'am.",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " To",
+              "start": 1.33,
+              "end": 1.35,
+              "probability": 0.0003886222839355469
+            },
+            {
+              "text": "-day",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.58526611328125
+            },
+            {
+              "text": " is—\"",
+              "start": 1.47,
+              "end": 2.39,
+              "probability": 0.4851120710372925
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "ma",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "raw": "'am.",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "To",
+          "start": 1.33,
+          "end": 1.35
+        },
+        {
+          "raw": "-day",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "is—\"",
+          "start": 1.47,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am.",
+        "To-day",
+        "is—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.85,
+          "end": 0.89,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am.",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "To -day",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "today",
+          "pieces": [
+            3,
+            4
+          ]
+        },
+        {
+          "raw": "is—\"",
+          "start": 1.47,
+          "end": 2.39,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "To-day",
+          "heard": "To -day",
+          "heard_indexes": [
+            3,
+            4
+          ],
+          "start": 1.33,
+          "end": 1.47
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "ma'am.",
+          "start": 0.63,
+          "end": 0.98
+        },
+        {
+          "text": "To-day",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "is—\"",
+          "start": 1.47,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15199357829988003
+    },
+    {
+      "asr_seconds": 0.15488622291013598,
+      "alignment_seconds": 0.00041013723239302635,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yes, To-day"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Yes, Ma'am, Today is",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.833984375
+            },
+            {
+              "text": " Ma",
+              "start": 0.85,
+              "end": 0.89,
+              "probability": 0.08319091796875
+            },
+            {
+              "text": "'am,",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " Today",
+              "start": 1.33,
+              "end": 1.37,
+              "probability": 0.016632080078125
+            },
+            {
+              "text": " is",
+              "start": 1.37,
+              "end": 1.75,
+              "probability": 0.9150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Ma",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "raw": "'am,",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "Today",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "raw": "is",
+          "start": 1.37,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am.",
+        "To-day",
+        "is—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ma",
+          "start": 0.85,
+          "end": 0.89,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am,",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Today",
+          "start": 1.33,
+          "end": 1.37,
+          "key": "today",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.37,
+          "end": 1.75,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "ma'am.",
+          "start": 0.63,
+          "end": 0.98
+        },
+        {
+          "text": "To-day",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "text": "is—\"",
+          "start": 1.37,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15542235504835844
+    },
+    {
+      "asr_seconds": 0.15593678783625364,
+      "alignment_seconds": 0.0005282517522573471,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, ma'am. Today is.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.833984375
+            },
+            {
+              "text": " ma",
+              "start": 0.85,
+              "end": 0.89,
+              "probability": 0.9013671875
+            },
+            {
+              "text": "'am.",
+              "start": 0.89,
+              "end": 1.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Today",
+              "start": 1.33,
+              "end": 1.37,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " is.",
+              "start": 1.37,
+              "end": 1.75,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "ma",
+          "start": 0.85,
+          "end": 0.89
+        },
+        {
+          "raw": "'am.",
+          "start": 0.89,
+          "end": 1.05
+        },
+        {
+          "raw": "Today",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "raw": "is.",
+          "start": 1.37,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "ma'am.",
+        "To-day",
+        "is—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.85,
+          "end": 0.89,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am.",
+          "start": 0.89,
+          "end": 1.05,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Today",
+          "start": 1.33,
+          "end": 1.37,
+          "key": "today",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 1.37,
+          "end": 1.75,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "ma'am.",
+          "start": 0.63,
+          "end": 0.98
+        },
+        {
+          "text": "To-day",
+          "start": 1.33,
+          "end": 1.37
+        },
+        {
+          "text": "is—\"",
+          "start": 1.37,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15665351692587137
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f16aafc4dbb243e59164ab2069e52564882cf83782f51fe5a2ebd9ee1cc85a22",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

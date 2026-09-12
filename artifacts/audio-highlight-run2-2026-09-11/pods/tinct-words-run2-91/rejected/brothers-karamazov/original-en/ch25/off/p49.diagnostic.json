@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "232f178e34fffeb309a0bec4c460840d6a85ff6cfbb0083cac60c0dca9ce0967",
+  "attempts": [
+    {
+      "asr_seconds": 0.13552824780344963,
+      "alignment_seconds": 0.00019454024732112885,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I do, blessed father.",
+          "start": 0.02,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " do,",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.978515625
+            },
+            {
+              "text": " blessed",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.63720703125
+            },
+            {
+              "text": " father.",
+              "start": 1.14,
+              "end": 1.52,
+              "probability": 0.68115234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "do,",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "blessed",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "raw": "father.",
+          "start": 1.14,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "do,",
+        "blessed",
+        "Father.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "blessed",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "blessed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 1.14,
+          "end": 1.52,
+          "key": "father",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "do,",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "blessed",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "text": "Father.\"",
+          "start": 1.14,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13578815665096045
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26349d333d01e29d5fa0a5cb5485fd3453643d66d7e32da89cceed86e3d05d93",
+  "selected_reasons": []
+}

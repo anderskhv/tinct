@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "a1d4e7c4a771f9cba281b58215e64eb26ae95cf1b8fdad9ee91f4dbeda04e573",
+  "attempts": [
+    {
+      "asr_seconds": 0.20411116257309914,
+      "alignment_seconds": 0.0002787122502923012,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bilarious, be silent, let's see further.",
+          "start": 0.08,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Bilarious,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.6042277018229166
+            },
+            {
+              "text": " be",
+              "start": 1.18,
+              "end": 1.26,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " silent,",
+              "start": 1.26,
+              "end": 1.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " let's",
+              "start": 1.9,
+              "end": 2.02,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " see",
+              "start": 2.02,
+              "end": 2.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " further.",
+              "start": 2.16,
+              "end": 2.44,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bilarious,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "be",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "raw": "silent,",
+          "start": 1.26,
+          "end": 1.64
+        },
+        {
+          "raw": "let's",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "raw": "see",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "raw": "further.",
+          "start": 2.16,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "Be",
+        "silent;",
+        "let's",
+        "see",
+        "further."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bilarious,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "bilarious",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.18,
+          "end": 1.26,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "silent,",
+          "start": 1.26,
+          "end": 1.64,
+          "key": "silent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 1.9,
+          "end": 2.02,
+          "key": "lets",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.02,
+          "end": 2.16,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "further.",
+          "start": 2.16,
+          "end": 2.44,
+          "key": "further",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.59
+        },
+        {
+          "text": "Be",
+          "start": 1.18,
+          "end": 1.26
+        },
+        {
+          "text": "silent;",
+          "start": 1.26,
+          "end": 1.64
+        },
+        {
+          "text": "let's",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "text": "see",
+          "start": 2.02,
+          "end": 2.16
+        },
+        {
+          "text": "further.",
+          "start": 2.16,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2044928390532732
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "127d582cccf267469368464e885561a5d0b3a172d794447953e5b627f56e9718",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

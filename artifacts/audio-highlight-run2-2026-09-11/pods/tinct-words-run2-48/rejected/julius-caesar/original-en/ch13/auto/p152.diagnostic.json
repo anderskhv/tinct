@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "9b0042a905b9e4d3f3c36e5a0cdf42693eb0fa16d9171852124c2c97d1f9db6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.18376242090016603,
+      "alignment_seconds": 0.00014546234160661697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ghost. Thy evil spirit, Brutus.",
+        "hotwords": "Ghost, Thy, Brutus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ghost, Thy evil spirit, Brutus.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Ghost,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " Thy",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.0958251953125
+            },
+            {
+              "text": " evil",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.207763671875
+            },
+            {
+              "text": " spirit,",
+              "start": 1.51,
+              "end": 1.91,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " Brutus.",
+              "start": 2.09,
+              "end": 2.47,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ghost,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Thy",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "evil",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "spirit,",
+          "start": 1.51,
+          "end": 1.91
+        },
+        {
+          "raw": "Brutus.",
+          "start": 2.09,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "Ghost.",
+        "Thy",
+        "evil",
+        "spirit,",
+        "Brutus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ghost,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "ghost",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 1.13,
+          "end": 1.23,
+          "key": "thy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "evil",
+          "start": 1.23,
+          "end": 1.51,
+          "key": "evil",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "spirit,",
+          "start": 1.51,
+          "end": 1.91,
+          "key": "spirit",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Brutus.",
+          "start": 2.09,
+          "end": 2.47,
+          "key": "brutus",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ghost.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "Thy",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "evil",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "spirit,",
+          "start": 1.51,
+          "end": 1.91
+        },
+        {
+          "text": "Brutus.",
+          "start": 2.09,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18396064266562462
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82ac46158e80eb92d27a94b9ef051bf9c8a30fd1fcf51e4d4201d04c5ad5eebf",
+  "selected_reasons": []
+}

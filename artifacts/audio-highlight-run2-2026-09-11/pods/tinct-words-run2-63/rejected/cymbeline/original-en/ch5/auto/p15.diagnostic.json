@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "8512b1fa76d438ae673d21f5d173d94e99f6de19cfca40576930316ecc0af0fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1772166844457388,
+      "alignment_seconds": 0.0004448946565389633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iachimo. Can we, with manners, ask what was the difference?",
+        "hotwords": "Iachimo, Can"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iachimo, Can we, with manners, ask what was the difference?",
+          "start": 0.11,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Iachimo,",
+              "start": 0.11,
+              "end": 0.97,
+              "probability": 0.4515380859375
+            },
+            {
+              "text": " Can",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.04168701171875
+            },
+            {
+              "text": " we,",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " with",
+              "start": 1.85,
+              "end": 1.93,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " manners,",
+              "start": 1.93,
+              "end": 2.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ask",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " what",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " was",
+              "start": 2.91,
+              "end": 3.03,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.03,
+              "end": 3.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " difference?",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iachimo,",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "raw": "Can",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "we,",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "with",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "raw": "manners,",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "raw": "ask",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "what",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "raw": "was",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "raw": "difference?",
+          "start": 3.17,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "Iachimo.",
+        "Can",
+        "we,",
+        "with",
+        "manners,",
+        "ask",
+        "what",
+        "was",
+        "the",
+        "difference?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iachimo,",
+          "start": 0.11,
+          "end": 0.97,
+          "key": "iachimo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Can",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "can",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we,",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.85,
+          "end": 1.93,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "manners,",
+          "start": 1.93,
+          "end": 2.25,
+          "key": "manners",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 2.55,
+          "end": 2.65,
+          "key": "ask",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.65,
+          "end": 2.91,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 2.91,
+          "end": 3.03,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.03,
+          "end": 3.17,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "difference?",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "difference",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iachimo.",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "text": "Can",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "we,",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "with",
+          "start": 1.85,
+          "end": 1.93
+        },
+        {
+          "text": "manners,",
+          "start": 1.93,
+          "end": 2.25
+        },
+        {
+          "text": "ask",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "what",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "text": "was",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "text": "the",
+          "start": 3.03,
+          "end": 3.17
+        },
+        {
+          "text": "difference?",
+          "start": 3.17,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17783275805413723
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "523304cc60a26f42c3fc6176d1c24423d207ef8ab43425916cb95c4d31333562",
+  "selected_reasons": []
+}

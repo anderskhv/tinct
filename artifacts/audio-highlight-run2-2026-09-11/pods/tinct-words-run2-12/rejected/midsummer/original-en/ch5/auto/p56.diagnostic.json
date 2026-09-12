@@ -1,0 +1,829 @@
+{
+  "complete": true,
+  "signature": "ee2831f6d4136f4624d94469e76be4402e5c3fe55d85747308992b88c7548154",
+  "attempts": [
+    {
+      "asr_seconds": 0.40932382200844586,
+      "alignment_seconds": 0.000610691960901022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bottom. The ousel cock, so black of hue, With orange-tawny bill, The throstle with his note so true, The wren with little quill.",
+        "hotwords": "Bottom, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bottom, The ousel cock, so black of hue, With orange-tawny bill, The throstle with his note",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Bottom,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " The",
+              "start": 1.23,
+              "end": 1.39,
+              "probability": 0.1229248046875
+            },
+            {
+              "text": " ousel",
+              "start": 1.39,
+              "end": 1.71,
+              "probability": 0.4713134765625
+            },
+            {
+              "text": " cock,",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.31201171875
+            },
+            {
+              "text": " so",
+              "start": 2.31,
+              "end": 2.47,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " black",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.970703125
+            },
+            {
+              "text": " hue,",
+              "start": 2.89,
+              "end": 3.13,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " With",
+              "start": 3.41,
+              "end": 3.49,
+              "probability": 0.708984375
+            },
+            {
+              "text": " orange",
+              "start": 3.49,
+              "end": 3.89,
+              "probability": 0.88818359375
+            },
+            {
+              "text": "-tawny",
+              "start": 3.89,
+              "end": 4.31,
+              "probability": 0.588623046875
+            },
+            {
+              "text": " bill,",
+              "start": 4.31,
+              "end": 4.53,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " The",
+              "start": 4.85,
+              "end": 4.97,
+              "probability": 0.37841796875
+            },
+            {
+              "text": " throstle",
+              "start": 4.97,
+              "end": 5.45,
+              "probability": 0.5615234375
+            },
+            {
+              "text": " with",
+              "start": 5.45,
+              "end": 5.55,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " his",
+              "start": 5.55,
+              "end": 5.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " note",
+              "start": 5.71,
+              "end": 5.91,
+              "probability": 0.923828125
+            }
+          ]
+        },
+        {
+          "text": " so true, The wren with little quill.",
+          "start": 5.91,
+          "end": 8.17,
+          "words": [
+            {
+              "text": " so",
+              "start": 5.91,
+              "end": 6.19,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " true,",
+              "start": 6.19,
+              "end": 6.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " The",
+              "start": 7.03,
+              "end": 7.15,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " wren",
+              "start": 7.15,
+              "end": 7.35,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " with",
+              "start": 7.35,
+              "end": 7.57,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " little",
+              "start": 7.57,
+              "end": 7.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " quill.",
+              "start": 7.79,
+              "end": 8.17,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bottom,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "The",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "raw": "ousel",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "raw": "cock,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "raw": "so",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "raw": "black",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "hue,",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "raw": "With",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "raw": "orange",
+          "start": 3.49,
+          "end": 3.89
+        },
+        {
+          "raw": "-tawny",
+          "start": 3.89,
+          "end": 4.31
+        },
+        {
+          "raw": "bill,",
+          "start": 4.31,
+          "end": 4.53
+        },
+        {
+          "raw": "The",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "raw": "throstle",
+          "start": 4.97,
+          "end": 5.45
+        },
+        {
+          "raw": "with",
+          "start": 5.45,
+          "end": 5.55
+        },
+        {
+          "raw": "his",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "raw": "note",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "raw": "so",
+          "start": 5.91,
+          "end": 6.19
+        },
+        {
+          "raw": "true,",
+          "start": 6.19,
+          "end": 6.59
+        },
+        {
+          "raw": "The",
+          "start": 7.03,
+          "end": 7.15
+        },
+        {
+          "raw": "wren",
+          "start": 7.15,
+          "end": 7.35
+        },
+        {
+          "raw": "with",
+          "start": 7.35,
+          "end": 7.57
+        },
+        {
+          "raw": "little",
+          "start": 7.57,
+          "end": 7.79
+        },
+        {
+          "raw": "quill.",
+          "start": 7.79,
+          "end": 8.17
+        }
+      ],
+      "expected_tokens": [
+        "Bottom.",
+        "The",
+        "ousel",
+        "cock,",
+        "so",
+        "black",
+        "of",
+        "hue,",
+        "With",
+        "orange-tawny",
+        "bill,",
+        "The",
+        "throstle",
+        "with",
+        "his",
+        "note",
+        "so",
+        "true,",
+        "The",
+        "wren",
+        "with",
+        "little",
+        "quill."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bottom,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "bottom",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.23,
+          "end": 1.39,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ousel",
+          "start": 1.39,
+          "end": 1.71,
+          "key": "ousel",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cock,",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "cock",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.31,
+          "end": 2.47,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "black",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "black",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hue,",
+          "start": 2.89,
+          "end": 3.13,
+          "key": "hue",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 3.41,
+          "end": 3.49,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "orange -tawny",
+          "start": 3.49,
+          "end": 4.31,
+          "key": "orangetawny",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "bill,",
+          "start": 4.31,
+          "end": 4.53,
+          "key": "bill",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.85,
+          "end": 4.97,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "throstle",
+          "start": 4.97,
+          "end": 5.45,
+          "key": "throstle",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.45,
+          "end": 5.55,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.55,
+          "end": 5.71,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "note",
+          "start": 5.71,
+          "end": 5.91,
+          "key": "note",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 5.91,
+          "end": 6.19,
+          "key": "so",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 6.19,
+          "end": 6.59,
+          "key": "true",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.03,
+          "end": 7.15,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "wren",
+          "start": 7.15,
+          "end": 7.35,
+          "key": "wren",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 7.35,
+          "end": 7.57,
+          "key": "with",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 7.57,
+          "end": 7.79,
+          "key": "little",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "quill.",
+          "start": 7.79,
+          "end": 8.17,
+          "key": "quill",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "orange-tawny",
+          "heard": "orange -tawny",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 3.49,
+          "end": 4.31
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Bottom.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "The",
+          "start": 1.23,
+          "end": 1.39
+        },
+        {
+          "text": "ousel",
+          "start": 1.39,
+          "end": 1.71
+        },
+        {
+          "text": "cock,",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "text": "so",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "text": "black",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "of",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "hue,",
+          "start": 2.89,
+          "end": 3.13
+        },
+        {
+          "text": "With",
+          "start": 3.41,
+          "end": 3.49
+        },
+        {
+          "text": "orange-tawny",
+          "start": 3.49,
+          "end": 4.31
+        },
+        {
+          "text": "bill,",
+          "start": 4.31,
+          "end": 4.53
+        },
+        {
+          "text": "The",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "text": "throstle",
+          "start": 4.97,
+          "end": 5.45
+        },
+        {
+          "text": "with",
+          "start": 5.45,
+          "end": 5.55
+        },
+        {
+          "text": "his",
+          "start": 5.55,
+          "end": 5.71
+        },
+        {
+          "text": "note",
+          "start": 5.71,
+          "end": 5.91
+        },
+        {
+          "text": "so",
+          "start": 5.91,
+          "end": 6.19
+        },
+        {
+          "text": "true,",
+          "start": 6.19,
+          "end": 6.59
+        },
+        {
+          "text": "The",
+          "start": 7.03,
+          "end": 7.15
+        },
+        {
+          "text": "wren",
+          "start": 7.15,
+          "end": 7.35
+        },
+        {
+          "text": "with",
+          "start": 7.35,
+          "end": 7.57
+        },
+        {
+          "text": "little",
+          "start": 7.57,
+          "end": 7.79
+        },
+        {
+          "text": "quill.",
+          "start": 7.79,
+          "end": 8.17
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 23,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4101576099637896
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ca0a4ddea11f5abe81398da41f4eb11831de38eeff63530fe1376a43545efdd",
+  "selected_reasons": []
+}

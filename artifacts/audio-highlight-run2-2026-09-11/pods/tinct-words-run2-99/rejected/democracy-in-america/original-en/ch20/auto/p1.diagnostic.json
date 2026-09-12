@@ -1,0 +1,1627 @@
+{
+  "complete": true,
+  "signature": "7c4abec78ed174ec72f5c2b756e0474d1f2511d2f15192c368099f52f3014bb9",
+  "attempts": [
+    {
+      "asr_seconds": 0.5854970365762711,
+      "alignment_seconds": 0.0010081194341182709,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The territory now occupied or possessed by the United States of America forms about one-twentieth part of the habitable earth. But extensive as these confines are, it must not be supposed that the Anglo-American race will always remain within them; indeed, it has already far overstepped them.",
+        "hotwords": "United, States, America, But, Anglo-American"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The territory now occupied or possessed by the United States of America forms about one-twentieth part of the habitable earth.",
+          "start": 0.02,
+          "end": 7.54,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.787109375
+            },
+            {
+              "text": " territory",
+              "start": 0.48,
+              "end": 0.96,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " now",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " occupied",
+              "start": 1.26,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " or",
+              "start": 1.82,
+              "end": 2.26,
+              "probability": 0.841796875
+            },
+            {
+              "text": " possessed",
+              "start": 2.26,
+              "end": 2.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " United",
+              "start": 3.1,
+              "end": 3.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " States",
+              "start": 3.4,
+              "end": 3.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 3.82,
+              "end": 4.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " America",
+              "start": 4.0,
+              "end": 4.4,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " forms",
+              "start": 4.4,
+              "end": 4.9,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " about",
+              "start": 4.9,
+              "end": 5.38,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " one",
+              "start": 5.38,
+              "end": 5.7,
+              "probability": 0.60595703125
+            },
+            {
+              "text": "-twentieth",
+              "start": 5.7,
+              "end": 6.1,
+              "probability": 0.8468017578125
+            },
+            {
+              "text": " part",
+              "start": 6.1,
+              "end": 6.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 6.44,
+              "end": 6.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.62,
+              "end": 6.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " habitable",
+              "start": 6.7,
+              "end": 7.06,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " earth.",
+              "start": 7.06,
+              "end": 7.54,
+              "probability": 0.403076171875
+            }
+          ]
+        },
+        {
+          "text": " But extensive as these confines are, it must not be supposed that the Anglo-American race will always remain within them.",
+          "start": 8.2,
+          "end": 15.16,
+          "words": [
+            {
+              "text": " But",
+              "start": 8.2,
+              "end": 8.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " extensive",
+              "start": 8.32,
+              "end": 8.74,
+              "probability": 0.8984375
+            },
+            {
+              "text": " as",
+              "start": 8.74,
+              "end": 9.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " these",
+              "start": 9.12,
+              "end": 9.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " confines",
+              "start": 9.34,
+              "end": 9.78,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " are,",
+              "start": 9.78,
+              "end": 10.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 10.56,
+              "end": 10.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " must",
+              "start": 10.78,
+              "end": 10.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 10.94,
+              "end": 11.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 11.2,
+              "end": 11.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " supposed",
+              "start": 11.38,
+              "end": 11.78,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 11.78,
+              "end": 12.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 12.08,
+              "end": 12.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Anglo",
+              "start": 12.2,
+              "end": 12.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": "-American",
+              "start": 12.58,
+              "end": 12.98,
+              "probability": 0.961669921875
+            },
+            {
+              "text": " race",
+              "start": 12.98,
+              "end": 13.42,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " will",
+              "start": 13.42,
+              "end": 13.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " always",
+              "start": 13.66,
+              "end": 14.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " remain",
+              "start": 14.02,
+              "end": 14.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " within",
+              "start": 14.44,
+              "end": 14.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 14.78,
+              "end": 15.16,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Indeed, it has already far overstepped them.",
+          "start": 15.7,
+          "end": 18.24,
+          "words": [
+            {
+              "text": " Indeed,",
+              "start": 15.7,
+              "end": 16.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it",
+              "start": 16.48,
+              "end": 16.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " has",
+              "start": 16.64,
+              "end": 16.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " already",
+              "start": 16.76,
+              "end": 17.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " far",
+              "start": 17.1,
+              "end": 17.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " overstepped",
+              "start": 17.42,
+              "end": 18.0,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " them.",
+              "start": 18.0,
+              "end": 18.24,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "territory",
+          "start": 0.48,
+          "end": 0.96
+        },
+        {
+          "raw": "now",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "raw": "occupied",
+          "start": 1.26,
+          "end": 1.82
+        },
+        {
+          "raw": "or",
+          "start": 1.82,
+          "end": 2.26
+        },
+        {
+          "raw": "possessed",
+          "start": 2.26,
+          "end": 2.66
+        },
+        {
+          "raw": "by",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "raw": "the",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "United",
+          "start": 3.1,
+          "end": 3.4
+        },
+        {
+          "raw": "States",
+          "start": 3.4,
+          "end": 3.82
+        },
+        {
+          "raw": "of",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "raw": "America",
+          "start": 4.0,
+          "end": 4.4
+        },
+        {
+          "raw": "forms",
+          "start": 4.4,
+          "end": 4.9
+        },
+        {
+          "raw": "about",
+          "start": 4.9,
+          "end": 5.38
+        },
+        {
+          "raw": "one",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "raw": "-twentieth",
+          "start": 5.7,
+          "end": 6.1
+        },
+        {
+          "raw": "part",
+          "start": 6.1,
+          "end": 6.44
+        },
+        {
+          "raw": "of",
+          "start": 6.44,
+          "end": 6.62
+        },
+        {
+          "raw": "the",
+          "start": 6.62,
+          "end": 6.7
+        },
+        {
+          "raw": "habitable",
+          "start": 6.7,
+          "end": 7.06
+        },
+        {
+          "raw": "earth.",
+          "start": 7.06,
+          "end": 7.54
+        },
+        {
+          "raw": "But",
+          "start": 8.2,
+          "end": 8.32
+        },
+        {
+          "raw": "extensive",
+          "start": 8.32,
+          "end": 8.74
+        },
+        {
+          "raw": "as",
+          "start": 8.74,
+          "end": 9.12
+        },
+        {
+          "raw": "these",
+          "start": 9.12,
+          "end": 9.34
+        },
+        {
+          "raw": "confines",
+          "start": 9.34,
+          "end": 9.78
+        },
+        {
+          "raw": "are,",
+          "start": 9.78,
+          "end": 10.2
+        },
+        {
+          "raw": "it",
+          "start": 10.56,
+          "end": 10.78
+        },
+        {
+          "raw": "must",
+          "start": 10.78,
+          "end": 10.94
+        },
+        {
+          "raw": "not",
+          "start": 10.94,
+          "end": 11.2
+        },
+        {
+          "raw": "be",
+          "start": 11.2,
+          "end": 11.38
+        },
+        {
+          "raw": "supposed",
+          "start": 11.38,
+          "end": 11.78
+        },
+        {
+          "raw": "that",
+          "start": 11.78,
+          "end": 12.08
+        },
+        {
+          "raw": "the",
+          "start": 12.08,
+          "end": 12.2
+        },
+        {
+          "raw": "Anglo",
+          "start": 12.2,
+          "end": 12.58
+        },
+        {
+          "raw": "-American",
+          "start": 12.58,
+          "end": 12.98
+        },
+        {
+          "raw": "race",
+          "start": 12.98,
+          "end": 13.42
+        },
+        {
+          "raw": "will",
+          "start": 13.42,
+          "end": 13.66
+        },
+        {
+          "raw": "always",
+          "start": 13.66,
+          "end": 14.02
+        },
+        {
+          "raw": "remain",
+          "start": 14.02,
+          "end": 14.44
+        },
+        {
+          "raw": "within",
+          "start": 14.44,
+          "end": 14.78
+        },
+        {
+          "raw": "them.",
+          "start": 14.78,
+          "end": 15.16
+        },
+        {
+          "raw": "Indeed,",
+          "start": 15.7,
+          "end": 16.04
+        },
+        {
+          "raw": "it",
+          "start": 16.48,
+          "end": 16.64
+        },
+        {
+          "raw": "has",
+          "start": 16.64,
+          "end": 16.76
+        },
+        {
+          "raw": "already",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "raw": "far",
+          "start": 17.1,
+          "end": 17.42
+        },
+        {
+          "raw": "overstepped",
+          "start": 17.42,
+          "end": 18.0
+        },
+        {
+          "raw": "them.",
+          "start": 18.0,
+          "end": 18.24
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "territory",
+        "now",
+        "occupied",
+        "or",
+        "possessed",
+        "by",
+        "the",
+        "United",
+        "States",
+        "of",
+        "America",
+        "forms",
+        "about",
+        "one-twentieth",
+        "part",
+        "of",
+        "the",
+        "habitable",
+        "earth.",
+        "But",
+        "extensive",
+        "as",
+        "these",
+        "confines",
+        "are,",
+        "it",
+        "must",
+        "not",
+        "be",
+        "supposed",
+        "that",
+        "the",
+        "Anglo-American",
+        "race",
+        "will",
+        "always",
+        "remain",
+        "within",
+        "them;",
+        "indeed,",
+        "it",
+        "has",
+        "already",
+        "far",
+        "overstepped",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          47,
+          0,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "territory",
+          "start": 0.48,
+          "end": 0.96,
+          "key": "territory",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.96,
+          "end": 1.26,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "occupied",
+          "start": 1.26,
+          "end": 1.82,
+          "key": "occupied",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 1.82,
+          "end": 2.26,
+          "key": "or",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "possessed",
+          "start": 2.26,
+          "end": 2.66,
+          "key": "possessed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.98,
+          "end": 3.1,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 3.1,
+          "end": 3.4,
+          "key": "united",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "States",
+          "start": 3.4,
+          "end": 3.82,
+          "key": "states",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.82,
+          "end": 4.0,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "America",
+          "start": 4.0,
+          "end": 4.4,
+          "key": "america",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "forms",
+          "start": 4.4,
+          "end": 4.9,
+          "key": "forms",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 4.9,
+          "end": 5.38,
+          "key": "about",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "one -twentieth",
+          "start": 5.38,
+          "end": 6.1,
+          "key": "onetwentieth",
+          "pieces": [
+            14,
+            15
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 6.1,
+          "end": 6.44,
+          "key": "part",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.44,
+          "end": 6.62,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.62,
+          "end": 6.7,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "habitable",
+          "start": 6.7,
+          "end": 7.06,
+          "key": "habitable",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "earth.",
+          "start": 7.06,
+          "end": 7.54,
+          "key": "earth",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 8.2,
+          "end": 8.32,
+          "key": "but",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "extensive",
+          "start": 8.32,
+          "end": 8.74,
+          "key": "extensive",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 8.74,
+          "end": 9.12,
+          "key": "as",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 9.12,
+          "end": 9.34,
+          "key": "these",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "confines",
+          "start": 9.34,
+          "end": 9.78,
+          "key": "confines",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "are,",
+          "start": 9.78,
+          "end": 10.2,
+          "key": "are",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 10.56,
+          "end": 10.78,
+          "key": "it",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 10.78,
+          "end": 10.94,
+          "key": "must",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 10.94,
+          "end": 11.2,
+          "key": "not",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 11.2,
+          "end": 11.38,
+          "key": "be",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "supposed",
+          "start": 11.38,
+          "end": 11.78,
+          "key": "supposed",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.78,
+          "end": 12.08,
+          "key": "that",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.08,
+          "end": 12.2,
+          "key": "the",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Anglo -American",
+          "start": 12.2,
+          "end": 12.98,
+          "key": "angloamerican",
+          "pieces": [
+            34,
+            35
+          ]
+        },
+        {
+          "raw": "race",
+          "start": 12.98,
+          "end": 13.42,
+          "key": "race",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 13.42,
+          "end": 13.66,
+          "key": "will",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 13.66,
+          "end": 14.02,
+          "key": "always",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "remain",
+          "start": 14.02,
+          "end": 14.44,
+          "key": "remain",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 14.44,
+          "end": 14.78,
+          "key": "within",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 14.78,
+          "end": 15.16,
+          "key": "them",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Indeed,",
+          "start": 15.7,
+          "end": 16.04,
+          "key": "indeed",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 16.48,
+          "end": 16.64,
+          "key": "it",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 16.64,
+          "end": 16.76,
+          "key": "has",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 16.76,
+          "end": 17.1,
+          "key": "already",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 17.1,
+          "end": 17.42,
+          "key": "far",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "overstepped",
+          "start": 17.42,
+          "end": 18.0,
+          "key": "overstepped",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 18.0,
+          "end": 18.24,
+          "key": "them",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "one-twentieth",
+          "heard": "one -twentieth",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 5.38,
+          "end": 6.1
+        },
+        {
+          "expected_index": 33,
+          "text": "Anglo-American",
+          "heard": "Anglo -American",
+          "heard_indexes": [
+            34,
+            35
+          ],
+          "start": 12.2,
+          "end": 12.98
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "territory",
+          "start": 0.48,
+          "end": 0.96
+        },
+        {
+          "text": "now",
+          "start": 0.96,
+          "end": 1.26
+        },
+        {
+          "text": "occupied",
+          "start": 1.26,
+          "end": 1.82
+        },
+        {
+          "text": "or",
+          "start": 1.82,
+          "end": 2.26
+        },
+        {
+          "text": "possessed",
+          "start": 2.26,
+          "end": 2.66
+        },
+        {
+          "text": "by",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "text": "the",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "United",
+          "start": 3.1,
+          "end": 3.4
+        },
+        {
+          "text": "States",
+          "start": 3.4,
+          "end": 3.82
+        },
+        {
+          "text": "of",
+          "start": 3.82,
+          "end": 4.0
+        },
+        {
+          "text": "America",
+          "start": 4.0,
+          "end": 4.4
+        },
+        {
+          "text": "forms",
+          "start": 4.4,
+          "end": 4.9
+        },
+        {
+          "text": "about",
+          "start": 4.9,
+          "end": 5.38
+        },
+        {
+          "text": "one-twentieth",
+          "start": 5.38,
+          "end": 6.1
+        },
+        {
+          "text": "part",
+          "start": 6.1,
+          "end": 6.44
+        },
+        {
+          "text": "of",
+          "start": 6.44,
+          "end": 6.62
+        },
+        {
+          "text": "the",
+          "start": 6.62,
+          "end": 6.7
+        },
+        {
+          "text": "habitable",
+          "start": 6.7,
+          "end": 7.06
+        },
+        {
+          "text": "earth.",
+          "start": 7.06,
+          "end": 7.54
+        },
+        {
+          "text": "But",
+          "start": 8.2,
+          "end": 8.32
+        },
+        {
+          "text": "extensive",
+          "start": 8.32,
+          "end": 8.74
+        },
+        {
+          "text": "as",
+          "start": 8.74,
+          "end": 9.12
+        },
+        {
+          "text": "these",
+          "start": 9.12,
+          "end": 9.34
+        },
+        {
+          "text": "confines",
+          "start": 9.34,
+          "end": 9.78
+        },
+        {
+          "text": "are,",
+          "start": 9.78,
+          "end": 10.2
+        },
+        {
+          "text": "it",
+          "start": 10.56,
+          "end": 10.78
+        },
+        {
+          "text": "must",
+          "start": 10.78,
+          "end": 10.94
+        },
+        {
+          "text": "not",
+          "start": 10.94,
+          "end": 11.2
+        },
+        {
+          "text": "be",
+          "start": 11.2,
+          "end": 11.38
+        },
+        {
+          "text": "supposed",
+          "start": 11.38,
+          "end": 11.78
+        },
+        {
+          "text": "that",
+          "start": 11.78,
+          "end": 12.08
+        },
+        {
+          "text": "the",
+          "start": 12.08,
+          "end": 12.2
+        },
+        {
+          "text": "Anglo-American",
+          "start": 12.2,
+          "end": 12.98
+        },
+        {
+          "text": "race",
+          "start": 12.98,
+          "end": 13.42
+        },
+        {
+          "text": "will",
+          "start": 13.42,
+          "end": 13.66
+        },
+        {
+          "text": "always",
+          "start": 13.66,
+          "end": 14.02
+        },
+        {
+          "text": "remain",
+          "start": 14.02,
+          "end": 14.44
+        },
+        {
+          "text": "within",
+          "start": 14.44,
+          "end": 14.78
+        },
+        {
+          "text": "them;",
+          "start": 14.78,
+          "end": 15.16
+        },
+        {
+          "text": "indeed,",
+          "start": 15.7,
+          "end": 16.04
+        },
+        {
+          "text": "it",
+          "start": 16.48,
+          "end": 16.64
+        },
+        {
+          "text": "has",
+          "start": 16.64,
+          "end": 16.76
+        },
+        {
+          "text": "already",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "text": "far",
+          "start": 17.1,
+          "end": 17.42
+        },
+        {
+          "text": "overstepped",
+          "start": 17.42,
+          "end": 18.0
+        },
+        {
+          "text": "them.",
+          "start": 18.0,
+          "end": 18.24
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5868932567536831
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "811655b20cd16c55b0980b20934f015ef91dbc56835ef3cd13dade04f675fa11",
+  "selected_reasons": []
+}

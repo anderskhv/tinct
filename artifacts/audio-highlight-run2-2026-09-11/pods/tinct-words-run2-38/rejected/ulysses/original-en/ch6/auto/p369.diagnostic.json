@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "a99aedf12029a793644daf3e12a6a2d1f653c20a724c1093f930df6c9fc7fff3",
+  "attempts": [
+    {
+      "asr_seconds": 0.15068780299043283,
+      "alignment_seconds": 0.00025456101866438985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Let us go round by the chief's grave, Hynes said. We have time.",
+        "hotwords": "Let, Hynes, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Let us go round by the chief's grave, Hynes said. We have time.",
+          "start": 0.02,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.48095703125
+            },
+            {
+              "text": " us",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " go",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " round",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.87109375
+            },
+            {
+              "text": " by",
+              "start": 1.02,
+              "end": 1.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " chief's",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " grave,",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hynes",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.03673553466796875
+            },
+            {
+              "text": " said.",
+              "start": 2.36,
+              "end": 2.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " We",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.962890625
+            },
+            {
+              "text": " have",
+              "start": 3.22,
+              "end": 3.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " time.",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "us",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "go",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "round",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "by",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "chief's",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "raw": "grave,",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "raw": "Hynes",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "said.",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "raw": "We",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "have",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "raw": "time.",
+          "start": 3.36,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "—Let",
+        "us",
+        "go",
+        "round",
+        "by",
+        "the",
+        "chief's",
+        "grave,",
+        "Hynes",
+        "said.",
+        "We",
+        "have",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "us",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 0.8,
+          "end": 1.02,
+          "key": "round",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.02,
+          "end": 1.24,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "chief's",
+          "start": 1.36,
+          "end": 1.66,
+          "key": "chiefs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "grave,",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "grave",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Hynes",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "hynes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.36,
+          "end": 2.66,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "we",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.22,
+          "end": 3.36,
+          "key": "have",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 3.36,
+          "end": 3.68,
+          "key": "time",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Let",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "us",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "go",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "round",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "by",
+          "start": 1.02,
+          "end": 1.24
+        },
+        {
+          "text": "the",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "chief's",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "text": "grave,",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "text": "Hynes",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "said.",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "text": "We",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "have",
+          "start": 3.22,
+          "end": 3.36
+        },
+        {
+          "text": "time.",
+          "start": 3.36,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15103565400931984
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d0f400519decc98394ccc3c2d1809372d4a0b63fe1a47f3d0eb548884bdfb4d",
+  "selected_reasons": []
+}

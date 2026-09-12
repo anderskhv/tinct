@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "47a9dcd458be8c4c7ce8c122857695e06908839aa8e42eba90f12960fa27e02b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1000937270000577,
+      "alignment_seconds": 0.0002173841930925846,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes.\"",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes.",
+          "start": 0.02,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " Yes.",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.80859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes.",
+          "start": 0.02,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes.",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes.\"",
+          "start": 0.02,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10038134688511491
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3e2adf32b903d92422c488883975228833a702faf4a9549713d53df370eb8a32",
+  "selected_reasons": []
+}

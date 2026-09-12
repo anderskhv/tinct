@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "7d7f0cfa7ded092eb05f6601493c3fd676050e434488832c3def17b67ed8ff14",
+  "attempts": [
+    {
+      "asr_seconds": 0.18225597962737083,
+      "alignment_seconds": 0.0003232918679714203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She does look white said Hannah",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.370361328125
+            },
+            {
+              "text": " does",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.9921875
+            },
+            {
+              "text": " look",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " white",
+              "start": 0.9,
+              "end": 1.28,
+              "probability": 0.974609375
+            },
+            {
+              "text": " said",
+              "start": 1.28,
+              "end": 1.7,
+              "probability": 0.252197265625
+            },
+            {
+              "text": " Hannah",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 0.810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "does",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "look",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "white",
+          "start": 0.9,
+          "end": 1.28
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.7
+        },
+        {
+          "raw": "Hannah",
+          "start": 1.7,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "\"She",
+        "does",
+        "look",
+        "white,\"",
+        "said",
+        "Hannah."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "does",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "look",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 0.9,
+          "end": 1.28,
+          "key": "white",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.7,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Hannah",
+          "start": 1.7,
+          "end": 2.02,
+          "key": "hannah",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "does",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "look",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "white,\"",
+          "start": 0.9,
+          "end": 1.28
+        },
+        {
+          "text": "said",
+          "start": 1.28,
+          "end": 1.7
+        },
+        {
+          "text": "Hannah.",
+          "start": 1.7,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18272635154426098
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8c0ccea23c6f5df67db950ef47d77a53d097c89fec8aa8ca0f51d5264fcaa320",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "3c06c1c883dece1b776469718a7e942ce1a1f10eb651e9ff1c13f73f71d89c00",
+  "attempts": [
+    {
+      "asr_seconds": 0.13903703540563583,
+      "alignment_seconds": 0.0002555064857006073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, very well.",
+          "start": 0.08,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " very",
+              "start": 1.18,
+              "end": 1.42,
+              "probability": 0.984375
+            },
+            {
+              "text": " well.",
+              "start": 1.42,
+              "end": 1.74,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "very",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "raw": "well.",
+          "start": 1.42,
+          "end": 1.74
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "Very",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.18,
+          "end": 1.42,
+          "key": "very",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.42,
+          "end": 1.74,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Very",
+          "start": 1.18,
+          "end": 1.42
+        },
+        {
+          "text": "well.",
+          "start": 1.42,
+          "end": 1.74
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13938646391034126
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aae7bebfba9c8103f7c7a9c254aeecb7c467a164b5b0d0a087a2f2455306c85a",
+  "selected_reasons": []
+}

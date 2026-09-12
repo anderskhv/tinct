@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "79973f21b69f5f2016d0afb50cffb73857505a382518256916aa10598ea4e785",
+  "attempts": [
+    {
+      "asr_seconds": 0.15181337390094995,
+      "alignment_seconds": 0.0003900257870554924,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Maybe he's not at home,\" said a man's voice.",
+        "hotwords": "Maybe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Maybe he's not at home, said a man's voice.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Maybe",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.39111328125
+            },
+            {
+              "text": " he's",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 0.85,
+              "end": 0.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 0.97,
+              "end": 1.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " home,",
+              "start": 1.09,
+              "end": 1.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 1.91,
+              "end": 2.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " man's",
+              "start": 2.03,
+              "end": 2.35,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " voice.",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maybe",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "he's",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "not",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "raw": "at",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "raw": "home,",
+          "start": 1.09,
+          "end": 1.41
+        },
+        {
+          "raw": "said",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "a",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "raw": "man's",
+          "start": 2.03,
+          "end": 2.35
+        },
+        {
+          "raw": "voice.",
+          "start": 2.35,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "\"Maybe",
+        "he's",
+        "not",
+        "at",
+        "home,\"",
+        "said",
+        "a",
+        "man's",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maybe",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "maybe",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.85,
+          "end": 0.97,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.97,
+          "end": 1.09,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "home,",
+          "start": 1.09,
+          "end": 1.41,
+          "key": "home",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.91,
+          "end": 2.03,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man's",
+          "start": 2.03,
+          "end": 2.35,
+          "key": "mans",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "voice.",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "voice",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Maybe",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "he's",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "not",
+          "start": 0.85,
+          "end": 0.97
+        },
+        {
+          "text": "at",
+          "start": 0.97,
+          "end": 1.09
+        },
+        {
+          "text": "home,\"",
+          "start": 1.09,
+          "end": 1.41
+        },
+        {
+          "text": "said",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "a",
+          "start": 1.91,
+          "end": 2.03
+        },
+        {
+          "text": "man's",
+          "start": 2.03,
+          "end": 2.35
+        },
+        {
+          "text": "voice.",
+          "start": 2.35,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1523642484098673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a5597bf2cb76e0dce30fce506c015acb84a1db33e2dfd11f99698efd01113e39",
+  "selected_reasons": []
+}

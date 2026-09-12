@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "f103a36f33c358f3b984a65063ded2abd61a1c3c261c311d8feea8239df7c451",
+  "attempts": [
+    {
+      "asr_seconds": 0.12257226501242258,
+      "alignment_seconds": 0.00020744599169120193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exeunt]",
+        "hotwords": "Exeunt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.5675862630208334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt]",
+          "start": 0.05,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12284367499523796
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "52148350ee2f45263a750f310e7fae2962de401949786f4afb1489670f6556ec",
+  "selected_reasons": []
+}

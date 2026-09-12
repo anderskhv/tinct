@@ -1,0 +1,148 @@
+{
+  "complete": true,
+  "signature": "d905aeb2e46d897cefe1d309cdb63aaed413a259f2072479b79cc13503183d95",
+  "attempts": [
+    {
+      "asr_seconds": 0.12962907552719116,
+      "alignment_seconds": 0.00031364336609840393,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bonjour, Meidam.",
+          "start": 0.08,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Bonjour,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.8601888020833334
+            },
+            {
+              "text": " Meidam.",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.5308024088541666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bonjour,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Meidam.",
+          "start": 0.96,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Bon",
+        "jour,",
+        "mesdames.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bonjour,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "bonjour",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Meidam.",
+          "start": 0.96,
+          "end": 1.32,
+          "key": "meidam",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Bon",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "jour,",
+          "start": 0.66,
+          "end": 0.99
+        },
+        {
+          "text": "mesdames.\"",
+          "start": 0.99,
+          "end": 1.155
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13003744557499886
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "011f6d0841ddc9ff336a8c6d636a6187431c6b6bbb828d279ef1ae401d9084a9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

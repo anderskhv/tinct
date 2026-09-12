@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "336ce402fbddd87f525579b9a4533f3fe6627da8a5ec38cc88f2380805bdd5d8",
+  "attempts": [
+    {
+      "asr_seconds": 0.16867643408477306,
+      "alignment_seconds": 0.00035413168370723724,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh yes, being in the neighborhood.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Oh",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.869140625
+            },
+            {
+              "text": " yes,",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " being",
+              "start": 1.16,
+              "end": 1.28,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " in",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " neighborhood.",
+              "start": 1.54,
+              "end": 1.86,
+              "probability": 0.91943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "yes,",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "raw": "being",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "raw": "in",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "neighborhood.",
+          "start": 1.54,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "yes,",
+        "being",
+        "in",
+        "the",
+        "neighbourhood.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 0.56,
+          "end": 0.82,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 1.16,
+          "end": 1.28,
+          "key": "being",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "neighborhood.",
+          "start": 1.54,
+          "end": 1.86,
+          "key": "neighborhood",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "yes,",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "text": "being",
+          "start": 1.16,
+          "end": 1.28
+        },
+        {
+          "text": "in",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "text": "the",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "neighbourhood.\"",
+          "start": 1.54,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1691679861396551
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c947891b1b94c83b6145355acf9295121fe9edf91fdb1bf608fda88099b768da",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

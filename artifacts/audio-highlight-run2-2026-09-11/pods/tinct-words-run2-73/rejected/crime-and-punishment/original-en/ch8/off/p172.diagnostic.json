@@ -1,0 +1,667 @@
+{
+  "complete": true,
+  "signature": "74afbb86740a2ce7761783a34612c2a48e65f6b05e8244ebe58de659a77d4a5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2979270312935114,
+      "alignment_seconds": 0.00044365040957927704,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A search there will be a search at once,\" he repeated to himself, hurrying home.",
+          "start": 0.02,
+          "end": 4.38,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.5078125
+            },
+            {
+              "text": " search",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " there",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " will",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 1.14,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " search",
+              "start": 1.42,
+              "end": 1.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 1.64,
+              "end": 1.8,
+              "probability": 0.994140625
+            },
+            {
+              "text": " once,\"",
+              "start": 1.8,
+              "end": 2.48,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " he",
+              "start": 2.48,
+              "end": 2.68,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " repeated",
+              "start": 2.68,
+              "end": 3.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.0,
+              "end": 3.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " himself,",
+              "start": 3.22,
+              "end": 3.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hurrying",
+              "start": 3.76,
+              "end": 4.06,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " home.",
+              "start": 4.06,
+              "end": 4.38,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " The brutes, they suspect.",
+          "start": 5.02,
+          "end": 6.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 5.02,
+              "end": 5.18,
+              "probability": 0.3525390625
+            },
+            {
+              "text": " brutes,",
+              "start": 5.18,
+              "end": 5.62,
+              "probability": 0.919189453125
+            },
+            {
+              "text": " they",
+              "start": 5.88,
+              "end": 5.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " suspect.",
+              "start": 5.98,
+              "end": 6.38,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "search",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "raw": "there",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "will",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "be",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "search",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "raw": "at",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "raw": "once,\"",
+          "start": 1.8,
+          "end": 2.48
+        },
+        {
+          "raw": "he",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "raw": "repeated",
+          "start": 2.68,
+          "end": 3.0
+        },
+        {
+          "raw": "to",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "raw": "himself,",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "raw": "hurrying",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "raw": "home.",
+          "start": 4.06,
+          "end": 4.38
+        },
+        {
+          "raw": "The",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "raw": "brutes,",
+          "start": 5.18,
+          "end": 5.62
+        },
+        {
+          "raw": "they",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "raw": "suspect.",
+          "start": 5.98,
+          "end": 6.38
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "search--there",
+        "will",
+        "be",
+        "a",
+        "search",
+        "at",
+        "once,\"",
+        "he",
+        "repeated",
+        "to",
+        "himself,",
+        "hurrying",
+        "home.",
+        "\"The",
+        "brutes!",
+        "they",
+        "suspect.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "search there",
+          "start": 0.54,
+          "end": 1.0,
+          "key": "searchthere",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.14,
+          "end": 1.26,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "search",
+          "start": 1.42,
+          "end": 1.64,
+          "key": "search",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.64,
+          "end": 1.8,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "once,\"",
+          "start": 1.8,
+          "end": 2.48,
+          "key": "once",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.48,
+          "end": 2.68,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "repeated",
+          "start": 2.68,
+          "end": 3.0,
+          "key": "repeated",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.0,
+          "end": 3.22,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 3.22,
+          "end": 3.62,
+          "key": "himself",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hurrying",
+          "start": 3.76,
+          "end": 4.06,
+          "key": "hurrying",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "home.",
+          "start": 4.06,
+          "end": 4.38,
+          "key": "home",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.02,
+          "end": 5.18,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "brutes,",
+          "start": 5.18,
+          "end": 5.62,
+          "key": "brutes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.88,
+          "end": 5.98,
+          "key": "they",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "suspect.",
+          "start": 5.98,
+          "end": 6.38,
+          "key": "suspect",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "search--there",
+          "heard": "search there",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 0.54,
+          "end": 1.0
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "search--there",
+          "start": 0.54,
+          "end": 1.0
+        },
+        {
+          "text": "will",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "be",
+          "start": 1.14,
+          "end": 1.26
+        },
+        {
+          "text": "a",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "search",
+          "start": 1.42,
+          "end": 1.64
+        },
+        {
+          "text": "at",
+          "start": 1.64,
+          "end": 1.8
+        },
+        {
+          "text": "once,\"",
+          "start": 1.8,
+          "end": 2.48
+        },
+        {
+          "text": "he",
+          "start": 2.48,
+          "end": 2.68
+        },
+        {
+          "text": "repeated",
+          "start": 2.68,
+          "end": 3.0
+        },
+        {
+          "text": "to",
+          "start": 3.0,
+          "end": 3.22
+        },
+        {
+          "text": "himself,",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "text": "hurrying",
+          "start": 3.76,
+          "end": 4.06
+        },
+        {
+          "text": "home.",
+          "start": 4.06,
+          "end": 4.38
+        },
+        {
+          "text": "\"The",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "text": "brutes!",
+          "start": 5.18,
+          "end": 5.62
+        },
+        {
+          "text": "they",
+          "start": 5.88,
+          "end": 5.98
+        },
+        {
+          "text": "suspect.\"",
+          "start": 5.98,
+          "end": 6.38
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.298546209000051
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bbca2b45d881bd4c839a81279313004ac3668d6e036fb12ef1d5d68f5a9767a6",
+  "selected_reasons": []
+}

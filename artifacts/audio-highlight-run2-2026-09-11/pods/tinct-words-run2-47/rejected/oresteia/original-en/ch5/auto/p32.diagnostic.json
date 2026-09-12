@@ -1,0 +1,621 @@
+{
+  "complete": true,
+  "signature": "4659e8c6b9a1107580b75da10625df28193f5d9c2907e735cf00cef822a75e8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.33357053200597875,
+      "alignment_seconds": 0.0007467279792763293,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Herald. Ask me no more: the truth is known to none, Save the earth-fostering, all-surveying Sun,",
+        "hotwords": "Herald, Ask, Save, Sun"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Herald, Ask me no more. The truth is known to none, Save the earth-fostering, all-surveying Sun.",
+          "start": 0.05,
+          "end": 6.11,
+          "words": [
+            {
+              "text": " Herald,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.01059722900390625
+            },
+            {
+              "text": " Ask",
+              "start": 1.17,
+              "end": 1.43,
+              "probability": 0.01444244384765625
+            },
+            {
+              "text": " me",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " no",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.96875
+            },
+            {
+              "text": " more.",
+              "start": 1.73,
+              "end": 2.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " The",
+              "start": 2.53,
+              "end": 2.59,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " truth",
+              "start": 2.59,
+              "end": 2.81,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 2.81,
+              "end": 2.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " known",
+              "start": 2.99,
+              "end": 3.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 3.19,
+              "end": 3.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " none,",
+              "start": 3.39,
+              "end": 3.61,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Save",
+              "start": 3.95,
+              "end": 4.05,
+              "probability": 0.1246337890625
+            },
+            {
+              "text": " the",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " earth",
+              "start": 4.21,
+              "end": 4.41,
+              "probability": 0.398193359375
+            },
+            {
+              "text": "-fostering,",
+              "start": 4.41,
+              "end": 5.07,
+              "probability": 0.7026290893554688
+            },
+            {
+              "text": " all",
+              "start": 5.27,
+              "end": 5.37,
+              "probability": 0.60498046875
+            },
+            {
+              "text": "-surveying",
+              "start": 5.37,
+              "end": 5.87,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " Sun.",
+              "start": 5.87,
+              "end": 6.11,
+              "probability": 0.0614013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Herald,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Ask",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "raw": "me",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "no",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "more.",
+          "start": 1.73,
+          "end": 2.01
+        },
+        {
+          "raw": "The",
+          "start": 2.53,
+          "end": 2.59
+        },
+        {
+          "raw": "truth",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "raw": "is",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "raw": "known",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "raw": "to",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "raw": "none,",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "raw": "Save",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "raw": "the",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "earth",
+          "start": 4.21,
+          "end": 4.41
+        },
+        {
+          "raw": "-fostering,",
+          "start": 4.41,
+          "end": 5.07
+        },
+        {
+          "raw": "all",
+          "start": 5.27,
+          "end": 5.37
+        },
+        {
+          "raw": "-surveying",
+          "start": 5.37,
+          "end": 5.87
+        },
+        {
+          "raw": "Sun.",
+          "start": 5.87,
+          "end": 6.11
+        }
+      ],
+      "expected_tokens": [
+        "Herald.",
+        "Ask",
+        "me",
+        "no",
+        "more:",
+        "the",
+        "truth",
+        "is",
+        "known",
+        "to",
+        "none,",
+        "Save",
+        "the",
+        "earth-fostering,",
+        "all-surveying",
+        "Sun,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Herald,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "herald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ask",
+          "start": 1.17,
+          "end": 1.43,
+          "key": "ask",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more.",
+          "start": 1.73,
+          "end": 2.01,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.53,
+          "end": 2.59,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 2.59,
+          "end": 2.81,
+          "key": "truth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.81,
+          "end": 2.99,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 2.99,
+          "end": 3.19,
+          "key": "known",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.19,
+          "end": 3.39,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "none,",
+          "start": 3.39,
+          "end": 3.61,
+          "key": "none",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Save",
+          "start": 3.95,
+          "end": 4.05,
+          "key": "save",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.05,
+          "end": 4.21,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "earth -fostering,",
+          "start": 4.21,
+          "end": 5.07,
+          "key": "earthfostering",
+          "pieces": [
+            13,
+            14
+          ]
+        },
+        {
+          "raw": "all -surveying",
+          "start": 5.27,
+          "end": 5.87,
+          "key": "allsurveying",
+          "pieces": [
+            15,
+            16
+          ]
+        },
+        {
+          "raw": "Sun.",
+          "start": 5.87,
+          "end": 6.11,
+          "key": "sun",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 13,
+          "text": "earth-fostering,",
+          "heard": "earth -fostering,",
+          "heard_indexes": [
+            13,
+            14
+          ],
+          "start": 4.21,
+          "end": 5.07
+        },
+        {
+          "expected_index": 14,
+          "text": "all-surveying",
+          "heard": "all -surveying",
+          "heard_indexes": [
+            15,
+            16
+          ],
+          "start": 5.27,
+          "end": 5.87
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Herald.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Ask",
+          "start": 1.17,
+          "end": 1.43
+        },
+        {
+          "text": "me",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "no",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "more:",
+          "start": 1.73,
+          "end": 2.01
+        },
+        {
+          "text": "the",
+          "start": 2.53,
+          "end": 2.59
+        },
+        {
+          "text": "truth",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "text": "is",
+          "start": 2.81,
+          "end": 2.99
+        },
+        {
+          "text": "known",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "text": "to",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "text": "none,",
+          "start": 3.39,
+          "end": 3.61
+        },
+        {
+          "text": "Save",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "text": "the",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "earth-fostering,",
+          "start": 4.21,
+          "end": 5.07
+        },
+        {
+          "text": "all-surveying",
+          "start": 5.27,
+          "end": 5.87
+        },
+        {
+          "text": "Sun,",
+          "start": 5.87,
+          "end": 6.11
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3345935939869378
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e892e6bd36ccaa3dbb27485371fddafbfb2407efd5e419c50b3b3a16a6fbf57f",
+  "selected_reasons": []
+}

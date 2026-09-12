@@ -1,0 +1,687 @@
+{
+  "complete": true,
+  "signature": "5e04bd39b6d8a74a916f196ee683b2d4565e53ce494ab47d852abb709d3a4d63",
+  "attempts": [
+    {
+      "asr_seconds": 0.3586688246577978,
+      "alignment_seconds": 0.0007086340337991714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, known are mine now, to Polonius.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.922607421875
+            },
+            {
+              "text": " known",
+              "start": 1.01,
+              "end": 1.27,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " are",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.3125
+            },
+            {
+              "text": " mine",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " now,",
+              "start": 1.63,
+              "end": 1.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 2.21,
+              "end": 2.29,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Polonius.",
+              "start": 2.29,
+              "end": 2.93,
+              "probability": 0.88037109375
+            }
+          ]
+        },
+        {
+          "text": " My lord, you played once I.T.H. University, you say.",
+          "start": 3.61,
+          "end": 6.51,
+          "words": [
+            {
+              "text": " My",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " lord,",
+              "start": 3.79,
+              "end": 4.03,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " you",
+              "start": 4.31,
+              "end": 4.33,
+              "probability": 0.990234375
+            },
+            {
+              "text": " played",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " once",
+              "start": 4.55,
+              "end": 4.87,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " I",
+              "start": 4.87,
+              "end": 5.05,
+              "probability": 0.720703125
+            },
+            {
+              "text": ".T",
+              "start": 5.05,
+              "end": 5.25,
+              "probability": 0.58599853515625
+            },
+            {
+              "text": ".H.",
+              "start": 5.25,
+              "end": 5.43,
+              "probability": 0.977294921875
+            },
+            {
+              "text": " University,",
+              "start": 5.43,
+              "end": 5.83,
+              "probability": 0.7109375
+            },
+            {
+              "text": " you",
+              "start": 6.17,
+              "end": 6.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " say.",
+              "start": 6.23,
+              "end": 6.51,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "known",
+          "start": 1.01,
+          "end": 1.27
+        },
+        {
+          "raw": "are",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "mine",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "now,",
+          "start": 1.63,
+          "end": 1.95
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.29
+        },
+        {
+          "raw": "Polonius.",
+          "start": 2.29,
+          "end": 2.93
+        },
+        {
+          "raw": "My",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "lord,",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "raw": "you",
+          "start": 4.31,
+          "end": 4.33
+        },
+        {
+          "raw": "played",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "raw": "once",
+          "start": 4.55,
+          "end": 4.87
+        },
+        {
+          "raw": "I",
+          "start": 4.87,
+          "end": 5.05
+        },
+        {
+          "raw": ".T",
+          "start": 5.05,
+          "end": 5.25
+        },
+        {
+          "raw": ".H.",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "raw": "University,",
+          "start": 5.43,
+          "end": 5.83
+        },
+        {
+          "raw": "you",
+          "start": 6.17,
+          "end": 6.23
+        },
+        {
+          "raw": "say.",
+          "start": 6.23,
+          "end": 6.51
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "No,",
+        "nor",
+        "mine",
+        "now.",
+        "[To",
+        "Polonius.]",
+        "My",
+        "lord,",
+        "you",
+        "play'd",
+        "once",
+        "i'",
+        "th'university,",
+        "you",
+        "say?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          16
+        ],
+        [
+          "equal",
+          14,
+          16,
+          16,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 1.01,
+          "end": 1.27,
+          "key": "known",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "mine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.63,
+          "end": 1.95,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.21,
+          "end": 2.29,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Polonius.",
+          "start": 2.29,
+          "end": 2.93,
+          "key": "polonius",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 3.79,
+          "end": 4.03,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.31,
+          "end": 4.33,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "played",
+          "start": 4.33,
+          "end": 4.55,
+          "key": "played",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 4.55,
+          "end": 4.87,
+          "key": "once",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.87,
+          "end": 5.05,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": ".T",
+          "start": 5.05,
+          "end": 5.25,
+          "key": "t",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 5.25,
+          "end": 5.43,
+          "key": "h",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "University,",
+          "start": 5.43,
+          "end": 5.83,
+          "key": "university",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.17,
+          "end": 6.23,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 6.23,
+          "end": 6.51,
+          "key": "say",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "No,",
+          "start": 0.85,
+          "end": 1.15
+        },
+        {
+          "text": "nor",
+          "start": 1.15,
+          "end": 1.3
+        },
+        {
+          "text": "mine",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "now.",
+          "start": 1.63,
+          "end": 1.95
+        },
+        {
+          "text": "[To",
+          "start": 2.21,
+          "end": 2.29
+        },
+        {
+          "text": "Polonius.]",
+          "start": 2.29,
+          "end": 2.93
+        },
+        {
+          "text": "My",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "lord,",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "text": "you",
+          "start": 4.31,
+          "end": 4.33
+        },
+        {
+          "text": "play'd",
+          "start": 4.33,
+          "end": 4.44
+        },
+        {
+          "text": "once",
+          "start": 4.55,
+          "end": 4.87
+        },
+        {
+          "text": "i'",
+          "start": 4.87,
+          "end": 5.05
+        },
+        {
+          "text": "th'university,",
+          "start": 5.05,
+          "end": 5.61
+        },
+        {
+          "text": "you",
+          "start": 6.17,
+          "end": 6.23
+        },
+        {
+          "text": "say?",
+          "start": 6.23,
+          "end": 6.51
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 12
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.35968908853828907
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c7b01551fcba54a1dfd93415c80797a62969db9b3ebeabad1485168fa14b24ce",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

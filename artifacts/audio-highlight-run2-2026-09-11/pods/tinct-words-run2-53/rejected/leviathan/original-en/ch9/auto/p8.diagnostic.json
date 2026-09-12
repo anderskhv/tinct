@@ -1,0 +1,1598 @@
+{
+  "complete": true,
+  "signature": "73d0a4e199dec48a05caa447d92a299f0509e1a33e4bee73195658f424cf750a",
+  "attempts": [
+    {
+      "asr_seconds": 0.5462272490840405,
+      "alignment_seconds": 0.0010304281022399664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And in any Discourse whatsoever, if the defect of Discretion be apparent, how extravagant soever the Fancy be, the whole discourse will be taken for a signe of want of wit; and so will it never when the Discretion is manifest, though the Fancy be never so ordinary.",
+        "hotwords": "Discretion, Fancy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And in any Discourse whatsoever, if the defect of Discretion be apparent, how extravagant soever the Fancy be, the whole discourse will be taken for a signe of want of wit, and so will it never when the Discretion is manifest, though the Fancy be never so ordinary.",
+          "start": 0.05,
+          "end": 16.37,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.44775390625
+            },
+            {
+              "text": " in",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " any",
+              "start": 0.61,
+              "end": 0.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Discourse",
+              "start": 0.83,
+              "end": 1.29,
+              "probability": 0.5088043212890625
+            },
+            {
+              "text": " whatsoever,",
+              "start": 1.29,
+              "end": 1.83,
+              "probability": 0.7578125
+            },
+            {
+              "text": " if",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " the",
+              "start": 2.53,
+              "end": 2.69,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " defect",
+              "start": 2.69,
+              "end": 3.01,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " of",
+              "start": 3.01,
+              "end": 3.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Discretion",
+              "start": 3.29,
+              "end": 3.75,
+              "probability": 0.884033203125
+            },
+            {
+              "text": " be",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " apparent,",
+              "start": 3.99,
+              "end": 4.37,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " how",
+              "start": 4.93,
+              "end": 5.09,
+              "probability": 0.92578125
+            },
+            {
+              "text": " extravagant",
+              "start": 5.09,
+              "end": 5.67,
+              "probability": 0.966796875
+            },
+            {
+              "text": " soever",
+              "start": 5.67,
+              "end": 6.31,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " the",
+              "start": 6.31,
+              "end": 6.53,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Fancy",
+              "start": 6.53,
+              "end": 6.87,
+              "probability": 0.771484375
+            },
+            {
+              "text": " be,",
+              "start": 6.87,
+              "end": 7.21,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " the",
+              "start": 7.61,
+              "end": 7.79,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " whole",
+              "start": 7.79,
+              "end": 8.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " discourse",
+              "start": 8.01,
+              "end": 8.47,
+              "probability": 0.00904083251953125
+            },
+            {
+              "text": " will",
+              "start": 8.47,
+              "end": 8.69,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " be",
+              "start": 8.69,
+              "end": 8.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " taken",
+              "start": 8.85,
+              "end": 9.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " for",
+              "start": 9.07,
+              "end": 9.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 9.37,
+              "end": 9.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " signe",
+              "start": 9.55,
+              "end": 9.79,
+              "probability": 0.013161510229110718
+            },
+            {
+              "text": " of",
+              "start": 9.79,
+              "end": 9.91,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " want",
+              "start": 9.91,
+              "end": 10.09,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " of",
+              "start": 10.09,
+              "end": 10.29,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " wit,",
+              "start": 10.29,
+              "end": 10.53,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " and",
+              "start": 11.21,
+              "end": 11.39,
+              "probability": 0.95703125
+            },
+            {
+              "text": " so",
+              "start": 11.39,
+              "end": 11.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " will",
+              "start": 11.61,
+              "end": 11.77,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " it",
+              "start": 11.77,
+              "end": 11.93,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " never",
+              "start": 11.93,
+              "end": 12.17,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " when",
+              "start": 12.17,
+              "end": 12.43,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " the",
+              "start": 12.43,
+              "end": 12.55,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Discretion",
+              "start": 12.55,
+              "end": 12.99,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " is",
+              "start": 12.99,
+              "end": 13.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " manifest,",
+              "start": 13.29,
+              "end": 13.81,
+              "probability": 0.990234375
+            },
+            {
+              "text": " though",
+              "start": 14.37,
+              "end": 14.53,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 14.53,
+              "end": 14.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Fancy",
+              "start": 14.67,
+              "end": 15.03,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " be",
+              "start": 15.03,
+              "end": 15.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " never",
+              "start": 15.29,
+              "end": 15.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " so",
+              "start": 15.59,
+              "end": 15.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ordinary.",
+              "start": 15.91,
+              "end": 16.37,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "in",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "any",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "raw": "Discourse",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "raw": "whatsoever,",
+          "start": 1.29,
+          "end": 1.83
+        },
+        {
+          "raw": "if",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "raw": "defect",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "raw": "of",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "raw": "Discretion",
+          "start": 3.29,
+          "end": 3.75
+        },
+        {
+          "raw": "be",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "raw": "apparent,",
+          "start": 3.99,
+          "end": 4.37
+        },
+        {
+          "raw": "how",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "raw": "extravagant",
+          "start": 5.09,
+          "end": 5.67
+        },
+        {
+          "raw": "soever",
+          "start": 5.67,
+          "end": 6.31
+        },
+        {
+          "raw": "the",
+          "start": 6.31,
+          "end": 6.53
+        },
+        {
+          "raw": "Fancy",
+          "start": 6.53,
+          "end": 6.87
+        },
+        {
+          "raw": "be,",
+          "start": 6.87,
+          "end": 7.21
+        },
+        {
+          "raw": "the",
+          "start": 7.61,
+          "end": 7.79
+        },
+        {
+          "raw": "whole",
+          "start": 7.79,
+          "end": 8.01
+        },
+        {
+          "raw": "discourse",
+          "start": 8.01,
+          "end": 8.47
+        },
+        {
+          "raw": "will",
+          "start": 8.47,
+          "end": 8.69
+        },
+        {
+          "raw": "be",
+          "start": 8.69,
+          "end": 8.85
+        },
+        {
+          "raw": "taken",
+          "start": 8.85,
+          "end": 9.07
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.37
+        },
+        {
+          "raw": "a",
+          "start": 9.37,
+          "end": 9.55
+        },
+        {
+          "raw": "signe",
+          "start": 9.55,
+          "end": 9.79
+        },
+        {
+          "raw": "of",
+          "start": 9.79,
+          "end": 9.91
+        },
+        {
+          "raw": "want",
+          "start": 9.91,
+          "end": 10.09
+        },
+        {
+          "raw": "of",
+          "start": 10.09,
+          "end": 10.29
+        },
+        {
+          "raw": "wit,",
+          "start": 10.29,
+          "end": 10.53
+        },
+        {
+          "raw": "and",
+          "start": 11.21,
+          "end": 11.39
+        },
+        {
+          "raw": "so",
+          "start": 11.39,
+          "end": 11.61
+        },
+        {
+          "raw": "will",
+          "start": 11.61,
+          "end": 11.77
+        },
+        {
+          "raw": "it",
+          "start": 11.77,
+          "end": 11.93
+        },
+        {
+          "raw": "never",
+          "start": 11.93,
+          "end": 12.17
+        },
+        {
+          "raw": "when",
+          "start": 12.17,
+          "end": 12.43
+        },
+        {
+          "raw": "the",
+          "start": 12.43,
+          "end": 12.55
+        },
+        {
+          "raw": "Discretion",
+          "start": 12.55,
+          "end": 12.99
+        },
+        {
+          "raw": "is",
+          "start": 12.99,
+          "end": 13.29
+        },
+        {
+          "raw": "manifest,",
+          "start": 13.29,
+          "end": 13.81
+        },
+        {
+          "raw": "though",
+          "start": 14.37,
+          "end": 14.53
+        },
+        {
+          "raw": "the",
+          "start": 14.53,
+          "end": 14.67
+        },
+        {
+          "raw": "Fancy",
+          "start": 14.67,
+          "end": 15.03
+        },
+        {
+          "raw": "be",
+          "start": 15.03,
+          "end": 15.29
+        },
+        {
+          "raw": "never",
+          "start": 15.29,
+          "end": 15.59
+        },
+        {
+          "raw": "so",
+          "start": 15.59,
+          "end": 15.91
+        },
+        {
+          "raw": "ordinary.",
+          "start": 15.91,
+          "end": 16.37
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "in",
+        "any",
+        "Discourse",
+        "whatsoever,",
+        "if",
+        "the",
+        "defect",
+        "of",
+        "Discretion",
+        "be",
+        "apparent,",
+        "how",
+        "extravagant",
+        "soever",
+        "the",
+        "Fancy",
+        "be,",
+        "the",
+        "whole",
+        "discourse",
+        "will",
+        "be",
+        "taken",
+        "for",
+        "a",
+        "signe",
+        "of",
+        "want",
+        "of",
+        "wit;",
+        "and",
+        "so",
+        "will",
+        "it",
+        "never",
+        "when",
+        "the",
+        "Discretion",
+        "is",
+        "manifest,",
+        "though",
+        "the",
+        "Fancy",
+        "be",
+        "never",
+        "so",
+        "ordinary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 0.61,
+          "end": 0.83,
+          "key": "any",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Discourse",
+          "start": 0.83,
+          "end": 1.29,
+          "key": "discourse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whatsoever,",
+          "start": 1.29,
+          "end": 1.83,
+          "key": "whatsoever",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "if",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.69,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "defect",
+          "start": 2.69,
+          "end": 3.01,
+          "key": "defect",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.01,
+          "end": 3.29,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Discretion",
+          "start": 3.29,
+          "end": 3.75,
+          "key": "discretion",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.75,
+          "end": 3.99,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "apparent,",
+          "start": 3.99,
+          "end": 4.37,
+          "key": "apparent",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 4.93,
+          "end": 5.09,
+          "key": "how",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "extravagant",
+          "start": 5.09,
+          "end": 5.67,
+          "key": "extravagant",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "soever",
+          "start": 5.67,
+          "end": 6.31,
+          "key": "soever",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.31,
+          "end": 6.53,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Fancy",
+          "start": 6.53,
+          "end": 6.87,
+          "key": "fancy",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "be,",
+          "start": 6.87,
+          "end": 7.21,
+          "key": "be",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.61,
+          "end": 7.79,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 7.79,
+          "end": 8.01,
+          "key": "whole",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "discourse",
+          "start": 8.01,
+          "end": 8.47,
+          "key": "discourse",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 8.47,
+          "end": 8.69,
+          "key": "will",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.69,
+          "end": 8.85,
+          "key": "be",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 8.85,
+          "end": 9.07,
+          "key": "taken",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.37,
+          "key": "for",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.37,
+          "end": 9.55,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "signe",
+          "start": 9.55,
+          "end": 9.79,
+          "key": "signe",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 9.79,
+          "end": 9.91,
+          "key": "of",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 9.91,
+          "end": 10.09,
+          "key": "want",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.09,
+          "end": 10.29,
+          "key": "of",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "wit,",
+          "start": 10.29,
+          "end": 10.53,
+          "key": "wit",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.21,
+          "end": 11.39,
+          "key": "and",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 11.39,
+          "end": 11.61,
+          "key": "so",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 11.61,
+          "end": 11.77,
+          "key": "will",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 11.77,
+          "end": 11.93,
+          "key": "it",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 11.93,
+          "end": 12.17,
+          "key": "never",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 12.17,
+          "end": 12.43,
+          "key": "when",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.43,
+          "end": 12.55,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Discretion",
+          "start": 12.55,
+          "end": 12.99,
+          "key": "discretion",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 12.99,
+          "end": 13.29,
+          "key": "is",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "manifest,",
+          "start": 13.29,
+          "end": 13.81,
+          "key": "manifest",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 14.37,
+          "end": 14.53,
+          "key": "though",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.53,
+          "end": 14.67,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Fancy",
+          "start": 14.67,
+          "end": 15.03,
+          "key": "fancy",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 15.03,
+          "end": 15.29,
+          "key": "be",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 15.29,
+          "end": 15.59,
+          "key": "never",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 15.59,
+          "end": 15.91,
+          "key": "so",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "ordinary.",
+          "start": 15.91,
+          "end": 16.37,
+          "key": "ordinary",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "in",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "any",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "text": "Discourse",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "text": "whatsoever,",
+          "start": 1.29,
+          "end": 1.83
+        },
+        {
+          "text": "if",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "the",
+          "start": 2.53,
+          "end": 2.69
+        },
+        {
+          "text": "defect",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "text": "of",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "text": "Discretion",
+          "start": 3.29,
+          "end": 3.75
+        },
+        {
+          "text": "be",
+          "start": 3.75,
+          "end": 3.99
+        },
+        {
+          "text": "apparent,",
+          "start": 3.99,
+          "end": 4.37
+        },
+        {
+          "text": "how",
+          "start": 4.93,
+          "end": 5.09
+        },
+        {
+          "text": "extravagant",
+          "start": 5.09,
+          "end": 5.67
+        },
+        {
+          "text": "soever",
+          "start": 5.67,
+          "end": 6.31
+        },
+        {
+          "text": "the",
+          "start": 6.31,
+          "end": 6.53
+        },
+        {
+          "text": "Fancy",
+          "start": 6.53,
+          "end": 6.87
+        },
+        {
+          "text": "be,",
+          "start": 6.87,
+          "end": 7.21
+        },
+        {
+          "text": "the",
+          "start": 7.61,
+          "end": 7.79
+        },
+        {
+          "text": "whole",
+          "start": 7.79,
+          "end": 8.01
+        },
+        {
+          "text": "discourse",
+          "start": 8.01,
+          "end": 8.47
+        },
+        {
+          "text": "will",
+          "start": 8.47,
+          "end": 8.69
+        },
+        {
+          "text": "be",
+          "start": 8.69,
+          "end": 8.85
+        },
+        {
+          "text": "taken",
+          "start": 8.85,
+          "end": 9.07
+        },
+        {
+          "text": "for",
+          "start": 9.07,
+          "end": 9.37
+        },
+        {
+          "text": "a",
+          "start": 9.37,
+          "end": 9.55
+        },
+        {
+          "text": "signe",
+          "start": 9.55,
+          "end": 9.79
+        },
+        {
+          "text": "of",
+          "start": 9.79,
+          "end": 9.91
+        },
+        {
+          "text": "want",
+          "start": 9.91,
+          "end": 10.09
+        },
+        {
+          "text": "of",
+          "start": 10.09,
+          "end": 10.29
+        },
+        {
+          "text": "wit;",
+          "start": 10.29,
+          "end": 10.53
+        },
+        {
+          "text": "and",
+          "start": 11.21,
+          "end": 11.39
+        },
+        {
+          "text": "so",
+          "start": 11.39,
+          "end": 11.61
+        },
+        {
+          "text": "will",
+          "start": 11.61,
+          "end": 11.77
+        },
+        {
+          "text": "it",
+          "start": 11.77,
+          "end": 11.93
+        },
+        {
+          "text": "never",
+          "start": 11.93,
+          "end": 12.17
+        },
+        {
+          "text": "when",
+          "start": 12.17,
+          "end": 12.43
+        },
+        {
+          "text": "the",
+          "start": 12.43,
+          "end": 12.55
+        },
+        {
+          "text": "Discretion",
+          "start": 12.55,
+          "end": 12.99
+        },
+        {
+          "text": "is",
+          "start": 12.99,
+          "end": 13.29
+        },
+        {
+          "text": "manifest,",
+          "start": 13.29,
+          "end": 13.81
+        },
+        {
+          "text": "though",
+          "start": 14.37,
+          "end": 14.53
+        },
+        {
+          "text": "the",
+          "start": 14.53,
+          "end": 14.67
+        },
+        {
+          "text": "Fancy",
+          "start": 14.67,
+          "end": 15.03
+        },
+        {
+          "text": "be",
+          "start": 15.03,
+          "end": 15.29
+        },
+        {
+          "text": "never",
+          "start": 15.29,
+          "end": 15.59
+        },
+        {
+          "text": "so",
+          "start": 15.59,
+          "end": 15.91
+        },
+        {
+          "text": "ordinary.",
+          "start": 15.91,
+          "end": 16.37
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 48,
+        "matched_words": 48
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5476915491744876
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4c548f8c4baad576b1b7ca03aec68f0894cbf0ad7b33769d7a037f48b65120cc",
+  "selected_reasons": []
+}

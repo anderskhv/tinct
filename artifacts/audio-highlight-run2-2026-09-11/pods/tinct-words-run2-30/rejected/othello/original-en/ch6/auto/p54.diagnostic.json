@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "e9932cceb9f46aab9b08177179873410183b0a796271cd916586ba9f4e7093c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2167092482559383,
+      "alignment_seconds": 0.00023543834686279297,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. 'Tis evermore the prologue to his sleep: He'll watch the horologe a double set If drink rock not his cradle.",
+        "hotwords": "Iago, Tis, He'll, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Tis evermore the prologue to his sleep. He'll watch the horologe a double set If drink rock not his cradle.",
+          "start": 0.05,
+          "end": 6.85,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.2553730010986328
+            },
+            {
+              "text": " Tis",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.013509750366210938
+            },
+            {
+              "text": " evermore",
+              "start": 1.63,
+              "end": 1.99,
+              "probability": 0.621826171875
+            },
+            {
+              "text": " the",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " prologue",
+              "start": 2.15,
+              "end": 2.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sleep.",
+              "start": 2.85,
+              "end": 3.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " He'll",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " watch",
+              "start": 3.83,
+              "end": 4.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.03,
+              "end": 4.23,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " horologe",
+              "start": 4.23,
+              "end": 4.71,
+              "probability": 0.4218648274739583
+            },
+            {
+              "text": " a",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.966796875
+            },
+            {
+              "text": " double",
+              "start": 4.83,
+              "end": 5.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " set",
+              "start": 5.11,
+              "end": 5.43,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " If",
+              "start": 5.43,
+              "end": 5.63,
+              "probability": 0.008758544921875
+            },
+            {
+              "text": " drink",
+              "start": 5.63,
+              "end": 5.85,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " rock",
+              "start": 5.85,
+              "end": 6.19,
+              "probability": 0.6259765625
+            },
+            {
+              "text": " not",
+              "start": 6.19,
+              "end": 6.39,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " his",
+              "start": 6.39,
+              "end": 6.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " cradle.",
+              "start": 6.55,
+              "end": 6.85,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Tis",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "raw": "evermore",
+          "start": 1.63,
+          "end": 1.99
+        },
+        {
+          "raw": "the",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "prologue",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "his",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "sleep.",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "raw": "He'll",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "watch",
+          "start": 3.83,
+          "end": 4.03
+        },
+        {
+          "raw": "the",
+          "start": 4.03,
+          "end": 4.23
+        },
+        {
+          "raw": "horologe",
+          "start": 4.23,
+          "end": 4.71
+        },
+        {
+          "raw": "a",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "double",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "raw": "set",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "raw": "If",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "raw": "drink",
+          "start": 5.63,
+          "end": 5.85
+        },
+        {
+          "raw": "rock",
+          "start": 5.85,
+          "end": 6.19
+        },
+        {
+          "raw": "not",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "raw": "his",
+          "start": 6.39,
+          "end": 6.55
+        },
+        {
+          "raw": "cradle.",
+          "start": 6.55,
+          "end": 6.85
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "'Tis",
+        "evermore",
+        "the",
+        "prologue",
+        "to",
+        "his",
+        "sleep:",
+        "He'll",
+        "watch",
+        "the",
+        "horologe",
+        "a",
+        "double",
+        "set",
+        "If",
+        "drink",
+        "rock",
+        "not",
+        "his",
+        "cradle."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "evermore",
+          "start": 1.63,
+          "end": 1.99,
+          "key": "evermore",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "prologue",
+          "start": 2.15,
+          "end": 2.55,
+          "key": "prologue",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sleep.",
+          "start": 2.85,
+          "end": 3.15,
+          "key": "sleep",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He'll",
+          "start": 3.69,
+          "end": 3.83,
+          "key": "hell",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 3.83,
+          "end": 4.03,
+          "key": "watch",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.03,
+          "end": 4.23,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "horologe",
+          "start": 4.23,
+          "end": 4.71,
+          "key": "horologe",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "double",
+          "start": 4.83,
+          "end": 5.11,
+          "key": "double",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 5.11,
+          "end": 5.43,
+          "key": "set",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 5.43,
+          "end": 5.63,
+          "key": "if",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 5.63,
+          "end": 5.85,
+          "key": "drink",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "rock",
+          "start": 5.85,
+          "end": 6.19,
+          "key": "rock",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.19,
+          "end": 6.39,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.39,
+          "end": 6.55,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "cradle.",
+          "start": 6.55,
+          "end": 6.85,
+          "key": "cradle",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "'Tis",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "text": "evermore",
+          "start": 1.63,
+          "end": 1.99
+        },
+        {
+          "text": "the",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "text": "prologue",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "his",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "sleep:",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "text": "He'll",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "watch",
+          "start": 3.83,
+          "end": 4.03
+        },
+        {
+          "text": "the",
+          "start": 4.03,
+          "end": 4.23
+        },
+        {
+          "text": "horologe",
+          "start": 4.23,
+          "end": 4.71
+        },
+        {
+          "text": "a",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "double",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "text": "set",
+          "start": 5.11,
+          "end": 5.43
+        },
+        {
+          "text": "If",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "text": "drink",
+          "start": 5.63,
+          "end": 5.85
+        },
+        {
+          "text": "rock",
+          "start": 5.85,
+          "end": 6.19
+        },
+        {
+          "text": "not",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "text": "his",
+          "start": 6.39,
+          "end": 6.55
+        },
+        {
+          "text": "cradle.",
+          "start": 6.55,
+          "end": 6.85
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21704745711758733
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a88a8a1ff205aec7d9100e284aa2674d756de9b753746c1cad3735faf9b8f241",
+  "selected_reasons": []
+}

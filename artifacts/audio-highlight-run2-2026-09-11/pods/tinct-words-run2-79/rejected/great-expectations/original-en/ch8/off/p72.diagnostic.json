@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "f0a88b75c09156f1170a2758c071257dcfe5543525ef7c944fc46c1a1f06f0cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.2030640239827335,
+      "alignment_seconds": 0.00047511421144008636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I think she is very proud,\" I replied in a whisper.",
+          "start": 0.08,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.1805419921875
+            },
+            {
+              "text": " think",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 0.84,
+              "end": 0.98,
+              "probability": 0.982421875
+            },
+            {
+              "text": " very",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " proud,\"",
+              "start": 1.2,
+              "end": 2.08,
+              "probability": 0.6881103515625
+            },
+            {
+              "text": " I",
+              "start": 2.08,
+              "end": 2.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " replied",
+              "start": 2.2,
+              "end": 2.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.962890625
+            },
+            {
+              "text": " a",
+              "start": 2.78,
+              "end": 2.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whisper.",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "think",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "she",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "is",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "raw": "very",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "raw": "proud,\"",
+          "start": 1.2,
+          "end": 2.08
+        },
+        {
+          "raw": "I",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "raw": "replied",
+          "start": 2.2,
+          "end": 2.54
+        },
+        {
+          "raw": "in",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "a",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "raw": "whisper.",
+          "start": 2.88,
+          "end": 3.1
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "think",
+        "she",
+        "is",
+        "very",
+        "proud,\"",
+        "I",
+        "replied,",
+        "in",
+        "a",
+        "whisper."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.84,
+          "end": 0.98,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "very",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "proud,\"",
+          "start": 1.2,
+          "end": 2.08,
+          "key": "proud",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.08,
+          "end": 2.2,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 2.2,
+          "end": 2.54,
+          "key": "replied",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.78,
+          "end": 2.88,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "whisper.",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "whisper",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "think",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "she",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "is",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "text": "very",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "text": "proud,\"",
+          "start": 1.2,
+          "end": 2.08
+        },
+        {
+          "text": "I",
+          "start": 2.08,
+          "end": 2.2
+        },
+        {
+          "text": "replied,",
+          "start": 2.2,
+          "end": 2.54
+        },
+        {
+          "text": "in",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "a",
+          "start": 2.78,
+          "end": 2.88
+        },
+        {
+          "text": "whisper.",
+          "start": 2.88,
+          "end": 3.1
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20372222643345594
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f889dff9f8d116c8ec40605bbe3c19df72db19ff11382350f84a876a8eb95a73",
+  "selected_reasons": []
+}

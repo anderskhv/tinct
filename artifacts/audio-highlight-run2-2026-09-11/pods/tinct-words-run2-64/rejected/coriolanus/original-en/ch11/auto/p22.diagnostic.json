@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "21f7573e02fea5372f3e4b306630c131fa0572dd46f7ff57c9ceb024c4b39dfc",
+  "attempts": [
+    {
+      "asr_seconds": 0.18635481130331755,
+      "alignment_seconds": 0.00038398150354623795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Both Tribunes. What then, sir?",
+        "hotwords": "Both, Tribunes, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Both, Tribunes, What Then, sir?",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Both,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " Tribunes,",
+              "start": 0.81,
+              "end": 1.15,
+              "probability": 0.6431884765625
+            },
+            {
+              "text": " What",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.0369873046875
+            },
+            {
+              "text": " Then,",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.10186767578125
+            },
+            {
+              "text": " sir?",
+              "start": 2.07,
+              "end": 2.07,
+              "probability": 0.2203369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Both,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Tribunes,",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "raw": "What",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "Then,",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "sir?",
+          "start": 2.07,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Both",
+        "Tribunes.",
+        "What",
+        "then,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Both,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "both",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tribunes,",
+          "start": 0.81,
+          "end": 1.15,
+          "key": "tribunes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Then,",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 2.07,
+          "end": 2.07,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Both",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Tribunes.",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "text": "What",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "then,",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "sir?",
+          "start": 2.07,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1868660869076848
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8df38e7d9e7591a0c3d18126c0a3dd760380395dc794d993e504c35a4eb3b2b",
+  "selected_reasons": []
+}

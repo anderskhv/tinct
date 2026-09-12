@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "5d8dde151a3a5595dd4f79d6c7804b4cdac90f5fda724634ace0b7689f4cc6a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.11811715085059404,
+      "alignment_seconds": 0.00016204407438635826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lartius. At Antium.",
+        "hotwords": "Lartius, At, Antium"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lartius, At, Antium.",
+          "start": 0.57,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Lartius,",
+              "start": 0.57,
+              "end": 1.01,
+              "probability": 0.39006296793619794
+            },
+            {
+              "text": " At,",
+              "start": 1.25,
+              "end": 1.29,
+              "probability": 0.0377197265625
+            },
+            {
+              "text": " Antium.",
+              "start": 1.45,
+              "end": 1.69,
+              "probability": 0.309783935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lartius,",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "raw": "At,",
+          "start": 1.25,
+          "end": 1.29
+        },
+        {
+          "raw": "Antium.",
+          "start": 1.45,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "Lartius.",
+        "At",
+        "Antium."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lartius,",
+          "start": 0.57,
+          "end": 1.01,
+          "key": "lartius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "At,",
+          "start": 1.25,
+          "end": 1.29,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antium.",
+          "start": 1.45,
+          "end": 1.69,
+          "key": "antium",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lartius.",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "text": "At",
+          "start": 1.25,
+          "end": 1.29
+        },
+        {
+          "text": "Antium.",
+          "start": 1.45,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11833521677181125
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6f44a4bc260ca3e621b16cb7df49eebfdef104ad7738ddeb5538d38198c3f60f",
+  "selected_reasons": []
+}

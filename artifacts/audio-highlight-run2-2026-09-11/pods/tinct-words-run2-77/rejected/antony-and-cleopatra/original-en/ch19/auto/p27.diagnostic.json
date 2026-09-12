@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "28579a167647e136a93b8046bde69f524ade391816e030c5d951a4fccb5d5096",
+  "attempts": [
+    {
+      "asr_seconds": 0.09977164599695243,
+      "alignment_seconds": 0.00010434398427605629,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Thy business?",
+        "hotwords": "Thy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thy business.",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Thy",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.40673828125
+            },
+            {
+              "text": " business.",
+              "start": 0.56,
+              "end": 0.98,
+              "probability": 0.85888671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thy",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "business.",
+          "start": 0.56,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "Thy",
+        "business?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thy",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "thy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "business.",
+          "start": 0.56,
+          "end": 0.98,
+          "key": "business",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Thy",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "business?",
+          "start": 0.56,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09990852099144831
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d3bd2d02d91fed3976bb71d3987666e24163c7d5dc2a35831c73b91b5fbfd349",
+  "selected_reasons": []
+}

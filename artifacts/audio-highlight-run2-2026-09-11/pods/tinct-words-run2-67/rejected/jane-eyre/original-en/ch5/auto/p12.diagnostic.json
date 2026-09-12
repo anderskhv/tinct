@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "23e19c85df8e1e671037e6145aeb41fce6bb296c1d074ab363bcfbe7c3fcef2e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11259754979982972,
+      "alignment_seconds": 0.00024173501878976822,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Fifty miles.\"",
+        "hotwords": "Fifty"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fifty miles.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Fifty",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.0880126953125
+            },
+            {
+              "text": " miles.",
+              "start": 0.69,
+              "end": 1.05,
+              "probability": 0.73876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fifty",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "miles.",
+          "start": 0.69,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "\"Fifty",
+        "miles.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fifty",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "fifty",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "miles.",
+          "start": 0.69,
+          "end": 1.05,
+          "key": "miles",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Fifty",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "miles.\"",
+          "start": 0.69,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11294043390080333
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e80813c36a43eea6bae5bc1ef173410b5f138133c937a8d8695a3802e71cb56a",
+  "selected_reasons": []
+}

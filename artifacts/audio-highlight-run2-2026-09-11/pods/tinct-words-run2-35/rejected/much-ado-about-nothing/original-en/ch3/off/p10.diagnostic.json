@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "af3e5f8140179c5df678236233f74d54a867915655843a0f2413c663c8286be8",
+  "attempts": [
+    {
+      "asr_seconds": 0.22719145007431507,
+      "alignment_seconds": 0.0006734393537044525,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don John I make all use of it for I use it only who comes here",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " John",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " I",
+              "start": 0.97,
+              "end": 1.65,
+              "probability": 0.309814453125
+            },
+            {
+              "text": " make",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " use",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " for",
+              "start": 2.41,
+              "end": 2.57,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " I",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " use",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " only",
+              "start": 2.97,
+              "end": 3.27,
+              "probability": 0.986328125
+            },
+            {
+              "text": " who",
+              "start": 3.27,
+              "end": 3.71,
+              "probability": 0.974609375
+            },
+            {
+              "text": " comes",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 3.95,
+              "end": 4.33,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "John",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "I",
+          "start": 0.97,
+          "end": 1.65
+        },
+        {
+          "raw": "make",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "all",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "use",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "raw": "of",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "it",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "for",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "use",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "it",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": "only",
+          "start": 2.97,
+          "end": 3.27
+        },
+        {
+          "raw": "who",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "raw": "comes",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "raw": "here",
+          "start": 3.95,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "John.",
+        "I",
+        "make",
+        "all",
+        "use",
+        "of",
+        "it,",
+        "for",
+        "I",
+        "use",
+        "it",
+        "only.",
+        "Who",
+        "comes",
+        "here?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.97,
+          "end": 1.65,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "make",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.77,
+          "end": 1.97,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "use",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.41,
+          "end": 2.57,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "use",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 2.97,
+          "end": 3.27,
+          "key": "only",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.27,
+          "end": 3.71,
+          "key": "who",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "comes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.95,
+          "end": 4.33,
+          "key": "here",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "John.",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "text": "I",
+          "start": 0.97,
+          "end": 1.65
+        },
+        {
+          "text": "make",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "all",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "text": "use",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "text": "of",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "it,",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "for",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "text": "I",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "use",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "it",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "text": "only.",
+          "start": 2.97,
+          "end": 3.27
+        },
+        {
+          "text": "Who",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "text": "comes",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "text": "here?",
+          "start": 3.95,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2281669769436121
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ffa5ecede99333a61397c2f752b78dd92af818ceacb0583e71b704b4812744d",
+  "selected_reasons": []
+}

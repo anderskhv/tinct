@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "68cd41cf90c705ff8e1b5b2e283e11d7db64ef126fcebb5b5009897bc04cb0a6",
+  "attempts": [
+    {
+      "asr_seconds": 0.34124231711030006,
+      "alignment_seconds": 0.000494771171361208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Filia's fog had won his wager of 20,000 pounds.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Filia's",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.737060546875
+            },
+            {
+              "text": " fog",
+              "start": 0.85,
+              "end": 1.15,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " had",
+              "start": 1.15,
+              "end": 1.45,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " won",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " his",
+              "start": 1.57,
+              "end": 1.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wager",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " 20",
+              "start": 2.25,
+              "end": 2.51,
+              "probability": 0.85302734375
+            },
+            {
+              "text": ",000",
+              "start": 2.51,
+              "end": 2.99,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " pounds.",
+              "start": 2.99,
+              "end": 3.23,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Filia's",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "fog",
+          "start": 0.85,
+          "end": 1.15
+        },
+        {
+          "raw": "had",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "raw": "won",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "his",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "raw": "wager",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "raw": "20",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "raw": ",000",
+          "start": 2.51,
+          "end": 2.99
+        },
+        {
+          "raw": "pounds.",
+          "start": 2.99,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Phileas",
+        "Fogg",
+        "had",
+        "won",
+        "his",
+        "wager",
+        "of",
+        "twenty",
+        "thousand",
+        "pounds!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Filia's",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "filias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fog",
+          "start": 0.85,
+          "end": 1.15,
+          "key": "fog",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.15,
+          "end": 1.45,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "won",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "won",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.57,
+          "end": 1.73,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wager",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "wager",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.25,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "20",
+          "start": 2.25,
+          "end": 2.51,
+          "key": "twenty",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": ",000",
+          "start": 2.51,
+          "end": 2.99,
+          "key": "zero",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pounds.",
+          "start": 2.99,
+          "end": 3.23,
+          "key": "pounds",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Phileas",
+          "start": 0.0,
+          "end": 0.575
+        },
+        {
+          "text": "Fogg",
+          "start": 0.575,
+          "end": 0.862
+        },
+        {
+          "text": "had",
+          "start": 1.15,
+          "end": 1.45
+        },
+        {
+          "text": "won",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "his",
+          "start": 1.57,
+          "end": 1.73
+        },
+        {
+          "text": "wager",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.25
+        },
+        {
+          "text": "twenty",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "text": "thousand",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "text": "pounds!",
+          "start": 2.99,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3419042290188372
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2074a74b389434fedbf4346fa667946fb957c7abd13084fa145286e21504588",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "929a6a0766da0540b47391d8764f8ff69d14a7b795dd88edca91a854b2d2ac0c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1321657789812889,
+      "alignment_seconds": 0.00013465402298606932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Antony, ha, my brave Emperor.",
+          "start": 0.0,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.66015625
+            },
+            {
+              "text": " Antony,",
+              "start": 0.5,
+              "end": 1.06,
+              "probability": 0.807373046875
+            },
+            {
+              "text": " ha,",
+              "start": 1.5,
+              "end": 1.52,
+              "probability": 0.52783203125
+            },
+            {
+              "text": " my",
+              "start": 1.64,
+              "end": 1.7,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " brave",
+              "start": 1.7,
+              "end": 2.0,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Emperor.",
+              "start": 2.0,
+              "end": 2.36,
+              "probability": 0.4765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "Antony,",
+          "start": 0.5,
+          "end": 1.06
+        },
+        {
+          "raw": "ha,",
+          "start": 1.5,
+          "end": 1.52
+        },
+        {
+          "raw": "my",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "raw": "brave",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "raw": "Emperor.",
+          "start": 2.0,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Antony_.]",
+        "Ha,",
+        "my",
+        "brave",
+        "emperor,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 0.5,
+          "end": 1.06,
+          "key": "antony",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ha,",
+          "start": 1.5,
+          "end": 1.52,
+          "key": "ha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.64,
+          "end": 1.7,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "brave",
+          "start": 1.7,
+          "end": 2.0,
+          "key": "brave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Emperor.",
+          "start": 2.0,
+          "end": 2.36,
+          "key": "emperor",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "Antony_.]",
+          "start": 0.5,
+          "end": 1.06
+        },
+        {
+          "text": "Ha,",
+          "start": 1.5,
+          "end": 1.52
+        },
+        {
+          "text": "my",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "text": "brave",
+          "start": 1.7,
+          "end": 2.0
+        },
+        {
+          "text": "emperor,",
+          "start": 2.0,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1323463449953124
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "32e7578e4cf0bd8661a64415f2b0e099b88bce8e892a6ce737fd64b096175ad2",
+  "selected_reasons": []
+}

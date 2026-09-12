@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "c003c6314039998a6331ed6bb1eab33d17bd4aaa1cdfe17d3a0f1deb838fa1f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.10919561609625816,
+      "alignment_seconds": 0.000243503600358963,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Caddisby.",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.865234375
+            },
+            {
+              "text": " Caddisby.",
+              "start": 0.65,
+              "end": 1.21,
+              "probability": 0.558563232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Caddisby.",
+          "start": 0.65,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Catesby._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Caddisby.",
+          "start": 0.65,
+          "end": 1.21,
+          "key": "caddisby",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Catesby._]",
+          "start": 0.65,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10951711609959602
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "81ed81525e157353ac24601f2c3ebabc6d1f0d5a13039dfedd624d0f47bf3f25",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

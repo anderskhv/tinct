@@ -1,0 +1,863 @@
+{
+  "complete": true,
+  "signature": "c50061856ba8b291e2ab27892e5cb8deb454fa9a9ed3bf4a9a9feac0737a55fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.19889330863952637,
+      "alignment_seconds": 0.00042221881449222565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"_Do_ you?\" said Drummle. \"_O_, Lord!\"",
+        "hotwords": "Drummle, Lord"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_Do you?\" said Drummle. \"_O, Lord!\"",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " \"_Do",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.4270022511482239
+            },
+            {
+              "text": " you?\"",
+              "start": 0.55,
+              "end": 1.05,
+              "probability": 0.5413818359375
+            },
+            {
+              "text": " said",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " Drummle.",
+              "start": 1.21,
+              "end": 1.67,
+              "probability": 0.3656819661458333
+            },
+            {
+              "text": " \"_O,",
+              "start": 1.87,
+              "end": 2.05,
+              "probability": 0.107879638671875
+            },
+            {
+              "text": " Lord",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.74462890625
+            },
+            {
+              "text": "!\"",
+              "start": 2.29,
+              "end": 2.69,
+              "probability": 0.08465576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_Do",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "you?\"",
+          "start": 0.55,
+          "end": 1.05
+        },
+        {
+          "raw": "said",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "Drummle.",
+          "start": 1.21,
+          "end": 1.67
+        },
+        {
+          "raw": "\"_O,",
+          "start": 1.87,
+          "end": 2.05
+        },
+        {
+          "raw": "Lord",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "!\"",
+          "start": 2.29,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "\"_Do_",
+        "you?\"",
+        "said",
+        "Drummle.",
+        "\"_O_,",
+        "Lord!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_Do",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "_do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you?\"",
+          "start": 0.55,
+          "end": 1.05,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.05,
+          "end": 1.21,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Drummle.",
+          "start": 1.21,
+          "end": 1.67,
+          "key": "drummle",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "\"_O,",
+          "start": 1.87,
+          "end": 2.05,
+          "key": "_o",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.29,
+          "end": 2.69,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Do_",
+          "start": 0.0,
+          "end": 0.275
+        },
+        {
+          "text": "you?\"",
+          "start": 0.55,
+          "end": 1.05
+        },
+        {
+          "text": "said",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "Drummle.",
+          "start": 1.21,
+          "end": 1.67
+        },
+        {
+          "text": "\"_O_,",
+          "start": 1.67,
+          "end": 1.9
+        },
+        {
+          "text": "Lord!\"",
+          "start": 2.13,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1994729097932577
+    },
+    {
+      "asr_seconds": 0.204587921500206,
+      "alignment_seconds": 0.00045444630086421967,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Drummle, Lord"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Do you? said Drummle. Oh Lord",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.296630859375
+            },
+            {
+              "text": " you?",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.994140625
+            },
+            {
+              "text": " said",
+              "start": 1.17,
+              "end": 1.21,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " Drummle.",
+              "start": 1.21,
+              "end": 1.69,
+              "probability": 0.4130198160807292
+            },
+            {
+              "text": " Oh",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " Lord",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.374755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "you?",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "said",
+          "start": 1.17,
+          "end": 1.21
+        },
+        {
+          "raw": "Drummle.",
+          "start": 1.21,
+          "end": 1.69
+        },
+        {
+          "raw": "Oh",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "Lord",
+          "start": 2.05,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "\"_Do_",
+        "you?\"",
+        "said",
+        "Drummle.",
+        "\"_O_,",
+        "Lord!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 0.55,
+          "end": 0.89,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.17,
+          "end": 1.21,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Drummle.",
+          "start": 1.21,
+          "end": 1.69,
+          "key": "drummle",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Do_",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "you?\"",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "said",
+          "start": 1.17,
+          "end": 1.21
+        },
+        {
+          "text": "Drummle.",
+          "start": 1.21,
+          "end": 1.69
+        },
+        {
+          "text": "\"_O_,",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "Lord!\"",
+          "start": 2.05,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2051881980150938
+    },
+    {
+      "asr_seconds": 0.23756428621709347,
+      "alignment_seconds": 0.00042504630982875824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Do you said dremel Oh Lord",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.296630859375
+            },
+            {
+              "text": " you",
+              "start": 0.55,
+              "end": 0.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " said",
+              "start": 0.87,
+              "end": 1.21,
+              "probability": 0.494384765625
+            },
+            {
+              "text": " dremel",
+              "start": 1.21,
+              "end": 1.73,
+              "probability": 0.6214192708333334
+            },
+            {
+              "text": " Oh",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.36474609375
+            },
+            {
+              "text": " Lord",
+              "start": 2.03,
+              "end": 2.33,
+              "probability": 0.89208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "raw": "said",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "raw": "dremel",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "raw": "Oh",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "Lord",
+          "start": 2.03,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "\"_Do_",
+        "you?\"",
+        "said",
+        "Drummle.",
+        "\"_O_,",
+        "Lord!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.55,
+          "end": 0.87,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.87,
+          "end": 1.21,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dremel",
+          "start": 1.21,
+          "end": 1.73,
+          "key": "dremel",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 2.03,
+          "end": 2.33,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_Do_",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "you?\"",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "text": "said",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "text": "Drummle.",
+          "start": 1.21,
+          "end": 1.62
+        },
+        {
+          "text": "\"_O_,",
+          "start": 1.62,
+          "end": 1.825
+        },
+        {
+          "text": "Lord!\"",
+          "start": 2.03,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2381154913455248
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "9f65b0abf0bbe6f07e2f26fe7b561c728dbbb8ed803200e1a30a13105b9a8920",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

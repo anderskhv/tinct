@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4304e62bc958827e995bfb0dec9bb535766fd407dfaf4744dfb91d24ccebe573",
+  "attempts": [
+    {
+      "asr_seconds": 0.14921880327165127,
+      "alignment_seconds": 0.000220554880797863,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Belarius. What? how? how?",
+        "hotwords": "Belarius, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Belarius, What? how? how?",
+          "start": 0.56,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " Belarius,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.032806396484375
+            },
+            {
+              "text": " What?",
+              "start": 0.92,
+              "end": 1.18,
+              "probability": 0.02618408203125
+            },
+            {
+              "text": " how?",
+              "start": 1.3,
+              "end": 1.4,
+              "probability": 0.0220794677734375
+            },
+            {
+              "text": " how?",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.64892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarius,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "What?",
+          "start": 0.92,
+          "end": 1.18
+        },
+        {
+          "raw": "how?",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "raw": "how?",
+          "start": 1.58,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "What?",
+        "how?",
+        "how?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarius,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "belarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What?",
+          "start": 0.92,
+          "end": 1.18,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how?",
+          "start": 1.3,
+          "end": 1.4,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how?",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "What?",
+          "start": 0.92,
+          "end": 1.18
+        },
+        {
+          "text": "how?",
+          "start": 1.3,
+          "end": 1.4
+        },
+        {
+          "text": "how?",
+          "start": 1.58,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14950401987880468
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "11425477dda98d3a27c2e03b60a875463d3cdf3b3517b439f3607967bf96ff22",
+  "selected_reasons": []
+}

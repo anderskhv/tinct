@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "ceda5da130ab257a8fdbc00714a996649217e864e453eeedb6658c0b8c185a02",
+  "attempts": [
+    {
+      "asr_seconds": 0.14284528186544776,
+      "alignment_seconds": 0.00022713793441653252,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, what did they never whisper?",
+          "start": 0.02,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.9708658854166666
+            },
+            {
+              "text": " what",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " did",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " never",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " whisper?",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "what",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "did",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "they",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "never",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "whisper?",
+          "start": 1.9,
+          "end": 2.2
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "What,",
+        "did",
+        "they",
+        "never",
+        "whisper?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whisper?",
+          "start": 1.9,
+          "end": 2.2,
+          "key": "whisper",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "What,",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "did",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "they",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "never",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "whisper?",
+          "start": 1.9,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14315597899258137
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a379855f92344dc5afa821304c668b5ff360a168216c574c4c2d3410d6394e37",
+  "selected_reasons": []
+}

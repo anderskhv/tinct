@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "44e1066c29653eebdda4e1d8e80161b0a6cf050a152ea4fbcba03798bbd36c36",
+  "attempts": [
+    {
+      "asr_seconds": 0.17275871988385916,
+      "alignment_seconds": 0.00029599713161587715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rhodrigo, I know his gait. Tease he, villain thou deest.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Rhodrigo,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.47979736328125
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " know",
+              "start": 1.21,
+              "end": 1.31,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " his",
+              "start": 1.31,
+              "end": 1.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " gait.",
+              "start": 1.49,
+              "end": 1.91,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " Tease",
+              "start": 2.27,
+              "end": 2.49,
+              "probability": 0.5362548828125
+            },
+            {
+              "text": " he,",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " villain",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " thou",
+              "start": 2.99,
+              "end": 3.25,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " deest.",
+              "start": 3.25,
+              "end": 3.71,
+              "probability": 0.4287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rhodrigo,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "raw": "know",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "raw": "his",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "raw": "gait.",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "raw": "Tease",
+          "start": 2.27,
+          "end": 2.49
+        },
+        {
+          "raw": "he,",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "villain",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "thou",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "raw": "deest.",
+          "start": 3.25,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "I",
+        "know",
+        "his",
+        "gait;",
+        "'tis",
+        "he.",
+        "Villain,",
+        "thou",
+        "diest!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          9,
+          6,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rhodrigo,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "rhodrigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.21,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.21,
+          "end": 1.31,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.31,
+          "end": 1.49,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gait.",
+          "start": 1.49,
+          "end": 1.91,
+          "key": "gait",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 2.27,
+          "end": 2.49,
+          "key": "tease",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "villain",
+          "start": 2.89,
+          "end": 2.99,
+          "key": "villain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.99,
+          "end": 3.25,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "deest.",
+          "start": 3.25,
+          "end": 3.71,
+          "key": "deest",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.0,
+          "end": 0.575
+        },
+        {
+          "text": "I",
+          "start": 1.15,
+          "end": 1.21
+        },
+        {
+          "text": "know",
+          "start": 1.21,
+          "end": 1.31
+        },
+        {
+          "text": "his",
+          "start": 1.31,
+          "end": 1.49
+        },
+        {
+          "text": "gait;",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "text": "'tis",
+          "start": 1.91,
+          "end": 2.2
+        },
+        {
+          "text": "he.",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "Villain,",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "thou",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "text": "diest!",
+          "start": 3.25,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17314948607236147
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "683913001d6d9d57cf812b694906ceb73e0d1075fc4ef12a5876318021ab1c34",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

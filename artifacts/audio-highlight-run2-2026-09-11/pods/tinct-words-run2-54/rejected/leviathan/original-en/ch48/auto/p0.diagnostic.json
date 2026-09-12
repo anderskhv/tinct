@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "520d6ec9279607eaa345baefbb9583ae289982603a718b6a3c5d8bdac4fbd1c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.20178311690688133,
+      "alignment_seconds": 0.00024586496874690056,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He That Receiveth Benefit By A Fact, Is Presumed To Be The Author",
+        "hotwords": "He, That, Receiveth, Benefit, By, A, Fact, Is, Presumed, To, Be, The, Author"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He That Receiveth Benefit By A Fact, Is Presumed To Be The Author",
+          "start": 0.05,
+          "end": 4.07,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " That",
+              "start": 0.55,
+              "end": 0.75,
+              "probability": 0.0014505386352539062
+            },
+            {
+              "text": " Receiveth",
+              "start": 0.75,
+              "end": 1.29,
+              "probability": 0.48858642578125
+            },
+            {
+              "text": " Benefit",
+              "start": 1.29,
+              "end": 1.55,
+              "probability": 0.87109375
+            },
+            {
+              "text": " By",
+              "start": 1.55,
+              "end": 1.85,
+              "probability": 0.227783203125
+            },
+            {
+              "text": " A",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.163818359375
+            },
+            {
+              "text": " Fact,",
+              "start": 1.99,
+              "end": 2.31,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Is",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " Presumed",
+              "start": 2.91,
+              "end": 3.35,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " To",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.8515625
+            },
+            {
+              "text": " Be",
+              "start": 3.53,
+              "end": 3.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " The",
+              "start": 3.65,
+              "end": 3.83,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Author",
+              "start": 3.83,
+              "end": 4.07,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "That",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "raw": "Receiveth",
+          "start": 0.75,
+          "end": 1.29
+        },
+        {
+          "raw": "Benefit",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "raw": "By",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "raw": "A",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "Fact,",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "raw": "Is",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "Presumed",
+          "start": 2.91,
+          "end": 3.35
+        },
+        {
+          "raw": "To",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "Be",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "raw": "The",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "raw": "Author",
+          "start": 3.83,
+          "end": 4.07
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "That",
+        "Receiveth",
+        "Benefit",
+        "By",
+        "A",
+        "Fact,",
+        "Is",
+        "Presumed",
+        "To",
+        "Be",
+        "The",
+        "Author"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 0.55,
+          "end": 0.75,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Receiveth",
+          "start": 0.75,
+          "end": 1.29,
+          "key": "receiveth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Benefit",
+          "start": 1.29,
+          "end": 1.55,
+          "key": "benefit",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 1.55,
+          "end": 1.85,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Fact,",
+          "start": 1.99,
+          "end": 2.31,
+          "key": "fact",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Presumed",
+          "start": 2.91,
+          "end": 3.35,
+          "key": "presumed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.35,
+          "end": 3.53,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 3.53,
+          "end": 3.65,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.65,
+          "end": 3.83,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Author",
+          "start": 3.83,
+          "end": 4.07,
+          "key": "author",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "That",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "text": "Receiveth",
+          "start": 0.75,
+          "end": 1.29
+        },
+        {
+          "text": "Benefit",
+          "start": 1.29,
+          "end": 1.55
+        },
+        {
+          "text": "By",
+          "start": 1.55,
+          "end": 1.85
+        },
+        {
+          "text": "A",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "Fact,",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "text": "Is",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "Presumed",
+          "start": 2.91,
+          "end": 3.35
+        },
+        {
+          "text": "To",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "Be",
+          "start": 3.53,
+          "end": 3.65
+        },
+        {
+          "text": "The",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "text": "Author",
+          "start": 3.83,
+          "end": 4.07
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2021384108811617
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e91d4601c2fad4275d3481f6193ab8c0ff880bda3106385d01162061b3d15f91",
+  "selected_reasons": []
+}

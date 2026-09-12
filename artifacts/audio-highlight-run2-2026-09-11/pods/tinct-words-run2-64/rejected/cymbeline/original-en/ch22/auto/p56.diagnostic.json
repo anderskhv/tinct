@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "2a69404b4d04bf2a31eeb50174a1665df66e576791c9aea313de912658de30a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2716181920841336,
+      "alignment_seconds": 0.0004203924909234047,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Guiderius. I'm sorry for't; not seeming So worthy as thy birth.",
+        "hotwords": "Guiderius, I'm, So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Guiderius, I'm sorry for't, not seeming So worthy as thy birth.",
+          "start": 0.08,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " Guiderius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.2899729410807292
+            },
+            {
+              "text": " I'm",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " sorry",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for't,",
+              "start": 1.82,
+              "end": 2.32,
+              "probability": 0.31357479095458984
+            },
+            {
+              "text": " not",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " seeming",
+              "start": 2.56,
+              "end": 2.8,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " So",
+              "start": 2.8,
+              "end": 3.1,
+              "probability": 0.0006041526794433594
+            },
+            {
+              "text": " worthy",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " as",
+              "start": 3.32,
+              "end": 3.56,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " thy",
+              "start": 3.56,
+              "end": 3.74,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " birth.",
+              "start": 3.74,
+              "end": 4.02,
+              "probability": 0.92919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "I'm",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "raw": "sorry",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "for't,",
+          "start": 1.82,
+          "end": 2.32
+        },
+        {
+          "raw": "not",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "seeming",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "raw": "So",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "raw": "worthy",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "as",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "raw": "thy",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "raw": "birth.",
+          "start": 3.74,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "Guiderius.",
+        "I'm",
+        "sorry",
+        "for't;",
+        "not",
+        "seeming",
+        "So",
+        "worthy",
+        "as",
+        "thy",
+        "birth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guiderius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "guiderius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.3,
+          "end": 1.58,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "sorry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for't,",
+          "start": 1.82,
+          "end": 2.32,
+          "key": "fort",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "seeming",
+          "start": 2.56,
+          "end": 2.8,
+          "key": "seeming",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 2.8,
+          "end": 3.1,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "worthy",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "worthy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.32,
+          "end": 3.56,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.56,
+          "end": 3.74,
+          "key": "thy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "birth.",
+          "start": 3.74,
+          "end": 4.02,
+          "key": "birth",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guiderius.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "I'm",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "text": "sorry",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "for't;",
+          "start": 1.82,
+          "end": 2.32
+        },
+        {
+          "text": "not",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "seeming",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "text": "So",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "text": "worthy",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "as",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "thy",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "text": "birth.",
+          "start": 3.74,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2722054962068796
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0184f2200d62d9109cb252b0281bc7aa8b5fde9d732623e0fecc6c3a815a6d55",
+  "selected_reasons": []
+}

@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "7c8d851033831ceb2468dd75447da4c4c879acb7cc225a8690fcf65dc0d6ca38",
+  "attempts": [
+    {
+      "asr_seconds": 0.2970522069372237,
+      "alignment_seconds": 0.000703614205121994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " One of the urchins ran to it picked it up and dropped it into the minstrels cap saying",
+          "start": 0.02,
+          "end": 4.78,
+          "words": [
+            {
+              "text": " One",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " of",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 0.6,
+              "end": 0.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " urchins",
+              "start": 0.72,
+              "end": 1.14,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " ran",
+              "start": 1.14,
+              "end": 1.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.44,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " picked",
+              "start": 1.92,
+              "end": 2.34,
+              "probability": 0.31494140625
+            },
+            {
+              "text": " it",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 2.62,
+              "end": 2.78,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " dropped",
+              "start": 2.78,
+              "end": 3.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.36,
+              "end": 3.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " minstrels",
+              "start": 3.48,
+              "end": 3.94,
+              "probability": 0.869873046875
+            },
+            {
+              "text": " cap",
+              "start": 3.94,
+              "end": 4.24,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " saying",
+              "start": 4.24,
+              "end": 4.78,
+              "probability": 0.93505859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "One",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "of",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "raw": "urchins",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "raw": "ran",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "raw": "picked",
+          "start": 1.92,
+          "end": 2.34
+        },
+        {
+          "raw": "it",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "up",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "and",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "raw": "dropped",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "raw": "it",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "into",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "raw": "minstrels",
+          "start": 3.48,
+          "end": 3.94
+        },
+        {
+          "raw": "cap",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "raw": "saying",
+          "start": 4.24,
+          "end": 4.78
+        }
+      ],
+      "expected_tokens": [
+        "One",
+        "of",
+        "the",
+        "urchins",
+        "ran",
+        "to",
+        "it,",
+        "picked",
+        "it",
+        "up",
+        "and",
+        "dropped",
+        "it",
+        "into",
+        "the",
+        "minstrel's",
+        "cap,",
+        "saying:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "One",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "one",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.72,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "urchins",
+          "start": 0.72,
+          "end": 1.14,
+          "key": "urchins",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 1.14,
+          "end": 1.44,
+          "key": "ran",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.44,
+          "end": 1.66,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "picked",
+          "start": 1.92,
+          "end": 2.34,
+          "key": "picked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.34,
+          "end": 2.5,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "up",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.62,
+          "end": 2.78,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dropped",
+          "start": 2.78,
+          "end": 3.04,
+          "key": "dropped",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "into",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.48,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "minstrels",
+          "start": 3.48,
+          "end": 3.94,
+          "key": "minstrels",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cap",
+          "start": 3.94,
+          "end": 4.24,
+          "key": "cap",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 4.24,
+          "end": 4.78,
+          "key": "saying",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "One",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "of",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "the",
+          "start": 0.6,
+          "end": 0.72
+        },
+        {
+          "text": "urchins",
+          "start": 0.72,
+          "end": 1.14
+        },
+        {
+          "text": "ran",
+          "start": 1.14,
+          "end": 1.44
+        },
+        {
+          "text": "to",
+          "start": 1.44,
+          "end": 1.66
+        },
+        {
+          "text": "it,",
+          "start": 1.66,
+          "end": 1.92
+        },
+        {
+          "text": "picked",
+          "start": 1.92,
+          "end": 2.34
+        },
+        {
+          "text": "it",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "up",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "and",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "text": "dropped",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "text": "it",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "into",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "the",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "text": "minstrel's",
+          "start": 3.48,
+          "end": 3.94
+        },
+        {
+          "text": "cap,",
+          "start": 3.94,
+          "end": 4.24
+        },
+        {
+          "text": "saying:",
+          "start": 4.24,
+          "end": 4.78
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29805563297122717
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "400ffee75b7a068ffcacba1d3a9c7190b4c2bc59dfb737f97f283acb25714631",
+  "selected_reasons": []
+}

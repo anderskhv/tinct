@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "35309f89a89bf090a2729bfc81b15dd9334c472e3c017143d95142c3c73c0e2d",
+  "attempts": [
+    {
+      "asr_seconds": 0.16658989991992712,
+      "alignment_seconds": 0.0003498997539281845,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " throws down the skull.",
+          "start": 0.05,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " throws",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " down",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 0.93,
+              "end": 1.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " skull.",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "throws",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "down",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "raw": "the",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "raw": "skull.",
+          "start": 1.05,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "[Throws",
+        "down",
+        "the",
+        "skull.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "throws",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "throws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.61,
+          "end": 0.93,
+          "key": "down",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.93,
+          "end": 1.05,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "skull.",
+          "start": 1.05,
+          "end": 1.31,
+          "key": "skull",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Throws",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "down",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "text": "the",
+          "start": 0.93,
+          "end": 1.05
+        },
+        {
+          "text": "skull.]",
+          "start": 1.05,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16705878172069788
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0cb945cf47b47e261eda66055acdd8b4368c3663d7ff779738402f7cae47262c",
+  "selected_reasons": []
+}

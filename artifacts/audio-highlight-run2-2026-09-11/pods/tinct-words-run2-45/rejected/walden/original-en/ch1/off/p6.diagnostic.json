@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "fd35893b04ef595195c0b9ec4d994ecad8b7f2281e60f04d26710e2c7b847189",
+  "attempts": [
+    {
+      "asr_seconds": 0.20505786407738924,
+      "alignment_seconds": 0.00034149689599871635,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Or, as Raleigh rhymes it in his sonorous way.",
+          "start": 0.08,
+          "end": 2.7,
+          "words": [
+            {
+              "text": " Or,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.5546875
+            },
+            {
+              "text": " as",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Raleigh",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " rhymes",
+              "start": 1.28,
+              "end": 1.66,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " it",
+              "start": 1.66,
+              "end": 1.74,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " in",
+              "start": 1.74,
+              "end": 1.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " his",
+              "start": 1.82,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sonorous",
+              "start": 1.94,
+              "end": 2.38,
+              "probability": 0.943115234375
+            },
+            {
+              "text": " way.",
+              "start": 2.38,
+              "end": 2.7,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Or,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "as",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "Raleigh",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "rhymes",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "raw": "in",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "raw": "his",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "raw": "sonorous",
+          "start": 1.94,
+          "end": 2.38
+        },
+        {
+          "raw": "way.",
+          "start": 2.38,
+          "end": 2.7
+        }
+      ],
+      "expected_tokens": [
+        "Or,",
+        "as",
+        "Raleigh",
+        "rhymes",
+        "it",
+        "in",
+        "his",
+        "sonorous",
+        "way,—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Or,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "or",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.94,
+          "end": 1.04,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Raleigh",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "raleigh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rhymes",
+          "start": 1.28,
+          "end": 1.66,
+          "key": "rhymes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.66,
+          "end": 1.74,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.74,
+          "end": 1.82,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.82,
+          "end": 1.94,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sonorous",
+          "start": 1.94,
+          "end": 2.38,
+          "key": "sonorous",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "way.",
+          "start": 2.38,
+          "end": 2.7,
+          "key": "way",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Or,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "as",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "text": "Raleigh",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "rhymes",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "text": "it",
+          "start": 1.66,
+          "end": 1.74
+        },
+        {
+          "text": "in",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "text": "his",
+          "start": 1.82,
+          "end": 1.94
+        },
+        {
+          "text": "sonorous",
+          "start": 1.94,
+          "end": 2.38
+        },
+        {
+          "text": "way,—",
+          "start": 2.38,
+          "end": 2.7
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20552312303334475
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b8b58bfcf91b3a49fbfa11d4278d3839753b8ebf9a42c603e911d4d98833331",
+  "selected_reasons": []
+}

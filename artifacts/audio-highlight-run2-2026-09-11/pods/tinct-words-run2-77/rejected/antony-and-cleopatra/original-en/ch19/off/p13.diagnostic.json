@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "72327e8e979aa2a6392c5d776cb5252f83750fc7fb15ee4dfee54a3d54c30ab7",
+  "attempts": [
+    {
+      "asr_seconds": 0.19977518101222813,
+      "alignment_seconds": 0.0001587049919180572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, celerity is never more admired than by the negligent.",
+          "start": 0.05,
+          "end": 4.29,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.9010416666666666
+            },
+            {
+              "text": " celerity",
+              "start": 1.73,
+              "end": 2.13,
+              "probability": 0.6649169921875
+            },
+            {
+              "text": " is",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " never",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " more",
+              "start": 2.63,
+              "end": 2.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " admired",
+              "start": 2.89,
+              "end": 3.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " by",
+              "start": 3.61,
+              "end": 3.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " negligent.",
+              "start": 3.91,
+              "end": 4.29,
+              "probability": 0.919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "raw": "celerity",
+          "start": 1.73,
+          "end": 2.13
+        },
+        {
+          "raw": "is",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "never",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "more",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "raw": "admired",
+          "start": 2.89,
+          "end": 3.33
+        },
+        {
+          "raw": "than",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "raw": "by",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "raw": "the",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "negligent.",
+          "start": 3.91,
+          "end": 4.29
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Celerity",
+        "is",
+        "never",
+        "more",
+        "admired",
+        "Than",
+        "by",
+        "the",
+        "negligent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "celerity",
+          "start": 1.73,
+          "end": 2.13,
+          "key": "celerity",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "never",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.63,
+          "end": 2.89,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "admired",
+          "start": 2.89,
+          "end": 3.33,
+          "key": "admired",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 3.33,
+          "end": 3.61,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.61,
+          "end": 3.77,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.77,
+          "end": 3.91,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "negligent.",
+          "start": 3.91,
+          "end": 4.29,
+          "key": "negligent",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "text": "Celerity",
+          "start": 1.73,
+          "end": 2.13
+        },
+        {
+          "text": "is",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "never",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "more",
+          "start": 2.63,
+          "end": 2.89
+        },
+        {
+          "text": "admired",
+          "start": 2.89,
+          "end": 3.33
+        },
+        {
+          "text": "Than",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "text": "by",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "text": "the",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "negligent.",
+          "start": 3.91,
+          "end": 4.29
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19999402802204713
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "706bfa65a91f6560aff66a14783dcefd3d36aa7db6215ab8391048c29c75675b",
+  "selected_reasons": []
+}

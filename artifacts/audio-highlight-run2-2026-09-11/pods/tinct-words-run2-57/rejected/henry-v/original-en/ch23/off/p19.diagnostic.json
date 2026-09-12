@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "da49b4d9058ce27a3ad36c5c349bbf439ad977b12456b28ba16723eabea6cc2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.22536963201127946,
+      "alignment_seconds": 0.0004232749342918396,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Catherine, Pardon is moi, I cannot tell what is like me.",
+          "start": 0.18,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Catherine,",
+              "start": 0.18,
+              "end": 0.86,
+              "probability": 0.21630859375
+            },
+            {
+              "text": " Pardon",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.32379150390625
+            },
+            {
+              "text": " is",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.42578125
+            },
+            {
+              "text": " moi,",
+              "start": 1.86,
+              "end": 2.2,
+              "probability": 0.78125
+            },
+            {
+              "text": " I",
+              "start": 2.3,
+              "end": 2.34,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " cannot",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " tell",
+              "start": 2.54,
+              "end": 2.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 2.86,
+              "end": 3.1,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " is",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " like",
+              "start": 3.28,
+              "end": 3.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me.",
+              "start": 3.44,
+              "end": 3.68,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catherine,",
+          "start": 0.18,
+          "end": 0.86
+        },
+        {
+          "raw": "Pardon",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "moi,",
+          "start": 1.86,
+          "end": 2.2
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.34
+        },
+        {
+          "raw": "cannot",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "tell",
+          "start": 2.54,
+          "end": 2.86
+        },
+        {
+          "raw": "what",
+          "start": 2.86,
+          "end": 3.1
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "like",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "raw": "me.",
+          "start": 3.44,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "_Pardonnez-moi_,",
+        "I",
+        "cannot",
+        "tell",
+        "wat",
+        "is",
+        "\"like",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "equal",
+          2,
+          5,
+          4,
+          7
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          "equal",
+          6,
+          9,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catherine,",
+          "start": 0.18,
+          "end": 0.86,
+          "key": "catherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pardon",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "pardon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.86,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "moi,",
+          "start": 1.86,
+          "end": 2.2,
+          "key": "moi",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.34,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "cannot",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 2.54,
+          "end": 2.86,
+          "key": "tell",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.86,
+          "end": 3.1,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.28,
+          "end": 3.44,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.44,
+          "end": 3.68,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 1.15
+        },
+        {
+          "text": "_Pardonnez-moi_,",
+          "start": 1.15,
+          "end": 1.725
+        },
+        {
+          "text": "I",
+          "start": 2.3,
+          "end": 2.34
+        },
+        {
+          "text": "cannot",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "tell",
+          "start": 2.54,
+          "end": 2.86
+        },
+        {
+          "text": "wat",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "is",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "\"like",
+          "start": 3.28,
+          "end": 3.44
+        },
+        {
+          "text": "me.\"",
+          "start": 3.44,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 11,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2259356880094856
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "88fe8b4ec38f031eed2805fb44ea8227764ef91491fde2877785cbf8ac8db78e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

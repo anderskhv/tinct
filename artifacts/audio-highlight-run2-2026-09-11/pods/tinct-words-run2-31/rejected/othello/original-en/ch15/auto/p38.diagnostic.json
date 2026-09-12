@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "20b9281e9234992a52182598e0f790d2bd7a8210ae767660ff421c6339ff738f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14202259201556444,
+      "alignment_seconds": 0.000245886854827404,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. That he hath us'd thee.",
+        "hotwords": "Othello, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, That he hath us'd thee.",
+          "start": 0.08,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.77734375
+            },
+            {
+              "text": " That",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.012664794921875
+            },
+            {
+              "text": " he",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " hath",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.990234375
+            },
+            {
+              "text": " us'd",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.33447265625
+            },
+            {
+              "text": " thee.",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "That",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "he",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "hath",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "us'd",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "thee.",
+          "start": 1.9,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "That",
+        "he",
+        "hath",
+        "us'd",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "hath",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "us'd",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "usd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "That",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "he",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "hath",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "us'd",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "thee.",
+          "start": 1.9,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14238007832318544
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d95296fcebb1bd6b7770d76298caeccfdc2a8079f484b03fc9316c570b49b70e",
+  "selected_reasons": []
+}

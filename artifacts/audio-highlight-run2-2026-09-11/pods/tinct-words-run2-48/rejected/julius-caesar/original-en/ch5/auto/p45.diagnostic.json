@@ -1,0 +1,950 @@
+{
+  "complete": true,
+  "signature": "d205b3ae153a109337d4e4b08b26fe5371935cff3055a8e1714da0ab016f4823",
+  "attempts": [
+    {
+      "asr_seconds": 0.23916740715503693,
+      "alignment_seconds": 0.00016999989748001099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside._] That every like is not the same, O Caesar,",
+        "hotwords": "That, O, Caesar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That every like is not the same, O Caesar.",
+          "start": 0.18,
+          "end": 3.24,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.18,
+              "end": 0.74,
+              "probability": 0.0023593902587890625
+            },
+            {
+              "text": " every",
+              "start": 0.74,
+              "end": 1.7,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " like",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " is",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " same,",
+              "start": 2.3,
+              "end": 2.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " O",
+              "start": 2.92,
+              "end": 2.92,
+              "probability": 0.470947265625
+            },
+            {
+              "text": " Caesar.",
+              "start": 2.92,
+              "end": 3.24,
+              "probability": 0.93408203125
+            }
+          ]
+        },
+        {
+          "text": " That every like is not the same, O Caesar.",
+          "start": 3.24,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " That",
+              "start": 3.24,
+              "end": 3.24,
+              "probability": 0.00344085693359375
+            },
+            {
+              "text": " every",
+              "start": 3.24,
+              "end": 3.24,
+              "probability": 4.89354133605957e-05
+            },
+            {
+              "text": " like",
+              "start": 3.24,
+              "end": 3.24,
+              "probability": 5.048513412475586e-05
+            },
+            {
+              "text": " is",
+              "start": 3.24,
+              "end": 3.28,
+              "probability": 0.0213623046875
+            },
+            {
+              "text": " not",
+              "start": 3.28,
+              "end": 3.4,
+              "probability": 0.01445770263671875
+            },
+            {
+              "text": " the",
+              "start": 3.4,
+              "end": 3.4,
+              "probability": 0.042877197265625
+            },
+            {
+              "text": " same,",
+              "start": 3.4,
+              "end": 3.4,
+              "probability": 0.11627197265625
+            },
+            {
+              "text": " O",
+              "start": 3.4,
+              "end": 3.4,
+              "probability": 4.07099723815918e-05
+            },
+            {
+              "text": " Caesar.",
+              "start": 3.4,
+              "end": 3.42,
+              "probability": 0.00018227100372314453
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.18,
+          "end": 0.74
+        },
+        {
+          "raw": "every",
+          "start": 0.74,
+          "end": 1.7
+        },
+        {
+          "raw": "like",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "not",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "same,",
+          "start": 2.3,
+          "end": 2.62
+        },
+        {
+          "raw": "O",
+          "start": 2.92,
+          "end": 2.92
+        },
+        {
+          "raw": "Caesar.",
+          "start": 2.92,
+          "end": 3.24
+        },
+        {
+          "raw": "That",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "raw": "every",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "raw": "like",
+          "start": 3.24,
+          "end": 3.24
+        },
+        {
+          "raw": "is",
+          "start": 3.24,
+          "end": 3.28
+        },
+        {
+          "raw": "not",
+          "start": 3.28,
+          "end": 3.4
+        },
+        {
+          "raw": "the",
+          "start": 3.4,
+          "end": 3.4
+        },
+        {
+          "raw": "same,",
+          "start": 3.4,
+          "end": 3.4
+        },
+        {
+          "raw": "O",
+          "start": 3.4,
+          "end": 3.4
+        },
+        {
+          "raw": "Caesar.",
+          "start": 3.4,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "That",
+        "every",
+        "like",
+        "is",
+        "not",
+        "the",
+        "same,",
+        "O",
+        "Caesar,"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          10,
+          0,
+          9
+        ],
+        [
+          "insert",
+          10,
+          10,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "insert",
+          10,
+          10,
+          9,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.18,
+          "end": 0.74,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 0.74,
+          "end": 1.7,
+          "key": "every",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "same,",
+          "start": 2.3,
+          "end": 2.62,
+          "key": "same",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 2.92,
+          "end": 2.92,
+          "key": "o",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 2.92,
+          "end": 3.24,
+          "key": "caesar",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.24,
+          "end": 3.24,
+          "key": "that",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 3.24,
+          "end": 3.24,
+          "key": "every",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.24,
+          "end": 3.24,
+          "key": "like",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.24,
+          "end": 3.28,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.28,
+          "end": 3.4,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.4,
+          "end": 3.4,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "same,",
+          "start": 3.4,
+          "end": 3.4,
+          "key": "same",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 3.4,
+          "end": 3.4,
+          "key": "o",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Caesar.",
+          "start": 3.4,
+          "end": 3.42,
+          "key": "caesar",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.0,
+          "end": 0.09
+        },
+        {
+          "text": "That",
+          "start": 0.18,
+          "end": 0.74
+        },
+        {
+          "text": "every",
+          "start": 0.74,
+          "end": 1.7
+        },
+        {
+          "text": "like",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "is",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "not",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "same,",
+          "start": 2.3,
+          "end": 2.62
+        },
+        {
+          "text": "O",
+          "start": 2.92,
+          "end": 2.92
+        },
+        {
+          "text": "Caesar,",
+          "start": 2.92,
+          "end": 3.24
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 18,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.23942463006824255
+    },
+    {
+      "asr_seconds": 0.17661239858716726,
+      "alignment_seconds": 0.00017168372869491577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "That, O, Caesar"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Aside, that every like is not the same, O, Caesar",
+          "start": 0.18,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.442626953125
+            },
+            {
+              "text": " that",
+              "start": 1.32,
+              "end": 1.5,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " every",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " like",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.9140625
+            },
+            {
+              "text": " is",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.18,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " same,",
+              "start": 2.3,
+              "end": 2.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " O,",
+              "start": 2.9,
+              "end": 2.92,
+              "probability": 0.242919921875
+            },
+            {
+              "text": " Caesar",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.96044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "that",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "raw": "every",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "like",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "not",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "raw": "same,",
+          "start": 2.3,
+          "end": 2.62
+        },
+        {
+          "raw": "O,",
+          "start": 2.9,
+          "end": 2.92
+        },
+        {
+          "raw": "Caesar",
+          "start": 3.1,
+          "end": 3.22
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside._]",
+        "That",
+        "every",
+        "like",
+        "is",
+        "not",
+        "the",
+        "same,",
+        "O",
+        "Caesar,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.32,
+          "end": 1.5,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "every",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.04,
+          "end": 2.18,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.18,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "same,",
+          "start": 2.3,
+          "end": 2.62,
+          "key": "same",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 2.9,
+          "end": 2.92,
+          "key": "o",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "caesar",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside._]",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "That",
+          "start": 1.32,
+          "end": 1.5
+        },
+        {
+          "text": "every",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "like",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "is",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "not",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "the",
+          "start": 2.18,
+          "end": 2.3
+        },
+        {
+          "text": "same,",
+          "start": 2.3,
+          "end": 2.62
+        },
+        {
+          "text": "O",
+          "start": 2.9,
+          "end": 2.92
+        },
+        {
+          "text": "Caesar,",
+          "start": 3.1,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17684622760862112
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "837deb27fe2b73b3991b63d1c730c879491a4b581df3cf64c42ff48b8c1a6f01",
+  "selected_reasons": []
+}

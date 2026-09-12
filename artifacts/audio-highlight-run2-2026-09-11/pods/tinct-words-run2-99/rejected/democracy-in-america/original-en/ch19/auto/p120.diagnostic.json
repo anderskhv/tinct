@@ -1,0 +1,3353 @@
+{
+  "complete": true,
+  "signature": "48a3c4f6e6ee71d8d219da442d1a2b064aa80dc594c3d13d06dfcff5d771e586",
+  "attempts": [
+    {
+      "asr_seconds": 0.4015396498143673,
+      "alignment_seconds": 0.0007778070867061615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "h [ Not only is slavery prohibited in Ohio, but no free negroes are allowed to enter the territory of that State, or to hold property in it. See the Statutes of Ohio.]",
+        "hotwords": "Not, Ohio, State, See, Statutes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " H. Not only is slavery prohibited in Ohio, but no free negroes are allowed to enter the territory of that State, or to hold property in it. See the Statutes of Ohio.]",
+          "start": 0.05,
+          "end": 11.65,
+          "words": [
+            {
+              "text": " H.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " Not",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " only",
+              "start": 1.07,
+              "end": 1.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 1.35,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " slavery",
+              "start": 1.61,
+              "end": 2.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " prohibited",
+              "start": 2.01,
+              "end": 2.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Ohio,",
+              "start": 2.83,
+              "end": 3.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 3.73,
+              "end": 3.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " no",
+              "start": 3.81,
+              "end": 4.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " free",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " negroes",
+              "start": 4.41,
+              "end": 5.05,
+              "probability": 0.5291900634765625
+            },
+            {
+              "text": " are",
+              "start": 5.05,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " allowed",
+              "start": 5.15,
+              "end": 5.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 5.43,
+              "end": 5.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " enter",
+              "start": 5.63,
+              "end": 5.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.79,
+              "end": 5.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " territory",
+              "start": 5.95,
+              "end": 6.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 6.37,
+              "end": 6.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 6.65,
+              "end": 6.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " State,",
+              "start": 6.85,
+              "end": 7.19,
+              "probability": 0.018829345703125
+            },
+            {
+              "text": " or",
+              "start": 7.71,
+              "end": 7.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 7.77,
+              "end": 7.91,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " hold",
+              "start": 7.91,
+              "end": 8.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " property",
+              "start": 8.13,
+              "end": 8.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 8.55,
+              "end": 8.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 8.81,
+              "end": 9.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " See",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 9.77,
+              "end": 9.97,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " Statutes",
+              "start": 9.97,
+              "end": 10.43,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " of",
+              "start": 10.43,
+              "end": 10.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Ohio.]",
+              "start": 10.61,
+              "end": 11.65,
+              "probability": 0.49805960059165955
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "H.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Not",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "only",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "raw": "slavery",
+          "start": 1.61,
+          "end": 2.01
+        },
+        {
+          "raw": "prohibited",
+          "start": 2.01,
+          "end": 2.55
+        },
+        {
+          "raw": "in",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "raw": "Ohio,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.81
+        },
+        {
+          "raw": "no",
+          "start": 3.81,
+          "end": 4.07
+        },
+        {
+          "raw": "free",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "negroes",
+          "start": 4.41,
+          "end": 5.05
+        },
+        {
+          "raw": "are",
+          "start": 5.05,
+          "end": 5.15
+        },
+        {
+          "raw": "allowed",
+          "start": 5.15,
+          "end": 5.43
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "raw": "enter",
+          "start": 5.63,
+          "end": 5.79
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "raw": "territory",
+          "start": 5.95,
+          "end": 6.37
+        },
+        {
+          "raw": "of",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "raw": "that",
+          "start": 6.65,
+          "end": 6.85
+        },
+        {
+          "raw": "State,",
+          "start": 6.85,
+          "end": 7.19
+        },
+        {
+          "raw": "or",
+          "start": 7.71,
+          "end": 7.77
+        },
+        {
+          "raw": "to",
+          "start": 7.77,
+          "end": 7.91
+        },
+        {
+          "raw": "hold",
+          "start": 7.91,
+          "end": 8.13
+        },
+        {
+          "raw": "property",
+          "start": 8.13,
+          "end": 8.55
+        },
+        {
+          "raw": "in",
+          "start": 8.55,
+          "end": 8.81
+        },
+        {
+          "raw": "it.",
+          "start": 8.81,
+          "end": 9.17
+        },
+        {
+          "raw": "See",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "the",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "raw": "Statutes",
+          "start": 9.97,
+          "end": 10.43
+        },
+        {
+          "raw": "of",
+          "start": 10.43,
+          "end": 10.61
+        },
+        {
+          "raw": "Ohio.]",
+          "start": 10.61,
+          "end": 11.65
+        }
+      ],
+      "expected_tokens": [
+        "h",
+        "[",
+        "Not",
+        "only",
+        "is",
+        "slavery",
+        "prohibited",
+        "in",
+        "Ohio,",
+        "but",
+        "no",
+        "free",
+        "negroes",
+        "are",
+        "allowed",
+        "to",
+        "enter",
+        "the",
+        "territory",
+        "of",
+        "that",
+        "State,",
+        "or",
+        "to",
+        "hold",
+        "property",
+        "in",
+        "it.",
+        "See",
+        "the",
+        "Statutes",
+        "of",
+        "Ohio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          33,
+          1,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "H.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "h",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 1.07,
+          "end": 1.35,
+          "key": "only",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.61,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "slavery",
+          "start": 1.61,
+          "end": 2.01,
+          "key": "slavery",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prohibited",
+          "start": 2.01,
+          "end": 2.55,
+          "key": "prohibited",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ohio,",
+          "start": 2.83,
+          "end": 3.19,
+          "key": "ohio",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.81,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.81,
+          "end": 4.07,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "free",
+          "start": 4.07,
+          "end": 4.41,
+          "key": "free",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "negroes",
+          "start": 4.41,
+          "end": 5.05,
+          "key": "negroes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.05,
+          "end": 5.15,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "allowed",
+          "start": 5.15,
+          "end": 5.43,
+          "key": "allowed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.63,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 5.63,
+          "end": 5.79,
+          "key": "enter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.95,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "territory",
+          "start": 5.95,
+          "end": 6.37,
+          "key": "territory",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.37,
+          "end": 6.65,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.65,
+          "end": 6.85,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "State,",
+          "start": 6.85,
+          "end": 7.19,
+          "key": "state",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.71,
+          "end": 7.77,
+          "key": "or",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.77,
+          "end": 7.91,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 7.91,
+          "end": 8.13,
+          "key": "hold",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "property",
+          "start": 8.13,
+          "end": 8.55,
+          "key": "property",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.55,
+          "end": 8.81,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.81,
+          "end": 9.17,
+          "key": "it",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "see",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.77,
+          "end": 9.97,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Statutes",
+          "start": 9.97,
+          "end": 10.43,
+          "key": "statutes",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.43,
+          "end": 10.61,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Ohio.]",
+          "start": 10.61,
+          "end": 11.65,
+          "key": "ohio",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "h",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "[",
+          "start": 0.69,
+          "end": 0.77
+        },
+        {
+          "text": "Not",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "only",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "text": "is",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "text": "slavery",
+          "start": 1.61,
+          "end": 2.01
+        },
+        {
+          "text": "prohibited",
+          "start": 2.01,
+          "end": 2.55
+        },
+        {
+          "text": "in",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "text": "Ohio,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "text": "but",
+          "start": 3.73,
+          "end": 3.81
+        },
+        {
+          "text": "no",
+          "start": 3.81,
+          "end": 4.07
+        },
+        {
+          "text": "free",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "text": "negroes",
+          "start": 4.41,
+          "end": 5.05
+        },
+        {
+          "text": "are",
+          "start": 5.05,
+          "end": 5.15
+        },
+        {
+          "text": "allowed",
+          "start": 5.15,
+          "end": 5.43
+        },
+        {
+          "text": "to",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "text": "enter",
+          "start": 5.63,
+          "end": 5.79
+        },
+        {
+          "text": "the",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "text": "territory",
+          "start": 5.95,
+          "end": 6.37
+        },
+        {
+          "text": "of",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "text": "that",
+          "start": 6.65,
+          "end": 6.85
+        },
+        {
+          "text": "State,",
+          "start": 6.85,
+          "end": 7.19
+        },
+        {
+          "text": "or",
+          "start": 7.71,
+          "end": 7.77
+        },
+        {
+          "text": "to",
+          "start": 7.77,
+          "end": 7.91
+        },
+        {
+          "text": "hold",
+          "start": 7.91,
+          "end": 8.13
+        },
+        {
+          "text": "property",
+          "start": 8.13,
+          "end": 8.55
+        },
+        {
+          "text": "in",
+          "start": 8.55,
+          "end": 8.81
+        },
+        {
+          "text": "it.",
+          "start": 8.81,
+          "end": 9.17
+        },
+        {
+          "text": "See",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "the",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "text": "Statutes",
+          "start": 9.97,
+          "end": 10.43
+        },
+        {
+          "text": "of",
+          "start": 10.43,
+          "end": 10.61
+        },
+        {
+          "text": "Ohio.]",
+          "start": 10.61,
+          "end": 11.65
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9696969696969697,
+      "rejection_reasons": [],
+      "seconds": 0.40265820920467377
+    },
+    {
+      "asr_seconds": 0.4576464407145977,
+      "alignment_seconds": 0.0006413757801055908,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Not, Ohio, State, See, Statutes"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " H. Not only is slavery prohibited in Ohio, but no free Negroes are allowed to enter the territory of that state or to hold property in it. See the Statutes of Ohio.",
+          "start": 0.05,
+          "end": 10.97,
+          "words": [
+            {
+              "text": " H.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " Not",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " only",
+              "start": 1.07,
+              "end": 1.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 1.35,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " slavery",
+              "start": 1.61,
+              "end": 2.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " prohibited",
+              "start": 2.01,
+              "end": 2.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Ohio,",
+              "start": 2.83,
+              "end": 3.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 3.73,
+              "end": 3.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " no",
+              "start": 3.81,
+              "end": 4.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " free",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Negroes",
+              "start": 4.41,
+              "end": 5.05,
+              "probability": 0.842529296875
+            },
+            {
+              "text": " are",
+              "start": 5.05,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " allowed",
+              "start": 5.15,
+              "end": 5.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 5.43,
+              "end": 5.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " enter",
+              "start": 5.63,
+              "end": 5.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.79,
+              "end": 5.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " territory",
+              "start": 5.95,
+              "end": 6.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 6.37,
+              "end": 6.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 6.65,
+              "end": 6.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " state",
+              "start": 6.85,
+              "end": 7.21,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " or",
+              "start": 7.21,
+              "end": 7.77,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " to",
+              "start": 7.77,
+              "end": 7.91,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " hold",
+              "start": 7.91,
+              "end": 8.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " property",
+              "start": 8.13,
+              "end": 8.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 8.55,
+              "end": 8.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 8.81,
+              "end": 9.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " See",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 9.77,
+              "end": 9.97,
+              "probability": 0.931640625
+            },
+            {
+              "text": " Statutes",
+              "start": 9.97,
+              "end": 10.43,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " of",
+              "start": 10.43,
+              "end": 10.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Ohio.",
+              "start": 10.61,
+              "end": 10.97,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "H.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Not",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "only",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "raw": "slavery",
+          "start": 1.61,
+          "end": 2.01
+        },
+        {
+          "raw": "prohibited",
+          "start": 2.01,
+          "end": 2.55
+        },
+        {
+          "raw": "in",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "raw": "Ohio,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.81
+        },
+        {
+          "raw": "no",
+          "start": 3.81,
+          "end": 4.07
+        },
+        {
+          "raw": "free",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "Negroes",
+          "start": 4.41,
+          "end": 5.05
+        },
+        {
+          "raw": "are",
+          "start": 5.05,
+          "end": 5.15
+        },
+        {
+          "raw": "allowed",
+          "start": 5.15,
+          "end": 5.43
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "raw": "enter",
+          "start": 5.63,
+          "end": 5.79
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "raw": "territory",
+          "start": 5.95,
+          "end": 6.37
+        },
+        {
+          "raw": "of",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "raw": "that",
+          "start": 6.65,
+          "end": 6.85
+        },
+        {
+          "raw": "state",
+          "start": 6.85,
+          "end": 7.21
+        },
+        {
+          "raw": "or",
+          "start": 7.21,
+          "end": 7.77
+        },
+        {
+          "raw": "to",
+          "start": 7.77,
+          "end": 7.91
+        },
+        {
+          "raw": "hold",
+          "start": 7.91,
+          "end": 8.13
+        },
+        {
+          "raw": "property",
+          "start": 8.13,
+          "end": 8.55
+        },
+        {
+          "raw": "in",
+          "start": 8.55,
+          "end": 8.81
+        },
+        {
+          "raw": "it.",
+          "start": 8.81,
+          "end": 9.21
+        },
+        {
+          "raw": "See",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "the",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "raw": "Statutes",
+          "start": 9.97,
+          "end": 10.43
+        },
+        {
+          "raw": "of",
+          "start": 10.43,
+          "end": 10.61
+        },
+        {
+          "raw": "Ohio.",
+          "start": 10.61,
+          "end": 10.97
+        }
+      ],
+      "expected_tokens": [
+        "h",
+        "[",
+        "Not",
+        "only",
+        "is",
+        "slavery",
+        "prohibited",
+        "in",
+        "Ohio,",
+        "but",
+        "no",
+        "free",
+        "negroes",
+        "are",
+        "allowed",
+        "to",
+        "enter",
+        "the",
+        "territory",
+        "of",
+        "that",
+        "State,",
+        "or",
+        "to",
+        "hold",
+        "property",
+        "in",
+        "it.",
+        "See",
+        "the",
+        "Statutes",
+        "of",
+        "Ohio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          33,
+          1,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "H.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "h",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 1.07,
+          "end": 1.35,
+          "key": "only",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.61,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "slavery",
+          "start": 1.61,
+          "end": 2.01,
+          "key": "slavery",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prohibited",
+          "start": 2.01,
+          "end": 2.55,
+          "key": "prohibited",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ohio,",
+          "start": 2.83,
+          "end": 3.19,
+          "key": "ohio",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.81,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.81,
+          "end": 4.07,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "free",
+          "start": 4.07,
+          "end": 4.41,
+          "key": "free",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Negroes",
+          "start": 4.41,
+          "end": 5.05,
+          "key": "negroes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.05,
+          "end": 5.15,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "allowed",
+          "start": 5.15,
+          "end": 5.43,
+          "key": "allowed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.63,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 5.63,
+          "end": 5.79,
+          "key": "enter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.95,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "territory",
+          "start": 5.95,
+          "end": 6.37,
+          "key": "territory",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.37,
+          "end": 6.65,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.65,
+          "end": 6.85,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 6.85,
+          "end": 7.21,
+          "key": "state",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.21,
+          "end": 7.77,
+          "key": "or",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.77,
+          "end": 7.91,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 7.91,
+          "end": 8.13,
+          "key": "hold",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "property",
+          "start": 8.13,
+          "end": 8.55,
+          "key": "property",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.55,
+          "end": 8.81,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.81,
+          "end": 9.21,
+          "key": "it",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "see",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.77,
+          "end": 9.97,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Statutes",
+          "start": 9.97,
+          "end": 10.43,
+          "key": "statutes",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.43,
+          "end": 10.61,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Ohio.",
+          "start": 10.61,
+          "end": 10.97,
+          "key": "ohio",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "h",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "[",
+          "start": 0.69,
+          "end": 0.77
+        },
+        {
+          "text": "Not",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "only",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "text": "is",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "text": "slavery",
+          "start": 1.61,
+          "end": 2.01
+        },
+        {
+          "text": "prohibited",
+          "start": 2.01,
+          "end": 2.55
+        },
+        {
+          "text": "in",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "text": "Ohio,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "text": "but",
+          "start": 3.73,
+          "end": 3.81
+        },
+        {
+          "text": "no",
+          "start": 3.81,
+          "end": 4.07
+        },
+        {
+          "text": "free",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "text": "negroes",
+          "start": 4.41,
+          "end": 5.05
+        },
+        {
+          "text": "are",
+          "start": 5.05,
+          "end": 5.15
+        },
+        {
+          "text": "allowed",
+          "start": 5.15,
+          "end": 5.43
+        },
+        {
+          "text": "to",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "text": "enter",
+          "start": 5.63,
+          "end": 5.79
+        },
+        {
+          "text": "the",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "text": "territory",
+          "start": 5.95,
+          "end": 6.37
+        },
+        {
+          "text": "of",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "text": "that",
+          "start": 6.65,
+          "end": 6.85
+        },
+        {
+          "text": "State,",
+          "start": 6.85,
+          "end": 7.21
+        },
+        {
+          "text": "or",
+          "start": 7.21,
+          "end": 7.77
+        },
+        {
+          "text": "to",
+          "start": 7.77,
+          "end": 7.91
+        },
+        {
+          "text": "hold",
+          "start": 7.91,
+          "end": 8.13
+        },
+        {
+          "text": "property",
+          "start": 8.13,
+          "end": 8.55
+        },
+        {
+          "text": "in",
+          "start": 8.55,
+          "end": 8.81
+        },
+        {
+          "text": "it.",
+          "start": 8.81,
+          "end": 9.21
+        },
+        {
+          "text": "See",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "the",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "text": "Statutes",
+          "start": 9.97,
+          "end": 10.43
+        },
+        {
+          "text": "of",
+          "start": 10.43,
+          "end": 10.61
+        },
+        {
+          "text": "Ohio.]",
+          "start": 10.61,
+          "end": 10.97
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9696969696969697,
+      "rejection_reasons": [],
+      "seconds": 0.4585575945675373
+    },
+    {
+      "asr_seconds": 0.4390510953962803,
+      "alignment_seconds": 0.0006125979125499725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " H. Not only is slavery prohibited in Ohio, but no free Negroes are allowed to enter the",
+          "start": 0.05,
+          "end": 5.95,
+          "words": [
+            {
+              "text": " H.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " Not",
+              "start": 0.85,
+              "end": 1.07,
+              "probability": 0.5693359375
+            },
+            {
+              "text": " only",
+              "start": 1.07,
+              "end": 1.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 1.35,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " slavery",
+              "start": 1.61,
+              "end": 2.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " prohibited",
+              "start": 2.01,
+              "end": 2.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Ohio,",
+              "start": 2.83,
+              "end": 3.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 3.73,
+              "end": 3.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " no",
+              "start": 3.81,
+              "end": 4.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " free",
+              "start": 4.07,
+              "end": 4.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Negroes",
+              "start": 4.41,
+              "end": 5.05,
+              "probability": 0.842529296875
+            },
+            {
+              "text": " are",
+              "start": 5.05,
+              "end": 5.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " allowed",
+              "start": 5.15,
+              "end": 5.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 5.43,
+              "end": 5.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " enter",
+              "start": 5.63,
+              "end": 5.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.79,
+              "end": 5.95,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " territory of that state or to hold property in it.",
+          "start": 5.95,
+          "end": 9.21,
+          "words": [
+            {
+              "text": " territory",
+              "start": 5.95,
+              "end": 6.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 6.37,
+              "end": 6.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 6.65,
+              "end": 6.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " state",
+              "start": 6.85,
+              "end": 7.21,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " or",
+              "start": 7.21,
+              "end": 7.77,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " to",
+              "start": 7.77,
+              "end": 7.91,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " hold",
+              "start": 7.91,
+              "end": 8.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " property",
+              "start": 8.13,
+              "end": 8.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 8.55,
+              "end": 8.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " it.",
+              "start": 8.81,
+              "end": 9.21,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " See the Statutes of Ohio.",
+          "start": 9.59,
+          "end": 10.97,
+          "words": [
+            {
+              "text": " See",
+              "start": 9.59,
+              "end": 9.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 9.77,
+              "end": 9.97,
+              "probability": 0.931640625
+            },
+            {
+              "text": " Statutes",
+              "start": 9.97,
+              "end": 10.43,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " of",
+              "start": 10.43,
+              "end": 10.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Ohio.",
+              "start": 10.61,
+              "end": 10.97,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "H.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Not",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "raw": "only",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "raw": "slavery",
+          "start": 1.61,
+          "end": 2.01
+        },
+        {
+          "raw": "prohibited",
+          "start": 2.01,
+          "end": 2.55
+        },
+        {
+          "raw": "in",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "raw": "Ohio,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.81
+        },
+        {
+          "raw": "no",
+          "start": 3.81,
+          "end": 4.07
+        },
+        {
+          "raw": "free",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "raw": "Negroes",
+          "start": 4.41,
+          "end": 5.05
+        },
+        {
+          "raw": "are",
+          "start": 5.05,
+          "end": 5.15
+        },
+        {
+          "raw": "allowed",
+          "start": 5.15,
+          "end": 5.43
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "raw": "enter",
+          "start": 5.63,
+          "end": 5.79
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "raw": "territory",
+          "start": 5.95,
+          "end": 6.37
+        },
+        {
+          "raw": "of",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "raw": "that",
+          "start": 6.65,
+          "end": 6.85
+        },
+        {
+          "raw": "state",
+          "start": 6.85,
+          "end": 7.21
+        },
+        {
+          "raw": "or",
+          "start": 7.21,
+          "end": 7.77
+        },
+        {
+          "raw": "to",
+          "start": 7.77,
+          "end": 7.91
+        },
+        {
+          "raw": "hold",
+          "start": 7.91,
+          "end": 8.13
+        },
+        {
+          "raw": "property",
+          "start": 8.13,
+          "end": 8.55
+        },
+        {
+          "raw": "in",
+          "start": 8.55,
+          "end": 8.81
+        },
+        {
+          "raw": "it.",
+          "start": 8.81,
+          "end": 9.21
+        },
+        {
+          "raw": "See",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "raw": "the",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "raw": "Statutes",
+          "start": 9.97,
+          "end": 10.43
+        },
+        {
+          "raw": "of",
+          "start": 10.43,
+          "end": 10.61
+        },
+        {
+          "raw": "Ohio.",
+          "start": 10.61,
+          "end": 10.97
+        }
+      ],
+      "expected_tokens": [
+        "h",
+        "[",
+        "Not",
+        "only",
+        "is",
+        "slavery",
+        "prohibited",
+        "in",
+        "Ohio,",
+        "but",
+        "no",
+        "free",
+        "negroes",
+        "are",
+        "allowed",
+        "to",
+        "enter",
+        "the",
+        "territory",
+        "of",
+        "that",
+        "State,",
+        "or",
+        "to",
+        "hold",
+        "property",
+        "in",
+        "it.",
+        "See",
+        "the",
+        "Statutes",
+        "of",
+        "Ohio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          33,
+          1,
+          32
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 31
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "H.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "h",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 0.85,
+          "end": 1.07,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 1.07,
+          "end": 1.35,
+          "key": "only",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.61,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "slavery",
+          "start": 1.61,
+          "end": 2.01,
+          "key": "slavery",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prohibited",
+          "start": 2.01,
+          "end": 2.55,
+          "key": "prohibited",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ohio,",
+          "start": 2.83,
+          "end": 3.19,
+          "key": "ohio",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.73,
+          "end": 3.81,
+          "key": "but",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.81,
+          "end": 4.07,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "free",
+          "start": 4.07,
+          "end": 4.41,
+          "key": "free",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Negroes",
+          "start": 4.41,
+          "end": 5.05,
+          "key": "negroes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.05,
+          "end": 5.15,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "allowed",
+          "start": 5.15,
+          "end": 5.43,
+          "key": "allowed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.43,
+          "end": 5.63,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "enter",
+          "start": 5.63,
+          "end": 5.79,
+          "key": "enter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.95,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "territory",
+          "start": 5.95,
+          "end": 6.37,
+          "key": "territory",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.37,
+          "end": 6.65,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.65,
+          "end": 6.85,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "state",
+          "start": 6.85,
+          "end": 7.21,
+          "key": "state",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 7.21,
+          "end": 7.77,
+          "key": "or",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.77,
+          "end": 7.91,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 7.91,
+          "end": 8.13,
+          "key": "hold",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "property",
+          "start": 8.13,
+          "end": 8.55,
+          "key": "property",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.55,
+          "end": 8.81,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.81,
+          "end": 9.21,
+          "key": "it",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 9.59,
+          "end": 9.77,
+          "key": "see",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 9.77,
+          "end": 9.97,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Statutes",
+          "start": 9.97,
+          "end": 10.43,
+          "key": "statutes",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.43,
+          "end": 10.61,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Ohio.",
+          "start": 10.61,
+          "end": 10.97,
+          "key": "ohio",
+          "pieces": [
+            31
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "h",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "[",
+          "start": 0.69,
+          "end": 0.77
+        },
+        {
+          "text": "Not",
+          "start": 0.85,
+          "end": 1.07
+        },
+        {
+          "text": "only",
+          "start": 1.07,
+          "end": 1.35
+        },
+        {
+          "text": "is",
+          "start": 1.35,
+          "end": 1.61
+        },
+        {
+          "text": "slavery",
+          "start": 1.61,
+          "end": 2.01
+        },
+        {
+          "text": "prohibited",
+          "start": 2.01,
+          "end": 2.55
+        },
+        {
+          "text": "in",
+          "start": 2.55,
+          "end": 2.83
+        },
+        {
+          "text": "Ohio,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "text": "but",
+          "start": 3.73,
+          "end": 3.81
+        },
+        {
+          "text": "no",
+          "start": 3.81,
+          "end": 4.07
+        },
+        {
+          "text": "free",
+          "start": 4.07,
+          "end": 4.41
+        },
+        {
+          "text": "negroes",
+          "start": 4.41,
+          "end": 5.05
+        },
+        {
+          "text": "are",
+          "start": 5.05,
+          "end": 5.15
+        },
+        {
+          "text": "allowed",
+          "start": 5.15,
+          "end": 5.43
+        },
+        {
+          "text": "to",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "text": "enter",
+          "start": 5.63,
+          "end": 5.79
+        },
+        {
+          "text": "the",
+          "start": 5.79,
+          "end": 5.95
+        },
+        {
+          "text": "territory",
+          "start": 5.95,
+          "end": 6.37
+        },
+        {
+          "text": "of",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "text": "that",
+          "start": 6.65,
+          "end": 6.85
+        },
+        {
+          "text": "State,",
+          "start": 6.85,
+          "end": 7.21
+        },
+        {
+          "text": "or",
+          "start": 7.21,
+          "end": 7.77
+        },
+        {
+          "text": "to",
+          "start": 7.77,
+          "end": 7.91
+        },
+        {
+          "text": "hold",
+          "start": 7.91,
+          "end": 8.13
+        },
+        {
+          "text": "property",
+          "start": 8.13,
+          "end": 8.55
+        },
+        {
+          "text": "in",
+          "start": 8.55,
+          "end": 8.81
+        },
+        {
+          "text": "it.",
+          "start": 8.81,
+          "end": 9.21
+        },
+        {
+          "text": "See",
+          "start": 9.59,
+          "end": 9.77
+        },
+        {
+          "text": "the",
+          "start": 9.77,
+          "end": 9.97
+        },
+        {
+          "text": "Statutes",
+          "start": 9.97,
+          "end": 10.43
+        },
+        {
+          "text": "of",
+          "start": 10.43,
+          "end": 10.61
+        },
+        {
+          "text": "Ohio.]",
+          "start": 10.61,
+          "end": 10.97
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 32,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9696969696969697,
+      "rejection_reasons": [],
+      "seconds": 0.4399162493646145
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "35982ea47ade33dc816c94ba6085da660bd1406ec772ca1d3e7e03bcb64f82e3",
+  "selected_reasons": []
+}

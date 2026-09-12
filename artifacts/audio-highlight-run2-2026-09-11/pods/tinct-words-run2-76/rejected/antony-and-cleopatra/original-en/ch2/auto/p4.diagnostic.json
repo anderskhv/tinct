@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "3ab4f760c20214e3005bc087b3da16295beaa7ee2caa9c8a506c7a8d88b3a15a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2131672198884189,
+      "alignment_seconds": 0.0006440919823944569,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Is this the man? Is't you, sir, that know things?",
+        "hotwords": "Charmian, Is, Is't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Is this the man? Is't you, sir, that know things?",
+          "start": 0.49,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.49,
+              "end": 0.83,
+              "probability": 0.7232666015625
+            },
+            {
+              "text": " Is",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.0238037109375
+            },
+            {
+              "text": " this",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " the",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " man?",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Is't",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.2159423828125
+            },
+            {
+              "text": " you,",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " sir,",
+              "start": 2.81,
+              "end": 2.83,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " that",
+              "start": 2.93,
+              "end": 3.01,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " know",
+              "start": 3.01,
+              "end": 3.21,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " things?",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "raw": "Is",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "this",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "man?",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "raw": "Is't",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "you,",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "sir,",
+          "start": 2.81,
+          "end": 2.83
+        },
+        {
+          "raw": "that",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "raw": "know",
+          "start": 3.01,
+          "end": 3.21
+        },
+        {
+          "raw": "things?",
+          "start": 3.21,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Is",
+        "this",
+        "the",
+        "man?",
+        "Is't",
+        "you,",
+        "sir,",
+        "that",
+        "know",
+        "things?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.49,
+          "end": 0.83,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.11,
+          "end": 1.25,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man?",
+          "start": 1.53,
+          "end": 1.83,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is't",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "ist",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.81,
+          "end": 2.83,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.93,
+          "end": 3.01,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.01,
+          "end": 3.21,
+          "key": "know",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "things?",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "things",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.49,
+          "end": 0.83
+        },
+        {
+          "text": "Is",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "this",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "the",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "man?",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "text": "Is't",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "you,",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "sir,",
+          "start": 2.81,
+          "end": 2.83
+        },
+        {
+          "text": "that",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "text": "know",
+          "start": 3.01,
+          "end": 3.21
+        },
+        {
+          "text": "things?",
+          "start": 3.21,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21402122220024467
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51b0b31cb7916f33dc3b9db223f8c4c2ffdb7e1b0790f8cb859fa6a28792b633",
+  "selected_reasons": []
+}

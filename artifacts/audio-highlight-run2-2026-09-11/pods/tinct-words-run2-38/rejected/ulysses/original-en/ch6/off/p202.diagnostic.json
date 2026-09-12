@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "31b2ebab55eac12d51b7ad637515826e292f9db6dc97ed381c6d7b5a58ea03d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.12059942400082946,
+      "alignment_seconds": 0.00013908999972045422,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Crossguns Bridge, the Royal Canal.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Crossguns",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " Bridge,",
+              "start": 0.85,
+              "end": 1.23,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " the",
+              "start": 1.71,
+              "end": 1.77,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " Royal",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " Canal.",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Crossguns",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Bridge,",
+          "start": 0.85,
+          "end": 1.23
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.77
+        },
+        {
+          "raw": "Royal",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "Canal.",
+          "start": 1.97,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Crossguns",
+        "bridge:",
+        "the",
+        "royal",
+        "canal."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Crossguns",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "crossguns",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bridge,",
+          "start": 0.85,
+          "end": 1.23,
+          "key": "bridge",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.71,
+          "end": 1.77,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Royal",
+          "start": 1.77,
+          "end": 1.97,
+          "key": "royal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Canal.",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "canal",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Crossguns",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "bridge:",
+          "start": 0.85,
+          "end": 1.23
+        },
+        {
+          "text": "the",
+          "start": 1.71,
+          "end": 1.77
+        },
+        {
+          "text": "royal",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "text": "canal.",
+          "start": 1.97,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12079325504601002
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aa5e9e6acb4bc0c5441cac866009787b239a2ea087c581f064297339f21a636d",
+  "selected_reasons": []
+}

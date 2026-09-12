@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "72f6e86b62b0980c9735ecdc4ae1a718e486d81fba7e63fa287cc005b0f08bb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.2997789310757071,
+      "alignment_seconds": 0.0006154028233140707,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First murderer why so he doth when he delivers you from this earth's thraldom to the joys of heaven",
+          "start": 0.05,
+          "end": 5.95,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " murderer",
+              "start": 0.67,
+              "end": 1.11,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " why",
+              "start": 1.11,
+              "end": 1.89,
+              "probability": 0.388916015625
+            },
+            {
+              "text": " so",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " he",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " doth",
+              "start": 2.31,
+              "end": 2.65,
+              "probability": 0.974365234375
+            },
+            {
+              "text": " when",
+              "start": 2.65,
+              "end": 3.03,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " he",
+              "start": 3.03,
+              "end": 3.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " delivers",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 3.39,
+              "end": 3.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 3.69,
+              "end": 3.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 3.85,
+              "end": 4.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " earth's",
+              "start": 4.03,
+              "end": 4.51,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " thraldom",
+              "start": 4.51,
+              "end": 4.93,
+              "probability": 0.5510660807291666
+            },
+            {
+              "text": " to",
+              "start": 4.93,
+              "end": 5.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.11,
+              "end": 5.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " joys",
+              "start": 5.25,
+              "end": 5.63,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " of",
+              "start": 5.63,
+              "end": 5.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heaven",
+              "start": 5.71,
+              "end": 5.95,
+              "probability": 0.935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "murderer",
+          "start": 0.67,
+          "end": 1.11
+        },
+        {
+          "raw": "why",
+          "start": 1.11,
+          "end": 1.89
+        },
+        {
+          "raw": "so",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "he",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "doth",
+          "start": 2.31,
+          "end": 2.65
+        },
+        {
+          "raw": "when",
+          "start": 2.65,
+          "end": 3.03
+        },
+        {
+          "raw": "he",
+          "start": 3.03,
+          "end": 3.13
+        },
+        {
+          "raw": "delivers",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "you",
+          "start": 3.39,
+          "end": 3.69
+        },
+        {
+          "raw": "from",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "raw": "this",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "raw": "earth's",
+          "start": 4.03,
+          "end": 4.51
+        },
+        {
+          "raw": "thraldom",
+          "start": 4.51,
+          "end": 4.93
+        },
+        {
+          "raw": "to",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "raw": "the",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "raw": "joys",
+          "start": 5.25,
+          "end": 5.63
+        },
+        {
+          "raw": "of",
+          "start": 5.63,
+          "end": 5.71
+        },
+        {
+          "raw": "heaven",
+          "start": 5.71,
+          "end": 5.95
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "Why,",
+        "so",
+        "he",
+        "doth,",
+        "when",
+        "he",
+        "delivers",
+        "you",
+        "From",
+        "this",
+        "earth's",
+        "thraldom",
+        "to",
+        "the",
+        "joys",
+        "of",
+        "heaven."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer",
+          "start": 0.67,
+          "end": 1.11,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.11,
+          "end": 1.89,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.31,
+          "end": 2.65,
+          "key": "doth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.65,
+          "end": 3.03,
+          "key": "when",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.03,
+          "end": 3.13,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "delivers",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "delivers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.39,
+          "end": 3.69,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.69,
+          "end": 3.85,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.85,
+          "end": 4.03,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "earth's",
+          "start": 4.03,
+          "end": 4.51,
+          "key": "earths",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thraldom",
+          "start": 4.51,
+          "end": 4.93,
+          "key": "thraldom",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.93,
+          "end": 5.11,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.11,
+          "end": 5.25,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "joys",
+          "start": 5.25,
+          "end": 5.63,
+          "key": "joys",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.63,
+          "end": 5.71,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "heaven",
+          "start": 5.71,
+          "end": 5.95,
+          "key": "heaven",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.67,
+          "end": 1.11
+        },
+        {
+          "text": "Why,",
+          "start": 1.11,
+          "end": 1.89
+        },
+        {
+          "text": "so",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "he",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "doth,",
+          "start": 2.31,
+          "end": 2.65
+        },
+        {
+          "text": "when",
+          "start": 2.65,
+          "end": 3.03
+        },
+        {
+          "text": "he",
+          "start": 3.03,
+          "end": 3.13
+        },
+        {
+          "text": "delivers",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "you",
+          "start": 3.39,
+          "end": 3.69
+        },
+        {
+          "text": "From",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "text": "this",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "text": "earth's",
+          "start": 4.03,
+          "end": 4.51
+        },
+        {
+          "text": "thraldom",
+          "start": 4.51,
+          "end": 4.93
+        },
+        {
+          "text": "to",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "text": "the",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "text": "joys",
+          "start": 5.25,
+          "end": 5.63
+        },
+        {
+          "text": "of",
+          "start": 5.63,
+          "end": 5.71
+        },
+        {
+          "text": "heaven.",
+          "start": 5.71,
+          "end": 5.95
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3006571000441909
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "776aca25299b02291e4520b2344374c9a7dd8be4f60ea41b29cf9086936fc942",
+  "selected_reasons": []
+}

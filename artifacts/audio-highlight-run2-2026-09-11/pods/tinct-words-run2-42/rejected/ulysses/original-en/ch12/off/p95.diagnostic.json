@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "87ba0f6b726f71b8df5b7ab3d4d7f190f2d6fb5b1bcf7e934a195decef822a31",
+  "attempts": [
+    {
+      "asr_seconds": 0.15503364382311702,
+      "alignment_seconds": 0.0003994540311396122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How's Willy Murray those times, Alf?",
+          "start": 0.08,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " How's",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " Willy",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " Murray",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " those",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " times,",
+              "start": 1.22,
+              "end": 1.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Alf?",
+              "start": 1.78,
+              "end": 1.8,
+              "probability": 0.7919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How's",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Willy",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "Murray",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "those",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "times,",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "raw": "Alf?",
+          "start": 1.78,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "—How's",
+        "Willy",
+        "Murray",
+        "those",
+        "times,",
+        "Alf?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How's",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "hows",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Willy",
+          "start": 0.62,
+          "end": 0.82,
+          "key": "willy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Murray",
+          "start": 0.82,
+          "end": 1.0,
+          "key": "murray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "those",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "those",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "times,",
+          "start": 1.22,
+          "end": 1.6,
+          "key": "times",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Alf?",
+          "start": 1.78,
+          "end": 1.8,
+          "key": "alf",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—How's",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Willy",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "Murray",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "those",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "times,",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "text": "Alf?",
+          "start": 1.78,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1555737406015396
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16d7aaa370faf488567a7016528d8bf7d522c7b9be61c2eb6e8bfc44f2a81e81",
+  "selected_reasons": []
+}

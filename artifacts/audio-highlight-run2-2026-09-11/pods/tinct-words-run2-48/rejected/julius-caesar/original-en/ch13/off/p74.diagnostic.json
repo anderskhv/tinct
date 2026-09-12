@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "7e0b1e6d1f8b938ba5b59392162db5c49b95e2a96c9012c6233431baba42a7ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.1441216766834259,
+      "alignment_seconds": 0.00015130825340747833,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cassius, huh, Portia.",
+          "start": 0.05,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " huh,",
+              "start": 1.27,
+              "end": 1.29,
+              "probability": 0.56201171875
+            },
+            {
+              "text": " Portia.",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.876220703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "huh,",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "raw": "Portia.",
+          "start": 1.61,
+          "end": 1.87
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Ha?",
+        "Portia?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "huh,",
+          "start": 1.27,
+          "end": 1.29,
+          "key": "huh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Portia.",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "portia",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Ha?",
+          "start": 0.97,
+          "end": 1.29
+        },
+        {
+          "text": "Portia?",
+          "start": 1.61,
+          "end": 1.87
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14432102534919977
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "33794d33b375166039115247495fddc1b2ce41d9fd9bde045937ca0d2f2de883",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "3aced8594023d55b4d4fffd8ee609106157df26abe07ca2214eec240e76a39bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.16833949461579323,
+      "alignment_seconds": 0.00031748972833156586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry under Sir Thomas Urpingham",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " Henry",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " under",
+              "start": 0.95,
+              "end": 1.53,
+              "probability": 0.52734375
+            },
+            {
+              "text": " Sir",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " Thomas",
+              "start": 1.71,
+              "end": 2.07,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Urpingham",
+              "start": 2.07,
+              "end": 2.57,
+              "probability": 0.688232421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "under",
+          "start": 0.95,
+          "end": 1.53
+        },
+        {
+          "raw": "Sir",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "Thomas",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "raw": "Urpingham",
+          "start": 2.07,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Under",
+        "Sir",
+        "Thomas",
+        "Erpingham."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 0.95,
+          "end": 1.53,
+          "key": "under",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thomas",
+          "start": 1.71,
+          "end": 2.07,
+          "key": "thomas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Urpingham",
+          "start": 2.07,
+          "end": 2.57,
+          "key": "urpingham",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "Under",
+          "start": 0.95,
+          "end": 1.53
+        },
+        {
+          "text": "Sir",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "Thomas",
+          "start": 1.71,
+          "end": 2.07
+        },
+        {
+          "text": "Erpingham.",
+          "start": 2.07,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16877414379268885
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4027f81fb474624e913758cbb53b7f8fbeca829b502a6711e91557e4234c3a73",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

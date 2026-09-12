@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "3cd3b66d764cf5defe8b51b126955f5dedfb631b8902858d9205e944c99183e4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11710830699303187,
+      "alignment_seconds": 0.00022555800387635827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mina's, Anabarbis welcome.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Mina's,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.5951741536458334
+            },
+            {
+              "text": " Anabarbis",
+              "start": 1.25,
+              "end": 1.79,
+              "probability": 0.5841064453125
+            },
+            {
+              "text": " welcome.",
+              "start": 1.79,
+              "end": 2.17,
+              "probability": 0.52880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mina's,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "Anabarbis",
+          "start": 1.25,
+          "end": 1.79
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.79,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Menas.",
+        "Enobarbus,",
+        "welcome!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mina's,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "minas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Anabarbis",
+          "start": 1.25,
+          "end": 1.79,
+          "key": "anabarbis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "welcome.",
+          "start": 1.79,
+          "end": 2.17,
+          "key": "welcome",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.0,
+          "end": 0.895
+        },
+        {
+          "text": "Enobarbus,",
+          "start": 0.895,
+          "end": 1.343
+        },
+        {
+          "text": "welcome!",
+          "start": 1.79,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11741529800929129
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f3d9a00ef1d75d9eebb40054ba92834643cd60560d88969eac26675dbeaab483",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,537 @@
+{
+  "complete": true,
+  "signature": "6b5ae0045f7493217655fa23e2821a02997c310232ec37986095624f9666c937",
+  "attempts": [
+    {
+      "asr_seconds": 0.2144369320012629,
+      "alignment_seconds": 0.00022668810561299324,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, she's like a liar gone to burning hell.",
+          "start": 0.08,
+          "end": 2.98,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " she's",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " like",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " a",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " liar",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.9609375
+            },
+            {
+              "text": " gone",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " to",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " burning",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " hell.",
+              "start": 2.62,
+              "end": 2.98,
+              "probability": 0.9169921875
+            }
+          ]
+        },
+        {
+          "text": " Twas I that killed her.",
+          "start": 3.64,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Twas",
+              "start": 3.64,
+              "end": 3.78,
+              "probability": 0.645263671875
+            },
+            {
+              "text": " I",
+              "start": 3.78,
+              "end": 3.92,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " that",
+              "start": 3.92,
+              "end": 4.12,
+              "probability": 0.9609375
+            },
+            {
+              "text": " killed",
+              "start": 4.12,
+              "end": 4.34,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " her.",
+              "start": 4.34,
+              "end": 4.64,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "she's",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "like",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "a",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "liar",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "gone",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "raw": "to",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "burning",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "hell.",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "raw": "Twas",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "raw": "I",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "raw": "that",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "raw": "killed",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "raw": "her.",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "She's",
+        "like",
+        "a",
+        "liar,",
+        "gone",
+        "to",
+        "burning",
+        "hell.",
+        "'Twas",
+        "I",
+        "that",
+        "kill'd",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she's",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "shes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "liar",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "liar",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "gone",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "burning",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "burning",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hell.",
+          "start": 2.62,
+          "end": 2.98,
+          "key": "hell",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Twas",
+          "start": 3.64,
+          "end": 3.78,
+          "key": "twas",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.78,
+          "end": 3.92,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.92,
+          "end": 4.12,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 4.12,
+          "end": 4.34,
+          "key": "killed",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 4.34,
+          "end": 4.64,
+          "key": "her",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "She's",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "like",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "a",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "liar,",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "gone",
+          "start": 1.92,
+          "end": 2.22
+        },
+        {
+          "text": "to",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "burning",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "hell.",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "text": "'Twas",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "text": "I",
+          "start": 3.78,
+          "end": 3.92
+        },
+        {
+          "text": "that",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "text": "kill'd",
+          "start": 4.12,
+          "end": 4.23
+        },
+        {
+          "text": "her.",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.21474254922941327
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f303aa0db4f0eaa0f261943dfe70f42c0c8b25f4a44e715cd03a86cae62e966a",
+  "selected_reasons": []
+}

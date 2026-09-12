@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "214668d0c4c05d671fa91667ec91dc57e965d515ab686b96a8b3259a4dd2b280",
+  "attempts": [
+    {
+      "asr_seconds": 0.3235460286960006,
+      "alignment_seconds": 0.0006463611498475075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alexas. Lo now, if it lay in their hands to make me a cuckold, they would make themselves whores but they'd do't!",
+        "hotwords": "Alexas, Lo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alexas, Lo now, if it lay in their hands to make me a cuckold, they would make themselves whores but they'd do't!",
+          "start": 0.59,
+          "end": 6.65,
+          "words": [
+            {
+              "text": " Alexas,",
+              "start": 0.59,
+              "end": 1.03,
+              "probability": 0.13433074951171875
+            },
+            {
+              "text": " Lo",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.01110076904296875
+            },
+            {
+              "text": " now,",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.59228515625
+            },
+            {
+              "text": " if",
+              "start": 2.23,
+              "end": 2.29,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " it",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " lay",
+              "start": 2.37,
+              "end": 2.55,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " in",
+              "start": 2.55,
+              "end": 2.69,
+              "probability": 0.990234375
+            },
+            {
+              "text": " their",
+              "start": 2.69,
+              "end": 2.81,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hands",
+              "start": 2.81,
+              "end": 3.09,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " make",
+              "start": 3.29,
+              "end": 3.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " cuckold,",
+              "start": 3.71,
+              "end": 4.17,
+              "probability": 0.9357096354166666
+            },
+            {
+              "text": " they",
+              "start": 4.57,
+              "end": 4.63,
+              "probability": 0.8046875
+            },
+            {
+              "text": " would",
+              "start": 4.63,
+              "end": 4.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " make",
+              "start": 4.75,
+              "end": 4.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " themselves",
+              "start": 4.95,
+              "end": 5.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " whores",
+              "start": 5.35,
+              "end": 5.81,
+              "probability": 0.9765625
+            },
+            {
+              "text": " but",
+              "start": 5.81,
+              "end": 6.01,
+              "probability": 0.52734375
+            },
+            {
+              "text": " they'd",
+              "start": 6.01,
+              "end": 6.29,
+              "probability": 0.6380615234375
+            },
+            {
+              "text": " do't!",
+              "start": 6.29,
+              "end": 6.65,
+              "probability": 0.0032720565795898438
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexas,",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "raw": "Lo",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "now,",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "if",
+          "start": 2.23,
+          "end": 2.29
+        },
+        {
+          "raw": "it",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "lay",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "raw": "in",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "raw": "their",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "raw": "hands",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "make",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "raw": "me",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "a",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "cuckold,",
+          "start": 3.71,
+          "end": 4.17
+        },
+        {
+          "raw": "they",
+          "start": 4.57,
+          "end": 4.63
+        },
+        {
+          "raw": "would",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "raw": "make",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "raw": "themselves",
+          "start": 4.95,
+          "end": 5.35
+        },
+        {
+          "raw": "whores",
+          "start": 5.35,
+          "end": 5.81
+        },
+        {
+          "raw": "but",
+          "start": 5.81,
+          "end": 6.01
+        },
+        {
+          "raw": "they'd",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "raw": "do't!",
+          "start": 6.29,
+          "end": 6.65
+        }
+      ],
+      "expected_tokens": [
+        "Alexas.",
+        "Lo",
+        "now,",
+        "if",
+        "it",
+        "lay",
+        "in",
+        "their",
+        "hands",
+        "to",
+        "make",
+        "me",
+        "a",
+        "cuckold,",
+        "they",
+        "would",
+        "make",
+        "themselves",
+        "whores",
+        "but",
+        "they'd",
+        "do't!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexas,",
+          "start": 0.59,
+          "end": 1.03,
+          "key": "alexas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lo",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "lo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.23,
+          "end": 2.29,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 2.37,
+          "end": 2.55,
+          "key": "lay",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.55,
+          "end": 2.69,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.69,
+          "end": 2.81,
+          "key": "their",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 2.81,
+          "end": 3.09,
+          "key": "hands",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 3.29,
+          "end": 3.41,
+          "key": "make",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cuckold,",
+          "start": 3.71,
+          "end": 4.17,
+          "key": "cuckold",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.57,
+          "end": 4.63,
+          "key": "they",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.63,
+          "end": 4.75,
+          "key": "would",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.75,
+          "end": 4.95,
+          "key": "make",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "themselves",
+          "start": 4.95,
+          "end": 5.35,
+          "key": "themselves",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "whores",
+          "start": 5.35,
+          "end": 5.81,
+          "key": "whores",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.81,
+          "end": 6.01,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "they'd",
+          "start": 6.01,
+          "end": 6.29,
+          "key": "theyd",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "do't!",
+          "start": 6.29,
+          "end": 6.65,
+          "key": "dot",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexas.",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "text": "Lo",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "now,",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "if",
+          "start": 2.23,
+          "end": 2.29
+        },
+        {
+          "text": "it",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "lay",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "text": "in",
+          "start": 2.55,
+          "end": 2.69
+        },
+        {
+          "text": "their",
+          "start": 2.69,
+          "end": 2.81
+        },
+        {
+          "text": "hands",
+          "start": 2.81,
+          "end": 3.09
+        },
+        {
+          "text": "to",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "make",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "text": "me",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "a",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "cuckold,",
+          "start": 3.71,
+          "end": 4.17
+        },
+        {
+          "text": "they",
+          "start": 4.57,
+          "end": 4.63
+        },
+        {
+          "text": "would",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "text": "make",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "text": "themselves",
+          "start": 4.95,
+          "end": 5.35
+        },
+        {
+          "text": "whores",
+          "start": 5.35,
+          "end": 5.81
+        },
+        {
+          "text": "but",
+          "start": 5.81,
+          "end": 6.01
+        },
+        {
+          "text": "they'd",
+          "start": 6.01,
+          "end": 6.29
+        },
+        {
+          "text": "do't!",
+          "start": 6.29,
+          "end": 6.65
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32444672705605626
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "041b65a00f30266fceb95ad72dc4169ee56627425114f1cc56c7ffd793286b4a",
+  "selected_reasons": []
+}

@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "d9cc5ee2c44e7e53620e0e5c6ba0fb228f87fa7b63e043049c966b7852aa954f",
+  "attempts": [
+    {
+      "asr_seconds": 0.08180688298307359,
+      "alignment_seconds": 0.0001389110111631453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your sun and air.",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " sun",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.46484375
+            },
+            {
+              "text": " and",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " air.",
+              "start": 0.9,
+              "end": 1.16,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "sun",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "and",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "air.",
+          "start": 0.9,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "—Your",
+        "son",
+        "and",
+        "heir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "sun",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.76,
+          "end": 0.9,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "air.",
+          "start": 0.9,
+          "end": 1.16,
+          "key": "air",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "son",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "and",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "heir.",
+          "start": 0.9,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08199005399364978
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "62d8e5da775aaa057e29bc1d7f36969bb73ae03862718183d94b4abbd0d74030",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

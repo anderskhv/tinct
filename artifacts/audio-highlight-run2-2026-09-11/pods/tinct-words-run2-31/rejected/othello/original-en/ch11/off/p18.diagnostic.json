@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "fc002c08f22a9809d1654b004cd37a481c727def1bfca4309332bfd656bf4b6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12409253790974617,
+      "alignment_seconds": 0.00022930791601538658,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, what hath ye said?",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.8727213541666666
+            },
+            {
+              "text": " what",
+              "start": 1.25,
+              "end": 1.31,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " hath",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " ye",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.321044921875
+            },
+            {
+              "text": " said?",
+              "start": 1.59,
+              "end": 1.83,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "what",
+          "start": 1.25,
+          "end": 1.31
+        },
+        {
+          "raw": "hath",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "ye",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "said?",
+          "start": 1.59,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "What",
+        "hath",
+        "he",
+        "said?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.25,
+          "end": 1.31,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "ye",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said?",
+          "start": 1.59,
+          "end": 1.83,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "What",
+          "start": 1.25,
+          "end": 1.31
+        },
+        {
+          "text": "hath",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "he",
+          "start": 1.45,
+          "end": 1.52
+        },
+        {
+          "text": "said?",
+          "start": 1.59,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12440270511433482
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "38252f662f404aa79de5920f93d99a8dd803f48f650b8728b983a1d940fc171c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

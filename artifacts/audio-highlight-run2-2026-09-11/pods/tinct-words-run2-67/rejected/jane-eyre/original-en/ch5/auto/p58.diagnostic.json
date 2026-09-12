@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "e16a6758dde84f994a2b5321313457dcca1f5dad56ce204bdb387ca4b5afdf84",
+  "attempts": [
+    {
+      "asr_seconds": 0.2033515670336783,
+      "alignment_seconds": 0.0004203398711979389,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The teachers looked at her with a sort of surprise.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The teachers looked at her with a sort of surprise.",
+          "start": 0.02,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " teachers",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " looked",
+              "start": 0.86,
+              "end": 1.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 1.28,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " her",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sort",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.02,
+              "end": 2.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " surprise.",
+              "start": 2.12,
+              "end": 2.52,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "teachers",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "looked",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "raw": "at",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "raw": "her",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "a",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "sort",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "of",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "raw": "surprise.",
+          "start": 2.12,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "teachers",
+        "looked",
+        "at",
+        "her",
+        "with",
+        "a",
+        "sort",
+        "of",
+        "surprise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "teachers",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "teachers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.86,
+          "end": 1.28,
+          "key": "looked",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.28,
+          "end": 1.42,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 1.92,
+          "end": 2.02,
+          "key": "sort",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.02,
+          "end": 2.12,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "surprise.",
+          "start": 2.12,
+          "end": 2.52,
+          "key": "surprise",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "teachers",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "text": "looked",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "text": "at",
+          "start": 1.28,
+          "end": 1.42
+        },
+        {
+          "text": "her",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "with",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "a",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "sort",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "of",
+          "start": 2.02,
+          "end": 2.12
+        },
+        {
+          "text": "surprise.",
+          "start": 2.12,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20395927783101797
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c7552dd80cc25e73e29a046f20f1feacef48155ff4ff7e3e7e47866287e3ca31",
+  "selected_reasons": []
+}

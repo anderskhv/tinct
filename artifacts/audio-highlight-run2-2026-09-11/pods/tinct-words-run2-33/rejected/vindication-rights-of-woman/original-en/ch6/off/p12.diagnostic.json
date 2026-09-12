@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "321a8fa0f8ff85dad6789143b9e7ae1b1ca81658a9b9d649e901bd7d66bf8b14",
+  "attempts": [
+    {
+      "asr_seconds": 0.2688804632052779,
+      "alignment_seconds": 0.0004857853055000305,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " In Beauty's Empire is no mean, and woman either slave or queen is quickly scorned when not adored.",
+          "start": 0.08,
+          "end": 6.62,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.76025390625
+            },
+            {
+              "text": " Beauty's",
+              "start": 0.56,
+              "end": 1.04,
+              "probability": 0.692626953125
+            },
+            {
+              "text": " Empire",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.572265625
+            },
+            {
+              "text": " is",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " no",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " mean,",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.953125
+            },
+            {
+              "text": " and",
+              "start": 2.62,
+              "end": 2.68,
+              "probability": 0.9375
+            },
+            {
+              "text": " woman",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.429931640625
+            },
+            {
+              "text": " either",
+              "start": 2.9,
+              "end": 3.24,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " slave",
+              "start": 3.24,
+              "end": 3.7,
+              "probability": 0.98046875
+            },
+            {
+              "text": " or",
+              "start": 3.7,
+              "end": 4.04,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " queen",
+              "start": 4.04,
+              "end": 4.4,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " is",
+              "start": 4.4,
+              "end": 4.98,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " quickly",
+              "start": 4.98,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " scorned",
+              "start": 5.22,
+              "end": 5.82,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " when",
+              "start": 5.82,
+              "end": 6.0,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 6.0,
+              "end": 6.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " adored.",
+              "start": 6.2,
+              "end": 6.62,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Beauty's",
+          "start": 0.56,
+          "end": 1.04
+        },
+        {
+          "raw": "Empire",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "no",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "mean,",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "raw": "and",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "raw": "woman",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "either",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "raw": "slave",
+          "start": 3.24,
+          "end": 3.7
+        },
+        {
+          "raw": "or",
+          "start": 3.7,
+          "end": 4.04
+        },
+        {
+          "raw": "queen",
+          "start": 4.04,
+          "end": 4.4
+        },
+        {
+          "raw": "is",
+          "start": 4.4,
+          "end": 4.98
+        },
+        {
+          "raw": "quickly",
+          "start": 4.98,
+          "end": 5.22
+        },
+        {
+          "raw": "scorned",
+          "start": 5.22,
+          "end": 5.82
+        },
+        {
+          "raw": "when",
+          "start": 5.82,
+          "end": 6.0
+        },
+        {
+          "raw": "not",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "raw": "adored.",
+          "start": 6.2,
+          "end": 6.62
+        }
+      ],
+      "expected_tokens": [
+        "\"In",
+        "beauty's",
+        "empire",
+        "is",
+        "no",
+        "mean,",
+        "And",
+        "woman",
+        "either",
+        "slave",
+        "or",
+        "queen,",
+        "Is",
+        "quickly",
+        "scorn'd",
+        "when",
+        "not",
+        "ador'd.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          17,
+          15,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Beauty's",
+          "start": 0.56,
+          "end": 1.04,
+          "key": "beautys",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Empire",
+          "start": 1.04,
+          "end": 1.36,
+          "key": "empire",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mean,",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "mean",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.62,
+          "end": 2.68,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 2.68,
+          "end": 2.9,
+          "key": "woman",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 2.9,
+          "end": 3.24,
+          "key": "either",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slave",
+          "start": 3.24,
+          "end": 3.7,
+          "key": "slave",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 3.7,
+          "end": 4.04,
+          "key": "or",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "queen",
+          "start": 4.04,
+          "end": 4.4,
+          "key": "queen",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.4,
+          "end": 4.98,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 4.98,
+          "end": 5.22,
+          "key": "quickly",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "scorned",
+          "start": 5.22,
+          "end": 5.82,
+          "key": "scorned",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 5.82,
+          "end": 6.0,
+          "key": "when",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.0,
+          "end": 6.2,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "adored.",
+          "start": 6.2,
+          "end": 6.62,
+          "key": "adored",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"In",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "beauty's",
+          "start": 0.56,
+          "end": 1.04
+        },
+        {
+          "text": "empire",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "is",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "no",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "mean,",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "text": "And",
+          "start": 2.62,
+          "end": 2.68
+        },
+        {
+          "text": "woman",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "either",
+          "start": 2.9,
+          "end": 3.24
+        },
+        {
+          "text": "slave",
+          "start": 3.24,
+          "end": 3.7
+        },
+        {
+          "text": "or",
+          "start": 3.7,
+          "end": 4.04
+        },
+        {
+          "text": "queen,",
+          "start": 4.04,
+          "end": 4.4
+        },
+        {
+          "text": "Is",
+          "start": 4.4,
+          "end": 4.98
+        },
+        {
+          "text": "quickly",
+          "start": 4.98,
+          "end": 5.22
+        },
+        {
+          "text": "scorn'd",
+          "start": 5.22,
+          "end": 5.52
+        },
+        {
+          "text": "when",
+          "start": 5.82,
+          "end": 6.0
+        },
+        {
+          "text": "not",
+          "start": 6.0,
+          "end": 6.2
+        },
+        {
+          "text": "ador'd.\"",
+          "start": 6.2,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.269570822827518
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "368d83ca99f0a533c6104e190084da63ac50b43935d0cc4dbe6824fd93f166f6",
+  "selected_reasons": []
+}

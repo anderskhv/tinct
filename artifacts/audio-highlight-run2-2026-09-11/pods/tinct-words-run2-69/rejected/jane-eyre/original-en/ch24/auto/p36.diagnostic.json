@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "598ced12093bfbc527b6d2ce353ca2f45099f4c9274f67e8456f7b3b17f1a74a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3235228080302477,
+      "alignment_seconds": 0.0006669620051980019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But before me: if I, indeed, in any respect come up to your difficult standard?\"",
+        "hotwords": "But, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But before me, if I, indeed, in any respect come up to your difficult standard?\"",
+          "start": 0.11,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " before",
+              "start": 0.53,
+              "end": 0.91,
+              "probability": 0.978515625
+            },
+            {
+              "text": " me,",
+              "start": 0.91,
+              "end": 1.23,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " if",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I,",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " indeed,",
+              "start": 2.17,
+              "end": 2.29,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in",
+              "start": 2.61,
+              "end": 2.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " any",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " respect",
+              "start": 2.89,
+              "end": 3.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " come",
+              "start": 3.25,
+              "end": 3.51,
+              "probability": 0.666015625
+            },
+            {
+              "text": " up",
+              "start": 3.51,
+              "end": 3.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.63,
+              "end": 3.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 3.75,
+              "end": 3.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " difficult",
+              "start": 3.85,
+              "end": 4.13,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " standard?\"",
+              "start": 4.13,
+              "end": 5.39,
+              "probability": 0.49860095977783203
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "before",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "raw": "me,",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "raw": "if",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "I,",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "indeed,",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "raw": "in",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "raw": "any",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "respect",
+          "start": 2.89,
+          "end": 3.25
+        },
+        {
+          "raw": "come",
+          "start": 3.25,
+          "end": 3.51
+        },
+        {
+          "raw": "up",
+          "start": 3.51,
+          "end": 3.63
+        },
+        {
+          "raw": "to",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "raw": "your",
+          "start": 3.75,
+          "end": 3.85
+        },
+        {
+          "raw": "difficult",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "raw": "standard?\"",
+          "start": 4.13,
+          "end": 5.39
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "before",
+        "me:",
+        "if",
+        "I,",
+        "indeed,",
+        "in",
+        "any",
+        "respect",
+        "come",
+        "up",
+        "to",
+        "your",
+        "difficult",
+        "standard?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 0.53,
+          "end": 0.91,
+          "key": "before",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.91,
+          "end": 1.23,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 2.17,
+          "end": 2.29,
+          "key": "indeed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.61,
+          "end": 2.67,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 2.67,
+          "end": 2.89,
+          "key": "any",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "respect",
+          "start": 2.89,
+          "end": 3.25,
+          "key": "respect",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 3.25,
+          "end": 3.51,
+          "key": "come",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.51,
+          "end": 3.63,
+          "key": "up",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.63,
+          "end": 3.75,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.75,
+          "end": 3.85,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "difficult",
+          "start": 3.85,
+          "end": 4.13,
+          "key": "difficult",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "standard?\"",
+          "start": 4.13,
+          "end": 5.39,
+          "key": "standard",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "before",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "text": "me:",
+          "start": 0.91,
+          "end": 1.23
+        },
+        {
+          "text": "if",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "I,",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "indeed,",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "text": "in",
+          "start": 2.61,
+          "end": 2.67
+        },
+        {
+          "text": "any",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "text": "respect",
+          "start": 2.89,
+          "end": 3.25
+        },
+        {
+          "text": "come",
+          "start": 3.25,
+          "end": 3.51
+        },
+        {
+          "text": "up",
+          "start": 3.51,
+          "end": 3.63
+        },
+        {
+          "text": "to",
+          "start": 3.63,
+          "end": 3.75
+        },
+        {
+          "text": "your",
+          "start": 3.75,
+          "end": 3.85
+        },
+        {
+          "text": "difficult",
+          "start": 3.85,
+          "end": 4.13
+        },
+        {
+          "text": "standard?\"",
+          "start": 4.13,
+          "end": 5.39
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32444889657199383
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae7ae869e01f797c2f6e78fb09ab961f67c1ec505fd23e929f5e3f58df63575e",
+  "selected_reasons": []
+}

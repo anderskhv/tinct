@@ -1,0 +1,219 @@
+{
+  "complete": true,
+  "signature": "f80c66995bf5c30221f598bc3db9c6ad4662c57950b4c766e1797961cef55cf0",
+  "attempts": [
+    {
+      "asr_seconds": 0.20129187998827547,
+      "alignment_seconds": 0.00041451698052696884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kaska, he spoke Greek.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Kaska,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6068115234375
+            },
+            {
+              "text": " he",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.23876953125
+            },
+            {
+              "text": " spoke",
+              "start": 1.31,
+              "end": 1.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Greek.",
+              "start": 1.61,
+              "end": 1.95,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kaska,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "he",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "spoke",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "raw": "Greek.",
+          "start": 1.61,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Ay,",
+        "he",
+        "spoke",
+        "Greek."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          5,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kaska,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "kaska",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 1.31,
+          "end": 1.61,
+          "key": "spoke",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Greek.",
+          "start": 1.61,
+          "end": 1.95,
+          "key": "greek",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.0,
+          "end": 0.575
+        },
+        {
+          "text": "Ay,",
+          "start": 0.575,
+          "end": 0.862
+        },
+        {
+          "text": "he",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "spoke",
+          "start": 1.31,
+          "end": 1.61
+        },
+        {
+          "text": "Greek.",
+          "start": 1.61,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20182131498586386
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "486df3457755fca3b042603705d8e9fe86a094edd5daeeec8df24ddeca578c07",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

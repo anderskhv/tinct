@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "6fbe7c2cb25c1d5e05ece29e6b1ee13e72640de59e646eeed7bb06bde3e662ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.13493403512984514,
+      "alignment_seconds": 0.00030697882175445557,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Titus Lardius.",
+          "start": 0.14,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " Titus",
+              "start": 0.66,
+              "end": 1.02,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " Lardius.",
+              "start": 1.02,
+              "end": 1.52,
+              "probability": 0.8009440104166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "Titus",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "raw": "Lardius.",
+          "start": 1.02,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Titus",
+        "Lartius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Titus",
+          "start": 0.66,
+          "end": 1.02,
+          "key": "titus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lardius.",
+          "start": 1.02,
+          "end": 1.52,
+          "key": "lardius",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Titus",
+          "start": 0.66,
+          "end": 1.02
+        },
+        {
+          "text": "Lartius.",
+          "start": 1.02,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1353503605350852
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b1d14a795517aaccaac8f53fbca9bbb8daf843e6c010e783b8cd2a677f864fac",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

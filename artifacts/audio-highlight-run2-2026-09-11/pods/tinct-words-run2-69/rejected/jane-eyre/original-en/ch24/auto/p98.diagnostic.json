@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "bec82d8d15c3e36cf9f682f18375a3b8de880c29360784709419cd82338b7902",
+  "attempts": [
+    {
+      "asr_seconds": 0.21978574991226196,
+      "alignment_seconds": 0.0004194844514131546,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Not it: she will be a restraint.\"",
+        "hotwords": "Not"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not it. She will be a restraint.",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.869140625
+            },
+            {
+              "text": " it.",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.990234375
+            },
+            {
+              "text": " She",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.990234375
+            },
+            {
+              "text": " will",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 1.4,
+              "end": 1.5,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " restraint.",
+              "start": 1.5,
+              "end": 1.92,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "it.",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "She",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "will",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "be",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "a",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "raw": "restraint.",
+          "start": 1.5,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "it:",
+        "she",
+        "will",
+        "be",
+        "a",
+        "restraint.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.4,
+          "end": 1.5,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "restraint.",
+          "start": 1.5,
+          "end": 1.92,
+          "key": "restraint",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "it:",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "she",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "text": "will",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "be",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "a",
+          "start": 1.4,
+          "end": 1.5
+        },
+        {
+          "text": "restraint.\"",
+          "start": 1.5,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22036085184663534
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "29c71fcfeebbf21c93217628bbb9ffea7319df5574c3b6f82f0b4637cdfff891",
+  "selected_reasons": []
+}

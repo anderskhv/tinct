@@ -1,0 +1,324 @@
+{
+  "complete": true,
+  "signature": "31107014588d3e815de31de362c26d0295b2868595f481ebeedfa1911845558a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13142643496394157,
+      "alignment_seconds": 0.00017926795408129692,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, as I foe, fire upon thee.",
+          "start": 0.08,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " as",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.9296875
+            },
+            {
+              "text": " I",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " foe,",
+              "start": 1.48,
+              "end": 1.74,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " fire",
+              "start": 1.98,
+              "end": 2.0,
+              "probability": 0.410400390625
+            },
+            {
+              "text": " upon",
+              "start": 2.0,
+              "end": 2.3,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " thee.",
+              "start": 2.3,
+              "end": 2.58,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "as",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "I",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "foe,",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "raw": "fire",
+          "start": 1.98,
+          "end": 2.0
+        },
+        {
+          "raw": "upon",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "raw": "thee.",
+          "start": 2.3,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "As",
+        "I?",
+        "Foh!",
+        "fie",
+        "upon",
+        "thee!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "foe,",
+          "start": 1.48,
+          "end": 1.74,
+          "key": "foe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 1.98,
+          "end": 2.0,
+          "key": "fire",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.0,
+          "end": 2.3,
+          "key": "upon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 2.3,
+          "end": 2.58,
+          "key": "thee",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "As",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "I?",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "Foh!",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "text": "fie",
+          "start": 1.74,
+          "end": 1.87
+        },
+        {
+          "text": "upon",
+          "start": 2.0,
+          "end": 2.3
+        },
+        {
+          "text": "thee!",
+          "start": 2.3,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13166690291836858
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a1373a746526a5d24e8ada57f65e1b00164504d24174b0acd8dde4395a36523b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

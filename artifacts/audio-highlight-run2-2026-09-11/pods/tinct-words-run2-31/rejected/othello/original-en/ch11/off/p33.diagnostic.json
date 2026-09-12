@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "1935796a586a3ef6b9637d6b3209e264d3b538a7c3fd43eb79425dbeaeab1435",
+  "attempts": [
+    {
+      "asr_seconds": 0.09987125964835286,
+      "alignment_seconds": 0.00013961782678961754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit Casio.",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " Casio.",
+              "start": 0.66,
+              "end": 1.22,
+              "probability": 0.810791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Casio.",
+          "start": 0.66,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[Exit",
+        "Cassio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Casio.",
+          "start": 0.66,
+          "end": 1.22,
+          "key": "casio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Cassio.]",
+          "start": 0.66,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10004711803048849
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2204694bf38c3408ceeb5fb42c56e1b80831f166a1417a294bd7afe685a8c02f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

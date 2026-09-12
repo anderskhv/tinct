@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "fae62fce6fad6f581bc40067cb44e3a9df5df85c2e1b450203ee6ecf7f8b138c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12920353561639786,
+      "alignment_seconds": 0.00016793981194496155,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I retired as directed.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I retired as directed.",
+          "start": 0.11,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " retired",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " as",
+              "start": 0.93,
+              "end": 1.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " directed.",
+              "start": 1.19,
+              "end": 1.63,
+              "probability": 0.91748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "retired",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "as",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "raw": "directed.",
+          "start": 1.19,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "retired",
+        "as",
+        "directed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "retired",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "retired",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.93,
+          "end": 1.19,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "directed.",
+          "start": 1.19,
+          "end": 1.63,
+          "key": "directed",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "retired",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "as",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "text": "directed.",
+          "start": 1.19,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12943290919065475
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "978808d28d9b48866d79a44847f5e642ec67c4831c300db1134b18fca44de0b1",
+  "selected_reasons": []
+}

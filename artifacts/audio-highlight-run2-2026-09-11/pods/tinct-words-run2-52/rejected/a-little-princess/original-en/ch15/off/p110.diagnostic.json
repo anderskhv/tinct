@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "1612c748162538a1acc93b5d74786b9523c5bc4654b244ecf027ed37df670185",
+  "attempts": [
+    {
+      "asr_seconds": 0.2261289432644844,
+      "alignment_seconds": 0.00040169432759284973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, Sarah, she cried.",
+          "start": 0.11,
+          "end": 1.87,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.1524658203125
+            },
+            {
+              "text": " Sarah,",
+              "start": 0.71,
+              "end": 1.01,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " she",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " cried.",
+              "start": 1.55,
+              "end": 1.87,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " What a silly thing I am not to have thought of it.",
+          "start": 2.49,
+          "end": 4.25,
+          "words": [
+            {
+              "text": " What",
+              "start": 2.49,
+              "end": 2.55,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " a",
+              "start": 2.55,
+              "end": 2.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " silly",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 3.09,
+              "end": 3.25,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " am",
+              "start": 3.25,
+              "end": 3.33,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " not",
+              "start": 3.33,
+              "end": 3.45,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " to",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have",
+              "start": 3.57,
+              "end": 3.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thought",
+              "start": 3.67,
+              "end": 3.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.93,
+              "end": 4.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 4.07,
+              "end": 4.25,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Sarah,",
+          "start": 0.71,
+          "end": 1.01
+        },
+        {
+          "raw": "she",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "cried.",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "raw": "What",
+          "start": 2.49,
+          "end": 2.55
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "raw": "silly",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "thing",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "I",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "raw": "am",
+          "start": 3.25,
+          "end": 3.33
+        },
+        {
+          "raw": "not",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "raw": "to",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "have",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "raw": "thought",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "raw": "it.",
+          "start": 4.07,
+          "end": 4.25
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "Sara!\"",
+        "she",
+        "cried.",
+        "\"What",
+        "a",
+        "silly",
+        "thing",
+        "I",
+        "am",
+        "not",
+        "to",
+        "have",
+        "thought",
+        "of",
+        "it!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          16,
+          2,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sarah,",
+          "start": 0.71,
+          "end": 1.01,
+          "key": "sarah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.35,
+          "end": 1.55,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried.",
+          "start": 1.55,
+          "end": 1.87,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.49,
+          "end": 2.55,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.67,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "silly",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "silly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "thing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.09,
+          "end": 3.25,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.25,
+          "end": 3.33,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.33,
+          "end": 3.45,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.57,
+          "end": 3.67,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 3.67,
+          "end": 3.93,
+          "key": "thought",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.93,
+          "end": 4.07,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 4.07,
+          "end": 4.25,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Sara!\"",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "text": "she",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "cried.",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "\"What",
+          "start": 2.49,
+          "end": 2.55
+        },
+        {
+          "text": "a",
+          "start": 2.55,
+          "end": 2.67
+        },
+        {
+          "text": "silly",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "thing",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "I",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "am",
+          "start": 3.25,
+          "end": 3.33
+        },
+        {
+          "text": "not",
+          "start": 3.33,
+          "end": 3.45
+        },
+        {
+          "text": "to",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "have",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "text": "thought",
+          "start": 3.67,
+          "end": 3.93
+        },
+        {
+          "text": "of",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "text": "it!\"",
+          "start": 4.07,
+          "end": 4.25
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.22668486833572388
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3102a7b245b5cea516e7c6c3b2c6ee8564b90dda16ce1e68b1845e3ac834f3d7",
+  "selected_reasons": []
+}

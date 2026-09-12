@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "5191a8607f6d9c14cae341e3e69fd3b5b354b7571a1a4beb1fb7f0ba0b32593a",
+  "attempts": [
+    {
+      "asr_seconds": 0.17272197036072612,
+      "alignment_seconds": 0.0003117769956588745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. 'Las, what's the matter? What's the matter, husband?",
+        "hotwords": "Emilia, Las"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, Las, what's the matter? What's the matter, husband?",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.65625
+            },
+            {
+              "text": " Las,",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 4.13060188293457e-05
+            },
+            {
+              "text": " what's",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.912841796875
+            },
+            {
+              "text": " the",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " matter?",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " What's",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " the",
+              "start": 2.73,
+              "end": 2.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " matter,",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " husband?",
+              "start": 3.27,
+              "end": 3.39,
+              "probability": 0.9345703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Las,",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "raw": "what's",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "matter?",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "What's",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "raw": "matter,",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "husband?",
+          "start": 3.27,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "'Las,",
+        "what's",
+        "the",
+        "matter?",
+        "What's",
+        "the",
+        "matter,",
+        "husband?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Las,",
+          "start": 1.29,
+          "end": 1.57,
+          "key": "las",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what's",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "whats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matter?",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "matter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "whats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.83,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 2.83,
+          "end": 3.07,
+          "key": "matter",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "husband?",
+          "start": 3.27,
+          "end": 3.39,
+          "key": "husband",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "'Las,",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "text": "what's",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "the",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "matter?",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "What's",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "the",
+          "start": 2.73,
+          "end": 2.83
+        },
+        {
+          "text": "matter,",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "husband?",
+          "start": 3.27,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17316113505512476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4415d9aa9c30c6cf035e88334b8f74e4cd090d8d7b55249bf87b6c3d62c14e27",
+  "selected_reasons": []
+}

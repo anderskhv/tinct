@@ -1,0 +1,470 @@
+{
+  "complete": true,
+  "signature": "a2aab4099d852254257213e6063a7d0cccf02704f73f1ecbca2099ed8ce7873b",
+  "attempts": [
+    {
+      "asr_seconds": 0.30173325445502996,
+      "alignment_seconds": 0.0005531162023544312,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pistol, brass, cur, thou damned and luxurious mountain goat, offer steamy brass.",
+          "start": 0.0,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.487060546875
+            },
+            {
+              "text": " brass,",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " cur,",
+              "start": 1.84,
+              "end": 1.88,
+              "probability": 0.7197265625
+            },
+            {
+              "text": " thou",
+              "start": 2.56,
+              "end": 2.68,
+              "probability": 0.3046875
+            },
+            {
+              "text": " damned",
+              "start": 2.68,
+              "end": 3.06,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " and",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " luxurious",
+              "start": 3.22,
+              "end": 3.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " mountain",
+              "start": 3.66,
+              "end": 4.08,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " goat,",
+              "start": 4.08,
+              "end": 4.52,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " offer",
+              "start": 4.78,
+              "end": 4.84,
+              "probability": 0.650390625
+            },
+            {
+              "text": " steamy",
+              "start": 4.84,
+              "end": 5.22,
+              "probability": 0.9609375
+            },
+            {
+              "text": " brass.",
+              "start": 5.22,
+              "end": 5.5,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "brass,",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "cur,",
+          "start": 1.84,
+          "end": 1.88
+        },
+        {
+          "raw": "thou",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "raw": "damned",
+          "start": 2.68,
+          "end": 3.06
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "luxurious",
+          "start": 3.22,
+          "end": 3.66
+        },
+        {
+          "raw": "mountain",
+          "start": 3.66,
+          "end": 4.08
+        },
+        {
+          "raw": "goat,",
+          "start": 4.08,
+          "end": 4.52
+        },
+        {
+          "raw": "offer",
+          "start": 4.78,
+          "end": 4.84
+        },
+        {
+          "raw": "steamy",
+          "start": 4.84,
+          "end": 5.22
+        },
+        {
+          "raw": "brass.",
+          "start": 5.22,
+          "end": 5.5
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "Brass,",
+        "cur!",
+        "Thou",
+        "damned",
+        "and",
+        "luxurious",
+        "mountain",
+        "goat,",
+        "Offer'st",
+        "me",
+        "brass?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          11
+        ],
+        [
+          "equal",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          11,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "brass,",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "brass",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cur,",
+          "start": 1.84,
+          "end": 1.88,
+          "key": "cur",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.56,
+          "end": 2.68,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "damned",
+          "start": 2.68,
+          "end": 3.06,
+          "key": "damned",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.22,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "luxurious",
+          "start": 3.22,
+          "end": 3.66,
+          "key": "luxurious",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mountain",
+          "start": 3.66,
+          "end": 4.08,
+          "key": "mountain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "goat,",
+          "start": 4.08,
+          "end": 4.52,
+          "key": "goat",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "offer",
+          "start": 4.78,
+          "end": 4.84,
+          "key": "offer",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "steamy",
+          "start": 4.84,
+          "end": 5.22,
+          "key": "steamy",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "brass.",
+          "start": 5.22,
+          "end": 5.5,
+          "key": "brass",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "Brass,",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "cur!",
+          "start": 1.84,
+          "end": 1.88
+        },
+        {
+          "text": "Thou",
+          "start": 2.56,
+          "end": 2.68
+        },
+        {
+          "text": "damned",
+          "start": 2.68,
+          "end": 3.06
+        },
+        {
+          "text": "and",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "luxurious",
+          "start": 3.22,
+          "end": 3.66
+        },
+        {
+          "text": "mountain",
+          "start": 3.66,
+          "end": 4.08
+        },
+        {
+          "text": "goat,",
+          "start": 4.08,
+          "end": 4.52
+        },
+        {
+          "text": "Offer'st",
+          "start": 4.52,
+          "end": 4.87
+        },
+        {
+          "text": "me",
+          "start": 4.87,
+          "end": 5.045
+        },
+        {
+          "text": "brass?",
+          "start": 5.22,
+          "end": 5.5
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.30248229391872883
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aea3f21f1a16d5e41b0a404ab9d75b194663ff6c2694642de968bb94f6e676d0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

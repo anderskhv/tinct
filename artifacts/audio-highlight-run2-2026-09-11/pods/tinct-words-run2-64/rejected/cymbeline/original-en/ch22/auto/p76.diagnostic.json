@@ -1,0 +1,1927 @@
+{
+  "complete": true,
+  "signature": "db2b00816c0b3e9c1335731a16861d6f6ca97d0766b7b57643a36d861f30bc3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.35998063813894987,
+      "alignment_seconds": 0.0008658925071358681,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Belarius. I had no mind To hunt this day; the boy Fidele's sickness Did make my way long forth.",
+        "hotwords": "Belarius, I, To, Fidele's, Did"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Belarius, I, To, Fidele's, Did Belarius. I, To, Fidele's, Did Belarius.",
+          "start": 0.02,
+          "end": 6.18,
+          "words": [
+            {
+              "text": " Belarius,",
+              "start": 0.02,
+              "end": 0.94,
+              "probability": 0.0636749267578125
+            },
+            {
+              "text": " I,",
+              "start": 1.24,
+              "end": 1.66,
+              "probability": 0.986328125
+            },
+            {
+              "text": " To,",
+              "start": 1.72,
+              "end": 1.94,
+              "probability": 3.7550926208496094e-06
+            },
+            {
+              "text": " Fidele's,",
+              "start": 2.0,
+              "end": 4.16,
+              "probability": 0.3029760420322418
+            },
+            {
+              "text": " Did",
+              "start": 4.48,
+              "end": 4.76,
+              "probability": 0.0029659271240234375
+            },
+            {
+              "text": " Belarius.",
+              "start": 4.76,
+              "end": 5.28,
+              "probability": 0.0011324882507324219
+            },
+            {
+              "text": " I,",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.308837890625
+            },
+            {
+              "text": " To,",
+              "start": 5.28,
+              "end": 5.28,
+              "probability": 0.0312042236328125
+            },
+            {
+              "text": " Fidele's,",
+              "start": 5.28,
+              "end": 5.92,
+              "probability": 0.751708984375
+            },
+            {
+              "text": " Did",
+              "start": 5.92,
+              "end": 5.92,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " Belarius.",
+              "start": 5.92,
+              "end": 6.18,
+              "probability": 0.41168212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Belarius,",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "raw": "I,",
+          "start": 1.24,
+          "end": 1.66
+        },
+        {
+          "raw": "To,",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "raw": "Fidele's,",
+          "start": 2.0,
+          "end": 4.16
+        },
+        {
+          "raw": "Did",
+          "start": 4.48,
+          "end": 4.76
+        },
+        {
+          "raw": "Belarius.",
+          "start": 4.76,
+          "end": 5.28
+        },
+        {
+          "raw": "I,",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "To,",
+          "start": 5.28,
+          "end": 5.28
+        },
+        {
+          "raw": "Fidele's,",
+          "start": 5.28,
+          "end": 5.92
+        },
+        {
+          "raw": "Did",
+          "start": 5.92,
+          "end": 5.92
+        },
+        {
+          "raw": "Belarius.",
+          "start": 5.92,
+          "end": 6.18
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "I",
+        "had",
+        "no",
+        "mind",
+        "To",
+        "hunt",
+        "this",
+        "day;",
+        "the",
+        "boy",
+        "Fidele's",
+        "sickness",
+        "Did",
+        "make",
+        "my",
+        "way",
+        "long",
+        "forth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          "equal",
+          5,
+          6,
+          2,
+          3
+        ],
+        [
+          "delete",
+          6,
+          11,
+          3,
+          3
+        ],
+        [
+          "equal",
+          11,
+          12,
+          3,
+          4
+        ],
+        [
+          "delete",
+          12,
+          13,
+          4,
+          4
+        ],
+        [
+          "equal",
+          13,
+          14,
+          4,
+          5
+        ],
+        [
+          "replace",
+          14,
+          19,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          "delete",
+          6,
+          11,
+          3,
+          3
+        ],
+        [
+          "delete",
+          12,
+          13,
+          4,
+          4
+        ],
+        [
+          "replace",
+          14,
+          19,
+          5,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Belarius,",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "belarius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.24,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "To,",
+          "start": 1.72,
+          "end": 1.94,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fidele's,",
+          "start": 2.0,
+          "end": 4.16,
+          "key": "fideles",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 4.48,
+          "end": 4.76,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Belarius.",
+          "start": 4.76,
+          "end": 5.28,
+          "key": "belarius",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "To,",
+          "start": 5.28,
+          "end": 5.28,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Fidele's,",
+          "start": 5.28,
+          "end": 5.92,
+          "key": "fideles",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 5.92,
+          "end": 5.92,
+          "key": "did",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Belarius.",
+          "start": 5.92,
+          "end": 6.18,
+          "key": "belarius",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "I",
+          "start": 1.24,
+          "end": 1.66
+        },
+        {
+          "text": "had",
+          "start": 1.66,
+          "end": 1.69
+        },
+        {
+          "text": "no",
+          "start": 1.69,
+          "end": 1.705
+        },
+        {
+          "text": "mind",
+          "start": 1.705,
+          "end": 1.712
+        },
+        {
+          "text": "To",
+          "start": 1.72,
+          "end": 1.94
+        },
+        {
+          "text": "hunt",
+          "start": 1.94,
+          "end": 1.97
+        },
+        {
+          "text": "this",
+          "start": 1.97,
+          "end": 1.985
+        },
+        {
+          "text": "day;",
+          "start": 1.985,
+          "end": 1.993
+        },
+        {
+          "text": "the",
+          "start": 1.993,
+          "end": 1.997
+        },
+        {
+          "text": "boy",
+          "start": 1.997,
+          "end": 1.998
+        },
+        {
+          "text": "Fidele's",
+          "start": 2.0,
+          "end": 4.16
+        },
+        {
+          "text": "sickness",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "text": "Did",
+          "start": 4.48,
+          "end": 4.76
+        },
+        {
+          "text": "make",
+          "start": 4.76,
+          "end": 5.47
+        },
+        {
+          "text": "my",
+          "start": 5.47,
+          "end": 5.825
+        },
+        {
+          "text": "way",
+          "start": 5.825,
+          "end": 6.002
+        },
+        {
+          "text": "long",
+          "start": 6.002,
+          "end": 6.091
+        },
+        {
+          "text": "forth.",
+          "start": 6.091,
+          "end": 6.136
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 11,
+        "matched_words": 5
+      },
+      "match_ratio": 0.2631578947368421,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3611649163067341
+    },
+    {
+      "asr_seconds": 0.3544626524671912,
+      "alignment_seconds": 0.0006618155166506767,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Belarius, I, To, Fidele's, Did"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I had no mind to hunt this day. The boy Fidele's sickness did make my way long forth.",
+          "start": 0.02,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.127197265625
+            },
+            {
+              "text": " had",
+              "start": 0.64,
+              "end": 1.74,
+              "probability": 0.95703125
+            },
+            {
+              "text": " no",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mind",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hunt",
+              "start": 2.3,
+              "end": 2.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " day.",
+              "start": 2.66,
+              "end": 2.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " The",
+              "start": 3.38,
+              "end": 3.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " boy",
+              "start": 3.42,
+              "end": 3.64,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Fidele's",
+              "start": 3.64,
+              "end": 4.16,
+              "probability": 0.555877685546875
+            },
+            {
+              "text": " sickness",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.990234375
+            },
+            {
+              "text": " did",
+              "start": 4.48,
+              "end": 4.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " make",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 5.02,
+              "end": 5.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " way",
+              "start": 5.2,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " long",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.94921875
+            },
+            {
+              "text": " forth.",
+              "start": 5.64,
+              "end": 5.98,
+              "probability": 0.97705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "had",
+          "start": 0.64,
+          "end": 1.74
+        },
+        {
+          "raw": "no",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "mind",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "to",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "hunt",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "day.",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "raw": "The",
+          "start": 3.38,
+          "end": 3.42
+        },
+        {
+          "raw": "boy",
+          "start": 3.42,
+          "end": 3.64
+        },
+        {
+          "raw": "Fidele's",
+          "start": 3.64,
+          "end": 4.16
+        },
+        {
+          "raw": "sickness",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "raw": "did",
+          "start": 4.48,
+          "end": 4.82
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "my",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "raw": "way",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "raw": "long",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "forth.",
+          "start": 5.64,
+          "end": 5.98
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "I",
+        "had",
+        "no",
+        "mind",
+        "To",
+        "hunt",
+        "this",
+        "day;",
+        "the",
+        "boy",
+        "Fidele's",
+        "sickness",
+        "Did",
+        "make",
+        "my",
+        "way",
+        "long",
+        "forth."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          19,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.64,
+          "end": 1.74,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "mind",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hunt",
+          "start": 2.3,
+          "end": 2.46,
+          "key": "hunt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "day.",
+          "start": 2.66,
+          "end": 2.94,
+          "key": "day",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.38,
+          "end": 3.42,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 3.42,
+          "end": 3.64,
+          "key": "boy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Fidele's",
+          "start": 3.64,
+          "end": 4.16,
+          "key": "fideles",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sickness",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "sickness",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 4.48,
+          "end": 4.82,
+          "key": "did",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 5.02,
+          "key": "make",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.02,
+          "end": 5.2,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 5.2,
+          "end": 5.4,
+          "key": "way",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 5.4,
+          "end": 5.64,
+          "key": "long",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "forth.",
+          "start": 5.64,
+          "end": 5.98,
+          "key": "forth",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "had",
+          "start": 0.64,
+          "end": 1.74
+        },
+        {
+          "text": "no",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "mind",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "To",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "hunt",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "text": "this",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "day;",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "text": "the",
+          "start": 3.38,
+          "end": 3.42
+        },
+        {
+          "text": "boy",
+          "start": 3.42,
+          "end": 3.64
+        },
+        {
+          "text": "Fidele's",
+          "start": 3.64,
+          "end": 4.16
+        },
+        {
+          "text": "sickness",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "text": "Did",
+          "start": 4.48,
+          "end": 4.82
+        },
+        {
+          "text": "make",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "my",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "text": "way",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "text": "long",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "forth.",
+          "start": 5.64,
+          "end": 5.98
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3552398672327399
+    },
+    {
+      "asr_seconds": 0.3506832355633378,
+      "alignment_seconds": 0.0005187634378671646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I had no mind to hunt this day.",
+          "start": 0.02,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.12744140625
+            },
+            {
+              "text": " had",
+              "start": 0.64,
+              "end": 1.74,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " no",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mind",
+              "start": 1.92,
+              "end": 2.14,
+              "probability": 0.98828125
+            },
+            {
+              "text": " to",
+              "start": 2.14,
+              "end": 2.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hunt",
+              "start": 2.3,
+              "end": 2.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 2.46,
+              "end": 2.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " day.",
+              "start": 2.66,
+              "end": 2.94,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " The boy Fidel's sickness did make my way long forth.",
+          "start": 3.38,
+          "end": 5.98,
+          "words": [
+            {
+              "text": " The",
+              "start": 3.38,
+              "end": 3.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " boy",
+              "start": 3.42,
+              "end": 3.64,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " Fidel's",
+              "start": 3.64,
+              "end": 4.16,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " sickness",
+              "start": 4.16,
+              "end": 4.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " did",
+              "start": 4.5,
+              "end": 4.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " make",
+              "start": 4.82,
+              "end": 5.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 5.02,
+              "end": 5.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " way",
+              "start": 5.2,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " long",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.9453125
+            },
+            {
+              "text": " forth.",
+              "start": 5.64,
+              "end": 5.98,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "had",
+          "start": 0.64,
+          "end": 1.74
+        },
+        {
+          "raw": "no",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "mind",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "raw": "to",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "raw": "hunt",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "raw": "day.",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "raw": "The",
+          "start": 3.38,
+          "end": 3.42
+        },
+        {
+          "raw": "boy",
+          "start": 3.42,
+          "end": 3.64
+        },
+        {
+          "raw": "Fidel's",
+          "start": 3.64,
+          "end": 4.16
+        },
+        {
+          "raw": "sickness",
+          "start": 4.16,
+          "end": 4.5
+        },
+        {
+          "raw": "did",
+          "start": 4.5,
+          "end": 4.82
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "raw": "my",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "raw": "way",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "raw": "long",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "forth.",
+          "start": 5.64,
+          "end": 5.98
+        }
+      ],
+      "expected_tokens": [
+        "Belarius.",
+        "I",
+        "had",
+        "no",
+        "mind",
+        "To",
+        "hunt",
+        "this",
+        "day;",
+        "the",
+        "boy",
+        "Fidele's",
+        "sickness",
+        "Did",
+        "make",
+        "my",
+        "way",
+        "long",
+        "forth."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          11,
+          0,
+          10
+        ],
+        [
+          "replace",
+          11,
+          12,
+          10,
+          11
+        ],
+        [
+          "equal",
+          12,
+          19,
+          11,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          11,
+          12,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.64,
+          "end": 1.74,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mind",
+          "start": 1.92,
+          "end": 2.14,
+          "key": "mind",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.14,
+          "end": 2.3,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hunt",
+          "start": 2.3,
+          "end": 2.46,
+          "key": "hunt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.46,
+          "end": 2.66,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "day.",
+          "start": 2.66,
+          "end": 2.94,
+          "key": "day",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.38,
+          "end": 3.42,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 3.42,
+          "end": 3.64,
+          "key": "boy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Fidel's",
+          "start": 3.64,
+          "end": 4.16,
+          "key": "fidels",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sickness",
+          "start": 4.16,
+          "end": 4.5,
+          "key": "sickness",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 4.5,
+          "end": 4.82,
+          "key": "did",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 4.82,
+          "end": 5.02,
+          "key": "make",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.02,
+          "end": 5.2,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 5.2,
+          "end": 5.4,
+          "key": "way",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 5.4,
+          "end": 5.64,
+          "key": "long",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "forth.",
+          "start": 5.64,
+          "end": 5.98,
+          "key": "forth",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Belarius.",
+          "start": 0.0,
+          "end": 0.01
+        },
+        {
+          "text": "I",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "had",
+          "start": 0.64,
+          "end": 1.74
+        },
+        {
+          "text": "no",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "mind",
+          "start": 1.92,
+          "end": 2.14
+        },
+        {
+          "text": "To",
+          "start": 2.14,
+          "end": 2.3
+        },
+        {
+          "text": "hunt",
+          "start": 2.3,
+          "end": 2.46
+        },
+        {
+          "text": "this",
+          "start": 2.46,
+          "end": 2.66
+        },
+        {
+          "text": "day;",
+          "start": 2.66,
+          "end": 2.94
+        },
+        {
+          "text": "the",
+          "start": 3.38,
+          "end": 3.42
+        },
+        {
+          "text": "boy",
+          "start": 3.42,
+          "end": 3.64
+        },
+        {
+          "text": "Fidele's",
+          "start": 3.64,
+          "end": 3.9
+        },
+        {
+          "text": "sickness",
+          "start": 4.16,
+          "end": 4.5
+        },
+        {
+          "text": "Did",
+          "start": 4.5,
+          "end": 4.82
+        },
+        {
+          "text": "make",
+          "start": 4.82,
+          "end": 5.02
+        },
+        {
+          "text": "my",
+          "start": 5.02,
+          "end": 5.2
+        },
+        {
+          "text": "way",
+          "start": 5.2,
+          "end": 5.4
+        },
+        {
+          "text": "long",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "forth.",
+          "start": 5.64,
+          "end": 5.98
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.35141696501523256
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "d148c4103eab67a50d47c92b11be1804fb2d3c48aac662074cfa9eb28983a43c",
+  "selected_reasons": []
+}

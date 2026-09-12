@@ -1,0 +1,290 @@
+{
+  "complete": true,
+  "signature": "85c29f0a351c3e4b9b240c93387230a2f761756d04284735a8ece8c3d9ad5996",
+  "attempts": [
+    {
+      "asr_seconds": 0.13115400075912476,
+      "alignment_seconds": 0.0004462534561753273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Have your boat ready to sail.",
+          "start": 0.08,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.912109375
+            },
+            {
+              "text": " your",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " boat",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ready",
+              "start": 0.88,
+              "end": 1.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.06,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sail.",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "your",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "boat",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "ready",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "raw": "to",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "raw": "sail.",
+          "start": 1.26,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "a",
+        "boat",
+        "ready",
+        "to",
+        "sail?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          7,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "boat",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "boat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 0.88,
+          "end": 1.06,
+          "key": "ready",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.06,
+          "end": 1.26,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sail.",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "sail",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.59
+        },
+        {
+          "text": "a",
+          "start": 0.59,
+          "end": 0.625
+        },
+        {
+          "text": "boat",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "ready",
+          "start": 0.88,
+          "end": 1.06
+        },
+        {
+          "text": "to",
+          "start": 1.06,
+          "end": 1.26
+        },
+        {
+          "text": "sail?\"",
+          "start": 1.26,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13175327610224485
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f8ca1089243c64ca7069d4d09b0d1c4e074fb2e128a7ba51039b8cb15d6702b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

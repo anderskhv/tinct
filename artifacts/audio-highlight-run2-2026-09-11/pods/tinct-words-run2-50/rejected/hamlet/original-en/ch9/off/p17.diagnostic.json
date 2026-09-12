@@ -1,0 +1,583 @@
+{
+  "complete": true,
+  "signature": "44a2d27092614513f102954d158cc72f767abe21a9bb9adc82a853f591c6697f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3252685125917196,
+      "alignment_seconds": 0.000489434227347374,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Horatio, thou art een as just a man as ere my conversation copped withal.",
+          "start": 0.05,
+          "end": 5.53,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.876953125
+            },
+            {
+              "text": " Horatio,",
+              "start": 1.29,
+              "end": 1.85,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " thou",
+              "start": 2.23,
+              "end": 2.27,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " art",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " een",
+              "start": 2.53,
+              "end": 2.81,
+              "probability": 0.718505859375
+            },
+            {
+              "text": " as",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " just",
+              "start": 2.95,
+              "end": 3.13,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " a",
+              "start": 3.13,
+              "end": 3.29,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " man",
+              "start": 3.29,
+              "end": 3.49,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " as",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.498291015625
+            },
+            {
+              "text": " ere",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.888427734375
+            },
+            {
+              "text": " my",
+              "start": 3.93,
+              "end": 4.09,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " conversation",
+              "start": 4.09,
+              "end": 4.65,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " copped",
+              "start": 4.65,
+              "end": 5.19,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " withal.",
+              "start": 5.19,
+              "end": 5.53,
+              "probability": 0.962158203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.29,
+          "end": 1.85
+        },
+        {
+          "raw": "thou",
+          "start": 2.23,
+          "end": 2.27
+        },
+        {
+          "raw": "art",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "een",
+          "start": 2.53,
+          "end": 2.81
+        },
+        {
+          "raw": "as",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "just",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "raw": "a",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "raw": "man",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "raw": "as",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "ere",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "my",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "raw": "conversation",
+          "start": 4.09,
+          "end": 4.65
+        },
+        {
+          "raw": "copped",
+          "start": 4.65,
+          "end": 5.19
+        },
+        {
+          "raw": "withal.",
+          "start": 5.19,
+          "end": 5.53
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Horatio,",
+        "thou",
+        "art",
+        "e'en",
+        "as",
+        "just",
+        "a",
+        "man",
+        "As",
+        "e'er",
+        "my",
+        "conversation",
+        "cop'd",
+        "withal."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          13,
+          11,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Horatio,",
+          "start": 1.29,
+          "end": 1.85,
+          "key": "horatio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.23,
+          "end": 2.27,
+          "key": "thou",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.27,
+          "end": 2.53,
+          "key": "art",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "een",
+          "start": 2.53,
+          "end": 2.81,
+          "key": "een",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.95,
+          "end": 3.13,
+          "key": "just",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.13,
+          "end": 3.29,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.29,
+          "end": 3.49,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.49,
+          "end": 3.69,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "ere",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.93,
+          "end": 4.09,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "conversation",
+          "start": 4.09,
+          "end": 4.65,
+          "key": "conversation",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "copped",
+          "start": 4.65,
+          "end": 5.19,
+          "key": "copped",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "withal.",
+          "start": 5.19,
+          "end": 5.53,
+          "key": "withal",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Horatio,",
+          "start": 1.29,
+          "end": 1.85
+        },
+        {
+          "text": "thou",
+          "start": 2.23,
+          "end": 2.27
+        },
+        {
+          "text": "art",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "e'en",
+          "start": 2.53,
+          "end": 2.81
+        },
+        {
+          "text": "as",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "just",
+          "start": 2.95,
+          "end": 3.13
+        },
+        {
+          "text": "a",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "text": "man",
+          "start": 3.29,
+          "end": 3.49
+        },
+        {
+          "text": "As",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "e'er",
+          "start": 3.69,
+          "end": 3.81
+        },
+        {
+          "text": "my",
+          "start": 3.93,
+          "end": 4.09
+        },
+        {
+          "text": "conversation",
+          "start": 4.09,
+          "end": 4.65
+        },
+        {
+          "text": "cop'd",
+          "start": 4.65,
+          "end": 4.92
+        },
+        {
+          "text": "withal.",
+          "start": 5.19,
+          "end": 5.53
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.32593418657779694
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4175d4d6879cf0d7d515ccc6983ca61a5f296e15374ffff343f57763c4136910",
+  "selected_reasons": []
+}

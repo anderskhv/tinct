@@ -1,0 +1,613 @@
+{
+  "complete": true,
+  "signature": "8f189cc862a946e6e446d69ada3fe63b2879b7c8380ee10f3250c2280823ad2e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17591731250286102,
+      "alignment_seconds": 0.00023744255304336548,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Curan. Have you heard of no likely wars toward, 'twixt the two dukes of Cornwall and Albany?",
+        "hotwords": "Curan, Have, Cornwall, Albany"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Curan, Have you heard of no likely wars toward,",
+          "start": 0.02,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " Curan,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.189453125
+            },
+            {
+              "text": " Have",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.023895263671875
+            },
+            {
+              "text": " you",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " heard",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " no",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " likely",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.982421875
+            },
+            {
+              "text": " wars",
+              "start": 2.14,
+              "end": 2.42,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " toward,",
+              "start": 2.42,
+              "end": 2.84,
+              "probability": 0.515625
+            }
+          ]
+        },
+        {
+          "text": " Twixt the two dukes of Cornwall and Albany?",
+          "start": 3.4,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " Twixt",
+              "start": 3.4,
+              "end": 3.64,
+              "probability": 0.2637176513671875
+            },
+            {
+              "text": " the",
+              "start": 3.64,
+              "end": 3.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " two",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " dukes",
+              "start": 4.04,
+              "end": 4.28,
+              "probability": 0.751953125
+            },
+            {
+              "text": " of",
+              "start": 4.28,
+              "end": 4.46,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Cornwall",
+              "start": 4.46,
+              "end": 4.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.8,
+              "end": 5.1,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Albany?",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Curan,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Have",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "heard",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "no",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "likely",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "wars",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "raw": "toward,",
+          "start": 2.42,
+          "end": 2.84
+        },
+        {
+          "raw": "Twixt",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "raw": "the",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "raw": "two",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "raw": "dukes",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "raw": "of",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "raw": "Cornwall",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "raw": "and",
+          "start": 4.8,
+          "end": 5.1
+        },
+        {
+          "raw": "Albany?",
+          "start": 5.1,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "Curan.",
+        "Have",
+        "you",
+        "heard",
+        "of",
+        "no",
+        "likely",
+        "wars",
+        "toward,",
+        "'twixt",
+        "the",
+        "two",
+        "dukes",
+        "of",
+        "Cornwall",
+        "and",
+        "Albany?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Curan,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "curan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 1.18,
+          "end": 1.28,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "likely",
+          "start": 1.84,
+          "end": 2.14,
+          "key": "likely",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wars",
+          "start": 2.14,
+          "end": 2.42,
+          "key": "wars",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "toward,",
+          "start": 2.42,
+          "end": 2.84,
+          "key": "toward",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Twixt",
+          "start": 3.4,
+          "end": 3.64,
+          "key": "twixt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.64,
+          "end": 3.82,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.82,
+          "end": 4.04,
+          "key": "two",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dukes",
+          "start": 4.04,
+          "end": 4.28,
+          "key": "dukes",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.28,
+          "end": 4.46,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Cornwall",
+          "start": 4.46,
+          "end": 4.8,
+          "key": "cornwall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.8,
+          "end": 5.1,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Albany?",
+          "start": 5.1,
+          "end": 5.4,
+          "key": "albany",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Curan.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Have",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "you",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "heard",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "of",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "no",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "likely",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "wars",
+          "start": 2.14,
+          "end": 2.42
+        },
+        {
+          "text": "toward,",
+          "start": 2.42,
+          "end": 2.84
+        },
+        {
+          "text": "'twixt",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "text": "the",
+          "start": 3.64,
+          "end": 3.82
+        },
+        {
+          "text": "two",
+          "start": 3.82,
+          "end": 4.04
+        },
+        {
+          "text": "dukes",
+          "start": 4.04,
+          "end": 4.28
+        },
+        {
+          "text": "of",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "text": "Cornwall",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "text": "and",
+          "start": 4.8,
+          "end": 5.1
+        },
+        {
+          "text": "Albany?",
+          "start": 5.1,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1762421429157257
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e0fac1d5dd131bed9f264c329b8d66ab7d971cb6d67948a632e52aee99932a7",
+  "selected_reasons": []
+}

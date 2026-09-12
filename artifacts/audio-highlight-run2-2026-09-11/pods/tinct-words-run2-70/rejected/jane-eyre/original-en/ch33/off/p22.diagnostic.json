@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "5022f23f93cd1a08e308119fadfa708a956b3d1f7ff0e2818eb422fd76787fb1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09876793506555259,
+      "alignment_seconds": 0.00020173308439552784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Indeed.",
+          "start": 0.02,
+          "end": 0.76,
+          "words": [
+            {
+              "text": " Indeed.",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Indeed.",
+          "start": 0.02,
+          "end": 0.76
+        }
+      ],
+      "expected_tokens": [
+        "\"Indeed!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Indeed.",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "indeed",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Indeed!\"",
+          "start": 0.02,
+          "end": 0.76
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09903765795752406
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "145a652038ddab009bc0db903e46a53aaab615587f0140a294d5007c19bf665f",
+  "selected_reasons": []
+}

@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "adb199d472f0c6c9bbe0aca886f60562777e57213e3834cd3ca89e80cb45cef4",
+  "attempts": [
+    {
+      "asr_seconds": 0.14690238796174526,
+      "alignment_seconds": 0.00037931837141513824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leer, you are welcome, Hither.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Leer,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.5880126953125
+            },
+            {
+              "text": " you",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " are",
+              "start": 1.11,
+              "end": 1.21,
+              "probability": 0.986328125
+            },
+            {
+              "text": " welcome,",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Hither.",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.908935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leer,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "you",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "are",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "raw": "welcome,",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "raw": "Hither.",
+          "start": 1.73,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "You",
+        "are",
+        "welcome",
+        "hither."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leer,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "leer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.97,
+          "end": 1.11,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.11,
+          "end": 1.21,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "welcome,",
+          "start": 1.21,
+          "end": 1.55,
+          "key": "welcome",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hither.",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "hither",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "You",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "are",
+          "start": 1.11,
+          "end": 1.21
+        },
+        {
+          "text": "welcome",
+          "start": 1.21,
+          "end": 1.55
+        },
+        {
+          "text": "hither.",
+          "start": 1.73,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14740793593227863
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1c5c6d8b6447c64d27294685317155518f8504fc2f8a268d4a8c6ac2f621ac6f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

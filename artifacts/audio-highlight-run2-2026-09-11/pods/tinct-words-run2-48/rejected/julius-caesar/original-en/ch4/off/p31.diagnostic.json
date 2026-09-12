@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "556fabfc42a348529d250704ca44a702465c84219a5ff1b212ab721022e3a7a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.10802186839282513,
+      "alignment_seconds": 0.0002526603639125824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, let him enter.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " let",
+              "start": 1.15,
+              "end": 1.25,
+              "probability": 0.9921875
+            },
+            {
+              "text": " him",
+              "start": 1.25,
+              "end": 1.33,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " enter.",
+              "start": 1.33,
+              "end": 1.69,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "let",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "raw": "him",
+          "start": 1.25,
+          "end": 1.33
+        },
+        {
+          "raw": "enter.",
+          "start": 1.33,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Let",
+        "'em",
+        "enter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.15,
+          "end": 1.25,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.25,
+          "end": 1.33,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "enter.",
+          "start": 1.33,
+          "end": 1.69,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Let",
+          "start": 1.15,
+          "end": 1.25
+        },
+        {
+          "text": "'em",
+          "start": 1.25,
+          "end": 1.29
+        },
+        {
+          "text": "enter.",
+          "start": 1.33,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10836151521652937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "763f17e33f88bff5ec80dfee8d05a286ad447ffddd4169628a963d2d40616038",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "d0b61ee5c1128704d695dde50b1c38bb79448ce091828b5e04bc58ffe57ad7e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.17472186964005232,
+      "alignment_seconds": 0.0004602363333106041,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What is the matter with me? He cried again like one distraught.",
+          "start": 0.02,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.294677734375
+            },
+            {
+              "text": " is",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 0.64,
+              "end": 0.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " matter",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me?",
+              "start": 1.18,
+              "end": 1.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " He",
+              "start": 1.78,
+              "end": 1.98,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " cried",
+              "start": 1.98,
+              "end": 2.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " again",
+              "start": 2.22,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " like",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.7275390625
+            },
+            {
+              "text": " one",
+              "start": 2.76,
+              "end": 3.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " distraught.",
+              "start": 3.02,
+              "end": 3.46,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "raw": "matter",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "with",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "me?",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "raw": "He",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "raw": "cried",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "raw": "again",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "raw": "like",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "one",
+          "start": 2.76,
+          "end": 3.02
+        },
+        {
+          "raw": "distraught.",
+          "start": 3.02,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "is",
+        "the",
+        "matter",
+        "with",
+        "me!\"",
+        "he",
+        "cried",
+        "again,",
+        "like",
+        "one",
+        "distraught."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.64,
+          "end": 0.78,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 0.78,
+          "end": 1.0,
+          "key": "matter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 1.18,
+          "end": 1.52,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.78,
+          "end": 1.98,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.98,
+          "end": 2.22,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 2.22,
+          "end": 2.52,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "like",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.76,
+          "end": 3.02,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "distraught.",
+          "start": 3.02,
+          "end": 3.46,
+          "key": "distraught",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "is",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "the",
+          "start": 0.64,
+          "end": 0.78
+        },
+        {
+          "text": "matter",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "with",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "me!\"",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "text": "he",
+          "start": 1.78,
+          "end": 1.98
+        },
+        {
+          "text": "cried",
+          "start": 1.98,
+          "end": 2.22
+        },
+        {
+          "text": "again,",
+          "start": 2.22,
+          "end": 2.52
+        },
+        {
+          "text": "like",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "one",
+          "start": 2.76,
+          "end": 3.02
+        },
+        {
+          "text": "distraught.",
+          "start": 3.02,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17540195398032665
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e1478eb7429f5e0191376d96a1801661c4a5cdb97ee5e6302e1d7934cfc6f40d",
+  "selected_reasons": []
+}

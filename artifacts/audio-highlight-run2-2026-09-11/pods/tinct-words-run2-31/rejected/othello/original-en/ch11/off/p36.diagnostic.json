@@ -1,0 +1,628 @@
+{
+  "complete": true,
+  "signature": "6868d0a405e4ee8276ea46bf46a9ebe0ff624d5cdc4d3a285bb3f81ef3e376d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.25673028407618403,
+      "alignment_seconds": 0.0002338578924536705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Say go I mock you know by heaven would you would bear your fortune like a man?",
+          "start": 0.08,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " Say",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.22802734375
+            },
+            {
+              "text": " go",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " I",
+              "start": 0.82,
+              "end": 1.1,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " mock",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 1.32,
+              "end": 1.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " know",
+              "start": 1.64,
+              "end": 2.3,
+              "probability": 0.4501953125
+            },
+            {
+              "text": " by",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " heaven",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " would",
+              "start": 2.84,
+              "end": 3.18,
+              "probability": 0.716796875
+            },
+            {
+              "text": " you",
+              "start": 3.18,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " would",
+              "start": 3.3,
+              "end": 3.42,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " bear",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " your",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fortune",
+              "start": 3.78,
+              "end": 4.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " like",
+              "start": 4.06,
+              "end": 4.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " man?",
+              "start": 4.42,
+              "end": 4.72,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Say",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "go",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "I",
+          "start": 0.82,
+          "end": 1.1
+        },
+        {
+          "raw": "mock",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "you",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "raw": "know",
+          "start": 1.64,
+          "end": 2.3
+        },
+        {
+          "raw": "by",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "heaven",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "would",
+          "start": 2.84,
+          "end": 3.18
+        },
+        {
+          "raw": "you",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "raw": "would",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "raw": "bear",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "your",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "fortune",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "raw": "like",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "raw": "a",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "man?",
+          "start": 4.42,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "I",
+        "mock",
+        "you?",
+        "No,",
+        "by",
+        "heaven.",
+        "Would",
+        "you",
+        "would",
+        "bear",
+        "your",
+        "fortune",
+        "like",
+        "a",
+        "man!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          16,
+          6,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Say",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "say",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.6,
+          "end": 0.82,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.82,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mock",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "mock",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.32,
+          "end": 1.64,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.64,
+          "end": 2.3,
+          "key": "know",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heaven",
+          "start": 2.52,
+          "end": 2.84,
+          "key": "heaven",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.84,
+          "end": 3.18,
+          "key": "would",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.18,
+          "end": 3.3,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.3,
+          "end": 3.42,
+          "key": "would",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "bear",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.58,
+          "end": 3.78,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fortune",
+          "start": 3.78,
+          "end": 4.06,
+          "key": "fortune",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.06,
+          "end": 4.3,
+          "key": "like",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "man?",
+          "start": 4.42,
+          "end": 4.72,
+          "key": "man",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.41
+        },
+        {
+          "text": "I",
+          "start": 0.82,
+          "end": 1.1
+        },
+        {
+          "text": "mock",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "you?",
+          "start": 1.32,
+          "end": 1.64
+        },
+        {
+          "text": "No,",
+          "start": 1.64,
+          "end": 1.97
+        },
+        {
+          "text": "by",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "heaven.",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "Would",
+          "start": 2.84,
+          "end": 3.18
+        },
+        {
+          "text": "you",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "text": "would",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "text": "bear",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "your",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "fortune",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "text": "like",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "text": "a",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "man!",
+          "start": 4.42,
+          "end": 4.72
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2570525910705328
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5b25b7ebabfe0416693b4e83421d9845950da9bd5c7b1e7a9dde0ee3a324b9e",
+  "selected_reasons": []
+}

@@ -1,0 +1,219 @@
+{
+  "complete": true,
+  "signature": "3e6c41315ce0849dd1692161c1a99271e94472feed578c9ec4e9d6f64d18d12c",
+  "attempts": [
+    {
+      "asr_seconds": 0.09597190003842115,
+      "alignment_seconds": 0.00012654904276132584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona. Weld your discretion.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Distimona.",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.64691162109375
+            },
+            {
+              "text": " Weld",
+              "start": 1.57,
+              "end": 1.61,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " your",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.751953125
+            },
+            {
+              "text": " discretion.",
+              "start": 1.81,
+              "end": 2.23,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Weld",
+          "start": 1.57,
+          "end": 1.61
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "discretion.",
+          "start": 1.81,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Well,",
+        "do",
+        "your",
+        "discretion."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          5,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona.",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Weld",
+          "start": 1.57,
+          "end": 1.61,
+          "key": "weld",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "discretion.",
+          "start": 1.81,
+          "end": 2.23,
+          "key": "discretion",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.805
+        },
+        {
+          "text": "Well,",
+          "start": 0.805,
+          "end": 1.208
+        },
+        {
+          "text": "do",
+          "start": 1.208,
+          "end": 1.409
+        },
+        {
+          "text": "your",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "discretion.",
+          "start": 1.81,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09613804891705513
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b2b5d1776c0d57df94700de5671692a870d8721bb4f9fdf0070f634c00a7b37c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

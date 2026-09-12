@@ -1,0 +1,1585 @@
+{
+  "complete": true,
+  "signature": "760975aa95a1d911337f50922202126c510c528a6886b6e37a84403f3cbeea7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.6349575500935316,
+      "alignment_seconds": 0.0008537657558917999,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Clown. Why, sir, his hide is so tann'd with his trade that he will keep out water a great while. And your water is a sore decayer of your whoreson dead body. Here's a skull now; this skull hath lain in the earth three-and-twenty years.",
+        "hotwords": "First, Clown, Why, And, Here's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Clown, Why, sir, his hide is so tann'd with his trade that he will keep out water",
+          "start": 0.02,
+          "end": 5.32,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " Clown,",
+              "start": 0.94,
+              "end": 0.94,
+              "probability": 0.1463623046875
+            },
+            {
+              "text": " Why,",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.1807861328125
+            },
+            {
+              "text": " sir,",
+              "start": 2.04,
+              "end": 2.04,
+              "probability": 0.416748046875
+            },
+            {
+              "text": " his",
+              "start": 2.32,
+              "end": 2.42,
+              "probability": 0.525390625
+            },
+            {
+              "text": " hide",
+              "start": 2.42,
+              "end": 2.64,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " is",
+              "start": 2.64,
+              "end": 2.8,
+              "probability": 0.970703125
+            },
+            {
+              "text": " so",
+              "start": 2.8,
+              "end": 3.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tann'd",
+              "start": 3.04,
+              "end": 3.48,
+              "probability": 0.5683710972468058
+            },
+            {
+              "text": " with",
+              "start": 3.48,
+              "end": 3.56,
+              "probability": 0.837890625
+            },
+            {
+              "text": " his",
+              "start": 3.56,
+              "end": 3.74,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " trade",
+              "start": 3.74,
+              "end": 4.06,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that",
+              "start": 4.06,
+              "end": 4.32,
+              "probability": 0.388427734375
+            },
+            {
+              "text": " he",
+              "start": 4.32,
+              "end": 4.46,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " will",
+              "start": 4.46,
+              "end": 4.6,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " keep",
+              "start": 4.6,
+              "end": 4.78,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " out",
+              "start": 4.78,
+              "end": 5.0,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " water",
+              "start": 5.0,
+              "end": 5.32,
+              "probability": 0.9111328125
+            }
+          ]
+        },
+        {
+          "text": " a great while. And your water is a sore decayer of your whoreson dead body. Here's a skull",
+          "start": 5.32,
+          "end": 10.96,
+          "words": [
+            {
+              "text": " a",
+              "start": 5.32,
+              "end": 5.54,
+              "probability": 0.990234375
+            },
+            {
+              "text": " great",
+              "start": 5.54,
+              "end": 5.72,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " while.",
+              "start": 5.72,
+              "end": 6.06,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " And",
+              "start": 6.76,
+              "end": 6.88,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " your",
+              "start": 6.88,
+              "end": 7.0,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " water",
+              "start": 7.0,
+              "end": 7.28,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " is",
+              "start": 7.28,
+              "end": 7.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 7.52,
+              "end": 7.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sore",
+              "start": 7.66,
+              "end": 7.88,
+              "probability": 0.28369140625
+            },
+            {
+              "text": " decayer",
+              "start": 7.88,
+              "end": 8.36,
+              "probability": 0.6859130859375
+            },
+            {
+              "text": " of",
+              "start": 8.36,
+              "end": 8.54,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " your",
+              "start": 8.54,
+              "end": 8.68,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " whoreson",
+              "start": 8.68,
+              "end": 9.1,
+              "probability": 0.09359598159790039
+            },
+            {
+              "text": " dead",
+              "start": 9.1,
+              "end": 9.28,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " body.",
+              "start": 9.28,
+              "end": 9.64,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Here's",
+              "start": 10.34,
+              "end": 10.6,
+              "probability": 0.936767578125
+            },
+            {
+              "text": " a",
+              "start": 10.6,
+              "end": 10.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " skull",
+              "start": 10.78,
+              "end": 10.96,
+              "probability": 0.87353515625
+            }
+          ]
+        },
+        {
+          "text": " now, this skull hath lain in the earth three-and-twenty years.",
+          "start": 10.96,
+          "end": 14.42,
+          "words": [
+            {
+              "text": " now,",
+              "start": 10.96,
+              "end": 11.34,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " this",
+              "start": 11.74,
+              "end": 11.88,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " skull",
+              "start": 11.88,
+              "end": 12.24,
+              "probability": 0.958984375
+            },
+            {
+              "text": " hath",
+              "start": 12.24,
+              "end": 12.46,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " lain",
+              "start": 12.46,
+              "end": 12.82,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " in",
+              "start": 12.82,
+              "end": 12.98,
+              "probability": 0.955078125
+            },
+            {
+              "text": " the",
+              "start": 12.98,
+              "end": 13.12,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " earth",
+              "start": 13.12,
+              "end": 13.28,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " three",
+              "start": 13.28,
+              "end": 13.64,
+              "probability": 0.8330078125
+            },
+            {
+              "text": "-and",
+              "start": 13.64,
+              "end": 13.8,
+              "probability": 0.48321533203125
+            },
+            {
+              "text": "-twenty",
+              "start": 13.8,
+              "end": 14.08,
+              "probability": 0.9765625
+            },
+            {
+              "text": " years.",
+              "start": 14.08,
+              "end": 14.42,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.94,
+          "end": 0.94
+        },
+        {
+          "raw": "Why,",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "sir,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "raw": "his",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "raw": "hide",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "raw": "is",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "raw": "so",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "raw": "tann'd",
+          "start": 3.04,
+          "end": 3.48
+        },
+        {
+          "raw": "with",
+          "start": 3.48,
+          "end": 3.56
+        },
+        {
+          "raw": "his",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "raw": "trade",
+          "start": 3.74,
+          "end": 4.06
+        },
+        {
+          "raw": "that",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "raw": "he",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "raw": "will",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "raw": "keep",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "raw": "out",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "raw": "water",
+          "start": 5.0,
+          "end": 5.32
+        },
+        {
+          "raw": "a",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "raw": "great",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "raw": "while.",
+          "start": 5.72,
+          "end": 6.06
+        },
+        {
+          "raw": "And",
+          "start": 6.76,
+          "end": 6.88
+        },
+        {
+          "raw": "your",
+          "start": 6.88,
+          "end": 7.0
+        },
+        {
+          "raw": "water",
+          "start": 7.0,
+          "end": 7.28
+        },
+        {
+          "raw": "is",
+          "start": 7.28,
+          "end": 7.52
+        },
+        {
+          "raw": "a",
+          "start": 7.52,
+          "end": 7.66
+        },
+        {
+          "raw": "sore",
+          "start": 7.66,
+          "end": 7.88
+        },
+        {
+          "raw": "decayer",
+          "start": 7.88,
+          "end": 8.36
+        },
+        {
+          "raw": "of",
+          "start": 8.36,
+          "end": 8.54
+        },
+        {
+          "raw": "your",
+          "start": 8.54,
+          "end": 8.68
+        },
+        {
+          "raw": "whoreson",
+          "start": 8.68,
+          "end": 9.1
+        },
+        {
+          "raw": "dead",
+          "start": 9.1,
+          "end": 9.28
+        },
+        {
+          "raw": "body.",
+          "start": 9.28,
+          "end": 9.64
+        },
+        {
+          "raw": "Here's",
+          "start": 10.34,
+          "end": 10.6
+        },
+        {
+          "raw": "a",
+          "start": 10.6,
+          "end": 10.78
+        },
+        {
+          "raw": "skull",
+          "start": 10.78,
+          "end": 10.96
+        },
+        {
+          "raw": "now,",
+          "start": 10.96,
+          "end": 11.34
+        },
+        {
+          "raw": "this",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "raw": "skull",
+          "start": 11.88,
+          "end": 12.24
+        },
+        {
+          "raw": "hath",
+          "start": 12.24,
+          "end": 12.46
+        },
+        {
+          "raw": "lain",
+          "start": 12.46,
+          "end": 12.82
+        },
+        {
+          "raw": "in",
+          "start": 12.82,
+          "end": 12.98
+        },
+        {
+          "raw": "the",
+          "start": 12.98,
+          "end": 13.12
+        },
+        {
+          "raw": "earth",
+          "start": 13.12,
+          "end": 13.28
+        },
+        {
+          "raw": "three",
+          "start": 13.28,
+          "end": 13.64
+        },
+        {
+          "raw": "-and",
+          "start": 13.64,
+          "end": 13.8
+        },
+        {
+          "raw": "-twenty",
+          "start": 13.8,
+          "end": 14.08
+        },
+        {
+          "raw": "years.",
+          "start": 14.08,
+          "end": 14.42
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Clown.",
+        "Why,",
+        "sir,",
+        "his",
+        "hide",
+        "is",
+        "so",
+        "tann'd",
+        "with",
+        "his",
+        "trade",
+        "that",
+        "he",
+        "will",
+        "keep",
+        "out",
+        "water",
+        "a",
+        "great",
+        "while.",
+        "And",
+        "your",
+        "water",
+        "is",
+        "a",
+        "sore",
+        "decayer",
+        "of",
+        "your",
+        "whoreson",
+        "dead",
+        "body.",
+        "Here's",
+        "a",
+        "skull",
+        "now;",
+        "this",
+        "skull",
+        "hath",
+        "lain",
+        "in",
+        "the",
+        "earth",
+        "three-and-twenty",
+        "years."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clown,",
+          "start": 0.94,
+          "end": 0.94,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.04,
+          "end": 2.04,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.32,
+          "end": 2.42,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hide",
+          "start": 2.42,
+          "end": 2.64,
+          "key": "hide",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.64,
+          "end": 2.8,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.8,
+          "end": 3.04,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tann'd",
+          "start": 3.04,
+          "end": 3.48,
+          "key": "tannd",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.48,
+          "end": 3.56,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.56,
+          "end": 3.74,
+          "key": "his",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "trade",
+          "start": 3.74,
+          "end": 4.06,
+          "key": "trade",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.06,
+          "end": 4.32,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.32,
+          "end": 4.46,
+          "key": "he",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.46,
+          "end": 4.6,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "keep",
+          "start": 4.6,
+          "end": 4.78,
+          "key": "keep",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 4.78,
+          "end": 5.0,
+          "key": "out",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 5.0,
+          "end": 5.32,
+          "key": "water",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.32,
+          "end": 5.54,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 5.54,
+          "end": 5.72,
+          "key": "great",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "while.",
+          "start": 5.72,
+          "end": 6.06,
+          "key": "while",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 6.76,
+          "end": 6.88,
+          "key": "and",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.88,
+          "end": 7.0,
+          "key": "your",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "water",
+          "start": 7.0,
+          "end": 7.28,
+          "key": "water",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.28,
+          "end": 7.52,
+          "key": "is",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.52,
+          "end": 7.66,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "sore",
+          "start": 7.66,
+          "end": 7.88,
+          "key": "sore",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "decayer",
+          "start": 7.88,
+          "end": 8.36,
+          "key": "decayer",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.36,
+          "end": 8.54,
+          "key": "of",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 8.54,
+          "end": 8.68,
+          "key": "your",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "whoreson",
+          "start": 8.68,
+          "end": 9.1,
+          "key": "whoreson",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 9.1,
+          "end": 9.28,
+          "key": "dead",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "body.",
+          "start": 9.28,
+          "end": 9.64,
+          "key": "body",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 10.34,
+          "end": 10.6,
+          "key": "heres",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.6,
+          "end": 10.78,
+          "key": "a",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "skull",
+          "start": 10.78,
+          "end": 10.96,
+          "key": "skull",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 10.96,
+          "end": 11.34,
+          "key": "now",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 11.74,
+          "end": 11.88,
+          "key": "this",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "skull",
+          "start": 11.88,
+          "end": 12.24,
+          "key": "skull",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 12.24,
+          "end": 12.46,
+          "key": "hath",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "lain",
+          "start": 12.46,
+          "end": 12.82,
+          "key": "lain",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 12.82,
+          "end": 12.98,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.98,
+          "end": 13.12,
+          "key": "the",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "earth",
+          "start": 13.12,
+          "end": 13.28,
+          "key": "earth",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "three -and -twenty",
+          "start": 13.28,
+          "end": 14.08,
+          "key": "threeandtwenty",
+          "pieces": [
+            44,
+            45,
+            46
+          ]
+        },
+        {
+          "raw": "years.",
+          "start": 14.08,
+          "end": 14.42,
+          "key": "years",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 44,
+          "text": "three-and-twenty",
+          "heard": "three -and -twenty",
+          "heard_indexes": [
+            44,
+            45,
+            46
+          ],
+          "start": 13.28,
+          "end": 14.08
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "Clown.",
+          "start": 0.94,
+          "end": 0.94
+        },
+        {
+          "text": "Why,",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "sir,",
+          "start": 2.04,
+          "end": 2.04
+        },
+        {
+          "text": "his",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "text": "hide",
+          "start": 2.42,
+          "end": 2.64
+        },
+        {
+          "text": "is",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "text": "so",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "text": "tann'd",
+          "start": 3.04,
+          "end": 3.48
+        },
+        {
+          "text": "with",
+          "start": 3.48,
+          "end": 3.56
+        },
+        {
+          "text": "his",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "text": "trade",
+          "start": 3.74,
+          "end": 4.06
+        },
+        {
+          "text": "that",
+          "start": 4.06,
+          "end": 4.32
+        },
+        {
+          "text": "he",
+          "start": 4.32,
+          "end": 4.46
+        },
+        {
+          "text": "will",
+          "start": 4.46,
+          "end": 4.6
+        },
+        {
+          "text": "keep",
+          "start": 4.6,
+          "end": 4.78
+        },
+        {
+          "text": "out",
+          "start": 4.78,
+          "end": 5.0
+        },
+        {
+          "text": "water",
+          "start": 5.0,
+          "end": 5.32
+        },
+        {
+          "text": "a",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "text": "great",
+          "start": 5.54,
+          "end": 5.72
+        },
+        {
+          "text": "while.",
+          "start": 5.72,
+          "end": 6.06
+        },
+        {
+          "text": "And",
+          "start": 6.76,
+          "end": 6.88
+        },
+        {
+          "text": "your",
+          "start": 6.88,
+          "end": 7.0
+        },
+        {
+          "text": "water",
+          "start": 7.0,
+          "end": 7.28
+        },
+        {
+          "text": "is",
+          "start": 7.28,
+          "end": 7.52
+        },
+        {
+          "text": "a",
+          "start": 7.52,
+          "end": 7.66
+        },
+        {
+          "text": "sore",
+          "start": 7.66,
+          "end": 7.88
+        },
+        {
+          "text": "decayer",
+          "start": 7.88,
+          "end": 8.36
+        },
+        {
+          "text": "of",
+          "start": 8.36,
+          "end": 8.54
+        },
+        {
+          "text": "your",
+          "start": 8.54,
+          "end": 8.68
+        },
+        {
+          "text": "whoreson",
+          "start": 8.68,
+          "end": 9.1
+        },
+        {
+          "text": "dead",
+          "start": 9.1,
+          "end": 9.28
+        },
+        {
+          "text": "body.",
+          "start": 9.28,
+          "end": 9.64
+        },
+        {
+          "text": "Here's",
+          "start": 10.34,
+          "end": 10.6
+        },
+        {
+          "text": "a",
+          "start": 10.6,
+          "end": 10.78
+        },
+        {
+          "text": "skull",
+          "start": 10.78,
+          "end": 10.96
+        },
+        {
+          "text": "now;",
+          "start": 10.96,
+          "end": 11.34
+        },
+        {
+          "text": "this",
+          "start": 11.74,
+          "end": 11.88
+        },
+        {
+          "text": "skull",
+          "start": 11.88,
+          "end": 12.24
+        },
+        {
+          "text": "hath",
+          "start": 12.24,
+          "end": 12.46
+        },
+        {
+          "text": "lain",
+          "start": 12.46,
+          "end": 12.82
+        },
+        {
+          "text": "in",
+          "start": 12.82,
+          "end": 12.98
+        },
+        {
+          "text": "the",
+          "start": 12.98,
+          "end": 13.12
+        },
+        {
+          "text": "earth",
+          "start": 13.12,
+          "end": 13.28
+        },
+        {
+          "text": "three-and-twenty",
+          "start": 13.28,
+          "end": 14.08
+        },
+        {
+          "text": "years.",
+          "start": 14.08,
+          "end": 14.42
+        }
+      ],
+      "stats": {
+        "expected_words": 46,
+        "heard_words": 46,
+        "matched_words": 46
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6361803160980344
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f3af4d038f2ca3e5baef5509ad5b2e522875ea736e1ff2a24b1e9549c4003b5",
+  "selected_reasons": []
+}

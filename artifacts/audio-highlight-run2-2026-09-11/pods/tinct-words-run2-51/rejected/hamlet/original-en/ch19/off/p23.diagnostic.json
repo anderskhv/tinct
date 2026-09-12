@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "3d88dc5d89294453979a21702494d452a4dbb261c6f5b87c122d5c21ce699cff",
+  "attempts": [
+    {
+      "asr_seconds": 0.1607398558408022,
+      "alignment_seconds": 0.000448090024292469,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First clown taught",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " clown",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.374267578125
+            },
+            {
+              "text": " taught",
+              "start": 0.93,
+              "end": 1.53,
+              "probability": 0.302490234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "clown",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "raw": "taught",
+          "start": 0.93,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Clown.",
+        "To't."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clown",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "clown",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "taught",
+          "start": 0.93,
+          "end": 1.53,
+          "key": "taught",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Clown.",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "text": "To't.",
+          "start": 0.93,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16135402861982584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce1d1cbcb1b65a11fd79cc014ff5d773f5795fec4d0bff8d3ac0b82dba92d7df",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

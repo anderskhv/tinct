@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "c401484d44cd0a04846e4ba73c0566369e38125e0fec1da6cc58f0587847cdec",
+  "attempts": [
+    {
+      "asr_seconds": 0.160739004611969,
+      "alignment_seconds": 0.000394970178604126,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, you do mistake me, sir.",
+          "start": 0.11,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " you",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " do",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.5263671875
+            },
+            {
+              "text": " mistake",
+              "start": 1.51,
+              "end": 1.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me,",
+              "start": 1.81,
+              "end": 2.03,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sir.",
+              "start": 2.19,
+              "end": 2.23,
+              "probability": 0.9189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "you",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "do",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "mistake",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "raw": "me,",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "raw": "sir.",
+          "start": 2.19,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "You",
+        "do",
+        "mistake",
+        "me,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.43,
+          "end": 1.51,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mistake",
+          "start": 1.51,
+          "end": 1.81,
+          "key": "mistake",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.81,
+          "end": 2.03,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.19,
+          "end": 2.23,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "You",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "do",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "mistake",
+          "start": 1.51,
+          "end": 1.81
+        },
+        {
+          "text": "me,",
+          "start": 1.81,
+          "end": 2.03
+        },
+        {
+          "text": "sir.",
+          "start": 2.19,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16127808764576912
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c56af8a2639a28296fce76e33828457c7e5f00a27c5270a012b42b88a6bb0a31",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "e3368a9f181272fef121480b7f447cc9b0637e209c258cbb1d455a167f619859",
+  "attempts": [
+    {
+      "asr_seconds": 0.1104223309084773,
+      "alignment_seconds": 0.000182208139449358,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Lay by these:—]",
+        "hotwords": "Lay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lay by these.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Lay",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.69091796875
+            },
+            {
+              "text": " by",
+              "start": 0.58,
+              "end": 0.78,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " these.",
+              "start": 0.78,
+              "end": 1.1,
+              "probability": 0.9404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lay",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "by",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "raw": "these.",
+          "start": 0.78,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "[Lay",
+        "by",
+        "these:—]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lay",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "lay",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.58,
+          "end": 0.78,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "these.",
+          "start": 0.78,
+          "end": 1.1,
+          "key": "these",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Lay",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "by",
+          "start": 0.58,
+          "end": 0.78
+        },
+        {
+          "text": "these:—]",
+          "start": 0.78,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11066450923681259
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8d57fe76441fdf202d66ea2e53d2d200a674e915b8758cb6900f74b701a7fbf",
+  "selected_reasons": []
+}

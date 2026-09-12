@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "683405bf3c68be6760809cb4889a16ae3896c6895c6bf512a1dedfd8ce4c4b94",
+  "attempts": [
+    {
+      "asr_seconds": 0.12082410976290703,
+      "alignment_seconds": 0.0003228001296520233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sebastian, the old cock.",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.4,
+              "probability": 0.62353515625
+            },
+            {
+              "text": " old",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.4853515625
+            },
+            {
+              "text": " cock.",
+              "start": 1.6,
+              "end": 1.84,
+              "probability": 0.90380859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.4
+        },
+        {
+          "raw": "old",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "cock.",
+          "start": 1.6,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "The",
+        "old",
+        "cock."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.4,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "old",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cock.",
+          "start": 1.6,
+          "end": 1.84,
+          "key": "cock",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "The",
+          "start": 1.36,
+          "end": 1.4
+        },
+        {
+          "text": "old",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "cock.",
+          "start": 1.6,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1212577186524868
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a21907116ad66aab9aff0abd2b32f2ee4b4abd63df09c66b2c733768b27a7747",
+  "selected_reasons": []
+}

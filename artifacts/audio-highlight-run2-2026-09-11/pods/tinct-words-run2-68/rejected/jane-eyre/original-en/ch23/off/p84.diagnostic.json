@@ -1,0 +1,202 @@
+{
+  "complete": true,
+  "signature": "9c2bf8d950abc6506f22caf32043ae99e5aa385791eaf9e50e74d573ee56700a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12847338244318962,
+      "alignment_seconds": 0.00016767531633377075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Come Jane come hither",
+          "start": 0.08,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Come",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " Jane",
+              "start": 0.58,
+              "end": 0.86,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " come",
+              "start": 0.86,
+              "end": 1.24,
+              "probability": 0.1656494140625
+            },
+            {
+              "text": " hither",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Come",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Jane",
+          "start": 0.58,
+          "end": 0.86
+        },
+        {
+          "raw": "come",
+          "start": 0.86,
+          "end": 1.24
+        },
+        {
+          "raw": "hither",
+          "start": 1.24,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "\"Come,",
+        "Jane—come",
+        "hither.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Come",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "come",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jane",
+          "start": 0.58,
+          "end": 0.86,
+          "key": "jane",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 0.86,
+          "end": 1.24,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hither",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "hither",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Come,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Jane—come",
+          "start": 0.58,
+          "end": 0.91
+        },
+        {
+          "text": "hither.\"",
+          "start": 1.24,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1286972537636757
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3bb5071b030740c12cb52b2e0ca3e124c51c6e198364989c2b7fdc8a0b37a2b5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

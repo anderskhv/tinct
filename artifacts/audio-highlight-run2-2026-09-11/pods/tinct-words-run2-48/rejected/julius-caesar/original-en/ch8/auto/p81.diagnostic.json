@@ -1,0 +1,709 @@
+{
+  "complete": true,
+  "signature": "100eb118ec3dc262e2de53aa9d4544e0eabc62f10f9785a4697662b9bea18448",
+  "attempts": [
+    {
+      "asr_seconds": 0.3361632786691189,
+      "alignment_seconds": 0.0004098620265722275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Pardon me, Caius Cassius: The enemies of Caesar shall say this; Then, in a friend, it is cold modesty.",
+        "hotwords": "Antony, Pardon, Caius, Cassius, The, Caesar, Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Pardon me, Caius Cassius, The enemies of Caesar shall say this, Then, in a friend,",
+          "start": 0.02,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.714599609375
+            },
+            {
+              "text": " Pardon",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.506561279296875
+            },
+            {
+              "text": " me,",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " Caius",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.7232259114583334
+            },
+            {
+              "text": " Cassius,",
+              "start": 1.98,
+              "end": 2.46,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " The",
+              "start": 2.9,
+              "end": 3.14,
+              "probability": 0.49755859375
+            },
+            {
+              "text": " enemies",
+              "start": 3.14,
+              "end": 3.36,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " of",
+              "start": 3.36,
+              "end": 3.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Caesar",
+              "start": 3.66,
+              "end": 3.96,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " shall",
+              "start": 3.96,
+              "end": 4.2,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " say",
+              "start": 4.2,
+              "end": 4.46,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this,",
+              "start": 4.46,
+              "end": 4.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Then,",
+              "start": 5.1,
+              "end": 5.4,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " in",
+              "start": 5.52,
+              "end": 5.56,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " a",
+              "start": 5.56,
+              "end": 5.68,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " friend,",
+              "start": 5.68,
+              "end": 5.94,
+              "probability": 0.9677734375
+            }
+          ]
+        },
+        {
+          "text": " it is cold modesty.",
+          "start": 6.14,
+          "end": 7.02,
+          "words": [
+            {
+              "text": " it",
+              "start": 6.14,
+              "end": 6.2,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " is",
+              "start": 6.2,
+              "end": 6.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " cold",
+              "start": 6.34,
+              "end": 6.64,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " modesty.",
+              "start": 6.64,
+              "end": 7.02,
+              "probability": 0.86962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Pardon",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "raw": "me,",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "raw": "Caius",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "Cassius,",
+          "start": 1.98,
+          "end": 2.46
+        },
+        {
+          "raw": "The",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "raw": "enemies",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "raw": "of",
+          "start": 3.36,
+          "end": 3.66
+        },
+        {
+          "raw": "Caesar",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "raw": "shall",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "raw": "say",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "raw": "this,",
+          "start": 4.46,
+          "end": 4.76
+        },
+        {
+          "raw": "Then,",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "raw": "in",
+          "start": 5.52,
+          "end": 5.56
+        },
+        {
+          "raw": "a",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "raw": "friend,",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "raw": "it",
+          "start": 6.14,
+          "end": 6.2
+        },
+        {
+          "raw": "is",
+          "start": 6.2,
+          "end": 6.34
+        },
+        {
+          "raw": "cold",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "raw": "modesty.",
+          "start": 6.64,
+          "end": 7.02
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Pardon",
+        "me,",
+        "Caius",
+        "Cassius:",
+        "The",
+        "enemies",
+        "of",
+        "Caesar",
+        "shall",
+        "say",
+        "this;",
+        "Then,",
+        "in",
+        "a",
+        "friend,",
+        "it",
+        "is",
+        "cold",
+        "modesty."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pardon",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "pardon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Caius",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "caius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cassius,",
+          "start": 1.98,
+          "end": 2.46,
+          "key": "cassius",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.9,
+          "end": 3.14,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "enemies",
+          "start": 3.14,
+          "end": 3.36,
+          "key": "enemies",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.36,
+          "end": 3.66,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 3.66,
+          "end": 3.96,
+          "key": "caesar",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.96,
+          "end": 4.2,
+          "key": "shall",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 4.2,
+          "end": 4.46,
+          "key": "say",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 4.46,
+          "end": 4.76,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Then,",
+          "start": 5.1,
+          "end": 5.4,
+          "key": "then",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.52,
+          "end": 5.56,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.56,
+          "end": 5.68,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 5.68,
+          "end": 5.94,
+          "key": "friend",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.14,
+          "end": 6.2,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 6.2,
+          "end": 6.34,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "cold",
+          "start": 6.34,
+          "end": 6.64,
+          "key": "cold",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "modesty.",
+          "start": 6.64,
+          "end": 7.02,
+          "key": "modesty",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Pardon",
+          "start": 1.06,
+          "end": 1.32
+        },
+        {
+          "text": "me,",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "Caius",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "Cassius:",
+          "start": 1.98,
+          "end": 2.46
+        },
+        {
+          "text": "The",
+          "start": 2.9,
+          "end": 3.14
+        },
+        {
+          "text": "enemies",
+          "start": 3.14,
+          "end": 3.36
+        },
+        {
+          "text": "of",
+          "start": 3.36,
+          "end": 3.66
+        },
+        {
+          "text": "Caesar",
+          "start": 3.66,
+          "end": 3.96
+        },
+        {
+          "text": "shall",
+          "start": 3.96,
+          "end": 4.2
+        },
+        {
+          "text": "say",
+          "start": 4.2,
+          "end": 4.46
+        },
+        {
+          "text": "this;",
+          "start": 4.46,
+          "end": 4.76
+        },
+        {
+          "text": "Then,",
+          "start": 5.1,
+          "end": 5.4
+        },
+        {
+          "text": "in",
+          "start": 5.52,
+          "end": 5.56
+        },
+        {
+          "text": "a",
+          "start": 5.56,
+          "end": 5.68
+        },
+        {
+          "text": "friend,",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "text": "it",
+          "start": 6.14,
+          "end": 6.2
+        },
+        {
+          "text": "is",
+          "start": 6.2,
+          "end": 6.34
+        },
+        {
+          "text": "cold",
+          "start": 6.34,
+          "end": 6.64
+        },
+        {
+          "text": "modesty.",
+          "start": 6.64,
+          "end": 7.02
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33672923129051924
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "da1b3ffb643eb6b8bba799a2f67109ae2abf737726310301bc60259c30baba8a",
+  "selected_reasons": []
+}

@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "11af6c02cf91abc7692174fcccf331388a9ab9608a16137842435bb3e3368553",
+  "attempts": [
+    {
+      "asr_seconds": 0.13513666205108166,
+      "alignment_seconds": 0.0001767692156136036,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, I gave her such a one, twas my first gift.",
+          "start": 0.5,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.5,
+              "end": 0.9,
+              "probability": 0.9353841145833334
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " gave",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " her",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " such",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.9921875
+            },
+            {
+              "text": " one,",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " twas",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.57080078125
+            },
+            {
+              "text": " my",
+              "start": 2.62,
+              "end": 2.78,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " first",
+              "start": 2.78,
+              "end": 3.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gift.",
+              "start": 3.06,
+              "end": 3.34,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "gave",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "her",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "such",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "a",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "one,",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "twas",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "my",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "raw": "first",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "raw": "gift.",
+          "start": 3.06,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "I",
+        "gave",
+        "her",
+        "such",
+        "a",
+        "one,",
+        "'twas",
+        "my",
+        "first",
+        "gift."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.5,
+          "end": 0.9,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "gave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "such",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one,",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "twas",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "twas",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.62,
+          "end": 2.78,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 2.78,
+          "end": 3.06,
+          "key": "first",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "gift.",
+          "start": 3.06,
+          "end": 3.34,
+          "key": "gift",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "gave",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "her",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "such",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "a",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "one,",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "'twas",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "my",
+          "start": 2.62,
+          "end": 2.78
+        },
+        {
+          "text": "first",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "text": "gift.",
+          "start": 3.06,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1353847412392497
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "908e9a5888e50853b7965505de455943676523869fefda223ccd8aadb2bfcc32",
+  "selected_reasons": []
+}

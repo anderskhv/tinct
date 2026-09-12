@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "f152b93c419b3c1df051c558edd2922beb34886fdd090cfa5d7376de323f4911",
+  "attempts": [
+    {
+      "asr_seconds": 0.3161543533205986,
+      "alignment_seconds": 0.0004919245839118958,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hero. I will do any modest office, my lord, to help my cousin to a good husband.",
+        "hotwords": "Hero, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hero, I will do any modest office, my lord, to help my cousin to a good husband.",
+          "start": 0.05,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Hero,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " I",
+              "start": 1.07,
+              "end": 1.31,
+              "probability": 0.98828125
+            },
+            {
+              "text": " will",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " any",
+              "start": 1.55,
+              "end": 1.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " modest",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " office,",
+              "start": 2.05,
+              "end": 2.55,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " my",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " lord,",
+              "start": 2.87,
+              "end": 3.11,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " to",
+              "start": 3.55,
+              "end": 3.69,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " help",
+              "start": 3.69,
+              "end": 3.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " my",
+              "start": 3.85,
+              "end": 4.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cousin",
+              "start": 4.01,
+              "end": 4.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 4.27,
+              "end": 4.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 4.51,
+              "end": 4.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " good",
+              "start": 4.59,
+              "end": 4.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " husband.",
+              "start": 4.71,
+              "end": 5.07,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "I",
+          "start": 1.07,
+          "end": 1.31
+        },
+        {
+          "raw": "will",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "do",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "any",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "raw": "modest",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "raw": "office,",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "raw": "my",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "lord,",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "raw": "to",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "raw": "help",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "raw": "my",
+          "start": 3.85,
+          "end": 4.01
+        },
+        {
+          "raw": "cousin",
+          "start": 4.01,
+          "end": 4.27
+        },
+        {
+          "raw": "to",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "raw": "a",
+          "start": 4.51,
+          "end": 4.59
+        },
+        {
+          "raw": "good",
+          "start": 4.59,
+          "end": 4.71
+        },
+        {
+          "raw": "husband.",
+          "start": 4.71,
+          "end": 5.07
+        }
+      ],
+      "expected_tokens": [
+        "Hero.",
+        "I",
+        "will",
+        "do",
+        "any",
+        "modest",
+        "office,",
+        "my",
+        "lord,",
+        "to",
+        "help",
+        "my",
+        "cousin",
+        "to",
+        "a",
+        "good",
+        "husband."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "hero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.07,
+          "end": 1.31,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.31,
+          "end": 1.39,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 1.55,
+          "end": 1.75,
+          "key": "any",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "modest",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "modest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "office,",
+          "start": 2.05,
+          "end": 2.55,
+          "key": "office",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.73,
+          "end": 2.87,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.87,
+          "end": 3.11,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.55,
+          "end": 3.69,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 3.69,
+          "end": 3.85,
+          "key": "help",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.85,
+          "end": 4.01,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "cousin",
+          "start": 4.01,
+          "end": 4.27,
+          "key": "cousin",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.27,
+          "end": 4.51,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.51,
+          "end": 4.59,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.59,
+          "end": 4.71,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "husband.",
+          "start": 4.71,
+          "end": 5.07,
+          "key": "husband",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hero.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "I",
+          "start": 1.07,
+          "end": 1.31
+        },
+        {
+          "text": "will",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "text": "do",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "any",
+          "start": 1.55,
+          "end": 1.75
+        },
+        {
+          "text": "modest",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "text": "office,",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "text": "my",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "lord,",
+          "start": 2.87,
+          "end": 3.11
+        },
+        {
+          "text": "to",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "text": "help",
+          "start": 3.69,
+          "end": 3.85
+        },
+        {
+          "text": "my",
+          "start": 3.85,
+          "end": 4.01
+        },
+        {
+          "text": "cousin",
+          "start": 4.01,
+          "end": 4.27
+        },
+        {
+          "text": "to",
+          "start": 4.27,
+          "end": 4.51
+        },
+        {
+          "text": "a",
+          "start": 4.51,
+          "end": 4.59
+        },
+        {
+          "text": "good",
+          "start": 4.59,
+          "end": 4.71
+        },
+        {
+          "text": "husband.",
+          "start": 4.71,
+          "end": 5.07
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3168515060096979
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f5db92d333e9b877c02c86d36bd7be35072be66dc323e0c58e1baff995d5982e",
+  "selected_reasons": []
+}

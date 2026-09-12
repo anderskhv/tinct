@@ -1,0 +1,204 @@
+{
+  "complete": true,
+  "signature": "84dc811b2b7ebcbeed404a15bb25e38fa3d39d9c88ff8b81011405f84e47dc98",
+  "attempts": [
+    {
+      "asr_seconds": 0.17075742594897747,
+      "alignment_seconds": 0.00037334952503442764,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Katherine Denick-Etlimenton",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Katherine",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.262451171875
+            },
+            {
+              "text": " Denick",
+              "start": 0.89,
+              "end": 1.69,
+              "probability": 0.3927001953125
+            },
+            {
+              "text": "-Etlimenton",
+              "start": 1.69,
+              "end": 2.39,
+              "probability": 0.50537109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Katherine",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Denick",
+          "start": 0.89,
+          "end": 1.69
+        },
+        {
+          "raw": "-Etlimenton",
+          "start": 1.69,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "Katharine.",
+        "De",
+        "nick.",
+        "_Et",
+        "le",
+        "menton?_"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Katherine",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "katherine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Denick",
+          "start": 0.89,
+          "end": 1.69,
+          "key": "denick",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-Etlimenton",
+          "start": 1.69,
+          "end": 2.39,
+          "key": "etlimenton",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Katharine.",
+          "start": 0.0,
+          "end": 1.195
+        },
+        {
+          "text": "De",
+          "start": 1.195,
+          "end": 1.792
+        },
+        {
+          "text": "nick.",
+          "start": 1.792,
+          "end": 2.091
+        },
+        {
+          "text": "_Et",
+          "start": 2.091,
+          "end": 2.24
+        },
+        {
+          "text": "le",
+          "start": 2.24,
+          "end": 2.315
+        },
+        {
+          "text": "menton?_",
+          "start": 2.315,
+          "end": 2.353
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17123848851770163
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10c8e259c11af63f0db2b826fe4e6ccd739f8259eaec8e34a479a5e5fd8949b3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

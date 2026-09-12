@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "9ffa41dd718081b78985573702e2e78da96f66c45b5d6a7e73b11ec5ed9b7c39",
+  "attempts": [
+    {
+      "asr_seconds": 0.21082632895559072,
+      "alignment_seconds": 0.00033909687772393227,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, thou eunuch, Mardien.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " thou",
+              "start": 1.51,
+              "end": 1.53,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " eunuch,",
+              "start": 1.53,
+              "end": 1.89,
+              "probability": 0.9293619791666666
+            },
+            {
+              "text": " Mardien.",
+              "start": 2.01,
+              "end": 2.33,
+              "probability": 0.5594889322916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "thou",
+          "start": 1.51,
+          "end": 1.53
+        },
+        {
+          "raw": "eunuch,",
+          "start": 1.53,
+          "end": 1.89
+        },
+        {
+          "raw": "Mardien.",
+          "start": 2.01,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Thou,",
+        "eunuch",
+        "Mardian!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.51,
+          "end": 1.53,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "eunuch,",
+          "start": 1.53,
+          "end": 1.89,
+          "key": "eunuch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mardien.",
+          "start": 2.01,
+          "end": 2.33,
+          "key": "mardien",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Thou,",
+          "start": 1.51,
+          "end": 1.53
+        },
+        {
+          "text": "eunuch",
+          "start": 1.53,
+          "end": 1.89
+        },
+        {
+          "text": "Mardian!",
+          "start": 1.89,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21128553058952093
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "806a70fbc2ad950bdb3c7e4f2ac52e26aa2f33d90b85ff533a2aa6362826ed11",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

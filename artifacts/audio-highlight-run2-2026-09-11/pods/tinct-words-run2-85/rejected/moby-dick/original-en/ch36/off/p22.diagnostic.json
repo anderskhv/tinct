@@ -1,0 +1,763 @@
+{
+  "complete": true,
+  "signature": "5db79f11af40d6209e4457d4de30fdff970e5d3bbed80fa54f92a5bf0b488fc1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3568339208140969,
+      "alignment_seconds": 0.0007974701002240181,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Huzzah! Huzzah!\" cried the seaman, as with swinging tarpaulins they hailed the act of",
+          "start": 0.05,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " Huzzah!",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.636871337890625
+            },
+            {
+              "text": " Huzzah",
+              "start": 1.37,
+              "end": 1.79,
+              "probability": 0.9773763020833334
+            },
+            {
+              "text": "!\"",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.42138671875
+            },
+            {
+              "text": " cried",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " seaman,",
+              "start": 2.53,
+              "end": 2.91,
+              "probability": 0.678955078125
+            },
+            {
+              "text": " as",
+              "start": 3.05,
+              "end": 3.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " with",
+              "start": 3.49,
+              "end": 3.65,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " swinging",
+              "start": 3.65,
+              "end": 4.01,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " tarpaulins",
+              "start": 4.01,
+              "end": 4.79,
+              "probability": 0.9801025390625
+            },
+            {
+              "text": " they",
+              "start": 4.79,
+              "end": 4.99,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " hailed",
+              "start": 4.99,
+              "end": 5.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 5.19,
+              "end": 5.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " act",
+              "start": 5.35,
+              "end": 5.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 5.59,
+              "end": 5.75,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " nailing the gold to the mast.",
+          "start": 5.75,
+          "end": 7.11,
+          "words": [
+            {
+              "text": " nailing",
+              "start": 5.75,
+              "end": 6.11,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 6.11,
+              "end": 6.29,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " gold",
+              "start": 6.29,
+              "end": 6.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 6.49,
+              "end": 6.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 6.73,
+              "end": 6.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mast.",
+              "start": 6.83,
+              "end": 7.11,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Huzzah!",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Huzzah",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "raw": "!\"",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "raw": "cried",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "the",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "seaman,",
+          "start": 2.53,
+          "end": 2.91
+        },
+        {
+          "raw": "as",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "raw": "with",
+          "start": 3.49,
+          "end": 3.65
+        },
+        {
+          "raw": "swinging",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "raw": "tarpaulins",
+          "start": 4.01,
+          "end": 4.79
+        },
+        {
+          "raw": "they",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "raw": "hailed",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "raw": "the",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "raw": "act",
+          "start": 5.35,
+          "end": 5.59
+        },
+        {
+          "raw": "of",
+          "start": 5.59,
+          "end": 5.75
+        },
+        {
+          "raw": "nailing",
+          "start": 5.75,
+          "end": 6.11
+        },
+        {
+          "raw": "the",
+          "start": 6.11,
+          "end": 6.29
+        },
+        {
+          "raw": "gold",
+          "start": 6.29,
+          "end": 6.49
+        },
+        {
+          "raw": "to",
+          "start": 6.49,
+          "end": 6.73
+        },
+        {
+          "raw": "the",
+          "start": 6.73,
+          "end": 6.83
+        },
+        {
+          "raw": "mast.",
+          "start": 6.83,
+          "end": 7.11
+        }
+      ],
+      "expected_tokens": [
+        "\"Huzza!",
+        "huzza!\"",
+        "cried",
+        "the",
+        "seamen,",
+        "as",
+        "with",
+        "swinging",
+        "tarpaulins",
+        "they",
+        "hailed",
+        "the",
+        "act",
+        "of",
+        "nailing",
+        "the",
+        "gold",
+        "to",
+        "the",
+        "mast."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "equal",
+          5,
+          20,
+          6,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Huzzah!",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "huzzah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Huzzah",
+          "start": 1.37,
+          "end": 1.79,
+          "key": "huzzah",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.79,
+          "end": 2.09,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "seaman,",
+          "start": 2.53,
+          "end": 2.91,
+          "key": "seaman",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.05,
+          "end": 3.49,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.49,
+          "end": 3.65,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "swinging",
+          "start": 3.65,
+          "end": 4.01,
+          "key": "swinging",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tarpaulins",
+          "start": 4.01,
+          "end": 4.79,
+          "key": "tarpaulins",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.79,
+          "end": 4.99,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hailed",
+          "start": 4.99,
+          "end": 5.19,
+          "key": "hailed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.19,
+          "end": 5.35,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "act",
+          "start": 5.35,
+          "end": 5.59,
+          "key": "act",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.59,
+          "end": 5.75,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "nailing",
+          "start": 5.75,
+          "end": 6.11,
+          "key": "nailing",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.11,
+          "end": 6.29,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 6.29,
+          "end": 6.49,
+          "key": "gold",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.49,
+          "end": 6.73,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.73,
+          "end": 6.83,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "mast.",
+          "start": 6.83,
+          "end": 7.11,
+          "key": "mast",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Huzza!",
+          "start": 0.0,
+          "end": 1.045
+        },
+        {
+          "text": "huzza!\"",
+          "start": 1.045,
+          "end": 1.567
+        },
+        {
+          "text": "cried",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "the",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "seamen,",
+          "start": 2.53,
+          "end": 2.79
+        },
+        {
+          "text": "as",
+          "start": 3.05,
+          "end": 3.49
+        },
+        {
+          "text": "with",
+          "start": 3.49,
+          "end": 3.65
+        },
+        {
+          "text": "swinging",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "text": "tarpaulins",
+          "start": 4.01,
+          "end": 4.79
+        },
+        {
+          "text": "they",
+          "start": 4.79,
+          "end": 4.99
+        },
+        {
+          "text": "hailed",
+          "start": 4.99,
+          "end": 5.19
+        },
+        {
+          "text": "the",
+          "start": 5.19,
+          "end": 5.35
+        },
+        {
+          "text": "act",
+          "start": 5.35,
+          "end": 5.59
+        },
+        {
+          "text": "of",
+          "start": 5.59,
+          "end": 5.75
+        },
+        {
+          "text": "nailing",
+          "start": 5.75,
+          "end": 6.11
+        },
+        {
+          "text": "the",
+          "start": 6.11,
+          "end": 6.29
+        },
+        {
+          "text": "gold",
+          "start": 6.29,
+          "end": 6.49
+        },
+        {
+          "text": "to",
+          "start": 6.49,
+          "end": 6.73
+        },
+        {
+          "text": "the",
+          "start": 6.73,
+          "end": 6.83
+        },
+        {
+          "text": "mast.",
+          "start": 6.83,
+          "end": 7.11
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.35791603196412325
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b4a1869bf8686be5c0ffcb4954d93ddf1ebcba520de8e8b1e0defc7c99e74f9",
+  "selected_reasons": []
+}

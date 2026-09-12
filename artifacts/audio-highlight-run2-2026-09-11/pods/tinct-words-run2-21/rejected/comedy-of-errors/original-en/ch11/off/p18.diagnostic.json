@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "db935796c8283aff7d659e22aeac2e21ce0a8e45c6462a7d216800248cfca32b",
+  "attempts": [
+    {
+      "asr_seconds": 0.087014130782336,
+      "alignment_seconds": 0.00010949606075882912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Lady Abbess.",
+          "start": 0.14,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Lady",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.919921875
+            },
+            {
+              "text": " Abbess.",
+              "start": 0.84,
+              "end": 1.32,
+              "probability": 0.6995442708333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "Lady",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "Abbess.",
+          "start": 0.84,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Lady",
+        "Abbess."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Abbess.",
+          "start": 0.84,
+          "end": 1.32,
+          "key": "abbess",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "Lady",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "Abbess.",
+          "start": 0.84,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08715838007628918
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce2b5036de8f458245927f2d2a059f7e05d7f4ad411a9b1f9559eb12ec15b004",
+  "selected_reasons": []
+}

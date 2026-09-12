@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "8b48d53250d9a8ae4fa33310ffe55a032eac0884ee34d3e72479d44a87cb0958",
+  "attempts": [
+    {
+      "asr_seconds": 0.10536585003137589,
+      "alignment_seconds": 0.00012532994151115417,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Enter Cassio, driving in Roderigo.]",
+        "hotwords": "Enter, Cassio, Roderigo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cassio, driving in Roderigo.",
+          "start": 0.08,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.9375
+            },
+            {
+              "text": " Cassio,",
+              "start": 0.66,
+              "end": 1.2,
+              "probability": 0.58709716796875
+            },
+            {
+              "text": " driving",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " in",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Roderigo.",
+              "start": 1.96,
+              "end": 2.5,
+              "probability": 0.17087809244791666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Cassio,",
+          "start": 0.66,
+          "end": 1.2
+        },
+        {
+          "raw": "driving",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "in",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "raw": "Roderigo.",
+          "start": 1.96,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Cassio,",
+        "driving",
+        "in",
+        "Roderigo.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cassio,",
+          "start": 0.66,
+          "end": 1.2,
+          "key": "cassio",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "driving",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "driving",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Roderigo.",
+          "start": 1.96,
+          "end": 2.5,
+          "key": "roderigo",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Cassio,",
+          "start": 0.66,
+          "end": 1.2
+        },
+        {
+          "text": "driving",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "in",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "text": "Roderigo.]",
+          "start": 1.96,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1055348189547658
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "624b153ace8db6486f068482c830283768ac6cd1652518d6ed7be227d682a67e",
+  "selected_reasons": []
+}

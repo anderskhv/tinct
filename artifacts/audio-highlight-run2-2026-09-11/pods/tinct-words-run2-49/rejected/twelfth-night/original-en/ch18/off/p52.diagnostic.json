@@ -1,0 +1,336 @@
+{
+  "complete": true,
+  "signature": "844075d52218854fbc468d8130ea26bbe901a1a1919c16ff0d615ebf05a78343",
+  "attempts": [
+    {
+      "asr_seconds": 0.19936519861221313,
+      "alignment_seconds": 0.000521782785654068,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, Ami detested. How am I beguiled?",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " Ami",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.6978759765625
+            },
+            {
+              "text": " detested.",
+              "start": 1.47,
+              "end": 1.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " How",
+              "start": 2.41,
+              "end": 2.47,
+              "probability": 0.984375
+            },
+            {
+              "text": " am",
+              "start": 2.47,
+              "end": 2.57,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " I",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " beguiled?",
+              "start": 2.69,
+              "end": 3.13,
+              "probability": 0.9825846354166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Ami",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "detested.",
+          "start": 1.47,
+          "end": 1.95
+        },
+        {
+          "raw": "How",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "raw": "am",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "beguiled?",
+          "start": 2.69,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "Ah",
+        "me,",
+        "detested!",
+        "how",
+        "am",
+        "I",
+        "beguil'd!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "equal",
+          3,
+          7,
+          2,
+          6
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          7,
+          8,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ami",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "ami",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "detested.",
+          "start": 1.47,
+          "end": 1.95,
+          "key": "detested",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.41,
+          "end": 2.47,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.47,
+          "end": 2.57,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "beguiled?",
+          "start": 2.69,
+          "end": 3.13,
+          "key": "beguiled",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Ah",
+          "start": 0.83,
+          "end": 1.15
+        },
+        {
+          "text": "me,",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "detested!",
+          "start": 1.47,
+          "end": 1.95
+        },
+        {
+          "text": "how",
+          "start": 2.41,
+          "end": 2.47
+        },
+        {
+          "text": "am",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "text": "I",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "beguil'd!",
+          "start": 2.69,
+          "end": 2.91
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20004305616021156
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fe191844f5628d3f5bbf0ca6903253de9e717a7a3932c5a563fe92f9b8e29bac",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

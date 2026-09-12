@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "c783344f479a161f3933c205c92b0f944b5e83970565a38759c6a59075785e5a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12958177598193288,
+      "alignment_seconds": 0.00014464790001511574,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. O heavens forfend!",
+        "hotwords": "All, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, O heavens forfend!",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " O",
+              "start": 1.07,
+              "end": 1.07,
+              "probability": 0.396240234375
+            },
+            {
+              "text": " heavens",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " forfend!",
+              "start": 1.25,
+              "end": 1.79,
+              "probability": 0.5568033854166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "O",
+          "start": 1.07,
+          "end": 1.07
+        },
+        {
+          "raw": "heavens",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "forfend!",
+          "start": 1.25,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "O",
+        "heavens",
+        "forfend!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.07,
+          "end": 1.07,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "heavens",
+          "start": 1.07,
+          "end": 1.25,
+          "key": "heavens",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forfend!",
+          "start": 1.25,
+          "end": 1.79,
+          "key": "forfend",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "O",
+          "start": 1.07,
+          "end": 1.07
+        },
+        {
+          "text": "heavens",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "forfend!",
+          "start": 1.25,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1297727832570672
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6b1480fa21b6c4c2c16bd05a818383640f4f958c2e7cb474de43df362ad4c26e",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "66d87bbb0570d0651963901861f699d25d238b68e21951b335f7a6888d9a629d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12976946402341127,
+      "alignment_seconds": 0.0001633581705391407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. What, not a whore?",
+        "hotwords": "Othello, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, What, not a whore?",
+          "start": 0.61,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 0.4491373697916667
+            },
+            {
+              "text": " What,",
+              "start": 1.17,
+              "end": 1.31,
+              "probability": 0.10797119140625
+            },
+            {
+              "text": " not",
+              "start": 1.41,
+              "end": 1.45,
+              "probability": 0.291015625
+            },
+            {
+              "text": " a",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " whore?",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.2371826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "raw": "What,",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "raw": "not",
+          "start": 1.41,
+          "end": 1.45
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "whore?",
+          "start": 1.55,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "What,",
+        "not",
+        "a",
+        "whore?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.61,
+          "end": 0.93,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.17,
+          "end": 1.31,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.41,
+          "end": 1.45,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whore?",
+          "start": 1.55,
+          "end": 1.73,
+          "key": "whore",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "text": "What,",
+          "start": 1.17,
+          "end": 1.31
+        },
+        {
+          "text": "not",
+          "start": 1.41,
+          "end": 1.45
+        },
+        {
+          "text": "a",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "whore?",
+          "start": 1.55,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1299890112131834
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f0b0bacb650ed1951593060e3b77b47c1b6c2b8e854817ea8649a273b2db9829",
+  "selected_reasons": []
+}

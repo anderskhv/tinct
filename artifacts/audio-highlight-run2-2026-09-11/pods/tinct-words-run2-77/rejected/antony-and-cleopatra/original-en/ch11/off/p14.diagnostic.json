@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "3c695bc7aae9729fef92b3285ab3d14e1da8d5601015eba776cab1bd9faa5155",
+  "attempts": [
+    {
+      "asr_seconds": 0.23745809600222856,
+      "alignment_seconds": 0.0003586029924917966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, I have heard it, Pompey, and am well-studied for a liberal thanks which I do owe you.",
+          "start": 0.02,
+          "end": 5.46,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.763671875
+            },
+            {
+              "text": " I",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.9921875
+            },
+            {
+              "text": " heard",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it,",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Pompey,",
+              "start": 1.98,
+              "end": 2.5,
+              "probability": 0.941162109375
+            },
+            {
+              "text": " and",
+              "start": 2.7,
+              "end": 2.86,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " am",
+              "start": 2.86,
+              "end": 2.96,
+              "probability": 0.89453125
+            },
+            {
+              "text": " well",
+              "start": 2.96,
+              "end": 3.14,
+              "probability": 0.9990234375
+            },
+            {
+              "text": "-studied",
+              "start": 3.14,
+              "end": 3.54,
+              "probability": 0.7159830729166666
+            },
+            {
+              "text": " for",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " liberal",
+              "start": 3.84,
+              "end": 4.06,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " thanks",
+              "start": 4.06,
+              "end": 4.42,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " which",
+              "start": 4.42,
+              "end": 4.66,
+              "probability": 0.9609375
+            },
+            {
+              "text": " I",
+              "start": 4.66,
+              "end": 4.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do",
+              "start": 4.84,
+              "end": 4.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " owe",
+              "start": 4.98,
+              "end": 5.16,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you.",
+              "start": 5.16,
+              "end": 5.46,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "have",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "heard",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "it,",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "Pompey,",
+          "start": 1.98,
+          "end": 2.5
+        },
+        {
+          "raw": "and",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "raw": "am",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "raw": "well",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "raw": "-studied",
+          "start": 3.14,
+          "end": 3.54
+        },
+        {
+          "raw": "for",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "a",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "liberal",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "raw": "thanks",
+          "start": 4.06,
+          "end": 4.42
+        },
+        {
+          "raw": "which",
+          "start": 4.42,
+          "end": 4.66
+        },
+        {
+          "raw": "I",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "raw": "do",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "raw": "owe",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "raw": "you.",
+          "start": 5.16,
+          "end": 5.46
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "I",
+        "have",
+        "heard",
+        "it,",
+        "Pompey,",
+        "And",
+        "am",
+        "well",
+        "studied",
+        "for",
+        "a",
+        "liberal",
+        "thanks",
+        "Which",
+        "I",
+        "do",
+        "owe",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.06,
+          "end": 1.3,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pompey,",
+          "start": 1.98,
+          "end": 2.5,
+          "key": "pompey",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.7,
+          "end": 2.86,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.86,
+          "end": 2.96,
+          "key": "am",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 2.96,
+          "end": 3.14,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "-studied",
+          "start": 3.14,
+          "end": 3.54,
+          "key": "studied",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.54,
+          "end": 3.7,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "liberal",
+          "start": 3.84,
+          "end": 4.06,
+          "key": "liberal",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thanks",
+          "start": 4.06,
+          "end": 4.42,
+          "key": "thanks",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.42,
+          "end": 4.66,
+          "key": "which",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.66,
+          "end": 4.84,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 4.84,
+          "end": 4.98,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "owe",
+          "start": 4.98,
+          "end": 5.16,
+          "key": "owe",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.16,
+          "end": 5.46,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "have",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "heard",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "text": "it,",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "Pompey,",
+          "start": 1.98,
+          "end": 2.5
+        },
+        {
+          "text": "And",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "text": "am",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "text": "well",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "text": "studied",
+          "start": 3.14,
+          "end": 3.54
+        },
+        {
+          "text": "for",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "a",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "liberal",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "text": "thanks",
+          "start": 4.06,
+          "end": 4.42
+        },
+        {
+          "text": "Which",
+          "start": 4.42,
+          "end": 4.66
+        },
+        {
+          "text": "I",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "text": "do",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "text": "owe",
+          "start": 4.98,
+          "end": 5.16
+        },
+        {
+          "text": "you.",
+          "start": 5.16,
+          "end": 5.46
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23793919300078414
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "683fcb7f0ab1e6f00805ffb0da8aaccddd9426f72183fa0af06c3ad8eceb01cc",
+  "selected_reasons": []
+}

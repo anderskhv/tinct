@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "c02e13e4bc393c736457bc252f8a3c124c84553011f7c59824cfd67954bb4dc1",
+  "attempts": [
+    {
+      "asr_seconds": 1.1181708816438913,
+      "alignment_seconds": 0.0004481356590986252,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Autolycus. After I have done what I promised?",
+        "hotwords": "Autolycus, After, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Autolycus, After I have done what I promised?",
+          "start": 0.56,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Autolycus,",
+              "start": 0.56,
+              "end": 1.02,
+              "probability": 0.8590494791666666
+            },
+            {
+              "text": " After",
+              "start": 1.38,
+              "end": 1.66,
+              "probability": 0.02508544921875
+            },
+            {
+              "text": " I",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " have",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " done",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.986328125
+            },
+            {
+              "text": " what",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " I",
+              "start": 2.22,
+              "end": 2.36,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " promised?",
+              "start": 2.36,
+              "end": 2.68,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.56,
+          "end": 1.02
+        },
+        {
+          "raw": "After",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "raw": "I",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "have",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "done",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "what",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "I",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "raw": "promised?",
+          "start": 2.36,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "After",
+        "I",
+        "have",
+        "done",
+        "what",
+        "I",
+        "promised?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.56,
+          "end": 1.02,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "After",
+          "start": 1.38,
+          "end": 1.66,
+          "key": "after",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "done",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.22,
+          "end": 2.36,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "promised?",
+          "start": 2.36,
+          "end": 2.68,
+          "key": "promised",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.56,
+          "end": 1.02
+        },
+        {
+          "text": "After",
+          "start": 1.38,
+          "end": 1.66
+        },
+        {
+          "text": "I",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "have",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "done",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "what",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "I",
+          "start": 2.22,
+          "end": 2.36
+        },
+        {
+          "text": "promised?",
+          "start": 2.36,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.118786621838808
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71ebbe98190c6df6da4c225b91915470ef2a8602625049de7e1addafa345b3e9",
+  "selected_reasons": []
+}

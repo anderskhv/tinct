@@ -1,0 +1,1540 @@
+{
+  "complete": true,
+  "signature": "deaf7b6d761e2521bbc63376cf1f474769f64b0592edbe3ad75a189e5bbd0d6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.5375751450192183,
+      "alignment_seconds": 0.0010019750334322453,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Forthwith from out the ark a raven flies, And after him, the surer messenger, A dove sent forth once and again to spy Green tree or ground, whereon his foot may light: The second time returning, in his bill An olive-leaf he brings, pacifick sign:",
+        "hotwords": "Forthwith, Green, An"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Forthwith from out the ark a raven flies, And after him, the surer messenger,",
+          "start": 0.02,
+          "end": 4.98,
+          "words": [
+            {
+              "text": " Forthwith",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " from",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.9140625
+            },
+            {
+              "text": " out",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ark",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.640625
+            },
+            {
+              "text": " a",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " raven",
+              "start": 1.76,
+              "end": 2.08,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " flies,",
+              "start": 2.08,
+              "end": 2.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " And",
+              "start": 3.14,
+              "end": 3.22,
+              "probability": 0.2313232421875
+            },
+            {
+              "text": " after",
+              "start": 3.22,
+              "end": 3.52,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " him,",
+              "start": 3.52,
+              "end": 3.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.1,
+              "end": 4.22,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " surer",
+              "start": 4.22,
+              "end": 4.66,
+              "probability": 0.868408203125
+            },
+            {
+              "text": " messenger,",
+              "start": 4.66,
+              "end": 4.98,
+              "probability": 0.97119140625
+            }
+          ]
+        },
+        {
+          "text": " A dove sent forth once and again to spy Green tree or ground, whereon his foot may light,",
+          "start": 5.58,
+          "end": 11.08,
+          "words": [
+            {
+              "text": " A",
+              "start": 5.58,
+              "end": 5.72,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " dove",
+              "start": 5.72,
+              "end": 5.98,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " sent",
+              "start": 5.98,
+              "end": 6.3,
+              "probability": 0.974609375
+            },
+            {
+              "text": " forth",
+              "start": 6.3,
+              "end": 6.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 6.62,
+              "end": 7.04,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " and",
+              "start": 7.04,
+              "end": 7.24,
+              "probability": 0.904296875
+            },
+            {
+              "text": " again",
+              "start": 7.24,
+              "end": 7.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 7.46,
+              "end": 7.68,
+              "probability": 0.6953125
+            },
+            {
+              "text": " spy",
+              "start": 7.68,
+              "end": 7.94,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Green",
+              "start": 7.94,
+              "end": 8.32,
+              "probability": 0.2088623046875
+            },
+            {
+              "text": " tree",
+              "start": 8.32,
+              "end": 8.7,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " or",
+              "start": 8.7,
+              "end": 9.0,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " ground,",
+              "start": 9.0,
+              "end": 9.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " whereon",
+              "start": 9.84,
+              "end": 10.2,
+              "probability": 0.44366455078125
+            },
+            {
+              "text": " his",
+              "start": 10.2,
+              "end": 10.32,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " foot",
+              "start": 10.32,
+              "end": 10.56,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " may",
+              "start": 10.56,
+              "end": 10.78,
+              "probability": 0.94921875
+            },
+            {
+              "text": " light,",
+              "start": 10.78,
+              "end": 11.08,
+              "probability": 0.97900390625
+            }
+          ]
+        },
+        {
+          "text": " The second time returning, in his bill An olive-leaf he brings, pacifick sign.",
+          "start": 11.68,
+          "end": 16.14,
+          "words": [
+            {
+              "text": " The",
+              "start": 11.68,
+              "end": 11.9,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " second",
+              "start": 11.9,
+              "end": 12.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " time",
+              "start": 12.14,
+              "end": 12.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " returning,",
+              "start": 12.44,
+              "end": 12.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 13.32,
+              "end": 13.42,
+              "probability": 0.90625
+            },
+            {
+              "text": " his",
+              "start": 13.42,
+              "end": 13.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bill",
+              "start": 13.56,
+              "end": 13.8,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " An",
+              "start": 13.8,
+              "end": 13.98,
+              "probability": 0.006221771240234375
+            },
+            {
+              "text": " olive",
+              "start": 13.98,
+              "end": 14.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": "-leaf",
+              "start": 14.24,
+              "end": 14.42,
+              "probability": 0.6322021484375
+            },
+            {
+              "text": " he",
+              "start": 14.42,
+              "end": 14.62,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " brings,",
+              "start": 14.62,
+              "end": 14.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " pacifick",
+              "start": 15.34,
+              "end": 15.76,
+              "probability": 0.086944580078125
+            },
+            {
+              "text": " sign.",
+              "start": 15.76,
+              "end": 16.14,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Forthwith",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "from",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "out",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "the",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "ark",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "a",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "raven",
+          "start": 1.76,
+          "end": 2.08
+        },
+        {
+          "raw": "flies,",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "raw": "And",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "raw": "after",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "raw": "him,",
+          "start": 3.52,
+          "end": 3.84
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "raw": "surer",
+          "start": 4.22,
+          "end": 4.66
+        },
+        {
+          "raw": "messenger,",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "raw": "A",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "raw": "dove",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "raw": "sent",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "raw": "forth",
+          "start": 6.3,
+          "end": 6.62
+        },
+        {
+          "raw": "once",
+          "start": 6.62,
+          "end": 7.04
+        },
+        {
+          "raw": "and",
+          "start": 7.04,
+          "end": 7.24
+        },
+        {
+          "raw": "again",
+          "start": 7.24,
+          "end": 7.46
+        },
+        {
+          "raw": "to",
+          "start": 7.46,
+          "end": 7.68
+        },
+        {
+          "raw": "spy",
+          "start": 7.68,
+          "end": 7.94
+        },
+        {
+          "raw": "Green",
+          "start": 7.94,
+          "end": 8.32
+        },
+        {
+          "raw": "tree",
+          "start": 8.32,
+          "end": 8.7
+        },
+        {
+          "raw": "or",
+          "start": 8.7,
+          "end": 9.0
+        },
+        {
+          "raw": "ground,",
+          "start": 9.0,
+          "end": 9.4
+        },
+        {
+          "raw": "whereon",
+          "start": 9.84,
+          "end": 10.2
+        },
+        {
+          "raw": "his",
+          "start": 10.2,
+          "end": 10.32
+        },
+        {
+          "raw": "foot",
+          "start": 10.32,
+          "end": 10.56
+        },
+        {
+          "raw": "may",
+          "start": 10.56,
+          "end": 10.78
+        },
+        {
+          "raw": "light,",
+          "start": 10.78,
+          "end": 11.08
+        },
+        {
+          "raw": "The",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "raw": "second",
+          "start": 11.9,
+          "end": 12.14
+        },
+        {
+          "raw": "time",
+          "start": 12.14,
+          "end": 12.44
+        },
+        {
+          "raw": "returning,",
+          "start": 12.44,
+          "end": 12.9
+        },
+        {
+          "raw": "in",
+          "start": 13.32,
+          "end": 13.42
+        },
+        {
+          "raw": "his",
+          "start": 13.42,
+          "end": 13.56
+        },
+        {
+          "raw": "bill",
+          "start": 13.56,
+          "end": 13.8
+        },
+        {
+          "raw": "An",
+          "start": 13.8,
+          "end": 13.98
+        },
+        {
+          "raw": "olive",
+          "start": 13.98,
+          "end": 14.24
+        },
+        {
+          "raw": "-leaf",
+          "start": 14.24,
+          "end": 14.42
+        },
+        {
+          "raw": "he",
+          "start": 14.42,
+          "end": 14.62
+        },
+        {
+          "raw": "brings,",
+          "start": 14.62,
+          "end": 14.94
+        },
+        {
+          "raw": "pacifick",
+          "start": 15.34,
+          "end": 15.76
+        },
+        {
+          "raw": "sign.",
+          "start": 15.76,
+          "end": 16.14
+        }
+      ],
+      "expected_tokens": [
+        "Forthwith",
+        "from",
+        "out",
+        "the",
+        "ark",
+        "a",
+        "raven",
+        "flies,",
+        "And",
+        "after",
+        "him,",
+        "the",
+        "surer",
+        "messenger,",
+        "A",
+        "dove",
+        "sent",
+        "forth",
+        "once",
+        "and",
+        "again",
+        "to",
+        "spy",
+        "Green",
+        "tree",
+        "or",
+        "ground,",
+        "whereon",
+        "his",
+        "foot",
+        "may",
+        "light:",
+        "The",
+        "second",
+        "time",
+        "returning,",
+        "in",
+        "his",
+        "bill",
+        "An",
+        "olive-leaf",
+        "he",
+        "brings,",
+        "pacifick",
+        "sign:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          45,
+          0,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Forthwith",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "forthwith",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "from",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.16,
+          "end": 1.32,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ark",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "ark",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "raven",
+          "start": 1.76,
+          "end": 2.08,
+          "key": "raven",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "flies,",
+          "start": 2.08,
+          "end": 2.46,
+          "key": "flies",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.14,
+          "end": 3.22,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 3.22,
+          "end": 3.52,
+          "key": "after",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 3.52,
+          "end": 3.84,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.22,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "surer",
+          "start": 4.22,
+          "end": 4.66,
+          "key": "surer",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "messenger,",
+          "start": 4.66,
+          "end": 4.98,
+          "key": "messenger",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 5.58,
+          "end": 5.72,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dove",
+          "start": 5.72,
+          "end": 5.98,
+          "key": "dove",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 5.98,
+          "end": 6.3,
+          "key": "sent",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "forth",
+          "start": 6.3,
+          "end": 6.62,
+          "key": "forth",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 6.62,
+          "end": 7.04,
+          "key": "once",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.04,
+          "end": 7.24,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 7.24,
+          "end": 7.46,
+          "key": "again",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.46,
+          "end": 7.68,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "spy",
+          "start": 7.68,
+          "end": 7.94,
+          "key": "spy",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Green",
+          "start": 7.94,
+          "end": 8.32,
+          "key": "green",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "tree",
+          "start": 8.32,
+          "end": 8.7,
+          "key": "tree",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 8.7,
+          "end": 9.0,
+          "key": "or",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "ground,",
+          "start": 9.0,
+          "end": 9.4,
+          "key": "ground",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "whereon",
+          "start": 9.84,
+          "end": 10.2,
+          "key": "whereon",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.2,
+          "end": 10.32,
+          "key": "his",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "foot",
+          "start": 10.32,
+          "end": 10.56,
+          "key": "foot",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 10.56,
+          "end": 10.78,
+          "key": "may",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "light,",
+          "start": 10.78,
+          "end": 11.08,
+          "key": "light",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 11.68,
+          "end": 11.9,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 11.9,
+          "end": 12.14,
+          "key": "second",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 12.14,
+          "end": 12.44,
+          "key": "time",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "returning,",
+          "start": 12.44,
+          "end": 12.9,
+          "key": "returning",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 13.32,
+          "end": 13.42,
+          "key": "in",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 13.42,
+          "end": 13.56,
+          "key": "his",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "bill",
+          "start": 13.56,
+          "end": 13.8,
+          "key": "bill",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "An",
+          "start": 13.8,
+          "end": 13.98,
+          "key": "an",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "olive -leaf",
+          "start": 13.98,
+          "end": 14.42,
+          "key": "oliveleaf",
+          "pieces": [
+            40,
+            41
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.42,
+          "end": 14.62,
+          "key": "he",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "brings,",
+          "start": 14.62,
+          "end": 14.94,
+          "key": "brings",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "pacifick",
+          "start": 15.34,
+          "end": 15.76,
+          "key": "pacifick",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "sign.",
+          "start": 15.76,
+          "end": 16.14,
+          "key": "sign",
+          "pieces": [
+            45
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 40,
+          "text": "olive-leaf",
+          "heard": "olive -leaf",
+          "heard_indexes": [
+            40,
+            41
+          ],
+          "start": 13.98,
+          "end": 14.42
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Forthwith",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "from",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "out",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "the",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "text": "ark",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "a",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "raven",
+          "start": 1.76,
+          "end": 2.08
+        },
+        {
+          "text": "flies,",
+          "start": 2.08,
+          "end": 2.46
+        },
+        {
+          "text": "And",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "text": "after",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "text": "him,",
+          "start": 3.52,
+          "end": 3.84
+        },
+        {
+          "text": "the",
+          "start": 4.1,
+          "end": 4.22
+        },
+        {
+          "text": "surer",
+          "start": 4.22,
+          "end": 4.66
+        },
+        {
+          "text": "messenger,",
+          "start": 4.66,
+          "end": 4.98
+        },
+        {
+          "text": "A",
+          "start": 5.58,
+          "end": 5.72
+        },
+        {
+          "text": "dove",
+          "start": 5.72,
+          "end": 5.98
+        },
+        {
+          "text": "sent",
+          "start": 5.98,
+          "end": 6.3
+        },
+        {
+          "text": "forth",
+          "start": 6.3,
+          "end": 6.62
+        },
+        {
+          "text": "once",
+          "start": 6.62,
+          "end": 7.04
+        },
+        {
+          "text": "and",
+          "start": 7.04,
+          "end": 7.24
+        },
+        {
+          "text": "again",
+          "start": 7.24,
+          "end": 7.46
+        },
+        {
+          "text": "to",
+          "start": 7.46,
+          "end": 7.68
+        },
+        {
+          "text": "spy",
+          "start": 7.68,
+          "end": 7.94
+        },
+        {
+          "text": "Green",
+          "start": 7.94,
+          "end": 8.32
+        },
+        {
+          "text": "tree",
+          "start": 8.32,
+          "end": 8.7
+        },
+        {
+          "text": "or",
+          "start": 8.7,
+          "end": 9.0
+        },
+        {
+          "text": "ground,",
+          "start": 9.0,
+          "end": 9.4
+        },
+        {
+          "text": "whereon",
+          "start": 9.84,
+          "end": 10.2
+        },
+        {
+          "text": "his",
+          "start": 10.2,
+          "end": 10.32
+        },
+        {
+          "text": "foot",
+          "start": 10.32,
+          "end": 10.56
+        },
+        {
+          "text": "may",
+          "start": 10.56,
+          "end": 10.78
+        },
+        {
+          "text": "light:",
+          "start": 10.78,
+          "end": 11.08
+        },
+        {
+          "text": "The",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "text": "second",
+          "start": 11.9,
+          "end": 12.14
+        },
+        {
+          "text": "time",
+          "start": 12.14,
+          "end": 12.44
+        },
+        {
+          "text": "returning,",
+          "start": 12.44,
+          "end": 12.9
+        },
+        {
+          "text": "in",
+          "start": 13.32,
+          "end": 13.42
+        },
+        {
+          "text": "his",
+          "start": 13.42,
+          "end": 13.56
+        },
+        {
+          "text": "bill",
+          "start": 13.56,
+          "end": 13.8
+        },
+        {
+          "text": "An",
+          "start": 13.8,
+          "end": 13.98
+        },
+        {
+          "text": "olive-leaf",
+          "start": 13.98,
+          "end": 14.42
+        },
+        {
+          "text": "he",
+          "start": 14.42,
+          "end": 14.62
+        },
+        {
+          "text": "brings,",
+          "start": 14.62,
+          "end": 14.94
+        },
+        {
+          "text": "pacifick",
+          "start": 15.34,
+          "end": 15.76
+        },
+        {
+          "text": "sign:",
+          "start": 15.76,
+          "end": 16.14
+        }
+      ],
+      "stats": {
+        "expected_words": 45,
+        "heard_words": 45,
+        "matched_words": 45
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5389649809803814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dce045479bb306021d58a0666767fa929fec3c7d3dbe41e79e97818e93497e1d",
+  "selected_reasons": []
+}

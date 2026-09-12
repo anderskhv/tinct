@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "28121644f135cc96a5982817fb5be359b86722041c30ca11376c185b5f3edbd2",
+  "attempts": [
+    {
+      "asr_seconds": 0.20632907655090094,
+      "alignment_seconds": 0.0004859520122408867,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, curse not thyself, fair creature, thou art both.",
+          "start": 0.02,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.64599609375
+            },
+            {
+              "text": " curse",
+              "start": 1.42,
+              "end": 1.46,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " not",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " thyself,",
+              "start": 1.66,
+              "end": 2.08,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " fair",
+              "start": 2.3,
+              "end": 2.34,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " creature,",
+              "start": 2.34,
+              "end": 2.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thou",
+              "start": 3.06,
+              "end": 3.12,
+              "probability": 0.884765625
+            },
+            {
+              "text": " art",
+              "start": 3.12,
+              "end": 3.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " both.",
+              "start": 3.36,
+              "end": 3.66,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "curse",
+          "start": 1.42,
+          "end": 1.46
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "thyself,",
+          "start": 1.66,
+          "end": 2.08
+        },
+        {
+          "raw": "fair",
+          "start": 2.3,
+          "end": 2.34
+        },
+        {
+          "raw": "creature,",
+          "start": 2.34,
+          "end": 2.74
+        },
+        {
+          "raw": "thou",
+          "start": 3.06,
+          "end": 3.12
+        },
+        {
+          "raw": "art",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "raw": "both.",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Curse",
+        "not",
+        "thyself,",
+        "fair",
+        "creature;",
+        "thou",
+        "art",
+        "both."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "curse",
+          "start": 1.42,
+          "end": 1.46,
+          "key": "curse",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thyself,",
+          "start": 1.66,
+          "end": 2.08,
+          "key": "thyself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 2.3,
+          "end": 2.34,
+          "key": "fair",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "creature,",
+          "start": 2.34,
+          "end": 2.74,
+          "key": "creature",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.06,
+          "end": 3.12,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 3.12,
+          "end": 3.36,
+          "key": "art",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "both.",
+          "start": 3.36,
+          "end": 3.66,
+          "key": "both",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Curse",
+          "start": 1.42,
+          "end": 1.46
+        },
+        {
+          "text": "not",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "thyself,",
+          "start": 1.66,
+          "end": 2.08
+        },
+        {
+          "text": "fair",
+          "start": 2.3,
+          "end": 2.34
+        },
+        {
+          "text": "creature;",
+          "start": 2.34,
+          "end": 2.74
+        },
+        {
+          "text": "thou",
+          "start": 3.06,
+          "end": 3.12
+        },
+        {
+          "text": "art",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "text": "both.",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2069944217801094
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f74ab4717ac5a6e73c85732e58d86f80d88fc41bed4af41e8ddb78e5bc49bf8c",
+  "selected_reasons": []
+}

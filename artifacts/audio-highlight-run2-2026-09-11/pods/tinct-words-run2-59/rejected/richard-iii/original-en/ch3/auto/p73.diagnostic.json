@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "4719cf2df2e02cdcb437b9a8b9e85f057c761ed4286c9ade902775addb54c43c",
+  "attempts": [
+    {
+      "asr_seconds": 0.16524766595102847,
+      "alignment_seconds": 0.00037399493157863617,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. So just is God, to right the innocent.",
+        "hotwords": "Queen, Elizabeth, So, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth, So just is God, to right the innocent.",
+          "start": 0.08,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.884765625
+            },
+            {
+              "text": " Elizabeth,",
+              "start": 0.58,
+              "end": 1.1,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " So",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.004222869873046875
+            },
+            {
+              "text": " just",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " is",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " God,",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " to",
+              "start": 2.68,
+              "end": 2.74,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " right",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.05615234375
+            },
+            {
+              "text": " the",
+              "start": 2.92,
+              "end": 3.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " innocent.",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "raw": "So",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "just",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "God,",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "to",
+          "start": 2.68,
+          "end": 2.74
+        },
+        {
+          "raw": "right",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "raw": "innocent.",
+          "start": 3.08,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "So",
+        "just",
+        "is",
+        "God,",
+        "to",
+        "right",
+        "the",
+        "innocent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.58,
+          "end": 1.1,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "just",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "God,",
+          "start": 2.14,
+          "end": 2.44,
+          "key": "god",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.68,
+          "end": 2.74,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "right",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.08,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "innocent.",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "innocent",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "text": "So",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "just",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "is",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "God,",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "text": "to",
+          "start": 2.68,
+          "end": 2.74
+        },
+        {
+          "text": "right",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "the",
+          "start": 2.92,
+          "end": 3.08
+        },
+        {
+          "text": "innocent.",
+          "start": 3.08,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16576064098626375
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0d6a0338fa84040011c67e61b27f9ce8b4bf4df0a89337aa6371312f5ac3a1ca",
+  "selected_reasons": []
+}

@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "8a280857009ee953aa68da9e2bc70a0c2995593c4b5145faff231584f4e544ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.18074796348810196,
+      "alignment_seconds": 0.03559635952115059,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Boys, I should like to say one word to you, here at this place.\"",
+        "hotwords": "Boys, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Boys, I should like to say one word to you, here at this place.",
+          "start": 0.02,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Boys,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.79296875
+            },
+            {
+              "text": " I",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.98828125
+            },
+            {
+              "text": " should",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.9609375
+            },
+            {
+              "text": " like",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " say",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " word",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you,",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.9921875
+            },
+            {
+              "text": " at",
+              "start": 3.1,
+              "end": 3.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " this",
+              "start": 3.24,
+              "end": 3.36,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " place.",
+              "start": 3.36,
+              "end": 3.66,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Boys,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "should",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "like",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "say",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "one",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "word",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "raw": "to",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "you,",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "here",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "at",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "raw": "this",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "raw": "place.",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "\"Boys,",
+        "I",
+        "should",
+        "like",
+        "to",
+        "say",
+        "one",
+        "word",
+        "to",
+        "you,",
+        "here",
+        "at",
+        "this",
+        "place.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Boys,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "boys",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "should",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "word",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "here",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.1,
+          "end": 3.24,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.24,
+          "end": 3.36,
+          "key": "this",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "place.",
+          "start": 3.36,
+          "end": 3.66,
+          "key": "place",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Boys,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "I",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "should",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "like",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "to",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "say",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "one",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "word",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "text": "to",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "you,",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "here",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "at",
+          "start": 3.1,
+          "end": 3.24
+        },
+        {
+          "text": "this",
+          "start": 3.24,
+          "end": 3.36
+        },
+        {
+          "text": "place.\"",
+          "start": 3.36,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21652955934405327
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e2e5e90e0a44bd9aac0f83939464cb5e673679d73fe7ba3fe0fe333ca2906c6",
+  "selected_reasons": []
+}

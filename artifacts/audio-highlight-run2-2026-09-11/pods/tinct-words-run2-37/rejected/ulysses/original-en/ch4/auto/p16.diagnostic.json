@@ -1,0 +1,7890 @@
+{
+  "complete": true,
+  "signature": "1f9b2cec1f863df75f4bba383b8678219468bd5cee583bcabc0f933e3a2ab656",
+  "attempts": [
+    {
+      "asr_seconds": 0.8008840910042636,
+      "alignment_seconds": 0.00243518000934273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He listened to her licking lap. Ham and eggs, no. No good eggs with this drouth. Want pure fresh water. Thursday: not a good day either for a mutton kidney at Buckley's. Fried with butter, a shake of pepper. Better a pork kidney at Dlugacz's. While the kettle is boiling. She lapped slower, then licking the saucer clean. Why are their tongues so rough? To lap better, all porous holes. Nothing she can eat? He glanced round him. No.",
+        "hotwords": "He, Ham, Want, Thursday, Buckley's, Fried, Dlugacz's, While, Why, Nothing"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ham and eggs, no. No good eggs with this drouth. Want pure fresh water. Thursday, not a good day either for a mutton kidney at Buckley's. Fried with butter, a shake of pepper. Better a pork kidney at Dlugacz's. While the kettle is boiling. She lapped slower, then licking the saucer clean. Why are their tongues so rough? To lap better, all porous holes. Nothing she can eat? He glanced round him. No.",
+          "start": 1.64,
+          "end": 24.16,
+          "words": [
+            {
+              "text": " Ham",
+              "start": 1.64,
+              "end": 2.08,
+              "probability": 9.953975677490234e-06
+            },
+            {
+              "text": " and",
+              "start": 2.08,
+              "end": 2.52,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " eggs,",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.955078125
+            },
+            {
+              "text": " no.",
+              "start": 2.94,
+              "end": 3.12,
+              "probability": 0.990234375
+            },
+            {
+              "text": " No",
+              "start": 3.3,
+              "end": 3.38,
+              "probability": 0.98828125
+            },
+            {
+              "text": " good",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " eggs",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " this",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.98828125
+            },
+            {
+              "text": " drouth.",
+              "start": 4.12,
+              "end": 4.48,
+              "probability": 0.3899129231770833
+            },
+            {
+              "text": " Want",
+              "start": 4.56,
+              "end": 4.66,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " pure",
+              "start": 4.66,
+              "end": 4.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fresh",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " water.",
+              "start": 5.22,
+              "end": 5.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Thursday,",
+              "start": 6.42,
+              "end": 6.46,
+              "probability": 0.578125
+            },
+            {
+              "text": " not",
+              "start": 6.78,
+              "end": 6.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 6.88,
+              "end": 6.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 6.98,
+              "end": 7.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " day",
+              "start": 7.12,
+              "end": 7.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " either",
+              "start": 7.34,
+              "end": 7.54,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " for",
+              "start": 7.54,
+              "end": 7.78,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " a",
+              "start": 7.78,
+              "end": 7.88,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " mutton",
+              "start": 7.88,
+              "end": 8.12,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " kidney",
+              "start": 8.12,
+              "end": 8.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 8.34,
+              "end": 8.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Buckley's.",
+              "start": 8.52,
+              "end": 9.1,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " Fried",
+              "start": 9.62,
+              "end": 9.62,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " with",
+              "start": 9.62,
+              "end": 9.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " butter,",
+              "start": 9.82,
+              "end": 10.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 10.28,
+              "end": 10.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shake",
+              "start": 10.32,
+              "end": 10.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 10.48,
+              "end": 10.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pepper.",
+              "start": 10.64,
+              "end": 10.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Better",
+              "start": 11.42,
+              "end": 11.56,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " a",
+              "start": 11.56,
+              "end": 11.72,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " pork",
+              "start": 11.72,
+              "end": 11.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kidney",
+              "start": 11.9,
+              "end": 12.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 12.24,
+              "end": 12.4,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Dlugacz's.",
+              "start": 12.4,
+              "end": 13.22,
+              "probability": 0.3674481709798177
+            },
+            {
+              "text": " While",
+              "start": 13.28,
+              "end": 13.4,
+              "probability": 0.98046875
+            },
+            {
+              "text": " the",
+              "start": 13.4,
+              "end": 13.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " kettle",
+              "start": 13.54,
+              "end": 13.7,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " is",
+              "start": 13.7,
+              "end": 13.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " boiling.",
+              "start": 13.94,
+              "end": 14.22,
+              "probability": 1.0
+            },
+            {
+              "text": " She",
+              "start": 15.02,
+              "end": 15.06,
+              "probability": 0.935546875
+            },
+            {
+              "text": " lapped",
+              "start": 15.06,
+              "end": 15.34,
+              "probability": 0.964111328125
+            },
+            {
+              "text": " slower,",
+              "start": 15.34,
+              "end": 15.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " then",
+              "start": 15.9,
+              "end": 16.02,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " licking",
+              "start": 16.02,
+              "end": 16.22,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " the",
+              "start": 16.22,
+              "end": 16.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " saucer",
+              "start": 16.44,
+              "end": 16.76,
+              "probability": 0.980224609375
+            },
+            {
+              "text": " clean.",
+              "start": 16.76,
+              "end": 17.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Why",
+              "start": 17.74,
+              "end": 17.86,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " are",
+              "start": 17.86,
+              "end": 17.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " their",
+              "start": 17.98,
+              "end": 18.1,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " tongues",
+              "start": 18.1,
+              "end": 18.38,
+              "probability": 0.98828125
+            },
+            {
+              "text": " so",
+              "start": 18.38,
+              "end": 18.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rough?",
+              "start": 18.66,
+              "end": 18.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " To",
+              "start": 19.28,
+              "end": 19.38,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " lap",
+              "start": 19.38,
+              "end": 19.6,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " better,",
+              "start": 19.6,
+              "end": 19.92,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " all",
+              "start": 20.02,
+              "end": 20.18,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " porous",
+              "start": 20.18,
+              "end": 20.5,
+              "probability": 0.94140625
+            },
+            {
+              "text": " holes.",
+              "start": 20.5,
+              "end": 20.86,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Nothing",
+              "start": 21.4,
+              "end": 21.62,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " she",
+              "start": 21.62,
+              "end": 21.84,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " can",
+              "start": 21.84,
+              "end": 21.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " eat?",
+              "start": 21.98,
+              "end": 22.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " He",
+              "start": 22.48,
+              "end": 22.6,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " glanced",
+              "start": 22.6,
+              "end": 22.84,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " round",
+              "start": 22.84,
+              "end": 23.18,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " him.",
+              "start": 23.18,
+              "end": 23.44,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " No.",
+              "start": 23.92,
+              "end": 24.16,
+              "probability": 0.98193359375
+            }
+          ]
+        },
+        {
+          "text": " No.",
+          "start": 24.16,
+          "end": 24.22,
+          "words": [
+            {
+              "text": " No.",
+              "start": 24.16,
+              "end": 24.22,
+              "probability": 0.004421234130859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ham",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "raw": "and",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "raw": "eggs,",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "no.",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "raw": "No",
+          "start": 3.3,
+          "end": 3.38
+        },
+        {
+          "raw": "good",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "eggs",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "with",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "this",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "drouth.",
+          "start": 4.12,
+          "end": 4.48
+        },
+        {
+          "raw": "Want",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "raw": "pure",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "raw": "fresh",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "water.",
+          "start": 5.22,
+          "end": 5.6
+        },
+        {
+          "raw": "Thursday,",
+          "start": 6.42,
+          "end": 6.46
+        },
+        {
+          "raw": "not",
+          "start": 6.78,
+          "end": 6.88
+        },
+        {
+          "raw": "a",
+          "start": 6.88,
+          "end": 6.98
+        },
+        {
+          "raw": "good",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "raw": "day",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "raw": "either",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "raw": "for",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "raw": "a",
+          "start": 7.78,
+          "end": 7.88
+        },
+        {
+          "raw": "mutton",
+          "start": 7.88,
+          "end": 8.12
+        },
+        {
+          "raw": "kidney",
+          "start": 8.12,
+          "end": 8.34
+        },
+        {
+          "raw": "at",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "raw": "Buckley's.",
+          "start": 8.52,
+          "end": 9.1
+        },
+        {
+          "raw": "Fried",
+          "start": 9.62,
+          "end": 9.62
+        },
+        {
+          "raw": "with",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "raw": "butter,",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "raw": "a",
+          "start": 10.28,
+          "end": 10.32
+        },
+        {
+          "raw": "shake",
+          "start": 10.32,
+          "end": 10.48
+        },
+        {
+          "raw": "of",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "raw": "pepper.",
+          "start": 10.64,
+          "end": 10.88
+        },
+        {
+          "raw": "Better",
+          "start": 11.42,
+          "end": 11.56
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "raw": "pork",
+          "start": 11.72,
+          "end": 11.9
+        },
+        {
+          "raw": "kidney",
+          "start": 11.9,
+          "end": 12.24
+        },
+        {
+          "raw": "at",
+          "start": 12.24,
+          "end": 12.4
+        },
+        {
+          "raw": "Dlugacz's.",
+          "start": 12.4,
+          "end": 13.22
+        },
+        {
+          "raw": "While",
+          "start": 13.28,
+          "end": 13.4
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 13.54
+        },
+        {
+          "raw": "kettle",
+          "start": 13.54,
+          "end": 13.7
+        },
+        {
+          "raw": "is",
+          "start": 13.7,
+          "end": 13.94
+        },
+        {
+          "raw": "boiling.",
+          "start": 13.94,
+          "end": 14.22
+        },
+        {
+          "raw": "She",
+          "start": 15.02,
+          "end": 15.06
+        },
+        {
+          "raw": "lapped",
+          "start": 15.06,
+          "end": 15.34
+        },
+        {
+          "raw": "slower,",
+          "start": 15.34,
+          "end": 15.72
+        },
+        {
+          "raw": "then",
+          "start": 15.9,
+          "end": 16.02
+        },
+        {
+          "raw": "licking",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "raw": "the",
+          "start": 16.22,
+          "end": 16.44
+        },
+        {
+          "raw": "saucer",
+          "start": 16.44,
+          "end": 16.76
+        },
+        {
+          "raw": "clean.",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "raw": "Why",
+          "start": 17.74,
+          "end": 17.86
+        },
+        {
+          "raw": "are",
+          "start": 17.86,
+          "end": 17.98
+        },
+        {
+          "raw": "their",
+          "start": 17.98,
+          "end": 18.1
+        },
+        {
+          "raw": "tongues",
+          "start": 18.1,
+          "end": 18.38
+        },
+        {
+          "raw": "so",
+          "start": 18.38,
+          "end": 18.66
+        },
+        {
+          "raw": "rough?",
+          "start": 18.66,
+          "end": 18.94
+        },
+        {
+          "raw": "To",
+          "start": 19.28,
+          "end": 19.38
+        },
+        {
+          "raw": "lap",
+          "start": 19.38,
+          "end": 19.6
+        },
+        {
+          "raw": "better,",
+          "start": 19.6,
+          "end": 19.92
+        },
+        {
+          "raw": "all",
+          "start": 20.02,
+          "end": 20.18
+        },
+        {
+          "raw": "porous",
+          "start": 20.18,
+          "end": 20.5
+        },
+        {
+          "raw": "holes.",
+          "start": 20.5,
+          "end": 20.86
+        },
+        {
+          "raw": "Nothing",
+          "start": 21.4,
+          "end": 21.62
+        },
+        {
+          "raw": "she",
+          "start": 21.62,
+          "end": 21.84
+        },
+        {
+          "raw": "can",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "raw": "eat?",
+          "start": 21.98,
+          "end": 22.22
+        },
+        {
+          "raw": "He",
+          "start": 22.48,
+          "end": 22.6
+        },
+        {
+          "raw": "glanced",
+          "start": 22.6,
+          "end": 22.84
+        },
+        {
+          "raw": "round",
+          "start": 22.84,
+          "end": 23.18
+        },
+        {
+          "raw": "him.",
+          "start": 23.18,
+          "end": 23.44
+        },
+        {
+          "raw": "No.",
+          "start": 23.92,
+          "end": 24.16
+        },
+        {
+          "raw": "No.",
+          "start": 24.16,
+          "end": 24.22
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "listened",
+        "to",
+        "her",
+        "licking",
+        "lap.",
+        "Ham",
+        "and",
+        "eggs,",
+        "no.",
+        "No",
+        "good",
+        "eggs",
+        "with",
+        "this",
+        "drouth.",
+        "Want",
+        "pure",
+        "fresh",
+        "water.",
+        "Thursday:",
+        "not",
+        "a",
+        "good",
+        "day",
+        "either",
+        "for",
+        "a",
+        "mutton",
+        "kidney",
+        "at",
+        "Buckley's.",
+        "Fried",
+        "with",
+        "butter,",
+        "a",
+        "shake",
+        "of",
+        "pepper.",
+        "Better",
+        "a",
+        "pork",
+        "kidney",
+        "at",
+        "Dlugacz's.",
+        "While",
+        "the",
+        "kettle",
+        "is",
+        "boiling.",
+        "She",
+        "lapped",
+        "slower,",
+        "then",
+        "licking",
+        "the",
+        "saucer",
+        "clean.",
+        "Why",
+        "are",
+        "their",
+        "tongues",
+        "so",
+        "rough?",
+        "To",
+        "lap",
+        "better,",
+        "all",
+        "porous",
+        "holes.",
+        "Nothing",
+        "she",
+        "can",
+        "eat?",
+        "He",
+        "glanced",
+        "round",
+        "him.",
+        "No."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          "equal",
+          6,
+          79,
+          0,
+          73
+        ],
+        [
+          "insert",
+          79,
+          79,
+          73,
+          74
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 72
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          "insert",
+          79,
+          79,
+          73,
+          74
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ham",
+          "start": 1.64,
+          "end": 2.08,
+          "key": "ham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.08,
+          "end": 2.52,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "eggs,",
+          "start": 2.52,
+          "end": 2.84,
+          "key": "eggs",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 2.94,
+          "end": 3.12,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.3,
+          "end": 3.38,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.38,
+          "end": 3.52,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "eggs",
+          "start": 3.52,
+          "end": 3.78,
+          "key": "eggs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "drouth.",
+          "start": 4.12,
+          "end": 4.48,
+          "key": "drouth",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Want",
+          "start": 4.56,
+          "end": 4.66,
+          "key": "want",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pure",
+          "start": 4.66,
+          "end": 4.92,
+          "key": "pure",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "fresh",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "water.",
+          "start": 5.22,
+          "end": 5.6,
+          "key": "water",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Thursday,",
+          "start": 6.42,
+          "end": 6.46,
+          "key": "thursday",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.78,
+          "end": 6.88,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.88,
+          "end": 6.98,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 6.98,
+          "end": 7.12,
+          "key": "good",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 7.12,
+          "end": 7.34,
+          "key": "day",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 7.34,
+          "end": 7.54,
+          "key": "either",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.54,
+          "end": 7.78,
+          "key": "for",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.78,
+          "end": 7.88,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "mutton",
+          "start": 7.88,
+          "end": 8.12,
+          "key": "mutton",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "kidney",
+          "start": 8.12,
+          "end": 8.34,
+          "key": "kidney",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.34,
+          "end": 8.52,
+          "key": "at",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Buckley's.",
+          "start": 8.52,
+          "end": 9.1,
+          "key": "buckleys",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Fried",
+          "start": 9.62,
+          "end": 9.62,
+          "key": "fried",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.62,
+          "end": 9.82,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "butter,",
+          "start": 9.82,
+          "end": 10.1,
+          "key": "butter",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.28,
+          "end": 10.32,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "shake",
+          "start": 10.32,
+          "end": 10.48,
+          "key": "shake",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.48,
+          "end": 10.64,
+          "key": "of",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "pepper.",
+          "start": 10.64,
+          "end": 10.88,
+          "key": "pepper",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 11.42,
+          "end": 11.56,
+          "key": "better",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.72,
+          "key": "a",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "pork",
+          "start": 11.72,
+          "end": 11.9,
+          "key": "pork",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "kidney",
+          "start": 11.9,
+          "end": 12.24,
+          "key": "kidney",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 12.24,
+          "end": 12.4,
+          "key": "at",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Dlugacz's.",
+          "start": 12.4,
+          "end": 13.22,
+          "key": "dlugaczs",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "While",
+          "start": 13.28,
+          "end": 13.4,
+          "key": "while",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 13.54,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "kettle",
+          "start": 13.54,
+          "end": 13.7,
+          "key": "kettle",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.7,
+          "end": 13.94,
+          "key": "is",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "boiling.",
+          "start": 13.94,
+          "end": 14.22,
+          "key": "boiling",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 15.02,
+          "end": 15.06,
+          "key": "she",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "lapped",
+          "start": 15.06,
+          "end": 15.34,
+          "key": "lapped",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "slower,",
+          "start": 15.34,
+          "end": 15.72,
+          "key": "slower",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 15.9,
+          "end": 16.02,
+          "key": "then",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "licking",
+          "start": 16.02,
+          "end": 16.22,
+          "key": "licking",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.22,
+          "end": 16.44,
+          "key": "the",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "saucer",
+          "start": 16.44,
+          "end": 16.76,
+          "key": "saucer",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "clean.",
+          "start": 16.76,
+          "end": 17.12,
+          "key": "clean",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 17.74,
+          "end": 17.86,
+          "key": "why",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 17.86,
+          "end": 17.98,
+          "key": "are",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 17.98,
+          "end": 18.1,
+          "key": "their",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "tongues",
+          "start": 18.1,
+          "end": 18.38,
+          "key": "tongues",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 18.38,
+          "end": 18.66,
+          "key": "so",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "rough?",
+          "start": 18.66,
+          "end": 18.94,
+          "key": "rough",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 19.28,
+          "end": 19.38,
+          "key": "to",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "lap",
+          "start": 19.38,
+          "end": 19.6,
+          "key": "lap",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "better,",
+          "start": 19.6,
+          "end": 19.92,
+          "key": "better",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 20.02,
+          "end": 20.18,
+          "key": "all",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "porous",
+          "start": 20.18,
+          "end": 20.5,
+          "key": "porous",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "holes.",
+          "start": 20.5,
+          "end": 20.86,
+          "key": "holes",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Nothing",
+          "start": 21.4,
+          "end": 21.62,
+          "key": "nothing",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 21.62,
+          "end": 21.84,
+          "key": "she",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 21.84,
+          "end": 21.98,
+          "key": "can",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "eat?",
+          "start": 21.98,
+          "end": 22.22,
+          "key": "eat",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 22.48,
+          "end": 22.6,
+          "key": "he",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "glanced",
+          "start": 22.6,
+          "end": 22.84,
+          "key": "glanced",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 22.84,
+          "end": 23.18,
+          "key": "round",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 23.18,
+          "end": 23.44,
+          "key": "him",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 23.92,
+          "end": 24.16,
+          "key": "no",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 24.16,
+          "end": 24.22,
+          "key": "no",
+          "pieces": [
+            73
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.0,
+          "end": 0.82
+        },
+        {
+          "text": "listened",
+          "start": 0.82,
+          "end": 1.23
+        },
+        {
+          "text": "to",
+          "start": 1.23,
+          "end": 1.435
+        },
+        {
+          "text": "her",
+          "start": 1.435,
+          "end": 1.538
+        },
+        {
+          "text": "licking",
+          "start": 1.538,
+          "end": 1.589
+        },
+        {
+          "text": "lap.",
+          "start": 1.589,
+          "end": 1.615
+        },
+        {
+          "text": "Ham",
+          "start": 1.64,
+          "end": 2.08
+        },
+        {
+          "text": "and",
+          "start": 2.08,
+          "end": 2.52
+        },
+        {
+          "text": "eggs,",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "no.",
+          "start": 2.94,
+          "end": 3.12
+        },
+        {
+          "text": "No",
+          "start": 3.3,
+          "end": 3.38
+        },
+        {
+          "text": "good",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "eggs",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "with",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "this",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "drouth.",
+          "start": 4.12,
+          "end": 4.48
+        },
+        {
+          "text": "Want",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "text": "pure",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "text": "fresh",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "water.",
+          "start": 5.22,
+          "end": 5.6
+        },
+        {
+          "text": "Thursday:",
+          "start": 6.42,
+          "end": 6.46
+        },
+        {
+          "text": "not",
+          "start": 6.78,
+          "end": 6.88
+        },
+        {
+          "text": "a",
+          "start": 6.88,
+          "end": 6.98
+        },
+        {
+          "text": "good",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "text": "day",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "text": "either",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "text": "for",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "text": "a",
+          "start": 7.78,
+          "end": 7.88
+        },
+        {
+          "text": "mutton",
+          "start": 7.88,
+          "end": 8.12
+        },
+        {
+          "text": "kidney",
+          "start": 8.12,
+          "end": 8.34
+        },
+        {
+          "text": "at",
+          "start": 8.34,
+          "end": 8.52
+        },
+        {
+          "text": "Buckley's.",
+          "start": 8.52,
+          "end": 9.1
+        },
+        {
+          "text": "Fried",
+          "start": 9.62,
+          "end": 9.62
+        },
+        {
+          "text": "with",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "text": "butter,",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "text": "a",
+          "start": 10.28,
+          "end": 10.32
+        },
+        {
+          "text": "shake",
+          "start": 10.32,
+          "end": 10.48
+        },
+        {
+          "text": "of",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "text": "pepper.",
+          "start": 10.64,
+          "end": 10.88
+        },
+        {
+          "text": "Better",
+          "start": 11.42,
+          "end": 11.56
+        },
+        {
+          "text": "a",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "text": "pork",
+          "start": 11.72,
+          "end": 11.9
+        },
+        {
+          "text": "kidney",
+          "start": 11.9,
+          "end": 12.24
+        },
+        {
+          "text": "at",
+          "start": 12.24,
+          "end": 12.4
+        },
+        {
+          "text": "Dlugacz's.",
+          "start": 12.4,
+          "end": 13.22
+        },
+        {
+          "text": "While",
+          "start": 13.28,
+          "end": 13.4
+        },
+        {
+          "text": "the",
+          "start": 13.4,
+          "end": 13.54
+        },
+        {
+          "text": "kettle",
+          "start": 13.54,
+          "end": 13.7
+        },
+        {
+          "text": "is",
+          "start": 13.7,
+          "end": 13.94
+        },
+        {
+          "text": "boiling.",
+          "start": 13.94,
+          "end": 14.22
+        },
+        {
+          "text": "She",
+          "start": 15.02,
+          "end": 15.06
+        },
+        {
+          "text": "lapped",
+          "start": 15.06,
+          "end": 15.34
+        },
+        {
+          "text": "slower,",
+          "start": 15.34,
+          "end": 15.72
+        },
+        {
+          "text": "then",
+          "start": 15.9,
+          "end": 16.02
+        },
+        {
+          "text": "licking",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "text": "the",
+          "start": 16.22,
+          "end": 16.44
+        },
+        {
+          "text": "saucer",
+          "start": 16.44,
+          "end": 16.76
+        },
+        {
+          "text": "clean.",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "text": "Why",
+          "start": 17.74,
+          "end": 17.86
+        },
+        {
+          "text": "are",
+          "start": 17.86,
+          "end": 17.98
+        },
+        {
+          "text": "their",
+          "start": 17.98,
+          "end": 18.1
+        },
+        {
+          "text": "tongues",
+          "start": 18.1,
+          "end": 18.38
+        },
+        {
+          "text": "so",
+          "start": 18.38,
+          "end": 18.66
+        },
+        {
+          "text": "rough?",
+          "start": 18.66,
+          "end": 18.94
+        },
+        {
+          "text": "To",
+          "start": 19.28,
+          "end": 19.38
+        },
+        {
+          "text": "lap",
+          "start": 19.38,
+          "end": 19.6
+        },
+        {
+          "text": "better,",
+          "start": 19.6,
+          "end": 19.92
+        },
+        {
+          "text": "all",
+          "start": 20.02,
+          "end": 20.18
+        },
+        {
+          "text": "porous",
+          "start": 20.18,
+          "end": 20.5
+        },
+        {
+          "text": "holes.",
+          "start": 20.5,
+          "end": 20.86
+        },
+        {
+          "text": "Nothing",
+          "start": 21.4,
+          "end": 21.62
+        },
+        {
+          "text": "she",
+          "start": 21.62,
+          "end": 21.84
+        },
+        {
+          "text": "can",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "text": "eat?",
+          "start": 21.98,
+          "end": 22.22
+        },
+        {
+          "text": "He",
+          "start": 22.48,
+          "end": 22.6
+        },
+        {
+          "text": "glanced",
+          "start": 22.6,
+          "end": 22.84
+        },
+        {
+          "text": "round",
+          "start": 22.84,
+          "end": 23.18
+        },
+        {
+          "text": "him.",
+          "start": 23.18,
+          "end": 23.44
+        },
+        {
+          "text": "No.",
+          "start": 23.92,
+          "end": 24.16
+        }
+      ],
+      "stats": {
+        "expected_words": 79,
+        "heard_words": 74,
+        "matched_words": 73
+      },
+      "match_ratio": 0.9240506329113924,
+      "rejection_reasons": [],
+      "seconds": 0.8044841699884273
+    },
+    {
+      "asr_seconds": 0.9186433709983248,
+      "alignment_seconds": 0.0013154530024621636,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "He, Ham, Want, Thursday, Buckley's, Fried, Dlugacz's, While, Why, Nothing"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He listened to her licking lap. Ham and eggs, no, no good eggs with this dreuth, Want pure",
+          "start": 0.02,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " listened",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 0.94,
+              "end": 1.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " licking",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lap.",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Ham",
+              "start": 2.34,
+              "end": 2.38,
+              "probability": 0.3251953125
+            },
+            {
+              "text": " and",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " eggs,",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.98828125
+            },
+            {
+              "text": " no,",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " no",
+              "start": 3.3,
+              "end": 3.38,
+              "probability": 0.978515625
+            },
+            {
+              "text": " good",
+              "start": 3.38,
+              "end": 3.54,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " eggs",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " this",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " dreuth,",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.4976806640625
+            },
+            {
+              "text": " Want",
+              "start": 4.56,
+              "end": 4.66,
+              "probability": 0.04693603515625
+            },
+            {
+              "text": " pure",
+              "start": 4.66,
+              "end": 4.92,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " fresh water. Thursday, not a good day either for a mutton kidney at Buckley's. Fried with",
+          "start": 4.92,
+          "end": 9.82,
+          "words": [
+            {
+              "text": " fresh",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.71240234375
+            },
+            {
+              "text": " water.",
+              "start": 5.22,
+              "end": 5.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Thursday,",
+              "start": 6.24,
+              "end": 6.58,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " not",
+              "start": 6.76,
+              "end": 6.88,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " a",
+              "start": 6.88,
+              "end": 6.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 6.98,
+              "end": 7.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " day",
+              "start": 7.12,
+              "end": 7.34,
+              "probability": 0.98828125
+            },
+            {
+              "text": " either",
+              "start": 7.34,
+              "end": 7.54,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " for",
+              "start": 7.54,
+              "end": 7.76,
+              "probability": 0.25
+            },
+            {
+              "text": " a",
+              "start": 7.76,
+              "end": 7.88,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " mutton",
+              "start": 7.88,
+              "end": 8.12,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " kidney",
+              "start": 8.12,
+              "end": 8.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " at",
+              "start": 8.32,
+              "end": 8.52,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " Buckley's.",
+              "start": 8.52,
+              "end": 9.06,
+              "probability": 0.957763671875
+            },
+            {
+              "text": " Fried",
+              "start": 9.62,
+              "end": 9.62,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " with",
+              "start": 9.62,
+              "end": 9.82,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " butter, a shake of pepper. Better a pork kidney at Dlugacz's, While the kettle is boiling.",
+          "start": 9.82,
+          "end": 14.18,
+          "words": [
+            {
+              "text": " butter,",
+              "start": 9.82,
+              "end": 10.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 10.26,
+              "end": 10.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " shake",
+              "start": 10.32,
+              "end": 10.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 10.48,
+              "end": 10.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pepper.",
+              "start": 10.64,
+              "end": 10.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Better",
+              "start": 11.44,
+              "end": 11.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 11.56,
+              "end": 11.72,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " pork",
+              "start": 11.72,
+              "end": 11.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kidney",
+              "start": 11.9,
+              "end": 12.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 12.24,
+              "end": 12.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Dlugacz's,",
+              "start": 12.4,
+              "end": 13.22,
+              "probability": 0.365692138671875
+            },
+            {
+              "text": " While",
+              "start": 13.3,
+              "end": 13.4,
+              "probability": 0.486328125
+            },
+            {
+              "text": " the",
+              "start": 13.4,
+              "end": 13.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " kettle",
+              "start": 13.54,
+              "end": 13.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 13.7,
+              "end": 13.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " boiling.",
+              "start": 13.94,
+              "end": 14.18,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "text": " She lapped slower than licking the saucer clean. Why are their tongues so rough? To",
+          "start": 14.94,
+          "end": 19.38,
+          "words": [
+            {
+              "text": " She",
+              "start": 14.94,
+              "end": 15.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " lapped",
+              "start": 15.06,
+              "end": 15.36,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " slower",
+              "start": 15.36,
+              "end": 15.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 15.72,
+              "end": 16.02,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " licking",
+              "start": 16.02,
+              "end": 16.2,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 16.2,
+              "end": 16.44,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " saucer",
+              "start": 16.44,
+              "end": 16.78,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " clean.",
+              "start": 16.78,
+              "end": 17.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Why",
+              "start": 17.72,
+              "end": 17.86,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " are",
+              "start": 17.86,
+              "end": 17.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " their",
+              "start": 17.96,
+              "end": 18.1,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " tongues",
+              "start": 18.1,
+              "end": 18.38,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so",
+              "start": 18.38,
+              "end": 18.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rough?",
+              "start": 18.66,
+              "end": 18.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " To",
+              "start": 19.28,
+              "end": 19.38,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " lap better, all porous holes. Nothing she can eat, he glanced round him. No.",
+          "start": 19.38,
+          "end": 24.16,
+          "words": [
+            {
+              "text": " lap",
+              "start": 19.38,
+              "end": 19.6,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " better,",
+              "start": 19.6,
+              "end": 19.92,
+              "probability": 0.990234375
+            },
+            {
+              "text": " all",
+              "start": 20.02,
+              "end": 20.18,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " porous",
+              "start": 20.18,
+              "end": 20.5,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " holes.",
+              "start": 20.5,
+              "end": 20.86,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Nothing",
+              "start": 21.42,
+              "end": 21.62,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " she",
+              "start": 21.62,
+              "end": 21.84,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " can",
+              "start": 21.84,
+              "end": 21.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " eat,",
+              "start": 21.98,
+              "end": 22.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 22.42,
+              "end": 22.6,
+              "probability": 0.908203125
+            },
+            {
+              "text": " glanced",
+              "start": 22.6,
+              "end": 22.84,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " round",
+              "start": 22.84,
+              "end": 23.18,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " him.",
+              "start": 23.18,
+              "end": 23.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": " No.",
+              "start": 23.92,
+              "end": 24.16,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "listened",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "her",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "raw": "licking",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "lap.",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "Ham",
+          "start": 2.34,
+          "end": 2.38
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "eggs,",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "raw": "no,",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "no",
+          "start": 3.3,
+          "end": 3.38
+        },
+        {
+          "raw": "good",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "raw": "eggs",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "with",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "this",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "dreuth,",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "raw": "Want",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "raw": "pure",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "raw": "fresh",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "water.",
+          "start": 5.22,
+          "end": 5.54
+        },
+        {
+          "raw": "Thursday,",
+          "start": 6.24,
+          "end": 6.58
+        },
+        {
+          "raw": "not",
+          "start": 6.76,
+          "end": 6.88
+        },
+        {
+          "raw": "a",
+          "start": 6.88,
+          "end": 6.98
+        },
+        {
+          "raw": "good",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "raw": "day",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "raw": "either",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "raw": "for",
+          "start": 7.54,
+          "end": 7.76
+        },
+        {
+          "raw": "a",
+          "start": 7.76,
+          "end": 7.88
+        },
+        {
+          "raw": "mutton",
+          "start": 7.88,
+          "end": 8.12
+        },
+        {
+          "raw": "kidney",
+          "start": 8.12,
+          "end": 8.32
+        },
+        {
+          "raw": "at",
+          "start": 8.32,
+          "end": 8.52
+        },
+        {
+          "raw": "Buckley's.",
+          "start": 8.52,
+          "end": 9.06
+        },
+        {
+          "raw": "Fried",
+          "start": 9.62,
+          "end": 9.62
+        },
+        {
+          "raw": "with",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "raw": "butter,",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "raw": "a",
+          "start": 10.26,
+          "end": 10.32
+        },
+        {
+          "raw": "shake",
+          "start": 10.32,
+          "end": 10.48
+        },
+        {
+          "raw": "of",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "raw": "pepper.",
+          "start": 10.64,
+          "end": 10.88
+        },
+        {
+          "raw": "Better",
+          "start": 11.44,
+          "end": 11.56
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "raw": "pork",
+          "start": 11.72,
+          "end": 11.9
+        },
+        {
+          "raw": "kidney",
+          "start": 11.9,
+          "end": 12.24
+        },
+        {
+          "raw": "at",
+          "start": 12.24,
+          "end": 12.4
+        },
+        {
+          "raw": "Dlugacz's,",
+          "start": 12.4,
+          "end": 13.22
+        },
+        {
+          "raw": "While",
+          "start": 13.3,
+          "end": 13.4
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 13.54
+        },
+        {
+          "raw": "kettle",
+          "start": 13.54,
+          "end": 13.7
+        },
+        {
+          "raw": "is",
+          "start": 13.7,
+          "end": 13.94
+        },
+        {
+          "raw": "boiling.",
+          "start": 13.94,
+          "end": 14.18
+        },
+        {
+          "raw": "She",
+          "start": 14.94,
+          "end": 15.06
+        },
+        {
+          "raw": "lapped",
+          "start": 15.06,
+          "end": 15.36
+        },
+        {
+          "raw": "slower",
+          "start": 15.36,
+          "end": 15.72
+        },
+        {
+          "raw": "than",
+          "start": 15.72,
+          "end": 16.02
+        },
+        {
+          "raw": "licking",
+          "start": 16.02,
+          "end": 16.2
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.44
+        },
+        {
+          "raw": "saucer",
+          "start": 16.44,
+          "end": 16.78
+        },
+        {
+          "raw": "clean.",
+          "start": 16.78,
+          "end": 17.12
+        },
+        {
+          "raw": "Why",
+          "start": 17.72,
+          "end": 17.86
+        },
+        {
+          "raw": "are",
+          "start": 17.86,
+          "end": 17.96
+        },
+        {
+          "raw": "their",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "raw": "tongues",
+          "start": 18.1,
+          "end": 18.38
+        },
+        {
+          "raw": "so",
+          "start": 18.38,
+          "end": 18.66
+        },
+        {
+          "raw": "rough?",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "raw": "To",
+          "start": 19.28,
+          "end": 19.38
+        },
+        {
+          "raw": "lap",
+          "start": 19.38,
+          "end": 19.6
+        },
+        {
+          "raw": "better,",
+          "start": 19.6,
+          "end": 19.92
+        },
+        {
+          "raw": "all",
+          "start": 20.02,
+          "end": 20.18
+        },
+        {
+          "raw": "porous",
+          "start": 20.18,
+          "end": 20.5
+        },
+        {
+          "raw": "holes.",
+          "start": 20.5,
+          "end": 20.86
+        },
+        {
+          "raw": "Nothing",
+          "start": 21.42,
+          "end": 21.62
+        },
+        {
+          "raw": "she",
+          "start": 21.62,
+          "end": 21.84
+        },
+        {
+          "raw": "can",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "raw": "eat,",
+          "start": 21.98,
+          "end": 22.22
+        },
+        {
+          "raw": "he",
+          "start": 22.42,
+          "end": 22.6
+        },
+        {
+          "raw": "glanced",
+          "start": 22.6,
+          "end": 22.84
+        },
+        {
+          "raw": "round",
+          "start": 22.84,
+          "end": 23.18
+        },
+        {
+          "raw": "him.",
+          "start": 23.18,
+          "end": 23.48
+        },
+        {
+          "raw": "No.",
+          "start": 23.92,
+          "end": 24.16
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "listened",
+        "to",
+        "her",
+        "licking",
+        "lap.",
+        "Ham",
+        "and",
+        "eggs,",
+        "no.",
+        "No",
+        "good",
+        "eggs",
+        "with",
+        "this",
+        "drouth.",
+        "Want",
+        "pure",
+        "fresh",
+        "water.",
+        "Thursday:",
+        "not",
+        "a",
+        "good",
+        "day",
+        "either",
+        "for",
+        "a",
+        "mutton",
+        "kidney",
+        "at",
+        "Buckley's.",
+        "Fried",
+        "with",
+        "butter,",
+        "a",
+        "shake",
+        "of",
+        "pepper.",
+        "Better",
+        "a",
+        "pork",
+        "kidney",
+        "at",
+        "Dlugacz's.",
+        "While",
+        "the",
+        "kettle",
+        "is",
+        "boiling.",
+        "She",
+        "lapped",
+        "slower,",
+        "then",
+        "licking",
+        "the",
+        "saucer",
+        "clean.",
+        "Why",
+        "are",
+        "their",
+        "tongues",
+        "so",
+        "rough?",
+        "To",
+        "lap",
+        "better,",
+        "all",
+        "porous",
+        "holes.",
+        "Nothing",
+        "she",
+        "can",
+        "eat?",
+        "He",
+        "glanced",
+        "round",
+        "him.",
+        "No."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          53,
+          16,
+          53
+        ],
+        [
+          "replace",
+          53,
+          54,
+          53,
+          54
+        ],
+        [
+          "equal",
+          54,
+          79,
+          54,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          53,
+          54,
+          53,
+          54
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "listened",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "listened",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.94,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.94,
+          "end": 1.06,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "licking",
+          "start": 1.06,
+          "end": 1.3,
+          "key": "licking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lap.",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "lap",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ham",
+          "start": 2.34,
+          "end": 2.38,
+          "key": "ham",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "eggs,",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "eggs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 2.96,
+          "end": 3.12,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.3,
+          "end": 3.38,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.38,
+          "end": 3.54,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eggs",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "eggs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "this",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dreuth,",
+          "start": 4.12,
+          "end": 4.46,
+          "key": "dreuth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Want",
+          "start": 4.56,
+          "end": 4.66,
+          "key": "want",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pure",
+          "start": 4.66,
+          "end": 4.92,
+          "key": "pure",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "fresh",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "water.",
+          "start": 5.22,
+          "end": 5.54,
+          "key": "water",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Thursday,",
+          "start": 6.24,
+          "end": 6.58,
+          "key": "thursday",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.76,
+          "end": 6.88,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.88,
+          "end": 6.98,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 6.98,
+          "end": 7.12,
+          "key": "good",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 7.12,
+          "end": 7.34,
+          "key": "day",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 7.34,
+          "end": 7.54,
+          "key": "either",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.54,
+          "end": 7.76,
+          "key": "for",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.76,
+          "end": 7.88,
+          "key": "a",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "mutton",
+          "start": 7.88,
+          "end": 8.12,
+          "key": "mutton",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "kidney",
+          "start": 8.12,
+          "end": 8.32,
+          "key": "kidney",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.32,
+          "end": 8.52,
+          "key": "at",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Buckley's.",
+          "start": 8.52,
+          "end": 9.06,
+          "key": "buckleys",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Fried",
+          "start": 9.62,
+          "end": 9.62,
+          "key": "fried",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.62,
+          "end": 9.82,
+          "key": "with",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "butter,",
+          "start": 9.82,
+          "end": 10.1,
+          "key": "butter",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.26,
+          "end": 10.32,
+          "key": "a",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "shake",
+          "start": 10.32,
+          "end": 10.48,
+          "key": "shake",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.48,
+          "end": 10.64,
+          "key": "of",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "pepper.",
+          "start": 10.64,
+          "end": 10.88,
+          "key": "pepper",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 11.44,
+          "end": 11.56,
+          "key": "better",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.72,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "pork",
+          "start": 11.72,
+          "end": 11.9,
+          "key": "pork",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "kidney",
+          "start": 11.9,
+          "end": 12.24,
+          "key": "kidney",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 12.24,
+          "end": 12.4,
+          "key": "at",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Dlugacz's,",
+          "start": 12.4,
+          "end": 13.22,
+          "key": "dlugaczs",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "While",
+          "start": 13.3,
+          "end": 13.4,
+          "key": "while",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 13.54,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "kettle",
+          "start": 13.54,
+          "end": 13.7,
+          "key": "kettle",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.7,
+          "end": 13.94,
+          "key": "is",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "boiling.",
+          "start": 13.94,
+          "end": 14.18,
+          "key": "boiling",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 14.94,
+          "end": 15.06,
+          "key": "she",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "lapped",
+          "start": 15.06,
+          "end": 15.36,
+          "key": "lapped",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "slower",
+          "start": 15.36,
+          "end": 15.72,
+          "key": "slower",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 15.72,
+          "end": 16.02,
+          "key": "than",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "licking",
+          "start": 16.02,
+          "end": 16.2,
+          "key": "licking",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.2,
+          "end": 16.44,
+          "key": "the",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "saucer",
+          "start": 16.44,
+          "end": 16.78,
+          "key": "saucer",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "clean.",
+          "start": 16.78,
+          "end": 17.12,
+          "key": "clean",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 17.72,
+          "end": 17.86,
+          "key": "why",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 17.86,
+          "end": 17.96,
+          "key": "are",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 17.96,
+          "end": 18.1,
+          "key": "their",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "tongues",
+          "start": 18.1,
+          "end": 18.38,
+          "key": "tongues",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 18.38,
+          "end": 18.66,
+          "key": "so",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "rough?",
+          "start": 18.66,
+          "end": 18.96,
+          "key": "rough",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 19.28,
+          "end": 19.38,
+          "key": "to",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "lap",
+          "start": 19.38,
+          "end": 19.6,
+          "key": "lap",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "better,",
+          "start": 19.6,
+          "end": 19.92,
+          "key": "better",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 20.02,
+          "end": 20.18,
+          "key": "all",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "porous",
+          "start": 20.18,
+          "end": 20.5,
+          "key": "porous",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "holes.",
+          "start": 20.5,
+          "end": 20.86,
+          "key": "holes",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Nothing",
+          "start": 21.42,
+          "end": 21.62,
+          "key": "nothing",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 21.62,
+          "end": 21.84,
+          "key": "she",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 21.84,
+          "end": 21.98,
+          "key": "can",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "eat,",
+          "start": 21.98,
+          "end": 22.22,
+          "key": "eat",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 22.42,
+          "end": 22.6,
+          "key": "he",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "glanced",
+          "start": 22.6,
+          "end": 22.84,
+          "key": "glanced",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 22.84,
+          "end": 23.18,
+          "key": "round",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 23.18,
+          "end": 23.48,
+          "key": "him",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 23.92,
+          "end": 24.16,
+          "key": "no",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "listened",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "to",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "her",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "text": "licking",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "lap.",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "text": "Ham",
+          "start": 2.34,
+          "end": 2.38
+        },
+        {
+          "text": "and",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "eggs,",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "text": "no.",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "No",
+          "start": 3.3,
+          "end": 3.38
+        },
+        {
+          "text": "good",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "text": "eggs",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "with",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "this",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "drouth.",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "text": "Want",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "text": "pure",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "text": "fresh",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "water.",
+          "start": 5.22,
+          "end": 5.54
+        },
+        {
+          "text": "Thursday:",
+          "start": 6.24,
+          "end": 6.58
+        },
+        {
+          "text": "not",
+          "start": 6.76,
+          "end": 6.88
+        },
+        {
+          "text": "a",
+          "start": 6.88,
+          "end": 6.98
+        },
+        {
+          "text": "good",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "text": "day",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "text": "either",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "text": "for",
+          "start": 7.54,
+          "end": 7.76
+        },
+        {
+          "text": "a",
+          "start": 7.76,
+          "end": 7.88
+        },
+        {
+          "text": "mutton",
+          "start": 7.88,
+          "end": 8.12
+        },
+        {
+          "text": "kidney",
+          "start": 8.12,
+          "end": 8.32
+        },
+        {
+          "text": "at",
+          "start": 8.32,
+          "end": 8.52
+        },
+        {
+          "text": "Buckley's.",
+          "start": 8.52,
+          "end": 9.06
+        },
+        {
+          "text": "Fried",
+          "start": 9.62,
+          "end": 9.62
+        },
+        {
+          "text": "with",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "text": "butter,",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "text": "a",
+          "start": 10.26,
+          "end": 10.32
+        },
+        {
+          "text": "shake",
+          "start": 10.32,
+          "end": 10.48
+        },
+        {
+          "text": "of",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "text": "pepper.",
+          "start": 10.64,
+          "end": 10.88
+        },
+        {
+          "text": "Better",
+          "start": 11.44,
+          "end": 11.56
+        },
+        {
+          "text": "a",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "text": "pork",
+          "start": 11.72,
+          "end": 11.9
+        },
+        {
+          "text": "kidney",
+          "start": 11.9,
+          "end": 12.24
+        },
+        {
+          "text": "at",
+          "start": 12.24,
+          "end": 12.4
+        },
+        {
+          "text": "Dlugacz's.",
+          "start": 12.4,
+          "end": 13.22
+        },
+        {
+          "text": "While",
+          "start": 13.3,
+          "end": 13.4
+        },
+        {
+          "text": "the",
+          "start": 13.4,
+          "end": 13.54
+        },
+        {
+          "text": "kettle",
+          "start": 13.54,
+          "end": 13.7
+        },
+        {
+          "text": "is",
+          "start": 13.7,
+          "end": 13.94
+        },
+        {
+          "text": "boiling.",
+          "start": 13.94,
+          "end": 14.18
+        },
+        {
+          "text": "She",
+          "start": 14.94,
+          "end": 15.06
+        },
+        {
+          "text": "lapped",
+          "start": 15.06,
+          "end": 15.36
+        },
+        {
+          "text": "slower,",
+          "start": 15.36,
+          "end": 15.72
+        },
+        {
+          "text": "then",
+          "start": 15.72,
+          "end": 15.87
+        },
+        {
+          "text": "licking",
+          "start": 16.02,
+          "end": 16.2
+        },
+        {
+          "text": "the",
+          "start": 16.2,
+          "end": 16.44
+        },
+        {
+          "text": "saucer",
+          "start": 16.44,
+          "end": 16.78
+        },
+        {
+          "text": "clean.",
+          "start": 16.78,
+          "end": 17.12
+        },
+        {
+          "text": "Why",
+          "start": 17.72,
+          "end": 17.86
+        },
+        {
+          "text": "are",
+          "start": 17.86,
+          "end": 17.96
+        },
+        {
+          "text": "their",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "text": "tongues",
+          "start": 18.1,
+          "end": 18.38
+        },
+        {
+          "text": "so",
+          "start": 18.38,
+          "end": 18.66
+        },
+        {
+          "text": "rough?",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "text": "To",
+          "start": 19.28,
+          "end": 19.38
+        },
+        {
+          "text": "lap",
+          "start": 19.38,
+          "end": 19.6
+        },
+        {
+          "text": "better,",
+          "start": 19.6,
+          "end": 19.92
+        },
+        {
+          "text": "all",
+          "start": 20.02,
+          "end": 20.18
+        },
+        {
+          "text": "porous",
+          "start": 20.18,
+          "end": 20.5
+        },
+        {
+          "text": "holes.",
+          "start": 20.5,
+          "end": 20.86
+        },
+        {
+          "text": "Nothing",
+          "start": 21.42,
+          "end": 21.62
+        },
+        {
+          "text": "she",
+          "start": 21.62,
+          "end": 21.84
+        },
+        {
+          "text": "can",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "text": "eat?",
+          "start": 21.98,
+          "end": 22.22
+        },
+        {
+          "text": "He",
+          "start": 22.42,
+          "end": 22.6
+        },
+        {
+          "text": "glanced",
+          "start": 22.6,
+          "end": 22.84
+        },
+        {
+          "text": "round",
+          "start": 22.84,
+          "end": 23.18
+        },
+        {
+          "text": "him.",
+          "start": 23.18,
+          "end": 23.48
+        },
+        {
+          "text": "No.",
+          "start": 23.92,
+          "end": 24.16
+        }
+      ],
+      "stats": {
+        "expected_words": 79,
+        "heard_words": 79,
+        "matched_words": 77
+      },
+      "match_ratio": 0.9746835443037974,
+      "rejection_reasons": [],
+      "seconds": 0.9205056009814143
+    },
+    {
+      "asr_seconds": 1.1076743000012357,
+      "alignment_seconds": 0.0016792529786471277,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He listened to her licking lap.",
+          "start": 0.02,
+          "end": 1.64,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " listened",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 0.94,
+              "end": 1.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " licking",
+              "start": 1.06,
+              "end": 1.3,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " lap.",
+              "start": 1.3,
+              "end": 1.64,
+              "probability": 0.96142578125
+            }
+          ]
+        },
+        {
+          "text": " Ham and eggs, no, no good eggs with this dreuth, want pure fresh water.",
+          "start": 2.34,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " Ham",
+              "start": 2.34,
+              "end": 2.38,
+              "probability": 0.3251953125
+            },
+            {
+              "text": " and",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " eggs,",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.98828125
+            },
+            {
+              "text": " no,",
+              "start": 2.96,
+              "end": 3.12,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " no",
+              "start": 3.3,
+              "end": 3.38,
+              "probability": 0.978515625
+            },
+            {
+              "text": " good",
+              "start": 3.38,
+              "end": 3.54,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " eggs",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " this",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " dreuth,",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.4976806640625
+            },
+            {
+              "text": " want",
+              "start": 4.56,
+              "end": 4.66,
+              "probability": 0.935546875
+            },
+            {
+              "text": " pure",
+              "start": 4.66,
+              "end": 4.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fresh",
+              "start": 4.92,
+              "end": 5.22,
+              "probability": 0.728515625
+            },
+            {
+              "text": " water.",
+              "start": 5.22,
+              "end": 5.56,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " Thursday, not a good day either for a mutton kidney at Buckley's.",
+          "start": 6.26,
+          "end": 9.06,
+          "words": [
+            {
+              "text": " Thursday,",
+              "start": 6.26,
+              "end": 6.58,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " not",
+              "start": 6.74,
+              "end": 6.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 6.88,
+              "end": 6.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 6.98,
+              "end": 7.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " day",
+              "start": 7.12,
+              "end": 7.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " either",
+              "start": 7.34,
+              "end": 7.54,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " for",
+              "start": 7.54,
+              "end": 7.78,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " a",
+              "start": 7.78,
+              "end": 7.9,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " mutton",
+              "start": 7.9,
+              "end": 8.12,
+              "probability": 0.984375
+            },
+            {
+              "text": " kidney",
+              "start": 8.12,
+              "end": 8.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " at",
+              "start": 8.32,
+              "end": 8.52,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Buckley's.",
+              "start": 8.52,
+              "end": 9.06,
+              "probability": 0.9716796875
+            }
+          ]
+        },
+        {
+          "text": " Fried with butter, a shake of pepper.",
+          "start": 9.62,
+          "end": 10.86,
+          "words": [
+            {
+              "text": " Fried",
+              "start": 9.62,
+              "end": 9.62,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " with",
+              "start": 9.62,
+              "end": 9.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " butter,",
+              "start": 9.82,
+              "end": 10.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 10.26,
+              "end": 10.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shake",
+              "start": 10.32,
+              "end": 10.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 10.48,
+              "end": 10.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pepper.",
+              "start": 10.64,
+              "end": 10.86,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " Better a pork kidney at delugacs's, while the kettle is boiling.",
+          "start": 11.42,
+          "end": 14.18,
+          "words": [
+            {
+              "text": " Better",
+              "start": 11.42,
+              "end": 11.56,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 11.56,
+              "end": 11.72,
+              "probability": 0.958984375
+            },
+            {
+              "text": " pork",
+              "start": 11.72,
+              "end": 11.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " kidney",
+              "start": 11.9,
+              "end": 12.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 12.24,
+              "end": 12.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " delugacs's,",
+              "start": 12.4,
+              "end": 13.22,
+              "probability": 0.528778076171875
+            },
+            {
+              "text": " while",
+              "start": 13.24,
+              "end": 13.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 13.4,
+              "end": 13.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " kettle",
+              "start": 13.54,
+              "end": 13.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 13.72,
+              "end": 13.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " boiling.",
+              "start": 13.94,
+              "end": 14.18,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "text": " She lapped slower than licking the saucer clean.",
+          "start": 14.92,
+          "end": 17.12,
+          "words": [
+            {
+              "text": " She",
+              "start": 14.92,
+              "end": 15.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lapped",
+              "start": 15.06,
+              "end": 15.34,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " slower",
+              "start": 15.34,
+              "end": 15.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 15.72,
+              "end": 16.02,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " licking",
+              "start": 16.02,
+              "end": 16.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 16.22,
+              "end": 16.44,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " saucer",
+              "start": 16.44,
+              "end": 16.76,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " clean.",
+              "start": 16.76,
+              "end": 17.12,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Why are their tongues so rough?",
+          "start": 17.72,
+          "end": 18.96,
+          "words": [
+            {
+              "text": " Why",
+              "start": 17.72,
+              "end": 17.86,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " are",
+              "start": 17.86,
+              "end": 17.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " their",
+              "start": 17.96,
+              "end": 18.1,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " tongues",
+              "start": 18.1,
+              "end": 18.38,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " so",
+              "start": 18.38,
+              "end": 18.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rough?",
+              "start": 18.66,
+              "end": 18.96,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " To lap better, all porous holes.",
+          "start": 19.28,
+          "end": 20.86,
+          "words": [
+            {
+              "text": " To",
+              "start": 19.28,
+              "end": 19.38,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " lap",
+              "start": 19.38,
+              "end": 19.6,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " better,",
+              "start": 19.6,
+              "end": 19.92,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " all",
+              "start": 20.02,
+              "end": 20.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " porous",
+              "start": 20.18,
+              "end": 20.5,
+              "probability": 0.9453125
+            },
+            {
+              "text": " holes.",
+              "start": 20.5,
+              "end": 20.86,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " Nothing she can eat.",
+          "start": 21.4,
+          "end": 22.22,
+          "words": [
+            {
+              "text": " Nothing",
+              "start": 21.4,
+              "end": 21.62,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " she",
+              "start": 21.62,
+              "end": 21.84,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " can",
+              "start": 21.84,
+              "end": 21.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " eat.",
+              "start": 21.98,
+              "end": 22.22,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " He glanced round him.",
+          "start": 22.44,
+          "end": 23.44,
+          "words": [
+            {
+              "text": " He",
+              "start": 22.44,
+              "end": 22.6,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " glanced",
+              "start": 22.6,
+              "end": 22.84,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " round",
+              "start": 22.84,
+              "end": 23.18,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " him.",
+              "start": 23.18,
+              "end": 23.44,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " No.",
+          "start": 23.92,
+          "end": 24.16,
+          "words": [
+            {
+              "text": " No.",
+              "start": 23.92,
+              "end": 24.16,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "listened",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "her",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "raw": "licking",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "raw": "lap.",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "raw": "Ham",
+          "start": 2.34,
+          "end": 2.38
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "eggs,",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "raw": "no,",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "raw": "no",
+          "start": 3.3,
+          "end": 3.38
+        },
+        {
+          "raw": "good",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "raw": "eggs",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "raw": "with",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "this",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "dreuth,",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "raw": "want",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "raw": "pure",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "raw": "fresh",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "raw": "water.",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "raw": "Thursday,",
+          "start": 6.26,
+          "end": 6.58
+        },
+        {
+          "raw": "not",
+          "start": 6.74,
+          "end": 6.88
+        },
+        {
+          "raw": "a",
+          "start": 6.88,
+          "end": 6.98
+        },
+        {
+          "raw": "good",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "raw": "day",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "raw": "either",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "raw": "for",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "raw": "a",
+          "start": 7.78,
+          "end": 7.9
+        },
+        {
+          "raw": "mutton",
+          "start": 7.9,
+          "end": 8.12
+        },
+        {
+          "raw": "kidney",
+          "start": 8.12,
+          "end": 8.32
+        },
+        {
+          "raw": "at",
+          "start": 8.32,
+          "end": 8.52
+        },
+        {
+          "raw": "Buckley's.",
+          "start": 8.52,
+          "end": 9.06
+        },
+        {
+          "raw": "Fried",
+          "start": 9.62,
+          "end": 9.62
+        },
+        {
+          "raw": "with",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "raw": "butter,",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "raw": "a",
+          "start": 10.26,
+          "end": 10.32
+        },
+        {
+          "raw": "shake",
+          "start": 10.32,
+          "end": 10.48
+        },
+        {
+          "raw": "of",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "raw": "pepper.",
+          "start": 10.64,
+          "end": 10.86
+        },
+        {
+          "raw": "Better",
+          "start": 11.42,
+          "end": 11.56
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "raw": "pork",
+          "start": 11.72,
+          "end": 11.9
+        },
+        {
+          "raw": "kidney",
+          "start": 11.9,
+          "end": 12.24
+        },
+        {
+          "raw": "at",
+          "start": 12.24,
+          "end": 12.4
+        },
+        {
+          "raw": "delugacs's,",
+          "start": 12.4,
+          "end": 13.22
+        },
+        {
+          "raw": "while",
+          "start": 13.24,
+          "end": 13.4
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 13.54
+        },
+        {
+          "raw": "kettle",
+          "start": 13.54,
+          "end": 13.72
+        },
+        {
+          "raw": "is",
+          "start": 13.72,
+          "end": 13.94
+        },
+        {
+          "raw": "boiling.",
+          "start": 13.94,
+          "end": 14.18
+        },
+        {
+          "raw": "She",
+          "start": 14.92,
+          "end": 15.06
+        },
+        {
+          "raw": "lapped",
+          "start": 15.06,
+          "end": 15.34
+        },
+        {
+          "raw": "slower",
+          "start": 15.34,
+          "end": 15.72
+        },
+        {
+          "raw": "than",
+          "start": 15.72,
+          "end": 16.02
+        },
+        {
+          "raw": "licking",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "raw": "the",
+          "start": 16.22,
+          "end": 16.44
+        },
+        {
+          "raw": "saucer",
+          "start": 16.44,
+          "end": 16.76
+        },
+        {
+          "raw": "clean.",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "raw": "Why",
+          "start": 17.72,
+          "end": 17.86
+        },
+        {
+          "raw": "are",
+          "start": 17.86,
+          "end": 17.96
+        },
+        {
+          "raw": "their",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "raw": "tongues",
+          "start": 18.1,
+          "end": 18.38
+        },
+        {
+          "raw": "so",
+          "start": 18.38,
+          "end": 18.66
+        },
+        {
+          "raw": "rough?",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "raw": "To",
+          "start": 19.28,
+          "end": 19.38
+        },
+        {
+          "raw": "lap",
+          "start": 19.38,
+          "end": 19.6
+        },
+        {
+          "raw": "better,",
+          "start": 19.6,
+          "end": 19.92
+        },
+        {
+          "raw": "all",
+          "start": 20.02,
+          "end": 20.18
+        },
+        {
+          "raw": "porous",
+          "start": 20.18,
+          "end": 20.5
+        },
+        {
+          "raw": "holes.",
+          "start": 20.5,
+          "end": 20.86
+        },
+        {
+          "raw": "Nothing",
+          "start": 21.4,
+          "end": 21.62
+        },
+        {
+          "raw": "she",
+          "start": 21.62,
+          "end": 21.84
+        },
+        {
+          "raw": "can",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "raw": "eat.",
+          "start": 21.98,
+          "end": 22.22
+        },
+        {
+          "raw": "He",
+          "start": 22.44,
+          "end": 22.6
+        },
+        {
+          "raw": "glanced",
+          "start": 22.6,
+          "end": 22.84
+        },
+        {
+          "raw": "round",
+          "start": 22.84,
+          "end": 23.18
+        },
+        {
+          "raw": "him.",
+          "start": 23.18,
+          "end": 23.44
+        },
+        {
+          "raw": "No.",
+          "start": 23.92,
+          "end": 24.16
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "listened",
+        "to",
+        "her",
+        "licking",
+        "lap.",
+        "Ham",
+        "and",
+        "eggs,",
+        "no.",
+        "No",
+        "good",
+        "eggs",
+        "with",
+        "this",
+        "drouth.",
+        "Want",
+        "pure",
+        "fresh",
+        "water.",
+        "Thursday:",
+        "not",
+        "a",
+        "good",
+        "day",
+        "either",
+        "for",
+        "a",
+        "mutton",
+        "kidney",
+        "at",
+        "Buckley's.",
+        "Fried",
+        "with",
+        "butter,",
+        "a",
+        "shake",
+        "of",
+        "pepper.",
+        "Better",
+        "a",
+        "pork",
+        "kidney",
+        "at",
+        "Dlugacz's.",
+        "While",
+        "the",
+        "kettle",
+        "is",
+        "boiling.",
+        "She",
+        "lapped",
+        "slower,",
+        "then",
+        "licking",
+        "the",
+        "saucer",
+        "clean.",
+        "Why",
+        "are",
+        "their",
+        "tongues",
+        "so",
+        "rough?",
+        "To",
+        "lap",
+        "better,",
+        "all",
+        "porous",
+        "holes.",
+        "Nothing",
+        "she",
+        "can",
+        "eat?",
+        "He",
+        "glanced",
+        "round",
+        "him.",
+        "No."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          44,
+          16,
+          44
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          45
+        ],
+        [
+          "equal",
+          45,
+          53,
+          45,
+          53
+        ],
+        [
+          "replace",
+          53,
+          54,
+          53,
+          54
+        ],
+        [
+          "equal",
+          54,
+          79,
+          54,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          44,
+          45,
+          44,
+          45
+        ],
+        [
+          "replace",
+          53,
+          54,
+          53,
+          54
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "listened",
+          "start": 0.5,
+          "end": 0.74,
+          "key": "listened",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.74,
+          "end": 0.94,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 0.94,
+          "end": 1.06,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "licking",
+          "start": 1.06,
+          "end": 1.3,
+          "key": "licking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lap.",
+          "start": 1.3,
+          "end": 1.64,
+          "key": "lap",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Ham",
+          "start": 2.34,
+          "end": 2.38,
+          "key": "ham",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "eggs,",
+          "start": 2.54,
+          "end": 2.82,
+          "key": "eggs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 2.96,
+          "end": 3.12,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.3,
+          "end": 3.38,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.38,
+          "end": 3.54,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eggs",
+          "start": 3.54,
+          "end": 3.78,
+          "key": "eggs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "this",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dreuth,",
+          "start": 4.12,
+          "end": 4.46,
+          "key": "dreuth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 4.56,
+          "end": 4.66,
+          "key": "want",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pure",
+          "start": 4.66,
+          "end": 4.92,
+          "key": "pure",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 4.92,
+          "end": 5.22,
+          "key": "fresh",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "water.",
+          "start": 5.22,
+          "end": 5.56,
+          "key": "water",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Thursday,",
+          "start": 6.26,
+          "end": 6.58,
+          "key": "thursday",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.74,
+          "end": 6.88,
+          "key": "not",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.88,
+          "end": 6.98,
+          "key": "a",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 6.98,
+          "end": 7.12,
+          "key": "good",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 7.12,
+          "end": 7.34,
+          "key": "day",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "either",
+          "start": 7.34,
+          "end": 7.54,
+          "key": "either",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.54,
+          "end": 7.78,
+          "key": "for",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.78,
+          "end": 7.9,
+          "key": "a",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "mutton",
+          "start": 7.9,
+          "end": 8.12,
+          "key": "mutton",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "kidney",
+          "start": 8.12,
+          "end": 8.32,
+          "key": "kidney",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.32,
+          "end": 8.52,
+          "key": "at",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Buckley's.",
+          "start": 8.52,
+          "end": 9.06,
+          "key": "buckleys",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Fried",
+          "start": 9.62,
+          "end": 9.62,
+          "key": "fried",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.62,
+          "end": 9.82,
+          "key": "with",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "butter,",
+          "start": 9.82,
+          "end": 10.1,
+          "key": "butter",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.26,
+          "end": 10.32,
+          "key": "a",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "shake",
+          "start": 10.32,
+          "end": 10.48,
+          "key": "shake",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.48,
+          "end": 10.64,
+          "key": "of",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "pepper.",
+          "start": 10.64,
+          "end": 10.86,
+          "key": "pepper",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 11.42,
+          "end": 11.56,
+          "key": "better",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.56,
+          "end": 11.72,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "pork",
+          "start": 11.72,
+          "end": 11.9,
+          "key": "pork",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "kidney",
+          "start": 11.9,
+          "end": 12.24,
+          "key": "kidney",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 12.24,
+          "end": 12.4,
+          "key": "at",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "delugacs's,",
+          "start": 12.4,
+          "end": 13.22,
+          "key": "delugacss",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 13.24,
+          "end": 13.4,
+          "key": "while",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.4,
+          "end": 13.54,
+          "key": "the",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "kettle",
+          "start": 13.54,
+          "end": 13.72,
+          "key": "kettle",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.72,
+          "end": 13.94,
+          "key": "is",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "boiling.",
+          "start": 13.94,
+          "end": 14.18,
+          "key": "boiling",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 14.92,
+          "end": 15.06,
+          "key": "she",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "lapped",
+          "start": 15.06,
+          "end": 15.34,
+          "key": "lapped",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "slower",
+          "start": 15.34,
+          "end": 15.72,
+          "key": "slower",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 15.72,
+          "end": 16.02,
+          "key": "than",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "licking",
+          "start": 16.02,
+          "end": 16.22,
+          "key": "licking",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.22,
+          "end": 16.44,
+          "key": "the",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "saucer",
+          "start": 16.44,
+          "end": 16.76,
+          "key": "saucer",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "clean.",
+          "start": 16.76,
+          "end": 17.12,
+          "key": "clean",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 17.72,
+          "end": 17.86,
+          "key": "why",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 17.86,
+          "end": 17.96,
+          "key": "are",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 17.96,
+          "end": 18.1,
+          "key": "their",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "tongues",
+          "start": 18.1,
+          "end": 18.38,
+          "key": "tongues",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 18.38,
+          "end": 18.66,
+          "key": "so",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "rough?",
+          "start": 18.66,
+          "end": 18.96,
+          "key": "rough",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 19.28,
+          "end": 19.38,
+          "key": "to",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "lap",
+          "start": 19.38,
+          "end": 19.6,
+          "key": "lap",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "better,",
+          "start": 19.6,
+          "end": 19.92,
+          "key": "better",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 20.02,
+          "end": 20.18,
+          "key": "all",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "porous",
+          "start": 20.18,
+          "end": 20.5,
+          "key": "porous",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "holes.",
+          "start": 20.5,
+          "end": 20.86,
+          "key": "holes",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Nothing",
+          "start": 21.4,
+          "end": 21.62,
+          "key": "nothing",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 21.62,
+          "end": 21.84,
+          "key": "she",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 21.84,
+          "end": 21.98,
+          "key": "can",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "eat.",
+          "start": 21.98,
+          "end": 22.22,
+          "key": "eat",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 22.44,
+          "end": 22.6,
+          "key": "he",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "glanced",
+          "start": 22.6,
+          "end": 22.84,
+          "key": "glanced",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 22.84,
+          "end": 23.18,
+          "key": "round",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 23.18,
+          "end": 23.44,
+          "key": "him",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 23.92,
+          "end": 24.16,
+          "key": "no",
+          "pieces": [
+            78
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "listened",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "to",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "her",
+          "start": 0.94,
+          "end": 1.06
+        },
+        {
+          "text": "licking",
+          "start": 1.06,
+          "end": 1.3
+        },
+        {
+          "text": "lap.",
+          "start": 1.3,
+          "end": 1.64
+        },
+        {
+          "text": "Ham",
+          "start": 2.34,
+          "end": 2.38
+        },
+        {
+          "text": "and",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "eggs,",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "text": "no.",
+          "start": 2.96,
+          "end": 3.12
+        },
+        {
+          "text": "No",
+          "start": 3.3,
+          "end": 3.38
+        },
+        {
+          "text": "good",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "text": "eggs",
+          "start": 3.54,
+          "end": 3.78
+        },
+        {
+          "text": "with",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "this",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "drouth.",
+          "start": 4.12,
+          "end": 4.34
+        },
+        {
+          "text": "Want",
+          "start": 4.56,
+          "end": 4.66
+        },
+        {
+          "text": "pure",
+          "start": 4.66,
+          "end": 4.92
+        },
+        {
+          "text": "fresh",
+          "start": 4.92,
+          "end": 5.22
+        },
+        {
+          "text": "water.",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "text": "Thursday:",
+          "start": 6.26,
+          "end": 6.58
+        },
+        {
+          "text": "not",
+          "start": 6.74,
+          "end": 6.88
+        },
+        {
+          "text": "a",
+          "start": 6.88,
+          "end": 6.98
+        },
+        {
+          "text": "good",
+          "start": 6.98,
+          "end": 7.12
+        },
+        {
+          "text": "day",
+          "start": 7.12,
+          "end": 7.34
+        },
+        {
+          "text": "either",
+          "start": 7.34,
+          "end": 7.54
+        },
+        {
+          "text": "for",
+          "start": 7.54,
+          "end": 7.78
+        },
+        {
+          "text": "a",
+          "start": 7.78,
+          "end": 7.9
+        },
+        {
+          "text": "mutton",
+          "start": 7.9,
+          "end": 8.12
+        },
+        {
+          "text": "kidney",
+          "start": 8.12,
+          "end": 8.32
+        },
+        {
+          "text": "at",
+          "start": 8.32,
+          "end": 8.52
+        },
+        {
+          "text": "Buckley's.",
+          "start": 8.52,
+          "end": 9.06
+        },
+        {
+          "text": "Fried",
+          "start": 9.62,
+          "end": 9.62
+        },
+        {
+          "text": "with",
+          "start": 9.62,
+          "end": 9.82
+        },
+        {
+          "text": "butter,",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "text": "a",
+          "start": 10.26,
+          "end": 10.32
+        },
+        {
+          "text": "shake",
+          "start": 10.32,
+          "end": 10.48
+        },
+        {
+          "text": "of",
+          "start": 10.48,
+          "end": 10.64
+        },
+        {
+          "text": "pepper.",
+          "start": 10.64,
+          "end": 10.86
+        },
+        {
+          "text": "Better",
+          "start": 11.42,
+          "end": 11.56
+        },
+        {
+          "text": "a",
+          "start": 11.56,
+          "end": 11.72
+        },
+        {
+          "text": "pork",
+          "start": 11.72,
+          "end": 11.9
+        },
+        {
+          "text": "kidney",
+          "start": 11.9,
+          "end": 12.24
+        },
+        {
+          "text": "at",
+          "start": 12.24,
+          "end": 12.4
+        },
+        {
+          "text": "Dlugacz's.",
+          "start": 12.4,
+          "end": 12.82
+        },
+        {
+          "text": "While",
+          "start": 13.24,
+          "end": 13.4
+        },
+        {
+          "text": "the",
+          "start": 13.4,
+          "end": 13.54
+        },
+        {
+          "text": "kettle",
+          "start": 13.54,
+          "end": 13.72
+        },
+        {
+          "text": "is",
+          "start": 13.72,
+          "end": 13.94
+        },
+        {
+          "text": "boiling.",
+          "start": 13.94,
+          "end": 14.18
+        },
+        {
+          "text": "She",
+          "start": 14.92,
+          "end": 15.06
+        },
+        {
+          "text": "lapped",
+          "start": 15.06,
+          "end": 15.34
+        },
+        {
+          "text": "slower,",
+          "start": 15.34,
+          "end": 15.72
+        },
+        {
+          "text": "then",
+          "start": 15.72,
+          "end": 15.87
+        },
+        {
+          "text": "licking",
+          "start": 16.02,
+          "end": 16.22
+        },
+        {
+          "text": "the",
+          "start": 16.22,
+          "end": 16.44
+        },
+        {
+          "text": "saucer",
+          "start": 16.44,
+          "end": 16.76
+        },
+        {
+          "text": "clean.",
+          "start": 16.76,
+          "end": 17.12
+        },
+        {
+          "text": "Why",
+          "start": 17.72,
+          "end": 17.86
+        },
+        {
+          "text": "are",
+          "start": 17.86,
+          "end": 17.96
+        },
+        {
+          "text": "their",
+          "start": 17.96,
+          "end": 18.1
+        },
+        {
+          "text": "tongues",
+          "start": 18.1,
+          "end": 18.38
+        },
+        {
+          "text": "so",
+          "start": 18.38,
+          "end": 18.66
+        },
+        {
+          "text": "rough?",
+          "start": 18.66,
+          "end": 18.96
+        },
+        {
+          "text": "To",
+          "start": 19.28,
+          "end": 19.38
+        },
+        {
+          "text": "lap",
+          "start": 19.38,
+          "end": 19.6
+        },
+        {
+          "text": "better,",
+          "start": 19.6,
+          "end": 19.92
+        },
+        {
+          "text": "all",
+          "start": 20.02,
+          "end": 20.18
+        },
+        {
+          "text": "porous",
+          "start": 20.18,
+          "end": 20.5
+        },
+        {
+          "text": "holes.",
+          "start": 20.5,
+          "end": 20.86
+        },
+        {
+          "text": "Nothing",
+          "start": 21.4,
+          "end": 21.62
+        },
+        {
+          "text": "she",
+          "start": 21.62,
+          "end": 21.84
+        },
+        {
+          "text": "can",
+          "start": 21.84,
+          "end": 21.98
+        },
+        {
+          "text": "eat?",
+          "start": 21.98,
+          "end": 22.22
+        },
+        {
+          "text": "He",
+          "start": 22.44,
+          "end": 22.6
+        },
+        {
+          "text": "glanced",
+          "start": 22.6,
+          "end": 22.84
+        },
+        {
+          "text": "round",
+          "start": 22.84,
+          "end": 23.18
+        },
+        {
+          "text": "him.",
+          "start": 23.18,
+          "end": 23.44
+        },
+        {
+          "text": "No.",
+          "start": 23.92,
+          "end": 24.16
+        }
+      ],
+      "stats": {
+        "expected_words": 79,
+        "heard_words": 79,
+        "matched_words": 76
+      },
+      "match_ratio": 0.9620253164556962,
+      "rejection_reasons": [],
+      "seconds": 1.1100089609972201
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "2f305668ffc649cb2e2b164ffe3efd954e87ed61e5be9ab17923c1680b8fe2cb",
+  "selected_reasons": []
+}

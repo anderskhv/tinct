@@ -1,0 +1,509 @@
+{
+  "complete": true,
+  "signature": "16d0389afae77fa2b46b55145f55182de6561f7864abb1b7e77640f271f3917c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2367897517979145,
+      "alignment_seconds": 0.0004975050687789917,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In going to war against the one and in making alliances with the other."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In going to war against the one and in making alliances with the other.",
+          "start": 0.14,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.14,
+              "end": 0.56,
+              "probability": 0.1077880859375
+            },
+            {
+              "text": " going",
+              "start": 0.56,
+              "end": 0.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 0.76,
+              "end": 0.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " war",
+              "start": 0.96,
+              "end": 1.18,
+              "probability": 0.98828125
+            },
+            {
+              "text": " against",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " one",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " and",
+              "start": 1.9,
+              "end": 2.44,
+              "probability": 0.327880859375
+            },
+            {
+              "text": " in",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " making",
+              "start": 2.56,
+              "end": 2.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " alliances",
+              "start": 2.84,
+              "end": 3.34,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " with",
+              "start": 3.34,
+              "end": 3.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other.",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.14,
+          "end": 0.56
+        },
+        {
+          "raw": "going",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "raw": "war",
+          "start": 0.96,
+          "end": 1.18
+        },
+        {
+          "raw": "against",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "one",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "raw": "in",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "making",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "raw": "alliances",
+          "start": 2.84,
+          "end": 3.34
+        },
+        {
+          "raw": "with",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "other.",
+          "start": 3.82,
+          "end": 4.06
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "going",
+        "to",
+        "war",
+        "against",
+        "the",
+        "one",
+        "and",
+        "in",
+        "making",
+        "alliances",
+        "with",
+        "the",
+        "other."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.14,
+          "end": 0.56,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 0.56,
+          "end": 0.76,
+          "key": "going",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.76,
+          "end": 0.96,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "war",
+          "start": 0.96,
+          "end": 1.18,
+          "key": "war",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "against",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.44,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 2.56,
+          "end": 2.84,
+          "key": "making",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "alliances",
+          "start": 2.84,
+          "end": 3.34,
+          "key": "alliances",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.34,
+          "end": 3.7,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.82,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "other.",
+          "start": 3.82,
+          "end": 4.06,
+          "key": "other",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.14,
+          "end": 0.56
+        },
+        {
+          "text": "going",
+          "start": 0.56,
+          "end": 0.76
+        },
+        {
+          "text": "to",
+          "start": 0.76,
+          "end": 0.96
+        },
+        {
+          "text": "war",
+          "start": 0.96,
+          "end": 1.18
+        },
+        {
+          "text": "against",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": "the",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "one",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "and",
+          "start": 1.9,
+          "end": 2.44
+        },
+        {
+          "text": "in",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "making",
+          "start": 2.56,
+          "end": 2.84
+        },
+        {
+          "text": "alliances",
+          "start": 2.84,
+          "end": 3.34
+        },
+        {
+          "text": "with",
+          "start": 3.34,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "other.",
+          "start": 3.82,
+          "end": 4.06
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23748614639043808
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5409c1351ab49fa811998d04d643ab87c943957c2161f9b0f37570f922376652",
+  "selected_reasons": []
+}

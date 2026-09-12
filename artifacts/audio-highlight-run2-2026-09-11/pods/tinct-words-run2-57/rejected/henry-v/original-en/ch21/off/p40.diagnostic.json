@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "18e794a99bee9ef0998e2c841f87088f064be71ad10228f4c633c69bc8156b85",
+  "attempts": [
+    {
+      "asr_seconds": 0.13424215093255043,
+      "alignment_seconds": 0.00033010286279022694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeter, tease wonderful.",
+          "start": 0.08,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Exeter,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.92578125
+            },
+            {
+              "text": " tease",
+              "start": 1.32,
+              "end": 1.38,
+              "probability": 0.3056640625
+            },
+            {
+              "text": " wonderful.",
+              "start": 1.38,
+              "end": 1.78,
+              "probability": 0.94580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeter,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "tease",
+          "start": 1.32,
+          "end": 1.38
+        },
+        {
+          "raw": "wonderful.",
+          "start": 1.38,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Exeter.",
+        "'Tis",
+        "wonderful!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeter,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "exeter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.32,
+          "end": 1.38,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wonderful.",
+          "start": 1.38,
+          "end": 1.78,
+          "key": "wonderful",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Exeter.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "'Tis",
+          "start": 0.84,
+          "end": 1.11
+        },
+        {
+          "text": "wonderful!",
+          "start": 1.38,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1346811291296035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d5988cf2efcde6d3feca17208b65142e6774efe48de013b7223331e6a2b7353",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

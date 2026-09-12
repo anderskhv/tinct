@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "7e21f7e39d82986092c65414855fa15dcc3bfb2db6e9495de33e575a1190e966",
+  "attempts": [
+    {
+      "asr_seconds": 0.20442026481032372,
+      "alignment_seconds": 0.00025390367954969406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cinna. Casca, you are the first that rears your hand.",
+        "hotwords": "Cinna, Casca"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cinna, Casca, you are the first that rears your hand.",
+          "start": 0.08,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " Cinna,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.6084798177083334
+            },
+            {
+              "text": " Casca,",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.7330322265625
+            },
+            {
+              "text": " you",
+              "start": 1.76,
+              "end": 1.84,
+              "probability": 0.986328125
+            },
+            {
+              "text": " are",
+              "start": 1.84,
+              "end": 1.9,
+              "probability": 0.200927734375
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 2.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " first",
+              "start": 2.02,
+              "end": 2.2,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 2.2,
+              "end": 2.44,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " rears",
+              "start": 2.44,
+              "end": 2.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " your",
+              "start": 2.74,
+              "end": 2.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hand.",
+              "start": 2.88,
+              "end": 3.18,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cinna,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Casca,",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "you",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "raw": "are",
+          "start": 1.84,
+          "end": 1.9
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "raw": "first",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "raw": "rears",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "raw": "your",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "raw": "hand.",
+          "start": 2.88,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "Casca,",
+        "you",
+        "are",
+        "the",
+        "first",
+        "that",
+        "rears",
+        "your",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cinna,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "cinna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Casca,",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "casca",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.76,
+          "end": 1.84,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.84,
+          "end": 1.9,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.02,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 2.02,
+          "end": 2.2,
+          "key": "first",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.44,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rears",
+          "start": 2.44,
+          "end": 2.74,
+          "key": "rears",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.74,
+          "end": 2.88,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 2.88,
+          "end": 3.18,
+          "key": "hand",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Casca,",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "you",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "text": "are",
+          "start": 1.84,
+          "end": 1.9
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "text": "first",
+          "start": 2.02,
+          "end": 2.2
+        },
+        {
+          "text": "that",
+          "start": 2.2,
+          "end": 2.44
+        },
+        {
+          "text": "rears",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "text": "your",
+          "start": 2.74,
+          "end": 2.88
+        },
+        {
+          "text": "hand.",
+          "start": 2.88,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20479114539921284
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe8ef0970872dfd929d90f7569ac1b233b77c9e766a527d2a185901ec61f25d7",
+  "selected_reasons": []
+}

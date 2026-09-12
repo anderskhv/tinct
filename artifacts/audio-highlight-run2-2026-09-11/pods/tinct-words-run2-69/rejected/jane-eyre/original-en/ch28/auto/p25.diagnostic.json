@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "4bbcfd173ddd8786d82e981bef5e8ec6ad64d5ce5130d532c26b4e117c34d11c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3304408546537161,
+      "alignment_seconds": 0.0005305120721459389,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I knawn't,\" was the answer. \"Some does one thing, and some another. Poor folk mun get on as they can.\"",
+        "hotwords": "I, Poor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I knawn't, was the answer. Some does one thing, and some another. Poor folk mun get on as they can.",
+          "start": 0.02,
+          "end": 6.26,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.206787109375
+            },
+            {
+              "text": " knawn't,",
+              "start": 0.56,
+              "end": 1.12,
+              "probability": 0.22931551933288574
+            },
+            {
+              "text": " was",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " answer.",
+              "start": 1.58,
+              "end": 1.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Some",
+              "start": 2.72,
+              "end": 2.76,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " does",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.990234375
+            },
+            {
+              "text": " one",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thing,",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 3.5,
+              "end": 3.58,
+              "probability": 0.931640625
+            },
+            {
+              "text": " some",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " another.",
+              "start": 3.7,
+              "end": 4.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Poor",
+              "start": 4.66,
+              "end": 4.68,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " folk",
+              "start": 4.68,
+              "end": 5.02,
+              "probability": 0.9609375
+            },
+            {
+              "text": " mun",
+              "start": 5.02,
+              "end": 5.22,
+              "probability": 0.0016727447509765625
+            },
+            {
+              "text": " get",
+              "start": 5.22,
+              "end": 5.44,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " on",
+              "start": 5.44,
+              "end": 5.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 5.62,
+              "end": 5.78,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " they",
+              "start": 5.78,
+              "end": 5.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " can.",
+              "start": 5.94,
+              "end": 6.26,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "knawn't,",
+          "start": 0.56,
+          "end": 1.12
+        },
+        {
+          "raw": "was",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "answer.",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "raw": "Some",
+          "start": 2.72,
+          "end": 2.76
+        },
+        {
+          "raw": "does",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "one",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "thing,",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "raw": "some",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "another.",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "raw": "Poor",
+          "start": 4.66,
+          "end": 4.68
+        },
+        {
+          "raw": "folk",
+          "start": 4.68,
+          "end": 5.02
+        },
+        {
+          "raw": "mun",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "raw": "get",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "raw": "on",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "raw": "as",
+          "start": 5.62,
+          "end": 5.78
+        },
+        {
+          "raw": "they",
+          "start": 5.78,
+          "end": 5.94
+        },
+        {
+          "raw": "can.",
+          "start": 5.94,
+          "end": 6.26
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "knawn't,\"",
+        "was",
+        "the",
+        "answer.",
+        "\"Some",
+        "does",
+        "one",
+        "thing,",
+        "and",
+        "some",
+        "another.",
+        "Poor",
+        "folk",
+        "mun",
+        "get",
+        "on",
+        "as",
+        "they",
+        "can.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "knawn't,",
+          "start": 0.56,
+          "end": 1.12,
+          "key": "knawnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "answer.",
+          "start": 1.58,
+          "end": 1.94,
+          "key": "answer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 2.72,
+          "end": 2.76,
+          "key": "some",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "does",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "one",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thing,",
+          "start": 3.1,
+          "end": 3.36,
+          "key": "thing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.5,
+          "end": 3.58,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.58,
+          "end": 3.7,
+          "key": "some",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "another.",
+          "start": 3.7,
+          "end": 4.0,
+          "key": "another",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Poor",
+          "start": 4.66,
+          "end": 4.68,
+          "key": "poor",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "folk",
+          "start": 4.68,
+          "end": 5.02,
+          "key": "folk",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "mun",
+          "start": 5.02,
+          "end": 5.22,
+          "key": "mun",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.22,
+          "end": 5.44,
+          "key": "get",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.44,
+          "end": 5.62,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.62,
+          "end": 5.78,
+          "key": "as",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.78,
+          "end": 5.94,
+          "key": "they",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "can.",
+          "start": 5.94,
+          "end": 6.26,
+          "key": "can",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "knawn't,\"",
+          "start": 0.56,
+          "end": 1.12
+        },
+        {
+          "text": "was",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "the",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "answer.",
+          "start": 1.58,
+          "end": 1.94
+        },
+        {
+          "text": "\"Some",
+          "start": 2.72,
+          "end": 2.76
+        },
+        {
+          "text": "does",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "one",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "thing,",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.5,
+          "end": 3.58
+        },
+        {
+          "text": "some",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "another.",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "text": "Poor",
+          "start": 4.66,
+          "end": 4.68
+        },
+        {
+          "text": "folk",
+          "start": 4.68,
+          "end": 5.02
+        },
+        {
+          "text": "mun",
+          "start": 5.02,
+          "end": 5.22
+        },
+        {
+          "text": "get",
+          "start": 5.22,
+          "end": 5.44
+        },
+        {
+          "text": "on",
+          "start": 5.44,
+          "end": 5.62
+        },
+        {
+          "text": "as",
+          "start": 5.62,
+          "end": 5.78
+        },
+        {
+          "text": "they",
+          "start": 5.78,
+          "end": 5.94
+        },
+        {
+          "text": "can.\"",
+          "start": 5.94,
+          "end": 6.26
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33123983815312386
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd69cf5d664ea2e2ab11f27d83e8f0895781a882cc5cc561233d6beb38a9ba02",
+  "selected_reasons": []
+}

@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "0e9f16d6325b1693dbe18c8e91e337ccaf7ea1803a8b746536511cec914a163b",
+  "attempts": [
+    {
+      "asr_seconds": 0.31200368888676167,
+      "alignment_seconds": 0.0006490950472652912,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's right, Father Cowley said. The Reverend Mr. Love. He's a minister in the country somewhere, but are you sure of that?",
+          "start": 0.02,
+          "end": 7.44,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.735107421875
+            },
+            {
+              "text": " right,",
+              "start": 0.72,
+              "end": 0.98,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Father",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " Cowley",
+              "start": 1.42,
+              "end": 1.84,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " said.",
+              "start": 1.84,
+              "end": 2.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " The",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Reverend",
+              "start": 2.72,
+              "end": 2.96,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " Mr.",
+              "start": 2.96,
+              "end": 3.44,
+              "probability": 0.865234375
+            },
+            {
+              "text": " Love.",
+              "start": 3.78,
+              "end": 3.8,
+              "probability": 0.984375
+            },
+            {
+              "text": " He's",
+              "start": 4.28,
+              "end": 4.42,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " a",
+              "start": 4.42,
+              "end": 4.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " minister",
+              "start": 4.52,
+              "end": 4.74,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " in",
+              "start": 4.74,
+              "end": 5.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.06,
+              "end": 5.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " country",
+              "start": 5.18,
+              "end": 5.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " somewhere,",
+              "start": 5.44,
+              "end": 5.92,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " but",
+              "start": 6.4,
+              "end": 6.56,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " are",
+              "start": 6.56,
+              "end": 6.66,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 6.66,
+              "end": 6.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sure",
+              "start": 6.82,
+              "end": 7.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 7.04,
+              "end": 7.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that?",
+              "start": 7.2,
+              "end": 7.44,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "right,",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "raw": "Father",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "Cowley",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "raw": "said.",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "raw": "The",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "Reverend",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "raw": "Love.",
+          "start": 3.78,
+          "end": 3.8
+        },
+        {
+          "raw": "He's",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "raw": "a",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "raw": "minister",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "raw": "in",
+          "start": 4.74,
+          "end": 5.06
+        },
+        {
+          "raw": "the",
+          "start": 5.06,
+          "end": 5.18
+        },
+        {
+          "raw": "country",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "raw": "somewhere,",
+          "start": 5.44,
+          "end": 5.92
+        },
+        {
+          "raw": "but",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "raw": "are",
+          "start": 6.56,
+          "end": 6.66
+        },
+        {
+          "raw": "you",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "raw": "sure",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "raw": "of",
+          "start": 7.04,
+          "end": 7.2
+        },
+        {
+          "raw": "that?",
+          "start": 7.2,
+          "end": 7.44
+        }
+      ],
+      "expected_tokens": [
+        "—That's",
+        "right,",
+        "Father",
+        "Cowley",
+        "said.",
+        "The",
+        "reverend",
+        "Mr",
+        "Love.",
+        "He's",
+        "a",
+        "minister",
+        "in",
+        "the",
+        "country",
+        "somewhere.",
+        "But",
+        "are",
+        "you",
+        "sure",
+        "of",
+        "that?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "right,",
+          "start": 0.72,
+          "end": 0.98,
+          "key": "right",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Father",
+          "start": 1.26,
+          "end": 1.42,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cowley",
+          "start": 1.42,
+          "end": 1.84,
+          "key": "cowley",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.84,
+          "end": 2.14,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.62,
+          "end": 2.72,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Reverend",
+          "start": 2.72,
+          "end": 2.96,
+          "key": "reverend",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.96,
+          "end": 3.44,
+          "key": "mr",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Love.",
+          "start": 3.78,
+          "end": 3.8,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 4.28,
+          "end": 4.42,
+          "key": "hes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.42,
+          "end": 4.52,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "minister",
+          "start": 4.52,
+          "end": 4.74,
+          "key": "minister",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.74,
+          "end": 5.06,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.06,
+          "end": 5.18,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "country",
+          "start": 5.18,
+          "end": 5.44,
+          "key": "country",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "somewhere,",
+          "start": 5.44,
+          "end": 5.92,
+          "key": "somewhere",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.4,
+          "end": 6.56,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.56,
+          "end": 6.66,
+          "key": "are",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.66,
+          "end": 6.82,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 6.82,
+          "end": 7.04,
+          "key": "sure",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.04,
+          "end": 7.2,
+          "key": "of",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 7.2,
+          "end": 7.44,
+          "key": "that",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—That's",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "right,",
+          "start": 0.72,
+          "end": 0.98
+        },
+        {
+          "text": "Father",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "Cowley",
+          "start": 1.42,
+          "end": 1.84
+        },
+        {
+          "text": "said.",
+          "start": 1.84,
+          "end": 2.14
+        },
+        {
+          "text": "The",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "reverend",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "text": "Mr",
+          "start": 2.96,
+          "end": 3.44
+        },
+        {
+          "text": "Love.",
+          "start": 3.78,
+          "end": 3.8
+        },
+        {
+          "text": "He's",
+          "start": 4.28,
+          "end": 4.42
+        },
+        {
+          "text": "a",
+          "start": 4.42,
+          "end": 4.52
+        },
+        {
+          "text": "minister",
+          "start": 4.52,
+          "end": 4.74
+        },
+        {
+          "text": "in",
+          "start": 4.74,
+          "end": 5.06
+        },
+        {
+          "text": "the",
+          "start": 5.06,
+          "end": 5.18
+        },
+        {
+          "text": "country",
+          "start": 5.18,
+          "end": 5.44
+        },
+        {
+          "text": "somewhere.",
+          "start": 5.44,
+          "end": 5.92
+        },
+        {
+          "text": "But",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "text": "are",
+          "start": 6.56,
+          "end": 6.66
+        },
+        {
+          "text": "you",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "text": "sure",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "text": "of",
+          "start": 7.04,
+          "end": 7.2
+        },
+        {
+          "text": "that?",
+          "start": 7.2,
+          "end": 7.44
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3129088841378689
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d95568494e41c024b4e08231b107e1a094f3d85bf706ed5c786137fb8453f89",
+  "selected_reasons": []
+}

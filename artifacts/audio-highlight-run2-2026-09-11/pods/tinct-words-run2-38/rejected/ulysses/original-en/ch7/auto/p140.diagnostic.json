@@ -1,0 +1,129 @@
+{
+  "complete": true,
+  "signature": "fe7333519f6119b3efd73a09b2189ae1453697ca734886c4d1248f72f3ea82dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.07830285804811865,
+      "alignment_seconds": 0.00010806100908666849,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sad",
+        "hotwords": "Sad"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sad Sad",
+          "start": 0.08,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " Sad",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.5341796875
+            },
+            {
+              "text": " Sad",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 2.1219253540039062e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sad",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Sad",
+          "start": 0.66,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "Sad"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sad",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "sad",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sad",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "sad",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sad",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07845004904083908
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "51294b05140417fdcabc106490ee7ed40de82cb370fc7778a83f81921f01928c",
+  "selected_reasons": []
+}

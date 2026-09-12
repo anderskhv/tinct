@@ -1,0 +1,344 @@
+{
+  "complete": true,
+  "signature": "7146b39ad8884d7de1041dd6f1f5d1959c8ca27b81444e632bf167543e903258",
+  "attempts": [
+    {
+      "asr_seconds": 0.25811227038502693,
+      "alignment_seconds": 0.0004205009900033474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Halloa!\" said he, \"young fellow!\"",
+        "hotwords": "Halloa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Halloa said he, young fellow.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Halloa",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.42812347412109375
+            },
+            {
+              "text": " said",
+              "start": 0.81,
+              "end": 1.23,
+              "probability": 0.416015625
+            },
+            {
+              "text": " he,",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " young",
+              "start": 1.73,
+              "end": 1.73,
+              "probability": 0.69873046875
+            },
+            {
+              "text": " fellow.",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Halloa said he, young fellow.",
+          "start": 2.07,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Halloa",
+              "start": 2.07,
+              "end": 2.13,
+              "probability": 3.0428171157836914e-05
+            },
+            {
+              "text": " said",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.00011092424392700195
+            },
+            {
+              "text": " he,",
+              "start": 2.27,
+              "end": 2.27,
+              "probability": 0.020904541015625
+            },
+            {
+              "text": " young",
+              "start": 2.27,
+              "end": 2.27,
+              "probability": 1.6987323760986328e-05
+            },
+            {
+              "text": " fellow.",
+              "start": 2.27,
+              "end": 2.27,
+              "probability": 0.0008234977722167969
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Halloa",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "said",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "raw": "he,",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "young",
+          "start": 1.73,
+          "end": 1.73
+        },
+        {
+          "raw": "fellow.",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "raw": "Halloa",
+          "start": 2.07,
+          "end": 2.13
+        },
+        {
+          "raw": "said",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "he,",
+          "start": 2.27,
+          "end": 2.27
+        },
+        {
+          "raw": "young",
+          "start": 2.27,
+          "end": 2.27
+        },
+        {
+          "raw": "fellow.",
+          "start": 2.27,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "\"Halloa!\"",
+        "said",
+        "he,",
+        "\"young",
+        "fellow!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          5,
+          5,
+          5,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Halloa",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "halloa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.81,
+          "end": 1.23,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 1.73,
+          "end": 1.73,
+          "key": "young",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fellow.",
+          "start": 1.73,
+          "end": 2.07,
+          "key": "fellow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Halloa",
+          "start": 2.07,
+          "end": 2.13,
+          "key": "halloa",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 2.27,
+          "end": 2.27,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 2.27,
+          "end": 2.27,
+          "key": "young",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fellow.",
+          "start": 2.27,
+          "end": 2.27,
+          "key": "fellow",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Halloa!\"",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "said",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "text": "he,",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "\"young",
+          "start": 1.73,
+          "end": 1.73
+        },
+        {
+          "text": "fellow!\"",
+          "start": 1.73,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25873012701049447
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5f52de514be764e9f43a59d7b290436bb688f6bc5072c463c1b192ecb558c15",
+  "selected_reasons": []
+}

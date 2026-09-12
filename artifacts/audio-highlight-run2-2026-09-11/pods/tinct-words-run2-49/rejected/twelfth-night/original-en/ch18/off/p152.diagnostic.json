@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "d84cf00930c1a522411f62b2c61cd680536049d36a93684eafefb638a81645df",
+  "attempts": [
+    {
+      "asr_seconds": 0.16300765797495842,
+      "alignment_seconds": 0.0003047250211238861,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Olivia, he hath been most notoriously abuzzed.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Olivia,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.85546875
+            },
+            {
+              "text": " he",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " hath",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.974609375
+            },
+            {
+              "text": " been",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " most",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " notoriously",
+              "start": 1.79,
+              "end": 2.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " abuzzed.",
+              "start": 2.35,
+              "end": 3.39,
+              "probability": 0.900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "he",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "hath",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "been",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "most",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "notoriously",
+          "start": 1.79,
+          "end": 2.35
+        },
+        {
+          "raw": "abuzzed.",
+          "start": 2.35,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Olivia.",
+        "He",
+        "hath",
+        "been",
+        "most",
+        "notoriously",
+        "abus'd."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Olivia,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "olivia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "hath",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "been",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "most",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "notoriously",
+          "start": 1.79,
+          "end": 2.35,
+          "key": "notoriously",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "abuzzed.",
+          "start": 2.35,
+          "end": 3.39,
+          "key": "abuzzed",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Olivia.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "He",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "hath",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "been",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "most",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "notoriously",
+          "start": 1.79,
+          "end": 2.35
+        },
+        {
+          "text": "abus'd.",
+          "start": 2.35,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1634293794631958
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "35d2517a6fa945750ea104579844caa5c673e49f6c0a1505964d10178e895509",
+  "selected_reasons": []
+}

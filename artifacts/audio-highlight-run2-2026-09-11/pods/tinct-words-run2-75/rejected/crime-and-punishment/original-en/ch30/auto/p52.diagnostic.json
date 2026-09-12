@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "11f0c0577b6d54d73e9601a64649aaf360e20e6e84015625b8db9ad9209a940d",
+  "attempts": [
+    {
+      "asr_seconds": 0.22526591271162033,
+      "alignment_seconds": 0.0004250183701515198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Have they found him?\" she asked timidly.",
+        "hotwords": "Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Have they found him? she asked timidly.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.34912109375
+            },
+            {
+              "text": " they",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " found",
+              "start": 0.69,
+              "end": 0.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him?",
+              "start": 0.93,
+              "end": 1.19,
+              "probability": 0.98828125
+            },
+            {
+              "text": " she",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " asked",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " timidly.",
+              "start": 1.89,
+              "end": 2.41,
+              "probability": 0.966552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "they",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "found",
+          "start": 0.69,
+          "end": 0.93
+        },
+        {
+          "raw": "him?",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "raw": "she",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "asked",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "timidly.",
+          "start": 1.89,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "they",
+        "found",
+        "him?\"",
+        "she",
+        "asked",
+        "timidly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 0.69,
+          "end": 0.93,
+          "key": "found",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 0.93,
+          "end": 1.19,
+          "key": "him",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "asked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "timidly.",
+          "start": 1.89,
+          "end": 2.41,
+          "key": "timidly",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "they",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "found",
+          "start": 0.69,
+          "end": 0.93
+        },
+        {
+          "text": "him?\"",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "text": "she",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "asked",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "timidly.",
+          "start": 1.89,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2258426584303379
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8f4bccf4a61698a682ff775d0c867a24ee21d2967e8a23b87242c262a9b56759",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "ce3275553b39fc311317dd27bc3a66c75d1e597efe5a0c0b3faa7d0513180979",
+  "attempts": [
+    {
+      "asr_seconds": 0.17391434917226434,
+      "alignment_seconds": 0.0002490580081939697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. Come, what talk you of Martius?",
+        "hotwords": "Sicinius, Come, Martius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, Come, what talk you of Martius?",
+          "start": 0.52,
+          "end": 2.86,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.5115915934244791
+            },
+            {
+              "text": " Come,",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.06732177734375
+            },
+            {
+              "text": " what",
+              "start": 1.86,
+              "end": 1.94,
+              "probability": 0.6396484375
+            },
+            {
+              "text": " talk",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " you",
+              "start": 2.14,
+              "end": 2.32,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " of",
+              "start": 2.32,
+              "end": 2.44,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Martius?",
+              "start": 2.44,
+              "end": 2.86,
+              "probability": 0.6397705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "Come,",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "what",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "raw": "talk",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "raw": "of",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "raw": "Martius?",
+          "start": 2.44,
+          "end": 2.86
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Come,",
+        "what",
+        "talk",
+        "you",
+        "of",
+        "Martius?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.86,
+          "end": 1.94,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "talk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.14,
+          "end": 2.32,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.32,
+          "end": 2.44,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Martius?",
+          "start": 2.44,
+          "end": 2.86,
+          "key": "martius",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "text": "Come,",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "what",
+          "start": 1.86,
+          "end": 1.94
+        },
+        {
+          "text": "talk",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "you",
+          "start": 2.14,
+          "end": 2.32
+        },
+        {
+          "text": "of",
+          "start": 2.32,
+          "end": 2.44
+        },
+        {
+          "text": "Martius?",
+          "start": 2.44,
+          "end": 2.86
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17426161980256438
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "38f0ea877bb61cca2c2cfee5fc537a8af382c34b09c4f8461fe473906b7a5abe",
+  "selected_reasons": []
+}

@@ -1,0 +1,504 @@
+{
+  "complete": true,
+  "signature": "fd633a6fab9e28b07705f7a472cc8790fc75114f495c82cb3fe2d4724838c735",
+  "attempts": [
+    {
+      "asr_seconds": 0.3697728402912617,
+      "alignment_seconds": 0.0006538629531860352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He is competent hard-working honest and capable of real love. Goodbye, Downia",
+          "start": 0.05,
+          "end": 5.45,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.953125
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " competent",
+              "start": 0.69,
+              "end": 1.19,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " hard",
+              "start": 1.19,
+              "end": 1.75,
+              "probability": 0.36572265625
+            },
+            {
+              "text": "-working",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " honest",
+              "start": 2.13,
+              "end": 2.57,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " and",
+              "start": 2.57,
+              "end": 2.81,
+              "probability": 0.96484375
+            },
+            {
+              "text": " capable",
+              "start": 2.81,
+              "end": 3.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.13,
+              "end": 3.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " real",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " love.",
+              "start": 3.61,
+              "end": 4.11,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " Goodbye,",
+              "start": 4.27,
+              "end": 4.89,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Downia",
+              "start": 5.13,
+              "end": 5.45,
+              "probability": 0.7008056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "competent",
+          "start": 0.69,
+          "end": 1.19
+        },
+        {
+          "raw": "hard",
+          "start": 1.19,
+          "end": 1.75
+        },
+        {
+          "raw": "-working",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "raw": "honest",
+          "start": 2.13,
+          "end": 2.57
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "raw": "capable",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "raw": "of",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "raw": "real",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "raw": "love.",
+          "start": 3.61,
+          "end": 4.11
+        },
+        {
+          "raw": "Goodbye,",
+          "start": 4.27,
+          "end": 4.89
+        },
+        {
+          "raw": "Downia",
+          "start": 5.13,
+          "end": 5.45
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "is",
+        "competent,",
+        "hardworking,",
+        "honest",
+        "and",
+        "capable",
+        "of",
+        "real",
+        "love....",
+        "Good-bye,",
+        "Dounia.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          11,
+          5,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "competent",
+          "start": 0.69,
+          "end": 1.19,
+          "key": "competent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 1.19,
+          "end": 1.75,
+          "key": "hard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "-working",
+          "start": 1.75,
+          "end": 2.13,
+          "key": "working",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "honest",
+          "start": 2.13,
+          "end": 2.57,
+          "key": "honest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.57,
+          "end": 2.81,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "capable",
+          "start": 2.81,
+          "end": 3.13,
+          "key": "capable",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.13,
+          "end": 3.37,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "real",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "real",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 3.61,
+          "end": 4.11,
+          "key": "love",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Goodbye,",
+          "start": 4.27,
+          "end": 4.89,
+          "key": "goodbye",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Downia",
+          "start": 5.13,
+          "end": 5.45,
+          "key": "downia",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "competent,",
+          "start": 0.69,
+          "end": 1.19
+        },
+        {
+          "text": "hardworking,",
+          "start": 1.19,
+          "end": 1.66
+        },
+        {
+          "text": "honest",
+          "start": 2.13,
+          "end": 2.57
+        },
+        {
+          "text": "and",
+          "start": 2.57,
+          "end": 2.81
+        },
+        {
+          "text": "capable",
+          "start": 2.81,
+          "end": 3.13
+        },
+        {
+          "text": "of",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "text": "real",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "text": "love....",
+          "start": 3.61,
+          "end": 4.11
+        },
+        {
+          "text": "Good-bye,",
+          "start": 4.27,
+          "end": 4.89
+        },
+        {
+          "text": "Dounia.\"",
+          "start": 4.89,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3706628680229187
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "faa50ce58688f2c1c6d953fdb92705b60d5af93b0883db28932191c674875560",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

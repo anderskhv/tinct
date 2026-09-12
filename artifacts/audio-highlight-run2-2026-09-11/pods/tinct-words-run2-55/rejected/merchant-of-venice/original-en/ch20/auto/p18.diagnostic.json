@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "644fe51ab4f34ca15c75b8cb17bee41f34ddba9f202f57a442b5361b2a6e670d",
+  "attempts": [
+    {
+      "asr_seconds": 0.28616362158209085,
+      "alignment_seconds": 0.000163249671459198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Launcelet. Sola, sola! wo ha, ho! sola, sola!",
+        "hotwords": "Launcelet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Launcelet. Sola, sola! wo ha, ho! sola, sola!",
+          "start": 0.55,
+          "end": 3.67,
+          "words": [
+            {
+              "text": " Launcelet.",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.3183892567952474
+            },
+            {
+              "text": " Sola,",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " sola!",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.58026123046875
+            },
+            {
+              "text": " wo",
+              "start": 2.11,
+              "end": 2.21,
+              "probability": 0.0244293212890625
+            },
+            {
+              "text": " ha,",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.06915283203125
+            },
+            {
+              "text": " ho!",
+              "start": 2.63,
+              "end": 2.67,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " sola,",
+              "start": 2.99,
+              "end": 3.23,
+              "probability": 0.56488037109375
+            },
+            {
+              "text": " sola!",
+              "start": 3.25,
+              "end": 3.67,
+              "probability": 0.95703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Launcelet.",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "Sola,",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "sola!",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "wo",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "raw": "ha,",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "ho!",
+          "start": 2.63,
+          "end": 2.67
+        },
+        {
+          "raw": "sola,",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "raw": "sola!",
+          "start": 3.25,
+          "end": 3.67
+        }
+      ],
+      "expected_tokens": [
+        "Launcelet.",
+        "Sola,",
+        "sola!",
+        "wo",
+        "ha,",
+        "ho!",
+        "sola,",
+        "sola!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Launcelet.",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "launcelet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sola,",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "sola",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sola!",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "sola",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wo",
+          "start": 2.11,
+          "end": 2.21,
+          "key": "wo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ha,",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "ha",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 2.63,
+          "end": 2.67,
+          "key": "ho",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sola,",
+          "start": 2.99,
+          "end": 3.23,
+          "key": "sola",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sola!",
+          "start": 3.25,
+          "end": 3.67,
+          "key": "sola",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Launcelet.",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "text": "Sola,",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "sola!",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "wo",
+          "start": 2.11,
+          "end": 2.21
+        },
+        {
+          "text": "ha,",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "ho!",
+          "start": 2.63,
+          "end": 2.67
+        },
+        {
+          "text": "sola,",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "text": "sola!",
+          "start": 3.25,
+          "end": 3.67
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28638117853552103
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1582ef8a69feed90b9cde11a5268e4c977ad17ff39850aacaf4d1b63d51e52c5",
+  "selected_reasons": []
+}

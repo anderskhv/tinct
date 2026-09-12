@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "8d23750a1d380e8611f4a2b41d61150b92820e0c353658943fa4f4713fbb5aff",
+  "attempts": [
+    {
+      "asr_seconds": 0.10142436996102333,
+      "alignment_seconds": 0.0001749880611896515,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Surely you can't think I'm such a fool as to help you, Ingmar said in his mind.",
+          "start": 0.0,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " Surely",
+              "start": 0.0,
+              "end": 0.64,
+              "probability": 0.33642578125
+            },
+            {
+              "text": " you",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " can't",
+              "start": 0.84,
+              "end": 1.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " think",
+              "start": 1.08,
+              "end": 1.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I'm",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " such",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fool",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " as",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 2.1,
+              "end": 2.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " help",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you,",
+              "start": 2.42,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Ingmar",
+              "start": 3.34,
+              "end": 3.62,
+              "probability": 0.912841796875
+            },
+            {
+              "text": " said",
+              "start": 3.62,
+              "end": 3.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 3.9,
+              "end": 4.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " his",
+              "start": 4.04,
+              "end": 4.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mind.",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Surely",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "can't",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "raw": "think",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "raw": "I'm",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "such",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "a",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "fool",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "as",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "to",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "raw": "help",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "you,",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "raw": "Ingmar",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "raw": "said",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "raw": "in",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "raw": "his",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "raw": "mind.",
+          "start": 4.16,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "\"Surely",
+        "you",
+        "can't",
+        "think",
+        "I'm",
+        "such",
+        "a",
+        "fool",
+        "as",
+        "to",
+        "help",
+        "you!\"",
+        "Ingmar",
+        "said",
+        "in",
+        "his",
+        "mind."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Surely",
+          "start": 0.0,
+          "end": 0.64,
+          "key": "surely",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 0.84,
+          "end": 1.08,
+          "key": "cant",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.08,
+          "end": 1.2,
+          "key": "think",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.2,
+          "end": 1.4,
+          "key": "im",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "such",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "fool",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.1,
+          "end": 2.24,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "help",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.42,
+          "end": 2.76,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 3.34,
+          "end": 3.62,
+          "key": "ingmar",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.62,
+          "end": 3.9,
+          "key": "said",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.9,
+          "end": 4.04,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.04,
+          "end": 4.16,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mind.",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "mind",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Surely",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "you",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "can't",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "text": "think",
+          "start": 1.08,
+          "end": 1.2
+        },
+        {
+          "text": "I'm",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "such",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "a",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "fool",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "as",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "to",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "text": "help",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "you!\"",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "text": "Ingmar",
+          "start": 3.34,
+          "end": 3.62
+        },
+        {
+          "text": "said",
+          "start": 3.62,
+          "end": 3.9
+        },
+        {
+          "text": "in",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "text": "his",
+          "start": 4.04,
+          "end": 4.16
+        },
+        {
+          "text": "mind.",
+          "start": 4.16,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1016477569937706
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0bee5966ee81d1767f1e44472a6b5eef555ffb07bab3a606b0ff6f17270543fe",
+  "selected_reasons": []
+}

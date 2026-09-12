@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "2440c1966092193d87a7dcbcb9aa6112b02e0d9ecbcc3e57e9a273d8c20d2d1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.18380614276975393,
+      "alignment_seconds": 0.0002322094514966011,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The Holy Ghost in the form of a dove?\"",
+        "hotwords": "Holy, Ghost"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Holy Ghost in the form of a dove?",
+          "start": 0.02,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.5849609375
+            },
+            {
+              "text": " Holy",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " Ghost",
+              "start": 0.72,
+              "end": 1.04,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " in",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.927734375
+            },
+            {
+              "text": " the",
+              "start": 1.24,
+              "end": 1.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " form",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " of",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.984375
+            },
+            {
+              "text": " dove?",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Holy",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "Ghost",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "raw": "in",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "raw": "form",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "of",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "a",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "dove?",
+          "start": 1.72,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "Holy",
+        "Ghost",
+        "in",
+        "the",
+        "form",
+        "of",
+        "a",
+        "dove?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Holy",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "holy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ghost",
+          "start": 0.72,
+          "end": 1.04,
+          "key": "ghost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.32,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "form",
+          "start": 1.32,
+          "end": 1.48,
+          "key": "form",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dove?",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "dove",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Holy",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "Ghost",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "in",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "the",
+          "start": 1.24,
+          "end": 1.32
+        },
+        {
+          "text": "form",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "of",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "a",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "dove?\"",
+          "start": 1.72,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1841304823756218
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6907e9d5ecb556d3bf1a6a69b4d81bb2f33cf057be46d685634105e81b3bdea",
+  "selected_reasons": []
+}

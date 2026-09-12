@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "73b9c4c6b9553cc6bd9ccd9b6488d65fd964f37e047e2175bd9bc33a72b37905",
+  "attempts": [
+    {
+      "asr_seconds": 0.2012462206184864,
+      "alignment_seconds": 0.0005283094942569733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Andrew. I hope, sir, you are, and I am yours.",
+        "hotwords": "Andrew, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew, I hope, sir, you are, and I am yours.",
+          "start": 0.08,
+          "end": 2.74,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " Andrew,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " I",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hope,",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sir,",
+              "start": 1.76,
+              "end": 1.8,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " you",
+              "start": 1.94,
+              "end": 1.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " are,",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.24,
+              "end": 2.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " am",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " yours.",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "hope,",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "sir,",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "raw": "you",
+          "start": 1.94,
+          "end": 1.94
+        },
+        {
+          "raw": "are,",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.28
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "am",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "yours.",
+          "start": 2.52,
+          "end": 2.74
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "I",
+        "hope,",
+        "sir,",
+        "you",
+        "are,",
+        "and",
+        "I",
+        "am",
+        "yours."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hope,",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "hope",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.76,
+          "end": 1.8,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.94,
+          "end": 1.94,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are,",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.24,
+          "end": 2.28,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "am",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "yours.",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "yours",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "I",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "hope,",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "sir,",
+          "start": 1.76,
+          "end": 1.8
+        },
+        {
+          "text": "you",
+          "start": 1.94,
+          "end": 1.94
+        },
+        {
+          "text": "are,",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "and",
+          "start": 2.24,
+          "end": 2.28
+        },
+        {
+          "text": "I",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "am",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "yours.",
+          "start": 2.52,
+          "end": 2.74
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20198317989706993
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1da43dff0bfe933dded621bb990dfe67db428261243daaf073f1a2fac7702c5d",
+  "selected_reasons": []
+}

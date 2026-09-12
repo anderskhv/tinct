@@ -1,0 +1,601 @@
+{
+  "complete": true,
+  "signature": "926c5d742b7b828c55f4aeca0e822b33f1caf088090bcdb8449cdc049c1502cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.3114181235432625,
+      "alignment_seconds": 0.000573466531932354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Jailer. Hanging is the word, sir. If you be ready for that, you are well-cooked.",
+          "start": 0.56,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " Jailer.",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.5968017578125
+            },
+            {
+              "text": " Hanging",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " is",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " word,",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sir.",
+              "start": 2.42,
+              "end": 2.46,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " If",
+              "start": 2.9,
+              "end": 2.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " you",
+              "start": 2.98,
+              "end": 3.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 3.06,
+              "end": 3.2,
+              "probability": 0.962890625
+            },
+            {
+              "text": " ready",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 3.38,
+              "end": 3.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that,",
+              "start": 3.6,
+              "end": 3.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 4.04,
+              "end": 4.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 4.1,
+              "end": 4.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " well",
+              "start": 4.24,
+              "end": 4.48,
+              "probability": 0.998046875
+            },
+            {
+              "text": "-cooked.",
+              "start": 4.48,
+              "end": 4.72,
+              "probability": 0.7403564453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jailer.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "Hanging",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "is",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "word,",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "raw": "sir.",
+          "start": 2.42,
+          "end": 2.46
+        },
+        {
+          "raw": "If",
+          "start": 2.9,
+          "end": 2.98
+        },
+        {
+          "raw": "you",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "raw": "be",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "raw": "ready",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "for",
+          "start": 3.38,
+          "end": 3.6
+        },
+        {
+          "raw": "that,",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "raw": "you",
+          "start": 4.04,
+          "end": 4.1
+        },
+        {
+          "raw": "are",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "raw": "well",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "raw": "-cooked.",
+          "start": 4.48,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "Gaoler.",
+        "Hanging",
+        "is",
+        "the",
+        "word,",
+        "sir;",
+        "if",
+        "you",
+        "be",
+        "ready",
+        "for",
+        "that,",
+        "you",
+        "are",
+        "well",
+        "cook'd."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jailer.",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "jailer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hanging",
+          "start": 1.44,
+          "end": 1.6,
+          "key": "hanging",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 1.94,
+          "end": 2.18,
+          "key": "word",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.42,
+          "end": 2.46,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 2.9,
+          "end": 2.98,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.98,
+          "end": 3.06,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.06,
+          "end": 3.2,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "ready",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.38,
+          "end": 3.6,
+          "key": "for",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 3.6,
+          "end": 3.84,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.04,
+          "end": 4.1,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.1,
+          "end": 4.24,
+          "key": "are",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 4.24,
+          "end": 4.48,
+          "key": "well",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "-cooked.",
+          "start": 4.48,
+          "end": 4.72,
+          "key": "cooked",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gaoler.",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "Hanging",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "is",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "word,",
+          "start": 1.94,
+          "end": 2.18
+        },
+        {
+          "text": "sir;",
+          "start": 2.42,
+          "end": 2.46
+        },
+        {
+          "text": "if",
+          "start": 2.9,
+          "end": 2.98
+        },
+        {
+          "text": "you",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "text": "be",
+          "start": 3.06,
+          "end": 3.2
+        },
+        {
+          "text": "ready",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "for",
+          "start": 3.38,
+          "end": 3.6
+        },
+        {
+          "text": "that,",
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "text": "you",
+          "start": 4.04,
+          "end": 4.1
+        },
+        {
+          "text": "are",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "text": "well",
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "text": "cook'd.",
+          "start": 4.48,
+          "end": 4.6
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.3122118068858981
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ca6f304ee64aaa835e153bad1643203f18412ec432b7ced9e1f50126b2fa643",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "38c39ce08452750c4603d099880e117eb67dcf3942c978bfb862643e4bd0468f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1305052749812603,
+      "alignment_seconds": 0.00034731626510620117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter the Ghost of Hastings.",
+          "start": 0.11,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " Ghost",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.70361328125
+            },
+            {
+              "text": " of",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Hastings.",
+              "start": 1.13,
+              "end": 1.45,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "Ghost",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "of",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "raw": "Hastings.",
+          "start": 1.13,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Ghost",
+        "of",
+        "Hastings."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ghost",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "ghost",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.95,
+          "end": 1.13,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Hastings.",
+          "start": 1.13,
+          "end": 1.45,
+          "key": "hastings",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "Ghost",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "text": "of",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "text": "Hastings.",
+          "start": 1.13,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13097721338272095
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a777b3cf0d173e51de2ceb6553f78aa8c02d2a94d0892f56f0ced8deb8bca720",
+  "selected_reasons": []
+}

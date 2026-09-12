@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "649ead3e6f9cfab46da9efab14541baea9a1727697426dcff08fd52cad478ea3",
+  "attempts": [
+    {
+      "asr_seconds": 0.14240829832851887,
+      "alignment_seconds": 0.0002075769007205963,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Albany.",
+        "hotwords": "Albany"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Albany.",
+          "start": 0.18,
+          "end": 0.72,
+          "words": [
+            {
+              "text": " Albany.",
+              "start": 0.18,
+              "end": 0.72,
+              "probability": 0.9736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany.",
+          "start": 0.18,
+          "end": 0.72
+        }
+      ],
+      "expected_tokens": [
+        "Albany."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany.",
+          "start": 0.18,
+          "end": 0.72,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.18,
+          "end": 0.72
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14268825389444828
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef71cb9c05a1346c8fde1d55173ab5ebab33d1b0a8ee61497af511a732557654",
+  "selected_reasons": []
+}

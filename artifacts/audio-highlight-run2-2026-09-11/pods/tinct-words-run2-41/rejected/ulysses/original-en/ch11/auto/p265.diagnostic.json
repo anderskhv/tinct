@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3ff112e6b8aa99091c84a4849b1b33eccf831cd09e31a0ff3d604ea43f498d69",
+  "attempts": [
+    {
+      "asr_seconds": 0.17601109808310866,
+      "alignment_seconds": 0.00034773536026477814,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He pleaded over returning phrases of avowal.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He pleaded over returning phrases of avowal.",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " pleaded",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " over",
+              "start": 0.77,
+              "end": 1.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " returning",
+              "start": 1.07,
+              "end": 1.45,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " phrases",
+              "start": 1.45,
+              "end": 1.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.93,
+              "end": 2.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " avowal.",
+              "start": 2.21,
+              "end": 2.73,
+              "probability": 0.5807300408681234
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "pleaded",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "over",
+          "start": 0.77,
+          "end": 1.07
+        },
+        {
+          "raw": "returning",
+          "start": 1.07,
+          "end": 1.45
+        },
+        {
+          "raw": "phrases",
+          "start": 1.45,
+          "end": 1.93
+        },
+        {
+          "raw": "of",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "raw": "avowal.",
+          "start": 2.21,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "pleaded",
+        "over",
+        "returning",
+        "phrases",
+        "of",
+        "avowal."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pleaded",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "pleaded",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 0.77,
+          "end": 1.07,
+          "key": "over",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "returning",
+          "start": 1.07,
+          "end": 1.45,
+          "key": "returning",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "phrases",
+          "start": 1.45,
+          "end": 1.93,
+          "key": "phrases",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.93,
+          "end": 2.21,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "avowal.",
+          "start": 2.21,
+          "end": 2.73,
+          "key": "avowal",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "pleaded",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "over",
+          "start": 0.77,
+          "end": 1.07
+        },
+        {
+          "text": "returning",
+          "start": 1.07,
+          "end": 1.45
+        },
+        {
+          "text": "phrases",
+          "start": 1.45,
+          "end": 1.93
+        },
+        {
+          "text": "of",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "text": "avowal.",
+          "start": 2.21,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1764985676854849
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ed8c5d5bc9afbc846ce7de2c27ab1cd892f8f258e0b48a2ab8633cee9003322e",
+  "selected_reasons": []
+}

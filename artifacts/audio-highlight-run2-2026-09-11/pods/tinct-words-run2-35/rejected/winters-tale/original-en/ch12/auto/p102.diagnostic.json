@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "bb953cc2474058e6fb8c732a19d877946496782924b3a88521c1d110e955f4f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.14278320595622063,
+      "alignment_seconds": 0.0003107599914073944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit with Dorcas and Mopsa._]",
+        "hotwords": "Dorcas, Mopsa._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " exit with Dorcas and Mopsa._",
+          "start": 0.02,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.0272216796875
+            },
+            {
+              "text": " with",
+              "start": 0.66,
+              "end": 0.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Dorcas",
+              "start": 0.88,
+              "end": 1.22,
+              "probability": 0.5784912109375
+            },
+            {
+              "text": " and",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.9375
+            },
+            {
+              "text": " Mopsa._",
+              "start": 1.44,
+              "end": 2.52,
+              "probability": 0.5760498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "with",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "raw": "Dorcas",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "Mopsa._",
+          "start": 1.44,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "with",
+        "Dorcas",
+        "and",
+        "Mopsa._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.66,
+          "end": 0.88,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dorcas",
+          "start": 0.88,
+          "end": 1.22,
+          "key": "dorcas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mopsa._",
+          "start": 1.44,
+          "end": 2.52,
+          "key": "mopsa_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "with",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "text": "Dorcas",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "text": "and",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "Mopsa._]",
+          "start": 1.44,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14320532605051994
+    },
+    {
+      "asr_seconds": 0.13647483102977276,
+      "alignment_seconds": 0.00027828291058540344,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Dorcas, Mopsa._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit with Dorcas and Mopsa._",
+          "start": 0.02,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " with",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Dorcas",
+              "start": 0.88,
+              "end": 1.22,
+              "probability": 0.5948486328125
+            },
+            {
+              "text": " and",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Mopsa._",
+              "start": 1.44,
+              "end": 2.52,
+              "probability": 0.6226806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "with",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "Dorcas",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "Mopsa._",
+          "start": 1.44,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "with",
+        "Dorcas",
+        "and",
+        "Mopsa._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dorcas",
+          "start": 0.88,
+          "end": 1.22,
+          "key": "dorcas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mopsa._",
+          "start": 1.44,
+          "end": 2.52,
+          "key": "mopsa_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "with",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "Dorcas",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "text": "and",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "Mopsa._]",
+          "start": 1.44,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1368555873632431
+    },
+    {
+      "asr_seconds": 0.15764718130230904,
+      "alignment_seconds": 0.00038927048444747925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit with Dorcas and Mopsa.",
+          "start": 0.02,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " with",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Dorcas",
+              "start": 0.88,
+              "end": 1.22,
+              "probability": 0.5948486328125
+            },
+            {
+              "text": " and",
+              "start": 1.22,
+              "end": 1.44,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Mopsa.",
+              "start": 1.44,
+              "end": 1.96,
+              "probability": 0.8302408854166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "with",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "Dorcas",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "raw": "Mopsa.",
+          "start": 1.44,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "with",
+        "Dorcas",
+        "and",
+        "Mopsa._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dorcas",
+          "start": 0.88,
+          "end": 1.22,
+          "key": "dorcas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.22,
+          "end": 1.44,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mopsa.",
+          "start": 1.44,
+          "end": 1.96,
+          "key": "mopsa",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "with",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "Dorcas",
+          "start": 0.88,
+          "end": 1.22
+        },
+        {
+          "text": "and",
+          "start": 1.22,
+          "end": 1.44
+        },
+        {
+          "text": "Mopsa._]",
+          "start": 1.44,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15816278383135796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8b1e1fa6ca89ac78b75b2c9768b4be49d8ccc9895a2957d8cdfa8dadce67f7da",
+  "selected_reasons": []
+}

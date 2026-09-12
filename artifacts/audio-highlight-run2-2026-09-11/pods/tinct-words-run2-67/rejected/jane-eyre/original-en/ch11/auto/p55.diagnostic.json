@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "fa8df3299ff84fc530c0e4ea3013246eec34f516c2d18b2e31f6f1e8fa3f6a6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1770401792600751,
+      "alignment_seconds": 0.00041036587208509445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I thought,\" I continued, \"Thornfield belonged to you.\"",
+        "hotwords": "I, Thornfield"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I thought, I continued, Thornfield belonged to you.",
+          "start": 0.08,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.447509765625
+            },
+            {
+              "text": " thought,",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 1.16,
+              "end": 1.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " continued,",
+              "start": 1.24,
+              "end": 1.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Thornfield",
+              "start": 2.3,
+              "end": 2.62,
+              "probability": 0.899658203125
+            },
+            {
+              "text": " belonged",
+              "start": 2.62,
+              "end": 3.0,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " to",
+              "start": 3.0,
+              "end": 3.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "thought,",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "raw": "continued,",
+          "start": 1.24,
+          "end": 1.72
+        },
+        {
+          "raw": "Thornfield",
+          "start": 2.3,
+          "end": 2.62
+        },
+        {
+          "raw": "belonged",
+          "start": 2.62,
+          "end": 3.0
+        },
+        {
+          "raw": "to",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "raw": "you.",
+          "start": 3.28,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "thought,\"",
+        "I",
+        "continued,",
+        "\"Thornfield",
+        "belonged",
+        "to",
+        "you.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought,",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.16,
+          "end": 1.24,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "continued,",
+          "start": 1.24,
+          "end": 1.72,
+          "key": "continued",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thornfield",
+          "start": 2.3,
+          "end": 2.62,
+          "key": "thornfield",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "belonged",
+          "start": 2.62,
+          "end": 3.0,
+          "key": "belonged",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.0,
+          "end": 3.28,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "thought,\"",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "I",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "text": "continued,",
+          "start": 1.24,
+          "end": 1.72
+        },
+        {
+          "text": "\"Thornfield",
+          "start": 2.3,
+          "end": 2.62
+        },
+        {
+          "text": "belonged",
+          "start": 2.62,
+          "end": 3.0
+        },
+        {
+          "text": "to",
+          "start": 3.0,
+          "end": 3.28
+        },
+        {
+          "text": "you.\"",
+          "start": 3.28,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17760421382263303
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c89b7219267f22fc7cb0d4ca9b1fd48023115ede2e5883f5843455634cb79eec",
+  "selected_reasons": []
+}

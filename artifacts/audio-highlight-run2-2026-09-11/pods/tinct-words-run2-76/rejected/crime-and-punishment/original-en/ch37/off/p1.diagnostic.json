@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "ad4469d37ede82ab5d92cc139c8d494eb6c1644698c59510521ac20070392a23",
+  "attempts": [
+    {
+      "asr_seconds": 0.1200843183323741,
+      "alignment_seconds": 0.00018778769299387932,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " began kissing Keisha.",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " began",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " kissing",
+              "start": 0.67,
+              "end": 1.03,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Keisha.",
+              "start": 1.03,
+              "end": 1.47,
+              "probability": 0.798095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "began",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "kissing",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "raw": "Keisha.",
+          "start": 1.03,
+          "end": 1.47
+        }
+      ],
+      "expected_tokens": [
+        "\"began",
+        "kissing",
+        "Katia.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "began",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "began",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "kissing",
+          "start": 0.67,
+          "end": 1.03,
+          "key": "kissing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Keisha.",
+          "start": 1.03,
+          "end": 1.47,
+          "key": "keisha",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"began",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "kissing",
+          "start": 0.67,
+          "end": 1.03
+        },
+        {
+          "text": "Katia.\"",
+          "start": 1.03,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12033156119287014
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4fedd11b5088b83d6f04cfbd392d4ac3e0c02d54534bb72af5599422e62cb0af",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

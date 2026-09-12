@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "59e66110a43cc0d8f2bf7ceacdb7055a88800695984e56278c65b7b2fa99dfb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.15668799402192235,
+      "alignment_seconds": 0.0001853560097515583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenius, the consul Coriolanus.",
+          "start": 0.05,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " the",
+              "start": 1.39,
+              "end": 1.45,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " consul",
+              "start": 1.45,
+              "end": 1.85,
+              "probability": 0.822265625
+            },
+            {
+              "text": " Coriolanus.",
+              "start": 1.85,
+              "end": 2.53,
+              "probability": 0.7718098958333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "raw": "consul",
+          "start": 1.45,
+          "end": 1.85
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 1.85,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "The",
+        "consul",
+        "Coriolanus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.39,
+          "end": 1.45,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "consul",
+          "start": 1.45,
+          "end": 1.85,
+          "key": "consul",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Coriolanus.",
+          "start": 1.85,
+          "end": 2.53,
+          "key": "coriolanus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "The",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "text": "consul",
+          "start": 1.45,
+          "end": 1.85
+        },
+        {
+          "text": "Coriolanus.",
+          "start": 1.85,
+          "end": 2.53
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15694152237847447
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da0be0ac2883e5325bc37665448c82c198b59c55cfd48c2225227a7c4ff58bfc",
+  "selected_reasons": []
+}

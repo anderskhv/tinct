@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "ac645b1a5434115f9092c6eb572ed3399ae376afa89fe1d23087fb0a861b122f",
+  "attempts": [
+    {
+      "asr_seconds": 0.15296725369989872,
+      "alignment_seconds": 0.0002516871318221092,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lodovico. I thank you. How does Lieutenant Cassio?",
+        "hotwords": "Lodovico, I, How, Lieutenant, Cassio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lodovico, I thank you. How does Lieutenant Cassio?",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Lodovico,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.4675496419270833
+            },
+            {
+              "text": " I",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thank",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you.",
+              "start": 1.63,
+              "end": 1.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " How",
+              "start": 2.33,
+              "end": 2.39,
+              "probability": 0.98828125
+            },
+            {
+              "text": " does",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Lieutenant",
+              "start": 2.53,
+              "end": 2.83,
+              "probability": 0.7109375
+            },
+            {
+              "text": " Cassio?",
+              "start": 2.83,
+              "end": 3.39,
+              "probability": 0.71337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "thank",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "you.",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "raw": "How",
+          "start": 2.33,
+          "end": 2.39
+        },
+        {
+          "raw": "does",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "Lieutenant",
+          "start": 2.53,
+          "end": 2.83
+        },
+        {
+          "raw": "Cassio?",
+          "start": 2.83,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Lodovico.",
+        "I",
+        "thank",
+        "you.",
+        "How",
+        "does",
+        "Lieutenant",
+        "Cassio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lodovico,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "lodovico",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.63,
+          "end": 1.93,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.33,
+          "end": 2.39,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "does",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lieutenant",
+          "start": 2.53,
+          "end": 2.83,
+          "key": "lieutenant",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Cassio?",
+          "start": 2.83,
+          "end": 3.39,
+          "key": "cassio",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lodovico.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "thank",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "you.",
+          "start": 1.63,
+          "end": 1.93
+        },
+        {
+          "text": "How",
+          "start": 2.33,
+          "end": 2.39
+        },
+        {
+          "text": "does",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "Lieutenant",
+          "start": 2.53,
+          "end": 2.83
+        },
+        {
+          "text": "Cassio?",
+          "start": 2.83,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1533221397548914
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "462ff4b7b2d48fdd0aee322a7f23ace98d6bd9dfb5ba305b941c14cff79ed507",
+  "selected_reasons": []
+}

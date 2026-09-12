@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "47a48b9835be6f8e8c6d3a04eaf7ec4aed0a52b07aebf94bfed9c212b938523c",
+  "attempts": [
+    {
+      "asr_seconds": 0.15097097866237164,
+      "alignment_seconds": 0.00022185919806361198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rodra go I cannot believe that in her she is full of most blessed condition",
+          "start": 0.02,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Rodra",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.180908203125
+            },
+            {
+              "text": " go",
+              "start": 0.78,
+              "end": 0.98,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " I",
+              "start": 0.98,
+              "end": 1.58,
+              "probability": 0.54296875
+            },
+            {
+              "text": " cannot",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " believe",
+              "start": 1.76,
+              "end": 2.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " her",
+              "start": 2.56,
+              "end": 2.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " she",
+              "start": 2.8,
+              "end": 3.18,
+              "probability": 0.78515625
+            },
+            {
+              "text": " is",
+              "start": 3.18,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " full",
+              "start": 3.32,
+              "end": 3.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.56,
+              "end": 3.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " most",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " blessed",
+              "start": 3.96,
+              "end": 4.26,
+              "probability": 0.978515625
+            },
+            {
+              "text": " condition",
+              "start": 4.26,
+              "end": 4.8,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rodra",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "go",
+          "start": 0.78,
+          "end": 0.98
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.58
+        },
+        {
+          "raw": "cannot",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "believe",
+          "start": 1.76,
+          "end": 2.2
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "in",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "raw": "her",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "raw": "she",
+          "start": 2.8,
+          "end": 3.18
+        },
+        {
+          "raw": "is",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "raw": "full",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "raw": "of",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "raw": "most",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "blessed",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "raw": "condition",
+          "start": 4.26,
+          "end": 4.8
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "I",
+        "cannot",
+        "believe",
+        "that",
+        "in",
+        "her,",
+        "she",
+        "is",
+        "full",
+        "of",
+        "most",
+        "blessed",
+        "condition."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          14,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rodra",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "rodra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.78,
+          "end": 0.98,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.58,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "cannot",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.76,
+          "end": 2.2,
+          "key": "believe",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.56,
+          "end": 2.8,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.8,
+          "end": 3.18,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.18,
+          "end": 3.32,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 3.32,
+          "end": 3.56,
+          "key": "full",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.56,
+          "end": 3.7,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "most",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "blessed",
+          "start": 3.96,
+          "end": 4.26,
+          "key": "blessed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "condition",
+          "start": 4.26,
+          "end": 4.8,
+          "key": "condition",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.0,
+          "end": 0.49
+        },
+        {
+          "text": "I",
+          "start": 0.98,
+          "end": 1.58
+        },
+        {
+          "text": "cannot",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "believe",
+          "start": 1.76,
+          "end": 2.2
+        },
+        {
+          "text": "that",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "in",
+          "start": 2.42,
+          "end": 2.56
+        },
+        {
+          "text": "her,",
+          "start": 2.56,
+          "end": 2.8
+        },
+        {
+          "text": "she",
+          "start": 2.8,
+          "end": 3.18
+        },
+        {
+          "text": "is",
+          "start": 3.18,
+          "end": 3.32
+        },
+        {
+          "text": "full",
+          "start": 3.32,
+          "end": 3.56
+        },
+        {
+          "text": "of",
+          "start": 3.56,
+          "end": 3.7
+        },
+        {
+          "text": "most",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "blessed",
+          "start": 3.96,
+          "end": 4.26
+        },
+        {
+          "text": "condition.",
+          "start": 4.26,
+          "end": 4.8
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.15127094788476825
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "871fe6f7d2af4708051194615a95003bbc50a81115846e877c18dc47cd39dbe3",
+  "selected_reasons": []
+}

@@ -1,0 +1,241 @@
+{
+  "complete": true,
+  "signature": "d75d4379fc7db034868639a90faf9cc936f2a5f5e53a41ce8b8d77c0a1300311",
+  "attempts": [
+    {
+      "asr_seconds": 0.1951890978962183,
+      "alignment_seconds": 0.00034790486097335815,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Filia's fog demanded oyster puff.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " Filia's",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.7578938802083334
+            },
+            {
+              "text": " fog",
+              "start": 0.83,
+              "end": 1.13,
+              "probability": 0.95703125
+            },
+            {
+              "text": " demanded",
+              "start": 1.13,
+              "end": 1.91,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " oyster",
+              "start": 1.91,
+              "end": 2.29,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " puff.",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.77734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Filia's",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "fog",
+          "start": 0.83,
+          "end": 1.13
+        },
+        {
+          "raw": "demanded",
+          "start": 1.13,
+          "end": 1.91
+        },
+        {
+          "raw": "oyster",
+          "start": 1.91,
+          "end": 2.29
+        },
+        {
+          "raw": "puff.",
+          "start": 2.29,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "\"Phileas",
+        "Fogg?\"",
+        "demanded",
+        "Oysterpuff."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Filia's",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "filias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fog",
+          "start": 0.83,
+          "end": 1.13,
+          "key": "fog",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "demanded",
+          "start": 1.13,
+          "end": 1.91,
+          "key": "demanded",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oyster",
+          "start": 1.91,
+          "end": 2.29,
+          "key": "oyster",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "puff.",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "puff",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Phileas",
+          "start": 0.0,
+          "end": 0.565
+        },
+        {
+          "text": "Fogg?\"",
+          "start": 0.565,
+          "end": 0.847
+        },
+        {
+          "text": "demanded",
+          "start": 1.13,
+          "end": 1.91
+        },
+        {
+          "text": "Oysterpuff.",
+          "start": 1.91,
+          "end": 2.2
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19564914796501398
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7f826f8f2c3e730b8b9978660f62bbaac9dff8ff8b96e050f8970d8b74623005",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

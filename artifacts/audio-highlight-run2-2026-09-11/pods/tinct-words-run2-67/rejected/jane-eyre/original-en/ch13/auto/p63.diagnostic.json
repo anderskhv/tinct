@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f0485bb329c490ad35d1046d732740db82f8b700add4715410b3824f27ee52bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1612894143909216,
+      "alignment_seconds": 0.00036856718361377716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Have you seen much society?\"",
+        "hotwords": "Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Have you seen much society?",
+          "start": 0.08,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.849609375
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " seen",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " much",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.986328125
+            },
+            {
+              "text": " society?",
+              "start": 1.04,
+              "end": 1.46,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "seen",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "much",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "society?",
+          "start": 1.04,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "seen",
+        "much",
+        "society?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "seen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "much",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "society?",
+          "start": 1.04,
+          "end": 1.46,
+          "key": "society",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "seen",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "much",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "society?\"",
+          "start": 1.04,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16178538836538792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db816d40ac15b895084b916b04620e347a65cfbfa6c9fb5b42cfdb4943e7e399",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "6215381ebfcc7daf1467d25e9ddcff08d8bb10ede869e62aba94a3f6d5fb189e",
+  "attempts": [
+    {
+      "asr_seconds": 0.16501954197883606,
+      "alignment_seconds": 0.00039910897612571716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And how does his mother bear it?",
+          "start": 0.08,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.84375
+            },
+            {
+              "text": " how",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.98828125
+            },
+            {
+              "text": " does",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " mother",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bear",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " it?",
+              "start": 1.5,
+              "end": 1.76,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "how",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "does",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "his",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "mother",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "raw": "bear",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "it?",
+          "start": 1.5,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "how",
+        "does",
+        "his",
+        "mother",
+        "bear",
+        "it?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "does",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 1.0,
+          "end": 1.22,
+          "key": "mother",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "bear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.5,
+          "end": 1.76,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "how",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "does",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "his",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "mother",
+          "start": 1.0,
+          "end": 1.22
+        },
+        {
+          "text": "bear",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "it?\"",
+          "start": 1.5,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16558926180005074
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0e9675b05feb729dfc02119f9b5eb691b0a0e57aacff284fb7bb441d7a8d88ee",
+  "selected_reasons": []
+}

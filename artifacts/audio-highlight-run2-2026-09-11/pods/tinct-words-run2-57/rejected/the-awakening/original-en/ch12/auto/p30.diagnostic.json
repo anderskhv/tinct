@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "176d70218cf64f959ee87d416e6ae79b526fb2a30510de68199b2a0d49380530",
+  "attempts": [
+    {
+      "asr_seconds": 0.1360165448859334,
+      "alignment_seconds": 0.00022678496316075325,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Anything—cast bait for fish.\"",
+        "hotwords": "Anything—cast"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anything—cast bait for fish.",
+          "start": 0.76,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Anything—cast",
+              "start": 0.76,
+              "end": 1.28,
+              "probability": 0.4924996693929036
+            },
+            {
+              "text": " bait",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.89453125
+            },
+            {
+              "text": " for",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " fish.",
+              "start": 1.74,
+              "end": 2.0,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anything—cast",
+          "start": 0.76,
+          "end": 1.28
+        },
+        {
+          "raw": "bait",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "for",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "fish.",
+          "start": 1.74,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "\"Anything—cast",
+        "bait",
+        "for",
+        "fish.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anything—cast",
+          "start": 0.76,
+          "end": 1.28,
+          "key": "anythingcast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bait",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "bait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fish.",
+          "start": 1.74,
+          "end": 2.0,
+          "key": "fish",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Anything—cast",
+          "start": 0.76,
+          "end": 1.28
+        },
+        {
+          "text": "bait",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "for",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "fish.\"",
+          "start": 1.74,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13632520497776568
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8ecb93cd0f4ec2f525fde285ed11f48c01add67c02cd87d6e203e9b321e72cb2",
+  "selected_reasons": []
+}

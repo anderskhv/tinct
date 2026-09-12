@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d73cb84275ab00d46cf02932300c5b6cb9aa97c74387eaec71d73dd8f16e5e0a",
+  "attempts": [
+    {
+      "asr_seconds": 0.08112386614084244,
+      "alignment_seconds": 0.00010032206773757935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cornwall. What means your grace?",
+        "hotwords": "Cornwall, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cornwall, What means your grace?",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " What",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.054443359375
+            },
+            {
+              "text": " means",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.453369140625
+            },
+            {
+              "text": " your",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.8984375
+            },
+            {
+              "text": " grace?",
+              "start": 1.63,
+              "end": 1.89,
+              "probability": 0.755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "What",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "means",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "your",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "grace?",
+          "start": 1.63,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "What",
+        "means",
+        "your",
+        "grace?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "means",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "means",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "grace?",
+          "start": 1.63,
+          "end": 1.89,
+          "key": "grace",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "What",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "means",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "your",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "grace?",
+          "start": 1.63,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08125926926732063
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d009f8be627615fcf0fbf8dd14a64275771fc59adc1c9141ed3a03b55ec8afbb",
+  "selected_reasons": []
+}

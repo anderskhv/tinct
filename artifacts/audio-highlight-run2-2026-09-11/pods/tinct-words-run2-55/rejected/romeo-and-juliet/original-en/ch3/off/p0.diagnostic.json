@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "e0c75c87779c6947c0af868e8e033555aac1e857a1c9449b15d66e8cfcf7174c",
+  "attempts": [
+    {
+      "asr_seconds": 0.184390751644969,
+      "alignment_seconds": 0.00022039003670215607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Capulet, Paris and Servant.",
+          "start": 0.14,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.66,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Capulet,",
+              "start": 0.66,
+              "end": 1.18,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Paris",
+              "start": 1.72,
+              "end": 1.76,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " and",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " Servant.",
+              "start": 1.98,
+              "end": 2.5,
+              "probability": 0.794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "raw": "Capulet,",
+          "start": 0.66,
+          "end": 1.18
+        },
+        {
+          "raw": "Paris",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "raw": "and",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "Servant.",
+          "start": 1.98,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Capulet,",
+        "Paris",
+        "and",
+        "Servant.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Capulet,",
+          "start": 0.66,
+          "end": 1.18,
+          "key": "capulet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Paris",
+          "start": 1.72,
+          "end": 1.76,
+          "key": "paris",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Servant.",
+          "start": 1.98,
+          "end": 2.5,
+          "key": "servant",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.14,
+          "end": 0.66
+        },
+        {
+          "text": "Capulet,",
+          "start": 0.66,
+          "end": 1.18
+        },
+        {
+          "text": "Paris",
+          "start": 1.72,
+          "end": 1.76
+        },
+        {
+          "text": "and",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "Servant.]",
+          "start": 1.98,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18468544259667397
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a97a45e6ab2732ea3d6e93f191d211741504cf08def48a6b2bc7c9be54e967bc",
+  "selected_reasons": []
+}

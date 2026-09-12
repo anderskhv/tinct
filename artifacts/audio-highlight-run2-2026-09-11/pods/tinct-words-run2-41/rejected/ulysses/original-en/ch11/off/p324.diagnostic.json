@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "86e44b8f7a358d480811689cca913319ed6bf28bca50aeb9f71ef5e92c27da5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1456958237104118,
+      "alignment_seconds": 0.00036346307024359703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She was a daughter of.",
+          "start": 0.08,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.689453125
+            },
+            {
+              "text": " was",
+              "start": 0.54,
+              "end": 0.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.970703125
+            },
+            {
+              "text": " daughter",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " of.",
+              "start": 0.96,
+              "end": 1.2,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "was",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "daughter",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "of.",
+          "start": 0.96,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "—She",
+        "was",
+        "a",
+        "daughter",
+        "of..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.54,
+          "end": 0.62,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "daughter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of.",
+          "start": 0.96,
+          "end": 1.2,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—She",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "was",
+          "start": 0.54,
+          "end": 0.62
+        },
+        {
+          "text": "a",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "daughter",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "of...",
+          "start": 0.96,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14617305994033813
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "43398dedc45e3d5ddee9557f476a91f35e60961bf8804d8fcf6c52453fcc919c",
+  "selected_reasons": []
+}

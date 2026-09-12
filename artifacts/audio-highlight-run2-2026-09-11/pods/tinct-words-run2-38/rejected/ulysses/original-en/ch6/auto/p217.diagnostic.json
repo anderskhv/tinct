@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "ad87431b3ed82864a6699644b816ad27b4abb57de3c3b25032d23a77425c0dc6",
+  "attempts": [
+    {
+      "asr_seconds": 0.20712018001358956,
+      "alignment_seconds": 0.0003004719619639218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—So it is, Mr Dedalus said. A gruesome case. Seymour Bushe got him off. Murdered his brother. Or so they said.",
+        "hotwords": "Mr, Dedalus, A, Seymour, Bushe, Murdered, Or"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So it is, Mr. Dedalus said. A gruesome case. Seymour Bushe got him off. Murdered his brother. Or so they said.",
+          "start": 0.08,
+          "end": 7.0,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.31201171875
+            },
+            {
+              "text": " it",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " is,",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Mr.",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.9453125
+            },
+            {
+              "text": " Dedalus",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.17814254760742188
+            },
+            {
+              "text": " said.",
+              "start": 1.66,
+              "end": 1.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " A",
+              "start": 2.32,
+              "end": 2.42,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " gruesome",
+              "start": 2.42,
+              "end": 2.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " case.",
+              "start": 2.72,
+              "end": 3.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Seymour",
+              "start": 3.88,
+              "end": 4.12,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Bushe",
+              "start": 4.12,
+              "end": 4.52,
+              "probability": 0.01850128173828125
+            },
+            {
+              "text": " got",
+              "start": 4.52,
+              "end": 4.68,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " him",
+              "start": 4.68,
+              "end": 4.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " off.",
+              "start": 4.8,
+              "end": 5.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Murdered",
+              "start": 5.28,
+              "end": 5.42,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " his",
+              "start": 5.42,
+              "end": 5.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " brother.",
+              "start": 5.56,
+              "end": 5.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Or",
+              "start": 6.22,
+              "end": 6.32,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " so",
+              "start": 6.32,
+              "end": 6.52,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " they",
+              "start": 6.52,
+              "end": 6.7,
+              "probability": 0.990234375
+            },
+            {
+              "text": " said.",
+              "start": 6.7,
+              "end": 7.0,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "is,",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "Dedalus",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "said.",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "raw": "A",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "raw": "gruesome",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "raw": "case.",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "raw": "Seymour",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "raw": "Bushe",
+          "start": 4.12,
+          "end": 4.52
+        },
+        {
+          "raw": "got",
+          "start": 4.52,
+          "end": 4.68
+        },
+        {
+          "raw": "him",
+          "start": 4.68,
+          "end": 4.8
+        },
+        {
+          "raw": "off.",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "raw": "Murdered",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "raw": "his",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "raw": "brother.",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "raw": "Or",
+          "start": 6.22,
+          "end": 6.32
+        },
+        {
+          "raw": "so",
+          "start": 6.32,
+          "end": 6.52
+        },
+        {
+          "raw": "they",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "raw": "said.",
+          "start": 6.7,
+          "end": 7.0
+        }
+      ],
+      "expected_tokens": [
+        "—So",
+        "it",
+        "is,",
+        "Mr",
+        "Dedalus",
+        "said.",
+        "A",
+        "gruesome",
+        "case.",
+        "Seymour",
+        "Bushe",
+        "got",
+        "him",
+        "off.",
+        "Murdered",
+        "his",
+        "brother.",
+        "Or",
+        "so",
+        "they",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "So",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "so",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.56,
+          "end": 0.7,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 0.7,
+          "end": 0.98,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "dedalus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.66,
+          "end": 1.98,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.32,
+          "end": 2.42,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gruesome",
+          "start": 2.42,
+          "end": 2.72,
+          "key": "gruesome",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "case.",
+          "start": 2.72,
+          "end": 3.14,
+          "key": "case",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Seymour",
+          "start": 3.88,
+          "end": 4.12,
+          "key": "seymour",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Bushe",
+          "start": 4.12,
+          "end": 4.52,
+          "key": "bushe",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 4.52,
+          "end": 4.68,
+          "key": "got",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.68,
+          "end": 4.8,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 4.8,
+          "end": 5.02,
+          "key": "off",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Murdered",
+          "start": 5.28,
+          "end": 5.42,
+          "key": "murdered",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.42,
+          "end": 5.56,
+          "key": "his",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "brother.",
+          "start": 5.56,
+          "end": 5.78,
+          "key": "brother",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 6.22,
+          "end": 6.32,
+          "key": "or",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.32,
+          "end": 6.52,
+          "key": "so",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 6.52,
+          "end": 6.7,
+          "key": "they",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 6.7,
+          "end": 7.0,
+          "key": "said",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—So",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "it",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "is,",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "Mr",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "Dedalus",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "said.",
+          "start": 1.66,
+          "end": 1.98
+        },
+        {
+          "text": "A",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "text": "gruesome",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "text": "case.",
+          "start": 2.72,
+          "end": 3.14
+        },
+        {
+          "text": "Seymour",
+          "start": 3.88,
+          "end": 4.12
+        },
+        {
+          "text": "Bushe",
+          "start": 4.12,
+          "end": 4.52
+        },
+        {
+          "text": "got",
+          "start": 4.52,
+          "end": 4.68
+        },
+        {
+          "text": "him",
+          "start": 4.68,
+          "end": 4.8
+        },
+        {
+          "text": "off.",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "text": "Murdered",
+          "start": 5.28,
+          "end": 5.42
+        },
+        {
+          "text": "his",
+          "start": 5.42,
+          "end": 5.56
+        },
+        {
+          "text": "brother.",
+          "start": 5.56,
+          "end": 5.78
+        },
+        {
+          "text": "Or",
+          "start": 6.22,
+          "end": 6.32
+        },
+        {
+          "text": "so",
+          "start": 6.32,
+          "end": 6.52
+        },
+        {
+          "text": "they",
+          "start": 6.52,
+          "end": 6.7
+        },
+        {
+          "text": "said.",
+          "start": 6.7,
+          "end": 7.0
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20753560197772458
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c26709ffdf23c5c0b4fc8d3c57cd269eb3088dc8e8f7f3db7b3543bc306fff49",
+  "selected_reasons": []
+}

@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "f597dbb8caac5a5317072b52448409c739dc9e728a9e1ff7d71580e4f70b6fb1",
+  "attempts": [
+    {
+      "asr_seconds": 0.13164589321240783,
+      "alignment_seconds": 0.00020917784422636032,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Draws and Wounds Roadrego",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Draws",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.856201171875
+            },
+            {
+              "text": " and",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " Wounds",
+              "start": 1.1,
+              "end": 1.4,
+              "probability": 0.883544921875
+            },
+            {
+              "text": " Roadrego",
+              "start": 1.4,
+              "end": 2.0,
+              "probability": 0.6373291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Draws",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "and",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "Wounds",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "raw": "Roadrego",
+          "start": 1.4,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "[Draws,",
+        "and",
+        "wounds",
+        "Roderigo.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Draws",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "draws",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Wounds",
+          "start": 1.1,
+          "end": 1.4,
+          "key": "wounds",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Roadrego",
+          "start": 1.4,
+          "end": 2.0,
+          "key": "roadrego",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Draws,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "and",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "wounds",
+          "start": 1.1,
+          "end": 1.4
+        },
+        {
+          "text": "Roderigo.]",
+          "start": 1.4,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13192560011520982
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a7bc9425d0e2b495e32af14fb9a7794e64db6a1172f13d93bb5c3b1fe5f1434",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

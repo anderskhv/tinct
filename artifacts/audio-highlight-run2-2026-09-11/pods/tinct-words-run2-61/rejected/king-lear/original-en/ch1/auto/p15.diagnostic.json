@@ -1,0 +1,125 @@
+{
+  "complete": true,
+  "signature": "48763e00599d21d52ccdf44db75afdccea2c7eeb1627b3934ac073f5cadf4dbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.16633879207074642,
+      "alignment_seconds": 0.00033610686659812927,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Sennet within._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sennet within.",
+          "start": 0.0,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Sennet",
+              "start": 0.0,
+              "end": 0.72,
+              "probability": 0.2491455078125
+            },
+            {
+              "text": " within.",
+              "start": 0.72,
+              "end": 0.92,
+              "probability": 0.290283203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sennet",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "raw": "within.",
+          "start": 0.72,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "[_Sennet",
+        "within._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sennet",
+          "start": 0.0,
+          "end": 0.72,
+          "key": "sennet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.72,
+          "end": 0.92,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sennet",
+          "start": 0.0,
+          "end": 0.72
+        },
+        {
+          "text": "within._]",
+          "start": 0.72,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.166782571002841
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "76854bb727ef621dc1f5195b08d6ccb226bea6a945517baa613ce23c450bb4da",
+  "selected_reasons": []
+}

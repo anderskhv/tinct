@@ -1,0 +1,1218 @@
+{
+  "complete": true,
+  "signature": "6b091acfb9ad230cb7b02a9f7908eefe0220936a0e7feb43992efc06cf3db23b",
+  "attempts": [
+    {
+      "asr_seconds": 4.194629326462746,
+      "alignment_seconds": 0.0006049079820513725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Anne. Ill rest betide the chamber where thou liest!",
+        "hotwords": "Anne, Ill"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Anne, Ill Anne. Ill Anne. Ill Anne. Ill Anne.",
+          "start": 0.72,
+          "end": 1.74,
+          "words": [
+            {
+              "text": " Anne,",
+              "start": 0.72,
+              "end": 0.72,
+              "probability": 2.7120113372802734e-05
+            },
+            {
+              "text": " Ill",
+              "start": 1.0,
+              "end": 1.24,
+              "probability": 0.234375
+            },
+            {
+              "text": " Anne.",
+              "start": 1.24,
+              "end": 1.5,
+              "probability": 4.708766937255859e-06
+            },
+            {
+              "text": " Ill",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " Anne.",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.047821044921875
+            },
+            {
+              "text": " Ill",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Anne.",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.1605224609375
+            },
+            {
+              "text": " Ill",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Anne.",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.2215576171875
+            }
+          ]
+        },
+        {
+          "text": " Ill Anne. Ill Anne. Ill Anne. Ill Anne. Your",
+          "start": 1.74,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Ill",
+              "start": 1.74,
+              "end": 2.42,
+              "probability": 5.364418029785156e-07
+            },
+            {
+              "text": " Anne.",
+              "start": 2.42,
+              "end": 2.44,
+              "probability": 1.7583370208740234e-05
+            },
+            {
+              "text": " Ill",
+              "start": 2.88,
+              "end": 3.58,
+              "probability": 0.0013456344604492188
+            },
+            {
+              "text": " Anne.",
+              "start": 3.58,
+              "end": 3.58,
+              "probability": 0.876953125
+            },
+            {
+              "text": " Ill",
+              "start": 3.58,
+              "end": 3.58,
+              "probability": 0.026947021484375
+            },
+            {
+              "text": " Anne.",
+              "start": 3.58,
+              "end": 3.58,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Ill",
+              "start": 3.58,
+              "end": 3.58,
+              "probability": 0.038482666015625
+            },
+            {
+              "text": " Anne.",
+              "start": 3.58,
+              "end": 3.58,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Your",
+              "start": 3.58,
+              "end": 3.58,
+              "probability": 0.0025119781494140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Anne,",
+          "start": 0.72,
+          "end": 0.72
+        },
+        {
+          "raw": "Ill",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "raw": "Ill",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Ill",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Ill",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "Ill",
+          "start": 1.74,
+          "end": 2.42
+        },
+        {
+          "raw": "Anne.",
+          "start": 2.42,
+          "end": 2.44
+        },
+        {
+          "raw": "Ill",
+          "start": 2.88,
+          "end": 3.58
+        },
+        {
+          "raw": "Anne.",
+          "start": 3.58,
+          "end": 3.58
+        },
+        {
+          "raw": "Ill",
+          "start": 3.58,
+          "end": 3.58
+        },
+        {
+          "raw": "Anne.",
+          "start": 3.58,
+          "end": 3.58
+        },
+        {
+          "raw": "Ill",
+          "start": 3.58,
+          "end": 3.58
+        },
+        {
+          "raw": "Anne.",
+          "start": 3.58,
+          "end": 3.58
+        },
+        {
+          "raw": "Your",
+          "start": 3.58,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Ill",
+        "rest",
+        "betide",
+        "the",
+        "chamber",
+        "where",
+        "thou",
+        "liest!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          9,
+          2,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          9,
+          2,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Anne,",
+          "start": 0.72,
+          "end": 0.72,
+          "key": "anne",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 1.0,
+          "end": 1.24,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.24,
+          "end": 1.5,
+          "key": "anne",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "ill",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "anne",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "ill",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "anne",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "ill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "anne",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 1.74,
+          "end": 2.42,
+          "key": "ill",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 2.42,
+          "end": 2.44,
+          "key": "anne",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 2.88,
+          "end": 3.58,
+          "key": "ill",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 3.58,
+          "end": 3.58,
+          "key": "anne",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 3.58,
+          "end": 3.58,
+          "key": "ill",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 3.58,
+          "end": 3.58,
+          "key": "anne",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Ill",
+          "start": 3.58,
+          "end": 3.58,
+          "key": "ill",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Anne.",
+          "start": 3.58,
+          "end": 3.58,
+          "key": "anne",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 3.58,
+          "end": 3.58,
+          "key": "your",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.72,
+          "end": 0.72
+        },
+        {
+          "text": "Ill",
+          "start": 1.0,
+          "end": 1.24
+        },
+        {
+          "text": "rest",
+          "start": 1.24,
+          "end": 2.41
+        },
+        {
+          "text": "betide",
+          "start": 2.41,
+          "end": 2.995
+        },
+        {
+          "text": "the",
+          "start": 2.995,
+          "end": 3.288
+        },
+        {
+          "text": "chamber",
+          "start": 3.288,
+          "end": 3.434
+        },
+        {
+          "text": "where",
+          "start": 3.434,
+          "end": 3.507
+        },
+        {
+          "text": "thou",
+          "start": 3.507,
+          "end": 3.543
+        },
+        {
+          "text": "liest!",
+          "start": 3.543,
+          "end": 3.562
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 18,
+        "matched_words": 2
+      },
+      "match_ratio": 0.2222222222222222,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.195540953427553
+    },
+    {
+      "asr_seconds": 0.20935837365686893,
+      "alignment_seconds": 0.0004793517291545868,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Anne, Ill"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " respotide the chamber where thou leest.",
+          "start": 1.26,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " respotide",
+              "start": 1.26,
+              "end": 1.78,
+              "probability": 0.14982159932454428
+            },
+            {
+              "text": " the",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " chamber",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " where",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " thou",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " leest.",
+              "start": 2.62,
+              "end": 3.02,
+              "probability": 0.613037109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "respotide",
+          "start": 1.26,
+          "end": 1.78
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "chamber",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "where",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "raw": "thou",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "leest.",
+          "start": 2.62,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Ill",
+        "rest",
+        "betide",
+        "the",
+        "chamber",
+        "where",
+        "thou",
+        "liest!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          1
+        ],
+        [
+          "equal",
+          4,
+          8,
+          1,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "respotide",
+          "start": 1.26,
+          "end": 1.78,
+          "key": "respotide",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "chamber",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "chamber",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "leest.",
+          "start": 2.62,
+          "end": 3.02,
+          "key": "leest",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.0,
+          "end": 0.89
+        },
+        {
+          "text": "Ill",
+          "start": 0.89,
+          "end": 1.335
+        },
+        {
+          "text": "rest",
+          "start": 1.335,
+          "end": 1.558
+        },
+        {
+          "text": "betide",
+          "start": 1.558,
+          "end": 1.669
+        },
+        {
+          "text": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "chamber",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "where",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "text": "thou",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "liest!",
+          "start": 2.62,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.4444444444444444,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20999029092490673
+    },
+    {
+      "asr_seconds": 0.18390934262424707,
+      "alignment_seconds": 0.00045392848551273346,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " ill-respetide the chamber where thou leest.",
+          "start": 0.72,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " ill",
+              "start": 0.72,
+              "end": 1.22,
+              "probability": 0.30029296875
+            },
+            {
+              "text": "-respetide",
+              "start": 1.22,
+              "end": 1.78,
+              "probability": 0.642578125
+            },
+            {
+              "text": " the",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " chamber",
+              "start": 1.92,
+              "end": 2.2,
+              "probability": 0.9609375
+            },
+            {
+              "text": " where",
+              "start": 2.2,
+              "end": 2.42,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " thou",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " leest.",
+              "start": 2.62,
+              "end": 3.02,
+              "probability": 0.57421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "ill",
+          "start": 0.72,
+          "end": 1.22
+        },
+        {
+          "raw": "-respetide",
+          "start": 1.22,
+          "end": 1.78
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "chamber",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "raw": "where",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "raw": "thou",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "leest.",
+          "start": 2.62,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "Anne.",
+        "Ill",
+        "rest",
+        "betide",
+        "the",
+        "chamber",
+        "where",
+        "thou",
+        "liest!"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          1,
+          2
+        ],
+        [
+          "equal",
+          4,
+          8,
+          2,
+          6
+        ],
+        [
+          "replace",
+          8,
+          9,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          2,
+          4,
+          1,
+          2
+        ],
+        [
+          "replace",
+          8,
+          9,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "ill",
+          "start": 0.72,
+          "end": 1.22,
+          "key": "ill",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "-respetide",
+          "start": 1.22,
+          "end": 1.78,
+          "key": "respetide",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chamber",
+          "start": 1.92,
+          "end": 2.2,
+          "key": "chamber",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 2.2,
+          "end": 2.42,
+          "key": "where",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "leest.",
+          "start": 2.62,
+          "end": 3.02,
+          "key": "leest",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Anne.",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "text": "Ill",
+          "start": 0.72,
+          "end": 1.22
+        },
+        {
+          "text": "rest",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "betide",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "the",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "chamber",
+          "start": 1.92,
+          "end": 2.2
+        },
+        {
+          "text": "where",
+          "start": 2.2,
+          "end": 2.42
+        },
+        {
+          "text": "thou",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "liest!",
+          "start": 2.62,
+          "end": 2.82
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.5555555555555556,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1845149602741003
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "956a7d672b46b9978853740c8625739c87e3e43aab8003bc397f531d658e0ce8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

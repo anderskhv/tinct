@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "28120ccca6ca7c77384ff994f4adde3dbebe531f17f380da5f9ad4e6e4b55842",
+  "attempts": [
+    {
+      "asr_seconds": 0.165597858838737,
+      "alignment_seconds": 0.00018821191042661667,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Caesar. Hence! wilt thou lift up Olympus?",
+        "hotwords": "Caesar, Hence, Olympus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Caesar, Hence, wilt thou lift up Olympus?",
+          "start": 0.11,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Caesar,",
+              "start": 0.11,
+              "end": 0.79,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " Hence,",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.004505157470703125
+            },
+            {
+              "text": " wilt",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.723388671875
+            },
+            {
+              "text": " thou",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " lift",
+              "start": 2.09,
+              "end": 2.29,
+              "probability": 0.939453125
+            },
+            {
+              "text": " up",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Olympus?",
+              "start": 2.45,
+              "end": 2.75,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "raw": "Hence,",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "wilt",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "thou",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "lift",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "raw": "up",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "Olympus?",
+          "start": 2.45,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "Hence!",
+        "wilt",
+        "thou",
+        "lift",
+        "up",
+        "Olympus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar,",
+          "start": 0.11,
+          "end": 0.79,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hence,",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "hence",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "wilt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lift",
+          "start": 2.09,
+          "end": 2.29,
+          "key": "lift",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "up",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Olympus?",
+          "start": 2.45,
+          "end": 2.75,
+          "key": "olympus",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.79
+        },
+        {
+          "text": "Hence!",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "wilt",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "thou",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "lift",
+          "start": 2.09,
+          "end": 2.29
+        },
+        {
+          "text": "up",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "Olympus?",
+          "start": 2.45,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16585907619446516
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dfeeb1241c1981470e818ad953efd57c9c6131a0204fd68e5065d26597841c40",
+  "selected_reasons": []
+}

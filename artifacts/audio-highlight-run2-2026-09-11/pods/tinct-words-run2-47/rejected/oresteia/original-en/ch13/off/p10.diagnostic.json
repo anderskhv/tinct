@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "50255449063ca075753c456fa4da51f56583476a5676badeadd1a5574b781113",
+  "attempts": [
+    {
+      "asr_seconds": 0.24642405798658729,
+      "alignment_seconds": 0.0005524479784071445,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Electra, write well in this too hast thou schooled my thought.",
+          "start": 0.52,
+          "end": 3.52,
+          "words": [
+            {
+              "text": " Electra,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " write",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " well",
+              "start": 1.44,
+              "end": 1.64,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " this",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " too",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.595703125
+            },
+            {
+              "text": " hast",
+              "start": 2.12,
+              "end": 2.4,
+              "probability": 0.763671875
+            },
+            {
+              "text": " thou",
+              "start": 2.4,
+              "end": 2.6,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " schooled",
+              "start": 2.6,
+              "end": 3.02,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " my",
+              "start": 3.02,
+              "end": 3.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thought.",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Electra,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "write",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "well",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "raw": "in",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "this",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "too",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "hast",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "raw": "thou",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "raw": "schooled",
+          "start": 2.6,
+          "end": 3.02
+        },
+        {
+          "raw": "my",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "raw": "thought.",
+          "start": 3.2,
+          "end": 3.52
+        }
+      ],
+      "expected_tokens": [
+        "Electra.",
+        "Right",
+        "well",
+        "in",
+        "this",
+        "too",
+        "hast",
+        "thou",
+        "schooled",
+        "my",
+        "thought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Electra,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "electra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "write",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "write",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.44,
+          "end": 1.64,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 2.12,
+          "end": 2.4,
+          "key": "hast",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.4,
+          "end": 2.6,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "schooled",
+          "start": 2.6,
+          "end": 3.02,
+          "key": "schooled",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.02,
+          "end": 3.2,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thought.",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "thought",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Electra.",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "text": "Right",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "text": "well",
+          "start": 1.44,
+          "end": 1.64
+        },
+        {
+          "text": "in",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "this",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "too",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "hast",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "text": "thou",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "text": "schooled",
+          "start": 2.6,
+          "end": 3.02
+        },
+        {
+          "text": "my",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "text": "thought.",
+          "start": 3.2,
+          "end": 3.52
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2471926280122716
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ed2686917374276a4b85ad95c56a400596cf094aaf56e9ad3beeca8e561ce6c",
+  "selected_reasons": []
+}

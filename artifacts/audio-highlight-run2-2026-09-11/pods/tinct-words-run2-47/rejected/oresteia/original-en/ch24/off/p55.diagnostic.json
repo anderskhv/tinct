@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "8a2bece127492ef019fb69f2a96f97a04b4e1073365c8a7811bb061b00765c74",
+  "attempts": [
+    {
+      "asr_seconds": 0.1996685270278249,
+      "alignment_seconds": 0.0003684620023705065,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chorus, oh night, Dark Mother Mine does mark these things.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.6995849609375
+            },
+            {
+              "text": " oh",
+              "start": 1.28,
+              "end": 1.38,
+              "probability": 0.1956787109375
+            },
+            {
+              "text": " night,",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.517578125
+            },
+            {
+              "text": " Dark",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " Mother",
+              "start": 1.98,
+              "end": 2.16,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " Mine",
+              "start": 2.16,
+              "end": 2.5,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " does",
+              "start": 2.5,
+              "end": 2.72,
+              "probability": 0.2335205078125
+            },
+            {
+              "text": " mark",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " these",
+              "start": 3.02,
+              "end": 3.24,
+              "probability": 0.990234375
+            },
+            {
+              "text": " things.",
+              "start": 3.24,
+              "end": 3.64,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "oh",
+          "start": 1.28,
+          "end": 1.38
+        },
+        {
+          "raw": "night,",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "Dark",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "Mother",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "raw": "Mine",
+          "start": 2.16,
+          "end": 2.5
+        },
+        {
+          "raw": "does",
+          "start": 2.5,
+          "end": 2.72
+        },
+        {
+          "raw": "mark",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "these",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "raw": "things.",
+          "start": 3.24,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "O",
+        "Night,",
+        "dark",
+        "mother",
+        "mine,",
+        "dost",
+        "mark",
+        "these",
+        "things?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.28,
+          "end": 1.38,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dark",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "dark",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mother",
+          "start": 1.98,
+          "end": 2.16,
+          "key": "mother",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mine",
+          "start": 2.16,
+          "end": 2.5,
+          "key": "mine",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.5,
+          "end": 2.72,
+          "key": "does",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mark",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "mark",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.02,
+          "end": 3.24,
+          "key": "these",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "things.",
+          "start": 3.24,
+          "end": 3.64,
+          "key": "things",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "O",
+          "start": 0.8,
+          "end": 1.09
+        },
+        {
+          "text": "Night,",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "dark",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "mother",
+          "start": 1.98,
+          "end": 2.16
+        },
+        {
+          "text": "mine,",
+          "start": 2.16,
+          "end": 2.5
+        },
+        {
+          "text": "dost",
+          "start": 2.5,
+          "end": 2.61
+        },
+        {
+          "text": "mark",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "text": "these",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "text": "things?",
+          "start": 3.24,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20017016000929289
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b20e5543da9b94711a8734244ddaf9d473415838e44c600a1d6b0f38f0eece0b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

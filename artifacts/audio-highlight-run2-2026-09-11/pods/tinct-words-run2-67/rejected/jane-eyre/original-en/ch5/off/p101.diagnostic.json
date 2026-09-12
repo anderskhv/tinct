@@ -1,0 +1,736 @@
+{
+  "complete": true,
+  "signature": "ae72976c34700ea61c03684fd452051b0ea3158b7356f757f0d5610fb00c2835",
+  "attempts": [
+    {
+      "asr_seconds": 0.29756672540679574,
+      "alignment_seconds": 0.00047347089275717735,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miskachard is hasty. You must take care not to offend her. Madame Pierrot is not a bad sort of person.",
+          "start": 0.63,
+          "end": 6.43,
+          "words": [
+            {
+              "text": " Miskachard",
+              "start": 0.63,
+              "end": 1.07,
+              "probability": 0.501678466796875
+            },
+            {
+              "text": " is",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hasty.",
+              "start": 1.21,
+              "end": 1.65,
+              "probability": 0.966552734375
+            },
+            {
+              "text": " You",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " must",
+              "start": 2.27,
+              "end": 2.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " take",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " care",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 3.13,
+              "end": 3.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " offend",
+              "start": 3.31,
+              "end": 3.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " her.",
+              "start": 3.57,
+              "end": 3.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Madame",
+              "start": 4.45,
+              "end": 4.53,
+              "probability": 0.470703125
+            },
+            {
+              "text": " Pierrot",
+              "start": 4.53,
+              "end": 5.01,
+              "probability": 0.770263671875
+            },
+            {
+              "text": " is",
+              "start": 5.01,
+              "end": 5.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 5.19,
+              "end": 5.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 5.37,
+              "end": 5.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bad",
+              "start": 5.49,
+              "end": 5.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sort",
+              "start": 5.71,
+              "end": 5.89,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 5.89,
+              "end": 6.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " person.",
+              "start": 6.07,
+              "end": 6.43,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miskachard",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "raw": "is",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "hasty.",
+          "start": 1.21,
+          "end": 1.65
+        },
+        {
+          "raw": "You",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "must",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "raw": "take",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "care",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "not",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "raw": "to",
+          "start": 3.13,
+          "end": 3.31
+        },
+        {
+          "raw": "offend",
+          "start": 3.31,
+          "end": 3.57
+        },
+        {
+          "raw": "her.",
+          "start": 3.57,
+          "end": 3.85
+        },
+        {
+          "raw": "Madame",
+          "start": 4.45,
+          "end": 4.53
+        },
+        {
+          "raw": "Pierrot",
+          "start": 4.53,
+          "end": 5.01
+        },
+        {
+          "raw": "is",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "raw": "not",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "raw": "a",
+          "start": 5.37,
+          "end": 5.49
+        },
+        {
+          "raw": "bad",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "raw": "sort",
+          "start": 5.71,
+          "end": 5.89
+        },
+        {
+          "raw": "of",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "raw": "person.",
+          "start": 6.07,
+          "end": 6.43
+        }
+      ],
+      "expected_tokens": [
+        "\"Miss",
+        "Scatcherd",
+        "is",
+        "hasty—you",
+        "must",
+        "take",
+        "care",
+        "not",
+        "to",
+        "offend",
+        "her;",
+        "Madame",
+        "Pierrot",
+        "is",
+        "not",
+        "a",
+        "bad",
+        "sort",
+        "of",
+        "person.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          20,
+          4,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miskachard",
+          "start": 0.63,
+          "end": 1.07,
+          "key": "miskachard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hasty.",
+          "start": 1.21,
+          "end": 1.65,
+          "key": "hasty",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.27,
+          "end": 2.41,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "take",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "care",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.93,
+          "end": 3.13,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.13,
+          "end": 3.31,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "offend",
+          "start": 3.31,
+          "end": 3.57,
+          "key": "offend",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 3.57,
+          "end": 3.85,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Madame",
+          "start": 4.45,
+          "end": 4.53,
+          "key": "madame",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Pierrot",
+          "start": 4.53,
+          "end": 5.01,
+          "key": "pierrot",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.01,
+          "end": 5.19,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.19,
+          "end": 5.37,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.37,
+          "end": 5.49,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 5.49,
+          "end": 5.71,
+          "key": "bad",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 5.71,
+          "end": 5.89,
+          "key": "sort",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.89,
+          "end": 6.07,
+          "key": "of",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "person.",
+          "start": 6.07,
+          "end": 6.43,
+          "key": "person",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Miss",
+          "start": 0.0,
+          "end": 0.535
+        },
+        {
+          "text": "Scatcherd",
+          "start": 0.535,
+          "end": 0.802
+        },
+        {
+          "text": "is",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "hasty—you",
+          "start": 1.21,
+          "end": 1.74
+        },
+        {
+          "text": "must",
+          "start": 2.27,
+          "end": 2.41
+        },
+        {
+          "text": "take",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "care",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "not",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "text": "to",
+          "start": 3.13,
+          "end": 3.31
+        },
+        {
+          "text": "offend",
+          "start": 3.31,
+          "end": 3.57
+        },
+        {
+          "text": "her;",
+          "start": 3.57,
+          "end": 3.85
+        },
+        {
+          "text": "Madame",
+          "start": 4.45,
+          "end": 4.53
+        },
+        {
+          "text": "Pierrot",
+          "start": 4.53,
+          "end": 5.01
+        },
+        {
+          "text": "is",
+          "start": 5.01,
+          "end": 5.19
+        },
+        {
+          "text": "not",
+          "start": 5.19,
+          "end": 5.37
+        },
+        {
+          "text": "a",
+          "start": 5.37,
+          "end": 5.49
+        },
+        {
+          "text": "bad",
+          "start": 5.49,
+          "end": 5.71
+        },
+        {
+          "text": "sort",
+          "start": 5.71,
+          "end": 5.89
+        },
+        {
+          "text": "of",
+          "start": 5.89,
+          "end": 6.07
+        },
+        {
+          "text": "person.\"",
+          "start": 6.07,
+          "end": 6.43
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.85,
+      "rejection_reasons": [],
+      "seconds": 0.29824877297505736
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ed0873b4e2bfa919fe25515cac334a3978f4fc5965cfdef62f2ec49fc99a74a0",
+  "selected_reasons": []
+}

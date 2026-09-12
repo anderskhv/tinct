@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "6b53cae245dd69ad89fd8fb9c04dd18a8d3b93961103801650a1111d9c628c16",
+  "attempts": [
+    {
+      "asr_seconds": 0.254851927049458,
+      "alignment_seconds": 0.0006609719712287188,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, shall we hear from you, Caddisby, ere we sleep?",
+          "start": 0.02,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " shall",
+              "start": 1.18,
+              "end": 1.38,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " we",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hear",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " from",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you,",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Caddisby,",
+              "start": 2.24,
+              "end": 2.62,
+              "probability": 0.6224365234375
+            },
+            {
+              "text": " ere",
+              "start": 2.78,
+              "end": 2.94,
+              "probability": 0.923828125
+            },
+            {
+              "text": " we",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sleep?",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "shall",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "raw": "we",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "hear",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "from",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "you,",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "Caddisby,",
+          "start": 2.24,
+          "end": 2.62
+        },
+        {
+          "raw": "ere",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "raw": "we",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "sleep?",
+          "start": 3.06,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Shall",
+        "we",
+        "hear",
+        "from",
+        "you,",
+        "Catesby,",
+        "ere",
+        "we",
+        "sleep?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.18,
+          "end": 1.38,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.52,
+          "end": 1.7,
+          "key": "hear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Caddisby,",
+          "start": 2.24,
+          "end": 2.62,
+          "key": "caddisby",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 2.78,
+          "end": 2.94,
+          "key": "ere",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sleep?",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "sleep",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "Shall",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "text": "we",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "hear",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "from",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "you,",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "Catesby,",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "text": "ere",
+          "start": 2.78,
+          "end": 2.94
+        },
+        {
+          "text": "we",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "sleep?",
+          "start": 3.06,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.2557620331645012
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d1a3f476814a21a88ea01cec8a51fc675e17c35e7f3b8c78bfdce85761ac8571",
+  "selected_reasons": []
+}

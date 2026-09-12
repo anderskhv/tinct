@@ -1,0 +1,550 @@
+{
+  "complete": true,
+  "signature": "b2d7a46cae08d433491956cbfd7e99eecb174782094685f77bd05ad367e005ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.2947468236088753,
+      "alignment_seconds": 0.0004095807671546936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then you would not approve of Syracuse and dinners and the refinements of Sicilian cookery.",
+          "start": 0.02,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " you",
+              "start": 0.66,
+              "end": 1.0,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " would",
+              "start": 1.0,
+              "end": 1.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.998046875
+            },
+            {
+              "text": " approve",
+              "start": 1.32,
+              "end": 1.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Syracuse",
+              "start": 1.98,
+              "end": 2.42,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " and",
+              "start": 2.42,
+              "end": 2.76,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " dinners",
+              "start": 2.76,
+              "end": 3.04,
+              "probability": 0.73046875
+            },
+            {
+              "text": " and",
+              "start": 3.04,
+              "end": 3.7,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " the",
+              "start": 3.7,
+              "end": 3.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " refinements",
+              "start": 3.8,
+              "end": 4.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 4.42,
+              "end": 4.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Sicilian",
+              "start": 4.54,
+              "end": 5.08,
+              "probability": 0.978515625
+            },
+            {
+              "text": " cookery.",
+              "start": 5.08,
+              "end": 5.6,
+              "probability": 0.918212890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "you",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "raw": "would",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "raw": "not",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "approve",
+          "start": 1.32,
+          "end": 1.74
+        },
+        {
+          "raw": "of",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "Syracuse",
+          "start": 1.98,
+          "end": 2.42
+        },
+        {
+          "raw": "and",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "raw": "dinners",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.7
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "raw": "refinements",
+          "start": 3.8,
+          "end": 4.42
+        },
+        {
+          "raw": "of",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "raw": "Sicilian",
+          "start": 4.54,
+          "end": 5.08
+        },
+        {
+          "raw": "cookery.",
+          "start": 5.08,
+          "end": 5.6
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "you",
+        "would",
+        "not",
+        "approve",
+        "of",
+        "Syracusan",
+        "dinners,",
+        "and",
+        "the",
+        "refinements",
+        "of",
+        "Sicilian",
+        "cookery?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          14,
+          8,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.66,
+          "end": 1.0,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.0,
+          "end": 1.12,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "approve",
+          "start": 1.32,
+          "end": 1.74,
+          "key": "approve",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Syracuse",
+          "start": 1.98,
+          "end": 2.42,
+          "key": "syracuse",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.42,
+          "end": 2.76,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dinners",
+          "start": 2.76,
+          "end": 3.04,
+          "key": "dinners",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.7,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.7,
+          "end": 3.8,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "refinements",
+          "start": 3.8,
+          "end": 4.42,
+          "key": "refinements",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.42,
+          "end": 4.54,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Sicilian",
+          "start": 4.54,
+          "end": 5.08,
+          "key": "sicilian",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "cookery.",
+          "start": 5.08,
+          "end": 5.6,
+          "key": "cookery",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "you",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "text": "would",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "text": "not",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "approve",
+          "start": 1.32,
+          "end": 1.74
+        },
+        {
+          "text": "of",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "Syracusan",
+          "start": 1.98,
+          "end": 2.37
+        },
+        {
+          "text": "dinners,",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "text": "and",
+          "start": 3.04,
+          "end": 3.7
+        },
+        {
+          "text": "the",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "text": "refinements",
+          "start": 3.8,
+          "end": 4.42
+        },
+        {
+          "text": "of",
+          "start": 4.42,
+          "end": 4.54
+        },
+        {
+          "text": "Sicilian",
+          "start": 4.54,
+          "end": 5.08
+        },
+        {
+          "text": "cookery?",
+          "start": 5.08,
+          "end": 5.6
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2953207790851593
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c344d6bd88b15b200e2a2f06e920dfc016642ede891de0a5c98960ec94430240",
+  "selected_reasons": []
+}

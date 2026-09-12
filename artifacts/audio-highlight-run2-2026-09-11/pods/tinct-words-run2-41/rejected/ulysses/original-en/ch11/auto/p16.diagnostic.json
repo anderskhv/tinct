@@ -1,0 +1,2063 @@
+{
+  "complete": true,
+  "signature": "c2108d1f57ab24a967920801296ad5edd5073ffc280463e470f5386cc5493dd6",
+  "attempts": [
+    {
+      "asr_seconds": 0.6908962507732213,
+      "alignment_seconds": 0.0008131419308483601,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Avowal. _Sonnez._ I could. Rebound of garter. Not leave thee. Smack. _La cloche!_ Thigh smack. Avowal. Warm. Sweetheart, goodbye!",
+        "hotwords": "Avowal, I, Rebound, Not, Thigh, Warm, Sweetheart"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A vowel, Sonnez. I could. Rebound of garter. Not leave thee. Smack.",
+          "start": 0.05,
+          "end": 8.67,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.619140625
+            },
+            {
+              "text": " vowel,",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " Sonnez.",
+              "start": 0.95,
+              "end": 1.37,
+              "probability": 0.30255126953125
+            },
+            {
+              "text": " I",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.96484375
+            },
+            {
+              "text": " could.",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Rebound",
+              "start": 2.21,
+              "end": 2.49,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " of",
+              "start": 2.49,
+              "end": 2.65,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " garter.",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.7418212890625
+            },
+            {
+              "text": " Not",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.904296875
+            },
+            {
+              "text": " leave",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " thee.",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Smack.",
+              "start": 8.19,
+              "end": 8.67,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "vowel,",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "Sonnez.",
+          "start": 0.95,
+          "end": 1.37
+        },
+        {
+          "raw": "I",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "could.",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "Rebound",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "raw": "of",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "raw": "garter.",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "Not",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "leave",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "raw": "thee.",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "raw": "Smack.",
+          "start": 8.19,
+          "end": 8.67
+        }
+      ],
+      "expected_tokens": [
+        "Avowal.",
+        "_Sonnez._",
+        "I",
+        "could.",
+        "Rebound",
+        "of",
+        "garter.",
+        "Not",
+        "leave",
+        "thee.",
+        "Smack.",
+        "_La",
+        "cloche!_",
+        "Thigh",
+        "smack.",
+        "Avowal.",
+        "Warm.",
+        "Sweetheart,",
+        "goodbye!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          11,
+          2,
+          12
+        ],
+        [
+          "delete",
+          11,
+          19,
+          12,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "delete",
+          11,
+          19,
+          12,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "vowel,",
+          "start": 0.53,
+          "end": 0.77,
+          "key": "vowel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sonnez.",
+          "start": 0.95,
+          "end": 1.37,
+          "key": "sonnez",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "could.",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "could",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Rebound",
+          "start": 2.21,
+          "end": 2.49,
+          "key": "rebound",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.49,
+          "end": 2.65,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "garter.",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "garter",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 3.15,
+          "end": 3.39,
+          "key": "leave",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Smack.",
+          "start": 8.19,
+          "end": 8.67,
+          "key": "smack",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Avowal.",
+          "start": 0.0,
+          "end": 0.475
+        },
+        {
+          "text": "_Sonnez._",
+          "start": 0.95,
+          "end": 1.37
+        },
+        {
+          "text": "I",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "could.",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "Rebound",
+          "start": 2.21,
+          "end": 2.49
+        },
+        {
+          "text": "of",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "text": "garter.",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "Not",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "leave",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "text": "thee.",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "text": "Smack.",
+          "start": 8.19,
+          "end": 8.67
+        },
+        {
+          "text": "_La",
+          "start": 8.67,
+          "end": 8.67
+        },
+        {
+          "text": "cloche!_",
+          "start": 8.67,
+          "end": 8.67
+        },
+        {
+          "text": "Thigh",
+          "start": 8.67,
+          "end": 8.67
+        },
+        {
+          "text": "smack.",
+          "start": 8.67,
+          "end": 8.67
+        },
+        {
+          "text": "Avowal.",
+          "start": 8.67,
+          "end": 8.67
+        },
+        {
+          "text": "Warm.",
+          "start": 8.67,
+          "end": 8.67
+        },
+        {
+          "text": "Sweetheart,",
+          "start": 8.67,
+          "end": 8.67
+        },
+        {
+          "text": "goodbye!",
+          "start": 8.67,
+          "end": 8.67
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.5263157894736842,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.6920046838931739
+    },
+    {
+      "asr_seconds": 0.41017232835292816,
+      "alignment_seconds": 0.000760209746658802,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Avowal, I, Rebound, Not, Thigh, Warm, Sweetheart"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Avowal, Saunez, I could, Rebound of Garter, Not, Leave thee, Smack, La Cloche, Thigh, Smack,",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Avowal,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.3614705403645833
+            },
+            {
+              "text": " Saunez,",
+              "start": 1.05,
+              "end": 1.33,
+              "probability": 0.3470458984375
+            },
+            {
+              "text": " I",
+              "start": 1.43,
+              "end": 1.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " could,",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Rebound",
+              "start": 2.17,
+              "end": 2.49,
+              "probability": 0.7181396484375
+            },
+            {
+              "text": " of",
+              "start": 2.49,
+              "end": 2.65,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Garter,",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.56573486328125
+            },
+            {
+              "text": " Not,",
+              "start": 3.05,
+              "end": 3.15,
+              "probability": 0.0614013671875
+            },
+            {
+              "text": " Leave",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.49609375
+            },
+            {
+              "text": " thee,",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.923828125
+            },
+            {
+              "text": " Smack,",
+              "start": 4.13,
+              "end": 4.45,
+              "probability": 0.963134765625
+            },
+            {
+              "text": " La",
+              "start": 4.75,
+              "end": 4.79,
+              "probability": 0.1107177734375
+            },
+            {
+              "text": " Cloche,",
+              "start": 4.79,
+              "end": 5.09,
+              "probability": 0.6971435546875
+            },
+            {
+              "text": " Thigh,",
+              "start": 5.33,
+              "end": 5.43,
+              "probability": 0.3924560546875
+            },
+            {
+              "text": " Smack,",
+              "start": 5.71,
+              "end": 5.89,
+              "probability": 0.95751953125
+            }
+          ]
+        },
+        {
+          "text": " Avowal, Warm, Sweetheart, Good-Bye",
+          "start": 6.07,
+          "end": 8.29,
+          "words": [
+            {
+              "text": " Avowal,",
+              "start": 6.07,
+              "end": 6.51,
+              "probability": 0.9894205729166666
+            },
+            {
+              "text": " Warm,",
+              "start": 6.79,
+              "end": 6.83,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Sweetheart,",
+              "start": 7.13,
+              "end": 7.47,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " Good",
+              "start": 7.63,
+              "end": 7.73,
+              "probability": 0.71875
+            },
+            {
+              "text": "-Bye",
+              "start": 7.73,
+              "end": 8.29,
+              "probability": 0.84228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Avowal,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Saunez,",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "raw": "I",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "raw": "could,",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "Rebound",
+          "start": 2.17,
+          "end": 2.49
+        },
+        {
+          "raw": "of",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "raw": "Garter,",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "Not,",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "raw": "Leave",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "raw": "thee,",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "raw": "Smack,",
+          "start": 4.13,
+          "end": 4.45
+        },
+        {
+          "raw": "La",
+          "start": 4.75,
+          "end": 4.79
+        },
+        {
+          "raw": "Cloche,",
+          "start": 4.79,
+          "end": 5.09
+        },
+        {
+          "raw": "Thigh,",
+          "start": 5.33,
+          "end": 5.43
+        },
+        {
+          "raw": "Smack,",
+          "start": 5.71,
+          "end": 5.89
+        },
+        {
+          "raw": "Avowal,",
+          "start": 6.07,
+          "end": 6.51
+        },
+        {
+          "raw": "Warm,",
+          "start": 6.79,
+          "end": 6.83
+        },
+        {
+          "raw": "Sweetheart,",
+          "start": 7.13,
+          "end": 7.47
+        },
+        {
+          "raw": "Good",
+          "start": 7.63,
+          "end": 7.73
+        },
+        {
+          "raw": "-Bye",
+          "start": 7.73,
+          "end": 8.29
+        }
+      ],
+      "expected_tokens": [
+        "Avowal.",
+        "_Sonnez._",
+        "I",
+        "could.",
+        "Rebound",
+        "of",
+        "garter.",
+        "Not",
+        "leave",
+        "thee.",
+        "Smack.",
+        "_La",
+        "cloche!_",
+        "Thigh",
+        "smack.",
+        "Avowal.",
+        "Warm.",
+        "Sweetheart,",
+        "goodbye!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          18,
+          2,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Avowal,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "avowal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Saunez,",
+          "start": 1.05,
+          "end": 1.33,
+          "key": "saunez",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.43,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "could,",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "could",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Rebound",
+          "start": 2.17,
+          "end": 2.49,
+          "key": "rebound",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.49,
+          "end": 2.65,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Garter,",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "garter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Not,",
+          "start": 3.05,
+          "end": 3.15,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Leave",
+          "start": 3.15,
+          "end": 3.39,
+          "key": "leave",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Smack,",
+          "start": 4.13,
+          "end": 4.45,
+          "key": "smack",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "La",
+          "start": 4.75,
+          "end": 4.79,
+          "key": "la",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Cloche,",
+          "start": 4.79,
+          "end": 5.09,
+          "key": "cloche",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Thigh,",
+          "start": 5.33,
+          "end": 5.43,
+          "key": "thigh",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Smack,",
+          "start": 5.71,
+          "end": 5.89,
+          "key": "smack",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Avowal,",
+          "start": 6.07,
+          "end": 6.51,
+          "key": "avowal",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Warm,",
+          "start": 6.79,
+          "end": 6.83,
+          "key": "warm",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Sweetheart,",
+          "start": 7.13,
+          "end": 7.47,
+          "key": "sweetheart",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 7.63,
+          "end": 7.73,
+          "key": "good",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "-Bye",
+          "start": 7.73,
+          "end": 8.29,
+          "key": "bye",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Avowal.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "_Sonnez._",
+          "start": 0.89,
+          "end": 1.16
+        },
+        {
+          "text": "I",
+          "start": 1.43,
+          "end": 1.53
+        },
+        {
+          "text": "could.",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "Rebound",
+          "start": 2.17,
+          "end": 2.49
+        },
+        {
+          "text": "of",
+          "start": 2.49,
+          "end": 2.65
+        },
+        {
+          "text": "garter.",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "Not",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "text": "leave",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "text": "thee.",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "text": "Smack.",
+          "start": 4.13,
+          "end": 4.45
+        },
+        {
+          "text": "_La",
+          "start": 4.75,
+          "end": 4.79
+        },
+        {
+          "text": "cloche!_",
+          "start": 4.79,
+          "end": 5.09
+        },
+        {
+          "text": "Thigh",
+          "start": 5.33,
+          "end": 5.43
+        },
+        {
+          "text": "smack.",
+          "start": 5.71,
+          "end": 5.89
+        },
+        {
+          "text": "Avowal.",
+          "start": 6.07,
+          "end": 6.51
+        },
+        {
+          "text": "Warm.",
+          "start": 6.79,
+          "end": 6.83
+        },
+        {
+          "text": "Sweetheart,",
+          "start": 7.13,
+          "end": 7.47
+        },
+        {
+          "text": "goodbye!",
+          "start": 7.47,
+          "end": 7.88
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.4112301282584667
+    },
+    {
+      "asr_seconds": 0.37077490612864494,
+      "alignment_seconds": 0.0005906699225306511,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A vowel, Sonez, I could, Rebound of garter, not leave thee.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " vowel,",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " Sonez,",
+              "start": 1.03,
+              "end": 1.37,
+              "probability": 0.4611002604166667
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.53,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " could,",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Rebound",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.690185546875
+            },
+            {
+              "text": " of",
+              "start": 2.47,
+              "end": 2.65,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " garter,",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.754150390625
+            },
+            {
+              "text": " not",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " leave",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " thee.",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.98828125
+            }
+          ]
+        },
+        {
+          "text": " Smack, Lachlosh, thy smack, A vowel, warm, sweetheart, good-bye.",
+          "start": 4.17,
+          "end": 8.03,
+          "words": [
+            {
+              "text": " Smack,",
+              "start": 4.17,
+              "end": 4.45,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " Lachlosh,",
+              "start": 4.75,
+              "end": 5.09,
+              "probability": 0.4229736328125
+            },
+            {
+              "text": " thy",
+              "start": 5.27,
+              "end": 5.41,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " smack,",
+              "start": 5.41,
+              "end": 5.77,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " A",
+              "start": 6.09,
+              "end": 6.11,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " vowel,",
+              "start": 6.11,
+              "end": 6.37,
+              "probability": 0.98828125
+            },
+            {
+              "text": " warm,",
+              "start": 6.67,
+              "end": 6.85,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " sweetheart,",
+              "start": 7.09,
+              "end": 7.49,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " good",
+              "start": 7.63,
+              "end": 7.71,
+              "probability": 0.72509765625
+            },
+            {
+              "text": "-bye.",
+              "start": 7.71,
+              "end": 8.03,
+              "probability": 0.8974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "vowel,",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "Sonez,",
+          "start": 1.03,
+          "end": 1.37
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.53
+        },
+        {
+          "raw": "could,",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "Rebound",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "raw": "of",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "raw": "garter,",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "not",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "leave",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "raw": "thee.",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "raw": "Smack,",
+          "start": 4.17,
+          "end": 4.45
+        },
+        {
+          "raw": "Lachlosh,",
+          "start": 4.75,
+          "end": 5.09
+        },
+        {
+          "raw": "thy",
+          "start": 5.27,
+          "end": 5.41
+        },
+        {
+          "raw": "smack,",
+          "start": 5.41,
+          "end": 5.77
+        },
+        {
+          "raw": "A",
+          "start": 6.09,
+          "end": 6.11
+        },
+        {
+          "raw": "vowel,",
+          "start": 6.11,
+          "end": 6.37
+        },
+        {
+          "raw": "warm,",
+          "start": 6.67,
+          "end": 6.85
+        },
+        {
+          "raw": "sweetheart,",
+          "start": 7.09,
+          "end": 7.49
+        },
+        {
+          "raw": "good",
+          "start": 7.63,
+          "end": 7.71
+        },
+        {
+          "raw": "-bye.",
+          "start": 7.71,
+          "end": 8.03
+        }
+      ],
+      "expected_tokens": [
+        "Avowal.",
+        "_Sonnez._",
+        "I",
+        "could.",
+        "Rebound",
+        "of",
+        "garter.",
+        "Not",
+        "leave",
+        "thee.",
+        "Smack.",
+        "_La",
+        "cloche!_",
+        "Thigh",
+        "smack.",
+        "Avowal.",
+        "Warm.",
+        "Sweetheart,",
+        "goodbye!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "equal",
+          2,
+          11,
+          3,
+          12
+        ],
+        [
+          "replace",
+          11,
+          14,
+          12,
+          14
+        ],
+        [
+          "equal",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "equal",
+          16,
+          18,
+          17,
+          19
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          3
+        ],
+        [
+          "replace",
+          11,
+          14,
+          12,
+          14
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          17
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          21
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "vowel,",
+          "start": 0.53,
+          "end": 0.77,
+          "key": "vowel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sonez,",
+          "start": 1.03,
+          "end": 1.37,
+          "key": "sonez",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.53,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "could,",
+          "start": 1.53,
+          "end": 1.77,
+          "key": "could",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Rebound",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "rebound",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.47,
+          "end": 2.65,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "garter,",
+          "start": 2.65,
+          "end": 2.89,
+          "key": "garter",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 3.15,
+          "end": 3.39,
+          "key": "leave",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thee.",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "thee",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Smack,",
+          "start": 4.17,
+          "end": 4.45,
+          "key": "smack",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Lachlosh,",
+          "start": 4.75,
+          "end": 5.09,
+          "key": "lachlosh",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 5.27,
+          "end": 5.41,
+          "key": "thy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "smack,",
+          "start": 5.41,
+          "end": 5.77,
+          "key": "smack",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 6.09,
+          "end": 6.11,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "vowel,",
+          "start": 6.11,
+          "end": 6.37,
+          "key": "vowel",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "warm,",
+          "start": 6.67,
+          "end": 6.85,
+          "key": "warm",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "sweetheart,",
+          "start": 7.09,
+          "end": 7.49,
+          "key": "sweetheart",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 7.63,
+          "end": 7.71,
+          "key": "good",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "-bye.",
+          "start": 7.71,
+          "end": 8.03,
+          "key": "bye",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Avowal.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "_Sonnez._",
+          "start": 0.735,
+          "end": 1.103
+        },
+        {
+          "text": "I",
+          "start": 1.47,
+          "end": 1.53
+        },
+        {
+          "text": "could.",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "Rebound",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "text": "of",
+          "start": 2.47,
+          "end": 2.65
+        },
+        {
+          "text": "garter.",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "Not",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "leave",
+          "start": 3.15,
+          "end": 3.39
+        },
+        {
+          "text": "thee.",
+          "start": 3.39,
+          "end": 3.65
+        },
+        {
+          "text": "Smack.",
+          "start": 4.17,
+          "end": 4.45
+        },
+        {
+          "text": "_La",
+          "start": 4.45,
+          "end": 4.93
+        },
+        {
+          "text": "cloche!_",
+          "start": 4.93,
+          "end": 5.17
+        },
+        {
+          "text": "Thigh",
+          "start": 5.17,
+          "end": 5.29
+        },
+        {
+          "text": "smack.",
+          "start": 5.41,
+          "end": 5.77
+        },
+        {
+          "text": "Avowal.",
+          "start": 5.77,
+          "end": 6.22
+        },
+        {
+          "text": "Warm.",
+          "start": 6.67,
+          "end": 6.85
+        },
+        {
+          "text": "Sweetheart,",
+          "start": 7.09,
+          "end": 7.49
+        },
+        {
+          "text": "goodbye!",
+          "start": 7.49,
+          "end": 7.76
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 21,
+        "matched_words": 12
+      },
+      "match_ratio": 0.631578947368421,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.37159776221960783
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "6bd5de00599cc2eeb99cdba6911b3dc5a4b54003a458bfa9c7164341b0543592",
+  "selected_reasons": []
+}

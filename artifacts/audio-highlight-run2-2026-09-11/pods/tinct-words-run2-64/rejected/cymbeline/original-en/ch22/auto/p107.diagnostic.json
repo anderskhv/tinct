@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "9e88f846156f85e3d7aa5abfc7d8ef1b7e64c07acdef1317504e7195aeba28e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.16747042909264565,
+      "alignment_seconds": 0.0003330083563923836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Arviragus. We'll speak it, then.",
+        "hotwords": "Arviragus, We'll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Arviragus. We'll speak it, then.",
+          "start": 0.7,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Arviragus.",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.3957010904947917
+            },
+            {
+              "text": " We'll",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.986328125
+            },
+            {
+              "text": " speak",
+              "start": 1.6,
+              "end": 1.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it,",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " then.",
+              "start": 2.06,
+              "end": 2.18,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arviragus.",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "raw": "We'll",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "speak",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "raw": "it,",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "then.",
+          "start": 2.06,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Arviragus.",
+        "We'll",
+        "speak",
+        "it,",
+        "then."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arviragus.",
+          "start": 0.7,
+          "end": 1.04,
+          "key": "arviragus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 1.5,
+          "end": 1.6,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.6,
+          "end": 1.76,
+          "key": "speak",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 2.06,
+          "end": 2.18,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Arviragus.",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "text": "We'll",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "speak",
+          "start": 1.6,
+          "end": 1.76
+        },
+        {
+          "text": "it,",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "then.",
+          "start": 2.06,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16792156174778938
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7830de943417bff6b0159c57f5fe578eb9a6bf4c86c7c02b6b717d57e9d47485",
+  "selected_reasons": []
+}

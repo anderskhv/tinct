@@ -1,0 +1,8064 @@
+{
+  "complete": true,
+  "signature": "53cdf34cd9ed62744731eb80f724dc5eb7804c64713ad8269e0b0cb1d19ca3a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.8364037480205297,
+      "alignment_seconds": 0.0032465923577547073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Florizel. Apprehend Nothing but jollity. The gods themselves, Humbling their deities to love, have taken The shapes of beasts upon them. Jupiter Became a bull and bellow'd; the green Neptune A ram and bleated; and the fire-rob'd god, Golden Apollo, a poor humble swain, As I seem now. Their transformations Were never for a piece of beauty rarer, Nor in a way so chaste, since my desires Run not before mine honour, nor my lusts Burn hotter than my faith.",
+        "hotwords": "Florizel, Apprehend, Nothing, Humbling, Jupiter, Became, Neptune, Golden, Apollo, As, I, Were, Run, Burn"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The gods themselves, Humbling their deities to love, have taken The shapes of beasts upon them. Jupiter Became a bull and bellow'd, the green Neptune A ram and bleated, and the fire-rob'd god, Golden Apollo, a poor humble swain, As I seem now. Their transformations Were never for a piece of beauty rarer, Nor in a way so chaste, since my desires Run not before mine honour, nor my lusts Burn hotter than my faith.",
+          "start": 2.79,
+          "end": 27.21,
+          "words": [
+            {
+              "text": " The",
+              "start": 2.79,
+              "end": 3.29,
+              "probability": 0.0151824951171875
+            },
+            {
+              "text": " gods",
+              "start": 3.29,
+              "end": 3.79,
+              "probability": 0.8515625
+            },
+            {
+              "text": " themselves,",
+              "start": 3.79,
+              "end": 4.35,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " Humbling",
+              "start": 4.67,
+              "end": 4.85,
+              "probability": 0.43645334243774414
+            },
+            {
+              "text": " their",
+              "start": 4.85,
+              "end": 5.13,
+              "probability": 0.990234375
+            },
+            {
+              "text": " deities",
+              "start": 5.13,
+              "end": 5.39,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " to",
+              "start": 5.39,
+              "end": 5.67,
+              "probability": 0.982421875
+            },
+            {
+              "text": " love,",
+              "start": 5.67,
+              "end": 5.99,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " have",
+              "start": 6.35,
+              "end": 6.41,
+              "probability": 0.0958251953125
+            },
+            {
+              "text": " taken",
+              "start": 6.41,
+              "end": 6.61,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " The",
+              "start": 6.61,
+              "end": 6.83,
+              "probability": 0.1473388671875
+            },
+            {
+              "text": " shapes",
+              "start": 6.83,
+              "end": 7.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 7.01,
+              "end": 7.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " beasts",
+              "start": 7.25,
+              "end": 7.49,
+              "probability": 0.97265625
+            },
+            {
+              "text": " upon",
+              "start": 7.49,
+              "end": 7.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " them.",
+              "start": 7.81,
+              "end": 8.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Jupiter",
+              "start": 8.73,
+              "end": 8.95,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Became",
+              "start": 8.95,
+              "end": 9.27,
+              "probability": 0.03570556640625
+            },
+            {
+              "text": " a",
+              "start": 9.27,
+              "end": 9.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " bull",
+              "start": 9.55,
+              "end": 9.67,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " and",
+              "start": 9.67,
+              "end": 9.91,
+              "probability": 0.51708984375
+            },
+            {
+              "text": " bellow'd,",
+              "start": 9.91,
+              "end": 10.39,
+              "probability": 0.5474230448404948
+            },
+            {
+              "text": " the",
+              "start": 10.65,
+              "end": 10.77,
+              "probability": 0.1998291015625
+            },
+            {
+              "text": " green",
+              "start": 10.77,
+              "end": 11.01,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " Neptune",
+              "start": 11.01,
+              "end": 11.47,
+              "probability": 0.5859375
+            },
+            {
+              "text": " A",
+              "start": 11.47,
+              "end": 11.73,
+              "probability": 0.3671875
+            },
+            {
+              "text": " ram",
+              "start": 11.73,
+              "end": 12.07,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " and",
+              "start": 12.07,
+              "end": 12.29,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " bleated,",
+              "start": 12.29,
+              "end": 12.67,
+              "probability": 0.87548828125
+            },
+            {
+              "text": " and",
+              "start": 13.09,
+              "end": 13.19,
+              "probability": 0.484130859375
+            },
+            {
+              "text": " the",
+              "start": 13.19,
+              "end": 13.33,
+              "probability": 0.603515625
+            },
+            {
+              "text": " fire",
+              "start": 13.33,
+              "end": 13.61,
+              "probability": 0.849609375
+            },
+            {
+              "text": "-rob'd",
+              "start": 13.61,
+              "end": 13.99,
+              "probability": 0.2992362976074219
+            },
+            {
+              "text": " god,",
+              "start": 13.99,
+              "end": 14.23,
+              "probability": 0.436279296875
+            },
+            {
+              "text": " Golden",
+              "start": 14.77,
+              "end": 14.77,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " Apollo,",
+              "start": 14.77,
+              "end": 15.19,
+              "probability": 0.962890625
+            },
+            {
+              "text": " a",
+              "start": 15.41,
+              "end": 15.49,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " poor",
+              "start": 15.49,
+              "end": 15.67,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " humble",
+              "start": 15.67,
+              "end": 16.01,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " swain,",
+              "start": 16.01,
+              "end": 16.47,
+              "probability": 0.746826171875
+            },
+            {
+              "text": " As",
+              "start": 16.59,
+              "end": 16.65,
+              "probability": 0.36376953125
+            },
+            {
+              "text": " I",
+              "start": 16.65,
+              "end": 16.81,
+              "probability": 0.708984375
+            },
+            {
+              "text": " seem",
+              "start": 16.81,
+              "end": 17.01,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " now.",
+              "start": 17.01,
+              "end": 17.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Their",
+              "start": 18.03,
+              "end": 18.15,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " transformations",
+              "start": 18.15,
+              "end": 18.65,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Were",
+              "start": 18.65,
+              "end": 19.07,
+              "probability": 0.4404296875
+            },
+            {
+              "text": " never",
+              "start": 19.07,
+              "end": 19.31,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " for",
+              "start": 19.31,
+              "end": 19.55,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " a",
+              "start": 19.55,
+              "end": 19.69,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " piece",
+              "start": 19.69,
+              "end": 19.81,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " of",
+              "start": 19.81,
+              "end": 20.05,
+              "probability": 0.9375
+            },
+            {
+              "text": " beauty",
+              "start": 20.05,
+              "end": 20.29,
+              "probability": 0.943359375
+            },
+            {
+              "text": " rarer,",
+              "start": 20.29,
+              "end": 20.99,
+              "probability": 0.902099609375
+            },
+            {
+              "text": " Nor",
+              "start": 21.07,
+              "end": 21.27,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " in",
+              "start": 21.27,
+              "end": 21.41,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " a",
+              "start": 21.41,
+              "end": 21.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " way",
+              "start": 21.49,
+              "end": 21.63,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so",
+              "start": 21.63,
+              "end": 21.87,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " chaste,",
+              "start": 21.87,
+              "end": 22.25,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " since",
+              "start": 22.53,
+              "end": 22.69,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " my",
+              "start": 22.69,
+              "end": 22.89,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " desires",
+              "start": 22.89,
+              "end": 23.27,
+              "probability": 0.80078125
+            },
+            {
+              "text": " Run",
+              "start": 23.27,
+              "end": 23.59,
+              "probability": 0.58349609375
+            },
+            {
+              "text": " not",
+              "start": 23.59,
+              "end": 23.83,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " before",
+              "start": 23.83,
+              "end": 24.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mine",
+              "start": 24.11,
+              "end": 24.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " honour,",
+              "start": 24.35,
+              "end": 24.67,
+              "probability": 0.2254638671875
+            },
+            {
+              "text": " nor",
+              "start": 25.17,
+              "end": 25.25,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " my",
+              "start": 25.25,
+              "end": 25.53,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " lusts",
+              "start": 25.53,
+              "end": 26.05,
+              "probability": 0.964111328125
+            },
+            {
+              "text": " Burn",
+              "start": 26.05,
+              "end": 26.17,
+              "probability": 0.68603515625
+            },
+            {
+              "text": " hotter",
+              "start": 26.17,
+              "end": 26.53,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " than",
+              "start": 26.53,
+              "end": 26.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " my",
+              "start": 26.77,
+              "end": 26.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " faith.",
+              "start": 26.93,
+              "end": 27.21,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 2.79,
+          "end": 3.29
+        },
+        {
+          "raw": "gods",
+          "start": 3.29,
+          "end": 3.79
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.79,
+          "end": 4.35
+        },
+        {
+          "raw": "Humbling",
+          "start": 4.67,
+          "end": 4.85
+        },
+        {
+          "raw": "their",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "raw": "deities",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "raw": "to",
+          "start": 5.39,
+          "end": 5.67
+        },
+        {
+          "raw": "love,",
+          "start": 5.67,
+          "end": 5.99
+        },
+        {
+          "raw": "have",
+          "start": 6.35,
+          "end": 6.41
+        },
+        {
+          "raw": "taken",
+          "start": 6.41,
+          "end": 6.61
+        },
+        {
+          "raw": "The",
+          "start": 6.61,
+          "end": 6.83
+        },
+        {
+          "raw": "shapes",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "raw": "of",
+          "start": 7.01,
+          "end": 7.25
+        },
+        {
+          "raw": "beasts",
+          "start": 7.25,
+          "end": 7.49
+        },
+        {
+          "raw": "upon",
+          "start": 7.49,
+          "end": 7.81
+        },
+        {
+          "raw": "them.",
+          "start": 7.81,
+          "end": 8.11
+        },
+        {
+          "raw": "Jupiter",
+          "start": 8.73,
+          "end": 8.95
+        },
+        {
+          "raw": "Became",
+          "start": 8.95,
+          "end": 9.27
+        },
+        {
+          "raw": "a",
+          "start": 9.27,
+          "end": 9.55
+        },
+        {
+          "raw": "bull",
+          "start": 9.55,
+          "end": 9.67
+        },
+        {
+          "raw": "and",
+          "start": 9.67,
+          "end": 9.91
+        },
+        {
+          "raw": "bellow'd,",
+          "start": 9.91,
+          "end": 10.39
+        },
+        {
+          "raw": "the",
+          "start": 10.65,
+          "end": 10.77
+        },
+        {
+          "raw": "green",
+          "start": 10.77,
+          "end": 11.01
+        },
+        {
+          "raw": "Neptune",
+          "start": 11.01,
+          "end": 11.47
+        },
+        {
+          "raw": "A",
+          "start": 11.47,
+          "end": 11.73
+        },
+        {
+          "raw": "ram",
+          "start": 11.73,
+          "end": 12.07
+        },
+        {
+          "raw": "and",
+          "start": 12.07,
+          "end": 12.29
+        },
+        {
+          "raw": "bleated,",
+          "start": 12.29,
+          "end": 12.67
+        },
+        {
+          "raw": "and",
+          "start": 13.09,
+          "end": 13.19
+        },
+        {
+          "raw": "the",
+          "start": 13.19,
+          "end": 13.33
+        },
+        {
+          "raw": "fire",
+          "start": 13.33,
+          "end": 13.61
+        },
+        {
+          "raw": "-rob'd",
+          "start": 13.61,
+          "end": 13.99
+        },
+        {
+          "raw": "god,",
+          "start": 13.99,
+          "end": 14.23
+        },
+        {
+          "raw": "Golden",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "raw": "Apollo,",
+          "start": 14.77,
+          "end": 15.19
+        },
+        {
+          "raw": "a",
+          "start": 15.41,
+          "end": 15.49
+        },
+        {
+          "raw": "poor",
+          "start": 15.49,
+          "end": 15.67
+        },
+        {
+          "raw": "humble",
+          "start": 15.67,
+          "end": 16.01
+        },
+        {
+          "raw": "swain,",
+          "start": 16.01,
+          "end": 16.47
+        },
+        {
+          "raw": "As",
+          "start": 16.59,
+          "end": 16.65
+        },
+        {
+          "raw": "I",
+          "start": 16.65,
+          "end": 16.81
+        },
+        {
+          "raw": "seem",
+          "start": 16.81,
+          "end": 17.01
+        },
+        {
+          "raw": "now.",
+          "start": 17.01,
+          "end": 17.31
+        },
+        {
+          "raw": "Their",
+          "start": 18.03,
+          "end": 18.15
+        },
+        {
+          "raw": "transformations",
+          "start": 18.15,
+          "end": 18.65
+        },
+        {
+          "raw": "Were",
+          "start": 18.65,
+          "end": 19.07
+        },
+        {
+          "raw": "never",
+          "start": 19.07,
+          "end": 19.31
+        },
+        {
+          "raw": "for",
+          "start": 19.31,
+          "end": 19.55
+        },
+        {
+          "raw": "a",
+          "start": 19.55,
+          "end": 19.69
+        },
+        {
+          "raw": "piece",
+          "start": 19.69,
+          "end": 19.81
+        },
+        {
+          "raw": "of",
+          "start": 19.81,
+          "end": 20.05
+        },
+        {
+          "raw": "beauty",
+          "start": 20.05,
+          "end": 20.29
+        },
+        {
+          "raw": "rarer,",
+          "start": 20.29,
+          "end": 20.99
+        },
+        {
+          "raw": "Nor",
+          "start": 21.07,
+          "end": 21.27
+        },
+        {
+          "raw": "in",
+          "start": 21.27,
+          "end": 21.41
+        },
+        {
+          "raw": "a",
+          "start": 21.41,
+          "end": 21.49
+        },
+        {
+          "raw": "way",
+          "start": 21.49,
+          "end": 21.63
+        },
+        {
+          "raw": "so",
+          "start": 21.63,
+          "end": 21.87
+        },
+        {
+          "raw": "chaste,",
+          "start": 21.87,
+          "end": 22.25
+        },
+        {
+          "raw": "since",
+          "start": 22.53,
+          "end": 22.69
+        },
+        {
+          "raw": "my",
+          "start": 22.69,
+          "end": 22.89
+        },
+        {
+          "raw": "desires",
+          "start": 22.89,
+          "end": 23.27
+        },
+        {
+          "raw": "Run",
+          "start": 23.27,
+          "end": 23.59
+        },
+        {
+          "raw": "not",
+          "start": 23.59,
+          "end": 23.83
+        },
+        {
+          "raw": "before",
+          "start": 23.83,
+          "end": 24.11
+        },
+        {
+          "raw": "mine",
+          "start": 24.11,
+          "end": 24.35
+        },
+        {
+          "raw": "honour,",
+          "start": 24.35,
+          "end": 24.67
+        },
+        {
+          "raw": "nor",
+          "start": 25.17,
+          "end": 25.25
+        },
+        {
+          "raw": "my",
+          "start": 25.25,
+          "end": 25.53
+        },
+        {
+          "raw": "lusts",
+          "start": 25.53,
+          "end": 26.05
+        },
+        {
+          "raw": "Burn",
+          "start": 26.05,
+          "end": 26.17
+        },
+        {
+          "raw": "hotter",
+          "start": 26.17,
+          "end": 26.53
+        },
+        {
+          "raw": "than",
+          "start": 26.53,
+          "end": 26.77
+        },
+        {
+          "raw": "my",
+          "start": 26.77,
+          "end": 26.93
+        },
+        {
+          "raw": "faith.",
+          "start": 26.93,
+          "end": 27.21
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "Apprehend",
+        "Nothing",
+        "but",
+        "jollity.",
+        "The",
+        "gods",
+        "themselves,",
+        "Humbling",
+        "their",
+        "deities",
+        "to",
+        "love,",
+        "have",
+        "taken",
+        "The",
+        "shapes",
+        "of",
+        "beasts",
+        "upon",
+        "them.",
+        "Jupiter",
+        "Became",
+        "a",
+        "bull",
+        "and",
+        "bellow'd;",
+        "the",
+        "green",
+        "Neptune",
+        "A",
+        "ram",
+        "and",
+        "bleated;",
+        "and",
+        "the",
+        "fire-rob'd",
+        "god,",
+        "Golden",
+        "Apollo,",
+        "a",
+        "poor",
+        "humble",
+        "swain,",
+        "As",
+        "I",
+        "seem",
+        "now.",
+        "Their",
+        "transformations",
+        "Were",
+        "never",
+        "for",
+        "a",
+        "piece",
+        "of",
+        "beauty",
+        "rarer,",
+        "Nor",
+        "in",
+        "a",
+        "way",
+        "so",
+        "chaste,",
+        "since",
+        "my",
+        "desires",
+        "Run",
+        "not",
+        "before",
+        "mine",
+        "honour,",
+        "nor",
+        "my",
+        "lusts",
+        "Burn",
+        "hotter",
+        "than",
+        "my",
+        "faith."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "equal",
+          5,
+          80,
+          0,
+          75
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 74
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 2.79,
+          "end": 3.29,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 3.29,
+          "end": 3.79,
+          "key": "gods",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.79,
+          "end": 4.35,
+          "key": "themselves",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Humbling",
+          "start": 4.67,
+          "end": 4.85,
+          "key": "humbling",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.85,
+          "end": 5.13,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "deities",
+          "start": 5.13,
+          "end": 5.39,
+          "key": "deities",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.39,
+          "end": 5.67,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 5.67,
+          "end": 5.99,
+          "key": "love",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.35,
+          "end": 6.41,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 6.41,
+          "end": 6.61,
+          "key": "taken",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.61,
+          "end": 6.83,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "shapes",
+          "start": 6.83,
+          "end": 7.01,
+          "key": "shapes",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.01,
+          "end": 7.25,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "beasts",
+          "start": 7.25,
+          "end": 7.49,
+          "key": "beasts",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 7.49,
+          "end": 7.81,
+          "key": "upon",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 7.81,
+          "end": 8.11,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Jupiter",
+          "start": 8.73,
+          "end": 8.95,
+          "key": "jupiter",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Became",
+          "start": 8.95,
+          "end": 9.27,
+          "key": "became",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.27,
+          "end": 9.55,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "bull",
+          "start": 9.55,
+          "end": 9.67,
+          "key": "bull",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.67,
+          "end": 9.91,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "bellow'd,",
+          "start": 9.91,
+          "end": 10.39,
+          "key": "bellowd",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.65,
+          "end": 10.77,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "green",
+          "start": 10.77,
+          "end": 11.01,
+          "key": "green",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Neptune",
+          "start": 11.01,
+          "end": 11.47,
+          "key": "neptune",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 11.47,
+          "end": 11.73,
+          "key": "a",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "ram",
+          "start": 11.73,
+          "end": 12.07,
+          "key": "ram",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.07,
+          "end": 12.29,
+          "key": "and",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "bleated,",
+          "start": 12.29,
+          "end": 12.67,
+          "key": "bleated",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.09,
+          "end": 13.19,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.19,
+          "end": 13.33,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "fire -rob'd",
+          "start": 13.33,
+          "end": 13.99,
+          "key": "firerobd",
+          "pieces": [
+            31,
+            32
+          ]
+        },
+        {
+          "raw": "god,",
+          "start": 13.99,
+          "end": 14.23,
+          "key": "god",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Golden",
+          "start": 14.77,
+          "end": 14.77,
+          "key": "golden",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Apollo,",
+          "start": 14.77,
+          "end": 15.19,
+          "key": "apollo",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.41,
+          "end": 15.49,
+          "key": "a",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 15.49,
+          "end": 15.67,
+          "key": "poor",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "humble",
+          "start": 15.67,
+          "end": 16.01,
+          "key": "humble",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "swain,",
+          "start": 16.01,
+          "end": 16.47,
+          "key": "swain",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "As",
+          "start": 16.59,
+          "end": 16.65,
+          "key": "as",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.65,
+          "end": 16.81,
+          "key": "i",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 16.81,
+          "end": 17.01,
+          "key": "seem",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 17.01,
+          "end": 17.31,
+          "key": "now",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 18.03,
+          "end": 18.15,
+          "key": "their",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "transformations",
+          "start": 18.15,
+          "end": 18.65,
+          "key": "transformations",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Were",
+          "start": 18.65,
+          "end": 19.07,
+          "key": "were",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 19.07,
+          "end": 19.31,
+          "key": "never",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 19.31,
+          "end": 19.55,
+          "key": "for",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.55,
+          "end": 19.69,
+          "key": "a",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 19.69,
+          "end": 19.81,
+          "key": "piece",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.81,
+          "end": 20.05,
+          "key": "of",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "beauty",
+          "start": 20.05,
+          "end": 20.29,
+          "key": "beauty",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "rarer,",
+          "start": 20.29,
+          "end": 20.99,
+          "key": "rarer",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 21.07,
+          "end": 21.27,
+          "key": "nor",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 21.27,
+          "end": 21.41,
+          "key": "in",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 21.41,
+          "end": 21.49,
+          "key": "a",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 21.49,
+          "end": 21.63,
+          "key": "way",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 21.63,
+          "end": 21.87,
+          "key": "so",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "chaste,",
+          "start": 21.87,
+          "end": 22.25,
+          "key": "chaste",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 22.53,
+          "end": 22.69,
+          "key": "since",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 22.69,
+          "end": 22.89,
+          "key": "my",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "desires",
+          "start": 22.89,
+          "end": 23.27,
+          "key": "desires",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Run",
+          "start": 23.27,
+          "end": 23.59,
+          "key": "run",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 23.59,
+          "end": 23.83,
+          "key": "not",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 23.83,
+          "end": 24.11,
+          "key": "before",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 24.11,
+          "end": 24.35,
+          "key": "mine",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "honour,",
+          "start": 24.35,
+          "end": 24.67,
+          "key": "honour",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 25.17,
+          "end": 25.25,
+          "key": "nor",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 25.25,
+          "end": 25.53,
+          "key": "my",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "lusts",
+          "start": 25.53,
+          "end": 26.05,
+          "key": "lusts",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Burn",
+          "start": 26.05,
+          "end": 26.17,
+          "key": "burn",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "hotter",
+          "start": 26.17,
+          "end": 26.53,
+          "key": "hotter",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 26.53,
+          "end": 26.77,
+          "key": "than",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 26.77,
+          "end": 26.93,
+          "key": "my",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "faith.",
+          "start": 26.93,
+          "end": 27.21,
+          "key": "faith",
+          "pieces": [
+            75
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 36,
+          "text": "fire-rob'd",
+          "heard": "fire -rob'd",
+          "heard_indexes": [
+            31,
+            32
+          ],
+          "start": 13.33,
+          "end": 13.99
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.0,
+          "end": 1.395
+        },
+        {
+          "text": "Apprehend",
+          "start": 1.395,
+          "end": 2.093
+        },
+        {
+          "text": "Nothing",
+          "start": 2.093,
+          "end": 2.442
+        },
+        {
+          "text": "but",
+          "start": 2.442,
+          "end": 2.616
+        },
+        {
+          "text": "jollity.",
+          "start": 2.616,
+          "end": 2.703
+        },
+        {
+          "text": "The",
+          "start": 2.79,
+          "end": 3.29
+        },
+        {
+          "text": "gods",
+          "start": 3.29,
+          "end": 3.79
+        },
+        {
+          "text": "themselves,",
+          "start": 3.79,
+          "end": 4.35
+        },
+        {
+          "text": "Humbling",
+          "start": 4.67,
+          "end": 4.85
+        },
+        {
+          "text": "their",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "text": "deities",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "text": "to",
+          "start": 5.39,
+          "end": 5.67
+        },
+        {
+          "text": "love,",
+          "start": 5.67,
+          "end": 5.99
+        },
+        {
+          "text": "have",
+          "start": 6.35,
+          "end": 6.41
+        },
+        {
+          "text": "taken",
+          "start": 6.41,
+          "end": 6.61
+        },
+        {
+          "text": "The",
+          "start": 6.61,
+          "end": 6.83
+        },
+        {
+          "text": "shapes",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "text": "of",
+          "start": 7.01,
+          "end": 7.25
+        },
+        {
+          "text": "beasts",
+          "start": 7.25,
+          "end": 7.49
+        },
+        {
+          "text": "upon",
+          "start": 7.49,
+          "end": 7.81
+        },
+        {
+          "text": "them.",
+          "start": 7.81,
+          "end": 8.11
+        },
+        {
+          "text": "Jupiter",
+          "start": 8.73,
+          "end": 8.95
+        },
+        {
+          "text": "Became",
+          "start": 8.95,
+          "end": 9.27
+        },
+        {
+          "text": "a",
+          "start": 9.27,
+          "end": 9.55
+        },
+        {
+          "text": "bull",
+          "start": 9.55,
+          "end": 9.67
+        },
+        {
+          "text": "and",
+          "start": 9.67,
+          "end": 9.91
+        },
+        {
+          "text": "bellow'd;",
+          "start": 9.91,
+          "end": 10.39
+        },
+        {
+          "text": "the",
+          "start": 10.65,
+          "end": 10.77
+        },
+        {
+          "text": "green",
+          "start": 10.77,
+          "end": 11.01
+        },
+        {
+          "text": "Neptune",
+          "start": 11.01,
+          "end": 11.47
+        },
+        {
+          "text": "A",
+          "start": 11.47,
+          "end": 11.73
+        },
+        {
+          "text": "ram",
+          "start": 11.73,
+          "end": 12.07
+        },
+        {
+          "text": "and",
+          "start": 12.07,
+          "end": 12.29
+        },
+        {
+          "text": "bleated;",
+          "start": 12.29,
+          "end": 12.67
+        },
+        {
+          "text": "and",
+          "start": 13.09,
+          "end": 13.19
+        },
+        {
+          "text": "the",
+          "start": 13.19,
+          "end": 13.33
+        },
+        {
+          "text": "fire-rob'd",
+          "start": 13.33,
+          "end": 13.99
+        },
+        {
+          "text": "god,",
+          "start": 13.99,
+          "end": 14.23
+        },
+        {
+          "text": "Golden",
+          "start": 14.77,
+          "end": 14.77
+        },
+        {
+          "text": "Apollo,",
+          "start": 14.77,
+          "end": 15.19
+        },
+        {
+          "text": "a",
+          "start": 15.41,
+          "end": 15.49
+        },
+        {
+          "text": "poor",
+          "start": 15.49,
+          "end": 15.67
+        },
+        {
+          "text": "humble",
+          "start": 15.67,
+          "end": 16.01
+        },
+        {
+          "text": "swain,",
+          "start": 16.01,
+          "end": 16.47
+        },
+        {
+          "text": "As",
+          "start": 16.59,
+          "end": 16.65
+        },
+        {
+          "text": "I",
+          "start": 16.65,
+          "end": 16.81
+        },
+        {
+          "text": "seem",
+          "start": 16.81,
+          "end": 17.01
+        },
+        {
+          "text": "now.",
+          "start": 17.01,
+          "end": 17.31
+        },
+        {
+          "text": "Their",
+          "start": 18.03,
+          "end": 18.15
+        },
+        {
+          "text": "transformations",
+          "start": 18.15,
+          "end": 18.65
+        },
+        {
+          "text": "Were",
+          "start": 18.65,
+          "end": 19.07
+        },
+        {
+          "text": "never",
+          "start": 19.07,
+          "end": 19.31
+        },
+        {
+          "text": "for",
+          "start": 19.31,
+          "end": 19.55
+        },
+        {
+          "text": "a",
+          "start": 19.55,
+          "end": 19.69
+        },
+        {
+          "text": "piece",
+          "start": 19.69,
+          "end": 19.81
+        },
+        {
+          "text": "of",
+          "start": 19.81,
+          "end": 20.05
+        },
+        {
+          "text": "beauty",
+          "start": 20.05,
+          "end": 20.29
+        },
+        {
+          "text": "rarer,",
+          "start": 20.29,
+          "end": 20.99
+        },
+        {
+          "text": "Nor",
+          "start": 21.07,
+          "end": 21.27
+        },
+        {
+          "text": "in",
+          "start": 21.27,
+          "end": 21.41
+        },
+        {
+          "text": "a",
+          "start": 21.41,
+          "end": 21.49
+        },
+        {
+          "text": "way",
+          "start": 21.49,
+          "end": 21.63
+        },
+        {
+          "text": "so",
+          "start": 21.63,
+          "end": 21.87
+        },
+        {
+          "text": "chaste,",
+          "start": 21.87,
+          "end": 22.25
+        },
+        {
+          "text": "since",
+          "start": 22.53,
+          "end": 22.69
+        },
+        {
+          "text": "my",
+          "start": 22.69,
+          "end": 22.89
+        },
+        {
+          "text": "desires",
+          "start": 22.89,
+          "end": 23.27
+        },
+        {
+          "text": "Run",
+          "start": 23.27,
+          "end": 23.59
+        },
+        {
+          "text": "not",
+          "start": 23.59,
+          "end": 23.83
+        },
+        {
+          "text": "before",
+          "start": 23.83,
+          "end": 24.11
+        },
+        {
+          "text": "mine",
+          "start": 24.11,
+          "end": 24.35
+        },
+        {
+          "text": "honour,",
+          "start": 24.35,
+          "end": 24.67
+        },
+        {
+          "text": "nor",
+          "start": 25.17,
+          "end": 25.25
+        },
+        {
+          "text": "my",
+          "start": 25.25,
+          "end": 25.53
+        },
+        {
+          "text": "lusts",
+          "start": 25.53,
+          "end": 26.05
+        },
+        {
+          "text": "Burn",
+          "start": 26.05,
+          "end": 26.17
+        },
+        {
+          "text": "hotter",
+          "start": 26.17,
+          "end": 26.53
+        },
+        {
+          "text": "than",
+          "start": 26.53,
+          "end": 26.77
+        },
+        {
+          "text": "my",
+          "start": 26.77,
+          "end": 26.93
+        },
+        {
+          "text": "faith.",
+          "start": 26.93,
+          "end": 27.21
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 75,
+        "matched_words": 75
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.8409138582646847
+    },
+    {
+      "asr_seconds": 1.0153880845755339,
+      "alignment_seconds": 0.0014927610754966736,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Florizel, Apprehend, Nothing, Humbling, Jupiter, Became, Neptune, Golden, Apollo, As, I, Were, Run, Burn"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Florizel, Apprehend, Nothing, But, Jollity, The Gods, Themselves, Humbling, Their Deities, To Love, Have Taken, The Shapes of Beasts, Upon Them,",
+          "start": 0.59,
+          "end": 8.09,
+          "words": [
+            {
+              "text": " Florizel,",
+              "start": 0.59,
+              "end": 1.03,
+              "probability": 0.2092132568359375
+            },
+            {
+              "text": " Apprehend,",
+              "start": 1.45,
+              "end": 1.75,
+              "probability": 0.49790191650390625
+            },
+            {
+              "text": " Nothing,",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.1519775390625
+            },
+            {
+              "text": " But,",
+              "start": 2.33,
+              "end": 2.43,
+              "probability": 0.302001953125
+            },
+            {
+              "text": " Jollity,",
+              "start": 2.47,
+              "end": 2.81,
+              "probability": 0.9327799479166666
+            },
+            {
+              "text": " The",
+              "start": 3.43,
+              "end": 3.57,
+              "probability": 0.78857421875
+            },
+            {
+              "text": " Gods,",
+              "start": 3.57,
+              "end": 3.79,
+              "probability": 0.419921875
+            },
+            {
+              "text": " Themselves,",
+              "start": 3.95,
+              "end": 4.41,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " Humbling,",
+              "start": 4.73,
+              "end": 4.85,
+              "probability": 0.950439453125
+            },
+            {
+              "text": " Their",
+              "start": 4.87,
+              "end": 5.13,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Deities,",
+              "start": 5.13,
+              "end": 5.41,
+              "probability": 0.892578125
+            },
+            {
+              "text": " To",
+              "start": 5.53,
+              "end": 5.67,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " Love,",
+              "start": 5.67,
+              "end": 5.93,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Have",
+              "start": 6.25,
+              "end": 6.43,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Taken,",
+              "start": 6.43,
+              "end": 6.59,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " The",
+              "start": 6.75,
+              "end": 6.85,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Shapes",
+              "start": 6.85,
+              "end": 7.05,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " of",
+              "start": 7.05,
+              "end": 7.27,
+              "probability": 0.47998046875
+            },
+            {
+              "text": " Beasts,",
+              "start": 7.27,
+              "end": 7.49,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " Upon",
+              "start": 7.53,
+              "end": 7.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Them,",
+              "start": 7.79,
+              "end": 8.09,
+              "probability": 0.94921875
+            }
+          ]
+        },
+        {
+          "text": " Jupiter, Became, A Bull, In Bellowed, The Green, Neptune, A Ram, And Bleeded, And The Fire Robbed God, Golden, Apollo, A Poor Humble, Swain, As, I, Seem, Now,",
+          "start": 8.67,
+          "end": 17.31,
+          "words": [
+            {
+              "text": " Jupiter,",
+              "start": 8.67,
+              "end": 8.95,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Became,",
+              "start": 8.95,
+              "end": 9.27,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " A",
+              "start": 9.39,
+              "end": 9.51,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Bull,",
+              "start": 9.51,
+              "end": 9.67,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " In",
+              "start": 9.85,
+              "end": 9.91,
+              "probability": 0.488525390625
+            },
+            {
+              "text": " Bellowed,",
+              "start": 9.91,
+              "end": 10.29,
+              "probability": 0.61328125
+            },
+            {
+              "text": " The",
+              "start": 10.69,
+              "end": 10.77,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Green,",
+              "start": 10.77,
+              "end": 11.01,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Neptune,",
+              "start": 11.43,
+              "end": 11.43,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " A",
+              "start": 11.67,
+              "end": 11.73,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Ram,",
+              "start": 11.73,
+              "end": 12.03,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " And",
+              "start": 12.19,
+              "end": 12.31,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " Bleeded,",
+              "start": 12.31,
+              "end": 12.65,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " And",
+              "start": 13.05,
+              "end": 13.21,
+              "probability": 0.955078125
+            },
+            {
+              "text": " The",
+              "start": 13.21,
+              "end": 13.33,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " Fire",
+              "start": 13.33,
+              "end": 13.61,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Robbed",
+              "start": 13.61,
+              "end": 13.95,
+              "probability": 0.640625
+            },
+            {
+              "text": " God,",
+              "start": 13.95,
+              "end": 14.23,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " Golden,",
+              "start": 14.75,
+              "end": 14.77,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Apollo,",
+              "start": 15.11,
+              "end": 15.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " A",
+              "start": 15.37,
+              "end": 15.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Poor",
+              "start": 15.49,
+              "end": 15.65,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Humble,",
+              "start": 15.65,
+              "end": 15.99,
+              "probability": 0.830322265625
+            },
+            {
+              "text": " Swain,",
+              "start": 16.05,
+              "end": 16.43,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " As,",
+              "start": 16.55,
+              "end": 16.67,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I,",
+              "start": 16.75,
+              "end": 16.83,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Seem,",
+              "start": 16.97,
+              "end": 17.05,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Now,",
+              "start": 17.05,
+              "end": 17.31,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " Their Transformations Were Never For A Piece Of Beauty, Rarer, Nor In A Way So Chased, Since My Desires Run, Not Before Mine, Honor,",
+          "start": 17.85,
+          "end": 24.65,
+          "words": [
+            {
+              "text": " Their",
+              "start": 17.85,
+              "end": 18.17,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Transformations",
+              "start": 18.17,
+              "end": 18.87,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Were",
+              "start": 18.87,
+              "end": 19.07,
+              "probability": 0.50537109375
+            },
+            {
+              "text": " Never",
+              "start": 19.07,
+              "end": 19.31,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " For",
+              "start": 19.31,
+              "end": 19.55,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " A",
+              "start": 19.55,
+              "end": 19.69,
+              "probability": 0.90234375
+            },
+            {
+              "text": " Piece",
+              "start": 19.69,
+              "end": 19.81,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Of",
+              "start": 19.81,
+              "end": 20.01,
+              "probability": 0.3759765625
+            },
+            {
+              "text": " Beauty,",
+              "start": 20.01,
+              "end": 20.29,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Rarer,",
+              "start": 20.37,
+              "end": 20.63,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " Nor",
+              "start": 21.19,
+              "end": 21.27,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " In",
+              "start": 21.27,
+              "end": 21.41,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " A",
+              "start": 21.41,
+              "end": 21.49,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " Way",
+              "start": 21.49,
+              "end": 21.61,
+              "probability": 0.9921875
+            },
+            {
+              "text": " So",
+              "start": 21.61,
+              "end": 21.87,
+              "probability": 0.5576171875
+            },
+            {
+              "text": " Chased,",
+              "start": 21.87,
+              "end": 22.25,
+              "probability": 0.866943359375
+            },
+            {
+              "text": " Since",
+              "start": 22.51,
+              "end": 22.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " My",
+              "start": 22.69,
+              "end": 22.91,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " Desires",
+              "start": 22.91,
+              "end": 23.33,
+              "probability": 0.930419921875
+            },
+            {
+              "text": " Run,",
+              "start": 23.33,
+              "end": 23.61,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " Not",
+              "start": 23.79,
+              "end": 23.83,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Before",
+              "start": 23.83,
+              "end": 24.09,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Mine,",
+              "start": 24.09,
+              "end": 24.35,
+              "probability": 0.90625
+            },
+            {
+              "text": " Honor,",
+              "start": 24.57,
+              "end": 24.65,
+              "probability": 0.88623046875
+            }
+          ]
+        },
+        {
+          "text": " Nor My Lusts Burn, Hotter Than My Faith",
+          "start": 25.15,
+          "end": 27.17,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 25.15,
+              "end": 25.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " My",
+              "start": 25.25,
+              "end": 25.53,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Lusts",
+              "start": 25.53,
+              "end": 26.07,
+              "probability": 0.933349609375
+            },
+            {
+              "text": " Burn,",
+              "start": 26.07,
+              "end": 26.19,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Hotter",
+              "start": 26.33,
+              "end": 26.63,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " Than",
+              "start": 26.63,
+              "end": 26.75,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " My",
+              "start": 26.75,
+              "end": 26.93,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " Faith",
+              "start": 26.93,
+              "end": 27.17,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Florizel,",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "raw": "Apprehend,",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "raw": "Nothing,",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "But,",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "raw": "Jollity,",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "raw": "The",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "raw": "Gods,",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "raw": "Themselves,",
+          "start": 3.95,
+          "end": 4.41
+        },
+        {
+          "raw": "Humbling,",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "raw": "Their",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "raw": "Deities,",
+          "start": 5.13,
+          "end": 5.41
+        },
+        {
+          "raw": "To",
+          "start": 5.53,
+          "end": 5.67
+        },
+        {
+          "raw": "Love,",
+          "start": 5.67,
+          "end": 5.93
+        },
+        {
+          "raw": "Have",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "raw": "Taken,",
+          "start": 6.43,
+          "end": 6.59
+        },
+        {
+          "raw": "The",
+          "start": 6.75,
+          "end": 6.85
+        },
+        {
+          "raw": "Shapes",
+          "start": 6.85,
+          "end": 7.05
+        },
+        {
+          "raw": "of",
+          "start": 7.05,
+          "end": 7.27
+        },
+        {
+          "raw": "Beasts,",
+          "start": 7.27,
+          "end": 7.49
+        },
+        {
+          "raw": "Upon",
+          "start": 7.53,
+          "end": 7.79
+        },
+        {
+          "raw": "Them,",
+          "start": 7.79,
+          "end": 8.09
+        },
+        {
+          "raw": "Jupiter,",
+          "start": 8.67,
+          "end": 8.95
+        },
+        {
+          "raw": "Became,",
+          "start": 8.95,
+          "end": 9.27
+        },
+        {
+          "raw": "A",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "raw": "Bull,",
+          "start": 9.51,
+          "end": 9.67
+        },
+        {
+          "raw": "In",
+          "start": 9.85,
+          "end": 9.91
+        },
+        {
+          "raw": "Bellowed,",
+          "start": 9.91,
+          "end": 10.29
+        },
+        {
+          "raw": "The",
+          "start": 10.69,
+          "end": 10.77
+        },
+        {
+          "raw": "Green,",
+          "start": 10.77,
+          "end": 11.01
+        },
+        {
+          "raw": "Neptune,",
+          "start": 11.43,
+          "end": 11.43
+        },
+        {
+          "raw": "A",
+          "start": 11.67,
+          "end": 11.73
+        },
+        {
+          "raw": "Ram,",
+          "start": 11.73,
+          "end": 12.03
+        },
+        {
+          "raw": "And",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "raw": "Bleeded,",
+          "start": 12.31,
+          "end": 12.65
+        },
+        {
+          "raw": "And",
+          "start": 13.05,
+          "end": 13.21
+        },
+        {
+          "raw": "The",
+          "start": 13.21,
+          "end": 13.33
+        },
+        {
+          "raw": "Fire",
+          "start": 13.33,
+          "end": 13.61
+        },
+        {
+          "raw": "Robbed",
+          "start": 13.61,
+          "end": 13.95
+        },
+        {
+          "raw": "God,",
+          "start": 13.95,
+          "end": 14.23
+        },
+        {
+          "raw": "Golden,",
+          "start": 14.75,
+          "end": 14.77
+        },
+        {
+          "raw": "Apollo,",
+          "start": 15.11,
+          "end": 15.15
+        },
+        {
+          "raw": "A",
+          "start": 15.37,
+          "end": 15.49
+        },
+        {
+          "raw": "Poor",
+          "start": 15.49,
+          "end": 15.65
+        },
+        {
+          "raw": "Humble,",
+          "start": 15.65,
+          "end": 15.99
+        },
+        {
+          "raw": "Swain,",
+          "start": 16.05,
+          "end": 16.43
+        },
+        {
+          "raw": "As,",
+          "start": 16.55,
+          "end": 16.67
+        },
+        {
+          "raw": "I,",
+          "start": 16.75,
+          "end": 16.83
+        },
+        {
+          "raw": "Seem,",
+          "start": 16.97,
+          "end": 17.05
+        },
+        {
+          "raw": "Now,",
+          "start": 17.05,
+          "end": 17.31
+        },
+        {
+          "raw": "Their",
+          "start": 17.85,
+          "end": 18.17
+        },
+        {
+          "raw": "Transformations",
+          "start": 18.17,
+          "end": 18.87
+        },
+        {
+          "raw": "Were",
+          "start": 18.87,
+          "end": 19.07
+        },
+        {
+          "raw": "Never",
+          "start": 19.07,
+          "end": 19.31
+        },
+        {
+          "raw": "For",
+          "start": 19.31,
+          "end": 19.55
+        },
+        {
+          "raw": "A",
+          "start": 19.55,
+          "end": 19.69
+        },
+        {
+          "raw": "Piece",
+          "start": 19.69,
+          "end": 19.81
+        },
+        {
+          "raw": "Of",
+          "start": 19.81,
+          "end": 20.01
+        },
+        {
+          "raw": "Beauty,",
+          "start": 20.01,
+          "end": 20.29
+        },
+        {
+          "raw": "Rarer,",
+          "start": 20.37,
+          "end": 20.63
+        },
+        {
+          "raw": "Nor",
+          "start": 21.19,
+          "end": 21.27
+        },
+        {
+          "raw": "In",
+          "start": 21.27,
+          "end": 21.41
+        },
+        {
+          "raw": "A",
+          "start": 21.41,
+          "end": 21.49
+        },
+        {
+          "raw": "Way",
+          "start": 21.49,
+          "end": 21.61
+        },
+        {
+          "raw": "So",
+          "start": 21.61,
+          "end": 21.87
+        },
+        {
+          "raw": "Chased,",
+          "start": 21.87,
+          "end": 22.25
+        },
+        {
+          "raw": "Since",
+          "start": 22.51,
+          "end": 22.69
+        },
+        {
+          "raw": "My",
+          "start": 22.69,
+          "end": 22.91
+        },
+        {
+          "raw": "Desires",
+          "start": 22.91,
+          "end": 23.33
+        },
+        {
+          "raw": "Run,",
+          "start": 23.33,
+          "end": 23.61
+        },
+        {
+          "raw": "Not",
+          "start": 23.79,
+          "end": 23.83
+        },
+        {
+          "raw": "Before",
+          "start": 23.83,
+          "end": 24.09
+        },
+        {
+          "raw": "Mine,",
+          "start": 24.09,
+          "end": 24.35
+        },
+        {
+          "raw": "Honor,",
+          "start": 24.57,
+          "end": 24.65
+        },
+        {
+          "raw": "Nor",
+          "start": 25.15,
+          "end": 25.25
+        },
+        {
+          "raw": "My",
+          "start": 25.25,
+          "end": 25.53
+        },
+        {
+          "raw": "Lusts",
+          "start": 25.53,
+          "end": 26.07
+        },
+        {
+          "raw": "Burn,",
+          "start": 26.07,
+          "end": 26.19
+        },
+        {
+          "raw": "Hotter",
+          "start": 26.33,
+          "end": 26.63
+        },
+        {
+          "raw": "Than",
+          "start": 26.63,
+          "end": 26.75
+        },
+        {
+          "raw": "My",
+          "start": 26.75,
+          "end": 26.93
+        },
+        {
+          "raw": "Faith",
+          "start": 26.93,
+          "end": 27.17
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "Apprehend",
+        "Nothing",
+        "but",
+        "jollity.",
+        "The",
+        "gods",
+        "themselves,",
+        "Humbling",
+        "their",
+        "deities",
+        "to",
+        "love,",
+        "have",
+        "taken",
+        "The",
+        "shapes",
+        "of",
+        "beasts",
+        "upon",
+        "them.",
+        "Jupiter",
+        "Became",
+        "a",
+        "bull",
+        "and",
+        "bellow'd;",
+        "the",
+        "green",
+        "Neptune",
+        "A",
+        "ram",
+        "and",
+        "bleated;",
+        "and",
+        "the",
+        "fire-rob'd",
+        "god,",
+        "Golden",
+        "Apollo,",
+        "a",
+        "poor",
+        "humble",
+        "swain,",
+        "As",
+        "I",
+        "seem",
+        "now.",
+        "Their",
+        "transformations",
+        "Were",
+        "never",
+        "for",
+        "a",
+        "piece",
+        "of",
+        "beauty",
+        "rarer,",
+        "Nor",
+        "in",
+        "a",
+        "way",
+        "so",
+        "chaste,",
+        "since",
+        "my",
+        "desires",
+        "Run",
+        "not",
+        "before",
+        "mine",
+        "honour,",
+        "nor",
+        "my",
+        "lusts",
+        "Burn",
+        "hotter",
+        "than",
+        "my",
+        "faith."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ],
+        [
+          "replace",
+          25,
+          27,
+          25,
+          27
+        ],
+        [
+          "equal",
+          27,
+          33,
+          27,
+          33
+        ],
+        [
+          "replace",
+          33,
+          34,
+          33,
+          34
+        ],
+        [
+          "equal",
+          34,
+          36,
+          34,
+          36
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "equal",
+          37,
+          63,
+          38,
+          64
+        ],
+        [
+          "replace",
+          63,
+          64,
+          64,
+          65
+        ],
+        [
+          "equal",
+          64,
+          71,
+          65,
+          72
+        ],
+        [
+          "replace",
+          71,
+          72,
+          72,
+          73
+        ],
+        [
+          "equal",
+          72,
+          80,
+          73,
+          81
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          25,
+          27,
+          25,
+          27
+        ],
+        [
+          "replace",
+          33,
+          34,
+          33,
+          34
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "replace",
+          63,
+          64,
+          64,
+          65
+        ],
+        [
+          "replace",
+          71,
+          72,
+          72,
+          73
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Florizel,",
+          "start": 0.59,
+          "end": 1.03,
+          "key": "florizel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Apprehend,",
+          "start": 1.45,
+          "end": 1.75,
+          "key": "apprehend",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nothing,",
+          "start": 1.93,
+          "end": 2.13,
+          "key": "nothing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 2.33,
+          "end": 2.43,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jollity,",
+          "start": 2.47,
+          "end": 2.81,
+          "key": "jollity",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.43,
+          "end": 3.57,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Gods,",
+          "start": 3.57,
+          "end": 3.79,
+          "key": "gods",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Themselves,",
+          "start": 3.95,
+          "end": 4.41,
+          "key": "themselves",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Humbling,",
+          "start": 4.73,
+          "end": 4.85,
+          "key": "humbling",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 4.87,
+          "end": 5.13,
+          "key": "their",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Deities,",
+          "start": 5.13,
+          "end": 5.41,
+          "key": "deities",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 5.53,
+          "end": 5.67,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Love,",
+          "start": 5.67,
+          "end": 5.93,
+          "key": "love",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 6.25,
+          "end": 6.43,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Taken,",
+          "start": 6.43,
+          "end": 6.59,
+          "key": "taken",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.75,
+          "end": 6.85,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Shapes",
+          "start": 6.85,
+          "end": 7.05,
+          "key": "shapes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.05,
+          "end": 7.27,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Beasts,",
+          "start": 7.27,
+          "end": 7.49,
+          "key": "beasts",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 7.53,
+          "end": 7.79,
+          "key": "upon",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Them,",
+          "start": 7.79,
+          "end": 8.09,
+          "key": "them",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Jupiter,",
+          "start": 8.67,
+          "end": 8.95,
+          "key": "jupiter",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Became,",
+          "start": 8.95,
+          "end": 9.27,
+          "key": "became",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 9.39,
+          "end": 9.51,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Bull,",
+          "start": 9.51,
+          "end": 9.67,
+          "key": "bull",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 9.85,
+          "end": 9.91,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Bellowed,",
+          "start": 9.91,
+          "end": 10.29,
+          "key": "bellowed",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 10.69,
+          "end": 10.77,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Green,",
+          "start": 10.77,
+          "end": 11.01,
+          "key": "green",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Neptune,",
+          "start": 11.43,
+          "end": 11.43,
+          "key": "neptune",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 11.67,
+          "end": 11.73,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Ram,",
+          "start": 11.73,
+          "end": 12.03,
+          "key": "ram",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 12.19,
+          "end": 12.31,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Bleeded,",
+          "start": 12.31,
+          "end": 12.65,
+          "key": "bleeded",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 13.05,
+          "end": 13.21,
+          "key": "and",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 13.21,
+          "end": 13.33,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Fire",
+          "start": 13.33,
+          "end": 13.61,
+          "key": "fire",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Robbed",
+          "start": 13.61,
+          "end": 13.95,
+          "key": "robbed",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "God,",
+          "start": 13.95,
+          "end": 14.23,
+          "key": "god",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Golden,",
+          "start": 14.75,
+          "end": 14.77,
+          "key": "golden",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Apollo,",
+          "start": 15.11,
+          "end": 15.15,
+          "key": "apollo",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 15.37,
+          "end": 15.49,
+          "key": "a",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Poor",
+          "start": 15.49,
+          "end": 15.65,
+          "key": "poor",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Humble,",
+          "start": 15.65,
+          "end": 15.99,
+          "key": "humble",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Swain,",
+          "start": 16.05,
+          "end": 16.43,
+          "key": "swain",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "As,",
+          "start": 16.55,
+          "end": 16.67,
+          "key": "as",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 16.75,
+          "end": 16.83,
+          "key": "i",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Seem,",
+          "start": 16.97,
+          "end": 17.05,
+          "key": "seem",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 17.05,
+          "end": 17.31,
+          "key": "now",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 17.85,
+          "end": 18.17,
+          "key": "their",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Transformations",
+          "start": 18.17,
+          "end": 18.87,
+          "key": "transformations",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Were",
+          "start": 18.87,
+          "end": 19.07,
+          "key": "were",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Never",
+          "start": 19.07,
+          "end": 19.31,
+          "key": "never",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 19.31,
+          "end": 19.55,
+          "key": "for",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 19.55,
+          "end": 19.69,
+          "key": "a",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Piece",
+          "start": 19.69,
+          "end": 19.81,
+          "key": "piece",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 19.81,
+          "end": 20.01,
+          "key": "of",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Beauty,",
+          "start": 20.01,
+          "end": 20.29,
+          "key": "beauty",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Rarer,",
+          "start": 20.37,
+          "end": 20.63,
+          "key": "rarer",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 21.19,
+          "end": 21.27,
+          "key": "nor",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 21.27,
+          "end": 21.41,
+          "key": "in",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 21.41,
+          "end": 21.49,
+          "key": "a",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Way",
+          "start": 21.49,
+          "end": 21.61,
+          "key": "way",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 21.61,
+          "end": 21.87,
+          "key": "so",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Chased,",
+          "start": 21.87,
+          "end": 22.25,
+          "key": "chased",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Since",
+          "start": 22.51,
+          "end": 22.69,
+          "key": "since",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 22.69,
+          "end": 22.91,
+          "key": "my",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "Desires",
+          "start": 22.91,
+          "end": 23.33,
+          "key": "desires",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Run,",
+          "start": 23.33,
+          "end": 23.61,
+          "key": "run",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 23.79,
+          "end": 23.83,
+          "key": "not",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Before",
+          "start": 23.83,
+          "end": 24.09,
+          "key": "before",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Mine,",
+          "start": 24.09,
+          "end": 24.35,
+          "key": "mine",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Honor,",
+          "start": 24.57,
+          "end": 24.65,
+          "key": "honor",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 25.15,
+          "end": 25.25,
+          "key": "nor",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 25.25,
+          "end": 25.53,
+          "key": "my",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Lusts",
+          "start": 25.53,
+          "end": 26.07,
+          "key": "lusts",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "Burn,",
+          "start": 26.07,
+          "end": 26.19,
+          "key": "burn",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "Hotter",
+          "start": 26.33,
+          "end": 26.63,
+          "key": "hotter",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "Than",
+          "start": 26.63,
+          "end": 26.75,
+          "key": "than",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 26.75,
+          "end": 26.93,
+          "key": "my",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Faith",
+          "start": 26.93,
+          "end": 27.17,
+          "key": "faith",
+          "pieces": [
+            80
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "text": "Apprehend",
+          "start": 1.45,
+          "end": 1.75
+        },
+        {
+          "text": "Nothing",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "but",
+          "start": 2.33,
+          "end": 2.43
+        },
+        {
+          "text": "jollity.",
+          "start": 2.47,
+          "end": 2.81
+        },
+        {
+          "text": "The",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "text": "gods",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "text": "themselves,",
+          "start": 3.95,
+          "end": 4.41
+        },
+        {
+          "text": "Humbling",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "text": "their",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "text": "deities",
+          "start": 5.13,
+          "end": 5.41
+        },
+        {
+          "text": "to",
+          "start": 5.53,
+          "end": 5.67
+        },
+        {
+          "text": "love,",
+          "start": 5.67,
+          "end": 5.93
+        },
+        {
+          "text": "have",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "text": "taken",
+          "start": 6.43,
+          "end": 6.59
+        },
+        {
+          "text": "The",
+          "start": 6.75,
+          "end": 6.85
+        },
+        {
+          "text": "shapes",
+          "start": 6.85,
+          "end": 7.05
+        },
+        {
+          "text": "of",
+          "start": 7.05,
+          "end": 7.27
+        },
+        {
+          "text": "beasts",
+          "start": 7.27,
+          "end": 7.49
+        },
+        {
+          "text": "upon",
+          "start": 7.53,
+          "end": 7.79
+        },
+        {
+          "text": "them.",
+          "start": 7.79,
+          "end": 8.09
+        },
+        {
+          "text": "Jupiter",
+          "start": 8.67,
+          "end": 8.95
+        },
+        {
+          "text": "Became",
+          "start": 8.95,
+          "end": 9.27
+        },
+        {
+          "text": "a",
+          "start": 9.39,
+          "end": 9.51
+        },
+        {
+          "text": "bull",
+          "start": 9.51,
+          "end": 9.67
+        },
+        {
+          "text": "and",
+          "start": 9.67,
+          "end": 10.18
+        },
+        {
+          "text": "bellow'd;",
+          "start": 10.18,
+          "end": 10.435
+        },
+        {
+          "text": "the",
+          "start": 10.69,
+          "end": 10.77
+        },
+        {
+          "text": "green",
+          "start": 10.77,
+          "end": 11.01
+        },
+        {
+          "text": "Neptune",
+          "start": 11.43,
+          "end": 11.43
+        },
+        {
+          "text": "A",
+          "start": 11.67,
+          "end": 11.73
+        },
+        {
+          "text": "ram",
+          "start": 11.73,
+          "end": 12.03
+        },
+        {
+          "text": "and",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "text": "bleated;",
+          "start": 12.31,
+          "end": 12.68
+        },
+        {
+          "text": "and",
+          "start": 13.05,
+          "end": 13.21
+        },
+        {
+          "text": "the",
+          "start": 13.21,
+          "end": 13.33
+        },
+        {
+          "text": "fire-rob'd",
+          "start": 13.33,
+          "end": 13.64
+        },
+        {
+          "text": "god,",
+          "start": 13.95,
+          "end": 14.23
+        },
+        {
+          "text": "Golden",
+          "start": 14.75,
+          "end": 14.77
+        },
+        {
+          "text": "Apollo,",
+          "start": 15.11,
+          "end": 15.15
+        },
+        {
+          "text": "a",
+          "start": 15.37,
+          "end": 15.49
+        },
+        {
+          "text": "poor",
+          "start": 15.49,
+          "end": 15.65
+        },
+        {
+          "text": "humble",
+          "start": 15.65,
+          "end": 15.99
+        },
+        {
+          "text": "swain,",
+          "start": 16.05,
+          "end": 16.43
+        },
+        {
+          "text": "As",
+          "start": 16.55,
+          "end": 16.67
+        },
+        {
+          "text": "I",
+          "start": 16.75,
+          "end": 16.83
+        },
+        {
+          "text": "seem",
+          "start": 16.97,
+          "end": 17.05
+        },
+        {
+          "text": "now.",
+          "start": 17.05,
+          "end": 17.31
+        },
+        {
+          "text": "Their",
+          "start": 17.85,
+          "end": 18.17
+        },
+        {
+          "text": "transformations",
+          "start": 18.17,
+          "end": 18.87
+        },
+        {
+          "text": "Were",
+          "start": 18.87,
+          "end": 19.07
+        },
+        {
+          "text": "never",
+          "start": 19.07,
+          "end": 19.31
+        },
+        {
+          "text": "for",
+          "start": 19.31,
+          "end": 19.55
+        },
+        {
+          "text": "a",
+          "start": 19.55,
+          "end": 19.69
+        },
+        {
+          "text": "piece",
+          "start": 19.69,
+          "end": 19.81
+        },
+        {
+          "text": "of",
+          "start": 19.81,
+          "end": 20.01
+        },
+        {
+          "text": "beauty",
+          "start": 20.01,
+          "end": 20.29
+        },
+        {
+          "text": "rarer,",
+          "start": 20.37,
+          "end": 20.63
+        },
+        {
+          "text": "Nor",
+          "start": 21.19,
+          "end": 21.27
+        },
+        {
+          "text": "in",
+          "start": 21.27,
+          "end": 21.41
+        },
+        {
+          "text": "a",
+          "start": 21.41,
+          "end": 21.49
+        },
+        {
+          "text": "way",
+          "start": 21.49,
+          "end": 21.61
+        },
+        {
+          "text": "so",
+          "start": 21.61,
+          "end": 21.87
+        },
+        {
+          "text": "chaste,",
+          "start": 21.87,
+          "end": 22.19
+        },
+        {
+          "text": "since",
+          "start": 22.51,
+          "end": 22.69
+        },
+        {
+          "text": "my",
+          "start": 22.69,
+          "end": 22.91
+        },
+        {
+          "text": "desires",
+          "start": 22.91,
+          "end": 23.33
+        },
+        {
+          "text": "Run",
+          "start": 23.33,
+          "end": 23.61
+        },
+        {
+          "text": "not",
+          "start": 23.79,
+          "end": 23.83
+        },
+        {
+          "text": "before",
+          "start": 23.83,
+          "end": 24.09
+        },
+        {
+          "text": "mine",
+          "start": 24.09,
+          "end": 24.35
+        },
+        {
+          "text": "honour,",
+          "start": 24.35,
+          "end": 24.75
+        },
+        {
+          "text": "nor",
+          "start": 25.15,
+          "end": 25.25
+        },
+        {
+          "text": "my",
+          "start": 25.25,
+          "end": 25.53
+        },
+        {
+          "text": "lusts",
+          "start": 25.53,
+          "end": 26.07
+        },
+        {
+          "text": "Burn",
+          "start": 26.07,
+          "end": 26.19
+        },
+        {
+          "text": "hotter",
+          "start": 26.33,
+          "end": 26.63
+        },
+        {
+          "text": "than",
+          "start": 26.63,
+          "end": 26.75
+        },
+        {
+          "text": "my",
+          "start": 26.75,
+          "end": 26.93
+        },
+        {
+          "text": "faith.",
+          "start": 26.93,
+          "end": 27.17
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 81,
+        "matched_words": 74
+      },
+      "match_ratio": 0.925,
+      "rejection_reasons": [],
+      "seconds": 1.0175573006272316
+    },
+    {
+      "asr_seconds": 0.9634940139949322,
+      "alignment_seconds": 0.002335738390684128,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fluorizal, apprehend nothing but jollity. The gods themselves, humbling their deities",
+          "start": 0.05,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " Fluorizal,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.5176849365234375
+            },
+            {
+              "text": " apprehend",
+              "start": 1.47,
+              "end": 1.71,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " nothing",
+              "start": 1.71,
+              "end": 2.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " jollity.",
+              "start": 2.43,
+              "end": 2.85,
+              "probability": 0.8600260416666666
+            },
+            {
+              "text": " The",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gods",
+              "start": 3.57,
+              "end": 3.79,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " themselves,",
+              "start": 3.79,
+              "end": 4.43,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " humbling",
+              "start": 4.65,
+              "end": 4.91,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " their",
+              "start": 4.91,
+              "end": 5.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deities",
+              "start": 5.13,
+              "end": 5.37,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " to love, have taken the shapes of beasts upon them. Jupiter became a bull in bellowed, the",
+          "start": 5.37,
+          "end": 10.77,
+          "words": [
+            {
+              "text": " to",
+              "start": 5.37,
+              "end": 5.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " love,",
+              "start": 5.67,
+              "end": 5.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " have",
+              "start": 6.27,
+              "end": 6.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " taken",
+              "start": 6.43,
+              "end": 6.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.61,
+              "end": 6.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shapes",
+              "start": 6.83,
+              "end": 7.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 7.03,
+              "end": 7.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " beasts",
+              "start": 7.27,
+              "end": 7.49,
+              "probability": 0.982421875
+            },
+            {
+              "text": " upon",
+              "start": 7.49,
+              "end": 7.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them.",
+              "start": 7.81,
+              "end": 8.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Jupiter",
+              "start": 8.73,
+              "end": 8.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " became",
+              "start": 8.97,
+              "end": 9.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 9.29,
+              "end": 9.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bull",
+              "start": 9.55,
+              "end": 9.67,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " in",
+              "start": 9.67,
+              "end": 9.91,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " bellowed,",
+              "start": 9.91,
+              "end": 10.31,
+              "probability": 0.838134765625
+            },
+            {
+              "text": " the",
+              "start": 10.67,
+              "end": 10.77,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " green Neptune a-ram and bleated, and the fire-robbed god, Golden Apollo, a poor humble swain as",
+          "start": 10.77,
+          "end": 16.65,
+          "words": [
+            {
+              "text": " green",
+              "start": 10.77,
+              "end": 11.03,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " Neptune",
+              "start": 11.03,
+              "end": 11.49,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " a",
+              "start": 11.49,
+              "end": 11.73,
+              "probability": 0.7568359375
+            },
+            {
+              "text": "-ram",
+              "start": 11.73,
+              "end": 12.03,
+              "probability": 0.6710205078125
+            },
+            {
+              "text": " and",
+              "start": 12.03,
+              "end": 12.29,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " bleated,",
+              "start": 12.29,
+              "end": 12.67,
+              "probability": 0.8984375
+            },
+            {
+              "text": " and",
+              "start": 13.01,
+              "end": 13.21,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 13.21,
+              "end": 13.33,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fire",
+              "start": 13.33,
+              "end": 13.61,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "-robbed",
+              "start": 13.61,
+              "end": 14.01,
+              "probability": 0.7171223958333334
+            },
+            {
+              "text": " god,",
+              "start": 14.01,
+              "end": 14.27,
+              "probability": 0.79638671875
+            },
+            {
+              "text": " Golden",
+              "start": 14.61,
+              "end": 14.77,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " Apollo,",
+              "start": 14.77,
+              "end": 15.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " a",
+              "start": 15.37,
+              "end": 15.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " poor",
+              "start": 15.49,
+              "end": 15.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " humble",
+              "start": 15.67,
+              "end": 16.01,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " swain",
+              "start": 16.01,
+              "end": 16.45,
+              "probability": 0.760498046875
+            },
+            {
+              "text": " as",
+              "start": 16.45,
+              "end": 16.65,
+              "probability": 0.52099609375
+            }
+          ]
+        },
+        {
+          "text": " I seem now. Their transformations were never for a piece of beauty rarer, nor in a way",
+          "start": 16.65,
+          "end": 21.63,
+          "words": [
+            {
+              "text": " I",
+              "start": 16.65,
+              "end": 16.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " seem",
+              "start": 16.81,
+              "end": 17.03,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " now.",
+              "start": 17.03,
+              "end": 17.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Their",
+              "start": 17.95,
+              "end": 18.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " transformations",
+              "start": 18.15,
+              "end": 18.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 18.65,
+              "end": 19.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " never",
+              "start": 19.07,
+              "end": 19.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 19.31,
+              "end": 19.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 19.57,
+              "end": 19.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " piece",
+              "start": 19.69,
+              "end": 19.81,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " of",
+              "start": 19.81,
+              "end": 20.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " beauty",
+              "start": 20.07,
+              "end": 20.31,
+              "probability": 0.986328125
+            },
+            {
+              "text": " rarer,",
+              "start": 20.31,
+              "end": 20.93,
+              "probability": 0.957275390625
+            },
+            {
+              "text": " nor",
+              "start": 21.07,
+              "end": 21.27,
+              "probability": 0.984375
+            },
+            {
+              "text": " in",
+              "start": 21.27,
+              "end": 21.41,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 21.41,
+              "end": 21.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " way",
+              "start": 21.49,
+              "end": 21.63,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " so chaste, since my desires run not before mine honor, nor my lusts burn hotter than",
+          "start": 21.63,
+          "end": 26.77,
+          "words": [
+            {
+              "text": " so",
+              "start": 21.63,
+              "end": 21.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " chaste,",
+              "start": 21.87,
+              "end": 22.29,
+              "probability": 0.976806640625
+            },
+            {
+              "text": " since",
+              "start": 22.53,
+              "end": 22.69,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " my",
+              "start": 22.69,
+              "end": 22.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " desires",
+              "start": 22.89,
+              "end": 23.29,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " run",
+              "start": 23.29,
+              "end": 23.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 23.61,
+              "end": 23.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " before",
+              "start": 23.83,
+              "end": 24.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mine",
+              "start": 24.09,
+              "end": 24.37,
+              "probability": 0.984375
+            },
+            {
+              "text": " honor,",
+              "start": 24.37,
+              "end": 24.69,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " nor",
+              "start": 25.09,
+              "end": 25.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 25.25,
+              "end": 25.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lusts",
+              "start": 25.53,
+              "end": 26.05,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " burn",
+              "start": 26.05,
+              "end": 26.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " hotter",
+              "start": 26.19,
+              "end": 26.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 26.53,
+              "end": 26.77,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " my faith.",
+          "start": 26.77,
+          "end": 27.21,
+          "words": [
+            {
+              "text": " my",
+              "start": 26.77,
+              "end": 26.91,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " faith.",
+              "start": 26.91,
+              "end": 27.21,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fluorizal,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "apprehend",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "raw": "nothing",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "raw": "but",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "jollity.",
+          "start": 2.43,
+          "end": 2.85
+        },
+        {
+          "raw": "The",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "gods",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.79,
+          "end": 4.43
+        },
+        {
+          "raw": "humbling",
+          "start": 4.65,
+          "end": 4.91
+        },
+        {
+          "raw": "their",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "raw": "deities",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "raw": "to",
+          "start": 5.37,
+          "end": 5.67
+        },
+        {
+          "raw": "love,",
+          "start": 5.67,
+          "end": 5.99
+        },
+        {
+          "raw": "have",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "raw": "taken",
+          "start": 6.43,
+          "end": 6.61
+        },
+        {
+          "raw": "the",
+          "start": 6.61,
+          "end": 6.83
+        },
+        {
+          "raw": "shapes",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "raw": "of",
+          "start": 7.03,
+          "end": 7.27
+        },
+        {
+          "raw": "beasts",
+          "start": 7.27,
+          "end": 7.49
+        },
+        {
+          "raw": "upon",
+          "start": 7.49,
+          "end": 7.81
+        },
+        {
+          "raw": "them.",
+          "start": 7.81,
+          "end": 8.11
+        },
+        {
+          "raw": "Jupiter",
+          "start": 8.73,
+          "end": 8.97
+        },
+        {
+          "raw": "became",
+          "start": 8.97,
+          "end": 9.29
+        },
+        {
+          "raw": "a",
+          "start": 9.29,
+          "end": 9.55
+        },
+        {
+          "raw": "bull",
+          "start": 9.55,
+          "end": 9.67
+        },
+        {
+          "raw": "in",
+          "start": 9.67,
+          "end": 9.91
+        },
+        {
+          "raw": "bellowed,",
+          "start": 9.91,
+          "end": 10.31
+        },
+        {
+          "raw": "the",
+          "start": 10.67,
+          "end": 10.77
+        },
+        {
+          "raw": "green",
+          "start": 10.77,
+          "end": 11.03
+        },
+        {
+          "raw": "Neptune",
+          "start": 11.03,
+          "end": 11.49
+        },
+        {
+          "raw": "a",
+          "start": 11.49,
+          "end": 11.73
+        },
+        {
+          "raw": "-ram",
+          "start": 11.73,
+          "end": 12.03
+        },
+        {
+          "raw": "and",
+          "start": 12.03,
+          "end": 12.29
+        },
+        {
+          "raw": "bleated,",
+          "start": 12.29,
+          "end": 12.67
+        },
+        {
+          "raw": "and",
+          "start": 13.01,
+          "end": 13.21
+        },
+        {
+          "raw": "the",
+          "start": 13.21,
+          "end": 13.33
+        },
+        {
+          "raw": "fire",
+          "start": 13.33,
+          "end": 13.61
+        },
+        {
+          "raw": "-robbed",
+          "start": 13.61,
+          "end": 14.01
+        },
+        {
+          "raw": "god,",
+          "start": 14.01,
+          "end": 14.27
+        },
+        {
+          "raw": "Golden",
+          "start": 14.61,
+          "end": 14.77
+        },
+        {
+          "raw": "Apollo,",
+          "start": 14.77,
+          "end": 15.21
+        },
+        {
+          "raw": "a",
+          "start": 15.37,
+          "end": 15.49
+        },
+        {
+          "raw": "poor",
+          "start": 15.49,
+          "end": 15.67
+        },
+        {
+          "raw": "humble",
+          "start": 15.67,
+          "end": 16.01
+        },
+        {
+          "raw": "swain",
+          "start": 16.01,
+          "end": 16.45
+        },
+        {
+          "raw": "as",
+          "start": 16.45,
+          "end": 16.65
+        },
+        {
+          "raw": "I",
+          "start": 16.65,
+          "end": 16.81
+        },
+        {
+          "raw": "seem",
+          "start": 16.81,
+          "end": 17.03
+        },
+        {
+          "raw": "now.",
+          "start": 17.03,
+          "end": 17.33
+        },
+        {
+          "raw": "Their",
+          "start": 17.95,
+          "end": 18.15
+        },
+        {
+          "raw": "transformations",
+          "start": 18.15,
+          "end": 18.65
+        },
+        {
+          "raw": "were",
+          "start": 18.65,
+          "end": 19.07
+        },
+        {
+          "raw": "never",
+          "start": 19.07,
+          "end": 19.31
+        },
+        {
+          "raw": "for",
+          "start": 19.31,
+          "end": 19.57
+        },
+        {
+          "raw": "a",
+          "start": 19.57,
+          "end": 19.69
+        },
+        {
+          "raw": "piece",
+          "start": 19.69,
+          "end": 19.81
+        },
+        {
+          "raw": "of",
+          "start": 19.81,
+          "end": 20.07
+        },
+        {
+          "raw": "beauty",
+          "start": 20.07,
+          "end": 20.31
+        },
+        {
+          "raw": "rarer,",
+          "start": 20.31,
+          "end": 20.93
+        },
+        {
+          "raw": "nor",
+          "start": 21.07,
+          "end": 21.27
+        },
+        {
+          "raw": "in",
+          "start": 21.27,
+          "end": 21.41
+        },
+        {
+          "raw": "a",
+          "start": 21.41,
+          "end": 21.49
+        },
+        {
+          "raw": "way",
+          "start": 21.49,
+          "end": 21.63
+        },
+        {
+          "raw": "so",
+          "start": 21.63,
+          "end": 21.87
+        },
+        {
+          "raw": "chaste,",
+          "start": 21.87,
+          "end": 22.29
+        },
+        {
+          "raw": "since",
+          "start": 22.53,
+          "end": 22.69
+        },
+        {
+          "raw": "my",
+          "start": 22.69,
+          "end": 22.89
+        },
+        {
+          "raw": "desires",
+          "start": 22.89,
+          "end": 23.29
+        },
+        {
+          "raw": "run",
+          "start": 23.29,
+          "end": 23.61
+        },
+        {
+          "raw": "not",
+          "start": 23.61,
+          "end": 23.83
+        },
+        {
+          "raw": "before",
+          "start": 23.83,
+          "end": 24.09
+        },
+        {
+          "raw": "mine",
+          "start": 24.09,
+          "end": 24.37
+        },
+        {
+          "raw": "honor,",
+          "start": 24.37,
+          "end": 24.69
+        },
+        {
+          "raw": "nor",
+          "start": 25.09,
+          "end": 25.25
+        },
+        {
+          "raw": "my",
+          "start": 25.25,
+          "end": 25.53
+        },
+        {
+          "raw": "lusts",
+          "start": 25.53,
+          "end": 26.05
+        },
+        {
+          "raw": "burn",
+          "start": 26.05,
+          "end": 26.19
+        },
+        {
+          "raw": "hotter",
+          "start": 26.19,
+          "end": 26.53
+        },
+        {
+          "raw": "than",
+          "start": 26.53,
+          "end": 26.77
+        },
+        {
+          "raw": "my",
+          "start": 26.77,
+          "end": 26.91
+        },
+        {
+          "raw": "faith.",
+          "start": 26.91,
+          "end": 27.21
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "Apprehend",
+        "Nothing",
+        "but",
+        "jollity.",
+        "The",
+        "gods",
+        "themselves,",
+        "Humbling",
+        "their",
+        "deities",
+        "to",
+        "love,",
+        "have",
+        "taken",
+        "The",
+        "shapes",
+        "of",
+        "beasts",
+        "upon",
+        "them.",
+        "Jupiter",
+        "Became",
+        "a",
+        "bull",
+        "and",
+        "bellow'd;",
+        "the",
+        "green",
+        "Neptune",
+        "A",
+        "ram",
+        "and",
+        "bleated;",
+        "and",
+        "the",
+        "fire-rob'd",
+        "god,",
+        "Golden",
+        "Apollo,",
+        "a",
+        "poor",
+        "humble",
+        "swain,",
+        "As",
+        "I",
+        "seem",
+        "now.",
+        "Their",
+        "transformations",
+        "Were",
+        "never",
+        "for",
+        "a",
+        "piece",
+        "of",
+        "beauty",
+        "rarer,",
+        "Nor",
+        "in",
+        "a",
+        "way",
+        "so",
+        "chaste,",
+        "since",
+        "my",
+        "desires",
+        "Run",
+        "not",
+        "before",
+        "mine",
+        "honour,",
+        "nor",
+        "my",
+        "lusts",
+        "Burn",
+        "hotter",
+        "than",
+        "my",
+        "faith."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          25,
+          1,
+          25
+        ],
+        [
+          "replace",
+          25,
+          27,
+          25,
+          27
+        ],
+        [
+          "equal",
+          27,
+          36,
+          27,
+          36
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "equal",
+          37,
+          71,
+          38,
+          72
+        ],
+        [
+          "replace",
+          71,
+          72,
+          72,
+          73
+        ],
+        [
+          "equal",
+          72,
+          80,
+          73,
+          81
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          25,
+          27,
+          25,
+          27
+        ],
+        [
+          "replace",
+          36,
+          37,
+          36,
+          38
+        ],
+        [
+          "replace",
+          71,
+          72,
+          72,
+          73
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fluorizal,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "fluorizal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "apprehend",
+          "start": 1.47,
+          "end": 1.71,
+          "key": "apprehend",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 1.71,
+          "end": 2.17,
+          "key": "nothing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "jollity.",
+          "start": 2.43,
+          "end": 2.85,
+          "key": "jollity",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.45,
+          "end": 3.57,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gods",
+          "start": 3.57,
+          "end": 3.79,
+          "key": "gods",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "themselves,",
+          "start": 3.79,
+          "end": 4.43,
+          "key": "themselves",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "humbling",
+          "start": 4.65,
+          "end": 4.91,
+          "key": "humbling",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.91,
+          "end": 5.13,
+          "key": "their",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deities",
+          "start": 5.13,
+          "end": 5.37,
+          "key": "deities",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.37,
+          "end": 5.67,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "love,",
+          "start": 5.67,
+          "end": 5.99,
+          "key": "love",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.27,
+          "end": 6.43,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 6.43,
+          "end": 6.61,
+          "key": "taken",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.61,
+          "end": 6.83,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "shapes",
+          "start": 6.83,
+          "end": 7.03,
+          "key": "shapes",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.03,
+          "end": 7.27,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "beasts",
+          "start": 7.27,
+          "end": 7.49,
+          "key": "beasts",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 7.49,
+          "end": 7.81,
+          "key": "upon",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 7.81,
+          "end": 8.11,
+          "key": "them",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Jupiter",
+          "start": 8.73,
+          "end": 8.97,
+          "key": "jupiter",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "became",
+          "start": 8.97,
+          "end": 9.29,
+          "key": "became",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 9.29,
+          "end": 9.55,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bull",
+          "start": 9.55,
+          "end": 9.67,
+          "key": "bull",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 9.67,
+          "end": 9.91,
+          "key": "in",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "bellowed,",
+          "start": 9.91,
+          "end": 10.31,
+          "key": "bellowed",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.67,
+          "end": 10.77,
+          "key": "the",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "green",
+          "start": 10.77,
+          "end": 11.03,
+          "key": "green",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Neptune",
+          "start": 11.03,
+          "end": 11.49,
+          "key": "neptune",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.49,
+          "end": 11.73,
+          "key": "a",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "-ram",
+          "start": 11.73,
+          "end": 12.03,
+          "key": "ram",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.03,
+          "end": 12.29,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "bleated,",
+          "start": 12.29,
+          "end": 12.67,
+          "key": "bleated",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.01,
+          "end": 13.21,
+          "key": "and",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.21,
+          "end": 13.33,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 13.33,
+          "end": 13.61,
+          "key": "fire",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "-robbed",
+          "start": 13.61,
+          "end": 14.01,
+          "key": "robbed",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "god,",
+          "start": 14.01,
+          "end": 14.27,
+          "key": "god",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Golden",
+          "start": 14.61,
+          "end": 14.77,
+          "key": "golden",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Apollo,",
+          "start": 14.77,
+          "end": 15.21,
+          "key": "apollo",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.37,
+          "end": 15.49,
+          "key": "a",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 15.49,
+          "end": 15.67,
+          "key": "poor",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "humble",
+          "start": 15.67,
+          "end": 16.01,
+          "key": "humble",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "swain",
+          "start": 16.01,
+          "end": 16.45,
+          "key": "swain",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 16.45,
+          "end": 16.65,
+          "key": "as",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.65,
+          "end": 16.81,
+          "key": "i",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 16.81,
+          "end": 17.03,
+          "key": "seem",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "now.",
+          "start": 17.03,
+          "end": 17.33,
+          "key": "now",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 17.95,
+          "end": 18.15,
+          "key": "their",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "transformations",
+          "start": 18.15,
+          "end": 18.65,
+          "key": "transformations",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 18.65,
+          "end": 19.07,
+          "key": "were",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 19.07,
+          "end": 19.31,
+          "key": "never",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 19.31,
+          "end": 19.57,
+          "key": "for",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 19.57,
+          "end": 19.69,
+          "key": "a",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 19.69,
+          "end": 19.81,
+          "key": "piece",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.81,
+          "end": 20.07,
+          "key": "of",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "beauty",
+          "start": 20.07,
+          "end": 20.31,
+          "key": "beauty",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "rarer,",
+          "start": 20.31,
+          "end": 20.93,
+          "key": "rarer",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 21.07,
+          "end": 21.27,
+          "key": "nor",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 21.27,
+          "end": 21.41,
+          "key": "in",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 21.41,
+          "end": 21.49,
+          "key": "a",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 21.49,
+          "end": 21.63,
+          "key": "way",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 21.63,
+          "end": 21.87,
+          "key": "so",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "chaste,",
+          "start": 21.87,
+          "end": 22.29,
+          "key": "chaste",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "since",
+          "start": 22.53,
+          "end": 22.69,
+          "key": "since",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 22.69,
+          "end": 22.89,
+          "key": "my",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "desires",
+          "start": 22.89,
+          "end": 23.29,
+          "key": "desires",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "run",
+          "start": 23.29,
+          "end": 23.61,
+          "key": "run",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 23.61,
+          "end": 23.83,
+          "key": "not",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 23.83,
+          "end": 24.09,
+          "key": "before",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 24.09,
+          "end": 24.37,
+          "key": "mine",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "honor,",
+          "start": 24.37,
+          "end": 24.69,
+          "key": "honor",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 25.09,
+          "end": 25.25,
+          "key": "nor",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 25.25,
+          "end": 25.53,
+          "key": "my",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "lusts",
+          "start": 25.53,
+          "end": 26.05,
+          "key": "lusts",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "burn",
+          "start": 26.05,
+          "end": 26.19,
+          "key": "burn",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "hotter",
+          "start": 26.19,
+          "end": 26.53,
+          "key": "hotter",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 26.53,
+          "end": 26.77,
+          "key": "than",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 26.77,
+          "end": 26.91,
+          "key": "my",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "faith.",
+          "start": 26.91,
+          "end": 27.21,
+          "key": "faith",
+          "pieces": [
+            80
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "Apprehend",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "Nothing",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "text": "but",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "jollity.",
+          "start": 2.43,
+          "end": 2.85
+        },
+        {
+          "text": "The",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "gods",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "text": "themselves,",
+          "start": 3.79,
+          "end": 4.43
+        },
+        {
+          "text": "Humbling",
+          "start": 4.65,
+          "end": 4.91
+        },
+        {
+          "text": "their",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "text": "deities",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "text": "to",
+          "start": 5.37,
+          "end": 5.67
+        },
+        {
+          "text": "love,",
+          "start": 5.67,
+          "end": 5.99
+        },
+        {
+          "text": "have",
+          "start": 6.27,
+          "end": 6.43
+        },
+        {
+          "text": "taken",
+          "start": 6.43,
+          "end": 6.61
+        },
+        {
+          "text": "The",
+          "start": 6.61,
+          "end": 6.83
+        },
+        {
+          "text": "shapes",
+          "start": 6.83,
+          "end": 7.03
+        },
+        {
+          "text": "of",
+          "start": 7.03,
+          "end": 7.27
+        },
+        {
+          "text": "beasts",
+          "start": 7.27,
+          "end": 7.49
+        },
+        {
+          "text": "upon",
+          "start": 7.49,
+          "end": 7.81
+        },
+        {
+          "text": "them.",
+          "start": 7.81,
+          "end": 8.11
+        },
+        {
+          "text": "Jupiter",
+          "start": 8.73,
+          "end": 8.97
+        },
+        {
+          "text": "Became",
+          "start": 8.97,
+          "end": 9.29
+        },
+        {
+          "text": "a",
+          "start": 9.29,
+          "end": 9.55
+        },
+        {
+          "text": "bull",
+          "start": 9.55,
+          "end": 9.67
+        },
+        {
+          "text": "and",
+          "start": 9.67,
+          "end": 10.17
+        },
+        {
+          "text": "bellow'd;",
+          "start": 10.17,
+          "end": 10.42
+        },
+        {
+          "text": "the",
+          "start": 10.67,
+          "end": 10.77
+        },
+        {
+          "text": "green",
+          "start": 10.77,
+          "end": 11.03
+        },
+        {
+          "text": "Neptune",
+          "start": 11.03,
+          "end": 11.49
+        },
+        {
+          "text": "A",
+          "start": 11.49,
+          "end": 11.73
+        },
+        {
+          "text": "ram",
+          "start": 11.73,
+          "end": 12.03
+        },
+        {
+          "text": "and",
+          "start": 12.03,
+          "end": 12.29
+        },
+        {
+          "text": "bleated;",
+          "start": 12.29,
+          "end": 12.67
+        },
+        {
+          "text": "and",
+          "start": 13.01,
+          "end": 13.21
+        },
+        {
+          "text": "the",
+          "start": 13.21,
+          "end": 13.33
+        },
+        {
+          "text": "fire-rob'd",
+          "start": 13.33,
+          "end": 13.67
+        },
+        {
+          "text": "god,",
+          "start": 14.01,
+          "end": 14.27
+        },
+        {
+          "text": "Golden",
+          "start": 14.61,
+          "end": 14.77
+        },
+        {
+          "text": "Apollo,",
+          "start": 14.77,
+          "end": 15.21
+        },
+        {
+          "text": "a",
+          "start": 15.37,
+          "end": 15.49
+        },
+        {
+          "text": "poor",
+          "start": 15.49,
+          "end": 15.67
+        },
+        {
+          "text": "humble",
+          "start": 15.67,
+          "end": 16.01
+        },
+        {
+          "text": "swain,",
+          "start": 16.01,
+          "end": 16.45
+        },
+        {
+          "text": "As",
+          "start": 16.45,
+          "end": 16.65
+        },
+        {
+          "text": "I",
+          "start": 16.65,
+          "end": 16.81
+        },
+        {
+          "text": "seem",
+          "start": 16.81,
+          "end": 17.03
+        },
+        {
+          "text": "now.",
+          "start": 17.03,
+          "end": 17.33
+        },
+        {
+          "text": "Their",
+          "start": 17.95,
+          "end": 18.15
+        },
+        {
+          "text": "transformations",
+          "start": 18.15,
+          "end": 18.65
+        },
+        {
+          "text": "Were",
+          "start": 18.65,
+          "end": 19.07
+        },
+        {
+          "text": "never",
+          "start": 19.07,
+          "end": 19.31
+        },
+        {
+          "text": "for",
+          "start": 19.31,
+          "end": 19.57
+        },
+        {
+          "text": "a",
+          "start": 19.57,
+          "end": 19.69
+        },
+        {
+          "text": "piece",
+          "start": 19.69,
+          "end": 19.81
+        },
+        {
+          "text": "of",
+          "start": 19.81,
+          "end": 20.07
+        },
+        {
+          "text": "beauty",
+          "start": 20.07,
+          "end": 20.31
+        },
+        {
+          "text": "rarer,",
+          "start": 20.31,
+          "end": 20.93
+        },
+        {
+          "text": "Nor",
+          "start": 21.07,
+          "end": 21.27
+        },
+        {
+          "text": "in",
+          "start": 21.27,
+          "end": 21.41
+        },
+        {
+          "text": "a",
+          "start": 21.41,
+          "end": 21.49
+        },
+        {
+          "text": "way",
+          "start": 21.49,
+          "end": 21.63
+        },
+        {
+          "text": "so",
+          "start": 21.63,
+          "end": 21.87
+        },
+        {
+          "text": "chaste,",
+          "start": 21.87,
+          "end": 22.29
+        },
+        {
+          "text": "since",
+          "start": 22.53,
+          "end": 22.69
+        },
+        {
+          "text": "my",
+          "start": 22.69,
+          "end": 22.89
+        },
+        {
+          "text": "desires",
+          "start": 22.89,
+          "end": 23.29
+        },
+        {
+          "text": "Run",
+          "start": 23.29,
+          "end": 23.61
+        },
+        {
+          "text": "not",
+          "start": 23.61,
+          "end": 23.83
+        },
+        {
+          "text": "before",
+          "start": 23.83,
+          "end": 24.09
+        },
+        {
+          "text": "mine",
+          "start": 24.09,
+          "end": 24.37
+        },
+        {
+          "text": "honour,",
+          "start": 24.37,
+          "end": 24.73
+        },
+        {
+          "text": "nor",
+          "start": 25.09,
+          "end": 25.25
+        },
+        {
+          "text": "my",
+          "start": 25.25,
+          "end": 25.53
+        },
+        {
+          "text": "lusts",
+          "start": 25.53,
+          "end": 26.05
+        },
+        {
+          "text": "Burn",
+          "start": 26.05,
+          "end": 26.19
+        },
+        {
+          "text": "hotter",
+          "start": 26.19,
+          "end": 26.53
+        },
+        {
+          "text": "than",
+          "start": 26.53,
+          "end": 26.77
+        },
+        {
+          "text": "my",
+          "start": 26.77,
+          "end": 26.91
+        },
+        {
+          "text": "faith.",
+          "start": 26.91,
+          "end": 27.21
+        }
+      ],
+      "stats": {
+        "expected_words": 80,
+        "heard_words": 81,
+        "matched_words": 75
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.9670668095350266
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df60bee42b2178c64a6d14906fa94059679d16e83c1362f5d8166739321cf1b4",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "ff6e9e17dd2865ea147d637e8cf1e105af5d8716813d42b5837eb46bf48f046b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1449272222816944,
+      "alignment_seconds": 0.0003022449091076851,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Martius. 'Tis done.",
+        "hotwords": "Martius, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Martius, Tis done.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Martius,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.65087890625
+            },
+            {
+              "text": " Tis",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.09058761596679688
+            },
+            {
+              "text": " done.",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.94580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Martius,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Tis",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "done.",
+          "start": 1.57,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Martius.",
+        "'Tis",
+        "done."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Martius,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "martius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "done",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Martius.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "'Tis",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "done.",
+          "start": 1.57,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14533879328519106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d813b36cde81cd7fb8bed54591a7111763f5c04aaee0254d265e873dd0dda3fa",
+  "selected_reasons": []
+}

@@ -1,0 +1,512 @@
+{
+  "complete": true,
+  "signature": "bc3d84d9a0978cf28272940d665ff9c9aba27c53e5702c3531135ddf2aee9f01",
+  "attempts": [
+    {
+      "asr_seconds": 0.2484810478053987,
+      "alignment_seconds": 0.0004287390038371086,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I the folio whale, us, the octava whale, ei, the duodecimo whale",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.361328125
+            },
+            {
+              "text": " the",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.5771484375
+            },
+            {
+              "text": " folio",
+              "start": 0.67,
+              "end": 1.07,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " whale,",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " us,",
+              "start": 1.91,
+              "end": 1.91,
+              "probability": 0.0838623046875
+            },
+            {
+              "text": " the",
+              "start": 2.29,
+              "end": 2.35,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " octava",
+              "start": 2.35,
+              "end": 2.71,
+              "probability": 0.745849609375
+            },
+            {
+              "text": " whale,",
+              "start": 2.71,
+              "end": 3.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ei,",
+              "start": 3.37,
+              "end": 3.63,
+              "probability": 0.783447265625
+            },
+            {
+              "text": " the",
+              "start": 3.97,
+              "end": 4.07,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " duodecimo",
+              "start": 4.07,
+              "end": 4.61,
+              "probability": 0.911865234375
+            },
+            {
+              "text": " whale",
+              "start": 4.61,
+              "end": 4.99,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "the",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "folio",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "raw": "whale,",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "raw": "us,",
+          "start": 1.91,
+          "end": 1.91
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.35
+        },
+        {
+          "raw": "octava",
+          "start": 2.35,
+          "end": 2.71
+        },
+        {
+          "raw": "whale,",
+          "start": 2.71,
+          "end": 3.09
+        },
+        {
+          "raw": "ei,",
+          "start": 3.37,
+          "end": 3.63
+        },
+        {
+          "raw": "the",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "raw": "duodecimo",
+          "start": 4.07,
+          "end": 4.61
+        },
+        {
+          "raw": "whale",
+          "start": 4.61,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "I.",
+        "The",
+        "Folio",
+        "Whale;",
+        "Ii.",
+        "the",
+        "Octavo",
+        "Whale;",
+        "Iii.",
+        "the",
+        "Duodecimo",
+        "Whale."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          12,
+          9,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "folio",
+          "start": 0.67,
+          "end": 1.07,
+          "key": "folio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "whale,",
+          "start": 1.07,
+          "end": 1.43,
+          "key": "whale",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "us,",
+          "start": 1.91,
+          "end": 1.91,
+          "key": "us",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.35,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "octava",
+          "start": 2.35,
+          "end": 2.71,
+          "key": "octava",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whale,",
+          "start": 2.71,
+          "end": 3.09,
+          "key": "whale",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ei,",
+          "start": 3.37,
+          "end": 3.63,
+          "key": "ei",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.97,
+          "end": 4.07,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "duodecimo",
+          "start": 4.07,
+          "end": 4.61,
+          "key": "duodecimo",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "whale",
+          "start": 4.61,
+          "end": 4.99,
+          "key": "whale",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I.",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "The",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "Folio",
+          "start": 0.67,
+          "end": 1.07
+        },
+        {
+          "text": "Whale;",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "text": "Ii.",
+          "start": 1.43,
+          "end": 1.86
+        },
+        {
+          "text": "the",
+          "start": 2.29,
+          "end": 2.35
+        },
+        {
+          "text": "Octavo",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "Whale;",
+          "start": 2.71,
+          "end": 3.09
+        },
+        {
+          "text": "Iii.",
+          "start": 3.09,
+          "end": 3.53
+        },
+        {
+          "text": "the",
+          "start": 3.97,
+          "end": 4.07
+        },
+        {
+          "text": "Duodecimo",
+          "start": 4.07,
+          "end": 4.61
+        },
+        {
+          "text": "Whale.",
+          "start": 4.61,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24904958717525005
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd736f75f3c4a2911c9229a1f9e76b918e02fe27d2a36f7a57379500c163ff3b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

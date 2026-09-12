@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "e3efb20f7fb760754c2e7f0bc9db29e219ed363855291c43f136b1ed30d63bf1",
+  "attempts": [
+    {
+      "asr_seconds": 0.09766811598092318,
+      "alignment_seconds": 0.00016130227595567703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Juliet.",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Juliet.",
+              "start": 0.7,
+              "end": 1.08,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "Juliet.",
+          "start": 0.7,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Juliet.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Juliet.",
+          "start": 0.7,
+          "end": 1.08,
+          "key": "juliet",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "Juliet.]",
+          "start": 0.7,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09787686634808779
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d755d4ab3bf355310cfb7c92b20da9210422d5c5783af853240d4d890c388e7c",
+  "selected_reasons": []
+}

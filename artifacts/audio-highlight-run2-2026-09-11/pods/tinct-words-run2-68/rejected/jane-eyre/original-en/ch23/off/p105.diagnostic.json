@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "5df4f5e943bbd0960d9cc161ded1a86772c4b490be737687cc335182f111f235",
+  "attempts": [
+    {
+      "asr_seconds": 0.25056641548871994,
+      "alignment_seconds": 0.000598665326833725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I do, and if an oath is necessary to satisfy you, I swear it.",
+          "start": 0.05,
+          "end": 4.29,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " do,",
+              "start": 0.55,
+              "end": 0.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " if",
+              "start": 1.35,
+              "end": 1.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " an",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " oath",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " necessary",
+              "start": 2.01,
+              "end": 2.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.43,
+              "end": 2.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " satisfy",
+              "start": 2.69,
+              "end": 3.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you,",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 3.63,
+              "end": 3.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " swear",
+              "start": 3.69,
+              "end": 3.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 3.99,
+              "end": 4.29,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "do,",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "raw": "if",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "raw": "an",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "oath",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "necessary",
+          "start": 2.01,
+          "end": 2.43
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.69
+        },
+        {
+          "raw": "satisfy",
+          "start": 2.69,
+          "end": 3.07
+        },
+        {
+          "raw": "you,",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "raw": "I",
+          "start": 3.63,
+          "end": 3.69
+        },
+        {
+          "raw": "swear",
+          "start": 3.69,
+          "end": 3.99
+        },
+        {
+          "raw": "it.",
+          "start": 3.99,
+          "end": 4.29
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "do;",
+        "and",
+        "if",
+        "an",
+        "oath",
+        "is",
+        "necessary",
+        "to",
+        "satisfy",
+        "you,",
+        "I",
+        "swear",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 0.55,
+          "end": 0.75,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.35,
+          "end": 1.43,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "an",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "oath",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "oath",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "necessary",
+          "start": 2.01,
+          "end": 2.43,
+          "key": "necessary",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.43,
+          "end": 2.69,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "satisfy",
+          "start": 2.69,
+          "end": 3.07,
+          "key": "satisfy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.07,
+          "end": 3.45,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.63,
+          "end": 3.69,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 3.69,
+          "end": 3.99,
+          "key": "swear",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 3.99,
+          "end": 4.29,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "do;",
+          "start": 0.55,
+          "end": 0.75
+        },
+        {
+          "text": "and",
+          "start": 1.09,
+          "end": 1.35
+        },
+        {
+          "text": "if",
+          "start": 1.35,
+          "end": 1.43
+        },
+        {
+          "text": "an",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "oath",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "is",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "necessary",
+          "start": 2.01,
+          "end": 2.43
+        },
+        {
+          "text": "to",
+          "start": 2.43,
+          "end": 2.69
+        },
+        {
+          "text": "satisfy",
+          "start": 2.69,
+          "end": 3.07
+        },
+        {
+          "text": "you,",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "text": "I",
+          "start": 3.63,
+          "end": 3.69
+        },
+        {
+          "text": "swear",
+          "start": 3.69,
+          "end": 3.99
+        },
+        {
+          "text": "it.\"",
+          "start": 3.99,
+          "end": 4.29
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2514272406697273
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69e9314f1ea264b8cb01fb932fd8818020519308e36ac8ca3c4c1458334ea98a",
+  "selected_reasons": []
+}

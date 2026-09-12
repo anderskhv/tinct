@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "95e174139db35965ddaa56ad7672eb665f16824fa9239e5801768785b06c5533",
+  "attempts": [
+    {
+      "asr_seconds": 0.19684067089110613,
+      "alignment_seconds": 0.0004105446860194206,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Was there no one else?\" I asked.",
+        "hotwords": "Was, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Was there no one else? I asked.",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Was",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.331298828125
+            },
+            {
+              "text": " there",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " no",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " one",
+              "start": 0.84,
+              "end": 0.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " else?",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.64,
+              "end": 1.72,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " asked.",
+              "start": 1.72,
+              "end": 2.14,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Was",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "there",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "no",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "one",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "raw": "else?",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.72
+        },
+        {
+          "raw": "asked.",
+          "start": 1.72,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "\"Was",
+        "there",
+        "no",
+        "one",
+        "else?\"",
+        "I",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Was",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "was",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "there",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 0.84,
+          "end": 0.96,
+          "key": "one",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "else?",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "else",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.64,
+          "end": 1.72,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.72,
+          "end": 2.14,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Was",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "there",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "no",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "one",
+          "start": 0.84,
+          "end": 0.96
+        },
+        {
+          "text": "else?\"",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "text": "I",
+          "start": 1.64,
+          "end": 1.72
+        },
+        {
+          "text": "asked.",
+          "start": 1.72,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1973994029685855
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a0586e78d604d3911a9bceed8b7d25b2c2b987b5a15eae77a348809675a211c8",
+  "selected_reasons": []
+}

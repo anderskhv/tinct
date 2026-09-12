@@ -1,0 +1,451 @@
+{
+  "complete": true,
+  "signature": "3b57d4f7fe47de52c577d4a7367794471db2d4f9b747bb1be30b73d5ec6e63a4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2504817470908165,
+      "alignment_seconds": 0.0004444196820259094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Some ships sail from their ports,",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Some",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " ships",
+              "start": 0.6,
+              "end": 0.86,
+              "probability": 0.984375
+            },
+            {
+              "text": " sail",
+              "start": 0.86,
+              "end": 1.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ports,",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " and ever afterwards are missing Starbuck.",
+          "start": 2.34,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " and",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ever",
+              "start": 2.42,
+              "end": 2.66,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " afterwards",
+              "start": 2.66,
+              "end": 3.1,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " are",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " missing",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Starbuck.",
+              "start": 3.62,
+              "end": 4.26,
+              "probability": 0.73681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Some",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "ships",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "raw": "sail",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "raw": "from",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "their",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "ports,",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "ever",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "raw": "afterwards",
+          "start": 2.66,
+          "end": 3.1
+        },
+        {
+          "raw": "are",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "missing",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "Starbuck.",
+          "start": 3.62,
+          "end": 4.26
+        }
+      ],
+      "expected_tokens": [
+        "\"Some",
+        "ships",
+        "sail",
+        "from",
+        "their",
+        "ports,",
+        "and",
+        "ever",
+        "afterwards",
+        "are",
+        "missing,",
+        "Starbuck!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Some",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "some",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ships",
+          "start": 0.6,
+          "end": 0.86,
+          "key": "ships",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sail",
+          "start": 0.86,
+          "end": 1.18,
+          "key": "sail",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.18,
+          "end": 1.4,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ports,",
+          "start": 1.54,
+          "end": 1.84,
+          "key": "ports",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.34,
+          "end": 2.42,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ever",
+          "start": 2.42,
+          "end": 2.66,
+          "key": "ever",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "afterwards",
+          "start": 2.66,
+          "end": 3.1,
+          "key": "afterwards",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.1,
+          "end": 3.28,
+          "key": "are",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "missing",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "missing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Starbuck.",
+          "start": 3.62,
+          "end": 4.26,
+          "key": "starbuck",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Some",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "ships",
+          "start": 0.6,
+          "end": 0.86
+        },
+        {
+          "text": "sail",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "text": "from",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "their",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "ports,",
+          "start": 1.54,
+          "end": 1.84
+        },
+        {
+          "text": "and",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "ever",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "text": "afterwards",
+          "start": 2.66,
+          "end": 3.1
+        },
+        {
+          "text": "are",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "missing,",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "Starbuck!\"",
+          "start": 3.62,
+          "end": 4.26
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25111230835318565
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "761f2763139ebc82beef572a20d748f6b4d0b8efd78b065317cf2998d1a5c23e",
+  "selected_reasons": []
+}

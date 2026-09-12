@@ -1,0 +1,2007 @@
+{
+  "complete": true,
+  "signature": "25985b882fed9bef3a855d8ecfa6e1bb2dab61001f4ec8508055832c7b59c40f",
+  "attempts": [
+    {
+      "asr_seconds": 3.6940984884276986,
+      "alignment_seconds": 0.0008364319801330566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh! I daresay she is crying because she could not go out with Missis in the carriage,\" interposed Bessie.",
+        "hotwords": "Oh, I, Missis, Bessie"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, I, Missis, Bessie",
+          "start": 0.08,
+          "end": 6.3,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.284423828125
+            },
+            {
+              "text": " I,",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Missis,",
+              "start": 1.12,
+              "end": 1.48,
+              "probability": 0.006077200174331665
+            },
+            {
+              "text": " Bessie",
+              "start": 1.48,
+              "end": 6.3,
+              "probability": 0.6531670888264974
+            }
+          ]
+        },
+        {
+          "text": " Oh, I, Missis, Bessie, Bessie, Bessie, Bessie",
+          "start": 6.3,
+          "end": 6.72,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 6.3,
+              "end": 6.72,
+              "probability": 0.0007772445678710938
+            },
+            {
+              "text": " I,",
+              "start": 6.72,
+              "end": 6.72,
+              "probability": 0.0986328125
+            },
+            {
+              "text": " Missis,",
+              "start": 6.72,
+              "end": 6.72,
+              "probability": 0.00019028782844543457
+            },
+            {
+              "text": " Bessie,",
+              "start": 6.72,
+              "end": 6.72,
+              "probability": 0.21458137035369873
+            },
+            {
+              "text": " Bessie,",
+              "start": 6.72,
+              "end": 6.72,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " Bessie,",
+              "start": 6.72,
+              "end": 6.72,
+              "probability": 0.8274739583333334
+            },
+            {
+              "text": " Bessie",
+              "start": 6.72,
+              "end": 6.72,
+              "probability": 0.90234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "I,",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "Missis,",
+          "start": 1.12,
+          "end": 1.48
+        },
+        {
+          "raw": "Bessie",
+          "start": 1.48,
+          "end": 6.3
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.3,
+          "end": 6.72
+        },
+        {
+          "raw": "I,",
+          "start": 6.72,
+          "end": 6.72
+        },
+        {
+          "raw": "Missis,",
+          "start": 6.72,
+          "end": 6.72
+        },
+        {
+          "raw": "Bessie,",
+          "start": 6.72,
+          "end": 6.72
+        },
+        {
+          "raw": "Bessie,",
+          "start": 6.72,
+          "end": 6.72
+        },
+        {
+          "raw": "Bessie,",
+          "start": 6.72,
+          "end": 6.72
+        },
+        {
+          "raw": "Bessie",
+          "start": 6.72,
+          "end": 6.72
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh!",
+        "I",
+        "daresay",
+        "she",
+        "is",
+        "crying",
+        "because",
+        "she",
+        "could",
+        "not",
+        "go",
+        "out",
+        "with",
+        "Missis",
+        "in",
+        "the",
+        "carriage,\"",
+        "interposed",
+        "Bessie."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "delete",
+          2,
+          13,
+          2,
+          2
+        ],
+        [
+          "equal",
+          13,
+          14,
+          2,
+          3
+        ],
+        [
+          "delete",
+          14,
+          18,
+          3,
+          3
+        ],
+        [
+          "equal",
+          18,
+          19,
+          3,
+          4
+        ],
+        [
+          "insert",
+          19,
+          19,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          2,
+          13,
+          2,
+          2
+        ],
+        [
+          "delete",
+          14,
+          18,
+          3,
+          3
+        ],
+        [
+          "insert",
+          19,
+          19,
+          4,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 0.96,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Missis,",
+          "start": 1.12,
+          "end": 1.48,
+          "key": "missis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bessie",
+          "start": 1.48,
+          "end": 6.3,
+          "key": "bessie",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.3,
+          "end": 6.72,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 6.72,
+          "end": 6.72,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Missis,",
+          "start": 6.72,
+          "end": 6.72,
+          "key": "missis",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bessie,",
+          "start": 6.72,
+          "end": 6.72,
+          "key": "bessie",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bessie,",
+          "start": 6.72,
+          "end": 6.72,
+          "key": "bessie",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Bessie,",
+          "start": 6.72,
+          "end": 6.72,
+          "key": "bessie",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Bessie",
+          "start": 6.72,
+          "end": 6.72,
+          "key": "bessie",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh!",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "daresay",
+          "start": 1.1,
+          "end": 1.11
+        },
+        {
+          "text": "she",
+          "start": 1.11,
+          "end": 1.115
+        },
+        {
+          "text": "is",
+          "start": 1.115,
+          "end": 1.118
+        },
+        {
+          "text": "crying",
+          "start": 1.118,
+          "end": 1.119
+        },
+        {
+          "text": "because",
+          "start": 1.119,
+          "end": 1.119
+        },
+        {
+          "text": "she",
+          "start": 1.119,
+          "end": 1.119
+        },
+        {
+          "text": "could",
+          "start": 1.119,
+          "end": 1.119
+        },
+        {
+          "text": "not",
+          "start": 1.119,
+          "end": 1.119
+        },
+        {
+          "text": "go",
+          "start": 1.119,
+          "end": 1.119
+        },
+        {
+          "text": "out",
+          "start": 1.119,
+          "end": 1.119
+        },
+        {
+          "text": "with",
+          "start": 1.119,
+          "end": 1.119
+        },
+        {
+          "text": "Missis",
+          "start": 1.12,
+          "end": 1.48
+        },
+        {
+          "text": "in",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "text": "carriage,\"",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "text": "interposed",
+          "start": 1.48,
+          "end": 1.48
+        },
+        {
+          "text": "Bessie.",
+          "start": 1.48,
+          "end": 6.3
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 11,
+        "matched_words": 4
+      },
+      "match_ratio": 0.21052631578947367,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.6951461462303996
+    },
+    {
+      "asr_seconds": 0.3456575609743595,
+      "alignment_seconds": 0.0005728481337428093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Oh, I, Missis, Bessie"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Oh, I dare say she is crying because she could not go out with Missis in the carriage, interposed Bessie",
+          "start": 0.08,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.284423828125
+            },
+            {
+              "text": " I",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " dare",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.896484375
+            },
+            {
+              "text": " say",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " she",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " crying",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " because",
+              "start": 2.22,
+              "end": 2.56,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " she",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " could",
+              "start": 2.74,
+              "end": 2.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " go",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 3.38,
+              "end": 3.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Missis",
+              "start": 3.56,
+              "end": 3.88,
+              "probability": 0.0390472412109375
+            },
+            {
+              "text": " in",
+              "start": 3.88,
+              "end": 4.02,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " the",
+              "start": 4.02,
+              "end": 4.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " carriage,",
+              "start": 4.12,
+              "end": 4.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " interposed",
+              "start": 5.1,
+              "end": 5.64,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Bessie",
+              "start": 5.64,
+              "end": 6.12,
+              "probability": 0.9777018229166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "dare",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "say",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "she",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "crying",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "because",
+          "start": 2.22,
+          "end": 2.56
+        },
+        {
+          "raw": "she",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "could",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "raw": "not",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "go",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "out",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "raw": "with",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "raw": "Missis",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "raw": "in",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "raw": "the",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "raw": "carriage,",
+          "start": 4.12,
+          "end": 4.54
+        },
+        {
+          "raw": "interposed",
+          "start": 5.1,
+          "end": 5.64
+        },
+        {
+          "raw": "Bessie",
+          "start": 5.64,
+          "end": 6.12
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh!",
+        "I",
+        "daresay",
+        "she",
+        "is",
+        "crying",
+        "because",
+        "she",
+        "could",
+        "not",
+        "go",
+        "out",
+        "with",
+        "Missis",
+        "in",
+        "the",
+        "carriage,\"",
+        "interposed",
+        "Bessie."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          19,
+          4,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "dare",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "crying",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "crying",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 2.22,
+          "end": 2.56,
+          "key": "because",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.74,
+          "end": 2.84,
+          "key": "could",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.02,
+          "end": 3.18,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.38,
+          "end": 3.56,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Missis",
+          "start": 3.56,
+          "end": 3.88,
+          "key": "missis",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.88,
+          "end": 4.02,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.02,
+          "end": 4.12,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "carriage,",
+          "start": 4.12,
+          "end": 4.54,
+          "key": "carriage",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "interposed",
+          "start": 5.1,
+          "end": 5.64,
+          "key": "interposed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Bessie",
+          "start": 5.64,
+          "end": 6.12,
+          "key": "bessie",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh!",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "daresay",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "she",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "is",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "crying",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "text": "because",
+          "start": 2.22,
+          "end": 2.56
+        },
+        {
+          "text": "she",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "could",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "text": "not",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "go",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "out",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "text": "with",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "text": "Missis",
+          "start": 3.56,
+          "end": 3.88
+        },
+        {
+          "text": "in",
+          "start": 3.88,
+          "end": 4.02
+        },
+        {
+          "text": "the",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "text": "carriage,\"",
+          "start": 4.12,
+          "end": 4.54
+        },
+        {
+          "text": "interposed",
+          "start": 5.1,
+          "end": 5.64
+        },
+        {
+          "text": "Bessie.",
+          "start": 5.64,
+          "end": 6.12
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.3464660346508026
+    },
+    {
+      "asr_seconds": 0.33040506951510906,
+      "alignment_seconds": 0.0005639763548970222,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, I dare say she is crying because she could not go out with Mrs. in the carriage, interposed",
+          "start": 0.08,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.284423828125
+            },
+            {
+              "text": " I",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " dare",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.896484375
+            },
+            {
+              "text": " say",
+              "start": 1.26,
+              "end": 1.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " she",
+              "start": 1.54,
+              "end": 1.74,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " is",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " crying",
+              "start": 1.88,
+              "end": 2.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " because",
+              "start": 2.22,
+              "end": 2.56,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " she",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " could",
+              "start": 2.74,
+              "end": 2.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 2.84,
+              "end": 3.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " go",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 3.38,
+              "end": 3.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mrs.",
+              "start": 3.56,
+              "end": 3.8,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " in",
+              "start": 3.92,
+              "end": 4.02,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " the",
+              "start": 4.02,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " carriage,",
+              "start": 4.12,
+              "end": 4.52,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " interposed",
+              "start": 5.1,
+              "end": 5.62,
+              "probability": 0.9384765625
+            }
+          ]
+        },
+        {
+          "text": " Bessie.",
+          "start": 5.62,
+          "end": 6.12,
+          "words": [
+            {
+              "text": " Bessie.",
+              "start": 5.62,
+              "end": 6.12,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "dare",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "say",
+          "start": 1.26,
+          "end": 1.54
+        },
+        {
+          "raw": "she",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "crying",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "raw": "because",
+          "start": 2.22,
+          "end": 2.56
+        },
+        {
+          "raw": "she",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "could",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "raw": "not",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "raw": "go",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "out",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "raw": "with",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "raw": "Mrs.",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "raw": "in",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "raw": "the",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "raw": "carriage,",
+          "start": 4.12,
+          "end": 4.52
+        },
+        {
+          "raw": "interposed",
+          "start": 5.1,
+          "end": 5.62
+        },
+        {
+          "raw": "Bessie.",
+          "start": 5.62,
+          "end": 6.12
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh!",
+        "I",
+        "daresay",
+        "she",
+        "is",
+        "crying",
+        "because",
+        "she",
+        "could",
+        "not",
+        "go",
+        "out",
+        "with",
+        "Missis",
+        "in",
+        "the",
+        "carriage,\"",
+        "interposed",
+        "Bessie."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          13,
+          4,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "equal",
+          14,
+          19,
+          15,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dare",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "dare",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.26,
+          "end": 1.54,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.54,
+          "end": 1.74,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "crying",
+          "start": 1.88,
+          "end": 2.22,
+          "key": "crying",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 2.22,
+          "end": 2.56,
+          "key": "because",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.56,
+          "end": 2.74,
+          "key": "she",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 2.74,
+          "end": 2.84,
+          "key": "could",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.84,
+          "end": 3.02,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 3.02,
+          "end": 3.18,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "out",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.38,
+          "end": 3.56,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 3.56,
+          "end": 3.8,
+          "key": "mrs",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.92,
+          "end": 4.02,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.02,
+          "end": 4.12,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "carriage,",
+          "start": 4.12,
+          "end": 4.52,
+          "key": "carriage",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "interposed",
+          "start": 5.1,
+          "end": 5.62,
+          "key": "interposed",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Bessie.",
+          "start": 5.62,
+          "end": 6.12,
+          "key": "bessie",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh!",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "daresay",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "she",
+          "start": 1.54,
+          "end": 1.74
+        },
+        {
+          "text": "is",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "crying",
+          "start": 1.88,
+          "end": 2.22
+        },
+        {
+          "text": "because",
+          "start": 2.22,
+          "end": 2.56
+        },
+        {
+          "text": "she",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "could",
+          "start": 2.74,
+          "end": 2.84
+        },
+        {
+          "text": "not",
+          "start": 2.84,
+          "end": 3.02
+        },
+        {
+          "text": "go",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "out",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "text": "with",
+          "start": 3.38,
+          "end": 3.56
+        },
+        {
+          "text": "Missis",
+          "start": 3.56,
+          "end": 3.74
+        },
+        {
+          "text": "in",
+          "start": 3.92,
+          "end": 4.02
+        },
+        {
+          "text": "the",
+          "start": 4.02,
+          "end": 4.12
+        },
+        {
+          "text": "carriage,\"",
+          "start": 4.12,
+          "end": 4.52
+        },
+        {
+          "text": "interposed",
+          "start": 5.1,
+          "end": 5.62
+        },
+        {
+          "text": "Bessie.",
+          "start": 5.62,
+          "end": 6.12
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.3311901642009616
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "12560e4c3f68954d4d22033fb0718e5ec6ea2296bb1830f90b623dfad6431c45",
+  "selected_reasons": []
+}

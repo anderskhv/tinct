@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "564243b0d8fd1d9e282e97c3f90194c0938c58fd5595b26b9dc8973cc3aca028",
+  "attempts": [
+    {
+      "asr_seconds": 0.24779477901756763,
+      "alignment_seconds": 0.0005227550864219666,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Beatrice. I have a good eye, uncle: I can see a church by daylight.",
+        "hotwords": "Beatrice, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beatrice, I have a good eye, uncle. I can see a church by daylight.",
+          "start": 0.55,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Beatrice,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " have",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " good",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " eye,",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " uncle.",
+              "start": 2.17,
+              "end": 2.17,
+              "probability": 0.509765625
+            },
+            {
+              "text": " I",
+              "start": 2.65,
+              "end": 2.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " can",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " see",
+              "start": 2.79,
+              "end": 2.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 2.95,
+              "end": 3.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " church",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " by",
+              "start": 3.29,
+              "end": 3.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " daylight.",
+              "start": 3.57,
+              "end": 3.91,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "have",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "a",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "good",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "eye,",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "uncle.",
+          "start": 2.17,
+          "end": 2.17
+        },
+        {
+          "raw": "I",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "raw": "can",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "see",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "raw": "a",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "raw": "church",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "by",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "raw": "daylight.",
+          "start": 3.57,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "I",
+        "have",
+        "a",
+        "good",
+        "eye,",
+        "uncle:",
+        "I",
+        "can",
+        "see",
+        "a",
+        "church",
+        "by",
+        "daylight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.41,
+          "end": 1.51,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.61,
+          "end": 1.71,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "eye,",
+          "start": 1.71,
+          "end": 1.91,
+          "key": "eye",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "uncle.",
+          "start": 2.17,
+          "end": 2.17,
+          "key": "uncle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.65,
+          "end": 2.67,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.67,
+          "end": 2.79,
+          "key": "can",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.79,
+          "end": 2.95,
+          "key": "see",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.95,
+          "end": 3.09,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "church",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "church",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.29,
+          "end": 3.57,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "daylight.",
+          "start": 3.57,
+          "end": 3.91,
+          "key": "daylight",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "I",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "have",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "a",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "good",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "eye,",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "text": "uncle:",
+          "start": 2.17,
+          "end": 2.17
+        },
+        {
+          "text": "I",
+          "start": 2.65,
+          "end": 2.67
+        },
+        {
+          "text": "can",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "see",
+          "start": 2.79,
+          "end": 2.95
+        },
+        {
+          "text": "a",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "text": "church",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "by",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "text": "daylight.",
+          "start": 3.57,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2485802099108696
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "120dad5ab7f2ccd092fd7acea2e6f0231e26711eafbf72cfcd1321218da2efc6",
+  "selected_reasons": []
+}

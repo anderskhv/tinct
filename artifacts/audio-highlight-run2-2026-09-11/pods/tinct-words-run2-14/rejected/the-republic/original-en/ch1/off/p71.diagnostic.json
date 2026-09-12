@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "822750387eba0592ea45069ff065de1a30c9cc0f807e9485430fe4e56f2dcf14",
+  "attempts": [
+    {
+      "asr_seconds": 0.17661599069833755,
+      "alignment_seconds": 0.00026343390345573425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " then in time of peace justice will be of no use.",
+          "start": 0.08,
+          "end": 2.78,
+          "words": [
+            {
+              "text": " then",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " in",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.94921875
+            },
+            {
+              "text": " time",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " peace",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " justice",
+              "start": 1.16,
+              "end": 1.6,
+              "probability": 0.55078125
+            },
+            {
+              "text": " will",
+              "start": 1.6,
+              "end": 2.0,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " be",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 2.14,
+              "end": 2.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 2.24,
+              "end": 2.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " use.",
+              "start": 2.44,
+              "end": 2.78,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "then",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "in",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "time",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "peace",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "justice",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "raw": "will",
+          "start": 1.6,
+          "end": 2.0
+        },
+        {
+          "raw": "be",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "raw": "no",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "raw": "use.",
+          "start": 2.44,
+          "end": 2.78
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "in",
+        "time",
+        "of",
+        "peace",
+        "justice",
+        "will",
+        "be",
+        "of",
+        "no",
+        "use?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "then",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "time",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "peace",
+          "start": 0.98,
+          "end": 1.16,
+          "key": "peace",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "justice",
+          "start": 1.16,
+          "end": 1.6,
+          "key": "justice",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.6,
+          "end": 2.0,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.14,
+          "end": 2.24,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.24,
+          "end": 2.44,
+          "key": "no",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "use.",
+          "start": 2.44,
+          "end": 2.78,
+          "key": "use",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "in",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "time",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "of",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "peace",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "justice",
+          "start": 1.16,
+          "end": 1.6
+        },
+        {
+          "text": "will",
+          "start": 1.6,
+          "end": 2.0
+        },
+        {
+          "text": "be",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "of",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "text": "no",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "text": "use?",
+          "start": 2.44,
+          "end": 2.78
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1769951693713665
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9aefda66ee67d4e50e97fba6b1286869a522eb4fa7a156fbefdc9b6b01462ba7",
+  "selected_reasons": []
+}

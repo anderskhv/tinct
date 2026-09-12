@@ -1,0 +1,1310 @@
+{
+  "complete": true,
+  "signature": "85138eba5e755b5bc5984fa7d27cfe454e68424c8a5eb6f23df3231171b19999",
+  "attempts": [
+    {
+      "asr_seconds": 0.5163302002474666,
+      "alignment_seconds": 0.0009243511594831944,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I should have followed up my first inquiry, by asking in what way Miss Varens was connected with her; but I recollected it was not polite to ask too many questions: besides, I was sure to hear in time.",
+        "hotwords": "I, Miss, Varens"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I should have followed up my first inquiry, by asking in what way Miss Varens was connected with her, but I recollected it was not polite to ask too many questions. Besides, I was sure to hear in time.",
+          "start": 0.08,
+          "end": 12.26,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " should",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " followed",
+              "start": 0.82,
+              "end": 1.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " first",
+              "start": 1.48,
+              "end": 1.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " inquiry,",
+              "start": 1.78,
+              "end": 2.28,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " by",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " asking",
+              "start": 2.88,
+              "end": 3.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 3.28,
+              "end": 3.52,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " what",
+              "start": 3.52,
+              "end": 3.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " way",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Miss",
+              "start": 3.96,
+              "end": 4.22,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " Varens",
+              "start": 4.22,
+              "end": 4.74,
+              "probability": 0.7208658854166666
+            },
+            {
+              "text": " was",
+              "start": 4.74,
+              "end": 4.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " connected",
+              "start": 4.88,
+              "end": 5.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 5.24,
+              "end": 5.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her,",
+              "start": 5.52,
+              "end": 5.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " but",
+              "start": 6.18,
+              "end": 6.38,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 6.38,
+              "end": 6.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " recollected",
+              "start": 6.52,
+              "end": 7.08,
+              "probability": 0.984619140625
+            },
+            {
+              "text": " it",
+              "start": 7.08,
+              "end": 7.22,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " was",
+              "start": 7.22,
+              "end": 7.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 7.34,
+              "end": 7.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " polite",
+              "start": 7.58,
+              "end": 7.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 7.88,
+              "end": 8.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ask",
+              "start": 8.1,
+              "end": 8.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " too",
+              "start": 8.38,
+              "end": 8.64,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " many",
+              "start": 8.64,
+              "end": 8.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " questions.",
+              "start": 8.86,
+              "end": 9.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Besides,",
+              "start": 10.06,
+              "end": 10.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " I",
+              "start": 10.88,
+              "end": 11.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 11.02,
+              "end": 11.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sure",
+              "start": 11.14,
+              "end": 11.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 11.32,
+              "end": 11.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hear",
+              "start": 11.52,
+              "end": 11.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 11.72,
+              "end": 11.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " time.",
+              "start": 11.92,
+              "end": 12.26,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "should",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "have",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "followed",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "raw": "up",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "first",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "raw": "inquiry,",
+          "start": 1.78,
+          "end": 2.28
+        },
+        {
+          "raw": "by",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "asking",
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "raw": "in",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "raw": "what",
+          "start": 3.52,
+          "end": 3.72
+        },
+        {
+          "raw": "way",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "raw": "Miss",
+          "start": 3.96,
+          "end": 4.22
+        },
+        {
+          "raw": "Varens",
+          "start": 4.22,
+          "end": 4.74
+        },
+        {
+          "raw": "was",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "raw": "connected",
+          "start": 4.88,
+          "end": 5.24
+        },
+        {
+          "raw": "with",
+          "start": 5.24,
+          "end": 5.52
+        },
+        {
+          "raw": "her,",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "raw": "but",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "raw": "I",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "raw": "recollected",
+          "start": 6.52,
+          "end": 7.08
+        },
+        {
+          "raw": "it",
+          "start": 7.08,
+          "end": 7.22
+        },
+        {
+          "raw": "was",
+          "start": 7.22,
+          "end": 7.34
+        },
+        {
+          "raw": "not",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "raw": "polite",
+          "start": 7.58,
+          "end": 7.88
+        },
+        {
+          "raw": "to",
+          "start": 7.88,
+          "end": 8.1
+        },
+        {
+          "raw": "ask",
+          "start": 8.1,
+          "end": 8.38
+        },
+        {
+          "raw": "too",
+          "start": 8.38,
+          "end": 8.64
+        },
+        {
+          "raw": "many",
+          "start": 8.64,
+          "end": 8.86
+        },
+        {
+          "raw": "questions.",
+          "start": 8.86,
+          "end": 9.3
+        },
+        {
+          "raw": "Besides,",
+          "start": 10.06,
+          "end": 10.4
+        },
+        {
+          "raw": "I",
+          "start": 10.88,
+          "end": 11.02
+        },
+        {
+          "raw": "was",
+          "start": 11.02,
+          "end": 11.14
+        },
+        {
+          "raw": "sure",
+          "start": 11.14,
+          "end": 11.32
+        },
+        {
+          "raw": "to",
+          "start": 11.32,
+          "end": 11.52
+        },
+        {
+          "raw": "hear",
+          "start": 11.52,
+          "end": 11.72
+        },
+        {
+          "raw": "in",
+          "start": 11.72,
+          "end": 11.92
+        },
+        {
+          "raw": "time.",
+          "start": 11.92,
+          "end": 12.26
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "should",
+        "have",
+        "followed",
+        "up",
+        "my",
+        "first",
+        "inquiry,",
+        "by",
+        "asking",
+        "in",
+        "what",
+        "way",
+        "Miss",
+        "Varens",
+        "was",
+        "connected",
+        "with",
+        "her;",
+        "but",
+        "I",
+        "recollected",
+        "it",
+        "was",
+        "not",
+        "polite",
+        "to",
+        "ask",
+        "too",
+        "many",
+        "questions:",
+        "besides,",
+        "I",
+        "was",
+        "sure",
+        "to",
+        "hear",
+        "in",
+        "time."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          39,
+          0,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.68,
+          "end": 0.82,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "followed",
+          "start": 0.82,
+          "end": 1.08,
+          "key": "followed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 1.08,
+          "end": 1.26,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.48,
+          "end": 1.78,
+          "key": "first",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "inquiry,",
+          "start": 1.78,
+          "end": 2.28,
+          "key": "inquiry",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "asking",
+          "start": 2.88,
+          "end": 3.28,
+          "key": "asking",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.28,
+          "end": 3.52,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.52,
+          "end": 3.72,
+          "key": "what",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "way",
+          "start": 3.72,
+          "end": 3.96,
+          "key": "way",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 3.96,
+          "end": 4.22,
+          "key": "miss",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Varens",
+          "start": 4.22,
+          "end": 4.74,
+          "key": "varens",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.74,
+          "end": 4.88,
+          "key": "was",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "connected",
+          "start": 4.88,
+          "end": 5.24,
+          "key": "connected",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.24,
+          "end": 5.52,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 5.52,
+          "end": 5.72,
+          "key": "her",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.18,
+          "end": 6.38,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.38,
+          "end": 6.52,
+          "key": "i",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "recollected",
+          "start": 6.52,
+          "end": 7.08,
+          "key": "recollected",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.08,
+          "end": 7.22,
+          "key": "it",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.22,
+          "end": 7.34,
+          "key": "was",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.34,
+          "end": 7.58,
+          "key": "not",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "polite",
+          "start": 7.58,
+          "end": 7.88,
+          "key": "polite",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.88,
+          "end": 8.1,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 8.1,
+          "end": 8.38,
+          "key": "ask",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 8.38,
+          "end": 8.64,
+          "key": "too",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 8.64,
+          "end": 8.86,
+          "key": "many",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "questions.",
+          "start": 8.86,
+          "end": 9.3,
+          "key": "questions",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Besides,",
+          "start": 10.06,
+          "end": 10.4,
+          "key": "besides",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.88,
+          "end": 11.02,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 11.02,
+          "end": 11.14,
+          "key": "was",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 11.14,
+          "end": 11.32,
+          "key": "sure",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.32,
+          "end": 11.52,
+          "key": "to",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 11.52,
+          "end": 11.72,
+          "key": "hear",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 11.72,
+          "end": 11.92,
+          "key": "in",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 11.92,
+          "end": 12.26,
+          "key": "time",
+          "pieces": [
+            38
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "should",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "have",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "followed",
+          "start": 0.82,
+          "end": 1.08
+        },
+        {
+          "text": "up",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "my",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "first",
+          "start": 1.48,
+          "end": 1.78
+        },
+        {
+          "text": "inquiry,",
+          "start": 1.78,
+          "end": 2.28
+        },
+        {
+          "text": "by",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "asking",
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "text": "in",
+          "start": 3.28,
+          "end": 3.52
+        },
+        {
+          "text": "what",
+          "start": 3.52,
+          "end": 3.72
+        },
+        {
+          "text": "way",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "text": "Miss",
+          "start": 3.96,
+          "end": 4.22
+        },
+        {
+          "text": "Varens",
+          "start": 4.22,
+          "end": 4.74
+        },
+        {
+          "text": "was",
+          "start": 4.74,
+          "end": 4.88
+        },
+        {
+          "text": "connected",
+          "start": 4.88,
+          "end": 5.24
+        },
+        {
+          "text": "with",
+          "start": 5.24,
+          "end": 5.52
+        },
+        {
+          "text": "her;",
+          "start": 5.52,
+          "end": 5.72
+        },
+        {
+          "text": "but",
+          "start": 6.18,
+          "end": 6.38
+        },
+        {
+          "text": "I",
+          "start": 6.38,
+          "end": 6.52
+        },
+        {
+          "text": "recollected",
+          "start": 6.52,
+          "end": 7.08
+        },
+        {
+          "text": "it",
+          "start": 7.08,
+          "end": 7.22
+        },
+        {
+          "text": "was",
+          "start": 7.22,
+          "end": 7.34
+        },
+        {
+          "text": "not",
+          "start": 7.34,
+          "end": 7.58
+        },
+        {
+          "text": "polite",
+          "start": 7.58,
+          "end": 7.88
+        },
+        {
+          "text": "to",
+          "start": 7.88,
+          "end": 8.1
+        },
+        {
+          "text": "ask",
+          "start": 8.1,
+          "end": 8.38
+        },
+        {
+          "text": "too",
+          "start": 8.38,
+          "end": 8.64
+        },
+        {
+          "text": "many",
+          "start": 8.64,
+          "end": 8.86
+        },
+        {
+          "text": "questions:",
+          "start": 8.86,
+          "end": 9.3
+        },
+        {
+          "text": "besides,",
+          "start": 10.06,
+          "end": 10.4
+        },
+        {
+          "text": "I",
+          "start": 10.88,
+          "end": 11.02
+        },
+        {
+          "text": "was",
+          "start": 11.02,
+          "end": 11.14
+        },
+        {
+          "text": "sure",
+          "start": 11.14,
+          "end": 11.32
+        },
+        {
+          "text": "to",
+          "start": 11.32,
+          "end": 11.52
+        },
+        {
+          "text": "hear",
+          "start": 11.52,
+          "end": 11.72
+        },
+        {
+          "text": "in",
+          "start": 11.72,
+          "end": 11.92
+        },
+        {
+          "text": "time.",
+          "start": 11.92,
+          "end": 12.26
+        }
+      ],
+      "stats": {
+        "expected_words": 39,
+        "heard_words": 39,
+        "matched_words": 39
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5176810170523822
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1b55aaccde5cae23fec814c74aada9e02c605377061d1e3710380d454aab13bf",
+  "selected_reasons": []
+}

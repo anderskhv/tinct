@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "50ed5c12550af6dd40cef7fa6509d58df20c963d336a20bc0cc7de0eeb5ac68e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09577752184122801,
+      "alignment_seconds": 0.00011812988668680191,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Othello, hold for your lives.",
+          "start": 0.21,
+          "end": 2.03,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.21,
+              "end": 0.89,
+              "probability": 0.9554036458333334
+            },
+            {
+              "text": " hold",
+              "start": 1.15,
+              "end": 1.39,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " for",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lives.",
+              "start": 1.71,
+              "end": 2.03,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.89
+        },
+        {
+          "raw": "hold",
+          "start": 1.15,
+          "end": 1.39
+        },
+        {
+          "raw": "for",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "lives.",
+          "start": 1.71,
+          "end": 2.03
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Hold,",
+        "for",
+        "your",
+        "lives!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.21,
+          "end": 0.89,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.15,
+          "end": 1.39,
+          "key": "hold",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.71,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lives.",
+          "start": 1.71,
+          "end": 2.03,
+          "key": "lives",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.21,
+          "end": 0.89
+        },
+        {
+          "text": "Hold,",
+          "start": 1.15,
+          "end": 1.39
+        },
+        {
+          "text": "for",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "your",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "lives!",
+          "start": 1.71,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09594129119068384
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "327f3396f0efd496bc541a52bd2d4b2e03b14168f79ce5dbcced41add0bcce1c",
+  "selected_reasons": []
+}

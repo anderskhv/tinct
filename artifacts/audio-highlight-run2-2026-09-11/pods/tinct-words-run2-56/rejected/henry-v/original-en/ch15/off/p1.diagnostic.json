@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "112030e1683ed20cd6f1e7e227c8e4ae84386d31e8b4c00d7a85ff68fdcc1790",
+  "attempts": [
+    {
+      "asr_seconds": 0.22753601428121328,
+      "alignment_seconds": 0.0005046408623456955,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Orleans, the sun doth gild our armor up my lords.",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Orleans,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.499755859375
+            },
+            {
+              "text": " the",
+              "start": 1.41,
+              "end": 1.55,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " sun",
+              "start": 1.55,
+              "end": 1.79,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " doth",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " gild",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.6986083984375
+            },
+            {
+              "text": " our",
+              "start": 2.23,
+              "end": 2.39,
+              "probability": 0.962890625
+            },
+            {
+              "text": " armor",
+              "start": 2.39,
+              "end": 2.65,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " up",
+              "start": 2.65,
+              "end": 3.01,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " my",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " lords.",
+              "start": 3.23,
+              "end": 3.47,
+              "probability": 0.83935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orleans,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "raw": "sun",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "raw": "doth",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "gild",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "our",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "raw": "armor",
+          "start": 2.39,
+          "end": 2.65
+        },
+        {
+          "raw": "up",
+          "start": 2.65,
+          "end": 3.01
+        },
+        {
+          "raw": "my",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "lords.",
+          "start": 3.23,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "Orleans.",
+        "The",
+        "sun",
+        "doth",
+        "gild",
+        "our",
+        "armour;",
+        "up,",
+        "my",
+        "lords!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          10,
+          7,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orleans,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "orleans",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.55,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 1.55,
+          "end": 1.79,
+          "key": "sun",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "doth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gild",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "gild",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 2.23,
+          "end": 2.39,
+          "key": "our",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "armor",
+          "start": 2.39,
+          "end": 2.65,
+          "key": "armor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.65,
+          "end": 3.01,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lords.",
+          "start": 3.23,
+          "end": 3.47,
+          "key": "lords",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orleans.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "The",
+          "start": 1.41,
+          "end": 1.55
+        },
+        {
+          "text": "sun",
+          "start": 1.55,
+          "end": 1.79
+        },
+        {
+          "text": "doth",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "gild",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "our",
+          "start": 2.23,
+          "end": 2.39
+        },
+        {
+          "text": "armour;",
+          "start": 2.39,
+          "end": 2.52
+        },
+        {
+          "text": "up,",
+          "start": 2.65,
+          "end": 3.01
+        },
+        {
+          "text": "my",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "lords!",
+          "start": 3.23,
+          "end": 3.47
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.22824735194444656
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f5952948f3d0d33050ec86abb809638a74a01f32ad4e8d12fdcc71d3344a627f",
+  "selected_reasons": []
+}

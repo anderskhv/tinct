@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "2deb5c13194611bb4e9e4b7e2a9be7a22d7bf1e1e1ecb49c82ed80077b8f8fd0",
+  "attempts": [
+    {
+      "asr_seconds": 0.10245547443628311,
+      "alignment_seconds": 0.00021124258637428284,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Certainly.",
+        "hotwords": "Certainly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Certainly.",
+          "start": 0.08,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " Certainly.",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.7626953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly.",
+          "start": 0.08,
+          "end": 0.74
+        }
+      ],
+      "expected_tokens": [
+        "Certainly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Certainly.",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "certainly",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Certainly.",
+          "start": 0.08,
+          "end": 0.74
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10272939130663872
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f44108e90f8d46a02a8479bbb8157042e9c61da57277d59125becc5d5b4ae58f",
+  "selected_reasons": []
+}

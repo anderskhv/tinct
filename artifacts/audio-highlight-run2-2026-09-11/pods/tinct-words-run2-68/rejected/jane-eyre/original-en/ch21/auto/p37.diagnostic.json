@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "cb7f772c5a601cc1304bf47bc7920ed265aff1313180bc3c22d8eea8dab5721b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2774771824479103,
+      "alignment_seconds": 0.0006691999733448029,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"None that would own me, sir. Mr. Reed is dead, and his wife cast me off.\"",
+        "hotwords": "None, Mr, Reed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " None that would own me, sir. Mr. Reed is dead, and his wife cast me off.",
+          "start": 0.05,
+          "end": 4.49,
+          "words": [
+            {
+              "text": " None",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.8125
+            },
+            {
+              "text": " that",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " would",
+              "start": 0.81,
+              "end": 0.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " own",
+              "start": 0.93,
+              "end": 1.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me,",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir.",
+              "start": 1.47,
+              "end": 1.55,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " Mr.",
+              "start": 2.13,
+              "end": 2.25,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Reed",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.4873046875
+            },
+            {
+              "text": " is",
+              "start": 2.49,
+              "end": 2.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dead,",
+              "start": 2.69,
+              "end": 2.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.31,
+              "end": 3.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " his",
+              "start": 3.37,
+              "end": 3.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wife",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " cast",
+              "start": 3.71,
+              "end": 3.99,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " me",
+              "start": 3.99,
+              "end": 4.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " off.",
+              "start": 4.21,
+              "end": 4.49,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "None",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "that",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "would",
+          "start": 0.81,
+          "end": 0.93
+        },
+        {
+          "raw": "own",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "raw": "me,",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "sir.",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "raw": "Reed",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "is",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "raw": "dead,",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "raw": "and",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "raw": "his",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "raw": "wife",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "cast",
+          "start": 3.71,
+          "end": 3.99
+        },
+        {
+          "raw": "me",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "raw": "off.",
+          "start": 4.21,
+          "end": 4.49
+        }
+      ],
+      "expected_tokens": [
+        "\"None",
+        "that",
+        "would",
+        "own",
+        "me,",
+        "sir.",
+        "Mr.",
+        "Reed",
+        "is",
+        "dead,",
+        "and",
+        "his",
+        "wife",
+        "cast",
+        "me",
+        "off.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "None",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "none",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.81,
+          "end": 0.93,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 0.93,
+          "end": 1.09,
+          "key": "own",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.47,
+          "end": 1.55,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.13,
+          "end": 2.25,
+          "key": "mr",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Reed",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "reed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.49,
+          "end": 2.69,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 2.69,
+          "end": 2.97,
+          "key": "dead",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.31,
+          "end": 3.37,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.37,
+          "end": 3.49,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wife",
+          "start": 3.49,
+          "end": 3.71,
+          "key": "wife",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cast",
+          "start": 3.71,
+          "end": 3.99,
+          "key": "cast",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.99,
+          "end": 4.21,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 4.21,
+          "end": 4.49,
+          "key": "off",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"None",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "that",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "would",
+          "start": 0.81,
+          "end": 0.93
+        },
+        {
+          "text": "own",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "text": "me,",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "sir.",
+          "start": 1.47,
+          "end": 1.55
+        },
+        {
+          "text": "Mr.",
+          "start": 2.13,
+          "end": 2.25
+        },
+        {
+          "text": "Reed",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "text": "is",
+          "start": 2.49,
+          "end": 2.69
+        },
+        {
+          "text": "dead,",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "text": "and",
+          "start": 3.31,
+          "end": 3.37
+        },
+        {
+          "text": "his",
+          "start": 3.37,
+          "end": 3.49
+        },
+        {
+          "text": "wife",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "cast",
+          "start": 3.71,
+          "end": 3.99
+        },
+        {
+          "text": "me",
+          "start": 3.99,
+          "end": 4.21
+        },
+        {
+          "text": "off.\"",
+          "start": 4.21,
+          "end": 4.49
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27841779962182045
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e3b14eb19af6df39b4ef8111674485635dd05804c65b83901333dbea18084b49",
+  "selected_reasons": []
+}

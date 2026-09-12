@@ -1,0 +1,488 @@
+{
+  "complete": true,
+  "signature": "a38db5cb2f25fb2eb8845bd96867d2c54a9153e929e752a8680a90933a0a7356",
+  "attempts": [
+    {
+      "asr_seconds": 0.32800230011343956,
+      "alignment_seconds": 0.0006222985684871674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The girls stared at their father. Mrs. Bennet said only, \"Nonsense, nonsense!\"",
+        "hotwords": "The, Mrs, Bennet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The girls stared at their father. Mrs. Bennet said only,",
+          "start": 0.02,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.927734375
+            },
+            {
+              "text": " girls",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " stared",
+              "start": 0.74,
+              "end": 1.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " at",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " father.",
+              "start": 1.34,
+              "end": 1.68,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Mrs.",
+              "start": 2.36,
+              "end": 2.48,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Bennet",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.6971435546875
+            },
+            {
+              "text": " said",
+              "start": 2.84,
+              "end": 2.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only,",
+              "start": 2.98,
+              "end": 3.34,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " \"...nonsense, nonsense!\"",
+          "start": 3.34,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " \"...nonsense,",
+              "start": 3.34,
+              "end": 4.26,
+              "probability": 0.538745105266571
+            },
+            {
+              "text": " nonsense",
+              "start": 4.56,
+              "end": 4.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": "!\"",
+              "start": 4.78,
+              "end": 5.4,
+              "probability": 0.05596923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "girls",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "stared",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "raw": "at",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "their",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "father.",
+          "start": 1.34,
+          "end": 1.68
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "raw": "Bennet",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "said",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "raw": "only,",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "raw": "\"...nonsense,",
+          "start": 3.34,
+          "end": 4.26
+        },
+        {
+          "raw": "nonsense",
+          "start": 4.56,
+          "end": 4.78
+        },
+        {
+          "raw": "!\"",
+          "start": 4.78,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "girls",
+        "stared",
+        "at",
+        "their",
+        "father.",
+        "Mrs.",
+        "Bennet",
+        "said",
+        "only,",
+        "\"Nonsense,",
+        "nonsense!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "insert",
+          12,
+          12,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          12,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "girls",
+          "start": 0.48,
+          "end": 0.74,
+          "key": "girls",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stared",
+          "start": 0.74,
+          "end": 1.06,
+          "key": "stared",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father.",
+          "start": 1.34,
+          "end": 1.68,
+          "key": "father",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.36,
+          "end": 2.48,
+          "key": "mrs",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Bennet",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "bennet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.84,
+          "end": 2.98,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "only,",
+          "start": 2.98,
+          "end": 3.34,
+          "key": "only",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "\"...nonsense,",
+          "start": 3.34,
+          "end": 4.26,
+          "key": "nonsense",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nonsense",
+          "start": 4.56,
+          "end": 4.78,
+          "key": "nonsense",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 4.78,
+          "end": 5.4,
+          "key": "",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "girls",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "stared",
+          "start": 0.74,
+          "end": 1.06
+        },
+        {
+          "text": "at",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "their",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "father.",
+          "start": 1.34,
+          "end": 1.68
+        },
+        {
+          "text": "Mrs.",
+          "start": 2.36,
+          "end": 2.48
+        },
+        {
+          "text": "Bennet",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "said",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "text": "only,",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "text": "\"Nonsense,",
+          "start": 3.34,
+          "end": 4.26
+        },
+        {
+          "text": "nonsense!\"",
+          "start": 4.56,
+          "end": 4.78
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32885973528027534
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "893888b55acac0a867a44b97db05227044c883cce425faafd621bb1fb9112c0b",
+  "selected_reasons": []
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "3a292b24e325123ed83ee0765c3f1b4963c3074652c57ea93fc48aae50bdae35",
+  "attempts": [
+    {
+      "asr_seconds": 0.14593635601340793,
+      "alignment_seconds": 0.00021753701730631292,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agrippa. What's Antony? The god of Jupiter.",
+        "hotwords": "Agrippa, What's, Antony, The, Jupiter"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agrippa. What's Antony? The god of Jupiter.",
+          "start": 0.14,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " Agrippa.",
+              "start": 0.14,
+              "end": 0.92,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " What's",
+              "start": 1.18,
+              "end": 1.32,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Antony?",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.864501953125
+            },
+            {
+              "text": " The",
+              "start": 2.14,
+              "end": 2.18,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " god",
+              "start": 2.18,
+              "end": 2.36,
+              "probability": 0.50244140625
+            },
+            {
+              "text": " of",
+              "start": 2.36,
+              "end": 2.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Jupiter.",
+              "start": 2.56,
+              "end": 2.84,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agrippa.",
+          "start": 0.14,
+          "end": 0.92
+        },
+        {
+          "raw": "What's",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "raw": "Antony?",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "The",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "raw": "god",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "raw": "of",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "raw": "Jupiter.",
+          "start": 2.56,
+          "end": 2.84
+        }
+      ],
+      "expected_tokens": [
+        "Agrippa.",
+        "What's",
+        "Antony?",
+        "The",
+        "god",
+        "of",
+        "Jupiter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agrippa.",
+          "start": 0.14,
+          "end": 0.92,
+          "key": "agrippa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 1.18,
+          "end": 1.32,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antony?",
+          "start": 1.32,
+          "end": 1.7,
+          "key": "antony",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 2.14,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "god",
+          "start": 2.18,
+          "end": 2.36,
+          "key": "god",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.36,
+          "end": 2.56,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Jupiter.",
+          "start": 2.56,
+          "end": 2.84,
+          "key": "jupiter",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agrippa.",
+          "start": 0.14,
+          "end": 0.92
+        },
+        {
+          "text": "What's",
+          "start": 1.18,
+          "end": 1.32
+        },
+        {
+          "text": "Antony?",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "The",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "text": "god",
+          "start": 2.18,
+          "end": 2.36
+        },
+        {
+          "text": "of",
+          "start": 2.36,
+          "end": 2.56
+        },
+        {
+          "text": "Jupiter.",
+          "start": 2.56,
+          "end": 2.84
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1462332660157699
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9fa195ad6cf9002cc498c06d836e5e711cb10853745fada46652f0e581b87a6",
+  "selected_reasons": []
+}

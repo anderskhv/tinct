@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "906a5b0c704f3d64b9795967f67f4f0f8d4049f743ef5374735fd301b2c76c65",
+  "attempts": [
+    {
+      "asr_seconds": 0.194338585017249,
+      "alignment_seconds": 0.0004399039316922426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Murderer. Offended us you have not, but the King.",
+        "hotwords": "First, Murderer, Offended, King"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Murderer, Offended us you have not, but the King.",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.69,
+              "end": 1.27,
+              "probability": 0.56915283203125
+            },
+            {
+              "text": " Offended",
+              "start": 1.65,
+              "end": 1.99,
+              "probability": 0.5294189453125
+            },
+            {
+              "text": " us",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " you",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " have",
+              "start": 2.31,
+              "end": 2.47,
+              "probability": 0.984375
+            },
+            {
+              "text": " not,",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.955078125
+            },
+            {
+              "text": " but",
+              "start": 2.89,
+              "end": 2.93,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " the",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " King.",
+              "start": 3.05,
+              "end": 3.25,
+              "probability": 0.796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.69,
+          "end": 1.27
+        },
+        {
+          "raw": "Offended",
+          "start": 1.65,
+          "end": 1.99
+        },
+        {
+          "raw": "us",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "you",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "have",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "raw": "not,",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "but",
+          "start": 2.89,
+          "end": 2.93
+        },
+        {
+          "raw": "the",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "King.",
+          "start": 3.05,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "Offended",
+        "us",
+        "you",
+        "have",
+        "not,",
+        "but",
+        "the",
+        "King."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.69,
+          "end": 1.27,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Offended",
+          "start": 1.65,
+          "end": 1.99,
+          "key": "offended",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "us",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.31,
+          "end": 2.47,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not,",
+          "start": 2.47,
+          "end": 2.73,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.89,
+          "end": 2.93,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.93,
+          "end": 3.05,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "King.",
+          "start": 3.05,
+          "end": 3.25,
+          "key": "king",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.69,
+          "end": 1.27
+        },
+        {
+          "text": "Offended",
+          "start": 1.65,
+          "end": 1.99
+        },
+        {
+          "text": "us",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "you",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "have",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "text": "not,",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "but",
+          "start": 2.89,
+          "end": 2.93
+        },
+        {
+          "text": "the",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "King.",
+          "start": 3.05,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1949491761624813
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "12a10ab871bd91fff47bcc7b482176a50b96673c8df23454fbe5ccfe1d656a9e",
+  "selected_reasons": []
+}

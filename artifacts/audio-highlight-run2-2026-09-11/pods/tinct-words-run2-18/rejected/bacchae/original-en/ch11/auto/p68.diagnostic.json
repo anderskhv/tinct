@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "a1d2b18c2782067a43b31c76ec557500d039ce6ea89304f29cbe5b91e264c694",
+  "attempts": [
+    {
+      "asr_seconds": 0.21101093606557697,
+      "alignment_seconds": 0.00042414001654833555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cadmus. Wears it the likeness of a lion to thee?",
+        "hotwords": "Cadmus, Wears"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cadmus, Wears it the likeness of a lion to thee?",
+          "start": 0.08,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.859130859375
+            },
+            {
+              "text": " Wears",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.4755086898803711
+            },
+            {
+              "text": " it",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.1376953125
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " likeness",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " of",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.970703125
+            },
+            {
+              "text": " a",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " lion",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " to",
+              "start": 2.62,
+              "end": 2.84,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " thee?",
+              "start": 2.84,
+              "end": 3.12,
+              "probability": 0.9619140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Wears",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "raw": "it",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "likeness",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "of",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "a",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "lion",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "to",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "raw": "thee?",
+          "start": 2.84,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Wears",
+        "it",
+        "the",
+        "likeness",
+        "of",
+        "a",
+        "lion",
+        "to",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wears",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "wears",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "likeness",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "likeness",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.98,
+          "end": 2.28,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lion",
+          "start": 2.4,
+          "end": 2.62,
+          "key": "lion",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.62,
+          "end": 2.84,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 2.84,
+          "end": 3.12,
+          "key": "thee",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Wears",
+          "start": 1.22,
+          "end": 1.5
+        },
+        {
+          "text": "it",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "likeness",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "of",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "a",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "lion",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "to",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "text": "thee?",
+          "start": 2.84,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2116008570883423
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c62c1f9116bcad73359414eb72edaa2f3021ef468b2f59603728369ab4bf06c2",
+  "selected_reasons": []
+}

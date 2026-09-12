@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "dffbffcddc782bc29c239f561b32094622c1682c064255d69e019dc79fc2de4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2213039081543684,
+      "alignment_seconds": 0.0004611276090145111,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet, mother, you have my father much offended.",
+          "start": 0.08,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " mother,",
+              "start": 1.28,
+              "end": 1.56,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " you",
+              "start": 1.8,
+              "end": 1.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 1.8,
+              "end": 1.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " father",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " much",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " offended.",
+              "start": 2.6,
+              "end": 3.0,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "mother,",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "raw": "you",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "raw": "have",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "raw": "my",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "father",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "raw": "much",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "offended.",
+          "start": 2.6,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Mother,",
+        "you",
+        "have",
+        "my",
+        "father",
+        "much",
+        "offended."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mother,",
+          "start": 1.28,
+          "end": 1.56,
+          "key": "mother",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.8,
+          "end": 1.8,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.8,
+          "end": 1.94,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "father",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "much",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "offended.",
+          "start": 2.6,
+          "end": 3.0,
+          "key": "offended",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Mother,",
+          "start": 1.28,
+          "end": 1.56
+        },
+        {
+          "text": "you",
+          "start": 1.8,
+          "end": 1.8
+        },
+        {
+          "text": "have",
+          "start": 1.8,
+          "end": 1.94
+        },
+        {
+          "text": "my",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "father",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "text": "much",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "offended.",
+          "start": 2.6,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22195287235081196
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8d82e5c2d49c7df7069c599bd2b2377b7ada12deecc6a3865f37114e9182bb08",
+  "selected_reasons": []
+}

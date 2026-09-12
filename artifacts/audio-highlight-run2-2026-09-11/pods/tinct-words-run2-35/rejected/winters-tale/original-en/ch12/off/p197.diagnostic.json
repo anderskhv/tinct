@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "fa00106716a7483d61412cf2a3f9ab24088450d47537d05e2ba7106ab05a2916",
+  "attempts": [
+    {
+      "asr_seconds": 0.12689536437392235,
+      "alignment_seconds": 0.00021940842270851135,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Camilla",
+          "start": 0.08,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " Camilla",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.7880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camilla",
+          "start": 0.08,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "Camillo."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camilla",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "camilla",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.0,
+          "end": 0.43
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12718753889203072
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ee70f14993aff9d4177e2fb68def1cab7336e8436429a215573723c625de86bc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

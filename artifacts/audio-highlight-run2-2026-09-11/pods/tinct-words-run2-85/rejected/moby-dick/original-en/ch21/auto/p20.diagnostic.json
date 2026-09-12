@@ -1,0 +1,2934 @@
+{
+  "complete": true,
+  "signature": "3995f29785bfc1c45d7be6b7310b32e5c3a1a8030c08791d36ea2fb618060a96",
+  "attempts": [
+    {
+      "asr_seconds": 0.824614551384002,
+      "alignment_seconds": 0.003035235684365034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "At last, stepping on board the Pequod, we found everything in profound quiet, not a soul moving. The cabin entrance was locked within; the hatches were all on, and lumbered with coils of rigging. Going forward to the forecastle, we found the slide of the scuttle open. Seeing a light, we went down, and found only an old rigger there, wrapped in a tattered pea-jacket. He was thrown at whole length upon two chests, his face downwards and inclosed in his folded arms. The profoundest slumber slept upon him.",
+        "hotwords": "Pequod, Going, Seeing, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " At last, stepping on board the Pequod, we found everything in profound quiet, not a soul moving. The cabin entrance was locked within. The hatches were all on, and lumbered with coils of rigging. Going forward to the forecastle, we found the slide of the scuttle open. Seeing a light, we went down, and found only an old rigger there, wrapped in a tattered pea-jacket. He was thrown at whole length upon two chests, his face downwards and inclosed in his folded arms. The profoundest slumber slept upon him.",
+          "start": 0.05,
+          "end": 27.97,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " last,",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " stepping",
+              "start": 1.11,
+              "end": 1.39,
+              "probability": 0.994140625
+            },
+            {
+              "text": " on",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " board",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " the",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Pequod,",
+              "start": 1.95,
+              "end": 2.35,
+              "probability": 0.6862386067708334
+            },
+            {
+              "text": " we",
+              "start": 2.69,
+              "end": 2.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " found",
+              "start": 2.83,
+              "end": 3.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " everything",
+              "start": 3.05,
+              "end": 3.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 3.43,
+              "end": 3.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " profound",
+              "start": 3.61,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " quiet,",
+              "start": 3.95,
+              "end": 4.51,
+              "probability": 0.63720703125
+            },
+            {
+              "text": " not",
+              "start": 4.83,
+              "end": 4.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.93,
+              "end": 5.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " soul",
+              "start": 5.07,
+              "end": 5.29,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " moving.",
+              "start": 5.29,
+              "end": 5.63,
+              "probability": 0.931640625
+            },
+            {
+              "text": " The",
+              "start": 6.27,
+              "end": 6.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cabin",
+              "start": 6.51,
+              "end": 6.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " entrance",
+              "start": 6.77,
+              "end": 7.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 7.11,
+              "end": 7.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " locked",
+              "start": 7.35,
+              "end": 7.59,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " within.",
+              "start": 7.59,
+              "end": 7.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " The",
+              "start": 8.39,
+              "end": 8.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hatches",
+              "start": 8.49,
+              "end": 8.81,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " were",
+              "start": 8.81,
+              "end": 8.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 8.95,
+              "end": 9.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on,",
+              "start": 9.11,
+              "end": 9.37,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " and",
+              "start": 9.49,
+              "end": 9.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lumbered",
+              "start": 9.59,
+              "end": 9.85,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " with",
+              "start": 9.85,
+              "end": 10.11,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " coils",
+              "start": 10.11,
+              "end": 10.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 10.35,
+              "end": 10.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rigging.",
+              "start": 10.65,
+              "end": 10.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Going",
+              "start": 11.53,
+              "end": 11.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " forward",
+              "start": 11.75,
+              "end": 12.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 12.01,
+              "end": 12.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 12.19,
+              "end": 12.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " forecastle,",
+              "start": 12.31,
+              "end": 12.73,
+              "probability": 0.2947578430175781
+            },
+            {
+              "text": " we",
+              "start": 12.87,
+              "end": 12.99,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " found",
+              "start": 12.99,
+              "end": 13.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 13.21,
+              "end": 13.39,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " slide",
+              "start": 13.39,
+              "end": 13.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 13.67,
+              "end": 13.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 13.81,
+              "end": 13.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " scuttle",
+              "start": 13.93,
+              "end": 14.19,
+              "probability": 0.9879557291666666
+            },
+            {
+              "text": " open.",
+              "start": 14.19,
+              "end": 14.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Seeing",
+              "start": 15.11,
+              "end": 15.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 15.29,
+              "end": 15.45,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " light,",
+              "start": 15.45,
+              "end": 15.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 15.79,
+              "end": 15.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " went",
+              "start": 15.81,
+              "end": 15.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down,",
+              "start": 15.97,
+              "end": 16.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 16.37,
+              "end": 16.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " found",
+              "start": 16.47,
+              "end": 16.67,
+              "probability": 0.98828125
+            },
+            {
+              "text": " only",
+              "start": 16.67,
+              "end": 16.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " an",
+              "start": 16.99,
+              "end": 17.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " old",
+              "start": 17.13,
+              "end": 17.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rigger",
+              "start": 17.37,
+              "end": 17.69,
+              "probability": 0.873046875
+            },
+            {
+              "text": " there,",
+              "start": 17.69,
+              "end": 17.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " wrapped",
+              "start": 18.21,
+              "end": 18.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 18.43,
+              "end": 18.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 18.61,
+              "end": 18.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tattered",
+              "start": 18.73,
+              "end": 19.03,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " pea",
+              "start": 19.03,
+              "end": 19.33,
+              "probability": 0.837890625
+            },
+            {
+              "text": "-jacket.",
+              "start": 19.33,
+              "end": 19.63,
+              "probability": 0.6653849283854166
+            },
+            {
+              "text": " He",
+              "start": 20.23,
+              "end": 20.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 20.41,
+              "end": 20.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " thrown",
+              "start": 20.53,
+              "end": 20.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 20.79,
+              "end": 20.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " whole",
+              "start": 20.95,
+              "end": 21.17,
+              "probability": 0.912109375
+            },
+            {
+              "text": " length",
+              "start": 21.17,
+              "end": 21.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " upon",
+              "start": 21.43,
+              "end": 21.69,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " two",
+              "start": 21.69,
+              "end": 21.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " chests,",
+              "start": 21.95,
+              "end": 22.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " his",
+              "start": 22.69,
+              "end": 22.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " face",
+              "start": 22.85,
+              "end": 23.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " downwards",
+              "start": 23.09,
+              "end": 23.63,
+              "probability": 0.97265625
+            },
+            {
+              "text": " and",
+              "start": 23.63,
+              "end": 23.91,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " inclosed",
+              "start": 23.91,
+              "end": 24.39,
+              "probability": 0.47533249855041504
+            },
+            {
+              "text": " in",
+              "start": 24.39,
+              "end": 24.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 24.53,
+              "end": 24.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " folded",
+              "start": 24.67,
+              "end": 24.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " arms.",
+              "start": 24.95,
+              "end": 25.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " The",
+              "start": 25.95,
+              "end": 26.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " profoundest",
+              "start": 26.11,
+              "end": 26.67,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " slumber",
+              "start": 26.67,
+              "end": 27.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " slept",
+              "start": 27.11,
+              "end": 27.39,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " upon",
+              "start": 27.39,
+              "end": 27.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him.",
+              "start": 27.73,
+              "end": 27.97,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "last,",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "stepping",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "raw": "on",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "board",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "Pequod,",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "raw": "we",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "raw": "found",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "raw": "everything",
+          "start": 3.05,
+          "end": 3.43
+        },
+        {
+          "raw": "in",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "raw": "profound",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "raw": "quiet,",
+          "start": 3.95,
+          "end": 4.51
+        },
+        {
+          "raw": "not",
+          "start": 4.83,
+          "end": 4.93
+        },
+        {
+          "raw": "a",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "raw": "soul",
+          "start": 5.07,
+          "end": 5.29
+        },
+        {
+          "raw": "moving.",
+          "start": 5.29,
+          "end": 5.63
+        },
+        {
+          "raw": "The",
+          "start": 6.27,
+          "end": 6.51
+        },
+        {
+          "raw": "cabin",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "raw": "entrance",
+          "start": 6.77,
+          "end": 7.11
+        },
+        {
+          "raw": "was",
+          "start": 7.11,
+          "end": 7.35
+        },
+        {
+          "raw": "locked",
+          "start": 7.35,
+          "end": 7.59
+        },
+        {
+          "raw": "within.",
+          "start": 7.59,
+          "end": 7.93
+        },
+        {
+          "raw": "The",
+          "start": 8.39,
+          "end": 8.49
+        },
+        {
+          "raw": "hatches",
+          "start": 8.49,
+          "end": 8.81
+        },
+        {
+          "raw": "were",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "raw": "all",
+          "start": 8.95,
+          "end": 9.11
+        },
+        {
+          "raw": "on,",
+          "start": 9.11,
+          "end": 9.37
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.59
+        },
+        {
+          "raw": "lumbered",
+          "start": 9.59,
+          "end": 9.85
+        },
+        {
+          "raw": "with",
+          "start": 9.85,
+          "end": 10.11
+        },
+        {
+          "raw": "coils",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "raw": "of",
+          "start": 10.35,
+          "end": 10.65
+        },
+        {
+          "raw": "rigging.",
+          "start": 10.65,
+          "end": 10.83
+        },
+        {
+          "raw": "Going",
+          "start": 11.53,
+          "end": 11.75
+        },
+        {
+          "raw": "forward",
+          "start": 11.75,
+          "end": 12.01
+        },
+        {
+          "raw": "to",
+          "start": 12.01,
+          "end": 12.19
+        },
+        {
+          "raw": "the",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "raw": "forecastle,",
+          "start": 12.31,
+          "end": 12.73
+        },
+        {
+          "raw": "we",
+          "start": 12.87,
+          "end": 12.99
+        },
+        {
+          "raw": "found",
+          "start": 12.99,
+          "end": 13.21
+        },
+        {
+          "raw": "the",
+          "start": 13.21,
+          "end": 13.39
+        },
+        {
+          "raw": "slide",
+          "start": 13.39,
+          "end": 13.67
+        },
+        {
+          "raw": "of",
+          "start": 13.67,
+          "end": 13.81
+        },
+        {
+          "raw": "the",
+          "start": 13.81,
+          "end": 13.93
+        },
+        {
+          "raw": "scuttle",
+          "start": 13.93,
+          "end": 14.19
+        },
+        {
+          "raw": "open.",
+          "start": 14.19,
+          "end": 14.51
+        },
+        {
+          "raw": "Seeing",
+          "start": 15.11,
+          "end": 15.29
+        },
+        {
+          "raw": "a",
+          "start": 15.29,
+          "end": 15.45
+        },
+        {
+          "raw": "light,",
+          "start": 15.45,
+          "end": 15.63
+        },
+        {
+          "raw": "we",
+          "start": 15.79,
+          "end": 15.81
+        },
+        {
+          "raw": "went",
+          "start": 15.81,
+          "end": 15.97
+        },
+        {
+          "raw": "down,",
+          "start": 15.97,
+          "end": 16.23
+        },
+        {
+          "raw": "and",
+          "start": 16.37,
+          "end": 16.47
+        },
+        {
+          "raw": "found",
+          "start": 16.47,
+          "end": 16.67
+        },
+        {
+          "raw": "only",
+          "start": 16.67,
+          "end": 16.99
+        },
+        {
+          "raw": "an",
+          "start": 16.99,
+          "end": 17.13
+        },
+        {
+          "raw": "old",
+          "start": 17.13,
+          "end": 17.37
+        },
+        {
+          "raw": "rigger",
+          "start": 17.37,
+          "end": 17.69
+        },
+        {
+          "raw": "there,",
+          "start": 17.69,
+          "end": 17.93
+        },
+        {
+          "raw": "wrapped",
+          "start": 18.21,
+          "end": 18.43
+        },
+        {
+          "raw": "in",
+          "start": 18.43,
+          "end": 18.61
+        },
+        {
+          "raw": "a",
+          "start": 18.61,
+          "end": 18.73
+        },
+        {
+          "raw": "tattered",
+          "start": 18.73,
+          "end": 19.03
+        },
+        {
+          "raw": "pea",
+          "start": 19.03,
+          "end": 19.33
+        },
+        {
+          "raw": "-jacket.",
+          "start": 19.33,
+          "end": 19.63
+        },
+        {
+          "raw": "He",
+          "start": 20.23,
+          "end": 20.41
+        },
+        {
+          "raw": "was",
+          "start": 20.41,
+          "end": 20.53
+        },
+        {
+          "raw": "thrown",
+          "start": 20.53,
+          "end": 20.79
+        },
+        {
+          "raw": "at",
+          "start": 20.79,
+          "end": 20.95
+        },
+        {
+          "raw": "whole",
+          "start": 20.95,
+          "end": 21.17
+        },
+        {
+          "raw": "length",
+          "start": 21.17,
+          "end": 21.43
+        },
+        {
+          "raw": "upon",
+          "start": 21.43,
+          "end": 21.69
+        },
+        {
+          "raw": "two",
+          "start": 21.69,
+          "end": 21.95
+        },
+        {
+          "raw": "chests,",
+          "start": 21.95,
+          "end": 22.31
+        },
+        {
+          "raw": "his",
+          "start": 22.69,
+          "end": 22.85
+        },
+        {
+          "raw": "face",
+          "start": 22.85,
+          "end": 23.09
+        },
+        {
+          "raw": "downwards",
+          "start": 23.09,
+          "end": 23.63
+        },
+        {
+          "raw": "and",
+          "start": 23.63,
+          "end": 23.91
+        },
+        {
+          "raw": "inclosed",
+          "start": 23.91,
+          "end": 24.39
+        },
+        {
+          "raw": "in",
+          "start": 24.39,
+          "end": 24.53
+        },
+        {
+          "raw": "his",
+          "start": 24.53,
+          "end": 24.67
+        },
+        {
+          "raw": "folded",
+          "start": 24.67,
+          "end": 24.95
+        },
+        {
+          "raw": "arms.",
+          "start": 24.95,
+          "end": 25.31
+        },
+        {
+          "raw": "The",
+          "start": 25.95,
+          "end": 26.11
+        },
+        {
+          "raw": "profoundest",
+          "start": 26.11,
+          "end": 26.67
+        },
+        {
+          "raw": "slumber",
+          "start": 26.67,
+          "end": 27.11
+        },
+        {
+          "raw": "slept",
+          "start": 27.11,
+          "end": 27.39
+        },
+        {
+          "raw": "upon",
+          "start": 27.39,
+          "end": 27.73
+        },
+        {
+          "raw": "him.",
+          "start": 27.73,
+          "end": 27.97
+        }
+      ],
+      "expected_tokens": [
+        "At",
+        "last,",
+        "stepping",
+        "on",
+        "board",
+        "the",
+        "Pequod,",
+        "we",
+        "found",
+        "everything",
+        "in",
+        "profound",
+        "quiet,",
+        "not",
+        "a",
+        "soul",
+        "moving.",
+        "The",
+        "cabin",
+        "entrance",
+        "was",
+        "locked",
+        "within;",
+        "the",
+        "hatches",
+        "were",
+        "all",
+        "on,",
+        "and",
+        "lumbered",
+        "with",
+        "coils",
+        "of",
+        "rigging.",
+        "Going",
+        "forward",
+        "to",
+        "the",
+        "forecastle,",
+        "we",
+        "found",
+        "the",
+        "slide",
+        "of",
+        "the",
+        "scuttle",
+        "open.",
+        "Seeing",
+        "a",
+        "light,",
+        "we",
+        "went",
+        "down,",
+        "and",
+        "found",
+        "only",
+        "an",
+        "old",
+        "rigger",
+        "there,",
+        "wrapped",
+        "in",
+        "a",
+        "tattered",
+        "pea-jacket.",
+        "He",
+        "was",
+        "thrown",
+        "at",
+        "whole",
+        "length",
+        "upon",
+        "two",
+        "chests,",
+        "his",
+        "face",
+        "downwards",
+        "and",
+        "inclosed",
+        "in",
+        "his",
+        "folded",
+        "arms.",
+        "The",
+        "profoundest",
+        "slumber",
+        "slept",
+        "upon",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          89,
+          0,
+          89
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 88
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "last,",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "last",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stepping",
+          "start": 1.11,
+          "end": 1.39,
+          "key": "stepping",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "board",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "board",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Pequod,",
+          "start": 1.95,
+          "end": 2.35,
+          "key": "pequod",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.69,
+          "end": 2.83,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 2.83,
+          "end": 3.05,
+          "key": "found",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "everything",
+          "start": 3.05,
+          "end": 3.43,
+          "key": "everything",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.43,
+          "end": 3.61,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "profound",
+          "start": 3.61,
+          "end": 3.95,
+          "key": "profound",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "quiet,",
+          "start": 3.95,
+          "end": 4.51,
+          "key": "quiet",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.83,
+          "end": 4.93,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.93,
+          "end": 5.07,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 5.07,
+          "end": 5.29,
+          "key": "soul",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "moving.",
+          "start": 5.29,
+          "end": 5.63,
+          "key": "moving",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 6.27,
+          "end": 6.51,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "cabin",
+          "start": 6.51,
+          "end": 6.77,
+          "key": "cabin",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "entrance",
+          "start": 6.77,
+          "end": 7.11,
+          "key": "entrance",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 7.11,
+          "end": 7.35,
+          "key": "was",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "locked",
+          "start": 7.35,
+          "end": 7.59,
+          "key": "locked",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 7.59,
+          "end": 7.93,
+          "key": "within",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 8.39,
+          "end": 8.49,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "hatches",
+          "start": 8.49,
+          "end": 8.81,
+          "key": "hatches",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 8.81,
+          "end": 8.95,
+          "key": "were",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.95,
+          "end": 9.11,
+          "key": "all",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 9.11,
+          "end": 9.37,
+          "key": "on",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.49,
+          "end": 9.59,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "lumbered",
+          "start": 9.59,
+          "end": 9.85,
+          "key": "lumbered",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.85,
+          "end": 10.11,
+          "key": "with",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "coils",
+          "start": 10.11,
+          "end": 10.35,
+          "key": "coils",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 10.35,
+          "end": 10.65,
+          "key": "of",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "rigging.",
+          "start": 10.65,
+          "end": 10.83,
+          "key": "rigging",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Going",
+          "start": 11.53,
+          "end": 11.75,
+          "key": "going",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 11.75,
+          "end": 12.01,
+          "key": "forward",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.01,
+          "end": 12.19,
+          "key": "to",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.19,
+          "end": 12.31,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "forecastle,",
+          "start": 12.31,
+          "end": 12.73,
+          "key": "forecastle",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 12.87,
+          "end": 12.99,
+          "key": "we",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 12.99,
+          "end": 13.21,
+          "key": "found",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.21,
+          "end": 13.39,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "slide",
+          "start": 13.39,
+          "end": 13.67,
+          "key": "slide",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.67,
+          "end": 13.81,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.81,
+          "end": 13.93,
+          "key": "the",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "scuttle",
+          "start": 13.93,
+          "end": 14.19,
+          "key": "scuttle",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "open.",
+          "start": 14.19,
+          "end": 14.51,
+          "key": "open",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Seeing",
+          "start": 15.11,
+          "end": 15.29,
+          "key": "seeing",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 15.29,
+          "end": 15.45,
+          "key": "a",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "light,",
+          "start": 15.45,
+          "end": 15.63,
+          "key": "light",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 15.79,
+          "end": 15.81,
+          "key": "we",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 15.81,
+          "end": 15.97,
+          "key": "went",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 15.97,
+          "end": 16.23,
+          "key": "down",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 16.37,
+          "end": 16.47,
+          "key": "and",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 16.47,
+          "end": 16.67,
+          "key": "found",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 16.67,
+          "end": 16.99,
+          "key": "only",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 16.99,
+          "end": 17.13,
+          "key": "an",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 17.13,
+          "end": 17.37,
+          "key": "old",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "rigger",
+          "start": 17.37,
+          "end": 17.69,
+          "key": "rigger",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "there,",
+          "start": 17.69,
+          "end": 17.93,
+          "key": "there",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "wrapped",
+          "start": 18.21,
+          "end": 18.43,
+          "key": "wrapped",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 18.43,
+          "end": 18.61,
+          "key": "in",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 18.61,
+          "end": 18.73,
+          "key": "a",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "tattered",
+          "start": 18.73,
+          "end": 19.03,
+          "key": "tattered",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "pea -jacket.",
+          "start": 19.03,
+          "end": 19.63,
+          "key": "peajacket",
+          "pieces": [
+            64,
+            65
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 20.23,
+          "end": 20.41,
+          "key": "he",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 20.41,
+          "end": 20.53,
+          "key": "was",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "thrown",
+          "start": 20.53,
+          "end": 20.79,
+          "key": "thrown",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 20.79,
+          "end": 20.95,
+          "key": "at",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "whole",
+          "start": 20.95,
+          "end": 21.17,
+          "key": "whole",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "length",
+          "start": 21.17,
+          "end": 21.43,
+          "key": "length",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 21.43,
+          "end": 21.69,
+          "key": "upon",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 21.69,
+          "end": 21.95,
+          "key": "two",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "chests,",
+          "start": 21.95,
+          "end": 22.31,
+          "key": "chests",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 22.69,
+          "end": 22.85,
+          "key": "his",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 22.85,
+          "end": 23.09,
+          "key": "face",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "downwards",
+          "start": 23.09,
+          "end": 23.63,
+          "key": "downwards",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 23.63,
+          "end": 23.91,
+          "key": "and",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "inclosed",
+          "start": 23.91,
+          "end": 24.39,
+          "key": "inclosed",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 24.39,
+          "end": 24.53,
+          "key": "in",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 24.53,
+          "end": 24.67,
+          "key": "his",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "folded",
+          "start": 24.67,
+          "end": 24.95,
+          "key": "folded",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "arms.",
+          "start": 24.95,
+          "end": 25.31,
+          "key": "arms",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 25.95,
+          "end": 26.11,
+          "key": "the",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "profoundest",
+          "start": 26.11,
+          "end": 26.67,
+          "key": "profoundest",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "slumber",
+          "start": 26.67,
+          "end": 27.11,
+          "key": "slumber",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "slept",
+          "start": 27.11,
+          "end": 27.39,
+          "key": "slept",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 27.39,
+          "end": 27.73,
+          "key": "upon",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 27.73,
+          "end": 27.97,
+          "key": "him",
+          "pieces": [
+            89
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 64,
+          "text": "pea-jacket.",
+          "heard": "pea -jacket.",
+          "heard_indexes": [
+            64,
+            65
+          ],
+          "start": 19.03,
+          "end": 19.63
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "At",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "last,",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "text": "stepping",
+          "start": 1.11,
+          "end": 1.39
+        },
+        {
+          "text": "on",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "board",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "the",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "Pequod,",
+          "start": 1.95,
+          "end": 2.35
+        },
+        {
+          "text": "we",
+          "start": 2.69,
+          "end": 2.83
+        },
+        {
+          "text": "found",
+          "start": 2.83,
+          "end": 3.05
+        },
+        {
+          "text": "everything",
+          "start": 3.05,
+          "end": 3.43
+        },
+        {
+          "text": "in",
+          "start": 3.43,
+          "end": 3.61
+        },
+        {
+          "text": "profound",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "text": "quiet,",
+          "start": 3.95,
+          "end": 4.51
+        },
+        {
+          "text": "not",
+          "start": 4.83,
+          "end": 4.93
+        },
+        {
+          "text": "a",
+          "start": 4.93,
+          "end": 5.07
+        },
+        {
+          "text": "soul",
+          "start": 5.07,
+          "end": 5.29
+        },
+        {
+          "text": "moving.",
+          "start": 5.29,
+          "end": 5.63
+        },
+        {
+          "text": "The",
+          "start": 6.27,
+          "end": 6.51
+        },
+        {
+          "text": "cabin",
+          "start": 6.51,
+          "end": 6.77
+        },
+        {
+          "text": "entrance",
+          "start": 6.77,
+          "end": 7.11
+        },
+        {
+          "text": "was",
+          "start": 7.11,
+          "end": 7.35
+        },
+        {
+          "text": "locked",
+          "start": 7.35,
+          "end": 7.59
+        },
+        {
+          "text": "within;",
+          "start": 7.59,
+          "end": 7.93
+        },
+        {
+          "text": "the",
+          "start": 8.39,
+          "end": 8.49
+        },
+        {
+          "text": "hatches",
+          "start": 8.49,
+          "end": 8.81
+        },
+        {
+          "text": "were",
+          "start": 8.81,
+          "end": 8.95
+        },
+        {
+          "text": "all",
+          "start": 8.95,
+          "end": 9.11
+        },
+        {
+          "text": "on,",
+          "start": 9.11,
+          "end": 9.37
+        },
+        {
+          "text": "and",
+          "start": 9.49,
+          "end": 9.59
+        },
+        {
+          "text": "lumbered",
+          "start": 9.59,
+          "end": 9.85
+        },
+        {
+          "text": "with",
+          "start": 9.85,
+          "end": 10.11
+        },
+        {
+          "text": "coils",
+          "start": 10.11,
+          "end": 10.35
+        },
+        {
+          "text": "of",
+          "start": 10.35,
+          "end": 10.65
+        },
+        {
+          "text": "rigging.",
+          "start": 10.65,
+          "end": 10.83
+        },
+        {
+          "text": "Going",
+          "start": 11.53,
+          "end": 11.75
+        },
+        {
+          "text": "forward",
+          "start": 11.75,
+          "end": 12.01
+        },
+        {
+          "text": "to",
+          "start": 12.01,
+          "end": 12.19
+        },
+        {
+          "text": "the",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "text": "forecastle,",
+          "start": 12.31,
+          "end": 12.73
+        },
+        {
+          "text": "we",
+          "start": 12.87,
+          "end": 12.99
+        },
+        {
+          "text": "found",
+          "start": 12.99,
+          "end": 13.21
+        },
+        {
+          "text": "the",
+          "start": 13.21,
+          "end": 13.39
+        },
+        {
+          "text": "slide",
+          "start": 13.39,
+          "end": 13.67
+        },
+        {
+          "text": "of",
+          "start": 13.67,
+          "end": 13.81
+        },
+        {
+          "text": "the",
+          "start": 13.81,
+          "end": 13.93
+        },
+        {
+          "text": "scuttle",
+          "start": 13.93,
+          "end": 14.19
+        },
+        {
+          "text": "open.",
+          "start": 14.19,
+          "end": 14.51
+        },
+        {
+          "text": "Seeing",
+          "start": 15.11,
+          "end": 15.29
+        },
+        {
+          "text": "a",
+          "start": 15.29,
+          "end": 15.45
+        },
+        {
+          "text": "light,",
+          "start": 15.45,
+          "end": 15.63
+        },
+        {
+          "text": "we",
+          "start": 15.79,
+          "end": 15.81
+        },
+        {
+          "text": "went",
+          "start": 15.81,
+          "end": 15.97
+        },
+        {
+          "text": "down,",
+          "start": 15.97,
+          "end": 16.23
+        },
+        {
+          "text": "and",
+          "start": 16.37,
+          "end": 16.47
+        },
+        {
+          "text": "found",
+          "start": 16.47,
+          "end": 16.67
+        },
+        {
+          "text": "only",
+          "start": 16.67,
+          "end": 16.99
+        },
+        {
+          "text": "an",
+          "start": 16.99,
+          "end": 17.13
+        },
+        {
+          "text": "old",
+          "start": 17.13,
+          "end": 17.37
+        },
+        {
+          "text": "rigger",
+          "start": 17.37,
+          "end": 17.69
+        },
+        {
+          "text": "there,",
+          "start": 17.69,
+          "end": 17.93
+        },
+        {
+          "text": "wrapped",
+          "start": 18.21,
+          "end": 18.43
+        },
+        {
+          "text": "in",
+          "start": 18.43,
+          "end": 18.61
+        },
+        {
+          "text": "a",
+          "start": 18.61,
+          "end": 18.73
+        },
+        {
+          "text": "tattered",
+          "start": 18.73,
+          "end": 19.03
+        },
+        {
+          "text": "pea-jacket.",
+          "start": 19.03,
+          "end": 19.63
+        },
+        {
+          "text": "He",
+          "start": 20.23,
+          "end": 20.41
+        },
+        {
+          "text": "was",
+          "start": 20.41,
+          "end": 20.53
+        },
+        {
+          "text": "thrown",
+          "start": 20.53,
+          "end": 20.79
+        },
+        {
+          "text": "at",
+          "start": 20.79,
+          "end": 20.95
+        },
+        {
+          "text": "whole",
+          "start": 20.95,
+          "end": 21.17
+        },
+        {
+          "text": "length",
+          "start": 21.17,
+          "end": 21.43
+        },
+        {
+          "text": "upon",
+          "start": 21.43,
+          "end": 21.69
+        },
+        {
+          "text": "two",
+          "start": 21.69,
+          "end": 21.95
+        },
+        {
+          "text": "chests,",
+          "start": 21.95,
+          "end": 22.31
+        },
+        {
+          "text": "his",
+          "start": 22.69,
+          "end": 22.85
+        },
+        {
+          "text": "face",
+          "start": 22.85,
+          "end": 23.09
+        },
+        {
+          "text": "downwards",
+          "start": 23.09,
+          "end": 23.63
+        },
+        {
+          "text": "and",
+          "start": 23.63,
+          "end": 23.91
+        },
+        {
+          "text": "inclosed",
+          "start": 23.91,
+          "end": 24.39
+        },
+        {
+          "text": "in",
+          "start": 24.39,
+          "end": 24.53
+        },
+        {
+          "text": "his",
+          "start": 24.53,
+          "end": 24.67
+        },
+        {
+          "text": "folded",
+          "start": 24.67,
+          "end": 24.95
+        },
+        {
+          "text": "arms.",
+          "start": 24.95,
+          "end": 25.31
+        },
+        {
+          "text": "The",
+          "start": 25.95,
+          "end": 26.11
+        },
+        {
+          "text": "profoundest",
+          "start": 26.11,
+          "end": 26.67
+        },
+        {
+          "text": "slumber",
+          "start": 26.67,
+          "end": 27.11
+        },
+        {
+          "text": "slept",
+          "start": 27.11,
+          "end": 27.39
+        },
+        {
+          "text": "upon",
+          "start": 27.39,
+          "end": 27.73
+        },
+        {
+          "text": "him.",
+          "start": 27.73,
+          "end": 27.97
+        }
+      ],
+      "stats": {
+        "expected_words": 89,
+        "heard_words": 89,
+        "matched_words": 89
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.8289220039732754
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "873214616b04ef7969e3611be8b3bc7cfe74f1a3df97118b62503adcc77bcaa3",
+  "selected_reasons": []
+}

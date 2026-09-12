@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4dc30f9adfe27e46c49900da5c969fe340fb6888216a6398628067cba58e0528",
+  "attempts": [
+    {
+      "asr_seconds": 0.17694634757936,
+      "alignment_seconds": 0.00019664783030748367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Hark thee, Dardanius.",
+        "hotwords": "Brutus, Hark, Dardanius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus. Hark thee, Dardanius.",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " Brutus.",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Hark",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " thee,",
+              "start": 1.42,
+              "end": 1.62,
+              "probability": 0.39013671875
+            },
+            {
+              "text": " Dardanius.",
+              "start": 1.72,
+              "end": 2.3,
+              "probability": 0.7647705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Hark",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "thee,",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "raw": "Dardanius.",
+          "start": 1.72,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Hark",
+        "thee,",
+        "Dardanius."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus.",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "hark",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.42,
+          "end": 1.62,
+          "key": "thee",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Dardanius.",
+          "start": 1.72,
+          "end": 2.3,
+          "key": "dardanius",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "Hark",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "thee,",
+          "start": 1.42,
+          "end": 1.62
+        },
+        {
+          "text": "Dardanius.",
+          "start": 1.72,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17721193935722113
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f14712ec212ed6aa193fc367769700a8c19c6d55b5432ce098a54a83ca44e966",
+  "selected_reasons": []
+}

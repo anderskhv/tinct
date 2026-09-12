@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "20208f48273a783250eede14d1edbc97ae98e9a39718ece164b787035981b6b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.12750139087438583,
+      "alignment_seconds": 0.00029921531677246094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_The clock striketh._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The clock striketh.",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " clock",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.9375
+            },
+            {
+              "text": " striketh.",
+              "start": 0.72,
+              "end": 1.32,
+              "probability": 0.79150390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "clock",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "striketh.",
+          "start": 0.72,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "[_The",
+        "clock",
+        "striketh._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "clock",
+          "start": 0.48,
+          "end": 0.72,
+          "key": "clock",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "striketh.",
+          "start": 0.72,
+          "end": 1.32,
+          "key": "striketh",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "clock",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "striketh._]",
+          "start": 0.72,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1279081590473652
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9224ced949a10c798734bbfcd900a1401fd6b00a0058fd45f56b65d38652c769",
+  "selected_reasons": []
+}

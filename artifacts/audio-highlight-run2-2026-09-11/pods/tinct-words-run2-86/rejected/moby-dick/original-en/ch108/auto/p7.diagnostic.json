@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "de655daea6356c768da3cba9770e53573378e36e8effbaef644975c8288073f8",
+  "attempts": [
+    {
+      "asr_seconds": 0.18009686097502708,
+      "alignment_seconds": 0.00031265243887901306,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oh, sir, it will break bones—beware, beware!",
+        "hotwords": "Oh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, sir, it will break bones—beware, beware!",
+          "start": 0.08,
+          "end": 2.56,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.55322265625
+            },
+            {
+              "text": " sir,",
+              "start": 0.72,
+              "end": 0.76,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " it",
+              "start": 0.98,
+              "end": 1.02,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " will",
+              "start": 1.02,
+              "end": 1.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " break",
+              "start": 1.14,
+              "end": 1.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " bones—beware,",
+              "start": 1.32,
+              "end": 2.32,
+              "probability": 0.6942276954650879
+            },
+            {
+              "text": " beware!",
+              "start": 2.42,
+              "end": 2.56,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "sir,",
+          "start": 0.72,
+          "end": 0.76
+        },
+        {
+          "raw": "it",
+          "start": 0.98,
+          "end": 1.02
+        },
+        {
+          "raw": "will",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "raw": "break",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "raw": "bones—beware,",
+          "start": 1.32,
+          "end": 2.32
+        },
+        {
+          "raw": "beware!",
+          "start": 2.42,
+          "end": 2.56
+        }
+      ],
+      "expected_tokens": [
+        "Oh,",
+        "sir,",
+        "it",
+        "will",
+        "break",
+        "bones—beware,",
+        "beware!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 0.72,
+          "end": 0.76,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.98,
+          "end": 1.02,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.02,
+          "end": 1.14,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "break",
+          "start": 1.14,
+          "end": 1.32,
+          "key": "break",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bones—beware,",
+          "start": 1.32,
+          "end": 2.32,
+          "key": "bonesbeware",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "beware!",
+          "start": 2.42,
+          "end": 2.56,
+          "key": "beware",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oh,",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "sir,",
+          "start": 0.72,
+          "end": 0.76
+        },
+        {
+          "text": "it",
+          "start": 0.98,
+          "end": 1.02
+        },
+        {
+          "text": "will",
+          "start": 1.02,
+          "end": 1.14
+        },
+        {
+          "text": "break",
+          "start": 1.14,
+          "end": 1.32
+        },
+        {
+          "text": "bones—beware,",
+          "start": 1.32,
+          "end": 2.32
+        },
+        {
+          "text": "beware!",
+          "start": 2.42,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1805279552936554
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "24e6743a204ae4c06c173d1f428bcd937d1d4ffc8989baafcefa7cd27e695295",
+  "selected_reasons": []
+}

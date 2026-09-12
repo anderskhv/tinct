@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a7eca290dd3d3addcfa96be9332564aa8cf576a7b0556b4bba23f6db05c4d48f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12211666069924831,
+      "alignment_seconds": 0.0002672262489795685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. Into my grave?",
+        "hotwords": "Hamlet, Into"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Into my grave?",
+          "start": 0.08,
+          "end": 1.7,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.928466796875
+            },
+            {
+              "text": " Into",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.034393310546875
+            },
+            {
+              "text": " my",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.406494140625
+            },
+            {
+              "text": " grave?",
+              "start": 1.42,
+              "end": 1.7,
+              "probability": 0.6435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "Into",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "my",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "grave?",
+          "start": 1.42,
+          "end": 1.7
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Into",
+        "my",
+        "grave?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Into",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "into",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "grave?",
+          "start": 1.42,
+          "end": 1.7,
+          "key": "grave",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Into",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "my",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "grave?",
+          "start": 1.42,
+          "end": 1.7
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12248566001653671
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0cc512f30858fc8a0ee17ab23e02e970bf76170b27106f7855e3acf5dacf0292",
+  "selected_reasons": []
+}

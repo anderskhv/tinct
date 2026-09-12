@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "84c8e66d401010e5bf38dec3ad8551c711384bc8cb945bdf99fb2d502dfd9f3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.28252079151570797,
+      "alignment_seconds": 0.0005417633801698685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Albany. Ask him his purposes, why he appears Upon this call o' the trumpet.",
+        "hotwords": "Albany, Ask, Upon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Albany, Ask him his purposes, why he appears Upon this call o' the trumpet.",
+          "start": 0.08,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Albany,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " Ask",
+              "start": 1.3,
+              "end": 1.58,
+              "probability": 0.0205078125
+            },
+            {
+              "text": " him",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " his",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " purposes,",
+              "start": 1.9,
+              "end": 2.32,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " why",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " he",
+              "start": 2.82,
+              "end": 2.98,
+              "probability": 0.994140625
+            },
+            {
+              "text": " appears",
+              "start": 2.98,
+              "end": 3.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Upon",
+              "start": 3.28,
+              "end": 3.58,
+              "probability": 0.0026607513427734375
+            },
+            {
+              "text": " this",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " call",
+              "start": 3.78,
+              "end": 4.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " o'",
+              "start": 4.06,
+              "end": 4.22,
+              "probability": 0.163330078125
+            },
+            {
+              "text": " the",
+              "start": 4.22,
+              "end": 4.34,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " trumpet.",
+              "start": 4.34,
+              "end": 4.64,
+              "probability": 0.6748046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Albany,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Ask",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "raw": "him",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "his",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "purposes,",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "raw": "why",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "he",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "raw": "appears",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "raw": "Upon",
+          "start": 3.28,
+          "end": 3.58
+        },
+        {
+          "raw": "this",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "call",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "raw": "o'",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "raw": "the",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "raw": "trumpet.",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "Albany.",
+        "Ask",
+        "him",
+        "his",
+        "purposes,",
+        "why",
+        "he",
+        "appears",
+        "Upon",
+        "this",
+        "call",
+        "o'",
+        "the",
+        "trumpet."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Albany,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "albany",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ask",
+          "start": 1.3,
+          "end": 1.58,
+          "key": "ask",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "purposes,",
+          "start": 1.9,
+          "end": 2.32,
+          "key": "purposes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 2.7,
+          "end": 2.82,
+          "key": "why",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.82,
+          "end": 2.98,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "appears",
+          "start": 2.98,
+          "end": 3.28,
+          "key": "appears",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Upon",
+          "start": 3.28,
+          "end": 3.58,
+          "key": "upon",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.58,
+          "end": 3.78,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 3.78,
+          "end": 4.06,
+          "key": "call",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 4.06,
+          "end": 4.22,
+          "key": "o",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.22,
+          "end": 4.34,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "trumpet.",
+          "start": 4.34,
+          "end": 4.64,
+          "key": "trumpet",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Albany.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Ask",
+          "start": 1.3,
+          "end": 1.58
+        },
+        {
+          "text": "him",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "his",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "purposes,",
+          "start": 1.9,
+          "end": 2.32
+        },
+        {
+          "text": "why",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "he",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "appears",
+          "start": 2.98,
+          "end": 3.28
+        },
+        {
+          "text": "Upon",
+          "start": 3.28,
+          "end": 3.58
+        },
+        {
+          "text": "this",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "call",
+          "start": 3.78,
+          "end": 4.06
+        },
+        {
+          "text": "o'",
+          "start": 4.06,
+          "end": 4.22
+        },
+        {
+          "text": "the",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "text": "trumpet.",
+          "start": 4.34,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2832862138748169
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "05e5a8d2d80827967f0fdc40a13905138dcd2a82de2b239b62d800689e43ca45",
+  "selected_reasons": []
+}

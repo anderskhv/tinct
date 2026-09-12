@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "672e4331db92594d3adca8ae672368af6feca8bc2594b95160900e54f0b7e7e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.22942843288183212,
+      "alignment_seconds": 0.0005989037454128265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To the fool you sir more nave than fool after your master",
+          "start": 0.02,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " fool",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.673828125
+            },
+            {
+              "text": " you",
+              "start": 0.94,
+              "end": 1.7,
+              "probability": 0.359619140625
+            },
+            {
+              "text": " sir",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " more",
+              "start": 1.92,
+              "end": 2.18,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " nave",
+              "start": 2.18,
+              "end": 2.52,
+              "probability": 0.7193603515625
+            },
+            {
+              "text": " than",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " fool",
+              "start": 2.66,
+              "end": 2.98,
+              "probability": 0.978515625
+            },
+            {
+              "text": " after",
+              "start": 2.98,
+              "end": 3.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " your",
+              "start": 3.36,
+              "end": 3.52,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " master",
+              "start": 3.52,
+              "end": 3.86,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "fool",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "you",
+          "start": 0.94,
+          "end": 1.7
+        },
+        {
+          "raw": "sir",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "more",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "raw": "nave",
+          "start": 2.18,
+          "end": 2.52
+        },
+        {
+          "raw": "than",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "fool",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "raw": "after",
+          "start": 2.98,
+          "end": 3.36
+        },
+        {
+          "raw": "your",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "raw": "master",
+          "start": 3.52,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "the",
+        "Fool._]",
+        "You,",
+        "sir,",
+        "more",
+        "knave",
+        "than",
+        "fool,",
+        "after",
+        "your",
+        "master."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          12,
+          7,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 0.62,
+          "end": 0.94,
+          "key": "fool",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.94,
+          "end": 1.7,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.92,
+          "end": 2.18,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nave",
+          "start": 2.18,
+          "end": 2.52,
+          "key": "nave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "than",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fool",
+          "start": 2.66,
+          "end": 2.98,
+          "key": "fool",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 2.98,
+          "end": 3.36,
+          "key": "after",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.36,
+          "end": 3.52,
+          "key": "your",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 3.52,
+          "end": 3.86,
+          "key": "master",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "Fool._]",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "text": "You,",
+          "start": 0.94,
+          "end": 1.7
+        },
+        {
+          "text": "sir,",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "more",
+          "start": 1.92,
+          "end": 2.18
+        },
+        {
+          "text": "knave",
+          "start": 2.18,
+          "end": 2.35
+        },
+        {
+          "text": "than",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "fool,",
+          "start": 2.66,
+          "end": 2.98
+        },
+        {
+          "text": "after",
+          "start": 2.98,
+          "end": 3.36
+        },
+        {
+          "text": "your",
+          "start": 3.36,
+          "end": 3.52
+        },
+        {
+          "text": "master.",
+          "start": 3.52,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2302512712776661
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd41d62f512a79831bd2d20f2c4fa5683e010a71896550a2474701f378ccb0e9",
+  "selected_reasons": []
+}

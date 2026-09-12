@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "cd0468a3eda9342933f7aba0987d0d06f3801f7ee2a5f6c6c2d7f3cfbcaf11e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.4267264474183321,
+      "alignment_seconds": 0.0006372947245836258,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Sicily! your Excellency,\" faltered the captain, \"but you've seen\"—he spread out his hands, indicating his surroundings—\"mamma and my family?\"",
+        "hotwords": "Sicily, Excellency"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicily, your Excellency,\" faltered the captain, \"'but you've seen\"—he spread out his hands, indicating his surroundings—\"mamma and my family?\"",
+          "start": 0.08,
+          "end": 9.74,
+          "words": [
+            {
+              "text": " Sicily,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.0056304931640625
+            },
+            {
+              "text": " your",
+              "start": 1.2,
+              "end": 1.26,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " Excellency,\"",
+              "start": 1.26,
+              "end": 2.38,
+              "probability": 0.6597900390625
+            },
+            {
+              "text": " faltered",
+              "start": 2.38,
+              "end": 2.58,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " the",
+              "start": 2.58,
+              "end": 2.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " captain,",
+              "start": 2.7,
+              "end": 2.98,
+              "probability": 0.59326171875
+            },
+            {
+              "text": " \"'but",
+              "start": 3.46,
+              "end": 3.68,
+              "probability": 0.1136617660522461
+            },
+            {
+              "text": " you've",
+              "start": 3.68,
+              "end": 3.94,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " seen\"—he",
+              "start": 3.94,
+              "end": 4.96,
+              "probability": 0.5674597422281901
+            },
+            {
+              "text": " spread",
+              "start": 4.96,
+              "end": 5.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " out",
+              "start": 5.22,
+              "end": 5.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 5.38,
+              "end": 5.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hands,",
+              "start": 5.54,
+              "end": 5.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " indicating",
+              "start": 6.16,
+              "end": 6.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " his",
+              "start": 6.42,
+              "end": 6.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " surroundings—\"mamma",
+              "start": 6.78,
+              "end": 8.46,
+              "probability": 0.58349609375
+            },
+            {
+              "text": " and",
+              "start": 8.46,
+              "end": 8.6,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " my",
+              "start": 8.6,
+              "end": 8.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " family?\"",
+              "start": 8.76,
+              "end": 9.74,
+              "probability": 0.4980344772338867
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicily,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "your",
+          "start": 1.2,
+          "end": 1.26
+        },
+        {
+          "raw": "Excellency,\"",
+          "start": 1.26,
+          "end": 2.38
+        },
+        {
+          "raw": "faltered",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "raw": "captain,",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "raw": "\"'but",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "raw": "you've",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "raw": "seen\"—he",
+          "start": 3.94,
+          "end": 4.96
+        },
+        {
+          "raw": "spread",
+          "start": 4.96,
+          "end": 5.22
+        },
+        {
+          "raw": "out",
+          "start": 5.22,
+          "end": 5.38
+        },
+        {
+          "raw": "his",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "raw": "hands,",
+          "start": 5.54,
+          "end": 5.98
+        },
+        {
+          "raw": "indicating",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "raw": "his",
+          "start": 6.42,
+          "end": 6.78
+        },
+        {
+          "raw": "surroundings—\"mamma",
+          "start": 6.78,
+          "end": 8.46
+        },
+        {
+          "raw": "and",
+          "start": 8.46,
+          "end": 8.6
+        },
+        {
+          "raw": "my",
+          "start": 8.6,
+          "end": 8.76
+        },
+        {
+          "raw": "family?\"",
+          "start": 8.76,
+          "end": 9.74
+        }
+      ],
+      "expected_tokens": [
+        "\"Sicily!",
+        "your",
+        "Excellency,\"",
+        "faltered",
+        "the",
+        "captain,",
+        "\"but",
+        "you've",
+        "seen\"—he",
+        "spread",
+        "out",
+        "his",
+        "hands,",
+        "indicating",
+        "his",
+        "surroundings—\"mamma",
+        "and",
+        "my",
+        "family?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicily,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "sicily",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.2,
+          "end": 1.26,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Excellency,\"",
+          "start": 1.26,
+          "end": 2.38,
+          "key": "excellency",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "faltered",
+          "start": 2.38,
+          "end": 2.58,
+          "key": "faltered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.58,
+          "end": 2.7,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "captain,",
+          "start": 2.7,
+          "end": 2.98,
+          "key": "captain",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "\"'but",
+          "start": 3.46,
+          "end": 3.68,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you've",
+          "start": 3.68,
+          "end": 3.94,
+          "key": "youve",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "seen\"—he",
+          "start": 3.94,
+          "end": 4.96,
+          "key": "seenhe",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "spread",
+          "start": 4.96,
+          "end": 5.22,
+          "key": "spread",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 5.22,
+          "end": 5.38,
+          "key": "out",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.38,
+          "end": 5.54,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hands,",
+          "start": 5.54,
+          "end": 5.98,
+          "key": "hands",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "indicating",
+          "start": 6.16,
+          "end": 6.42,
+          "key": "indicating",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.42,
+          "end": 6.78,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "surroundings—\"mamma",
+          "start": 6.78,
+          "end": 8.46,
+          "key": "surroundingsmamma",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.46,
+          "end": 8.6,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 8.6,
+          "end": 8.76,
+          "key": "my",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "family?\"",
+          "start": 8.76,
+          "end": 9.74,
+          "key": "family",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Sicily!",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "your",
+          "start": 1.2,
+          "end": 1.26
+        },
+        {
+          "text": "Excellency,\"",
+          "start": 1.26,
+          "end": 2.38
+        },
+        {
+          "text": "faltered",
+          "start": 2.38,
+          "end": 2.58
+        },
+        {
+          "text": "the",
+          "start": 2.58,
+          "end": 2.7
+        },
+        {
+          "text": "captain,",
+          "start": 2.7,
+          "end": 2.98
+        },
+        {
+          "text": "\"but",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "text": "you've",
+          "start": 3.68,
+          "end": 3.94
+        },
+        {
+          "text": "seen\"—he",
+          "start": 3.94,
+          "end": 4.96
+        },
+        {
+          "text": "spread",
+          "start": 4.96,
+          "end": 5.22
+        },
+        {
+          "text": "out",
+          "start": 5.22,
+          "end": 5.38
+        },
+        {
+          "text": "his",
+          "start": 5.38,
+          "end": 5.54
+        },
+        {
+          "text": "hands,",
+          "start": 5.54,
+          "end": 5.98
+        },
+        {
+          "text": "indicating",
+          "start": 6.16,
+          "end": 6.42
+        },
+        {
+          "text": "his",
+          "start": 6.42,
+          "end": 6.78
+        },
+        {
+          "text": "surroundings—\"mamma",
+          "start": 6.78,
+          "end": 8.46
+        },
+        {
+          "text": "and",
+          "start": 8.46,
+          "end": 8.6
+        },
+        {
+          "text": "my",
+          "start": 8.6,
+          "end": 8.76
+        },
+        {
+          "text": "family?\"",
+          "start": 8.76,
+          "end": 9.74
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.427639776840806
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "243166b2886c1d0d2692cc0312cc5a7ec4f825be85d05648c3b6990602317d17",
+  "selected_reasons": []
+}

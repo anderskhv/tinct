@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "809e6059cd3f99de614717108ca0f66da17e89b81326c2f31c880c734aa54010",
+  "attempts": [
+    {
+      "asr_seconds": 0.22048031818121672,
+      "alignment_seconds": 0.0004560546949505806,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To your places, gentlemen,\" cried Pan Vrubovski.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.44970703125
+            },
+            {
+              "text": " your",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " places,",
+              "start": 0.59,
+              "end": 0.93,
+              "probability": 0.89501953125
+            },
+            {
+              "text": " gentlemen,\"",
+              "start": 1.29,
+              "end": 2.27,
+              "probability": 0.57073974609375
+            },
+            {
+              "text": " cried",
+              "start": 2.27,
+              "end": 2.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Pan",
+              "start": 2.31,
+              "end": 2.63,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " Vrubovski.",
+              "start": 2.63,
+              "end": 3.23,
+              "probability": 0.502099609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "your",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "places,",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "raw": "gentlemen,\"",
+          "start": 1.29,
+          "end": 2.27
+        },
+        {
+          "raw": "cried",
+          "start": 2.27,
+          "end": 2.31
+        },
+        {
+          "raw": "Pan",
+          "start": 2.31,
+          "end": 2.63
+        },
+        {
+          "raw": "Vrubovski.",
+          "start": 2.63,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "\"To",
+        "your",
+        "places,",
+        "gentlemen,\"",
+        "cried",
+        "Pan",
+        "Vrublevsky."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.49,
+          "end": 0.59,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "places,",
+          "start": 0.59,
+          "end": 0.93,
+          "key": "places",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gentlemen,\"",
+          "start": 1.29,
+          "end": 2.27,
+          "key": "gentlemen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.27,
+          "end": 2.31,
+          "key": "cried",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Pan",
+          "start": 2.31,
+          "end": 2.63,
+          "key": "pan",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Vrubovski.",
+          "start": 2.63,
+          "end": 3.23,
+          "key": "vrubovski",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"To",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "your",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "places,",
+          "start": 0.59,
+          "end": 0.93
+        },
+        {
+          "text": "gentlemen,\"",
+          "start": 1.29,
+          "end": 2.27
+        },
+        {
+          "text": "cried",
+          "start": 2.27,
+          "end": 2.31
+        },
+        {
+          "text": "Pan",
+          "start": 2.31,
+          "end": 2.63
+        },
+        {
+          "text": "Vrublevsky.",
+          "start": 2.63,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.22111366875469685
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "adb0b1787df1c7680e7be8f6ae9899c9f509265d807c805a6ec3daabf556de78",
+  "selected_reasons": []
+}

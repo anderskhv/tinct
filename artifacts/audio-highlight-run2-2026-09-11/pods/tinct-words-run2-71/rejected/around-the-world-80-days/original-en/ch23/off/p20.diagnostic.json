@@ -1,0 +1,910 @@
+{
+  "complete": true,
+  "signature": "99cdf9236b07ba9c989787e1b55da3c50d3ae486bad34ccb9c858ce72e66634d",
+  "attempts": [
+    {
+      "asr_seconds": 0.38511432986706495,
+      "alignment_seconds": 0.0008344268426299095,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ah, said the honorable Mr. Battlecar, you are no more a Japanese than I am a monkey.",
+          "start": 0.08,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.188232421875
+            },
+            {
+              "text": " said",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.986328125
+            },
+            {
+              "text": " honorable",
+              "start": 1.4,
+              "end": 1.8,
+              "probability": 0.65283203125
+            },
+            {
+              "text": " Mr.",
+              "start": 1.8,
+              "end": 2.18,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " Battlecar,",
+              "start": 2.5,
+              "end": 2.82,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " you",
+              "start": 3.38,
+              "end": 3.54,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " are",
+              "start": 3.54,
+              "end": 3.66,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " no",
+              "start": 3.66,
+              "end": 3.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " more",
+              "start": 3.8,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " Japanese",
+              "start": 4.14,
+              "end": 4.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " than",
+              "start": 4.42,
+              "end": 4.82,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 4.82,
+              "end": 4.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " am",
+              "start": 4.98,
+              "end": 5.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " monkey.",
+              "start": 5.22,
+              "end": 5.48,
+              "probability": 0.94091796875
+            }
+          ]
+        },
+        {
+          "text": " Who are you dressed up in that way?",
+          "start": 6.08,
+          "end": 7.44,
+          "words": [
+            {
+              "text": " Who",
+              "start": 6.08,
+              "end": 6.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 6.18,
+              "end": 6.3,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 6.3,
+              "end": 6.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dressed",
+              "start": 6.44,
+              "end": 6.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " up",
+              "start": 6.7,
+              "end": 6.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 6.92,
+              "end": 7.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " way?",
+              "start": 7.18,
+              "end": 7.44,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "said",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "honorable",
+          "start": 1.4,
+          "end": 1.8
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "raw": "Battlecar,",
+          "start": 2.5,
+          "end": 2.82
+        },
+        {
+          "raw": "you",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "raw": "are",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "raw": "no",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "raw": "more",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "raw": "a",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "Japanese",
+          "start": 4.14,
+          "end": 4.42
+        },
+        {
+          "raw": "than",
+          "start": 4.42,
+          "end": 4.82
+        },
+        {
+          "raw": "I",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "raw": "am",
+          "start": 4.98,
+          "end": 5.1
+        },
+        {
+          "raw": "a",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "monkey.",
+          "start": 5.22,
+          "end": 5.48
+        },
+        {
+          "raw": "Who",
+          "start": 6.08,
+          "end": 6.18
+        },
+        {
+          "raw": "are",
+          "start": 6.18,
+          "end": 6.3
+        },
+        {
+          "raw": "you",
+          "start": 6.3,
+          "end": 6.44
+        },
+        {
+          "raw": "dressed",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "raw": "up",
+          "start": 6.7,
+          "end": 6.92
+        },
+        {
+          "raw": "in",
+          "start": 6.92,
+          "end": 7.04
+        },
+        {
+          "raw": "that",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "way?",
+          "start": 7.18,
+          "end": 7.44
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah!\"",
+        "said",
+        "the",
+        "Honourable",
+        "Mr.",
+        "Batulcar.",
+        "\"You",
+        "are",
+        "no",
+        "more",
+        "a",
+        "Japanese",
+        "than",
+        "I",
+        "am",
+        "a",
+        "monkey!",
+        "Who",
+        "are",
+        "you",
+        "dressed",
+        "up",
+        "in",
+        "that",
+        "way?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          25,
+          6,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "honorable",
+          "start": 1.4,
+          "end": 1.8,
+          "key": "honorable",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.8,
+          "end": 2.18,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Battlecar,",
+          "start": 2.5,
+          "end": 2.82,
+          "key": "battlecar",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.38,
+          "end": 3.54,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.54,
+          "end": 3.66,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.66,
+          "end": 3.8,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.8,
+          "end": 4.0,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.0,
+          "end": 4.14,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Japanese",
+          "start": 4.14,
+          "end": 4.42,
+          "key": "japanese",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 4.42,
+          "end": 4.82,
+          "key": "than",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.82,
+          "end": 4.98,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.98,
+          "end": 5.1,
+          "key": "am",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.1,
+          "end": 5.22,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "monkey.",
+          "start": 5.22,
+          "end": 5.48,
+          "key": "monkey",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 6.08,
+          "end": 6.18,
+          "key": "who",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 6.18,
+          "end": 6.3,
+          "key": "are",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.3,
+          "end": 6.44,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "dressed",
+          "start": 6.44,
+          "end": 6.7,
+          "key": "dressed",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 6.7,
+          "end": 6.92,
+          "key": "up",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.92,
+          "end": 7.04,
+          "key": "in",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.04,
+          "end": 7.18,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "way?",
+          "start": 7.18,
+          "end": 7.44,
+          "key": "way",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah!\"",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "said",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "the",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "Honourable",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "Mr.",
+          "start": 1.8,
+          "end": 2.18
+        },
+        {
+          "text": "Batulcar.",
+          "start": 2.18,
+          "end": 2.78
+        },
+        {
+          "text": "\"You",
+          "start": 3.38,
+          "end": 3.54
+        },
+        {
+          "text": "are",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "text": "no",
+          "start": 3.66,
+          "end": 3.8
+        },
+        {
+          "text": "more",
+          "start": 3.8,
+          "end": 4.0
+        },
+        {
+          "text": "a",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "Japanese",
+          "start": 4.14,
+          "end": 4.42
+        },
+        {
+          "text": "than",
+          "start": 4.42,
+          "end": 4.82
+        },
+        {
+          "text": "I",
+          "start": 4.82,
+          "end": 4.98
+        },
+        {
+          "text": "am",
+          "start": 4.98,
+          "end": 5.1
+        },
+        {
+          "text": "a",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "monkey!",
+          "start": 5.22,
+          "end": 5.48
+        },
+        {
+          "text": "Who",
+          "start": 6.08,
+          "end": 6.18
+        },
+        {
+          "text": "are",
+          "start": 6.18,
+          "end": 6.3
+        },
+        {
+          "text": "you",
+          "start": 6.3,
+          "end": 6.44
+        },
+        {
+          "text": "dressed",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "text": "up",
+          "start": 6.7,
+          "end": 6.92
+        },
+        {
+          "text": "in",
+          "start": 6.92,
+          "end": 7.04
+        },
+        {
+          "text": "that",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "text": "way?\"",
+          "start": 7.18,
+          "end": 7.44
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 23
+      },
+      "match_ratio": 0.92,
+      "rejection_reasons": [],
+      "seconds": 0.3862658403813839
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "222a3a4ea227726d5dd80b4c03e13407a0b1e2461cb8a93076abe5d30e02dc8d",
+  "selected_reasons": []
+}

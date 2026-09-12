@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "f5209df0d32c546c31b26a43a1def1a3c347a046e554b7557bbe568d5742a3fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1391894519329071,
+      "alignment_seconds": 0.00027753040194511414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. Sir Topas!",
+        "hotwords": "Malvolio, Sir, Topas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, Sir Topas!",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " Sir",
+              "start": 1.29,
+              "end": 1.33,
+              "probability": 0.1717529296875
+            },
+            {
+              "text": " Topas!",
+              "start": 1.33,
+              "end": 1.83,
+              "probability": 0.40045166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Sir",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "raw": "Topas!",
+          "start": 1.33,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Sir",
+        "Topas!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 1.29,
+          "end": 1.33,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Topas!",
+          "start": 1.33,
+          "end": 1.83,
+          "key": "topas",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Sir",
+          "start": 1.29,
+          "end": 1.33
+        },
+        {
+          "text": "Topas!",
+          "start": 1.33,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13958248496055603
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e760c0e6deddd5f982ade0617e37966ab00da35c580af2440d996a18bc4b3393",
+  "selected_reasons": []
+}

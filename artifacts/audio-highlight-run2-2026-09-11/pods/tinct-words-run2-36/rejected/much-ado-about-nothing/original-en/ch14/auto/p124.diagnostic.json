@@ -1,0 +1,293 @@
+{
+  "complete": true,
+  "signature": "5b7ce00994897c622a1b08c59f4a7172e5b9147c9b3a3a7cc3ee4b4e834d879e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09920719265937805,
+      "alignment_seconds": 8.461996912956238e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leonato.",
+        "hotwords": "Leonato"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leonaz.",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Leonaz.",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.1668243408203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonaz.",
+          "start": 0.02,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "Leonato."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonaz.",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "leonaz",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.48
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09931860864162445
+    },
+    {
+      "asr_seconds": 0.09558996185660362,
+      "alignment_seconds": 8.260458707809448e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Leonato"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Leonath",
+          "start": 0.02,
+          "end": 0.96,
+          "words": [
+            {
+              "text": " Leonath",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonath",
+          "start": 0.02,
+          "end": 0.96
+        }
+      ],
+      "expected_tokens": [
+        "Leonato."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonath",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "leonath",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.48
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09569844231009483
+    },
+    {
+      "asr_seconds": 0.0940181240439415,
+      "alignment_seconds": 0.00015094131231307983,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leona",
+          "start": 0.02,
+          "end": 0.72,
+          "words": [
+            {
+              "text": " Leona",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.34698486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leona",
+          "start": 0.02,
+          "end": 0.72
+        }
+      ],
+      "expected_tokens": [
+        "Leonato."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leona",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "leona",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.36
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09422063827514648
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "881afc720eef671feb12079714ab4e95a9f115fbf59a5540f868b85f669f1870",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

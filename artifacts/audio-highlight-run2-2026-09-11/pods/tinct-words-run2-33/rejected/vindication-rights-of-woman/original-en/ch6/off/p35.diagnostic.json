@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "712a80ce413a2400c5774e7570423685bea8f58c11d67b298b65725aa16601e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2182270884513855,
+      "alignment_seconds": 0.0004319930449128151,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fine by defect and amiably weak.",
+          "start": 0.08,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " Fine",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " by",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " defect",
+              "start": 0.76,
+              "end": 1.12,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " amiably",
+              "start": 1.36,
+              "end": 1.7,
+              "probability": 0.974609375
+            },
+            {
+              "text": " weak.",
+              "start": 1.7,
+              "end": 2.06,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fine",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "by",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "defect",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "raw": "and",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "amiably",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "raw": "weak.",
+          "start": 1.7,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "\"Fine",
+        "by",
+        "defect,",
+        "and",
+        "amiably",
+        "weak!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fine",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "fine",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "defect",
+          "start": 0.76,
+          "end": 1.12,
+          "key": "defect",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "amiably",
+          "start": 1.36,
+          "end": 1.7,
+          "key": "amiably",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "weak.",
+          "start": 1.7,
+          "end": 2.06,
+          "key": "weak",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Fine",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "by",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "defect,",
+          "start": 0.76,
+          "end": 1.12
+        },
+        {
+          "text": "and",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "text": "amiably",
+          "start": 1.36,
+          "end": 1.7
+        },
+        {
+          "text": "weak!\"",
+          "start": 1.7,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2188072307035327
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "37fa50144a6b8a286350efc5a7917f74daee50db50be55398b26e6cdec7037fc",
+  "selected_reasons": []
+}

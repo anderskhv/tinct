@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "74841d6e9054ba62b65e3627018228a0c76d441ed7693b0d759f7beda695966d",
+  "attempts": [
+    {
+      "asr_seconds": 0.15849626413546503,
+      "alignment_seconds": 0.0003805870655924082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prince, what say you, uncle?",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Prince,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " what",
+              "start": 1.03,
+              "end": 1.11,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " say",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " you,",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " uncle?",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.5859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prince,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "what",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "raw": "say",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "you,",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "uncle?",
+          "start": 1.47,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Prince.",
+        "What",
+        "say",
+        "you,",
+        "uncle?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Prince,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "prince",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.03,
+          "end": 1.11,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.11,
+          "end": 1.27,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "uncle?",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "uncle",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Prince.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "What",
+          "start": 1.03,
+          "end": 1.11
+        },
+        {
+          "text": "say",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "you,",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "uncle?",
+          "start": 1.47,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15900394995696843
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1832b721c6cf6db44d59cd81ac8fdd4cfffc83bf776f856448298cfed63ef21d",
+  "selected_reasons": []
+}

@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "3ea6a2a04fe7f8c9acb7dca09e5569d0f16743a05649b6e033ca5d274df2b456",
+  "attempts": [
+    {
+      "asr_seconds": 0.3071130011230707,
+      "alignment_seconds": 0.0005392543971538544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Rosencrantz. Then thus she says: your behaviour hath struck her into amazement and admiration.",
+        "hotwords": "Rosencrantz, Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Rosencrantz. Then thus she says, your behaviour hath struck her into amazement and admiration.",
+          "start": 0.83,
+          "end": 5.95,
+          "words": [
+            {
+              "text": " Rosencrantz.",
+              "start": 0.83,
+              "end": 1.43,
+              "probability": 0.69696044921875
+            },
+            {
+              "text": " Then",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.80859375
+            },
+            {
+              "text": " thus",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.90625
+            },
+            {
+              "text": " she",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.46923828125
+            },
+            {
+              "text": " says,",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 3.15,
+              "end": 3.23,
+              "probability": 0.11553955078125
+            },
+            {
+              "text": " behaviour",
+              "start": 3.23,
+              "end": 3.65,
+              "probability": 0.32568359375
+            },
+            {
+              "text": " hath",
+              "start": 3.65,
+              "end": 3.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " struck",
+              "start": 3.95,
+              "end": 4.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " her",
+              "start": 4.27,
+              "end": 4.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " into",
+              "start": 4.45,
+              "end": 4.61,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " amazement",
+              "start": 4.61,
+              "end": 5.23,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " and",
+              "start": 5.23,
+              "end": 5.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " admiration.",
+              "start": 5.45,
+              "end": 5.95,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosencrantz.",
+          "start": 0.83,
+          "end": 1.43
+        },
+        {
+          "raw": "Then",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "thus",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "she",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "says,",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "your",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "raw": "behaviour",
+          "start": 3.23,
+          "end": 3.65
+        },
+        {
+          "raw": "hath",
+          "start": 3.65,
+          "end": 3.95
+        },
+        {
+          "raw": "struck",
+          "start": 3.95,
+          "end": 4.27
+        },
+        {
+          "raw": "her",
+          "start": 4.27,
+          "end": 4.45
+        },
+        {
+          "raw": "into",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "raw": "amazement",
+          "start": 4.61,
+          "end": 5.23
+        },
+        {
+          "raw": "and",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "raw": "admiration.",
+          "start": 5.45,
+          "end": 5.95
+        }
+      ],
+      "expected_tokens": [
+        "Rosencrantz.",
+        "Then",
+        "thus",
+        "she",
+        "says:",
+        "your",
+        "behaviour",
+        "hath",
+        "struck",
+        "her",
+        "into",
+        "amazement",
+        "and",
+        "admiration."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosencrantz.",
+          "start": 0.83,
+          "end": 1.43,
+          "key": "rosencrantz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 1.77,
+          "end": 1.99,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "thus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "says,",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "says",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.15,
+          "end": 3.23,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "behaviour",
+          "start": 3.23,
+          "end": 3.65,
+          "key": "behaviour",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 3.65,
+          "end": 3.95,
+          "key": "hath",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 3.95,
+          "end": 4.27,
+          "key": "struck",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.27,
+          "end": 4.45,
+          "key": "her",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.45,
+          "end": 4.61,
+          "key": "into",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "amazement",
+          "start": 4.61,
+          "end": 5.23,
+          "key": "amazement",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.23,
+          "end": 5.45,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "admiration.",
+          "start": 5.45,
+          "end": 5.95,
+          "key": "admiration",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rosencrantz.",
+          "start": 0.83,
+          "end": 1.43
+        },
+        {
+          "text": "Then",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "thus",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "she",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "says:",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "your",
+          "start": 3.15,
+          "end": 3.23
+        },
+        {
+          "text": "behaviour",
+          "start": 3.23,
+          "end": 3.65
+        },
+        {
+          "text": "hath",
+          "start": 3.65,
+          "end": 3.95
+        },
+        {
+          "text": "struck",
+          "start": 3.95,
+          "end": 4.27
+        },
+        {
+          "text": "her",
+          "start": 4.27,
+          "end": 4.45
+        },
+        {
+          "text": "into",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "text": "amazement",
+          "start": 4.61,
+          "end": 5.23
+        },
+        {
+          "text": "and",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "text": "admiration.",
+          "start": 5.45,
+          "end": 5.95
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3078752998262644
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "915a691c57d8b0a5b2c720a1bff3452afc5188f29c76ea812f64d95dc819614b",
+  "selected_reasons": []
+}

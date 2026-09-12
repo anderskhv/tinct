@@ -1,0 +1,420 @@
+{
+  "complete": true,
+  "signature": "d71d70a963b38b96ef26f90297e22e58814ed29f22e1b2e3609092d899c3efa4",
+  "attempts": [
+    {
+      "asr_seconds": 0.22023444063961506,
+      "alignment_seconds": 0.0002829749137163162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leance, I will seem friendly, as thou hast advised me.",
+          "start": 0.05,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Leance,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.51153564453125
+            },
+            {
+              "text": " I",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seem",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " friendly,",
+              "start": 1.65,
+              "end": 2.07,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " as",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " thou",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " hast",
+              "start": 2.67,
+              "end": 2.99,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " advised",
+              "start": 2.99,
+              "end": 3.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me.",
+              "start": 3.33,
+              "end": 3.71,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leance,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "will",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "seem",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "friendly,",
+          "start": 1.65,
+          "end": 2.07
+        },
+        {
+          "raw": "as",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "thou",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "hast",
+          "start": 2.67,
+          "end": 2.99
+        },
+        {
+          "raw": "advised",
+          "start": 2.99,
+          "end": 3.33
+        },
+        {
+          "raw": "me.",
+          "start": 3.33,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "I",
+        "will",
+        "seem",
+        "friendly,",
+        "as",
+        "thou",
+        "hast",
+        "advis'd",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leance,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "leance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "seem",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "friendly,",
+          "start": 1.65,
+          "end": 2.07,
+          "key": "friendly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "as",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 2.67,
+          "end": 2.99,
+          "key": "hast",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "advised",
+          "start": 2.99,
+          "end": 3.33,
+          "key": "advised",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.33,
+          "end": 3.71,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.545
+        },
+        {
+          "text": "I",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "will",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "text": "seem",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "friendly,",
+          "start": 1.65,
+          "end": 2.07
+        },
+        {
+          "text": "as",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "thou",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "hast",
+          "start": 2.67,
+          "end": 2.99
+        },
+        {
+          "text": "advis'd",
+          "start": 2.99,
+          "end": 3.16
+        },
+        {
+          "text": "me.",
+          "start": 3.33,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2206086441874504
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9b5820d72503b5bd9d30c429f849bc03e691ff621f97604fcf5da32f121d274c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

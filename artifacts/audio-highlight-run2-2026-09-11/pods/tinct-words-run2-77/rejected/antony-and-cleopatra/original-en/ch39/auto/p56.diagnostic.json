@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "5d374fd06cc9a8476a6b7386f9d472614920cf291487d84982dc2c72a94dd8ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.16580891399644315,
+      "alignment_seconds": 0.00010008399840444326,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Diomedes. Where's Antony?",
+        "hotwords": "Diomedes, Where's, Antony"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Diomedes, Where's Antony?",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Diomedes,",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.05325635274251302
+            },
+            {
+              "text": " Where's",
+              "start": 1.29,
+              "end": 1.51,
+              "probability": 0.515625
+            },
+            {
+              "text": " Antony?",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.81396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Diomedes,",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "Where's",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "raw": "Antony?",
+          "start": 1.51,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Diomedes.",
+        "Where's",
+        "Antony?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Diomedes,",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "diomedes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where's",
+          "start": 1.29,
+          "end": 1.51,
+          "key": "wheres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Antony?",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "antony",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Diomedes.",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "Where's",
+          "start": 1.29,
+          "end": 1.51
+        },
+        {
+          "text": "Antony?",
+          "start": 1.51,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16594083898235112
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "56518c8bb59a77998867b216f6ef17ae2bc1fa9ee91e87f0350b060cf88bb1d6",
+  "selected_reasons": []
+}

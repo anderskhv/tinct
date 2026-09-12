@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "7ae77738960a8296f1349a355a67e52c1720bed204b2dd61397e24a56b40cbe1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2205709358677268,
+      "alignment_seconds": 0.00036108866333961487,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Volumnia. True? Pow, waw!",
+        "hotwords": "Volumnia, True, Pow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Volumnia, True, Pow, waw!",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Volumnia,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.6283772786458334
+            },
+            {
+              "text": " True,",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.4365234375
+            },
+            {
+              "text": " Pow,",
+              "start": 1.75,
+              "end": 1.79,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " waw!",
+              "start": 1.93,
+              "end": 2.15,
+              "probability": 0.013599395751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Volumnia,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "True,",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "Pow,",
+          "start": 1.75,
+          "end": 1.79
+        },
+        {
+          "raw": "waw!",
+          "start": 1.93,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Volumnia.",
+        "True?",
+        "Pow,",
+        "waw!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Volumnia,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "volumnia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "True,",
+          "start": 1.31,
+          "end": 1.41,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pow,",
+          "start": 1.75,
+          "end": 1.79,
+          "key": "pow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "waw!",
+          "start": 1.93,
+          "end": 2.15,
+          "key": "waw",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Volumnia.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "True?",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "Pow,",
+          "start": 1.75,
+          "end": 1.79
+        },
+        {
+          "text": "waw!",
+          "start": 1.93,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22105158772319555
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "579419c812ba16eada2827040fc4398300db1201bb2923b9f935c0a23266a3b9",
+  "selected_reasons": []
+}

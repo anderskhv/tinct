@@ -1,0 +1,292 @@
+{
+  "complete": true,
+  "signature": "5b1168fbf3f75c098ef3f3c0feba34ed6afba2e3542733b4f2b825dbcf9fdbbb",
+  "attempts": [
+    {
+      "asr_seconds": 0.20504949986934662,
+      "alignment_seconds": 0.00047374144196510315,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nothing, nothing, sir. I'm not depressed.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Nothing,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " nothing,",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " sir.",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.91796875
+            },
+            {
+              "text": " I'm",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " not",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " depressed.",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "nothing,",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "sir.",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "I'm",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "not",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "depressed.",
+          "start": 1.91,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "\"Nothing—nothing,",
+        "sir.",
+        "I",
+        "am",
+        "not",
+        "depressed.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          "replace",
+          2,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nothing,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "nothing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing,",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.63,
+          "end": 1.77,
+          "key": "im",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "depressed.",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "depressed",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nothing—nothing,",
+          "start": 0.0,
+          "end": 0.645
+        },
+        {
+          "text": "sir.",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "text": "I",
+          "start": 1.39,
+          "end": 1.58
+        },
+        {
+          "text": "am",
+          "start": 1.58,
+          "end": 1.675
+        },
+        {
+          "text": "not",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "depressed.\"",
+          "start": 1.91,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.205661803483963
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3c85a0c9b4678be40af2d8cba53844fc21ab461cdc2f7ed07046558fdf05bdd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "17e648277d35801f7251edfa80e0dbdfd269e09642c91e173766a6c797a65c52",
+  "attempts": [
+    {
+      "asr_seconds": 0.19301928486675024,
+      "alignment_seconds": 0.00040556490421295166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lartius. Their noise be our instruction.—Ladders, ho!",
+        "hotwords": "Lartius, Their"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lartius, Their noise be our instruction.—Ladders, ho!",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Lartius,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.42691612243652344
+            },
+            {
+              "text": " Their",
+              "start": 1.25,
+              "end": 1.39,
+              "probability": 0.0797119140625
+            },
+            {
+              "text": " noise",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.474609375
+            },
+            {
+              "text": " be",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " our",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " instruction.—Ladders,",
+              "start": 1.95,
+              "end": 3.31,
+              "probability": 0.6480713039636612
+            },
+            {
+              "text": " ho!",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.2310791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lartius,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Their",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "raw": "noise",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "be",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "our",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "instruction.—Ladders,",
+          "start": 1.95,
+          "end": 3.31
+        },
+        {
+          "raw": "ho!",
+          "start": 3.39,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Lartius.",
+        "Their",
+        "noise",
+        "be",
+        "our",
+        "instruction.—Ladders,",
+        "ho!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lartius,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "lartius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Their",
+          "start": 1.25,
+          "end": 1.39,
+          "key": "their",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "noise",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.61,
+          "end": 1.83,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "instruction.—Ladders,",
+          "start": 1.95,
+          "end": 3.31,
+          "key": "instructionladders",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "ho",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lartius.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Their",
+          "start": 1.25,
+          "end": 1.39
+        },
+        {
+          "text": "noise",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "be",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "our",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "instruction.—Ladders,",
+          "start": 1.95,
+          "end": 3.31
+        },
+        {
+          "text": "ho!",
+          "start": 3.39,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19356151390820742
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f5edeaad3f60fb1e76980f94d82a8fe237b90ac83d34ffbbebdee3f2c1855db8",
+  "selected_reasons": []
+}

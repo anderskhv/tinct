@@ -1,0 +1,251 @@
+{
+  "complete": true,
+  "signature": "f9476e1334ffd72afc0a920ce142f676a1ce6238b5b501ed2a0de81734120124",
+  "attempts": [
+    {
+      "asr_seconds": 0.21145964413881302,
+      "alignment_seconds": 0.00041476497426629066,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bye IDHO hushed says he",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Bye",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.1878662109375
+            },
+            {
+              "text": " IDHO",
+              "start": 0.61,
+              "end": 1.27,
+              "probability": 0.44189453125
+            },
+            {
+              "text": " hushed",
+              "start": 1.27,
+              "end": 1.73,
+              "probability": 0.7105712890625
+            },
+            {
+              "text": " says",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.78125
+            },
+            {
+              "text": " he",
+              "start": 1.89,
+              "end": 2.19,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bye",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "IDHO",
+          "start": 0.61,
+          "end": 1.27
+        },
+        {
+          "raw": "hushed",
+          "start": 1.27,
+          "end": 1.73
+        },
+        {
+          "raw": "says",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "_—Bi",
+        "i",
+        "dho",
+        "husht,_",
+        "says",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ],
+        [
+          "equal",
+          4,
+          6,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bye",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "bye",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "IDHO",
+          "start": 0.61,
+          "end": 1.27,
+          "key": "idho",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hushed",
+          "start": 1.27,
+          "end": 1.73,
+          "key": "hushed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "says",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.89,
+          "end": 2.19,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Bi",
+          "start": 0.0,
+          "end": 0.865
+        },
+        {
+          "text": "i",
+          "start": 0.865,
+          "end": 1.297
+        },
+        {
+          "text": "dho",
+          "start": 1.297,
+          "end": 1.514
+        },
+        {
+          "text": "husht,_",
+          "start": 1.514,
+          "end": 1.622
+        },
+        {
+          "text": "says",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "he.",
+          "start": 1.89,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21199358999729156
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b6c23693466b0bd0d3cbf9d8010751b80b8495f991bc1999a3fb66e0481caa91",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

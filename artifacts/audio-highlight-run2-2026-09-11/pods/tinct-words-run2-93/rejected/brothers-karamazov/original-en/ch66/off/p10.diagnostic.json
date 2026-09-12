@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "fa124c960d1c69f93c7b8dd83abe52ec8460236d832b98e192b93ab54fa9a73d",
+  "attempts": [
+    {
+      "asr_seconds": 0.33396935276687145,
+      "alignment_seconds": 0.00028359144926071167,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, Parisven.",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " Parisven.",
+              "start": 0.93,
+              "end": 1.39,
+              "probability": 0.5145263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Parisven.",
+          "start": 0.93,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "Perezvon.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Parisven.",
+          "start": 0.93,
+          "end": 1.39,
+          "key": "parisven",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Perezvon.\"",
+          "start": 0.69,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.33434508368372917
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a08386628537b83c8f13a67c2dea332b6cdbd2d7f662be1022d1749ba6444529",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

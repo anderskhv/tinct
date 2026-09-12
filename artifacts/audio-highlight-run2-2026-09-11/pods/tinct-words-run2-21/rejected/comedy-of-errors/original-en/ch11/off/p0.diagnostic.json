@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "502225e0cb92405998c98115fd84c9ef53cab23b5383b6171b973ac158c339de",
+  "attempts": [
+    {
+      "asr_seconds": 0.1640855991281569,
+      "alignment_seconds": 9.443284943699837e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Merchant and Engello.",
+          "start": 0.11,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Merchant",
+              "start": 0.63,
+              "end": 0.97,
+              "probability": 0.42138671875
+            },
+            {
+              "text": " and",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " Engello.",
+              "start": 1.17,
+              "end": 1.65,
+              "probability": 0.42498779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Merchant",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "raw": "and",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "Engello.",
+          "start": 1.17,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Merchant",
+        "and",
+        "Angelo."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Merchant",
+          "start": 0.63,
+          "end": 0.97,
+          "key": "merchant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.97,
+          "end": 1.17,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Engello.",
+          "start": 1.17,
+          "end": 1.65,
+          "key": "engello",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Merchant",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "text": "and",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "Angelo.",
+          "start": 1.17,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16420985711738467
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0070bb9875031acbe18cfbe5b91a2bdac98feabb26c10904810ff7cd8a950be",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

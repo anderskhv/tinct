@@ -1,0 +1,596 @@
+{
+  "complete": true,
+  "signature": "19f884e1d05f986ff7c7b5792f16ec96660508a582d9fc044f8903b8c154b3ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.17262963950634003,
+      "alignment_seconds": 0.0003757886588573456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A human being--a louse!\"",
+        "hotwords": "A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A human being allows.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.57177734375
+            },
+            {
+              "text": " human",
+              "start": 0.49,
+              "end": 0.75,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " being",
+              "start": 0.75,
+              "end": 1.07,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " allows.",
+              "start": 1.07,
+              "end": 1.41,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "human",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "raw": "being",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "raw": "allows.",
+          "start": 1.07,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "human",
+        "being--a",
+        "louse!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "human",
+          "start": 0.49,
+          "end": 0.75,
+          "key": "human",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 0.75,
+          "end": 1.07,
+          "key": "being",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "allows.",
+          "start": 1.07,
+          "end": 1.41,
+          "key": "allows",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "human",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "text": "being--a",
+          "start": 0.75,
+          "end": 1.08
+        },
+        {
+          "text": "louse!\"",
+          "start": 1.08,
+          "end": 1.245
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1731170117855072
+    },
+    {
+      "asr_seconds": 0.12941769883036613,
+      "alignment_seconds": 0.0003756396472454071,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "A"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " human being allows.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " human",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.0131378173828125
+            },
+            {
+              "text": " being",
+              "start": 0.71,
+              "end": 1.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " allows.",
+              "start": 1.05,
+              "end": 1.41,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "human",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "being",
+          "start": 0.71,
+          "end": 1.05
+        },
+        {
+          "raw": "allows.",
+          "start": 1.05,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "human",
+        "being--a",
+        "louse!\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          2,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          2,
+          4,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "human",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "human",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 0.71,
+          "end": 1.05,
+          "key": "being",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "allows.",
+          "start": 1.05,
+          "end": 1.41,
+          "key": "allows",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "human",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "being--a",
+          "start": 0.71,
+          "end": 1.06
+        },
+        {
+          "text": "louse!\"",
+          "start": 1.06,
+          "end": 1.235
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12989719957113266
+    },
+    {
+      "asr_seconds": 0.1359054520726204,
+      "alignment_seconds": 0.0003698691725730896,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A human being allows.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.57177734375
+            },
+            {
+              "text": " human",
+              "start": 0.49,
+              "end": 0.75,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " being",
+              "start": 0.75,
+              "end": 1.07,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " allows.",
+              "start": 1.07,
+              "end": 1.41,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "human",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "raw": "being",
+          "start": 0.75,
+          "end": 1.07
+        },
+        {
+          "raw": "allows.",
+          "start": 1.07,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "human",
+        "being--a",
+        "louse!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "human",
+          "start": 0.49,
+          "end": 0.75,
+          "key": "human",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 0.75,
+          "end": 1.07,
+          "key": "being",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "allows.",
+          "start": 1.07,
+          "end": 1.41,
+          "key": "allows",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "human",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "text": "being--a",
+          "start": 0.75,
+          "end": 1.08
+        },
+        {
+          "text": "louse!\"",
+          "start": 1.08,
+          "end": 1.245
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1363864466547966
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c4e0a6533d8b96230bb3271308c236cf183f1327fd5785931757bc3e46039645",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "252f9d1ef512de74411e630da3192f97e6e69e4a8bd2f4c5d8805d977f58fd16",
+  "attempts": [
+    {
+      "asr_seconds": 0.08188363909721375,
+      "alignment_seconds": 0.00013735145330429077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cornwall. Where hast thou sent the King?",
+        "hotwords": "Cornwall, Where, King"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cornwall, Where hast thou sent the King?",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " Where",
+              "start": 1.27,
+              "end": 1.35,
+              "probability": 0.0294036865234375
+            },
+            {
+              "text": " hast",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " thou",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " sent",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " the",
+              "start": 2.01,
+              "end": 2.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " King?",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.162109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Where",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "raw": "hast",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "thou",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "sent",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "the",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "raw": "King?",
+          "start": 2.15,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Where",
+        "hast",
+        "thou",
+        "sent",
+        "the",
+        "King?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.27,
+          "end": 1.35,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "hast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "sent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.01,
+          "end": 2.15,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "King?",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "king",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Where",
+          "start": 1.27,
+          "end": 1.35
+        },
+        {
+          "text": "hast",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "thou",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "sent",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "the",
+          "start": 2.01,
+          "end": 2.15
+        },
+        {
+          "text": "King?",
+          "start": 2.15,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08206750825047493
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "379d1d54512924840b5630de4693ca281921f30df68eda078a694f97867dbdb2",
+  "selected_reasons": []
+}

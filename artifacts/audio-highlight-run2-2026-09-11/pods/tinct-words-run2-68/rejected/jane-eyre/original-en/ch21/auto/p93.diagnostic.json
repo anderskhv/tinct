@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1e07396fd3a485555fa519f25bfce4e7884178e0a522c34c8132743fbe282b36",
+  "attempts": [
+    {
+      "asr_seconds": 0.14914073050022125,
+      "alignment_seconds": 0.00030943751335144043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Then say it.\"",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then say it.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.564453125
+            },
+            {
+              "text": " say",
+              "start": 0.6,
+              "end": 0.88,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " it.",
+              "start": 0.88,
+              "end": 1.12,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "say",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "raw": "it.",
+          "start": 0.88,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "\"Then",
+        "say",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.6,
+          "end": 0.88,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 0.88,
+          "end": 1.12,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "say",
+          "start": 0.6,
+          "end": 0.88
+        },
+        {
+          "text": "it.\"",
+          "start": 0.88,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14955059811472893
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d468c85c13c041755082c9aa458d710cad324126643697385661573379276c94",
+  "selected_reasons": []
+}

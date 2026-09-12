@@ -1,0 +1,807 @@
+{
+  "complete": true,
+  "signature": "4f067c703ee17feb6d118a0a5b8644db39c3faa326c3eef42c9bea2ed3c0c3a7",
+  "attempts": [
+    {
+      "asr_seconds": 0.41518293088302016,
+      "alignment_seconds": 0.0007991599850356579,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The little nuns nice little things. Oh sure. They wouldn't do anything. Oh sure. They wouldn't really is it little sister Monica?",
+          "start": 0.02,
+          "end": 7.34,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.75390625
+            },
+            {
+              "text": " little",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.6591796875
+            },
+            {
+              "text": " nuns",
+              "start": 0.72,
+              "end": 1.02,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " nice",
+              "start": 1.02,
+              "end": 1.62,
+              "probability": 0.11767578125
+            },
+            {
+              "text": " little",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " things.",
+              "start": 1.86,
+              "end": 2.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Oh",
+              "start": 2.44,
+              "end": 2.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sure.",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " They",
+              "start": 3.2,
+              "end": 3.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wouldn't",
+              "start": 3.4,
+              "end": 3.64,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " do",
+              "start": 3.64,
+              "end": 3.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " anything.",
+              "start": 3.78,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Oh",
+              "start": 4.34,
+              "end": 4.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sure.",
+              "start": 4.88,
+              "end": 5.16,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " They",
+              "start": 5.18,
+              "end": 5.34,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wouldn't",
+              "start": 5.34,
+              "end": 5.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " really",
+              "start": 5.6,
+              "end": 5.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 5.9,
+              "end": 6.36,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " it",
+              "start": 6.36,
+              "end": 6.46,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " little",
+              "start": 6.46,
+              "end": 6.64,
+              "probability": 0.970703125
+            },
+            {
+              "text": " sister",
+              "start": 6.64,
+              "end": 6.96,
+              "probability": 0.8984375
+            },
+            {
+              "text": " Monica?",
+              "start": 6.96,
+              "end": 7.34,
+              "probability": 0.8662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "little",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "nuns",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "raw": "nice",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "raw": "little",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "things.",
+          "start": 1.86,
+          "end": 2.34
+        },
+        {
+          "raw": "Oh",
+          "start": 2.44,
+          "end": 2.94
+        },
+        {
+          "raw": "sure.",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "They",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "raw": "wouldn't",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "raw": "do",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "raw": "anything.",
+          "start": 3.78,
+          "end": 4.22
+        },
+        {
+          "raw": "Oh",
+          "start": 4.34,
+          "end": 4.88
+        },
+        {
+          "raw": "sure.",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "raw": "They",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "raw": "wouldn't",
+          "start": 5.34,
+          "end": 5.6
+        },
+        {
+          "raw": "really",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "raw": "is",
+          "start": 5.9,
+          "end": 6.36
+        },
+        {
+          "raw": "it",
+          "start": 6.36,
+          "end": 6.46
+        },
+        {
+          "raw": "little",
+          "start": 6.46,
+          "end": 6.64
+        },
+        {
+          "raw": "sister",
+          "start": 6.64,
+          "end": 6.96
+        },
+        {
+          "raw": "Monica?",
+          "start": 6.96,
+          "end": 7.34
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "little",
+        "nuns!",
+        "Nice",
+        "little",
+        "things!",
+        "O,",
+        "sure",
+        "they",
+        "wouldn't",
+        "do",
+        "anything!",
+        "O,",
+        "sure",
+        "they",
+        "wouldn't",
+        "really!",
+        "Is",
+        "it",
+        "little",
+        "sister",
+        "Monica!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          12,
+          7,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          22,
+          13,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "little",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nuns",
+          "start": 0.72,
+          "end": 1.02,
+          "key": "nuns",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nice",
+          "start": 1.02,
+          "end": 1.62,
+          "key": "nice",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "little",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "things.",
+          "start": 1.86,
+          "end": 2.34,
+          "key": "things",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 2.44,
+          "end": 2.94,
+          "key": "oh",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sure.",
+          "start": 2.94,
+          "end": 3.2,
+          "key": "sure",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 3.2,
+          "end": 3.4,
+          "key": "they",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wouldn't",
+          "start": 3.4,
+          "end": 3.64,
+          "key": "wouldnt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.64,
+          "end": 3.78,
+          "key": "do",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "anything.",
+          "start": 3.78,
+          "end": 4.22,
+          "key": "anything",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 4.34,
+          "end": 4.88,
+          "key": "oh",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sure.",
+          "start": 4.88,
+          "end": 5.16,
+          "key": "sure",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 5.18,
+          "end": 5.34,
+          "key": "they",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wouldn't",
+          "start": 5.34,
+          "end": 5.6,
+          "key": "wouldnt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "really",
+          "start": 5.6,
+          "end": 5.9,
+          "key": "really",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.9,
+          "end": 6.36,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.36,
+          "end": 6.46,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 6.46,
+          "end": 6.64,
+          "key": "little",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "sister",
+          "start": 6.64,
+          "end": 6.96,
+          "key": "sister",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Monica?",
+          "start": 6.96,
+          "end": 7.34,
+          "key": "monica",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "little",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "nuns!",
+          "start": 0.72,
+          "end": 1.02
+        },
+        {
+          "text": "Nice",
+          "start": 1.02,
+          "end": 1.62
+        },
+        {
+          "text": "little",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "things!",
+          "start": 1.86,
+          "end": 2.34
+        },
+        {
+          "text": "O,",
+          "start": 2.34,
+          "end": 2.64
+        },
+        {
+          "text": "sure",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "they",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "text": "wouldn't",
+          "start": 3.4,
+          "end": 3.64
+        },
+        {
+          "text": "do",
+          "start": 3.64,
+          "end": 3.78
+        },
+        {
+          "text": "anything!",
+          "start": 3.78,
+          "end": 4.22
+        },
+        {
+          "text": "O,",
+          "start": 4.22,
+          "end": 4.55
+        },
+        {
+          "text": "sure",
+          "start": 4.88,
+          "end": 5.16
+        },
+        {
+          "text": "they",
+          "start": 5.18,
+          "end": 5.34
+        },
+        {
+          "text": "wouldn't",
+          "start": 5.34,
+          "end": 5.6
+        },
+        {
+          "text": "really!",
+          "start": 5.6,
+          "end": 5.9
+        },
+        {
+          "text": "Is",
+          "start": 5.9,
+          "end": 6.36
+        },
+        {
+          "text": "it",
+          "start": 6.36,
+          "end": 6.46
+        },
+        {
+          "text": "little",
+          "start": 6.46,
+          "end": 6.64
+        },
+        {
+          "text": "sister",
+          "start": 6.64,
+          "end": 6.96
+        },
+        {
+          "text": "Monica!",
+          "start": 6.96,
+          "end": 7.34
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.4162763459607959
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dc2023a2af4a795cffd7044a392ba707b05f53aef2a508ec82987dafbe5255b6",
+  "selected_reasons": []
+}

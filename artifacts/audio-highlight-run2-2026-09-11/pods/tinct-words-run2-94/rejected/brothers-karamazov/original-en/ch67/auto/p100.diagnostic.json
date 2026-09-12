@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f4f52e515b7c3a71c70567fe755cdf9eeaaad25dc753c68e6635c07221fd9ac5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1957055665552616,
+      "alignment_seconds": 0.00040302425622940063,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Universal history?\" the captain inquired, looking almost scared.",
+        "hotwords": "Universal"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Universal history? The captain inquired, looking almost scared.",
+          "start": 0.05,
+          "end": 4.01,
+          "words": [
+            {
+              "text": " Universal",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " history?",
+              "start": 0.79,
+              "end": 1.35,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " The",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " captain",
+              "start": 1.95,
+              "end": 2.25,
+              "probability": 0.59912109375
+            },
+            {
+              "text": " inquired,",
+              "start": 2.25,
+              "end": 2.71,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " looking",
+              "start": 3.05,
+              "end": 3.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " almost",
+              "start": 3.15,
+              "end": 3.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " scared.",
+              "start": 3.61,
+              "end": 4.01,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Universal",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "history?",
+          "start": 0.79,
+          "end": 1.35
+        },
+        {
+          "raw": "The",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "captain",
+          "start": 1.95,
+          "end": 2.25
+        },
+        {
+          "raw": "inquired,",
+          "start": 2.25,
+          "end": 2.71
+        },
+        {
+          "raw": "looking",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "raw": "almost",
+          "start": 3.15,
+          "end": 3.61
+        },
+        {
+          "raw": "scared.",
+          "start": 3.61,
+          "end": 4.01
+        }
+      ],
+      "expected_tokens": [
+        "\"Universal",
+        "history?\"",
+        "the",
+        "captain",
+        "inquired,",
+        "looking",
+        "almost",
+        "scared."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Universal",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "universal",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "history?",
+          "start": 0.79,
+          "end": 1.35,
+          "key": "history",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "captain",
+          "start": 1.95,
+          "end": 2.25,
+          "key": "captain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "inquired,",
+          "start": 2.25,
+          "end": 2.71,
+          "key": "inquired",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "looking",
+          "start": 3.05,
+          "end": 3.15,
+          "key": "looking",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 3.15,
+          "end": 3.61,
+          "key": "almost",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "scared.",
+          "start": 3.61,
+          "end": 4.01,
+          "key": "scared",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Universal",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "history?\"",
+          "start": 0.79,
+          "end": 1.35
+        },
+        {
+          "text": "the",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "captain",
+          "start": 1.95,
+          "end": 2.25
+        },
+        {
+          "text": "inquired,",
+          "start": 2.25,
+          "end": 2.71
+        },
+        {
+          "text": "looking",
+          "start": 3.05,
+          "end": 3.15
+        },
+        {
+          "text": "almost",
+          "start": 3.15,
+          "end": 3.61
+        },
+        {
+          "text": "scared.",
+          "start": 3.61,
+          "end": 4.01
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1962703876197338
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6fabf30f22adceae7e0e01bef703ed5d3ca4d02ba272168dddafa47e1eadc075",
+  "selected_reasons": []
+}

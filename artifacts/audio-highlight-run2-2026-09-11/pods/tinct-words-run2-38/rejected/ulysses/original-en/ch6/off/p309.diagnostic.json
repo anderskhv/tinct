@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "280bf7fc66638b933941b986cf04b15467a9b0b789f33cc6d0f81001cb56d269",
+  "attempts": [
+    {
+      "asr_seconds": 0.07889403804438189,
+      "alignment_seconds": 0.00010357098653912544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ned Lambert smiled.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Ned",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Lambert",
+              "start": 0.59,
+              "end": 0.99,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " smiled.",
+              "start": 0.99,
+              "end": 1.37,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ned",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Lambert",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "raw": "smiled.",
+          "start": 0.99,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "Ned",
+        "Lambert",
+        "smiled."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ned",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "ned",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lambert",
+          "start": 0.59,
+          "end": 0.99,
+          "key": "lambert",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "smiled.",
+          "start": 0.99,
+          "end": 1.37,
+          "key": "smiled",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ned",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Lambert",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "text": "smiled.",
+          "start": 0.99,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07903534901561216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "01f7b60b178d4e0db3a5bec165d2b2016f1a218e2f52b878432f19543abb0350",
+  "selected_reasons": []
+}

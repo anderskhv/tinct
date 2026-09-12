@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "6c901e037418fc8ee24f8dce40a3b6b63c07e255be916e2cfa07c2c85676d5c0",
+  "attempts": [
+    {
+      "asr_seconds": 0.21141887456178665,
+      "alignment_seconds": 0.00040229782462120056,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth my words are dull. Oh quicken them with thine",
+          "start": 0.05,
+          "end": 3.99,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " Elizabeth",
+              "start": 0.57,
+              "end": 1.01,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " my",
+              "start": 1.01,
+              "end": 1.55,
+              "probability": 0.166748046875
+            },
+            {
+              "text": " words",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " dull.",
+              "start": 1.97,
+              "end": 2.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Oh",
+              "start": 2.27,
+              "end": 2.83,
+              "probability": 0.931640625
+            },
+            {
+              "text": " quicken",
+              "start": 2.83,
+              "end": 3.19,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " them",
+              "start": 3.19,
+              "end": 3.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 3.29,
+              "end": 3.41,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thine",
+              "start": 3.41,
+              "end": 3.99,
+              "probability": 0.95703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Elizabeth",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "raw": "my",
+          "start": 1.01,
+          "end": 1.55
+        },
+        {
+          "raw": "words",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "are",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "dull.",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "raw": "Oh",
+          "start": 2.27,
+          "end": 2.83
+        },
+        {
+          "raw": "quicken",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "raw": "them",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "raw": "with",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "raw": "thine",
+          "start": 3.41,
+          "end": 3.99
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "My",
+        "words",
+        "are",
+        "dull.",
+        "O,",
+        "quicken",
+        "them",
+        "with",
+        "thine!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          11,
+          7,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth",
+          "start": 0.57,
+          "end": 1.01,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.01,
+          "end": 1.55,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "words",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dull.",
+          "start": 1.97,
+          "end": 2.23,
+          "key": "dull",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 2.27,
+          "end": 2.83,
+          "key": "oh",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "quicken",
+          "start": 2.83,
+          "end": 3.19,
+          "key": "quicken",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 3.19,
+          "end": 3.29,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.29,
+          "end": 3.41,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thine",
+          "start": 3.41,
+          "end": 3.99,
+          "key": "thine",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "text": "My",
+          "start": 1.01,
+          "end": 1.55
+        },
+        {
+          "text": "words",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "are",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "dull.",
+          "start": 1.97,
+          "end": 2.23
+        },
+        {
+          "text": "O,",
+          "start": 2.23,
+          "end": 2.53
+        },
+        {
+          "text": "quicken",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "text": "them",
+          "start": 3.19,
+          "end": 3.29
+        },
+        {
+          "text": "with",
+          "start": 3.29,
+          "end": 3.41
+        },
+        {
+          "text": "thine!",
+          "start": 3.41,
+          "end": 3.99
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.2119721844792366
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cfffddff2423d5a074ce02de6be1bb46f88e9919b5c7f46ebacd92c273c88dca",
+  "selected_reasons": []
+}

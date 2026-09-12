@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "bf702fb0500897afa3261dc498dcbfba067b319173da79c34e037f92d7578b71",
+  "attempts": [
+    {
+      "asr_seconds": 0.2779522920027375,
+      "alignment_seconds": 0.00028317607939243317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Passepartout entered and asked for Mr. Batulcar, who straightway appeared in person.",
+        "hotwords": "Passepartout, Mr, Batulcar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Passepartout entered and asked for Mr. Batulcar, who straightway appeared in person.",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Passepartout",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.5308895111083984
+            },
+            {
+              "text": " entered",
+              "start": 1.07,
+              "end": 1.49,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " asked",
+              "start": 1.75,
+              "end": 2.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " for",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mr.",
+              "start": 2.33,
+              "end": 2.59,
+              "probability": 0.92578125
+            },
+            {
+              "text": " Batulcar,",
+              "start": 2.83,
+              "end": 3.21,
+              "probability": 0.30101966857910156
+            },
+            {
+              "text": " who",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " straightway",
+              "start": 3.79,
+              "end": 4.31,
+              "probability": 0.838623046875
+            },
+            {
+              "text": " appeared",
+              "start": 4.31,
+              "end": 4.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 4.69,
+              "end": 4.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " person.",
+              "start": 4.91,
+              "end": 5.23,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Passepartout",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "raw": "entered",
+          "start": 1.07,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "asked",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "raw": "for",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "raw": "Batulcar,",
+          "start": 2.83,
+          "end": 3.21
+        },
+        {
+          "raw": "who",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "straightway",
+          "start": 3.79,
+          "end": 4.31
+        },
+        {
+          "raw": "appeared",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "raw": "in",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "raw": "person.",
+          "start": 4.91,
+          "end": 5.23
+        }
+      ],
+      "expected_tokens": [
+        "Passepartout",
+        "entered",
+        "and",
+        "asked",
+        "for",
+        "Mr.",
+        "Batulcar,",
+        "who",
+        "straightway",
+        "appeared",
+        "in",
+        "person."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Passepartout",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "passepartout",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 1.07,
+          "end": 1.49,
+          "key": "entered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.75,
+          "end": 2.09,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.33,
+          "end": 2.59,
+          "key": "mr",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Batulcar,",
+          "start": 2.83,
+          "end": 3.21,
+          "key": "batulcar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "who",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "straightway",
+          "start": 3.79,
+          "end": 4.31,
+          "key": "straightway",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "appeared",
+          "start": 4.31,
+          "end": 4.69,
+          "key": "appeared",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.69,
+          "end": 4.91,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "person.",
+          "start": 4.91,
+          "end": 5.23,
+          "key": "person",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Passepartout",
+          "start": 0.05,
+          "end": 1.07
+        },
+        {
+          "text": "entered",
+          "start": 1.07,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "asked",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "text": "for",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "Mr.",
+          "start": 2.33,
+          "end": 2.59
+        },
+        {
+          "text": "Batulcar,",
+          "start": 2.83,
+          "end": 3.21
+        },
+        {
+          "text": "who",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "straightway",
+          "start": 3.79,
+          "end": 4.31
+        },
+        {
+          "text": "appeared",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "text": "in",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "text": "person.",
+          "start": 4.91,
+          "end": 5.23
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2783728512004018
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "891902d7936ef758881da6b65d556adbc3d4acf3dfdd4d315f9a0de445fabb8b",
+  "selected_reasons": []
+}

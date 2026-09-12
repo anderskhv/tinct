@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "7e281c235579be7d15be590027d0394b56b62ce7547f7d4b9dc682af9c5a5827",
+  "attempts": [
+    {
+      "asr_seconds": 0.19956698641180992,
+      "alignment_seconds": 0.0002528876066207886,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Alonso, Sebastian & c. draw their swords]",
+        "hotwords": "Alonso, Sebastian"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alonso, Sebastian & c. draw their swords",
+          "start": 0.53,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " Alonso,",
+              "start": 0.53,
+              "end": 0.85,
+              "probability": 0.287841796875
+            },
+            {
+              "text": " Sebastian",
+              "start": 1.57,
+              "end": 1.59,
+              "probability": 0.962890625
+            },
+            {
+              "text": " &",
+              "start": 1.59,
+              "end": 1.97,
+              "probability": 0.0070953369140625
+            },
+            {
+              "text": " c.",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.004497528076171875
+            },
+            {
+              "text": " draw",
+              "start": 2.23,
+              "end": 2.31,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " their",
+              "start": 2.31,
+              "end": 2.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " swords",
+              "start": 2.47,
+              "end": 2.75,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alonso,",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "raw": "Sebastian",
+          "start": 1.57,
+          "end": 1.59
+        },
+        {
+          "raw": "&",
+          "start": 1.59,
+          "end": 1.97
+        },
+        {
+          "raw": "c.",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "draw",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "raw": "their",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "raw": "swords",
+          "start": 2.47,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "[Alonso,",
+        "Sebastian",
+        "&",
+        "c.",
+        "draw",
+        "their",
+        "swords]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alonso,",
+          "start": 0.53,
+          "end": 0.85,
+          "key": "alonso",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sebastian",
+          "start": 1.57,
+          "end": 1.59,
+          "key": "sebastian",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "&",
+          "start": 1.59,
+          "end": 1.97,
+          "key": "",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "c.",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "c",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 2.23,
+          "end": 2.31,
+          "key": "draw",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.31,
+          "end": 2.47,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "swords",
+          "start": 2.47,
+          "end": 2.75,
+          "key": "swords",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Alonso,",
+          "start": 0.53,
+          "end": 0.85
+        },
+        {
+          "text": "Sebastian",
+          "start": 1.57,
+          "end": 1.59
+        },
+        {
+          "text": "&",
+          "start": 1.59,
+          "end": 1.97
+        },
+        {
+          "text": "c.",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "draw",
+          "start": 2.23,
+          "end": 2.31
+        },
+        {
+          "text": "their",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "text": "swords]",
+          "start": 2.47,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19991284608840942
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "85c0262b6edc9f187d6f4497d485459d71b8e62b05758d6de8bce276d4caa42d",
+  "selected_reasons": []
+}

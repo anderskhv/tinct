@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "c6e7cd4ca93cf4a9120b6266988d80a37206a4222ed899196e9e3bd106c26ca8",
+  "attempts": [
+    {
+      "asr_seconds": 0.18138020299375057,
+      "alignment_seconds": 0.0004925529938191175,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dionysus. He who first made for man the clustered vine.",
+        "hotwords": "Dionysus, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dionysus, He who first made for man the clustered vine.",
+          "start": 0.73,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Dionysus,",
+              "start": 0.73,
+              "end": 1.19,
+              "probability": 0.9576822916666666
+            },
+            {
+              "text": " He",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.040863037109375
+            },
+            {
+              "text": " who",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " first",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.962890625
+            },
+            {
+              "text": " made",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " man",
+              "start": 2.51,
+              "end": 2.73,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " the",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.962890625
+            },
+            {
+              "text": " clustered",
+              "start": 2.93,
+              "end": 3.27,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " vine.",
+              "start": 3.27,
+              "end": 3.63,
+              "probability": 0.9423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.73,
+          "end": 1.19
+        },
+        {
+          "raw": "He",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "who",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "first",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "made",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "for",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "man",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "clustered",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "raw": "vine.",
+          "start": 3.27,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "Dionysus.",
+        "He",
+        "who",
+        "first",
+        "made",
+        "for",
+        "man",
+        "the",
+        "clustered",
+        "vine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dionysus,",
+          "start": 0.73,
+          "end": 1.19,
+          "key": "dionysus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.73,
+          "end": 1.87,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "first",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 2.07,
+          "end": 2.31,
+          "key": "made",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.51,
+          "end": 2.73,
+          "key": "man",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "clustered",
+          "start": 2.93,
+          "end": 3.27,
+          "key": "clustered",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "vine.",
+          "start": 3.27,
+          "end": 3.63,
+          "key": "vine",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dionysus.",
+          "start": 0.73,
+          "end": 1.19
+        },
+        {
+          "text": "He",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "who",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "first",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "made",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "for",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "man",
+          "start": 2.51,
+          "end": 2.73
+        },
+        {
+          "text": "the",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "clustered",
+          "start": 2.93,
+          "end": 3.27
+        },
+        {
+          "text": "vine.",
+          "start": 3.27,
+          "end": 3.63
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18206670903600752
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ed267d75a4af620ef929bbffb49ffc09aa7d53049e7bf06de8a6d231f2f61a18",
+  "selected_reasons": []
+}

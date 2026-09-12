@@ -1,0 +1,2078 @@
+{
+  "complete": true,
+  "signature": "c015b6e14ae8d5a45ec42a91df970f9f8bd293c1c9f1faf0695a94fc0d5eedb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.34713505394756794,
+      "alignment_seconds": 0.0002460768446326256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Emilia. Nay, lay thee down and roar; For thou hast kill'd the sweetest innocent That e'er did lift up eye.",
+        "hotwords": "Emilia, Nay, For, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Emilia, Nay, lay thee down and roar, For thou hast killed the sweetest innocent That e'er",
+          "start": 0.05,
+          "end": 7.49,
+          "words": [
+            {
+              "text": " Emilia,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.527923583984375
+            },
+            {
+              "text": " Nay,",
+              "start": 1.55,
+              "end": 1.57,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " lay",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " thee",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " down",
+              "start": 2.03,
+              "end": 2.29,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " roar,",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " For",
+              "start": 3.37,
+              "end": 3.45,
+              "probability": 0.5390625
+            },
+            {
+              "text": " thou",
+              "start": 3.45,
+              "end": 3.63,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " hast",
+              "start": 3.63,
+              "end": 4.01,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " killed",
+              "start": 4.01,
+              "end": 4.31,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " the",
+              "start": 4.31,
+              "end": 4.55,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " sweetest",
+              "start": 4.55,
+              "end": 5.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " innocent",
+              "start": 5.03,
+              "end": 5.25,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " That",
+              "start": 5.25,
+              "end": 5.63,
+              "probability": 0.4638671875
+            },
+            {
+              "text": " e",
+              "start": 5.63,
+              "end": 5.83,
+              "probability": 0.6962890625
+            },
+            {
+              "text": "'er",
+              "start": 5.83,
+              "end": 7.49,
+              "probability": 0.6842041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.55,
+          "end": 1.57
+        },
+        {
+          "raw": "lay",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "thee",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "down",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "roar,",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "For",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "raw": "thou",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "raw": "hast",
+          "start": 3.63,
+          "end": 4.01
+        },
+        {
+          "raw": "killed",
+          "start": 4.01,
+          "end": 4.31
+        },
+        {
+          "raw": "the",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "raw": "sweetest",
+          "start": 4.55,
+          "end": 5.03
+        },
+        {
+          "raw": "innocent",
+          "start": 5.03,
+          "end": 5.25
+        },
+        {
+          "raw": "That",
+          "start": 5.25,
+          "end": 5.63
+        },
+        {
+          "raw": "e",
+          "start": 5.63,
+          "end": 5.83
+        },
+        {
+          "raw": "'er",
+          "start": 5.83,
+          "end": 7.49
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Nay,",
+        "lay",
+        "thee",
+        "down",
+        "and",
+        "roar;",
+        "For",
+        "thou",
+        "hast",
+        "kill'd",
+        "the",
+        "sweetest",
+        "innocent",
+        "That",
+        "e'er",
+        "did",
+        "lift",
+        "up",
+        "eye."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          15,
+          11,
+          15
+        ],
+        [
+          "replace",
+          15,
+          20,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          15,
+          20,
+          15,
+          17
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Emilia,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "emilia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.55,
+          "end": 1.57,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "lay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.03,
+          "end": 2.29,
+          "key": "down",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "roar,",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "roar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 3.37,
+          "end": 3.45,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.45,
+          "end": 3.63,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 3.63,
+          "end": 4.01,
+          "key": "hast",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 4.01,
+          "end": 4.31,
+          "key": "killed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.31,
+          "end": 4.55,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sweetest",
+          "start": 4.55,
+          "end": 5.03,
+          "key": "sweetest",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 5.03,
+          "end": 5.25,
+          "key": "innocent",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 5.25,
+          "end": 5.63,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 5.63,
+          "end": 5.83,
+          "key": "e",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 5.83,
+          "end": 7.49,
+          "key": "er",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Nay,",
+          "start": 1.55,
+          "end": 1.57
+        },
+        {
+          "text": "lay",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "thee",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "down",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "text": "roar;",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "For",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "text": "thou",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "text": "hast",
+          "start": 3.63,
+          "end": 4.01
+        },
+        {
+          "text": "kill'd",
+          "start": 4.01,
+          "end": 4.16
+        },
+        {
+          "text": "the",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "text": "sweetest",
+          "start": 4.55,
+          "end": 5.03
+        },
+        {
+          "text": "innocent",
+          "start": 5.03,
+          "end": 5.25
+        },
+        {
+          "text": "That",
+          "start": 5.25,
+          "end": 5.63
+        },
+        {
+          "text": "e'er",
+          "start": 5.63,
+          "end": 6.56
+        },
+        {
+          "text": "did",
+          "start": 6.56,
+          "end": 7.025
+        },
+        {
+          "text": "lift",
+          "start": 7.025,
+          "end": 7.258
+        },
+        {
+          "text": "up",
+          "start": 7.258,
+          "end": 7.374
+        },
+        {
+          "text": "eye.",
+          "start": 7.374,
+          "end": 7.432
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 17,
+        "matched_words": 14
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.34749125968664885
+    },
+    {
+      "asr_seconds": 0.19565510423853993,
+      "alignment_seconds": 0.0002453271299600601,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Emilia, Nay, For, That"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Thou hast killed the sweetest innocent That e'er did lift up I.",
+          "start": 0.05,
+          "end": 6.89,
+          "words": [
+            {
+              "text": " Thou",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 1.3709068298339844e-05
+            },
+            {
+              "text": " hast",
+              "start": 0.77,
+              "end": 3.95,
+              "probability": 0.833984375
+            },
+            {
+              "text": " killed",
+              "start": 3.95,
+              "end": 4.31,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " the",
+              "start": 4.31,
+              "end": 4.51,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " sweetest",
+              "start": 4.51,
+              "end": 5.01,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " innocent",
+              "start": 5.01,
+              "end": 5.27,
+              "probability": 0.919921875
+            },
+            {
+              "text": " That",
+              "start": 5.27,
+              "end": 5.63,
+              "probability": 0.15380859375
+            },
+            {
+              "text": " e",
+              "start": 5.63,
+              "end": 5.83,
+              "probability": 0.63330078125
+            },
+            {
+              "text": "'er",
+              "start": 5.83,
+              "end": 5.91,
+              "probability": 0.708740234375
+            },
+            {
+              "text": " did",
+              "start": 5.91,
+              "end": 6.13,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " lift",
+              "start": 6.13,
+              "end": 6.39,
+              "probability": 0.9921875
+            },
+            {
+              "text": " up",
+              "start": 6.39,
+              "end": 6.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I.",
+              "start": 6.59,
+              "end": 6.89,
+              "probability": 0.8271484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thou",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "hast",
+          "start": 0.77,
+          "end": 3.95
+        },
+        {
+          "raw": "killed",
+          "start": 3.95,
+          "end": 4.31
+        },
+        {
+          "raw": "the",
+          "start": 4.31,
+          "end": 4.51
+        },
+        {
+          "raw": "sweetest",
+          "start": 4.51,
+          "end": 5.01
+        },
+        {
+          "raw": "innocent",
+          "start": 5.01,
+          "end": 5.27
+        },
+        {
+          "raw": "That",
+          "start": 5.27,
+          "end": 5.63
+        },
+        {
+          "raw": "e",
+          "start": 5.63,
+          "end": 5.83
+        },
+        {
+          "raw": "'er",
+          "start": 5.83,
+          "end": 5.91
+        },
+        {
+          "raw": "did",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "raw": "lift",
+          "start": 6.13,
+          "end": 6.39
+        },
+        {
+          "raw": "up",
+          "start": 6.39,
+          "end": 6.59
+        },
+        {
+          "raw": "I.",
+          "start": 6.59,
+          "end": 6.89
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Nay,",
+        "lay",
+        "thee",
+        "down",
+        "and",
+        "roar;",
+        "For",
+        "thou",
+        "hast",
+        "kill'd",
+        "the",
+        "sweetest",
+        "innocent",
+        "That",
+        "e'er",
+        "did",
+        "lift",
+        "up",
+        "eye."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "equal",
+          8,
+          10,
+          0,
+          2
+        ],
+        [
+          "replace",
+          10,
+          11,
+          2,
+          3
+        ],
+        [
+          "equal",
+          11,
+          15,
+          3,
+          7
+        ],
+        [
+          "replace",
+          15,
+          16,
+          7,
+          9
+        ],
+        [
+          "equal",
+          16,
+          19,
+          9,
+          12
+        ],
+        [
+          "replace",
+          19,
+          20,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "replace",
+          10,
+          11,
+          2,
+          3
+        ],
+        [
+          "replace",
+          15,
+          16,
+          7,
+          9
+        ],
+        [
+          "replace",
+          19,
+          20,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thou",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "thou",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 0.77,
+          "end": 3.95,
+          "key": "hast",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 3.95,
+          "end": 4.31,
+          "key": "killed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.31,
+          "end": 4.51,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sweetest",
+          "start": 4.51,
+          "end": 5.01,
+          "key": "sweetest",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 5.01,
+          "end": 5.27,
+          "key": "innocent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 5.27,
+          "end": 5.63,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 5.63,
+          "end": 5.83,
+          "key": "e",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 5.83,
+          "end": 5.91,
+          "key": "er",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.91,
+          "end": 6.13,
+          "key": "did",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lift",
+          "start": 6.13,
+          "end": 6.39,
+          "key": "lift",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 6.39,
+          "end": 6.59,
+          "key": "up",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 6.59,
+          "end": 6.89,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Nay,",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "lay",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "thee",
+          "start": 0.044,
+          "end": 0.047
+        },
+        {
+          "text": "down",
+          "start": 0.047,
+          "end": 0.049
+        },
+        {
+          "text": "and",
+          "start": 0.049,
+          "end": 0.05
+        },
+        {
+          "text": "roar;",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "For",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "thou",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "hast",
+          "start": 0.77,
+          "end": 3.95
+        },
+        {
+          "text": "kill'd",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "text": "the",
+          "start": 4.31,
+          "end": 4.51
+        },
+        {
+          "text": "sweetest",
+          "start": 4.51,
+          "end": 5.01
+        },
+        {
+          "text": "innocent",
+          "start": 5.01,
+          "end": 5.27
+        },
+        {
+          "text": "That",
+          "start": 5.27,
+          "end": 5.63
+        },
+        {
+          "text": "e'er",
+          "start": 5.63,
+          "end": 5.77
+        },
+        {
+          "text": "did",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "text": "lift",
+          "start": 6.13,
+          "end": 6.39
+        },
+        {
+          "text": "up",
+          "start": 6.39,
+          "end": 6.59
+        },
+        {
+          "text": "eye.",
+          "start": 6.59,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 13,
+        "matched_words": 9
+      },
+      "match_ratio": 0.45,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19596965098753572
+    },
+    {
+      "asr_seconds": 0.25062673166394234,
+      "alignment_seconds": 0.0002589668147265911,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, Nay, lay thee down and roar, for thou hast killed the sweetest innocent that ere",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " Nay,",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " lay",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " thee",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.986328125
+            },
+            {
+              "text": " down",
+              "start": 2.03,
+              "end": 2.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.53,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " roar,",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " for",
+              "start": 3.37,
+              "end": 3.45,
+              "probability": 0.4501953125
+            },
+            {
+              "text": " thou",
+              "start": 3.45,
+              "end": 3.63,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " hast",
+              "start": 3.63,
+              "end": 4.01,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " killed",
+              "start": 4.01,
+              "end": 4.33,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " the",
+              "start": 4.33,
+              "end": 4.55,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " sweetest",
+              "start": 4.55,
+              "end": 5.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " innocent",
+              "start": 5.03,
+              "end": 5.25,
+              "probability": 0.935546875
+            },
+            {
+              "text": " that",
+              "start": 5.25,
+              "end": 5.63,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " ere",
+              "start": 5.63,
+              "end": 5.91,
+              "probability": 0.731689453125
+            }
+          ]
+        },
+        {
+          "text": " did lift up I.",
+          "start": 5.91,
+          "end": 6.87,
+          "words": [
+            {
+              "text": " did",
+              "start": 5.91,
+              "end": 6.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " lift",
+              "start": 6.13,
+              "end": 6.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " up",
+              "start": 6.39,
+              "end": 6.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I.",
+              "start": 6.59,
+              "end": 6.87,
+              "probability": 0.8203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "lay",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "thee",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "down",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "raw": "roar,",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "for",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "raw": "thou",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "raw": "hast",
+          "start": 3.63,
+          "end": 4.01
+        },
+        {
+          "raw": "killed",
+          "start": 4.01,
+          "end": 4.33
+        },
+        {
+          "raw": "the",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "raw": "sweetest",
+          "start": 4.55,
+          "end": 5.03
+        },
+        {
+          "raw": "innocent",
+          "start": 5.03,
+          "end": 5.25
+        },
+        {
+          "raw": "that",
+          "start": 5.25,
+          "end": 5.63
+        },
+        {
+          "raw": "ere",
+          "start": 5.63,
+          "end": 5.91
+        },
+        {
+          "raw": "did",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "raw": "lift",
+          "start": 6.13,
+          "end": 6.39
+        },
+        {
+          "raw": "up",
+          "start": 6.39,
+          "end": 6.59
+        },
+        {
+          "raw": "I.",
+          "start": 6.59,
+          "end": 6.87
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "Nay,",
+        "lay",
+        "thee",
+        "down",
+        "and",
+        "roar;",
+        "For",
+        "thou",
+        "hast",
+        "kill'd",
+        "the",
+        "sweetest",
+        "innocent",
+        "That",
+        "e'er",
+        "did",
+        "lift",
+        "up",
+        "eye."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          15,
+          11,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          19,
+          16,
+          19
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "lay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.03,
+          "end": 2.29,
+          "key": "down",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.53,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "roar,",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "roar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.37,
+          "end": 3.45,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.45,
+          "end": 3.63,
+          "key": "thou",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 3.63,
+          "end": 4.01,
+          "key": "hast",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "killed",
+          "start": 4.01,
+          "end": 4.33,
+          "key": "killed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.33,
+          "end": 4.55,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "sweetest",
+          "start": 4.55,
+          "end": 5.03,
+          "key": "sweetest",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "innocent",
+          "start": 5.03,
+          "end": 5.25,
+          "key": "innocent",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.25,
+          "end": 5.63,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 5.63,
+          "end": 5.91,
+          "key": "ere",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 5.91,
+          "end": 6.13,
+          "key": "did",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "lift",
+          "start": 6.13,
+          "end": 6.39,
+          "key": "lift",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 6.39,
+          "end": 6.59,
+          "key": "up",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 6.59,
+          "end": 6.87,
+          "key": "i",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.735
+        },
+        {
+          "text": "Nay,",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "lay",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "thee",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "down",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.53
+        },
+        {
+          "text": "roar;",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "For",
+          "start": 3.37,
+          "end": 3.45
+        },
+        {
+          "text": "thou",
+          "start": 3.45,
+          "end": 3.63
+        },
+        {
+          "text": "hast",
+          "start": 3.63,
+          "end": 4.01
+        },
+        {
+          "text": "kill'd",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "text": "the",
+          "start": 4.33,
+          "end": 4.55
+        },
+        {
+          "text": "sweetest",
+          "start": 4.55,
+          "end": 5.03
+        },
+        {
+          "text": "innocent",
+          "start": 5.03,
+          "end": 5.25
+        },
+        {
+          "text": "That",
+          "start": 5.25,
+          "end": 5.63
+        },
+        {
+          "text": "e'er",
+          "start": 5.63,
+          "end": 5.77
+        },
+        {
+          "text": "did",
+          "start": 5.91,
+          "end": 6.13
+        },
+        {
+          "text": "lift",
+          "start": 6.13,
+          "end": 6.39
+        },
+        {
+          "text": "up",
+          "start": 6.39,
+          "end": 6.59
+        },
+        {
+          "text": "eye.",
+          "start": 6.59,
+          "end": 6.73
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25099562760442495
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "83a2d5037afe91e87028a9477a8ad75bbd57e4d03b97cf0113e9f8b607cc18c7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

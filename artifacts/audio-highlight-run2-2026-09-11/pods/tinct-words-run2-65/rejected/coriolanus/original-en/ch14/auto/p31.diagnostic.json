@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "9ec4dd6fbc2506a0d9b92fd2cd15b171f1b5feca56505c13aafce83859771501",
+  "attempts": [
+    {
+      "asr_seconds": 0.9409253681078553,
+      "alignment_seconds": 0.00023972708731889725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. Why, this was known before.",
+        "hotwords": "Coriolanus, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, Why, this was known before.",
+          "start": 0.66,
+          "end": 2.54,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.66,
+              "end": 1.06,
+              "probability": 0.8160807291666666
+            },
+            {
+              "text": " Why,",
+              "start": 1.46,
+              "end": 1.66,
+              "probability": 0.041748046875
+            },
+            {
+              "text": " this",
+              "start": 1.74,
+              "end": 1.82,
+              "probability": 0.4716796875
+            },
+            {
+              "text": " was",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " known",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " before.",
+              "start": 2.16,
+              "end": 2.54,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "raw": "Why,",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "raw": "this",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "raw": "was",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "known",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "before.",
+          "start": 2.16,
+          "end": 2.54
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Why,",
+        "this",
+        "was",
+        "known",
+        "before."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.66,
+          "end": 1.06,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.46,
+          "end": 1.66,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.74,
+          "end": 1.82,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.82,
+          "end": 1.96,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "known",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "before.",
+          "start": 2.16,
+          "end": 2.54,
+          "key": "before",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "text": "Why,",
+          "start": 1.46,
+          "end": 1.66
+        },
+        {
+          "text": "this",
+          "start": 1.74,
+          "end": 1.82
+        },
+        {
+          "text": "was",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "known",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "before.",
+          "start": 2.16,
+          "end": 2.54
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9412495871074498
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9269c6bf875c6cb1715db773e752221c1b14fb51255a55032ebe39059cf89559",
+  "selected_reasons": []
+}

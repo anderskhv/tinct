@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "01a67949b008ad7da3ec1cbae8e701baeca0d6a0abb385479b1845f7f2004b13",
+  "attempts": [
+    {
+      "asr_seconds": 0.147501221857965,
+      "alignment_seconds": 0.00014719367027282715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, come hither, good Volumnius, list a word.",
+          "start": 0.08,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " come",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " hither,",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " good",
+              "start": 1.8,
+              "end": 1.82,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Volumnius,",
+              "start": 1.82,
+              "end": 2.42,
+              "probability": 0.642333984375
+            },
+            {
+              "text": " list",
+              "start": 2.66,
+              "end": 2.7,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " a",
+              "start": 2.7,
+              "end": 2.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " word.",
+              "start": 2.88,
+              "end": 3.12,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "come",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "hither,",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "good",
+          "start": 1.8,
+          "end": 1.82
+        },
+        {
+          "raw": "Volumnius,",
+          "start": 1.82,
+          "end": 2.42
+        },
+        {
+          "raw": "list",
+          "start": 2.66,
+          "end": 2.7
+        },
+        {
+          "raw": "a",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "raw": "word.",
+          "start": 2.88,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Come",
+        "hither,",
+        "good",
+        "Volumnius;",
+        "list",
+        "a",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "hither",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.8,
+          "end": 1.82,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Volumnius,",
+          "start": 1.82,
+          "end": 2.42,
+          "key": "volumnius",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "list",
+          "start": 2.66,
+          "end": 2.7,
+          "key": "list",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.7,
+          "end": 2.88,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 2.88,
+          "end": 3.12,
+          "key": "word",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Come",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "hither,",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "good",
+          "start": 1.8,
+          "end": 1.82
+        },
+        {
+          "text": "Volumnius;",
+          "start": 1.82,
+          "end": 2.42
+        },
+        {
+          "text": "list",
+          "start": 2.66,
+          "end": 2.7
+        },
+        {
+          "text": "a",
+          "start": 2.7,
+          "end": 2.88
+        },
+        {
+          "text": "word.",
+          "start": 2.88,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1477053351700306
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2803d21bc95eb950dc173efd436c23653ebfe109ac85fd5b535aabdef1274e4",
+  "selected_reasons": []
+}

@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "defd05fc4b5d6dbeac0ec7cc3d850a882a9b30dd38d41abdf6f75b86191cb6e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.13591880514286458,
+      "alignment_seconds": 0.00025325408205389977,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Here in illustration reader",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.59765625
+            },
+            {
+              "text": " in",
+              "start": 0.57,
+              "end": 0.69,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " illustration",
+              "start": 0.69,
+              "end": 1.13,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " reader",
+              "start": 1.13,
+              "end": 1.77,
+              "probability": 0.37744140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "in",
+          "start": 0.57,
+          "end": 0.69
+        },
+        {
+          "raw": "illustration",
+          "start": 0.69,
+          "end": 1.13
+        },
+        {
+          "raw": "reader",
+          "start": 1.13,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Hear",
+        "an",
+        "illustration,",
+        "reader."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.57,
+          "end": 0.69,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "illustration",
+          "start": 0.69,
+          "end": 1.13,
+          "key": "illustration",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reader",
+          "start": 1.13,
+          "end": 1.77,
+          "key": "reader",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hear",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "an",
+          "start": 0.345,
+          "end": 0.517
+        },
+        {
+          "text": "illustration,",
+          "start": 0.69,
+          "end": 1.13
+        },
+        {
+          "text": "reader.",
+          "start": 1.13,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13625602307729423
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d33697888815404a5e3799b35c611831b17f1e8c034acb31ae8aa6361ab8d164",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

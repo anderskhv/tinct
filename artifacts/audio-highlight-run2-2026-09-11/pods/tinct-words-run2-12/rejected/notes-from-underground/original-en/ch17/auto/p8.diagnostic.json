@@ -1,0 +1,837 @@
+{
+  "complete": true,
+  "signature": "0d95e024e5b80bef3958beef9af7dc24ff200b32983d48645e1ed0c9c8d638cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.41361062112264335,
+      "alignment_seconds": 0.0007310160435736179,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What weather! The snow ... it's disgusting!\" I said, almost to myself, putting my arm under my head despondently, and gazing at the ceiling.",
+        "hotwords": "What, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What weather! The snow ... it's disgusting! I said, almost to myself, putting my arm under",
+          "start": 0.02,
+          "end": 6.06,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.127197265625
+            },
+            {
+              "text": " weather!",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " The",
+              "start": 0.96,
+              "end": 1.08,
+              "probability": 0.6455078125
+            },
+            {
+              "text": " snow",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " ...",
+              "start": 1.4,
+              "end": 1.78,
+              "probability": 0.0006990432739257812
+            },
+            {
+              "text": " it's",
+              "start": 1.78,
+              "end": 2.06,
+              "probability": 0.84375
+            },
+            {
+              "text": " disgusting!",
+              "start": 2.06,
+              "end": 2.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " I",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " said,",
+              "start": 3.5,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " almost",
+              "start": 3.98,
+              "end": 4.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 4.22,
+              "end": 4.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " myself,",
+              "start": 4.46,
+              "end": 4.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " putting",
+              "start": 5.24,
+              "end": 5.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " arm",
+              "start": 5.58,
+              "end": 5.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " under",
+              "start": 5.86,
+              "end": 6.06,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " my head despondently, and gazing at the ceiling.",
+          "start": 6.06,
+          "end": 8.5,
+          "words": [
+            {
+              "text": " my",
+              "start": 6.06,
+              "end": 6.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " head",
+              "start": 6.24,
+              "end": 6.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " despondently,",
+              "start": 6.44,
+              "end": 7.2,
+              "probability": 0.9861653645833334
+            },
+            {
+              "text": " and",
+              "start": 7.52,
+              "end": 7.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " gazing",
+              "start": 7.6,
+              "end": 7.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 7.9,
+              "end": 8.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 8.14,
+              "end": 8.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ceiling.",
+              "start": 8.26,
+              "end": 8.5,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "weather!",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "raw": "The",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "raw": "snow",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "raw": "...",
+          "start": 1.4,
+          "end": 1.78
+        },
+        {
+          "raw": "it's",
+          "start": 1.78,
+          "end": 2.06
+        },
+        {
+          "raw": "disgusting!",
+          "start": 2.06,
+          "end": 2.56
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "said,",
+          "start": 3.5,
+          "end": 3.78
+        },
+        {
+          "raw": "almost",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "raw": "to",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "raw": "myself,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "raw": "putting",
+          "start": 5.24,
+          "end": 5.34
+        },
+        {
+          "raw": "my",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "arm",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "raw": "under",
+          "start": 5.86,
+          "end": 6.06
+        },
+        {
+          "raw": "my",
+          "start": 6.06,
+          "end": 6.24
+        },
+        {
+          "raw": "head",
+          "start": 6.24,
+          "end": 6.44
+        },
+        {
+          "raw": "despondently,",
+          "start": 6.44,
+          "end": 7.2
+        },
+        {
+          "raw": "and",
+          "start": 7.52,
+          "end": 7.6
+        },
+        {
+          "raw": "gazing",
+          "start": 7.6,
+          "end": 7.9
+        },
+        {
+          "raw": "at",
+          "start": 7.9,
+          "end": 8.14
+        },
+        {
+          "raw": "the",
+          "start": 8.14,
+          "end": 8.26
+        },
+        {
+          "raw": "ceiling.",
+          "start": 8.26,
+          "end": 8.5
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "weather!",
+        "The",
+        "snow",
+        "...",
+        "it's",
+        "disgusting!\"",
+        "I",
+        "said,",
+        "almost",
+        "to",
+        "myself,",
+        "putting",
+        "my",
+        "arm",
+        "under",
+        "my",
+        "head",
+        "despondently,",
+        "and",
+        "gazing",
+        "at",
+        "the",
+        "ceiling."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "weather!",
+          "start": 0.56,
+          "end": 0.82,
+          "key": "weather",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 0.96,
+          "end": 1.08,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "snow",
+          "start": 1.08,
+          "end": 1.4,
+          "key": "snow",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "...",
+          "start": 1.4,
+          "end": 1.78,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 1.78,
+          "end": 2.06,
+          "key": "its",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "disgusting!",
+          "start": 2.06,
+          "end": 2.56,
+          "key": "disgusting",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 3.5,
+          "end": 3.78,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 3.98,
+          "end": 4.22,
+          "key": "almost",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.22,
+          "end": 4.46,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "myself,",
+          "start": 4.46,
+          "end": 4.8,
+          "key": "myself",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "putting",
+          "start": 5.24,
+          "end": 5.34,
+          "key": "putting",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.34,
+          "end": 5.58,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "arm",
+          "start": 5.58,
+          "end": 5.86,
+          "key": "arm",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 5.86,
+          "end": 6.06,
+          "key": "under",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 6.06,
+          "end": 6.24,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 6.24,
+          "end": 6.44,
+          "key": "head",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "despondently,",
+          "start": 6.44,
+          "end": 7.2,
+          "key": "despondently",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.52,
+          "end": 7.6,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "gazing",
+          "start": 7.6,
+          "end": 7.9,
+          "key": "gazing",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 7.9,
+          "end": 8.14,
+          "key": "at",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.14,
+          "end": 8.26,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "ceiling.",
+          "start": 8.26,
+          "end": 8.5,
+          "key": "ceiling",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "weather!",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "text": "The",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "text": "snow",
+          "start": 1.08,
+          "end": 1.4
+        },
+        {
+          "text": "...",
+          "start": 1.4,
+          "end": 1.78
+        },
+        {
+          "text": "it's",
+          "start": 1.78,
+          "end": 2.06
+        },
+        {
+          "text": "disgusting!\"",
+          "start": 2.06,
+          "end": 2.56
+        },
+        {
+          "text": "I",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "said,",
+          "start": 3.5,
+          "end": 3.78
+        },
+        {
+          "text": "almost",
+          "start": 3.98,
+          "end": 4.22
+        },
+        {
+          "text": "to",
+          "start": 4.22,
+          "end": 4.46
+        },
+        {
+          "text": "myself,",
+          "start": 4.46,
+          "end": 4.8
+        },
+        {
+          "text": "putting",
+          "start": 5.24,
+          "end": 5.34
+        },
+        {
+          "text": "my",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "arm",
+          "start": 5.58,
+          "end": 5.86
+        },
+        {
+          "text": "under",
+          "start": 5.86,
+          "end": 6.06
+        },
+        {
+          "text": "my",
+          "start": 6.06,
+          "end": 6.24
+        },
+        {
+          "text": "head",
+          "start": 6.24,
+          "end": 6.44
+        },
+        {
+          "text": "despondently,",
+          "start": 6.44,
+          "end": 7.2
+        },
+        {
+          "text": "and",
+          "start": 7.52,
+          "end": 7.6
+        },
+        {
+          "text": "gazing",
+          "start": 7.6,
+          "end": 7.9
+        },
+        {
+          "text": "at",
+          "start": 7.9,
+          "end": 8.14
+        },
+        {
+          "text": "the",
+          "start": 8.14,
+          "end": 8.26
+        },
+        {
+          "text": "ceiling.",
+          "start": 8.26,
+          "end": 8.5
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.414717520121485
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e2ebd78ee57414d97e82981b5eda2559e06a8c0a985142d321e208b9d2b547a",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "bd4160b28b0f53c97a556a2b4e6ab13a950aeb0c3a7d8561400c9f79998e9ca0",
+  "attempts": [
+    {
+      "asr_seconds": 0.18440749309957027,
+      "alignment_seconds": 0.0003468561917543411,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Macmorris and Captain Jamy.",
+        "hotwords": "Enter, Macmorris, Captain, Jamy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Macmorris and Captain Jamy.",
+          "start": 0.11,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " Macmorris",
+              "start": 0.61,
+              "end": 1.19,
+              "probability": 0.378173828125
+            },
+            {
+              "text": " and",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Captain",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Jamy.",
+              "start": 1.69,
+              "end": 2.23,
+              "probability": 0.024552345275878906
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "Macmorris",
+          "start": 0.61,
+          "end": 1.19
+        },
+        {
+          "raw": "and",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "Captain",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "Jamy.",
+          "start": 1.69,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Macmorris",
+        "and",
+        "Captain",
+        "Jamy."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macmorris",
+          "start": 0.61,
+          "end": 1.19,
+          "key": "macmorris",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "captain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Jamy.",
+          "start": 1.69,
+          "end": 2.23,
+          "key": "jamy",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "Macmorris",
+          "start": 0.61,
+          "end": 1.19
+        },
+        {
+          "text": "and",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "Captain",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "text": "Jamy.",
+          "start": 1.69,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18490522913634777
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c553255c54c63f8bda417834c094c2c5ed9239ac641e1e9d47a062d245858fcd",
+  "selected_reasons": []
+}

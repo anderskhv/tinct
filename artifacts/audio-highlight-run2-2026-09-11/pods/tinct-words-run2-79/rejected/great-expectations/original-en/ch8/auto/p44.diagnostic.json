@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "2f6fe5da425df4442b09a097860db3e7bb0bb787a3fc3218c89888ecf306f3f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.14011796796694398,
+      "alignment_seconds": 0.00028806785121560097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Your heart.\"",
+        "hotwords": "Your"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Your heart.",
+          "start": 0.02,
+          "end": 0.82,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.701171875
+            },
+            {
+              "text": " heart.",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.67919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "heart.",
+          "start": 0.52,
+          "end": 0.82
+        }
+      ],
+      "expected_tokens": [
+        "\"Your",
+        "heart.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "heart",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "heart.\"",
+          "start": 0.52,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14050160814076662
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0061833b3d01bf7e9d3cc2f5c9ee546dc03d3cb9378dcc70e0642c17b2ee9f5c",
+  "selected_reasons": []
+}

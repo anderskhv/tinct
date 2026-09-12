@@ -1,0 +1,755 @@
+{
+  "complete": true,
+  "signature": "3deab6fd533c023144a9b5e7b154ff5331a47eb5e4e7180581fc1f8cd1c44615",
+  "attempts": [
+    {
+      "asr_seconds": 0.17608270794153214,
+      "alignment_seconds": 0.0004267357289791107,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_To Fabian._] Read it you, sirrah.",
+        "hotwords": "Fabian._, Read"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To Fabian._, Read it you, sirrah.",
+          "start": 0.02,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.71484375
+            },
+            {
+              "text": " Fabian._,",
+              "start": 0.48,
+              "end": 1.46,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " Read",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.12841796875
+            },
+            {
+              "text": " it",
+              "start": 1.56,
+              "end": 1.66,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " you,",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.6201171875
+            },
+            {
+              "text": " sirrah.",
+              "start": 1.9,
+              "end": 2.28,
+              "probability": 0.28708648681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Fabian._,",
+          "start": 0.48,
+          "end": 1.46
+        },
+        {
+          "raw": "Read",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "it",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "raw": "you,",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "sirrah.",
+          "start": 1.9,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Fabian._]",
+        "Read",
+        "it",
+        "you,",
+        "sirrah."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fabian._,",
+          "start": 0.48,
+          "end": 1.46,
+          "key": "fabian_",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Read",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "read",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.56,
+          "end": 1.66,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sirrah.",
+          "start": 1.9,
+          "end": 2.28,
+          "key": "sirrah",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Fabian._]",
+          "start": 0.48,
+          "end": 0.97
+        },
+        {
+          "text": "Read",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "it",
+          "start": 1.56,
+          "end": 1.66
+        },
+        {
+          "text": "you,",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "sirrah.",
+          "start": 1.9,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17664940655231476
+    },
+    {
+      "asr_seconds": 0.19504432752728462,
+      "alignment_seconds": 0.00040024518966674805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Fabian._, Read"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " at you, Sarah.",
+          "start": 0.02,
+          "end": 2.08,
+          "words": [
+            {
+              "text": " at",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 4.708766937255859e-06
+            },
+            {
+              "text": " you,",
+              "start": 0.58,
+              "end": 1.82,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " Sarah.",
+              "start": 2.0,
+              "end": 2.08,
+              "probability": 0.91259765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "at",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "you,",
+          "start": 0.58,
+          "end": 1.82
+        },
+        {
+          "raw": "Sarah.",
+          "start": 2.0,
+          "end": 2.08
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Fabian._]",
+        "Read",
+        "it",
+        "you,",
+        "sirrah."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          1
+        ],
+        [
+          "equal",
+          4,
+          5,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "at",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 0.58,
+          "end": 1.82,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 2.0,
+          "end": 2.08,
+          "key": "sarah",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.0,
+          "end": 0.29
+        },
+        {
+          "text": "Fabian._]",
+          "start": 0.29,
+          "end": 0.435
+        },
+        {
+          "text": "Read",
+          "start": 0.435,
+          "end": 0.507
+        },
+        {
+          "text": "it",
+          "start": 0.507,
+          "end": 0.543
+        },
+        {
+          "text": "you,",
+          "start": 0.58,
+          "end": 1.82
+        },
+        {
+          "text": "sirrah.",
+          "start": 1.82,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19554128870368004
+    },
+    {
+      "asr_seconds": 0.20042220130562782,
+      "alignment_seconds": 0.0003953799605369568,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To Fabian read it you Sarah",
+          "start": 0.02,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.71484375
+            },
+            {
+              "text": " Fabian",
+              "start": 0.48,
+              "end": 1.04,
+              "probability": 0.982177734375
+            },
+            {
+              "text": " read",
+              "start": 1.04,
+              "end": 1.54,
+              "probability": 0.227294921875
+            },
+            {
+              "text": " it",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " you",
+              "start": 1.68,
+              "end": 1.82,
+              "probability": 0.73193359375
+            },
+            {
+              "text": " Sarah",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.7080078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Fabian",
+          "start": 0.48,
+          "end": 1.04
+        },
+        {
+          "raw": "read",
+          "start": 1.04,
+          "end": 1.54
+        },
+        {
+          "raw": "it",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "you",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "raw": "Sarah",
+          "start": 1.82,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "[_To",
+        "Fabian._]",
+        "Read",
+        "it",
+        "you,",
+        "sirrah."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fabian",
+          "start": 0.48,
+          "end": 1.04,
+          "key": "fabian",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "read",
+          "start": 1.04,
+          "end": 1.54,
+          "key": "read",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.68,
+          "end": 1.82,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Sarah",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "sarah",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Fabian._]",
+          "start": 0.48,
+          "end": 1.04
+        },
+        {
+          "text": "Read",
+          "start": 1.04,
+          "end": 1.54
+        },
+        {
+          "text": "it",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "you,",
+          "start": 1.68,
+          "end": 1.82
+        },
+        {
+          "text": "sirrah.",
+          "start": 1.82,
+          "end": 1.96
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2009868398308754
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3b613f5413041bb6990431ec83104cc7f09c9440df50263e89b69716948f851e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

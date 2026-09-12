@@ -1,0 +1,701 @@
+{
+  "complete": true,
+  "signature": "c617d2c80937a3ae74e42888043f914057cc7fac133379ce5e92bc06109a64c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.20425848383456469,
+      "alignment_seconds": 0.00041455309838056564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Ford._ Bless you, sir!",
+        "hotwords": "Bless"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Chaos, mock Vader. That is DAT.",
+          "start": 0.05,
+          "end": 2.35,
+          "words": [
+            {
+              "text": " Chaos,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.42626953125
+            },
+            {
+              "text": " mock",
+              "start": 1.11,
+              "end": 1.19,
+              "probability": 0.2015380859375
+            },
+            {
+              "text": " Vader.",
+              "start": 1.19,
+              "end": 1.51,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " That",
+              "start": 1.83,
+              "end": 1.87,
+              "probability": 0.951171875
+            },
+            {
+              "text": " is",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " DAT.",
+              "start": 2.01,
+              "end": 2.35,
+              "probability": 0.4637451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "mock",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "raw": "Vader.",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "raw": "That",
+          "start": 1.83,
+          "end": 1.87
+        },
+        {
+          "raw": "is",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "DAT.",
+          "start": 2.01,
+          "end": 2.35
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "Bless",
+        "you,",
+        "sir!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mock",
+          "start": 1.11,
+          "end": 1.19,
+          "key": "mock",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Vader.",
+          "start": 1.19,
+          "end": 1.51,
+          "key": "vader",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 1.83,
+          "end": 1.87,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "DAT.",
+          "start": 2.01,
+          "end": 2.35,
+          "key": "dat",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.0,
+          "end": 1.175
+        },
+        {
+          "text": "Bless",
+          "start": 1.175,
+          "end": 1.763
+        },
+        {
+          "text": "you,",
+          "start": 1.763,
+          "end": 2.056
+        },
+        {
+          "text": "sir!",
+          "start": 2.056,
+          "end": 2.203
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20481527410447598
+    },
+    {
+      "asr_seconds": 0.2136650662869215,
+      "alignment_seconds": 0.00032132677733898163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Bless"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Chaos mock Vader that is dat",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Chaos",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.42626953125
+            },
+            {
+              "text": " mock",
+              "start": 0.75,
+              "end": 1.19,
+              "probability": 0.1744384765625
+            },
+            {
+              "text": " Vader",
+              "start": 1.19,
+              "end": 1.53,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " that",
+              "start": 1.53,
+              "end": 1.87,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " is",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " dat",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.2861328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "mock",
+          "start": 0.75,
+          "end": 1.19
+        },
+        {
+          "raw": "Vader",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "raw": "that",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "raw": "is",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "dat",
+          "start": 2.03,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "Bless",
+        "you,",
+        "sir!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mock",
+          "start": 0.75,
+          "end": 1.19,
+          "key": "mock",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Vader",
+          "start": 1.19,
+          "end": 1.53,
+          "key": "vader",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.53,
+          "end": 1.87,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dat",
+          "start": 2.03,
+          "end": 2.31,
+          "key": "dat",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.0,
+          "end": 1.155
+        },
+        {
+          "text": "Bless",
+          "start": 1.155,
+          "end": 1.732
+        },
+        {
+          "text": "you,",
+          "start": 1.732,
+          "end": 2.021
+        },
+        {
+          "text": "sir!",
+          "start": 2.021,
+          "end": 2.165
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21412915084511042
+    },
+    {
+      "asr_seconds": 0.17822871822863817,
+      "alignment_seconds": 0.00038698315620422363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Chaos mock Vader that is dad",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Chaos",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.42626953125
+            },
+            {
+              "text": " mock",
+              "start": 0.75,
+              "end": 1.19,
+              "probability": 0.1744384765625
+            },
+            {
+              "text": " Vader",
+              "start": 1.19,
+              "end": 1.53,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " that",
+              "start": 1.53,
+              "end": 1.87,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " is",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " dad",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.273193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chaos",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "mock",
+          "start": 0.75,
+          "end": 1.19
+        },
+        {
+          "raw": "Vader",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "raw": "that",
+          "start": 1.53,
+          "end": 1.87
+        },
+        {
+          "raw": "is",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "dad",
+          "start": 2.03,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "Bless",
+        "you,",
+        "sir!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chaos",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "chaos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "mock",
+          "start": 0.75,
+          "end": 1.19,
+          "key": "mock",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Vader",
+          "start": 1.19,
+          "end": 1.53,
+          "key": "vader",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.53,
+          "end": 1.87,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dad",
+          "start": 2.03,
+          "end": 2.31,
+          "key": "dad",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.0,
+          "end": 1.155
+        },
+        {
+          "text": "Bless",
+          "start": 1.155,
+          "end": 1.732
+        },
+        {
+          "text": "you,",
+          "start": 1.732,
+          "end": 2.021
+        },
+        {
+          "text": "sir!",
+          "start": 2.021,
+          "end": 2.165
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1787575948983431
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66f86c07057acc427071ade91c466f455dbea247245b98fa804b92f424123c2d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

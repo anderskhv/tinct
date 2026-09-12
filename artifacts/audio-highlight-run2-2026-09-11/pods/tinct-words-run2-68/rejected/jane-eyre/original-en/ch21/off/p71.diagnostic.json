@@ -1,0 +1,722 @@
+{
+  "complete": true,
+  "signature": "3e4a8e07769380b61935a3be0371f72e85f4c5a5a2ad3d75545cdc9ab4261664",
+  "attempts": [
+    {
+      "asr_seconds": 0.36139875277876854,
+      "alignment_seconds": 0.0006310231983661652,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " An old Madam Reed, or the Misses, her daughters, will be solicited by you to seek a place,",
+          "start": 0.08,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " An",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " old",
+              "start": 0.54,
+              "end": 0.84,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Madam",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " Reed,",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " or",
+              "start": 2.0,
+              "end": 2.08,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Misses,",
+              "start": 2.22,
+              "end": 2.66,
+              "probability": 0.585205078125
+            },
+            {
+              "text": " her",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " daughters,",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.919921875
+            },
+            {
+              "text": " will",
+              "start": 3.64,
+              "end": 3.7,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " be",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " solicited",
+              "start": 3.84,
+              "end": 4.36,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " by",
+              "start": 4.36,
+              "end": 4.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 4.54,
+              "end": 4.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 4.7,
+              "end": 4.84,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " seek",
+              "start": 4.84,
+              "end": 5.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.0,
+              "end": 5.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " place,",
+              "start": 5.14,
+              "end": 5.44,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " I suppose.",
+          "start": 5.8,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 5.8,
+              "end": 5.92,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " suppose.",
+              "start": 5.92,
+              "end": 6.32,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "An",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "old",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "raw": "Madam",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "Reed,",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "or",
+          "start": 2.0,
+          "end": 2.08
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "Misses,",
+          "start": 2.22,
+          "end": 2.66
+        },
+        {
+          "raw": "her",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "daughters,",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "raw": "will",
+          "start": 3.64,
+          "end": 3.7
+        },
+        {
+          "raw": "be",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "solicited",
+          "start": 3.84,
+          "end": 4.36
+        },
+        {
+          "raw": "by",
+          "start": 4.36,
+          "end": 4.54
+        },
+        {
+          "raw": "you",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "raw": "to",
+          "start": 4.7,
+          "end": 4.84
+        },
+        {
+          "raw": "seek",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "raw": "a",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "raw": "place,",
+          "start": 5.14,
+          "end": 5.44
+        },
+        {
+          "raw": "I",
+          "start": 5.8,
+          "end": 5.92
+        },
+        {
+          "raw": "suppose.",
+          "start": 5.92,
+          "end": 6.32
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "old",
+        "Madam",
+        "Reed,",
+        "or",
+        "the",
+        "Misses,",
+        "her",
+        "daughters,",
+        "will",
+        "be",
+        "solicited",
+        "by",
+        "you",
+        "to",
+        "seek",
+        "a",
+        "place,",
+        "I",
+        "suppose?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          20,
+          1,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "An",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "an",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.54,
+          "end": 0.84,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Madam",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Reed,",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "reed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.0,
+          "end": 2.08,
+          "key": "or",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Misses,",
+          "start": 2.22,
+          "end": 2.66,
+          "key": "misses",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "daughters,",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "daughters",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.64,
+          "end": 3.7,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "solicited",
+          "start": 3.84,
+          "end": 4.36,
+          "key": "solicited",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.36,
+          "end": 4.54,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.54,
+          "end": 4.7,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.7,
+          "end": 4.84,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "seek",
+          "start": 4.84,
+          "end": 5.0,
+          "key": "seek",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.0,
+          "end": 5.14,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "place,",
+          "start": 5.14,
+          "end": 5.44,
+          "key": "place",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.8,
+          "end": 5.92,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "suppose.",
+          "start": 5.92,
+          "end": 6.32,
+          "key": "suppose",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.0,
+          "end": 0.27
+        },
+        {
+          "text": "old",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "text": "Madam",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "Reed,",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "or",
+          "start": 2.0,
+          "end": 2.08
+        },
+        {
+          "text": "the",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "Misses,",
+          "start": 2.22,
+          "end": 2.66
+        },
+        {
+          "text": "her",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "daughters,",
+          "start": 2.9,
+          "end": 3.2
+        },
+        {
+          "text": "will",
+          "start": 3.64,
+          "end": 3.7
+        },
+        {
+          "text": "be",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "solicited",
+          "start": 3.84,
+          "end": 4.36
+        },
+        {
+          "text": "by",
+          "start": 4.36,
+          "end": 4.54
+        },
+        {
+          "text": "you",
+          "start": 4.54,
+          "end": 4.7
+        },
+        {
+          "text": "to",
+          "start": 4.7,
+          "end": 4.84
+        },
+        {
+          "text": "seek",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "text": "a",
+          "start": 5.0,
+          "end": 5.14
+        },
+        {
+          "text": "place,",
+          "start": 5.14,
+          "end": 5.44
+        },
+        {
+          "text": "I",
+          "start": 5.8,
+          "end": 5.92
+        },
+        {
+          "text": "suppose?\"",
+          "start": 5.92,
+          "end": 6.32
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.36234379559755325
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8baa7c2de44bc9d9856ea87bf351698ef53058bf40282605d8a27087c36dffc0",
+  "selected_reasons": []
+}

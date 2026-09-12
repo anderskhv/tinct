@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "9aecaed9c9b5f6f82ac92489ec27c25b5c83dcd4ab5e6e43a36087441bd09b91",
+  "attempts": [
+    {
+      "asr_seconds": 0.11782238818705082,
+      "alignment_seconds": 0.0001460295170545578,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Why, fool?",
+        "hotwords": "Kent, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Why Fool?",
+          "start": 0.08,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " Why",
+              "start": 1.02,
+              "end": 1.08,
+              "probability": 0.058502197265625
+            },
+            {
+              "text": " Fool?",
+              "start": 1.08,
+              "end": 1.32,
+              "probability": 0.640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Why",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "raw": "Fool?",
+          "start": 1.08,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Why,",
+        "fool?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 1.02,
+          "end": 1.08,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Fool?",
+          "start": 1.08,
+          "end": 1.32,
+          "key": "fool",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Why,",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "text": "fool?",
+          "start": 1.08,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11802269145846367
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bd299f166ca0b7e73d5306e85c8fbd94358d23e78fccab172abfd5571a9fc2fa",
+  "selected_reasons": []
+}

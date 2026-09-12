@@ -1,0 +1,515 @@
+{
+  "complete": true,
+  "signature": "9495e0f9a27514489951a46843d12a879d0874f923e4680d0b8a2e33d2fdd6db",
+  "attempts": [
+    {
+      "asr_seconds": 0.9435913739725947,
+      "alignment_seconds": 0.000473828986287117,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, said I, answering almost mechanically in spite of my utmost efforts.",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.057037353515625
+            },
+            {
+              "text": " said",
+              "start": 0.97,
+              "end": 1.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I,",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " answering",
+              "start": 1.87,
+              "end": 2.27,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " almost",
+              "start": 2.27,
+              "end": 2.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mechanically",
+              "start": 2.67,
+              "end": 3.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.21,
+              "end": 3.61,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " spite",
+              "start": 3.61,
+              "end": 3.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 3.81,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 3.95,
+              "end": 4.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " utmost",
+              "start": 4.09,
+              "end": 4.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " efforts.",
+              "start": 4.43,
+              "end": 4.95,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " Not tomorrow.",
+          "start": 5.65,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " Not",
+              "start": 5.65,
+              "end": 5.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " tomorrow.",
+              "start": 5.79,
+              "end": 6.15,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "said",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "raw": "I,",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "answering",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "raw": "almost",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "raw": "mechanically",
+          "start": 2.67,
+          "end": 3.21
+        },
+        {
+          "raw": "in",
+          "start": 3.21,
+          "end": 3.61
+        },
+        {
+          "raw": "spite",
+          "start": 3.61,
+          "end": 3.81
+        },
+        {
+          "raw": "of",
+          "start": 3.81,
+          "end": 3.95
+        },
+        {
+          "raw": "my",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "raw": "utmost",
+          "start": 4.09,
+          "end": 4.43
+        },
+        {
+          "raw": "efforts.",
+          "start": 4.43,
+          "end": 4.95
+        },
+        {
+          "raw": "Not",
+          "start": 5.65,
+          "end": 5.79
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 5.79,
+          "end": 6.15
+        }
+      ],
+      "expected_tokens": [
+        "\"No,\"",
+        "said",
+        "I,",
+        "answering",
+        "almost",
+        "mechanically,",
+        "in",
+        "spite",
+        "of",
+        "my",
+        "utmost",
+        "efforts;",
+        "\"not",
+        "to-morrow.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.97,
+          "end": 1.25,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.25,
+          "end": 1.55,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answering",
+          "start": 1.87,
+          "end": 2.27,
+          "key": "answering",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "almost",
+          "start": 2.27,
+          "end": 2.67,
+          "key": "almost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mechanically",
+          "start": 2.67,
+          "end": 3.21,
+          "key": "mechanically",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.21,
+          "end": 3.61,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "spite",
+          "start": 3.61,
+          "end": 3.81,
+          "key": "spite",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.81,
+          "end": 3.95,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.95,
+          "end": 4.09,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "utmost",
+          "start": 4.09,
+          "end": 4.43,
+          "key": "utmost",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "efforts.",
+          "start": 4.43,
+          "end": 4.95,
+          "key": "efforts",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 5.65,
+          "end": 5.79,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 5.79,
+          "end": 6.15,
+          "key": "tomorrow",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,\"",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "said",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "text": "I,",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "answering",
+          "start": 1.87,
+          "end": 2.27
+        },
+        {
+          "text": "almost",
+          "start": 2.27,
+          "end": 2.67
+        },
+        {
+          "text": "mechanically,",
+          "start": 2.67,
+          "end": 3.21
+        },
+        {
+          "text": "in",
+          "start": 3.21,
+          "end": 3.61
+        },
+        {
+          "text": "spite",
+          "start": 3.61,
+          "end": 3.81
+        },
+        {
+          "text": "of",
+          "start": 3.81,
+          "end": 3.95
+        },
+        {
+          "text": "my",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "text": "utmost",
+          "start": 4.09,
+          "end": 4.43
+        },
+        {
+          "text": "efforts;",
+          "start": 4.43,
+          "end": 4.95
+        },
+        {
+          "text": "\"not",
+          "start": 5.65,
+          "end": 5.79
+        },
+        {
+          "text": "to-morrow.\"",
+          "start": 5.79,
+          "end": 6.15
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9443255085498095
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b25581c459947702cac9f60d7dab7fcf5d08b96571c372782514eaba37884d48",
+  "selected_reasons": []
+}

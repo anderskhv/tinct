@@ -1,0 +1,381 @@
+{
+  "complete": true,
+  "signature": "54fdbfb2b20b1497fa29bebd1e0e7322c18d1162b4a04b0b9707978c5459279f",
+  "attempts": [
+    {
+      "asr_seconds": 0.18713782355189323,
+      "alignment_seconds": 0.0003892853856086731,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. This is much credit to you.",
+        "hotwords": "Malvolio, This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, This Malvolio. This Malvolio. This is much credit to you.",
+          "start": 0.57,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.57,
+              "end": 1.01,
+              "probability": 0.8099772135416666
+            },
+            {
+              "text": " This",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.03106689453125
+            },
+            {
+              "text": " Malvolio.",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.6575520833333334
+            },
+            {
+              "text": " This",
+              "start": 1.69,
+              "end": 1.69,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Malvolio.",
+              "start": 1.69,
+              "end": 1.69,
+              "probability": 0.6630299886067709
+            },
+            {
+              "text": " This",
+              "start": 1.69,
+              "end": 1.69,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " is",
+              "start": 1.69,
+              "end": 1.69,
+              "probability": 0.9296875
+            },
+            {
+              "text": " much",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.919921875
+            },
+            {
+              "text": " credit",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " to",
+              "start": 2.15,
+              "end": 2.35,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " you.",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.57,
+          "end": 1.01
+        },
+        {
+          "raw": "This",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "Malvolio.",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "This",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "raw": "Malvolio.",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "raw": "This",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "credit",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "to",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "raw": "you.",
+          "start": 2.35,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "This",
+        "is",
+        "much",
+        "credit",
+        "to",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          "equal",
+          0,
+          7,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.57,
+          "end": 1.01,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Malvolio.",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "malvolio",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.69,
+          "end": 1.69,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Malvolio.",
+          "start": 1.69,
+          "end": 1.69,
+          "key": "malvolio",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.69,
+          "end": 1.69,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.69,
+          "end": 1.69,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "much",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "credit",
+          "start": 1.89,
+          "end": 2.15,
+          "key": "credit",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.15,
+          "end": 2.35,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "text": "This",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "text": "is",
+          "start": 1.69,
+          "end": 1.69
+        },
+        {
+          "text": "much",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "credit",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "to",
+          "start": 2.15,
+          "end": 2.35
+        },
+        {
+          "text": "you.",
+          "start": 2.35,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 11,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18770867958664894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8ee9a73aeeae04b29c715391c98eee39576f767bcda30f4ebb891336944b6df",
+  "selected_reasons": []
+}

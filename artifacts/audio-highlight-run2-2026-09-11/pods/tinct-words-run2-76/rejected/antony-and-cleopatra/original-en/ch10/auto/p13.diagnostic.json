@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "31d0a1a9144bab5e7bcee4157a1d07b6514875376f28a4f92e250be8a2ee6e9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.21143658505752683,
+      "alignment_seconds": 0.0003194478340446949,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. Madam, madam—",
+        "hotwords": "Messenger"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger. Madam, madam.",
+          "start": 0.02,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " Messenger.",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.6611328125
+            },
+            {
+              "text": " Madam,",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " madam.",
+              "start": 1.72,
+              "end": 2.06,
+              "probability": 0.822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "madam.",
+          "start": 1.72,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "Madam,",
+        "madam—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger.",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "madam",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 1.72,
+          "end": 2.06,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "Madam,",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "madam—",
+          "start": 1.72,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21186679415404797
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "745e9316a693e8bc74b44a4a27081a390601340c8760ffbe80532bfeace489e8",
+  "selected_reasons": []
+}

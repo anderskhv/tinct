@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "07d74133c2bb0f7d79a8a707462cd31f2b1bf8bf5b673fa6ec0acc37baaccb74",
+  "attempts": [
+    {
+      "asr_seconds": 0.2662273971363902,
+      "alignment_seconds": 0.00041484483517706394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Catesby. He for his father's sake so loves the Prince That he will not be won to aught against him.",
+        "hotwords": "Catesby, Prince, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Catesby, He for his father's sake so loves the Prince That he will not be won to aught against him.",
+          "start": 0.5,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " Catesby,",
+              "start": 0.5,
+              "end": 0.96,
+              "probability": 0.14989217122395834
+            },
+            {
+              "text": " He",
+              "start": 1.34,
+              "end": 1.58,
+              "probability": 0.0235443115234375
+            },
+            {
+              "text": " for",
+              "start": 1.58,
+              "end": 1.72,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " his",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " father's",
+              "start": 1.88,
+              "end": 2.32,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " sake",
+              "start": 2.32,
+              "end": 2.5,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " so",
+              "start": 2.5,
+              "end": 2.8,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " loves",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Prince",
+              "start": 3.36,
+              "end": 3.56,
+              "probability": 0.2135009765625
+            },
+            {
+              "text": " That",
+              "start": 3.56,
+              "end": 3.84,
+              "probability": 0.007770538330078125
+            },
+            {
+              "text": " he",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " will",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " not",
+              "start": 4.14,
+              "end": 4.36,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " be",
+              "start": 4.36,
+              "end": 4.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " won",
+              "start": 4.52,
+              "end": 4.68,
+              "probability": 0.0225830078125
+            },
+            {
+              "text": " to",
+              "start": 4.68,
+              "end": 4.9,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " aught",
+              "start": 4.9,
+              "end": 5.06,
+              "probability": 0.57330322265625
+            },
+            {
+              "text": " against",
+              "start": 5.06,
+              "end": 5.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him.",
+              "start": 5.32,
+              "end": 5.64,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Catesby,",
+          "start": 0.5,
+          "end": 0.96
+        },
+        {
+          "raw": "He",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "raw": "for",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "raw": "his",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "father's",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "raw": "sake",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "raw": "so",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "raw": "loves",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "raw": "the",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "raw": "Prince",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "raw": "That",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "raw": "he",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "will",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "not",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "raw": "be",
+          "start": 4.36,
+          "end": 4.52
+        },
+        {
+          "raw": "won",
+          "start": 4.52,
+          "end": 4.68
+        },
+        {
+          "raw": "to",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "raw": "aught",
+          "start": 4.9,
+          "end": 5.06
+        },
+        {
+          "raw": "against",
+          "start": 5.06,
+          "end": 5.32
+        },
+        {
+          "raw": "him.",
+          "start": 5.32,
+          "end": 5.64
+        }
+      ],
+      "expected_tokens": [
+        "Catesby.",
+        "He",
+        "for",
+        "his",
+        "father's",
+        "sake",
+        "so",
+        "loves",
+        "the",
+        "Prince",
+        "That",
+        "he",
+        "will",
+        "not",
+        "be",
+        "won",
+        "to",
+        "aught",
+        "against",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Catesby,",
+          "start": 0.5,
+          "end": 0.96,
+          "key": "catesby",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.34,
+          "end": 1.58,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.58,
+          "end": 1.72,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "father's",
+          "start": 1.88,
+          "end": 2.32,
+          "key": "fathers",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sake",
+          "start": 2.32,
+          "end": 2.5,
+          "key": "sake",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.5,
+          "end": 2.8,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "loves",
+          "start": 2.8,
+          "end": 3.08,
+          "key": "loves",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Prince",
+          "start": 3.36,
+          "end": 3.56,
+          "key": "prince",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.56,
+          "end": 3.84,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.84,
+          "end": 4.0,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.0,
+          "end": 4.14,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.14,
+          "end": 4.36,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.36,
+          "end": 4.52,
+          "key": "be",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "won",
+          "start": 4.52,
+          "end": 4.68,
+          "key": "won",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.68,
+          "end": 4.9,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "aught",
+          "start": 4.9,
+          "end": 5.06,
+          "key": "aught",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 5.06,
+          "end": 5.32,
+          "key": "against",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.32,
+          "end": 5.64,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Catesby.",
+          "start": 0.5,
+          "end": 0.96
+        },
+        {
+          "text": "He",
+          "start": 1.34,
+          "end": 1.58
+        },
+        {
+          "text": "for",
+          "start": 1.58,
+          "end": 1.72
+        },
+        {
+          "text": "his",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "father's",
+          "start": 1.88,
+          "end": 2.32
+        },
+        {
+          "text": "sake",
+          "start": 2.32,
+          "end": 2.5
+        },
+        {
+          "text": "so",
+          "start": 2.5,
+          "end": 2.8
+        },
+        {
+          "text": "loves",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "text": "the",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "text": "Prince",
+          "start": 3.36,
+          "end": 3.56
+        },
+        {
+          "text": "That",
+          "start": 3.56,
+          "end": 3.84
+        },
+        {
+          "text": "he",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "will",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "not",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "text": "be",
+          "start": 4.36,
+          "end": 4.52
+        },
+        {
+          "text": "won",
+          "start": 4.52,
+          "end": 4.68
+        },
+        {
+          "text": "to",
+          "start": 4.68,
+          "end": 4.9
+        },
+        {
+          "text": "aught",
+          "start": 4.9,
+          "end": 5.06
+        },
+        {
+          "text": "against",
+          "start": 5.06,
+          "end": 5.32
+        },
+        {
+          "text": "him.",
+          "start": 5.32,
+          "end": 5.64
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26681408612057567
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "580ab4d1d8fb8ef3c5277b24d843ba45743413a11a956ca3afa1ccc194a69a81",
+  "selected_reasons": []
+}

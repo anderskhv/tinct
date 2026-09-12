@@ -1,0 +1,582 @@
+{
+  "complete": true,
+  "signature": "945a6300ae1f98029a88919f5e2278489c2ce94c53e5b4b6119c274d98ce2155",
+  "attempts": [
+    {
+      "asr_seconds": 0.2278244961053133,
+      "alignment_seconds": 0.0005102474242448807,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We shall cry we shall be sure to cry nasty a chimed in with timid haste",
+          "start": 0.02,
+          "end": 4.48,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.5224609375
+            },
+            {
+              "text": " shall",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " cry",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " we",
+              "start": 1.06,
+              "end": 1.48,
+              "probability": 0.39892578125
+            },
+            {
+              "text": " shall",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 1.64,
+              "end": 1.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sure",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.94,
+              "end": 2.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cry",
+              "start": 2.06,
+              "end": 2.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nasty",
+              "start": 2.4,
+              "end": 3.16,
+              "probability": 0.275146484375
+            },
+            {
+              "text": " a",
+              "start": 3.16,
+              "end": 3.28,
+              "probability": 0.798828125
+            },
+            {
+              "text": " chimed",
+              "start": 3.28,
+              "end": 3.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 3.62,
+              "end": 3.72,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " with",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " timid",
+              "start": 3.9,
+              "end": 4.16,
+              "probability": 0.8564453125
+            },
+            {
+              "text": " haste",
+              "start": 4.16,
+              "end": 4.48,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "shall",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "cry",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "we",
+          "start": 1.06,
+          "end": 1.48
+        },
+        {
+          "raw": "shall",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "be",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "raw": "sure",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "raw": "cry",
+          "start": 2.06,
+          "end": 2.4
+        },
+        {
+          "raw": "nasty",
+          "start": 2.4,
+          "end": 3.16
+        },
+        {
+          "raw": "a",
+          "start": 3.16,
+          "end": 3.28
+        },
+        {
+          "raw": "chimed",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "raw": "in",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "raw": "with",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "timid",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "raw": "haste",
+          "start": 4.16,
+          "end": 4.48
+        }
+      ],
+      "expected_tokens": [
+        "\"We",
+        "shall",
+        "cry,",
+        "we",
+        "shall",
+        "be",
+        "sure",
+        "to",
+        "cry,\"",
+        "Nastya",
+        "chimed",
+        "in",
+        "with",
+        "timid",
+        "haste."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          15,
+          11,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "cry",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.06,
+          "end": 1.48,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "shall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.64,
+          "end": 1.78,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "sure",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.06,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 2.06,
+          "end": 2.4,
+          "key": "cry",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "nasty",
+          "start": 2.4,
+          "end": 3.16,
+          "key": "nasty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.16,
+          "end": 3.28,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "chimed",
+          "start": 3.28,
+          "end": 3.62,
+          "key": "chimed",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.62,
+          "end": 3.72,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.72,
+          "end": 3.9,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "timid",
+          "start": 3.9,
+          "end": 4.16,
+          "key": "timid",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "haste",
+          "start": 4.16,
+          "end": 4.48,
+          "key": "haste",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"We",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "shall",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "cry,",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "we",
+          "start": 1.06,
+          "end": 1.48
+        },
+        {
+          "text": "shall",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "be",
+          "start": 1.64,
+          "end": 1.78
+        },
+        {
+          "text": "sure",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "to",
+          "start": 1.94,
+          "end": 2.06
+        },
+        {
+          "text": "cry,\"",
+          "start": 2.06,
+          "end": 2.4
+        },
+        {
+          "text": "Nastya",
+          "start": 2.4,
+          "end": 2.84
+        },
+        {
+          "text": "chimed",
+          "start": 3.28,
+          "end": 3.62
+        },
+        {
+          "text": "in",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "text": "with",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "timid",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "text": "haste.",
+          "start": 4.16,
+          "end": 4.48
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.22854087129235268
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c7de46688a2891b6e65a78cf1175b6d966ea3add9184cd2728fa45afc8f6a7e3",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "0678e837df32ea9d7d0929be6478a2dee443487135afee3c5fcc856e5f2d8d4c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2524053156375885,
+      "alignment_seconds": 0.0002734009176492691,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. Come, shall we hear this music?",
+        "hotwords": "Don, Pedro, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, Come, shall we hear this music?",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.89,
+              "end": 0.95,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Come,",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.032379150390625
+            },
+            {
+              "text": " shall",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.677734375
+            },
+            {
+              "text": " we",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.96484375
+            },
+            {
+              "text": " hear",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " this",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.984375
+            },
+            {
+              "text": " music?",
+              "start": 2.41,
+              "end": 2.69,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.89,
+          "end": 0.95
+        },
+        {
+          "raw": "Come,",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "shall",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "we",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "hear",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "this",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "music?",
+          "start": 2.41,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Come,",
+        "shall",
+        "we",
+        "hear",
+        "this",
+        "music?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.89,
+          "end": 0.95,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "hear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.23,
+          "end": 2.41,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "music?",
+          "start": 2.41,
+          "end": 2.69,
+          "key": "music",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.89,
+          "end": 0.95
+        },
+        {
+          "text": "Come,",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "shall",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "we",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "hear",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "this",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "music?",
+          "start": 2.41,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.252804696559906
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9244cc1af830928fd5ee58361d19aeee19443d1a4e310905476c8182aa61cc00",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "cdd39cafb1fdce6bed4f66c11e7c268438a7c6d66b029b36d0b2c546529f1421",
+  "attempts": [
+    {
+      "asr_seconds": 0.22196470946073532,
+      "alignment_seconds": 0.00032799132168293,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cinna. Directly, I am going to Caesar's funeral.",
+        "hotwords": "Cinna, Directly, I, Caesar's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cinna, Directly, I am going to Caesar's funeral.",
+          "start": 0.08,
+          "end": 2.96,
+          "words": [
+            {
+              "text": " Cinna,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.5788167317708334
+            },
+            {
+              "text": " Directly,",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.5029697418212891
+            },
+            {
+              "text": " I",
+              "start": 1.74,
+              "end": 1.8,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " am",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.94140625
+            },
+            {
+              "text": " going",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 2.06,
+              "end": 2.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Caesar's",
+              "start": 2.24,
+              "end": 2.72,
+              "probability": 0.936767578125
+            },
+            {
+              "text": " funeral.",
+              "start": 2.72,
+              "end": 2.96,
+              "probability": 0.8203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cinna,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Directly,",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "I",
+          "start": 1.74,
+          "end": 1.8
+        },
+        {
+          "raw": "am",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "going",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "to",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "raw": "Caesar's",
+          "start": 2.24,
+          "end": 2.72
+        },
+        {
+          "raw": "funeral.",
+          "start": 2.72,
+          "end": 2.96
+        }
+      ],
+      "expected_tokens": [
+        "Cinna.",
+        "Directly,",
+        "I",
+        "am",
+        "going",
+        "to",
+        "Caesar's",
+        "funeral."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cinna,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "cinna",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Directly,",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "directly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.74,
+          "end": 1.8,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "am",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "going",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.06,
+          "end": 2.24,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Caesar's",
+          "start": 2.24,
+          "end": 2.72,
+          "key": "caesars",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "funeral.",
+          "start": 2.72,
+          "end": 2.96,
+          "key": "funeral",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cinna.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "Directly,",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "I",
+          "start": 1.74,
+          "end": 1.8
+        },
+        {
+          "text": "am",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "going",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "to",
+          "start": 2.06,
+          "end": 2.24
+        },
+        {
+          "text": "Caesar's",
+          "start": 2.24,
+          "end": 2.72
+        },
+        {
+          "text": "funeral.",
+          "start": 2.72,
+          "end": 2.96
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22240293212234974
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "33700be04623832b85209e1695840db161bb68edf8fa6d9e6673d23d330d9228",
+  "selected_reasons": []
+}

@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "5c7adc71116877ce0f8ed923cc0a395513a452be5f10470b3bcb1b6d6715a401",
+  "attempts": [
+    {
+      "asr_seconds": 0.1599934530677274,
+      "alignment_seconds": 0.0002644929336383939,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leader. Kithaeron?",
+        "hotwords": "Leader, Kithaeron"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leader, Kithaeron.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Leader,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " Kithaeron.",
+              "start": 1.08,
+              "end": 1.46,
+              "probability": 0.45209574699401855
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "Kithaeron.",
+          "start": 1.08,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "Leader.",
+        "Kithaeron?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leader,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "leader",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kithaeron.",
+          "start": 1.08,
+          "end": 1.46,
+          "key": "kithaeron",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leader.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "Kithaeron?",
+          "start": 1.08,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16035268804989755
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a8244e195b9b7bbf6165083207e0ed9c58a016d065c0e332928502e85a7ac778",
+  "selected_reasons": []
+}

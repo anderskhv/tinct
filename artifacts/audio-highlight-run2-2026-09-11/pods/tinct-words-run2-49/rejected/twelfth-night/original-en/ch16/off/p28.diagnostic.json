@@ -1,0 +1,199 @@
+{
+  "complete": true,
+  "signature": "2b2a2bd7b716cec5ecf19822008b7e5d793c7191a69ef1d6308416307eb43146",
+  "attempts": [
+    {
+      "asr_seconds": 0.2122833915054798,
+      "alignment_seconds": 0.00037952885031700134,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Malvolio, Sertopas, Sertopas",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.8489583333333334
+            },
+            {
+              "text": " Sertopas,",
+              "start": 1.49,
+              "end": 1.95,
+              "probability": 0.5052642822265625
+            },
+            {
+              "text": " Sertopas",
+              "start": 2.09,
+              "end": 2.63,
+              "probability": 0.963134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "Sertopas,",
+          "start": 1.49,
+          "end": 1.95
+        },
+        {
+          "raw": "Sertopas",
+          "start": 2.09,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Sir",
+        "Topas,",
+        "Sir",
+        "Topas!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          5,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          5,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sertopas,",
+          "start": 1.49,
+          "end": 1.95,
+          "key": "sertopas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sertopas",
+          "start": 2.09,
+          "end": 2.63,
+          "key": "sertopas",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "Sir",
+          "start": 1.09,
+          "end": 1.86
+        },
+        {
+          "text": "Topas,",
+          "start": 1.86,
+          "end": 2.245
+        },
+        {
+          "text": "Sir",
+          "start": 2.245,
+          "end": 2.438
+        },
+        {
+          "text": "Topas!",
+          "start": 2.438,
+          "end": 2.534
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21278846263885498
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf5b43b742190a934e11a52938f2e51a9e7e889791954562244ee89b7d76521a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

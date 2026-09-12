@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "f696a47caf14bac15329b0f55adc8611437a4068022a33b33ae06c49fa96e346",
+  "attempts": [
+    {
+      "asr_seconds": 0.3026607418432832,
+      "alignment_seconds": 0.0004496099427342415,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gratiano, a Daniel still say I a second Daniel. I thank thee Jew for teaching me that word",
+          "start": 0.05,
+          "end": 6.09,
+          "words": [
+            {
+              "text": " Gratiano,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.6424153645833334
+            },
+            {
+              "text": " a",
+              "start": 1.59,
+              "end": 1.67,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " Daniel",
+              "start": 1.67,
+              "end": 1.95,
+              "probability": 0.95703125
+            },
+            {
+              "text": " still",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.921875
+            },
+            {
+              "text": " say",
+              "start": 2.29,
+              "end": 2.63,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.783203125
+            },
+            {
+              "text": " a",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.919921875
+            },
+            {
+              "text": " second",
+              "start": 2.99,
+              "end": 3.23,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " Daniel.",
+              "start": 3.23,
+              "end": 3.63,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " I",
+              "start": 4.07,
+              "end": 4.29,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " thank",
+              "start": 4.29,
+              "end": 4.49,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " thee",
+              "start": 4.49,
+              "end": 4.73,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Jew",
+              "start": 4.73,
+              "end": 4.91,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " for",
+              "start": 4.91,
+              "end": 5.13,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " teaching",
+              "start": 5.13,
+              "end": 5.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 5.39,
+              "end": 5.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 5.61,
+              "end": 5.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " word",
+              "start": 5.83,
+              "end": 6.09,
+              "probability": 0.95654296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "a",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "raw": "Daniel",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "raw": "still",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "raw": "say",
+          "start": 2.29,
+          "end": 2.63
+        },
+        {
+          "raw": "I",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "raw": "a",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "second",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "raw": "Daniel.",
+          "start": 3.23,
+          "end": 3.63
+        },
+        {
+          "raw": "I",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "raw": "thank",
+          "start": 4.29,
+          "end": 4.49
+        },
+        {
+          "raw": "thee",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "raw": "Jew",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "raw": "for",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "raw": "teaching",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "raw": "me",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "raw": "that",
+          "start": 5.61,
+          "end": 5.83
+        },
+        {
+          "raw": "word",
+          "start": 5.83,
+          "end": 6.09
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "A",
+        "Daniel",
+        "still",
+        "say",
+        "I,",
+        "a",
+        "second",
+        "Daniel!",
+        "I",
+        "thank",
+        "thee,",
+        "Jew,",
+        "for",
+        "teaching",
+        "me",
+        "that",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "gratiano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.59,
+          "end": 1.67,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Daniel",
+          "start": 1.67,
+          "end": 1.95,
+          "key": "daniel",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 1.95,
+          "end": 2.29,
+          "key": "still",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.29,
+          "end": 2.63,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.83,
+          "end": 2.99,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 2.99,
+          "end": 3.23,
+          "key": "second",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Daniel.",
+          "start": 3.23,
+          "end": 3.63,
+          "key": "daniel",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.07,
+          "end": 4.29,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 4.29,
+          "end": 4.49,
+          "key": "thank",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.49,
+          "end": 4.73,
+          "key": "thee",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Jew",
+          "start": 4.73,
+          "end": 4.91,
+          "key": "jew",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.91,
+          "end": 5.13,
+          "key": "for",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "teaching",
+          "start": 5.13,
+          "end": 5.39,
+          "key": "teaching",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.39,
+          "end": 5.61,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.61,
+          "end": 5.83,
+          "key": "that",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 5.83,
+          "end": 6.09,
+          "key": "word",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "text": "A",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "text": "Daniel",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "text": "still",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "text": "say",
+          "start": 2.29,
+          "end": 2.63
+        },
+        {
+          "text": "I,",
+          "start": 2.63,
+          "end": 2.83
+        },
+        {
+          "text": "a",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "second",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "text": "Daniel!",
+          "start": 3.23,
+          "end": 3.63
+        },
+        {
+          "text": "I",
+          "start": 4.07,
+          "end": 4.29
+        },
+        {
+          "text": "thank",
+          "start": 4.29,
+          "end": 4.49
+        },
+        {
+          "text": "thee,",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "text": "Jew,",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "text": "for",
+          "start": 4.91,
+          "end": 5.13
+        },
+        {
+          "text": "teaching",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "text": "me",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "text": "that",
+          "start": 5.61,
+          "end": 5.83
+        },
+        {
+          "text": "word.",
+          "start": 5.83,
+          "end": 6.09
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3032859032973647
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "20add3b007fd9b415d7a672dac2fdc1aee14885123a81ecfdca246fdc7932796",
+  "selected_reasons": []
+}

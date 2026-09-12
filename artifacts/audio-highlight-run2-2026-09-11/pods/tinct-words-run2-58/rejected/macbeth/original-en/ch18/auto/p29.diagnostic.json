@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "20557b1e84ad9009b1add0d5c63114c501124721bace9c8d29f5098ff183d5e9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2397854421287775,
+      "alignment_seconds": 0.0004592388868331909,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Witch. He knows thy thought: Hear his speech, but say thou naught.",
+        "hotwords": "First, Witch, He, Hear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Witch, He knows thy thought. Hear his speech, but say thou naught.",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " Witch,",
+              "start": 0.95,
+              "end": 0.95,
+              "probability": 0.01116943359375
+            },
+            {
+              "text": " He",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.113037109375
+            },
+            {
+              "text": " knows",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.98828125
+            },
+            {
+              "text": " thy",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.865234375
+            },
+            {
+              "text": " thought.",
+              "start": 1.87,
+              "end": 2.19,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " Hear",
+              "start": 2.63,
+              "end": 2.67,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " his",
+              "start": 2.67,
+              "end": 2.83,
+              "probability": 0.6259765625
+            },
+            {
+              "text": " speech,",
+              "start": 2.83,
+              "end": 3.13,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " but",
+              "start": 3.31,
+              "end": 3.39,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " say",
+              "start": 3.39,
+              "end": 3.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thou",
+              "start": 3.59,
+              "end": 3.79,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " naught.",
+              "start": 3.79,
+              "end": 4.19,
+              "probability": 0.411407470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.95,
+          "end": 0.95
+        },
+        {
+          "raw": "He",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "knows",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "thy",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "thought.",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "raw": "Hear",
+          "start": 2.63,
+          "end": 2.67
+        },
+        {
+          "raw": "his",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "raw": "speech,",
+          "start": 2.83,
+          "end": 3.13
+        },
+        {
+          "raw": "but",
+          "start": 3.31,
+          "end": 3.39
+        },
+        {
+          "raw": "say",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "raw": "thou",
+          "start": 3.59,
+          "end": 3.79
+        },
+        {
+          "raw": "naught.",
+          "start": 3.79,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "He",
+        "knows",
+        "thy",
+        "thought:",
+        "Hear",
+        "his",
+        "speech,",
+        "but",
+        "say",
+        "thou",
+        "naught."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.95,
+          "end": 0.95,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "knows",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "thy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thought.",
+          "start": 1.87,
+          "end": 2.19,
+          "key": "thought",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Hear",
+          "start": 2.63,
+          "end": 2.67,
+          "key": "hear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.67,
+          "end": 2.83,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "speech,",
+          "start": 2.83,
+          "end": 3.13,
+          "key": "speech",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.31,
+          "end": 3.39,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.39,
+          "end": 3.59,
+          "key": "say",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.59,
+          "end": 3.79,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "naught.",
+          "start": 3.79,
+          "end": 4.19,
+          "key": "naught",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Witch.",
+          "start": 0.95,
+          "end": 0.95
+        },
+        {
+          "text": "He",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "knows",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "thy",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "thought:",
+          "start": 1.87,
+          "end": 2.19
+        },
+        {
+          "text": "Hear",
+          "start": 2.63,
+          "end": 2.67
+        },
+        {
+          "text": "his",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "text": "speech,",
+          "start": 2.83,
+          "end": 3.13
+        },
+        {
+          "text": "but",
+          "start": 3.31,
+          "end": 3.39
+        },
+        {
+          "text": "say",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "text": "thou",
+          "start": 3.59,
+          "end": 3.79
+        },
+        {
+          "text": "naught.",
+          "start": 3.79,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24043153692036867
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47ffd016f36063c7885835a715ee950cb126703747e9f3248cb91f798482ac03",
+  "selected_reasons": []
+}

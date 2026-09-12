@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "a28aea743ac2066737a27b43553f8bdd91614204d88306f2f454ff391b1ecd7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.10782232694327831,
+      "alignment_seconds": 0.00013202987611293793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio, zounds you rogue, you rascal.",
+          "start": 0.05,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " Casio,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.6861572265625
+            },
+            {
+              "text": " zounds",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.713623046875
+            },
+            {
+              "text": " you",
+              "start": 1.67,
+              "end": 1.79,
+              "probability": 0.5732421875
+            },
+            {
+              "text": " rogue,",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " you",
+              "start": 2.15,
+              "end": 2.17,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " rascal.",
+              "start": 2.17,
+              "end": 2.59,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "zounds",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "you",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "raw": "rogue,",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "you",
+          "start": 2.15,
+          "end": 2.17
+        },
+        {
+          "raw": "rascal.",
+          "start": 2.17,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Zounds,",
+        "you",
+        "rogue,",
+        "you",
+        "rascal!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "zounds",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "zounds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.67,
+          "end": 1.79,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rogue,",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "rogue",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.15,
+          "end": 2.17,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rascal.",
+          "start": 2.17,
+          "end": 2.59,
+          "key": "rascal",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.725
+        },
+        {
+          "text": "Zounds,",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "you",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "text": "rogue,",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "you",
+          "start": 2.15,
+          "end": 2.17
+        },
+        {
+          "text": "rascal!",
+          "start": 2.17,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10800142586231232
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ffe02e244d8c70431f399f8b2b5cdda554be963416636854a181c164424e3192",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

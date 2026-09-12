@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "72ac00b04caf48780d4917b864d68bbdaf22e017a420100169f610ab597fc6e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.12191327475011349,
+      "alignment_seconds": 0.00029234495013952255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Strikes him again._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " strikes him again.",
+          "start": 0.08,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " strikes",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " him",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " again.",
+              "start": 0.84,
+              "end": 1.1,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "strikes",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "him",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "again.",
+          "start": 0.84,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "[_Strikes",
+        "him",
+        "again._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "strikes",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "strikes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "him",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 0.84,
+          "end": 1.1,
+          "key": "again",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Strikes",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "him",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "again._]",
+          "start": 0.84,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12231861194595695
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c7042a330825c84abf97e2960e79f6b8137bfaa3d4ce50cbe30f0ca79791b2c3",
+  "selected_reasons": []
+}

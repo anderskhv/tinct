@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "c5c5995a5db2799f32acd29b6c46e7c4d3af2eaedf10e547fc333d609e25caf2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10870092269033194,
+      "alignment_seconds": 0.00018449919298291206,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[In happy time, Iago.]",
+        "hotwords": "In, Iago"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In Happy Time, Iago.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.13671875
+            },
+            {
+              "text": " Happy",
+              "start": 0.53,
+              "end": 0.83,
+              "probability": 0.5390625
+            },
+            {
+              "text": " Time,",
+              "start": 0.83,
+              "end": 1.11,
+              "probability": 0.475830078125
+            },
+            {
+              "text": " Iago.",
+              "start": 1.21,
+              "end": 1.51,
+              "probability": 0.1579132080078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Happy",
+          "start": 0.53,
+          "end": 0.83
+        },
+        {
+          "raw": "Time,",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "raw": "Iago.",
+          "start": 1.21,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "[In",
+        "happy",
+        "time,",
+        "Iago.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Happy",
+          "start": 0.53,
+          "end": 0.83,
+          "key": "happy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Time,",
+          "start": 0.83,
+          "end": 1.11,
+          "key": "time",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Iago.",
+          "start": 1.21,
+          "end": 1.51,
+          "key": "iago",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "happy",
+          "start": 0.53,
+          "end": 0.83
+        },
+        {
+          "text": "time,",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "text": "Iago.]",
+          "start": 1.21,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10894626099616289
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a546c5aada2c1b7bd29243b4047c17eb15b3209a69641842f119abc5a28d7b3d",
+  "selected_reasons": []
+}

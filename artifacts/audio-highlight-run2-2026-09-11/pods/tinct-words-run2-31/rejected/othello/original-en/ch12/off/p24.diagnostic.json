@@ -1,0 +1,722 @@
+{
+  "complete": true,
+  "signature": "34024d9b1b8ebba262d70ac315168f798ae91b7937b05bce865e613ff79f66fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.300054999999702,
+      "alignment_seconds": 0.0002606073394417763,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, upon my knees, what doth your speech import?",
+          "start": 0.63,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.63,
+              "end": 1.07,
+              "probability": 0.648712158203125
+            },
+            {
+              "text": " upon",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " my",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.9921875
+            },
+            {
+              "text": " knees,",
+              "start": 2.01,
+              "end": 2.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " what",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.974609375
+            },
+            {
+              "text": " doth",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " speech",
+              "start": 3.03,
+              "end": 3.29,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " import?",
+              "start": 3.29,
+              "end": 3.77,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " I understand a fury in your words, but not the words.",
+          "start": 4.35,
+          "end": 6.81,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.35,
+              "end": 4.53,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " understand",
+              "start": 4.53,
+              "end": 4.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 4.93,
+              "end": 5.11,
+              "probability": 0.978515625
+            },
+            {
+              "text": " fury",
+              "start": 5.11,
+              "end": 5.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 5.37,
+              "end": 5.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 5.55,
+              "end": 5.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " words,",
+              "start": 5.67,
+              "end": 5.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 6.13,
+              "end": 6.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 6.21,
+              "end": 6.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.41,
+              "end": 6.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " words.",
+              "start": 6.53,
+              "end": 6.81,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "raw": "upon",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "knees,",
+          "start": 2.01,
+          "end": 2.37
+        },
+        {
+          "raw": "what",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "doth",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "your",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "speech",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "raw": "import?",
+          "start": 3.29,
+          "end": 3.77
+        },
+        {
+          "raw": "I",
+          "start": 4.35,
+          "end": 4.53
+        },
+        {
+          "raw": "understand",
+          "start": 4.53,
+          "end": 4.93
+        },
+        {
+          "raw": "a",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "raw": "fury",
+          "start": 5.11,
+          "end": 5.37
+        },
+        {
+          "raw": "in",
+          "start": 5.37,
+          "end": 5.55
+        },
+        {
+          "raw": "your",
+          "start": 5.55,
+          "end": 5.67
+        },
+        {
+          "raw": "words,",
+          "start": 5.67,
+          "end": 5.97
+        },
+        {
+          "raw": "but",
+          "start": 6.13,
+          "end": 6.21
+        },
+        {
+          "raw": "not",
+          "start": 6.21,
+          "end": 6.41
+        },
+        {
+          "raw": "the",
+          "start": 6.41,
+          "end": 6.53
+        },
+        {
+          "raw": "words.",
+          "start": 6.53,
+          "end": 6.81
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Upon",
+        "my",
+        "knees,",
+        "what",
+        "doth",
+        "your",
+        "speech",
+        "import?",
+        "I",
+        "understand",
+        "a",
+        "fury",
+        "in",
+        "your",
+        "words,",
+        "But",
+        "not",
+        "the",
+        "words."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          20,
+          1,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.63,
+          "end": 1.07,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.49,
+          "end": 1.79,
+          "key": "upon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knees,",
+          "start": 2.01,
+          "end": 2.37,
+          "key": "knees",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "doth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.87,
+          "end": 3.03,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speech",
+          "start": 3.03,
+          "end": 3.29,
+          "key": "speech",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "import?",
+          "start": 3.29,
+          "end": 3.77,
+          "key": "import",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.35,
+          "end": 4.53,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 4.53,
+          "end": 4.93,
+          "key": "understand",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.93,
+          "end": 5.11,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fury",
+          "start": 5.11,
+          "end": 5.37,
+          "key": "fury",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.37,
+          "end": 5.55,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.55,
+          "end": 5.67,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "words,",
+          "start": 5.67,
+          "end": 5.97,
+          "key": "words",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.13,
+          "end": 6.21,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.21,
+          "end": 6.41,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.41,
+          "end": 6.53,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 6.53,
+          "end": 6.81,
+          "key": "words",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.745
+        },
+        {
+          "text": "Upon",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "text": "my",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "knees,",
+          "start": 2.01,
+          "end": 2.37
+        },
+        {
+          "text": "what",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "doth",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "your",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "speech",
+          "start": 3.03,
+          "end": 3.29
+        },
+        {
+          "text": "import?",
+          "start": 3.29,
+          "end": 3.77
+        },
+        {
+          "text": "I",
+          "start": 4.35,
+          "end": 4.53
+        },
+        {
+          "text": "understand",
+          "start": 4.53,
+          "end": 4.93
+        },
+        {
+          "text": "a",
+          "start": 4.93,
+          "end": 5.11
+        },
+        {
+          "text": "fury",
+          "start": 5.11,
+          "end": 5.37
+        },
+        {
+          "text": "in",
+          "start": 5.37,
+          "end": 5.55
+        },
+        {
+          "text": "your",
+          "start": 5.55,
+          "end": 5.67
+        },
+        {
+          "text": "words,",
+          "start": 5.67,
+          "end": 5.97
+        },
+        {
+          "text": "But",
+          "start": 6.13,
+          "end": 6.21
+        },
+        {
+          "text": "not",
+          "start": 6.21,
+          "end": 6.41
+        },
+        {
+          "text": "the",
+          "start": 6.41,
+          "end": 6.53
+        },
+        {
+          "text": "words.",
+          "start": 6.53,
+          "end": 6.81
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.30040875589475036
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2e3dacbf6bdabad19f678319e39b9739b9be7742bf611cae9697aabb743aa76e",
+  "selected_reasons": []
+}

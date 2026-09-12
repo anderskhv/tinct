@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "7c0a13765c21cbef60fa13350a9aa680886e8cf7290f9eea950f1f313b8e4d1e",
+  "attempts": [
+    {
+      "asr_seconds": 0.34291111305356026,
+      "alignment_seconds": 0.0005837064236402512,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Posthumous a repulse though your attempt as you call it deserve more a punishment, too",
+          "start": 0.05,
+          "end": 5.85,
+          "words": [
+            {
+              "text": " Posthumous",
+              "start": 0.05,
+              "end": 1.17,
+              "probability": 0.7571614583333334
+            },
+            {
+              "text": " a",
+              "start": 1.17,
+              "end": 1.67,
+              "probability": 0.21875
+            },
+            {
+              "text": " repulse",
+              "start": 1.67,
+              "end": 2.15,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " though",
+              "start": 2.15,
+              "end": 2.69,
+              "probability": 0.931640625
+            },
+            {
+              "text": " your",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " attempt",
+              "start": 2.85,
+              "end": 3.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " as",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 3.43,
+              "end": 3.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " call",
+              "start": 3.57,
+              "end": 3.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " deserve",
+              "start": 3.97,
+              "end": 4.29,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " more",
+              "start": 4.29,
+              "end": 4.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 4.73,
+              "end": 4.99,
+              "probability": 0.982421875
+            },
+            {
+              "text": " punishment,",
+              "start": 4.99,
+              "end": 5.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " too",
+              "start": 5.33,
+              "end": 5.85,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumous",
+          "start": 0.05,
+          "end": 1.17
+        },
+        {
+          "raw": "a",
+          "start": 1.17,
+          "end": 1.67
+        },
+        {
+          "raw": "repulse",
+          "start": 1.67,
+          "end": 2.15
+        },
+        {
+          "raw": "though",
+          "start": 2.15,
+          "end": 2.69
+        },
+        {
+          "raw": "your",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "attempt",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "raw": "as",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "you",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "raw": "call",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "raw": "it",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "deserve",
+          "start": 3.97,
+          "end": 4.29
+        },
+        {
+          "raw": "more",
+          "start": 4.29,
+          "end": 4.73
+        },
+        {
+          "raw": "a",
+          "start": 4.73,
+          "end": 4.99
+        },
+        {
+          "raw": "punishment,",
+          "start": 4.99,
+          "end": 5.33
+        },
+        {
+          "raw": "too",
+          "start": 5.33,
+          "end": 5.85
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus.",
+        "A",
+        "repulse;",
+        "though",
+        "your",
+        "attempt,",
+        "as",
+        "you",
+        "call",
+        "it,",
+        "deserve",
+        "more;",
+        "a",
+        "punishment",
+        "too."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumous",
+          "start": 0.05,
+          "end": 1.17,
+          "key": "posthumous",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.17,
+          "end": 1.67,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "repulse",
+          "start": 1.67,
+          "end": 2.15,
+          "key": "repulse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 2.15,
+          "end": 2.69,
+          "key": "though",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "attempt",
+          "start": 2.85,
+          "end": 3.23,
+          "key": "attempt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.23,
+          "end": 3.43,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.43,
+          "end": 3.57,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 3.57,
+          "end": 3.79,
+          "key": "call",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "deserve",
+          "start": 3.97,
+          "end": 4.29,
+          "key": "deserve",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.29,
+          "end": 4.73,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.73,
+          "end": 4.99,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "punishment,",
+          "start": 4.99,
+          "end": 5.33,
+          "key": "punishment",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 5.33,
+          "end": 5.85,
+          "key": "too",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.0,
+          "end": 0.585
+        },
+        {
+          "text": "A",
+          "start": 1.17,
+          "end": 1.67
+        },
+        {
+          "text": "repulse;",
+          "start": 1.67,
+          "end": 2.15
+        },
+        {
+          "text": "though",
+          "start": 2.15,
+          "end": 2.69
+        },
+        {
+          "text": "your",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "attempt,",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "text": "as",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "you",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "text": "call",
+          "start": 3.57,
+          "end": 3.79
+        },
+        {
+          "text": "it,",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "deserve",
+          "start": 3.97,
+          "end": 4.29
+        },
+        {
+          "text": "more;",
+          "start": 4.29,
+          "end": 4.73
+        },
+        {
+          "text": "a",
+          "start": 4.73,
+          "end": 4.99
+        },
+        {
+          "text": "punishment",
+          "start": 4.99,
+          "end": 5.33
+        },
+        {
+          "text": "too.",
+          "start": 5.33,
+          "end": 5.85
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.3437232468277216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "54ff0e1ffbd6f1ce5552a2b0d9ed8acfabd29ee2c91404b408c9e1e13a8af1ef",
+  "selected_reasons": []
+}

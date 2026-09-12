@@ -1,0 +1,228 @@
+{
+  "complete": true,
+  "signature": "6a86539cbdfb58186c4b12300ba1fa1cbb0ae079687f439291c6cd948a27de6e",
+  "attempts": [
+    {
+      "asr_seconds": 0.19561712443828583,
+      "alignment_seconds": 0.0004002135246992111,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Gydreus and Arvaragus.",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6303304036458334
+            },
+            {
+              "text": " Gydreus",
+              "start": 0.81,
+              "end": 1.35,
+              "probability": 0.53228759765625
+            },
+            {
+              "text": " and",
+              "start": 1.35,
+              "end": 1.49,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " Arvaragus.",
+              "start": 1.49,
+              "end": 2.09,
+              "probability": 0.7090657552083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Gydreus",
+          "start": 0.81,
+          "end": 1.35
+        },
+        {
+          "raw": "and",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "raw": "Arvaragus.",
+          "start": 1.49,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Guiderius",
+        "and",
+        "Arviragus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gydreus",
+          "start": 0.81,
+          "end": 1.35,
+          "key": "gydreus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.35,
+          "end": 1.49,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Arvaragus.",
+          "start": 1.49,
+          "end": 2.09,
+          "key": "arvaragus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Guiderius",
+          "start": 0.81,
+          "end": 1.08
+        },
+        {
+          "text": "and",
+          "start": 1.35,
+          "end": 1.49
+        },
+        {
+          "text": "Arviragus._]",
+          "start": 1.49,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19613737054169178
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "75c689647bf20f670d341df93685b553f78c4050a44c796f81f878520a9d19cf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

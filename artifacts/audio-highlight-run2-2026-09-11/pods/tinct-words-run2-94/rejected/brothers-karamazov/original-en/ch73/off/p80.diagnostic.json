@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "a379add04e7e1ae4b2b1c074d91eee9388ecdbae49954ff1a3cd42a576ffdc91",
+  "attempts": [
+    {
+      "asr_seconds": 0.26710301637649536,
+      "alignment_seconds": 0.0004964955151081085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But, brother, have you no hope then of being acquitted?",
+          "start": 0.11,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " But,",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " brother,",
+              "start": 0.67,
+              "end": 0.91,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " have",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.9921875
+            },
+            {
+              "text": " no",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " hope",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.994140625
+            },
+            {
+              "text": " then",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.66015625
+            },
+            {
+              "text": " of",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " being",
+              "start": 2.33,
+              "end": 2.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " acquitted?",
+              "start": 2.49,
+              "end": 2.85,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But,",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "brother,",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "raw": "have",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "you",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "no",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "hope",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "then",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "being",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "raw": "acquitted?",
+          "start": 2.49,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "\"But,",
+        "brother,",
+        "have",
+        "you",
+        "no",
+        "hope",
+        "then",
+        "of",
+        "being",
+        "acquitted?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But,",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "brother,",
+          "start": 0.67,
+          "end": 0.91,
+          "key": "brother",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "hope",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "then",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.33,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 2.33,
+          "end": 2.49,
+          "key": "being",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "acquitted?",
+          "start": 2.49,
+          "end": 2.85,
+          "key": "acquitted",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But,",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "text": "brother,",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "text": "have",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "you",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "no",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "hope",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "then",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "text": "of",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "being",
+          "start": 2.33,
+          "end": 2.49
+        },
+        {
+          "text": "acquitted?\"",
+          "start": 2.49,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2677941918373108
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10dac20d432d5b9b7f5715a7594966953011deffd06a41954c0a854b1ad821a5",
+  "selected_reasons": []
+}

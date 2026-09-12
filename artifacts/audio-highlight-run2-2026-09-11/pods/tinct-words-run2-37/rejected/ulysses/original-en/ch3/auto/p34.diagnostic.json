@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "b5821b000047f805b1fd927bd1917891c7166cc368b84c9384a8fca1f64c6579",
+  "attempts": [
+    {
+      "asr_seconds": 0.1286132099921815,
+      "alignment_seconds": 0.0001586920116096735,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "This wind is sweeter.",
+        "hotwords": "This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This wind is sweeter.",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.9296875
+            },
+            {
+              "text": " wind",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 0.8,
+              "end": 0.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sweeter.",
+              "start": 0.94,
+              "end": 1.36,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "wind",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "is",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "raw": "sweeter.",
+          "start": 0.94,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "wind",
+        "is",
+        "sweeter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wind",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "wind",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.8,
+          "end": 0.94,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sweeter.",
+          "start": 0.94,
+          "end": 1.36,
+          "key": "sweeter",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "wind",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "is",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "text": "sweeter.",
+          "start": 0.94,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12883261300157756
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ede8f675d9460f135fd37a19ed8ae78bf4b937a2c0bab1afa20090416446312a",
+  "selected_reasons": []
+}

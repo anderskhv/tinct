@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a5ce3fc60a68dd734a8e53bb7fda7273478571122567395ed4775807c5f3a48d",
+  "attempts": [
+    {
+      "asr_seconds": 0.12771140038967133,
+      "alignment_seconds": 0.0003396235406398773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I like that better.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I like that better.",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " like",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " that",
+              "start": 0.67,
+              "end": 0.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " better.",
+              "start": 0.91,
+              "end": 1.23,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "like",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "that",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "raw": "better.",
+          "start": 0.91,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "like",
+        "that",
+        "better."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "like",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.67,
+          "end": 0.91,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "better.",
+          "start": 0.91,
+          "end": 1.23,
+          "key": "better",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "like",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "that",
+          "start": 0.67,
+          "end": 0.91
+        },
+        {
+          "text": "better.",
+          "start": 0.91,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12816597893834114
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cee5d582f9f2b6288d062f6a9a290aa6054416e44af015082dee9b555c5fea25",
+  "selected_reasons": []
+}

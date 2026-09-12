@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "222435e7fd86ecc0704798a15ce6b154b8f40c4c3654c097d76409f78ec90a3a",
+  "attempts": [
+    {
+      "asr_seconds": 0.12851746752858162,
+      "alignment_seconds": 0.00035046041011810303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Stanley, what news with you?",
+          "start": 0.11,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Stanley,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.609375
+            },
+            {
+              "text": " what",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " news",
+              "start": 1.19,
+              "end": 1.39,
+              "probability": 0.986328125
+            },
+            {
+              "text": " with",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.984375
+            },
+            {
+              "text": " you?",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Stanley,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "news",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "raw": "with",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "you?",
+          "start": 1.59,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Stanley,",
+        "what",
+        "news",
+        "with",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Stanley,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "stanley",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 1.19,
+          "end": 1.39,
+          "key": "news",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Stanley,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "what",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "news",
+          "start": 1.19,
+          "end": 1.39
+        },
+        {
+          "text": "with",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "you?",
+          "start": 1.59,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12899520248174667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da02e78bae779110515e11c65b8ca438e3cc257e3ab8b152ff116e869e763b4b",
+  "selected_reasons": []
+}

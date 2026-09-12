@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "b31f5ad7a0af16509137ce443765fc637c4dbc0cc36175f18436939424365f6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.18931711232289672,
+      "alignment_seconds": 0.00021699676290154457,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second Servingman, and he's as liked a dot as any man I can imagine.",
+          "start": 0.08,
+          "end": 4.2,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.46337890625
+            },
+            {
+              "text": " Servingman,",
+              "start": 0.74,
+              "end": 1.42,
+              "probability": 0.593505859375
+            },
+            {
+              "text": " and",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.978515625
+            },
+            {
+              "text": " he's",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.977294921875
+            },
+            {
+              "text": " as",
+              "start": 2.18,
+              "end": 2.22,
+              "probability": 0.98828125
+            },
+            {
+              "text": " liked",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.70849609375
+            },
+            {
+              "text": " a",
+              "start": 2.42,
+              "end": 2.6,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " dot",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " as",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " any",
+              "start": 3.08,
+              "end": 3.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " man",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " can",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " imagine.",
+              "start": 3.82,
+              "end": 4.2,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.74,
+          "end": 1.42
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "he's",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "raw": "as",
+          "start": 2.18,
+          "end": 2.22
+        },
+        {
+          "raw": "liked",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "a",
+          "start": 2.42,
+          "end": 2.6
+        },
+        {
+          "raw": "dot",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "as",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "any",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "raw": "man",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "I",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "can",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "imagine.",
+          "start": 3.82,
+          "end": 4.2
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Servingman.",
+        "And",
+        "he's",
+        "as",
+        "like",
+        "to",
+        "do't",
+        "as",
+        "any",
+        "man",
+        "I",
+        "can",
+        "imagine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          14,
+          7,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.74,
+          "end": 1.42,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "hes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.18,
+          "end": 2.22,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "liked",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "liked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.42,
+          "end": 2.6,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dot",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "dot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 3.08,
+          "end": 3.28,
+          "key": "any",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.28,
+          "end": 3.54,
+          "key": "man",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.54,
+          "end": 3.7,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.7,
+          "end": 3.82,
+          "key": "can",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "imagine.",
+          "start": 3.82,
+          "end": 4.2,
+          "key": "imagine",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.74,
+          "end": 1.42
+        },
+        {
+          "text": "And",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "he's",
+          "start": 1.96,
+          "end": 2.18
+        },
+        {
+          "text": "as",
+          "start": 2.18,
+          "end": 2.22
+        },
+        {
+          "text": "like",
+          "start": 2.22,
+          "end": 2.41
+        },
+        {
+          "text": "to",
+          "start": 2.41,
+          "end": 2.505
+        },
+        {
+          "text": "do't",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "as",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "any",
+          "start": 3.08,
+          "end": 3.28
+        },
+        {
+          "text": "man",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "I",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "can",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "imagine.",
+          "start": 3.82,
+          "end": 4.2
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.18960662139579654
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6501330683f2d03a4475b4cecbc68ad20c6c1700a28e7337a3abaeee702a68a4",
+  "selected_reasons": []
+}

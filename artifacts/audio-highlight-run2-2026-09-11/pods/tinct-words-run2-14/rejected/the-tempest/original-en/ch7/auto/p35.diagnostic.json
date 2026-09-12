@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4fd1265faac0de5aaff73e256e6e4092d83246677dd1b72300660eda7a129e37",
+  "attempts": [
+    {
+      "asr_seconds": 0.2059137560427189,
+      "alignment_seconds": 0.0003031902015209198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exeunt Sebastian, and Antonio]",
+        "hotwords": "Exeunt, Sebastian, Antonio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt, Sebastian, and Antonio",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.5726725260416666
+            },
+            {
+              "text": " Sebastian,",
+              "start": 0.87,
+              "end": 1.23,
+              "probability": 0.908203125
+            },
+            {
+              "text": " and",
+              "start": 1.71,
+              "end": 1.75,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Antonio",
+              "start": 1.75,
+              "end": 2.17,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "raw": "Antonio",
+          "start": 1.75,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Sebastian,",
+        "and",
+        "Antonio]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sebastian,",
+          "start": 0.87,
+          "end": 1.23,
+          "key": "sebastian",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.71,
+          "end": 1.75,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Antonio",
+          "start": 1.75,
+          "end": 2.17,
+          "key": "antonio",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Sebastian,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.71,
+          "end": 1.75
+        },
+        {
+          "text": "Antonio]",
+          "start": 1.75,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2063283920288086
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5285e1adb295fbae6afcdc2e8b7b0e1a913d0224a6173bfabb8ab7d8c3832765",
+  "selected_reasons": []
+}

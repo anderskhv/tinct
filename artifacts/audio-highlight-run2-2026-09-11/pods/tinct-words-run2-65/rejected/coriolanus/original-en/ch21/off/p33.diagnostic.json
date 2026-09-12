@@ -1,0 +1,266 @@
+{
+  "complete": true,
+  "signature": "44826b324541d5082263bcf7805fb45d04e9420fd38092c9fd28dac68000bead",
+  "attempts": [
+    {
+      "asr_seconds": 0.14458133839070797,
+      "alignment_seconds": 0.0002514268271625042,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third servingman, where dwells tea thou.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " servingman,",
+              "start": 0.59,
+              "end": 1.21,
+              "probability": 0.4923095703125
+            },
+            {
+              "text": " where",
+              "start": 1.49,
+              "end": 1.55,
+              "probability": 0.86328125
+            },
+            {
+              "text": " dwells",
+              "start": 1.55,
+              "end": 1.93,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " tea",
+              "start": 1.93,
+              "end": 2.05,
+              "probability": 0.14404296875
+            },
+            {
+              "text": " thou.",
+              "start": 2.05,
+              "end": 2.29,
+              "probability": 0.96044921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "servingman,",
+          "start": 0.59,
+          "end": 1.21
+        },
+        {
+          "raw": "where",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "raw": "dwells",
+          "start": 1.55,
+          "end": 1.93
+        },
+        {
+          "raw": "tea",
+          "start": 1.93,
+          "end": 2.05
+        },
+        {
+          "raw": "thou.",
+          "start": 2.05,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Servingman.",
+        "Where",
+        "dwell'st",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "servingman,",
+          "start": 0.59,
+          "end": 1.21,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.49,
+          "end": 1.55,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dwells",
+          "start": 1.55,
+          "end": 1.93,
+          "key": "dwells",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 1.93,
+          "end": 2.05,
+          "key": "tea",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou.",
+          "start": 2.05,
+          "end": 2.29,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.59,
+          "end": 1.21
+        },
+        {
+          "text": "Where",
+          "start": 1.49,
+          "end": 1.55
+        },
+        {
+          "text": "dwell'st",
+          "start": 1.55,
+          "end": 1.8
+        },
+        {
+          "text": "thou?",
+          "start": 2.05,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14492354821413755
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2d79510573580c69178269c5aba0f4e246ef36c2579229d79433695c15e4ab87",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

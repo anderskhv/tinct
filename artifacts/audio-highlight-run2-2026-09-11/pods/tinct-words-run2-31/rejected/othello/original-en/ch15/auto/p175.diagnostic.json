@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "1869175bee2372c17fabd255d23904668f43693b6d1fa08c172646cc1446cdb3",
+  "attempts": [
+    {
+      "asr_seconds": 0.15275428583845496,
+      "alignment_seconds": 0.00016130832955241203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassio. Dear general, I never gave you cause.",
+        "hotwords": "Cassio, Dear, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassio, Dear general, I never gave you cause.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Cassio,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.705322265625
+            },
+            {
+              "text": " Dear",
+              "start": 1.39,
+              "end": 1.47,
+              "probability": 0.1756591796875
+            },
+            {
+              "text": " general,",
+              "start": 1.47,
+              "end": 1.79,
+              "probability": 0.076416015625
+            },
+            {
+              "text": " I",
+              "start": 2.07,
+              "end": 2.09,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " never",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gave",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " you",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cause.",
+              "start": 2.59,
+              "end": 2.87,
+              "probability": 0.95263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Dear",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "raw": "general,",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "raw": "never",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "gave",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "you",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "cause.",
+          "start": 2.59,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "Dear",
+        "general,",
+        "I",
+        "never",
+        "gave",
+        "you",
+        "cause."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassio,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "cassio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dear",
+          "start": 1.39,
+          "end": 1.47,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "general,",
+          "start": 1.47,
+          "end": 1.79,
+          "key": "general",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.07,
+          "end": 2.09,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "gave",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cause.",
+          "start": 2.59,
+          "end": 2.87,
+          "key": "cause",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Dear",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "text": "general,",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 2.07,
+          "end": 2.09
+        },
+        {
+          "text": "never",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "gave",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "you",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "cause.",
+          "start": 2.59,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15297144372016191
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c6ef0d9bdda6019c87f2429ae27280508ac97a95daa9e8095de8fd305efd5419",
+  "selected_reasons": []
+}

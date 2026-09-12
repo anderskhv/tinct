@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "52090e2e1c5047d0797aed641d63181fb9988dcf2b5b5f7f955c27e42909fb8a",
+  "attempts": [
+    {
+      "asr_seconds": 0.23097021100693382,
+      "alignment_seconds": 0.0004325950285419822,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Soldier. Follow the noise so far as we have quarter. Let's see how it will give off.",
+        "hotwords": "First, Soldier, Follow, Let's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Soldier, Follow the noise so far as we have quarter. Let's see how it will give off.",
+          "start": 0.05,
+          "end": 5.21,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Soldier,",
+              "start": 0.67,
+              "end": 1.11,
+              "probability": 0.1070556640625
+            },
+            {
+              "text": " Follow",
+              "start": 1.67,
+              "end": 1.79,
+              "probability": 0.062469482421875
+            },
+            {
+              "text": " the",
+              "start": 1.79,
+              "end": 2.03,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " noise",
+              "start": 2.03,
+              "end": 2.29,
+              "probability": 0.662109375
+            },
+            {
+              "text": " so",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " far",
+              "start": 2.55,
+              "end": 2.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 2.75,
+              "end": 2.89,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " we",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " quarter.",
+              "start": 3.23,
+              "end": 3.53,
+              "probability": 0.76806640625
+            },
+            {
+              "text": " Let's",
+              "start": 4.09,
+              "end": 4.27,
+              "probability": 0.942138671875
+            },
+            {
+              "text": " see",
+              "start": 4.27,
+              "end": 4.41,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " how",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " it",
+              "start": 4.57,
+              "end": 4.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " will",
+              "start": 4.67,
+              "end": 4.79,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " give",
+              "start": 4.79,
+              "end": 4.93,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " off.",
+              "start": 4.93,
+              "end": 5.21,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Soldier,",
+          "start": 0.67,
+          "end": 1.11
+        },
+        {
+          "raw": "Follow",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 2.03
+        },
+        {
+          "raw": "noise",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "raw": "so",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "raw": "far",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "raw": "as",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "raw": "we",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "have",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "quarter.",
+          "start": 3.23,
+          "end": 3.53
+        },
+        {
+          "raw": "Let's",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "raw": "see",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "raw": "how",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "it",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "raw": "will",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "raw": "give",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "raw": "off.",
+          "start": 4.93,
+          "end": 5.21
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Soldier.",
+        "Follow",
+        "the",
+        "noise",
+        "so",
+        "far",
+        "as",
+        "we",
+        "have",
+        "quarter.",
+        "Let's",
+        "see",
+        "how",
+        "it",
+        "will",
+        "give",
+        "off."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Soldier,",
+          "start": 0.67,
+          "end": 1.11,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Follow",
+          "start": 1.67,
+          "end": 1.79,
+          "key": "follow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 2.03,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 2.03,
+          "end": 2.29,
+          "key": "noise",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.29,
+          "end": 2.55,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 2.55,
+          "end": 2.75,
+          "key": "far",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.75,
+          "end": 2.89,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.89,
+          "end": 3.01,
+          "key": "we",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "quarter.",
+          "start": 3.23,
+          "end": 3.53,
+          "key": "quarter",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Let's",
+          "start": 4.09,
+          "end": 4.27,
+          "key": "lets",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 4.27,
+          "end": 4.41,
+          "key": "see",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 4.41,
+          "end": 4.57,
+          "key": "how",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.57,
+          "end": 4.67,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.67,
+          "end": 4.79,
+          "key": "will",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 4.79,
+          "end": 4.93,
+          "key": "give",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 4.93,
+          "end": 5.21,
+          "key": "off",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.67,
+          "end": 1.11
+        },
+        {
+          "text": "Follow",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "text": "the",
+          "start": 1.79,
+          "end": 2.03
+        },
+        {
+          "text": "noise",
+          "start": 2.03,
+          "end": 2.29
+        },
+        {
+          "text": "so",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "text": "far",
+          "start": 2.55,
+          "end": 2.75
+        },
+        {
+          "text": "as",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "text": "we",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "have",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "quarter.",
+          "start": 3.23,
+          "end": 3.53
+        },
+        {
+          "text": "Let's",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "text": "see",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "text": "how",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "it",
+          "start": 4.57,
+          "end": 4.67
+        },
+        {
+          "text": "will",
+          "start": 4.67,
+          "end": 4.79
+        },
+        {
+          "text": "give",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "text": "off.",
+          "start": 4.93,
+          "end": 5.21
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23158760298974812
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9957a8574909597b98605219d647824910ba5f2289e8d4ed9e0e516543820b05",
+  "selected_reasons": []
+}

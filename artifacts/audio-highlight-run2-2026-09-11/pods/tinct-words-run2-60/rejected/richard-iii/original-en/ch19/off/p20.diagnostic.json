@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "39cd8e564ca6b042ff1bf9dbb85fc4f6be7ee93ff338cb7d596cc49624323820",
+  "attempts": [
+    {
+      "asr_seconds": 0.1171930804848671,
+      "alignment_seconds": 0.0002686604857444763,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coming Forward",
+          "start": 0.05,
+          "end": 1.01,
+          "words": [
+            {
+              "text": " Coming",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.62451171875
+            },
+            {
+              "text": " Forward",
+              "start": 0.59,
+              "end": 1.01,
+              "probability": 0.42724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coming",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Forward",
+          "start": 0.59,
+          "end": 1.01
+        }
+      ],
+      "expected_tokens": [
+        "[_Coming",
+        "forward._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coming",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "coming",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Forward",
+          "start": 0.59,
+          "end": 1.01,
+          "key": "forward",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Coming",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "forward._]",
+          "start": 0.59,
+          "end": 1.01
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11754430830478668
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6885202b482d706c25cc450b5e4286e2f10eb3dc0df6f9dd639ad053ebbf8889",
+  "selected_reasons": []
+}

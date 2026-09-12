@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "297753f0e117cf547d09346bb092c0c7c5178673e46d0bcffd7a3895a54ee2f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.22265048045665026,
+      "alignment_seconds": 0.0003933515399694443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dauphin. _Via, les eaux et terre!_",
+        "hotwords": "Dauphin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dauphin, via les eaux et terre.",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Dauphin,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " via",
+              "start": 1.1,
+              "end": 1.36,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " les",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.018096923828125
+            },
+            {
+              "text": " eaux",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 8.285045623779297e-05
+            },
+            {
+              "text": " et",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.41845703125
+            },
+            {
+              "text": " terre.",
+              "start": 1.86,
+              "end": 2.38,
+              "probability": 0.49407958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "via",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "raw": "les",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "raw": "eaux",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "et",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "terre.",
+          "start": 1.86,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Dauphin.",
+        "_Via,",
+        "les",
+        "eaux",
+        "et",
+        "terre!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dauphin,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "dauphin",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "via",
+          "start": 1.1,
+          "end": 1.36,
+          "key": "via",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "les",
+          "start": 1.36,
+          "end": 1.62,
+          "key": "les",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "eaux",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "eaux",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "et",
+          "start": 1.72,
+          "end": 1.86,
+          "key": "et",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "terre.",
+          "start": 1.86,
+          "end": 2.38,
+          "key": "terre",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dauphin.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "_Via,",
+          "start": 1.1,
+          "end": 1.36
+        },
+        {
+          "text": "les",
+          "start": 1.36,
+          "end": 1.62
+        },
+        {
+          "text": "eaux",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "et",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "terre!_",
+          "start": 1.86,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22318312339484692
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d930b85db7b9fdef5eb9e7df9c0cb41c06837a35b054a510250f080da54a9f78",
+  "selected_reasons": []
+}

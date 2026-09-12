@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "4cbf261758f8a039b918d8cfb1da11afb8cf46d98d5789d1c4765cc4d4ff03c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.15875488286837935,
+      "alignment_seconds": 0.00023590214550495148,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And you came from—?\"",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And you came from—?",
+          "start": 0.02,
+          "end": 1.66,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " you",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " came",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from—?",
+              "start": 0.92,
+              "end": 1.66,
+              "probability": 0.5001745223999023
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "you",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "came",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "from—?",
+          "start": 0.92,
+          "end": 1.66
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "you",
+        "came",
+        "from—?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.56,
+          "end": 0.68,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "came",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "from—?",
+          "start": 0.92,
+          "end": 1.66,
+          "key": "from",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "you",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "came",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "from—?\"",
+          "start": 0.92,
+          "end": 1.66
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1590726957656443
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e0d8924879349800bb61d3c72630d0682e356de055ba16d38dcb076c65f165d4",
+  "selected_reasons": []
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "88cf5221fc988c5588cdb54e37da066b4bff51c9bfdd9c3f970af2b053da131e",
+  "attempts": [
+    {
+      "asr_seconds": 0.34454341302625835,
+      "alignment_seconds": 0.00040220608934760094,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Jeremiah, Abdias, Nahum, and Habakkuk prophecyed in the time of Josiah.",
+        "hotwords": "Jeremiah, Abdias, Nahum, Habakkuk, Josiah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Jeremiah, Abdias, Nahum, and Habakkuk prophecyed in the time of Josiah.",
+          "start": 0.05,
+          "end": 4.79,
+          "words": [
+            {
+              "text": " Jeremiah,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Abdias,",
+              "start": 1.53,
+              "end": 1.89,
+              "probability": 0.48958587646484375
+            },
+            {
+              "text": " Nahum,",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " and",
+              "start": 2.59,
+              "end": 2.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Habakkuk",
+              "start": 2.71,
+              "end": 3.15,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " prophecyed",
+              "start": 3.15,
+              "end": 3.77,
+              "probability": 0.02355194091796875
+            },
+            {
+              "text": " in",
+              "start": 3.77,
+              "end": 3.85,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 3.85,
+              "end": 3.91,
+              "probability": 0.986328125
+            },
+            {
+              "text": " time",
+              "start": 3.91,
+              "end": 4.09,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " of",
+              "start": 4.09,
+              "end": 4.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Josiah.",
+              "start": 4.23,
+              "end": 4.79,
+              "probability": 0.986083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Jeremiah,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Abdias,",
+          "start": 1.53,
+          "end": 1.89
+        },
+        {
+          "raw": "Nahum,",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "and",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "raw": "Habakkuk",
+          "start": 2.71,
+          "end": 3.15
+        },
+        {
+          "raw": "prophecyed",
+          "start": 3.15,
+          "end": 3.77
+        },
+        {
+          "raw": "in",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "raw": "the",
+          "start": 3.85,
+          "end": 3.91
+        },
+        {
+          "raw": "time",
+          "start": 3.91,
+          "end": 4.09
+        },
+        {
+          "raw": "of",
+          "start": 4.09,
+          "end": 4.23
+        },
+        {
+          "raw": "Josiah.",
+          "start": 4.23,
+          "end": 4.79
+        }
+      ],
+      "expected_tokens": [
+        "Jeremiah,",
+        "Abdias,",
+        "Nahum,",
+        "and",
+        "Habakkuk",
+        "prophecyed",
+        "in",
+        "the",
+        "time",
+        "of",
+        "Josiah."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Jeremiah,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "jeremiah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Abdias,",
+          "start": 1.53,
+          "end": 1.89,
+          "key": "abdias",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nahum,",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "nahum",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.59,
+          "end": 2.71,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Habakkuk",
+          "start": 2.71,
+          "end": 3.15,
+          "key": "habakkuk",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prophecyed",
+          "start": 3.15,
+          "end": 3.77,
+          "key": "prophecyed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.77,
+          "end": 3.85,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.85,
+          "end": 3.91,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 3.91,
+          "end": 4.09,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.09,
+          "end": 4.23,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Josiah.",
+          "start": 4.23,
+          "end": 4.79,
+          "key": "josiah",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Jeremiah,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Abdias,",
+          "start": 1.53,
+          "end": 1.89
+        },
+        {
+          "text": "Nahum,",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "and",
+          "start": 2.59,
+          "end": 2.71
+        },
+        {
+          "text": "Habakkuk",
+          "start": 2.71,
+          "end": 3.15
+        },
+        {
+          "text": "prophecyed",
+          "start": 3.15,
+          "end": 3.77
+        },
+        {
+          "text": "in",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "text": "the",
+          "start": 3.85,
+          "end": 3.91
+        },
+        {
+          "text": "time",
+          "start": 3.91,
+          "end": 4.09
+        },
+        {
+          "text": "of",
+          "start": 4.09,
+          "end": 4.23
+        },
+        {
+          "text": "Josiah.",
+          "start": 4.23,
+          "end": 4.79
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3450978079345077
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b94cb88141e9a277ec7d8c144075ed4f6f8fe3fc5dee39b4f14d452c113ef800",
+  "selected_reasons": []
+}

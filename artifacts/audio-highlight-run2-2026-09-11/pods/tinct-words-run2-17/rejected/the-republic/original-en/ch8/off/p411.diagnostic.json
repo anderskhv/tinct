@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "1fbe11441971b91d612e584c96f65f207a575095571513f80e971311ae32f9ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.2882785415276885,
+      "alignment_seconds": 0.0002996465191245079,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " By the dog, I said, here are more drones of every sort and from every land.",
+          "start": 0.11,
+          "end": 4.87,
+          "words": [
+            {
+              "text": " By",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.279296875
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " dog,",
+              "start": 0.67,
+              "end": 0.99,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " I",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.98828125
+            },
+            {
+              "text": " said,",
+              "start": 1.59,
+              "end": 1.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.51611328125
+            },
+            {
+              "text": " are",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " more",
+              "start": 2.47,
+              "end": 2.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " drones",
+              "start": 2.63,
+              "end": 3.05,
+              "probability": 0.98046875
+            },
+            {
+              "text": " of",
+              "start": 3.05,
+              "end": 3.33,
+              "probability": 0.955078125
+            },
+            {
+              "text": " every",
+              "start": 3.33,
+              "end": 3.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sort",
+              "start": 3.57,
+              "end": 3.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 3.87,
+              "end": 4.07,
+              "probability": 0.966796875
+            },
+            {
+              "text": " from",
+              "start": 4.07,
+              "end": 4.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " every",
+              "start": 4.19,
+              "end": 4.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " land.",
+              "start": 4.49,
+              "end": 4.87,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "By",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "dog,",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "raw": "I",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "said,",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "raw": "here",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "are",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "more",
+          "start": 2.47,
+          "end": 2.63
+        },
+        {
+          "raw": "drones",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "raw": "of",
+          "start": 3.05,
+          "end": 3.33
+        },
+        {
+          "raw": "every",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "raw": "sort",
+          "start": 3.57,
+          "end": 3.87
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 4.07
+        },
+        {
+          "raw": "from",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "raw": "every",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "raw": "land.",
+          "start": 4.49,
+          "end": 4.87
+        }
+      ],
+      "expected_tokens": [
+        "By",
+        "the",
+        "dog!",
+        "I",
+        "said,",
+        "here",
+        "are",
+        "more",
+        "drones,",
+        "of",
+        "every",
+        "sort",
+        "and",
+        "from",
+        "every",
+        "land."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "By",
+          "start": 0.11,
+          "end": 0.53,
+          "key": "by",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dog,",
+          "start": 0.67,
+          "end": 0.99,
+          "key": "dog",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.59,
+          "end": 1.89,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.25,
+          "end": 2.35,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.35,
+          "end": 2.47,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.47,
+          "end": 2.63,
+          "key": "more",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "drones",
+          "start": 2.63,
+          "end": 3.05,
+          "key": "drones",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.05,
+          "end": 3.33,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 3.33,
+          "end": 3.57,
+          "key": "every",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sort",
+          "start": 3.57,
+          "end": 3.87,
+          "key": "sort",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.87,
+          "end": 4.07,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 4.07,
+          "end": 4.19,
+          "key": "from",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 4.19,
+          "end": 4.49,
+          "key": "every",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "land.",
+          "start": 4.49,
+          "end": 4.87,
+          "key": "land",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "By",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "dog!",
+          "start": 0.67,
+          "end": 0.99
+        },
+        {
+          "text": "I",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "said,",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "text": "here",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "are",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "more",
+          "start": 2.47,
+          "end": 2.63
+        },
+        {
+          "text": "drones,",
+          "start": 2.63,
+          "end": 3.05
+        },
+        {
+          "text": "of",
+          "start": 3.05,
+          "end": 3.33
+        },
+        {
+          "text": "every",
+          "start": 3.33,
+          "end": 3.57
+        },
+        {
+          "text": "sort",
+          "start": 3.57,
+          "end": 3.87
+        },
+        {
+          "text": "and",
+          "start": 3.87,
+          "end": 4.07
+        },
+        {
+          "text": "from",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "text": "every",
+          "start": 4.19,
+          "end": 4.49
+        },
+        {
+          "text": "land.",
+          "start": 4.49,
+          "end": 4.87
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2886957610026002
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a194d0a8fd8b4bb1b58cb464b958d74d4481a1cb57df81b97ceb113d250ae97e",
+  "selected_reasons": []
+}

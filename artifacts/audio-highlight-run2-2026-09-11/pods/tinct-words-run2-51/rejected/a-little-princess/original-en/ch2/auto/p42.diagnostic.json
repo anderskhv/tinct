@@ -1,0 +1,527 @@
+{
+  "complete": true,
+  "signature": "5ba61f0ee7563fdcbda19d3ebdd6e487ce3d59c33b14f91bd241a6c9f03322b8",
+  "attempts": [
+    {
+      "asr_seconds": 0.334170906804502,
+      "alignment_seconds": 0.0006619459018111229,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Silence, young ladies!\" she said severely, rapping upon the desk. \"Silence at once!\"",
+        "hotwords": "Silence"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Silence, young ladies!\" she said severely, rapping upon the desk.",
+          "start": 0.11,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Silence,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.09613037109375
+            },
+            {
+              "text": " young",
+              "start": 0.99,
+              "end": 1.07,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " ladies",
+              "start": 1.07,
+              "end": 1.51,
+              "probability": 0.98828125
+            },
+            {
+              "text": "!\"",
+              "start": 1.51,
+              "end": 1.93,
+              "probability": 0.03961181640625
+            },
+            {
+              "text": " she",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.908203125
+            },
+            {
+              "text": " said",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " severely,",
+              "start": 2.29,
+              "end": 2.63,
+              "probability": 0.982421875
+            },
+            {
+              "text": " rapping",
+              "start": 2.95,
+              "end": 3.19,
+              "probability": 0.556549072265625
+            },
+            {
+              "text": " upon",
+              "start": 3.19,
+              "end": 3.43,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 3.43,
+              "end": 3.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " desk.",
+              "start": 3.57,
+              "end": 3.91,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Silence at once!",
+          "start": 3.91,
+          "end": 5.29,
+          "words": [
+            {
+              "text": " Silence",
+              "start": 3.91,
+              "end": 4.65,
+              "probability": 0.82421875
+            },
+            {
+              "text": " at",
+              "start": 4.65,
+              "end": 4.97,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " once!",
+              "start": 4.97,
+              "end": 5.29,
+              "probability": 0.88037109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silence,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "young",
+          "start": 0.99,
+          "end": 1.07
+        },
+        {
+          "raw": "ladies",
+          "start": 1.07,
+          "end": 1.51
+        },
+        {
+          "raw": "!\"",
+          "start": 1.51,
+          "end": 1.93
+        },
+        {
+          "raw": "she",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "said",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "severely,",
+          "start": 2.29,
+          "end": 2.63
+        },
+        {
+          "raw": "rapping",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "raw": "upon",
+          "start": 3.19,
+          "end": 3.43
+        },
+        {
+          "raw": "the",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "raw": "desk.",
+          "start": 3.57,
+          "end": 3.91
+        },
+        {
+          "raw": "Silence",
+          "start": 3.91,
+          "end": 4.65
+        },
+        {
+          "raw": "at",
+          "start": 4.65,
+          "end": 4.97
+        },
+        {
+          "raw": "once!",
+          "start": 4.97,
+          "end": 5.29
+        }
+      ],
+      "expected_tokens": [
+        "\"Silence,",
+        "young",
+        "ladies!\"",
+        "she",
+        "said",
+        "severely,",
+        "rapping",
+        "upon",
+        "the",
+        "desk.",
+        "\"Silence",
+        "at",
+        "once!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ],
+        [
+          "equal",
+          3,
+          13,
+          4,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Silence,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "silence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "young",
+          "start": 0.99,
+          "end": 1.07,
+          "key": "young",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ladies",
+          "start": 1.07,
+          "end": 1.51,
+          "key": "ladies",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.51,
+          "end": 1.93,
+          "key": "",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "severely,",
+          "start": 2.29,
+          "end": 2.63,
+          "key": "severely",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rapping",
+          "start": 2.95,
+          "end": 3.19,
+          "key": "rapping",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.19,
+          "end": 3.43,
+          "key": "upon",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.43,
+          "end": 3.57,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "desk.",
+          "start": 3.57,
+          "end": 3.91,
+          "key": "desk",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Silence",
+          "start": 3.91,
+          "end": 4.65,
+          "key": "silence",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.65,
+          "end": 4.97,
+          "key": "at",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "once!",
+          "start": 4.97,
+          "end": 5.29,
+          "key": "once",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Silence,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "young",
+          "start": 0.99,
+          "end": 1.07
+        },
+        {
+          "text": "ladies!\"",
+          "start": 1.07,
+          "end": 1.51
+        },
+        {
+          "text": "she",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "said",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "severely,",
+          "start": 2.29,
+          "end": 2.63
+        },
+        {
+          "text": "rapping",
+          "start": 2.95,
+          "end": 3.19
+        },
+        {
+          "text": "upon",
+          "start": 3.19,
+          "end": 3.43
+        },
+        {
+          "text": "the",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "text": "desk.",
+          "start": 3.57,
+          "end": 3.91
+        },
+        {
+          "text": "\"Silence",
+          "start": 3.91,
+          "end": 4.65
+        },
+        {
+          "text": "at",
+          "start": 4.65,
+          "end": 4.97
+        },
+        {
+          "text": "once!\"",
+          "start": 4.97,
+          "end": 5.29
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3350891564041376
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "109b92b73422f668c152f7c5680687726ab91fa4666e3eb40ed79260ecbab6c2",
+  "selected_reasons": []
+}

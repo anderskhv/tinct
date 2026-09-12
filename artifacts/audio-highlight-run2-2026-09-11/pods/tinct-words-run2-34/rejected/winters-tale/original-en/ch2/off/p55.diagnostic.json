@@ -1,0 +1,253 @@
+{
+  "complete": true,
+  "signature": "8b7243c482a0750a0bba2e1a4982c16767ba1385582fbf0a522973a04436212c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1469105016440153,
+      "alignment_seconds": 0.0002046097069978714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exute polyxenes, hermione and attendance.",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Exute",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.4869384765625
+            },
+            {
+              "text": " polyxenes,",
+              "start": 0.75,
+              "end": 1.39,
+              "probability": 0.6822916666666666
+            },
+            {
+              "text": " hermione",
+              "start": 1.83,
+              "end": 2.15,
+              "probability": 0.6695149739583334
+            },
+            {
+              "text": " and",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " attendance.",
+              "start": 2.41,
+              "end": 2.85,
+              "probability": 0.52978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exute",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "polyxenes,",
+          "start": 0.75,
+          "end": 1.39
+        },
+        {
+          "raw": "hermione",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "attendance.",
+          "start": 2.41,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Polixenes,",
+        "Hermione",
+        "and",
+        "Attendants._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exute",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exute",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "polyxenes,",
+          "start": 0.75,
+          "end": 1.39,
+          "key": "polyxenes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hermione",
+          "start": 1.83,
+          "end": 2.15,
+          "key": "hermione",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "attendance.",
+          "start": 2.41,
+          "end": 2.85,
+          "key": "attendance",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.915
+        },
+        {
+          "text": "Polixenes,",
+          "start": 0.915,
+          "end": 1.373
+        },
+        {
+          "text": "Hermione",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "text": "and",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "Attendants._]",
+          "start": 2.41,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1471762303262949
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1b6de1c37f854272c94dc5bd015be88cc54db7a12ec54767b222e844ef5a468e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

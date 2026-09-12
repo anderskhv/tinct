@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "99827e11b29e160548d8fb7d54fc565f5058de781ae337f0b5dad941e061eca3",
+  "attempts": [
+    {
+      "asr_seconds": 3.8635683581233025,
+      "alignment_seconds": 0.0005402453243732452,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. Because you talk of pride now, will you not be angry?",
+        "hotwords": "Menenius, Because"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius, Because you talk of pride now, will you not be angry?",
+          "start": 0.55,
+          "end": 3.71,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.598388671875
+            },
+            {
+              "text": " Because",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.028564453125
+            },
+            {
+              "text": " you",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " talk",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pride",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.951171875
+            },
+            {
+              "text": " now,",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " will",
+              "start": 2.95,
+              "end": 2.97,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " you",
+              "start": 2.97,
+              "end": 3.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 3.09,
+              "end": 3.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 3.23,
+              "end": 3.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " angry?",
+              "start": 3.37,
+              "end": 3.71,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "Because",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "you",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "talk",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "pride",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "now,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "will",
+          "start": 2.95,
+          "end": 2.97
+        },
+        {
+          "raw": "you",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "raw": "not",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "raw": "be",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "raw": "angry?",
+          "start": 3.37,
+          "end": 3.71
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Because",
+        "you",
+        "talk",
+        "of",
+        "pride",
+        "now,",
+        "will",
+        "you",
+        "not",
+        "be",
+        "angry?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Because",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "because",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "talk",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "pride",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "pride",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 2.43,
+          "end": 2.75,
+          "key": "now",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.95,
+          "end": 2.97,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.97,
+          "end": 3.09,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.09,
+          "end": 3.23,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.23,
+          "end": 3.37,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "angry?",
+          "start": 3.37,
+          "end": 3.71,
+          "key": "angry",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "Because",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "you",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "talk",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "pride",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "now,",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "text": "will",
+          "start": 2.95,
+          "end": 2.97
+        },
+        {
+          "text": "you",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "text": "not",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "text": "be",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "text": "angry?",
+          "start": 3.37,
+          "end": 3.71
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.86432945728302
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5f9d07bb1fcd67eb43c12f6dbc923a3d96d628d8e3b7a9dd49b7c11c5aa356b",
+  "selected_reasons": []
+}

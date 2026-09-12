@@ -1,0 +1,447 @@
+{
+  "complete": true,
+  "signature": "1e1d16cf8e4030bdedf5b1c0061fe183acfc2b1845b341ab6517d7eda48a1e63",
+  "attempts": [
+    {
+      "asr_seconds": 0.08644230291247368,
+      "alignment_seconds": 0.0001359265297651291,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It was that silly goose. Gun-hilled Councillor Clementson's daughter, who?",
+          "start": 0.08,
+          "end": 4.42,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " was",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 0.62,
+              "end": 0.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " silly",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " goose.",
+              "start": 1.14,
+              "end": 1.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Gun",
+              "start": 2.16,
+              "end": 2.2,
+              "probability": 0.9619140625
+            },
+            {
+              "text": "-hilled",
+              "start": 2.2,
+              "end": 2.48,
+              "probability": 0.7451171875
+            },
+            {
+              "text": " Councillor",
+              "start": 2.48,
+              "end": 3.14,
+              "probability": 0.70751953125
+            },
+            {
+              "text": " Clementson's",
+              "start": 3.14,
+              "end": 3.78,
+              "probability": 0.8516845703125
+            },
+            {
+              "text": " daughter,",
+              "start": 3.78,
+              "end": 3.98,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " who?",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "was",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "that",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "raw": "silly",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "goose.",
+          "start": 1.14,
+          "end": 1.56
+        },
+        {
+          "raw": "Gun",
+          "start": 2.16,
+          "end": 2.2
+        },
+        {
+          "raw": "-hilled",
+          "start": 2.2,
+          "end": 2.48
+        },
+        {
+          "raw": "Councillor",
+          "start": 2.48,
+          "end": 3.14
+        },
+        {
+          "raw": "Clementson's",
+          "start": 3.14,
+          "end": 3.78
+        },
+        {
+          "raw": "daughter,",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "raw": "who?",
+          "start": 4.3,
+          "end": 4.42
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "was",
+        "that",
+        "silly",
+        "goose,",
+        "Gunhild,",
+        "Councillor",
+        "Clementsson's",
+        "daughter,",
+        "who--\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          10,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.62,
+          "end": 0.8,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "silly",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "silly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "goose.",
+          "start": 1.14,
+          "end": 1.56,
+          "key": "goose",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Gun",
+          "start": 2.16,
+          "end": 2.2,
+          "key": "gun",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "-hilled",
+          "start": 2.2,
+          "end": 2.48,
+          "key": "hilled",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Councillor",
+          "start": 2.48,
+          "end": 3.14,
+          "key": "councillor",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Clementson's",
+          "start": 3.14,
+          "end": 3.78,
+          "key": "clementsons",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "daughter,",
+          "start": 3.78,
+          "end": 3.98,
+          "key": "daughter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "who?",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "who",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "was",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "that",
+          "start": 0.62,
+          "end": 0.8
+        },
+        {
+          "text": "silly",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "text": "goose,",
+          "start": 1.14,
+          "end": 1.56
+        },
+        {
+          "text": "Gunhild,",
+          "start": 1.56,
+          "end": 2.02
+        },
+        {
+          "text": "Councillor",
+          "start": 2.48,
+          "end": 3.14
+        },
+        {
+          "text": "Clementsson's",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "daughter,",
+          "start": 3.78,
+          "end": 3.98
+        },
+        {
+          "text": "who--\"",
+          "start": 4.3,
+          "end": 4.42
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08662275038659573
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d247d4224a6c94a0b1b59ae4f24732ff5522f5101aaadbaba0f73a815f9cc344",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

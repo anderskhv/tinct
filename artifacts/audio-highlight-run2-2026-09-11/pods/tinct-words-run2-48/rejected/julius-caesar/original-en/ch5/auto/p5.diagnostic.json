@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "0315bb15b452f80d13291c24fedcbd9e406686133749f8aa8c8a1aec4072cdf9",
+  "attempts": [
+    {
+      "asr_seconds": 0.11986061464995146,
+      "alignment_seconds": 0.00011117290705442429,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Servant. I will, my lord.",
+        "hotwords": "Servant, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Servant, I will, my lord.",
+          "start": 0.48,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.48,
+              "end": 0.86,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " I",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " will,",
+              "start": 1.24,
+              "end": 1.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " my",
+              "start": 1.48,
+              "end": 1.58,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " lord.",
+              "start": 1.58,
+              "end": 1.8,
+              "probability": 0.6611328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "will,",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "raw": "lord.",
+          "start": 1.58,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "Servant.",
+        "I",
+        "will,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.48,
+          "end": 0.86,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will,",
+          "start": 1.24,
+          "end": 1.4,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.58,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 1.58,
+          "end": 1.8,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Servant.",
+          "start": 0.48,
+          "end": 0.86
+        },
+        {
+          "text": "I",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "will,",
+          "start": 1.24,
+          "end": 1.4
+        },
+        {
+          "text": "my",
+          "start": 1.48,
+          "end": 1.58
+        },
+        {
+          "text": "lord.",
+          "start": 1.58,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12000987306237221
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b16c42b5d915514610b68784b7816e06a7889727ef77e8bd647ece4266e2f8af",
+  "selected_reasons": []
+}

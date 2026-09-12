@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "2f4450ec4ea3ded5da3022fafb75ff1e9d348d6e5a68a8b98f09fda6caa02661",
+  "attempts": [
+    {
+      "asr_seconds": 0.21737074496923015,
+      "alignment_seconds": 0.000330381968524307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Like that, see. Two crossed keys here. A circle. Then here the name. Alexander Keyes, tea, wine and spirit merchant. So on.",
+        "hotwords": "Like, Two, A, Then, Alexander, Keyes, So"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Like that, see. Two crossed keys here. A circle. Then here the name. Alexander Keyes, tea, wine and spirit merchant. So on.",
+          "start": 0.02,
+          "end": 8.42,
+          "words": [
+            {
+              "text": " Like",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " that,",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.962890625
+            },
+            {
+              "text": " see.",
+              "start": 1.08,
+              "end": 1.08,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " Two",
+              "start": 1.4,
+              "end": 1.52,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " crossed",
+              "start": 1.52,
+              "end": 1.8,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " keys",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " here.",
+              "start": 2.1,
+              "end": 2.42,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " A",
+              "start": 2.82,
+              "end": 2.96,
+              "probability": 0.994140625
+            },
+            {
+              "text": " circle.",
+              "start": 2.96,
+              "end": 3.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Then",
+              "start": 3.64,
+              "end": 3.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " here",
+              "start": 3.72,
+              "end": 3.94,
+              "probability": 0.141357421875
+            },
+            {
+              "text": " the",
+              "start": 3.94,
+              "end": 4.08,
+              "probability": 0.8037109375
+            },
+            {
+              "text": " name.",
+              "start": 4.08,
+              "end": 4.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Alexander",
+              "start": 5.08,
+              "end": 5.44,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " Keyes,",
+              "start": 5.44,
+              "end": 6.08,
+              "probability": 0.362884521484375
+            },
+            {
+              "text": " tea,",
+              "start": 6.24,
+              "end": 6.32,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " wine",
+              "start": 6.64,
+              "end": 6.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 6.74,
+              "end": 6.94,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " spirit",
+              "start": 6.94,
+              "end": 7.22,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " merchant.",
+              "start": 7.22,
+              "end": 7.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " So",
+              "start": 8.0,
+              "end": 8.08,
+              "probability": 0.96484375
+            },
+            {
+              "text": " on.",
+              "start": 8.08,
+              "end": 8.42,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Like",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "that,",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "see.",
+          "start": 1.08,
+          "end": 1.08
+        },
+        {
+          "raw": "Two",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "raw": "crossed",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "raw": "keys",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "raw": "here.",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "raw": "A",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "raw": "circle.",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "raw": "Then",
+          "start": 3.64,
+          "end": 3.72
+        },
+        {
+          "raw": "here",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "raw": "name.",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "raw": "Alexander",
+          "start": 5.08,
+          "end": 5.44
+        },
+        {
+          "raw": "Keyes,",
+          "start": 5.44,
+          "end": 6.08
+        },
+        {
+          "raw": "tea,",
+          "start": 6.24,
+          "end": 6.32
+        },
+        {
+          "raw": "wine",
+          "start": 6.64,
+          "end": 6.74
+        },
+        {
+          "raw": "and",
+          "start": 6.74,
+          "end": 6.94
+        },
+        {
+          "raw": "spirit",
+          "start": 6.94,
+          "end": 7.22
+        },
+        {
+          "raw": "merchant.",
+          "start": 7.22,
+          "end": 7.64
+        },
+        {
+          "raw": "So",
+          "start": 8.0,
+          "end": 8.08
+        },
+        {
+          "raw": "on.",
+          "start": 8.08,
+          "end": 8.42
+        }
+      ],
+      "expected_tokens": [
+        "—Like",
+        "that,",
+        "see.",
+        "Two",
+        "crossed",
+        "keys",
+        "here.",
+        "A",
+        "circle.",
+        "Then",
+        "here",
+        "the",
+        "name.",
+        "Alexander",
+        "Keyes,",
+        "tea,",
+        "wine",
+        "and",
+        "spirit",
+        "merchant.",
+        "So",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Like",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "like",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see.",
+          "start": 1.08,
+          "end": 1.08,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Two",
+          "start": 1.4,
+          "end": 1.52,
+          "key": "two",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "crossed",
+          "start": 1.52,
+          "end": 1.8,
+          "key": "crossed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "keys",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "keys",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 2.1,
+          "end": 2.42,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.82,
+          "end": 2.96,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "circle.",
+          "start": 2.96,
+          "end": 3.28,
+          "key": "circle",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 3.64,
+          "end": 3.72,
+          "key": "then",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.72,
+          "end": 3.94,
+          "key": "here",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.08,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "name.",
+          "start": 4.08,
+          "end": 4.36,
+          "key": "name",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Alexander",
+          "start": 5.08,
+          "end": 5.44,
+          "key": "alexander",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Keyes,",
+          "start": 5.44,
+          "end": 6.08,
+          "key": "keyes",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tea,",
+          "start": 6.24,
+          "end": 6.32,
+          "key": "tea",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wine",
+          "start": 6.64,
+          "end": 6.74,
+          "key": "wine",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.74,
+          "end": 6.94,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "spirit",
+          "start": 6.94,
+          "end": 7.22,
+          "key": "spirit",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "merchant.",
+          "start": 7.22,
+          "end": 7.64,
+          "key": "merchant",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 8.0,
+          "end": 8.08,
+          "key": "so",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 8.08,
+          "end": 8.42,
+          "key": "on",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Like",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "that,",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "see.",
+          "start": 1.08,
+          "end": 1.08
+        },
+        {
+          "text": "Two",
+          "start": 1.4,
+          "end": 1.52
+        },
+        {
+          "text": "crossed",
+          "start": 1.52,
+          "end": 1.8
+        },
+        {
+          "text": "keys",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "text": "here.",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "text": "A",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "text": "circle.",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "text": "Then",
+          "start": 3.64,
+          "end": 3.72
+        },
+        {
+          "text": "here",
+          "start": 3.72,
+          "end": 3.94
+        },
+        {
+          "text": "the",
+          "start": 3.94,
+          "end": 4.08
+        },
+        {
+          "text": "name.",
+          "start": 4.08,
+          "end": 4.36
+        },
+        {
+          "text": "Alexander",
+          "start": 5.08,
+          "end": 5.44
+        },
+        {
+          "text": "Keyes,",
+          "start": 5.44,
+          "end": 6.08
+        },
+        {
+          "text": "tea,",
+          "start": 6.24,
+          "end": 6.32
+        },
+        {
+          "text": "wine",
+          "start": 6.64,
+          "end": 6.74
+        },
+        {
+          "text": "and",
+          "start": 6.74,
+          "end": 6.94
+        },
+        {
+          "text": "spirit",
+          "start": 6.94,
+          "end": 7.22
+        },
+        {
+          "text": "merchant.",
+          "start": 7.22,
+          "end": 7.64
+        },
+        {
+          "text": "So",
+          "start": 8.0,
+          "end": 8.08
+        },
+        {
+          "text": "on.",
+          "start": 8.08,
+          "end": 8.42
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21782447799341753
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "988f47d129a6b897bd047e1bd47df0cde7d997e51c23c912d446ef19154b068f",
+  "selected_reasons": []
+}

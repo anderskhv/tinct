@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "63890e20ce79ae4c81dc0ac4997da57eff209f519d66eb26d28246cb4f0a3e44",
+  "attempts": [
+    {
+      "asr_seconds": 0.26197641529142857,
+      "alignment_seconds": 0.0003964398056268692,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. In faith, lady, you have a merry heart.",
+        "hotwords": "Don, Pedro, In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, In faith, lady, you have a merry heart.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.81,
+              "end": 1.01,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " In",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.039794921875
+            },
+            {
+              "text": " faith,",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " lady,",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.794921875
+            },
+            {
+              "text": " you",
+              "start": 2.37,
+              "end": 2.41,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " have",
+              "start": 2.41,
+              "end": 2.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 2.55,
+              "end": 2.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " merry",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " heart.",
+              "start": 2.83,
+              "end": 3.19,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.81,
+          "end": 1.01
+        },
+        {
+          "raw": "In",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "faith,",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "lady,",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "you",
+          "start": 2.37,
+          "end": 2.41
+        },
+        {
+          "raw": "have",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "raw": "merry",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "heart.",
+          "start": 2.83,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "In",
+        "faith,",
+        "lady,",
+        "you",
+        "have",
+        "a",
+        "merry",
+        "heart."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.81,
+          "end": 1.01,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "faith,",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "faith",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "lady",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.37,
+          "end": 2.41,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.41,
+          "end": 2.55,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.65,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "merry",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "merry",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 2.83,
+          "end": 3.19,
+          "key": "heart",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.81,
+          "end": 1.01
+        },
+        {
+          "text": "In",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "faith,",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "lady,",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "you",
+          "start": 2.37,
+          "end": 2.41
+        },
+        {
+          "text": "have",
+          "start": 2.41,
+          "end": 2.55
+        },
+        {
+          "text": "a",
+          "start": 2.55,
+          "end": 2.65
+        },
+        {
+          "text": "merry",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "heart.",
+          "start": 2.83,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26251696422696114
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aeaf6744f3bec7448e59ea3d7685822dd19d4e06e9381de410b6572549de305a",
+  "selected_reasons": []
+}

@@ -1,0 +1,543 @@
+{
+  "complete": true,
+  "signature": "027952821008d81e9a41a9b4aa81d6bb23fad4288f6bed6818d628de91992a7b",
+  "attempts": [
+    {
+      "asr_seconds": 0.31907980516552925,
+      "alignment_seconds": 0.0006275605410337448,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pollock scenes. Pray, good shepherd, what fair swain is this which dances with your daughter?",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Pollock",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " scenes.",
+              "start": 0.73,
+              "end": 0.97,
+              "probability": 0.701171875
+            },
+            {
+              "text": " Pray,",
+              "start": 1.55,
+              "end": 1.93,
+              "probability": 0.760986328125
+            },
+            {
+              "text": " good",
+              "start": 2.13,
+              "end": 2.21,
+              "probability": 0.52880859375
+            },
+            {
+              "text": " shepherd,",
+              "start": 2.21,
+              "end": 2.53,
+              "probability": 0.6162109375
+            },
+            {
+              "text": " what",
+              "start": 2.81,
+              "end": 2.87,
+              "probability": 0.892578125
+            },
+            {
+              "text": " fair",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " swain",
+              "start": 3.07,
+              "end": 3.45,
+              "probability": 0.810302734375
+            },
+            {
+              "text": " is",
+              "start": 3.45,
+              "end": 3.61,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 3.61,
+              "end": 3.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " which",
+              "start": 3.83,
+              "end": 4.05,
+              "probability": 0.8515625
+            },
+            {
+              "text": " dances",
+              "start": 4.05,
+              "end": 4.41,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " with",
+              "start": 4.41,
+              "end": 4.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 4.67,
+              "end": 4.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " daughter?",
+              "start": 4.81,
+              "end": 5.05,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pollock",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "scenes.",
+          "start": 0.73,
+          "end": 0.97
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.55,
+          "end": 1.93
+        },
+        {
+          "raw": "good",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "raw": "shepherd,",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "raw": "what",
+          "start": 2.81,
+          "end": 2.87
+        },
+        {
+          "raw": "fair",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "swain",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "raw": "is",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "raw": "this",
+          "start": 3.61,
+          "end": 3.83
+        },
+        {
+          "raw": "which",
+          "start": 3.83,
+          "end": 4.05
+        },
+        {
+          "raw": "dances",
+          "start": 4.05,
+          "end": 4.41
+        },
+        {
+          "raw": "with",
+          "start": 4.41,
+          "end": 4.67
+        },
+        {
+          "raw": "your",
+          "start": 4.67,
+          "end": 4.81
+        },
+        {
+          "raw": "daughter?",
+          "start": 4.81,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "Pray,",
+        "good",
+        "shepherd,",
+        "what",
+        "fair",
+        "swain",
+        "is",
+        "this",
+        "Which",
+        "dances",
+        "with",
+        "your",
+        "daughter?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          14,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pollock",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "pollock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "scenes.",
+          "start": 0.73,
+          "end": 0.97,
+          "key": "scenes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.55,
+          "end": 1.93,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.13,
+          "end": 2.21,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shepherd,",
+          "start": 2.21,
+          "end": 2.53,
+          "key": "shepherd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.81,
+          "end": 2.87,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "fair",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "swain",
+          "start": 3.07,
+          "end": 3.45,
+          "key": "swain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.45,
+          "end": 3.61,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.61,
+          "end": 3.83,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.83,
+          "end": 4.05,
+          "key": "which",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "dances",
+          "start": 4.05,
+          "end": 4.41,
+          "key": "dances",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.41,
+          "end": 4.67,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.67,
+          "end": 4.81,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "daughter?",
+          "start": 4.81,
+          "end": 5.05,
+          "key": "daughter",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.0,
+          "end": 0.775
+        },
+        {
+          "text": "Pray,",
+          "start": 1.55,
+          "end": 1.93
+        },
+        {
+          "text": "good",
+          "start": 2.13,
+          "end": 2.21
+        },
+        {
+          "text": "shepherd,",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "text": "what",
+          "start": 2.81,
+          "end": 2.87
+        },
+        {
+          "text": "fair",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "swain",
+          "start": 3.07,
+          "end": 3.45
+        },
+        {
+          "text": "is",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "text": "this",
+          "start": 3.61,
+          "end": 3.83
+        },
+        {
+          "text": "Which",
+          "start": 3.83,
+          "end": 4.05
+        },
+        {
+          "text": "dances",
+          "start": 4.05,
+          "end": 4.41
+        },
+        {
+          "text": "with",
+          "start": 4.41,
+          "end": 4.67
+        },
+        {
+          "text": "your",
+          "start": 4.67,
+          "end": 4.81
+        },
+        {
+          "text": "daughter?",
+          "start": 4.81,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.31996433064341545
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "054079e5a2789f34af3bbb99c1accf9188ebf5473619e6a0011d3777764e1288",
+  "selected_reasons": []
+}

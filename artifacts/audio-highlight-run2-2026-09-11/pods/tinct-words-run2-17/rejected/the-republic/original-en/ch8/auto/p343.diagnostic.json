@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "ec911b4315dd83ea2afc2fa81e0fcacd0af5dd5b3f3462fdddf23ab73ba3f721",
+  "attempts": [
+    {
+      "asr_seconds": 0.23998300824314356,
+      "alignment_seconds": 0.0002829618752002716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Why, he said, there is little to be squeezed out of people who have little.",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, he said, there is little to be squeezed out of people who have little.",
+          "start": 0.05,
+          "end": 4.15,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.390380859375
+            },
+            {
+              "text": " he",
+              "start": 0.85,
+              "end": 1.01,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " said,",
+              "start": 1.01,
+              "end": 1.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.84765625
+            },
+            {
+              "text": " is",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " little",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 2.43,
+              "end": 2.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " squeezed",
+              "start": 2.57,
+              "end": 2.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " out",
+              "start": 2.95,
+              "end": 3.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 3.21,
+              "end": 3.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " people",
+              "start": 3.33,
+              "end": 3.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " who",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " have",
+              "start": 3.75,
+              "end": 3.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " little.",
+              "start": 3.93,
+              "end": 4.15,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "he",
+          "start": 0.85,
+          "end": 1.01
+        },
+        {
+          "raw": "said,",
+          "start": 1.01,
+          "end": 1.35
+        },
+        {
+          "raw": "there",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "is",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "little",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "to",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "be",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "raw": "squeezed",
+          "start": 2.57,
+          "end": 2.95
+        },
+        {
+          "raw": "out",
+          "start": 2.95,
+          "end": 3.21
+        },
+        {
+          "raw": "of",
+          "start": 3.21,
+          "end": 3.33
+        },
+        {
+          "raw": "people",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "raw": "who",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "raw": "have",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "raw": "little.",
+          "start": 3.93,
+          "end": 4.15
+        }
+      ],
+      "expected_tokens": [
+        "Why,",
+        "he",
+        "said,",
+        "there",
+        "is",
+        "little",
+        "to",
+        "be",
+        "squeezed",
+        "out",
+        "of",
+        "people",
+        "who",
+        "have",
+        "little."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.85,
+          "end": 1.01,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.01,
+          "end": 1.35,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "there",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.09,
+          "end": 2.25,
+          "key": "little",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.25,
+          "end": 2.43,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.43,
+          "end": 2.57,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "squeezed",
+          "start": 2.57,
+          "end": 2.95,
+          "key": "squeezed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.95,
+          "end": 3.21,
+          "key": "out",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.21,
+          "end": 3.33,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "people",
+          "start": 3.33,
+          "end": 3.53,
+          "key": "people",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.53,
+          "end": 3.75,
+          "key": "who",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.75,
+          "end": 3.93,
+          "key": "have",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "little.",
+          "start": 3.93,
+          "end": 4.15,
+          "key": "little",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Why,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "he",
+          "start": 0.85,
+          "end": 1.01
+        },
+        {
+          "text": "said,",
+          "start": 1.01,
+          "end": 1.35
+        },
+        {
+          "text": "there",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "is",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "little",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "to",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "text": "be",
+          "start": 2.43,
+          "end": 2.57
+        },
+        {
+          "text": "squeezed",
+          "start": 2.57,
+          "end": 2.95
+        },
+        {
+          "text": "out",
+          "start": 2.95,
+          "end": 3.21
+        },
+        {
+          "text": "of",
+          "start": 3.21,
+          "end": 3.33
+        },
+        {
+          "text": "people",
+          "start": 3.33,
+          "end": 3.53
+        },
+        {
+          "text": "who",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "text": "have",
+          "start": 3.75,
+          "end": 3.93
+        },
+        {
+          "text": "little.",
+          "start": 3.93,
+          "end": 4.15
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24038364179432392
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66998ca70c186e53b555e3bcf629a311cb47388f68db887c4acfb96967a4df92",
+  "selected_reasons": []
+}

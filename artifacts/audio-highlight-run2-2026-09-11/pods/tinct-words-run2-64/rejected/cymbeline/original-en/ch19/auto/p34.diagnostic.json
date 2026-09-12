@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "d8fe8fbc2c1f393bb3428b8a78b6d0adc8e46c6965efe7f3649dfff3db199d71",
+  "attempts": [
+    {
+      "asr_seconds": 0.11208631284534931,
+      "alignment_seconds": 0.00017357151955366135,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Imogen. Thanks, sir.",
+        "hotwords": "Imogen, Thanks"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Imogen, Thanks, sir.",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.02,
+              "end": 0.74,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " Thanks,",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.062103271484375
+            },
+            {
+              "text": " sir.",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.451904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "raw": "Thanks,",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "sir.",
+          "start": 1.5,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "Thanks,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.74,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thanks,",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "thanks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.02,
+          "end": 0.74
+        },
+        {
+          "text": "Thanks,",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "sir.",
+          "start": 1.5,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11231784708797932
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "98a60ffc02e551e8d4da00454d19dafdd94704a8b131216b484d274c9326407a",
+  "selected_reasons": []
+}

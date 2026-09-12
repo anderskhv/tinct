@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "264f2bbd4b7d12587b5e714ba252f8de88ad616111b86595f9049acf29809715",
+  "attempts": [
+    {
+      "asr_seconds": 0.10801383946090937,
+      "alignment_seconds": 0.000251254066824913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Drum within.",
+          "start": 0.05,
+          "end": 0.87,
+          "words": [
+            {
+              "text": " Drum",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.77734375
+            },
+            {
+              "text": " within.",
+              "start": 0.61,
+              "end": 0.87,
+              "probability": 0.429931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drum",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "within.",
+          "start": 0.61,
+          "end": 0.87
+        }
+      ],
+      "expected_tokens": [
+        "[Drum",
+        "within.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drum",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "drum",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.61,
+          "end": 0.87,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Drum",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "within.]",
+          "start": 0.61,
+          "end": 0.87
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1083567338064313
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb607df5a8f2a5d3b51f7459c2d8040013c6a5de378cb48536cde11618efb684",
+  "selected_reasons": []
+}

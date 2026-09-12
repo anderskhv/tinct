@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "199f0f5387e8fb5a8624b5ef50b90e3f62ced210c1ccd57de3bc1920bcd53610",
+  "attempts": [
+    {
+      "asr_seconds": 0.16317088389769197,
+      "alignment_seconds": 0.00034233927726745605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You're known so far fro Thornfield now",
+          "start": 0.02,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " known",
+              "start": 0.58,
+              "end": 0.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " so",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.990234375
+            },
+            {
+              "text": " far",
+              "start": 0.96,
+              "end": 1.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " fro",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.25830078125
+            },
+            {
+              "text": " Thornfield",
+              "start": 1.48,
+              "end": 2.24,
+              "probability": 0.781005859375
+            },
+            {
+              "text": " now",
+              "start": 2.24,
+              "end": 2.6,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "known",
+          "start": 0.58,
+          "end": 0.7
+        },
+        {
+          "raw": "so",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "far",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "raw": "fro",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "Thornfield",
+          "start": 1.48,
+          "end": 2.24
+        },
+        {
+          "raw": "now",
+          "start": 2.24,
+          "end": 2.6
+        }
+      ],
+      "expected_tokens": [
+        "\"You're",
+        "noan",
+        "so",
+        "far",
+        "fro'",
+        "Thornfield",
+        "now.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          7,
+          2,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "youre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 0.58,
+          "end": 0.7,
+          "key": "known",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.7,
+          "end": 0.96,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 0.96,
+          "end": 1.2,
+          "key": "far",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fro",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "fro",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Thornfield",
+          "start": 1.48,
+          "end": 2.24,
+          "key": "thornfield",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 2.24,
+          "end": 2.6,
+          "key": "now",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You're",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "noan",
+          "start": 0.58,
+          "end": 0.64
+        },
+        {
+          "text": "so",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "far",
+          "start": 0.96,
+          "end": 1.2
+        },
+        {
+          "text": "fro'",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "Thornfield",
+          "start": 1.48,
+          "end": 2.24
+        },
+        {
+          "text": "now.\"",
+          "start": 2.24,
+          "end": 2.6
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.16362911881878972
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "999adc48868461becfdf7ffe712f428fbdddf6419ffc2215f3ebd2b2d6c2ea64",
+  "selected_reasons": []
+}

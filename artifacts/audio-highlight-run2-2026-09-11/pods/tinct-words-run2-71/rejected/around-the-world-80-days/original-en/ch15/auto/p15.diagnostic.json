@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "6cea662bf22184b10f506961384a90c2f74ef0e1540e6b484d19fb29df97792a",
+  "attempts": [
+    {
+      "asr_seconds": 0.22563870530575514,
+      "alignment_seconds": 0.00024683959782123566,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But the steamer leaves at noon!\" observed Passepartout, nervously.",
+        "hotwords": "But, Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But the steamer leaves at noon! observed Passepartout, nervously.",
+          "start": 0.08,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.08,
+              "end": 0.48,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " the",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " steamer",
+              "start": 0.6,
+              "end": 0.98,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " leaves",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 1.22,
+              "end": 1.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " noon!",
+              "start": 1.42,
+              "end": 1.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " observed",
+              "start": 2.74,
+              "end": 2.74,
+              "probability": 0.1583251953125
+            },
+            {
+              "text": " Passepartout,",
+              "start": 2.74,
+              "end": 3.6,
+              "probability": 0.4378647804260254
+            },
+            {
+              "text": " nervously.",
+              "start": 3.68,
+              "end": 3.96,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.48
+        },
+        {
+          "raw": "the",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "steamer",
+          "start": 0.6,
+          "end": 0.98
+        },
+        {
+          "raw": "leaves",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "raw": "at",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "raw": "noon!",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "raw": "observed",
+          "start": 2.74,
+          "end": 2.74
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 2.74,
+          "end": 3.6
+        },
+        {
+          "raw": "nervously.",
+          "start": 3.68,
+          "end": 3.96
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "the",
+        "steamer",
+        "leaves",
+        "at",
+        "noon!\"",
+        "observed",
+        "Passepartout,",
+        "nervously."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.08,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "steamer",
+          "start": 0.6,
+          "end": 0.98,
+          "key": "steamer",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "leaves",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "leaves",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.22,
+          "end": 1.42,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "noon!",
+          "start": 1.42,
+          "end": 1.76,
+          "key": "noon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 2.74,
+          "end": 2.74,
+          "key": "observed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 2.74,
+          "end": 3.6,
+          "key": "passepartout",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "nervously.",
+          "start": 3.68,
+          "end": 3.96,
+          "key": "nervously",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.08,
+          "end": 0.48
+        },
+        {
+          "text": "the",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "steamer",
+          "start": 0.6,
+          "end": 0.98
+        },
+        {
+          "text": "leaves",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "text": "at",
+          "start": 1.22,
+          "end": 1.42
+        },
+        {
+          "text": "noon!\"",
+          "start": 1.42,
+          "end": 1.76
+        },
+        {
+          "text": "observed",
+          "start": 2.74,
+          "end": 2.74
+        },
+        {
+          "text": "Passepartout,",
+          "start": 2.74,
+          "end": 3.6
+        },
+        {
+          "text": "nervously.",
+          "start": 3.68,
+          "end": 3.96
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22598734591156244
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3fca2f66b54505b47bffbf61137e6de71263b89c82b30b1a1949736ec9712c82",
+  "selected_reasons": []
+}

@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "9d291cd2c3f257a9f1c3a1c0c67facbd6d35a2db7259569c503d232e7342ea25",
+  "attempts": [
+    {
+      "asr_seconds": 0.12465242855250835,
+      "alignment_seconds": 0.00012240000069141388,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " At five the next morning, Ingmar got down to the mill, but strong Ingmar was there ahead of him.",
+          "start": 0.21,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.21,
+              "end": 0.53,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " five",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.6689453125
+            },
+            {
+              "text": " the",
+              "start": 0.79,
+              "end": 0.99,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " next",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " morning,",
+              "start": 1.25,
+              "end": 1.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Ingmar",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.882080078125
+            },
+            {
+              "text": " got",
+              "start": 2.09,
+              "end": 2.35,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " down",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 2.59,
+              "end": 2.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " mill,",
+              "start": 2.87,
+              "end": 3.09,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " but",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " strong",
+              "start": 3.77,
+              "end": 4.17,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Ingmar",
+              "start": 4.17,
+              "end": 4.75,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " was",
+              "start": 4.75,
+              "end": 4.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " there",
+              "start": 4.95,
+              "end": 5.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ahead",
+              "start": 5.17,
+              "end": 5.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 5.41,
+              "end": 5.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 5.53,
+              "end": 5.73,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.21,
+          "end": 0.53
+        },
+        {
+          "raw": "five",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "the",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "raw": "next",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "morning,",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "raw": "Ingmar",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "got",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "raw": "down",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "to",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "mill,",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "raw": "but",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "strong",
+          "start": 3.77,
+          "end": 4.17
+        },
+        {
+          "raw": "Ingmar",
+          "start": 4.17,
+          "end": 4.75
+        },
+        {
+          "raw": "was",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "raw": "there",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "raw": "ahead",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "raw": "of",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "raw": "him.",
+          "start": 5.53,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "At",
+        "five",
+        "the",
+        "next",
+        "morning",
+        "Ingmar",
+        "got",
+        "down",
+        "to",
+        "the",
+        "mill,",
+        "but",
+        "Strong",
+        "Ingmar",
+        "was",
+        "there",
+        "ahead",
+        "of",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At",
+          "start": 0.21,
+          "end": 0.53,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "five",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.79,
+          "end": 0.99,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 0.99,
+          "end": 1.25,
+          "key": "next",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "morning,",
+          "start": 1.25,
+          "end": 1.63,
+          "key": "morning",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "ingmar",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 2.09,
+          "end": 2.35,
+          "key": "got",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "down",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.59,
+          "end": 2.75,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.87,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mill,",
+          "start": 2.87,
+          "end": 3.09,
+          "key": "mill",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "but",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 3.77,
+          "end": 4.17,
+          "key": "strong",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 4.17,
+          "end": 4.75,
+          "key": "ingmar",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.75,
+          "end": 4.95,
+          "key": "was",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.95,
+          "end": 5.17,
+          "key": "there",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ahead",
+          "start": 5.17,
+          "end": 5.41,
+          "key": "ahead",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.41,
+          "end": 5.53,
+          "key": "of",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.53,
+          "end": 5.73,
+          "key": "him",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "At",
+          "start": 0.21,
+          "end": 0.53
+        },
+        {
+          "text": "five",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "the",
+          "start": 0.79,
+          "end": 0.99
+        },
+        {
+          "text": "next",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "morning",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "text": "Ingmar",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "got",
+          "start": 2.09,
+          "end": 2.35
+        },
+        {
+          "text": "down",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "to",
+          "start": 2.59,
+          "end": 2.75
+        },
+        {
+          "text": "the",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "mill,",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "text": "but",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "Strong",
+          "start": 3.77,
+          "end": 4.17
+        },
+        {
+          "text": "Ingmar",
+          "start": 4.17,
+          "end": 4.75
+        },
+        {
+          "text": "was",
+          "start": 4.75,
+          "end": 4.95
+        },
+        {
+          "text": "there",
+          "start": 4.95,
+          "end": 5.17
+        },
+        {
+          "text": "ahead",
+          "start": 5.17,
+          "end": 5.41
+        },
+        {
+          "text": "of",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "text": "him.",
+          "start": 5.53,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12482680380344391
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d23ceb994c452f5c6961e43194f237126b4bb7fd177451b63432f55b99e159f7",
+  "selected_reasons": []
+}

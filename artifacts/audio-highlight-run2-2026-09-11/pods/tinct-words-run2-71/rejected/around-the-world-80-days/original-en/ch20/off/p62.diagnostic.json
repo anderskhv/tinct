@@ -1,0 +1,463 @@
+{
+  "complete": true,
+  "signature": "a2b668b9819406627f036bb54629963abe7e8f3da877fe4378bd9ddedc6881a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.23108667135238647,
+      "alignment_seconds": 0.0005874745547771454,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I shall do all I can to find him,\" replied Philia's fog.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.155517578125
+            },
+            {
+              "text": " shall",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " do",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 0.98,
+              "end": 1.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " can",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.26,
+              "end": 1.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " find",
+              "start": 1.38,
+              "end": 1.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him,\"",
+              "start": 1.62,
+              "end": 2.3,
+              "probability": 0.706787109375
+            },
+            {
+              "text": " replied",
+              "start": 2.3,
+              "end": 2.56,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Philia's",
+              "start": 2.56,
+              "end": 3.1,
+              "probability": 0.7101236979166666
+            },
+            {
+              "text": " fog.",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.88134765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "shall",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "all",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "raw": "can",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "raw": "find",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "raw": "him,\"",
+          "start": 1.62,
+          "end": 2.3
+        },
+        {
+          "raw": "replied",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "raw": "Philia's",
+          "start": 2.56,
+          "end": 3.1
+        },
+        {
+          "raw": "fog.",
+          "start": 3.1,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "shall",
+        "do",
+        "all",
+        "I",
+        "can",
+        "to",
+        "find",
+        "him,\"",
+        "replied",
+        "Phileas",
+        "Fogg."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          12,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.98,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.26,
+          "end": 1.38,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 1.38,
+          "end": 1.62,
+          "key": "find",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him,\"",
+          "start": 1.62,
+          "end": 2.3,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 2.3,
+          "end": 2.56,
+          "key": "replied",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Philia's",
+          "start": 2.56,
+          "end": 3.1,
+          "key": "philias",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "fog.",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "fog",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "shall",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "do",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "all",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "I",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "text": "can",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "to",
+          "start": 1.26,
+          "end": 1.38
+        },
+        {
+          "text": "find",
+          "start": 1.38,
+          "end": 1.62
+        },
+        {
+          "text": "him,\"",
+          "start": 1.62,
+          "end": 2.3
+        },
+        {
+          "text": "replied",
+          "start": 2.3,
+          "end": 2.56
+        },
+        {
+          "text": "Phileas",
+          "start": 2.56,
+          "end": 2.94
+        },
+        {
+          "text": "Fogg.",
+          "start": 2.94,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2319015134125948
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4d8a475f2b7ea8ae017fe143ff6219999212617cf4fe76bdebba11c33f92de1d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

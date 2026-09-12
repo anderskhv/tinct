@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "bb1aa5128a34ae08c992241a1ee55cd2795872b079b7a70b27d1caaba3db3ca5",
+  "attempts": [
+    {
+      "asr_seconds": 0.16668880358338356,
+      "alignment_seconds": 0.000261843204498291,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then would you call injustice malignity?",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.79296875
+            },
+            {
+              "text": " would",
+              "start": 0.59,
+              "end": 0.75,
+              "probability": 0.763671875
+            },
+            {
+              "text": " you",
+              "start": 0.75,
+              "end": 0.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " call",
+              "start": 0.89,
+              "end": 1.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " injustice",
+              "start": 1.15,
+              "end": 1.69,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " malignity?",
+              "start": 1.69,
+              "end": 2.37,
+              "probability": 0.9275716145833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "would",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "raw": "you",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "raw": "call",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "raw": "injustice",
+          "start": 1.15,
+          "end": 1.69
+        },
+        {
+          "raw": "malignity?",
+          "start": 1.69,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "would",
+        "you",
+        "call",
+        "injustice",
+        "malignity?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.59,
+          "end": 0.75,
+          "key": "would",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.75,
+          "end": 0.89,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 0.89,
+          "end": 1.15,
+          "key": "call",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "injustice",
+          "start": 1.15,
+          "end": 1.69,
+          "key": "injustice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "malignity?",
+          "start": 1.69,
+          "end": 2.37,
+          "key": "malignity",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "would",
+          "start": 0.59,
+          "end": 0.75
+        },
+        {
+          "text": "you",
+          "start": 0.75,
+          "end": 0.89
+        },
+        {
+          "text": "call",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "text": "injustice",
+          "start": 1.15,
+          "end": 1.69
+        },
+        {
+          "text": "malignity?",
+          "start": 1.69,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1669994257390499
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b168ff90323080bd4cd7a9f6254d3ce2119a98ca5954318c2749f0229ee70504",
+  "selected_reasons": []
+}

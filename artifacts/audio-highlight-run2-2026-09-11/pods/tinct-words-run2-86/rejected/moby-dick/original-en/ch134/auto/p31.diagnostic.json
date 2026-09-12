@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "d50d13b25c6f4b129b0fea3754079fb288f8a90033fd219d1e4495b6101f111c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1960369609296322,
+      "alignment_seconds": 0.00028127431869506836,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Let me first help thee towards the bulwarks, sir.\"",
+        "hotwords": "Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Let me first help thee towards the bulwarks, sir.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " me",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " first",
+              "start": 0.67,
+              "end": 0.89,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " help",
+              "start": 0.89,
+              "end": 1.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thee",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " towards",
+              "start": 1.27,
+              "end": 1.49,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.69,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " bulwarks,",
+              "start": 1.69,
+              "end": 2.15,
+              "probability": 0.6599934895833334
+            },
+            {
+              "text": " sir.",
+              "start": 2.35,
+              "end": 2.37,
+              "probability": 0.962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "me",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "first",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "raw": "help",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "raw": "thee",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "towards",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "raw": "bulwarks,",
+          "start": 1.69,
+          "end": 2.15
+        },
+        {
+          "raw": "sir.",
+          "start": 2.35,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "\"Let",
+        "me",
+        "first",
+        "help",
+        "thee",
+        "towards",
+        "the",
+        "bulwarks,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 0.67,
+          "end": 0.89,
+          "key": "first",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help",
+          "start": 0.89,
+          "end": 1.11,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.11,
+          "end": 1.27,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 1.27,
+          "end": 1.49,
+          "key": "towards",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.69,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bulwarks,",
+          "start": 1.69,
+          "end": 2.15,
+          "key": "bulwarks",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.35,
+          "end": 2.37,
+          "key": "sir",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Let",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "me",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "first",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "text": "help",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "text": "thee",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "towards",
+          "start": 1.27,
+          "end": 1.49
+        },
+        {
+          "text": "the",
+          "start": 1.49,
+          "end": 1.69
+        },
+        {
+          "text": "bulwarks,",
+          "start": 1.69,
+          "end": 2.15
+        },
+        {
+          "text": "sir.\"",
+          "start": 2.35,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19643402099609375
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b688bc691aa65d5654ce7c2d3363f3efd17c8c1c9aeb66ef2d477bdd33167f18",
+  "selected_reasons": []
+}

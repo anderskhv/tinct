@@ -1,0 +1,569 @@
+{
+  "complete": true,
+  "signature": "6114316dbb2b76af2116f56ef9c7f8944919fc8a4ebddf3fd19fe99c270156c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3360244771465659,
+      "alignment_seconds": 0.00048150960355997086,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alarums, the Romans are beat back to their trenches.",
+          "start": 0.05,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Alarums,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.5187174479166666
+            },
+            {
+              "text": " the",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Romans",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " are",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " beat",
+              "start": 2.11,
+              "end": 2.27,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " back",
+              "start": 2.27,
+              "end": 2.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trenches.",
+              "start": 2.83,
+              "end": 3.23,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " They exit with the valsas following.",
+          "start": 3.91,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " They",
+              "start": 3.91,
+              "end": 4.01,
+              "probability": 0.990234375
+            },
+            {
+              "text": " exit",
+              "start": 4.01,
+              "end": 4.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 4.35,
+              "end": 4.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " the",
+              "start": 4.59,
+              "end": 4.73,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " valsas",
+              "start": 4.73,
+              "end": 5.17,
+              "probability": 0.525390625
+            },
+            {
+              "text": " following.",
+              "start": 5.17,
+              "end": 5.51,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alarums,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "Romans",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "are",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "beat",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "raw": "back",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "their",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "trenches.",
+          "start": 2.83,
+          "end": 3.23
+        },
+        {
+          "raw": "They",
+          "start": 3.91,
+          "end": 4.01
+        },
+        {
+          "raw": "exit",
+          "start": 4.01,
+          "end": 4.35
+        },
+        {
+          "raw": "with",
+          "start": 4.35,
+          "end": 4.59
+        },
+        {
+          "raw": "the",
+          "start": 4.59,
+          "end": 4.73
+        },
+        {
+          "raw": "valsas",
+          "start": 4.73,
+          "end": 5.17
+        },
+        {
+          "raw": "following.",
+          "start": 5.17,
+          "end": 5.51
+        }
+      ],
+      "expected_tokens": [
+        "[_Alarums.",
+        "The",
+        "Romans",
+        "are",
+        "beat",
+        "back",
+        "to",
+        "their",
+        "trenches.",
+        "They",
+        "exit,",
+        "with",
+        "the",
+        "Volsces",
+        "following_.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alarums,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "alarums",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Romans",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "romans",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beat",
+          "start": 2.11,
+          "end": 2.27,
+          "key": "beat",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 2.27,
+          "end": 2.55,
+          "key": "back",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.71,
+          "end": 2.83,
+          "key": "their",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "trenches.",
+          "start": 2.83,
+          "end": 3.23,
+          "key": "trenches",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 3.91,
+          "end": 4.01,
+          "key": "they",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "exit",
+          "start": 4.01,
+          "end": 4.35,
+          "key": "exit",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.35,
+          "end": 4.59,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.59,
+          "end": 4.73,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "valsas",
+          "start": 4.73,
+          "end": 5.17,
+          "key": "valsas",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "following.",
+          "start": 5.17,
+          "end": 5.51,
+          "key": "following",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Alarums.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "The",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "text": "Romans",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "are",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "beat",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "text": "back",
+          "start": 2.27,
+          "end": 2.55
+        },
+        {
+          "text": "to",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "their",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "trenches.",
+          "start": 2.83,
+          "end": 3.23
+        },
+        {
+          "text": "They",
+          "start": 3.91,
+          "end": 4.01
+        },
+        {
+          "text": "exit,",
+          "start": 4.01,
+          "end": 4.35
+        },
+        {
+          "text": "with",
+          "start": 4.35,
+          "end": 4.59
+        },
+        {
+          "text": "the",
+          "start": 4.59,
+          "end": 4.73
+        },
+        {
+          "text": "Volsces",
+          "start": 4.73,
+          "end": 4.95
+        },
+        {
+          "text": "following_.]",
+          "start": 5.17,
+          "end": 5.51
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.3366831364110112
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3b3e77585fa42edf89ca5bdf8205e8374ab253894aa095a10204dcf31abe2232",
+  "selected_reasons": []
+}

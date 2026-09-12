@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "0b4fc33e250729bb9e1e77a38fb3260a113f35c03b30570cae76429d59ea7928",
+  "attempts": [
+    {
+      "asr_seconds": 0.15566552989184856,
+      "alignment_seconds": 0.00035458803176879883,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Harold gives him another paper.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Harold",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " gives",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " him",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " another",
+              "start": 1.17,
+              "end": 1.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " paper.",
+              "start": 1.45,
+              "end": 1.81,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Harold",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "gives",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "him",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "another",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "raw": "paper.",
+          "start": 1.45,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "[_Herald",
+        "gives",
+        "him",
+        "another",
+        "paper._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Harold",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "harold",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 0.65,
+          "end": 0.95,
+          "key": "gives",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 0.95,
+          "end": 1.17,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 1.17,
+          "end": 1.45,
+          "key": "another",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "paper.",
+          "start": 1.45,
+          "end": 1.81,
+          "key": "paper",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Herald",
+          "start": 0.0,
+          "end": 0.325
+        },
+        {
+          "text": "gives",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "him",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "text": "another",
+          "start": 1.17,
+          "end": 1.45
+        },
+        {
+          "text": "paper._]",
+          "start": 1.45,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1561412310693413
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0ec0a902aa95f380812f16249b7ed5abf0256f336bdc6162999174568bc05092",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

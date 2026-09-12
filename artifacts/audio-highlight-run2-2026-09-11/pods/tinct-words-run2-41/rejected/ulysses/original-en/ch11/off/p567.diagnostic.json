@@ -1,0 +1,654 @@
+{
+  "complete": true,
+  "signature": "dbe4742e8d4c549d83b7e6eb869b8a7c871260f671223df0123657e04559cd7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.30928662279620767,
+      "alignment_seconds": 0.00047416891902685165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Better, said Tomsen Kernan, most trenchant rendition of that ballad, upon my soul and",
+          "start": 0.08,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Better,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.021087646484375
+            },
+            {
+              "text": " said",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Tomsen",
+              "start": 1.22,
+              "end": 1.7,
+              "probability": 0.3991292317708333
+            },
+            {
+              "text": " Kernan,",
+              "start": 1.7,
+              "end": 2.2,
+              "probability": 0.718505859375
+            },
+            {
+              "text": " most",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " trenchant",
+              "start": 2.84,
+              "end": 3.28,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " rendition",
+              "start": 3.28,
+              "end": 3.58,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 3.58,
+              "end": 3.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 3.86,
+              "end": 4.06,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " ballad,",
+              "start": 4.06,
+              "end": 4.5,
+              "probability": 0.974853515625
+            },
+            {
+              "text": " upon",
+              "start": 4.8,
+              "end": 5.02,
+              "probability": 0.779296875
+            },
+            {
+              "text": " my",
+              "start": 5.02,
+              "end": 5.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " soul",
+              "start": 5.24,
+              "end": 5.6,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " and",
+              "start": 5.6,
+              "end": 5.82,
+              "probability": 0.86865234375
+            }
+          ]
+        },
+        {
+          "text": " honor it is.",
+          "start": 5.82,
+          "end": 6.54,
+          "words": [
+            {
+              "text": " honor",
+              "start": 5.82,
+              "end": 6.06,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " it",
+              "start": 6.06,
+              "end": 6.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " is.",
+              "start": 6.26,
+              "end": 6.54,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Better,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "said",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "Tomsen",
+          "start": 1.22,
+          "end": 1.7
+        },
+        {
+          "raw": "Kernan,",
+          "start": 1.7,
+          "end": 2.2
+        },
+        {
+          "raw": "most",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "trenchant",
+          "start": 2.84,
+          "end": 3.28
+        },
+        {
+          "raw": "rendition",
+          "start": 3.28,
+          "end": 3.58
+        },
+        {
+          "raw": "of",
+          "start": 3.58,
+          "end": 3.86
+        },
+        {
+          "raw": "that",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "raw": "ballad,",
+          "start": 4.06,
+          "end": 4.5
+        },
+        {
+          "raw": "upon",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "raw": "my",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "raw": "soul",
+          "start": 5.24,
+          "end": 5.6
+        },
+        {
+          "raw": "and",
+          "start": 5.6,
+          "end": 5.82
+        },
+        {
+          "raw": "honor",
+          "start": 5.82,
+          "end": 6.06
+        },
+        {
+          "raw": "it",
+          "start": 6.06,
+          "end": 6.26
+        },
+        {
+          "raw": "is.",
+          "start": 6.26,
+          "end": 6.54
+        }
+      ],
+      "expected_tokens": [
+        "—Better,",
+        "said",
+        "Tomgin",
+        "Kernan.",
+        "Most",
+        "trenchant",
+        "rendition",
+        "of",
+        "that",
+        "ballad,",
+        "upon",
+        "my",
+        "soul",
+        "and",
+        "honour",
+        "it",
+        "is."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          14,
+          3,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          17,
+          15,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Better,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "better",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "said",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tomsen",
+          "start": 1.22,
+          "end": 1.7,
+          "key": "tomsen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kernan,",
+          "start": 1.7,
+          "end": 2.2,
+          "key": "kernan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "most",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "trenchant",
+          "start": 2.84,
+          "end": 3.28,
+          "key": "trenchant",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rendition",
+          "start": 3.28,
+          "end": 3.58,
+          "key": "rendition",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.58,
+          "end": 3.86,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.86,
+          "end": 4.06,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ballad,",
+          "start": 4.06,
+          "end": 4.5,
+          "key": "ballad",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 4.8,
+          "end": 5.02,
+          "key": "upon",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.02,
+          "end": 5.24,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 5.24,
+          "end": 5.6,
+          "key": "soul",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.6,
+          "end": 5.82,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 5.82,
+          "end": 6.06,
+          "key": "honor",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.06,
+          "end": 6.26,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is.",
+          "start": 6.26,
+          "end": 6.54,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Better,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "said",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "Tomgin",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "Kernan.",
+          "start": 1.7,
+          "end": 2.2
+        },
+        {
+          "text": "Most",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "trenchant",
+          "start": 2.84,
+          "end": 3.28
+        },
+        {
+          "text": "rendition",
+          "start": 3.28,
+          "end": 3.58
+        },
+        {
+          "text": "of",
+          "start": 3.58,
+          "end": 3.86
+        },
+        {
+          "text": "that",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "text": "ballad,",
+          "start": 4.06,
+          "end": 4.5
+        },
+        {
+          "text": "upon",
+          "start": 4.8,
+          "end": 5.02
+        },
+        {
+          "text": "my",
+          "start": 5.02,
+          "end": 5.24
+        },
+        {
+          "text": "soul",
+          "start": 5.24,
+          "end": 5.6
+        },
+        {
+          "text": "and",
+          "start": 5.6,
+          "end": 5.82
+        },
+        {
+          "text": "honour",
+          "start": 5.82,
+          "end": 5.94
+        },
+        {
+          "text": "it",
+          "start": 6.06,
+          "end": 6.26
+        },
+        {
+          "text": "is.",
+          "start": 6.26,
+          "end": 6.54
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.3099295520223677
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "999d9cd5e9b55aac0471c3ccd788dd23c334ccc5ef144d42788be0d6b1b6df2d",
+  "selected_reasons": []
+}

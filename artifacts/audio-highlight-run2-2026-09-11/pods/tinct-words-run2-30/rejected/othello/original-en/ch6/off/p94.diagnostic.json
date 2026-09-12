@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "0a9d5d2f4d80db5375d9378229257305e47211cc386f2a294b5f3066c65e399d",
+  "attempts": [
+    {
+      "asr_seconds": 0.09250440821051598,
+      "alignment_seconds": 0.00011241994798183441,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter dystomona attended",
+          "start": 0.11,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " dystomona",
+              "start": 0.63,
+              "end": 1.33,
+              "probability": 0.572357177734375
+            },
+            {
+              "text": " attended",
+              "start": 1.33,
+              "end": 1.81,
+              "probability": 0.381591796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "dystomona",
+          "start": 0.63,
+          "end": 1.33
+        },
+        {
+          "raw": "attended",
+          "start": 1.33,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Desdemona,",
+        "attended.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dystomona",
+          "start": 0.63,
+          "end": 1.33,
+          "key": "dystomona",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "attended",
+          "start": 1.33,
+          "end": 1.81,
+          "key": "attended",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Desdemona,",
+          "start": 0.63,
+          "end": 0.98
+        },
+        {
+          "text": "attended.]",
+          "start": 1.33,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0926525080576539
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9cd64d0dddc52cca26e9443bbe8ca2219c481cedbc683b6f274393ab2dd0dba1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

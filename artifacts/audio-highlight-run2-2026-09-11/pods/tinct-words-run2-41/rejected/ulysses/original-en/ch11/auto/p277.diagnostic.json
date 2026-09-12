@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "e5ab05572a5436221c954a650b580a12b395da67f1a846251072135f09972424",
+  "attempts": [
+    {
+      "asr_seconds": 0.212910118047148,
+      "alignment_seconds": 0.0004103858955204487,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—You're the essence of vulgarity, she in gliding said.",
+        "hotwords": "You're"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You're the essence of vulgarity, she in gliding said.",
+          "start": 0.02,
+          "end": 3.02,
+          "words": [
+            {
+              "text": " You're",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.673095703125
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " essence",
+              "start": 0.66,
+              "end": 0.94,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 0.94,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " vulgarity,",
+              "start": 1.18,
+              "end": 1.76,
+              "probability": 0.9453125
+            },
+            {
+              "text": " she",
+              "start": 2.16,
+              "end": 2.18,
+              "probability": 0.771484375
+            },
+            {
+              "text": " in",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.398681640625
+            },
+            {
+              "text": " gliding",
+              "start": 2.32,
+              "end": 2.68,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " said.",
+              "start": 2.68,
+              "end": 3.02,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "essence",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "raw": "of",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "raw": "vulgarity,",
+          "start": 1.18,
+          "end": 1.76
+        },
+        {
+          "raw": "she",
+          "start": 2.16,
+          "end": 2.18
+        },
+        {
+          "raw": "in",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "gliding",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "raw": "said.",
+          "start": 2.68,
+          "end": 3.02
+        }
+      ],
+      "expected_tokens": [
+        "—You're",
+        "the",
+        "essence",
+        "of",
+        "vulgarity,",
+        "she",
+        "in",
+        "gliding",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You're",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "youre",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "essence",
+          "start": 0.66,
+          "end": 0.94,
+          "key": "essence",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.94,
+          "end": 1.18,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "vulgarity,",
+          "start": 1.18,
+          "end": 1.76,
+          "key": "vulgarity",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.16,
+          "end": 2.18,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gliding",
+          "start": 2.32,
+          "end": 2.68,
+          "key": "gliding",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.68,
+          "end": 3.02,
+          "key": "said",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—You're",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "essence",
+          "start": 0.66,
+          "end": 0.94
+        },
+        {
+          "text": "of",
+          "start": 0.94,
+          "end": 1.18
+        },
+        {
+          "text": "vulgarity,",
+          "start": 1.18,
+          "end": 1.76
+        },
+        {
+          "text": "she",
+          "start": 2.16,
+          "end": 2.18
+        },
+        {
+          "text": "in",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "gliding",
+          "start": 2.32,
+          "end": 2.68
+        },
+        {
+          "text": "said.",
+          "start": 2.68,
+          "end": 3.02
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21346613485366106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d58e79c7b1b483538e778356f0a050b917b2bda220a51120229df118afa6296a",
+  "selected_reasons": []
+}

@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "4269147f40feaf16765a13bf652dff2a6d2ac5dc4e0120eba569c3ff6b7dc437",
+  "attempts": [
+    {
+      "asr_seconds": 0.17077013663947582,
+      "alignment_seconds": 0.0004124492406845093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhumed all but Hamlet and Horatio.",
+          "start": 0.02,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " Exhumed",
+              "start": 0.02,
+              "end": 0.86,
+              "probability": 0.7040201822916666
+            },
+            {
+              "text": " all",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.5126953125
+            },
+            {
+              "text": " but",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Hamlet",
+              "start": 1.16,
+              "end": 1.54,
+              "probability": 0.891845703125
+            },
+            {
+              "text": " and",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " Horatio.",
+              "start": 1.7,
+              "end": 2.12,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhumed",
+          "start": 0.02,
+          "end": 0.86
+        },
+        {
+          "raw": "all",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "but",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "Hamlet",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "Horatio.",
+          "start": 1.7,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "all",
+        "but",
+        "Hamlet",
+        "and",
+        "Horatio.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhumed",
+          "start": 0.02,
+          "end": 0.86,
+          "key": "exhumed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "all",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.0,
+          "end": 1.16,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hamlet",
+          "start": 1.16,
+          "end": 1.54,
+          "key": "hamlet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Horatio.",
+          "start": 1.7,
+          "end": 2.12,
+          "key": "horatio",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.0,
+          "end": 0.43
+        },
+        {
+          "text": "all",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "but",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "Hamlet",
+          "start": 1.16,
+          "end": 1.54
+        },
+        {
+          "text": "and",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "Horatio.]",
+          "start": 1.7,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1713193692266941
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7ee46554f4de936ab32267ca2a880d37e5b2b1ec9caf1548fc9f1ab94b65cd6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

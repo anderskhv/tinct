@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "c21a52559e1036919b140ef35fb159eabada6854ab392676ceb483012484c376",
+  "attempts": [
+    {
+      "asr_seconds": 0.10430796211585402,
+      "alignment_seconds": 0.00015281839296221733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Going",
+          "start": 0.05,
+          "end": 0.75,
+          "words": [
+            {
+              "text": " Going",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.49560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Going",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "expected_tokens": [
+        "[Going.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Going",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "going",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Going.]",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10450592031702399
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "afc44bf3e8732521ecb2f733fd70bf7b93798c2577583cc5891a08e218bb94e9",
+  "selected_reasons": []
+}

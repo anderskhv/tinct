@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "d49aa6e880a0806424c00c105b94fbac67fcb3730291052e6092dc2b8ccf9c87",
+  "attempts": [
+    {
+      "asr_seconds": 0.11186273489147425,
+      "alignment_seconds": 0.00015156902372837067,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exeunt Desdemona and Emilia.]",
+        "hotwords": "Exeunt, Desdemona, Emilia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt, Desdemona and Emilia.",
+          "start": 0.05,
+          "end": 2.01,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.5963134765625
+            },
+            {
+              "text": " Desdemona",
+              "start": 0.99,
+              "end": 1.43,
+              "probability": 0.6493453979492188
+            },
+            {
+              "text": " and",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.44677734375
+            },
+            {
+              "text": " Emilia.",
+              "start": 1.65,
+              "end": 2.01,
+              "probability": 0.6387939453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "Desdemona",
+          "start": 0.99,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "raw": "Emilia.",
+          "start": 1.65,
+          "end": 2.01
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Desdemona",
+        "and",
+        "Emilia.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Desdemona",
+          "start": 0.99,
+          "end": 1.43,
+          "key": "desdemona",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Emilia.",
+          "start": 1.65,
+          "end": 2.01,
+          "key": "emilia",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "Desdemona",
+          "start": 0.99,
+          "end": 1.43
+        },
+        {
+          "text": "and",
+          "start": 1.43,
+          "end": 1.65
+        },
+        {
+          "text": "Emilia.]",
+          "start": 1.65,
+          "end": 2.01
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11206637416034937
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "47d07afa5d82e8a93ea8b52741f34e02f1ea826a7a8b698192d2a7500963e76b",
+  "selected_reasons": []
+}

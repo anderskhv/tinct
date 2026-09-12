@@ -1,0 +1,677 @@
+{
+  "complete": true,
+  "signature": "fbe31d6f4de278fde451ce105cc826ca6beb53a836696e048b3d8d4196378617",
+  "attempts": [
+    {
+      "asr_seconds": 0.30704133585095406,
+      "alignment_seconds": 0.0005004294216632843,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. O Ratcliffe, I have dreamed a fearful dream! What think'st thou, will our friends prove all true?",
+        "hotwords": "King, Richard, O, Ratcliffe, I, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, O, Ratcliffe, I have dreamed a fearful dream! What think'st thou, will",
+          "start": 0.0,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.4482421875
+            },
+            {
+              "text": " Richard,",
+              "start": 0.56,
+              "end": 0.94,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " O,",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.8203125
+            },
+            {
+              "text": " Ratcliffe,",
+              "start": 1.88,
+              "end": 2.1,
+              "probability": 0.46734619140625
+            },
+            {
+              "text": " I",
+              "start": 2.32,
+              "end": 2.4,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " have",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.982421875
+            },
+            {
+              "text": " dreamed",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.9609375
+            },
+            {
+              "text": " a",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " fearful",
+              "start": 2.92,
+              "end": 3.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " dream!",
+              "start": 3.22,
+              "end": 3.62,
+              "probability": 0.984375
+            },
+            {
+              "text": " What",
+              "start": 4.32,
+              "end": 4.42,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " think'st",
+              "start": 4.42,
+              "end": 4.86,
+              "probability": 0.2811381022135417
+            },
+            {
+              "text": " thou,",
+              "start": 4.86,
+              "end": 5.12,
+              "probability": 0.1402587890625
+            },
+            {
+              "text": " will",
+              "start": 5.44,
+              "end": 5.48,
+              "probability": 0.74267578125
+            }
+          ]
+        },
+        {
+          "text": " our friends prove all true?",
+          "start": 5.48,
+          "end": 6.78,
+          "words": [
+            {
+              "text": " our",
+              "start": 5.48,
+              "end": 5.64,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " friends",
+              "start": 5.64,
+              "end": 5.9,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " prove",
+              "start": 5.9,
+              "end": 6.2,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " all",
+              "start": 6.2,
+              "end": 6.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " true?",
+              "start": 6.46,
+              "end": 6.78,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "raw": "O,",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "Ratcliffe,",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "raw": "I",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "raw": "have",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "dreamed",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "a",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "fearful",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "raw": "dream!",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "raw": "What",
+          "start": 4.32,
+          "end": 4.42
+        },
+        {
+          "raw": "think'st",
+          "start": 4.42,
+          "end": 4.86
+        },
+        {
+          "raw": "thou,",
+          "start": 4.86,
+          "end": 5.12
+        },
+        {
+          "raw": "will",
+          "start": 5.44,
+          "end": 5.48
+        },
+        {
+          "raw": "our",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "raw": "friends",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "raw": "prove",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "raw": "all",
+          "start": 6.2,
+          "end": 6.46
+        },
+        {
+          "raw": "true?",
+          "start": 6.46,
+          "end": 6.78
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "O",
+        "Ratcliffe,",
+        "I",
+        "have",
+        "dreamed",
+        "a",
+        "fearful",
+        "dream!",
+        "What",
+        "think'st",
+        "thou,",
+        "will",
+        "our",
+        "friends",
+        "prove",
+        "all",
+        "true?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.56,
+          "end": 0.94,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ratcliffe,",
+          "start": 1.88,
+          "end": 2.1,
+          "key": "ratcliffe",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.32,
+          "end": 2.4,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dreamed",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "dreamed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fearful",
+          "start": 2.92,
+          "end": 3.22,
+          "key": "fearful",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "dream!",
+          "start": 3.22,
+          "end": 3.62,
+          "key": "dream",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 4.32,
+          "end": 4.42,
+          "key": "what",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "think'st",
+          "start": 4.42,
+          "end": 4.86,
+          "key": "thinkst",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thou,",
+          "start": 4.86,
+          "end": 5.12,
+          "key": "thou",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.44,
+          "end": 5.48,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 5.48,
+          "end": 5.64,
+          "key": "our",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 5.64,
+          "end": 5.9,
+          "key": "friends",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "prove",
+          "start": 5.9,
+          "end": 6.2,
+          "key": "prove",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 6.2,
+          "end": 6.46,
+          "key": "all",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "true?",
+          "start": 6.46,
+          "end": 6.78,
+          "key": "true",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "Richard.",
+          "start": 0.56,
+          "end": 0.94
+        },
+        {
+          "text": "O",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "Ratcliffe,",
+          "start": 1.88,
+          "end": 2.1
+        },
+        {
+          "text": "I",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "text": "have",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "dreamed",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "text": "a",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "fearful",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "text": "dream!",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "text": "What",
+          "start": 4.32,
+          "end": 4.42
+        },
+        {
+          "text": "think'st",
+          "start": 4.42,
+          "end": 4.86
+        },
+        {
+          "text": "thou,",
+          "start": 4.86,
+          "end": 5.12
+        },
+        {
+          "text": "will",
+          "start": 5.44,
+          "end": 5.48
+        },
+        {
+          "text": "our",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "text": "friends",
+          "start": 5.64,
+          "end": 5.9
+        },
+        {
+          "text": "prove",
+          "start": 5.9,
+          "end": 6.2
+        },
+        {
+          "text": "all",
+          "start": 6.2,
+          "end": 6.46
+        },
+        {
+          "text": "true?",
+          "start": 6.46,
+          "end": 6.78
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.307791031897068
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea3ac930d70f8cf3193b9438232b152495dd210f7ddd952d358068fdab7cf81d",
+  "selected_reasons": []
+}

@@ -1,0 +1,864 @@
+{
+  "complete": true,
+  "signature": "2fbfae86cf03f017e0c3e2da1ce4c488e6abe96baaaceda2eef66472c984e547",
+  "attempts": [
+    {
+      "asr_seconds": 0.38021767139434814,
+      "alignment_seconds": 0.0008594747632741928,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Philario, gentlemen, enough of this.",
+          "start": 0.53,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Philario,",
+              "start": 0.53,
+              "end": 0.89,
+              "probability": 0.43359375
+            },
+            {
+              "text": " gentlemen,",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.642578125
+            },
+            {
+              "text": " enough",
+              "start": 1.93,
+              "end": 2.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this.",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " It came in two suddenly.",
+          "start": 3.01,
+          "end": 4.13,
+          "words": [
+            {
+              "text": " It",
+              "start": 3.01,
+              "end": 3.11,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " came",
+              "start": 3.11,
+              "end": 3.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 3.27,
+              "end": 3.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " two",
+              "start": 3.43,
+              "end": 3.65,
+              "probability": 0.478759765625
+            },
+            {
+              "text": " suddenly.",
+              "start": 3.65,
+              "end": 4.13,
+              "probability": 0.97705078125
+            }
+          ]
+        },
+        {
+          "text": " Let it die as it was born, and I pray you be better acquainted.",
+          "start": 4.65,
+          "end": 7.35,
+          "words": [
+            {
+              "text": " Let",
+              "start": 4.65,
+              "end": 4.73,
+              "probability": 0.96875
+            },
+            {
+              "text": " it",
+              "start": 4.73,
+              "end": 4.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " die",
+              "start": 4.85,
+              "end": 5.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 5.05,
+              "end": 5.23,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " it",
+              "start": 5.23,
+              "end": 5.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " was",
+              "start": 5.33,
+              "end": 5.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " born,",
+              "start": 5.45,
+              "end": 5.79,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " and",
+              "start": 6.09,
+              "end": 6.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 6.11,
+              "end": 6.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pray",
+              "start": 6.25,
+              "end": 6.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 6.43,
+              "end": 6.59,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " be",
+              "start": 6.59,
+              "end": 6.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " better",
+              "start": 6.73,
+              "end": 6.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " acquainted.",
+              "start": 6.97,
+              "end": 7.35,
+              "probability": 0.9541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Philario,",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "enough",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "raw": "of",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "this.",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "It",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "raw": "came",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "raw": "two",
+          "start": 3.43,
+          "end": 3.65
+        },
+        {
+          "raw": "suddenly.",
+          "start": 3.65,
+          "end": 4.13
+        },
+        {
+          "raw": "Let",
+          "start": 4.65,
+          "end": 4.73
+        },
+        {
+          "raw": "it",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "raw": "die",
+          "start": 4.85,
+          "end": 5.05
+        },
+        {
+          "raw": "as",
+          "start": 5.05,
+          "end": 5.23
+        },
+        {
+          "raw": "it",
+          "start": 5.23,
+          "end": 5.33
+        },
+        {
+          "raw": "was",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "raw": "born,",
+          "start": 5.45,
+          "end": 5.79
+        },
+        {
+          "raw": "and",
+          "start": 6.09,
+          "end": 6.11
+        },
+        {
+          "raw": "I",
+          "start": 6.11,
+          "end": 6.25
+        },
+        {
+          "raw": "pray",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "raw": "you",
+          "start": 6.43,
+          "end": 6.59
+        },
+        {
+          "raw": "be",
+          "start": 6.59,
+          "end": 6.73
+        },
+        {
+          "raw": "better",
+          "start": 6.73,
+          "end": 6.97
+        },
+        {
+          "raw": "acquainted.",
+          "start": 6.97,
+          "end": 7.35
+        }
+      ],
+      "expected_tokens": [
+        "Philario.",
+        "Gentlemen,",
+        "enough",
+        "of",
+        "this.",
+        "It",
+        "came",
+        "in",
+        "too",
+        "suddenly;",
+        "let",
+        "it",
+        "die",
+        "as",
+        "it",
+        "was",
+        "born,",
+        "and",
+        "I",
+        "pray",
+        "you",
+        "be",
+        "better",
+        "acquainted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          24,
+          9,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Philario,",
+          "start": 0.53,
+          "end": 0.89,
+          "key": "philario",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gentlemen,",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "gentlemen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 1.93,
+          "end": 2.01,
+          "key": "enough",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.01,
+          "end": 3.11,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 3.11,
+          "end": 3.27,
+          "key": "came",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.27,
+          "end": 3.43,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 3.43,
+          "end": 3.65,
+          "key": "two",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "suddenly.",
+          "start": 3.65,
+          "end": 4.13,
+          "key": "suddenly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 4.65,
+          "end": 4.73,
+          "key": "let",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.73,
+          "end": 4.85,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "die",
+          "start": 4.85,
+          "end": 5.05,
+          "key": "die",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 5.05,
+          "end": 5.23,
+          "key": "as",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.23,
+          "end": 5.33,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.33,
+          "end": 5.45,
+          "key": "was",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "born,",
+          "start": 5.45,
+          "end": 5.79,
+          "key": "born",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.09,
+          "end": 6.11,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 6.11,
+          "end": 6.25,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 6.25,
+          "end": 6.43,
+          "key": "pray",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.43,
+          "end": 6.59,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.59,
+          "end": 6.73,
+          "key": "be",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 6.73,
+          "end": 6.97,
+          "key": "better",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "acquainted.",
+          "start": 6.97,
+          "end": 7.35,
+          "key": "acquainted",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Philario.",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "text": "Gentlemen,",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "enough",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "text": "of",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "this.",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "It",
+          "start": 3.01,
+          "end": 3.11
+        },
+        {
+          "text": "came",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "text": "in",
+          "start": 3.27,
+          "end": 3.43
+        },
+        {
+          "text": "too",
+          "start": 3.43,
+          "end": 3.54
+        },
+        {
+          "text": "suddenly;",
+          "start": 3.65,
+          "end": 4.13
+        },
+        {
+          "text": "let",
+          "start": 4.65,
+          "end": 4.73
+        },
+        {
+          "text": "it",
+          "start": 4.73,
+          "end": 4.85
+        },
+        {
+          "text": "die",
+          "start": 4.85,
+          "end": 5.05
+        },
+        {
+          "text": "as",
+          "start": 5.05,
+          "end": 5.23
+        },
+        {
+          "text": "it",
+          "start": 5.23,
+          "end": 5.33
+        },
+        {
+          "text": "was",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "text": "born,",
+          "start": 5.45,
+          "end": 5.79
+        },
+        {
+          "text": "and",
+          "start": 6.09,
+          "end": 6.11
+        },
+        {
+          "text": "I",
+          "start": 6.11,
+          "end": 6.25
+        },
+        {
+          "text": "pray",
+          "start": 6.25,
+          "end": 6.43
+        },
+        {
+          "text": "you",
+          "start": 6.43,
+          "end": 6.59
+        },
+        {
+          "text": "be",
+          "start": 6.59,
+          "end": 6.73
+        },
+        {
+          "text": "better",
+          "start": 6.73,
+          "end": 6.97
+        },
+        {
+          "text": "acquainted.",
+          "start": 6.97,
+          "end": 7.35
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 0.9583333333333334,
+      "rejection_reasons": [],
+      "seconds": 0.38142284750938416
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "00f16d879bb61e1198194e3ab40aeea5a162f06d1010bf274adac20c60f51946",
+  "selected_reasons": []
+}

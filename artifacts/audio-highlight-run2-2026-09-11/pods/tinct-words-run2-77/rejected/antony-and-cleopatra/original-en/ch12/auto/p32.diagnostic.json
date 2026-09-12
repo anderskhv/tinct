@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "879705cbfc3ca101a6fdcb8a97f293ee20416515cabed2ab2d5244cefc7a965e",
+  "attempts": [
+    {
+      "asr_seconds": 0.131318680010736,
+      "alignment_seconds": 0.00014944499707780778,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lepidus. What colour is it of?",
+        "hotwords": "Lepidus, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lepidus, What colour is it of?",
+          "start": 0.52,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Lepidus,",
+              "start": 0.52,
+              "end": 0.98,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " What",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.02288818359375
+            },
+            {
+              "text": " colour",
+              "start": 1.36,
+              "end": 1.54,
+              "probability": 0.1422119140625
+            },
+            {
+              "text": " is",
+              "start": 1.54,
+              "end": 1.8,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " it",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of?",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lepidus,",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "raw": "What",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "colour",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "raw": "is",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "raw": "it",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "of?",
+          "start": 1.9,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "Lepidus.",
+        "What",
+        "colour",
+        "is",
+        "it",
+        "of?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lepidus,",
+          "start": 0.52,
+          "end": 0.98,
+          "key": "lepidus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "colour",
+          "start": 1.36,
+          "end": 1.54,
+          "key": "colour",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.54,
+          "end": 1.8,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of?",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lepidus.",
+          "start": 0.52,
+          "end": 0.98
+        },
+        {
+          "text": "What",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "colour",
+          "start": 1.36,
+          "end": 1.54
+        },
+        {
+          "text": "is",
+          "start": 1.54,
+          "end": 1.8
+        },
+        {
+          "text": "it",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "of?",
+          "start": 1.9,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13152367700240575
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4fd0f1cc069944e8ed3ae3bd2306a444852da5b3b6de840ef6d64d1f4da860b3",
+  "selected_reasons": []
+}

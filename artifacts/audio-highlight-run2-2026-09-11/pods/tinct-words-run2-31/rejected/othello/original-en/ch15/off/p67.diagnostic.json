@@ -1,0 +1,367 @@
+{
+  "complete": true,
+  "signature": "708364ed0f37eed9ac305c8962396923432f6eeaaff426a8d1097b5bbc626119",
+  "attempts": [
+    {
+      "asr_seconds": 0.1624680319800973,
+      "alignment_seconds": 0.000341546256095171,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amelia, oh my good lord, yonder's foul murder's done.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Amelia,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.478271484375
+            },
+            {
+              "text": " oh",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " my",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.8046875
+            },
+            {
+              "text": " good",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.96484375
+            },
+            {
+              "text": " lord,",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.7421875
+            },
+            {
+              "text": " yonder's",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.80078125
+            },
+            {
+              "text": " foul",
+              "start": 2.67,
+              "end": 2.89,
+              "probability": 0.974609375
+            },
+            {
+              "text": " murder's",
+              "start": 2.89,
+              "end": 3.35,
+              "probability": 0.819580078125
+            },
+            {
+              "text": " done.",
+              "start": 3.35,
+              "end": 3.65,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "oh",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "my",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "good",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "lord,",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "yonder's",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "foul",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "raw": "murder's",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "raw": "done.",
+          "start": 3.35,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "Emilia.",
+        "O,",
+        "my",
+        "good",
+        "lord,",
+        "yonder's",
+        "foul",
+        "murders",
+        "done!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amelia,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "amelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.65,
+          "end": 1.81,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.81,
+          "end": 2.09,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "yonder's",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "yonders",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "foul",
+          "start": 2.67,
+          "end": 2.89,
+          "key": "foul",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "murder's",
+          "start": 2.89,
+          "end": 3.35,
+          "key": "murders",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "done.",
+          "start": 3.35,
+          "end": 3.65,
+          "key": "done",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Emilia.",
+          "start": 0.0,
+          "end": 0.745
+        },
+        {
+          "text": "O,",
+          "start": 0.745,
+          "end": 1.117
+        },
+        {
+          "text": "my",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "good",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "lord,",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "text": "yonder's",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "foul",
+          "start": 2.67,
+          "end": 2.89
+        },
+        {
+          "text": "murders",
+          "start": 2.89,
+          "end": 3.35
+        },
+        {
+          "text": "done!",
+          "start": 3.35,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16292543709278107
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "57a05a2886cf2b0d575cef22fe1e7749e88b710531c68f942bd77a451eec7373",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

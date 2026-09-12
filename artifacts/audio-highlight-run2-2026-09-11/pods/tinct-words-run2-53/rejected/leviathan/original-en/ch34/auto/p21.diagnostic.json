@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "29d7eb630d5715ffae6350e26f16c7d2d64bbf7f1cee63431d433235616fbd6f",
+  "attempts": [
+    {
+      "asr_seconds": 0.16467690095305443,
+      "alignment_seconds": 0.00015531410463154316,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The Question Of The Authority Of The Scriptures Stated.",
+        "hotwords": "The, Question, Of, Authority, Scriptures, Stated"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The Question Of The Authority Of The Scriptures Stated.",
+          "start": 0.02,
+          "end": 2.94,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.837890625
+            },
+            {
+              "text": " Question",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.048614501953125
+            },
+            {
+              "text": " Of",
+              "start": 0.7,
+              "end": 1.1,
+              "probability": 0.01181793212890625
+            },
+            {
+              "text": " The",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Authority",
+              "start": 1.22,
+              "end": 1.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Of",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " The",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Scriptures",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Stated.",
+              "start": 2.28,
+              "end": 2.94,
+              "probability": 0.7467041015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "Question",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "Of",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "raw": "The",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "Authority",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "raw": "Of",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "The",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "Scriptures",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "Stated.",
+          "start": 2.28,
+          "end": 2.94
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Question",
+        "Of",
+        "The",
+        "Authority",
+        "Of",
+        "The",
+        "Scriptures",
+        "Stated."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Question",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "question",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 0.7,
+          "end": 1.1,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Authority",
+          "start": 1.22,
+          "end": 1.62,
+          "key": "authority",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Scriptures",
+          "start": 1.98,
+          "end": 2.28,
+          "key": "scriptures",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Stated.",
+          "start": 2.28,
+          "end": 2.94,
+          "key": "stated",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Question",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "Of",
+          "start": 0.7,
+          "end": 1.1
+        },
+        {
+          "text": "The",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "Authority",
+          "start": 1.22,
+          "end": 1.62
+        },
+        {
+          "text": "Of",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "The",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "Scriptures",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "Stated.",
+          "start": 2.28,
+          "end": 2.94
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16488111694343388
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f0078a8cd8a450da1f381e9f1cdc14516f2ae7b301a1d1a39dcf7110ba00885b",
+  "selected_reasons": []
+}

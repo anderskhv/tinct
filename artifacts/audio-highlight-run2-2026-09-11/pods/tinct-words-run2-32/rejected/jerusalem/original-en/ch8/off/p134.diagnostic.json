@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "60b914e6c13a9b3ee42c20f35dbe1dd26ff37cdb8c551a620e9fa0917768ec7a",
+  "attempts": [
+    {
+      "asr_seconds": 0.08406876772642136,
+      "alignment_seconds": 8.487701416015625e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, yes, but what about the sawmill, Ingmar insisted.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.35888671875
+            },
+            {
+              "text": " yes,",
+              "start": 0.87,
+              "end": 0.95,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " but",
+              "start": 1.11,
+              "end": 1.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " what",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " about",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sawmill,",
+              "start": 1.61,
+              "end": 2.13,
+              "probability": 0.919921875
+            },
+            {
+              "text": " Ingmar",
+              "start": 2.63,
+              "end": 2.95,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " insisted.",
+              "start": 2.95,
+              "end": 3.33,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "yes,",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "raw": "but",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "about",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "sawmill,",
+          "start": 1.61,
+          "end": 2.13
+        },
+        {
+          "raw": "Ingmar",
+          "start": 2.63,
+          "end": 2.95
+        },
+        {
+          "raw": "insisted.",
+          "start": 2.95,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "yes;",
+        "but",
+        "what",
+        "about",
+        "the",
+        "sawmill?\"",
+        "Ingmar",
+        "insisted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yes,",
+          "start": 0.87,
+          "end": 0.95,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.11,
+          "end": 1.19,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "about",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sawmill,",
+          "start": 1.61,
+          "end": 2.13,
+          "key": "sawmill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 2.63,
+          "end": 2.95,
+          "key": "ingmar",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "insisted.",
+          "start": 2.95,
+          "end": 3.33,
+          "key": "insisted",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "yes;",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "text": "but",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "text": "what",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "about",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "the",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "sawmill?\"",
+          "start": 1.61,
+          "end": 2.13
+        },
+        {
+          "text": "Ingmar",
+          "start": 2.63,
+          "end": 2.95
+        },
+        {
+          "text": "insisted.",
+          "start": 2.95,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0841841958463192
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ea7a92b468dfcc2e79a163f250e3d422fc3ac9dbff8c09a2144db68fdfae1d49",
+  "selected_reasons": []
+}

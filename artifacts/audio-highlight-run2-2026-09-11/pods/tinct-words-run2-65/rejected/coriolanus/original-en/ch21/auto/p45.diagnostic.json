@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "bf51d8b65bbe63db577cd862c07946a5d1aa17dfc905b51c86cedf99ffcc2b9b",
+  "attempts": [
+    {
+      "asr_seconds": 0.16142161190509796,
+      "alignment_seconds": 0.00022605713456869125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Aufidius with the Second Servingman.",
+        "hotwords": "Enter, Aufidius, Second, Servingman"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Aufidius with the Second Servingman.",
+          "start": 0.18,
+          "end": 2.68,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.18,
+              "end": 0.68,
+              "probability": 0.927734375
+            },
+            {
+              "text": " Aufidius",
+              "start": 0.68,
+              "end": 1.28,
+              "probability": 0.616912841796875
+            },
+            {
+              "text": " with",
+              "start": 1.28,
+              "end": 1.7,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " the",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Second",
+              "start": 1.84,
+              "end": 2.12,
+              "probability": 0.0970458984375
+            },
+            {
+              "text": " Servingman.",
+              "start": 2.12,
+              "end": 2.68,
+              "probability": 0.690673828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "raw": "Aufidius",
+          "start": 0.68,
+          "end": 1.28
+        },
+        {
+          "raw": "with",
+          "start": 1.28,
+          "end": 1.7
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "Second",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "raw": "Servingman.",
+          "start": 2.12,
+          "end": 2.68
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Aufidius",
+        "with",
+        "the",
+        "Second",
+        "Servingman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.18,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aufidius",
+          "start": 0.68,
+          "end": 1.28,
+          "key": "aufidius",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.28,
+          "end": 1.7,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 1.84,
+          "end": 2.12,
+          "key": "second",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Servingman.",
+          "start": 2.12,
+          "end": 2.68,
+          "key": "servingman",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.18,
+          "end": 0.68
+        },
+        {
+          "text": "Aufidius",
+          "start": 0.68,
+          "end": 1.28
+        },
+        {
+          "text": "with",
+          "start": 1.28,
+          "end": 1.7
+        },
+        {
+          "text": "the",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "Second",
+          "start": 1.84,
+          "end": 2.12
+        },
+        {
+          "text": "Servingman.",
+          "start": 2.12,
+          "end": 2.68
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16173132229596376
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dbcdd367290512c9cb2241004335c9d49ede1a5916bcbecac3caee4d649a4ffa",
+  "selected_reasons": []
+}

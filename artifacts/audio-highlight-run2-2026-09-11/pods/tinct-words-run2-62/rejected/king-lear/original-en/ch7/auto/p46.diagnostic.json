@@ -1,0 +1,3043 @@
+{
+  "complete": true,
+  "signature": "703f8c581e9b0943475ab6cd6f748e739a73ae9786c4072fd5bbb4aa7a19c3d7",
+  "attempts": [
+    {
+      "asr_seconds": 0.24851692467927933,
+      "alignment_seconds": 0.00026256218552589417,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Sir, 'tis my occupation to be plain: I have seen better faces in my time Than stands on any shoulder that I see Before me at this instant.",
+        "hotwords": "Kent, Sir, I, Than, Before"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Sir, tease my occupation to be plain. I have seen better faces in my time Than stands",
+          "start": 0.05,
+          "end": 6.61,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.765625
+            },
+            {
+              "text": " Sir,",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.281494140625
+            },
+            {
+              "text": " tease",
+              "start": 1.97,
+              "end": 1.97,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " my",
+              "start": 1.97,
+              "end": 2.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " occupation",
+              "start": 2.21,
+              "end": 2.69,
+              "probability": 0.98046875
+            },
+            {
+              "text": " to",
+              "start": 2.69,
+              "end": 3.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " plain.",
+              "start": 3.13,
+              "end": 3.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 4.09,
+              "end": 4.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 4.19,
+              "end": 4.29,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " seen",
+              "start": 4.29,
+              "end": 4.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " better",
+              "start": 4.47,
+              "end": 4.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " faces",
+              "start": 4.79,
+              "end": 5.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 5.19,
+              "end": 5.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 5.45,
+              "end": 5.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " time",
+              "start": 5.61,
+              "end": 5.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Than",
+              "start": 5.95,
+              "end": 6.29,
+              "probability": 0.0012464523315429688
+            },
+            {
+              "text": " stands",
+              "start": 6.29,
+              "end": 6.61,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " on any shoulder that I see Before me at this instant.",
+          "start": 6.61,
+          "end": 9.35,
+          "words": [
+            {
+              "text": " on",
+              "start": 6.61,
+              "end": 6.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " any",
+              "start": 6.81,
+              "end": 7.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shoulder",
+              "start": 7.09,
+              "end": 7.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " that",
+              "start": 7.49,
+              "end": 7.73,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " I",
+              "start": 7.73,
+              "end": 7.87,
+              "probability": 0.986328125
+            },
+            {
+              "text": " see",
+              "start": 7.87,
+              "end": 8.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Before",
+              "start": 8.09,
+              "end": 8.39,
+              "probability": 0.00817108154296875
+            },
+            {
+              "text": " me",
+              "start": 8.39,
+              "end": 8.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " at",
+              "start": 8.63,
+              "end": 8.79,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " this",
+              "start": 8.79,
+              "end": 8.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " instant.",
+              "start": 8.97,
+              "end": 9.35,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "tease",
+          "start": 1.97,
+          "end": 1.97
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "raw": "occupation",
+          "start": 2.21,
+          "end": 2.69
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "raw": "be",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "plain.",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "raw": "I",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "raw": "have",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "raw": "seen",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "raw": "better",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "raw": "faces",
+          "start": 4.79,
+          "end": 5.19
+        },
+        {
+          "raw": "in",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "raw": "my",
+          "start": 5.45,
+          "end": 5.61
+        },
+        {
+          "raw": "time",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "raw": "Than",
+          "start": 5.95,
+          "end": 6.29
+        },
+        {
+          "raw": "stands",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "raw": "on",
+          "start": 6.61,
+          "end": 6.81
+        },
+        {
+          "raw": "any",
+          "start": 6.81,
+          "end": 7.09
+        },
+        {
+          "raw": "shoulder",
+          "start": 7.09,
+          "end": 7.49
+        },
+        {
+          "raw": "that",
+          "start": 7.49,
+          "end": 7.73
+        },
+        {
+          "raw": "I",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "raw": "see",
+          "start": 7.87,
+          "end": 8.09
+        },
+        {
+          "raw": "Before",
+          "start": 8.09,
+          "end": 8.39
+        },
+        {
+          "raw": "me",
+          "start": 8.39,
+          "end": 8.63
+        },
+        {
+          "raw": "at",
+          "start": 8.63,
+          "end": 8.79
+        },
+        {
+          "raw": "this",
+          "start": 8.79,
+          "end": 8.97
+        },
+        {
+          "raw": "instant.",
+          "start": 8.97,
+          "end": 9.35
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Sir,",
+        "'tis",
+        "my",
+        "occupation",
+        "to",
+        "be",
+        "plain:",
+        "I",
+        "have",
+        "seen",
+        "better",
+        "faces",
+        "in",
+        "my",
+        "time",
+        "Than",
+        "stands",
+        "on",
+        "any",
+        "shoulder",
+        "that",
+        "I",
+        "see",
+        "Before",
+        "me",
+        "at",
+        "this",
+        "instant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          29,
+          3,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.97,
+          "end": 1.97,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.21,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "occupation",
+          "start": 2.21,
+          "end": 2.69,
+          "key": "occupation",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 3.01,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "plain.",
+          "start": 3.13,
+          "end": 3.47,
+          "key": "plain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.09,
+          "end": 4.19,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.19,
+          "end": 4.29,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 4.29,
+          "end": 4.47,
+          "key": "seen",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 4.47,
+          "end": 4.79,
+          "key": "better",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "faces",
+          "start": 4.79,
+          "end": 5.19,
+          "key": "faces",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.19,
+          "end": 5.45,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.45,
+          "end": 5.61,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 5.61,
+          "end": 5.95,
+          "key": "time",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Than",
+          "start": 5.95,
+          "end": 6.29,
+          "key": "than",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stands",
+          "start": 6.29,
+          "end": 6.61,
+          "key": "stands",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.61,
+          "end": 6.81,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 6.81,
+          "end": 7.09,
+          "key": "any",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "shoulder",
+          "start": 7.09,
+          "end": 7.49,
+          "key": "shoulder",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.49,
+          "end": 7.73,
+          "key": "that",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.73,
+          "end": 7.87,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 7.87,
+          "end": 8.09,
+          "key": "see",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Before",
+          "start": 8.09,
+          "end": 8.39,
+          "key": "before",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.39,
+          "end": 8.63,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.63,
+          "end": 8.79,
+          "key": "at",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.79,
+          "end": 8.97,
+          "key": "this",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "instant.",
+          "start": 8.97,
+          "end": 9.35,
+          "key": "instant",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Sir,",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "'tis",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "text": "my",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "text": "occupation",
+          "start": 2.21,
+          "end": 2.69
+        },
+        {
+          "text": "to",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "text": "be",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "plain:",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "text": "I",
+          "start": 4.09,
+          "end": 4.19
+        },
+        {
+          "text": "have",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "text": "seen",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "text": "better",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "text": "faces",
+          "start": 4.79,
+          "end": 5.19
+        },
+        {
+          "text": "in",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "text": "my",
+          "start": 5.45,
+          "end": 5.61
+        },
+        {
+          "text": "time",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "text": "Than",
+          "start": 5.95,
+          "end": 6.29
+        },
+        {
+          "text": "stands",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "text": "on",
+          "start": 6.61,
+          "end": 6.81
+        },
+        {
+          "text": "any",
+          "start": 6.81,
+          "end": 7.09
+        },
+        {
+          "text": "shoulder",
+          "start": 7.09,
+          "end": 7.49
+        },
+        {
+          "text": "that",
+          "start": 7.49,
+          "end": 7.73
+        },
+        {
+          "text": "I",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "text": "see",
+          "start": 7.87,
+          "end": 8.09
+        },
+        {
+          "text": "Before",
+          "start": 8.09,
+          "end": 8.39
+        },
+        {
+          "text": "me",
+          "start": 8.39,
+          "end": 8.63
+        },
+        {
+          "text": "at",
+          "start": 8.63,
+          "end": 8.79
+        },
+        {
+          "text": "this",
+          "start": 8.79,
+          "end": 8.97
+        },
+        {
+          "text": "instant.",
+          "start": 8.97,
+          "end": 9.35
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9655172413793104,
+      "rejection_reasons": [],
+      "seconds": 0.24888694658875465
+    },
+    {
+      "asr_seconds": 0.2142290249466896,
+      "alignment_seconds": 0.0002516321837902069,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Kent, Sir, I, Than, Before"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Kent, Sir, tease my occupation to be plain. I have seen better faces in my time than stands on any shoulder",
+          "start": 0.05,
+          "end": 7.51,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.765625
+            },
+            {
+              "text": " Sir,",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.281494140625
+            },
+            {
+              "text": " tease",
+              "start": 1.97,
+              "end": 1.97,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " my",
+              "start": 1.97,
+              "end": 2.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " occupation",
+              "start": 2.21,
+              "end": 2.69,
+              "probability": 0.98046875
+            },
+            {
+              "text": " to",
+              "start": 2.69,
+              "end": 3.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " plain.",
+              "start": 3.13,
+              "end": 3.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " I",
+              "start": 4.07,
+              "end": 4.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " have",
+              "start": 4.19,
+              "end": 4.29,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " seen",
+              "start": 4.29,
+              "end": 4.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " better",
+              "start": 4.47,
+              "end": 4.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " faces",
+              "start": 4.79,
+              "end": 5.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 5.19,
+              "end": 5.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 5.45,
+              "end": 5.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " time",
+              "start": 5.61,
+              "end": 5.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 5.95,
+              "end": 6.29,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " stands",
+              "start": 6.29,
+              "end": 6.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " on",
+              "start": 6.61,
+              "end": 6.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " any",
+              "start": 6.79,
+              "end": 7.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shoulder",
+              "start": 7.09,
+              "end": 7.51,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " that I see before me at this instant.",
+          "start": 7.51,
+          "end": 9.37,
+          "words": [
+            {
+              "text": " that",
+              "start": 7.51,
+              "end": 7.73,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 7.73,
+              "end": 7.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " see",
+              "start": 7.87,
+              "end": 8.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before",
+              "start": 8.09,
+              "end": 8.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 8.41,
+              "end": 8.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 8.65,
+              "end": 8.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " this",
+              "start": 8.79,
+              "end": 8.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " instant.",
+              "start": 8.97,
+              "end": 9.37,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "tease",
+          "start": 1.97,
+          "end": 1.97
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "raw": "occupation",
+          "start": 2.21,
+          "end": 2.69
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "raw": "be",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "plain.",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "raw": "I",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "raw": "have",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "raw": "seen",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "raw": "better",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "raw": "faces",
+          "start": 4.79,
+          "end": 5.19
+        },
+        {
+          "raw": "in",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "raw": "my",
+          "start": 5.45,
+          "end": 5.61
+        },
+        {
+          "raw": "time",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "raw": "than",
+          "start": 5.95,
+          "end": 6.29
+        },
+        {
+          "raw": "stands",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "raw": "on",
+          "start": 6.61,
+          "end": 6.79
+        },
+        {
+          "raw": "any",
+          "start": 6.79,
+          "end": 7.09
+        },
+        {
+          "raw": "shoulder",
+          "start": 7.09,
+          "end": 7.51
+        },
+        {
+          "raw": "that",
+          "start": 7.51,
+          "end": 7.73
+        },
+        {
+          "raw": "I",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "raw": "see",
+          "start": 7.87,
+          "end": 8.09
+        },
+        {
+          "raw": "before",
+          "start": 8.09,
+          "end": 8.41
+        },
+        {
+          "raw": "me",
+          "start": 8.41,
+          "end": 8.65
+        },
+        {
+          "raw": "at",
+          "start": 8.65,
+          "end": 8.79
+        },
+        {
+          "raw": "this",
+          "start": 8.79,
+          "end": 8.97
+        },
+        {
+          "raw": "instant.",
+          "start": 8.97,
+          "end": 9.37
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Sir,",
+        "'tis",
+        "my",
+        "occupation",
+        "to",
+        "be",
+        "plain:",
+        "I",
+        "have",
+        "seen",
+        "better",
+        "faces",
+        "in",
+        "my",
+        "time",
+        "Than",
+        "stands",
+        "on",
+        "any",
+        "shoulder",
+        "that",
+        "I",
+        "see",
+        "Before",
+        "me",
+        "at",
+        "this",
+        "instant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          29,
+          3,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sir,",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.97,
+          "end": 1.97,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.21,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "occupation",
+          "start": 2.21,
+          "end": 2.69,
+          "key": "occupation",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 3.01,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "plain.",
+          "start": 3.13,
+          "end": 3.47,
+          "key": "plain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.07,
+          "end": 4.19,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.19,
+          "end": 4.29,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 4.29,
+          "end": 4.47,
+          "key": "seen",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 4.47,
+          "end": 4.79,
+          "key": "better",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "faces",
+          "start": 4.79,
+          "end": 5.19,
+          "key": "faces",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.19,
+          "end": 5.45,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.45,
+          "end": 5.61,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 5.61,
+          "end": 5.95,
+          "key": "time",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.95,
+          "end": 6.29,
+          "key": "than",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stands",
+          "start": 6.29,
+          "end": 6.61,
+          "key": "stands",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.61,
+          "end": 6.79,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 6.79,
+          "end": 7.09,
+          "key": "any",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "shoulder",
+          "start": 7.09,
+          "end": 7.51,
+          "key": "shoulder",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.51,
+          "end": 7.73,
+          "key": "that",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.73,
+          "end": 7.87,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 7.87,
+          "end": 8.09,
+          "key": "see",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 8.09,
+          "end": 8.41,
+          "key": "before",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.41,
+          "end": 8.65,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.65,
+          "end": 8.79,
+          "key": "at",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.79,
+          "end": 8.97,
+          "key": "this",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "instant.",
+          "start": 8.97,
+          "end": 9.37,
+          "key": "instant",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Sir,",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "'tis",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "text": "my",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "text": "occupation",
+          "start": 2.21,
+          "end": 2.69
+        },
+        {
+          "text": "to",
+          "start": 2.69,
+          "end": 3.01
+        },
+        {
+          "text": "be",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "plain:",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "text": "I",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "text": "have",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "text": "seen",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "text": "better",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "text": "faces",
+          "start": 4.79,
+          "end": 5.19
+        },
+        {
+          "text": "in",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "text": "my",
+          "start": 5.45,
+          "end": 5.61
+        },
+        {
+          "text": "time",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "text": "Than",
+          "start": 5.95,
+          "end": 6.29
+        },
+        {
+          "text": "stands",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "text": "on",
+          "start": 6.61,
+          "end": 6.79
+        },
+        {
+          "text": "any",
+          "start": 6.79,
+          "end": 7.09
+        },
+        {
+          "text": "shoulder",
+          "start": 7.09,
+          "end": 7.51
+        },
+        {
+          "text": "that",
+          "start": 7.51,
+          "end": 7.73
+        },
+        {
+          "text": "I",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "text": "see",
+          "start": 7.87,
+          "end": 8.09
+        },
+        {
+          "text": "Before",
+          "start": 8.09,
+          "end": 8.41
+        },
+        {
+          "text": "me",
+          "start": 8.41,
+          "end": 8.65
+        },
+        {
+          "text": "at",
+          "start": 8.65,
+          "end": 8.79
+        },
+        {
+          "text": "this",
+          "start": 8.79,
+          "end": 8.97
+        },
+        {
+          "text": "instant.",
+          "start": 8.97,
+          "end": 9.37
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9655172413793104,
+      "rejection_reasons": [],
+      "seconds": 0.2145811952650547
+    },
+    {
+      "asr_seconds": 0.22401367500424385,
+      "alignment_seconds": 0.0002750791609287262,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent, sir, tease my occupation to be plain.",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.765625
+            },
+            {
+              "text": " sir,",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " tease",
+              "start": 1.97,
+              "end": 1.97,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " my",
+              "start": 1.97,
+              "end": 2.21,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " occupation",
+              "start": 2.21,
+              "end": 2.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 2.71,
+              "end": 3.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " plain.",
+              "start": 3.13,
+              "end": 3.47,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " I have seen better faces in my time than stands on any shoulder that I see before me at this",
+          "start": 4.07,
+          "end": 8.95,
+          "words": [
+            {
+              "text": " I",
+              "start": 4.07,
+              "end": 4.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 4.19,
+              "end": 4.29,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " seen",
+              "start": 4.29,
+              "end": 4.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " better",
+              "start": 4.47,
+              "end": 4.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " faces",
+              "start": 4.79,
+              "end": 5.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 5.21,
+              "end": 5.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 5.45,
+              "end": 5.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " time",
+              "start": 5.61,
+              "end": 5.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 5.95,
+              "end": 6.29,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " stands",
+              "start": 6.29,
+              "end": 6.61,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 6.61,
+              "end": 6.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " any",
+              "start": 6.79,
+              "end": 7.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shoulder",
+              "start": 7.09,
+              "end": 7.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 7.51,
+              "end": 7.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 7.73,
+              "end": 7.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " see",
+              "start": 7.87,
+              "end": 8.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before",
+              "start": 8.09,
+              "end": 8.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 8.41,
+              "end": 8.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 8.65,
+              "end": 8.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 8.79,
+              "end": 8.95,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " instant.",
+          "start": 8.95,
+          "end": 9.39,
+          "words": [
+            {
+              "text": " instant.",
+              "start": 8.95,
+              "end": 9.39,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "sir,",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "tease",
+          "start": 1.97,
+          "end": 1.97
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "raw": "occupation",
+          "start": 2.21,
+          "end": 2.71
+        },
+        {
+          "raw": "to",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "raw": "be",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "plain.",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "raw": "I",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "raw": "have",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "raw": "seen",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "raw": "better",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "raw": "faces",
+          "start": 4.79,
+          "end": 5.21
+        },
+        {
+          "raw": "in",
+          "start": 5.21,
+          "end": 5.45
+        },
+        {
+          "raw": "my",
+          "start": 5.45,
+          "end": 5.61
+        },
+        {
+          "raw": "time",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "raw": "than",
+          "start": 5.95,
+          "end": 6.29
+        },
+        {
+          "raw": "stands",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "raw": "on",
+          "start": 6.61,
+          "end": 6.79
+        },
+        {
+          "raw": "any",
+          "start": 6.79,
+          "end": 7.09
+        },
+        {
+          "raw": "shoulder",
+          "start": 7.09,
+          "end": 7.51
+        },
+        {
+          "raw": "that",
+          "start": 7.51,
+          "end": 7.73
+        },
+        {
+          "raw": "I",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "raw": "see",
+          "start": 7.87,
+          "end": 8.09
+        },
+        {
+          "raw": "before",
+          "start": 8.09,
+          "end": 8.41
+        },
+        {
+          "raw": "me",
+          "start": 8.41,
+          "end": 8.65
+        },
+        {
+          "raw": "at",
+          "start": 8.65,
+          "end": 8.79
+        },
+        {
+          "raw": "this",
+          "start": 8.79,
+          "end": 8.95
+        },
+        {
+          "raw": "instant.",
+          "start": 8.95,
+          "end": 9.39
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Sir,",
+        "'tis",
+        "my",
+        "occupation",
+        "to",
+        "be",
+        "plain:",
+        "I",
+        "have",
+        "seen",
+        "better",
+        "faces",
+        "in",
+        "my",
+        "time",
+        "Than",
+        "stands",
+        "on",
+        "any",
+        "shoulder",
+        "that",
+        "I",
+        "see",
+        "Before",
+        "me",
+        "at",
+        "this",
+        "instant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          29,
+          3,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.09,
+          "end": 1.25,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.97,
+          "end": 1.97,
+          "key": "tease",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.97,
+          "end": 2.21,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "occupation",
+          "start": 2.21,
+          "end": 2.71,
+          "key": "occupation",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.71,
+          "end": 3.01,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "plain.",
+          "start": 3.13,
+          "end": 3.47,
+          "key": "plain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.07,
+          "end": 4.19,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.19,
+          "end": 4.29,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 4.29,
+          "end": 4.47,
+          "key": "seen",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 4.47,
+          "end": 4.79,
+          "key": "better",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "faces",
+          "start": 4.79,
+          "end": 5.21,
+          "key": "faces",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.21,
+          "end": 5.45,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.45,
+          "end": 5.61,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 5.61,
+          "end": 5.95,
+          "key": "time",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.95,
+          "end": 6.29,
+          "key": "than",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stands",
+          "start": 6.29,
+          "end": 6.61,
+          "key": "stands",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 6.61,
+          "end": 6.79,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 6.79,
+          "end": 7.09,
+          "key": "any",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "shoulder",
+          "start": 7.09,
+          "end": 7.51,
+          "key": "shoulder",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.51,
+          "end": 7.73,
+          "key": "that",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.73,
+          "end": 7.87,
+          "key": "i",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 7.87,
+          "end": 8.09,
+          "key": "see",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 8.09,
+          "end": 8.41,
+          "key": "before",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 8.41,
+          "end": 8.65,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.65,
+          "end": 8.79,
+          "key": "at",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.79,
+          "end": 8.95,
+          "key": "this",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "instant.",
+          "start": 8.95,
+          "end": 9.39,
+          "key": "instant",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Sir,",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "'tis",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "text": "my",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "text": "occupation",
+          "start": 2.21,
+          "end": 2.71
+        },
+        {
+          "text": "to",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "text": "be",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "plain:",
+          "start": 3.13,
+          "end": 3.47
+        },
+        {
+          "text": "I",
+          "start": 4.07,
+          "end": 4.19
+        },
+        {
+          "text": "have",
+          "start": 4.19,
+          "end": 4.29
+        },
+        {
+          "text": "seen",
+          "start": 4.29,
+          "end": 4.47
+        },
+        {
+          "text": "better",
+          "start": 4.47,
+          "end": 4.79
+        },
+        {
+          "text": "faces",
+          "start": 4.79,
+          "end": 5.21
+        },
+        {
+          "text": "in",
+          "start": 5.21,
+          "end": 5.45
+        },
+        {
+          "text": "my",
+          "start": 5.45,
+          "end": 5.61
+        },
+        {
+          "text": "time",
+          "start": 5.61,
+          "end": 5.95
+        },
+        {
+          "text": "Than",
+          "start": 5.95,
+          "end": 6.29
+        },
+        {
+          "text": "stands",
+          "start": 6.29,
+          "end": 6.61
+        },
+        {
+          "text": "on",
+          "start": 6.61,
+          "end": 6.79
+        },
+        {
+          "text": "any",
+          "start": 6.79,
+          "end": 7.09
+        },
+        {
+          "text": "shoulder",
+          "start": 7.09,
+          "end": 7.51
+        },
+        {
+          "text": "that",
+          "start": 7.51,
+          "end": 7.73
+        },
+        {
+          "text": "I",
+          "start": 7.73,
+          "end": 7.87
+        },
+        {
+          "text": "see",
+          "start": 7.87,
+          "end": 8.09
+        },
+        {
+          "text": "Before",
+          "start": 8.09,
+          "end": 8.41
+        },
+        {
+          "text": "me",
+          "start": 8.41,
+          "end": 8.65
+        },
+        {
+          "text": "at",
+          "start": 8.65,
+          "end": 8.79
+        },
+        {
+          "text": "this",
+          "start": 8.79,
+          "end": 8.95
+        },
+        {
+          "text": "instant.",
+          "start": 8.95,
+          "end": 9.39
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 29,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9655172413793104,
+      "rejection_reasons": [],
+      "seconds": 0.22438731789588928
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f780a2fa9d7ab03870b063f2cc1bb3033dc99d0878c0838bb57d0e9607bd3db6",
+  "selected_reasons": []
+}

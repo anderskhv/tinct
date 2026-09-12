@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "79142ae729fe91af6993be6d7c401fc09dff16a3735d3648dae2b8211593dd77",
+  "attempts": [
+    {
+      "asr_seconds": 0.24286241549998522,
+      "alignment_seconds": 0.0004876544699072838,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ismene, grievous thy words, yet I must own them true.",
+          "start": 0.02,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " Ismene,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.566650390625
+            },
+            {
+              "text": " grievous",
+              "start": 1.18,
+              "end": 1.54,
+              "probability": 0.6597900390625
+            },
+            {
+              "text": " thy",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " words,",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " yet",
+              "start": 2.2,
+              "end": 2.3,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 2.3,
+              "end": 2.4,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " must",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " own",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " them",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " true.",
+              "start": 2.92,
+              "end": 3.22,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "grievous",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "raw": "thy",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "words,",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "yet",
+          "start": 2.2,
+          "end": 2.3
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "raw": "must",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "own",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "them",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "true.",
+          "start": 2.92,
+          "end": 3.22
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "Grievous",
+        "thy",
+        "words,",
+        "yet",
+        "I",
+        "must",
+        "own",
+        "them",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ismene,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "ismene",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "grievous",
+          "start": 1.18,
+          "end": 1.54,
+          "key": "grievous",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "thy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "words,",
+          "start": 1.68,
+          "end": 1.98,
+          "key": "words",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 2.2,
+          "end": 2.3,
+          "key": "yet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.3,
+          "end": 2.4,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "must",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "own",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 2.92,
+          "end": 3.22,
+          "key": "true",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Grievous",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "text": "thy",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "words,",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "yet",
+          "start": 2.2,
+          "end": 2.3
+        },
+        {
+          "text": "I",
+          "start": 2.3,
+          "end": 2.4
+        },
+        {
+          "text": "must",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "own",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "them",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "true.",
+          "start": 2.92,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2435511825606227
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f9d377f1b1ae7d0f11cfe7a5771a95b5e839742f807693e33651187571ed35fc",
+  "selected_reasons": []
+}

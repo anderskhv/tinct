@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "a08796fdeeacd022e654addbeb636d19795875c7a5a5c396662305f4ab3e0e15",
+  "attempts": [
+    {
+      "asr_seconds": 0.20427207555621862,
+      "alignment_seconds": 0.00019380170851945877,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Shylock. No, none that thou hast wit enough to make.",
+        "hotwords": "Shylock, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shylock, No, none that thou hast wit enough to make.",
+          "start": 0.08,
+          "end": 3.22,
+          "words": [
+            {
+              "text": " Shylock,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " No,",
+              "start": 1.24,
+              "end": 1.54,
+              "probability": 0.00789642333984375
+            },
+            {
+              "text": " none",
+              "start": 1.78,
+              "end": 1.78,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " that",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " thou",
+              "start": 1.96,
+              "end": 2.12,
+              "probability": 0.9453125
+            },
+            {
+              "text": " hast",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " wit",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.237548828125
+            },
+            {
+              "text": " enough",
+              "start": 2.6,
+              "end": 2.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " to",
+              "start": 2.78,
+              "end": 2.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " make.",
+              "start": 2.98,
+              "end": 3.22,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "No,",
+          "start": 1.24,
+          "end": 1.54
+        },
+        {
+          "raw": "none",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "raw": "that",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "thou",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "raw": "hast",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "raw": "wit",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "enough",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "raw": "make.",
+          "start": 2.98,
+          "end": 3.22
+        }
+      ],
+      "expected_tokens": [
+        "Shylock.",
+        "No,",
+        "none",
+        "that",
+        "thou",
+        "hast",
+        "wit",
+        "enough",
+        "to",
+        "make."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.24,
+          "end": 1.54,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 1.78,
+          "end": 1.78,
+          "key": "none",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.96,
+          "end": 2.12,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "hast",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wit",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "wit",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 2.6,
+          "end": 2.78,
+          "key": "enough",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.78,
+          "end": 2.98,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "make.",
+          "start": 2.98,
+          "end": 3.22,
+          "key": "make",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shylock.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "No,",
+          "start": 1.24,
+          "end": 1.54
+        },
+        {
+          "text": "none",
+          "start": 1.78,
+          "end": 1.78
+        },
+        {
+          "text": "that",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "thou",
+          "start": 1.96,
+          "end": 2.12
+        },
+        {
+          "text": "hast",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "text": "wit",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "enough",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "text": "to",
+          "start": 2.78,
+          "end": 2.98
+        },
+        {
+          "text": "make.",
+          "start": 2.98,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20453769341111183
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f2109e0b9ae7dfcad55039b570b75e9adf4b7fa49a5097fc17237ebc1ca59bd0",
+  "selected_reasons": []
+}

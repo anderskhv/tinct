@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "945451a2f421725f357f880dd4d4fdea019d0a26f486a2d6f0f45bb3be34b33b",
+  "attempts": [
+    {
+      "asr_seconds": 0.27056271955370903,
+      "alignment_seconds": 0.0005796849727630615,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius. Away I do beseech you, both away I'll board him presently. Oh, give me leave.",
+          "start": 0.61,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " Polonius.",
+              "start": 0.61,
+              "end": 1.01,
+              "probability": 0.8279622395833334
+            },
+            {
+              "text": " Away",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " I",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " do",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " beseech",
+              "start": 2.11,
+              "end": 2.51,
+              "probability": 0.9708658854166666
+            },
+            {
+              "text": " you,",
+              "start": 2.51,
+              "end": 2.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " both",
+              "start": 2.77,
+              "end": 2.87,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " away",
+              "start": 2.87,
+              "end": 3.13,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " I'll",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " board",
+              "start": 3.39,
+              "end": 3.55,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " him",
+              "start": 3.55,
+              "end": 3.75,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " presently.",
+              "start": 3.75,
+              "end": 4.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Oh,",
+              "start": 4.77,
+              "end": 4.91,
+              "probability": 0.728515625
+            },
+            {
+              "text": " give",
+              "start": 5.07,
+              "end": 5.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " me",
+              "start": 5.15,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " leave.",
+              "start": 5.33,
+              "end": 5.61,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius.",
+          "start": 0.61,
+          "end": 1.01
+        },
+        {
+          "raw": "Away",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "do",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "beseech",
+          "start": 2.11,
+          "end": 2.51
+        },
+        {
+          "raw": "you,",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "raw": "both",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "raw": "away",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "raw": "I'll",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "board",
+          "start": 3.39,
+          "end": 3.55
+        },
+        {
+          "raw": "him",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "raw": "presently.",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.77,
+          "end": 4.91
+        },
+        {
+          "raw": "give",
+          "start": 5.07,
+          "end": 5.15
+        },
+        {
+          "raw": "me",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "raw": "leave.",
+          "start": 5.33,
+          "end": 5.61
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Away,",
+        "I",
+        "do",
+        "beseech",
+        "you,",
+        "both",
+        "away",
+        "I'll",
+        "board",
+        "him",
+        "presently.",
+        "O,",
+        "give",
+        "me",
+        "leave."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          16,
+          13,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius.",
+          "start": 0.61,
+          "end": 1.01,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Away",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "away",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.99,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "do",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 2.11,
+          "end": 2.51,
+          "key": "beseech",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.51,
+          "end": 2.65,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.77,
+          "end": 2.87,
+          "key": "both",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 2.87,
+          "end": 3.13,
+          "key": "away",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "ill",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "board",
+          "start": 3.39,
+          "end": 3.55,
+          "key": "board",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 3.55,
+          "end": 3.75,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "presently.",
+          "start": 3.75,
+          "end": 4.07,
+          "key": "presently",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 4.77,
+          "end": 4.91,
+          "key": "oh",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 5.07,
+          "end": 5.15,
+          "key": "give",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.15,
+          "end": 5.33,
+          "key": "me",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "leave.",
+          "start": 5.33,
+          "end": 5.61,
+          "key": "leave",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.61,
+          "end": 1.01
+        },
+        {
+          "text": "Away,",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "I",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "text": "do",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "beseech",
+          "start": 2.11,
+          "end": 2.51
+        },
+        {
+          "text": "you,",
+          "start": 2.51,
+          "end": 2.65
+        },
+        {
+          "text": "both",
+          "start": 2.77,
+          "end": 2.87
+        },
+        {
+          "text": "away",
+          "start": 2.87,
+          "end": 3.13
+        },
+        {
+          "text": "I'll",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "board",
+          "start": 3.39,
+          "end": 3.55
+        },
+        {
+          "text": "him",
+          "start": 3.55,
+          "end": 3.75
+        },
+        {
+          "text": "presently.",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "text": "O,",
+          "start": 4.07,
+          "end": 4.57
+        },
+        {
+          "text": "give",
+          "start": 5.07,
+          "end": 5.15
+        },
+        {
+          "text": "me",
+          "start": 5.15,
+          "end": 5.33
+        },
+        {
+          "text": "leave.",
+          "start": 5.33,
+          "end": 5.61
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.2713635787367821
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3d30d254650babb869bca5d1663f9dd7800052c4c884fe3585e28afabfafbaa",
+  "selected_reasons": []
+}

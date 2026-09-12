@@ -1,0 +1,739 @@
+{
+  "complete": true,
+  "signature": "dc5abeea373bdf0219657543b1ccdddd525317fb8fbe713c4aa81a183e7875d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.21373317390680313,
+      "alignment_seconds": 0.00020576640963554382,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, ask her forgiveness. Do you but mark how this becomes the house?",
+          "start": 0.02,
+          "end": 3.94,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.27490234375
+            },
+            {
+              "text": " ask",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " her",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " forgiveness.",
+              "start": 1.24,
+              "end": 1.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Do",
+              "start": 2.34,
+              "end": 2.42,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " you",
+              "start": 2.42,
+              "end": 2.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 2.5,
+              "end": 2.62,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " mark",
+              "start": 2.62,
+              "end": 2.82,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " how",
+              "start": 2.82,
+              "end": 3.02,
+              "probability": 0.994140625
+            },
+            {
+              "text": " this",
+              "start": 3.02,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " becomes",
+              "start": 3.2,
+              "end": 3.48,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.994140625
+            },
+            {
+              "text": " house?",
+              "start": 3.7,
+              "end": 3.94,
+              "probability": 0.94580078125
+            }
+          ]
+        },
+        {
+          "text": " Dear Daughter, I confess that I am old.",
+          "start": 4.64,
+          "end": 6.5,
+          "words": [
+            {
+              "text": " Dear",
+              "start": 4.64,
+              "end": 4.76,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Daughter,",
+              "start": 4.76,
+              "end": 5.04,
+              "probability": 0.3203125
+            },
+            {
+              "text": " I",
+              "start": 5.24,
+              "end": 5.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " confess",
+              "start": 5.38,
+              "end": 5.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 5.7,
+              "end": 5.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 5.96,
+              "end": 6.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " am",
+              "start": 6.08,
+              "end": 6.22,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " old.",
+              "start": 6.22,
+              "end": 6.5,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "ask",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "her",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "forgiveness.",
+          "start": 1.24,
+          "end": 1.66
+        },
+        {
+          "raw": "Do",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "raw": "you",
+          "start": 2.42,
+          "end": 2.5
+        },
+        {
+          "raw": "but",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "raw": "mark",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "raw": "how",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "raw": "this",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "raw": "becomes",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "raw": "house?",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "raw": "Dear",
+          "start": 4.64,
+          "end": 4.76
+        },
+        {
+          "raw": "Daughter,",
+          "start": 4.76,
+          "end": 5.04
+        },
+        {
+          "raw": "I",
+          "start": 5.24,
+          "end": 5.38
+        },
+        {
+          "raw": "confess",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "raw": "that",
+          "start": 5.7,
+          "end": 5.96
+        },
+        {
+          "raw": "I",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "raw": "am",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "raw": "old.",
+          "start": 6.22,
+          "end": 6.5
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Ask",
+        "her",
+        "forgiveness?",
+        "Do",
+        "you",
+        "but",
+        "mark",
+        "how",
+        "this",
+        "becomes",
+        "the",
+        "house?",
+        "'Dear",
+        "daughter,",
+        "I",
+        "confess",
+        "that",
+        "I",
+        "am",
+        "old;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ask",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "ask",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "her",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forgiveness.",
+          "start": 1.24,
+          "end": 1.66,
+          "key": "forgiveness",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 2.34,
+          "end": 2.42,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.42,
+          "end": 2.5,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.5,
+          "end": 2.62,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mark",
+          "start": 2.62,
+          "end": 2.82,
+          "key": "mark",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.82,
+          "end": 3.02,
+          "key": "how",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.02,
+          "end": 3.2,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "becomes",
+          "start": 3.2,
+          "end": 3.48,
+          "key": "becomes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 3.7,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "house?",
+          "start": 3.7,
+          "end": 3.94,
+          "key": "house",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Dear",
+          "start": 4.64,
+          "end": 4.76,
+          "key": "dear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Daughter,",
+          "start": 4.76,
+          "end": 5.04,
+          "key": "daughter",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.24,
+          "end": 5.38,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "confess",
+          "start": 5.38,
+          "end": 5.7,
+          "key": "confess",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.7,
+          "end": 5.96,
+          "key": "that",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.96,
+          "end": 6.08,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 6.08,
+          "end": 6.22,
+          "key": "am",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "old.",
+          "start": 6.22,
+          "end": 6.5,
+          "key": "old",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Ask",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "her",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "forgiveness?",
+          "start": 1.24,
+          "end": 1.66
+        },
+        {
+          "text": "Do",
+          "start": 2.34,
+          "end": 2.42
+        },
+        {
+          "text": "you",
+          "start": 2.42,
+          "end": 2.5
+        },
+        {
+          "text": "but",
+          "start": 2.5,
+          "end": 2.62
+        },
+        {
+          "text": "mark",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "text": "how",
+          "start": 2.82,
+          "end": 3.02
+        },
+        {
+          "text": "this",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "text": "becomes",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "text": "the",
+          "start": 3.48,
+          "end": 3.7
+        },
+        {
+          "text": "house?",
+          "start": 3.7,
+          "end": 3.94
+        },
+        {
+          "text": "'Dear",
+          "start": 4.64,
+          "end": 4.76
+        },
+        {
+          "text": "daughter,",
+          "start": 4.76,
+          "end": 5.04
+        },
+        {
+          "text": "I",
+          "start": 5.24,
+          "end": 5.38
+        },
+        {
+          "text": "confess",
+          "start": 5.38,
+          "end": 5.7
+        },
+        {
+          "text": "that",
+          "start": 5.7,
+          "end": 5.96
+        },
+        {
+          "text": "I",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "text": "am",
+          "start": 6.08,
+          "end": 6.22
+        },
+        {
+          "text": "old;",
+          "start": 6.22,
+          "end": 6.5
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2140330672264099
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d17373a8ed109bb6bf4825f5ec3ceec2d8817757a1b9729bbfa24de059973d85",
+  "selected_reasons": []
+}

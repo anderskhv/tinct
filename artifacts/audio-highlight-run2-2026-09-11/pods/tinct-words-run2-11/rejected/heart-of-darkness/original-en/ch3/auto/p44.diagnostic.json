@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "35b23cb41cbdc0c93cb738d6c14b0d17b33131a09c97abb93b690f0806d1877f",
+  "attempts": [
+    {
+      "asr_seconds": 0.14869334362447262,
+      "alignment_seconds": 0.0003095492720603943,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'Mistah Kurtz—he dead.'",
+        "hotwords": "Mistah, Kurtz—he"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mistah Kurtz—he dead.\"",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Mistah",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.0804901123046875
+            },
+            {
+              "text": " Kurtz—he",
+              "start": 0.8,
+              "end": 1.3,
+              "probability": 0.5467090606689453
+            },
+            {
+              "text": " dead.\"",
+              "start": 1.3,
+              "end": 2.22,
+              "probability": 0.48393726348876953
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mistah",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "Kurtz—he",
+          "start": 0.8,
+          "end": 1.3
+        },
+        {
+          "raw": "dead.\"",
+          "start": 1.3,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "\"'Mistah",
+        "Kurtz—he",
+        "dead.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mistah",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "mistah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Kurtz—he",
+          "start": 0.8,
+          "end": 1.3,
+          "key": "kurtzhe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dead.\"",
+          "start": 1.3,
+          "end": 2.22,
+          "key": "dead",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"'Mistah",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Kurtz—he",
+          "start": 0.8,
+          "end": 1.3
+        },
+        {
+          "text": "dead.'",
+          "start": 1.3,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14910974446684122
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f65878c3909ae6128b3588c9a5022ec53ebd24021df4d1db8ba994db3a85117",
+  "selected_reasons": []
+}

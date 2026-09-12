@@ -1,0 +1,762 @@
+{
+  "complete": true,
+  "signature": "7ab5de309db28314c7a570b86f902eeea03609f4db1186866762f28a7eee59d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.4701415477320552,
+      "alignment_seconds": 0.0003673252649605274,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tenderness it welled, slow, swelling, full it throbbed.",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Tenderness",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.7791341145833334
+            },
+            {
+              "text": " it",
+              "start": 0.79,
+              "end": 0.89,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " welled,",
+              "start": 0.89,
+              "end": 1.35,
+              "probability": 0.5924072265625
+            },
+            {
+              "text": " slow,",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " swelling,",
+              "start": 2.07,
+              "end": 2.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " full",
+              "start": 2.59,
+              "end": 2.67,
+              "probability": 0.740234375
+            },
+            {
+              "text": " it",
+              "start": 2.67,
+              "end": 2.83,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " throbbed.",
+              "start": 2.83,
+              "end": 3.37,
+              "probability": 0.9599609375
+            }
+          ]
+        },
+        {
+          "text": " That's the chat.",
+          "start": 3.69,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " That's",
+              "start": 3.69,
+              "end": 3.93,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " the",
+              "start": 3.93,
+              "end": 4.05,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " chat.",
+              "start": 4.05,
+              "end": 4.33,
+              "probability": 0.96923828125
+            }
+          ]
+        },
+        {
+          "text": " Ha!",
+          "start": 4.95,
+          "end": 5.01,
+          "words": [
+            {
+              "text": " Ha!",
+              "start": 4.95,
+              "end": 5.01,
+              "probability": 0.70068359375
+            }
+          ]
+        },
+        {
+          "text": " Take!",
+          "start": 5.53,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " Take!",
+              "start": 5.53,
+              "end": 5.71,
+              "probability": 0.80029296875
+            }
+          ]
+        },
+        {
+          "text": " Throb a throb, a pulsing proud erect.",
+          "start": 6.17,
+          "end": 8.39,
+          "words": [
+            {
+              "text": " Throb",
+              "start": 6.17,
+              "end": 6.45,
+              "probability": 0.893798828125
+            },
+            {
+              "text": " a",
+              "start": 6.45,
+              "end": 6.69,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " throb,",
+              "start": 6.69,
+              "end": 6.91,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " a",
+              "start": 7.21,
+              "end": 7.27,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " pulsing",
+              "start": 7.27,
+              "end": 7.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " proud",
+              "start": 7.79,
+              "end": 8.01,
+              "probability": 0.5283203125
+            },
+            {
+              "text": " erect.",
+              "start": 8.01,
+              "end": 8.39,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tenderness",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "it",
+          "start": 0.79,
+          "end": 0.89
+        },
+        {
+          "raw": "welled,",
+          "start": 0.89,
+          "end": 1.35
+        },
+        {
+          "raw": "slow,",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "swelling,",
+          "start": 2.07,
+          "end": 2.41
+        },
+        {
+          "raw": "full",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "raw": "it",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "raw": "throbbed.",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "raw": "That's",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "raw": "the",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "raw": "chat.",
+          "start": 4.05,
+          "end": 4.33
+        },
+        {
+          "raw": "Ha!",
+          "start": 4.95,
+          "end": 5.01
+        },
+        {
+          "raw": "Take!",
+          "start": 5.53,
+          "end": 5.71
+        },
+        {
+          "raw": "Throb",
+          "start": 6.17,
+          "end": 6.45
+        },
+        {
+          "raw": "a",
+          "start": 6.45,
+          "end": 6.69
+        },
+        {
+          "raw": "throb,",
+          "start": 6.69,
+          "end": 6.91
+        },
+        {
+          "raw": "a",
+          "start": 7.21,
+          "end": 7.27
+        },
+        {
+          "raw": "pulsing",
+          "start": 7.27,
+          "end": 7.79
+        },
+        {
+          "raw": "proud",
+          "start": 7.79,
+          "end": 8.01
+        },
+        {
+          "raw": "erect.",
+          "start": 8.01,
+          "end": 8.39
+        }
+      ],
+      "expected_tokens": [
+        "Tenderness",
+        "it",
+        "welled:",
+        "slow,",
+        "swelling,",
+        "full",
+        "it",
+        "throbbed.",
+        "That's",
+        "the",
+        "chat.",
+        "Ha,",
+        "give!",
+        "Take!",
+        "Throb,",
+        "a",
+        "throb,",
+        "a",
+        "pulsing",
+        "proud",
+        "erect."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "delete",
+          12,
+          13,
+          12,
+          12
+        ],
+        [
+          "equal",
+          13,
+          21,
+          12,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          12,
+          13,
+          12,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tenderness",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "tenderness",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.79,
+          "end": 0.89,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "welled,",
+          "start": 0.89,
+          "end": 1.35,
+          "key": "welled",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slow,",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "slow",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "swelling,",
+          "start": 2.07,
+          "end": 2.41,
+          "key": "swelling",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 2.59,
+          "end": 2.67,
+          "key": "full",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.67,
+          "end": 2.83,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "throbbed.",
+          "start": 2.83,
+          "end": 3.37,
+          "key": "throbbed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "That's",
+          "start": 3.69,
+          "end": 3.93,
+          "key": "thats",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.93,
+          "end": 4.05,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "chat.",
+          "start": 4.05,
+          "end": 4.33,
+          "key": "chat",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Ha!",
+          "start": 4.95,
+          "end": 5.01,
+          "key": "ha",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Take!",
+          "start": 5.53,
+          "end": 5.71,
+          "key": "take",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Throb",
+          "start": 6.17,
+          "end": 6.45,
+          "key": "throb",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.45,
+          "end": 6.69,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "throb,",
+          "start": 6.69,
+          "end": 6.91,
+          "key": "throb",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.21,
+          "end": 7.27,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "pulsing",
+          "start": 7.27,
+          "end": 7.79,
+          "key": "pulsing",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "proud",
+          "start": 7.79,
+          "end": 8.01,
+          "key": "proud",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "erect.",
+          "start": 8.01,
+          "end": 8.39,
+          "key": "erect",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tenderness",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "it",
+          "start": 0.79,
+          "end": 0.89
+        },
+        {
+          "text": "welled:",
+          "start": 0.89,
+          "end": 1.35
+        },
+        {
+          "text": "slow,",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "swelling,",
+          "start": 2.07,
+          "end": 2.41
+        },
+        {
+          "text": "full",
+          "start": 2.59,
+          "end": 2.67
+        },
+        {
+          "text": "it",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "text": "throbbed.",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "text": "That's",
+          "start": 3.69,
+          "end": 3.93
+        },
+        {
+          "text": "the",
+          "start": 3.93,
+          "end": 4.05
+        },
+        {
+          "text": "chat.",
+          "start": 4.05,
+          "end": 4.33
+        },
+        {
+          "text": "Ha,",
+          "start": 4.95,
+          "end": 5.01
+        },
+        {
+          "text": "give!",
+          "start": 5.01,
+          "end": 5.27
+        },
+        {
+          "text": "Take!",
+          "start": 5.53,
+          "end": 5.71
+        },
+        {
+          "text": "Throb,",
+          "start": 6.17,
+          "end": 6.45
+        },
+        {
+          "text": "a",
+          "start": 6.45,
+          "end": 6.69
+        },
+        {
+          "text": "throb,",
+          "start": 6.69,
+          "end": 6.91
+        },
+        {
+          "text": "a",
+          "start": 7.21,
+          "end": 7.27
+        },
+        {
+          "text": "pulsing",
+          "start": 7.27,
+          "end": 7.79
+        },
+        {
+          "text": "proud",
+          "start": 7.79,
+          "end": 8.01
+        },
+        {
+          "text": "erect.",
+          "start": 8.01,
+          "end": 8.39
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.4706483567133546
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e908172c11da73e11a4f4817b5ebe18666df064898e9858767495b52dad978af",
+  "selected_reasons": []
+}

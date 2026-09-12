@@ -1,0 +1,534 @@
+{
+  "complete": true,
+  "signature": "8018bcf80fc724c3b2c7a85cfbd30d04ac191411309e69a2499f80aedec131aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.2813364155590534,
+      "alignment_seconds": 0.0008342564105987549,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Toby. 'Tis a gentleman here. A plague o' these pickle-herrings! How now, sot?",
+        "hotwords": "Sir, Toby, Tis, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir, Toby, Tis a gentleman here. A plague o' these pickle-herrings! How now, sot?",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Sir,",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " Toby,",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " Tis",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.012691497802734375
+            },
+            {
+              "text": " a",
+              "start": 1.61,
+              "end": 1.71,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " gentleman",
+              "start": 1.71,
+              "end": 1.97,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " here.",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " A",
+              "start": 2.57,
+              "end": 2.65,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " plague",
+              "start": 2.65,
+              "end": 2.85,
+              "probability": 0.06982421875
+            },
+            {
+              "text": " o'",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.392333984375
+            },
+            {
+              "text": " these",
+              "start": 3.13,
+              "end": 3.23,
+              "probability": 0.96875
+            },
+            {
+              "text": " pickle",
+              "start": 3.23,
+              "end": 3.53,
+              "probability": 0.958984375
+            },
+            {
+              "text": "-herrings!",
+              "start": 3.53,
+              "end": 3.95,
+              "probability": 0.3754374186197917
+            },
+            {
+              "text": " How",
+              "start": 4.11,
+              "end": 4.19,
+              "probability": 0.818359375
+            },
+            {
+              "text": " now,",
+              "start": 4.19,
+              "end": 4.39,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " sot?",
+              "start": 4.61,
+              "end": 4.73,
+              "probability": 0.6395263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir,",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "Tis",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "raw": "gentleman",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "raw": "here.",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "A",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "raw": "plague",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "raw": "o'",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "these",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "raw": "pickle",
+          "start": 3.23,
+          "end": 3.53
+        },
+        {
+          "raw": "-herrings!",
+          "start": 3.53,
+          "end": 3.95
+        },
+        {
+          "raw": "How",
+          "start": 4.11,
+          "end": 4.19
+        },
+        {
+          "raw": "now,",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "raw": "sot?",
+          "start": 4.61,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Toby.",
+        "'Tis",
+        "a",
+        "gentleman",
+        "here.",
+        "A",
+        "plague",
+        "o'",
+        "these",
+        "pickle-herrings!",
+        "How",
+        "now,",
+        "sot?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir,",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Toby,",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "toby",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "tis",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.71,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 1.71,
+          "end": 1.97,
+          "key": "gentleman",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "here",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 2.57,
+          "end": 2.65,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "plague",
+          "start": 2.65,
+          "end": 2.85,
+          "key": "plague",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 2.85,
+          "end": 3.05,
+          "key": "o",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.13,
+          "end": 3.23,
+          "key": "these",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pickle -herrings!",
+          "start": 3.23,
+          "end": 3.95,
+          "key": "pickleherrings",
+          "pieces": [
+            10,
+            11
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 4.11,
+          "end": 4.19,
+          "key": "how",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 4.19,
+          "end": 4.39,
+          "key": "now",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sot?",
+          "start": 4.61,
+          "end": 4.73,
+          "key": "sot",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "pickle-herrings!",
+          "heard": "pickle -herrings!",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 3.23,
+          "end": 3.95
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Toby.",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "'Tis",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "a",
+          "start": 1.61,
+          "end": 1.71
+        },
+        {
+          "text": "gentleman",
+          "start": 1.71,
+          "end": 1.97
+        },
+        {
+          "text": "here.",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "text": "A",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "text": "plague",
+          "start": 2.65,
+          "end": 2.85
+        },
+        {
+          "text": "o'",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "these",
+          "start": 3.13,
+          "end": 3.23
+        },
+        {
+          "text": "pickle-herrings!",
+          "start": 3.23,
+          "end": 3.95
+        },
+        {
+          "text": "How",
+          "start": 4.11,
+          "end": 4.19
+        },
+        {
+          "text": "now,",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "text": "sot?",
+          "start": 4.61,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28247353062033653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db6faca593e4914db4327b74f9b690a602f6098a46dfe72c57744b69cc116416",
+  "selected_reasons": []
+}

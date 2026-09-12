@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "9d7519c5d1bc9fd03ae3ea0fe61db0ceecd4af68bcd4ccd4786aaae7b659ceee",
+  "attempts": [
+    {
+      "asr_seconds": 0.14104357175529003,
+      "alignment_seconds": 0.00019792839884757996,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Camillo, hail most royals, sir.",
+          "start": 0.05,
+          "end": 2.21,
+          "words": [
+            {
+              "text": " Camillo,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.746337890625
+            },
+            {
+              "text": " hail",
+              "start": 1.31,
+              "end": 1.33,
+              "probability": 0.370849609375
+            },
+            {
+              "text": " most",
+              "start": 1.33,
+              "end": 1.61,
+              "probability": 0.810546875
+            },
+            {
+              "text": " royals,",
+              "start": 1.61,
+              "end": 1.99,
+              "probability": 0.844482421875
+            },
+            {
+              "text": " sir.",
+              "start": 2.21,
+              "end": 2.21,
+              "probability": 0.9033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "hail",
+          "start": 1.31,
+          "end": 1.33
+        },
+        {
+          "raw": "most",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "raw": "royals,",
+          "start": 1.61,
+          "end": 1.99
+        },
+        {
+          "raw": "sir.",
+          "start": 2.21,
+          "end": 2.21
+        }
+      ],
+      "expected_tokens": [
+        "Camillo.",
+        "Hail,",
+        "most",
+        "royal",
+        "sir!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hail",
+          "start": 1.31,
+          "end": 1.33,
+          "key": "hail",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.33,
+          "end": 1.61,
+          "key": "most",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "royals,",
+          "start": 1.61,
+          "end": 1.99,
+          "key": "royals",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.21,
+          "end": 2.21,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Hail,",
+          "start": 1.31,
+          "end": 1.33
+        },
+        {
+          "text": "most",
+          "start": 1.33,
+          "end": 1.61
+        },
+        {
+          "text": "royal",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "text": "sir!",
+          "start": 2.21,
+          "end": 2.21
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14130422472953796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0d8f72dfc33bb86f12c6150e6f233f2c3dc541e4d5584fa2c69a87ae49b8f8c1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

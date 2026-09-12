@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "9c95288276776f05cd41d1a19f170ffa07d02791598e4ce0077d589b5637b66e",
+  "attempts": [
+    {
+      "asr_seconds": 0.10073707305127755,
+      "alignment_seconds": 0.0001713800011202693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Noted Churchman, an occasional contributor.",
+          "start": 0.05,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " Noted",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " Churchman,",
+              "start": 0.81,
+              "end": 1.29,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " an",
+              "start": 1.71,
+              "end": 1.77,
+              "probability": 0.912109375
+            },
+            {
+              "text": " occasional",
+              "start": 1.77,
+              "end": 2.19,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " contributor.",
+              "start": 2.19,
+              "end": 2.81,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Noted",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Churchman,",
+          "start": 0.81,
+          "end": 1.29
+        },
+        {
+          "raw": "an",
+          "start": 1.71,
+          "end": 1.77
+        },
+        {
+          "raw": "occasional",
+          "start": 1.77,
+          "end": 2.19
+        },
+        {
+          "raw": "contributor.",
+          "start": 2.19,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "Noted",
+        "Churchman",
+        "An",
+        "Occasional",
+        "Contributor"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Noted",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "noted",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Churchman,",
+          "start": 0.81,
+          "end": 1.29,
+          "key": "churchman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.71,
+          "end": 1.77,
+          "key": "an",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "occasional",
+          "start": 1.77,
+          "end": 2.19,
+          "key": "occasional",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "contributor.",
+          "start": 2.19,
+          "end": 2.81,
+          "key": "contributor",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Noted",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Churchman",
+          "start": 0.81,
+          "end": 1.29
+        },
+        {
+          "text": "An",
+          "start": 1.71,
+          "end": 1.77
+        },
+        {
+          "text": "Occasional",
+          "start": 1.77,
+          "end": 2.19
+        },
+        {
+          "text": "Contributor",
+          "start": 2.19,
+          "end": 2.81
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10096358502050862
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "42f7edd80e8ca349c0d20cb158f93bf9e685c14642a82e67dc6de6192422b517",
+  "selected_reasons": []
+}

@@ -1,0 +1,418 @@
+{
+  "complete": true,
+  "signature": "622c55508f6ad8989e20642c2fcbd3924ed8372a3f116d54f47c0ef58e70113a",
+  "attempts": [
+    {
+      "asr_seconds": 0.2660474758595228,
+      "alignment_seconds": 0.0005402099341154099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That's enough. I don't want you to play anymore. Don't.",
+          "start": 0.4,
+          "end": 3.14,
+          "words": [
+            {
+              "text": " That's",
+              "start": 0.4,
+              "end": 0.76,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " enough.",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " don't",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " want",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " play",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " anymore.",
+              "start": 2.08,
+              "end": 2.42,
+              "probability": 0.806640625
+            },
+            {
+              "text": " Don't.",
+              "start": 2.8,
+              "end": 3.14,
+              "probability": 0.991943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That's",
+          "start": 0.4,
+          "end": 0.76
+        },
+        {
+          "raw": "enough.",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "I",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "don't",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "want",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "you",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "play",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "anymore.",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "raw": "Don't.",
+          "start": 2.8,
+          "end": 3.14
+        }
+      ],
+      "expected_tokens": [
+        "\"That's",
+        "enough!",
+        "I",
+        "don't",
+        "want",
+        "you",
+        "to",
+        "play",
+        "any",
+        "more.",
+        "Don't!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          8,
+          9
+        ],
+        [
+          "equal",
+          10,
+          11,
+          9,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          10,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That's",
+          "start": 0.4,
+          "end": 0.76,
+          "key": "thats",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "enough",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "dont",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "want",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.84,
+          "end": 1.94,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "play",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "anymore.",
+          "start": 2.08,
+          "end": 2.42,
+          "key": "anymore",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Don't.",
+          "start": 2.8,
+          "end": 3.14,
+          "key": "dont",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That's",
+          "start": 0.4,
+          "end": 0.76
+        },
+        {
+          "text": "enough!",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "I",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "don't",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "want",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "you",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "to",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "play",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "any",
+          "start": 2.08,
+          "end": 2.44
+        },
+        {
+          "text": "more.",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "Don't!\"",
+          "start": 2.8,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.26680070627480745
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "848d019f950d8ea02b3bbb2e11c9af8952c780678049835f3724bcca0ca38729",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

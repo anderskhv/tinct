@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "5be2a8492546b9b61eb13cb1e312caddd6149b40b74c9596b3bebf737348559a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1244826465845108,
+      "alignment_seconds": 0.0001731179654598236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And he thought of Sonia.",
+        "hotwords": "And, Sonia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And he thought of Sonia.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " he",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " thought",
+              "start": 0.61,
+              "end": 0.81,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 0.81,
+              "end": 0.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Sonia.",
+              "start": 0.93,
+              "end": 1.25,
+              "probability": 0.108642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "he",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "thought",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 0.93
+        },
+        {
+          "raw": "Sonia.",
+          "start": 0.93,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "he",
+        "thought",
+        "of",
+        "Sonia."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 0.61,
+          "end": 0.81,
+          "key": "thought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 0.93,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sonia.",
+          "start": 0.93,
+          "end": 1.25,
+          "key": "sonia",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "he",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "thought",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "text": "of",
+          "start": 0.81,
+          "end": 0.93
+        },
+        {
+          "text": "Sonia.",
+          "start": 0.93,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12470544129610062
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f3123289ff7744b1a2b31521862e2918c09fdc6235633f33e11352156d9db157",
+  "selected_reasons": []
+}

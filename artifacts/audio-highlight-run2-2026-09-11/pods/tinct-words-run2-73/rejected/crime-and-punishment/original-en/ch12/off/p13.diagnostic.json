@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "f866b12baf95e8a49153be0cc9de607a40dae2fdc7b7a9e814c9cbfe27f0e479",
+  "attempts": [
+    {
+      "asr_seconds": 0.2850606767460704,
+      "alignment_seconds": 0.0003582974895834923,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I had presumed and calculated, he faltered, that a letter posted more than ten days if",
+          "start": 0.02,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.64794921875
+            },
+            {
+              "text": " had",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " presumed",
+              "start": 0.74,
+              "end": 1.18,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 1.18,
+              "end": 1.58,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " calculated,",
+              "start": 1.58,
+              "end": 2.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.974609375
+            },
+            {
+              "text": " faltered,",
+              "start": 2.84,
+              "end": 3.38,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " that",
+              "start": 3.82,
+              "end": 3.96,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " a",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " letter",
+              "start": 4.12,
+              "end": 4.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " posted",
+              "start": 4.32,
+              "end": 4.74,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " more",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " than",
+              "start": 5.04,
+              "end": 5.26,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ten",
+              "start": 5.26,
+              "end": 5.48,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " days",
+              "start": 5.48,
+              "end": 5.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " if",
+              "start": 5.96,
+              "end": 6.22,
+              "probability": 0.51025390625
+            }
+          ]
+        },
+        {
+          "text": " not a fortnight ago.",
+          "start": 6.22,
+          "end": 7.24,
+          "words": [
+            {
+              "text": " not",
+              "start": 6.22,
+              "end": 6.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 6.4,
+              "end": 6.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " fortnight",
+              "start": 6.54,
+              "end": 6.82,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " ago.",
+              "start": 6.82,
+              "end": 7.24,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "had",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "raw": "presumed",
+          "start": 0.74,
+          "end": 1.18
+        },
+        {
+          "raw": "and",
+          "start": 1.18,
+          "end": 1.58
+        },
+        {
+          "raw": "calculated,",
+          "start": 1.58,
+          "end": 2.16
+        },
+        {
+          "raw": "he",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "faltered,",
+          "start": 2.84,
+          "end": 3.38
+        },
+        {
+          "raw": "that",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "raw": "a",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "letter",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "raw": "posted",
+          "start": 4.32,
+          "end": 4.74
+        },
+        {
+          "raw": "more",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "than",
+          "start": 5.04,
+          "end": 5.26
+        },
+        {
+          "raw": "ten",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "raw": "days",
+          "start": 5.48,
+          "end": 5.96
+        },
+        {
+          "raw": "if",
+          "start": 5.96,
+          "end": 6.22
+        },
+        {
+          "raw": "not",
+          "start": 6.22,
+          "end": 6.4
+        },
+        {
+          "raw": "a",
+          "start": 6.4,
+          "end": 6.54
+        },
+        {
+          "raw": "fortnight",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "raw": "ago.",
+          "start": 6.82,
+          "end": 7.24
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "had",
+        "presumed",
+        "and",
+        "calculated,\"",
+        "he",
+        "faltered,",
+        "\"that",
+        "a",
+        "letter",
+        "posted",
+        "more",
+        "than",
+        "ten",
+        "days,",
+        "if",
+        "not",
+        "a",
+        "fortnight",
+        "ago...\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 0.54,
+          "end": 0.74,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "presumed",
+          "start": 0.74,
+          "end": 1.18,
+          "key": "presumed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.18,
+          "end": 1.58,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "calculated,",
+          "start": 1.58,
+          "end": 2.16,
+          "key": "calculated",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "faltered,",
+          "start": 2.84,
+          "end": 3.38,
+          "key": "faltered",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.82,
+          "end": 3.96,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 4.12,
+          "end": 4.32,
+          "key": "letter",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "posted",
+          "start": 4.32,
+          "end": 4.74,
+          "key": "posted",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.74,
+          "end": 5.04,
+          "key": "more",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.04,
+          "end": 5.26,
+          "key": "than",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ten",
+          "start": 5.26,
+          "end": 5.48,
+          "key": "ten",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "days",
+          "start": 5.48,
+          "end": 5.96,
+          "key": "days",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 5.96,
+          "end": 6.22,
+          "key": "if",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.22,
+          "end": 6.4,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.4,
+          "end": 6.54,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "fortnight",
+          "start": 6.54,
+          "end": 6.82,
+          "key": "fortnight",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "ago.",
+          "start": 6.82,
+          "end": 7.24,
+          "key": "ago",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "had",
+          "start": 0.54,
+          "end": 0.74
+        },
+        {
+          "text": "presumed",
+          "start": 0.74,
+          "end": 1.18
+        },
+        {
+          "text": "and",
+          "start": 1.18,
+          "end": 1.58
+        },
+        {
+          "text": "calculated,\"",
+          "start": 1.58,
+          "end": 2.16
+        },
+        {
+          "text": "he",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "faltered,",
+          "start": 2.84,
+          "end": 3.38
+        },
+        {
+          "text": "\"that",
+          "start": 3.82,
+          "end": 3.96
+        },
+        {
+          "text": "a",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "letter",
+          "start": 4.12,
+          "end": 4.32
+        },
+        {
+          "text": "posted",
+          "start": 4.32,
+          "end": 4.74
+        },
+        {
+          "text": "more",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "than",
+          "start": 5.04,
+          "end": 5.26
+        },
+        {
+          "text": "ten",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "text": "days,",
+          "start": 5.48,
+          "end": 5.96
+        },
+        {
+          "text": "if",
+          "start": 5.96,
+          "end": 6.22
+        },
+        {
+          "text": "not",
+          "start": 6.22,
+          "end": 6.4
+        },
+        {
+          "text": "a",
+          "start": 6.4,
+          "end": 6.54
+        },
+        {
+          "text": "fortnight",
+          "start": 6.54,
+          "end": 6.82
+        },
+        {
+          "text": "ago...\"",
+          "start": 6.82,
+          "end": 7.24
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2855570502579212
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f1a562fd9d55f999c5bef74922d2ea38b6672621ce8c6390eb7f7013e811a3ab",
+  "selected_reasons": []
+}

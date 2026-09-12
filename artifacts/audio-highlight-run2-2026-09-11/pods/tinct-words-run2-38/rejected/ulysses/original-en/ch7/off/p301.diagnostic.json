@@ -1,0 +1,464 @@
+{
+  "complete": true,
+  "signature": "84f17e3115b3745dbbf92d661093e9499be980126900f286ea2a3706a1e2bb5b",
+  "attempts": [
+    {
+      "asr_seconds": 0.158444715954829,
+      "alignment_seconds": 0.0002872420009225607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The rows of Castile, see the wheeze, rows of Castile, G.",
+          "start": 0.02,
+          "end": 3.92,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " rows",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.369873046875
+            },
+            {
+              "text": " of",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Castile,",
+              "start": 0.9,
+              "end": 1.36,
+              "probability": 0.864501953125
+            },
+            {
+              "text": " see",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " the",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " wheeze,",
+              "start": 1.82,
+              "end": 2.28,
+              "probability": 0.7352701822916666
+            },
+            {
+              "text": " rows",
+              "start": 2.7,
+              "end": 2.74,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " of",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Castile,",
+              "start": 2.92,
+              "end": 3.6,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " G.",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.70458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "rows",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "Castile,",
+          "start": 0.9,
+          "end": 1.36
+        },
+        {
+          "raw": "see",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "wheeze,",
+          "start": 1.82,
+          "end": 2.28
+        },
+        {
+          "raw": "rows",
+          "start": 2.7,
+          "end": 2.74
+        },
+        {
+          "raw": "of",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "Castile,",
+          "start": 2.92,
+          "end": 3.6
+        },
+        {
+          "raw": "G.",
+          "start": 3.72,
+          "end": 3.92
+        }
+      ],
+      "expected_tokens": [
+        "—_The",
+        "Rose",
+        "of",
+        "Castile_.",
+        "See",
+        "the",
+        "wheeze?",
+        "Rows",
+        "of",
+        "cast",
+        "steel.",
+        "Gee!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ],
+        [
+          "replace",
+          9,
+          12,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          9,
+          12,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "rows",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "rows",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Castile,",
+          "start": 0.9,
+          "end": 1.36,
+          "key": "castile",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.6,
+          "end": 1.7,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wheeze,",
+          "start": 1.82,
+          "end": 2.28,
+          "key": "wheeze",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "rows",
+          "start": 2.7,
+          "end": 2.74,
+          "key": "rows",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Castile,",
+          "start": 2.92,
+          "end": 3.6,
+          "key": "castile",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "G.",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "g",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Rose",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "of",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "Castile_.",
+          "start": 0.9,
+          "end": 1.36
+        },
+        {
+          "text": "See",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "the",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "wheeze?",
+          "start": 1.82,
+          "end": 2.28
+        },
+        {
+          "text": "Rows",
+          "start": 2.7,
+          "end": 2.74
+        },
+        {
+          "text": "of",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "cast",
+          "start": 2.92,
+          "end": 3.42
+        },
+        {
+          "text": "steel.",
+          "start": 3.42,
+          "end": 3.67
+        },
+        {
+          "text": "Gee!",
+          "start": 3.67,
+          "end": 3.795
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15882674796739593
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ec24ba9bd0d709d5a006138693b1da076003d4b080747cfb143bc85f054217d0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

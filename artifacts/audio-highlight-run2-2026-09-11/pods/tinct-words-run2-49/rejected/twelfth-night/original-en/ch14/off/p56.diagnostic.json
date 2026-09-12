@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "97cc190cacd1f2b50f2adfc55168d21d29b4365ef9b17b4e387bd91576db8010",
+  "attempts": [
+    {
+      "asr_seconds": 0.30192653089761734,
+      "alignment_seconds": 0.0005596056580543518,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fabian no way, but gentleness gently gently the fiend is rough and will not be roughly used",
+          "start": 0.05,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " Fabian",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " no",
+              "start": 0.89,
+              "end": 1.45,
+              "probability": 0.145263671875
+            },
+            {
+              "text": " way,",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " but",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gentleness",
+              "start": 1.85,
+              "end": 2.37,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " gently",
+              "start": 2.37,
+              "end": 2.85,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " gently",
+              "start": 2.85,
+              "end": 3.35,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " the",
+              "start": 3.35,
+              "end": 4.07,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " fiend",
+              "start": 4.07,
+              "end": 4.43,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " is",
+              "start": 4.43,
+              "end": 4.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rough",
+              "start": 4.57,
+              "end": 4.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 4.87,
+              "end": 5.13,
+              "probability": 0.931640625
+            },
+            {
+              "text": " will",
+              "start": 5.13,
+              "end": 5.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 5.25,
+              "end": 5.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 5.47,
+              "end": 5.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " roughly",
+              "start": 5.63,
+              "end": 5.87,
+              "probability": 0.95703125
+            },
+            {
+              "text": " used",
+              "start": 5.87,
+              "end": 6.39,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "no",
+          "start": 0.89,
+          "end": 1.45
+        },
+        {
+          "raw": "way,",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "but",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "gentleness",
+          "start": 1.85,
+          "end": 2.37
+        },
+        {
+          "raw": "gently",
+          "start": 2.37,
+          "end": 2.85
+        },
+        {
+          "raw": "gently",
+          "start": 2.85,
+          "end": 3.35
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 4.07
+        },
+        {
+          "raw": "fiend",
+          "start": 4.07,
+          "end": 4.43
+        },
+        {
+          "raw": "is",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "raw": "rough",
+          "start": 4.57,
+          "end": 4.87
+        },
+        {
+          "raw": "and",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "raw": "will",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "raw": "not",
+          "start": 5.25,
+          "end": 5.47
+        },
+        {
+          "raw": "be",
+          "start": 5.47,
+          "end": 5.63
+        },
+        {
+          "raw": "roughly",
+          "start": 5.63,
+          "end": 5.87
+        },
+        {
+          "raw": "used",
+          "start": 5.87,
+          "end": 6.39
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "No",
+        "way",
+        "but",
+        "gentleness,",
+        "gently,",
+        "gently.",
+        "The",
+        "fiend",
+        "is",
+        "rough,",
+        "and",
+        "will",
+        "not",
+        "be",
+        "roughly",
+        "used."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.89,
+          "end": 1.45,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "way,",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "way",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "gentleness",
+          "start": 1.85,
+          "end": 2.37,
+          "key": "gentleness",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gently",
+          "start": 2.37,
+          "end": 2.85,
+          "key": "gently",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gently",
+          "start": 2.85,
+          "end": 3.35,
+          "key": "gently",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.35,
+          "end": 4.07,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "fiend",
+          "start": 4.07,
+          "end": 4.43,
+          "key": "fiend",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.43,
+          "end": 4.57,
+          "key": "is",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "rough",
+          "start": 4.57,
+          "end": 4.87,
+          "key": "rough",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.87,
+          "end": 5.13,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.13,
+          "end": 5.25,
+          "key": "will",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.25,
+          "end": 5.47,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.47,
+          "end": 5.63,
+          "key": "be",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "roughly",
+          "start": 5.63,
+          "end": 5.87,
+          "key": "roughly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "used",
+          "start": 5.87,
+          "end": 6.39,
+          "key": "used",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "No",
+          "start": 0.89,
+          "end": 1.45
+        },
+        {
+          "text": "way",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "but",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "gentleness,",
+          "start": 1.85,
+          "end": 2.37
+        },
+        {
+          "text": "gently,",
+          "start": 2.37,
+          "end": 2.85
+        },
+        {
+          "text": "gently.",
+          "start": 2.85,
+          "end": 3.35
+        },
+        {
+          "text": "The",
+          "start": 3.35,
+          "end": 4.07
+        },
+        {
+          "text": "fiend",
+          "start": 4.07,
+          "end": 4.43
+        },
+        {
+          "text": "is",
+          "start": 4.43,
+          "end": 4.57
+        },
+        {
+          "text": "rough,",
+          "start": 4.57,
+          "end": 4.87
+        },
+        {
+          "text": "and",
+          "start": 4.87,
+          "end": 5.13
+        },
+        {
+          "text": "will",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "text": "not",
+          "start": 5.25,
+          "end": 5.47
+        },
+        {
+          "text": "be",
+          "start": 5.47,
+          "end": 5.63
+        },
+        {
+          "text": "roughly",
+          "start": 5.63,
+          "end": 5.87
+        },
+        {
+          "text": "used.",
+          "start": 5.87,
+          "end": 6.39
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.30271734297275543
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "87feef4e3dc59f37b16dd57958242c388a289c5197b4431b28491f43534b1a6e",
+  "selected_reasons": []
+}

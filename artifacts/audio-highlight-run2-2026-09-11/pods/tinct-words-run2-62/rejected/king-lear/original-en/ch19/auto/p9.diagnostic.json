@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "d2fe7c41891992b742258025ac03566083a9209ea2a283f2f8f4f502d04b9b1f",
+  "attempts": [
+    {
+      "asr_seconds": 0.08870109170675278,
+      "alignment_seconds": 0.00017127394676208496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. Made she no verbal question?",
+        "hotwords": "Kent, Made"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, Made she no verbal question?",
+          "start": 0.05,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Made",
+              "start": 1.01,
+              "end": 1.17,
+              "probability": 0.00646209716796875
+            },
+            {
+              "text": " she",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.005382537841796875
+            },
+            {
+              "text": " no",
+              "start": 1.27,
+              "end": 1.41,
+              "probability": 0.023223876953125
+            },
+            {
+              "text": " verbal",
+              "start": 1.41,
+              "end": 1.65,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " question?",
+              "start": 1.65,
+              "end": 2.09,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Made",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "raw": "she",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "no",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "raw": "verbal",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "raw": "question?",
+          "start": 1.65,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "Made",
+        "she",
+        "no",
+        "verbal",
+        "question?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Made",
+          "start": 1.01,
+          "end": 1.17,
+          "key": "made",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.27,
+          "end": 1.41,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "verbal",
+          "start": 1.41,
+          "end": 1.65,
+          "key": "verbal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "question?",
+          "start": 1.65,
+          "end": 2.09,
+          "key": "question",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Made",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "text": "she",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "no",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "verbal",
+          "start": 1.41,
+          "end": 1.65
+        },
+        {
+          "text": "question?",
+          "start": 1.65,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0889364443719387
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4bd4aab2a75ad68fed0e4ee93b28c93d2cc37bc983df2e33fd4cefcc58e06dcb",
+  "selected_reasons": []
+}

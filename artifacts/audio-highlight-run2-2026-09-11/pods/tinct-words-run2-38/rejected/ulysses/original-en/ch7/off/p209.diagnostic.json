@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "59d8f410df834585e6e86dd85d18bef48793b72366aa4f58fed7d7899f92d31e",
+  "attempts": [
+    {
+      "asr_seconds": 0.09426766698015854,
+      "alignment_seconds": 0.00013317103730514646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A collision ensues.",
+          "start": 0.02,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.798828125
+            },
+            {
+              "text": " collision",
+              "start": 0.5,
+              "end": 0.8,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " ensues.",
+              "start": 0.8,
+              "end": 1.42,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "collision",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "raw": "ensues.",
+          "start": 0.8,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "Collision",
+        "Ensues"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "collision",
+          "start": 0.5,
+          "end": 0.8,
+          "key": "collision",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ensues.",
+          "start": 0.8,
+          "end": 1.42,
+          "key": "ensues",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "Collision",
+          "start": 0.5,
+          "end": 0.8
+        },
+        {
+          "text": "Ensues",
+          "start": 0.8,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09444802801590413
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1dffc6586cc4af269a2fdece8c53736df6e04ec2c2447946e28947c31fc6d8d2",
+  "selected_reasons": []
+}

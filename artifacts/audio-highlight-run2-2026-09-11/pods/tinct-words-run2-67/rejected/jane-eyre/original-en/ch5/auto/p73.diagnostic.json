@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "adf7802e4252a29fa33c98dbab91ecbc5f21f60630e915fced73904c48063009",
+  "attempts": [
+    {
+      "asr_seconds": 0.19835155177861452,
+      "alignment_seconds": 0.0004420112818479538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"This house where you are come to live.\"",
+        "hotwords": "This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This house where you are come to live.",
+          "start": 0.02,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " house",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " where",
+              "start": 0.94,
+              "end": 1.3,
+              "probability": 0.662109375
+            },
+            {
+              "text": " you",
+              "start": 1.3,
+              "end": 1.38,
+              "probability": 0.974609375
+            },
+            {
+              "text": " are",
+              "start": 1.38,
+              "end": 1.46,
+              "probability": 0.8203125
+            },
+            {
+              "text": " come",
+              "start": 1.46,
+              "end": 1.58,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " to",
+              "start": 1.58,
+              "end": 1.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " live.",
+              "start": 1.76,
+              "end": 2.04,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "house",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "where",
+          "start": 0.94,
+          "end": 1.3
+        },
+        {
+          "raw": "you",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "raw": "are",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "raw": "come",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "raw": "live.",
+          "start": 1.76,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "\"This",
+        "house",
+        "where",
+        "you",
+        "are",
+        "come",
+        "to",
+        "live.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 0.6,
+          "end": 0.94,
+          "key": "house",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 0.94,
+          "end": 1.3,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.3,
+          "end": 1.38,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.38,
+          "end": 1.46,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.46,
+          "end": 1.58,
+          "key": "come",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.58,
+          "end": 1.76,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "live.",
+          "start": 1.76,
+          "end": 2.04,
+          "key": "live",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"This",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "house",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "where",
+          "start": 0.94,
+          "end": 1.3
+        },
+        {
+          "text": "you",
+          "start": 1.3,
+          "end": 1.38
+        },
+        {
+          "text": "are",
+          "start": 1.38,
+          "end": 1.46
+        },
+        {
+          "text": "come",
+          "start": 1.46,
+          "end": 1.58
+        },
+        {
+          "text": "to",
+          "start": 1.58,
+          "end": 1.76
+        },
+        {
+          "text": "live.\"",
+          "start": 1.76,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19898637104779482
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "166c8ebf13add27d3b78cf1b2d3bd385604bfaf4f187a3a92990a8d8ed8e86b1",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "b2d5b91af0021076c6431ed1072d47a16c38443f2e4e860e2941b6f5af6c7e84",
+  "attempts": [
+    {
+      "asr_seconds": 0.12483569799223915,
+      "alignment_seconds": 0.00019290100317448378,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Show. Where? Lenehan cried, running to the window.",
+        "hotwords": "Show, Where, Lenehan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Show, Where? Lenehan cried, running to the window.",
+          "start": 0.11,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Show,",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.6044921875
+            },
+            {
+              "text": " Where?",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.0189971923828125
+            },
+            {
+              "text": " Lenehan",
+              "start": 1.59,
+              "end": 1.87,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " cried,",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " running",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " to",
+              "start": 2.53,
+              "end": 2.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.75,
+              "end": 2.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " window.",
+              "start": 2.83,
+              "end": 3.09,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Show,",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Where?",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "Lenehan",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "raw": "cried,",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "running",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.83
+        },
+        {
+          "raw": "window.",
+          "start": 2.83,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "—Show.",
+        "Where?",
+        "Lenehan",
+        "cried,",
+        "running",
+        "to",
+        "the",
+        "window."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Show,",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "show",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where?",
+          "start": 0.81,
+          "end": 1.05,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lenehan",
+          "start": 1.59,
+          "end": 1.87,
+          "key": "lenehan",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "cried,",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "cried",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "running",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "running",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.75,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.75,
+          "end": 2.83,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "window.",
+          "start": 2.83,
+          "end": 3.09,
+          "key": "window",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Show.",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Where?",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "Lenehan",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "cried,",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "running",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "to",
+          "start": 2.53,
+          "end": 2.75
+        },
+        {
+          "text": "the",
+          "start": 2.75,
+          "end": 2.83
+        },
+        {
+          "text": "window.",
+          "start": 2.83,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12509932002285495
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f6f10f1c4d00c942568fafa8a4024413de9e2f20505516c2fb65243f30211592",
+  "selected_reasons": []
+}

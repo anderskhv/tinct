@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "5747df7cbae3c10184e1b82e088b6f7cdc5baa4b4cf159c20a35447949c98e95",
+  "attempts": [
+    {
+      "asr_seconds": 0.20507314428687096,
+      "alignment_seconds": 0.00038810819387435913,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Nothing will come of nothing: speak again.",
+        "hotwords": "Lear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear. Nothing will come of nothing. Speak again.",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Lear.",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " Nothing",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.9765625
+            },
+            {
+              "text": " will",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " come",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nothing.",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Speak",
+              "start": 2.29,
+              "end": 2.37,
+              "probability": 0.986328125
+            },
+            {
+              "text": " again.",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Nothing",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "will",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "come",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "nothing.",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "Speak",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "raw": "again.",
+          "start": 2.37,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Nothing",
+        "will",
+        "come",
+        "of",
+        "nothing:",
+        "speak",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear.",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nothing",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "nothing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 2.29,
+          "end": 2.37,
+          "key": "speak",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 2.37,
+          "end": 2.69,
+          "key": "again",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Nothing",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "will",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "come",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "of",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "nothing:",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "speak",
+          "start": 2.29,
+          "end": 2.37
+        },
+        {
+          "text": "again.",
+          "start": 2.37,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20561065524816513
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e534db378fb8ba4458bbbf8067adeee89112cf23abf8a3c8bec8f3ca4f095ca",
+  "selected_reasons": []
+}

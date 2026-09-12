@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "100a4bd6fd92c62d8410fa312d9e7f2c2761f4132afc15ecec6c83ebd767eaac",
+  "attempts": [
+    {
+      "asr_seconds": 0.2810470648109913,
+      "alignment_seconds": 0.0006451234221458435,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There she blows she blows she blows right ahead was now the masthead cry",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.865234375
+            },
+            {
+              "text": " she",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " blows",
+              "start": 0.71,
+              "end": 0.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " she",
+              "start": 0.99,
+              "end": 1.31,
+              "probability": 0.266357421875
+            },
+            {
+              "text": " blows",
+              "start": 1.31,
+              "end": 1.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " she",
+              "start": 1.67,
+              "end": 2.21,
+              "probability": 0.8369140625
+            },
+            {
+              "text": " blows",
+              "start": 2.21,
+              "end": 2.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " right",
+              "start": 2.53,
+              "end": 2.97,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " ahead",
+              "start": 2.97,
+              "end": 3.37,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " was",
+              "start": 3.37,
+              "end": 3.85,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " now",
+              "start": 3.85,
+              "end": 4.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.03,
+              "end": 4.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " masthead",
+              "start": 4.17,
+              "end": 4.65,
+              "probability": 0.902099609375
+            },
+            {
+              "text": " cry",
+              "start": 4.65,
+              "end": 4.95,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "she",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "blows",
+          "start": 0.71,
+          "end": 0.99
+        },
+        {
+          "raw": "she",
+          "start": 0.99,
+          "end": 1.31
+        },
+        {
+          "raw": "blows",
+          "start": 1.31,
+          "end": 1.67
+        },
+        {
+          "raw": "she",
+          "start": 1.67,
+          "end": 2.21
+        },
+        {
+          "raw": "blows",
+          "start": 2.21,
+          "end": 2.53
+        },
+        {
+          "raw": "right",
+          "start": 2.53,
+          "end": 2.97
+        },
+        {
+          "raw": "ahead",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "raw": "was",
+          "start": 3.37,
+          "end": 3.85
+        },
+        {
+          "raw": "now",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "raw": "the",
+          "start": 4.03,
+          "end": 4.17
+        },
+        {
+          "raw": "masthead",
+          "start": 4.17,
+          "end": 4.65
+        },
+        {
+          "raw": "cry",
+          "start": 4.65,
+          "end": 4.95
+        }
+      ],
+      "expected_tokens": [
+        "\"There",
+        "she",
+        "blows—she",
+        "blows!—she",
+        "blows!—right",
+        "ahead!\"",
+        "was",
+        "now",
+        "the",
+        "mast-head",
+        "cry."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          8
+        ],
+        [
+          "equal",
+          5,
+          11,
+          8,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          5,
+          2,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "blows",
+          "start": 0.71,
+          "end": 0.99,
+          "key": "blows",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.99,
+          "end": 1.31,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "blows",
+          "start": 1.31,
+          "end": 1.67,
+          "key": "blows",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.67,
+          "end": 2.21,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blows",
+          "start": 2.21,
+          "end": 2.53,
+          "key": "blows",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 2.53,
+          "end": 2.97,
+          "key": "right",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "ahead",
+          "start": 2.97,
+          "end": 3.37,
+          "key": "ahead",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.37,
+          "end": 3.85,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 3.85,
+          "end": 4.03,
+          "key": "now",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.03,
+          "end": 4.17,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "masthead",
+          "start": 4.17,
+          "end": 4.65,
+          "key": "masthead",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "cry",
+          "start": 4.65,
+          "end": 4.95,
+          "key": "cry",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"There",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "she",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "blows—she",
+          "start": 0.71,
+          "end": 1.84
+        },
+        {
+          "text": "blows!—she",
+          "start": 1.84,
+          "end": 2.405
+        },
+        {
+          "text": "blows!—right",
+          "start": 2.405,
+          "end": 2.688
+        },
+        {
+          "text": "ahead!\"",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "text": "was",
+          "start": 3.37,
+          "end": 3.85
+        },
+        {
+          "text": "now",
+          "start": 3.85,
+          "end": 4.03
+        },
+        {
+          "text": "the",
+          "start": 4.03,
+          "end": 4.17
+        },
+        {
+          "text": "mast-head",
+          "start": 4.17,
+          "end": 4.65
+        },
+        {
+          "text": "cry.",
+          "start": 4.65,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 14,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.281948022544384
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "898cf0a0d07b8958f86f5b248ad50c269e0e2777557c39dff451bde2d27b3f62",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

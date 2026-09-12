@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "cc5ab57bfe27a5617571f3e2fc2096d14122fe0e539d924f84ebea5726513a00",
+  "attempts": [
+    {
+      "asr_seconds": 0.37065279111266136,
+      "alignment_seconds": 0.0006675459444522858,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. Look he's winding up the watch of his wit; by and by it will strike.",
+        "hotwords": "Sebastian, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, Look he's winding up the watch of his wit. By and by it will strike.",
+          "start": 0.08,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " Look",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.190673828125
+            },
+            {
+              "text": " he's",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.799072265625
+            },
+            {
+              "text": " winding",
+              "start": 1.88,
+              "end": 2.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " up",
+              "start": 2.14,
+              "end": 2.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.34,
+              "end": 2.44,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " watch",
+              "start": 2.44,
+              "end": 2.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " his",
+              "start": 2.82,
+              "end": 2.96,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " wit.",
+              "start": 2.96,
+              "end": 3.24,
+              "probability": 0.94921875
+            },
+            {
+              "text": " By",
+              "start": 3.7,
+              "end": 3.76,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " and",
+              "start": 3.76,
+              "end": 3.92,
+              "probability": 0.802734375
+            },
+            {
+              "text": " by",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " it",
+              "start": 4.1,
+              "end": 4.2,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " will",
+              "start": 4.2,
+              "end": 4.3,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " strike.",
+              "start": 4.3,
+              "end": 4.64,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "Look",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "he's",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "winding",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "raw": "up",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "raw": "watch",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "his",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "raw": "wit.",
+          "start": 2.96,
+          "end": 3.24
+        },
+        {
+          "raw": "By",
+          "start": 3.7,
+          "end": 3.76
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "raw": "by",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "it",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "raw": "will",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "raw": "strike.",
+          "start": 4.3,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "Look",
+        "he's",
+        "winding",
+        "up",
+        "the",
+        "watch",
+        "of",
+        "his",
+        "wit;",
+        "by",
+        "and",
+        "by",
+        "it",
+        "will",
+        "strike."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Look",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "look",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "hes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "winding",
+          "start": 1.88,
+          "end": 2.14,
+          "key": "winding",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.14,
+          "end": 2.34,
+          "key": "up",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.34,
+          "end": 2.44,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 2.44,
+          "end": 2.68,
+          "key": "watch",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.68,
+          "end": 2.82,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.82,
+          "end": 2.96,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wit.",
+          "start": 2.96,
+          "end": 3.24,
+          "key": "wit",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "By",
+          "start": 3.7,
+          "end": 3.76,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 3.92,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "by",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.1,
+          "end": 4.2,
+          "key": "it",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.2,
+          "end": 4.3,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "strike.",
+          "start": 4.3,
+          "end": 4.64,
+          "key": "strike",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "Look",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "he's",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "winding",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "text": "up",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "text": "the",
+          "start": 2.34,
+          "end": 2.44
+        },
+        {
+          "text": "watch",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "text": "of",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "his",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "text": "wit;",
+          "start": 2.96,
+          "end": 3.24
+        },
+        {
+          "text": "by",
+          "start": 3.7,
+          "end": 3.76
+        },
+        {
+          "text": "and",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "text": "by",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "it",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "text": "will",
+          "start": 4.2,
+          "end": 4.3
+        },
+        {
+          "text": "strike.",
+          "start": 4.3,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37159526720643044
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bcb90681b056cf5006ce00d9b249f2693457996d5595817559fe6b1f87db6c4d",
+  "selected_reasons": []
+}

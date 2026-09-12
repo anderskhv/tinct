@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "f7c76afab2c81fd98ef05d6209efd7b2869b84e62f1a15c703da03569142bca9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3670797813683748,
+      "alignment_seconds": 0.0006179232150316238,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "After a while he is driven out, but comes back, in spite of his enemies, a tyrant full grown.",
+        "hotwords": "After"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " After a while he is driven out, but comes back, in spite of his enemies, a tyrant full grown.",
+          "start": 0.24,
+          "end": 5.54,
+          "words": [
+            {
+              "text": " After",
+              "start": 0.24,
+              "end": 0.68,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " a",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " while",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 0.96,
+              "end": 1.22,
+              "probability": 0.6943359375
+            },
+            {
+              "text": " is",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " driven",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " out,",
+              "start": 1.58,
+              "end": 1.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 2.24,
+              "end": 2.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " comes",
+              "start": 2.44,
+              "end": 2.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " back,",
+              "start": 2.7,
+              "end": 3.04,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 3.3,
+              "end": 3.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " spite",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 3.6,
+              "end": 3.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 3.76,
+              "end": 3.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enemies,",
+              "start": 3.88,
+              "end": 4.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 4.56,
+              "end": 4.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tyrant",
+              "start": 4.62,
+              "end": 4.88,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " full",
+              "start": 4.88,
+              "end": 5.24,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " grown.",
+              "start": 5.24,
+              "end": 5.54,
+              "probability": 0.486083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "After",
+          "start": 0.24,
+          "end": 0.68
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "while",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.22
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "driven",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "out,",
+          "start": 1.58,
+          "end": 1.96
+        },
+        {
+          "raw": "but",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "raw": "comes",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "raw": "back,",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "raw": "in",
+          "start": 3.3,
+          "end": 3.4
+        },
+        {
+          "raw": "spite",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "of",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "raw": "his",
+          "start": 3.76,
+          "end": 3.88
+        },
+        {
+          "raw": "enemies,",
+          "start": 3.88,
+          "end": 4.2
+        },
+        {
+          "raw": "a",
+          "start": 4.56,
+          "end": 4.62
+        },
+        {
+          "raw": "tyrant",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "raw": "full",
+          "start": 4.88,
+          "end": 5.24
+        },
+        {
+          "raw": "grown.",
+          "start": 5.24,
+          "end": 5.54
+        }
+      ],
+      "expected_tokens": [
+        "After",
+        "a",
+        "while",
+        "he",
+        "is",
+        "driven",
+        "out,",
+        "but",
+        "comes",
+        "back,",
+        "in",
+        "spite",
+        "of",
+        "his",
+        "enemies,",
+        "a",
+        "tyrant",
+        "full",
+        "grown."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "After",
+          "start": 0.24,
+          "end": 0.68,
+          "key": "after",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "while",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.96,
+          "end": 1.22,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "driven",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "driven",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 1.58,
+          "end": 1.96,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.24,
+          "end": 2.44,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 2.44,
+          "end": 2.7,
+          "key": "comes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "back,",
+          "start": 2.7,
+          "end": 3.04,
+          "key": "back",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.3,
+          "end": 3.4,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "spite",
+          "start": 3.4,
+          "end": 3.6,
+          "key": "spite",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.6,
+          "end": 3.76,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.76,
+          "end": 3.88,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "enemies,",
+          "start": 3.88,
+          "end": 4.2,
+          "key": "enemies",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.56,
+          "end": 4.62,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tyrant",
+          "start": 4.62,
+          "end": 4.88,
+          "key": "tyrant",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "full",
+          "start": 4.88,
+          "end": 5.24,
+          "key": "full",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "grown.",
+          "start": 5.24,
+          "end": 5.54,
+          "key": "grown",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "After",
+          "start": 0.24,
+          "end": 0.68
+        },
+        {
+          "text": "a",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "while",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "he",
+          "start": 0.96,
+          "end": 1.22
+        },
+        {
+          "text": "is",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "driven",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "text": "out,",
+          "start": 1.58,
+          "end": 1.96
+        },
+        {
+          "text": "but",
+          "start": 2.24,
+          "end": 2.44
+        },
+        {
+          "text": "comes",
+          "start": 2.44,
+          "end": 2.7
+        },
+        {
+          "text": "back,",
+          "start": 2.7,
+          "end": 3.04
+        },
+        {
+          "text": "in",
+          "start": 3.3,
+          "end": 3.4
+        },
+        {
+          "text": "spite",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "of",
+          "start": 3.6,
+          "end": 3.76
+        },
+        {
+          "text": "his",
+          "start": 3.76,
+          "end": 3.88
+        },
+        {
+          "text": "enemies,",
+          "start": 3.88,
+          "end": 4.2
+        },
+        {
+          "text": "a",
+          "start": 4.56,
+          "end": 4.62
+        },
+        {
+          "text": "tyrant",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "text": "full",
+          "start": 4.88,
+          "end": 5.24
+        },
+        {
+          "text": "grown.",
+          "start": 5.24,
+          "end": 5.54
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36795521434396505
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "06653d1bea13eb2f8a989e99af2b6f9e0e5382e0dffdb8029d8951cf0fb74e58",
+  "selected_reasons": []
+}

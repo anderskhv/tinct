@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "dc66313952595f0a8cb793970be0b00751ada49c068b96228bf5688193900030",
+  "attempts": [
+    {
+      "asr_seconds": 0.07766871899366379,
+      "alignment_seconds": 9.185262024402618e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Don't say anything until you have had a talk with Hellgum,\" begged Karin.",
+        "hotwords": "Don't, Hellgum, Karin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don't say anything until you have had a talk with Hellgum,\" begged Karin.",
+          "start": 0.02,
+          "end": 3.8,
+          "words": [
+            {
+              "text": " Don't",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.7003173828125
+            },
+            {
+              "text": " say",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " anything",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " until",
+              "start": 1.26,
+              "end": 1.56,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 1.7,
+              "end": 1.8,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " had",
+              "start": 1.8,
+              "end": 1.92,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 1.92,
+              "end": 2.02,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " talk",
+              "start": 2.02,
+              "end": 2.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Hellgum,\"",
+              "start": 2.42,
+              "end": 3.42,
+              "probability": 0.4649639129638672
+            },
+            {
+              "text": " begged",
+              "start": 3.42,
+              "end": 3.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Karin.",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.11932373046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don't",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "say",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "anything",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "until",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "raw": "you",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "have",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "raw": "had",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "raw": "talk",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "raw": "with",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "Hellgum,\"",
+          "start": 2.42,
+          "end": 3.42
+        },
+        {
+          "raw": "begged",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "raw": "Karin.",
+          "start": 3.54,
+          "end": 3.8
+        }
+      ],
+      "expected_tokens": [
+        "\"Don't",
+        "say",
+        "anything",
+        "until",
+        "you",
+        "have",
+        "had",
+        "a",
+        "talk",
+        "with",
+        "Hellgum,\"",
+        "begged",
+        "Karin."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don't",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "dont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "anything",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "until",
+          "start": 1.26,
+          "end": 1.56,
+          "key": "until",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.7,
+          "end": 1.8,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.8,
+          "end": 1.92,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.02,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 2.02,
+          "end": 2.24,
+          "key": "talk",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Hellgum,\"",
+          "start": 2.42,
+          "end": 3.42,
+          "key": "hellgum",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "begged",
+          "start": 3.42,
+          "end": 3.54,
+          "key": "begged",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Karin.",
+          "start": 3.54,
+          "end": 3.8,
+          "key": "karin",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Don't",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "say",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "anything",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "until",
+          "start": 1.26,
+          "end": 1.56
+        },
+        {
+          "text": "you",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "have",
+          "start": 1.7,
+          "end": 1.8
+        },
+        {
+          "text": "had",
+          "start": 1.8,
+          "end": 1.92
+        },
+        {
+          "text": "a",
+          "start": 1.92,
+          "end": 2.02
+        },
+        {
+          "text": "talk",
+          "start": 2.02,
+          "end": 2.24
+        },
+        {
+          "text": "with",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "Hellgum,\"",
+          "start": 2.42,
+          "end": 3.42
+        },
+        {
+          "text": "begged",
+          "start": 3.42,
+          "end": 3.54
+        },
+        {
+          "text": "Karin.",
+          "start": 3.54,
+          "end": 3.8
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07779792323708534
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "95bc048a0a102689301d7a0c68ba8004c3edaf138dc510f3a841edb15c5e9af0",
+  "selected_reasons": []
+}

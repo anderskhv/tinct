@@ -1,0 +1,374 @@
+{
+  "complete": true,
+  "signature": "e9ef7327e2e9e7ba1f73b3d630ecbdaf546227be35a1a6fccedb5095e8c103ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.2374182529747486,
+      "alignment_seconds": 0.000505983829498291,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro, Come Balthazar will hear that song again.",
+          "start": 0.05,
+          "end": 3.49,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Come",
+              "start": 1.65,
+              "end": 1.73,
+              "probability": 0.403076171875
+            },
+            {
+              "text": " Balthazar",
+              "start": 1.73,
+              "end": 2.23,
+              "probability": 0.554931640625
+            },
+            {
+              "text": " will",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " hear",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 2.67,
+              "end": 2.87,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " song",
+              "start": 2.87,
+              "end": 3.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " again.",
+              "start": 3.15,
+              "end": 3.49,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "Come",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "raw": "Balthazar",
+          "start": 1.73,
+          "end": 2.23
+        },
+        {
+          "raw": "will",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "hear",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "that",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "raw": "song",
+          "start": 2.87,
+          "end": 3.15
+        },
+        {
+          "raw": "again.",
+          "start": 3.15,
+          "end": 3.49
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Come,",
+        "Balthasar,",
+        "we'll",
+        "hear",
+        "that",
+        "song",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 1.65,
+          "end": 1.73,
+          "key": "come",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Balthazar",
+          "start": 1.73,
+          "end": 2.23,
+          "key": "balthazar",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "hear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.67,
+          "end": 2.87,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "song",
+          "start": 2.87,
+          "end": 3.15,
+          "key": "song",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 3.15,
+          "end": 3.49,
+          "key": "again",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "Come,",
+          "start": 1.65,
+          "end": 1.73
+        },
+        {
+          "text": "Balthasar,",
+          "start": 1.73,
+          "end": 2.11
+        },
+        {
+          "text": "we'll",
+          "start": 2.11,
+          "end": 2.3
+        },
+        {
+          "text": "hear",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "text": "that",
+          "start": 2.67,
+          "end": 2.87
+        },
+        {
+          "text": "song",
+          "start": 2.87,
+          "end": 3.15
+        },
+        {
+          "text": "again.",
+          "start": 3.15,
+          "end": 3.49
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23810140416026115
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0a74a2e2691eb9af9892239c71d99bcae29c425ddb6152973e22bae23f245cd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

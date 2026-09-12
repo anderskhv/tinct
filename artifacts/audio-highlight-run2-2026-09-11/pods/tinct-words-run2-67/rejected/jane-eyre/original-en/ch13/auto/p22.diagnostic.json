@@ -1,0 +1,3312 @@
+{
+  "complete": true,
+  "signature": "6972ecfd3be19a266f2a7baf466066dcf067456a28999bfead7adb6dc4eb2a79",
+  "attempts": [
+    {
+      "asr_seconds": 0.3820495898835361,
+      "alignment_seconds": 0.0006563980132341385,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"N'est-ce pas, monsieur, qu'il y a un cadeau pour Mademoiselle Eyre dans votre petit coffre?\"",
+        "hotwords": "N'est-ce, Mademoiselle, Eyre"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " N'est-ce pas, monsieur, qu'il y a un cadeau pour Mademoiselle Eyre dans votre petit coffre?\"",
+          "start": 0.11,
+          "end": 6.77,
+          "words": [
+            {
+              "text": " N",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.6591796875
+            },
+            {
+              "text": "'est",
+              "start": 0.59,
+              "end": 0.71,
+              "probability": 0.02242901921272278
+            },
+            {
+              "text": "-ce",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.280029296875
+            },
+            {
+              "text": " pas,",
+              "start": 0.95,
+              "end": 1.17,
+              "probability": 0.127685546875
+            },
+            {
+              "text": " monsieur,",
+              "start": 1.31,
+              "end": 1.69,
+              "probability": 0.8729248046875
+            },
+            {
+              "text": " qu",
+              "start": 2.19,
+              "end": 2.21,
+              "probability": 0.72119140625
+            },
+            {
+              "text": "'il",
+              "start": 2.21,
+              "end": 2.29,
+              "probability": 0.738525390625
+            },
+            {
+              "text": " y",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.01155853271484375
+            },
+            {
+              "text": " a",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.362060546875
+            },
+            {
+              "text": " un",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.61181640625
+            },
+            {
+              "text": " cadeau",
+              "start": 2.77,
+              "end": 3.19,
+              "probability": 0.248779296875
+            },
+            {
+              "text": " pour",
+              "start": 3.19,
+              "end": 3.41,
+              "probability": 0.966796875
+            },
+            {
+              "text": " Mademoiselle",
+              "start": 3.41,
+              "end": 4.03,
+              "probability": 0.7477874755859375
+            },
+            {
+              "text": " Eyre",
+              "start": 4.03,
+              "end": 4.35,
+              "probability": 0.47652435302734375
+            },
+            {
+              "text": " dans",
+              "start": 4.35,
+              "end": 4.77,
+              "probability": 0.42852783203125
+            },
+            {
+              "text": " votre",
+              "start": 4.77,
+              "end": 5.37,
+              "probability": 0.233565092086792
+            },
+            {
+              "text": " petit",
+              "start": 5.37,
+              "end": 5.69,
+              "probability": 0.642333984375
+            },
+            {
+              "text": " coffre?\"",
+              "start": 5.69,
+              "end": 6.77,
+              "probability": 0.17641750971476236
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "N",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "'est",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "raw": "-ce",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "pas,",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "raw": "monsieur,",
+          "start": 1.31,
+          "end": 1.69
+        },
+        {
+          "raw": "qu",
+          "start": 2.19,
+          "end": 2.21
+        },
+        {
+          "raw": "'il",
+          "start": 2.21,
+          "end": 2.29
+        },
+        {
+          "raw": "y",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "a",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "un",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "cadeau",
+          "start": 2.77,
+          "end": 3.19
+        },
+        {
+          "raw": "pour",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "raw": "Mademoiselle",
+          "start": 3.41,
+          "end": 4.03
+        },
+        {
+          "raw": "Eyre",
+          "start": 4.03,
+          "end": 4.35
+        },
+        {
+          "raw": "dans",
+          "start": 4.35,
+          "end": 4.77
+        },
+        {
+          "raw": "votre",
+          "start": 4.77,
+          "end": 5.37
+        },
+        {
+          "raw": "petit",
+          "start": 5.37,
+          "end": 5.69
+        },
+        {
+          "raw": "coffre?\"",
+          "start": 5.69,
+          "end": 6.77
+        }
+      ],
+      "expected_tokens": [
+        "\"N'est-ce",
+        "pas,",
+        "monsieur,",
+        "qu'il",
+        "y",
+        "a",
+        "un",
+        "cadeau",
+        "pour",
+        "Mademoiselle",
+        "Eyre",
+        "dans",
+        "votre",
+        "petit",
+        "coffre?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          3,
+          3,
+          5
+        ],
+        [
+          "replace",
+          3,
+          4,
+          5,
+          7
+        ],
+        [
+          "equal",
+          4,
+          15,
+          7,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "N",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "n",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 0.59,
+          "end": 0.71,
+          "key": "est",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-ce",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "ce",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pas,",
+          "start": 0.95,
+          "end": 1.17,
+          "key": "pas",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "monsieur,",
+          "start": 1.31,
+          "end": 1.69,
+          "key": "monsieur",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "qu",
+          "start": 2.19,
+          "end": 2.21,
+          "key": "qu",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'il",
+          "start": 2.21,
+          "end": 2.29,
+          "key": "il",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "y",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "y",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.47,
+          "end": 2.59,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "un",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cadeau",
+          "start": 2.77,
+          "end": 3.19,
+          "key": "cadeau",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 3.19,
+          "end": 3.41,
+          "key": "pour",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Mademoiselle",
+          "start": 3.41,
+          "end": 4.03,
+          "key": "mademoiselle",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 4.03,
+          "end": 4.35,
+          "key": "eyre",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "dans",
+          "start": 4.35,
+          "end": 4.77,
+          "key": "dans",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "votre",
+          "start": 4.77,
+          "end": 5.37,
+          "key": "votre",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "petit",
+          "start": 5.37,
+          "end": 5.69,
+          "key": "petit",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "coffre?\"",
+          "start": 5.69,
+          "end": 6.77,
+          "key": "coffre",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"N'est-ce",
+          "start": 0.0,
+          "end": 0.475
+        },
+        {
+          "text": "pas,",
+          "start": 0.95,
+          "end": 1.17
+        },
+        {
+          "text": "monsieur,",
+          "start": 1.31,
+          "end": 1.69
+        },
+        {
+          "text": "qu'il",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "y",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "a",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "un",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "cadeau",
+          "start": 2.77,
+          "end": 3.19
+        },
+        {
+          "text": "pour",
+          "start": 3.19,
+          "end": 3.41
+        },
+        {
+          "text": "Mademoiselle",
+          "start": 3.41,
+          "end": 4.03
+        },
+        {
+          "text": "Eyre",
+          "start": 4.03,
+          "end": 4.35
+        },
+        {
+          "text": "dans",
+          "start": 4.35,
+          "end": 4.77
+        },
+        {
+          "text": "votre",
+          "start": 4.77,
+          "end": 5.37
+        },
+        {
+          "text": "petit",
+          "start": 5.37,
+          "end": 5.69
+        },
+        {
+          "text": "coffre?\"",
+          "start": 5.69,
+          "end": 6.77
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 18,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.38297487096861005
+    },
+    {
+      "asr_seconds": 4.622646042145789,
+      "alignment_seconds": 0.0013300301507115364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "N'est-ce, Mademoiselle, Eyre"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " N'est-ce, mademoiselle, Eyre",
+          "start": 0.11,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " N",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.65771484375
+            },
+            {
+              "text": "'est",
+              "start": 0.59,
+              "end": 0.71,
+              "probability": 0.02273428440093994
+            },
+            {
+              "text": "-ce,",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.2825927734375
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 1.03,
+              "end": 4.07,
+              "probability": 0.5997390747070312
+            },
+            {
+              "text": " Eyre",
+              "start": 4.25,
+              "end": 4.35,
+              "probability": 0.44635045528411865
+            }
+          ]
+        },
+        {
+          "text": " N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'est-ce, mademoiselle, Eyre N'",
+          "start": 4.35,
+          "end": 6.77,
+          "words": [
+            {
+              "text": " N",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.0035457611083984375
+            },
+            {
+              "text": "'est",
+              "start": 4.57,
+              "end": 4.79,
+              "probability": 0.11923408508300781
+            },
+            {
+              "text": "-ce,",
+              "start": 4.79,
+              "end": 4.93,
+              "probability": 0.007013589143753052
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 4.93,
+              "end": 5.47,
+              "probability": 0.48026154935359955
+            },
+            {
+              "text": " Eyre",
+              "start": 5.47,
+              "end": 5.47,
+              "probability": 0.049967944622039795
+            },
+            {
+              "text": " N",
+              "start": 5.47,
+              "end": 5.53,
+              "probability": 0.022735595703125
+            },
+            {
+              "text": "'est",
+              "start": 5.53,
+              "end": 5.77,
+              "probability": 0.875732421875
+            },
+            {
+              "text": "-ce,",
+              "start": 5.77,
+              "end": 5.77,
+              "probability": 0.86328125
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.05,
+              "end": 6.05,
+              "probability": 0.6484460830688477
+            },
+            {
+              "text": " Eyre",
+              "start": 6.09,
+              "end": 6.17,
+              "probability": 0.530670166015625
+            },
+            {
+              "text": " N",
+              "start": 6.17,
+              "end": 6.77,
+              "probability": 0.958984375
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.983642578125
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.919189453125
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.98681640625
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.989990234375
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9852294921875
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.960205078125
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.993408203125
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.993896484375
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.982421875
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.994384765625
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.985107421875
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.995361328125
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.988525390625
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.995849609375
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9937744140625
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9937744140625
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.996826171875
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.996826171875
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9932861328125
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " N",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": "'est",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.997314453125
+            },
+            {
+              "text": "-ce,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " mademoiselle,",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Eyre",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " N'",
+              "start": 6.77,
+              "end": 6.77,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "N",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "'est",
+          "start": 0.59,
+          "end": 0.71
+        },
+        {
+          "raw": "-ce,",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 1.03,
+          "end": 4.07
+        },
+        {
+          "raw": "Eyre",
+          "start": 4.25,
+          "end": 4.35
+        },
+        {
+          "raw": "N",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "'est",
+          "start": 4.57,
+          "end": 4.79
+        },
+        {
+          "raw": "-ce,",
+          "start": 4.79,
+          "end": 4.93
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 4.93,
+          "end": 5.47
+        },
+        {
+          "raw": "Eyre",
+          "start": 5.47,
+          "end": 5.47
+        },
+        {
+          "raw": "N",
+          "start": 5.47,
+          "end": 5.53
+        },
+        {
+          "raw": "'est",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 5.77,
+          "end": 5.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.05,
+          "end": 6.05
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.09,
+          "end": 6.17
+        },
+        {
+          "raw": "N",
+          "start": 6.17,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77
+        },
+        {
+          "raw": "N'",
+          "start": 6.77,
+          "end": 6.77
+        }
+      ],
+      "expected_tokens": [
+        "\"N'est-ce",
+        "pas,",
+        "monsieur,",
+        "qu'il",
+        "y",
+        "a",
+        "un",
+        "cadeau",
+        "pour",
+        "Mademoiselle",
+        "Eyre",
+        "dans",
+        "votre",
+        "petit",
+        "coffre?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          9,
+          0,
+          3
+        ],
+        [
+          "equal",
+          9,
+          11,
+          3,
+          5
+        ],
+        [
+          "replace",
+          11,
+          15,
+          5,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          9,
+          0,
+          3
+        ],
+        [
+          "replace",
+          11,
+          15,
+          5,
+          91
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "N",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "n",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 0.59,
+          "end": 0.71,
+          "key": "est",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "ce",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 1.03,
+          "end": 4.07,
+          "key": "mademoiselle",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 4.25,
+          "end": 4.35,
+          "key": "eyre",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 4.35,
+          "end": 4.57,
+          "key": "n",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 4.57,
+          "end": 4.79,
+          "key": "est",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 4.79,
+          "end": 4.93,
+          "key": "ce",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 4.93,
+          "end": 5.47,
+          "key": "mademoiselle",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 5.47,
+          "end": 5.47,
+          "key": "eyre",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 5.47,
+          "end": 5.53,
+          "key": "n",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 5.53,
+          "end": 5.77,
+          "key": "est",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 5.77,
+          "end": 5.77,
+          "key": "ce",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.05,
+          "end": 6.05,
+          "key": "mademoiselle",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.09,
+          "end": 6.17,
+          "key": "eyre",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.17,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "N",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "est",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "-ce,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "ce",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "mademoiselle,",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "mademoiselle",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "Eyre",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "eyre",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "N'",
+          "start": 6.77,
+          "end": 6.77,
+          "key": "n",
+          "pieces": [
+            90
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"N'est-ce",
+          "start": 0.0,
+          "end": 0.515
+        },
+        {
+          "text": "pas,",
+          "start": 0.515,
+          "end": 0.772
+        },
+        {
+          "text": "monsieur,",
+          "start": 0.772,
+          "end": 0.901
+        },
+        {
+          "text": "qu'il",
+          "start": 0.901,
+          "end": 0.966
+        },
+        {
+          "text": "y",
+          "start": 0.966,
+          "end": 0.998
+        },
+        {
+          "text": "a",
+          "start": 0.998,
+          "end": 1.014
+        },
+        {
+          "text": "un",
+          "start": 1.014,
+          "end": 1.022
+        },
+        {
+          "text": "cadeau",
+          "start": 1.022,
+          "end": 1.026
+        },
+        {
+          "text": "pour",
+          "start": 1.026,
+          "end": 1.028
+        },
+        {
+          "text": "Mademoiselle",
+          "start": 1.03,
+          "end": 4.07
+        },
+        {
+          "text": "Eyre",
+          "start": 4.25,
+          "end": 4.35
+        },
+        {
+          "text": "dans",
+          "start": 4.35,
+          "end": 5.56
+        },
+        {
+          "text": "votre",
+          "start": 5.56,
+          "end": 6.165
+        },
+        {
+          "text": "petit",
+          "start": 6.165,
+          "end": 6.467
+        },
+        {
+          "text": "coffre?\"",
+          "start": 6.467,
+          "end": 6.618
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 91,
+        "matched_words": 2
+      },
+      "match_ratio": 0.13333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.62537899101153
+    },
+    {
+      "asr_seconds": 0.3172523551620543,
+      "alignment_seconds": 0.0003958861343562603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " N. S. C. Palmasur, Quilwaya un cadeau pour mademoiselle aire dans, Vater Petit coffer.",
+          "start": 0.11,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " N.",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " S.",
+              "start": 0.67,
+              "end": 0.71,
+              "probability": 0.53955078125
+            },
+            {
+              "text": " C.",
+              "start": 0.89,
+              "end": 0.97,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Palmasur,",
+              "start": 1.15,
+              "end": 1.61,
+              "probability": 0.2873128255208333
+            },
+            {
+              "text": " Quilwaya",
+              "start": 2.15,
+              "end": 2.55,
+              "probability": 0.349334716796875
+            },
+            {
+              "text": " un",
+              "start": 2.55,
+              "end": 2.77,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " cadeau",
+              "start": 2.77,
+              "end": 3.21,
+              "probability": 0.4486083984375
+            },
+            {
+              "text": " pour",
+              "start": 3.21,
+              "end": 3.41,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " mademoiselle",
+              "start": 3.41,
+              "end": 4.05,
+              "probability": 0.7188720703125
+            },
+            {
+              "text": " aire",
+              "start": 4.05,
+              "end": 4.31,
+              "probability": 0.475830078125
+            },
+            {
+              "text": " dans,",
+              "start": 4.31,
+              "end": 4.77,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " Vater",
+              "start": 5.21,
+              "end": 5.35,
+              "probability": 0.30865478515625
+            },
+            {
+              "text": " Petit",
+              "start": 5.35,
+              "end": 5.71,
+              "probability": 0.287109375
+            },
+            {
+              "text": " coffer.",
+              "start": 5.71,
+              "end": 6.15,
+              "probability": 0.59674072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "N.",
+          "start": 0.11,
+          "end": 0.59
+        },
+        {
+          "raw": "S.",
+          "start": 0.67,
+          "end": 0.71
+        },
+        {
+          "raw": "C.",
+          "start": 0.89,
+          "end": 0.97
+        },
+        {
+          "raw": "Palmasur,",
+          "start": 1.15,
+          "end": 1.61
+        },
+        {
+          "raw": "Quilwaya",
+          "start": 2.15,
+          "end": 2.55
+        },
+        {
+          "raw": "un",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "raw": "cadeau",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "raw": "pour",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "raw": "mademoiselle",
+          "start": 3.41,
+          "end": 4.05
+        },
+        {
+          "raw": "aire",
+          "start": 4.05,
+          "end": 4.31
+        },
+        {
+          "raw": "dans,",
+          "start": 4.31,
+          "end": 4.77
+        },
+        {
+          "raw": "Vater",
+          "start": 5.21,
+          "end": 5.35
+        },
+        {
+          "raw": "Petit",
+          "start": 5.35,
+          "end": 5.71
+        },
+        {
+          "raw": "coffer.",
+          "start": 5.71,
+          "end": 6.15
+        }
+      ],
+      "expected_tokens": [
+        "\"N'est-ce",
+        "pas,",
+        "monsieur,",
+        "qu'il",
+        "y",
+        "a",
+        "un",
+        "cadeau",
+        "pour",
+        "Mademoiselle",
+        "Eyre",
+        "dans",
+        "votre",
+        "petit",
+        "coffre?\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          5
+        ],
+        [
+          "equal",
+          6,
+          10,
+          5,
+          9
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          10
+        ],
+        [
+          "equal",
+          11,
+          12,
+          10,
+          11
+        ],
+        [
+          "replace",
+          12,
+          13,
+          11,
+          12
+        ],
+        [
+          "equal",
+          13,
+          14,
+          12,
+          13
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          6,
+          0,
+          5
+        ],
+        [
+          "replace",
+          10,
+          11,
+          9,
+          10
+        ],
+        [
+          "replace",
+          12,
+          13,
+          11,
+          12
+        ],
+        [
+          "replace",
+          14,
+          15,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "N.",
+          "start": 0.11,
+          "end": 0.59,
+          "key": "n",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "S.",
+          "start": 0.67,
+          "end": 0.71,
+          "key": "s",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "C.",
+          "start": 0.89,
+          "end": 0.97,
+          "key": "c",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Palmasur,",
+          "start": 1.15,
+          "end": 1.61,
+          "key": "palmasur",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Quilwaya",
+          "start": 2.15,
+          "end": 2.55,
+          "key": "quilwaya",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "un",
+          "start": 2.55,
+          "end": 2.77,
+          "key": "un",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cadeau",
+          "start": 2.77,
+          "end": 3.21,
+          "key": "cadeau",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 3.21,
+          "end": 3.41,
+          "key": "pour",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mademoiselle",
+          "start": 3.41,
+          "end": 4.05,
+          "key": "mademoiselle",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "aire",
+          "start": 4.05,
+          "end": 4.31,
+          "key": "aire",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dans,",
+          "start": 4.31,
+          "end": 4.77,
+          "key": "dans",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Vater",
+          "start": 5.21,
+          "end": 5.35,
+          "key": "vater",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Petit",
+          "start": 5.35,
+          "end": 5.71,
+          "key": "petit",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "coffer.",
+          "start": 5.71,
+          "end": 6.15,
+          "key": "coffer",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"N'est-ce",
+          "start": 0.0,
+          "end": 1.275
+        },
+        {
+          "text": "pas,",
+          "start": 1.275,
+          "end": 1.912
+        },
+        {
+          "text": "monsieur,",
+          "start": 1.912,
+          "end": 2.231
+        },
+        {
+          "text": "qu'il",
+          "start": 2.231,
+          "end": 2.39
+        },
+        {
+          "text": "y",
+          "start": 2.39,
+          "end": 2.47
+        },
+        {
+          "text": "a",
+          "start": 2.47,
+          "end": 2.51
+        },
+        {
+          "text": "un",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "text": "cadeau",
+          "start": 2.77,
+          "end": 3.21
+        },
+        {
+          "text": "pour",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "text": "Mademoiselle",
+          "start": 3.41,
+          "end": 4.05
+        },
+        {
+          "text": "Eyre",
+          "start": 4.05,
+          "end": 4.18
+        },
+        {
+          "text": "dans",
+          "start": 4.31,
+          "end": 4.77
+        },
+        {
+          "text": "votre",
+          "start": 4.77,
+          "end": 5.06
+        },
+        {
+          "text": "petit",
+          "start": 5.35,
+          "end": 5.71
+        },
+        {
+          "text": "coffre?\"",
+          "start": 5.71,
+          "end": 5.93
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 6
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3177702440880239
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "93b4482a7c23d00125834dba46c6ed0db4cae498bc227772852372c0ba568bca",
+  "selected_reasons": []
+}

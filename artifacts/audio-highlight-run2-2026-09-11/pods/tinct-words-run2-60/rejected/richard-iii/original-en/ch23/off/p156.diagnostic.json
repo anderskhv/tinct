@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "0401178c66bdf5b181fa1012db5405436137c27cebd04f19efb159fa7de6de78",
+  "attempts": [
+    {
+      "asr_seconds": 0.1322116144001484,
+      "alignment_seconds": 0.00026159361004829407,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " his oration to his army.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " his",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " oration",
+              "start": 0.57,
+              "end": 0.99,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " to",
+              "start": 0.99,
+              "end": 1.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " army.",
+              "start": 1.31,
+              "end": 1.61,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "his",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "oration",
+          "start": 0.57,
+          "end": 0.99
+        },
+        {
+          "raw": "to",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "raw": "his",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "army.",
+          "start": 1.31,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "His",
+        "oration",
+        "to",
+        "his",
+        "army."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "his",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oration",
+          "start": 0.57,
+          "end": 0.99,
+          "key": "oration",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.99,
+          "end": 1.19,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "army.",
+          "start": 1.31,
+          "end": 1.61,
+          "key": "army",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "His",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "oration",
+          "start": 0.57,
+          "end": 0.99
+        },
+        {
+          "text": "to",
+          "start": 0.99,
+          "end": 1.19
+        },
+        {
+          "text": "his",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "army.",
+          "start": 1.31,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13257288560271263
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "59f3e525f8c83f2b8a0b3a830a8c7ecc0784127b384d488c0fcd8ad18ff85bd0",
+  "selected_reasons": []
+}

@@ -1,0 +1,261 @@
+{
+  "complete": true,
+  "signature": "bf4d44450573a6099474fa8ab883e88513ac5496792a411e4b9180d4724bddb0",
+  "attempts": [
+    {
+      "asr_seconds": 0.10150731122121215,
+      "alignment_seconds": 0.00012565916404128075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Here you go, some wine hoe.",
+          "start": 0.08,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.08282470703125
+            },
+            {
+              "text": " you",
+              "start": 0.56,
+              "end": 0.66,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " go,",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " some",
+              "start": 1.06,
+              "end": 1.08,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " wine",
+              "start": 1.08,
+              "end": 1.3,
+              "probability": 0.8515625
+            },
+            {
+              "text": " hoe.",
+              "start": 1.3,
+              "end": 1.62,
+              "probability": 0.6988525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "you",
+          "start": 0.56,
+          "end": 0.66
+        },
+        {
+          "raw": "go,",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "some",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "raw": "wine",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "raw": "hoe.",
+          "start": 1.3,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Some",
+        "wine,",
+        "ho!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          3,
+          3,
+          5
+        ],
+        [
+          "replace",
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.56,
+          "end": 0.66,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go,",
+          "start": 0.66,
+          "end": 0.84,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 1.06,
+          "end": 1.08,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wine",
+          "start": 1.08,
+          "end": 1.3,
+          "key": "wine",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hoe.",
+          "start": 1.3,
+          "end": 1.62,
+          "key": "hoe",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "Some",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "text": "wine,",
+          "start": 1.08,
+          "end": 1.3
+        },
+        {
+          "text": "ho!",
+          "start": 1.3,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10168195003643632
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "58770d54908a4f7f65c826537a0508de6919364295765a6a2a18432398262b0c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

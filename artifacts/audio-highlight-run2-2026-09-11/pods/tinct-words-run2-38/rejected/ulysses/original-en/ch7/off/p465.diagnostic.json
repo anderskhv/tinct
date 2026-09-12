@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "88b9d2546135328eebe89519f7129146afe38acf6ff3161daf67c1b0dac22ce2",
+  "attempts": [
+    {
+      "asr_seconds": 0.14832975901663303,
+      "alignment_seconds": 0.00022764102322980762,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, the professor said skipping to get into step, Crawford will follow.",
+          "start": 0.02,
+          "end": 4.52,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.6572265625
+            },
+            {
+              "text": " the",
+              "start": 1.18,
+              "end": 1.24,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " professor",
+              "start": 1.24,
+              "end": 1.56,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " said",
+              "start": 1.56,
+              "end": 1.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " skipping",
+              "start": 1.96,
+              "end": 2.32,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " to",
+              "start": 2.32,
+              "end": 2.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " get",
+              "start": 2.56,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " step,",
+              "start": 2.86,
+              "end": 3.22,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " Crawford",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 3.9,
+              "end": 4.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " follow.",
+              "start": 4.16,
+              "end": 4.52,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.24
+        },
+        {
+          "raw": "professor",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "raw": "skipping",
+          "start": 1.96,
+          "end": 2.32
+        },
+        {
+          "raw": "to",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "raw": "get",
+          "start": 2.56,
+          "end": 2.66
+        },
+        {
+          "raw": "into",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "step,",
+          "start": 2.86,
+          "end": 3.22
+        },
+        {
+          "raw": "Crawford",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "will",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "raw": "follow.",
+          "start": 4.16,
+          "end": 4.52
+        }
+      ],
+      "expected_tokens": [
+        "—Yes?",
+        "the",
+        "professor",
+        "said,",
+        "skipping",
+        "to",
+        "get",
+        "into",
+        "step.",
+        "Crawford",
+        "will",
+        "follow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.18,
+          "end": 1.24,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "professor",
+          "start": 1.24,
+          "end": 1.56,
+          "key": "professor",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.56,
+          "end": 1.96,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "skipping",
+          "start": 1.96,
+          "end": 2.32,
+          "key": "skipping",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.32,
+          "end": 2.56,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 2.56,
+          "end": 2.66,
+          "key": "get",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "into",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "step,",
+          "start": 2.86,
+          "end": 3.22,
+          "key": "step",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Crawford",
+          "start": 3.72,
+          "end": 3.9,
+          "key": "crawford",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.9,
+          "end": 4.16,
+          "key": "will",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "follow.",
+          "start": 4.16,
+          "end": 4.52,
+          "key": "follow",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Yes?",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "the",
+          "start": 1.18,
+          "end": 1.24
+        },
+        {
+          "text": "professor",
+          "start": 1.24,
+          "end": 1.56
+        },
+        {
+          "text": "said,",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "text": "skipping",
+          "start": 1.96,
+          "end": 2.32
+        },
+        {
+          "text": "to",
+          "start": 2.32,
+          "end": 2.56
+        },
+        {
+          "text": "get",
+          "start": 2.56,
+          "end": 2.66
+        },
+        {
+          "text": "into",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "step.",
+          "start": 2.86,
+          "end": 3.22
+        },
+        {
+          "text": "Crawford",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "will",
+          "start": 3.9,
+          "end": 4.16
+        },
+        {
+          "text": "follow.",
+          "start": 4.16,
+          "end": 4.52
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14864659099839628
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "50a9ad4bdae7bc5567dc9b7f8a67cb9c54dbf0dc541abacea4fd634afae7a9b6",
+  "selected_reasons": []
+}

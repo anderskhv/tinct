@@ -1,0 +1,581 @@
+{
+  "complete": true,
+  "signature": "8c92f9c4a8e36bd6d819bd7b647985d4ef63fdd044c6fd37fa8087314b528f89",
+  "attempts": [
+    {
+      "asr_seconds": 0.36089457385241985,
+      "alignment_seconds": 0.0006973380222916603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mr. Fogg turned to Aouda and asked her, \"You would not be afraid, would you, madam?\"",
+        "hotwords": "Mr, Fogg, Aouda"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mr. Fogg turned to Aouda and asked her,",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Fogg",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " turned",
+              "start": 1.07,
+              "end": 1.39,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 1.39,
+              "end": 1.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Aouda",
+              "start": 1.63,
+              "end": 2.17,
+              "probability": 0.41535186767578125
+            },
+            {
+              "text": " and",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " asked",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her,",
+              "start": 2.59,
+              "end": 2.87,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " You would not be afraid, would you, madam?",
+          "start": 2.87,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " You",
+              "start": 2.87,
+              "end": 3.41,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " would",
+              "start": 3.41,
+              "end": 3.51,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " not",
+              "start": 3.51,
+              "end": 3.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " afraid,",
+              "start": 3.83,
+              "end": 4.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " would",
+              "start": 4.53,
+              "end": 4.55,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you,",
+              "start": 4.55,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " madam?",
+              "start": 4.95,
+              "end": 5.19,
+              "probability": 0.760009765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Fogg",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "turned",
+          "start": 1.07,
+          "end": 1.39
+        },
+        {
+          "raw": "to",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "raw": "Aouda",
+          "start": 1.63,
+          "end": 2.17
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "asked",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "raw": "her,",
+          "start": 2.59,
+          "end": 2.87
+        },
+        {
+          "raw": "You",
+          "start": 2.87,
+          "end": 3.41
+        },
+        {
+          "raw": "would",
+          "start": 3.41,
+          "end": 3.51
+        },
+        {
+          "raw": "not",
+          "start": 3.51,
+          "end": 3.67
+        },
+        {
+          "raw": "be",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "afraid,",
+          "start": 3.83,
+          "end": 4.21
+        },
+        {
+          "raw": "would",
+          "start": 4.53,
+          "end": 4.55
+        },
+        {
+          "raw": "you,",
+          "start": 4.55,
+          "end": 4.79
+        },
+        {
+          "raw": "madam?",
+          "start": 4.95,
+          "end": 5.19
+        }
+      ],
+      "expected_tokens": [
+        "Mr.",
+        "Fogg",
+        "turned",
+        "to",
+        "Aouda",
+        "and",
+        "asked",
+        "her,",
+        "\"You",
+        "would",
+        "not",
+        "be",
+        "afraid,",
+        "would",
+        "you,",
+        "madam?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fogg",
+          "start": 0.97,
+          "end": 1.07,
+          "key": "fogg",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 1.07,
+          "end": 1.39,
+          "key": "turned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.39,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Aouda",
+          "start": 1.63,
+          "end": 2.17,
+          "key": "aouda",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.31,
+          "end": 2.59,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her,",
+          "start": 2.59,
+          "end": 2.87,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.87,
+          "end": 3.41,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 3.41,
+          "end": 3.51,
+          "key": "would",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.51,
+          "end": 3.67,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.67,
+          "end": 3.83,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "afraid,",
+          "start": 3.83,
+          "end": 4.21,
+          "key": "afraid",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.53,
+          "end": 4.55,
+          "key": "would",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 4.55,
+          "end": 4.79,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "madam?",
+          "start": 4.95,
+          "end": 5.19,
+          "key": "madam",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Fogg",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "turned",
+          "start": 1.07,
+          "end": 1.39
+        },
+        {
+          "text": "to",
+          "start": 1.39,
+          "end": 1.63
+        },
+        {
+          "text": "Aouda",
+          "start": 1.63,
+          "end": 2.17
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "asked",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "text": "her,",
+          "start": 2.59,
+          "end": 2.87
+        },
+        {
+          "text": "\"You",
+          "start": 2.87,
+          "end": 3.41
+        },
+        {
+          "text": "would",
+          "start": 3.41,
+          "end": 3.51
+        },
+        {
+          "text": "not",
+          "start": 3.51,
+          "end": 3.67
+        },
+        {
+          "text": "be",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "afraid,",
+          "start": 3.83,
+          "end": 4.21
+        },
+        {
+          "text": "would",
+          "start": 4.53,
+          "end": 4.55
+        },
+        {
+          "text": "you,",
+          "start": 4.55,
+          "end": 4.79
+        },
+        {
+          "text": "madam?\"",
+          "start": 4.95,
+          "end": 5.19
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3618653705343604
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5fcb29ad8f9c85cf483cd6532f59d7788feaed960d801903a97fb976890fb432",
+  "selected_reasons": []
+}

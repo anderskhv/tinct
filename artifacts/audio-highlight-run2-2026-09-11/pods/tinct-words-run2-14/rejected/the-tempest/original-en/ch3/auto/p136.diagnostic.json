@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "a6dbaa474516850cade4cfa3ecc1a22ee42bc02e53252ae582c17b7a7532c190",
+  "attempts": [
+    {
+      "asr_seconds": 0.20476647466421127,
+      "alignment_seconds": 0.00036201998591423035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio. Then, tell me, Who's the next heir of Naples?",
+        "hotwords": "Antonio, Then, Who's, Naples"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio. Then, tell me, Who's the next heir of Naples?",
+          "start": 0.11,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Antonio.",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " Then,",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.970703125
+            },
+            {
+              "text": " tell",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me,",
+              "start": 1.95,
+              "end": 2.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Who's",
+              "start": 2.27,
+              "end": 2.43,
+              "probability": 0.4769287109375
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.55,
+              "probability": 0.96484375
+            },
+            {
+              "text": " next",
+              "start": 2.55,
+              "end": 2.77,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " heir",
+              "start": 2.77,
+              "end": 2.95,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " of",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Naples?",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "Then,",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "tell",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "me,",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "raw": "Who's",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "raw": "next",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "raw": "heir",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "raw": "of",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "Naples?",
+          "start": 3.11,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Then,",
+        "tell",
+        "me,",
+        "Who's",
+        "the",
+        "next",
+        "heir",
+        "of",
+        "Naples?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio.",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Then,",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "tell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.95,
+          "end": 2.17,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Who's",
+          "start": 2.27,
+          "end": 2.43,
+          "key": "whos",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.55,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 2.55,
+          "end": 2.77,
+          "key": "next",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "heir",
+          "start": 2.77,
+          "end": 2.95,
+          "key": "heir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Naples?",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "naples",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "Then,",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "tell",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "me,",
+          "start": 1.95,
+          "end": 2.17
+        },
+        {
+          "text": "Who's",
+          "start": 2.27,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.55
+        },
+        {
+          "text": "next",
+          "start": 2.55,
+          "end": 2.77
+        },
+        {
+          "text": "heir",
+          "start": 2.77,
+          "end": 2.95
+        },
+        {
+          "text": "of",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "Naples?",
+          "start": 3.11,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2052592784166336
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4a0349823ca20d2dbf33face1336b2eb28f6ac1207a7c9223080e003d6f906d1",
+  "selected_reasons": []
+}

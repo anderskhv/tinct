@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "182d351f98ea0157c08bab101942e83520e56b28d3fcbddd67b8c5cc12c92851",
+  "attempts": [
+    {
+      "asr_seconds": 0.07257304503582418,
+      "alignment_seconds": 0.0001131109893321991,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Freeman",
+          "start": 0.08,
+          "end": 0.72,
+          "words": [
+            {
+              "text": " Freeman",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.95263671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Freeman",
+          "start": 0.08,
+          "end": 0.72
+        }
+      ],
+      "expected_tokens": [
+        "_—Freeman!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Freeman",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "freeman",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Freeman!_",
+          "start": 0.08,
+          "end": 0.72
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07271639601094648
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6f09327453dc0a16e811fa9b29c522f620ebf26115f13a24da935560a0199fc0",
+  "selected_reasons": []
+}

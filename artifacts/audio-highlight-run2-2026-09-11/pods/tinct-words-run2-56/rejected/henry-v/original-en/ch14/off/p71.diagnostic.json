@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "fffc4478dc81b9d5fb587cda2605d1af447cc306a4fc2a760702b029f8c9850c",
+  "attempts": [
+    {
+      "asr_seconds": 0.14841790217906237,
+      "alignment_seconds": 0.000386909581720829,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Williams, let it be a quarrel between us if you live.",
+          "start": 0.02,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Williams,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.5673828125
+            },
+            {
+              "text": " let",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " it",
+              "start": 1.54,
+              "end": 1.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.74,
+              "end": 1.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " quarrel",
+              "start": 1.84,
+              "end": 2.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " between",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " us",
+              "start": 2.4,
+              "end": 2.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " if",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.9453125
+            },
+            {
+              "text": " you",
+              "start": 2.74,
+              "end": 2.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " live.",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Williams,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "let",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "it",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "raw": "be",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "raw": "quarrel",
+          "start": 1.84,
+          "end": 2.1
+        },
+        {
+          "raw": "between",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "us",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "raw": "if",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "you",
+          "start": 2.74,
+          "end": 2.86
+        },
+        {
+          "raw": "live.",
+          "start": 2.86,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "Williams.",
+        "Let",
+        "it",
+        "be",
+        "a",
+        "quarrel",
+        "between",
+        "us",
+        "if",
+        "you",
+        "live."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Williams,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "williams",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.54,
+          "end": 1.62,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.74,
+          "end": 1.84,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "quarrel",
+          "start": 1.84,
+          "end": 2.1,
+          "key": "quarrel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 2.1,
+          "end": 2.4,
+          "key": "between",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.4,
+          "end": 2.6,
+          "key": "us",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "if",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.74,
+          "end": 2.86,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "live.",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "live",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Williams.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Let",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "it",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "text": "be",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "a",
+          "start": 1.74,
+          "end": 1.84
+        },
+        {
+          "text": "quarrel",
+          "start": 1.84,
+          "end": 2.1
+        },
+        {
+          "text": "between",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "us",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "text": "if",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "you",
+          "start": 2.74,
+          "end": 2.86
+        },
+        {
+          "text": "live.",
+          "start": 2.86,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14895636215806007
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "539bf4cf9882c013b04dc1d633967eb5a08a8ca918afd1e64af2c31a3de4a13e",
+  "selected_reasons": []
+}

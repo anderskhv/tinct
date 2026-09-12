@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "912f6ac8d8215946632c5c8f7bda632a383fe2cfbbb01064f8e692b157b3724d",
+  "attempts": [
+    {
+      "asr_seconds": 0.23744109645485878,
+      "alignment_seconds": 0.0005011335015296936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rosencrantz, none, my lord, but that the world's grown honest.",
+          "start": 0.97,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Rosencrantz,",
+              "start": 0.97,
+              "end": 1.47,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " none,",
+              "start": 1.83,
+              "end": 1.93,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " my",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " lord,",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " but",
+              "start": 2.69,
+              "end": 2.77,
+              "probability": 0.984375
+            },
+            {
+              "text": " that",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.91,
+              "end": 3.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " world's",
+              "start": 3.03,
+              "end": 3.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " grown",
+              "start": 3.41,
+              "end": 3.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " honest.",
+              "start": 3.65,
+              "end": 4.05,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.97,
+          "end": 1.47
+        },
+        {
+          "raw": "none,",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "raw": "my",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "lord,",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "but",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "raw": "that",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "raw": "world's",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "raw": "grown",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "raw": "honest.",
+          "start": 3.65,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "Rosencrantz.",
+        "None,",
+        "my",
+        "lord,",
+        "but",
+        "that",
+        "the",
+        "world's",
+        "grown",
+        "honest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 0.97,
+          "end": 1.47,
+          "key": "rosencrantz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "none,",
+          "start": 1.83,
+          "end": 1.93,
+          "key": "none",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.69,
+          "end": 2.77,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.91,
+          "end": 3.03,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "world's",
+          "start": 3.03,
+          "end": 3.41,
+          "key": "worlds",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "grown",
+          "start": 3.41,
+          "end": 3.65,
+          "key": "grown",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "honest.",
+          "start": 3.65,
+          "end": 4.05,
+          "key": "honest",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rosencrantz.",
+          "start": 0.97,
+          "end": 1.47
+        },
+        {
+          "text": "None,",
+          "start": 1.83,
+          "end": 1.93
+        },
+        {
+          "text": "my",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "lord,",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "but",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "text": "that",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "the",
+          "start": 2.91,
+          "end": 3.03
+        },
+        {
+          "text": "world's",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "text": "grown",
+          "start": 3.41,
+          "end": 3.65
+        },
+        {
+          "text": "honest.",
+          "start": 3.65,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2381525319069624
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "73486d296064bd20d6c68ca0d58841945801367b82706c301976c21411eae0f4",
+  "selected_reasons": []
+}

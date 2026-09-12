@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "9c008a2a48102c775020cb4eb5af106dc65ea16ae97a220db01acd82eaed56cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.14448045566678047,
+      "alignment_seconds": 0.0004560984671115875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He gave a reluctant assent to this.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He gave a reluctant assent to this.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " gave",
+              "start": 0.49,
+              "end": 0.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 0.65,
+              "end": 0.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " reluctant",
+              "start": 0.77,
+              "end": 1.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " assent",
+              "start": 1.17,
+              "end": 1.57,
+              "probability": 0.879638671875
+            },
+            {
+              "text": " to",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this.",
+              "start": 1.69,
+              "end": 1.95,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "gave",
+          "start": 0.49,
+          "end": 0.65
+        },
+        {
+          "raw": "a",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "raw": "reluctant",
+          "start": 0.77,
+          "end": 1.17
+        },
+        {
+          "raw": "assent",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "raw": "to",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "this.",
+          "start": 1.69,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "gave",
+        "a",
+        "reluctant",
+        "assent",
+        "to",
+        "this."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 0.49,
+          "end": 0.65,
+          "key": "gave",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.65,
+          "end": 0.77,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reluctant",
+          "start": 0.77,
+          "end": 1.17,
+          "key": "reluctant",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "assent",
+          "start": 1.17,
+          "end": 1.57,
+          "key": "assent",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 1.69,
+          "end": 1.95,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "gave",
+          "start": 0.49,
+          "end": 0.65
+        },
+        {
+          "text": "a",
+          "start": 0.65,
+          "end": 0.77
+        },
+        {
+          "text": "reluctant",
+          "start": 0.77,
+          "end": 1.17
+        },
+        {
+          "text": "assent",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "text": "to",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "this.",
+          "start": 1.69,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14510314911603928
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc4be8c64cf72a5e1a4e2818f1d63f93af47d4998510560d377204232e78ef9c",
+  "selected_reasons": []
+}

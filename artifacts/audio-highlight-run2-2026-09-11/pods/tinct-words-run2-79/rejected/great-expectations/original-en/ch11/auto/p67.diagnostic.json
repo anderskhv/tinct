@@ -1,0 +1,453 @@
+{
+  "complete": true,
+  "signature": "4897a3ee3cec56159a1a61b9981ecb39318733fb85eb6b0ee4d2fcb91e99c119",
+  "attempts": [
+    {
+      "asr_seconds": 0.24440878303721547,
+      "alignment_seconds": 0.0005017612129449844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I do not,\" returned Miss Havisham. \"I am yellow skin and bone.\"",
+        "hotwords": "I, Miss, Havisham"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I do not,\" returned Miss Havisham.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.1630859375
+            },
+            {
+              "text": " do",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.94921875
+            },
+            {
+              "text": " not,\"",
+              "start": 0.65,
+              "end": 1.21,
+              "probability": 0.6861572265625
+            },
+            {
+              "text": " returned",
+              "start": 1.21,
+              "end": 1.65,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Miss",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " Havisham.",
+              "start": 1.85,
+              "end": 2.43,
+              "probability": 0.9742838541666666
+            }
+          ]
+        },
+        {
+          "text": " I am yellow skin and bone.",
+          "start": 2.83,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " I",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.0205535888671875
+            },
+            {
+              "text": " am",
+              "start": 3.03,
+              "end": 3.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " yellow",
+              "start": 3.15,
+              "end": 3.37,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " skin",
+              "start": 3.37,
+              "end": 3.75,
+              "probability": 0.93359375
+            },
+            {
+              "text": " and",
+              "start": 3.75,
+              "end": 3.95,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " bone.",
+              "start": 3.95,
+              "end": 4.19,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "not,\"",
+          "start": 0.65,
+          "end": 1.21
+        },
+        {
+          "raw": "returned",
+          "start": 1.21,
+          "end": 1.65
+        },
+        {
+          "raw": "Miss",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "Havisham.",
+          "start": 1.85,
+          "end": 2.43
+        },
+        {
+          "raw": "I",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "am",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "raw": "yellow",
+          "start": 3.15,
+          "end": 3.37
+        },
+        {
+          "raw": "skin",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "raw": "bone.",
+          "start": 3.95,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "do",
+        "not,\"",
+        "returned",
+        "Miss",
+        "Havisham.",
+        "\"I",
+        "am",
+        "yellow",
+        "skin",
+        "and",
+        "bone.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not,\"",
+          "start": 0.65,
+          "end": 1.21,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 1.21,
+          "end": 1.65,
+          "key": "returned",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "miss",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Havisham.",
+          "start": 1.85,
+          "end": 2.43,
+          "key": "havisham",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 3.03,
+          "end": 3.15,
+          "key": "am",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "yellow",
+          "start": 3.15,
+          "end": 3.37,
+          "key": "yellow",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "skin",
+          "start": 3.37,
+          "end": 3.75,
+          "key": "skin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 3.95,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bone.",
+          "start": 3.95,
+          "end": 4.19,
+          "key": "bone",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "do",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "not,\"",
+          "start": 0.65,
+          "end": 1.21
+        },
+        {
+          "text": "returned",
+          "start": 1.21,
+          "end": 1.65
+        },
+        {
+          "text": "Miss",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "Havisham.",
+          "start": 1.85,
+          "end": 2.43
+        },
+        {
+          "text": "\"I",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "am",
+          "start": 3.03,
+          "end": 3.15
+        },
+        {
+          "text": "yellow",
+          "start": 3.15,
+          "end": 3.37
+        },
+        {
+          "text": "skin",
+          "start": 3.37,
+          "end": 3.75
+        },
+        {
+          "text": "and",
+          "start": 3.75,
+          "end": 3.95
+        },
+        {
+          "text": "bone.\"",
+          "start": 3.95,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24511112598702312
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1f37ba8f858bc5071dc9e1429759b1b36285225cd31d4631f3c29d2b8cca621e",
+  "selected_reasons": []
+}

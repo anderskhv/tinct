@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "7d683b93291fe26ae8e002fb7d7ea1e3327289d27c76ab1d7c2d36e8786b0f2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2999977245926857,
+      "alignment_seconds": 0.00028907880187034607,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Have you said so at the examination yet?\" Smerdyakov queried with composure.",
+        "hotwords": "Have, Smerdyakov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Have you said so at the examination yet? Smerdyakov queried with composure.",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " you",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " said",
+              "start": 0.61,
+              "end": 0.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " the",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " examination",
+              "start": 1.33,
+              "end": 1.81,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " yet?",
+              "start": 1.81,
+              "end": 2.41,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Smerdyakov",
+              "start": 3.13,
+              "end": 3.61,
+              "probability": 0.4459381103515625
+            },
+            {
+              "text": " queried",
+              "start": 3.61,
+              "end": 4.15,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " with",
+              "start": 4.15,
+              "end": 4.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " composure.",
+              "start": 4.33,
+              "end": 4.73,
+              "probability": 0.94677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "you",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "said",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "raw": "so",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "at",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "the",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "examination",
+          "start": 1.33,
+          "end": 1.81
+        },
+        {
+          "raw": "yet?",
+          "start": 1.81,
+          "end": 2.41
+        },
+        {
+          "raw": "Smerdyakov",
+          "start": 3.13,
+          "end": 3.61
+        },
+        {
+          "raw": "queried",
+          "start": 3.61,
+          "end": 4.15
+        },
+        {
+          "raw": "with",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "raw": "composure.",
+          "start": 4.33,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "said",
+        "so",
+        "at",
+        "the",
+        "examination",
+        "yet?\"",
+        "Smerdyakov",
+        "queried",
+        "with",
+        "composure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Have",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "have",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.61,
+          "end": 0.81,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.81,
+          "end": 1.05,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.05,
+          "end": 1.21,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "examination",
+          "start": 1.33,
+          "end": 1.81,
+          "key": "examination",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "yet?",
+          "start": 1.81,
+          "end": 2.41,
+          "key": "yet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Smerdyakov",
+          "start": 3.13,
+          "end": 3.61,
+          "key": "smerdyakov",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "queried",
+          "start": 3.61,
+          "end": 4.15,
+          "key": "queried",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.15,
+          "end": 4.33,
+          "key": "with",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "composure.",
+          "start": 4.33,
+          "end": 4.73,
+          "key": "composure",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "you",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "said",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "text": "so",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "at",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "the",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "examination",
+          "start": 1.33,
+          "end": 1.81
+        },
+        {
+          "text": "yet?\"",
+          "start": 1.81,
+          "end": 2.41
+        },
+        {
+          "text": "Smerdyakov",
+          "start": 3.13,
+          "end": 3.61
+        },
+        {
+          "text": "queried",
+          "start": 3.61,
+          "end": 4.15
+        },
+        {
+          "text": "with",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "text": "composure.",
+          "start": 4.33,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3004100117832422
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "86b53e54a07ed04ac1491b150adaba8fd19f3afcaadc4626ac049830aaac5997",
+  "selected_reasons": []
+}

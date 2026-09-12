@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "739f006ed10934665e32c6ff6ddc732e7232156a1de1968586c98031b625cbad",
+  "attempts": [
+    {
+      "asr_seconds": 0.3007856719195843,
+      "alignment_seconds": 0.0003966391086578369,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Another and a nobler strain must be composed and sung by us.",
+        "hotwords": "Another"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Another and a nobler strain must be composed and sung by us.",
+          "start": 0.08,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " Another",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.70947265625
+            },
+            {
+              "text": " and",
+              "start": 0.74,
+              "end": 1.2,
+              "probability": 0.255615234375
+            },
+            {
+              "text": " a",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " nobler",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " strain",
+              "start": 1.7,
+              "end": 2.04,
+              "probability": 0.990234375
+            },
+            {
+              "text": " must",
+              "start": 2.04,
+              "end": 2.28,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " be",
+              "start": 2.28,
+              "end": 2.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " composed",
+              "start": 2.44,
+              "end": 2.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.96,
+              "end": 3.4,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " sung",
+              "start": 3.4,
+              "end": 3.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " by",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " us.",
+              "start": 3.82,
+              "end": 4.12,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Another",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "and",
+          "start": 0.74,
+          "end": 1.2
+        },
+        {
+          "raw": "a",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "nobler",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "strain",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "raw": "must",
+          "start": 2.04,
+          "end": 2.28
+        },
+        {
+          "raw": "be",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "raw": "composed",
+          "start": 2.44,
+          "end": 2.96
+        },
+        {
+          "raw": "and",
+          "start": 2.96,
+          "end": 3.4
+        },
+        {
+          "raw": "sung",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "raw": "by",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "us.",
+          "start": 3.82,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "Another",
+        "and",
+        "a",
+        "nobler",
+        "strain",
+        "must",
+        "be",
+        "composed",
+        "and",
+        "sung",
+        "by",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Another",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "another",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.74,
+          "end": 1.2,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nobler",
+          "start": 1.32,
+          "end": 1.7,
+          "key": "nobler",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strain",
+          "start": 1.7,
+          "end": 2.04,
+          "key": "strain",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.04,
+          "end": 2.28,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.28,
+          "end": 2.44,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "composed",
+          "start": 2.44,
+          "end": 2.96,
+          "key": "composed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.96,
+          "end": 3.4,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sung",
+          "start": 3.4,
+          "end": 3.62,
+          "key": "sung",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 3.62,
+          "end": 3.82,
+          "key": "by",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 3.82,
+          "end": 4.12,
+          "key": "us",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Another",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "and",
+          "start": 0.74,
+          "end": 1.2
+        },
+        {
+          "text": "a",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "nobler",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "strain",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "text": "must",
+          "start": 2.04,
+          "end": 2.28
+        },
+        {
+          "text": "be",
+          "start": 2.28,
+          "end": 2.44
+        },
+        {
+          "text": "composed",
+          "start": 2.44,
+          "end": 2.96
+        },
+        {
+          "text": "and",
+          "start": 2.96,
+          "end": 3.4
+        },
+        {
+          "text": "sung",
+          "start": 3.4,
+          "end": 3.62
+        },
+        {
+          "text": "by",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "us.",
+          "start": 3.82,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3013397939503193
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bdff25e99747974a3abebca7b647c59f99cfafbd4838488bf818c5109593e199",
+  "selected_reasons": []
+}

@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "505500cc806c96328fd0c25392634dfe40cb89f4bcd34e8e66943520c7882feb",
+  "attempts": [
+    {
+      "asr_seconds": 0.2598795569501817,
+      "alignment_seconds": 0.0004369826056063175,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second conspirator and patient fools whose children he hath slain their base throats tear with giving him glory",
+          "start": 0.05,
+          "end": 7.11,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " conspirator",
+              "start": 0.69,
+              "end": 1.43,
+              "probability": 0.681884765625
+            },
+            {
+              "text": " and",
+              "start": 1.43,
+              "end": 1.97,
+              "probability": 0.334716796875
+            },
+            {
+              "text": " patient",
+              "start": 1.97,
+              "end": 2.33,
+              "probability": 0.982421875
+            },
+            {
+              "text": " fools",
+              "start": 2.33,
+              "end": 2.83,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " whose",
+              "start": 2.83,
+              "end": 3.27,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " children",
+              "start": 3.27,
+              "end": 3.71,
+              "probability": 0.990234375
+            },
+            {
+              "text": " he",
+              "start": 3.71,
+              "end": 3.93,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " hath",
+              "start": 3.93,
+              "end": 4.03,
+              "probability": 0.927734375
+            },
+            {
+              "text": " slain",
+              "start": 4.03,
+              "end": 4.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 4.41,
+              "end": 5.03,
+              "probability": 0.4833984375
+            },
+            {
+              "text": " base",
+              "start": 5.03,
+              "end": 5.33,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " throats",
+              "start": 5.33,
+              "end": 5.67,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " tear",
+              "start": 5.67,
+              "end": 6.09,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " with",
+              "start": 6.09,
+              "end": 6.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " giving",
+              "start": 6.33,
+              "end": 6.55,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " him",
+              "start": 6.55,
+              "end": 6.79,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " glory",
+              "start": 6.79,
+              "end": 7.11,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "conspirator",
+          "start": 0.69,
+          "end": 1.43
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.97
+        },
+        {
+          "raw": "patient",
+          "start": 1.97,
+          "end": 2.33
+        },
+        {
+          "raw": "fools",
+          "start": 2.33,
+          "end": 2.83
+        },
+        {
+          "raw": "whose",
+          "start": 2.83,
+          "end": 3.27
+        },
+        {
+          "raw": "children",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "raw": "he",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "raw": "hath",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "raw": "slain",
+          "start": 4.03,
+          "end": 4.41
+        },
+        {
+          "raw": "their",
+          "start": 4.41,
+          "end": 5.03
+        },
+        {
+          "raw": "base",
+          "start": 5.03,
+          "end": 5.33
+        },
+        {
+          "raw": "throats",
+          "start": 5.33,
+          "end": 5.67
+        },
+        {
+          "raw": "tear",
+          "start": 5.67,
+          "end": 6.09
+        },
+        {
+          "raw": "with",
+          "start": 6.09,
+          "end": 6.33
+        },
+        {
+          "raw": "giving",
+          "start": 6.33,
+          "end": 6.55
+        },
+        {
+          "raw": "him",
+          "start": 6.55,
+          "end": 6.79
+        },
+        {
+          "raw": "glory",
+          "start": 6.79,
+          "end": 7.11
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Conspirator.",
+        "And",
+        "patient",
+        "fools,",
+        "Whose",
+        "children",
+        "he",
+        "hath",
+        "slain,",
+        "their",
+        "base",
+        "throats",
+        "tear",
+        "With",
+        "giving",
+        "him",
+        "glory."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "conspirator",
+          "start": 0.69,
+          "end": 1.43,
+          "key": "conspirator",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.97,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "patient",
+          "start": 1.97,
+          "end": 2.33,
+          "key": "patient",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fools",
+          "start": 2.33,
+          "end": 2.83,
+          "key": "fools",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 2.83,
+          "end": 3.27,
+          "key": "whose",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 3.27,
+          "end": 3.71,
+          "key": "children",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.71,
+          "end": 3.93,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 3.93,
+          "end": 4.03,
+          "key": "hath",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "slain",
+          "start": 4.03,
+          "end": 4.41,
+          "key": "slain",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.41,
+          "end": 5.03,
+          "key": "their",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "base",
+          "start": 5.03,
+          "end": 5.33,
+          "key": "base",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "throats",
+          "start": 5.33,
+          "end": 5.67,
+          "key": "throats",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "tear",
+          "start": 5.67,
+          "end": 6.09,
+          "key": "tear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.09,
+          "end": 6.33,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "giving",
+          "start": 6.33,
+          "end": 6.55,
+          "key": "giving",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.55,
+          "end": 6.79,
+          "key": "him",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "glory",
+          "start": 6.79,
+          "end": 7.11,
+          "key": "glory",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Conspirator.",
+          "start": 0.69,
+          "end": 1.43
+        },
+        {
+          "text": "And",
+          "start": 1.43,
+          "end": 1.97
+        },
+        {
+          "text": "patient",
+          "start": 1.97,
+          "end": 2.33
+        },
+        {
+          "text": "fools,",
+          "start": 2.33,
+          "end": 2.83
+        },
+        {
+          "text": "Whose",
+          "start": 2.83,
+          "end": 3.27
+        },
+        {
+          "text": "children",
+          "start": 3.27,
+          "end": 3.71
+        },
+        {
+          "text": "he",
+          "start": 3.71,
+          "end": 3.93
+        },
+        {
+          "text": "hath",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "text": "slain,",
+          "start": 4.03,
+          "end": 4.41
+        },
+        {
+          "text": "their",
+          "start": 4.41,
+          "end": 5.03
+        },
+        {
+          "text": "base",
+          "start": 5.03,
+          "end": 5.33
+        },
+        {
+          "text": "throats",
+          "start": 5.33,
+          "end": 5.67
+        },
+        {
+          "text": "tear",
+          "start": 5.67,
+          "end": 6.09
+        },
+        {
+          "text": "With",
+          "start": 6.09,
+          "end": 6.33
+        },
+        {
+          "text": "giving",
+          "start": 6.33,
+          "end": 6.55
+        },
+        {
+          "text": "him",
+          "start": 6.55,
+          "end": 6.79
+        },
+        {
+          "text": "glory.",
+          "start": 6.79,
+          "end": 7.11
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26053710700944066
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd728723be2cb2813a38939c2cb077d55cbebe0844b81ad0243b0a189fb15c4a",
+  "selected_reasons": []
+}

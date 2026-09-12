@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "d81772c30c2be175368c192e774f5ef82c34ad1e1ddda4205cb1e6635297fa72",
+  "attempts": [
+    {
+      "asr_seconds": 0.09342196211218834,
+      "alignment_seconds": 0.00012589246034622192,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Edgar. I am sure on't, not a word.",
+        "hotwords": "Edgar, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Edgar, I am sure on't, not a word.",
+          "start": 0.11,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.19,
+              "probability": 0.978515625
+            },
+            {
+              "text": " am",
+              "start": 1.19,
+              "end": 1.27,
+              "probability": 0.087158203125
+            },
+            {
+              "text": " sure",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.394287109375
+            },
+            {
+              "text": " on't,",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.03418159484863281
+            },
+            {
+              "text": " not",
+              "start": 1.75,
+              "end": 1.87,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " a",
+              "start": 1.87,
+              "end": 1.97,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " word.",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "raw": "am",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "raw": "sure",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "on't,",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "raw": "word.",
+          "start": 1.97,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "I",
+        "am",
+        "sure",
+        "on't,",
+        "not",
+        "a",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.19,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.19,
+          "end": 1.27,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "sure",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on't,",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "ont",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.75,
+          "end": 1.87,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.87,
+          "end": 1.97,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "word",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.19
+        },
+        {
+          "text": "am",
+          "start": 1.19,
+          "end": 1.27
+        },
+        {
+          "text": "sure",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "on't,",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "not",
+          "start": 1.75,
+          "end": 1.87
+        },
+        {
+          "text": "a",
+          "start": 1.87,
+          "end": 1.97
+        },
+        {
+          "text": "word.",
+          "start": 1.97,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0935957320034504
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8deb1cabb105c2cb8f0790cda88fcb66539107ae136cd36660b6396ef62f7492",
+  "selected_reasons": []
+}

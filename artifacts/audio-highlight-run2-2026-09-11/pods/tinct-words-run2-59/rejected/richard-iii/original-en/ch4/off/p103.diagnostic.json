@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "4d55139e8078722d3d5760bbe536318f73f11fbf60bc22e50e0a537c919a6dd1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12038649502210319,
+      "alignment_seconds": 0.0002989161293953657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter first murderer.",
+          "start": 0.05,
+          "end": 1.39,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " first",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " murderer.",
+              "start": 1.03,
+              "end": 1.39,
+              "probability": 0.9072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "first",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "murderer.",
+          "start": 1.03,
+          "end": 1.39
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "First",
+        "Murderer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "first",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "murderer.",
+          "start": 1.03,
+          "end": 1.39,
+          "key": "murderer",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "First",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "Murderer.",
+          "start": 1.03,
+          "end": 1.39
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12078436487354338
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d7614734bec500df8299cf4dcbab957b3a67f535af7615bfaea4a0d98e8bd401",
+  "selected_reasons": []
+}

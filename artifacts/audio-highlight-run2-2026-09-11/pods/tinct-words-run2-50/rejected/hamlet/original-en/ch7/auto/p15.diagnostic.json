@@ -1,0 +1,1709 @@
+{
+  "complete": true,
+  "signature": "b915d67b1e0b943b472d836aa9a6d289c1d53d8173fb6990bf9719dc7bfae1eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.36196028627455235,
+      "alignment_seconds": 0.0006628073751926422,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polonius. Give first admittance to th'ambassadors; My news shall be the fruit to that great feast.",
+        "hotwords": "Polonius, Give, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polonius, Give first admittance to th'ambassadors. My news shall be the fruit to that great feast.",
+          "start": 0.05,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.7955729166666666
+            },
+            {
+              "text": " Give",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.10552978515625
+            },
+            {
+              "text": " first",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.955078125
+            },
+            {
+              "text": " admittance",
+              "start": 2.05,
+              "end": 2.47,
+              "probability": 0.967529296875
+            },
+            {
+              "text": " to",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " th",
+              "start": 2.71,
+              "end": 2.99,
+              "probability": 0.0158843994140625
+            },
+            {
+              "text": "'ambassadors.",
+              "start": 2.99,
+              "end": 3.57,
+              "probability": 0.0825196107228597
+            },
+            {
+              "text": " My",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " news",
+              "start": 4.31,
+              "end": 4.61,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " shall",
+              "start": 4.61,
+              "end": 4.85,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " be",
+              "start": 4.85,
+              "end": 4.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.99,
+              "end": 5.15,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " fruit",
+              "start": 5.15,
+              "end": 5.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 5.37,
+              "end": 5.55,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 5.55,
+              "end": 5.73,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " great",
+              "start": 5.73,
+              "end": 5.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " feast.",
+              "start": 5.95,
+              "end": 6.37,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Give",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "first",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "admittance",
+          "start": 2.05,
+          "end": 2.47
+        },
+        {
+          "raw": "to",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "th",
+          "start": 2.71,
+          "end": 2.99
+        },
+        {
+          "raw": "'ambassadors.",
+          "start": 2.99,
+          "end": 3.57
+        },
+        {
+          "raw": "My",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "news",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "raw": "shall",
+          "start": 4.61,
+          "end": 4.85
+        },
+        {
+          "raw": "be",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.15
+        },
+        {
+          "raw": "fruit",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "raw": "to",
+          "start": 5.37,
+          "end": 5.55
+        },
+        {
+          "raw": "that",
+          "start": 5.55,
+          "end": 5.73
+        },
+        {
+          "raw": "great",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "raw": "feast.",
+          "start": 5.95,
+          "end": 6.37
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Give",
+        "first",
+        "admittance",
+        "to",
+        "th'ambassadors;",
+        "My",
+        "news",
+        "shall",
+        "be",
+        "the",
+        "fruit",
+        "to",
+        "that",
+        "great",
+        "feast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          16,
+          7,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Give",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "give",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "first",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "admittance",
+          "start": 2.05,
+          "end": 2.47,
+          "key": "admittance",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "th",
+          "start": 2.71,
+          "end": 2.99,
+          "key": "th",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'ambassadors.",
+          "start": 2.99,
+          "end": 3.57,
+          "key": "ambassadors",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 4.31,
+          "end": 4.61,
+          "key": "news",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.61,
+          "end": 4.85,
+          "key": "shall",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.85,
+          "end": 4.99,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.15,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fruit",
+          "start": 5.15,
+          "end": 5.37,
+          "key": "fruit",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.37,
+          "end": 5.55,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.55,
+          "end": 5.73,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 5.73,
+          "end": 5.95,
+          "key": "great",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "feast.",
+          "start": 5.95,
+          "end": 6.37,
+          "key": "feast",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Give",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "first",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "admittance",
+          "start": 2.05,
+          "end": 2.47
+        },
+        {
+          "text": "to",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "th'ambassadors;",
+          "start": 2.71,
+          "end": 3.43
+        },
+        {
+          "text": "My",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "news",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "text": "shall",
+          "start": 4.61,
+          "end": 4.85
+        },
+        {
+          "text": "be",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "text": "the",
+          "start": 4.99,
+          "end": 5.15
+        },
+        {
+          "text": "fruit",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "text": "to",
+          "start": 5.37,
+          "end": 5.55
+        },
+        {
+          "text": "that",
+          "start": 5.55,
+          "end": 5.73
+        },
+        {
+          "text": "great",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "text": "feast.",
+          "start": 5.95,
+          "end": 6.37
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.36286489106714725
+    },
+    {
+      "asr_seconds": 0.23481561243534088,
+      "alignment_seconds": 0.0005111787468194962,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Polonius, Give, My"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " My news shall be the fruit to that great feast.",
+          "start": 3.53,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " My",
+              "start": 3.53,
+              "end": 4.05,
+              "probability": 0.0005445480346679688
+            },
+            {
+              "text": " news",
+              "start": 4.05,
+              "end": 4.57,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " shall",
+              "start": 4.57,
+              "end": 4.85,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " be",
+              "start": 4.85,
+              "end": 4.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.99,
+              "end": 5.13,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " fruit",
+              "start": 5.13,
+              "end": 5.39,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 5.39,
+              "end": 5.55,
+              "probability": 0.986328125
+            },
+            {
+              "text": " that",
+              "start": 5.55,
+              "end": 5.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " great",
+              "start": 5.73,
+              "end": 5.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " feast.",
+              "start": 5.95,
+              "end": 6.37,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 3.53,
+          "end": 4.05
+        },
+        {
+          "raw": "news",
+          "start": 4.05,
+          "end": 4.57
+        },
+        {
+          "raw": "shall",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "raw": "be",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.13
+        },
+        {
+          "raw": "fruit",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "raw": "to",
+          "start": 5.39,
+          "end": 5.55
+        },
+        {
+          "raw": "that",
+          "start": 5.55,
+          "end": 5.73
+        },
+        {
+          "raw": "great",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "raw": "feast.",
+          "start": 5.95,
+          "end": 6.37
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Give",
+        "first",
+        "admittance",
+        "to",
+        "th'ambassadors;",
+        "My",
+        "news",
+        "shall",
+        "be",
+        "the",
+        "fruit",
+        "to",
+        "that",
+        "great",
+        "feast."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          6,
+          0,
+          0
+        ],
+        [
+          "equal",
+          6,
+          16,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          6,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "My",
+          "start": 3.53,
+          "end": 4.05,
+          "key": "my",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 4.05,
+          "end": 4.57,
+          "key": "news",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.57,
+          "end": 4.85,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.85,
+          "end": 4.99,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.13,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fruit",
+          "start": 5.13,
+          "end": 5.39,
+          "key": "fruit",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.39,
+          "end": 5.55,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.55,
+          "end": 5.73,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 5.73,
+          "end": 5.95,
+          "key": "great",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "feast.",
+          "start": 5.95,
+          "end": 6.37,
+          "key": "feast",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.0,
+          "end": 1.765
+        },
+        {
+          "text": "Give",
+          "start": 1.765,
+          "end": 2.647
+        },
+        {
+          "text": "first",
+          "start": 2.647,
+          "end": 3.088
+        },
+        {
+          "text": "admittance",
+          "start": 3.088,
+          "end": 3.309
+        },
+        {
+          "text": "to",
+          "start": 3.309,
+          "end": 3.42
+        },
+        {
+          "text": "th'ambassadors;",
+          "start": 3.42,
+          "end": 3.475
+        },
+        {
+          "text": "My",
+          "start": 3.53,
+          "end": 4.05
+        },
+        {
+          "text": "news",
+          "start": 4.05,
+          "end": 4.57
+        },
+        {
+          "text": "shall",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "text": "be",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "text": "the",
+          "start": 4.99,
+          "end": 5.13
+        },
+        {
+          "text": "fruit",
+          "start": 5.13,
+          "end": 5.39
+        },
+        {
+          "text": "to",
+          "start": 5.39,
+          "end": 5.55
+        },
+        {
+          "text": "that",
+          "start": 5.55,
+          "end": 5.73
+        },
+        {
+          "text": "great",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "text": "feast.",
+          "start": 5.95,
+          "end": 6.37
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2354853767901659
+    },
+    {
+      "asr_seconds": 0.3748397547751665,
+      "alignment_seconds": 0.0006337445229291916,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polonius, give first admittance to T.H. Ambisadors.",
+          "start": 0.55,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.55,
+              "end": 1.01,
+              "probability": 0.7955729166666666
+            },
+            {
+              "text": " give",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " first",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " admittance",
+              "start": 2.05,
+              "end": 2.47,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " to",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " T",
+              "start": 2.71,
+              "end": 2.87,
+              "probability": 0.82080078125
+            },
+            {
+              "text": ".H.",
+              "start": 2.87,
+              "end": 3.05,
+              "probability": 0.797119140625
+            },
+            {
+              "text": " Ambisadors.",
+              "start": 3.31,
+              "end": 3.77,
+              "probability": 0.58050537109375
+            }
+          ]
+        },
+        {
+          "text": " My news shall be the fruit to that great feast.",
+          "start": 4.19,
+          "end": 6.31,
+          "words": [
+            {
+              "text": " My",
+              "start": 4.19,
+              "end": 4.31,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " news",
+              "start": 4.31,
+              "end": 4.61,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " shall",
+              "start": 4.61,
+              "end": 4.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 4.85,
+              "end": 4.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.99,
+              "end": 5.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " fruit",
+              "start": 5.15,
+              "end": 5.37,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 5.37,
+              "end": 5.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 5.57,
+              "end": 5.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " great",
+              "start": 5.73,
+              "end": 5.95,
+              "probability": 0.9921875
+            },
+            {
+              "text": " feast.",
+              "start": 5.95,
+              "end": 6.31,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.55,
+          "end": 1.01
+        },
+        {
+          "raw": "give",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "first",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "admittance",
+          "start": 2.05,
+          "end": 2.47
+        },
+        {
+          "raw": "to",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "T",
+          "start": 2.71,
+          "end": 2.87
+        },
+        {
+          "raw": ".H.",
+          "start": 2.87,
+          "end": 3.05
+        },
+        {
+          "raw": "Ambisadors.",
+          "start": 3.31,
+          "end": 3.77
+        },
+        {
+          "raw": "My",
+          "start": 4.19,
+          "end": 4.31
+        },
+        {
+          "raw": "news",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "raw": "shall",
+          "start": 4.61,
+          "end": 4.85
+        },
+        {
+          "raw": "be",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.15
+        },
+        {
+          "raw": "fruit",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "raw": "to",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "raw": "that",
+          "start": 5.57,
+          "end": 5.73
+        },
+        {
+          "raw": "great",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "raw": "feast.",
+          "start": 5.95,
+          "end": 6.31
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "Give",
+        "first",
+        "admittance",
+        "to",
+        "th'ambassadors;",
+        "My",
+        "news",
+        "shall",
+        "be",
+        "the",
+        "fruit",
+        "to",
+        "that",
+        "great",
+        "feast."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          8
+        ],
+        [
+          "equal",
+          6,
+          16,
+          8,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.55,
+          "end": 1.01,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.59,
+          "end": 1.73,
+          "key": "give",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "first",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "admittance",
+          "start": 2.05,
+          "end": 2.47,
+          "key": "admittance",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 2.71,
+          "end": 2.87,
+          "key": "t",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 2.87,
+          "end": 3.05,
+          "key": "h",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ambisadors.",
+          "start": 3.31,
+          "end": 3.77,
+          "key": "ambisadors",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 4.19,
+          "end": 4.31,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "news",
+          "start": 4.31,
+          "end": 4.61,
+          "key": "news",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.61,
+          "end": 4.85,
+          "key": "shall",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.85,
+          "end": 4.99,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.15,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fruit",
+          "start": 5.15,
+          "end": 5.37,
+          "key": "fruit",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.37,
+          "end": 5.57,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.57,
+          "end": 5.73,
+          "key": "that",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 5.73,
+          "end": 5.95,
+          "key": "great",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "feast.",
+          "start": 5.95,
+          "end": 6.31,
+          "key": "feast",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 0.55,
+          "end": 1.01
+        },
+        {
+          "text": "Give",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "first",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "admittance",
+          "start": 2.05,
+          "end": 2.47
+        },
+        {
+          "text": "to",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "th'ambassadors;",
+          "start": 2.71,
+          "end": 3.45
+        },
+        {
+          "text": "My",
+          "start": 4.19,
+          "end": 4.31
+        },
+        {
+          "text": "news",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "text": "shall",
+          "start": 4.61,
+          "end": 4.85
+        },
+        {
+          "text": "be",
+          "start": 4.85,
+          "end": 4.99
+        },
+        {
+          "text": "the",
+          "start": 4.99,
+          "end": 5.15
+        },
+        {
+          "text": "fruit",
+          "start": 5.15,
+          "end": 5.37
+        },
+        {
+          "text": "to",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "text": "that",
+          "start": 5.57,
+          "end": 5.73
+        },
+        {
+          "text": "great",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "text": "feast.",
+          "start": 5.95,
+          "end": 6.31
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3757501058280468
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3cb50db910043ed4af4373e8d3e18db396c0667db23f252badc64c94d4d22416",
+  "selected_reasons": []
+}

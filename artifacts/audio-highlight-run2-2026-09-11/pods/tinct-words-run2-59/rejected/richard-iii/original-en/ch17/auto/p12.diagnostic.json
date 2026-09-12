@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "c3d0c2657a84c0f34a7a86fef0cea86aa361c28371d9b526671e6b101f40de8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.23031880985945463,
+      "alignment_seconds": 0.00036761583760380745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Buckingham. True, noble Prince.",
+        "hotwords": "Buckingham, True, Prince"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Buckingham, True, noble Prince.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Buckingham,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.9609375
+            },
+            {
+              "text": " True,",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.1016845703125
+            },
+            {
+              "text": " noble",
+              "start": 1.55,
+              "end": 1.87,
+              "probability": 0.1361083984375
+            },
+            {
+              "text": " Prince.",
+              "start": 1.87,
+              "end": 2.19,
+              "probability": 0.1270751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "True,",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "noble",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "raw": "Prince.",
+          "start": 1.87,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Buckingham.",
+        "True,",
+        "noble",
+        "Prince."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Buckingham,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "buckingham",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "True,",
+          "start": 1.41,
+          "end": 1.49,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 1.55,
+          "end": 1.87,
+          "key": "noble",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Prince.",
+          "start": 1.87,
+          "end": 2.19,
+          "key": "prince",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Buckingham.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "True,",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "noble",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "Prince.",
+          "start": 1.87,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23080391995608807
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d55cbf9cf6a14bdea8b85201c935fa07b499f170a3a0a2a6612b42582e9c4731",
+  "selected_reasons": []
+}

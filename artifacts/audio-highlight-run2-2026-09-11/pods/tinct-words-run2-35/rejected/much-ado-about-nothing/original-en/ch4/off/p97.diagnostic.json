@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "8cb39361d34e9b50182bf15dfc003138eb9b3725b0a492bc978d6cc84a7180dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.21061123348772526,
+      "alignment_seconds": 0.00034020841121673584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro to be whipped. What's his fault?",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.76171875
+            },
+            {
+              "text": " Pedro",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " to",
+              "start": 1.03,
+              "end": 1.35,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " be",
+              "start": 1.35,
+              "end": 1.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " whipped.",
+              "start": 1.47,
+              "end": 1.81,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " What's",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 2.29,
+              "end": 2.39,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " fault?",
+              "start": 2.39,
+              "end": 2.77,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "to",
+          "start": 1.03,
+          "end": 1.35
+        },
+        {
+          "raw": "be",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "raw": "whipped.",
+          "start": 1.47,
+          "end": 1.81
+        },
+        {
+          "raw": "What's",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "his",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "raw": "fault?",
+          "start": 2.39,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "To",
+        "be",
+        "whipped!",
+        "What's",
+        "his",
+        "fault?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.03,
+          "end": 1.35,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.35,
+          "end": 1.47,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "whipped.",
+          "start": 1.47,
+          "end": 1.81,
+          "key": "whipped",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "whats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.29,
+          "end": 2.39,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fault?",
+          "start": 2.39,
+          "end": 2.77,
+          "key": "fault",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "To",
+          "start": 1.03,
+          "end": 1.35
+        },
+        {
+          "text": "be",
+          "start": 1.35,
+          "end": 1.47
+        },
+        {
+          "text": "whipped!",
+          "start": 1.47,
+          "end": 1.81
+        },
+        {
+          "text": "What's",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "his",
+          "start": 2.29,
+          "end": 2.39
+        },
+        {
+          "text": "fault?",
+          "start": 2.39,
+          "end": 2.77
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21107923425734043
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a42b58fea6346bea1d7a64be031f2ba9f83ea5d641fbaac0704b1d27a28373c0",
+  "selected_reasons": []
+}

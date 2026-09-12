@@ -1,0 +1,313 @@
+{
+  "complete": true,
+  "signature": "e05c0363ac62d398a1e261ce0ffb5593fbd4f3bbed984f93114c66ba34e2058b",
+  "attempts": [
+    {
+      "asr_seconds": 0.26218427810817957,
+      "alignment_seconds": 0.0004333100514486432,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pentheus, well said.",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Pentheus,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.82470703125
+            },
+            {
+              "text": " well",
+              "start": 1.09,
+              "end": 1.29,
+              "probability": 0.970703125
+            },
+            {
+              "text": " said.",
+              "start": 1.29,
+              "end": 1.63,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " Tweer best done openly.",
+          "start": 2.17,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Tweer",
+              "start": 2.17,
+              "end": 2.29,
+              "probability": 0.6541748046875
+            },
+            {
+              "text": " best",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " done",
+              "start": 2.43,
+              "end": 2.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " openly.",
+              "start": 2.71,
+              "end": 3.11,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pentheus,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "well",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "raw": "said.",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "raw": "Tweer",
+          "start": 2.17,
+          "end": 2.29
+        },
+        {
+          "raw": "best",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "done",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "raw": "openly.",
+          "start": 2.71,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "Pentheus.",
+        "Well",
+        "said!",
+        "'Twere",
+        "best",
+        "done",
+        "openly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pentheus,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "pentheus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.09,
+          "end": 1.29,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.29,
+          "end": 1.63,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tweer",
+          "start": 2.17,
+          "end": 2.29,
+          "key": "tweer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "best",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "best",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 2.43,
+          "end": 2.71,
+          "key": "done",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "openly.",
+          "start": 2.71,
+          "end": 3.11,
+          "key": "openly",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pentheus.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Well",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "said!",
+          "start": 1.29,
+          "end": 1.63
+        },
+        {
+          "text": "'Twere",
+          "start": 1.63,
+          "end": 1.96
+        },
+        {
+          "text": "best",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "done",
+          "start": 2.43,
+          "end": 2.71
+        },
+        {
+          "text": "openly.",
+          "start": 2.71,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.26275922800414264
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4360461f755ba9920a3953e3caf507713729fc039403db3bdc9e827a584e1fa8",
+  "selected_reasons": []
+}

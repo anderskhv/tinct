@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "49c562f852e70f448da8f2ee40649e4e09f2a0a498e1cc974a081f5006812eb6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2411955874413252,
+      "alignment_seconds": 0.000529509037733078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Paulina. Will you swear Never to marry but by my free leave?",
+        "hotwords": "Paulina, Will, Never"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Paulina, Will you swear Never to marry but by my free leave?",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Paulina,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.929443359375
+            },
+            {
+              "text": " Will",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.012725830078125
+            },
+            {
+              "text": " you",
+              "start": 1.39,
+              "end": 1.53,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " swear",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " Never",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.00685882568359375
+            },
+            {
+              "text": " to",
+              "start": 1.97,
+              "end": 2.21,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " marry",
+              "start": 2.21,
+              "end": 2.43,
+              "probability": 0.96875
+            },
+            {
+              "text": " but",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.5712890625
+            },
+            {
+              "text": " by",
+              "start": 2.67,
+              "end": 2.83,
+              "probability": 0.599609375
+            },
+            {
+              "text": " my",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " free",
+              "start": 2.99,
+              "end": 3.23,
+              "probability": 0.966796875
+            },
+            {
+              "text": " leave?",
+              "start": 3.23,
+              "end": 3.55,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Will",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "raw": "swear",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "Never",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "raw": "marry",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "raw": "but",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "by",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "raw": "my",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "free",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "raw": "leave?",
+          "start": 3.23,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "Paulina.",
+        "Will",
+        "you",
+        "swear",
+        "Never",
+        "to",
+        "marry",
+        "but",
+        "by",
+        "my",
+        "free",
+        "leave?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "paulina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.53,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "swear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Never",
+          "start": 1.75,
+          "end": 1.97,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.97,
+          "end": 2.21,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "marry",
+          "start": 2.21,
+          "end": 2.43,
+          "key": "marry",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.67,
+          "end": 2.83,
+          "key": "by",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.83,
+          "end": 2.99,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "free",
+          "start": 2.99,
+          "end": 3.23,
+          "key": "free",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "leave?",
+          "start": 3.23,
+          "end": 3.55,
+          "key": "leave",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Paulina.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Will",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "you",
+          "start": 1.39,
+          "end": 1.53
+        },
+        {
+          "text": "swear",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "text": "Never",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "to",
+          "start": 1.97,
+          "end": 2.21
+        },
+        {
+          "text": "marry",
+          "start": 2.21,
+          "end": 2.43
+        },
+        {
+          "text": "but",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "by",
+          "start": 2.67,
+          "end": 2.83
+        },
+        {
+          "text": "my",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "free",
+          "start": 2.99,
+          "end": 3.23
+        },
+        {
+          "text": "leave?",
+          "start": 3.23,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24196490831673145
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "723398b1460d8421beac16e0c839bb697608a4b66243bed9fcb9520848daba46",
+  "selected_reasons": []
+}

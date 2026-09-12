@@ -1,0 +1,827 @@
+{
+  "complete": true,
+  "signature": "1cb0308c566bfea2c4fc858fe314235db4a141bf905f954f453b3e6336cb8ae3",
+  "attempts": [
+    {
+      "asr_seconds": 0.40321716014295816,
+      "alignment_seconds": 0.0005962378345429897,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All the dollar bills her husband gave her were spent in the stores on wondrous gowns and costliest frillies.",
+          "start": 0.08,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " the",
+              "start": 0.58,
+              "end": 0.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " dollar",
+              "start": 0.72,
+              "end": 0.96,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " bills",
+              "start": 0.96,
+              "end": 1.18,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " her",
+              "start": 1.18,
+              "end": 1.36,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " husband",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gave",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 2.12,
+              "end": 2.26,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " spent",
+              "start": 2.26,
+              "end": 2.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.72,
+              "end": 2.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " stores",
+              "start": 2.8,
+              "end": 3.14,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on",
+              "start": 3.14,
+              "end": 3.44,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " wondrous",
+              "start": 3.44,
+              "end": 3.9,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " gowns",
+              "start": 3.9,
+              "end": 4.44,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " and",
+              "start": 4.44,
+              "end": 4.56,
+              "probability": 0.982421875
+            },
+            {
+              "text": " costliest",
+              "start": 4.56,
+              "end": 5.14,
+              "probability": 0.963623046875
+            },
+            {
+              "text": " frillies.",
+              "start": 5.14,
+              "end": 5.74,
+              "probability": 0.9352213541666666
+            }
+          ]
+        },
+        {
+          "text": " For him, for Rael.",
+          "start": 6.32,
+          "end": 7.68,
+          "words": [
+            {
+              "text": " For",
+              "start": 6.32,
+              "end": 6.44,
+              "probability": 0.98828125
+            },
+            {
+              "text": " him,",
+              "start": 6.44,
+              "end": 6.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " for",
+              "start": 7.2,
+              "end": 7.34,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Rael.",
+              "start": 7.34,
+              "end": 7.68,
+              "probability": 0.5972900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "the",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "raw": "dollar",
+          "start": 0.72,
+          "end": 0.96
+        },
+        {
+          "raw": "bills",
+          "start": 0.96,
+          "end": 1.18
+        },
+        {
+          "raw": "her",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "raw": "husband",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "gave",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "her",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "were",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "raw": "spent",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "raw": "in",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "raw": "stores",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "raw": "on",
+          "start": 3.14,
+          "end": 3.44
+        },
+        {
+          "raw": "wondrous",
+          "start": 3.44,
+          "end": 3.9
+        },
+        {
+          "raw": "gowns",
+          "start": 3.9,
+          "end": 4.44
+        },
+        {
+          "raw": "and",
+          "start": 4.44,
+          "end": 4.56
+        },
+        {
+          "raw": "costliest",
+          "start": 4.56,
+          "end": 5.14
+        },
+        {
+          "raw": "frillies.",
+          "start": 5.14,
+          "end": 5.74
+        },
+        {
+          "raw": "For",
+          "start": 6.32,
+          "end": 6.44
+        },
+        {
+          "raw": "him,",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "raw": "for",
+          "start": 7.2,
+          "end": 7.34
+        },
+        {
+          "raw": "Rael.",
+          "start": 7.34,
+          "end": 7.68
+        }
+      ],
+      "expected_tokens": [
+        "_—All",
+        "the",
+        "dollarbills",
+        "her",
+        "husband",
+        "gave",
+        "her",
+        "were",
+        "spent",
+        "in",
+        "the",
+        "stores",
+        "on",
+        "wondrous",
+        "gowns",
+        "and",
+        "costliest",
+        "frillies.",
+        "For",
+        "him!",
+        "For",
+        "Raoul!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          21,
+          4,
+          22
+        ],
+        [
+          "replace",
+          21,
+          22,
+          22,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          21,
+          22,
+          22,
+          23
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.58,
+          "end": 0.72,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dollar",
+          "start": 0.72,
+          "end": 0.96,
+          "key": "dollar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bills",
+          "start": 0.96,
+          "end": 1.18,
+          "key": "bills",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.18,
+          "end": 1.36,
+          "key": "her",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "husband",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "husband",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "gave",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 2.12,
+          "end": 2.26,
+          "key": "were",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "spent",
+          "start": 2.26,
+          "end": 2.54,
+          "key": "spent",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.8,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stores",
+          "start": 2.8,
+          "end": 3.14,
+          "key": "stores",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.14,
+          "end": 3.44,
+          "key": "on",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "wondrous",
+          "start": 3.44,
+          "end": 3.9,
+          "key": "wondrous",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "gowns",
+          "start": 3.9,
+          "end": 4.44,
+          "key": "gowns",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.44,
+          "end": 4.56,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "costliest",
+          "start": 4.56,
+          "end": 5.14,
+          "key": "costliest",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "frillies.",
+          "start": 5.14,
+          "end": 5.74,
+          "key": "frillies",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 6.32,
+          "end": 6.44,
+          "key": "for",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 6.44,
+          "end": 6.7,
+          "key": "him",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 7.2,
+          "end": 7.34,
+          "key": "for",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Rael.",
+          "start": 7.34,
+          "end": 7.68,
+          "key": "rael",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—All",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "the",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "text": "dollarbills",
+          "start": 0.72,
+          "end": 0.95
+        },
+        {
+          "text": "her",
+          "start": 1.18,
+          "end": 1.36
+        },
+        {
+          "text": "husband",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "gave",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "her",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "were",
+          "start": 2.12,
+          "end": 2.26
+        },
+        {
+          "text": "spent",
+          "start": 2.26,
+          "end": 2.54
+        },
+        {
+          "text": "in",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 2.72,
+          "end": 2.8
+        },
+        {
+          "text": "stores",
+          "start": 2.8,
+          "end": 3.14
+        },
+        {
+          "text": "on",
+          "start": 3.14,
+          "end": 3.44
+        },
+        {
+          "text": "wondrous",
+          "start": 3.44,
+          "end": 3.9
+        },
+        {
+          "text": "gowns",
+          "start": 3.9,
+          "end": 4.44
+        },
+        {
+          "text": "and",
+          "start": 4.44,
+          "end": 4.56
+        },
+        {
+          "text": "costliest",
+          "start": 4.56,
+          "end": 5.14
+        },
+        {
+          "text": "frillies.",
+          "start": 5.14,
+          "end": 5.74
+        },
+        {
+          "text": "For",
+          "start": 6.32,
+          "end": 6.44
+        },
+        {
+          "text": "him!",
+          "start": 6.44,
+          "end": 6.7
+        },
+        {
+          "text": "For",
+          "start": 7.2,
+          "end": 7.34
+        },
+        {
+          "text": "Raoul!_",
+          "start": 7.34,
+          "end": 7.51
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 23,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.4040461308322847
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2f67182c4a0f9cf8857855cd751145278d83aab5df11f27b01d16267f1e06a21",
+  "selected_reasons": []
+}

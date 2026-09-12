@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "f5b8a0895748ea74a5cca93b1f9d754c49d3028158b93d45370d3566d722dc87",
+  "attempts": [
+    {
+      "asr_seconds": 0.21428906987421215,
+      "alignment_seconds": 0.0004747719503939152,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who is he if it's a fair question? Mrs. Breen asked. Is he Dottie?",
+          "start": 0.05,
+          "end": 4.11,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.32763671875
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " he",
+              "start": 0.67,
+              "end": 0.81,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " if",
+              "start": 0.81,
+              "end": 0.95,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " it's",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " a",
+              "start": 1.11,
+              "end": 1.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fair",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " question?",
+              "start": 1.29,
+              "end": 1.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Mrs.",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Breen",
+              "start": 2.55,
+              "end": 2.61,
+              "probability": 0.96875
+            },
+            {
+              "text": " asked.",
+              "start": 2.61,
+              "end": 3.11,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Is",
+              "start": 3.53,
+              "end": 3.61,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " he",
+              "start": 3.61,
+              "end": 3.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Dottie?",
+              "start": 3.73,
+              "end": 4.11,
+              "probability": 0.7347819010416666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "he",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "raw": "if",
+          "start": 0.81,
+          "end": 0.95
+        },
+        {
+          "raw": "it's",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "a",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "raw": "fair",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "question?",
+          "start": 1.29,
+          "end": 1.77
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "Breen",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "raw": "asked.",
+          "start": 2.61,
+          "end": 3.11
+        },
+        {
+          "raw": "Is",
+          "start": 3.53,
+          "end": 3.61
+        },
+        {
+          "raw": "he",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "raw": "Dottie?",
+          "start": 3.73,
+          "end": 4.11
+        }
+      ],
+      "expected_tokens": [
+        "—Who",
+        "is",
+        "he",
+        "if",
+        "it's",
+        "a",
+        "fair",
+        "question?",
+        "Mrs",
+        "Breen",
+        "asked.",
+        "Is",
+        "he",
+        "dotty?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.67,
+          "end": 0.81,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.81,
+          "end": 0.95,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 0.95,
+          "end": 1.11,
+          "key": "its",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.11,
+          "end": 1.15,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "fair",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "question?",
+          "start": 1.29,
+          "end": 1.77,
+          "key": "question",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "mrs",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Breen",
+          "start": 2.55,
+          "end": 2.61,
+          "key": "breen",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 2.61,
+          "end": 3.11,
+          "key": "asked",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 3.53,
+          "end": 3.61,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.61,
+          "end": 3.73,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Dottie?",
+          "start": 3.73,
+          "end": 4.11,
+          "key": "dottie",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Who",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "he",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "text": "if",
+          "start": 0.81,
+          "end": 0.95
+        },
+        {
+          "text": "it's",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "a",
+          "start": 1.11,
+          "end": 1.15
+        },
+        {
+          "text": "fair",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "question?",
+          "start": 1.29,
+          "end": 1.77
+        },
+        {
+          "text": "Mrs",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "Breen",
+          "start": 2.55,
+          "end": 2.61
+        },
+        {
+          "text": "asked.",
+          "start": 2.61,
+          "end": 3.11
+        },
+        {
+          "text": "Is",
+          "start": 3.53,
+          "end": 3.61
+        },
+        {
+          "text": "he",
+          "start": 3.61,
+          "end": 3.73
+        },
+        {
+          "text": "dotty?",
+          "start": 3.73,
+          "end": 3.92
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.21494636195711792
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e8b4379761bef00864a730cabdcf4e7660ccfb6d7647c2ba4f2e8becbab19c42",
+  "selected_reasons": []
+}

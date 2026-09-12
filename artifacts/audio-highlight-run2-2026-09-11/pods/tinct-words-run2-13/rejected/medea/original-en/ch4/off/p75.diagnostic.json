@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "811d6444cff340379b708f2ed0c612af6b4f41f5d749e55e63bfc2dc1d310485",
+  "attempts": [
+    {
+      "asr_seconds": 0.23465238697826862,
+      "alignment_seconds": 0.00046203844249248505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Medea, tease well, and if thou falter from thy vow.",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.688232421875
+            },
+            {
+              "text": " tease",
+              "start": 1.33,
+              "end": 1.43,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " well,",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 1.95,
+              "end": 2.01,
+              "probability": 0.95703125
+            },
+            {
+              "text": " if",
+              "start": 2.01,
+              "end": 2.11,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " thou",
+              "start": 2.11,
+              "end": 2.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " falter",
+              "start": 2.25,
+              "end": 2.65,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " from",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.947265625
+            },
+            {
+              "text": " thy",
+              "start": 2.83,
+              "end": 2.99,
+              "probability": 0.98828125
+            },
+            {
+              "text": " vow.",
+              "start": 2.99,
+              "end": 3.25,
+              "probability": 0.96435546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "tease",
+          "start": 1.33,
+          "end": 1.43
+        },
+        {
+          "raw": "well,",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "and",
+          "start": 1.95,
+          "end": 2.01
+        },
+        {
+          "raw": "if",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "raw": "thou",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "raw": "falter",
+          "start": 2.25,
+          "end": 2.65
+        },
+        {
+          "raw": "from",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "thy",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "raw": "vow.",
+          "start": 2.99,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "'Tis",
+        "well:",
+        "and",
+        "if",
+        "thou",
+        "falter",
+        "from",
+        "thy",
+        "vow",
+        ".",
+        ".",
+        ".",
+        "?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ],
+        [
+          "delete",
+          10,
+          11,
+          10,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "delete",
+          10,
+          11,
+          10,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13
+      ],
+      "unspoken_expected_indexes": [
+        10,
+        11,
+        12
+      ],
+      "compared_heard": [
+        {
+          "raw": "Medea,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "medea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.33,
+          "end": 1.43,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well,",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.95,
+          "end": 2.01,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.01,
+          "end": 2.11,
+          "key": "if",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.11,
+          "end": 2.25,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "falter",
+          "start": 2.25,
+          "end": 2.65,
+          "key": "falter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.83,
+          "end": 2.99,
+          "key": "thy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "vow.",
+          "start": 2.99,
+          "end": 3.25,
+          "key": "vow",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "'Tis",
+          "start": 0.87,
+          "end": 1.15
+        },
+        {
+          "text": "well:",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "and",
+          "start": 1.95,
+          "end": 2.01
+        },
+        {
+          "text": "if",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "text": "thou",
+          "start": 2.11,
+          "end": 2.25
+        },
+        {
+          "text": "falter",
+          "start": 2.25,
+          "end": 2.65
+        },
+        {
+          "text": "from",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "thy",
+          "start": 2.83,
+          "end": 2.99
+        },
+        {
+          "text": "vow",
+          "start": 2.99,
+          "end": 3.25
+        },
+        {
+          "text": ".",
+          "start": 3.25,
+          "end": 3.25
+        },
+        {
+          "text": ".",
+          "start": 3.25,
+          "end": 3.25
+        },
+        {
+          "text": ".",
+          "start": 3.25,
+          "end": 3.25
+        },
+        {
+          "text": "?",
+          "start": 3.25,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.8181818181818182,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23526168055832386
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "52c6d7eb8a66413c7383d5af2ac9ab23189fe5dd7aac995435fd59648fb300eb",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

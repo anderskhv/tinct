@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "22d0750d34b9690c13ee37b823cd6615a28809b99f8689aa2f9d0afe423895c2",
+  "attempts": [
+    {
+      "asr_seconds": 0.19748572492972016,
+      "alignment_seconds": 0.0003925762139260769,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—No. He was not.",
+        "hotwords": "No, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, He was not.",
+          "start": 0.02,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " He",
+              "start": 0.82,
+              "end": 0.92,
+              "probability": 0.0029773712158203125
+            },
+            {
+              "text": " was",
+              "start": 0.92,
+              "end": 1.04,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " not.",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "He",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "raw": "was",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "raw": "not.",
+          "start": 1.04,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "—No.",
+        "He",
+        "was",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 0.82,
+          "end": 0.92,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.92,
+          "end": 1.04,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.04,
+          "end": 1.3,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—No.",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "He",
+          "start": 0.82,
+          "end": 0.92
+        },
+        {
+          "text": "was",
+          "start": 0.92,
+          "end": 1.04
+        },
+        {
+          "text": "not.",
+          "start": 1.04,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1980217737145722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "836a7425e0ed149dfda62a94fb1115a61c2de79318b383a9c0bce9b0015575ac",
+  "selected_reasons": []
+}

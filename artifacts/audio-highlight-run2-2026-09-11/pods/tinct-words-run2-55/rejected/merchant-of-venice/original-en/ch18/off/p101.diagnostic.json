@@ -1,0 +1,347 @@
+{
+  "complete": true,
+  "signature": "e6fcddeadaa5fb52aa2ae73243a156f9f1be19a15824d581710f20e0e6cff268",
+  "attempts": [
+    {
+      "asr_seconds": 0.2296659704297781,
+      "alignment_seconds": 0.0003189360722899437,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Graciano, Ojou, an upright judge, a learned judge.",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Graciano,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.791748046875
+            },
+            {
+              "text": " Ojou,",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.360595703125
+            },
+            {
+              "text": " an",
+              "start": 2.09,
+              "end": 2.11,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " upright",
+              "start": 2.11,
+              "end": 2.39,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " judge,",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.966796875
+            },
+            {
+              "text": " a",
+              "start": 2.93,
+              "end": 2.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " learned",
+              "start": 2.97,
+              "end": 3.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " judge.",
+              "start": 3.19,
+              "end": 3.59,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Graciano,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Ojou,",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "an",
+          "start": 2.09,
+          "end": 2.11
+        },
+        {
+          "raw": "upright",
+          "start": 2.11,
+          "end": 2.39
+        },
+        {
+          "raw": "judge,",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 2.97
+        },
+        {
+          "raw": "learned",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "raw": "judge.",
+          "start": 3.19,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "O",
+        "Jew,",
+        "an",
+        "upright",
+        "judge,",
+        "a",
+        "learned",
+        "judge!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          9,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Graciano,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "graciano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ojou,",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "ojou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.09,
+          "end": 2.11,
+          "key": "an",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upright",
+          "start": 2.11,
+          "end": 2.39,
+          "key": "upright",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "judge,",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "judge",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.93,
+          "end": 2.97,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "learned",
+          "start": 2.97,
+          "end": 3.19,
+          "key": "learned",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "judge.",
+          "start": 3.19,
+          "end": 3.59,
+          "key": "judge",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.0,
+          "end": 1.045
+        },
+        {
+          "text": "O",
+          "start": 1.045,
+          "end": 1.567
+        },
+        {
+          "text": "Jew,",
+          "start": 1.567,
+          "end": 1.829
+        },
+        {
+          "text": "an",
+          "start": 2.09,
+          "end": 2.11
+        },
+        {
+          "text": "upright",
+          "start": 2.11,
+          "end": 2.39
+        },
+        {
+          "text": "judge,",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "a",
+          "start": 2.93,
+          "end": 2.97
+        },
+        {
+          "text": "learned",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "text": "judge!",
+          "start": 3.19,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2300984775647521
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "19bed745e4b142b58adbe357f846a0fe70acd13519aa0fceb939d81b96329550",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "66fc584d784621e5bfc5e40f4ba9721152f8b0caffdd878e85aebb0ed2fa1c9d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11515633761882782,
+      "alignment_seconds": 0.00019682198762893677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duchess, I pray they hear me speak.",
+          "start": 0.43,
+          "end": 2.09,
+          "words": [
+            {
+              "text": " Duchess,",
+              "start": 0.43,
+              "end": 0.75,
+              "probability": 0.59814453125
+            },
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " pray",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.982421875
+            },
+            {
+              "text": " they",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " hear",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.9921875
+            },
+            {
+              "text": " me",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speak.",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duchess,",
+          "start": 0.43,
+          "end": 0.75
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "pray",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "they",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "hear",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "me",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "speak.",
+          "start": 1.83,
+          "end": 2.09
+        }
+      ],
+      "expected_tokens": [
+        "Duchess.",
+        "I",
+        "prithee,",
+        "hear",
+        "me",
+        "speak."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          6,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duchess,",
+          "start": 0.43,
+          "end": 0.75,
+          "key": "duchess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.27,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.27,
+          "end": 1.43,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "hear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "speak.",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "speak",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duchess.",
+          "start": 0.43,
+          "end": 0.75
+        },
+        {
+          "text": "I",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "prithee,",
+          "start": 1.27,
+          "end": 1.41
+        },
+        {
+          "text": "hear",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "me",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "speak.",
+          "start": 1.83,
+          "end": 2.09
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11543329432606697
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "81810d7a82d84be4b5adc05ec4764abf78ba33ae30b2ed738adefee15fc38d86",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

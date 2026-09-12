@@ -1,0 +1,290 @@
+{
+  "complete": true,
+  "signature": "2460259ce8cd1e328bb848cbaa8004464ca19092c44095d3b24a64f10033731f",
+  "attempts": [
+    {
+      "asr_seconds": 0.12439507618546486,
+      "alignment_seconds": 0.0004529803991317749,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Think, Nay, I'm sure of it.",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Think,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " Nay,",
+              "start": 1.05,
+              "end": 1.05,
+              "probability": 0.431884765625
+            },
+            {
+              "text": " I'm",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.984375
+            },
+            {
+              "text": " sure",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it.",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Think,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.05,
+          "end": 1.05
+        },
+        {
+          "raw": "I'm",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "sure",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "it.",
+          "start": 1.61,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Think!",
+        "Nay,",
+        "I",
+        "am",
+        "sure",
+        "of",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ],
+        [
+          "equal",
+          4,
+          7,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Think,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "think",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Nay,",
+          "start": 1.05,
+          "end": 1.05,
+          "key": "nay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "im",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "sure",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Think!",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Nay,",
+          "start": 1.05,
+          "end": 1.05
+        },
+        {
+          "text": "I",
+          "start": 1.05,
+          "end": 1.17
+        },
+        {
+          "text": "am",
+          "start": 1.17,
+          "end": 1.23
+        },
+        {
+          "text": "sure",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "of",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "it.",
+          "start": 1.61,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1249859668314457
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5286a394040369411c6e49a17e3b445541961868965e0d14d844cdc8919c721f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

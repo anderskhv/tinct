@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "de0e7c75fc890dee353dea4ce6c224b3cdace0932cf1e6803fd92a5784102ab9",
+  "attempts": [
+    {
+      "asr_seconds": 0.11918849311769009,
+      "alignment_seconds": 0.0002468600869178772,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Queen.",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " Queen.",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.55859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Queen.",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Queen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Queen.",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "queen",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Queen.",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11952418833971024
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1a8013bec638fc16bcaa53355c734a4e4d005554adbdb423ceb1d4091e075270",
+  "selected_reasons": []
+}

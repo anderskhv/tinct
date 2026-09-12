@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "8bdec3bc218ce61761e562cd1fefb6c7f19e03029e1a424cfc98c6bd9837f5e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19948540697805583,
+      "alignment_seconds": 0.0005462730186991394,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Orestes, strong as my hope, my buried sire shall aid.",
+          "start": 0.08,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " Orestes,",
+              "start": 0.08,
+              "end": 1.0,
+              "probability": 0.9065755208333334
+            },
+            {
+              "text": " strong",
+              "start": 1.66,
+              "end": 1.66,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " as",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.34716796875
+            },
+            {
+              "text": " my",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hope,",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " my",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " buried",
+              "start": 2.52,
+              "end": 2.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sire",
+              "start": 2.84,
+              "end": 3.2,
+              "probability": 0.964111328125
+            },
+            {
+              "text": " shall",
+              "start": 3.2,
+              "end": 3.4,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " aid.",
+              "start": 3.4,
+              "end": 3.68,
+              "probability": 0.9375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Orestes,",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "raw": "strong",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "raw": "as",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "my",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "hope,",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "raw": "my",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "buried",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "raw": "sire",
+          "start": 2.84,
+          "end": 3.2
+        },
+        {
+          "raw": "shall",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "raw": "aid.",
+          "start": 3.4,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "Orestes.",
+        "Strong",
+        "is",
+        "my",
+        "hope;",
+        "my",
+        "buried",
+        "sire",
+        "shall",
+        "aid."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Orestes,",
+          "start": 0.08,
+          "end": 1.0,
+          "key": "orestes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "strong",
+          "start": 1.66,
+          "end": 1.66,
+          "key": "strong",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hope,",
+          "start": 2.0,
+          "end": 2.24,
+          "key": "hope",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.44,
+          "end": 2.52,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "buried",
+          "start": 2.52,
+          "end": 2.84,
+          "key": "buried",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sire",
+          "start": 2.84,
+          "end": 3.2,
+          "key": "sire",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 3.2,
+          "end": 3.4,
+          "key": "shall",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "aid.",
+          "start": 3.4,
+          "end": 3.68,
+          "key": "aid",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Orestes.",
+          "start": 0.08,
+          "end": 1.0
+        },
+        {
+          "text": "Strong",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "text": "is",
+          "start": 1.66,
+          "end": 1.75
+        },
+        {
+          "text": "my",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "hope;",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "text": "my",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "buried",
+          "start": 2.52,
+          "end": 2.84
+        },
+        {
+          "text": "sire",
+          "start": 2.84,
+          "end": 3.2
+        },
+        {
+          "text": "shall",
+          "start": 3.2,
+          "end": 3.4
+        },
+        {
+          "text": "aid.",
+          "start": 3.4,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.20022520699421875
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ae84531193c9c7d1a217c6561f428283d088125a8876d67b21c15009044b98fc",
+  "selected_reasons": []
+}

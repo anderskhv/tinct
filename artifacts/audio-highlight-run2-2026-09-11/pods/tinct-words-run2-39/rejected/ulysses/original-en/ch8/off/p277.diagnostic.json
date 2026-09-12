@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "07156b6583965e4fb304892f7c7e862807ec4e016081794c5fc128cd54490400",
+  "attempts": [
+    {
+      "asr_seconds": 0.20592806302011013,
+      "alignment_seconds": 0.0004801088944077492,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Do you tell me so, Davey Byan said.",
+          "start": 0.05,
+          "end": 2.31,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.467041015625
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " tell",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 0.75,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so,",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Davey",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " Byan",
+              "start": 1.73,
+              "end": 2.05,
+              "probability": 0.5433349609375
+            },
+            {
+              "text": " said.",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "tell",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "me",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "raw": "so,",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "raw": "Davey",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "Byan",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "raw": "said.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "expected_tokens": [
+        "—Do",
+        "you",
+        "tell",
+        "me",
+        "so?",
+        "Davy",
+        "Byrne",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "tell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.75,
+          "end": 0.87,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 0.87,
+          "end": 1.17,
+          "key": "so",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Davey",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "davey",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Byan",
+          "start": 1.73,
+          "end": 2.05,
+          "key": "byan",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "said",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "tell",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "me",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "text": "so?",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "text": "Davy",
+          "start": 1.17,
+          "end": 1.61
+        },
+        {
+          "text": "Byrne",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "said.",
+          "start": 2.05,
+          "end": 2.31
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20657430798746645
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3adf60c42c4001b53852ea204de084e0ec9b8c09e2761585258705059f370705",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

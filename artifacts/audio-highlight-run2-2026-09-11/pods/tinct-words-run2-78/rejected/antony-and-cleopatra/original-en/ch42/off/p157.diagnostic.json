@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "6675eb337638849e1cf60e1fa4b02d9ad789014f81310eb881ca6f06f9558c76",
+  "attempts": [
+    {
+      "asr_seconds": 0.20826422236859798,
+      "alignment_seconds": 0.00039916858077049255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " First Guard Caesar hath sent",
+          "start": 0.08,
+          "end": 2.12,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " Guard",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.61962890625
+            },
+            {
+              "text": " Caesar",
+              "start": 0.98,
+              "end": 1.56,
+              "probability": 0.2069091796875
+            },
+            {
+              "text": " hath",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.828125
+            },
+            {
+              "text": " sent",
+              "start": 1.8,
+              "end": 2.12,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Guard",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "Caesar",
+          "start": 0.98,
+          "end": 1.56
+        },
+        {
+          "raw": "hath",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "raw": "sent",
+          "start": 1.8,
+          "end": 2.12
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Guard.",
+        "Caesar",
+        "hath",
+        "sent—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Guard",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "guard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 0.98,
+          "end": 1.56,
+          "key": "caesar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "hath",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.8,
+          "end": 2.12,
+          "key": "sent",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Guard.",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "Caesar",
+          "start": 0.98,
+          "end": 1.56
+        },
+        {
+          "text": "hath",
+          "start": 1.56,
+          "end": 1.8
+        },
+        {
+          "text": "sent—",
+          "start": 1.8,
+          "end": 2.12
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20879150833934546
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6c1fab1f05aa52cdcf391ee599f438a279121b0c0b793a8156ca2615114f0688",
+  "selected_reasons": []
+}

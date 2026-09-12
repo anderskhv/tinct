@@ -1,0 +1,2412 @@
+{
+  "complete": true,
+  "signature": "fa1ee1a3f89829c572523ccd19b2a0fb19958fe921f049a4bcbbd9794c66449b",
+  "attempts": [
+    {
+      "asr_seconds": 0.6516739230137318,
+      "alignment_seconds": 0.0010737430129665881,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mercantile stock is equally barren and unproductive with manufacturing stock. It only continues the existence of its own value, without producing any new value. Its profits are only the repayment of the maintenance which its employer advances to himself during the time that he employs it, or till he receives the returns of it. They are only the repayment of a part of the expense which must be laid out in employing it.",
+        "hotwords": "Mercantile, They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mercantile stock is equally barren and unproductive with manufacturing stock. It only continues the existence of its own value, without producing any new value.",
+          "start": 0.05,
+          "end": 10.49,
+          "words": [
+            {
+              "text": " Mercantile",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.9147135416666666
+            },
+            {
+              "text": " stock",
+              "start": 0.97,
+              "end": 1.33,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " is",
+              "start": 1.33,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " equally",
+              "start": 1.63,
+              "end": 2.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " barren",
+              "start": 2.03,
+              "end": 2.43,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " unproductive",
+              "start": 2.83,
+              "end": 3.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 3.45,
+              "end": 3.87,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " manufacturing",
+              "start": 3.87,
+              "end": 4.53,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " stock.",
+              "start": 4.53,
+              "end": 5.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " It",
+              "start": 5.73,
+              "end": 5.87,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " only",
+              "start": 5.87,
+              "end": 6.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " continues",
+              "start": 6.09,
+              "end": 6.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.59,
+              "end": 6.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " existence",
+              "start": 6.85,
+              "end": 7.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 7.19,
+              "end": 7.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " its",
+              "start": 7.59,
+              "end": 7.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " own",
+              "start": 7.71,
+              "end": 7.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " value,",
+              "start": 7.95,
+              "end": 8.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " without",
+              "start": 8.71,
+              "end": 9.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " producing",
+              "start": 9.07,
+              "end": 9.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " any",
+              "start": 9.49,
+              "end": 9.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " new",
+              "start": 9.79,
+              "end": 10.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " value.",
+              "start": 10.07,
+              "end": 10.49,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Its profits are only the repayment of the maintenance which its employer advances to himself during the time that he employs it, or till he receives the returns of it.",
+          "start": 11.27,
+          "end": 20.33,
+          "words": [
+            {
+              "text": " Its",
+              "start": 11.27,
+              "end": 11.43,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " profits",
+              "start": 11.43,
+              "end": 11.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 11.81,
+              "end": 12.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " only",
+              "start": 12.03,
+              "end": 12.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 12.27,
+              "end": 12.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " repayment",
+              "start": 12.41,
+              "end": 12.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 12.77,
+              "end": 13.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 13.03,
+              "end": 13.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " maintenance",
+              "start": 13.15,
+              "end": 13.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 13.51,
+              "end": 13.87,
+              "probability": 0.7138671875
+            },
+            {
+              "text": " its",
+              "start": 13.87,
+              "end": 14.09,
+              "probability": 0.986328125
+            },
+            {
+              "text": " employer",
+              "start": 14.09,
+              "end": 14.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " advances",
+              "start": 14.59,
+              "end": 15.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 15.15,
+              "end": 15.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " himself",
+              "start": 15.39,
+              "end": 15.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " during",
+              "start": 15.75,
+              "end": 16.29,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " the",
+              "start": 16.29,
+              "end": 16.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " time",
+              "start": 16.51,
+              "end": 16.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 16.79,
+              "end": 16.99,
+              "probability": 0.9921875
+            },
+            {
+              "text": " he",
+              "start": 16.99,
+              "end": 17.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " employs",
+              "start": 17.15,
+              "end": 17.55,
+              "probability": 0.990234375
+            },
+            {
+              "text": " it,",
+              "start": 17.55,
+              "end": 17.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " or",
+              "start": 18.29,
+              "end": 18.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " till",
+              "start": 18.45,
+              "end": 18.61,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " he",
+              "start": 18.61,
+              "end": 18.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " receives",
+              "start": 18.81,
+              "end": 19.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 19.21,
+              "end": 19.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " returns",
+              "start": 19.49,
+              "end": 19.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 19.83,
+              "end": 20.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " it.",
+              "start": 20.07,
+              "end": 20.33,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " They are only the repayment of a part of the expense which must be laid out in employing it.",
+          "start": 20.85,
+          "end": 25.31,
+          "words": [
+            {
+              "text": " They",
+              "start": 20.85,
+              "end": 20.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " are",
+              "start": 20.97,
+              "end": 21.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " only",
+              "start": 21.07,
+              "end": 21.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 21.33,
+              "end": 21.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " repayment",
+              "start": 21.49,
+              "end": 21.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 21.89,
+              "end": 22.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 22.15,
+              "end": 22.25,
+              "probability": 0.98828125
+            },
+            {
+              "text": " part",
+              "start": 22.25,
+              "end": 22.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 22.43,
+              "end": 22.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 22.55,
+              "end": 22.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " expense",
+              "start": 22.67,
+              "end": 23.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 23.11,
+              "end": 23.49,
+              "probability": 0.94921875
+            },
+            {
+              "text": " must",
+              "start": 23.49,
+              "end": 23.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 23.71,
+              "end": 23.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " laid",
+              "start": 23.93,
+              "end": 24.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " out",
+              "start": 24.17,
+              "end": 24.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 24.43,
+              "end": 24.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " employing",
+              "start": 24.59,
+              "end": 24.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 24.95,
+              "end": 25.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mercantile",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "stock",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "raw": "is",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "raw": "equally",
+          "start": 1.63,
+          "end": 2.03
+        },
+        {
+          "raw": "barren",
+          "start": 2.03,
+          "end": 2.43
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "raw": "unproductive",
+          "start": 2.83,
+          "end": 3.45
+        },
+        {
+          "raw": "with",
+          "start": 3.45,
+          "end": 3.87
+        },
+        {
+          "raw": "manufacturing",
+          "start": 3.87,
+          "end": 4.53
+        },
+        {
+          "raw": "stock.",
+          "start": 4.53,
+          "end": 5.05
+        },
+        {
+          "raw": "It",
+          "start": 5.73,
+          "end": 5.87
+        },
+        {
+          "raw": "only",
+          "start": 5.87,
+          "end": 6.09
+        },
+        {
+          "raw": "continues",
+          "start": 6.09,
+          "end": 6.59
+        },
+        {
+          "raw": "the",
+          "start": 6.59,
+          "end": 6.85
+        },
+        {
+          "raw": "existence",
+          "start": 6.85,
+          "end": 7.19
+        },
+        {
+          "raw": "of",
+          "start": 7.19,
+          "end": 7.59
+        },
+        {
+          "raw": "its",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "raw": "own",
+          "start": 7.71,
+          "end": 7.95
+        },
+        {
+          "raw": "value,",
+          "start": 7.95,
+          "end": 8.41
+        },
+        {
+          "raw": "without",
+          "start": 8.71,
+          "end": 9.07
+        },
+        {
+          "raw": "producing",
+          "start": 9.07,
+          "end": 9.49
+        },
+        {
+          "raw": "any",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "raw": "new",
+          "start": 9.79,
+          "end": 10.07
+        },
+        {
+          "raw": "value.",
+          "start": 10.07,
+          "end": 10.49
+        },
+        {
+          "raw": "Its",
+          "start": 11.27,
+          "end": 11.43
+        },
+        {
+          "raw": "profits",
+          "start": 11.43,
+          "end": 11.81
+        },
+        {
+          "raw": "are",
+          "start": 11.81,
+          "end": 12.03
+        },
+        {
+          "raw": "only",
+          "start": 12.03,
+          "end": 12.27
+        },
+        {
+          "raw": "the",
+          "start": 12.27,
+          "end": 12.41
+        },
+        {
+          "raw": "repayment",
+          "start": 12.41,
+          "end": 12.77
+        },
+        {
+          "raw": "of",
+          "start": 12.77,
+          "end": 13.03
+        },
+        {
+          "raw": "the",
+          "start": 13.03,
+          "end": 13.15
+        },
+        {
+          "raw": "maintenance",
+          "start": 13.15,
+          "end": 13.51
+        },
+        {
+          "raw": "which",
+          "start": 13.51,
+          "end": 13.87
+        },
+        {
+          "raw": "its",
+          "start": 13.87,
+          "end": 14.09
+        },
+        {
+          "raw": "employer",
+          "start": 14.09,
+          "end": 14.59
+        },
+        {
+          "raw": "advances",
+          "start": 14.59,
+          "end": 15.15
+        },
+        {
+          "raw": "to",
+          "start": 15.15,
+          "end": 15.39
+        },
+        {
+          "raw": "himself",
+          "start": 15.39,
+          "end": 15.75
+        },
+        {
+          "raw": "during",
+          "start": 15.75,
+          "end": 16.29
+        },
+        {
+          "raw": "the",
+          "start": 16.29,
+          "end": 16.51
+        },
+        {
+          "raw": "time",
+          "start": 16.51,
+          "end": 16.79
+        },
+        {
+          "raw": "that",
+          "start": 16.79,
+          "end": 16.99
+        },
+        {
+          "raw": "he",
+          "start": 16.99,
+          "end": 17.15
+        },
+        {
+          "raw": "employs",
+          "start": 17.15,
+          "end": 17.55
+        },
+        {
+          "raw": "it,",
+          "start": 17.55,
+          "end": 17.91
+        },
+        {
+          "raw": "or",
+          "start": 18.29,
+          "end": 18.45
+        },
+        {
+          "raw": "till",
+          "start": 18.45,
+          "end": 18.61
+        },
+        {
+          "raw": "he",
+          "start": 18.61,
+          "end": 18.81
+        },
+        {
+          "raw": "receives",
+          "start": 18.81,
+          "end": 19.21
+        },
+        {
+          "raw": "the",
+          "start": 19.21,
+          "end": 19.49
+        },
+        {
+          "raw": "returns",
+          "start": 19.49,
+          "end": 19.83
+        },
+        {
+          "raw": "of",
+          "start": 19.83,
+          "end": 20.07
+        },
+        {
+          "raw": "it.",
+          "start": 20.07,
+          "end": 20.33
+        },
+        {
+          "raw": "They",
+          "start": 20.85,
+          "end": 20.97
+        },
+        {
+          "raw": "are",
+          "start": 20.97,
+          "end": 21.07
+        },
+        {
+          "raw": "only",
+          "start": 21.07,
+          "end": 21.33
+        },
+        {
+          "raw": "the",
+          "start": 21.33,
+          "end": 21.49
+        },
+        {
+          "raw": "repayment",
+          "start": 21.49,
+          "end": 21.89
+        },
+        {
+          "raw": "of",
+          "start": 21.89,
+          "end": 22.15
+        },
+        {
+          "raw": "a",
+          "start": 22.15,
+          "end": 22.25
+        },
+        {
+          "raw": "part",
+          "start": 22.25,
+          "end": 22.43
+        },
+        {
+          "raw": "of",
+          "start": 22.43,
+          "end": 22.55
+        },
+        {
+          "raw": "the",
+          "start": 22.55,
+          "end": 22.67
+        },
+        {
+          "raw": "expense",
+          "start": 22.67,
+          "end": 23.11
+        },
+        {
+          "raw": "which",
+          "start": 23.11,
+          "end": 23.49
+        },
+        {
+          "raw": "must",
+          "start": 23.49,
+          "end": 23.71
+        },
+        {
+          "raw": "be",
+          "start": 23.71,
+          "end": 23.93
+        },
+        {
+          "raw": "laid",
+          "start": 23.93,
+          "end": 24.17
+        },
+        {
+          "raw": "out",
+          "start": 24.17,
+          "end": 24.43
+        },
+        {
+          "raw": "in",
+          "start": 24.43,
+          "end": 24.59
+        },
+        {
+          "raw": "employing",
+          "start": 24.59,
+          "end": 24.95
+        },
+        {
+          "raw": "it.",
+          "start": 24.95,
+          "end": 25.31
+        }
+      ],
+      "expected_tokens": [
+        "Mercantile",
+        "stock",
+        "is",
+        "equally",
+        "barren",
+        "and",
+        "unproductive",
+        "with",
+        "manufacturing",
+        "stock.",
+        "It",
+        "only",
+        "continues",
+        "the",
+        "existence",
+        "of",
+        "its",
+        "own",
+        "value,",
+        "without",
+        "producing",
+        "any",
+        "new",
+        "value.",
+        "Its",
+        "profits",
+        "are",
+        "only",
+        "the",
+        "repayment",
+        "of",
+        "the",
+        "maintenance",
+        "which",
+        "its",
+        "employer",
+        "advances",
+        "to",
+        "himself",
+        "during",
+        "the",
+        "time",
+        "that",
+        "he",
+        "employs",
+        "it,",
+        "or",
+        "till",
+        "he",
+        "receives",
+        "the",
+        "returns",
+        "of",
+        "it.",
+        "They",
+        "are",
+        "only",
+        "the",
+        "repayment",
+        "of",
+        "a",
+        "part",
+        "of",
+        "the",
+        "expense",
+        "which",
+        "must",
+        "be",
+        "laid",
+        "out",
+        "in",
+        "employing",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          73,
+          0,
+          73
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 72
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mercantile",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "mercantile",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stock",
+          "start": 0.97,
+          "end": 1.33,
+          "key": "stock",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.33,
+          "end": 1.63,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "equally",
+          "start": 1.63,
+          "end": 2.03,
+          "key": "equally",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "barren",
+          "start": 2.03,
+          "end": 2.43,
+          "key": "barren",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "unproductive",
+          "start": 2.83,
+          "end": 3.45,
+          "key": "unproductive",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.45,
+          "end": 3.87,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "manufacturing",
+          "start": 3.87,
+          "end": 4.53,
+          "key": "manufacturing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stock.",
+          "start": 4.53,
+          "end": 5.05,
+          "key": "stock",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.73,
+          "end": 5.87,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 5.87,
+          "end": 6.09,
+          "key": "only",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "continues",
+          "start": 6.09,
+          "end": 6.59,
+          "key": "continues",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.59,
+          "end": 6.85,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "existence",
+          "start": 6.85,
+          "end": 7.19,
+          "key": "existence",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.19,
+          "end": 7.59,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 7.59,
+          "end": 7.71,
+          "key": "its",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 7.71,
+          "end": 7.95,
+          "key": "own",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "value,",
+          "start": 7.95,
+          "end": 8.41,
+          "key": "value",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 8.71,
+          "end": 9.07,
+          "key": "without",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "producing",
+          "start": 9.07,
+          "end": 9.49,
+          "key": "producing",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 9.49,
+          "end": 9.79,
+          "key": "any",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 9.79,
+          "end": 10.07,
+          "key": "new",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "value.",
+          "start": 10.07,
+          "end": 10.49,
+          "key": "value",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Its",
+          "start": 11.27,
+          "end": 11.43,
+          "key": "its",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "profits",
+          "start": 11.43,
+          "end": 11.81,
+          "key": "profits",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 11.81,
+          "end": 12.03,
+          "key": "are",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 12.03,
+          "end": 12.27,
+          "key": "only",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.27,
+          "end": 12.41,
+          "key": "the",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "repayment",
+          "start": 12.41,
+          "end": 12.77,
+          "key": "repayment",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.77,
+          "end": 13.03,
+          "key": "of",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.03,
+          "end": 13.15,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "maintenance",
+          "start": 13.15,
+          "end": 13.51,
+          "key": "maintenance",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 13.51,
+          "end": 13.87,
+          "key": "which",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 13.87,
+          "end": 14.09,
+          "key": "its",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "employer",
+          "start": 14.09,
+          "end": 14.59,
+          "key": "employer",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "advances",
+          "start": 14.59,
+          "end": 15.15,
+          "key": "advances",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.15,
+          "end": 15.39,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 15.39,
+          "end": 15.75,
+          "key": "himself",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "during",
+          "start": 15.75,
+          "end": 16.29,
+          "key": "during",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.29,
+          "end": 16.51,
+          "key": "the",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 16.51,
+          "end": 16.79,
+          "key": "time",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 16.79,
+          "end": 16.99,
+          "key": "that",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 16.99,
+          "end": 17.15,
+          "key": "he",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "employs",
+          "start": 17.15,
+          "end": 17.55,
+          "key": "employs",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 17.55,
+          "end": 17.91,
+          "key": "it",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 18.29,
+          "end": 18.45,
+          "key": "or",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 18.45,
+          "end": 18.61,
+          "key": "till",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 18.61,
+          "end": 18.81,
+          "key": "he",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "receives",
+          "start": 18.81,
+          "end": 19.21,
+          "key": "receives",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 19.21,
+          "end": 19.49,
+          "key": "the",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "returns",
+          "start": 19.49,
+          "end": 19.83,
+          "key": "returns",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.83,
+          "end": 20.07,
+          "key": "of",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 20.07,
+          "end": 20.33,
+          "key": "it",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 20.85,
+          "end": 20.97,
+          "key": "they",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 20.97,
+          "end": 21.07,
+          "key": "are",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 21.07,
+          "end": 21.33,
+          "key": "only",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.33,
+          "end": 21.49,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "repayment",
+          "start": 21.49,
+          "end": 21.89,
+          "key": "repayment",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 21.89,
+          "end": 22.15,
+          "key": "of",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 22.15,
+          "end": 22.25,
+          "key": "a",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 22.25,
+          "end": 22.43,
+          "key": "part",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.43,
+          "end": 22.55,
+          "key": "of",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 22.55,
+          "end": 22.67,
+          "key": "the",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "expense",
+          "start": 22.67,
+          "end": 23.11,
+          "key": "expense",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 23.11,
+          "end": 23.49,
+          "key": "which",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 23.49,
+          "end": 23.71,
+          "key": "must",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 23.71,
+          "end": 23.93,
+          "key": "be",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 23.93,
+          "end": 24.17,
+          "key": "laid",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 24.17,
+          "end": 24.43,
+          "key": "out",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 24.43,
+          "end": 24.59,
+          "key": "in",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "employing",
+          "start": 24.59,
+          "end": 24.95,
+          "key": "employing",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 24.95,
+          "end": 25.31,
+          "key": "it",
+          "pieces": [
+            72
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mercantile",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "stock",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "text": "is",
+          "start": 1.33,
+          "end": 1.63
+        },
+        {
+          "text": "equally",
+          "start": 1.63,
+          "end": 2.03
+        },
+        {
+          "text": "barren",
+          "start": 2.03,
+          "end": 2.43
+        },
+        {
+          "text": "and",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "text": "unproductive",
+          "start": 2.83,
+          "end": 3.45
+        },
+        {
+          "text": "with",
+          "start": 3.45,
+          "end": 3.87
+        },
+        {
+          "text": "manufacturing",
+          "start": 3.87,
+          "end": 4.53
+        },
+        {
+          "text": "stock.",
+          "start": 4.53,
+          "end": 5.05
+        },
+        {
+          "text": "It",
+          "start": 5.73,
+          "end": 5.87
+        },
+        {
+          "text": "only",
+          "start": 5.87,
+          "end": 6.09
+        },
+        {
+          "text": "continues",
+          "start": 6.09,
+          "end": 6.59
+        },
+        {
+          "text": "the",
+          "start": 6.59,
+          "end": 6.85
+        },
+        {
+          "text": "existence",
+          "start": 6.85,
+          "end": 7.19
+        },
+        {
+          "text": "of",
+          "start": 7.19,
+          "end": 7.59
+        },
+        {
+          "text": "its",
+          "start": 7.59,
+          "end": 7.71
+        },
+        {
+          "text": "own",
+          "start": 7.71,
+          "end": 7.95
+        },
+        {
+          "text": "value,",
+          "start": 7.95,
+          "end": 8.41
+        },
+        {
+          "text": "without",
+          "start": 8.71,
+          "end": 9.07
+        },
+        {
+          "text": "producing",
+          "start": 9.07,
+          "end": 9.49
+        },
+        {
+          "text": "any",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "text": "new",
+          "start": 9.79,
+          "end": 10.07
+        },
+        {
+          "text": "value.",
+          "start": 10.07,
+          "end": 10.49
+        },
+        {
+          "text": "Its",
+          "start": 11.27,
+          "end": 11.43
+        },
+        {
+          "text": "profits",
+          "start": 11.43,
+          "end": 11.81
+        },
+        {
+          "text": "are",
+          "start": 11.81,
+          "end": 12.03
+        },
+        {
+          "text": "only",
+          "start": 12.03,
+          "end": 12.27
+        },
+        {
+          "text": "the",
+          "start": 12.27,
+          "end": 12.41
+        },
+        {
+          "text": "repayment",
+          "start": 12.41,
+          "end": 12.77
+        },
+        {
+          "text": "of",
+          "start": 12.77,
+          "end": 13.03
+        },
+        {
+          "text": "the",
+          "start": 13.03,
+          "end": 13.15
+        },
+        {
+          "text": "maintenance",
+          "start": 13.15,
+          "end": 13.51
+        },
+        {
+          "text": "which",
+          "start": 13.51,
+          "end": 13.87
+        },
+        {
+          "text": "its",
+          "start": 13.87,
+          "end": 14.09
+        },
+        {
+          "text": "employer",
+          "start": 14.09,
+          "end": 14.59
+        },
+        {
+          "text": "advances",
+          "start": 14.59,
+          "end": 15.15
+        },
+        {
+          "text": "to",
+          "start": 15.15,
+          "end": 15.39
+        },
+        {
+          "text": "himself",
+          "start": 15.39,
+          "end": 15.75
+        },
+        {
+          "text": "during",
+          "start": 15.75,
+          "end": 16.29
+        },
+        {
+          "text": "the",
+          "start": 16.29,
+          "end": 16.51
+        },
+        {
+          "text": "time",
+          "start": 16.51,
+          "end": 16.79
+        },
+        {
+          "text": "that",
+          "start": 16.79,
+          "end": 16.99
+        },
+        {
+          "text": "he",
+          "start": 16.99,
+          "end": 17.15
+        },
+        {
+          "text": "employs",
+          "start": 17.15,
+          "end": 17.55
+        },
+        {
+          "text": "it,",
+          "start": 17.55,
+          "end": 17.91
+        },
+        {
+          "text": "or",
+          "start": 18.29,
+          "end": 18.45
+        },
+        {
+          "text": "till",
+          "start": 18.45,
+          "end": 18.61
+        },
+        {
+          "text": "he",
+          "start": 18.61,
+          "end": 18.81
+        },
+        {
+          "text": "receives",
+          "start": 18.81,
+          "end": 19.21
+        },
+        {
+          "text": "the",
+          "start": 19.21,
+          "end": 19.49
+        },
+        {
+          "text": "returns",
+          "start": 19.49,
+          "end": 19.83
+        },
+        {
+          "text": "of",
+          "start": 19.83,
+          "end": 20.07
+        },
+        {
+          "text": "it.",
+          "start": 20.07,
+          "end": 20.33
+        },
+        {
+          "text": "They",
+          "start": 20.85,
+          "end": 20.97
+        },
+        {
+          "text": "are",
+          "start": 20.97,
+          "end": 21.07
+        },
+        {
+          "text": "only",
+          "start": 21.07,
+          "end": 21.33
+        },
+        {
+          "text": "the",
+          "start": 21.33,
+          "end": 21.49
+        },
+        {
+          "text": "repayment",
+          "start": 21.49,
+          "end": 21.89
+        },
+        {
+          "text": "of",
+          "start": 21.89,
+          "end": 22.15
+        },
+        {
+          "text": "a",
+          "start": 22.15,
+          "end": 22.25
+        },
+        {
+          "text": "part",
+          "start": 22.25,
+          "end": 22.43
+        },
+        {
+          "text": "of",
+          "start": 22.43,
+          "end": 22.55
+        },
+        {
+          "text": "the",
+          "start": 22.55,
+          "end": 22.67
+        },
+        {
+          "text": "expense",
+          "start": 22.67,
+          "end": 23.11
+        },
+        {
+          "text": "which",
+          "start": 23.11,
+          "end": 23.49
+        },
+        {
+          "text": "must",
+          "start": 23.49,
+          "end": 23.71
+        },
+        {
+          "text": "be",
+          "start": 23.71,
+          "end": 23.93
+        },
+        {
+          "text": "laid",
+          "start": 23.93,
+          "end": 24.17
+        },
+        {
+          "text": "out",
+          "start": 24.17,
+          "end": 24.43
+        },
+        {
+          "text": "in",
+          "start": 24.43,
+          "end": 24.59
+        },
+        {
+          "text": "employing",
+          "start": 24.59,
+          "end": 24.95
+        },
+        {
+          "text": "it.",
+          "start": 24.95,
+          "end": 25.31
+        }
+      ],
+      "stats": {
+        "expected_words": 73,
+        "heard_words": 73,
+        "matched_words": 73
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6532821660221089
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "294fb9310d5d3f8bf05241abeceb2bff87d730802ea6633e7348959afff46e47",
+  "selected_reasons": []
+}

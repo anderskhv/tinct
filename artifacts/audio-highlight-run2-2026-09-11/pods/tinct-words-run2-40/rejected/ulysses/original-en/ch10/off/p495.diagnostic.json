@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "4f85b4305518493c1adc8644abd14dda69496b185e931fbae478d01929457500",
+  "attempts": [
+    {
+      "asr_seconds": 0.3112409971654415,
+      "alignment_seconds": 0.00044465484097599983,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " As they trod across the thick carpet buck mulligan, whispered behind his Panama to Haines.",
+          "start": 0.11,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.5078125
+            },
+            {
+              "text": " they",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " trod",
+              "start": 0.71,
+              "end": 1.07,
+              "probability": 0.950927734375
+            },
+            {
+              "text": " across",
+              "start": 1.07,
+              "end": 1.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.986328125
+            },
+            {
+              "text": " thick",
+              "start": 1.51,
+              "end": 1.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " carpet",
+              "start": 1.83,
+              "end": 2.21,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " buck",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.54443359375
+            },
+            {
+              "text": " mulligan,",
+              "start": 2.45,
+              "end": 2.95,
+              "probability": 0.961181640625
+            },
+            {
+              "text": " whispered",
+              "start": 3.43,
+              "end": 3.63,
+              "probability": 0.9765625
+            },
+            {
+              "text": " behind",
+              "start": 3.63,
+              "end": 4.09,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 4.09,
+              "end": 4.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Panama",
+              "start": 4.31,
+              "end": 4.67,
+              "probability": 0.89453125
+            },
+            {
+              "text": " to",
+              "start": 4.67,
+              "end": 4.97,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " Haines.",
+              "start": 4.97,
+              "end": 5.47,
+              "probability": 0.6210123697916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "they",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "trod",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "raw": "across",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "thick",
+          "start": 1.51,
+          "end": 1.83
+        },
+        {
+          "raw": "carpet",
+          "start": 1.83,
+          "end": 2.21
+        },
+        {
+          "raw": "buck",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "raw": "mulligan,",
+          "start": 2.45,
+          "end": 2.95
+        },
+        {
+          "raw": "whispered",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "raw": "behind",
+          "start": 3.63,
+          "end": 4.09
+        },
+        {
+          "raw": "his",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "raw": "Panama",
+          "start": 4.31,
+          "end": 4.67
+        },
+        {
+          "raw": "to",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "raw": "Haines.",
+          "start": 4.97,
+          "end": 5.47
+        }
+      ],
+      "expected_tokens": [
+        "As",
+        "they",
+        "trod",
+        "across",
+        "the",
+        "thick",
+        "carpet",
+        "Buck",
+        "Mulligan",
+        "whispered",
+        "behind",
+        "his",
+        "Panama",
+        "to",
+        "Haines:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "trod",
+          "start": 0.71,
+          "end": 1.07,
+          "key": "trod",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "across",
+          "start": 1.07,
+          "end": 1.27,
+          "key": "across",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.27,
+          "end": 1.51,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thick",
+          "start": 1.51,
+          "end": 1.83,
+          "key": "thick",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "carpet",
+          "start": 1.83,
+          "end": 2.21,
+          "key": "carpet",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "buck",
+          "start": 2.21,
+          "end": 2.45,
+          "key": "buck",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "mulligan,",
+          "start": 2.45,
+          "end": 2.95,
+          "key": "mulligan",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "whispered",
+          "start": 3.43,
+          "end": 3.63,
+          "key": "whispered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "behind",
+          "start": 3.63,
+          "end": 4.09,
+          "key": "behind",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.09,
+          "end": 4.31,
+          "key": "his",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Panama",
+          "start": 4.31,
+          "end": 4.67,
+          "key": "panama",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.67,
+          "end": 4.97,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Haines.",
+          "start": 4.97,
+          "end": 5.47,
+          "key": "haines",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "As",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "they",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "trod",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "text": "across",
+          "start": 1.07,
+          "end": 1.27
+        },
+        {
+          "text": "the",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "text": "thick",
+          "start": 1.51,
+          "end": 1.83
+        },
+        {
+          "text": "carpet",
+          "start": 1.83,
+          "end": 2.21
+        },
+        {
+          "text": "Buck",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "text": "Mulligan",
+          "start": 2.45,
+          "end": 2.95
+        },
+        {
+          "text": "whispered",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "text": "behind",
+          "start": 3.63,
+          "end": 4.09
+        },
+        {
+          "text": "his",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "text": "Panama",
+          "start": 4.31,
+          "end": 4.67
+        },
+        {
+          "text": "to",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "text": "Haines:",
+          "start": 4.97,
+          "end": 5.47
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31186739495024085
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9e5c52ff23971e25ce2f209bc3d24f0d7a6220dfeebfe898121582c9bb346a58",
+  "selected_reasons": []
+}

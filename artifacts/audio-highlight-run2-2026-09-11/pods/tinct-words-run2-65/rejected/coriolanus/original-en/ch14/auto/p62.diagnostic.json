@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "2c00d44460cac9c001f8dfc1604270fecff2c4cb0082a87502481e742611eaac",
+  "attempts": [
+    {
+      "asr_seconds": 0.098236626945436,
+      "alignment_seconds": 0.00017056521028280258,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menenius. Come, enough.",
+        "hotwords": "Menenius, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menenius, Come, enough.",
+          "start": 0.54,
+          "end": 1.72,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.54,
+              "end": 1.0,
+              "probability": 0.5642903645833334
+            },
+            {
+              "text": " Come,",
+              "start": 1.22,
+              "end": 1.46,
+              "probability": 0.05072021484375
+            },
+            {
+              "text": " enough.",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.032958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.54,
+          "end": 1.0
+        },
+        {
+          "raw": "Come,",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "raw": "enough.",
+          "start": 1.56,
+          "end": 1.72
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "Come,",
+        "enough."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.54,
+          "end": 1.0,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 1.22,
+          "end": 1.46,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "enough",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.54,
+          "end": 1.0
+        },
+        {
+          "text": "Come,",
+          "start": 1.22,
+          "end": 1.46
+        },
+        {
+          "text": "enough.",
+          "start": 1.56,
+          "end": 1.72
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09846503334119916
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "368ae6532cfd72c26c6c8daee64fbefb78e8d6ac2fd609eaefc257524dc01039",
+  "selected_reasons": []
+}

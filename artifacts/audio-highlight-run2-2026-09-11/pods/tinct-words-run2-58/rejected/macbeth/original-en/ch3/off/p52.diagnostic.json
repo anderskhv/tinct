@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "4dd68565512f8ca4b9acf33ee1e7620ac84589a08a345d6bb9dc7203915301b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.21551728434860706,
+      "alignment_seconds": 0.00037096161395311356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Banquo, Worthy Macbeth, we stay upon your leisure.",
+          "start": 0.05,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Banquo,",
+              "start": 0.05,
+              "end": 0.97,
+              "probability": 0.9222005208333334
+            },
+            {
+              "text": " Worthy",
+              "start": 1.29,
+              "end": 1.45,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " Macbeth,",
+              "start": 1.45,
+              "end": 1.95,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " we",
+              "start": 2.11,
+              "end": 2.17,
+              "probability": 0.79296875
+            },
+            {
+              "text": " stay",
+              "start": 2.17,
+              "end": 2.39,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " upon",
+              "start": 2.39,
+              "end": 2.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " your",
+              "start": 2.67,
+              "end": 2.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " leisure.",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Banquo,",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "raw": "Worthy",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "raw": "we",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "raw": "stay",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "raw": "upon",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "raw": "your",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "raw": "leisure.",
+          "start": 2.85,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Banquo.",
+        "Worthy",
+        "Macbeth,",
+        "we",
+        "stay",
+        "upon",
+        "your",
+        "leisure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Banquo,",
+          "start": 0.05,
+          "end": 0.97,
+          "key": "banquo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Worthy",
+          "start": 1.29,
+          "end": 1.45,
+          "key": "worthy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 1.45,
+          "end": 1.95,
+          "key": "macbeth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.11,
+          "end": 2.17,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 2.17,
+          "end": 2.39,
+          "key": "stay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.39,
+          "end": 2.67,
+          "key": "upon",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.67,
+          "end": 2.85,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "leisure.",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "leisure",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Banquo.",
+          "start": 0.05,
+          "end": 0.97
+        },
+        {
+          "text": "Worthy",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "Macbeth,",
+          "start": 1.45,
+          "end": 1.95
+        },
+        {
+          "text": "we",
+          "start": 2.11,
+          "end": 2.17
+        },
+        {
+          "text": "stay",
+          "start": 2.17,
+          "end": 2.39
+        },
+        {
+          "text": "upon",
+          "start": 2.39,
+          "end": 2.67
+        },
+        {
+          "text": "your",
+          "start": 2.67,
+          "end": 2.85
+        },
+        {
+          "text": "leisure.",
+          "start": 2.85,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21603553462773561
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cca609523acb45e64db99e0c9e27f6adc48c0a50c092451ccd6bd2464be1e8c3",
+  "selected_reasons": []
+}

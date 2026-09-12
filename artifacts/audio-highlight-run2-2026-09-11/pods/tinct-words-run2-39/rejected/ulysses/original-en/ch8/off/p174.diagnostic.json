@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "c45f9927ee38d242a3b4d2ba42a3d8dfc142fbc8585554ecef530b577ade7193",
+  "attempts": [
+    {
+      "asr_seconds": 0.1276486199349165,
+      "alignment_seconds": 0.0003022169694304466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kiss me Reggie",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Kiss",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " me",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Reggie",
+              "start": 0.75,
+              "end": 1.03,
+              "probability": 0.369384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kiss",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "me",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "raw": "Reggie",
+          "start": 0.75,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "—Kiss",
+        "me,",
+        "Reggy!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kiss",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "kiss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Reggie",
+          "start": 0.75,
+          "end": 1.03,
+          "key": "reggie",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Kiss",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "me,",
+          "start": 0.53,
+          "end": 0.75
+        },
+        {
+          "text": "Reggy!",
+          "start": 0.75,
+          "end": 0.89
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12804572586901486
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "46cc3480547108336f7a0b62c2021f228ad50bd36fc61237f3100b7851a7eb60",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

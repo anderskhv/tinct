@@ -1,0 +1,996 @@
+{
+  "complete": true,
+  "signature": "1d61a94e9a69860d367bf0e93910e537920239d75f9cc1908c0ce4bf0f10dd82",
+  "attempts": [
+    {
+      "asr_seconds": 2.961677194572985,
+      "alignment_seconds": 0.0005110572092235088,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. Shall't be tonight at supper?",
+        "hotwords": "Desdemona, Shall't"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall't Desdemona. Shall be tonight at supper?",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.6592890421549479
+            },
+            {
+              "text": " Shall't",
+              "start": 1.35,
+              "end": 1.71,
+              "probability": 0.03680419921875
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.6638998587926229
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9396158854166666
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.877685546875
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9552408854166666
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.859619140625
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9576822916666666
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.825927734375
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.962890625
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.815673828125
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9627278645833334
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.803466796875
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.802490234375
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9650065104166666
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.786865234375
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9640299479166666
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9627278645833334
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.779541015625
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9650065104166666
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.768310546875
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9680989583333334
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.761474609375
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.71,
+              "end": 1.71,
+              "probability": 0.9694010416666666
+            },
+            {
+              "text": " Shall't",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.759521484375
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.9703776041666666
+            },
+            {
+              "text": " Shall't",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.755859375
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Shall",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " be",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.389404296875
+            },
+            {
+              "text": " tonight",
+              "start": 1.79,
+              "end": 2.03,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " at",
+              "start": 2.03,
+              "end": 2.21,
+              "probability": 0.8134765625
+            },
+            {
+              "text": " supper?",
+              "start": 2.21,
+              "end": 2.47,
+              "probability": 0.91259765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "raw": "Shall",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "raw": "be",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "raw": "tonight",
+          "start": 1.79,
+          "end": 2.03
+        },
+        {
+          "raw": "at",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "raw": "supper?",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "Shall't",
+        "be",
+        "tonight",
+        "at",
+        "supper?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          38
+        ],
+        [
+          "equal",
+          2,
+          6,
+          38,
+          42
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 41
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          38
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.35,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "shallt",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.71,
+          "end": 1.71,
+          "key": "desdemona",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.71,
+          "end": 1.79,
+          "key": "shallt",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "desdemona",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Shall't",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "shallt",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "desdemona",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "shall",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "be",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "tonight",
+          "start": 1.79,
+          "end": 2.03,
+          "key": "tonight",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.03,
+          "end": 2.21,
+          "key": "at",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "supper?",
+          "start": 2.21,
+          "end": 2.47,
+          "key": "supper",
+          "pieces": [
+            41
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "Shall't",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "be",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "text": "tonight",
+          "start": 1.79,
+          "end": 2.03
+        },
+        {
+          "text": "at",
+          "start": 2.03,
+          "end": 2.21
+        },
+        {
+          "text": "supper?",
+          "start": 2.21,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 42,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.9625206696800888
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "528790fc7696493c2407921c4685b1fcfa3066bb82ec35141ae5ec468ae74770",
+  "selected_reasons": []
+}

@@ -1,0 +1,7287 @@
+{
+  "complete": true,
+  "signature": "b0b4ff0d136bc58a84019100b3550f4cfd702c8dd56673127fa9d78a5a57d846",
+  "attempts": [
+    {
+      "asr_seconds": 3.676274217898026,
+      "alignment_seconds": 0.0010310278739780188,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, ma'am—oh, no! No one is living there. I suppose you are a stranger in these parts, or you would have heard what happened last autumn,—Thornfield Hall is quite a ruin: it was burnt down just about harvest-time. A dreadful calamity! such an immense quantity of valuable property destroyed: hardly any of the furniture could be saved. The fire broke out at dead of night, and before the engines arrived from Millcote, the building was one mass of flame. It was a terrible spectacle: I witnessed it myself.\"",
+        "hotwords": "I, Hall, Millcote"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I wanted to mention our",
+          "start": 0.08,
+          "end": 27.38,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 1.36,
+              "probability": 0.0034351348876953125
+            },
+            {
+              "text": " wanted",
+              "start": 1.36,
+              "end": 5.08,
+              "probability": 0.0030574798583984375
+            },
+            {
+              "text": " to",
+              "start": 5.08,
+              "end": 12.08,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " mention",
+              "start": 12.08,
+              "end": 27.38,
+              "probability": 0.0025234222412109375
+            },
+            {
+              "text": " our",
+              "start": 27.38,
+              "end": 27.38,
+              "probability": 0.0035533905029296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 1.36
+        },
+        {
+          "raw": "wanted",
+          "start": 1.36,
+          "end": 5.08
+        },
+        {
+          "raw": "to",
+          "start": 5.08,
+          "end": 12.08
+        },
+        {
+          "raw": "mention",
+          "start": 12.08,
+          "end": 27.38
+        },
+        {
+          "raw": "our",
+          "start": 27.38,
+          "end": 27.38
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "ma'am—oh,",
+        "no!",
+        "No",
+        "one",
+        "is",
+        "living",
+        "there.",
+        "I",
+        "suppose",
+        "you",
+        "are",
+        "a",
+        "stranger",
+        "in",
+        "these",
+        "parts,",
+        "or",
+        "you",
+        "would",
+        "have",
+        "heard",
+        "what",
+        "happened",
+        "last",
+        "autumn,—Thornfield",
+        "Hall",
+        "is",
+        "quite",
+        "a",
+        "ruin:",
+        "it",
+        "was",
+        "burnt",
+        "down",
+        "just",
+        "about",
+        "harvest-time.",
+        "A",
+        "dreadful",
+        "calamity!",
+        "such",
+        "an",
+        "immense",
+        "quantity",
+        "of",
+        "valuable",
+        "property",
+        "destroyed:",
+        "hardly",
+        "any",
+        "of",
+        "the",
+        "furniture",
+        "could",
+        "be",
+        "saved.",
+        "The",
+        "fire",
+        "broke",
+        "out",
+        "at",
+        "dead",
+        "of",
+        "night,",
+        "and",
+        "before",
+        "the",
+        "engines",
+        "arrived",
+        "from",
+        "Millcote,",
+        "the",
+        "building",
+        "was",
+        "one",
+        "mass",
+        "of",
+        "flame.",
+        "It",
+        "was",
+        "a",
+        "terrible",
+        "spectacle:",
+        "I",
+        "witnessed",
+        "it",
+        "myself.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "equal",
+          8,
+          9,
+          0,
+          1
+        ],
+        [
+          "replace",
+          9,
+          88,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 87,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          "replace",
+          9,
+          88,
+          1,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wanted",
+          "start": 1.36,
+          "end": 5.08,
+          "key": "wanted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.08,
+          "end": 12.08,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mention",
+          "start": 12.08,
+          "end": 27.38,
+          "key": "mention",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 27.38,
+          "end": 27.38,
+          "key": "our",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "ma'am—oh,",
+          "start": 0.04,
+          "end": 0.06
+        },
+        {
+          "text": "no!",
+          "start": 0.06,
+          "end": 0.07
+        },
+        {
+          "text": "No",
+          "start": 0.07,
+          "end": 0.075
+        },
+        {
+          "text": "one",
+          "start": 0.075,
+          "end": 0.077
+        },
+        {
+          "text": "is",
+          "start": 0.077,
+          "end": 0.079
+        },
+        {
+          "text": "living",
+          "start": 0.079,
+          "end": 0.08
+        },
+        {
+          "text": "there.",
+          "start": 0.08,
+          "end": 0.08
+        },
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 1.36
+        },
+        {
+          "text": "suppose",
+          "start": 1.36,
+          "end": 14.37
+        },
+        {
+          "text": "you",
+          "start": 14.37,
+          "end": 20.875
+        },
+        {
+          "text": "are",
+          "start": 20.875,
+          "end": 24.127
+        },
+        {
+          "text": "a",
+          "start": 24.127,
+          "end": 25.753
+        },
+        {
+          "text": "stranger",
+          "start": 25.753,
+          "end": 26.566
+        },
+        {
+          "text": "in",
+          "start": 26.566,
+          "end": 26.973
+        },
+        {
+          "text": "these",
+          "start": 26.973,
+          "end": 27.176
+        },
+        {
+          "text": "parts,",
+          "start": 27.176,
+          "end": 27.278
+        },
+        {
+          "text": "or",
+          "start": 27.278,
+          "end": 27.329
+        },
+        {
+          "text": "you",
+          "start": 27.329,
+          "end": 27.355
+        },
+        {
+          "text": "would",
+          "start": 27.355,
+          "end": 27.367
+        },
+        {
+          "text": "have",
+          "start": 27.367,
+          "end": 27.373
+        },
+        {
+          "text": "heard",
+          "start": 27.373,
+          "end": 27.377
+        },
+        {
+          "text": "what",
+          "start": 27.377,
+          "end": 27.378
+        },
+        {
+          "text": "happened",
+          "start": 27.378,
+          "end": 27.379
+        },
+        {
+          "text": "last",
+          "start": 27.379,
+          "end": 27.38
+        },
+        {
+          "text": "autumn,—Thornfield",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "Hall",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "is",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "quite",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "a",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "ruin:",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "it",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "was",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "burnt",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "down",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "just",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "about",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "harvest-time.",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "A",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "dreadful",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "calamity!",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "such",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "an",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "immense",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "quantity",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "of",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "valuable",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "property",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "destroyed:",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "hardly",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "any",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "of",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "the",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "furniture",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "could",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "be",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "saved.",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "The",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "fire",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "broke",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "out",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "at",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "dead",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "of",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "night,",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "and",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "before",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "the",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "engines",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "arrived",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "from",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "Millcote,",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "the",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "building",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "was",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "one",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "mass",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "of",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "flame.",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "It",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "was",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "a",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "terrible",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "spectacle:",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "I",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "witnessed",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "it",
+          "start": 27.38,
+          "end": 27.38
+        },
+        {
+          "text": "myself.\"",
+          "start": 27.38,
+          "end": 27.38
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 0.011363636363636364,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.677356961881742
+    },
+    {
+      "asr_seconds": 0.7600677800364792,
+      "alignment_seconds": 0.001336185960099101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Hall, Millcote"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " No, ma'am. Oh, no. No one is living there. I suppose you are a stranger in these parts, or you would have heard what happened last autumn.",
+          "start": 0.08,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.541015625
+            },
+            {
+              "text": " ma",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.93408203125
+            },
+            {
+              "text": "'am.",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.966796875
+            },
+            {
+              "text": " no.",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " No",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " one",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " is",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " living",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there.",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.98,
+              "end": 3.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " suppose",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " are",
+              "start": 3.52,
+              "end": 3.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 3.62,
+              "end": 3.7,
+              "probability": 0.9453125
+            },
+            {
+              "text": " stranger",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 1.0
+            },
+            {
+              "text": " in",
+              "start": 3.96,
+              "end": 4.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " these",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " parts,",
+              "start": 4.34,
+              "end": 4.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 4.76,
+              "end": 4.8,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " you",
+              "start": 4.8,
+              "end": 4.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " would",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 5.0,
+              "end": 5.08,
+              "probability": 0.96484375
+            },
+            {
+              "text": " heard",
+              "start": 5.08,
+              "end": 5.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 5.26,
+              "end": 5.42,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " happened",
+              "start": 5.42,
+              "end": 5.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " last",
+              "start": 5.66,
+              "end": 5.96,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " autumn.",
+              "start": 5.96,
+              "end": 6.32,
+              "probability": 0.96923828125
+            }
+          ]
+        },
+        {
+          "text": " Thornfield Hall is quite a ruin. It was burnt down just about harvest time. A dreadful calamity. Such an immense quantity of valuable property destroyed.",
+          "start": 6.82,
+          "end": 15.14,
+          "words": [
+            {
+              "text": " Thornfield",
+              "start": 6.82,
+              "end": 7.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Hall",
+              "start": 7.04,
+              "end": 7.3,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 7.3,
+              "end": 7.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " quite",
+              "start": 7.52,
+              "end": 7.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 7.72,
+              "end": 7.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ruin.",
+              "start": 7.86,
+              "end": 8.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " It",
+              "start": 8.68,
+              "end": 8.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " was",
+              "start": 8.78,
+              "end": 8.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " burnt",
+              "start": 8.88,
+              "end": 9.14,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " down",
+              "start": 9.14,
+              "end": 9.42,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " just",
+              "start": 9.42,
+              "end": 9.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " about",
+              "start": 9.62,
+              "end": 9.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " harvest",
+              "start": 9.86,
+              "end": 10.14,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " time.",
+              "start": 10.14,
+              "end": 10.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " A",
+              "start": 11.0,
+              "end": 11.08,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " dreadful",
+              "start": 11.08,
+              "end": 11.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " calamity.",
+              "start": 11.4,
+              "end": 12.04,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " Such",
+              "start": 12.54,
+              "end": 12.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " an",
+              "start": 12.68,
+              "end": 12.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " immense",
+              "start": 12.84,
+              "end": 13.16,
+              "probability": 1.0
+            },
+            {
+              "text": " quantity",
+              "start": 13.16,
+              "end": 13.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 13.58,
+              "end": 13.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " valuable",
+              "start": 13.8,
+              "end": 14.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " property",
+              "start": 14.16,
+              "end": 14.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " destroyed.",
+              "start": 14.66,
+              "end": 15.14,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Hardly any of the furniture could be saved. The fire broke out at dead of night, and before the engines arrived from Millcote, the building was one mass of flame.",
+          "start": 15.76,
+          "end": 23.48,
+          "words": [
+            {
+              "text": " Hardly",
+              "start": 15.76,
+              "end": 16.04,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " any",
+              "start": 16.04,
+              "end": 16.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 16.18,
+              "end": 16.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 16.34,
+              "end": 16.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " furniture",
+              "start": 16.44,
+              "end": 16.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " could",
+              "start": 16.74,
+              "end": 16.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 16.98,
+              "end": 17.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " saved.",
+              "start": 17.12,
+              "end": 17.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " The",
+              "start": 17.92,
+              "end": 18.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fire",
+              "start": 18.1,
+              "end": 18.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " broke",
+              "start": 18.42,
+              "end": 18.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out",
+              "start": 18.66,
+              "end": 18.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " at",
+              "start": 18.84,
+              "end": 18.96,
+              "probability": 0.990234375
+            },
+            {
+              "text": " dead",
+              "start": 18.96,
+              "end": 19.1,
+              "probability": 0.974609375
+            },
+            {
+              "text": " of",
+              "start": 19.1,
+              "end": 19.22,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " night,",
+              "start": 19.22,
+              "end": 19.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 19.7,
+              "end": 19.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " before",
+              "start": 19.86,
+              "end": 20.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 20.08,
+              "end": 20.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " engines",
+              "start": 20.24,
+              "end": 20.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " arrived",
+              "start": 20.54,
+              "end": 20.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 20.98,
+              "end": 21.22,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Millcote,",
+              "start": 21.22,
+              "end": 21.62,
+              "probability": 0.6710611979166666
+            },
+            {
+              "text": " the",
+              "start": 21.84,
+              "end": 21.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " building",
+              "start": 21.9,
+              "end": 22.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 22.16,
+              "end": 22.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 22.42,
+              "end": 22.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mass",
+              "start": 22.68,
+              "end": 22.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " of",
+              "start": 22.96,
+              "end": 23.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " flame.",
+              "start": 23.16,
+              "end": 23.48,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " It was a terrible spectacle. I witnessed it myself.",
+          "start": 24.02,
+          "end": 26.56,
+          "words": [
+            {
+              "text": " It",
+              "start": 24.02,
+              "end": 24.16,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " was",
+              "start": 24.16,
+              "end": 24.26,
+              "probability": 1.0
+            },
+            {
+              "text": " a",
+              "start": 24.26,
+              "end": 24.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " terrible",
+              "start": 24.38,
+              "end": 24.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " spectacle.",
+              "start": 24.72,
+              "end": 25.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 25.64,
+              "end": 25.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " witnessed",
+              "start": 25.74,
+              "end": 26.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it",
+              "start": 26.02,
+              "end": 26.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " myself.",
+              "start": 26.22,
+              "end": 26.56,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "ma",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "'am.",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "no.",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "No",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "one",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "living",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "there.",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "I",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "raw": "suppose",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "you",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "are",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "raw": "a",
+          "start": 3.62,
+          "end": 3.7
+        },
+        {
+          "raw": "stranger",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "raw": "these",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "parts,",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "raw": "or",
+          "start": 4.76,
+          "end": 4.8
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 4.9
+        },
+        {
+          "raw": "would",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "have",
+          "start": 5.0,
+          "end": 5.08
+        },
+        {
+          "raw": "heard",
+          "start": 5.08,
+          "end": 5.26
+        },
+        {
+          "raw": "what",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "raw": "happened",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "raw": "last",
+          "start": 5.66,
+          "end": 5.96
+        },
+        {
+          "raw": "autumn.",
+          "start": 5.96,
+          "end": 6.32
+        },
+        {
+          "raw": "Thornfield",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "raw": "Hall",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "raw": "is",
+          "start": 7.3,
+          "end": 7.52
+        },
+        {
+          "raw": "quite",
+          "start": 7.52,
+          "end": 7.72
+        },
+        {
+          "raw": "a",
+          "start": 7.72,
+          "end": 7.86
+        },
+        {
+          "raw": "ruin.",
+          "start": 7.86,
+          "end": 8.1
+        },
+        {
+          "raw": "It",
+          "start": 8.68,
+          "end": 8.78
+        },
+        {
+          "raw": "was",
+          "start": 8.78,
+          "end": 8.88
+        },
+        {
+          "raw": "burnt",
+          "start": 8.88,
+          "end": 9.14
+        },
+        {
+          "raw": "down",
+          "start": 9.14,
+          "end": 9.42
+        },
+        {
+          "raw": "just",
+          "start": 9.42,
+          "end": 9.62
+        },
+        {
+          "raw": "about",
+          "start": 9.62,
+          "end": 9.86
+        },
+        {
+          "raw": "harvest",
+          "start": 9.86,
+          "end": 10.14
+        },
+        {
+          "raw": "time.",
+          "start": 10.14,
+          "end": 10.52
+        },
+        {
+          "raw": "A",
+          "start": 11.0,
+          "end": 11.08
+        },
+        {
+          "raw": "dreadful",
+          "start": 11.08,
+          "end": 11.4
+        },
+        {
+          "raw": "calamity.",
+          "start": 11.4,
+          "end": 12.04
+        },
+        {
+          "raw": "Such",
+          "start": 12.54,
+          "end": 12.68
+        },
+        {
+          "raw": "an",
+          "start": 12.68,
+          "end": 12.84
+        },
+        {
+          "raw": "immense",
+          "start": 12.84,
+          "end": 13.16
+        },
+        {
+          "raw": "quantity",
+          "start": 13.16,
+          "end": 13.58
+        },
+        {
+          "raw": "of",
+          "start": 13.58,
+          "end": 13.8
+        },
+        {
+          "raw": "valuable",
+          "start": 13.8,
+          "end": 14.16
+        },
+        {
+          "raw": "property",
+          "start": 14.16,
+          "end": 14.66
+        },
+        {
+          "raw": "destroyed.",
+          "start": 14.66,
+          "end": 15.14
+        },
+        {
+          "raw": "Hardly",
+          "start": 15.76,
+          "end": 16.04
+        },
+        {
+          "raw": "any",
+          "start": 16.04,
+          "end": 16.18
+        },
+        {
+          "raw": "of",
+          "start": 16.18,
+          "end": 16.34
+        },
+        {
+          "raw": "the",
+          "start": 16.34,
+          "end": 16.44
+        },
+        {
+          "raw": "furniture",
+          "start": 16.44,
+          "end": 16.74
+        },
+        {
+          "raw": "could",
+          "start": 16.74,
+          "end": 16.98
+        },
+        {
+          "raw": "be",
+          "start": 16.98,
+          "end": 17.12
+        },
+        {
+          "raw": "saved.",
+          "start": 17.12,
+          "end": 17.54
+        },
+        {
+          "raw": "The",
+          "start": 17.92,
+          "end": 18.1
+        },
+        {
+          "raw": "fire",
+          "start": 18.1,
+          "end": 18.42
+        },
+        {
+          "raw": "broke",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "raw": "out",
+          "start": 18.66,
+          "end": 18.84
+        },
+        {
+          "raw": "at",
+          "start": 18.84,
+          "end": 18.96
+        },
+        {
+          "raw": "dead",
+          "start": 18.96,
+          "end": 19.1
+        },
+        {
+          "raw": "of",
+          "start": 19.1,
+          "end": 19.22
+        },
+        {
+          "raw": "night,",
+          "start": 19.22,
+          "end": 19.48
+        },
+        {
+          "raw": "and",
+          "start": 19.7,
+          "end": 19.86
+        },
+        {
+          "raw": "before",
+          "start": 19.86,
+          "end": 20.08
+        },
+        {
+          "raw": "the",
+          "start": 20.08,
+          "end": 20.24
+        },
+        {
+          "raw": "engines",
+          "start": 20.24,
+          "end": 20.54
+        },
+        {
+          "raw": "arrived",
+          "start": 20.54,
+          "end": 20.98
+        },
+        {
+          "raw": "from",
+          "start": 20.98,
+          "end": 21.22
+        },
+        {
+          "raw": "Millcote,",
+          "start": 21.22,
+          "end": 21.62
+        },
+        {
+          "raw": "the",
+          "start": 21.84,
+          "end": 21.9
+        },
+        {
+          "raw": "building",
+          "start": 21.9,
+          "end": 22.16
+        },
+        {
+          "raw": "was",
+          "start": 22.16,
+          "end": 22.42
+        },
+        {
+          "raw": "one",
+          "start": 22.42,
+          "end": 22.68
+        },
+        {
+          "raw": "mass",
+          "start": 22.68,
+          "end": 22.96
+        },
+        {
+          "raw": "of",
+          "start": 22.96,
+          "end": 23.16
+        },
+        {
+          "raw": "flame.",
+          "start": 23.16,
+          "end": 23.48
+        },
+        {
+          "raw": "It",
+          "start": 24.02,
+          "end": 24.16
+        },
+        {
+          "raw": "was",
+          "start": 24.16,
+          "end": 24.26
+        },
+        {
+          "raw": "a",
+          "start": 24.26,
+          "end": 24.38
+        },
+        {
+          "raw": "terrible",
+          "start": 24.38,
+          "end": 24.72
+        },
+        {
+          "raw": "spectacle.",
+          "start": 24.72,
+          "end": 25.08
+        },
+        {
+          "raw": "I",
+          "start": 25.64,
+          "end": 25.74
+        },
+        {
+          "raw": "witnessed",
+          "start": 25.74,
+          "end": 26.02
+        },
+        {
+          "raw": "it",
+          "start": 26.02,
+          "end": 26.22
+        },
+        {
+          "raw": "myself.",
+          "start": 26.22,
+          "end": 26.56
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "ma'am—oh,",
+        "no!",
+        "No",
+        "one",
+        "is",
+        "living",
+        "there.",
+        "I",
+        "suppose",
+        "you",
+        "are",
+        "a",
+        "stranger",
+        "in",
+        "these",
+        "parts,",
+        "or",
+        "you",
+        "would",
+        "have",
+        "heard",
+        "what",
+        "happened",
+        "last",
+        "autumn,—Thornfield",
+        "Hall",
+        "is",
+        "quite",
+        "a",
+        "ruin:",
+        "it",
+        "was",
+        "burnt",
+        "down",
+        "just",
+        "about",
+        "harvest-time.",
+        "A",
+        "dreadful",
+        "calamity!",
+        "such",
+        "an",
+        "immense",
+        "quantity",
+        "of",
+        "valuable",
+        "property",
+        "destroyed:",
+        "hardly",
+        "any",
+        "of",
+        "the",
+        "furniture",
+        "could",
+        "be",
+        "saved.",
+        "The",
+        "fire",
+        "broke",
+        "out",
+        "at",
+        "dead",
+        "of",
+        "night,",
+        "and",
+        "before",
+        "the",
+        "engines",
+        "arrived",
+        "from",
+        "Millcote,",
+        "the",
+        "building",
+        "was",
+        "one",
+        "mass",
+        "of",
+        "flame.",
+        "It",
+        "was",
+        "a",
+        "terrible",
+        "spectacle:",
+        "I",
+        "witnessed",
+        "it",
+        "myself.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "equal",
+          2,
+          25,
+          4,
+          27
+        ],
+        [
+          "replace",
+          25,
+          26,
+          27,
+          29
+        ],
+        [
+          "equal",
+          26,
+          88,
+          29,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "replace",
+          25,
+          26,
+          27,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am.",
+          "start": 0.88,
+          "end": 0.98,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.84,
+          "end": 1.94,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "living",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "living",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 2.3,
+          "end": 2.64,
+          "key": "there",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.98,
+          "end": 3.06,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "suppose",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.32,
+          "end": 3.52,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.52,
+          "end": 3.62,
+          "key": "are",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.62,
+          "end": 3.7,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "stranger",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "stranger",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.18,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "these",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "parts,",
+          "start": 4.34,
+          "end": 4.6,
+          "key": "parts",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.76,
+          "end": 4.8,
+          "key": "or",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 4.9,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "would",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.0,
+          "end": 5.08,
+          "key": "have",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 5.08,
+          "end": 5.26,
+          "key": "heard",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.26,
+          "end": 5.42,
+          "key": "what",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "happened",
+          "start": 5.42,
+          "end": 5.66,
+          "key": "happened",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 5.66,
+          "end": 5.96,
+          "key": "last",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "autumn.",
+          "start": 5.96,
+          "end": 6.32,
+          "key": "autumn",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Thornfield",
+          "start": 6.82,
+          "end": 7.04,
+          "key": "thornfield",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Hall",
+          "start": 7.04,
+          "end": 7.3,
+          "key": "hall",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.3,
+          "end": 7.52,
+          "key": "is",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 7.52,
+          "end": 7.72,
+          "key": "quite",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.72,
+          "end": 7.86,
+          "key": "a",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "ruin.",
+          "start": 7.86,
+          "end": 8.1,
+          "key": "ruin",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 8.68,
+          "end": 8.78,
+          "key": "it",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.78,
+          "end": 8.88,
+          "key": "was",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "burnt",
+          "start": 8.88,
+          "end": 9.14,
+          "key": "burnt",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 9.14,
+          "end": 9.42,
+          "key": "down",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 9.42,
+          "end": 9.62,
+          "key": "just",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 9.62,
+          "end": 9.86,
+          "key": "about",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "harvest time.",
+          "start": 9.86,
+          "end": 10.52,
+          "key": "harvesttime",
+          "pieces": [
+            40,
+            41
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 11.0,
+          "end": 11.08,
+          "key": "a",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "dreadful",
+          "start": 11.08,
+          "end": 11.4,
+          "key": "dreadful",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "calamity.",
+          "start": 11.4,
+          "end": 12.04,
+          "key": "calamity",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Such",
+          "start": 12.54,
+          "end": 12.68,
+          "key": "such",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 12.68,
+          "end": 12.84,
+          "key": "an",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "immense",
+          "start": 12.84,
+          "end": 13.16,
+          "key": "immense",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "quantity",
+          "start": 13.16,
+          "end": 13.58,
+          "key": "quantity",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.58,
+          "end": 13.8,
+          "key": "of",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "valuable",
+          "start": 13.8,
+          "end": 14.16,
+          "key": "valuable",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "property",
+          "start": 14.16,
+          "end": 14.66,
+          "key": "property",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "destroyed.",
+          "start": 14.66,
+          "end": 15.14,
+          "key": "destroyed",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Hardly",
+          "start": 15.76,
+          "end": 16.04,
+          "key": "hardly",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 16.04,
+          "end": 16.18,
+          "key": "any",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.18,
+          "end": 16.34,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.34,
+          "end": 16.44,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "furniture",
+          "start": 16.44,
+          "end": 16.74,
+          "key": "furniture",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 16.74,
+          "end": 16.98,
+          "key": "could",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 16.98,
+          "end": 17.12,
+          "key": "be",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "saved.",
+          "start": 17.12,
+          "end": 17.54,
+          "key": "saved",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 17.92,
+          "end": 18.1,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 18.1,
+          "end": 18.42,
+          "key": "fire",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 18.42,
+          "end": 18.66,
+          "key": "broke",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 18.66,
+          "end": 18.84,
+          "key": "out",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.84,
+          "end": 18.96,
+          "key": "at",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 18.96,
+          "end": 19.1,
+          "key": "dead",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.1,
+          "end": 19.22,
+          "key": "of",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "night,",
+          "start": 19.22,
+          "end": 19.48,
+          "key": "night",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.7,
+          "end": 19.86,
+          "key": "and",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 19.86,
+          "end": 20.08,
+          "key": "before",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.08,
+          "end": 20.24,
+          "key": "the",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "engines",
+          "start": 20.24,
+          "end": 20.54,
+          "key": "engines",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "arrived",
+          "start": 20.54,
+          "end": 20.98,
+          "key": "arrived",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 20.98,
+          "end": 21.22,
+          "key": "from",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Millcote,",
+          "start": 21.22,
+          "end": 21.62,
+          "key": "millcote",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 21.84,
+          "end": 21.9,
+          "key": "the",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "building",
+          "start": 21.9,
+          "end": 22.16,
+          "key": "building",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 22.16,
+          "end": 22.42,
+          "key": "was",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 22.42,
+          "end": 22.68,
+          "key": "one",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "mass",
+          "start": 22.68,
+          "end": 22.96,
+          "key": "mass",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.96,
+          "end": 23.16,
+          "key": "of",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "flame.",
+          "start": 23.16,
+          "end": 23.48,
+          "key": "flame",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 24.02,
+          "end": 24.16,
+          "key": "it",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 24.16,
+          "end": 24.26,
+          "key": "was",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 24.26,
+          "end": 24.38,
+          "key": "a",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "terrible",
+          "start": 24.38,
+          "end": 24.72,
+          "key": "terrible",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "spectacle.",
+          "start": 24.72,
+          "end": 25.08,
+          "key": "spectacle",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 25.64,
+          "end": 25.74,
+          "key": "i",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "witnessed",
+          "start": 25.74,
+          "end": 26.02,
+          "key": "witnessed",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 26.02,
+          "end": 26.22,
+          "key": "it",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "myself.",
+          "start": 26.22,
+          "end": 26.56,
+          "key": "myself",
+          "pieces": [
+            91
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 37,
+          "text": "harvest-time.",
+          "heard": "harvest time.",
+          "heard_indexes": [
+            40,
+            41
+          ],
+          "start": 9.86,
+          "end": 10.52
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "ma'am—oh,",
+          "start": 0.64,
+          "end": 1.01
+        },
+        {
+          "text": "no!",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "text": "No",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "one",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "is",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "living",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "there.",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "I",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "text": "suppose",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "you",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "are",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "text": "a",
+          "start": 3.62,
+          "end": 3.7
+        },
+        {
+          "text": "stranger",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "in",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "text": "these",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "parts,",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "text": "or",
+          "start": 4.76,
+          "end": 4.8
+        },
+        {
+          "text": "you",
+          "start": 4.8,
+          "end": 4.9
+        },
+        {
+          "text": "would",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "text": "have",
+          "start": 5.0,
+          "end": 5.08
+        },
+        {
+          "text": "heard",
+          "start": 5.08,
+          "end": 5.26
+        },
+        {
+          "text": "what",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "text": "happened",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "text": "last",
+          "start": 5.66,
+          "end": 5.96
+        },
+        {
+          "text": "autumn,—Thornfield",
+          "start": 5.96,
+          "end": 6.5
+        },
+        {
+          "text": "Hall",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "text": "is",
+          "start": 7.3,
+          "end": 7.52
+        },
+        {
+          "text": "quite",
+          "start": 7.52,
+          "end": 7.72
+        },
+        {
+          "text": "a",
+          "start": 7.72,
+          "end": 7.86
+        },
+        {
+          "text": "ruin:",
+          "start": 7.86,
+          "end": 8.1
+        },
+        {
+          "text": "it",
+          "start": 8.68,
+          "end": 8.78
+        },
+        {
+          "text": "was",
+          "start": 8.78,
+          "end": 8.88
+        },
+        {
+          "text": "burnt",
+          "start": 8.88,
+          "end": 9.14
+        },
+        {
+          "text": "down",
+          "start": 9.14,
+          "end": 9.42
+        },
+        {
+          "text": "just",
+          "start": 9.42,
+          "end": 9.62
+        },
+        {
+          "text": "about",
+          "start": 9.62,
+          "end": 9.86
+        },
+        {
+          "text": "harvest-time.",
+          "start": 9.86,
+          "end": 10.52
+        },
+        {
+          "text": "A",
+          "start": 11.0,
+          "end": 11.08
+        },
+        {
+          "text": "dreadful",
+          "start": 11.08,
+          "end": 11.4
+        },
+        {
+          "text": "calamity!",
+          "start": 11.4,
+          "end": 12.04
+        },
+        {
+          "text": "such",
+          "start": 12.54,
+          "end": 12.68
+        },
+        {
+          "text": "an",
+          "start": 12.68,
+          "end": 12.84
+        },
+        {
+          "text": "immense",
+          "start": 12.84,
+          "end": 13.16
+        },
+        {
+          "text": "quantity",
+          "start": 13.16,
+          "end": 13.58
+        },
+        {
+          "text": "of",
+          "start": 13.58,
+          "end": 13.8
+        },
+        {
+          "text": "valuable",
+          "start": 13.8,
+          "end": 14.16
+        },
+        {
+          "text": "property",
+          "start": 14.16,
+          "end": 14.66
+        },
+        {
+          "text": "destroyed:",
+          "start": 14.66,
+          "end": 15.14
+        },
+        {
+          "text": "hardly",
+          "start": 15.76,
+          "end": 16.04
+        },
+        {
+          "text": "any",
+          "start": 16.04,
+          "end": 16.18
+        },
+        {
+          "text": "of",
+          "start": 16.18,
+          "end": 16.34
+        },
+        {
+          "text": "the",
+          "start": 16.34,
+          "end": 16.44
+        },
+        {
+          "text": "furniture",
+          "start": 16.44,
+          "end": 16.74
+        },
+        {
+          "text": "could",
+          "start": 16.74,
+          "end": 16.98
+        },
+        {
+          "text": "be",
+          "start": 16.98,
+          "end": 17.12
+        },
+        {
+          "text": "saved.",
+          "start": 17.12,
+          "end": 17.54
+        },
+        {
+          "text": "The",
+          "start": 17.92,
+          "end": 18.1
+        },
+        {
+          "text": "fire",
+          "start": 18.1,
+          "end": 18.42
+        },
+        {
+          "text": "broke",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "text": "out",
+          "start": 18.66,
+          "end": 18.84
+        },
+        {
+          "text": "at",
+          "start": 18.84,
+          "end": 18.96
+        },
+        {
+          "text": "dead",
+          "start": 18.96,
+          "end": 19.1
+        },
+        {
+          "text": "of",
+          "start": 19.1,
+          "end": 19.22
+        },
+        {
+          "text": "night,",
+          "start": 19.22,
+          "end": 19.48
+        },
+        {
+          "text": "and",
+          "start": 19.7,
+          "end": 19.86
+        },
+        {
+          "text": "before",
+          "start": 19.86,
+          "end": 20.08
+        },
+        {
+          "text": "the",
+          "start": 20.08,
+          "end": 20.24
+        },
+        {
+          "text": "engines",
+          "start": 20.24,
+          "end": 20.54
+        },
+        {
+          "text": "arrived",
+          "start": 20.54,
+          "end": 20.98
+        },
+        {
+          "text": "from",
+          "start": 20.98,
+          "end": 21.22
+        },
+        {
+          "text": "Millcote,",
+          "start": 21.22,
+          "end": 21.62
+        },
+        {
+          "text": "the",
+          "start": 21.84,
+          "end": 21.9
+        },
+        {
+          "text": "building",
+          "start": 21.9,
+          "end": 22.16
+        },
+        {
+          "text": "was",
+          "start": 22.16,
+          "end": 22.42
+        },
+        {
+          "text": "one",
+          "start": 22.42,
+          "end": 22.68
+        },
+        {
+          "text": "mass",
+          "start": 22.68,
+          "end": 22.96
+        },
+        {
+          "text": "of",
+          "start": 22.96,
+          "end": 23.16
+        },
+        {
+          "text": "flame.",
+          "start": 23.16,
+          "end": 23.48
+        },
+        {
+          "text": "It",
+          "start": 24.02,
+          "end": 24.16
+        },
+        {
+          "text": "was",
+          "start": 24.16,
+          "end": 24.26
+        },
+        {
+          "text": "a",
+          "start": 24.26,
+          "end": 24.38
+        },
+        {
+          "text": "terrible",
+          "start": 24.38,
+          "end": 24.72
+        },
+        {
+          "text": "spectacle:",
+          "start": 24.72,
+          "end": 25.08
+        },
+        {
+          "text": "I",
+          "start": 25.64,
+          "end": 25.74
+        },
+        {
+          "text": "witnessed",
+          "start": 25.74,
+          "end": 26.02
+        },
+        {
+          "text": "it",
+          "start": 26.02,
+          "end": 26.22
+        },
+        {
+          "text": "myself.\"",
+          "start": 26.22,
+          "end": 26.56
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 91,
+        "matched_words": 86
+      },
+      "match_ratio": 0.9772727272727273,
+      "rejection_reasons": [],
+      "seconds": 0.7619207829702646
+    },
+    {
+      "asr_seconds": 0.6681396539788693,
+      "alignment_seconds": 0.001222067978233099,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, ma'am. Oh, no. No one is living there. I suppose you are a stranger in these parts or you would have heard what happened",
+          "start": 0.08,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.541015625
+            },
+            {
+              "text": " ma",
+              "start": 0.7,
+              "end": 0.88,
+              "probability": 0.93408203125
+            },
+            {
+              "text": "'am.",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 1.2,
+              "end": 1.38,
+              "probability": 0.966796875
+            },
+            {
+              "text": " no.",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " No",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " one",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " is",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " living",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there.",
+              "start": 2.3,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 2.98,
+              "end": 3.06,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " suppose",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.990234375
+            },
+            {
+              "text": " are",
+              "start": 3.52,
+              "end": 3.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " a",
+              "start": 3.62,
+              "end": 3.7,
+              "probability": 0.9453125
+            },
+            {
+              "text": " stranger",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 1.0
+            },
+            {
+              "text": " in",
+              "start": 3.96,
+              "end": 4.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " these",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " parts",
+              "start": 4.34,
+              "end": 4.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 4.6,
+              "end": 4.8,
+              "probability": 0.650390625
+            },
+            {
+              "text": " you",
+              "start": 4.8,
+              "end": 4.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " would",
+              "start": 4.9,
+              "end": 5.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " have",
+              "start": 5.0,
+              "end": 5.08,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " heard",
+              "start": 5.08,
+              "end": 5.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " what",
+              "start": 5.26,
+              "end": 5.42,
+              "probability": 0.9375
+            },
+            {
+              "text": " happened",
+              "start": 5.42,
+              "end": 5.66,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Last autumn Thornfield Hall is quite a ruin",
+          "start": 5.66,
+          "end": 8.14,
+          "words": [
+            {
+              "text": " Last",
+              "start": 5.66,
+              "end": 5.94,
+              "probability": 0.049407958984375
+            },
+            {
+              "text": " autumn",
+              "start": 5.94,
+              "end": 6.36,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Thornfield",
+              "start": 6.36,
+              "end": 7.04,
+              "probability": 0.910888671875
+            },
+            {
+              "text": " Hall",
+              "start": 7.04,
+              "end": 7.3,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " is",
+              "start": 7.3,
+              "end": 7.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " quite",
+              "start": 7.5,
+              "end": 7.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 7.72,
+              "end": 7.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ruin",
+              "start": 7.86,
+              "end": 8.14,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " It was burnt down just about harvest time a dreadful calamity such an immense quantity of valuable property destroyed",
+          "start": 8.14,
+          "end": 15.18,
+          "words": [
+            {
+              "text": " It",
+              "start": 8.14,
+              "end": 8.76,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " was",
+              "start": 8.76,
+              "end": 8.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " burnt",
+              "start": 8.88,
+              "end": 9.14,
+              "probability": 0.990234375
+            },
+            {
+              "text": " down",
+              "start": 9.14,
+              "end": 9.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " just",
+              "start": 9.42,
+              "end": 9.62,
+              "probability": 0.921875
+            },
+            {
+              "text": " about",
+              "start": 9.62,
+              "end": 9.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " harvest",
+              "start": 9.86,
+              "end": 10.16,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " time",
+              "start": 10.16,
+              "end": 10.58,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " a",
+              "start": 10.58,
+              "end": 11.08,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " dreadful",
+              "start": 11.08,
+              "end": 11.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " calamity",
+              "start": 11.42,
+              "end": 12.12,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " such",
+              "start": 12.12,
+              "end": 12.68,
+              "probability": 0.60986328125
+            },
+            {
+              "text": " an",
+              "start": 12.68,
+              "end": 12.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " immense",
+              "start": 12.82,
+              "end": 13.16,
+              "probability": 1.0
+            },
+            {
+              "text": " quantity",
+              "start": 13.16,
+              "end": 13.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 13.6,
+              "end": 13.78,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " valuable",
+              "start": 13.78,
+              "end": 14.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " property",
+              "start": 14.16,
+              "end": 14.68,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " destroyed",
+              "start": 14.68,
+              "end": 15.18,
+              "probability": 0.97607421875
+            }
+          ]
+        },
+        {
+          "text": " Hardly any of the furniture could be saved the fire broke out at dead of night and before the engines arrived from Millcote",
+          "start": 15.18,
+          "end": 21.64,
+          "words": [
+            {
+              "text": " Hardly",
+              "start": 15.18,
+              "end": 16.04,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " any",
+              "start": 16.04,
+              "end": 16.18,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " of",
+              "start": 16.18,
+              "end": 16.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 16.32,
+              "end": 16.42,
+              "probability": 1.0
+            },
+            {
+              "text": " furniture",
+              "start": 16.42,
+              "end": 16.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " could",
+              "start": 16.76,
+              "end": 16.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 16.98,
+              "end": 17.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " saved",
+              "start": 17.12,
+              "end": 17.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 17.62,
+              "end": 18.1,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " fire",
+              "start": 18.1,
+              "end": 18.42,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " broke",
+              "start": 18.42,
+              "end": 18.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " out",
+              "start": 18.66,
+              "end": 18.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 18.84,
+              "end": 18.96,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " dead",
+              "start": 18.96,
+              "end": 19.1,
+              "probability": 0.96875
+            },
+            {
+              "text": " of",
+              "start": 19.1,
+              "end": 19.22,
+              "probability": 0.705078125
+            },
+            {
+              "text": " night",
+              "start": 19.22,
+              "end": 19.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 19.46,
+              "end": 19.86,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " before",
+              "start": 19.86,
+              "end": 20.06,
+              "probability": 0.939453125
+            },
+            {
+              "text": " the",
+              "start": 20.06,
+              "end": 20.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " engines",
+              "start": 20.24,
+              "end": 20.56,
+              "probability": 0.974609375
+            },
+            {
+              "text": " arrived",
+              "start": 20.56,
+              "end": 20.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " from",
+              "start": 20.94,
+              "end": 21.22,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " Millcote",
+              "start": 21.22,
+              "end": 21.64,
+              "probability": 0.6244303385416666
+            }
+          ]
+        },
+        {
+          "text": " The building was one mass of flame. It was a terrible spectacle. I witnessed it myself",
+          "start": 21.64,
+          "end": 26.54,
+          "words": [
+            {
+              "text": " The",
+              "start": 21.64,
+              "end": 21.88,
+              "probability": 0.3193359375
+            },
+            {
+              "text": " building",
+              "start": 21.88,
+              "end": 22.2,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 22.2,
+              "end": 22.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " one",
+              "start": 22.42,
+              "end": 22.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mass",
+              "start": 22.68,
+              "end": 22.96,
+              "probability": 0.90234375
+            },
+            {
+              "text": " of",
+              "start": 22.96,
+              "end": 23.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " flame.",
+              "start": 23.16,
+              "end": 23.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " It",
+              "start": 23.68,
+              "end": 24.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 24.16,
+              "end": 24.24,
+              "probability": 1.0
+            },
+            {
+              "text": " a",
+              "start": 24.24,
+              "end": 24.36,
+              "probability": 1.0
+            },
+            {
+              "text": " terrible",
+              "start": 24.36,
+              "end": 24.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " spectacle.",
+              "start": 24.72,
+              "end": 25.22,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I",
+              "start": 25.26,
+              "end": 25.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " witnessed",
+              "start": 25.74,
+              "end": 26.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 26.04,
+              "end": 26.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " myself",
+              "start": 26.22,
+              "end": 26.54,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "ma",
+          "start": 0.7,
+          "end": 0.88
+        },
+        {
+          "raw": "'am.",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.2,
+          "end": 1.38
+        },
+        {
+          "raw": "no.",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "raw": "No",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "one",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "living",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "there.",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "raw": "I",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "raw": "suppose",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "you",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "are",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "raw": "a",
+          "start": 3.62,
+          "end": 3.7
+        },
+        {
+          "raw": "stranger",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "raw": "these",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "parts",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "raw": "or",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 4.9
+        },
+        {
+          "raw": "would",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "raw": "have",
+          "start": 5.0,
+          "end": 5.08
+        },
+        {
+          "raw": "heard",
+          "start": 5.08,
+          "end": 5.26
+        },
+        {
+          "raw": "what",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "raw": "happened",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "raw": "Last",
+          "start": 5.66,
+          "end": 5.94
+        },
+        {
+          "raw": "autumn",
+          "start": 5.94,
+          "end": 6.36
+        },
+        {
+          "raw": "Thornfield",
+          "start": 6.36,
+          "end": 7.04
+        },
+        {
+          "raw": "Hall",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "raw": "is",
+          "start": 7.3,
+          "end": 7.5
+        },
+        {
+          "raw": "quite",
+          "start": 7.5,
+          "end": 7.72
+        },
+        {
+          "raw": "a",
+          "start": 7.72,
+          "end": 7.86
+        },
+        {
+          "raw": "ruin",
+          "start": 7.86,
+          "end": 8.14
+        },
+        {
+          "raw": "It",
+          "start": 8.14,
+          "end": 8.76
+        },
+        {
+          "raw": "was",
+          "start": 8.76,
+          "end": 8.88
+        },
+        {
+          "raw": "burnt",
+          "start": 8.88,
+          "end": 9.14
+        },
+        {
+          "raw": "down",
+          "start": 9.14,
+          "end": 9.42
+        },
+        {
+          "raw": "just",
+          "start": 9.42,
+          "end": 9.62
+        },
+        {
+          "raw": "about",
+          "start": 9.62,
+          "end": 9.86
+        },
+        {
+          "raw": "harvest",
+          "start": 9.86,
+          "end": 10.16
+        },
+        {
+          "raw": "time",
+          "start": 10.16,
+          "end": 10.58
+        },
+        {
+          "raw": "a",
+          "start": 10.58,
+          "end": 11.08
+        },
+        {
+          "raw": "dreadful",
+          "start": 11.08,
+          "end": 11.42
+        },
+        {
+          "raw": "calamity",
+          "start": 11.42,
+          "end": 12.12
+        },
+        {
+          "raw": "such",
+          "start": 12.12,
+          "end": 12.68
+        },
+        {
+          "raw": "an",
+          "start": 12.68,
+          "end": 12.82
+        },
+        {
+          "raw": "immense",
+          "start": 12.82,
+          "end": 13.16
+        },
+        {
+          "raw": "quantity",
+          "start": 13.16,
+          "end": 13.6
+        },
+        {
+          "raw": "of",
+          "start": 13.6,
+          "end": 13.78
+        },
+        {
+          "raw": "valuable",
+          "start": 13.78,
+          "end": 14.16
+        },
+        {
+          "raw": "property",
+          "start": 14.16,
+          "end": 14.68
+        },
+        {
+          "raw": "destroyed",
+          "start": 14.68,
+          "end": 15.18
+        },
+        {
+          "raw": "Hardly",
+          "start": 15.18,
+          "end": 16.04
+        },
+        {
+          "raw": "any",
+          "start": 16.04,
+          "end": 16.18
+        },
+        {
+          "raw": "of",
+          "start": 16.18,
+          "end": 16.32
+        },
+        {
+          "raw": "the",
+          "start": 16.32,
+          "end": 16.42
+        },
+        {
+          "raw": "furniture",
+          "start": 16.42,
+          "end": 16.76
+        },
+        {
+          "raw": "could",
+          "start": 16.76,
+          "end": 16.98
+        },
+        {
+          "raw": "be",
+          "start": 16.98,
+          "end": 17.12
+        },
+        {
+          "raw": "saved",
+          "start": 17.12,
+          "end": 17.62
+        },
+        {
+          "raw": "the",
+          "start": 17.62,
+          "end": 18.1
+        },
+        {
+          "raw": "fire",
+          "start": 18.1,
+          "end": 18.42
+        },
+        {
+          "raw": "broke",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "raw": "out",
+          "start": 18.66,
+          "end": 18.84
+        },
+        {
+          "raw": "at",
+          "start": 18.84,
+          "end": 18.96
+        },
+        {
+          "raw": "dead",
+          "start": 18.96,
+          "end": 19.1
+        },
+        {
+          "raw": "of",
+          "start": 19.1,
+          "end": 19.22
+        },
+        {
+          "raw": "night",
+          "start": 19.22,
+          "end": 19.46
+        },
+        {
+          "raw": "and",
+          "start": 19.46,
+          "end": 19.86
+        },
+        {
+          "raw": "before",
+          "start": 19.86,
+          "end": 20.06
+        },
+        {
+          "raw": "the",
+          "start": 20.06,
+          "end": 20.24
+        },
+        {
+          "raw": "engines",
+          "start": 20.24,
+          "end": 20.56
+        },
+        {
+          "raw": "arrived",
+          "start": 20.56,
+          "end": 20.94
+        },
+        {
+          "raw": "from",
+          "start": 20.94,
+          "end": 21.22
+        },
+        {
+          "raw": "Millcote",
+          "start": 21.22,
+          "end": 21.64
+        },
+        {
+          "raw": "The",
+          "start": 21.64,
+          "end": 21.88
+        },
+        {
+          "raw": "building",
+          "start": 21.88,
+          "end": 22.2
+        },
+        {
+          "raw": "was",
+          "start": 22.2,
+          "end": 22.42
+        },
+        {
+          "raw": "one",
+          "start": 22.42,
+          "end": 22.68
+        },
+        {
+          "raw": "mass",
+          "start": 22.68,
+          "end": 22.96
+        },
+        {
+          "raw": "of",
+          "start": 22.96,
+          "end": 23.16
+        },
+        {
+          "raw": "flame.",
+          "start": 23.16,
+          "end": 23.5
+        },
+        {
+          "raw": "It",
+          "start": 23.68,
+          "end": 24.16
+        },
+        {
+          "raw": "was",
+          "start": 24.16,
+          "end": 24.24
+        },
+        {
+          "raw": "a",
+          "start": 24.24,
+          "end": 24.36
+        },
+        {
+          "raw": "terrible",
+          "start": 24.36,
+          "end": 24.72
+        },
+        {
+          "raw": "spectacle.",
+          "start": 24.72,
+          "end": 25.22
+        },
+        {
+          "raw": "I",
+          "start": 25.26,
+          "end": 25.74
+        },
+        {
+          "raw": "witnessed",
+          "start": 25.74,
+          "end": 26.04
+        },
+        {
+          "raw": "it",
+          "start": 26.04,
+          "end": 26.22
+        },
+        {
+          "raw": "myself",
+          "start": 26.22,
+          "end": 26.54
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "ma'am—oh,",
+        "no!",
+        "No",
+        "one",
+        "is",
+        "living",
+        "there.",
+        "I",
+        "suppose",
+        "you",
+        "are",
+        "a",
+        "stranger",
+        "in",
+        "these",
+        "parts,",
+        "or",
+        "you",
+        "would",
+        "have",
+        "heard",
+        "what",
+        "happened",
+        "last",
+        "autumn,—Thornfield",
+        "Hall",
+        "is",
+        "quite",
+        "a",
+        "ruin:",
+        "it",
+        "was",
+        "burnt",
+        "down",
+        "just",
+        "about",
+        "harvest-time.",
+        "A",
+        "dreadful",
+        "calamity!",
+        "such",
+        "an",
+        "immense",
+        "quantity",
+        "of",
+        "valuable",
+        "property",
+        "destroyed:",
+        "hardly",
+        "any",
+        "of",
+        "the",
+        "furniture",
+        "could",
+        "be",
+        "saved.",
+        "The",
+        "fire",
+        "broke",
+        "out",
+        "at",
+        "dead",
+        "of",
+        "night,",
+        "and",
+        "before",
+        "the",
+        "engines",
+        "arrived",
+        "from",
+        "Millcote,",
+        "the",
+        "building",
+        "was",
+        "one",
+        "mass",
+        "of",
+        "flame.",
+        "It",
+        "was",
+        "a",
+        "terrible",
+        "spectacle:",
+        "I",
+        "witnessed",
+        "it",
+        "myself.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "equal",
+          2,
+          25,
+          4,
+          27
+        ],
+        [
+          "replace",
+          25,
+          26,
+          27,
+          29
+        ],
+        [
+          "equal",
+          26,
+          88,
+          29,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          4
+        ],
+        [
+          "replace",
+          25,
+          26,
+          27,
+          29
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 0.7,
+          "end": 0.88,
+          "key": "ma",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'am.",
+          "start": 0.88,
+          "end": 0.98,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.2,
+          "end": 1.38,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 1.38,
+          "end": 1.58,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 1.84,
+          "end": 1.94,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "living",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "living",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 2.3,
+          "end": 2.64,
+          "key": "there",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.98,
+          "end": 3.06,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "suppose",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.32,
+          "end": 3.52,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.52,
+          "end": 3.62,
+          "key": "are",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.62,
+          "end": 3.7,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "stranger",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "stranger",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.18,
+          "key": "in",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "these",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "parts",
+          "start": 4.34,
+          "end": 4.6,
+          "key": "parts",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.6,
+          "end": 4.8,
+          "key": "or",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.8,
+          "end": 4.9,
+          "key": "you",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.9,
+          "end": 5.0,
+          "key": "would",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.0,
+          "end": 5.08,
+          "key": "have",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 5.08,
+          "end": 5.26,
+          "key": "heard",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.26,
+          "end": 5.42,
+          "key": "what",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "happened",
+          "start": 5.42,
+          "end": 5.66,
+          "key": "happened",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Last",
+          "start": 5.66,
+          "end": 5.94,
+          "key": "last",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "autumn",
+          "start": 5.94,
+          "end": 6.36,
+          "key": "autumn",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Thornfield",
+          "start": 6.36,
+          "end": 7.04,
+          "key": "thornfield",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Hall",
+          "start": 7.04,
+          "end": 7.3,
+          "key": "hall",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 7.3,
+          "end": 7.5,
+          "key": "is",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 7.5,
+          "end": 7.72,
+          "key": "quite",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.72,
+          "end": 7.86,
+          "key": "a",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "ruin",
+          "start": 7.86,
+          "end": 8.14,
+          "key": "ruin",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 8.14,
+          "end": 8.76,
+          "key": "it",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 8.76,
+          "end": 8.88,
+          "key": "was",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "burnt",
+          "start": 8.88,
+          "end": 9.14,
+          "key": "burnt",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 9.14,
+          "end": 9.42,
+          "key": "down",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 9.42,
+          "end": 9.62,
+          "key": "just",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 9.62,
+          "end": 9.86,
+          "key": "about",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "harvest time",
+          "start": 9.86,
+          "end": 10.58,
+          "key": "harvesttime",
+          "pieces": [
+            40,
+            41
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 10.58,
+          "end": 11.08,
+          "key": "a",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "dreadful",
+          "start": 11.08,
+          "end": 11.42,
+          "key": "dreadful",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "calamity",
+          "start": 11.42,
+          "end": 12.12,
+          "key": "calamity",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 12.12,
+          "end": 12.68,
+          "key": "such",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 12.68,
+          "end": 12.82,
+          "key": "an",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "immense",
+          "start": 12.82,
+          "end": 13.16,
+          "key": "immense",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "quantity",
+          "start": 13.16,
+          "end": 13.6,
+          "key": "quantity",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.6,
+          "end": 13.78,
+          "key": "of",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "valuable",
+          "start": 13.78,
+          "end": 14.16,
+          "key": "valuable",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "property",
+          "start": 14.16,
+          "end": 14.68,
+          "key": "property",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "destroyed",
+          "start": 14.68,
+          "end": 15.18,
+          "key": "destroyed",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Hardly",
+          "start": 15.18,
+          "end": 16.04,
+          "key": "hardly",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 16.04,
+          "end": 16.18,
+          "key": "any",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.18,
+          "end": 16.32,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.32,
+          "end": 16.42,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "furniture",
+          "start": 16.42,
+          "end": 16.76,
+          "key": "furniture",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 16.76,
+          "end": 16.98,
+          "key": "could",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 16.98,
+          "end": 17.12,
+          "key": "be",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "saved",
+          "start": 17.12,
+          "end": 17.62,
+          "key": "saved",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.62,
+          "end": 18.1,
+          "key": "the",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "fire",
+          "start": 18.1,
+          "end": 18.42,
+          "key": "fire",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 18.42,
+          "end": 18.66,
+          "key": "broke",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 18.66,
+          "end": 18.84,
+          "key": "out",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.84,
+          "end": 18.96,
+          "key": "at",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 18.96,
+          "end": 19.1,
+          "key": "dead",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 19.1,
+          "end": 19.22,
+          "key": "of",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 19.22,
+          "end": 19.46,
+          "key": "night",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 19.46,
+          "end": 19.86,
+          "key": "and",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 19.86,
+          "end": 20.06,
+          "key": "before",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 20.06,
+          "end": 20.24,
+          "key": "the",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "engines",
+          "start": 20.24,
+          "end": 20.56,
+          "key": "engines",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "arrived",
+          "start": 20.56,
+          "end": 20.94,
+          "key": "arrived",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 20.94,
+          "end": 21.22,
+          "key": "from",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Millcote",
+          "start": 21.22,
+          "end": 21.64,
+          "key": "millcote",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 21.64,
+          "end": 21.88,
+          "key": "the",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "building",
+          "start": 21.88,
+          "end": 22.2,
+          "key": "building",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 22.2,
+          "end": 22.42,
+          "key": "was",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 22.42,
+          "end": 22.68,
+          "key": "one",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "mass",
+          "start": 22.68,
+          "end": 22.96,
+          "key": "mass",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 22.96,
+          "end": 23.16,
+          "key": "of",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "flame.",
+          "start": 23.16,
+          "end": 23.5,
+          "key": "flame",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 23.68,
+          "end": 24.16,
+          "key": "it",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 24.16,
+          "end": 24.24,
+          "key": "was",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 24.24,
+          "end": 24.36,
+          "key": "a",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "terrible",
+          "start": 24.36,
+          "end": 24.72,
+          "key": "terrible",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "spectacle.",
+          "start": 24.72,
+          "end": 25.22,
+          "key": "spectacle",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 25.26,
+          "end": 25.74,
+          "key": "i",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "witnessed",
+          "start": 25.74,
+          "end": 26.04,
+          "key": "witnessed",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 26.04,
+          "end": 26.22,
+          "key": "it",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "myself",
+          "start": 26.22,
+          "end": 26.54,
+          "key": "myself",
+          "pieces": [
+            91
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 37,
+          "text": "harvest-time.",
+          "heard": "harvest time",
+          "heard_indexes": [
+            40,
+            41
+          ],
+          "start": 9.86,
+          "end": 10.58
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "ma'am—oh,",
+          "start": 0.64,
+          "end": 1.01
+        },
+        {
+          "text": "no!",
+          "start": 1.38,
+          "end": 1.58
+        },
+        {
+          "text": "No",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "one",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "is",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "living",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "there.",
+          "start": 2.3,
+          "end": 2.64
+        },
+        {
+          "text": "I",
+          "start": 2.98,
+          "end": 3.06
+        },
+        {
+          "text": "suppose",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "you",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "are",
+          "start": 3.52,
+          "end": 3.62
+        },
+        {
+          "text": "a",
+          "start": 3.62,
+          "end": 3.7
+        },
+        {
+          "text": "stranger",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "in",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "text": "these",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "parts,",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "text": "or",
+          "start": 4.6,
+          "end": 4.8
+        },
+        {
+          "text": "you",
+          "start": 4.8,
+          "end": 4.9
+        },
+        {
+          "text": "would",
+          "start": 4.9,
+          "end": 5.0
+        },
+        {
+          "text": "have",
+          "start": 5.0,
+          "end": 5.08
+        },
+        {
+          "text": "heard",
+          "start": 5.08,
+          "end": 5.26
+        },
+        {
+          "text": "what",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "text": "happened",
+          "start": 5.42,
+          "end": 5.66
+        },
+        {
+          "text": "last",
+          "start": 5.66,
+          "end": 5.94
+        },
+        {
+          "text": "autumn,—Thornfield",
+          "start": 5.94,
+          "end": 6.49
+        },
+        {
+          "text": "Hall",
+          "start": 7.04,
+          "end": 7.3
+        },
+        {
+          "text": "is",
+          "start": 7.3,
+          "end": 7.5
+        },
+        {
+          "text": "quite",
+          "start": 7.5,
+          "end": 7.72
+        },
+        {
+          "text": "a",
+          "start": 7.72,
+          "end": 7.86
+        },
+        {
+          "text": "ruin:",
+          "start": 7.86,
+          "end": 8.14
+        },
+        {
+          "text": "it",
+          "start": 8.14,
+          "end": 8.76
+        },
+        {
+          "text": "was",
+          "start": 8.76,
+          "end": 8.88
+        },
+        {
+          "text": "burnt",
+          "start": 8.88,
+          "end": 9.14
+        },
+        {
+          "text": "down",
+          "start": 9.14,
+          "end": 9.42
+        },
+        {
+          "text": "just",
+          "start": 9.42,
+          "end": 9.62
+        },
+        {
+          "text": "about",
+          "start": 9.62,
+          "end": 9.86
+        },
+        {
+          "text": "harvest-time.",
+          "start": 9.86,
+          "end": 10.58
+        },
+        {
+          "text": "A",
+          "start": 10.58,
+          "end": 11.08
+        },
+        {
+          "text": "dreadful",
+          "start": 11.08,
+          "end": 11.42
+        },
+        {
+          "text": "calamity!",
+          "start": 11.42,
+          "end": 12.12
+        },
+        {
+          "text": "such",
+          "start": 12.12,
+          "end": 12.68
+        },
+        {
+          "text": "an",
+          "start": 12.68,
+          "end": 12.82
+        },
+        {
+          "text": "immense",
+          "start": 12.82,
+          "end": 13.16
+        },
+        {
+          "text": "quantity",
+          "start": 13.16,
+          "end": 13.6
+        },
+        {
+          "text": "of",
+          "start": 13.6,
+          "end": 13.78
+        },
+        {
+          "text": "valuable",
+          "start": 13.78,
+          "end": 14.16
+        },
+        {
+          "text": "property",
+          "start": 14.16,
+          "end": 14.68
+        },
+        {
+          "text": "destroyed:",
+          "start": 14.68,
+          "end": 15.18
+        },
+        {
+          "text": "hardly",
+          "start": 15.18,
+          "end": 16.04
+        },
+        {
+          "text": "any",
+          "start": 16.04,
+          "end": 16.18
+        },
+        {
+          "text": "of",
+          "start": 16.18,
+          "end": 16.32
+        },
+        {
+          "text": "the",
+          "start": 16.32,
+          "end": 16.42
+        },
+        {
+          "text": "furniture",
+          "start": 16.42,
+          "end": 16.76
+        },
+        {
+          "text": "could",
+          "start": 16.76,
+          "end": 16.98
+        },
+        {
+          "text": "be",
+          "start": 16.98,
+          "end": 17.12
+        },
+        {
+          "text": "saved.",
+          "start": 17.12,
+          "end": 17.62
+        },
+        {
+          "text": "The",
+          "start": 17.62,
+          "end": 18.1
+        },
+        {
+          "text": "fire",
+          "start": 18.1,
+          "end": 18.42
+        },
+        {
+          "text": "broke",
+          "start": 18.42,
+          "end": 18.66
+        },
+        {
+          "text": "out",
+          "start": 18.66,
+          "end": 18.84
+        },
+        {
+          "text": "at",
+          "start": 18.84,
+          "end": 18.96
+        },
+        {
+          "text": "dead",
+          "start": 18.96,
+          "end": 19.1
+        },
+        {
+          "text": "of",
+          "start": 19.1,
+          "end": 19.22
+        },
+        {
+          "text": "night,",
+          "start": 19.22,
+          "end": 19.46
+        },
+        {
+          "text": "and",
+          "start": 19.46,
+          "end": 19.86
+        },
+        {
+          "text": "before",
+          "start": 19.86,
+          "end": 20.06
+        },
+        {
+          "text": "the",
+          "start": 20.06,
+          "end": 20.24
+        },
+        {
+          "text": "engines",
+          "start": 20.24,
+          "end": 20.56
+        },
+        {
+          "text": "arrived",
+          "start": 20.56,
+          "end": 20.94
+        },
+        {
+          "text": "from",
+          "start": 20.94,
+          "end": 21.22
+        },
+        {
+          "text": "Millcote,",
+          "start": 21.22,
+          "end": 21.64
+        },
+        {
+          "text": "the",
+          "start": 21.64,
+          "end": 21.88
+        },
+        {
+          "text": "building",
+          "start": 21.88,
+          "end": 22.2
+        },
+        {
+          "text": "was",
+          "start": 22.2,
+          "end": 22.42
+        },
+        {
+          "text": "one",
+          "start": 22.42,
+          "end": 22.68
+        },
+        {
+          "text": "mass",
+          "start": 22.68,
+          "end": 22.96
+        },
+        {
+          "text": "of",
+          "start": 22.96,
+          "end": 23.16
+        },
+        {
+          "text": "flame.",
+          "start": 23.16,
+          "end": 23.5
+        },
+        {
+          "text": "It",
+          "start": 23.68,
+          "end": 24.16
+        },
+        {
+          "text": "was",
+          "start": 24.16,
+          "end": 24.24
+        },
+        {
+          "text": "a",
+          "start": 24.24,
+          "end": 24.36
+        },
+        {
+          "text": "terrible",
+          "start": 24.36,
+          "end": 24.72
+        },
+        {
+          "text": "spectacle:",
+          "start": 24.72,
+          "end": 25.22
+        },
+        {
+          "text": "I",
+          "start": 25.26,
+          "end": 25.74
+        },
+        {
+          "text": "witnessed",
+          "start": 25.74,
+          "end": 26.04
+        },
+        {
+          "text": "it",
+          "start": 26.04,
+          "end": 26.22
+        },
+        {
+          "text": "myself.\"",
+          "start": 26.22,
+          "end": 26.54
+        }
+      ],
+      "stats": {
+        "expected_words": 88,
+        "heard_words": 91,
+        "matched_words": 86
+      },
+      "match_ratio": 0.9772727272727273,
+      "rejection_reasons": [],
+      "seconds": 0.6698452478740364
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "5e170c6183bfffefd38017d06a3551c93d7bff0ae670638448183d877f6cd734",
+  "selected_reasons": []
+}

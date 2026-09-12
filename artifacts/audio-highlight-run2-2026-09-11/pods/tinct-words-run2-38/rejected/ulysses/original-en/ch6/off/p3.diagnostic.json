@@ -1,0 +1,370 @@
+{
+  "complete": true,
+  "signature": "c9d07a3588ecfaea36c942f8baf4bb32a8c1f081f8215637575aeee9de4f558d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1376585280522704,
+      "alignment_seconds": 0.00023620098363608122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Daedalus covered himself quickly and got in, saying...",
+          "start": 0.05,
+          "end": 3.57,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " Daedalus",
+              "start": 0.83,
+              "end": 1.05,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " covered",
+              "start": 1.05,
+              "end": 1.37,
+              "probability": 0.986328125
+            },
+            {
+              "text": " himself",
+              "start": 1.37,
+              "end": 1.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " quickly",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 2.03,
+              "end": 2.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " got",
+              "start": 2.37,
+              "end": 2.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in,",
+              "start": 2.55,
+              "end": 2.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " saying...",
+              "start": 3.05,
+              "end": 3.57,
+              "probability": 0.6236572265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Daedalus",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "raw": "covered",
+          "start": 1.05,
+          "end": 1.37
+        },
+        {
+          "raw": "himself",
+          "start": 1.37,
+          "end": 1.73
+        },
+        {
+          "raw": "quickly",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "raw": "got",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "raw": "in,",
+          "start": 2.55,
+          "end": 2.87
+        },
+        {
+          "raw": "saying...",
+          "start": 3.05,
+          "end": 3.57
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus",
+        "covered",
+        "himself",
+        "quickly",
+        "and",
+        "got",
+        "in,",
+        "saying:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Daedalus",
+          "start": 0.83,
+          "end": 1.05,
+          "key": "daedalus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "covered",
+          "start": 1.05,
+          "end": 1.37,
+          "key": "covered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 1.37,
+          "end": 1.73,
+          "key": "himself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "quickly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.03,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 2.37,
+          "end": 2.55,
+          "key": "got",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 2.55,
+          "end": 2.87,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "saying...",
+          "start": 3.05,
+          "end": 3.57,
+          "key": "saying",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.67,
+          "end": 0.86
+        },
+        {
+          "text": "covered",
+          "start": 1.05,
+          "end": 1.37
+        },
+        {
+          "text": "himself",
+          "start": 1.37,
+          "end": 1.73
+        },
+        {
+          "text": "quickly",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "and",
+          "start": 2.03,
+          "end": 2.37
+        },
+        {
+          "text": "got",
+          "start": 2.37,
+          "end": 2.55
+        },
+        {
+          "text": "in,",
+          "start": 2.55,
+          "end": 2.87
+        },
+        {
+          "text": "saying:",
+          "start": 3.05,
+          "end": 3.57
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.13797195901861414
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ffd4a940e1a0a439d688cbffd38cb6e57a399c9fa9edade80e9e85dcfc35eb0c",
+  "selected_reasons": []
+}

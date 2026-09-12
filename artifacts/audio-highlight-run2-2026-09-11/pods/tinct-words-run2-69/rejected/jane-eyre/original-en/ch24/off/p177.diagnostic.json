@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "2e9507c0225eff0fc298daef240defe3e34c54699685002d18a9986c41f761d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.11035154107958078,
+      "alignment_seconds": 0.0002930164337158203,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Would I be quiet and talk rationally?",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Would",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " I",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " be",
+              "start": 0.62,
+              "end": 0.74,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " quiet",
+              "start": 0.74,
+              "end": 1.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 1.04,
+              "end": 1.26,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " talk",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rationally?",
+              "start": 1.48,
+              "end": 1.94,
+              "probability": 0.991943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Would",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "be",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "raw": "quiet",
+          "start": 0.74,
+          "end": 1.04
+        },
+        {
+          "raw": "and",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "raw": "talk",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "rationally?",
+          "start": 1.48,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Would",
+        "I",
+        "be",
+        "quiet",
+        "and",
+        "talk",
+        "rationally?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Would",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "would",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.62,
+          "end": 0.74,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "quiet",
+          "start": 0.74,
+          "end": 1.04,
+          "key": "quiet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.04,
+          "end": 1.26,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 1.26,
+          "end": 1.48,
+          "key": "talk",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rationally?",
+          "start": 1.48,
+          "end": 1.94,
+          "key": "rationally",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Would",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "I",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "be",
+          "start": 0.62,
+          "end": 0.74
+        },
+        {
+          "text": "quiet",
+          "start": 0.74,
+          "end": 1.04
+        },
+        {
+          "text": "and",
+          "start": 1.04,
+          "end": 1.26
+        },
+        {
+          "text": "talk",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "rationally?\"",
+          "start": 1.48,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1107617486268282
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eca3a9027027f96cf6b10095cefd75b6f8abbb7eed1c9812331f04bdaa00ed8a",
+  "selected_reasons": []
+}

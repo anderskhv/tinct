@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "d97c8e80da24ab67285be9ebeefc4f0ecc10c2be0c7100345be01f1ab68b64d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1217018099850975,
+      "alignment_seconds": 0.0002336309989914298,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—And Corny Kelleher himself? Mr Power asked.",
+        "hotwords": "And, Corny, Kelleher, Mr, Power"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And Corny Kelleher himself? Mr Power asked.",
+          "start": 0.05,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.44775390625
+            },
+            {
+              "text": " Corny",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.6123046875
+            },
+            {
+              "text": " Kelleher",
+              "start": 0.89,
+              "end": 1.19,
+              "probability": 0.4113566080729167
+            },
+            {
+              "text": " himself?",
+              "start": 1.19,
+              "end": 1.57,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Mr",
+              "start": 2.25,
+              "end": 2.25,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Power",
+              "start": 2.25,
+              "end": 2.51,
+              "probability": 0.2442626953125
+            },
+            {
+              "text": " asked.",
+              "start": 2.51,
+              "end": 3.01,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Corny",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "Kelleher",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "raw": "himself?",
+          "start": 1.19,
+          "end": 1.57
+        },
+        {
+          "raw": "Mr",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "raw": "Power",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "raw": "asked.",
+          "start": 2.51,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "—And",
+        "Corny",
+        "Kelleher",
+        "himself?",
+        "Mr",
+        "Power",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Corny",
+          "start": 0.55,
+          "end": 0.89,
+          "key": "corny",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Kelleher",
+          "start": 0.89,
+          "end": 1.19,
+          "key": "kelleher",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "himself?",
+          "start": 1.19,
+          "end": 1.57,
+          "key": "himself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mr",
+          "start": 2.25,
+          "end": 2.25,
+          "key": "mr",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 2.25,
+          "end": 2.51,
+          "key": "power",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 2.51,
+          "end": 3.01,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—And",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Corny",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "Kelleher",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "text": "himself?",
+          "start": 1.19,
+          "end": 1.57
+        },
+        {
+          "text": "Mr",
+          "start": 2.25,
+          "end": 2.25
+        },
+        {
+          "text": "Power",
+          "start": 2.25,
+          "end": 2.51
+        },
+        {
+          "text": "asked.",
+          "start": 2.51,
+          "end": 3.01
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12200961099006236
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b707141bdaaca89b0ffb91773c4a037848e5e492a91646449fbf4d734d9f250d",
+  "selected_reasons": []
+}

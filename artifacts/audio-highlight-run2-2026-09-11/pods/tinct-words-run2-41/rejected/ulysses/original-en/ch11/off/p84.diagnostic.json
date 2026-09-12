@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "d6a9666fb9e21defc1e0fcba46dac53eec7ad22a0a78bfc5565ee3e1aaa9dfe5",
+  "attempts": [
+    {
+      "asr_seconds": 0.10686979908496141,
+      "alignment_seconds": 0.00036522094160318375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your bow, is it?",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " bow,",
+              "start": 0.52,
+              "end": 0.76,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " is",
+              "start": 0.9,
+              "end": 0.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it?",
+              "start": 0.96,
+              "end": 1.16,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "bow,",
+          "start": 0.52,
+          "end": 0.76
+        },
+        {
+          "raw": "is",
+          "start": 0.9,
+          "end": 0.96
+        },
+        {
+          "raw": "it?",
+          "start": 0.96,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "—Your",
+        "_beau,_",
+        "is",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bow,",
+          "start": 0.52,
+          "end": 0.76,
+          "key": "bow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.9,
+          "end": 0.96,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 0.96,
+          "end": 1.16,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "_beau,_",
+          "start": 0.52,
+          "end": 0.71
+        },
+        {
+          "text": "is",
+          "start": 0.9,
+          "end": 0.96
+        },
+        {
+          "text": "it?",
+          "start": 0.96,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10734798712655902
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fd4e6b5420f5e538a528a1339cf82cfdfeb9c4f4382f58796ad362413523d293",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

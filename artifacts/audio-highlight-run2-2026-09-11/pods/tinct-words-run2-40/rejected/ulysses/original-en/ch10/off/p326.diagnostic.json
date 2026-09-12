@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "f7c7c1b4382df56dc924c30333b563c31cb1ad846cb12ad952e531899ceca5f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.14795918576419353,
+      "alignment_seconds": 0.0003650193102657795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Dedalus stared at him.",
+          "start": 0.05,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.921875
+            },
+            {
+              "text": " Dedalus",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.65869140625
+            },
+            {
+              "text": " stared",
+              "start": 1.09,
+              "end": 1.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " at",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.67,
+              "end": 1.85,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Dedalus",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "stared",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "raw": "at",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "him.",
+          "start": 1.67,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Dedalus",
+        "stared",
+        "at",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dedalus",
+          "start": 0.87,
+          "end": 1.09,
+          "key": "dedalus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "stared",
+          "start": 1.09,
+          "end": 1.49,
+          "key": "stared",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "at",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.67,
+          "end": 1.85,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Dedalus",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "stared",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "text": "at",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "him.",
+          "start": 1.67,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14845246775075793
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69d58919f8cc9e3a1a4f9a84672beb4c7f1ea68b5e7b192161cbd8e62da0eed7",
+  "selected_reasons": []
+}

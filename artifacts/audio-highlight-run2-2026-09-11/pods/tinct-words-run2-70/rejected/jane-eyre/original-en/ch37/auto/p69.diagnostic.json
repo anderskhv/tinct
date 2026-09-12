@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "d69ae34089394045dba2af5594c16d6954aef84638bf554963bdfdb2ca0b5d5a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15825450280681252,
+      "alignment_seconds": 0.00038727885112166405,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I don't care about being married.\"",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I don't care about being married.",
+          "start": 0.11,
+          "end": 1.67,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.51,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " don't",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.991455078125
+            },
+            {
+              "text": " care",
+              "start": 0.71,
+              "end": 0.81,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " about",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " being",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.99609375
+            },
+            {
+              "text": " married.",
+              "start": 1.27,
+              "end": 1.67,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "raw": "don't",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "care",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "raw": "about",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "being",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "married.",
+          "start": 1.27,
+          "end": 1.67
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "don't",
+        "care",
+        "about",
+        "being",
+        "married.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.51,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.51,
+          "end": 0.71,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 0.71,
+          "end": 0.81,
+          "key": "care",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 0.81,
+          "end": 1.05,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "being",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "married.",
+          "start": 1.27,
+          "end": 1.67,
+          "key": "married",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "text": "don't",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "care",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "about",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "being",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "married.\"",
+          "start": 1.27,
+          "end": 1.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15877933101728559
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "528168c48f284a3234d66606ecfd7e7a78fe5fa07518fb7cfba6649ff20aba8d",
+  "selected_reasons": []
+}

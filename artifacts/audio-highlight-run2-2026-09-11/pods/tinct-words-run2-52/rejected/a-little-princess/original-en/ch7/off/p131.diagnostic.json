@@ -1,0 +1,458 @@
+{
+  "complete": true,
+  "signature": "8879a59c823a3d54ebeb786d16c804a7b3f1d20e957248e984112d0f748e617b",
+  "attempts": [
+    {
+      "asr_seconds": 0.22877364978194237,
+      "alignment_seconds": 0.0005310662090778351,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I, panted Miss Emilia, M must I go and tell her now?",
+          "start": 0.02,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " panted",
+              "start": 0.92,
+              "end": 1.28,
+              "probability": 0.830078125
+            },
+            {
+              "text": " Miss",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " Emilia,",
+              "start": 1.48,
+              "end": 1.9,
+              "probability": 0.6951904296875
+            },
+            {
+              "text": " M",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.174560546875
+            },
+            {
+              "text": " must",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " I",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " go",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " tell",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now?",
+              "start": 3.52,
+              "end": 3.76,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "panted",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "raw": "Miss",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "Emilia,",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "raw": "M",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "must",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "I",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "go",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "tell",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "her",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "now?",
+          "start": 3.52,
+          "end": 3.76
+        }
+      ],
+      "expected_tokens": [
+        "\"I?\"",
+        "panted",
+        "Miss",
+        "Amelia.",
+        "\"M-must",
+        "I",
+        "go",
+        "and",
+        "tell",
+        "her",
+        "now?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          11,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "panted",
+          "start": 0.92,
+          "end": 1.28,
+          "key": "panted",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "miss",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Emilia,",
+          "start": 1.48,
+          "end": 1.9,
+          "key": "emilia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "M must",
+          "start": 2.44,
+          "end": 2.74,
+          "key": "mmust",
+          "pieces": [
+            4,
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.74,
+          "end": 2.92,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "go",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "tell",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.38,
+          "end": 3.52,
+          "key": "her",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 3.52,
+          "end": 3.76,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "\"M-must",
+          "heard": "M must",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 2.44,
+          "end": 2.74
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"I?\"",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "panted",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "text": "Miss",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "Amelia.",
+          "start": 1.48,
+          "end": 1.96
+        },
+        {
+          "text": "\"M-must",
+          "start": 2.44,
+          "end": 2.74
+        },
+        {
+          "text": "I",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "go",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "and",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "tell",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "her",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "now?\"",
+          "start": 3.52,
+          "end": 3.76
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.22946418449282646
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8daacc9c788935ea69a1a57835a6224ceab3bf91f0f2cbfb617f4116372577e2",
+  "selected_reasons": []
+}

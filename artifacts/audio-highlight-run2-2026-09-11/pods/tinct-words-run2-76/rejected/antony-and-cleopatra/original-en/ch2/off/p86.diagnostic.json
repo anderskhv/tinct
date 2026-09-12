@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "8ce6bc15cc2ef7a4b86f9209e0c921050e6b46a98833777c9f2b20de33cca9ae",
+  "attempts": [
+    {
+      "asr_seconds": 0.13148779515177011,
+      "alignment_seconds": 0.00035580992698669434,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit 3rd messenger.",
+          "start": 0.02,
+          "end": 1.46,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.8515625
+            },
+            {
+              "text": " 3rd",
+              "start": 0.66,
+              "end": 1.46,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " messenger.",
+              "start": 1.46,
+              "end": 1.46,
+              "probability": 0.5224609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "3rd",
+          "start": 0.66,
+          "end": 1.46
+        },
+        {
+          "raw": "messenger.",
+          "start": 1.46,
+          "end": 1.46
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "third",
+        "Messenger._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "3rd",
+          "start": 0.66,
+          "end": 1.46,
+          "key": "3rd",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "messenger.",
+          "start": 1.46,
+          "end": 1.46,
+          "key": "messenger",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "third",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "text": "Messenger._]",
+          "start": 1.46,
+          "end": 1.46
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13195181684568524
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bff8cdbdbd899233337e0a125bec4472bdaaf8b36cace5345da1d4fe8d483aab",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

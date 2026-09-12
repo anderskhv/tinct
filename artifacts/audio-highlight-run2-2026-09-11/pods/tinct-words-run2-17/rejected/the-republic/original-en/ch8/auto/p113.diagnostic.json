@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "ba996a3baba00048b93274983e9012d78cd10df021e33b6a8bd73fdad55e95f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.10927431378513575,
+      "alignment_seconds": 0.00014129281044006348,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What evil?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What evil?",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " evil?",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "evil?",
+          "start": 0.55,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "evil?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "evil?",
+          "start": 0.55,
+          "end": 0.85,
+          "key": "evil",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "evil?",
+          "start": 0.55,
+          "end": 0.85
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1094614053145051
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a7a2a405895c16966dc5906c521a1028e788f907328e4110e7ea0613ffa245b3",
+  "selected_reasons": []
+}

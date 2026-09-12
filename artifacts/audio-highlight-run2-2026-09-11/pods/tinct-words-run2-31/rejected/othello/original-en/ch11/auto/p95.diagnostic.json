@@ -1,0 +1,926 @@
+{
+  "complete": true,
+  "signature": "82dd52fd2a3891702a4823529a4debe76ebd77b19bfa899549f84821267271f2",
+  "attempts": [
+    {
+      "asr_seconds": 0.32042171573266387,
+      "alignment_seconds": 0.000598343089222908,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Yours, by this hand: and to see how he prizes the foolish woman your wife! she gave it him, and he hath given it his whore.",
+        "hotwords": "Iago, Yours"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Yours, by this hand, and to see how he prizes the foolish woman your wife! she gave it him, and he hath given it his whore.",
+          "start": 0.05,
+          "end": 8.07,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.30271148681640625
+            },
+            {
+              "text": " Yours,",
+              "start": 1.21,
+              "end": 1.63,
+              "probability": 0.5079269409179688
+            },
+            {
+              "text": " by",
+              "start": 1.71,
+              "end": 1.81,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " this",
+              "start": 1.81,
+              "end": 2.01,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " hand,",
+              "start": 2.01,
+              "end": 2.31,
+              "probability": 0.9609375
+            },
+            {
+              "text": " and",
+              "start": 2.81,
+              "end": 2.89,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " to",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.947265625
+            },
+            {
+              "text": " see",
+              "start": 2.99,
+              "end": 3.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " how",
+              "start": 3.13,
+              "end": 3.29,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " he",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " prizes",
+              "start": 3.45,
+              "end": 3.77,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " the",
+              "start": 3.77,
+              "end": 4.09,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " foolish",
+              "start": 4.09,
+              "end": 4.39,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " woman",
+              "start": 4.39,
+              "end": 4.75,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " your",
+              "start": 4.75,
+              "end": 5.01,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " wife!",
+              "start": 5.01,
+              "end": 5.29,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " she",
+              "start": 5.97,
+              "end": 6.13,
+              "probability": 0.037200927734375
+            },
+            {
+              "text": " gave",
+              "start": 6.13,
+              "end": 6.31,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " it",
+              "start": 6.31,
+              "end": 6.43,
+              "probability": 0.845703125
+            },
+            {
+              "text": " him,",
+              "start": 6.43,
+              "end": 6.65,
+              "probability": 0.974609375
+            },
+            {
+              "text": " and",
+              "start": 6.97,
+              "end": 7.05,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " he",
+              "start": 7.05,
+              "end": 7.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " hath",
+              "start": 7.15,
+              "end": 7.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " given",
+              "start": 7.27,
+              "end": 7.47,
+              "probability": 0.962890625
+            },
+            {
+              "text": " it",
+              "start": 7.47,
+              "end": 7.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " his",
+              "start": 7.63,
+              "end": 7.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " whore.",
+              "start": 7.83,
+              "end": 8.07,
+              "probability": 0.80029296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Yours,",
+          "start": 1.21,
+          "end": 1.63
+        },
+        {
+          "raw": "by",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "raw": "this",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "raw": "hand,",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "raw": "to",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "see",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "raw": "how",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "raw": "he",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "prizes",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "raw": "the",
+          "start": 3.77,
+          "end": 4.09
+        },
+        {
+          "raw": "foolish",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "raw": "woman",
+          "start": 4.39,
+          "end": 4.75
+        },
+        {
+          "raw": "your",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "raw": "wife!",
+          "start": 5.01,
+          "end": 5.29
+        },
+        {
+          "raw": "she",
+          "start": 5.97,
+          "end": 6.13
+        },
+        {
+          "raw": "gave",
+          "start": 6.13,
+          "end": 6.31
+        },
+        {
+          "raw": "it",
+          "start": 6.31,
+          "end": 6.43
+        },
+        {
+          "raw": "him,",
+          "start": 6.43,
+          "end": 6.65
+        },
+        {
+          "raw": "and",
+          "start": 6.97,
+          "end": 7.05
+        },
+        {
+          "raw": "he",
+          "start": 7.05,
+          "end": 7.15
+        },
+        {
+          "raw": "hath",
+          "start": 7.15,
+          "end": 7.27
+        },
+        {
+          "raw": "given",
+          "start": 7.27,
+          "end": 7.47
+        },
+        {
+          "raw": "it",
+          "start": 7.47,
+          "end": 7.63
+        },
+        {
+          "raw": "his",
+          "start": 7.63,
+          "end": 7.83
+        },
+        {
+          "raw": "whore.",
+          "start": 7.83,
+          "end": 8.07
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Yours,",
+        "by",
+        "this",
+        "hand:",
+        "and",
+        "to",
+        "see",
+        "how",
+        "he",
+        "prizes",
+        "the",
+        "foolish",
+        "woman",
+        "your",
+        "wife!",
+        "she",
+        "gave",
+        "it",
+        "him,",
+        "and",
+        "he",
+        "hath",
+        "given",
+        "it",
+        "his",
+        "whore."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yours,",
+          "start": 1.21,
+          "end": 1.63,
+          "key": "yours",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.71,
+          "end": 1.81,
+          "key": "by",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.81,
+          "end": 2.01,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hand,",
+          "start": 2.01,
+          "end": 2.31,
+          "key": "hand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.81,
+          "end": 2.89,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.89,
+          "end": 2.99,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.99,
+          "end": 3.13,
+          "key": "see",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 3.13,
+          "end": 3.29,
+          "key": "how",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.29,
+          "end": 3.45,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "prizes",
+          "start": 3.45,
+          "end": 3.77,
+          "key": "prizes",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.77,
+          "end": 4.09,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "foolish",
+          "start": 4.09,
+          "end": 4.39,
+          "key": "foolish",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "woman",
+          "start": 4.39,
+          "end": 4.75,
+          "key": "woman",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.75,
+          "end": 5.01,
+          "key": "your",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wife!",
+          "start": 5.01,
+          "end": 5.29,
+          "key": "wife",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.97,
+          "end": 6.13,
+          "key": "she",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 6.13,
+          "end": 6.31,
+          "key": "gave",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 6.31,
+          "end": 6.43,
+          "key": "it",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 6.43,
+          "end": 6.65,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.97,
+          "end": 7.05,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.05,
+          "end": 7.15,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 7.15,
+          "end": 7.27,
+          "key": "hath",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 7.27,
+          "end": 7.47,
+          "key": "given",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 7.47,
+          "end": 7.63,
+          "key": "it",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.63,
+          "end": 7.83,
+          "key": "his",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "whore.",
+          "start": 7.83,
+          "end": 8.07,
+          "key": "whore",
+          "pieces": [
+            26
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "Yours,",
+          "start": 1.21,
+          "end": 1.63
+        },
+        {
+          "text": "by",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "this",
+          "start": 1.81,
+          "end": 2.01
+        },
+        {
+          "text": "hand:",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "text": "and",
+          "start": 2.81,
+          "end": 2.89
+        },
+        {
+          "text": "to",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "see",
+          "start": 2.99,
+          "end": 3.13
+        },
+        {
+          "text": "how",
+          "start": 3.13,
+          "end": 3.29
+        },
+        {
+          "text": "he",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "prizes",
+          "start": 3.45,
+          "end": 3.77
+        },
+        {
+          "text": "the",
+          "start": 3.77,
+          "end": 4.09
+        },
+        {
+          "text": "foolish",
+          "start": 4.09,
+          "end": 4.39
+        },
+        {
+          "text": "woman",
+          "start": 4.39,
+          "end": 4.75
+        },
+        {
+          "text": "your",
+          "start": 4.75,
+          "end": 5.01
+        },
+        {
+          "text": "wife!",
+          "start": 5.01,
+          "end": 5.29
+        },
+        {
+          "text": "she",
+          "start": 5.97,
+          "end": 6.13
+        },
+        {
+          "text": "gave",
+          "start": 6.13,
+          "end": 6.31
+        },
+        {
+          "text": "it",
+          "start": 6.31,
+          "end": 6.43
+        },
+        {
+          "text": "him,",
+          "start": 6.43,
+          "end": 6.65
+        },
+        {
+          "text": "and",
+          "start": 6.97,
+          "end": 7.05
+        },
+        {
+          "text": "he",
+          "start": 7.05,
+          "end": 7.15
+        },
+        {
+          "text": "hath",
+          "start": 7.15,
+          "end": 7.27
+        },
+        {
+          "text": "given",
+          "start": 7.27,
+          "end": 7.47
+        },
+        {
+          "text": "it",
+          "start": 7.47,
+          "end": 7.63
+        },
+        {
+          "text": "his",
+          "start": 7.63,
+          "end": 7.83
+        },
+        {
+          "text": "whore.",
+          "start": 7.83,
+          "end": 8.07
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32126557687297463
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "30439da434d8f3abc2f73d429e1c7ea7e3d3749ae663f7fb0ec009e9615cf30e",
+  "selected_reasons": []
+}

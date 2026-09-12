@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "be1d529ae7a3a0788c9790b57a8d29da7a70ef3131be6495fe18e1563268a141",
+  "attempts": [
+    {
+      "asr_seconds": 0.19292113883420825,
+      "alignment_seconds": 0.0004367481451481581,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hastings, how where the garland, dost thou mean the crown?",
+          "start": 0.43,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Hastings,",
+              "start": 0.43,
+              "end": 0.79,
+              "probability": 0.796875
+            },
+            {
+              "text": " how",
+              "start": 1.37,
+              "end": 1.43,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " where",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " the",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " garland,",
+              "start": 1.71,
+              "end": 2.17,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " dost",
+              "start": 2.55,
+              "end": 2.63,
+              "probability": 0.853759765625
+            },
+            {
+              "text": " thou",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mean",
+              "start": 2.79,
+              "end": 2.97,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " the",
+              "start": 2.97,
+              "end": 3.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " crown?",
+              "start": 3.15,
+              "end": 3.39,
+              "probability": 0.9716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hastings,",
+          "start": 0.43,
+          "end": 0.79
+        },
+        {
+          "raw": "how",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "raw": "where",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "garland,",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "raw": "dost",
+          "start": 2.55,
+          "end": 2.63
+        },
+        {
+          "raw": "thou",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "mean",
+          "start": 2.79,
+          "end": 2.97
+        },
+        {
+          "raw": "the",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "raw": "crown?",
+          "start": 3.15,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Hastings.",
+        "How,",
+        "wear",
+        "the",
+        "garland?",
+        "Dost",
+        "thou",
+        "mean",
+        "the",
+        "crown?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          10,
+          3,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hastings,",
+          "start": 0.43,
+          "end": 0.79,
+          "key": "hastings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.37,
+          "end": 1.43,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "garland,",
+          "start": 1.71,
+          "end": 2.17,
+          "key": "garland",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "dost",
+          "start": 2.55,
+          "end": 2.63,
+          "key": "dost",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 2.79,
+          "end": 2.97,
+          "key": "mean",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.97,
+          "end": 3.15,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "crown?",
+          "start": 3.15,
+          "end": 3.39,
+          "key": "crown",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hastings.",
+          "start": 0.43,
+          "end": 0.79
+        },
+        {
+          "text": "How,",
+          "start": 1.37,
+          "end": 1.43
+        },
+        {
+          "text": "wear",
+          "start": 1.43,
+          "end": 1.5
+        },
+        {
+          "text": "the",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "garland?",
+          "start": 1.71,
+          "end": 2.17
+        },
+        {
+          "text": "Dost",
+          "start": 2.55,
+          "end": 2.63
+        },
+        {
+          "text": "thou",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "mean",
+          "start": 2.79,
+          "end": 2.97
+        },
+        {
+          "text": "the",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "text": "crown?",
+          "start": 3.15,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.19350478402338922
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4dea65d91c9eb470aa8dd5ed1147c9b619f9f17699f8e29900e057fb734b9b71",
+  "selected_reasons": []
+}

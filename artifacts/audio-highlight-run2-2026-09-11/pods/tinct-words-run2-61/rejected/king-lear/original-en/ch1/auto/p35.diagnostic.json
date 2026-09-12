@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "4fba4fe1414ed9da3c28833a757ad47b6f644cce18ef0e3a153339a345d8109f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2743401527404785,
+      "alignment_seconds": 0.0005199722945690155,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. How, how, Cordelia? Mend your speech a little, Lest you may mar your fortunes.",
+        "hotwords": "Lear, Cordelia, Mend, Lest"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, How, how, Cordelia? Mend your speech a little, Lest you may mar your fortunes.",
+          "start": 0.05,
+          "end": 4.71,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.4716796875
+            },
+            {
+              "text": " How,",
+              "start": 1.03,
+              "end": 1.07,
+              "probability": 0.352783203125
+            },
+            {
+              "text": " how,",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.09130859375
+            },
+            {
+              "text": " Cordelia?",
+              "start": 1.53,
+              "end": 1.91,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Mend",
+              "start": 2.57,
+              "end": 2.65,
+              "probability": 0.393310546875
+            },
+            {
+              "text": " your",
+              "start": 2.65,
+              "end": 2.79,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " speech",
+              "start": 2.79,
+              "end": 3.01,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " little,",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Lest",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.5043792724609375
+            },
+            {
+              "text": " you",
+              "start": 3.71,
+              "end": 3.87,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " may",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " mar",
+              "start": 4.01,
+              "end": 4.17,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " your",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.978515625
+            },
+            {
+              "text": " fortunes.",
+              "start": 4.35,
+              "end": 4.71,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "How,",
+          "start": 1.03,
+          "end": 1.07
+        },
+        {
+          "raw": "how,",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "Cordelia?",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "raw": "Mend",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "raw": "your",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "raw": "speech",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "little,",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "raw": "Lest",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "raw": "may",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "mar",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "raw": "your",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "fortunes.",
+          "start": 4.35,
+          "end": 4.71
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "How,",
+        "how,",
+        "Cordelia?",
+        "Mend",
+        "your",
+        "speech",
+        "a",
+        "little,",
+        "Lest",
+        "you",
+        "may",
+        "mar",
+        "your",
+        "fortunes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How,",
+          "start": 1.03,
+          "end": 1.07,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "how,",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "how",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cordelia?",
+          "start": 1.53,
+          "end": 1.91,
+          "key": "cordelia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mend",
+          "start": 2.57,
+          "end": 2.65,
+          "key": "mend",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.65,
+          "end": 2.79,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "speech",
+          "start": 2.79,
+          "end": 3.01,
+          "key": "speech",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "little,",
+          "start": 3.17,
+          "end": 3.39,
+          "key": "little",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Lest",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "lest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.71,
+          "end": 3.87,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "may",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "mar",
+          "start": 4.01,
+          "end": 4.17,
+          "key": "mar",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "your",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fortunes.",
+          "start": 4.35,
+          "end": 4.71,
+          "key": "fortunes",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "How,",
+          "start": 1.03,
+          "end": 1.07
+        },
+        {
+          "text": "how,",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "Cordelia?",
+          "start": 1.53,
+          "end": 1.91
+        },
+        {
+          "text": "Mend",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "text": "your",
+          "start": 2.65,
+          "end": 2.79
+        },
+        {
+          "text": "speech",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "text": "a",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "little,",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "text": "Lest",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "you",
+          "start": 3.71,
+          "end": 3.87
+        },
+        {
+          "text": "may",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "text": "mar",
+          "start": 4.01,
+          "end": 4.17
+        },
+        {
+          "text": "your",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "fortunes.",
+          "start": 4.35,
+          "end": 4.71
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27505269832909107
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "164f0fdad4510f108efbd3aa66020cf8f9811e077e580e8a6f104228024af34f",
+  "selected_reasons": []
+}

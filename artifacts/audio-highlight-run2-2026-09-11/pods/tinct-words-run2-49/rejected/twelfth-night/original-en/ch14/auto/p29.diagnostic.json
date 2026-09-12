@@ -1,0 +1,941 @@
+{
+  "complete": true,
+  "signature": "7f3c95e3a121f6fbc29bee6050d51da7ff8756d265d3516c0973d96c0c3fd3c8",
+  "attempts": [
+    {
+      "asr_seconds": 0.21422621235251427,
+      "alignment_seconds": 0.0004539601504802704,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. 'And wished to see thee cross-gartered.'",
+        "hotwords": "Malvolio, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, And wished to see thee cross-gardered.",
+          "start": 0.61,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.61,
+              "end": 1.07,
+              "probability": 0.7744954427083334
+            },
+            {
+              "text": " And",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.0058135986328125
+            },
+            {
+              "text": " wished",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.04559326171875
+            },
+            {
+              "text": " to",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " see",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thee",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " cross",
+              "start": 2.19,
+              "end": 2.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": "-gardered.",
+              "start": 2.45,
+              "end": 2.93,
+              "probability": 0.6332600911458334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "raw": "And",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "wished",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "to",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "see",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "thee",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "cross",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "raw": "-gardered.",
+          "start": 2.45,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "'And",
+        "wished",
+        "to",
+        "see",
+        "thee",
+        "cross-gartered.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.61,
+          "end": 1.07,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wished",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "wished",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cross",
+          "start": 2.19,
+          "end": 2.45,
+          "key": "cross",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "-gardered.",
+          "start": 2.45,
+          "end": 2.93,
+          "key": "gardered",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.61,
+          "end": 1.07
+        },
+        {
+          "text": "'And",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "wished",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "to",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "see",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "thee",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "cross-gartered.'",
+          "start": 2.19,
+          "end": 2.56
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.21495824679732323
+    },
+    {
+      "asr_seconds": 0.19981857761740685,
+      "alignment_seconds": 0.0004775784909725189,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Malvolio, And"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " wish to see thee cross-guardered.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " wish",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 1.2278556823730469e-05
+            },
+            {
+              "text": " to",
+              "start": 0.81,
+              "end": 1.91,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " see",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thee",
+              "start": 2.05,
+              "end": 2.21,
+              "probability": 0.1676025390625
+            },
+            {
+              "text": " cross",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.98388671875
+            },
+            {
+              "text": "-guardered.",
+              "start": 2.45,
+              "end": 2.93,
+              "probability": 0.6458333333333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "wish",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "to",
+          "start": 0.81,
+          "end": 1.91
+        },
+        {
+          "raw": "see",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "thee",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "raw": "cross",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "raw": "-guardered.",
+          "start": 2.45,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "'And",
+        "wished",
+        "to",
+        "see",
+        "thee",
+        "cross-gartered.'"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "equal",
+          3,
+          6,
+          1,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "wish",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "wish",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.81,
+          "end": 1.91,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.05,
+          "end": 2.21,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cross",
+          "start": 2.21,
+          "end": 2.45,
+          "key": "cross",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "-guardered.",
+          "start": 2.45,
+          "end": 2.93,
+          "key": "guardered",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.0,
+          "end": 0.405
+        },
+        {
+          "text": "'And",
+          "start": 0.405,
+          "end": 0.608
+        },
+        {
+          "text": "wished",
+          "start": 0.608,
+          "end": 0.709
+        },
+        {
+          "text": "to",
+          "start": 0.81,
+          "end": 1.91
+        },
+        {
+          "text": "see",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "thee",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "text": "cross-gartered.'",
+          "start": 2.21,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.42857142857142855,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2004355899989605
+    },
+    {
+      "asr_seconds": 0.20628048479557037,
+      "alignment_seconds": 0.0005707815289497375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Malvolio, and wish to see thee cross-guarded.",
+          "start": 0.65,
+          "end": 2.81,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.65,
+              "end": 1.07,
+              "probability": 0.7744954427083334
+            },
+            {
+              "text": " and",
+              "start": 1.41,
+              "end": 1.59,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " wish",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " to",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thee",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " cross",
+              "start": 2.21,
+              "end": 2.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": "-guarded.",
+              "start": 2.45,
+              "end": 2.81,
+              "probability": 0.700439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.65,
+          "end": 1.07
+        },
+        {
+          "raw": "and",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "raw": "wish",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "to",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "see",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "thee",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "cross",
+          "start": 2.21,
+          "end": 2.45
+        },
+        {
+          "raw": "-guarded.",
+          "start": 2.45,
+          "end": 2.81
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "'And",
+        "wished",
+        "to",
+        "see",
+        "thee",
+        "cross-gartered.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.65,
+          "end": 1.07,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.41,
+          "end": 1.59,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wish",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "wish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "thee",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cross",
+          "start": 2.21,
+          "end": 2.45,
+          "key": "cross",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "-guarded.",
+          "start": 2.45,
+          "end": 2.81,
+          "key": "guarded",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.65,
+          "end": 1.07
+        },
+        {
+          "text": "'And",
+          "start": 1.41,
+          "end": 1.59
+        },
+        {
+          "text": "wished",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "text": "to",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "see",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "thee",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "cross-gartered.'",
+          "start": 2.21,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20701617747545242
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ee35d0572d4599450e4ead32bfc3b402591a3c3a65de98db4b4d42ebe0ba4a7d",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8d85604fc77d55694383b86594aec11b847ec64978f5882c92c95d1ea8f5c113",
+  "attempts": [
+    {
+      "asr_seconds": 0.14562318520620465,
+      "alignment_seconds": 0.00030519114807248116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. Well, what worst?",
+        "hotwords": "Antony, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Well, what worst?",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " Well,",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.0211334228515625
+            },
+            {
+              "text": " what",
+              "start": 1.41,
+              "end": 1.43,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " worst?",
+              "start": 1.43,
+              "end": 1.65,
+              "probability": 0.61083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Well,",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "what",
+          "start": 1.41,
+          "end": 1.43
+        },
+        {
+          "raw": "worst?",
+          "start": 1.43,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Well,",
+        "what",
+        "worst?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.41,
+          "end": 1.43,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "worst?",
+          "start": 1.43,
+          "end": 1.65,
+          "key": "worst",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Well,",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "what",
+          "start": 1.41,
+          "end": 1.43
+        },
+        {
+          "text": "worst?",
+          "start": 1.43,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14604228222742677
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "63f5cf3e5e0d7676ceefd7e710ff398e4c3ca8c1ad4b5de4c30414645f900266",
+  "selected_reasons": []
+}

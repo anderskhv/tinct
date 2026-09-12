@@ -1,0 +1,4118 @@
+{
+  "complete": true,
+  "signature": "965e3925f7c01f63f817ab5093ecab7dadbb542a409f982e496ed1bf7517a8a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.3509216206148267,
+      "alignment_seconds": 0.0005927439779043198,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, qu'elle y sera mal—peu comfortable! And her clothes, they will wear out: how can she get new ones?\"",
+        "hotwords": "Oh, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, qu'elle y sera mal—peu comfortable! And her clothes, they will wear out—how can she get new ones?",
+          "start": 0.02,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " qu",
+              "start": 0.8,
+              "end": 0.8,
+              "probability": 0.1300048828125
+            },
+            {
+              "text": "'elle",
+              "start": 0.8,
+              "end": 0.9,
+              "probability": 0.04641616344451904
+            },
+            {
+              "text": " y",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.1734619140625
+            },
+            {
+              "text": " sera",
+              "start": 1.1,
+              "end": 1.54,
+              "probability": 0.4423980712890625
+            },
+            {
+              "text": " mal—peu",
+              "start": 1.54,
+              "end": 2.36,
+              "probability": 0.1346731185913086
+            },
+            {
+              "text": " comfortable!",
+              "start": 2.36,
+              "end": 2.74,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " And",
+              "start": 3.32,
+              "end": 3.5,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " her",
+              "start": 3.5,
+              "end": 3.64,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " clothes,",
+              "start": 3.64,
+              "end": 4.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " they",
+              "start": 4.22,
+              "end": 4.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 4.3,
+              "end": 4.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " wear",
+              "start": 4.46,
+              "end": 4.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " out—how",
+              "start": 4.64,
+              "end": 5.4,
+              "probability": 0.7280680338541666
+            },
+            {
+              "text": " can",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " she",
+              "start": 5.54,
+              "end": 5.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " get",
+              "start": 5.66,
+              "end": 5.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " new",
+              "start": 5.78,
+              "end": 6.0,
+              "probability": 0.994140625
+            },
+            {
+              "text": " ones?",
+              "start": 6.0,
+              "end": 6.32,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "qu",
+          "start": 0.8,
+          "end": 0.8
+        },
+        {
+          "raw": "'elle",
+          "start": 0.8,
+          "end": 0.9
+        },
+        {
+          "raw": "y",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "sera",
+          "start": 1.1,
+          "end": 1.54
+        },
+        {
+          "raw": "mal—peu",
+          "start": 1.54,
+          "end": 2.36
+        },
+        {
+          "raw": "comfortable!",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "raw": "And",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "raw": "her",
+          "start": 3.5,
+          "end": 3.64
+        },
+        {
+          "raw": "clothes,",
+          "start": 3.64,
+          "end": 4.04
+        },
+        {
+          "raw": "they",
+          "start": 4.22,
+          "end": 4.3
+        },
+        {
+          "raw": "will",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "raw": "wear",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "raw": "out—how",
+          "start": 4.64,
+          "end": 5.4
+        },
+        {
+          "raw": "can",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "she",
+          "start": 5.54,
+          "end": 5.66
+        },
+        {
+          "raw": "get",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "raw": "new",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "raw": "ones?",
+          "start": 6.0,
+          "end": 6.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "qu'elle",
+        "y",
+        "sera",
+        "mal—peu",
+        "comfortable!",
+        "And",
+        "her",
+        "clothes,",
+        "they",
+        "will",
+        "wear",
+        "out:",
+        "how",
+        "can",
+        "she",
+        "get",
+        "new",
+        "ones?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          12,
+          3,
+          13
+        ],
+        [
+          "replace",
+          12,
+          14,
+          13,
+          14
+        ],
+        [
+          "equal",
+          14,
+          19,
+          14,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          12,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "qu",
+          "start": 0.8,
+          "end": 0.8,
+          "key": "qu",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'elle",
+          "start": 0.8,
+          "end": 0.9,
+          "key": "elle",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "y",
+          "start": 0.9,
+          "end": 1.1,
+          "key": "y",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sera",
+          "start": 1.1,
+          "end": 1.54,
+          "key": "sera",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "mal—peu",
+          "start": 1.54,
+          "end": 2.36,
+          "key": "malpeu",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "comfortable!",
+          "start": 2.36,
+          "end": 2.74,
+          "key": "comfortable",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 3.32,
+          "end": 3.5,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.5,
+          "end": 3.64,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "clothes,",
+          "start": 3.64,
+          "end": 4.04,
+          "key": "clothes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.22,
+          "end": 4.3,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.3,
+          "end": 4.46,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 4.46,
+          "end": 4.64,
+          "key": "wear",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "out—how",
+          "start": 4.64,
+          "end": 5.4,
+          "key": "outhow",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "can",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.54,
+          "end": 5.66,
+          "key": "she",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.66,
+          "end": 5.78,
+          "key": "get",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 5.78,
+          "end": 6.0,
+          "key": "new",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ones?",
+          "start": 6.0,
+          "end": 6.32,
+          "key": "ones",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "qu'elle",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "y",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "sera",
+          "start": 1.1,
+          "end": 1.54
+        },
+        {
+          "text": "mal—peu",
+          "start": 1.54,
+          "end": 2.36
+        },
+        {
+          "text": "comfortable!",
+          "start": 2.36,
+          "end": 2.74
+        },
+        {
+          "text": "And",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "text": "her",
+          "start": 3.5,
+          "end": 3.64
+        },
+        {
+          "text": "clothes,",
+          "start": 3.64,
+          "end": 4.04
+        },
+        {
+          "text": "they",
+          "start": 4.22,
+          "end": 4.3
+        },
+        {
+          "text": "will",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "text": "wear",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "text": "out:",
+          "start": 4.64,
+          "end": 5.02
+        },
+        {
+          "text": "how",
+          "start": 5.02,
+          "end": 5.21
+        },
+        {
+          "text": "can",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "she",
+          "start": 5.54,
+          "end": 5.66
+        },
+        {
+          "text": "get",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "text": "new",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "text": "ones?\"",
+          "start": 6.0,
+          "end": 6.32
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8421052631578947,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3517639795318246
+    },
+    {
+      "asr_seconds": 5.473781299777329,
+      "alignment_seconds": 0.0009753359481692314,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Oh, And"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Oh, Oh, Oh, Oh, Oh, Oh,",
+          "start": 0.44,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.44,
+              "end": 0.62,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " Oh,",
+              "start": 0.72,
+              "end": 0.72,
+              "probability": 1.3113021850585938e-05
+            },
+            {
+              "text": " Oh,",
+              "start": 0.76,
+              "end": 0.76,
+              "probability": 0.00998687744140625
+            },
+            {
+              "text": " Oh,",
+              "start": 0.76,
+              "end": 0.76,
+              "probability": 0.1541748046875
+            },
+            {
+              "text": " Oh,",
+              "start": 0.76,
+              "end": 0.84,
+              "probability": 0.32666015625
+            },
+            {
+              "text": " Oh,",
+              "start": 0.86,
+              "end": 0.86,
+              "probability": 0.418701171875
+            }
+          ]
+        },
+        {
+          "text": " Oh, Oh, Oh, Oh,",
+          "start": 0.86,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.86,
+              "end": 1.5,
+              "probability": 0.000988006591796875
+            },
+            {
+              "text": " Oh,",
+              "start": 1.5,
+              "end": 1.5,
+              "probability": 0.0002168416976928711
+            },
+            {
+              "text": " Oh,",
+              "start": 1.6,
+              "end": 1.6,
+              "probability": 0.1668701171875
+            },
+            {
+              "text": " Oh,",
+              "start": 2.02,
+              "end": 2.44,
+              "probability": 0.583984375
+            }
+          ]
+        },
+        {
+          "text": " Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh, Oh",
+          "start": 2.44,
+          "end": 6.98,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 2.44,
+              "end": 4.42,
+              "probability": 0.00047206878662109375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.00015413761138916016
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.166015625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.76953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.869140625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9609375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.986328125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Oh,",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Oh",
+              "start": 6.98,
+              "end": 6.98,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.44,
+          "end": 0.62
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.72,
+          "end": 0.72
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.76,
+          "end": 0.76
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.76,
+          "end": 0.76
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.76,
+          "end": 0.84
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.86,
+          "end": 0.86
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.86,
+          "end": 1.5
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.5,
+          "end": 1.5
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.02,
+          "end": 2.44
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.44,
+          "end": 4.42
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98
+        },
+        {
+          "raw": "Oh",
+          "start": 6.98,
+          "end": 6.98
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "qu'elle",
+        "y",
+        "sera",
+        "mal—peu",
+        "comfortable!",
+        "And",
+        "her",
+        "clothes,",
+        "they",
+        "will",
+        "wear",
+        "out:",
+        "how",
+        "can",
+        "she",
+        "get",
+        "new",
+        "ones?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          19,
+          1,
+          122
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          19,
+          1,
+          122
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.44,
+          "end": 0.62,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.72,
+          "end": 0.72,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.76,
+          "end": 0.76,
+          "key": "oh",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.76,
+          "end": 0.76,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.76,
+          "end": 0.84,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.86,
+          "end": 0.86,
+          "key": "oh",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 0.86,
+          "end": 1.5,
+          "key": "oh",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.5,
+          "end": 1.5,
+          "key": "oh",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.6,
+          "end": 1.6,
+          "key": "oh",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.02,
+          "end": 2.44,
+          "key": "oh",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.44,
+          "end": 4.42,
+          "key": "oh",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            92
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            93
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            94
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            95
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            96
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            97
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            98
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            99
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            100
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            101
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            102
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            103
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            104
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            105
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            106
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            107
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            108
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            109
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            110
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            111
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            112
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            113
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            114
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            115
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            116
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            117
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            118
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            119
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            120
+          ]
+        },
+        {
+          "raw": "Oh",
+          "start": 6.98,
+          "end": 6.98,
+          "key": "oh",
+          "pieces": [
+            121
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.44,
+          "end": 0.62
+        },
+        {
+          "text": "qu'elle",
+          "start": 0.62,
+          "end": 3.8
+        },
+        {
+          "text": "y",
+          "start": 3.8,
+          "end": 5.39
+        },
+        {
+          "text": "sera",
+          "start": 5.39,
+          "end": 6.185
+        },
+        {
+          "text": "mal—peu",
+          "start": 6.185,
+          "end": 6.582
+        },
+        {
+          "text": "comfortable!",
+          "start": 6.582,
+          "end": 6.781
+        },
+        {
+          "text": "And",
+          "start": 6.781,
+          "end": 6.88
+        },
+        {
+          "text": "her",
+          "start": 6.88,
+          "end": 6.93
+        },
+        {
+          "text": "clothes,",
+          "start": 6.93,
+          "end": 6.955
+        },
+        {
+          "text": "they",
+          "start": 6.955,
+          "end": 6.968
+        },
+        {
+          "text": "will",
+          "start": 6.968,
+          "end": 6.974
+        },
+        {
+          "text": "wear",
+          "start": 6.974,
+          "end": 6.977
+        },
+        {
+          "text": "out:",
+          "start": 6.977,
+          "end": 6.979
+        },
+        {
+          "text": "how",
+          "start": 6.979,
+          "end": 6.979
+        },
+        {
+          "text": "can",
+          "start": 6.979,
+          "end": 6.979
+        },
+        {
+          "text": "she",
+          "start": 6.979,
+          "end": 6.979
+        },
+        {
+          "text": "get",
+          "start": 6.979,
+          "end": 6.979
+        },
+        {
+          "text": "new",
+          "start": 6.979,
+          "end": 6.979
+        },
+        {
+          "text": "ones?\"",
+          "start": 6.979,
+          "end": 6.979
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 122,
+        "matched_words": 1
+      },
+      "match_ratio": 0.05263157894736842,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 5.475627693347633
+    },
+    {
+      "asr_seconds": 0.3362557478249073,
+      "alignment_seconds": 0.00046235136687755585,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, Quelwhysiramal, pew comfortable, and her clothes they will wear out, how can she get",
+          "start": 0.02,
+          "end": 5.78,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.61767578125
+            },
+            {
+              "text": " Quelwhysiramal,",
+              "start": 0.8,
+              "end": 1.84,
+              "probability": 0.6000104631696429
+            },
+            {
+              "text": " pew",
+              "start": 2.12,
+              "end": 2.34,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " comfortable,",
+              "start": 2.34,
+              "end": 2.72,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " and",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " her",
+              "start": 3.48,
+              "end": 3.64,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " clothes",
+              "start": 3.64,
+              "end": 4.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " they",
+              "start": 4.06,
+              "end": 4.3,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " will",
+              "start": 4.3,
+              "end": 4.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " wear",
+              "start": 4.46,
+              "end": 4.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " out,",
+              "start": 4.64,
+              "end": 4.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " how",
+              "start": 5.3,
+              "end": 5.4,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " can",
+              "start": 5.4,
+              "end": 5.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " she",
+              "start": 5.54,
+              "end": 5.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " get",
+              "start": 5.66,
+              "end": 5.78,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " new ones?",
+          "start": 5.78,
+          "end": 6.32,
+          "words": [
+            {
+              "text": " new",
+              "start": 5.78,
+              "end": 6.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ones?",
+              "start": 6.0,
+              "end": 6.32,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Quelwhysiramal,",
+          "start": 0.8,
+          "end": 1.84
+        },
+        {
+          "raw": "pew",
+          "start": 2.12,
+          "end": 2.34
+        },
+        {
+          "raw": "comfortable,",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "raw": "her",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "raw": "clothes",
+          "start": 3.64,
+          "end": 4.06
+        },
+        {
+          "raw": "they",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "raw": "will",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "raw": "wear",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "raw": "out,",
+          "start": 4.64,
+          "end": 4.92
+        },
+        {
+          "raw": "how",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "raw": "can",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "raw": "she",
+          "start": 5.54,
+          "end": 5.66
+        },
+        {
+          "raw": "get",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "raw": "new",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "raw": "ones?",
+          "start": 6.0,
+          "end": 6.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "qu'elle",
+        "y",
+        "sera",
+        "mal—peu",
+        "comfortable!",
+        "And",
+        "her",
+        "clothes,",
+        "they",
+        "will",
+        "wear",
+        "out:",
+        "how",
+        "can",
+        "she",
+        "get",
+        "new",
+        "ones?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          5,
+          1,
+          3
+        ],
+        [
+          "equal",
+          5,
+          19,
+          3,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          5,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Quelwhysiramal,",
+          "start": 0.8,
+          "end": 1.84,
+          "key": "quelwhysiramal",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pew",
+          "start": 2.12,
+          "end": 2.34,
+          "key": "pew",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "comfortable,",
+          "start": 2.34,
+          "end": 2.72,
+          "key": "comfortable",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.32,
+          "end": 3.48,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 3.48,
+          "end": 3.64,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clothes",
+          "start": 3.64,
+          "end": 4.06,
+          "key": "clothes",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 4.06,
+          "end": 4.3,
+          "key": "they",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.3,
+          "end": 4.46,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wear",
+          "start": 4.46,
+          "end": 4.64,
+          "key": "wear",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "out,",
+          "start": 4.64,
+          "end": 4.92,
+          "key": "out",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 5.3,
+          "end": 5.4,
+          "key": "how",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.4,
+          "end": 5.54,
+          "key": "can",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 5.54,
+          "end": 5.66,
+          "key": "she",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 5.66,
+          "end": 5.78,
+          "key": "get",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 5.78,
+          "end": 6.0,
+          "key": "new",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "ones?",
+          "start": 6.0,
+          "end": 6.32,
+          "key": "ones",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "qu'elle",
+          "start": 0.62,
+          "end": 1.48
+        },
+        {
+          "text": "y",
+          "start": 1.48,
+          "end": 1.91
+        },
+        {
+          "text": "sera",
+          "start": 1.91,
+          "end": 2.125
+        },
+        {
+          "text": "mal—peu",
+          "start": 2.125,
+          "end": 2.232
+        },
+        {
+          "text": "comfortable!",
+          "start": 2.34,
+          "end": 2.72
+        },
+        {
+          "text": "And",
+          "start": 3.32,
+          "end": 3.48
+        },
+        {
+          "text": "her",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "text": "clothes,",
+          "start": 3.64,
+          "end": 4.06
+        },
+        {
+          "text": "they",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "text": "will",
+          "start": 4.3,
+          "end": 4.46
+        },
+        {
+          "text": "wear",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "text": "out:",
+          "start": 4.64,
+          "end": 4.92
+        },
+        {
+          "text": "how",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "text": "can",
+          "start": 5.4,
+          "end": 5.54
+        },
+        {
+          "text": "she",
+          "start": 5.54,
+          "end": 5.66
+        },
+        {
+          "text": "get",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "text": "new",
+          "start": 5.78,
+          "end": 6.0
+        },
+        {
+          "text": "ones?\"",
+          "start": 6.0,
+          "end": 6.32
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.7894736842105263,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3368715038523078
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "92195a9aaa2538e60f8750947ffd6fced445a72b9128e97f6d4bf2cb3e5e718a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

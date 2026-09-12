@@ -1,0 +1,567 @@
+{
+  "complete": true,
+  "signature": "68da4afb7af9edae179b7f497b5b031ff8bc47e885a999f5375b9b44bb2267c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.19393832236528397,
+      "alignment_seconds": 0.00029226019978523254,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cornwall, lest it see more, prevent it, Out vile jelly, where's thy luster now?",
+          "start": 0.0,
+          "end": 5.0,
+          "words": [
+            {
+              "text": " Cornwall,",
+              "start": 0.0,
+              "end": 0.76,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " lest",
+              "start": 1.34,
+              "end": 1.38,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " it",
+              "start": 1.38,
+              "end": 1.52,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " see",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " more,",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " prevent",
+              "start": 2.02,
+              "end": 2.22,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " it,",
+              "start": 2.22,
+              "end": 2.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Out",
+              "start": 2.96,
+              "end": 3.02,
+              "probability": 0.640625
+            },
+            {
+              "text": " vile",
+              "start": 3.02,
+              "end": 3.24,
+              "probability": 0.357666015625
+            },
+            {
+              "text": " jelly,",
+              "start": 3.24,
+              "end": 3.62,
+              "probability": 0.86669921875
+            },
+            {
+              "text": " where's",
+              "start": 4.02,
+              "end": 4.2,
+              "probability": 0.7353515625
+            },
+            {
+              "text": " thy",
+              "start": 4.2,
+              "end": 4.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " luster",
+              "start": 4.36,
+              "end": 4.66,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " now?",
+              "start": 4.66,
+              "end": 5.0,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "raw": "lest",
+          "start": 1.34,
+          "end": 1.38
+        },
+        {
+          "raw": "it",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "raw": "see",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "more,",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "raw": "prevent",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "raw": "it,",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "raw": "Out",
+          "start": 2.96,
+          "end": 3.02
+        },
+        {
+          "raw": "vile",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "raw": "jelly,",
+          "start": 3.24,
+          "end": 3.62
+        },
+        {
+          "raw": "where's",
+          "start": 4.02,
+          "end": 4.2
+        },
+        {
+          "raw": "thy",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "raw": "luster",
+          "start": 4.36,
+          "end": 4.66
+        },
+        {
+          "raw": "now?",
+          "start": 4.66,
+          "end": 5.0
+        }
+      ],
+      "expected_tokens": [
+        "Cornwall.",
+        "Lest",
+        "it",
+        "see",
+        "more,",
+        "prevent",
+        "it.",
+        "Out,",
+        "vile",
+        "jelly!",
+        "Where",
+        "is",
+        "thy",
+        "lustre",
+        "now?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          11
+        ],
+        [
+          "equal",
+          12,
+          13,
+          11,
+          12
+        ],
+        [
+          "replace",
+          13,
+          14,
+          12,
+          13
+        ],
+        [
+          "equal",
+          14,
+          15,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          12,
+          10,
+          11
+        ],
+        [
+          "replace",
+          13,
+          14,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cornwall,",
+          "start": 0.0,
+          "end": 0.76,
+          "key": "cornwall",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lest",
+          "start": 1.34,
+          "end": 1.38,
+          "key": "lest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.38,
+          "end": 1.52,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "more",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "prevent",
+          "start": 2.02,
+          "end": 2.22,
+          "key": "prevent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 2.22,
+          "end": 2.54,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Out",
+          "start": 2.96,
+          "end": 3.02,
+          "key": "out",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "vile",
+          "start": 3.02,
+          "end": 3.24,
+          "key": "vile",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "jelly,",
+          "start": 3.24,
+          "end": 3.62,
+          "key": "jelly",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "where's",
+          "start": 4.02,
+          "end": 4.2,
+          "key": "wheres",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 4.2,
+          "end": 4.36,
+          "key": "thy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "luster",
+          "start": 4.36,
+          "end": 4.66,
+          "key": "luster",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 4.66,
+          "end": 5.0,
+          "key": "now",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cornwall.",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "Lest",
+          "start": 1.34,
+          "end": 1.38
+        },
+        {
+          "text": "it",
+          "start": 1.38,
+          "end": 1.52
+        },
+        {
+          "text": "see",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "more,",
+          "start": 1.68,
+          "end": 1.9
+        },
+        {
+          "text": "prevent",
+          "start": 2.02,
+          "end": 2.22
+        },
+        {
+          "text": "it.",
+          "start": 2.22,
+          "end": 2.54
+        },
+        {
+          "text": "Out,",
+          "start": 2.96,
+          "end": 3.02
+        },
+        {
+          "text": "vile",
+          "start": 3.02,
+          "end": 3.24
+        },
+        {
+          "text": "jelly!",
+          "start": 3.24,
+          "end": 3.62
+        },
+        {
+          "text": "Where",
+          "start": 3.62,
+          "end": 3.91
+        },
+        {
+          "text": "is",
+          "start": 3.91,
+          "end": 4.055
+        },
+        {
+          "text": "thy",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "text": "lustre",
+          "start": 4.36,
+          "end": 4.51
+        },
+        {
+          "text": "now?",
+          "start": 4.66,
+          "end": 5.0
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19433821365237236
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7edf8c356548b09279e6f48ea2ecfd79f58dd4ee520bebfd593d0c07ce8db81a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "2a4764673eb015453216b5f2dc8724ef627dc16bd8a183099fddbc565688f36c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12708019884303212,
+      "alignment_seconds": 0.00018540630117058754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Lord. O Tullus!",
+        "hotwords": "First, Lord, O, Tullus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Lord, O Tullus",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " Lord,",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " O",
+              "start": 1.44,
+              "end": 1.48,
+              "probability": 0.79443359375
+            },
+            {
+              "text": " Tullus",
+              "start": 1.48,
+              "end": 1.92,
+              "probability": 0.673095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "O",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "raw": "Tullus",
+          "start": 1.48,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Lord.",
+        "O",
+        "Tullus!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "lord",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.44,
+          "end": 1.48,
+          "key": "o",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Tullus",
+          "start": 1.48,
+          "end": 1.92,
+          "key": "tullus",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Lord.",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "O",
+          "start": 1.44,
+          "end": 1.48
+        },
+        {
+          "text": "Tullus!",
+          "start": 1.48,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1273340666666627
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "39d4b9141b2409f300d8adb316186e3b517c763c0bce5b630aa35e600961d6cf",
+  "selected_reasons": []
+}

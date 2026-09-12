@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "2264acb5afa0cffd94f000cbd37013b5ce2bfe8dd1748f8539bba66b46c79f77",
+  "attempts": [
+    {
+      "asr_seconds": 0.33949342742562294,
+      "alignment_seconds": 0.0004649301990866661,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, sir,\" replied Mr. Fogg, consulting his watch, \"and I admit it.\"",
+        "hotwords": "Yes, Mr, Fogg, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, sir,\" replied Mr. Fogg, consulting his watch, and I admit it.",
+          "start": 0.02,
+          "end": 4.72,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.047698974609375
+            },
+            {
+              "text": " sir,\"",
+              "start": 0.92,
+              "end": 1.44,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " replied",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mr.",
+              "start": 1.72,
+              "end": 2.04,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Fogg,",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.802001953125
+            },
+            {
+              "text": " consulting",
+              "start": 2.54,
+              "end": 2.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " his",
+              "start": 2.98,
+              "end": 3.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " watch,",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 3.86,
+              "end": 4.04,
+              "probability": 0.10943603515625
+            },
+            {
+              "text": " I",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " admit",
+              "start": 4.18,
+              "end": 4.46,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " it.",
+              "start": 4.46,
+              "end": 4.72,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "sir,\"",
+          "start": 0.92,
+          "end": 1.44
+        },
+        {
+          "raw": "replied",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "raw": "Fogg,",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "consulting",
+          "start": 2.54,
+          "end": 2.98
+        },
+        {
+          "raw": "his",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "raw": "watch,",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "raw": "and",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "raw": "I",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "raw": "admit",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "raw": "it.",
+          "start": 4.46,
+          "end": 4.72
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "sir,\"",
+        "replied",
+        "Mr.",
+        "Fogg,",
+        "consulting",
+        "his",
+        "watch,",
+        "\"and",
+        "I",
+        "admit",
+        "it.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,\"",
+          "start": 0.92,
+          "end": 1.44,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.72,
+          "end": 2.04,
+          "key": "mr",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Fogg,",
+          "start": 2.28,
+          "end": 2.4,
+          "key": "fogg",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "consulting",
+          "start": 2.54,
+          "end": 2.98,
+          "key": "consulting",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.98,
+          "end": 3.2,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "watch,",
+          "start": 3.2,
+          "end": 3.52,
+          "key": "watch",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.86,
+          "end": 4.04,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.04,
+          "end": 4.18,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "admit",
+          "start": 4.18,
+          "end": 4.46,
+          "key": "admit",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 4.46,
+          "end": 4.72,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "sir,\"",
+          "start": 0.92,
+          "end": 1.44
+        },
+        {
+          "text": "replied",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "Mr.",
+          "start": 1.72,
+          "end": 2.04
+        },
+        {
+          "text": "Fogg,",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "consulting",
+          "start": 2.54,
+          "end": 2.98
+        },
+        {
+          "text": "his",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "text": "watch,",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "text": "\"and",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "text": "I",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "text": "admit",
+          "start": 4.18,
+          "end": 4.46
+        },
+        {
+          "text": "it.\"",
+          "start": 4.46,
+          "end": 4.72
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3401357838883996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1251920dbd123a8b1b37e8823a4149cb7cd84b6c9c5273b01266c9638d92449",
+  "selected_reasons": []
+}

@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "e3e3487e6df7828eba580ee76020278d8abbb74b75fe5e321e31daca01ed1769",
+  "attempts": [
+    {
+      "asr_seconds": 0.12463264801772311,
+      "alignment_seconds": 0.0002656989963725209,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fourth soldier it signs. Well does it not",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Fourth",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " soldier",
+              "start": 0.62,
+              "end": 1.02,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " it",
+              "start": 1.02,
+              "end": 1.56,
+              "probability": 0.313232421875
+            },
+            {
+              "text": " signs.",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Well",
+              "start": 2.06,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " does",
+              "start": 2.1,
+              "end": 2.26,
+              "probability": 0.494140625
+            },
+            {
+              "text": " it",
+              "start": 2.26,
+              "end": 2.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fourth",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "soldier",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "raw": "it",
+          "start": 1.02,
+          "end": 1.56
+        },
+        {
+          "raw": "signs.",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "Well",
+          "start": 2.06,
+          "end": 2.1
+        },
+        {
+          "raw": "does",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "raw": "it",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "raw": "not",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Fourth",
+        "Soldier.",
+        "It",
+        "signs",
+        "well,",
+        "does",
+        "it",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fourth",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "fourth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier",
+          "start": 0.62,
+          "end": 1.02,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.02,
+          "end": 1.56,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "signs.",
+          "start": 1.56,
+          "end": 1.82,
+          "key": "signs",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Well",
+          "start": 2.06,
+          "end": 2.1,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 2.1,
+          "end": 2.26,
+          "key": "does",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.26,
+          "end": 2.38,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fourth",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "text": "It",
+          "start": 1.02,
+          "end": 1.56
+        },
+        {
+          "text": "signs",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "well,",
+          "start": 2.06,
+          "end": 2.1
+        },
+        {
+          "text": "does",
+          "start": 2.1,
+          "end": 2.26
+        },
+        {
+          "text": "it",
+          "start": 2.26,
+          "end": 2.38
+        },
+        {
+          "text": "not?",
+          "start": 2.38,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12500635100877844
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6b0e23468421836dffeeb44ea85efc5e8a77bf7c8690d1e0c213d54e9852e6ad",
+  "selected_reasons": []
+}

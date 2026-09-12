@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "cf5ac436563228e0394b1002431ae206a70b2fe9215df7e9703eae196f720c45",
+  "attempts": [
+    {
+      "asr_seconds": 0.12870663398643956,
+      "alignment_seconds": 0.00019604101544246078,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Eight plums a penny! Eight for a penny!",
+        "hotwords": "Eight"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eight plums a penny! Eight for a penny!",
+          "start": 0.02,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Eight",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.40966796875
+            },
+            {
+              "text": " plums",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.971435546875
+            },
+            {
+              "text": " a",
+              "start": 0.86,
+              "end": 0.96,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " penny!",
+              "start": 0.96,
+              "end": 1.22,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Eight",
+              "start": 1.64,
+              "end": 1.7,
+              "probability": 0.865234375
+            },
+            {
+              "text": " for",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " penny!",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eight",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "plums",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 0.96
+        },
+        {
+          "raw": "penny!",
+          "start": 0.96,
+          "end": 1.22
+        },
+        {
+          "raw": "Eight",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "raw": "for",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "penny!",
+          "start": 2.0,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "—Eight",
+        "plums",
+        "a",
+        "penny!",
+        "Eight",
+        "for",
+        "a",
+        "penny!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eight",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "eight",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "plums",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "plums",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.86,
+          "end": 0.96,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "penny!",
+          "start": 0.96,
+          "end": 1.22,
+          "key": "penny",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Eight",
+          "start": 1.64,
+          "end": 1.7,
+          "key": "eight",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "for",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "penny!",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "penny",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Eight",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "plums",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "a",
+          "start": 0.86,
+          "end": 0.96
+        },
+        {
+          "text": "penny!",
+          "start": 0.96,
+          "end": 1.22
+        },
+        {
+          "text": "Eight",
+          "start": 1.64,
+          "end": 1.7
+        },
+        {
+          "text": "for",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "a",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "penny!",
+          "start": 2.0,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1289770359871909
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1e803b4b1d878e734c072b84f47efc3aae642d0dd11ac9b41c4ca55ed0574474",
+  "selected_reasons": []
+}

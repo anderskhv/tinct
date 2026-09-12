@@ -1,0 +1,659 @@
+{
+  "complete": true,
+  "signature": "d944ac9c127955b24a07ef833c9967ab8464a739bc6ee5260a7ebb04c7cafa37",
+  "attempts": [
+    {
+      "asr_seconds": 0.21862622257322073,
+      "alignment_seconds": 0.00011691823601722717,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Clitus, Dardanius and Volumnius._]",
+        "hotwords": "Clitus, Dardanius, Volumnius._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Clitus, Dardanius and Volumnius._",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5889892578125
+            },
+            {
+              "text": " Clitus,",
+              "start": 0.79,
+              "end": 1.19,
+              "probability": 0.351806640625
+            },
+            {
+              "text": " Dardanius",
+              "start": 1.65,
+              "end": 2.15,
+              "probability": 0.73004150390625
+            },
+            {
+              "text": " and",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " Volumnius._",
+              "start": 2.27,
+              "end": 3.47,
+              "probability": 0.5507812649011612
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Clitus,",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "raw": "Dardanius",
+          "start": 1.65,
+          "end": 2.15
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "Volumnius._",
+          "start": 2.27,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Clitus,",
+        "Dardanius",
+        "and",
+        "Volumnius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clitus,",
+          "start": 0.79,
+          "end": 1.19,
+          "key": "clitus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dardanius",
+          "start": 1.65,
+          "end": 2.15,
+          "key": "dardanius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Volumnius._",
+          "start": 2.27,
+          "end": 3.47,
+          "key": "volumnius_",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Clitus,",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "text": "Dardanius",
+          "start": 1.65,
+          "end": 2.15
+        },
+        {
+          "text": "and",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "Volumnius._]",
+          "start": 2.27,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21878211293369532
+    },
+    {
+      "asr_seconds": 0.18866321723908186,
+      "alignment_seconds": 0.000117545947432518,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Clitus, Dardanius, Volumnius._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exeunt Clitus, Dardanius, Volumnius._",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5889892578125
+            },
+            {
+              "text": " Clitus,",
+              "start": 0.79,
+              "end": 1.19,
+              "probability": 0.351806640625
+            },
+            {
+              "text": " Dardanius,",
+              "start": 1.65,
+              "end": 2.15,
+              "probability": 0.73004150390625
+            },
+            {
+              "text": " Volumnius._",
+              "start": 2.25,
+              "end": 3.47,
+              "probability": 0.27239230275154114
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Clitus,",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "raw": "Dardanius,",
+          "start": 1.65,
+          "end": 2.15
+        },
+        {
+          "raw": "Volumnius._",
+          "start": 2.25,
+          "end": 3.47
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Clitus,",
+        "Dardanius",
+        "and",
+        "Volumnius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clitus,",
+          "start": 0.79,
+          "end": 1.19,
+          "key": "clitus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dardanius,",
+          "start": 1.65,
+          "end": 2.15,
+          "key": "dardanius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Volumnius._",
+          "start": 2.25,
+          "end": 3.47,
+          "key": "volumnius_",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Clitus,",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "text": "Dardanius",
+          "start": 1.65,
+          "end": 2.15
+        },
+        {
+          "text": "and",
+          "start": 2.15,
+          "end": 2.81
+        },
+        {
+          "text": "Volumnius._]",
+          "start": 2.81,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1888146698474884
+    },
+    {
+      "asr_seconds": 0.18581031262874603,
+      "alignment_seconds": 0.00011357292532920837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt Clitus, Dardanius and Volumnius.",
+          "start": 0.05,
+          "end": 2.89,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5889892578125
+            },
+            {
+              "text": " Clitus,",
+              "start": 0.79,
+              "end": 1.19,
+              "probability": 0.351806640625
+            },
+            {
+              "text": " Dardanius",
+              "start": 1.65,
+              "end": 2.11,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " and",
+              "start": 2.11,
+              "end": 2.27,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " Volumnius.",
+              "start": 2.27,
+              "end": 2.89,
+              "probability": 0.8567708333333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Clitus,",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "raw": "Dardanius",
+          "start": 1.65,
+          "end": 2.11
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "raw": "Volumnius.",
+          "start": 2.27,
+          "end": 2.89
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Clitus,",
+        "Dardanius",
+        "and",
+        "Volumnius._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clitus,",
+          "start": 0.79,
+          "end": 1.19,
+          "key": "clitus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Dardanius",
+          "start": 1.65,
+          "end": 2.11,
+          "key": "dardanius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.27,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Volumnius.",
+          "start": 2.27,
+          "end": 2.89,
+          "key": "volumnius",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Clitus,",
+          "start": 0.79,
+          "end": 1.19
+        },
+        {
+          "text": "Dardanius",
+          "start": 1.65,
+          "end": 2.11
+        },
+        {
+          "text": "and",
+          "start": 2.11,
+          "end": 2.27
+        },
+        {
+          "text": "Volumnius._]",
+          "start": 2.27,
+          "end": 2.89
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18596286978572607
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6831b92d9cd1b2c44ba02b4154839e065c647d6aa7baac2792dcd234373ef0f6",
+  "selected_reasons": []
+}

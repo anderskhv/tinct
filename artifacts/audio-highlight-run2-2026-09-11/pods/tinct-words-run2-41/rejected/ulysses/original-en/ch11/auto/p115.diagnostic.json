@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "c7d15b036e8f896233ec52632dc9b24951f2730a2e5a3c3ec28a5e4efd619b01",
+  "attempts": [
+    {
+      "asr_seconds": 0.33150536427274346,
+      "alignment_seconds": 0.0004403996281325817,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Here he was, miss Douce said, cocking her bronze head three quarters, ruffling her nosewings. Hufa! Hufa!",
+        "hotwords": "Here, Douce, Hufa"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Here he was, miss Douce said, cocking her bronze head three quarters, ruffling her nosewings. Hufa! Hufa!",
+          "start": 0.02,
+          "end": 6.72,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.482177734375
+            },
+            {
+              "text": " he",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " was,",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " miss",
+              "start": 1.1,
+              "end": 1.18,
+              "probability": 0.00965118408203125
+            },
+            {
+              "text": " Douce",
+              "start": 1.18,
+              "end": 1.46,
+              "probability": 0.10189104080200195
+            },
+            {
+              "text": " said,",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.923828125
+            },
+            {
+              "text": " cocking",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " her",
+              "start": 2.24,
+              "end": 2.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bronze",
+              "start": 2.34,
+              "end": 2.66,
+              "probability": 0.931640625
+            },
+            {
+              "text": " head",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " three",
+              "start": 2.88,
+              "end": 3.16,
+              "probability": 0.83447265625
+            },
+            {
+              "text": " quarters,",
+              "start": 3.16,
+              "end": 3.52,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " ruffling",
+              "start": 3.76,
+              "end": 4.04,
+              "probability": 0.9840494791666666
+            },
+            {
+              "text": " her",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " nosewings.",
+              "start": 4.18,
+              "end": 4.72,
+              "probability": 0.2763824462890625
+            },
+            {
+              "text": " Hufa!",
+              "start": 5.54,
+              "end": 5.9,
+              "probability": 0.7074788411458334
+            },
+            {
+              "text": " Hufa!",
+              "start": 6.34,
+              "end": 6.72,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "was,",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "miss",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "raw": "Douce",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "raw": "said,",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "cocking",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "raw": "her",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "raw": "bronze",
+          "start": 2.34,
+          "end": 2.66
+        },
+        {
+          "raw": "head",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "three",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "raw": "quarters,",
+          "start": 3.16,
+          "end": 3.52
+        },
+        {
+          "raw": "ruffling",
+          "start": 3.76,
+          "end": 4.04
+        },
+        {
+          "raw": "her",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "raw": "nosewings.",
+          "start": 4.18,
+          "end": 4.72
+        },
+        {
+          "raw": "Hufa!",
+          "start": 5.54,
+          "end": 5.9
+        },
+        {
+          "raw": "Hufa!",
+          "start": 6.34,
+          "end": 6.72
+        }
+      ],
+      "expected_tokens": [
+        "—Here",
+        "he",
+        "was,",
+        "miss",
+        "Douce",
+        "said,",
+        "cocking",
+        "her",
+        "bronze",
+        "head",
+        "three",
+        "quarters,",
+        "ruffling",
+        "her",
+        "nosewings.",
+        "Hufa!",
+        "Hufa!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was,",
+          "start": 0.68,
+          "end": 0.92,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "miss",
+          "start": 1.1,
+          "end": 1.18,
+          "key": "miss",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Douce",
+          "start": 1.18,
+          "end": 1.46,
+          "key": "douce",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.46,
+          "end": 1.7,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cocking",
+          "start": 2.0,
+          "end": 2.24,
+          "key": "cocking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 2.24,
+          "end": 2.34,
+          "key": "her",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bronze",
+          "start": 2.34,
+          "end": 2.66,
+          "key": "bronze",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "head",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "head",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 2.88,
+          "end": 3.16,
+          "key": "three",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quarters,",
+          "start": 3.16,
+          "end": 3.52,
+          "key": "quarters",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ruffling",
+          "start": 3.76,
+          "end": 4.04,
+          "key": "ruffling",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.04,
+          "end": 4.18,
+          "key": "her",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "nosewings.",
+          "start": 4.18,
+          "end": 4.72,
+          "key": "nosewings",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Hufa!",
+          "start": 5.54,
+          "end": 5.9,
+          "key": "hufa",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Hufa!",
+          "start": 6.34,
+          "end": 6.72,
+          "key": "hufa",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Here",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "he",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "was,",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "miss",
+          "start": 1.1,
+          "end": 1.18
+        },
+        {
+          "text": "Douce",
+          "start": 1.18,
+          "end": 1.46
+        },
+        {
+          "text": "said,",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "cocking",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "text": "her",
+          "start": 2.24,
+          "end": 2.34
+        },
+        {
+          "text": "bronze",
+          "start": 2.34,
+          "end": 2.66
+        },
+        {
+          "text": "head",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "three",
+          "start": 2.88,
+          "end": 3.16
+        },
+        {
+          "text": "quarters,",
+          "start": 3.16,
+          "end": 3.52
+        },
+        {
+          "text": "ruffling",
+          "start": 3.76,
+          "end": 4.04
+        },
+        {
+          "text": "her",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "text": "nosewings.",
+          "start": 4.18,
+          "end": 4.72
+        },
+        {
+          "text": "Hufa!",
+          "start": 5.54,
+          "end": 5.9
+        },
+        {
+          "text": "Hufa!",
+          "start": 6.34,
+          "end": 6.72
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33212887728586793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "def9f533a4d2a1ce800225b70e296609f7276ab4c6a71a1f55d72705716836f6",
+  "selected_reasons": []
+}

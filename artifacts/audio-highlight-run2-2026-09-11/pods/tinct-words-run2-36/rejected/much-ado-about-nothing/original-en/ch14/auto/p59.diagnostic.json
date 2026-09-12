@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "a6b55274a9257b9994b2e8047325ce5d061cace52b3d070b49f1aba8a3ae2783",
+  "attempts": [
+    {
+      "asr_seconds": 0.12505906075239182,
+      "alignment_seconds": 0.0001995377242565155,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Benedick.",
+        "hotwords": "Benedick"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Benedick.",
+          "start": 0.0,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Benedick.",
+              "start": 0.0,
+              "end": 0.98,
+              "probability": 0.2408294677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benedick.",
+          "start": 0.0,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "Benedick."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benedick.",
+          "start": 0.0,
+          "end": 0.98,
+          "key": "benedick",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benedick.",
+          "start": 0.0,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12532438337802887
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "07fcc58823f7cb2eb7eea6f2ae56e54645313a809e9523889414c7e382e3939d",
+  "selected_reasons": []
+}

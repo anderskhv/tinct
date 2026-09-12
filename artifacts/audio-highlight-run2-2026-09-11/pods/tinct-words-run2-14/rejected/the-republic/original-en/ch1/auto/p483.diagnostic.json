@@ -1,0 +1,637 @@
+{
+  "complete": true,
+  "signature": "d3ffbecf2a27e795cb2854a2609d0384353b4a5c69ec22a70ae6592a3a1fcb24",
+  "attempts": [
+    {
+      "asr_seconds": 0.323317963629961,
+      "alignment_seconds": 0.0005580075085163116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And he who lives well is blessed and happy, and he who lives ill the reverse of happy?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And he who lives well is blessed and happy, and he who lives ill the reverse of happy?",
+          "start": 0.08,
+          "end": 4.86,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.33349609375
+            },
+            {
+              "text": " he",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " who",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " lives",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " well",
+              "start": 1.04,
+              "end": 1.28,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.978515625
+            },
+            {
+              "text": " blessed",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 1.84,
+              "end": 2.16,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " happy,",
+              "start": 2.16,
+              "end": 2.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 3.06,
+              "end": 3.1,
+              "probability": 0.798828125
+            },
+            {
+              "text": " he",
+              "start": 3.1,
+              "end": 3.26,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " who",
+              "start": 3.26,
+              "end": 3.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lives",
+              "start": 3.42,
+              "end": 3.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ill",
+              "start": 3.62,
+              "end": 3.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.86,
+              "end": 4.04,
+              "probability": 0.935546875
+            },
+            {
+              "text": " reverse",
+              "start": 4.04,
+              "end": 4.34,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 4.34,
+              "end": 4.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " happy?",
+              "start": 4.56,
+              "end": 4.86,
+              "probability": 0.98193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "who",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "lives",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "well",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "blessed",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "raw": "and",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "raw": "happy,",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.1
+        },
+        {
+          "raw": "he",
+          "start": 3.1,
+          "end": 3.26
+        },
+        {
+          "raw": "who",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "raw": "lives",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "raw": "ill",
+          "start": 3.62,
+          "end": 3.86
+        },
+        {
+          "raw": "the",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "raw": "reverse",
+          "start": 4.04,
+          "end": 4.34
+        },
+        {
+          "raw": "of",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "raw": "happy?",
+          "start": 4.56,
+          "end": 4.86
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "he",
+        "who",
+        "lives",
+        "well",
+        "is",
+        "blessed",
+        "and",
+        "happy,",
+        "and",
+        "he",
+        "who",
+        "lives",
+        "ill",
+        "the",
+        "reverse",
+        "of",
+        "happy?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "who",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "lives",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.04,
+          "end": 1.28,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "blessed",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "blessed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.84,
+          "end": 2.16,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "happy,",
+          "start": 2.16,
+          "end": 2.52,
+          "key": "happy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.06,
+          "end": 3.1,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.1,
+          "end": 3.26,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.26,
+          "end": 3.42,
+          "key": "who",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 3.42,
+          "end": 3.62,
+          "key": "lives",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 3.62,
+          "end": 3.86,
+          "key": "ill",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.86,
+          "end": 4.04,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "reverse",
+          "start": 4.04,
+          "end": 4.34,
+          "key": "reverse",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.34,
+          "end": 4.56,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "happy?",
+          "start": 4.56,
+          "end": 4.86,
+          "key": "happy",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "he",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "who",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "lives",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "well",
+          "start": 1.04,
+          "end": 1.28
+        },
+        {
+          "text": "is",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "blessed",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "and",
+          "start": 1.84,
+          "end": 2.16
+        },
+        {
+          "text": "happy,",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "text": "and",
+          "start": 3.06,
+          "end": 3.1
+        },
+        {
+          "text": "he",
+          "start": 3.1,
+          "end": 3.26
+        },
+        {
+          "text": "who",
+          "start": 3.26,
+          "end": 3.42
+        },
+        {
+          "text": "lives",
+          "start": 3.42,
+          "end": 3.62
+        },
+        {
+          "text": "ill",
+          "start": 3.62,
+          "end": 3.86
+        },
+        {
+          "text": "the",
+          "start": 3.86,
+          "end": 4.04
+        },
+        {
+          "text": "reverse",
+          "start": 4.04,
+          "end": 4.34
+        },
+        {
+          "text": "of",
+          "start": 4.34,
+          "end": 4.56
+        },
+        {
+          "text": "happy?",
+          "start": 4.56,
+          "end": 4.86
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3240974210202694
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "46d91b7ed0890e1e4e3ae47380073f3b99d2a22c8a54c51bc7b228f187f50f0d",
+  "selected_reasons": []
+}

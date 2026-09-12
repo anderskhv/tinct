@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "b3d7299978bc8d1922f7d9daf31d760c627720548c196438b070293b302ba330",
+  "attempts": [
+    {
+      "asr_seconds": 0.23768374882638454,
+      "alignment_seconds": 0.000431685708463192,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alyosha went, opened the door, and reported that no one was listening.",
+          "start": 0.11,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " Alyosha",
+              "start": 0.11,
+              "end": 0.99,
+              "probability": 0.947265625
+            },
+            {
+              "text": " went,",
+              "start": 0.99,
+              "end": 1.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " opened",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " the",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " door,",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.69,
+              "end": 2.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " reported",
+              "start": 2.75,
+              "end": 3.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 3.11,
+              "end": 3.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 3.37,
+              "end": 3.61,
+              "probability": 0.994140625
+            },
+            {
+              "text": " one",
+              "start": 3.61,
+              "end": 3.77,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " was",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " listening.",
+              "start": 3.91,
+              "end": 4.31,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alyosha",
+          "start": 0.11,
+          "end": 0.99
+        },
+        {
+          "raw": "went,",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "raw": "opened",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "raw": "door,",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 2.75
+        },
+        {
+          "raw": "reported",
+          "start": 2.75,
+          "end": 3.11
+        },
+        {
+          "raw": "that",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "raw": "no",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "raw": "one",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "raw": "was",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "listening.",
+          "start": 3.91,
+          "end": 4.31
+        }
+      ],
+      "expected_tokens": [
+        "Alyosha",
+        "went,",
+        "opened",
+        "the",
+        "door,",
+        "and",
+        "reported",
+        "that",
+        "no",
+        "one",
+        "was",
+        "listening."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alyosha",
+          "start": 0.11,
+          "end": 0.99,
+          "key": "alyosha",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "went,",
+          "start": 0.99,
+          "end": 1.23,
+          "key": "went",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "opened",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "opened",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "door,",
+          "start": 2.15,
+          "end": 2.37,
+          "key": "door",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 2.75,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "reported",
+          "start": 2.75,
+          "end": 3.11,
+          "key": "reported",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.11,
+          "end": 3.37,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.37,
+          "end": 3.61,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 3.61,
+          "end": 3.77,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.77,
+          "end": 3.91,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "listening.",
+          "start": 3.91,
+          "end": 4.31,
+          "key": "listening",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alyosha",
+          "start": 0.11,
+          "end": 0.99
+        },
+        {
+          "text": "went,",
+          "start": 0.99,
+          "end": 1.23
+        },
+        {
+          "text": "opened",
+          "start": 1.73,
+          "end": 1.97
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "text": "door,",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "text": "and",
+          "start": 2.69,
+          "end": 2.75
+        },
+        {
+          "text": "reported",
+          "start": 2.75,
+          "end": 3.11
+        },
+        {
+          "text": "that",
+          "start": 3.11,
+          "end": 3.37
+        },
+        {
+          "text": "no",
+          "start": 3.37,
+          "end": 3.61
+        },
+        {
+          "text": "one",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "text": "was",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "listening.",
+          "start": 3.91,
+          "end": 4.31
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2382907196879387
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "494cd789d183d4bbe6ee96128137dde14093e9d223d9776cc446e65c209405bb",
+  "selected_reasons": []
+}

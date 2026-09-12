@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "86e5d45bc1a9508348910daf31b0978ca6d7c117884e3763620df68be6f995a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1087556341663003,
+      "alignment_seconds": 0.00010390579700469971,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ghost Vanishes",
+          "start": 0.05,
+          "end": 1.19,
+          "words": [
+            {
+              "text": " Ghost",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " Vanishes",
+              "start": 0.65,
+              "end": 1.19,
+              "probability": 0.8173828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ghost",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Vanishes",
+          "start": 0.65,
+          "end": 1.19
+        }
+      ],
+      "expected_tokens": [
+        "[_Ghost",
+        "vanishes._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ghost",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "ghost",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Vanishes",
+          "start": 0.65,
+          "end": 1.19,
+          "key": "vanishes",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Ghost",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "vanishes._]",
+          "start": 0.65,
+          "end": 1.19
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10889088548719883
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c26e90a45d35051e02d9470e1495450b4bb6f4f3dede866c1e78070361ea67b",
+  "selected_reasons": []
+}

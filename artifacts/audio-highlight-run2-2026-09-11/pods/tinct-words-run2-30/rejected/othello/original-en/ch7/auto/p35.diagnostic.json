@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "905a5cf5fbebc07f73d1816bb97156fcf71fb6c005d90b30b144811835190baf",
+  "attempts": [
+    {
+      "asr_seconds": 0.07773640705272555,
+      "alignment_seconds": 7.992982864379883e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exeunt.]",
+        "hotwords": "Exeunt"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt.",
+          "start": 0.05,
+          "end": 0.93,
+          "words": [
+            {
+              "text": " Exeunt.",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.6188151041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt.",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt.",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt.]",
+          "start": 0.05,
+          "end": 0.93
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07784094708040357
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d49cba7a612fa38a38b2b64c50f18fd6897f8fa937d1751f3565057d96f97069",
+  "selected_reasons": []
+}

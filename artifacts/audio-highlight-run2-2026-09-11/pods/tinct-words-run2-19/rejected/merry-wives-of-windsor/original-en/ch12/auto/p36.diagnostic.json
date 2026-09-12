@@ -1,0 +1,2000 @@
+{
+  "complete": true,
+  "signature": "29f2ed7d37c63a2a2ae3192e4f24a629497aef3c04a441dffa194aef7484c383",
+  "attempts": [
+    {
+      "asr_seconds": 0.4124716427177191,
+      "alignment_seconds": 0.0003774156793951988,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Fal._ While I was there.",
+        "hotwords": "While, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Host, and moreover bully but first, Master Guest and Master Page and eat Cavallero Slender,",
+          "start": 0.05,
+          "end": 6.55,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.6201171875
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " moreover",
+              "start": 1.33,
+              "end": 1.71,
+              "probability": 0.951171875
+            },
+            {
+              "text": " bully",
+              "start": 1.71,
+              "end": 2.09,
+              "probability": 0.3466796875
+            },
+            {
+              "text": " but",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.3720703125
+            },
+            {
+              "text": " first,",
+              "start": 2.31,
+              "end": 2.79,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Master",
+              "start": 3.25,
+              "end": 3.49,
+              "probability": 0.2020263671875
+            },
+            {
+              "text": " Guest",
+              "start": 3.49,
+              "end": 3.75,
+              "probability": 0.43408203125
+            },
+            {
+              "text": " and",
+              "start": 3.75,
+              "end": 4.07,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Master",
+              "start": 4.07,
+              "end": 4.43,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Page",
+              "start": 4.43,
+              "end": 4.73,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " and",
+              "start": 4.73,
+              "end": 5.15,
+              "probability": 0.73388671875
+            },
+            {
+              "text": " eat",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " Cavallero",
+              "start": 5.39,
+              "end": 5.99,
+              "probability": 0.645263671875
+            },
+            {
+              "text": " Slender,",
+              "start": 5.99,
+              "end": 6.55,
+              "probability": 0.90185546875
+            }
+          ]
+        },
+        {
+          "text": " go you through the town to Frogmore.",
+          "start": 6.93,
+          "end": 8.51,
+          "words": [
+            {
+              "text": " go",
+              "start": 6.93,
+              "end": 6.99,
+              "probability": 0.984375
+            },
+            {
+              "text": " you",
+              "start": 6.99,
+              "end": 7.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " through",
+              "start": 7.19,
+              "end": 7.37,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 7.37,
+              "end": 7.53,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " town",
+              "start": 7.53,
+              "end": 7.79,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " to",
+              "start": 7.79,
+              "end": 8.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Frogmore.",
+              "start": 8.01,
+              "end": 8.51,
+              "probability": 0.941650390625
+            }
+          ]
+        },
+        {
+          "text": " Aside to them.",
+          "start": 9.13,
+          "end": 9.91,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 9.13,
+              "end": 9.43,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " to",
+              "start": 9.43,
+              "end": 9.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 9.71,
+              "end": 9.91,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "moreover",
+          "start": 1.33,
+          "end": 1.71
+        },
+        {
+          "raw": "bully",
+          "start": 1.71,
+          "end": 2.09
+        },
+        {
+          "raw": "but",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "first,",
+          "start": 2.31,
+          "end": 2.79
+        },
+        {
+          "raw": "Master",
+          "start": 3.25,
+          "end": 3.49
+        },
+        {
+          "raw": "Guest",
+          "start": 3.49,
+          "end": 3.75
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "raw": "Master",
+          "start": 4.07,
+          "end": 4.43
+        },
+        {
+          "raw": "Page",
+          "start": 4.43,
+          "end": 4.73
+        },
+        {
+          "raw": "and",
+          "start": 4.73,
+          "end": 5.15
+        },
+        {
+          "raw": "eat",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "Cavallero",
+          "start": 5.39,
+          "end": 5.99
+        },
+        {
+          "raw": "Slender,",
+          "start": 5.99,
+          "end": 6.55
+        },
+        {
+          "raw": "go",
+          "start": 6.93,
+          "end": 6.99
+        },
+        {
+          "raw": "you",
+          "start": 6.99,
+          "end": 7.19
+        },
+        {
+          "raw": "through",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "raw": "the",
+          "start": 7.37,
+          "end": 7.53
+        },
+        {
+          "raw": "town",
+          "start": 7.53,
+          "end": 7.79
+        },
+        {
+          "raw": "to",
+          "start": 7.79,
+          "end": 8.01
+        },
+        {
+          "raw": "Frogmore.",
+          "start": 8.01,
+          "end": 8.51
+        },
+        {
+          "raw": "Aside",
+          "start": 9.13,
+          "end": 9.43
+        },
+        {
+          "raw": "to",
+          "start": 9.43,
+          "end": 9.71
+        },
+        {
+          "raw": "them.",
+          "start": 9.71,
+          "end": 9.91
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "While",
+        "I",
+        "was",
+        "there."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moreover",
+          "start": 1.33,
+          "end": 1.71,
+          "key": "moreover",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bully",
+          "start": 1.71,
+          "end": 2.09,
+          "key": "bully",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "first,",
+          "start": 2.31,
+          "end": 2.79,
+          "key": "first",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 3.25,
+          "end": 3.49,
+          "key": "master",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Guest",
+          "start": 3.49,
+          "end": 3.75,
+          "key": "guest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.75,
+          "end": 4.07,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Master",
+          "start": 4.07,
+          "end": 4.43,
+          "key": "master",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Page",
+          "start": 4.43,
+          "end": 4.73,
+          "key": "page",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.73,
+          "end": 5.15,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eat",
+          "start": 5.15,
+          "end": 5.39,
+          "key": "eat",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Cavallero",
+          "start": 5.39,
+          "end": 5.99,
+          "key": "cavallero",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Slender,",
+          "start": 5.99,
+          "end": 6.55,
+          "key": "slender",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 6.93,
+          "end": 6.99,
+          "key": "go",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.99,
+          "end": 7.19,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 7.19,
+          "end": 7.37,
+          "key": "through",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.37,
+          "end": 7.53,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "town",
+          "start": 7.53,
+          "end": 7.79,
+          "key": "town",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.79,
+          "end": 8.01,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Frogmore.",
+          "start": 8.01,
+          "end": 8.51,
+          "key": "frogmore",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Aside",
+          "start": 9.13,
+          "end": 9.43,
+          "key": "aside",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.43,
+          "end": 9.71,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 9.71,
+          "end": 9.91,
+          "key": "them",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 4.955
+        },
+        {
+          "text": "While",
+          "start": 4.955,
+          "end": 7.433
+        },
+        {
+          "text": "I",
+          "start": 7.433,
+          "end": 8.671
+        },
+        {
+          "text": "was",
+          "start": 8.671,
+          "end": 9.29
+        },
+        {
+          "text": "there.",
+          "start": 9.29,
+          "end": 9.6
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 25,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4131424780935049
+    },
+    {
+      "asr_seconds": 1.3356854235753417,
+      "alignment_seconds": 0.0005829259753227234,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "While, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I",
+          "start": 0.05,
+          "end": 0.61,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.0010938644409179688
+            }
+          ]
+        },
+        {
+          "text": " used to live in a place where I would live in a place where I would live in a place",
+          "start": 0.61,
+          "end": 7.79,
+          "words": [
+            {
+              "text": " used",
+              "start": 0.61,
+              "end": 2.51,
+              "probability": 0.0001195669174194336
+            },
+            {
+              "text": " to",
+              "start": 2.51,
+              "end": 3.53,
+              "probability": 0.1302490234375
+            },
+            {
+              "text": " live",
+              "start": 3.53,
+              "end": 3.53,
+              "probability": 0.00896453857421875
+            },
+            {
+              "text": " in",
+              "start": 3.53,
+              "end": 4.03,
+              "probability": 0.1236572265625
+            },
+            {
+              "text": " a",
+              "start": 4.03,
+              "end": 4.25,
+              "probability": 0.1395263671875
+            },
+            {
+              "text": " place",
+              "start": 4.25,
+              "end": 4.43,
+              "probability": 0.033447265625
+            },
+            {
+              "text": " where",
+              "start": 4.43,
+              "end": 5.17,
+              "probability": 0.264404296875
+            },
+            {
+              "text": " I",
+              "start": 5.17,
+              "end": 5.71,
+              "probability": 0.0099945068359375
+            },
+            {
+              "text": " would",
+              "start": 5.71,
+              "end": 5.71,
+              "probability": 0.083984375
+            },
+            {
+              "text": " live",
+              "start": 5.71,
+              "end": 5.71,
+              "probability": 0.052276611328125
+            },
+            {
+              "text": " in",
+              "start": 5.71,
+              "end": 6.25,
+              "probability": 0.1982421875
+            },
+            {
+              "text": " a",
+              "start": 6.25,
+              "end": 6.25,
+              "probability": 0.32421875
+            },
+            {
+              "text": " place",
+              "start": 6.25,
+              "end": 6.25,
+              "probability": 0.41015625
+            },
+            {
+              "text": " where",
+              "start": 6.25,
+              "end": 7.03,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " I",
+              "start": 7.03,
+              "end": 7.03,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " would",
+              "start": 7.03,
+              "end": 7.21,
+              "probability": 0.5107421875
+            },
+            {
+              "text": " live",
+              "start": 7.21,
+              "end": 7.23,
+              "probability": 0.209716796875
+            },
+            {
+              "text": " in",
+              "start": 7.23,
+              "end": 7.37,
+              "probability": 0.50146484375
+            },
+            {
+              "text": " a",
+              "start": 7.37,
+              "end": 7.37,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " place",
+              "start": 7.37,
+              "end": 7.79,
+              "probability": 0.81884765625
+            }
+          ]
+        },
+        {
+          "text": " want to frog more aside to them.",
+          "start": 7.79,
+          "end": 9.91,
+          "words": [
+            {
+              "text": " want",
+              "start": 7.79,
+              "end": 7.81,
+              "probability": 0.0008115768432617188
+            },
+            {
+              "text": " to",
+              "start": 7.81,
+              "end": 8.01,
+              "probability": 0.962890625
+            },
+            {
+              "text": " frog",
+              "start": 8.01,
+              "end": 8.25,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " more",
+              "start": 8.25,
+              "end": 8.61,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " aside",
+              "start": 8.61,
+              "end": 9.45,
+              "probability": 0.1700439453125
+            },
+            {
+              "text": " to",
+              "start": 9.45,
+              "end": 9.71,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " them.",
+              "start": 9.71,
+              "end": 9.91,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "used",
+          "start": 0.61,
+          "end": 2.51
+        },
+        {
+          "raw": "to",
+          "start": 2.51,
+          "end": 3.53
+        },
+        {
+          "raw": "live",
+          "start": 3.53,
+          "end": 3.53
+        },
+        {
+          "raw": "in",
+          "start": 3.53,
+          "end": 4.03
+        },
+        {
+          "raw": "a",
+          "start": 4.03,
+          "end": 4.25
+        },
+        {
+          "raw": "place",
+          "start": 4.25,
+          "end": 4.43
+        },
+        {
+          "raw": "where",
+          "start": 4.43,
+          "end": 5.17
+        },
+        {
+          "raw": "I",
+          "start": 5.17,
+          "end": 5.71
+        },
+        {
+          "raw": "would",
+          "start": 5.71,
+          "end": 5.71
+        },
+        {
+          "raw": "live",
+          "start": 5.71,
+          "end": 5.71
+        },
+        {
+          "raw": "in",
+          "start": 5.71,
+          "end": 6.25
+        },
+        {
+          "raw": "a",
+          "start": 6.25,
+          "end": 6.25
+        },
+        {
+          "raw": "place",
+          "start": 6.25,
+          "end": 6.25
+        },
+        {
+          "raw": "where",
+          "start": 6.25,
+          "end": 7.03
+        },
+        {
+          "raw": "I",
+          "start": 7.03,
+          "end": 7.03
+        },
+        {
+          "raw": "would",
+          "start": 7.03,
+          "end": 7.21
+        },
+        {
+          "raw": "live",
+          "start": 7.21,
+          "end": 7.23
+        },
+        {
+          "raw": "in",
+          "start": 7.23,
+          "end": 7.37
+        },
+        {
+          "raw": "a",
+          "start": 7.37,
+          "end": 7.37
+        },
+        {
+          "raw": "place",
+          "start": 7.37,
+          "end": 7.79
+        },
+        {
+          "raw": "want",
+          "start": 7.79,
+          "end": 7.81
+        },
+        {
+          "raw": "to",
+          "start": 7.81,
+          "end": 8.01
+        },
+        {
+          "raw": "frog",
+          "start": 8.01,
+          "end": 8.25
+        },
+        {
+          "raw": "more",
+          "start": 8.25,
+          "end": 8.61
+        },
+        {
+          "raw": "aside",
+          "start": 8.61,
+          "end": 9.45
+        },
+        {
+          "raw": "to",
+          "start": 9.45,
+          "end": 9.71
+        },
+        {
+          "raw": "them.",
+          "start": 9.71,
+          "end": 9.91
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "While",
+        "I",
+        "was",
+        "there."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          1,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          3,
+          5,
+          1,
+          28
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "used",
+          "start": 0.61,
+          "end": 2.51,
+          "key": "used",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.51,
+          "end": 3.53,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 3.53,
+          "end": 3.53,
+          "key": "live",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.53,
+          "end": 4.03,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.03,
+          "end": 4.25,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 4.25,
+          "end": 4.43,
+          "key": "place",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 4.43,
+          "end": 5.17,
+          "key": "where",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.17,
+          "end": 5.71,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 5.71,
+          "end": 5.71,
+          "key": "would",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 5.71,
+          "end": 5.71,
+          "key": "live",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.71,
+          "end": 6.25,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.25,
+          "end": 6.25,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 6.25,
+          "end": 6.25,
+          "key": "place",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 6.25,
+          "end": 7.03,
+          "key": "where",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.03,
+          "end": 7.03,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 7.03,
+          "end": 7.21,
+          "key": "would",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 7.21,
+          "end": 7.23,
+          "key": "live",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.23,
+          "end": 7.37,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 7.37,
+          "end": 7.37,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 7.37,
+          "end": 7.79,
+          "key": "place",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 7.79,
+          "end": 7.81,
+          "key": "want",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.81,
+          "end": 8.01,
+          "key": "to",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "frog",
+          "start": 8.01,
+          "end": 8.25,
+          "key": "frog",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 8.25,
+          "end": 8.61,
+          "key": "more",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "aside",
+          "start": 8.61,
+          "end": 9.45,
+          "key": "aside",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.45,
+          "end": 9.71,
+          "key": "to",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 9.71,
+          "end": 9.91,
+          "key": "them",
+          "pieces": [
+            27
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "While",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "was",
+          "start": 0.61,
+          "end": 5.26
+        },
+        {
+          "text": "there.",
+          "start": 5.26,
+          "end": 7.585
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 28,
+        "matched_words": 1
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.3367147874087095
+    },
+    {
+      "asr_seconds": 0.4760879520326853,
+      "alignment_seconds": 0.000303695909678936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Host, and moreover, bully but first, master guest and master page, and eat Cavallero Slender,",
+          "start": 0.05,
+          "end": 6.53,
+          "words": [
+            {
+              "text": " Host,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " and",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " moreover,",
+              "start": 1.33,
+              "end": 1.73,
+              "probability": 0.951171875
+            },
+            {
+              "text": " bully",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " but",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.407958984375
+            },
+            {
+              "text": " first,",
+              "start": 2.31,
+              "end": 2.75,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " master",
+              "start": 3.27,
+              "end": 3.49,
+              "probability": 0.8203125
+            },
+            {
+              "text": " guest",
+              "start": 3.49,
+              "end": 3.79,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " and",
+              "start": 3.79,
+              "end": 4.07,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " master",
+              "start": 4.07,
+              "end": 4.43,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " page,",
+              "start": 4.43,
+              "end": 4.75,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " and",
+              "start": 5.11,
+              "end": 5.15,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " eat",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " Cavallero",
+              "start": 5.39,
+              "end": 5.99,
+              "probability": 0.5933430989583334
+            },
+            {
+              "text": " Slender,",
+              "start": 5.99,
+              "end": 6.53,
+              "probability": 0.78369140625
+            }
+          ]
+        },
+        {
+          "text": " go you through the town to Frogmore.",
+          "start": 6.93,
+          "end": 8.49,
+          "words": [
+            {
+              "text": " go",
+              "start": 6.93,
+              "end": 6.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 6.99,
+              "end": 7.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " through",
+              "start": 7.19,
+              "end": 7.37,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 7.37,
+              "end": 7.53,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " town",
+              "start": 7.53,
+              "end": 7.79,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " to",
+              "start": 7.79,
+              "end": 8.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Frogmore.",
+              "start": 8.01,
+              "end": 8.49,
+              "probability": 0.94091796875
+            }
+          ]
+        },
+        {
+          "text": " Aside to them.",
+          "start": 9.13,
+          "end": 9.91,
+          "words": [
+            {
+              "text": " Aside",
+              "start": 9.13,
+              "end": 9.45,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " to",
+              "start": 9.45,
+              "end": 9.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them.",
+              "start": 9.71,
+              "end": 9.91,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "moreover,",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "raw": "bully",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "but",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "first,",
+          "start": 2.31,
+          "end": 2.75
+        },
+        {
+          "raw": "master",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "raw": "guest",
+          "start": 3.49,
+          "end": 3.79
+        },
+        {
+          "raw": "and",
+          "start": 3.79,
+          "end": 4.07
+        },
+        {
+          "raw": "master",
+          "start": 4.07,
+          "end": 4.43
+        },
+        {
+          "raw": "page,",
+          "start": 4.43,
+          "end": 4.75
+        },
+        {
+          "raw": "and",
+          "start": 5.11,
+          "end": 5.15
+        },
+        {
+          "raw": "eat",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "Cavallero",
+          "start": 5.39,
+          "end": 5.99
+        },
+        {
+          "raw": "Slender,",
+          "start": 5.99,
+          "end": 6.53
+        },
+        {
+          "raw": "go",
+          "start": 6.93,
+          "end": 6.99
+        },
+        {
+          "raw": "you",
+          "start": 6.99,
+          "end": 7.19
+        },
+        {
+          "raw": "through",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "raw": "the",
+          "start": 7.37,
+          "end": 7.53
+        },
+        {
+          "raw": "town",
+          "start": 7.53,
+          "end": 7.79
+        },
+        {
+          "raw": "to",
+          "start": 7.79,
+          "end": 8.01
+        },
+        {
+          "raw": "Frogmore.",
+          "start": 8.01,
+          "end": 8.49
+        },
+        {
+          "raw": "Aside",
+          "start": 9.13,
+          "end": 9.45
+        },
+        {
+          "raw": "to",
+          "start": 9.45,
+          "end": 9.71
+        },
+        {
+          "raw": "them.",
+          "start": 9.71,
+          "end": 9.91
+        }
+      ],
+      "expected_tokens": [
+        "_Fal._",
+        "While",
+        "I",
+        "was",
+        "there."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          25
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Host,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "host",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "moreover,",
+          "start": 1.33,
+          "end": 1.73,
+          "key": "moreover",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bully",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "bully",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "first,",
+          "start": 2.31,
+          "end": 2.75,
+          "key": "first",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 3.27,
+          "end": 3.49,
+          "key": "master",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "guest",
+          "start": 3.49,
+          "end": 3.79,
+          "key": "guest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.79,
+          "end": 4.07,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 4.07,
+          "end": 4.43,
+          "key": "master",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "page,",
+          "start": 4.43,
+          "end": 4.75,
+          "key": "page",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.11,
+          "end": 5.15,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "eat",
+          "start": 5.15,
+          "end": 5.39,
+          "key": "eat",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Cavallero",
+          "start": 5.39,
+          "end": 5.99,
+          "key": "cavallero",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Slender,",
+          "start": 5.99,
+          "end": 6.53,
+          "key": "slender",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 6.93,
+          "end": 6.99,
+          "key": "go",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.99,
+          "end": 7.19,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 7.19,
+          "end": 7.37,
+          "key": "through",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.37,
+          "end": 7.53,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "town",
+          "start": 7.53,
+          "end": 7.79,
+          "key": "town",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.79,
+          "end": 8.01,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Frogmore.",
+          "start": 8.01,
+          "end": 8.49,
+          "key": "frogmore",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Aside",
+          "start": 9.13,
+          "end": 9.45,
+          "key": "aside",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.45,
+          "end": 9.71,
+          "key": "to",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 9.71,
+          "end": 9.91,
+          "key": "them",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Fal._",
+          "start": 0.0,
+          "end": 4.955
+        },
+        {
+          "text": "While",
+          "start": 4.955,
+          "end": 7.433
+        },
+        {
+          "text": "I",
+          "start": 7.433,
+          "end": 8.671
+        },
+        {
+          "text": "was",
+          "start": 8.671,
+          "end": 9.29
+        },
+        {
+          "text": "there.",
+          "start": 9.29,
+          "end": 9.6
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 25,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.47660911176353693
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "3858ca2ba8e1d9de47ed7d7fb8cf61c4274a11757bc8a1b3a5db56320ebf6924",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

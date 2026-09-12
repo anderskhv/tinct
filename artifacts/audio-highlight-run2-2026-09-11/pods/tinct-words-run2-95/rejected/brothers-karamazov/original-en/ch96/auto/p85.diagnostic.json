@@ -1,0 +1,693 @@
+{
+  "complete": true,
+  "signature": "d9811abec0bfc07675542bb4735b204e774a72ee50a83490025a857380a700bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.3322259560227394,
+      "alignment_seconds": 0.0005670152604579926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[8] Literally: \"Did you get off with a long nose made at you?\"—a proverbial expression in Russia for failure.",
+        "hotwords": "Literally, Did, Russia"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 8 Literally, Did you get off with a long nose made at you?\"—a proverbial expression",
+          "start": 0.05,
+          "end": 5.57,
+          "words": [
+            {
+              "text": " 8",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.1685791015625
+            },
+            {
+              "text": " Literally,",
+              "start": 0.65,
+              "end": 1.19,
+              "probability": 0.023223876953125
+            },
+            {
+              "text": " Did",
+              "start": 1.79,
+              "end": 1.87,
+              "probability": 0.26513671875
+            },
+            {
+              "text": " you",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.60302734375
+            },
+            {
+              "text": " get",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " off",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " with",
+              "start": 2.31,
+              "end": 2.47,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " a",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " long",
+              "start": 2.59,
+              "end": 2.81,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " nose",
+              "start": 2.81,
+              "end": 3.17,
+              "probability": 0.98828125
+            },
+            {
+              "text": " made",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " at",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " you?\"—a",
+              "start": 3.57,
+              "end": 4.55,
+              "probability": 0.4781990051269531
+            },
+            {
+              "text": " proverbial",
+              "start": 4.55,
+              "end": 4.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " expression",
+              "start": 4.95,
+              "end": 5.57,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " in Russia for failure.",
+          "start": 5.57,
+          "end": 6.83,
+          "words": [
+            {
+              "text": " in",
+              "start": 5.57,
+              "end": 5.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Russia",
+              "start": 5.93,
+              "end": 6.21,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " for",
+              "start": 6.21,
+              "end": 6.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " failure.",
+              "start": 6.51,
+              "end": 6.83,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "8",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Literally,",
+          "start": 0.65,
+          "end": 1.19
+        },
+        {
+          "raw": "Did",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "raw": "you",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "get",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "off",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "with",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "raw": "a",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "long",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "raw": "nose",
+          "start": 2.81,
+          "end": 3.17
+        },
+        {
+          "raw": "made",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "at",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "you?\"—a",
+          "start": 3.57,
+          "end": 4.55
+        },
+        {
+          "raw": "proverbial",
+          "start": 4.55,
+          "end": 4.95
+        },
+        {
+          "raw": "expression",
+          "start": 4.95,
+          "end": 5.57
+        },
+        {
+          "raw": "in",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "raw": "Russia",
+          "start": 5.93,
+          "end": 6.21
+        },
+        {
+          "raw": "for",
+          "start": 6.21,
+          "end": 6.51
+        },
+        {
+          "raw": "failure.",
+          "start": 6.51,
+          "end": 6.83
+        }
+      ],
+      "expected_tokens": [
+        "[8]",
+        "Literally:",
+        "\"Did",
+        "you",
+        "get",
+        "off",
+        "with",
+        "a",
+        "long",
+        "nose",
+        "made",
+        "at",
+        "you?\"—a",
+        "proverbial",
+        "expression",
+        "in",
+        "Russia",
+        "for",
+        "failure."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          18,
+          1,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "unspoken",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [
+        0
+      ],
+      "compared_heard": [
+        {
+          "raw": "8",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "eight",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Literally,",
+          "start": 0.65,
+          "end": 1.19,
+          "key": "literally",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 1.79,
+          "end": 1.87,
+          "key": "did",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "get",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 2.11,
+          "end": 2.31,
+          "key": "off",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.31,
+          "end": 2.47,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.47,
+          "end": 2.59,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.59,
+          "end": 2.81,
+          "key": "long",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "nose",
+          "start": 2.81,
+          "end": 3.17,
+          "key": "nose",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 3.17,
+          "end": 3.41,
+          "key": "made",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you?\"—a",
+          "start": 3.57,
+          "end": 4.55,
+          "key": "youa",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "proverbial",
+          "start": 4.55,
+          "end": 4.95,
+          "key": "proverbial",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 4.95,
+          "end": 5.57,
+          "key": "expression",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.57,
+          "end": 5.93,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Russia",
+          "start": 5.93,
+          "end": 6.21,
+          "key": "russia",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 6.21,
+          "end": 6.51,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "failure.",
+          "start": 6.51,
+          "end": 6.83,
+          "key": "failure",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[8]",
+          "start": 0.0,
+          "end": 0.325
+        },
+        {
+          "text": "Literally:",
+          "start": 0.65,
+          "end": 1.19
+        },
+        {
+          "text": "\"Did",
+          "start": 1.79,
+          "end": 1.87
+        },
+        {
+          "text": "you",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "get",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "off",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "with",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "text": "a",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "long",
+          "start": 2.59,
+          "end": 2.81
+        },
+        {
+          "text": "nose",
+          "start": 2.81,
+          "end": 3.17
+        },
+        {
+          "text": "made",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "at",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "you?\"—a",
+          "start": 3.57,
+          "end": 4.55
+        },
+        {
+          "text": "proverbial",
+          "start": 4.55,
+          "end": 4.95
+        },
+        {
+          "text": "expression",
+          "start": 4.95,
+          "end": 5.57
+        },
+        {
+          "text": "in",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "text": "Russia",
+          "start": 5.93,
+          "end": 6.21
+        },
+        {
+          "text": "for",
+          "start": 6.21,
+          "end": 6.51
+        },
+        {
+          "text": "failure.",
+          "start": 6.51,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33306215703487396
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b834b26909f92b788eb011d264bd71fabee3508833e1950adc9b19ae0d091492",
+  "selected_reasons": []
+}

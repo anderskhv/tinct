@@ -1,0 +1,701 @@
+{
+  "complete": true,
+  "signature": "f748b198c4d322aa918501c5a58773d6c3dfd650fbf1c2d1fdad0ffb50c1ac02",
+  "attempts": [
+    {
+      "asr_seconds": 0.2099070195108652,
+      "alignment_seconds": 0.00036410335451364517,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Bard._ With eggs, sir?",
+        "hotwords": "With"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter host, shallow, slender and page.",
+          "start": 0.11,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " host,",
+              "start": 0.63,
+              "end": 1.05,
+              "probability": 0.382080078125
+            },
+            {
+              "text": " shallow,",
+              "start": 1.65,
+              "end": 1.65,
+              "probability": 0.76171875
+            },
+            {
+              "text": " slender",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " and",
+              "start": 2.11,
+              "end": 2.37,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " page.",
+              "start": 2.37,
+              "end": 2.73,
+              "probability": 0.94970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "host,",
+          "start": 0.63,
+          "end": 1.05
+        },
+        {
+          "raw": "shallow,",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "raw": "slender",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.37
+        },
+        {
+          "raw": "page.",
+          "start": 2.37,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "_Bard._",
+        "With",
+        "eggs,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "host,",
+          "start": 0.63,
+          "end": 1.05,
+          "key": "host",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shallow,",
+          "start": 1.65,
+          "end": 1.65,
+          "key": "shallow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "slender",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "slender",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.11,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "page.",
+          "start": 2.37,
+          "end": 2.73,
+          "key": "page",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Bard._",
+          "start": 0.0,
+          "end": 1.365
+        },
+        {
+          "text": "With",
+          "start": 1.365,
+          "end": 2.047
+        },
+        {
+          "text": "eggs,",
+          "start": 2.047,
+          "end": 2.389
+        },
+        {
+          "text": "sir?",
+          "start": 2.389,
+          "end": 2.559
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2104121409356594
+    },
+    {
+      "asr_seconds": 0.20098035782575607,
+      "alignment_seconds": 0.000322684645652771,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "With"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Enter host shallow Slender and page",
+          "start": 0.11,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " host",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.382080078125
+            },
+            {
+              "text": " shallow",
+              "start": 1.03,
+              "end": 1.67,
+              "probability": 0.0460205078125
+            },
+            {
+              "text": " Slender",
+              "start": 1.67,
+              "end": 2.19,
+              "probability": 0.600341796875
+            },
+            {
+              "text": " and",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " page",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.86669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "host",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "shallow",
+          "start": 1.03,
+          "end": 1.67
+        },
+        {
+          "raw": "Slender",
+          "start": 1.67,
+          "end": 2.19
+        },
+        {
+          "raw": "and",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "page",
+          "start": 2.37,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "_Bard._",
+        "With",
+        "eggs,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "host",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "host",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "shallow",
+          "start": 1.03,
+          "end": 1.67,
+          "key": "shallow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Slender",
+          "start": 1.67,
+          "end": 2.19,
+          "key": "slender",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.19,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "page",
+          "start": 2.37,
+          "end": 2.69,
+          "key": "page",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Bard._",
+          "start": 0.0,
+          "end": 1.345
+        },
+        {
+          "text": "With",
+          "start": 1.345,
+          "end": 2.018
+        },
+        {
+          "text": "eggs,",
+          "start": 2.018,
+          "end": 2.354
+        },
+        {
+          "text": "sir?",
+          "start": 2.354,
+          "end": 2.522
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2014438221231103
+    },
+    {
+      "asr_seconds": 0.19259248301386833,
+      "alignment_seconds": 0.0003658914938569069,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Host, Shallow, Slender and Page.",
+          "start": 0.11,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Host,",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.25048828125
+            },
+            {
+              "text": " Shallow,",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.972412109375
+            },
+            {
+              "text": " Slender",
+              "start": 1.99,
+              "end": 2.15,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " and",
+              "start": 2.15,
+              "end": 2.37,
+              "probability": 0.56103515625
+            },
+            {
+              "text": " Page.",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.95458984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Host,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "Shallow,",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "Slender",
+          "start": 1.99,
+          "end": 2.15
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.37
+        },
+        {
+          "raw": "Page.",
+          "start": 2.37,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "_Bard._",
+        "With",
+        "eggs,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Host,",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "host",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Shallow,",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "shallow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Slender",
+          "start": 1.99,
+          "end": 2.15,
+          "key": "slender",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.15,
+          "end": 2.37,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Page.",
+          "start": 2.37,
+          "end": 2.69,
+          "key": "page",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Bard._",
+          "start": 0.0,
+          "end": 1.345
+        },
+        {
+          "text": "With",
+          "start": 1.345,
+          "end": 2.018
+        },
+        {
+          "text": "eggs,",
+          "start": 2.018,
+          "end": 2.354
+        },
+        {
+          "text": "sir?",
+          "start": 2.354,
+          "end": 2.522
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 6,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19312140345573425
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5d5ade3ea5f151f3ec966039196b4e166a57781c79ff3256031b94a1397574c1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

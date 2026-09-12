@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "4cb32aa46dc96e8efe14de258df017485313f160c5807601d5bcdb8e3e018a20",
+  "attempts": [
+    {
+      "asr_seconds": 0.25892950501292944,
+      "alignment_seconds": 0.0004595960199367255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Eros. My dear master, My captain and my emperor, let me say, Before I strike this bloody stroke, farewell.",
+        "hotwords": "Eros, Before, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eros, My dear master, My captain and my emperor, let me say, Before I strike this bloody stroke, farewell.",
+          "start": 0.05,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " Eros,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.752685546875
+            },
+            {
+              "text": " My",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.044952392578125
+            },
+            {
+              "text": " dear",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " master,",
+              "start": 1.75,
+              "end": 2.19,
+              "probability": 0.6796875
+            },
+            {
+              "text": " My",
+              "start": 2.57,
+              "end": 2.69,
+              "probability": 0.2734375
+            },
+            {
+              "text": " captain",
+              "start": 2.69,
+              "end": 2.99,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " and",
+              "start": 2.99,
+              "end": 3.21,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " my",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " emperor,",
+              "start": 3.35,
+              "end": 3.63,
+              "probability": 0.837890625
+            },
+            {
+              "text": " let",
+              "start": 3.87,
+              "end": 3.95,
+              "probability": 0.430908203125
+            },
+            {
+              "text": " me",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " say,",
+              "start": 4.11,
+              "end": 4.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Before",
+              "start": 4.85,
+              "end": 5.03,
+              "probability": 0.83203125
+            },
+            {
+              "text": " I",
+              "start": 5.03,
+              "end": 5.21,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " strike",
+              "start": 5.21,
+              "end": 5.45,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " this",
+              "start": 5.45,
+              "end": 5.71,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " bloody",
+              "start": 5.71,
+              "end": 6.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " stroke,",
+              "start": 6.03,
+              "end": 6.53,
+              "probability": 0.97265625
+            },
+            {
+              "text": " farewell.",
+              "start": 6.77,
+              "end": 6.93,
+              "probability": 0.771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "My",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "dear",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "master,",
+          "start": 1.75,
+          "end": 2.19
+        },
+        {
+          "raw": "My",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "raw": "captain",
+          "start": 2.69,
+          "end": 2.99
+        },
+        {
+          "raw": "and",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "raw": "my",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "emperor,",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "raw": "let",
+          "start": 3.87,
+          "end": 3.95
+        },
+        {
+          "raw": "me",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "say,",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "raw": "Before",
+          "start": 4.85,
+          "end": 5.03
+        },
+        {
+          "raw": "I",
+          "start": 5.03,
+          "end": 5.21
+        },
+        {
+          "raw": "strike",
+          "start": 5.21,
+          "end": 5.45
+        },
+        {
+          "raw": "this",
+          "start": 5.45,
+          "end": 5.71
+        },
+        {
+          "raw": "bloody",
+          "start": 5.71,
+          "end": 6.03
+        },
+        {
+          "raw": "stroke,",
+          "start": 6.03,
+          "end": 6.53
+        },
+        {
+          "raw": "farewell.",
+          "start": 6.77,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "Eros.",
+        "My",
+        "dear",
+        "master,",
+        "My",
+        "captain",
+        "and",
+        "my",
+        "emperor,",
+        "let",
+        "me",
+        "say,",
+        "Before",
+        "I",
+        "strike",
+        "this",
+        "bloody",
+        "stroke,",
+        "farewell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "eros",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "dear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "master,",
+          "start": 1.75,
+          "end": 2.19,
+          "key": "master",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.57,
+          "end": 2.69,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "captain",
+          "start": 2.69,
+          "end": 2.99,
+          "key": "captain",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.99,
+          "end": 3.21,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.21,
+          "end": 3.35,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "emperor,",
+          "start": 3.35,
+          "end": 3.63,
+          "key": "emperor",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.87,
+          "end": 3.95,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.95,
+          "end": 4.11,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 4.11,
+          "end": 4.39,
+          "key": "say",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Before",
+          "start": 4.85,
+          "end": 5.03,
+          "key": "before",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.03,
+          "end": 5.21,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "strike",
+          "start": 5.21,
+          "end": 5.45,
+          "key": "strike",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 5.45,
+          "end": 5.71,
+          "key": "this",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bloody",
+          "start": 5.71,
+          "end": 6.03,
+          "key": "bloody",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "stroke,",
+          "start": 6.03,
+          "end": 6.53,
+          "key": "stroke",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "farewell.",
+          "start": 6.77,
+          "end": 6.93,
+          "key": "farewell",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Eros.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "My",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "dear",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "master,",
+          "start": 1.75,
+          "end": 2.19
+        },
+        {
+          "text": "My",
+          "start": 2.57,
+          "end": 2.69
+        },
+        {
+          "text": "captain",
+          "start": 2.69,
+          "end": 2.99
+        },
+        {
+          "text": "and",
+          "start": 2.99,
+          "end": 3.21
+        },
+        {
+          "text": "my",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "text": "emperor,",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "text": "let",
+          "start": 3.87,
+          "end": 3.95
+        },
+        {
+          "text": "me",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "say,",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "text": "Before",
+          "start": 4.85,
+          "end": 5.03
+        },
+        {
+          "text": "I",
+          "start": 5.03,
+          "end": 5.21
+        },
+        {
+          "text": "strike",
+          "start": 5.21,
+          "end": 5.45
+        },
+        {
+          "text": "this",
+          "start": 5.45,
+          "end": 5.71
+        },
+        {
+          "text": "bloody",
+          "start": 5.71,
+          "end": 6.03
+        },
+        {
+          "text": "stroke,",
+          "start": 6.03,
+          "end": 6.53
+        },
+        {
+          "text": "farewell.",
+          "start": 6.77,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2595861770096235
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "27f5c974cb1ce2cb1cc18338be986a05d24fe561e1f79d5af901713f3a2b7694",
+  "selected_reasons": []
+}

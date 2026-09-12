@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "ad70b3ce359dbb45d5cefe89ccd8bfb7c50f0f8fc28ffec478d98a9c667e0fbf",
+  "attempts": [
+    {
+      "asr_seconds": 0.09832765001920052,
+      "alignment_seconds": 0.00012421500287018716,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " All Dalle Bella.",
+          "start": 0.14,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.14,
+              "end": 0.7,
+              "probability": 0.61572265625
+            },
+            {
+              "text": " Dalle",
+              "start": 0.7,
+              "end": 1.2,
+              "probability": 0.51171875
+            },
+            {
+              "text": " Bella.",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.79296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.14,
+          "end": 0.7
+        },
+        {
+          "raw": "Dalle",
+          "start": 0.7,
+          "end": 1.2
+        },
+        {
+          "raw": "Bella.",
+          "start": 1.2,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Dolabella!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.14,
+          "end": 0.7,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dalle",
+          "start": 0.7,
+          "end": 1.2,
+          "key": "dalle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Bella.",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "bella",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.14,
+          "end": 0.7
+        },
+        {
+          "text": "Dolabella!",
+          "start": 0.7,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09849293599836528
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7b3bef59f2f7165cfbc5aa77c9248a98c622be3641ef8a0fe295a63c8fdeea4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

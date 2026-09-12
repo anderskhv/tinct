@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "a22e6686680ae010a500c63f8942da8f3e63c8667458f07c66acbc00f0132f74",
+  "attempts": [
+    {
+      "asr_seconds": 0.13682879693806171,
+      "alignment_seconds": 0.0002449778839945793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Distimona, what is your pleasure?",
+          "start": 0.55,
+          "end": 1.97,
+          "words": [
+            {
+              "text": " Distimona,",
+              "start": 0.55,
+              "end": 1.03,
+              "probability": 0.599365234375
+            },
+            {
+              "text": " what",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " your",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pleasure?",
+              "start": 1.73,
+              "end": 1.97,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Distimona,",
+          "start": 0.55,
+          "end": 1.03
+        },
+        {
+          "raw": "what",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "is",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "pleasure?",
+          "start": 1.73,
+          "end": 1.97
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "What",
+        "is",
+        "your",
+        "pleasure?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Distimona,",
+          "start": 0.55,
+          "end": 1.03,
+          "key": "distimona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.43,
+          "end": 1.51,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pleasure?",
+          "start": 1.73,
+          "end": 1.97,
+          "key": "pleasure",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "What",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "is",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "your",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "pleasure?",
+          "start": 1.73,
+          "end": 1.97
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1371551537886262
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a78aa8e30f9b72896bde8c95adaa77c13e6b31b8330831fd07c0d62c1730dfe2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

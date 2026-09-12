@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "740fd7e4ed076f9e1058fc28aff794019d51e6a25a282ad6358c98585fb145a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.13501217029988766,
+      "alignment_seconds": 0.00025957077741622925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet nothing",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " nothing",
+              "start": 0.84,
+              "end": 1.28,
+              "probability": 0.283447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "nothing",
+          "start": 0.84,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Nothing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 0.84,
+          "end": 1.28,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "Nothing.",
+          "start": 0.84,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13536584936082363
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "590e5fbfe541d76a8c5dec9fefdadd32d711aa0d5161795197e6b78a2d3fb9c2",
+  "selected_reasons": []
+}

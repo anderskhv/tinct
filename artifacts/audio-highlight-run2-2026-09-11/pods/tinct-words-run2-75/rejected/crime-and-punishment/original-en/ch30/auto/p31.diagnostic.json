@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "136bb132534686a47ab9c73012f197d4a977a290e5b4d4b4b69cede9d5227d15",
+  "attempts": [
+    {
+      "asr_seconds": 0.30975615233182907,
+      "alignment_seconds": 0.00047832727432250977,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "She could not control herself and began crying bitterly. He looked at her in gloomy misery. Five minutes passed.",
+        "hotwords": "She, He, Five"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " She could not control herself and began crying bitterly. He looked at her in gloomy misery. Five minutes passed.",
+          "start": 0.0,
+          "end": 6.72,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.0,
+              "end": 0.5,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " could",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 0.62,
+              "end": 0.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " control",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " herself",
+              "start": 1.18,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 1.58,
+              "end": 1.82,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " began",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " crying",
+              "start": 2.06,
+              "end": 2.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bitterly.",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " He",
+              "start": 3.38,
+              "end": 3.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " looked",
+              "start": 3.66,
+              "end": 3.84,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 3.84,
+              "end": 4.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " her",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 4.12,
+              "end": 4.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " gloomy",
+              "start": 4.28,
+              "end": 4.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " misery.",
+              "start": 4.62,
+              "end": 5.14,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Five",
+              "start": 5.7,
+              "end": 6.04,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " minutes",
+              "start": 6.04,
+              "end": 6.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " passed.",
+              "start": 6.3,
+              "end": 6.72,
+              "probability": 0.923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "raw": "could",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "not",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "raw": "control",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "herself",
+          "start": 1.18,
+          "end": 1.58
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "raw": "began",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "crying",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "raw": "bitterly.",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "He",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "raw": "looked",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "raw": "at",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "raw": "her",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "in",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "raw": "gloomy",
+          "start": 4.28,
+          "end": 4.62
+        },
+        {
+          "raw": "misery.",
+          "start": 4.62,
+          "end": 5.14
+        },
+        {
+          "raw": "Five",
+          "start": 5.7,
+          "end": 6.04
+        },
+        {
+          "raw": "minutes",
+          "start": 6.04,
+          "end": 6.3
+        },
+        {
+          "raw": "passed.",
+          "start": 6.3,
+          "end": 6.72
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "could",
+        "not",
+        "control",
+        "herself",
+        "and",
+        "began",
+        "crying",
+        "bitterly.",
+        "He",
+        "looked",
+        "at",
+        "her",
+        "in",
+        "gloomy",
+        "misery.",
+        "Five",
+        "minutes",
+        "passed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.0,
+          "end": 0.5,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 0.5,
+          "end": 0.62,
+          "key": "could",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.62,
+          "end": 0.84,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "control",
+          "start": 0.84,
+          "end": 1.18,
+          "key": "control",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "herself",
+          "start": 1.18,
+          "end": 1.58,
+          "key": "herself",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.58,
+          "end": 1.82,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "began",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "crying",
+          "start": 2.06,
+          "end": 2.52,
+          "key": "crying",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bitterly.",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "bitterly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.38,
+          "end": 3.66,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 3.66,
+          "end": 3.84,
+          "key": "looked",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.84,
+          "end": 4.0,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.0,
+          "end": 4.12,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.12,
+          "end": 4.28,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gloomy",
+          "start": 4.28,
+          "end": 4.62,
+          "key": "gloomy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "misery.",
+          "start": 4.62,
+          "end": 5.14,
+          "key": "misery",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Five",
+          "start": 5.7,
+          "end": 6.04,
+          "key": "five",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "minutes",
+          "start": 6.04,
+          "end": 6.3,
+          "key": "minutes",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "passed.",
+          "start": 6.3,
+          "end": 6.72,
+          "key": "passed",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.0,
+          "end": 0.5
+        },
+        {
+          "text": "could",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "not",
+          "start": 0.62,
+          "end": 0.84
+        },
+        {
+          "text": "control",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "herself",
+          "start": 1.18,
+          "end": 1.58
+        },
+        {
+          "text": "and",
+          "start": 1.58,
+          "end": 1.82
+        },
+        {
+          "text": "began",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "crying",
+          "start": 2.06,
+          "end": 2.52
+        },
+        {
+          "text": "bitterly.",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "text": "He",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "text": "looked",
+          "start": 3.66,
+          "end": 3.84
+        },
+        {
+          "text": "at",
+          "start": 3.84,
+          "end": 4.0
+        },
+        {
+          "text": "her",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "in",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "text": "gloomy",
+          "start": 4.28,
+          "end": 4.62
+        },
+        {
+          "text": "misery.",
+          "start": 4.62,
+          "end": 5.14
+        },
+        {
+          "text": "Five",
+          "start": 5.7,
+          "end": 6.04
+        },
+        {
+          "text": "minutes",
+          "start": 6.04,
+          "end": 6.3
+        },
+        {
+          "text": "passed.",
+          "start": 6.3,
+          "end": 6.72
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31049158424139023
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5c39922999c2344454b13bf15d9b305972f7e367605c69b438c193623cd34b9",
+  "selected_reasons": []
+}

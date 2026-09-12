@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "eb24c64a97d950392e2277951288ba82580a0c98251fa96b340e7fe1f3c44577",
+  "attempts": [
+    {
+      "asr_seconds": 0.20368945901282132,
+      "alignment_seconds": 0.000485263008158654,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—He has nothing to sit down on, sir.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He has nothing to sit down on, sir.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " has",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " nothing",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sit",
+              "start": 1.09,
+              "end": 1.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " down",
+              "start": 1.23,
+              "end": 1.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " on,",
+              "start": 1.45,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sir.",
+              "start": 1.89,
+              "end": 1.91,
+              "probability": 0.83447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "has",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "nothing",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "sit",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "raw": "down",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "raw": "on,",
+          "start": 1.45,
+          "end": 1.73
+        },
+        {
+          "raw": "sir.",
+          "start": 1.89,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "—He",
+        "has",
+        "nothing",
+        "to",
+        "sit",
+        "down",
+        "on,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "nothing",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.87,
+          "end": 1.09,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 1.09,
+          "end": 1.23,
+          "key": "sit",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 1.23,
+          "end": 1.45,
+          "key": "down",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 1.45,
+          "end": 1.73,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.89,
+          "end": 1.91,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "has",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "nothing",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "to",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "sit",
+          "start": 1.09,
+          "end": 1.23
+        },
+        {
+          "text": "down",
+          "start": 1.23,
+          "end": 1.45
+        },
+        {
+          "text": "on,",
+          "start": 1.45,
+          "end": 1.73
+        },
+        {
+          "text": "sir.",
+          "start": 1.89,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20434038899838924
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "54e81b11915b15575b77158ddded18589241215f41b6ff5be67378b2a891ca59",
+  "selected_reasons": []
+}

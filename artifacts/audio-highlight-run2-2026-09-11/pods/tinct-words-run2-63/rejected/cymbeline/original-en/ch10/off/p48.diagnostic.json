@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "signature": "712e02d1d4c6f0fbaf2b06da31d03e383f24850c8117bc9fe405dc4ff9837bb7",
+  "attempts": [
+    {
+      "asr_seconds": 0.20272104814648628,
+      "alignment_seconds": 0.000654175877571106,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cloten, to leave you in your madness, twear my sin, I will not.",
+          "start": 0.46,
+          "end": 3.82,
+          "words": [
+            {
+              "text": " Cloten,",
+              "start": 0.46,
+              "end": 0.82,
+              "probability": 0.48974609375
+            },
+            {
+              "text": " to",
+              "start": 1.2,
+              "end": 1.28,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " leave",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 1.6,
+              "end": 1.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " your",
+              "start": 1.66,
+              "end": 1.76,
+              "probability": 0.9921875
+            },
+            {
+              "text": " madness,",
+              "start": 1.76,
+              "end": 2.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " twear",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.551513671875
+            },
+            {
+              "text": " my",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sin,",
+              "start": 2.72,
+              "end": 3.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 3.28,
+              "end": 3.38,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " will",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not.",
+              "start": 3.52,
+              "end": 3.82,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cloten,",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "raw": "to",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "raw": "leave",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "you",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "in",
+          "start": 1.6,
+          "end": 1.66
+        },
+        {
+          "raw": "your",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "raw": "madness,",
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "raw": "twear",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "my",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "sin,",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "raw": "will",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "not.",
+          "start": 3.52,
+          "end": 3.82
+        }
+      ],
+      "expected_tokens": [
+        "Cloten.",
+        "To",
+        "leave",
+        "you",
+        "in",
+        "your",
+        "madness",
+        "'twere",
+        "my",
+        "sin;",
+        "I",
+        "will",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          13,
+          8,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cloten,",
+          "start": 0.46,
+          "end": 0.82,
+          "key": "cloten",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.2,
+          "end": 1.28,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "leave",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.6,
+          "end": 1.66,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.66,
+          "end": 1.76,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "madness,",
+          "start": 1.76,
+          "end": 2.16,
+          "key": "madness",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "twear",
+          "start": 2.42,
+          "end": 2.54,
+          "key": "twear",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sin,",
+          "start": 2.72,
+          "end": 3.02,
+          "key": "sin",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.28,
+          "end": 3.38,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 3.38,
+          "end": 3.52,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 3.52,
+          "end": 3.82,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cloten.",
+          "start": 0.46,
+          "end": 0.82
+        },
+        {
+          "text": "To",
+          "start": 1.2,
+          "end": 1.28
+        },
+        {
+          "text": "leave",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "text": "you",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "in",
+          "start": 1.6,
+          "end": 1.66
+        },
+        {
+          "text": "your",
+          "start": 1.66,
+          "end": 1.76
+        },
+        {
+          "text": "madness",
+          "start": 1.76,
+          "end": 2.16
+        },
+        {
+          "text": "'twere",
+          "start": 2.16,
+          "end": 2.35
+        },
+        {
+          "text": "my",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "sin;",
+          "start": 2.72,
+          "end": 3.02
+        },
+        {
+          "text": "I",
+          "start": 3.28,
+          "end": 3.38
+        },
+        {
+          "text": "will",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "not.",
+          "start": 3.52,
+          "end": 3.82
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 12
+      },
+      "match_ratio": 0.9230769230769231,
+      "rejection_reasons": [],
+      "seconds": 0.20358638651669025
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c041126147279d9a7dd8333821b41f27f037fad7062337ae90fa7f95b728a33",
+  "selected_reasons": []
+}

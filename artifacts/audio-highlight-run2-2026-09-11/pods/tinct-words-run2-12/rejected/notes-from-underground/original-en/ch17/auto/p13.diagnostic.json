@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "6f82875cbee06fa530f7a2ad129a4f5cb143c2203cc064bb43d4507a392b8373",
+  "attempts": [
+    {
+      "asr_seconds": 0.2331529820803553,
+      "alignment_seconds": 0.00035523204132914543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"From Riga,\" she answered reluctantly.",
+        "hotwords": "From, Riga"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " From Riga, she answered reluctantly.",
+          "start": 0.08,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " From",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " Riga,",
+              "start": 0.58,
+              "end": 0.92,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " she",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.9921875
+            },
+            {
+              "text": " answered",
+              "start": 1.46,
+              "end": 1.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " reluctantly.",
+              "start": 1.8,
+              "end": 2.32,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "From",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Riga,",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "raw": "she",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "answered",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "raw": "reluctantly.",
+          "start": 1.8,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "\"From",
+        "Riga,\"",
+        "she",
+        "answered",
+        "reluctantly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "From",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Riga,",
+          "start": 0.58,
+          "end": 0.92,
+          "key": "riga",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.24,
+          "end": 1.46,
+          "key": "she",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.46,
+          "end": 1.8,
+          "key": "answered",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reluctantly.",
+          "start": 1.8,
+          "end": 2.32,
+          "key": "reluctantly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"From",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Riga,\"",
+          "start": 0.58,
+          "end": 0.92
+        },
+        {
+          "text": "she",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "answered",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "text": "reluctantly.",
+          "start": 1.8,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23363505117595196
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef5af54b9580d9f041d700a91f3bfece0133bb598b63d52a889cfe6e6436bbaf",
+  "selected_reasons": []
+}

@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "10380a61d3f982dd4a860ad848c5ca7903ac33f8ab443bf225e73743baf17da8",
+  "attempts": [
+    {
+      "asr_seconds": 0.24699268024414778,
+      "alignment_seconds": 0.0005845353007316589,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Do not yourself such wrong, who are in this Relieved, but not betrayed.",
+        "hotwords": "Do, Relieved"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Do not yourself such wrong, who are in this Relieved, but not betrayed.",
+          "start": 0.02,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " not",
+              "start": 0.48,
+              "end": 0.6,
+              "probability": 0.994140625
+            },
+            {
+              "text": " yourself",
+              "start": 0.6,
+              "end": 0.9,
+              "probability": 0.908203125
+            },
+            {
+              "text": " such",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " wrong,",
+              "start": 1.18,
+              "end": 1.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " who",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " are",
+              "start": 2.1,
+              "end": 2.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 2.24,
+              "end": 2.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Relieved,",
+              "start": 2.52,
+              "end": 3.06,
+              "probability": 0.4809741973876953
+            },
+            {
+              "text": " but",
+              "start": 3.26,
+              "end": 3.3,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " not",
+              "start": 3.3,
+              "end": 3.52,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " betrayed.",
+              "start": 3.52,
+              "end": 3.84,
+              "probability": 0.141845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "not",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "raw": "yourself",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "raw": "such",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "raw": "wrong,",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "raw": "who",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "are",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "raw": "in",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "raw": "this",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "Relieved,",
+          "start": 2.52,
+          "end": 3.06
+        },
+        {
+          "raw": "but",
+          "start": 3.26,
+          "end": 3.3
+        },
+        {
+          "raw": "not",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "raw": "betrayed.",
+          "start": 3.52,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "Do",
+        "not",
+        "yourself",
+        "such",
+        "wrong,",
+        "who",
+        "are",
+        "in",
+        "this",
+        "Relieved,",
+        "but",
+        "not",
+        "betrayed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.48,
+          "end": 0.6,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 0.6,
+          "end": 0.9,
+          "key": "yourself",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "such",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wrong,",
+          "start": 1.18,
+          "end": 1.54,
+          "key": "wrong",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.1,
+          "end": 2.24,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.24,
+          "end": 2.36,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Relieved,",
+          "start": 2.52,
+          "end": 3.06,
+          "key": "relieved",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.26,
+          "end": 3.3,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.3,
+          "end": 3.52,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "betrayed.",
+          "start": 3.52,
+          "end": 3.84,
+          "key": "betrayed",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Do",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "not",
+          "start": 0.48,
+          "end": 0.6
+        },
+        {
+          "text": "yourself",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "text": "such",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "wrong,",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "text": "who",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "are",
+          "start": 2.1,
+          "end": 2.24
+        },
+        {
+          "text": "in",
+          "start": 2.24,
+          "end": 2.36
+        },
+        {
+          "text": "this",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "Relieved,",
+          "start": 2.52,
+          "end": 3.06
+        },
+        {
+          "text": "but",
+          "start": 3.26,
+          "end": 3.3
+        },
+        {
+          "text": "not",
+          "start": 3.3,
+          "end": 3.52
+        },
+        {
+          "text": "betrayed.",
+          "start": 3.52,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24780994653701782
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f651e1d7747a0dbeceeda0955d5bb087c7613791cb72ca136006f3313306414",
+  "selected_reasons": []
+}

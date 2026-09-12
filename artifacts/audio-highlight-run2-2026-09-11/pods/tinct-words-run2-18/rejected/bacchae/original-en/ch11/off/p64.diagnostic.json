@@ -1,0 +1,394 @@
+{
+  "complete": true,
+  "signature": "af29a46f4d5f582eb37a1e933268a5dc4d30e19f7ef4fef386f52e0cfcc30ee1",
+  "attempts": [
+    {
+      "asr_seconds": 0.2009677179157734,
+      "alignment_seconds": 0.000510712037794292,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cadmus, turn to it nowtee's no long toil and gaze.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Cadmus,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.865234375
+            },
+            {
+              "text": " turn",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " to",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " it",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.888671875
+            },
+            {
+              "text": " nowtee's",
+              "start": 1.71,
+              "end": 2.13,
+              "probability": 0.68682861328125
+            },
+            {
+              "text": " no",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " long",
+              "start": 2.29,
+              "end": 2.57,
+              "probability": 0.912109375
+            },
+            {
+              "text": " toil",
+              "start": 2.57,
+              "end": 2.85,
+              "probability": 0.6466064453125
+            },
+            {
+              "text": " and",
+              "start": 2.85,
+              "end": 3.03,
+              "probability": 0.96875
+            },
+            {
+              "text": " gaze.",
+              "start": 3.03,
+              "end": 3.33,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "turn",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "nowtee's",
+          "start": 1.71,
+          "end": 2.13
+        },
+        {
+          "raw": "no",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "long",
+          "start": 2.29,
+          "end": 2.57
+        },
+        {
+          "raw": "toil",
+          "start": 2.57,
+          "end": 2.85
+        },
+        {
+          "raw": "and",
+          "start": 2.85,
+          "end": 3.03
+        },
+        {
+          "raw": "gaze.",
+          "start": 3.03,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Cadmus.",
+        "Turn",
+        "to",
+        "it",
+        "now--'tis",
+        "no",
+        "long",
+        "toil--and",
+        "gaze."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          9,
+          5,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cadmus,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "cadmus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "turn",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "turn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nowtee's",
+          "start": 1.71,
+          "end": 2.13,
+          "key": "nowtees",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 2.29,
+          "end": 2.57,
+          "key": "long",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "toil and",
+          "start": 2.57,
+          "end": 3.03,
+          "key": "toiland",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "gaze.",
+          "start": 3.03,
+          "end": 3.33,
+          "key": "gaze",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "toil--and",
+          "heard": "toil and",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.57,
+          "end": 3.03
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Cadmus.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Turn",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "to",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "it",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "now--'tis",
+          "start": 1.71,
+          "end": 1.92
+        },
+        {
+          "text": "no",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "long",
+          "start": 2.29,
+          "end": 2.57
+        },
+        {
+          "text": "toil--and",
+          "start": 2.57,
+          "end": 3.03
+        },
+        {
+          "text": "gaze.",
+          "start": 3.03,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.20162932900711894
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0996eeb3f10abcf7ff616a54b98390860c31fb704c78f16299400940891d835",
+  "selected_reasons": []
+}

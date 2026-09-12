@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "1134edcadd157a0568543998d423d9edabcce7a32ad27e441a75ba4c820435ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.14106903038918972,
+      "alignment_seconds": 0.0003025997430086136,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Drawing a dagger._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Drawing a dagger.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Drawing",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.4111328125
+            },
+            {
+              "text": " a",
+              "start": 0.63,
+              "end": 0.79,
+              "probability": 0.986328125
+            },
+            {
+              "text": " dagger.",
+              "start": 0.79,
+              "end": 1.03,
+              "probability": 0.79248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Drawing",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "raw": "dagger.",
+          "start": 0.79,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "[_Drawing",
+        "a",
+        "dagger._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Drawing",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "drawing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.63,
+          "end": 0.79,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dagger.",
+          "start": 0.79,
+          "end": 1.03,
+          "key": "dagger",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Drawing",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "a",
+          "start": 0.63,
+          "end": 0.79
+        },
+        {
+          "text": "dagger._]",
+          "start": 0.79,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14149552397429943
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e87c2c5d701f3eaa1c04f5d643742d94e75c175a4cab3258a33c469ae850a739",
+  "selected_reasons": []
+}

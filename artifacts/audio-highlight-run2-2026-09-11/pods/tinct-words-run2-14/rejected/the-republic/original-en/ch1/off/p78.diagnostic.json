@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "07f1b9723051359c6d61dc347b435fe392e87762076a4746635ebeb341ae78f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.11032911017537117,
+      "alignment_seconds": 0.0002056024968624115,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes.",
+          "start": 0.02,
+          "end": 0.64,
+          "words": [
+            {
+              "text": " Yes.",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.82275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes.",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "expected_tokens": [
+        "Yes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes.",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes.",
+          "start": 0.02,
+          "end": 0.64
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1106046512722969
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "872717d8d38ede86742e3ee66c043bf961e6ef11d16bce11b194db6ee9ac23ee",
+  "selected_reasons": []
+}

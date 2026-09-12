@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "928ae89761c12be021298619753aa95d2ca24d2dadf8ded88787277855faa265",
+  "attempts": [
+    {
+      "asr_seconds": 0.11691045761108398,
+      "alignment_seconds": 0.00020907819271087646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter old Queen Margaret.",
+        "hotwords": "Enter, Queen, Margaret"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter old Queen Margaret.",
+          "start": 0.14,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.14,
+              "end": 0.64,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " old",
+              "start": 0.64,
+              "end": 0.88,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " Queen",
+              "start": 0.88,
+              "end": 1.14,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " Margaret.",
+              "start": 1.14,
+              "end": 1.54,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "raw": "old",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "raw": "Queen",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "raw": "Margaret.",
+          "start": 1.14,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "old",
+        "Queen",
+        "Margaret."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.14,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "old",
+          "start": 0.64,
+          "end": 0.88,
+          "key": "old",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Queen",
+          "start": 0.88,
+          "end": 1.14,
+          "key": "queen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Margaret.",
+          "start": 1.14,
+          "end": 1.54,
+          "key": "margaret",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.14,
+          "end": 0.64
+        },
+        {
+          "text": "old",
+          "start": 0.64,
+          "end": 0.88
+        },
+        {
+          "text": "Queen",
+          "start": 0.88,
+          "end": 1.14
+        },
+        {
+          "text": "Margaret.",
+          "start": 1.14,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11718880757689476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "74c4b10e57bce493f1cd3060d5d58ec4ca97aceaa438638db904e1f5dad42065",
+  "selected_reasons": []
+}

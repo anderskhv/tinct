@@ -1,0 +1,253 @@
+{
+  "complete": true,
+  "signature": "4c53c40b7a415f33402a3cb2f27b833423502e5f56f0bb50cffdf94ddd8ed5e2",
+  "attempts": [
+    {
+      "asr_seconds": 0.15906121098669246,
+      "alignment_seconds": 0.00012705402332358062,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhumed Antony, Cleopatra and Anabarbis.",
+          "start": 0.05,
+          "end": 3.01,
+          "words": [
+            {
+              "text": " Exhumed",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.721923828125
+            },
+            {
+              "text": " Antony,",
+              "start": 0.83,
+              "end": 1.29,
+              "probability": 0.921630859375
+            },
+            {
+              "text": " Cleopatra",
+              "start": 1.73,
+              "end": 2.17,
+              "probability": 0.9845377604166666
+            },
+            {
+              "text": " and",
+              "start": 2.17,
+              "end": 2.33,
+              "probability": 0.6875
+            },
+            {
+              "text": " Anabarbis.",
+              "start": 2.33,
+              "end": 3.01,
+              "probability": 0.60491943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhumed",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Antony,",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "raw": "Cleopatra",
+          "start": 1.73,
+          "end": 2.17
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "raw": "Anabarbis.",
+          "start": 2.33,
+          "end": 3.01
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Antony,",
+        "Cleopatra",
+        "and",
+        "Enobarbus._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhumed",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "exhumed",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antony,",
+          "start": 0.83,
+          "end": 1.29,
+          "key": "antony",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cleopatra",
+          "start": 1.73,
+          "end": 2.17,
+          "key": "cleopatra",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.33,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Anabarbis.",
+          "start": 2.33,
+          "end": 3.01,
+          "key": "anabarbis",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "Antony,",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "text": "Cleopatra",
+          "start": 1.73,
+          "end": 2.17
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.33
+        },
+        {
+          "text": "Enobarbus._]",
+          "start": 2.33,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15922832599608228
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f556d14f6f0eeae26d7b427169425f6fffabb74f6357d0926fdbe921bfde261",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

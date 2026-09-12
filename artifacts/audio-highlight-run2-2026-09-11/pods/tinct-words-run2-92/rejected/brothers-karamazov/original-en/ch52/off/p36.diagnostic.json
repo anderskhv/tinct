@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "d7fb2ca8a998ddf66e859ef93e68f9dc29792d317735f650a2c20ba8d0eb7682",
+  "attempts": [
+    {
+      "asr_seconds": 0.2594895390793681,
+      "alignment_seconds": 0.0005664285272359848,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But I was married to a Polish lady myself,",
+          "start": 0.02,
+          "end": 2.6,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.66845703125
+            },
+            {
+              "text": " I",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.974609375
+            },
+            {
+              "text": " was",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " married",
+              "start": 0.76,
+              "end": 1.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Polish",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " lady",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " myself,",
+              "start": 2.06,
+              "end": 2.6,
+              "probability": 0.978515625
+            }
+          ]
+        },
+        {
+          "text": " Tittered Maximoff.",
+          "start": 3.2,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " Tittered",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.15838623046875
+            },
+            {
+              "text": " Maximoff.",
+              "start": 3.38,
+              "end": 4.08,
+              "probability": 0.6409912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "I",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "was",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "married",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "a",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "Polish",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "lady",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "myself,",
+          "start": 2.06,
+          "end": 2.6
+        },
+        {
+          "raw": "Tittered",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "Maximoff.",
+          "start": 3.38,
+          "end": 4.08
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "I",
+        "was",
+        "married",
+        "to",
+        "a",
+        "Polish",
+        "lady",
+        "myself,\"",
+        "tittered",
+        "Maximov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "married",
+          "start": 0.76,
+          "end": 1.04,
+          "key": "married",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.04,
+          "end": 1.24,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Polish",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "polish",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 1.68,
+          "end": 2.06,
+          "key": "lady",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "myself,",
+          "start": 2.06,
+          "end": 2.6,
+          "key": "myself",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Tittered",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "tittered",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Maximoff.",
+          "start": 3.38,
+          "end": 4.08,
+          "key": "maximoff",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "I",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "was",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "married",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "text": "to",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "a",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "Polish",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "lady",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "text": "myself,\"",
+          "start": 2.06,
+          "end": 2.6
+        },
+        {
+          "text": "tittered",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "Maximov.",
+          "start": 3.38,
+          "end": 3.73
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.260252027772367
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "57c89f04e57ebbc8471ef0c53504122bf99471adf73ddb8b39ce764003151722",
+  "selected_reasons": []
+}

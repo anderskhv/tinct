@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "1921e0cff9b9c0e0e3339ffceae4a24266b41917ca5f0f35320de2b4aa4a2a58",
+  "attempts": [
+    {
+      "asr_seconds": 0.23780143959447742,
+      "alignment_seconds": 0.00032758479937911034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duke. She is a virtuous and a reverend lady, It cannot be that she hath done thee wrong.",
+        "hotwords": "Duke, It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duke, She is a virtuous and a reverend lady, It cannot be that she hath done thee wrong.",
+          "start": 0.08,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " She",
+              "start": 1.06,
+              "end": 1.34,
+              "probability": 0.0291595458984375
+            },
+            {
+              "text": " is",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " a",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " virtuous",
+              "start": 1.6,
+              "end": 1.98,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " and",
+              "start": 1.98,
+              "end": 2.3,
+              "probability": 0.95703125
+            },
+            {
+              "text": " a",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.34912109375
+            },
+            {
+              "text": " reverend",
+              "start": 2.42,
+              "end": 2.78,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " lady,",
+              "start": 2.78,
+              "end": 3.06,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " It",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.363037109375
+            },
+            {
+              "text": " cannot",
+              "start": 3.7,
+              "end": 3.96,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " be",
+              "start": 3.96,
+              "end": 4.18,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " she",
+              "start": 4.34,
+              "end": 4.48,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " hath",
+              "start": 4.48,
+              "end": 4.62,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " done",
+              "start": 4.62,
+              "end": 4.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thee",
+              "start": 4.8,
+              "end": 4.98,
+              "probability": 0.98828125
+            },
+            {
+              "text": " wrong.",
+              "start": 4.98,
+              "end": 5.24,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "She",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "raw": "is",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "a",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "virtuous",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "raw": "a",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "reverend",
+          "start": 2.42,
+          "end": 2.78
+        },
+        {
+          "raw": "lady,",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "raw": "It",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "cannot",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "raw": "be",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "raw": "that",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "she",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "raw": "hath",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "raw": "done",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "raw": "thee",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "raw": "wrong.",
+          "start": 4.98,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "She",
+        "is",
+        "a",
+        "virtuous",
+        "and",
+        "a",
+        "reverend",
+        "lady,",
+        "It",
+        "cannot",
+        "be",
+        "that",
+        "she",
+        "hath",
+        "done",
+        "thee",
+        "wrong."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 1.06,
+          "end": 1.34,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "virtuous",
+          "start": 1.6,
+          "end": 1.98,
+          "key": "virtuous",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.98,
+          "end": 2.3,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.3,
+          "end": 2.42,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "reverend",
+          "start": 2.42,
+          "end": 2.78,
+          "key": "reverend",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 2.78,
+          "end": 3.06,
+          "key": "lady",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.58,
+          "end": 3.7,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 3.7,
+          "end": 3.96,
+          "key": "cannot",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.96,
+          "end": 4.18,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 4.34,
+          "end": 4.48,
+          "key": "she",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 4.48,
+          "end": 4.62,
+          "key": "hath",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 4.62,
+          "end": 4.8,
+          "key": "done",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.8,
+          "end": 4.98,
+          "key": "thee",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "wrong.",
+          "start": 4.98,
+          "end": 5.24,
+          "key": "wrong",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "She",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "text": "is",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "a",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "text": "virtuous",
+          "start": 1.6,
+          "end": 1.98
+        },
+        {
+          "text": "and",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "text": "a",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "reverend",
+          "start": 2.42,
+          "end": 2.78
+        },
+        {
+          "text": "lady,",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "text": "It",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "cannot",
+          "start": 3.7,
+          "end": 3.96
+        },
+        {
+          "text": "be",
+          "start": 3.96,
+          "end": 4.18
+        },
+        {
+          "text": "that",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "she",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "text": "hath",
+          "start": 4.48,
+          "end": 4.62
+        },
+        {
+          "text": "done",
+          "start": 4.62,
+          "end": 4.8
+        },
+        {
+          "text": "thee",
+          "start": 4.8,
+          "end": 4.98
+        },
+        {
+          "text": "wrong.",
+          "start": 4.98,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23826205683872104
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "641a4d0facec73719a32874585d4472ccd59b2609a41686d170171e037d8f8a0",
+  "selected_reasons": []
+}

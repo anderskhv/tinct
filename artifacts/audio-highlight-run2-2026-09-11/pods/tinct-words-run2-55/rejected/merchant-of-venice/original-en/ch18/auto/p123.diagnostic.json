@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "1af81c88abcaab43fe4610beb300dd52a86f2330e95482a0e71a935881eb89ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.21268118359148502,
+      "alignment_seconds": 0.00025443267077207565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. Clerk, draw a deed of gift.",
+        "hotwords": "Portia, Clerk"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, Clerk, draw a deed of gift.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.72314453125
+            },
+            {
+              "text": " Clerk,",
+              "start": 1.31,
+              "end": 1.35,
+              "probability": 0.342529296875
+            },
+            {
+              "text": " draw",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.1588134765625
+            },
+            {
+              "text": " a",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.62109375
+            },
+            {
+              "text": " deed",
+              "start": 1.79,
+              "end": 1.83,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " of",
+              "start": 1.83,
+              "end": 1.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gift.",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.9326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Clerk,",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "raw": "draw",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "a",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "deed",
+          "start": 1.79,
+          "end": 1.83
+        },
+        {
+          "raw": "of",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "raw": "gift.",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "Clerk,",
+        "draw",
+        "a",
+        "deed",
+        "of",
+        "gift."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Clerk,",
+          "start": 1.31,
+          "end": 1.35,
+          "key": "clerk",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "draw",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "deed",
+          "start": 1.79,
+          "end": 1.83,
+          "key": "deed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.83,
+          "end": 1.97,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gift.",
+          "start": 1.97,
+          "end": 2.25,
+          "key": "gift",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Clerk,",
+          "start": 1.31,
+          "end": 1.35
+        },
+        {
+          "text": "draw",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "text": "a",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "deed",
+          "start": 1.79,
+          "end": 1.83
+        },
+        {
+          "text": "of",
+          "start": 1.83,
+          "end": 1.97
+        },
+        {
+          "text": "gift.",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21303434763103724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4d458916adf8f674bd5c72b4d90b28e9e0c78c130044e793cb2072d68de4083f",
+  "selected_reasons": []
+}

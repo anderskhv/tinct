@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "f89b589f0c2f7b77865ddbfd9bd162e2675fb5c54d2bc2b938eb020813d59c43",
+  "attempts": [
+    {
+      "asr_seconds": 0.2116138730198145,
+      "alignment_seconds": 0.00038409605622291565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhute balthays are in musicians.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Exhute",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.3992919921875
+            },
+            {
+              "text": " balthays",
+              "start": 0.75,
+              "end": 1.13,
+              "probability": 0.3055826822916667
+            },
+            {
+              "text": " are",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " in",
+              "start": 1.29,
+              "end": 1.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " musicians.",
+              "start": 1.39,
+              "end": 1.75,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhute",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "balthays",
+          "start": 0.75,
+          "end": 1.13
+        },
+        {
+          "raw": "are",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "in",
+          "start": 1.29,
+          "end": 1.39
+        },
+        {
+          "raw": "musicians.",
+          "start": 1.39,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Balthasar",
+        "and",
+        "Musicians.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          4
+        ],
+        [
+          "equal",
+          3,
+          4,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhute",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exhute",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "balthays",
+          "start": 0.75,
+          "end": 1.13,
+          "key": "balthays",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.29,
+          "end": 1.39,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "musicians.",
+          "start": 1.39,
+          "end": 1.75,
+          "key": "musicians",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.0,
+          "end": 0.695
+        },
+        {
+          "text": "Balthasar",
+          "start": 0.695,
+          "end": 1.042
+        },
+        {
+          "text": "and",
+          "start": 1.042,
+          "end": 1.216
+        },
+        {
+          "text": "Musicians.]",
+          "start": 1.39,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21212434396147728
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "35e6cd905a3a37ce5c665fc8c96edcda3ab3f0ac41bfef12bf74b83b8d61254f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

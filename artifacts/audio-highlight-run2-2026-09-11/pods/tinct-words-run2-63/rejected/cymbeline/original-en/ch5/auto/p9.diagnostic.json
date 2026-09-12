@@ -1,0 +1,2092 @@
+{
+  "complete": true,
+  "signature": "1583a5fa03036d02c864bc93e5395fd93aa0b523a0edb98690a9427dd147816a",
+  "attempts": [
+    {
+      "asr_seconds": 0.6644374262541533,
+      "alignment_seconds": 0.0009386613965034485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Here comes the Briton. Let him be so entertained amongst you as suits with gentlemen of your knowing to a stranger of his quality. I beseech you all be better known to this gentleman, whom I commend to you as a noble friend of mine. How worthy he is I will leave to appear hereafter, rather than story him in his own hearing.",
+        "hotwords": "Here, Briton, Let, I, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Here comes the Briton. Let him be so entertained amongst you as suits with gentlemen of your knowing to a stranger of his quality.",
+          "start": 0.02,
+          "end": 7.1,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.336669921875
+            },
+            {
+              "text": " comes",
+              "start": 0.54,
+              "end": 0.84,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " the",
+              "start": 0.84,
+              "end": 1.08,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Briton.",
+              "start": 1.08,
+              "end": 1.54,
+              "probability": 0.6240234375
+            },
+            {
+              "text": " Let",
+              "start": 2.04,
+              "end": 2.12,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " him",
+              "start": 2.12,
+              "end": 2.24,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " be",
+              "start": 2.24,
+              "end": 2.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " so",
+              "start": 2.4,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " entertained",
+              "start": 2.6,
+              "end": 3.12,
+              "probability": 0.990234375
+            },
+            {
+              "text": " amongst",
+              "start": 3.12,
+              "end": 3.38,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 3.38,
+              "end": 3.72,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " as",
+              "start": 3.72,
+              "end": 3.92,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " suits",
+              "start": 3.92,
+              "end": 4.26,
+              "probability": 0.966796875
+            },
+            {
+              "text": " with",
+              "start": 4.26,
+              "end": 4.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " gentlemen",
+              "start": 4.54,
+              "end": 4.94,
+              "probability": 0.71630859375
+            },
+            {
+              "text": " of",
+              "start": 4.94,
+              "end": 5.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 5.2,
+              "end": 5.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " knowing",
+              "start": 5.3,
+              "end": 5.6,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " to",
+              "start": 5.6,
+              "end": 5.86,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " a",
+              "start": 5.86,
+              "end": 5.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stranger",
+              "start": 5.98,
+              "end": 6.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 6.32,
+              "end": 6.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 6.56,
+              "end": 6.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " quality.",
+              "start": 6.68,
+              "end": 7.1,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " I beseech you all be better known to this gentleman, whom I commend to you as a noble friend of mine.",
+          "start": 7.94,
+          "end": 13.02,
+          "words": [
+            {
+              "text": " I",
+              "start": 7.94,
+              "end": 7.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " beseech",
+              "start": 7.98,
+              "end": 8.38,
+              "probability": 0.9881184895833334
+            },
+            {
+              "text": " you",
+              "start": 8.38,
+              "end": 8.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all",
+              "start": 8.5,
+              "end": 8.66,
+              "probability": 0.90234375
+            },
+            {
+              "text": " be",
+              "start": 8.66,
+              "end": 8.82,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " better",
+              "start": 8.82,
+              "end": 9.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " known",
+              "start": 9.0,
+              "end": 9.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 9.24,
+              "end": 9.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 9.46,
+              "end": 9.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gentleman,",
+              "start": 9.64,
+              "end": 10.1,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " whom",
+              "start": 10.48,
+              "end": 10.66,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " I",
+              "start": 10.66,
+              "end": 10.84,
+              "probability": 0.99609375
+            },
+            {
+              "text": " commend",
+              "start": 10.84,
+              "end": 11.08,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 11.08,
+              "end": 11.36,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 11.36,
+              "end": 11.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 11.52,
+              "end": 11.74,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 11.74,
+              "end": 11.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " noble",
+              "start": 11.9,
+              "end": 12.18,
+              "probability": 0.990234375
+            },
+            {
+              "text": " friend",
+              "start": 12.18,
+              "end": 12.52,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 12.52,
+              "end": 12.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " mine.",
+              "start": 12.72,
+              "end": 13.02,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " How worthy he is I will leave to appear hereafter, rather than story him in his own hearing.",
+          "start": 13.78,
+          "end": 18.88,
+          "words": [
+            {
+              "text": " How",
+              "start": 13.78,
+              "end": 13.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " worthy",
+              "start": 13.94,
+              "end": 14.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 14.2,
+              "end": 14.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 14.48,
+              "end": 14.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 14.72,
+              "end": 14.92,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " will",
+              "start": 14.92,
+              "end": 15.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " leave",
+              "start": 15.08,
+              "end": 15.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 15.3,
+              "end": 15.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " appear",
+              "start": 15.5,
+              "end": 15.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hereafter,",
+              "start": 15.78,
+              "end": 16.22,
+              "probability": 0.544921875
+            },
+            {
+              "text": " rather",
+              "start": 16.78,
+              "end": 16.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " than",
+              "start": 16.98,
+              "end": 17.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " story",
+              "start": 17.28,
+              "end": 17.62,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " him",
+              "start": 17.62,
+              "end": 17.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 17.94,
+              "end": 18.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 18.1,
+              "end": 18.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 18.22,
+              "end": 18.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hearing.",
+              "start": 18.46,
+              "end": 18.88,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "comes",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "raw": "Briton.",
+          "start": 1.08,
+          "end": 1.54
+        },
+        {
+          "raw": "Let",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "raw": "him",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "raw": "be",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "raw": "so",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "raw": "entertained",
+          "start": 2.6,
+          "end": 3.12
+        },
+        {
+          "raw": "amongst",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "raw": "you",
+          "start": 3.38,
+          "end": 3.72
+        },
+        {
+          "raw": "as",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "raw": "suits",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "raw": "with",
+          "start": 4.26,
+          "end": 4.54
+        },
+        {
+          "raw": "gentlemen",
+          "start": 4.54,
+          "end": 4.94
+        },
+        {
+          "raw": "of",
+          "start": 4.94,
+          "end": 5.2
+        },
+        {
+          "raw": "your",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "raw": "knowing",
+          "start": 5.3,
+          "end": 5.6
+        },
+        {
+          "raw": "to",
+          "start": 5.6,
+          "end": 5.86
+        },
+        {
+          "raw": "a",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "raw": "stranger",
+          "start": 5.98,
+          "end": 6.32
+        },
+        {
+          "raw": "of",
+          "start": 6.32,
+          "end": 6.56
+        },
+        {
+          "raw": "his",
+          "start": 6.56,
+          "end": 6.68
+        },
+        {
+          "raw": "quality.",
+          "start": 6.68,
+          "end": 7.1
+        },
+        {
+          "raw": "I",
+          "start": 7.94,
+          "end": 7.98
+        },
+        {
+          "raw": "beseech",
+          "start": 7.98,
+          "end": 8.38
+        },
+        {
+          "raw": "you",
+          "start": 8.38,
+          "end": 8.5
+        },
+        {
+          "raw": "all",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "raw": "be",
+          "start": 8.66,
+          "end": 8.82
+        },
+        {
+          "raw": "better",
+          "start": 8.82,
+          "end": 9.0
+        },
+        {
+          "raw": "known",
+          "start": 9.0,
+          "end": 9.24
+        },
+        {
+          "raw": "to",
+          "start": 9.24,
+          "end": 9.46
+        },
+        {
+          "raw": "this",
+          "start": 9.46,
+          "end": 9.64
+        },
+        {
+          "raw": "gentleman,",
+          "start": 9.64,
+          "end": 10.1
+        },
+        {
+          "raw": "whom",
+          "start": 10.48,
+          "end": 10.66
+        },
+        {
+          "raw": "I",
+          "start": 10.66,
+          "end": 10.84
+        },
+        {
+          "raw": "commend",
+          "start": 10.84,
+          "end": 11.08
+        },
+        {
+          "raw": "to",
+          "start": 11.08,
+          "end": 11.36
+        },
+        {
+          "raw": "you",
+          "start": 11.36,
+          "end": 11.52
+        },
+        {
+          "raw": "as",
+          "start": 11.52,
+          "end": 11.74
+        },
+        {
+          "raw": "a",
+          "start": 11.74,
+          "end": 11.9
+        },
+        {
+          "raw": "noble",
+          "start": 11.9,
+          "end": 12.18
+        },
+        {
+          "raw": "friend",
+          "start": 12.18,
+          "end": 12.52
+        },
+        {
+          "raw": "of",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "raw": "mine.",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "raw": "How",
+          "start": 13.78,
+          "end": 13.94
+        },
+        {
+          "raw": "worthy",
+          "start": 13.94,
+          "end": 14.2
+        },
+        {
+          "raw": "he",
+          "start": 14.2,
+          "end": 14.48
+        },
+        {
+          "raw": "is",
+          "start": 14.48,
+          "end": 14.72
+        },
+        {
+          "raw": "I",
+          "start": 14.72,
+          "end": 14.92
+        },
+        {
+          "raw": "will",
+          "start": 14.92,
+          "end": 15.08
+        },
+        {
+          "raw": "leave",
+          "start": 15.08,
+          "end": 15.3
+        },
+        {
+          "raw": "to",
+          "start": 15.3,
+          "end": 15.5
+        },
+        {
+          "raw": "appear",
+          "start": 15.5,
+          "end": 15.78
+        },
+        {
+          "raw": "hereafter,",
+          "start": 15.78,
+          "end": 16.22
+        },
+        {
+          "raw": "rather",
+          "start": 16.78,
+          "end": 16.98
+        },
+        {
+          "raw": "than",
+          "start": 16.98,
+          "end": 17.28
+        },
+        {
+          "raw": "story",
+          "start": 17.28,
+          "end": 17.62
+        },
+        {
+          "raw": "him",
+          "start": 17.62,
+          "end": 17.94
+        },
+        {
+          "raw": "in",
+          "start": 17.94,
+          "end": 18.1
+        },
+        {
+          "raw": "his",
+          "start": 18.1,
+          "end": 18.22
+        },
+        {
+          "raw": "own",
+          "start": 18.22,
+          "end": 18.46
+        },
+        {
+          "raw": "hearing.",
+          "start": 18.46,
+          "end": 18.88
+        }
+      ],
+      "expected_tokens": [
+        "Here",
+        "comes",
+        "the",
+        "Briton.",
+        "Let",
+        "him",
+        "be",
+        "so",
+        "entertained",
+        "amongst",
+        "you",
+        "as",
+        "suits",
+        "with",
+        "gentlemen",
+        "of",
+        "your",
+        "knowing",
+        "to",
+        "a",
+        "stranger",
+        "of",
+        "his",
+        "quality.",
+        "I",
+        "beseech",
+        "you",
+        "all",
+        "be",
+        "better",
+        "known",
+        "to",
+        "this",
+        "gentleman,",
+        "whom",
+        "I",
+        "commend",
+        "to",
+        "you",
+        "as",
+        "a",
+        "noble",
+        "friend",
+        "of",
+        "mine.",
+        "How",
+        "worthy",
+        "he",
+        "is",
+        "I",
+        "will",
+        "leave",
+        "to",
+        "appear",
+        "hereafter,",
+        "rather",
+        "than",
+        "story",
+        "him",
+        "in",
+        "his",
+        "own",
+        "hearing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          63,
+          0,
+          63
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Here",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "here",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 0.54,
+          "end": 0.84,
+          "key": "comes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.84,
+          "end": 1.08,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Briton.",
+          "start": 1.08,
+          "end": 1.54,
+          "key": "briton",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 2.04,
+          "end": 2.12,
+          "key": "let",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.12,
+          "end": 2.24,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.24,
+          "end": 2.4,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.4,
+          "end": 2.6,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "entertained",
+          "start": 2.6,
+          "end": 3.12,
+          "key": "entertained",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "amongst",
+          "start": 3.12,
+          "end": 3.38,
+          "key": "amongst",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.38,
+          "end": 3.72,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.72,
+          "end": 3.92,
+          "key": "as",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "suits",
+          "start": 3.92,
+          "end": 4.26,
+          "key": "suits",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.26,
+          "end": 4.54,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gentlemen",
+          "start": 4.54,
+          "end": 4.94,
+          "key": "gentlemen",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.94,
+          "end": 5.2,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.2,
+          "end": 5.3,
+          "key": "your",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "knowing",
+          "start": 5.3,
+          "end": 5.6,
+          "key": "knowing",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.6,
+          "end": 5.86,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.86,
+          "end": 5.98,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "stranger",
+          "start": 5.98,
+          "end": 6.32,
+          "key": "stranger",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.32,
+          "end": 6.56,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.56,
+          "end": 6.68,
+          "key": "his",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "quality.",
+          "start": 6.68,
+          "end": 7.1,
+          "key": "quality",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.94,
+          "end": 7.98,
+          "key": "i",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 7.98,
+          "end": 8.38,
+          "key": "beseech",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.38,
+          "end": 8.5,
+          "key": "you",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 8.5,
+          "end": 8.66,
+          "key": "all",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 8.66,
+          "end": 8.82,
+          "key": "be",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 8.82,
+          "end": 9.0,
+          "key": "better",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "known",
+          "start": 9.0,
+          "end": 9.24,
+          "key": "known",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.24,
+          "end": 9.46,
+          "key": "to",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 9.46,
+          "end": 9.64,
+          "key": "this",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "gentleman,",
+          "start": 9.64,
+          "end": 10.1,
+          "key": "gentleman",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 10.48,
+          "end": 10.66,
+          "key": "whom",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 10.66,
+          "end": 10.84,
+          "key": "i",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "commend",
+          "start": 10.84,
+          "end": 11.08,
+          "key": "commend",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 11.08,
+          "end": 11.36,
+          "key": "to",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 11.36,
+          "end": 11.52,
+          "key": "you",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 11.52,
+          "end": 11.74,
+          "key": "as",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.74,
+          "end": 11.9,
+          "key": "a",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 11.9,
+          "end": 12.18,
+          "key": "noble",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 12.18,
+          "end": 12.52,
+          "key": "friend",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.52,
+          "end": 12.72,
+          "key": "of",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "mine.",
+          "start": 12.72,
+          "end": 13.02,
+          "key": "mine",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 13.78,
+          "end": 13.94,
+          "key": "how",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "worthy",
+          "start": 13.94,
+          "end": 14.2,
+          "key": "worthy",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 14.2,
+          "end": 14.48,
+          "key": "he",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 14.48,
+          "end": 14.72,
+          "key": "is",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 14.72,
+          "end": 14.92,
+          "key": "i",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 14.92,
+          "end": 15.08,
+          "key": "will",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 15.08,
+          "end": 15.3,
+          "key": "leave",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 15.3,
+          "end": 15.5,
+          "key": "to",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "appear",
+          "start": 15.5,
+          "end": 15.78,
+          "key": "appear",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "hereafter,",
+          "start": 15.78,
+          "end": 16.22,
+          "key": "hereafter",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 16.78,
+          "end": 16.98,
+          "key": "rather",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 16.98,
+          "end": 17.28,
+          "key": "than",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "story",
+          "start": 17.28,
+          "end": 17.62,
+          "key": "story",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 17.62,
+          "end": 17.94,
+          "key": "him",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 17.94,
+          "end": 18.1,
+          "key": "in",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 18.1,
+          "end": 18.22,
+          "key": "his",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 18.22,
+          "end": 18.46,
+          "key": "own",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "hearing.",
+          "start": 18.46,
+          "end": 18.88,
+          "key": "hearing",
+          "pieces": [
+            62
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Here",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "comes",
+          "start": 0.54,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 0.84,
+          "end": 1.08
+        },
+        {
+          "text": "Briton.",
+          "start": 1.08,
+          "end": 1.54
+        },
+        {
+          "text": "Let",
+          "start": 2.04,
+          "end": 2.12
+        },
+        {
+          "text": "him",
+          "start": 2.12,
+          "end": 2.24
+        },
+        {
+          "text": "be",
+          "start": 2.24,
+          "end": 2.4
+        },
+        {
+          "text": "so",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "text": "entertained",
+          "start": 2.6,
+          "end": 3.12
+        },
+        {
+          "text": "amongst",
+          "start": 3.12,
+          "end": 3.38
+        },
+        {
+          "text": "you",
+          "start": 3.38,
+          "end": 3.72
+        },
+        {
+          "text": "as",
+          "start": 3.72,
+          "end": 3.92
+        },
+        {
+          "text": "suits",
+          "start": 3.92,
+          "end": 4.26
+        },
+        {
+          "text": "with",
+          "start": 4.26,
+          "end": 4.54
+        },
+        {
+          "text": "gentlemen",
+          "start": 4.54,
+          "end": 4.94
+        },
+        {
+          "text": "of",
+          "start": 4.94,
+          "end": 5.2
+        },
+        {
+          "text": "your",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "text": "knowing",
+          "start": 5.3,
+          "end": 5.6
+        },
+        {
+          "text": "to",
+          "start": 5.6,
+          "end": 5.86
+        },
+        {
+          "text": "a",
+          "start": 5.86,
+          "end": 5.98
+        },
+        {
+          "text": "stranger",
+          "start": 5.98,
+          "end": 6.32
+        },
+        {
+          "text": "of",
+          "start": 6.32,
+          "end": 6.56
+        },
+        {
+          "text": "his",
+          "start": 6.56,
+          "end": 6.68
+        },
+        {
+          "text": "quality.",
+          "start": 6.68,
+          "end": 7.1
+        },
+        {
+          "text": "I",
+          "start": 7.94,
+          "end": 7.98
+        },
+        {
+          "text": "beseech",
+          "start": 7.98,
+          "end": 8.38
+        },
+        {
+          "text": "you",
+          "start": 8.38,
+          "end": 8.5
+        },
+        {
+          "text": "all",
+          "start": 8.5,
+          "end": 8.66
+        },
+        {
+          "text": "be",
+          "start": 8.66,
+          "end": 8.82
+        },
+        {
+          "text": "better",
+          "start": 8.82,
+          "end": 9.0
+        },
+        {
+          "text": "known",
+          "start": 9.0,
+          "end": 9.24
+        },
+        {
+          "text": "to",
+          "start": 9.24,
+          "end": 9.46
+        },
+        {
+          "text": "this",
+          "start": 9.46,
+          "end": 9.64
+        },
+        {
+          "text": "gentleman,",
+          "start": 9.64,
+          "end": 10.1
+        },
+        {
+          "text": "whom",
+          "start": 10.48,
+          "end": 10.66
+        },
+        {
+          "text": "I",
+          "start": 10.66,
+          "end": 10.84
+        },
+        {
+          "text": "commend",
+          "start": 10.84,
+          "end": 11.08
+        },
+        {
+          "text": "to",
+          "start": 11.08,
+          "end": 11.36
+        },
+        {
+          "text": "you",
+          "start": 11.36,
+          "end": 11.52
+        },
+        {
+          "text": "as",
+          "start": 11.52,
+          "end": 11.74
+        },
+        {
+          "text": "a",
+          "start": 11.74,
+          "end": 11.9
+        },
+        {
+          "text": "noble",
+          "start": 11.9,
+          "end": 12.18
+        },
+        {
+          "text": "friend",
+          "start": 12.18,
+          "end": 12.52
+        },
+        {
+          "text": "of",
+          "start": 12.52,
+          "end": 12.72
+        },
+        {
+          "text": "mine.",
+          "start": 12.72,
+          "end": 13.02
+        },
+        {
+          "text": "How",
+          "start": 13.78,
+          "end": 13.94
+        },
+        {
+          "text": "worthy",
+          "start": 13.94,
+          "end": 14.2
+        },
+        {
+          "text": "he",
+          "start": 14.2,
+          "end": 14.48
+        },
+        {
+          "text": "is",
+          "start": 14.48,
+          "end": 14.72
+        },
+        {
+          "text": "I",
+          "start": 14.72,
+          "end": 14.92
+        },
+        {
+          "text": "will",
+          "start": 14.92,
+          "end": 15.08
+        },
+        {
+          "text": "leave",
+          "start": 15.08,
+          "end": 15.3
+        },
+        {
+          "text": "to",
+          "start": 15.3,
+          "end": 15.5
+        },
+        {
+          "text": "appear",
+          "start": 15.5,
+          "end": 15.78
+        },
+        {
+          "text": "hereafter,",
+          "start": 15.78,
+          "end": 16.22
+        },
+        {
+          "text": "rather",
+          "start": 16.78,
+          "end": 16.98
+        },
+        {
+          "text": "than",
+          "start": 16.98,
+          "end": 17.28
+        },
+        {
+          "text": "story",
+          "start": 17.28,
+          "end": 17.62
+        },
+        {
+          "text": "him",
+          "start": 17.62,
+          "end": 17.94
+        },
+        {
+          "text": "in",
+          "start": 17.94,
+          "end": 18.1
+        },
+        {
+          "text": "his",
+          "start": 18.1,
+          "end": 18.22
+        },
+        {
+          "text": "own",
+          "start": 18.22,
+          "end": 18.46
+        },
+        {
+          "text": "hearing.",
+          "start": 18.46,
+          "end": 18.88
+        }
+      ],
+      "stats": {
+        "expected_words": 63,
+        "heard_words": 63,
+        "matched_words": 63
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6658157575875521
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea76d22883511716fc37971ea80f9caf2c20b8771f9a306df4477368ab3ec704",
+  "selected_reasons": []
+}

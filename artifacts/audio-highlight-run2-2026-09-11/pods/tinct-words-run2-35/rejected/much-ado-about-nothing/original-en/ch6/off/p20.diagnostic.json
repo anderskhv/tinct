@@ -1,0 +1,587 @@
+{
+  "complete": true,
+  "signature": "9b017e7f3bba5a3d19632375975914388ab3b2c82ffa6d273c089fe68cc2b3cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.28369900211691856,
+      "alignment_seconds": 0.0006643645465373993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Balthazar. Note this before my notes. There's not a note of mine that's worth the noting.",
+          "start": 0.6,
+          "end": 5.22,
+          "words": [
+            {
+              "text": " Balthazar.",
+              "start": 0.6,
+              "end": 1.0,
+              "probability": 0.5973307291666666
+            },
+            {
+              "text": " Note",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " this",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 2.28,
+              "end": 2.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " notes.",
+              "start": 2.46,
+              "end": 2.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " There's",
+              "start": 3.24,
+              "end": 3.42,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " not",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.58,
+              "end": 3.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " note",
+              "start": 3.7,
+              "end": 3.8,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 3.8,
+              "end": 3.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mine",
+              "start": 3.94,
+              "end": 4.22,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that's",
+              "start": 4.22,
+              "end": 4.62,
+              "probability": 0.985595703125
+            },
+            {
+              "text": " worth",
+              "start": 4.62,
+              "end": 4.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 4.74,
+              "end": 4.94,
+              "probability": 0.994140625
+            },
+            {
+              "text": " noting.",
+              "start": 4.94,
+              "end": 5.22,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Balthazar.",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "raw": "Note",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "this",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "before",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "my",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "raw": "notes.",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "raw": "There's",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "raw": "not",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "a",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "raw": "note",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "raw": "of",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "raw": "mine",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "raw": "that's",
+          "start": 4.22,
+          "end": 4.62
+        },
+        {
+          "raw": "worth",
+          "start": 4.62,
+          "end": 4.74
+        },
+        {
+          "raw": "the",
+          "start": 4.74,
+          "end": 4.94
+        },
+        {
+          "raw": "noting.",
+          "start": 4.94,
+          "end": 5.22
+        }
+      ],
+      "expected_tokens": [
+        "Balthasar.",
+        "Note",
+        "this",
+        "before",
+        "my",
+        "notes;",
+        "There's",
+        "not",
+        "a",
+        "note",
+        "of",
+        "mine",
+        "that's",
+        "worth",
+        "the",
+        "noting."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          16,
+          1,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Balthazar.",
+          "start": 0.6,
+          "end": 1.0,
+          "key": "balthazar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Note",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "note",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.76,
+          "end": 1.94,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "before",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.28,
+          "end": 2.46,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "notes.",
+          "start": 2.46,
+          "end": 2.78,
+          "key": "notes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "There's",
+          "start": 3.24,
+          "end": 3.42,
+          "key": "theres",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.58,
+          "end": 3.7,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "note",
+          "start": 3.7,
+          "end": 3.8,
+          "key": "note",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.8,
+          "end": 3.94,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 3.94,
+          "end": 4.22,
+          "key": "mine",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 4.22,
+          "end": 4.62,
+          "key": "thats",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "worth",
+          "start": 4.62,
+          "end": 4.74,
+          "key": "worth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.74,
+          "end": 4.94,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "noting.",
+          "start": 4.94,
+          "end": 5.22,
+          "key": "noting",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Balthasar.",
+          "start": 0.0,
+          "end": 0.82
+        },
+        {
+          "text": "Note",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "this",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "before",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "my",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "text": "notes;",
+          "start": 2.46,
+          "end": 2.78
+        },
+        {
+          "text": "There's",
+          "start": 3.24,
+          "end": 3.42
+        },
+        {
+          "text": "not",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "a",
+          "start": 3.58,
+          "end": 3.7
+        },
+        {
+          "text": "note",
+          "start": 3.7,
+          "end": 3.8
+        },
+        {
+          "text": "of",
+          "start": 3.8,
+          "end": 3.94
+        },
+        {
+          "text": "mine",
+          "start": 3.94,
+          "end": 4.22
+        },
+        {
+          "text": "that's",
+          "start": 4.22,
+          "end": 4.62
+        },
+        {
+          "text": "worth",
+          "start": 4.62,
+          "end": 4.74
+        },
+        {
+          "text": "the",
+          "start": 4.74,
+          "end": 4.94
+        },
+        {
+          "text": "noting.",
+          "start": 4.94,
+          "end": 5.22
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.2846521120518446
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5053ae538aeba8ba699363c2d4900f4a3451e6fbfe82a995b60b80dd28a79441",
+  "selected_reasons": []
+}

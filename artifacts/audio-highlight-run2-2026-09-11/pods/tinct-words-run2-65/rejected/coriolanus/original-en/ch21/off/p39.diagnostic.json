@@ -1,0 +1,768 @@
+{
+  "complete": true,
+  "signature": "d16091ea3b191c98776a833e96848db6e7ea7117266bf12d3a936400aed819e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.25263131177052855,
+      "alignment_seconds": 0.0002842177636921406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third servingman I th city of kites and crows what an asset is then thou dwells tea with Dawes, too",
+          "start": 0.05,
+          "end": 6.99,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7421875
+            },
+            {
+              "text": " servingman",
+              "start": 0.61,
+              "end": 1.27,
+              "probability": 0.5172119140625
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.67,
+              "probability": 0.16162109375
+            },
+            {
+              "text": " th",
+              "start": 1.67,
+              "end": 1.99,
+              "probability": 0.658203125
+            },
+            {
+              "text": " city",
+              "start": 1.99,
+              "end": 2.41,
+              "probability": 0.697265625
+            },
+            {
+              "text": " of",
+              "start": 2.41,
+              "end": 2.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " kites",
+              "start": 2.59,
+              "end": 2.89,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " and",
+              "start": 2.89,
+              "end": 3.01,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " crows",
+              "start": 3.01,
+              "end": 3.51,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " what",
+              "start": 3.51,
+              "end": 3.91,
+              "probability": 0.607421875
+            },
+            {
+              "text": " an",
+              "start": 3.91,
+              "end": 4.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " asset",
+              "start": 4.03,
+              "end": 4.31,
+              "probability": 0.382568359375
+            },
+            {
+              "text": " is",
+              "start": 4.31,
+              "end": 4.69,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " then",
+              "start": 4.69,
+              "end": 5.23,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " thou",
+              "start": 5.23,
+              "end": 5.45,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " dwells",
+              "start": 5.45,
+              "end": 5.89,
+              "probability": 0.910888671875
+            },
+            {
+              "text": " tea",
+              "start": 5.89,
+              "end": 5.99,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " with",
+              "start": 5.99,
+              "end": 6.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Dawes,",
+              "start": 6.19,
+              "end": 6.59,
+              "probability": 0.6751708984375
+            },
+            {
+              "text": " too",
+              "start": 6.75,
+              "end": 6.99,
+              "probability": 0.96533203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "servingman",
+          "start": 0.61,
+          "end": 1.27
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.67
+        },
+        {
+          "raw": "th",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "raw": "city",
+          "start": 1.99,
+          "end": 2.41
+        },
+        {
+          "raw": "of",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "raw": "kites",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "raw": "crows",
+          "start": 3.01,
+          "end": 3.51
+        },
+        {
+          "raw": "what",
+          "start": 3.51,
+          "end": 3.91
+        },
+        {
+          "raw": "an",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "raw": "asset",
+          "start": 4.03,
+          "end": 4.31
+        },
+        {
+          "raw": "is",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "raw": "then",
+          "start": 4.69,
+          "end": 5.23
+        },
+        {
+          "raw": "thou",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "raw": "dwells",
+          "start": 5.45,
+          "end": 5.89
+        },
+        {
+          "raw": "tea",
+          "start": 5.89,
+          "end": 5.99
+        },
+        {
+          "raw": "with",
+          "start": 5.99,
+          "end": 6.19
+        },
+        {
+          "raw": "Dawes,",
+          "start": 6.19,
+          "end": 6.59
+        },
+        {
+          "raw": "too",
+          "start": 6.75,
+          "end": 6.99
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Servingman.",
+        "I'",
+        "th'",
+        "city",
+        "of",
+        "kites",
+        "and",
+        "crows?",
+        "What",
+        "an",
+        "ass",
+        "it",
+        "is!",
+        "Then",
+        "thou",
+        "dwell'st",
+        "with",
+        "daws",
+        "too?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          13,
+          11,
+          12
+        ],
+        [
+          "equal",
+          13,
+          16,
+          12,
+          15
+        ],
+        [
+          "replace",
+          16,
+          17,
+          15,
+          17
+        ],
+        [
+          "equal",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          20,
+          19,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          13,
+          11,
+          12
+        ],
+        [
+          "replace",
+          16,
+          17,
+          15,
+          17
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "servingman",
+          "start": 0.61,
+          "end": 1.27,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.67,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "th",
+          "start": 1.67,
+          "end": 1.99,
+          "key": "th",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "city",
+          "start": 1.99,
+          "end": 2.41,
+          "key": "city",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.41,
+          "end": 2.59,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "kites",
+          "start": 2.59,
+          "end": 2.89,
+          "key": "kites",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 3.01,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "crows",
+          "start": 3.01,
+          "end": 3.51,
+          "key": "crows",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.51,
+          "end": 3.91,
+          "key": "what",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 3.91,
+          "end": 4.03,
+          "key": "an",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "asset",
+          "start": 4.03,
+          "end": 4.31,
+          "key": "asset",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.31,
+          "end": 4.69,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 4.69,
+          "end": 5.23,
+          "key": "then",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 5.23,
+          "end": 5.45,
+          "key": "thou",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "dwells",
+          "start": 5.45,
+          "end": 5.89,
+          "key": "dwells",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 5.89,
+          "end": 5.99,
+          "key": "tea",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.99,
+          "end": 6.19,
+          "key": "with",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Dawes,",
+          "start": 6.19,
+          "end": 6.59,
+          "key": "dawes",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 6.75,
+          "end": 6.99,
+          "key": "too",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.61,
+          "end": 1.27
+        },
+        {
+          "text": "I'",
+          "start": 1.27,
+          "end": 1.67
+        },
+        {
+          "text": "th'",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "text": "city",
+          "start": 1.99,
+          "end": 2.41
+        },
+        {
+          "text": "of",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "text": "kites",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "text": "and",
+          "start": 2.89,
+          "end": 3.01
+        },
+        {
+          "text": "crows?",
+          "start": 3.01,
+          "end": 3.51
+        },
+        {
+          "text": "What",
+          "start": 3.51,
+          "end": 3.91
+        },
+        {
+          "text": "an",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "text": "ass",
+          "start": 4.03,
+          "end": 4.17
+        },
+        {
+          "text": "it",
+          "start": 4.17,
+          "end": 4.24
+        },
+        {
+          "text": "is!",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "text": "Then",
+          "start": 4.69,
+          "end": 5.23
+        },
+        {
+          "text": "thou",
+          "start": 5.23,
+          "end": 5.45
+        },
+        {
+          "text": "dwell'st",
+          "start": 5.45,
+          "end": 5.72
+        },
+        {
+          "text": "with",
+          "start": 5.99,
+          "end": 6.19
+        },
+        {
+          "text": "daws",
+          "start": 6.19,
+          "end": 6.47
+        },
+        {
+          "text": "too?",
+          "start": 6.75,
+          "end": 6.99
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25303671415895224
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2a7e70c8c2f78477d0c5187264ce44433fe4b66e5ddf1eaa61ddca14204e371a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

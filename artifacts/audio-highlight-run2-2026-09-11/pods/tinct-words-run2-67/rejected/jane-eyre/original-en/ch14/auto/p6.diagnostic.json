@@ -1,0 +1,1334 @@
+{
+  "complete": true,
+  "signature": "f663909f3605bd64d7b102f7f4725d0da16e5974c6a0f6be5019c0453482a41e",
+  "attempts": [
+    {
+      "asr_seconds": 0.25310332980006933,
+      "alignment_seconds": 0.00045405933633446693,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh ciel! Que c'est beau!\" and then remained absorbed in ecstatic contemplation.",
+        "hotwords": "Oh, Que"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh ciel! Que c'est beau!\" and then remained absorbed in ecstatic contemplation.",
+          "start": 0.08,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " Oh",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.0609130859375
+            },
+            {
+              "text": " ciel!",
+              "start": 0.58,
+              "end": 1.08,
+              "probability": 0.2918539047241211
+            },
+            {
+              "text": " Que",
+              "start": 1.44,
+              "end": 1.46,
+              "probability": 0.0154571533203125
+            },
+            {
+              "text": " c",
+              "start": 1.46,
+              "end": 1.6,
+              "probability": 0.039520263671875
+            },
+            {
+              "text": "'est",
+              "start": 1.6,
+              "end": 1.66,
+              "probability": 0.777099609375
+            },
+            {
+              "text": " beau",
+              "start": 1.66,
+              "end": 2.02,
+              "probability": 0.73681640625
+            },
+            {
+              "text": "!\"",
+              "start": 2.02,
+              "end": 2.52,
+              "probability": 0.09893798828125
+            },
+            {
+              "text": " and",
+              "start": 2.52,
+              "end": 2.6,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " then",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " remained",
+              "start": 2.74,
+              "end": 3.12,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " absorbed",
+              "start": 3.12,
+              "end": 3.66,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 3.66,
+              "end": 3.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ecstatic",
+              "start": 3.88,
+              "end": 4.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " contemplation.",
+              "start": 4.3,
+              "end": 4.92,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "ciel!",
+          "start": 0.58,
+          "end": 1.08
+        },
+        {
+          "raw": "Que",
+          "start": 1.44,
+          "end": 1.46
+        },
+        {
+          "raw": "c",
+          "start": 1.46,
+          "end": 1.6
+        },
+        {
+          "raw": "'est",
+          "start": 1.6,
+          "end": 1.66
+        },
+        {
+          "raw": "beau",
+          "start": 1.66,
+          "end": 2.02
+        },
+        {
+          "raw": "!\"",
+          "start": 2.02,
+          "end": 2.52
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "raw": "then",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "remained",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "raw": "absorbed",
+          "start": 3.12,
+          "end": 3.66
+        },
+        {
+          "raw": "in",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "raw": "ecstatic",
+          "start": 3.88,
+          "end": 4.3
+        },
+        {
+          "raw": "contemplation.",
+          "start": 4.3,
+          "end": 4.92
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh",
+        "ciel!",
+        "Que",
+        "c'est",
+        "beau!\"",
+        "and",
+        "then",
+        "remained",
+        "absorbed",
+        "in",
+        "ecstatic",
+        "contemplation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          5,
+          5,
+          6
+        ],
+        [
+          "insert",
+          5,
+          5,
+          6,
+          7
+        ],
+        [
+          "equal",
+          5,
+          12,
+          7,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "insert",
+          5,
+          5,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "ciel!",
+          "start": 0.58,
+          "end": 1.08,
+          "key": "ciel",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Que",
+          "start": 1.44,
+          "end": 1.46,
+          "key": "que",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "c",
+          "start": 1.46,
+          "end": 1.6,
+          "key": "c",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 1.6,
+          "end": 1.66,
+          "key": "est",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "beau",
+          "start": 1.66,
+          "end": 2.02,
+          "key": "beau",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 2.02,
+          "end": 2.52,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.52,
+          "end": 2.6,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "then",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "remained",
+          "start": 2.74,
+          "end": 3.12,
+          "key": "remained",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "absorbed",
+          "start": 3.12,
+          "end": 3.66,
+          "key": "absorbed",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.66,
+          "end": 3.88,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ecstatic",
+          "start": 3.88,
+          "end": 4.3,
+          "key": "ecstatic",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "contemplation.",
+          "start": 4.3,
+          "end": 4.92,
+          "key": "contemplation",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "ciel!",
+          "start": 0.58,
+          "end": 1.08
+        },
+        {
+          "text": "Que",
+          "start": 1.44,
+          "end": 1.46
+        },
+        {
+          "text": "c'est",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "text": "beau!\"",
+          "start": 1.66,
+          "end": 2.02
+        },
+        {
+          "text": "and",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "then",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "remained",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "text": "absorbed",
+          "start": 3.12,
+          "end": 3.66
+        },
+        {
+          "text": "in",
+          "start": 3.66,
+          "end": 3.88
+        },
+        {
+          "text": "ecstatic",
+          "start": 3.88,
+          "end": 4.3
+        },
+        {
+          "text": "contemplation.",
+          "start": 4.3,
+          "end": 4.92
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 14,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2537406999617815
+    },
+    {
+      "asr_seconds": 0.23653401993215084,
+      "alignment_seconds": 0.00042945798486471176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Oh, Que"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " and then remained absorbed in ecstatic contemplation.",
+          "start": 0.08,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.08,
+              "end": 1.72,
+              "probability": 0.004150390625
+            },
+            {
+              "text": " then",
+              "start": 1.72,
+              "end": 2.7,
+              "probability": 0.97265625
+            },
+            {
+              "text": " remained",
+              "start": 2.7,
+              "end": 3.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " absorbed",
+              "start": 3.12,
+              "end": 3.64,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 3.64,
+              "end": 3.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ecstatic",
+              "start": 3.88,
+              "end": 4.3,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " contemplation.",
+              "start": 4.3,
+              "end": 4.94,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 1.72
+        },
+        {
+          "raw": "then",
+          "start": 1.72,
+          "end": 2.7
+        },
+        {
+          "raw": "remained",
+          "start": 2.7,
+          "end": 3.12
+        },
+        {
+          "raw": "absorbed",
+          "start": 3.12,
+          "end": 3.64
+        },
+        {
+          "raw": "in",
+          "start": 3.64,
+          "end": 3.88
+        },
+        {
+          "raw": "ecstatic",
+          "start": 3.88,
+          "end": 4.3
+        },
+        {
+          "raw": "contemplation.",
+          "start": 4.3,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh",
+        "ciel!",
+        "Que",
+        "c'est",
+        "beau!\"",
+        "and",
+        "then",
+        "remained",
+        "absorbed",
+        "in",
+        "ecstatic",
+        "contemplation."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          "equal",
+          5,
+          12,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          5,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 1.72,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.72,
+          "end": 2.7,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "remained",
+          "start": 2.7,
+          "end": 3.12,
+          "key": "remained",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "absorbed",
+          "start": 3.12,
+          "end": 3.64,
+          "key": "absorbed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.64,
+          "end": 3.88,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ecstatic",
+          "start": 3.88,
+          "end": 4.3,
+          "key": "ecstatic",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "contemplation.",
+          "start": 4.3,
+          "end": 4.94,
+          "key": "contemplation",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "ciel!",
+          "start": 0.04,
+          "end": 0.06
+        },
+        {
+          "text": "Que",
+          "start": 0.06,
+          "end": 0.07
+        },
+        {
+          "text": "c'est",
+          "start": 0.07,
+          "end": 0.075
+        },
+        {
+          "text": "beau!\"",
+          "start": 0.075,
+          "end": 0.077
+        },
+        {
+          "text": "and",
+          "start": 0.08,
+          "end": 1.72
+        },
+        {
+          "text": "then",
+          "start": 1.72,
+          "end": 2.7
+        },
+        {
+          "text": "remained",
+          "start": 2.7,
+          "end": 3.12
+        },
+        {
+          "text": "absorbed",
+          "start": 3.12,
+          "end": 3.64
+        },
+        {
+          "text": "in",
+          "start": 3.64,
+          "end": 3.88
+        },
+        {
+          "text": "ecstatic",
+          "start": 3.88,
+          "end": 4.3
+        },
+        {
+          "text": "contemplation.",
+          "start": 4.3,
+          "end": 4.94
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 0.5833333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23711522901430726
+    },
+    {
+      "asr_seconds": 0.3285083160735667,
+      "alignment_seconds": 0.0005358969792723656,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " O'Seal, Qu'est beau, and then remained absorbed in ecstatic contemplation.",
+          "start": 0.08,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.2012939453125
+            },
+            {
+              "text": "'Seal,",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.585693359375
+            },
+            {
+              "text": " Qu",
+              "start": 1.44,
+              "end": 1.46,
+              "probability": 0.474365234375
+            },
+            {
+              "text": "'est",
+              "start": 1.46,
+              "end": 1.56,
+              "probability": 0.5816650390625
+            },
+            {
+              "text": " beau,",
+              "start": 1.56,
+              "end": 1.98,
+              "probability": 0.48028564453125
+            },
+            {
+              "text": " and",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " then",
+              "start": 2.6,
+              "end": 2.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " remained",
+              "start": 2.74,
+              "end": 3.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " absorbed",
+              "start": 3.12,
+              "end": 3.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 3.66,
+              "end": 3.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ecstatic",
+              "start": 3.9,
+              "end": 4.3,
+              "probability": 0.982421875
+            },
+            {
+              "text": " contemplation.",
+              "start": 4.3,
+              "end": 4.94,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "'Seal,",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "Qu",
+          "start": 1.44,
+          "end": 1.46
+        },
+        {
+          "raw": "'est",
+          "start": 1.46,
+          "end": 1.56
+        },
+        {
+          "raw": "beau,",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "then",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "raw": "remained",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "raw": "absorbed",
+          "start": 3.12,
+          "end": 3.66
+        },
+        {
+          "raw": "in",
+          "start": 3.66,
+          "end": 3.9
+        },
+        {
+          "raw": "ecstatic",
+          "start": 3.9,
+          "end": 4.3
+        },
+        {
+          "raw": "contemplation.",
+          "start": 4.3,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh",
+        "ciel!",
+        "Que",
+        "c'est",
+        "beau!\"",
+        "and",
+        "then",
+        "remained",
+        "absorbed",
+        "in",
+        "ecstatic",
+        "contemplation."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "equal",
+          4,
+          12,
+          4,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'Seal,",
+          "start": 0.58,
+          "end": 0.98,
+          "key": "seal",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Qu",
+          "start": 1.44,
+          "end": 1.46,
+          "key": "qu",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "'est",
+          "start": 1.46,
+          "end": 1.56,
+          "key": "est",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "beau,",
+          "start": 1.56,
+          "end": 1.98,
+          "key": "beau",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.6,
+          "end": 2.74,
+          "key": "then",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "remained",
+          "start": 2.74,
+          "end": 3.12,
+          "key": "remained",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "absorbed",
+          "start": 3.12,
+          "end": 3.66,
+          "key": "absorbed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.66,
+          "end": 3.9,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ecstatic",
+          "start": 3.9,
+          "end": 4.3,
+          "key": "ecstatic",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "contemplation.",
+          "start": 4.3,
+          "end": 4.94,
+          "key": "contemplation",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "ciel!",
+          "start": 0.78,
+          "end": 1.17
+        },
+        {
+          "text": "Que",
+          "start": 1.17,
+          "end": 1.365
+        },
+        {
+          "text": "c'est",
+          "start": 1.365,
+          "end": 1.462
+        },
+        {
+          "text": "beau!\"",
+          "start": 1.56,
+          "end": 1.98
+        },
+        {
+          "text": "and",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "then",
+          "start": 2.6,
+          "end": 2.74
+        },
+        {
+          "text": "remained",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "text": "absorbed",
+          "start": 3.12,
+          "end": 3.66
+        },
+        {
+          "text": "in",
+          "start": 3.66,
+          "end": 3.9
+        },
+        {
+          "text": "ecstatic",
+          "start": 3.9,
+          "end": 4.3
+        },
+        {
+          "text": "contemplation.",
+          "start": 4.3,
+          "end": 4.94
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 8
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3292435551993549
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "775ea7522061cbde1d475ca068554bed9e7150c1c6d0d77082bc18670236b2ac",
+  "selected_reasons": []
+}

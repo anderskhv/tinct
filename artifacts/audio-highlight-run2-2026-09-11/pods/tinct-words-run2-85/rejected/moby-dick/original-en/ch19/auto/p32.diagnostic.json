@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "c4847d3d2d1a0e740cc0d9c185f75aea53d8eb336dcedb2b96c14c3a6ca6fc22",
+  "attempts": [
+    {
+      "asr_seconds": 0.1069024563767016,
+      "alignment_seconds": 0.0002029729075729847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Elijah.\"",
+        "hotwords": "Elijah"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Elijah.",
+          "start": 0.02,
+          "end": 0.7,
+          "words": [
+            {
+              "text": " Elijah.",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.84326171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Elijah.",
+          "start": 0.02,
+          "end": 0.7
+        }
+      ],
+      "expected_tokens": [
+        "\"Elijah.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Elijah.",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "elijah",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Elijah.\"",
+          "start": 0.02,
+          "end": 0.7
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10717509919777513
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f456da7bcf07ab32222369272e01ed26108054cbfea500f7aec425a713c67c3f",
+  "selected_reasons": []
+}

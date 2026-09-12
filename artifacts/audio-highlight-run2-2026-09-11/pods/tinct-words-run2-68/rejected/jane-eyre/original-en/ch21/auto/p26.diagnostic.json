@@ -1,0 +1,779 @@
+{
+  "complete": true,
+  "signature": "9c3b90bc02bde7326e94d32047233b204bdafed859a95db6d2f4a4ecf07d6187",
+  "attempts": [
+    {
+      "asr_seconds": 0.1625916287302971,
+      "alignment_seconds": 0.0004315972328186035,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What to do?—where to go?\"",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What to do?—where to go?",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " to",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " do",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": "?—where",
+              "start": 0.92,
+              "end": 1.28,
+              "probability": 0.19052666425704956
+            },
+            {
+              "text": " to",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " go?",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "to",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "?—where",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "go?",
+          "start": 1.4,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "to",
+        "do?—where",
+        "to",
+        "go?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "?—where",
+          "start": 0.92,
+          "end": 1.28,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go?",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "to",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "do?—where",
+          "start": 0.66,
+          "end": 0.97
+        },
+        {
+          "text": "to",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "go?\"",
+          "start": 1.4,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16317741945385933
+    },
+    {
+      "asr_seconds": 0.14766737073659897,
+      "alignment_seconds": 0.00040573999285697937,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " What to do where to go",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " to",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " do",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " where",
+              "start": 0.92,
+              "end": 1.28,
+              "probability": 0.25390625
+            },
+            {
+              "text": " to",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "to",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "where",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "go",
+          "start": 1.4,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "to",
+        "do?—where",
+        "to",
+        "go?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 0.92,
+          "end": 1.28,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "to",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "do?—where",
+          "start": 0.66,
+          "end": 0.97
+        },
+        {
+          "text": "to",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "go?\"",
+          "start": 1.4,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14821378886699677
+    },
+    {
+      "asr_seconds": 0.13682324439287186,
+      "alignment_seconds": 0.0004369467496871948,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What to do where to go",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.75439453125
+            },
+            {
+              "text": " to",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " do",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " where",
+              "start": 0.92,
+              "end": 1.28,
+              "probability": 0.25390625
+            },
+            {
+              "text": " to",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " go",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "to",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "where",
+          "start": 0.92,
+          "end": 1.28
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "go",
+          "start": 1.4,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "to",
+        "do?—where",
+        "to",
+        "go?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          5,
+          4,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 0.92,
+          "end": 1.28,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "go",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "to",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "do?—where",
+          "start": 0.66,
+          "end": 0.97
+        },
+        {
+          "text": "to",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "go?\"",
+          "start": 1.4,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.137399610131979
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a91efc0deb2a6eab363f82138aec71bbe24c75c7c48bd1a3e2c487101764cc9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

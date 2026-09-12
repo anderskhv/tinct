@@ -1,0 +1,195 @@
+{
+  "complete": true,
+  "signature": "06293367b294a43b61ffbf7f8601ea859d1cc3c474614d9c12fe00345c3d8903",
+  "attempts": [
+    {
+      "asr_seconds": 0.16732707433402538,
+      "alignment_seconds": 0.00011707562953233719,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lady Macbeth, Donal Bain.",
+          "start": 0.08,
+          "end": 1.96,
+          "words": [
+            {
+              "text": " Lady",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " Macbeth,",
+              "start": 0.64,
+              "end": 1.26,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Donal",
+              "start": 1.56,
+              "end": 1.78,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " Bain.",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.331787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lady",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 1.26
+        },
+        {
+          "raw": "Donal",
+          "start": 1.56,
+          "end": 1.78
+        },
+        {
+          "raw": "Bain.",
+          "start": 1.78,
+          "end": 1.96
+        }
+      ],
+      "expected_tokens": [
+        "Lady",
+        "Macbeth.",
+        "Donalbain."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lady",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "lady",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Macbeth,",
+          "start": 0.64,
+          "end": 1.26,
+          "key": "macbeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Donal",
+          "start": 1.56,
+          "end": 1.78,
+          "key": "donal",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Bain.",
+          "start": 1.78,
+          "end": 1.96,
+          "key": "bain",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lady",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Macbeth.",
+          "start": 0.64,
+          "end": 1.26
+        },
+        {
+          "text": "Donalbain.",
+          "start": 1.26,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16748733818531036
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f1b09e1ddc0ed258ee9c7a0ee7efd8c8fe3d8fc72579cdd687eb8b51ce55722b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

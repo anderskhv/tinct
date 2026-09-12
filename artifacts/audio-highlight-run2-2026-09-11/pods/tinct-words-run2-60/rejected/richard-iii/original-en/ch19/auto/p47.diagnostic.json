@@ -1,0 +1,854 @@
+{
+  "complete": true,
+  "signature": "5a6ceca9b31c8f783fb93ea087d2392c12b0ba6b8a6a92d8d884a649f143860c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4397405944764614,
+      "alignment_seconds": 0.0007852129638195038,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Richard. A flourish, trumpets! Strike alarum, drums! Let not the heavens hear these tell-tale women Rail on the Lord's anointed. Strike, I say!",
+        "hotwords": "King, Richard, A, Strike, Let, Rail, Lord's, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Richard, A flourish, trumpets! Strike alarum, drums! Let not the heavens hear these tell-tale women Rail on the Lord's anointed. Strike, I say!",
+          "start": 0.0,
+          "end": 9.74,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.25830078125
+            },
+            {
+              "text": " Richard,",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " A",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.0865478515625
+            },
+            {
+              "text": " flourish,",
+              "start": 1.48,
+              "end": 1.88,
+              "probability": 0.484375
+            },
+            {
+              "text": " trumpets!",
+              "start": 2.3,
+              "end": 2.7,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " Strike",
+              "start": 3.24,
+              "end": 3.26,
+              "probability": 0.802734375
+            },
+            {
+              "text": " alarum,",
+              "start": 3.26,
+              "end": 3.84,
+              "probability": 0.5245463053385416
+            },
+            {
+              "text": " drums!",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " Let",
+              "start": 4.9,
+              "end": 4.98,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " not",
+              "start": 4.98,
+              "end": 5.12,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 5.12,
+              "end": 5.26,
+              "probability": 0.994140625
+            },
+            {
+              "text": " heavens",
+              "start": 5.26,
+              "end": 5.48,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " hear",
+              "start": 5.48,
+              "end": 5.76,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " these",
+              "start": 5.76,
+              "end": 6.02,
+              "probability": 0.72216796875
+            },
+            {
+              "text": " tell",
+              "start": 6.02,
+              "end": 6.3,
+              "probability": 0.9619140625
+            },
+            {
+              "text": "-tale",
+              "start": 6.3,
+              "end": 6.54,
+              "probability": 0.730224609375
+            },
+            {
+              "text": " women",
+              "start": 6.54,
+              "end": 6.88,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " Rail",
+              "start": 6.88,
+              "end": 7.2,
+              "probability": 0.0546875
+            },
+            {
+              "text": " on",
+              "start": 7.2,
+              "end": 7.48,
+              "probability": 0.94921875
+            },
+            {
+              "text": " the",
+              "start": 7.48,
+              "end": 7.6,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Lord's",
+              "start": 7.6,
+              "end": 7.94,
+              "probability": 0.717529296875
+            },
+            {
+              "text": " anointed.",
+              "start": 7.94,
+              "end": 8.34,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Strike,",
+              "start": 9.04,
+              "end": 9.22,
+              "probability": 0.978515625
+            },
+            {
+              "text": " I",
+              "start": 9.4,
+              "end": 9.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " say!",
+              "start": 9.44,
+              "end": 9.74,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "A",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "flourish,",
+          "start": 1.48,
+          "end": 1.88
+        },
+        {
+          "raw": "trumpets!",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "raw": "Strike",
+          "start": 3.24,
+          "end": 3.26
+        },
+        {
+          "raw": "alarum,",
+          "start": 3.26,
+          "end": 3.84
+        },
+        {
+          "raw": "drums!",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "Let",
+          "start": 4.9,
+          "end": 4.98
+        },
+        {
+          "raw": "not",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "raw": "the",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "raw": "heavens",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "raw": "hear",
+          "start": 5.48,
+          "end": 5.76
+        },
+        {
+          "raw": "these",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "raw": "tell",
+          "start": 6.02,
+          "end": 6.3
+        },
+        {
+          "raw": "-tale",
+          "start": 6.3,
+          "end": 6.54
+        },
+        {
+          "raw": "women",
+          "start": 6.54,
+          "end": 6.88
+        },
+        {
+          "raw": "Rail",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "raw": "on",
+          "start": 7.2,
+          "end": 7.48
+        },
+        {
+          "raw": "the",
+          "start": 7.48,
+          "end": 7.6
+        },
+        {
+          "raw": "Lord's",
+          "start": 7.6,
+          "end": 7.94
+        },
+        {
+          "raw": "anointed.",
+          "start": 7.94,
+          "end": 8.34
+        },
+        {
+          "raw": "Strike,",
+          "start": 9.04,
+          "end": 9.22
+        },
+        {
+          "raw": "I",
+          "start": 9.4,
+          "end": 9.44
+        },
+        {
+          "raw": "say!",
+          "start": 9.44,
+          "end": 9.74
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Richard.",
+        "A",
+        "flourish,",
+        "trumpets!",
+        "Strike",
+        "alarum,",
+        "drums!",
+        "Let",
+        "not",
+        "the",
+        "heavens",
+        "hear",
+        "these",
+        "tell-tale",
+        "women",
+        "Rail",
+        "on",
+        "the",
+        "Lord's",
+        "anointed.",
+        "Strike,",
+        "I",
+        "say!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Richard,",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "richard",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "flourish,",
+          "start": 1.48,
+          "end": 1.88,
+          "key": "flourish",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "trumpets!",
+          "start": 2.3,
+          "end": 2.7,
+          "key": "trumpets",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Strike",
+          "start": 3.24,
+          "end": 3.26,
+          "key": "strike",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "alarum,",
+          "start": 3.26,
+          "end": 3.84,
+          "key": "alarum",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "drums!",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "drums",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 4.9,
+          "end": 4.98,
+          "key": "let",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.98,
+          "end": 5.12,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.12,
+          "end": 5.26,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "heavens",
+          "start": 5.26,
+          "end": 5.48,
+          "key": "heavens",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 5.48,
+          "end": 5.76,
+          "key": "hear",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 5.76,
+          "end": 6.02,
+          "key": "these",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "tell -tale",
+          "start": 6.02,
+          "end": 6.54,
+          "key": "telltale",
+          "pieces": [
+            14,
+            15
+          ]
+        },
+        {
+          "raw": "women",
+          "start": 6.54,
+          "end": 6.88,
+          "key": "women",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Rail",
+          "start": 6.88,
+          "end": 7.2,
+          "key": "rail",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 7.2,
+          "end": 7.48,
+          "key": "on",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.48,
+          "end": 7.6,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Lord's",
+          "start": 7.6,
+          "end": 7.94,
+          "key": "lords",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "anointed.",
+          "start": 7.94,
+          "end": 8.34,
+          "key": "anointed",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Strike,",
+          "start": 9.04,
+          "end": 9.22,
+          "key": "strike",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.4,
+          "end": 9.44,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "say!",
+          "start": 9.44,
+          "end": 9.74,
+          "key": "say",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 14,
+          "text": "tell-tale",
+          "heard": "tell -tale",
+          "heard_indexes": [
+            14,
+            15
+          ],
+          "start": 6.02,
+          "end": 6.54
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "Richard.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "A",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "flourish,",
+          "start": 1.48,
+          "end": 1.88
+        },
+        {
+          "text": "trumpets!",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "text": "Strike",
+          "start": 3.24,
+          "end": 3.26
+        },
+        {
+          "text": "alarum,",
+          "start": 3.26,
+          "end": 3.84
+        },
+        {
+          "text": "drums!",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "Let",
+          "start": 4.9,
+          "end": 4.98
+        },
+        {
+          "text": "not",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "text": "the",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "text": "heavens",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "text": "hear",
+          "start": 5.48,
+          "end": 5.76
+        },
+        {
+          "text": "these",
+          "start": 5.76,
+          "end": 6.02
+        },
+        {
+          "text": "tell-tale",
+          "start": 6.02,
+          "end": 6.54
+        },
+        {
+          "text": "women",
+          "start": 6.54,
+          "end": 6.88
+        },
+        {
+          "text": "Rail",
+          "start": 6.88,
+          "end": 7.2
+        },
+        {
+          "text": "on",
+          "start": 7.2,
+          "end": 7.48
+        },
+        {
+          "text": "the",
+          "start": 7.48,
+          "end": 7.6
+        },
+        {
+          "text": "Lord's",
+          "start": 7.6,
+          "end": 7.94
+        },
+        {
+          "text": "anointed.",
+          "start": 7.94,
+          "end": 8.34
+        },
+        {
+          "text": "Strike,",
+          "start": 9.04,
+          "end": 9.22
+        },
+        {
+          "text": "I",
+          "start": 9.4,
+          "end": 9.44
+        },
+        {
+          "text": "say!",
+          "start": 9.44,
+          "end": 9.74
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4408126473426819
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d40518b6f745b95800020d5aa4dd073ad7c89e2ffdc50e55146601a05172c8dd",
+  "selected_reasons": []
+}

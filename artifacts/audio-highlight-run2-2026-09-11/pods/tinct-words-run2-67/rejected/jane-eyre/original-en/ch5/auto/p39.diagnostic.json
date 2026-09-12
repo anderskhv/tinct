@@ -1,0 +1,1875 @@
+{
+  "complete": true,
+  "signature": "662eadf51ff815a41b5e7ee6e780b7846e0ae90b6138decb64dd1014d16ae955",
+  "attempts": [
+    {
+      "asr_seconds": 0.6365599948912859,
+      "alignment_seconds": 0.0010145921260118484,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "A distant bell tinkled: immediately three ladies entered the room, each walked to a table and took her seat; Miss Miller assumed the fourth vacant chair, which was that nearest the door, and around which the smallest of the children were assembled: to this inferior class I was called, and placed at the bottom of it.",
+        "hotwords": "Miss, Miller, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A distant bell tinkled. Immediately three ladies entered the room, each walked to a table and",
+          "start": 0.05,
+          "end": 6.01,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " distant",
+              "start": 0.51,
+              "end": 0.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bell",
+              "start": 0.85,
+              "end": 1.19,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " tinkled.",
+              "start": 1.19,
+              "end": 1.77,
+              "probability": 0.863037109375
+            },
+            {
+              "text": " Immediately",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " three",
+              "start": 2.61,
+              "end": 3.11,
+              "probability": 0.97265625
+            },
+            {
+              "text": " ladies",
+              "start": 3.11,
+              "end": 3.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " entered",
+              "start": 3.43,
+              "end": 3.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 3.71,
+              "end": 3.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " room,",
+              "start": 3.89,
+              "end": 4.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " each",
+              "start": 4.63,
+              "end": 4.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " walked",
+              "start": 4.81,
+              "end": 5.13,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " to",
+              "start": 5.13,
+              "end": 5.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 5.33,
+              "end": 5.47,
+              "probability": 0.994140625
+            },
+            {
+              "text": " table",
+              "start": 5.47,
+              "end": 5.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.77,
+              "end": 6.01,
+              "probability": 0.96630859375
+            }
+          ]
+        },
+        {
+          "text": " took her seat. Miss Miller assumed the fourth vacant chair, which was that nearest the door,",
+          "start": 6.01,
+          "end": 11.23,
+          "words": [
+            {
+              "text": " took",
+              "start": 6.01,
+              "end": 6.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 6.13,
+              "end": 6.29,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " seat.",
+              "start": 6.29,
+              "end": 6.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Miss",
+              "start": 7.27,
+              "end": 7.43,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Miller",
+              "start": 7.43,
+              "end": 7.69,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " assumed",
+              "start": 7.69,
+              "end": 8.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 8.13,
+              "end": 8.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fourth",
+              "start": 8.37,
+              "end": 8.63,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " vacant",
+              "start": 8.63,
+              "end": 9.01,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " chair,",
+              "start": 9.01,
+              "end": 9.45,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " which",
+              "start": 9.77,
+              "end": 9.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was",
+              "start": 9.99,
+              "end": 10.15,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 10.15,
+              "end": 10.37,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " nearest",
+              "start": 10.37,
+              "end": 10.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 10.73,
+              "end": 10.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " door,",
+              "start": 10.97,
+              "end": 11.23,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " and around which the smallest of the children were assembled. To this inferior class I was",
+          "start": 11.67,
+          "end": 16.69,
+          "words": [
+            {
+              "text": " and",
+              "start": 11.67,
+              "end": 11.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " around",
+              "start": 11.79,
+              "end": 12.11,
+              "probability": 0.978515625
+            },
+            {
+              "text": " which",
+              "start": 12.11,
+              "end": 12.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 12.35,
+              "end": 12.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " smallest",
+              "start": 12.53,
+              "end": 12.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 12.95,
+              "end": 13.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 13.19,
+              "end": 13.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " children",
+              "start": 13.31,
+              "end": 13.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " were",
+              "start": 13.57,
+              "end": 13.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " assembled.",
+              "start": 13.91,
+              "end": 14.35,
+              "probability": 1.0
+            },
+            {
+              "text": " To",
+              "start": 15.05,
+              "end": 15.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 15.19,
+              "end": 15.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inferior",
+              "start": 15.39,
+              "end": 15.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " class",
+              "start": 15.85,
+              "end": 16.29,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I",
+              "start": 16.29,
+              "end": 16.53,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " was",
+              "start": 16.53,
+              "end": 16.69,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " called, and placed at the bottom of it.",
+          "start": 16.69,
+          "end": 18.77,
+          "words": [
+            {
+              "text": " called,",
+              "start": 16.69,
+              "end": 17.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 17.35,
+              "end": 17.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " placed",
+              "start": 17.53,
+              "end": 17.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 17.79,
+              "end": 17.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 17.99,
+              "end": 18.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bottom",
+              "start": 18.11,
+              "end": 18.33,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 18.33,
+              "end": 18.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 18.53,
+              "end": 18.77,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "distant",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "raw": "bell",
+          "start": 0.85,
+          "end": 1.19
+        },
+        {
+          "raw": "tinkled.",
+          "start": 1.19,
+          "end": 1.77
+        },
+        {
+          "raw": "Immediately",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "three",
+          "start": 2.61,
+          "end": 3.11
+        },
+        {
+          "raw": "ladies",
+          "start": 3.11,
+          "end": 3.43
+        },
+        {
+          "raw": "entered",
+          "start": 3.43,
+          "end": 3.71
+        },
+        {
+          "raw": "the",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "raw": "room,",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "raw": "each",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "raw": "walked",
+          "start": 4.81,
+          "end": 5.13
+        },
+        {
+          "raw": "to",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "raw": "a",
+          "start": 5.33,
+          "end": 5.47
+        },
+        {
+          "raw": "table",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "raw": "and",
+          "start": 5.77,
+          "end": 6.01
+        },
+        {
+          "raw": "took",
+          "start": 6.01,
+          "end": 6.13
+        },
+        {
+          "raw": "her",
+          "start": 6.13,
+          "end": 6.29
+        },
+        {
+          "raw": "seat.",
+          "start": 6.29,
+          "end": 6.63
+        },
+        {
+          "raw": "Miss",
+          "start": 7.27,
+          "end": 7.43
+        },
+        {
+          "raw": "Miller",
+          "start": 7.43,
+          "end": 7.69
+        },
+        {
+          "raw": "assumed",
+          "start": 7.69,
+          "end": 8.13
+        },
+        {
+          "raw": "the",
+          "start": 8.13,
+          "end": 8.37
+        },
+        {
+          "raw": "fourth",
+          "start": 8.37,
+          "end": 8.63
+        },
+        {
+          "raw": "vacant",
+          "start": 8.63,
+          "end": 9.01
+        },
+        {
+          "raw": "chair,",
+          "start": 9.01,
+          "end": 9.45
+        },
+        {
+          "raw": "which",
+          "start": 9.77,
+          "end": 9.99
+        },
+        {
+          "raw": "was",
+          "start": 9.99,
+          "end": 10.15
+        },
+        {
+          "raw": "that",
+          "start": 10.15,
+          "end": 10.37
+        },
+        {
+          "raw": "nearest",
+          "start": 10.37,
+          "end": 10.73
+        },
+        {
+          "raw": "the",
+          "start": 10.73,
+          "end": 10.97
+        },
+        {
+          "raw": "door,",
+          "start": 10.97,
+          "end": 11.23
+        },
+        {
+          "raw": "and",
+          "start": 11.67,
+          "end": 11.79
+        },
+        {
+          "raw": "around",
+          "start": 11.79,
+          "end": 12.11
+        },
+        {
+          "raw": "which",
+          "start": 12.11,
+          "end": 12.35
+        },
+        {
+          "raw": "the",
+          "start": 12.35,
+          "end": 12.53
+        },
+        {
+          "raw": "smallest",
+          "start": 12.53,
+          "end": 12.95
+        },
+        {
+          "raw": "of",
+          "start": 12.95,
+          "end": 13.19
+        },
+        {
+          "raw": "the",
+          "start": 13.19,
+          "end": 13.31
+        },
+        {
+          "raw": "children",
+          "start": 13.31,
+          "end": 13.57
+        },
+        {
+          "raw": "were",
+          "start": 13.57,
+          "end": 13.91
+        },
+        {
+          "raw": "assembled.",
+          "start": 13.91,
+          "end": 14.35
+        },
+        {
+          "raw": "To",
+          "start": 15.05,
+          "end": 15.19
+        },
+        {
+          "raw": "this",
+          "start": 15.19,
+          "end": 15.39
+        },
+        {
+          "raw": "inferior",
+          "start": 15.39,
+          "end": 15.85
+        },
+        {
+          "raw": "class",
+          "start": 15.85,
+          "end": 16.29
+        },
+        {
+          "raw": "I",
+          "start": 16.29,
+          "end": 16.53
+        },
+        {
+          "raw": "was",
+          "start": 16.53,
+          "end": 16.69
+        },
+        {
+          "raw": "called,",
+          "start": 16.69,
+          "end": 17.01
+        },
+        {
+          "raw": "and",
+          "start": 17.35,
+          "end": 17.53
+        },
+        {
+          "raw": "placed",
+          "start": 17.53,
+          "end": 17.79
+        },
+        {
+          "raw": "at",
+          "start": 17.79,
+          "end": 17.99
+        },
+        {
+          "raw": "the",
+          "start": 17.99,
+          "end": 18.11
+        },
+        {
+          "raw": "bottom",
+          "start": 18.11,
+          "end": 18.33
+        },
+        {
+          "raw": "of",
+          "start": 18.33,
+          "end": 18.53
+        },
+        {
+          "raw": "it.",
+          "start": 18.53,
+          "end": 18.77
+        }
+      ],
+      "expected_tokens": [
+        "A",
+        "distant",
+        "bell",
+        "tinkled:",
+        "immediately",
+        "three",
+        "ladies",
+        "entered",
+        "the",
+        "room,",
+        "each",
+        "walked",
+        "to",
+        "a",
+        "table",
+        "and",
+        "took",
+        "her",
+        "seat;",
+        "Miss",
+        "Miller",
+        "assumed",
+        "the",
+        "fourth",
+        "vacant",
+        "chair,",
+        "which",
+        "was",
+        "that",
+        "nearest",
+        "the",
+        "door,",
+        "and",
+        "around",
+        "which",
+        "the",
+        "smallest",
+        "of",
+        "the",
+        "children",
+        "were",
+        "assembled:",
+        "to",
+        "this",
+        "inferior",
+        "class",
+        "I",
+        "was",
+        "called,",
+        "and",
+        "placed",
+        "at",
+        "the",
+        "bottom",
+        "of",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          56,
+          0,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "distant",
+          "start": 0.51,
+          "end": 0.85,
+          "key": "distant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bell",
+          "start": 0.85,
+          "end": 1.19,
+          "key": "bell",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tinkled.",
+          "start": 1.19,
+          "end": 1.77,
+          "key": "tinkled",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Immediately",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "immediately",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 2.61,
+          "end": 3.11,
+          "key": "three",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ladies",
+          "start": 3.11,
+          "end": 3.43,
+          "key": "ladies",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 3.43,
+          "end": 3.71,
+          "key": "entered",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.71,
+          "end": 3.89,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "room,",
+          "start": 3.89,
+          "end": 4.21,
+          "key": "room",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "each",
+          "start": 4.63,
+          "end": 4.81,
+          "key": "each",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 4.81,
+          "end": 5.13,
+          "key": "walked",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.13,
+          "end": 5.33,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.33,
+          "end": 5.47,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "table",
+          "start": 5.47,
+          "end": 5.77,
+          "key": "table",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.77,
+          "end": 6.01,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 6.01,
+          "end": 6.13,
+          "key": "took",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 6.13,
+          "end": 6.29,
+          "key": "her",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "seat.",
+          "start": 6.29,
+          "end": 6.63,
+          "key": "seat",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 7.27,
+          "end": 7.43,
+          "key": "miss",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Miller",
+          "start": 7.43,
+          "end": 7.69,
+          "key": "miller",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "assumed",
+          "start": 7.69,
+          "end": 8.13,
+          "key": "assumed",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.13,
+          "end": 8.37,
+          "key": "the",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "fourth",
+          "start": 8.37,
+          "end": 8.63,
+          "key": "fourth",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "vacant",
+          "start": 8.63,
+          "end": 9.01,
+          "key": "vacant",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "chair,",
+          "start": 9.01,
+          "end": 9.45,
+          "key": "chair",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 9.77,
+          "end": 9.99,
+          "key": "which",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 9.99,
+          "end": 10.15,
+          "key": "was",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.15,
+          "end": 10.37,
+          "key": "that",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "nearest",
+          "start": 10.37,
+          "end": 10.73,
+          "key": "nearest",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.73,
+          "end": 10.97,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "door,",
+          "start": 10.97,
+          "end": 11.23,
+          "key": "door",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 11.67,
+          "end": 11.79,
+          "key": "and",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "around",
+          "start": 11.79,
+          "end": 12.11,
+          "key": "around",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 12.11,
+          "end": 12.35,
+          "key": "which",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.35,
+          "end": 12.53,
+          "key": "the",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "smallest",
+          "start": 12.53,
+          "end": 12.95,
+          "key": "smallest",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.95,
+          "end": 13.19,
+          "key": "of",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.19,
+          "end": 13.31,
+          "key": "the",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "children",
+          "start": 13.31,
+          "end": 13.57,
+          "key": "children",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 13.57,
+          "end": 13.91,
+          "key": "were",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "assembled.",
+          "start": 13.91,
+          "end": 14.35,
+          "key": "assembled",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 15.05,
+          "end": 15.19,
+          "key": "to",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 15.19,
+          "end": 15.39,
+          "key": "this",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "inferior",
+          "start": 15.39,
+          "end": 15.85,
+          "key": "inferior",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "class",
+          "start": 15.85,
+          "end": 16.29,
+          "key": "class",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 16.29,
+          "end": 16.53,
+          "key": "i",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 16.53,
+          "end": 16.69,
+          "key": "was",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "called,",
+          "start": 16.69,
+          "end": 17.01,
+          "key": "called",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.35,
+          "end": 17.53,
+          "key": "and",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "placed",
+          "start": 17.53,
+          "end": 17.79,
+          "key": "placed",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 17.79,
+          "end": 17.99,
+          "key": "at",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 17.99,
+          "end": 18.11,
+          "key": "the",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "bottom",
+          "start": 18.11,
+          "end": 18.33,
+          "key": "bottom",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 18.33,
+          "end": 18.53,
+          "key": "of",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 18.53,
+          "end": 18.77,
+          "key": "it",
+          "pieces": [
+            55
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "distant",
+          "start": 0.51,
+          "end": 0.85
+        },
+        {
+          "text": "bell",
+          "start": 0.85,
+          "end": 1.19
+        },
+        {
+          "text": "tinkled:",
+          "start": 1.19,
+          "end": 1.77
+        },
+        {
+          "text": "immediately",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "three",
+          "start": 2.61,
+          "end": 3.11
+        },
+        {
+          "text": "ladies",
+          "start": 3.11,
+          "end": 3.43
+        },
+        {
+          "text": "entered",
+          "start": 3.43,
+          "end": 3.71
+        },
+        {
+          "text": "the",
+          "start": 3.71,
+          "end": 3.89
+        },
+        {
+          "text": "room,",
+          "start": 3.89,
+          "end": 4.21
+        },
+        {
+          "text": "each",
+          "start": 4.63,
+          "end": 4.81
+        },
+        {
+          "text": "walked",
+          "start": 4.81,
+          "end": 5.13
+        },
+        {
+          "text": "to",
+          "start": 5.13,
+          "end": 5.33
+        },
+        {
+          "text": "a",
+          "start": 5.33,
+          "end": 5.47
+        },
+        {
+          "text": "table",
+          "start": 5.47,
+          "end": 5.77
+        },
+        {
+          "text": "and",
+          "start": 5.77,
+          "end": 6.01
+        },
+        {
+          "text": "took",
+          "start": 6.01,
+          "end": 6.13
+        },
+        {
+          "text": "her",
+          "start": 6.13,
+          "end": 6.29
+        },
+        {
+          "text": "seat;",
+          "start": 6.29,
+          "end": 6.63
+        },
+        {
+          "text": "Miss",
+          "start": 7.27,
+          "end": 7.43
+        },
+        {
+          "text": "Miller",
+          "start": 7.43,
+          "end": 7.69
+        },
+        {
+          "text": "assumed",
+          "start": 7.69,
+          "end": 8.13
+        },
+        {
+          "text": "the",
+          "start": 8.13,
+          "end": 8.37
+        },
+        {
+          "text": "fourth",
+          "start": 8.37,
+          "end": 8.63
+        },
+        {
+          "text": "vacant",
+          "start": 8.63,
+          "end": 9.01
+        },
+        {
+          "text": "chair,",
+          "start": 9.01,
+          "end": 9.45
+        },
+        {
+          "text": "which",
+          "start": 9.77,
+          "end": 9.99
+        },
+        {
+          "text": "was",
+          "start": 9.99,
+          "end": 10.15
+        },
+        {
+          "text": "that",
+          "start": 10.15,
+          "end": 10.37
+        },
+        {
+          "text": "nearest",
+          "start": 10.37,
+          "end": 10.73
+        },
+        {
+          "text": "the",
+          "start": 10.73,
+          "end": 10.97
+        },
+        {
+          "text": "door,",
+          "start": 10.97,
+          "end": 11.23
+        },
+        {
+          "text": "and",
+          "start": 11.67,
+          "end": 11.79
+        },
+        {
+          "text": "around",
+          "start": 11.79,
+          "end": 12.11
+        },
+        {
+          "text": "which",
+          "start": 12.11,
+          "end": 12.35
+        },
+        {
+          "text": "the",
+          "start": 12.35,
+          "end": 12.53
+        },
+        {
+          "text": "smallest",
+          "start": 12.53,
+          "end": 12.95
+        },
+        {
+          "text": "of",
+          "start": 12.95,
+          "end": 13.19
+        },
+        {
+          "text": "the",
+          "start": 13.19,
+          "end": 13.31
+        },
+        {
+          "text": "children",
+          "start": 13.31,
+          "end": 13.57
+        },
+        {
+          "text": "were",
+          "start": 13.57,
+          "end": 13.91
+        },
+        {
+          "text": "assembled:",
+          "start": 13.91,
+          "end": 14.35
+        },
+        {
+          "text": "to",
+          "start": 15.05,
+          "end": 15.19
+        },
+        {
+          "text": "this",
+          "start": 15.19,
+          "end": 15.39
+        },
+        {
+          "text": "inferior",
+          "start": 15.39,
+          "end": 15.85
+        },
+        {
+          "text": "class",
+          "start": 15.85,
+          "end": 16.29
+        },
+        {
+          "text": "I",
+          "start": 16.29,
+          "end": 16.53
+        },
+        {
+          "text": "was",
+          "start": 16.53,
+          "end": 16.69
+        },
+        {
+          "text": "called,",
+          "start": 16.69,
+          "end": 17.01
+        },
+        {
+          "text": "and",
+          "start": 17.35,
+          "end": 17.53
+        },
+        {
+          "text": "placed",
+          "start": 17.53,
+          "end": 17.79
+        },
+        {
+          "text": "at",
+          "start": 17.79,
+          "end": 17.99
+        },
+        {
+          "text": "the",
+          "start": 17.99,
+          "end": 18.11
+        },
+        {
+          "text": "bottom",
+          "start": 18.11,
+          "end": 18.33
+        },
+        {
+          "text": "of",
+          "start": 18.33,
+          "end": 18.53
+        },
+        {
+          "text": "it.",
+          "start": 18.53,
+          "end": 18.77
+        }
+      ],
+      "stats": {
+        "expected_words": 56,
+        "heard_words": 56,
+        "matched_words": 56
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.6380486181005836
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "97c79e5fdc0d7f6b7752328533c9a5435bb3287bb32ff78fb89f97a0fbba112b",
+  "selected_reasons": []
+}

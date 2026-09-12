@@ -1,0 +1,413 @@
+{
+  "complete": true,
+  "signature": "9bf9f716679cb98d449a8e79c2726c6ea7795e5ba4631110dfedd303d75ae772",
+  "attempts": [
+    {
+      "asr_seconds": 3.557310104370117,
+      "alignment_seconds": 0.0004839897155761719,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polonius. The actors are come hither, my lord.",
+        "hotwords": "Polonius, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polonius, The Polonius, The Polonius. The actors are come hither, my lord.",
+          "start": 0.05,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Polonius,",
+              "start": 0.05,
+              "end": 0.99,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " The",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.10791015625
+            },
+            {
+              "text": " Polonius,",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.6429037054379781
+            },
+            {
+              "text": " The",
+              "start": 1.85,
+              "end": 1.85,
+              "probability": 0.8828125
+            },
+            {
+              "text": " Polonius.",
+              "start": 1.85,
+              "end": 1.85,
+              "probability": 0.6599961320559183
+            },
+            {
+              "text": " The",
+              "start": 1.85,
+              "end": 1.85,
+              "probability": 0.767578125
+            },
+            {
+              "text": " actors",
+              "start": 1.85,
+              "end": 1.85,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " are",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " come",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " hither,",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " my",
+              "start": 2.71,
+              "end": 2.71,
+              "probability": 0.307373046875
+            },
+            {
+              "text": " lord.",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.3349609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 0.99
+        },
+        {
+          "raw": "The",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "raw": "The",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "raw": "Polonius.",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "raw": "The",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "raw": "actors",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "raw": "are",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "come",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "hither,",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "my",
+          "start": 2.71,
+          "end": 2.71
+        },
+        {
+          "raw": "lord.",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "Polonius.",
+        "The",
+        "actors",
+        "are",
+        "come",
+        "hither,",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          "equal",
+          0,
+          8,
+          4,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polonius,",
+          "start": 0.05,
+          "end": 0.99,
+          "key": "polonius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Polonius,",
+          "start": 1.51,
+          "end": 1.85,
+          "key": "polonius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.85,
+          "end": 1.85,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Polonius.",
+          "start": 1.85,
+          "end": 1.85,
+          "key": "polonius",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.85,
+          "end": 1.85,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "actors",
+          "start": 1.85,
+          "end": 1.85,
+          "key": "actors",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "are",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "come",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "hither,",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "hither",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.71,
+          "end": 2.71,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "lord",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polonius.",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "text": "The",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "text": "actors",
+          "start": 1.85,
+          "end": 1.85
+        },
+        {
+          "text": "are",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "come",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "hither,",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "my",
+          "start": 2.71,
+          "end": 2.71
+        },
+        {
+          "text": "lord.",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 12,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.5580176040530205
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "56510231cd4c1a2f8a3cfb5ced7fa5a264a986b85453d7207f17e55163920daa",
+  "selected_reasons": []
+}

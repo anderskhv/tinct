@@ -1,0 +1,614 @@
+{
+  "complete": true,
+  "signature": "128edd7c0261907d7ce2310fe74647af5e71a283b20e6ae75a06a5c819bca080",
+  "attempts": [
+    {
+      "asr_seconds": 0.19164649199228734,
+      "alignment_seconds": 0.0002922409912571311,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and settle down on their striped petticoats, peering up at the statue of the one-handled adulterer.",
+          "start": 0.11,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.7099609375
+            },
+            {
+              "text": " settle",
+              "start": 0.55,
+              "end": 0.87,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " down",
+              "start": 0.87,
+              "end": 1.21,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 1.21,
+              "end": 1.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " their",
+              "start": 1.47,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " striped",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " petticoats,",
+              "start": 1.93,
+              "end": 2.83,
+              "probability": 0.955810546875
+            },
+            {
+              "text": " peering",
+              "start": 3.13,
+              "end": 3.41,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " up",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " at",
+              "start": 3.55,
+              "end": 3.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.69,
+              "end": 3.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " statue",
+              "start": 3.79,
+              "end": 4.17,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 4.17,
+              "end": 4.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.39,
+              "end": 4.51,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " one",
+              "start": 4.51,
+              "end": 4.73,
+              "probability": 0.95068359375
+            },
+            {
+              "text": "-handled",
+              "start": 4.73,
+              "end": 5.07,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " adulterer.",
+              "start": 5.07,
+              "end": 5.71,
+              "probability": 0.974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "settle",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "raw": "down",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "raw": "on",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "raw": "their",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "raw": "striped",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "petticoats,",
+          "start": 1.93,
+          "end": 2.83
+        },
+        {
+          "raw": "peering",
+          "start": 3.13,
+          "end": 3.41
+        },
+        {
+          "raw": "up",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "at",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.79
+        },
+        {
+          "raw": "statue",
+          "start": 3.79,
+          "end": 4.17
+        },
+        {
+          "raw": "of",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "raw": "the",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "raw": "one",
+          "start": 4.51,
+          "end": 4.73
+        },
+        {
+          "raw": "-handled",
+          "start": 4.73,
+          "end": 5.07
+        },
+        {
+          "raw": "adulterer.",
+          "start": 5.07,
+          "end": 5.71
+        }
+      ],
+      "expected_tokens": [
+        "—And",
+        "settle",
+        "down",
+        "on",
+        "their",
+        "striped",
+        "petticoats,",
+        "peering",
+        "up",
+        "at",
+        "the",
+        "statue",
+        "of",
+        "the",
+        "onehandled",
+        "adulterer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          16,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "settle",
+          "start": 0.55,
+          "end": 0.87,
+          "key": "settle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.87,
+          "end": 1.21,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.21,
+          "end": 1.47,
+          "key": "on",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.47,
+          "end": 1.61,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "striped",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "striped",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "petticoats,",
+          "start": 1.93,
+          "end": 2.83,
+          "key": "petticoats",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "peering",
+          "start": 3.13,
+          "end": 3.41,
+          "key": "peering",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.41,
+          "end": 3.55,
+          "key": "up",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.55,
+          "end": 3.69,
+          "key": "at",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.69,
+          "end": 3.79,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "statue",
+          "start": 3.79,
+          "end": 4.17,
+          "key": "statue",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.17,
+          "end": 4.39,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.39,
+          "end": 4.51,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.51,
+          "end": 4.73,
+          "key": "one",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "-handled",
+          "start": 4.73,
+          "end": 5.07,
+          "key": "handled",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "adulterer.",
+          "start": 5.07,
+          "end": 5.71,
+          "key": "adulterer",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—And",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "settle",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "text": "down",
+          "start": 0.87,
+          "end": 1.21
+        },
+        {
+          "text": "on",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "text": "their",
+          "start": 1.47,
+          "end": 1.61
+        },
+        {
+          "text": "striped",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "petticoats,",
+          "start": 1.93,
+          "end": 2.83
+        },
+        {
+          "text": "peering",
+          "start": 3.13,
+          "end": 3.41
+        },
+        {
+          "text": "up",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "at",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "text": "the",
+          "start": 3.69,
+          "end": 3.79
+        },
+        {
+          "text": "statue",
+          "start": 3.79,
+          "end": 4.17
+        },
+        {
+          "text": "of",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "text": "the",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "text": "onehandled",
+          "start": 4.51,
+          "end": 4.79
+        },
+        {
+          "text": "adulterer.",
+          "start": 5.07,
+          "end": 5.71
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.19205088401213288
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d793317813093b491c3d7bb3980758f51bbfec8e1b32f801fa7993170a43078",
+  "selected_reasons": []
+}

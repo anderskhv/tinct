@@ -1,0 +1,214 @@
+{
+  "complete": true,
+  "signature": "156fb92258ca145b31b3af4ec244b4087fb5c16c7133ea1d2ca921c8642aa071",
+  "attempts": [
+    {
+      "asr_seconds": 0.11634542420506477,
+      "alignment_seconds": 0.0003875419497489929,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Fabian in Viola.",
+          "start": 0.11,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Fabian",
+              "start": 0.63,
+              "end": 1.09,
+              "probability": 0.984375
+            },
+            {
+              "text": " in",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " Viola.",
+              "start": 1.21,
+              "end": 1.73,
+              "probability": 0.6614990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "raw": "Fabian",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "raw": "in",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "Viola.",
+          "start": 1.21,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Fabian",
+        "and",
+        "Viola."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.63,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fabian",
+          "start": 0.63,
+          "end": 1.09,
+          "key": "fabian",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.09,
+          "end": 1.21,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Viola.",
+          "start": 1.21,
+          "end": 1.73,
+          "key": "viola",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.63
+        },
+        {
+          "text": "Fabian",
+          "start": 0.63,
+          "end": 1.09
+        },
+        {
+          "text": "and",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "text": "Viola.",
+          "start": 1.21,
+          "end": 1.73
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11685434356331825
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "14aea03bd83dffb443f921d442cb7589114b60ac8a53951db1b63e394bcbfbf5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

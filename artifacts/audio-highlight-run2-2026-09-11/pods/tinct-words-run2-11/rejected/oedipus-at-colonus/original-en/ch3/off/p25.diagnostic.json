@@ -1,0 +1,356 @@
+{
+  "complete": true,
+  "signature": "b0b66b5976e073029fa8a1c033c478eae36bae3670c431686c816df0b4863862",
+  "attempts": [
+    {
+      "asr_seconds": 0.17970685940235853,
+      "alignment_seconds": 0.00043565966188907623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ismeen, on the teas said their sovereignty depends.",
+          "start": 0.08,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " Ismeen,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.5530598958333334
+            },
+            {
+              "text": " on",
+              "start": 1.26,
+              "end": 1.36,
+              "probability": 0.931640625
+            },
+            {
+              "text": " the",
+              "start": 1.36,
+              "end": 1.58,
+              "probability": 0.6064453125
+            },
+            {
+              "text": " teas",
+              "start": 1.58,
+              "end": 2.08,
+              "probability": 0.4215087890625
+            },
+            {
+              "text": " said",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " their",
+              "start": 2.3,
+              "end": 2.54,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " sovereignty",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " depends.",
+              "start": 2.9,
+              "end": 3.38,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ismeen,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "on",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.58
+        },
+        {
+          "raw": "teas",
+          "start": 1.58,
+          "end": 2.08
+        },
+        {
+          "raw": "said",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "their",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "raw": "sovereignty",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "depends.",
+          "start": 2.9,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "Ismene.",
+        "On",
+        "thee,",
+        "'tis",
+        "said,",
+        "their",
+        "sovereignty",
+        "depends."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          8,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ismeen,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "ismeen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.26,
+          "end": 1.36,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.36,
+          "end": 1.58,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "teas",
+          "start": 1.58,
+          "end": 2.08,
+          "key": "teas",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.3,
+          "end": 2.54,
+          "key": "their",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sovereignty",
+          "start": 2.54,
+          "end": 2.9,
+          "key": "sovereignty",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "depends.",
+          "start": 2.9,
+          "end": 3.38,
+          "key": "depends",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ismene.",
+          "start": 0.0,
+          "end": 0.63
+        },
+        {
+          "text": "On",
+          "start": 1.26,
+          "end": 1.36
+        },
+        {
+          "text": "thee,",
+          "start": 1.36,
+          "end": 1.72
+        },
+        {
+          "text": "'tis",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "said,",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "their",
+          "start": 2.3,
+          "end": 2.54
+        },
+        {
+          "text": "sovereignty",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "text": "depends.",
+          "start": 2.9,
+          "end": 3.38
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18031269311904907
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "108c0c9d174cb3f45baa428d246f3c633c4cb967768b4926efb6df2ca2545f1e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

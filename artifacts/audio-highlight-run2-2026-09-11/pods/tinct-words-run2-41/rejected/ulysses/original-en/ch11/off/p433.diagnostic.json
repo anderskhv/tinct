@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "317975e336916361f6fefb6fdf3027a21c8983f9d0891f61370e58d3b442d52e",
+  "attempts": [
+    {
+      "asr_seconds": 0.17325601307675242,
+      "alignment_seconds": 0.00031973980367183685,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " An afterclang of Cowley's cords closed, died on the air made richer.",
+          "start": 0.05,
+          "end": 4.17,
+          "words": [
+            {
+              "text": " An",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " afterclang",
+              "start": 0.51,
+              "end": 1.11,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " of",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Cowley's",
+              "start": 1.27,
+              "end": 1.71,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " cords",
+              "start": 1.71,
+              "end": 1.93,
+              "probability": 0.974609375
+            },
+            {
+              "text": " closed,",
+              "start": 1.93,
+              "end": 2.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " died",
+              "start": 3.09,
+              "end": 3.19,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " on",
+              "start": 3.19,
+              "end": 3.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " air",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " made",
+              "start": 3.65,
+              "end": 3.87,
+              "probability": 0.900390625
+            },
+            {
+              "text": " richer.",
+              "start": 3.87,
+              "end": 4.17,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "An",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "afterclang",
+          "start": 0.51,
+          "end": 1.11
+        },
+        {
+          "raw": "of",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "Cowley's",
+          "start": 1.27,
+          "end": 1.71
+        },
+        {
+          "raw": "cords",
+          "start": 1.71,
+          "end": 1.93
+        },
+        {
+          "raw": "closed,",
+          "start": 1.93,
+          "end": 2.57
+        },
+        {
+          "raw": "died",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "raw": "on",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "raw": "the",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "raw": "air",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "made",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "raw": "richer.",
+          "start": 3.87,
+          "end": 4.17
+        }
+      ],
+      "expected_tokens": [
+        "An",
+        "afterclang",
+        "of",
+        "Cowley's",
+        "chords",
+        "closed,",
+        "died",
+        "on",
+        "the",
+        "air",
+        "made",
+        "richer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          12,
+          5,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "An",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "an",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "afterclang",
+          "start": 0.51,
+          "end": 1.11,
+          "key": "afterclang",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.11,
+          "end": 1.27,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cowley's",
+          "start": 1.27,
+          "end": 1.71,
+          "key": "cowleys",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cords",
+          "start": 1.71,
+          "end": 1.93,
+          "key": "cords",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "closed,",
+          "start": 1.93,
+          "end": 2.57,
+          "key": "closed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 3.09,
+          "end": 3.19,
+          "key": "died",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 3.19,
+          "end": 3.37,
+          "key": "on",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.37,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "air",
+          "start": 3.47,
+          "end": 3.65,
+          "key": "air",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 3.65,
+          "end": 3.87,
+          "key": "made",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "richer.",
+          "start": 3.87,
+          "end": 4.17,
+          "key": "richer",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "An",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "afterclang",
+          "start": 0.51,
+          "end": 1.11
+        },
+        {
+          "text": "of",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "Cowley's",
+          "start": 1.27,
+          "end": 1.71
+        },
+        {
+          "text": "chords",
+          "start": 1.71,
+          "end": 1.82
+        },
+        {
+          "text": "closed,",
+          "start": 1.93,
+          "end": 2.57
+        },
+        {
+          "text": "died",
+          "start": 3.09,
+          "end": 3.19
+        },
+        {
+          "text": "on",
+          "start": 3.19,
+          "end": 3.37
+        },
+        {
+          "text": "the",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "text": "air",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "made",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "text": "richer.",
+          "start": 3.87,
+          "end": 4.17
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.17369111627340317
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "881413a824b2b198ca0b30191011277fca44030d4de2fbe7db46c2c19370979b",
+  "selected_reasons": []
+}

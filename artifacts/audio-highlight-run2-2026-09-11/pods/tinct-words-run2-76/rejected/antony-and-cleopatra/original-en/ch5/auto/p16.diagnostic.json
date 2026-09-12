@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "dfbd964741d5b19f03c958876604baba2c1bc3840ab0e854fbc440cc085ad8e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.09659019904211164,
+      "alignment_seconds": 0.0002711080014705658,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Alexas.",
+        "hotwords": "Enter, Alexas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter, Alexas.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Enter,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Alexas.",
+              "start": 0.75,
+              "end": 1.25,
+              "probability": 0.146759033203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Alexas.",
+          "start": 0.75,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Alexas."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alexas.",
+          "start": 0.75,
+          "end": 1.25,
+          "key": "alexas",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Alexas.",
+          "start": 0.75,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09693435067310929
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "876e8ec80905a3529f9d504be84437a94230e28300bb8b7aaebd0d50f3a40a0e",
+  "selected_reasons": []
+}

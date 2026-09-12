@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "7a6f352f9874da27adaf758e4b65f7be2c6167bb30c2553039c6b1b30c0e531a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20895704440772533,
+      "alignment_seconds": 0.00037140771746635437,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exeunt Voltemand and Cornelius.]",
+        "hotwords": "Exeunt, Voltemand, Cornelius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt, Voltemand, and Cornelius.",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5677388509114584
+            },
+            {
+              "text": " Voltemand,",
+              "start": 0.95,
+              "end": 1.33,
+              "probability": 0.5998128255208334
+            },
+            {
+              "text": " and",
+              "start": 1.43,
+              "end": 1.51,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Cornelius.",
+              "start": 1.51,
+              "end": 2.05,
+              "probability": 0.976806640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Voltemand,",
+          "start": 0.95,
+          "end": 1.33
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "raw": "Cornelius.",
+          "start": 1.51,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Voltemand",
+        "and",
+        "Cornelius.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Voltemand,",
+          "start": 0.95,
+          "end": 1.33,
+          "key": "voltemand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.43,
+          "end": 1.51,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cornelius.",
+          "start": 1.51,
+          "end": 2.05,
+          "key": "cornelius",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Voltemand",
+          "start": 0.95,
+          "end": 1.33
+        },
+        {
+          "text": "and",
+          "start": 1.43,
+          "end": 1.51
+        },
+        {
+          "text": "Cornelius.]",
+          "start": 1.51,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2094443514943123
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f45f342b030f60a2e2af2b8612b7776781d99abcce812010eae74fd79144300",
+  "selected_reasons": []
+}

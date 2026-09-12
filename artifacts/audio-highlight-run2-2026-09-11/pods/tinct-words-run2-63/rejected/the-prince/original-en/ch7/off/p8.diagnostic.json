@@ -1,0 +1,367 @@
+{
+  "complete": true,
+  "signature": "f6d574ac84f87883f362d3cc7ec9c2b405e78af15d9125cc97377cda0c53c4d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2927419673651457,
+      "alignment_seconds": 0.0005037486553192139,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hyaro Air, born about 307 BC, died 216 BC.",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " Hyaro",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.1800537109375
+            },
+            {
+              "text": " Air,",
+              "start": 0.81,
+              "end": 1.15,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " born",
+              "start": 1.61,
+              "end": 1.69,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " about",
+              "start": 1.69,
+              "end": 1.93,
+              "probability": 0.97265625
+            },
+            {
+              "text": " 307",
+              "start": 1.93,
+              "end": 2.61,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " BC,",
+              "start": 2.61,
+              "end": 3.15,
+              "probability": 0.66943359375
+            },
+            {
+              "text": " died",
+              "start": 3.83,
+              "end": 3.93,
+              "probability": 0.986328125
+            },
+            {
+              "text": " 216",
+              "start": 3.93,
+              "end": 4.63,
+              "probability": 0.990234375
+            },
+            {
+              "text": " BC.",
+              "start": 4.63,
+              "end": 5.41,
+              "probability": 0.9609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hyaro",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Air,",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "raw": "born",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "raw": "about",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "raw": "307",
+          "start": 1.93,
+          "end": 2.61
+        },
+        {
+          "raw": "BC,",
+          "start": 2.61,
+          "end": 3.15
+        },
+        {
+          "raw": "died",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "raw": "216",
+          "start": 3.93,
+          "end": 4.63
+        },
+        {
+          "raw": "BC.",
+          "start": 4.63,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "Hiero",
+        "Ii,",
+        "born",
+        "about",
+        "307",
+        "B.C.,",
+        "died",
+        "216",
+        "B.C."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          9,
+          2,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hyaro",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "hyaro",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Air,",
+          "start": 0.81,
+          "end": 1.15,
+          "key": "air",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "born",
+          "start": 1.61,
+          "end": 1.69,
+          "key": "born",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.69,
+          "end": 1.93,
+          "key": "about",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "307",
+          "start": 1.93,
+          "end": 2.61,
+          "key": "307",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "BC,",
+          "start": 2.61,
+          "end": 3.15,
+          "key": "bc",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 3.83,
+          "end": 3.93,
+          "key": "died",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "216",
+          "start": 3.93,
+          "end": 4.63,
+          "key": "216",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "BC.",
+          "start": 4.63,
+          "end": 5.41,
+          "key": "bc",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hiero",
+          "start": 0.0,
+          "end": 0.805
+        },
+        {
+          "text": "Ii,",
+          "start": 0.805,
+          "end": 1.208
+        },
+        {
+          "text": "born",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "text": "about",
+          "start": 1.69,
+          "end": 1.93
+        },
+        {
+          "text": "307",
+          "start": 1.93,
+          "end": 2.61
+        },
+        {
+          "text": "B.C.,",
+          "start": 2.61,
+          "end": 3.15
+        },
+        {
+          "text": "died",
+          "start": 3.83,
+          "end": 3.93
+        },
+        {
+          "text": "216",
+          "start": 3.93,
+          "end": 4.63
+        },
+        {
+          "text": "B.C.",
+          "start": 4.63,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7777777777777778,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.29341327771544456
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5333227c24366841432b4ec029207bb46ad7e85239031719baf13fbb00f600e6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

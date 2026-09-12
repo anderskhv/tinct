@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "0926e3f4faaa6de70f96a60c60dd14a44bd6132b367d76e39cc130924a05a777",
+  "attempts": [
+    {
+      "asr_seconds": 0.1201762855052948,
+      "alignment_seconds": 0.00021898560225963593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. I am.",
+        "hotwords": "Cassius, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, I am.",
+          "start": 0.08,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.945556640625
+            },
+            {
+              "text": " I",
+              "start": 1.26,
+              "end": 1.28,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " am.",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.9580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "raw": "am.",
+          "start": 1.28,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "I",
+        "am."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.26,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am.",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "I",
+          "start": 1.26,
+          "end": 1.28
+        },
+        {
+          "text": "am.",
+          "start": 1.28,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12046868074685335
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "051ea30048f6d08f52908d57e520e79fb7f0d77534e30317874ccdf941482e45",
+  "selected_reasons": []
+}

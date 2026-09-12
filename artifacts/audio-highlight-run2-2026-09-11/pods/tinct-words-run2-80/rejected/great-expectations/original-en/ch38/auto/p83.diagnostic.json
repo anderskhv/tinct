@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "a6af6df4b028b026398e33cabdbe303aa675d1dd39315ce889c98b06041e7677",
+  "attempts": [
+    {
+      "asr_seconds": 0.2595882676541805,
+      "alignment_seconds": 0.0005277711898088455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What do you mean? I didn't know there had been any.\"",
+        "hotwords": "What, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What do you mean? I didn't know there had been any.",
+          "start": 0.05,
+          "end": 2.41,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.921875
+            },
+            {
+              "text": " do",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " you",
+              "start": 0.65,
+              "end": 0.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mean?",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " didn't",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know",
+              "start": 1.65,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " there",
+              "start": 1.77,
+              "end": 1.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 1.93,
+              "end": 2.01,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " been",
+              "start": 2.01,
+              "end": 2.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " any.",
+              "start": 2.17,
+              "end": 2.41,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "you",
+          "start": 0.65,
+          "end": 0.73
+        },
+        {
+          "raw": "mean?",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "didn't",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "know",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "raw": "there",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "raw": "had",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "raw": "been",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "raw": "any.",
+          "start": 2.17,
+          "end": 2.41
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "do",
+        "you",
+        "mean?",
+        "I",
+        "didn't",
+        "know",
+        "there",
+        "had",
+        "been",
+        "any.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.53,
+          "end": 0.65,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.65,
+          "end": 0.73,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mean?",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "mean",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "didnt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.65,
+          "end": 1.77,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.77,
+          "end": 1.93,
+          "key": "there",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.93,
+          "end": 2.01,
+          "key": "had",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.01,
+          "end": 2.17,
+          "key": "been",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "any.",
+          "start": 2.17,
+          "end": 2.41,
+          "key": "any",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "do",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "you",
+          "start": 0.65,
+          "end": 0.73
+        },
+        {
+          "text": "mean?",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "I",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "didn't",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "know",
+          "start": 1.65,
+          "end": 1.77
+        },
+        {
+          "text": "there",
+          "start": 1.77,
+          "end": 1.93
+        },
+        {
+          "text": "had",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "text": "been",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "text": "any.\"",
+          "start": 2.17,
+          "end": 2.41
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2603492923080921
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "080c875823729056d0e8d4e4b653b0e335d97d6d5649527ee633f57819902f7b",
+  "selected_reasons": []
+}

@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "c21cc32968843228a76d7ee04464696a2907ab67c2260df1374207acf0a1b1dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.2970903813838959,
+      "alignment_seconds": 0.000408172607421875,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then, my blessed Thrasa matches, injustice can never be more profitable than justice.",
+          "start": 0.02,
+          "end": 5.42,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.90625
+            },
+            {
+              "text": " my",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " blessed",
+              "start": 1.04,
+              "end": 1.38,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " Thrasa",
+              "start": 1.38,
+              "end": 1.86,
+              "probability": 0.5911458333333334
+            },
+            {
+              "text": " matches,",
+              "start": 1.86,
+              "end": 2.18,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " injustice",
+              "start": 2.82,
+              "end": 3.24,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " can",
+              "start": 3.24,
+              "end": 3.56,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " never",
+              "start": 3.56,
+              "end": 3.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 3.8,
+              "end": 3.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " more",
+              "start": 3.96,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " profitable",
+              "start": 4.16,
+              "end": 4.58,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " than",
+              "start": 4.58,
+              "end": 4.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " justice.",
+              "start": 4.94,
+              "end": 5.42,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "my",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "blessed",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "raw": "Thrasa",
+          "start": 1.38,
+          "end": 1.86
+        },
+        {
+          "raw": "matches,",
+          "start": 1.86,
+          "end": 2.18
+        },
+        {
+          "raw": "injustice",
+          "start": 2.82,
+          "end": 3.24
+        },
+        {
+          "raw": "can",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "raw": "never",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "raw": "be",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "raw": "more",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "raw": "profitable",
+          "start": 4.16,
+          "end": 4.58
+        },
+        {
+          "raw": "than",
+          "start": 4.58,
+          "end": 4.94
+        },
+        {
+          "raw": "justice.",
+          "start": 4.94,
+          "end": 5.42
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "my",
+        "blessed",
+        "Thrasymachus,",
+        "injustice",
+        "can",
+        "never",
+        "be",
+        "more",
+        "profitable",
+        "than",
+        "justice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "blessed",
+          "start": 1.04,
+          "end": 1.38,
+          "key": "blessed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Thrasa",
+          "start": 1.38,
+          "end": 1.86,
+          "key": "thrasa",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "matches,",
+          "start": 1.86,
+          "end": 2.18,
+          "key": "matches",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "injustice",
+          "start": 2.82,
+          "end": 3.24,
+          "key": "injustice",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.24,
+          "end": 3.56,
+          "key": "can",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 3.56,
+          "end": 3.8,
+          "key": "never",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.8,
+          "end": 3.96,
+          "key": "be",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.96,
+          "end": 4.16,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "profitable",
+          "start": 4.16,
+          "end": 4.58,
+          "key": "profitable",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 4.58,
+          "end": 4.94,
+          "key": "than",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "justice.",
+          "start": 4.94,
+          "end": 5.42,
+          "key": "justice",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "my",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "blessed",
+          "start": 1.04,
+          "end": 1.38
+        },
+        {
+          "text": "Thrasymachus,",
+          "start": 1.38,
+          "end": 2.1
+        },
+        {
+          "text": "injustice",
+          "start": 2.82,
+          "end": 3.24
+        },
+        {
+          "text": "can",
+          "start": 3.24,
+          "end": 3.56
+        },
+        {
+          "text": "never",
+          "start": 3.56,
+          "end": 3.8
+        },
+        {
+          "text": "be",
+          "start": 3.8,
+          "end": 3.96
+        },
+        {
+          "text": "more",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "text": "profitable",
+          "start": 4.16,
+          "end": 4.58
+        },
+        {
+          "text": "than",
+          "start": 4.58,
+          "end": 4.94
+        },
+        {
+          "text": "justice.",
+          "start": 4.94,
+          "end": 5.42
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.297669667750597
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "472df67e7d83129c5810cca1d2a4e6a757ebaafcac216aef91791185f5a5ed34",
+  "selected_reasons": []
+}

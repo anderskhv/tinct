@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "d2bdfef7dbd5b1615d047ef4857dfb7aeec02dbaabdc9be98889b7b93058d3f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.20875637605786324,
+      "alignment_seconds": 0.00034104310907423496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Know'st thou Gower?",
+        "hotwords": "King, Henry, Know'st, Gower"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry, Know'st thou Gower?",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " Henry,",
+              "start": 0.55,
+              "end": 0.95,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Know'st",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.1727930704752604
+            },
+            {
+              "text": " thou",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.1865234375
+            },
+            {
+              "text": " Gower?",
+              "start": 1.89,
+              "end": 2.25,
+              "probability": 0.60693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "raw": "Know'st",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "thou",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "Gower?",
+          "start": 1.89,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Know'st",
+        "thou",
+        "Gower?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.55,
+          "end": 0.95,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Know'st",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "knowst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Gower?",
+          "start": 1.89,
+          "end": 2.25,
+          "key": "gower",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "Henry.",
+          "start": 0.55,
+          "end": 0.95
+        },
+        {
+          "text": "Know'st",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "thou",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "Gower?",
+          "start": 1.89,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20922283199615777
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a605fe7b01bb955ad19cc4d30d6d9e945b3a7042ec8d09193e83d35086c65eec",
+  "selected_reasons": []
+}

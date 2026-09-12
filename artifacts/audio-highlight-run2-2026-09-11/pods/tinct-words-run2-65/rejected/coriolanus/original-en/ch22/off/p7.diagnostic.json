@@ -1,0 +1,882 @@
+{
+  "complete": true,
+  "signature": "49c7417903e61091e0591889c41be7501e8021eba869335c398fbe55d849b3bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.33467919286340475,
+      "alignment_seconds": 0.00026487791910767555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, your Coriolanus is not much missed but with his friends.",
+          "start": 0.53,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.53,
+              "end": 0.97,
+              "probability": 0.523223876953125
+            },
+            {
+              "text": " your",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Coriolanus",
+              "start": 1.57,
+              "end": 2.21,
+              "probability": 0.6676025390625
+            },
+            {
+              "text": " is",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " not",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " much",
+              "start": 2.63,
+              "end": 2.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " missed",
+              "start": 2.85,
+              "end": 3.13,
+              "probability": 0.57421875
+            },
+            {
+              "text": " but",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.9609375
+            },
+            {
+              "text": " with",
+              "start": 3.43,
+              "end": 3.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 3.57,
+              "end": 3.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " friends.",
+              "start": 3.73,
+              "end": 4.03,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " The Commonwealth doth stand, and so would do were he more angry at it.",
+          "start": 4.75,
+          "end": 8.65,
+          "words": [
+            {
+              "text": " The",
+              "start": 4.75,
+              "end": 4.93,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Commonwealth",
+              "start": 4.93,
+              "end": 5.43,
+              "probability": 0.7294921875
+            },
+            {
+              "text": " doth",
+              "start": 5.43,
+              "end": 5.79,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " stand,",
+              "start": 5.79,
+              "end": 6.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.69,
+              "end": 6.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so",
+              "start": 6.83,
+              "end": 7.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " would",
+              "start": 7.01,
+              "end": 7.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " do",
+              "start": 7.17,
+              "end": 7.35,
+              "probability": 0.98828125
+            },
+            {
+              "text": " were",
+              "start": 7.35,
+              "end": 7.51,
+              "probability": 0.91015625
+            },
+            {
+              "text": " he",
+              "start": 7.51,
+              "end": 7.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " more",
+              "start": 7.67,
+              "end": 7.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " angry",
+              "start": 7.85,
+              "end": 8.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " at",
+              "start": 8.19,
+              "end": 8.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " it.",
+              "start": 8.47,
+              "end": 8.65,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.53,
+          "end": 0.97
+        },
+        {
+          "raw": "your",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "Coriolanus",
+          "start": 1.57,
+          "end": 2.21
+        },
+        {
+          "raw": "is",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "much",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "raw": "missed",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "raw": "but",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "raw": "with",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "raw": "his",
+          "start": 3.57,
+          "end": 3.73
+        },
+        {
+          "raw": "friends.",
+          "start": 3.73,
+          "end": 4.03
+        },
+        {
+          "raw": "The",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "raw": "Commonwealth",
+          "start": 4.93,
+          "end": 5.43
+        },
+        {
+          "raw": "doth",
+          "start": 5.43,
+          "end": 5.79
+        },
+        {
+          "raw": "stand,",
+          "start": 5.79,
+          "end": 6.21
+        },
+        {
+          "raw": "and",
+          "start": 6.69,
+          "end": 6.83
+        },
+        {
+          "raw": "so",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "raw": "would",
+          "start": 7.01,
+          "end": 7.17
+        },
+        {
+          "raw": "do",
+          "start": 7.17,
+          "end": 7.35
+        },
+        {
+          "raw": "were",
+          "start": 7.35,
+          "end": 7.51
+        },
+        {
+          "raw": "he",
+          "start": 7.51,
+          "end": 7.67
+        },
+        {
+          "raw": "more",
+          "start": 7.67,
+          "end": 7.85
+        },
+        {
+          "raw": "angry",
+          "start": 7.85,
+          "end": 8.19
+        },
+        {
+          "raw": "at",
+          "start": 8.19,
+          "end": 8.47
+        },
+        {
+          "raw": "it.",
+          "start": 8.47,
+          "end": 8.65
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Your",
+        "Coriolanus",
+        "is",
+        "not",
+        "much",
+        "missed",
+        "But",
+        "with",
+        "his",
+        "friends.",
+        "The",
+        "commonwealth",
+        "doth",
+        "stand,",
+        "And",
+        "so",
+        "would",
+        "do",
+        "were",
+        "he",
+        "more",
+        "angry",
+        "at",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          25,
+          1,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.53,
+          "end": 0.97,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Coriolanus",
+          "start": 1.57,
+          "end": 2.21,
+          "key": "coriolanus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.63,
+          "end": 2.85,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "missed",
+          "start": 2.85,
+          "end": 3.13,
+          "key": "missed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "but",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.43,
+          "end": 3.57,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.57,
+          "end": 3.73,
+          "key": "his",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "friends.",
+          "start": 3.73,
+          "end": 4.03,
+          "key": "friends",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.75,
+          "end": 4.93,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Commonwealth",
+          "start": 4.93,
+          "end": 5.43,
+          "key": "commonwealth",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 5.43,
+          "end": 5.79,
+          "key": "doth",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stand,",
+          "start": 5.79,
+          "end": 6.21,
+          "key": "stand",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.69,
+          "end": 6.83,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.83,
+          "end": 7.01,
+          "key": "so",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 7.01,
+          "end": 7.17,
+          "key": "would",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 7.17,
+          "end": 7.35,
+          "key": "do",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 7.35,
+          "end": 7.51,
+          "key": "were",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.51,
+          "end": 7.67,
+          "key": "he",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 7.67,
+          "end": 7.85,
+          "key": "more",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "angry",
+          "start": 7.85,
+          "end": 8.19,
+          "key": "angry",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.19,
+          "end": 8.47,
+          "key": "at",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 8.47,
+          "end": 8.65,
+          "key": "it",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "Your",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "text": "Coriolanus",
+          "start": 1.57,
+          "end": 2.21
+        },
+        {
+          "text": "is",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "not",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "much",
+          "start": 2.63,
+          "end": 2.85
+        },
+        {
+          "text": "missed",
+          "start": 2.85,
+          "end": 3.13
+        },
+        {
+          "text": "But",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "text": "with",
+          "start": 3.43,
+          "end": 3.57
+        },
+        {
+          "text": "his",
+          "start": 3.57,
+          "end": 3.73
+        },
+        {
+          "text": "friends.",
+          "start": 3.73,
+          "end": 4.03
+        },
+        {
+          "text": "The",
+          "start": 4.75,
+          "end": 4.93
+        },
+        {
+          "text": "commonwealth",
+          "start": 4.93,
+          "end": 5.43
+        },
+        {
+          "text": "doth",
+          "start": 5.43,
+          "end": 5.79
+        },
+        {
+          "text": "stand,",
+          "start": 5.79,
+          "end": 6.21
+        },
+        {
+          "text": "And",
+          "start": 6.69,
+          "end": 6.83
+        },
+        {
+          "text": "so",
+          "start": 6.83,
+          "end": 7.01
+        },
+        {
+          "text": "would",
+          "start": 7.01,
+          "end": 7.17
+        },
+        {
+          "text": "do",
+          "start": 7.17,
+          "end": 7.35
+        },
+        {
+          "text": "were",
+          "start": 7.35,
+          "end": 7.51
+        },
+        {
+          "text": "he",
+          "start": 7.51,
+          "end": 7.67
+        },
+        {
+          "text": "more",
+          "start": 7.67,
+          "end": 7.85
+        },
+        {
+          "text": "angry",
+          "start": 7.85,
+          "end": 8.19
+        },
+        {
+          "text": "at",
+          "start": 8.19,
+          "end": 8.47
+        },
+        {
+          "text": "it.",
+          "start": 8.47,
+          "end": 8.65
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 24
+      },
+      "match_ratio": 0.96,
+      "rejection_reasons": [],
+      "seconds": 0.3350567240267992
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f3143ed2cc711ac0fb5b41f3186e0c92d15e4a51eb9fcd5e87f18a561e14f911",
+  "selected_reasons": []
+}

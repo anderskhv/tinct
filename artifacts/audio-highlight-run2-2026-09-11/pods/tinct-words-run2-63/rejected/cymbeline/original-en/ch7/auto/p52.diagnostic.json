@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "ce08e8f519cb1975206f3f097189f021a4920177bac092bac4bcb7c0e70c478c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12282908335328102,
+      "alignment_seconds": 0.00024026446044445038,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Imogen. You make amends.",
+        "hotwords": "Imogen, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Imogen, You make amends.",
+          "start": 0.02,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Imogen,",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.86328125
+            },
+            {
+              "text": " You",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.0225830078125
+            },
+            {
+              "text": " make",
+              "start": 1.2,
+              "end": 1.34,
+              "probability": 0.5966796875
+            },
+            {
+              "text": " amends.",
+              "start": 1.34,
+              "end": 1.78,
+              "probability": 0.781494140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "raw": "You",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "make",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "raw": "amends.",
+          "start": 1.34,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Imogen.",
+        "You",
+        "make",
+        "amends."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Imogen,",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "imogen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.2,
+          "end": 1.34,
+          "key": "make",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "amends.",
+          "start": 1.34,
+          "end": 1.78,
+          "key": "amends",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Imogen.",
+          "start": 0.02,
+          "end": 0.76
+        },
+        {
+          "text": "You",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "make",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "amends.",
+          "start": 1.34,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12315577268600464
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "520c749749c27b60fc65cebd76bed084c399e0aba3279f904d8dc2097ea9d847",
+  "selected_reasons": []
+}

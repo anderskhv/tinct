@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "f1cead42b7c5ccb49cc5849c041e0db39a3ad68de2fdfb9598057bd13793f0f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.26161825004965067,
+      "alignment_seconds": 0.00030779698863625526,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agavi, Dionysus we beseech thee, we have sinned.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Agavi,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.6923828125
+            },
+            {
+              "text": " Dionysus",
+              "start": 1.15,
+              "end": 1.61,
+              "probability": 0.9723307291666666
+            },
+            {
+              "text": " we",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " beseech",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.9793294270833334
+            },
+            {
+              "text": " thee,",
+              "start": 2.13,
+              "end": 2.27,
+              "probability": 0.978515625
+            },
+            {
+              "text": " we",
+              "start": 2.57,
+              "end": 2.65,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " have",
+              "start": 2.65,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sinned.",
+              "start": 2.77,
+              "end": 3.41,
+              "probability": 0.990478515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "Dionysus",
+          "start": 1.15,
+          "end": 1.61
+        },
+        {
+          "raw": "we",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "beseech",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "raw": "thee,",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "raw": "we",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "raw": "have",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "raw": "sinned.",
+          "start": 2.77,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Dionysus,",
+        "we",
+        "beseech",
+        "thee!",
+        "We",
+        "have",
+        "sinned!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          8,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "agavi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dionysus",
+          "start": 1.15,
+          "end": 1.61,
+          "key": "dionysus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "beseech",
+          "start": 1.75,
+          "end": 2.13,
+          "key": "beseech",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.13,
+          "end": 2.27,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.57,
+          "end": 2.65,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.65,
+          "end": 2.77,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sinned.",
+          "start": 2.77,
+          "end": 3.41,
+          "key": "sinned",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.575
+        },
+        {
+          "text": "Dionysus,",
+          "start": 1.15,
+          "end": 1.61
+        },
+        {
+          "text": "we",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "beseech",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "text": "thee!",
+          "start": 2.13,
+          "end": 2.27
+        },
+        {
+          "text": "We",
+          "start": 2.57,
+          "end": 2.65
+        },
+        {
+          "text": "have",
+          "start": 2.65,
+          "end": 2.77
+        },
+        {
+          "text": "sinned!",
+          "start": 2.77,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2620412840042263
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "79910077e2416990139ef022ac1cc1361a5be33888021e8145c8b0d2263f0577",
+  "selected_reasons": []
+}

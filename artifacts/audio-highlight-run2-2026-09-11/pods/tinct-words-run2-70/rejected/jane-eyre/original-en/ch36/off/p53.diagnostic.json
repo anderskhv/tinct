@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "56d5dc5b7ff2e38c33279b12f2ff6ddef4e83111cb22ebc4a5f99e2f97edf27c",
+  "attempts": [
+    {
+      "asr_seconds": 0.16490063001401722,
+      "alignment_seconds": 0.00039129890501499176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The next minute, she lay smashed on the pavement.",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " next",
+              "start": 0.48,
+              "end": 0.66,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " minute,",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " she",
+              "start": 1.12,
+              "end": 1.16,
+              "probability": 0.98828125
+            },
+            {
+              "text": " lay",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " smashed",
+              "start": 1.36,
+              "end": 1.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " on",
+              "start": 1.82,
+              "end": 2.0,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pavement.",
+              "start": 2.1,
+              "end": 2.38,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "next",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "raw": "minute,",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "she",
+          "start": 1.12,
+          "end": 1.16
+        },
+        {
+          "raw": "lay",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "smashed",
+          "start": 1.36,
+          "end": 1.82
+        },
+        {
+          "raw": "on",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "pavement.",
+          "start": 2.1,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "next",
+        "minute",
+        "she",
+        "lay",
+        "smashed",
+        "on",
+        "the",
+        "pavement"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "next",
+          "start": 0.48,
+          "end": 0.66,
+          "key": "next",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "minute,",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "minute",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.12,
+          "end": 1.16,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lay",
+          "start": 1.16,
+          "end": 1.36,
+          "key": "lay",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "smashed",
+          "start": 1.36,
+          "end": 1.82,
+          "key": "smashed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.82,
+          "end": 2.0,
+          "key": "on",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.1,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "pavement.",
+          "start": 2.1,
+          "end": 2.38,
+          "key": "pavement",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "next",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "text": "minute",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "she",
+          "start": 1.12,
+          "end": 1.16
+        },
+        {
+          "text": "lay",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "smashed",
+          "start": 1.36,
+          "end": 1.82
+        },
+        {
+          "text": "on",
+          "start": 1.82,
+          "end": 2.0
+        },
+        {
+          "text": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "pavement",
+          "start": 2.1,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16543628182262182
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "19ad25a6184a56d701281688db54a2419152ea1f44c7615bd8b465c21c6cf935",
+  "selected_reasons": []
+}

@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "42127d38817871bf2b26a24d47351817887308cd5f3fb0138ab86da10d7ab7ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.21073195998906158,
+      "alignment_seconds": 0.00035100197419524193,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menas. And thus it may be. Come, sir, will you aboard? I have a health for you.",
+        "hotwords": "Menas, And, Come, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menas, And thus it may be. Come, sir, will you aboard? I have a health for you.",
+          "start": 0.65,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " Menas,",
+              "start": 0.65,
+              "end": 0.93,
+              "probability": 0.45751953125
+            },
+            {
+              "text": " And",
+              "start": 1.15,
+              "end": 1.29,
+              "probability": 0.01235198974609375
+            },
+            {
+              "text": " thus",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " it",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " may",
+              "start": 1.55,
+              "end": 1.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " be.",
+              "start": 1.69,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Come,",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " sir,",
+              "start": 2.75,
+              "end": 2.83,
+              "probability": 0.736328125
+            },
+            {
+              "text": " will",
+              "start": 2.95,
+              "end": 3.01,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " you",
+              "start": 3.01,
+              "end": 3.17,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " aboard?",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.2802734375
+            },
+            {
+              "text": " I",
+              "start": 3.81,
+              "end": 3.91,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " have",
+              "start": 3.91,
+              "end": 4.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 4.05,
+              "end": 4.15,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " health",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " for",
+              "start": 4.31,
+              "end": 4.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you.",
+              "start": 4.53,
+              "end": 4.73,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menas,",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "raw": "And",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "raw": "thus",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "it",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "may",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "raw": "be.",
+          "start": 1.69,
+          "end": 2.03
+        },
+        {
+          "raw": "Come,",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "sir,",
+          "start": 2.75,
+          "end": 2.83
+        },
+        {
+          "raw": "will",
+          "start": 2.95,
+          "end": 3.01
+        },
+        {
+          "raw": "you",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "raw": "aboard?",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": "I",
+          "start": 3.81,
+          "end": 3.91
+        },
+        {
+          "raw": "have",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "raw": "a",
+          "start": 4.05,
+          "end": 4.15
+        },
+        {
+          "raw": "health",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "for",
+          "start": 4.31,
+          "end": 4.53
+        },
+        {
+          "raw": "you.",
+          "start": 4.53,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "Menas.",
+        "And",
+        "thus",
+        "it",
+        "may",
+        "be.",
+        "Come,",
+        "sir,",
+        "will",
+        "you",
+        "aboard?",
+        "I",
+        "have",
+        "a",
+        "health",
+        "for",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menas,",
+          "start": 0.65,
+          "end": 0.93,
+          "key": "menas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.15,
+          "end": 1.29,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "thus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "it",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.55,
+          "end": 1.69,
+          "key": "may",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be.",
+          "start": 1.69,
+          "end": 2.03,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Come,",
+          "start": 2.51,
+          "end": 2.61,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.75,
+          "end": 2.83,
+          "key": "sir",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.95,
+          "end": 3.01,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.01,
+          "end": 3.17,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "aboard?",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "aboard",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.81,
+          "end": 3.91,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.91,
+          "end": 4.05,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.05,
+          "end": 4.15,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "health",
+          "start": 4.15,
+          "end": 4.31,
+          "key": "health",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.31,
+          "end": 4.53,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 4.53,
+          "end": 4.73,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.65,
+          "end": 0.93
+        },
+        {
+          "text": "And",
+          "start": 1.15,
+          "end": 1.29
+        },
+        {
+          "text": "thus",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "it",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "may",
+          "start": 1.55,
+          "end": 1.69
+        },
+        {
+          "text": "be.",
+          "start": 1.69,
+          "end": 2.03
+        },
+        {
+          "text": "Come,",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "sir,",
+          "start": 2.75,
+          "end": 2.83
+        },
+        {
+          "text": "will",
+          "start": 2.95,
+          "end": 3.01
+        },
+        {
+          "text": "you",
+          "start": 3.01,
+          "end": 3.17
+        },
+        {
+          "text": "aboard?",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "I",
+          "start": 3.81,
+          "end": 3.91
+        },
+        {
+          "text": "have",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "text": "a",
+          "start": 4.05,
+          "end": 4.15
+        },
+        {
+          "text": "health",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "for",
+          "start": 4.31,
+          "end": 4.53
+        },
+        {
+          "text": "you.",
+          "start": 4.53,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21122332697268575
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e2e78555aadff2b3ae918f2d0432e161d04f481ac33778372bb7962f8dc47030",
+  "selected_reasons": []
+}

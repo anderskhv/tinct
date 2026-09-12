@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "db7da14623c7e6cc807be9bd61a6e256111bc2278cca4c7aeddf85808156b032",
+  "attempts": [
+    {
+      "asr_seconds": 0.10839354200288653,
+      "alignment_seconds": 0.00013992004096508026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Ha? wherefore?",
+        "hotwords": "Othello, Ha"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Ha. wherefore?",
+          "start": 0.08,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.39171048005421955
+            },
+            {
+              "text": " Ha.",
+              "start": 1.1,
+              "end": 1.16,
+              "probability": 0.041748046875
+            },
+            {
+              "text": " wherefore?",
+              "start": 1.5,
+              "end": 1.84,
+              "probability": 0.3156585693359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Ha.",
+          "start": 1.1,
+          "end": 1.16
+        },
+        {
+          "raw": "wherefore?",
+          "start": 1.5,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Ha?",
+        "wherefore?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ha.",
+          "start": 1.1,
+          "end": 1.16,
+          "key": "ha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wherefore?",
+          "start": 1.5,
+          "end": 1.84,
+          "key": "wherefore",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Ha?",
+          "start": 1.1,
+          "end": 1.16
+        },
+        {
+          "text": "wherefore?",
+          "start": 1.5,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10857990058138967
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1a47749654e631cde35905d7ae1e60d988c08b1cb1fb7ed3f6c1a07ee1b88586",
+  "selected_reasons": []
+}

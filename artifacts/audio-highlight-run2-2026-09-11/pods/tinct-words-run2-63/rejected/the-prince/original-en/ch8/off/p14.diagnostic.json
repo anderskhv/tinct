@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "5c89c0b0e6bc7548b106513480a7d7b3c12361aee5f29b27824181d603ef6d21",
+  "attempts": [
+    {
+      "asr_seconds": 0.17938217148184776,
+      "alignment_seconds": 0.0003360118716955185,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alexander Vy died of fever, 18th August 1503.",
+          "start": 0.08,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " Alexander",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.919921875
+            },
+            {
+              "text": " Vy",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.469970703125
+            },
+            {
+              "text": " died",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " of",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " fever,",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " 18th",
+              "start": 2.34,
+              "end": 2.86,
+              "probability": 0.890380859375
+            },
+            {
+              "text": " August",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " 1503.",
+              "start": 3.08,
+              "end": 4.1,
+              "probability": 0.953857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alexander",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Vy",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "died",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "of",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "fever,",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "18th",
+          "start": 2.34,
+          "end": 2.86
+        },
+        {
+          "raw": "August",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "1503.",
+          "start": 3.08,
+          "end": 4.1
+        }
+      ],
+      "expected_tokens": [
+        "Alexander",
+        "Vi",
+        "died",
+        "of",
+        "fever,",
+        "18th",
+        "August",
+        "1503."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alexander",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "alexander",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Vy",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "vy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "died",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "died",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fever,",
+          "start": 1.56,
+          "end": 1.82,
+          "key": "fever",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "18th",
+          "start": 2.34,
+          "end": 2.86,
+          "key": "18th",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "August",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "august",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "1503.",
+          "start": 3.08,
+          "end": 4.1,
+          "key": "1503",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alexander",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Vi",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "died",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "of",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "fever,",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "18th",
+          "start": 2.34,
+          "end": 2.86
+        },
+        {
+          "text": "August",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "1503.",
+          "start": 3.08,
+          "end": 4.1
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.17983924970030785
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "19ccd2fdf4972b4c9ad208a773147e2680fc6bba11dfd730d8814fd141b20351",
+  "selected_reasons": []
+}

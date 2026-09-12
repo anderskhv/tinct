@@ -1,0 +1,1051 @@
+{
+  "complete": true,
+  "signature": "5ef11f0da1a26493d08fafcf171ac06c8c561e63bcb47dd5e282c43d47c9f9dd",
+  "attempts": [
+    {
+      "asr_seconds": 0.24656651681289077,
+      "alignment_seconds": 0.00031618401408195496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Lookee here,\" said Queequeg, shaking himself, \"go 'way!\"",
+        "hotwords": "Lookee, Queequeg"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lookee here,\" said Queequeg, shaking himself, \"'go away!\"",
+          "start": 0.05,
+          "end": 3.97,
+          "words": [
+            {
+              "text": " Lookee",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.518469492594401
+            },
+            {
+              "text": " here,\"",
+              "start": 0.71,
+              "end": 1.15,
+              "probability": 0.596435546875
+            },
+            {
+              "text": " said",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Queequeg,",
+              "start": 1.37,
+              "end": 1.81,
+              "probability": 0.6587727864583334
+            },
+            {
+              "text": " shaking",
+              "start": 1.89,
+              "end": 2.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " himself,",
+              "start": 2.09,
+              "end": 2.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " \"'go",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.2354450225830078
+            },
+            {
+              "text": " away",
+              "start": 3.11,
+              "end": 3.45,
+              "probability": 0.7646484375
+            },
+            {
+              "text": "!\"",
+              "start": 3.45,
+              "end": 3.97,
+              "probability": 0.0098876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lookee",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "here,\"",
+          "start": 0.71,
+          "end": 1.15
+        },
+        {
+          "raw": "said",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "Queequeg,",
+          "start": 1.37,
+          "end": 1.81
+        },
+        {
+          "raw": "shaking",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "raw": "himself,",
+          "start": 2.09,
+          "end": 2.51
+        },
+        {
+          "raw": "\"'go",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "away",
+          "start": 3.11,
+          "end": 3.45
+        },
+        {
+          "raw": "!\"",
+          "start": 3.45,
+          "end": 3.97
+        }
+      ],
+      "expected_tokens": [
+        "\"Lookee",
+        "here,\"",
+        "said",
+        "Queequeg,",
+        "shaking",
+        "himself,",
+        "\"go",
+        "'way!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lookee",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "lookee",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here,\"",
+          "start": 0.71,
+          "end": 1.15,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queequeg,",
+          "start": 1.37,
+          "end": 1.81,
+          "key": "queequeg",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shaking",
+          "start": 1.89,
+          "end": 2.09,
+          "key": "shaking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "himself,",
+          "start": 2.09,
+          "end": 2.51,
+          "key": "himself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "\"'go",
+          "start": 2.91,
+          "end": 3.11,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "away",
+          "start": 3.11,
+          "end": 3.45,
+          "key": "away",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 3.45,
+          "end": 3.97,
+          "key": "",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Lookee",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "here,\"",
+          "start": 0.71,
+          "end": 1.15
+        },
+        {
+          "text": "said",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "Queequeg,",
+          "start": 1.37,
+          "end": 1.81
+        },
+        {
+          "text": "shaking",
+          "start": 1.89,
+          "end": 2.09
+        },
+        {
+          "text": "himself,",
+          "start": 2.09,
+          "end": 2.51
+        },
+        {
+          "text": "\"go",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "'way!\"",
+          "start": 3.11,
+          "end": 3.54
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.24702825909480453
+    },
+    {
+      "asr_seconds": 0.18427161499857903,
+      "alignment_seconds": 0.0005034306086599827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Lookee, Queequeg"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Looky here, said Queequeg shaking himself. Go away.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " Looky",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.39837646484375
+            },
+            {
+              "text": " here,",
+              "start": 0.69,
+              "end": 1.03,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " said",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Queequeg",
+              "start": 1.37,
+              "end": 1.79,
+              "probability": 0.6381022135416666
+            },
+            {
+              "text": " shaking",
+              "start": 1.79,
+              "end": 2.09,
+              "probability": 0.57275390625
+            },
+            {
+              "text": " himself.",
+              "start": 2.09,
+              "end": 2.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Go",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " away.",
+              "start": 3.13,
+              "end": 3.45,
+              "probability": 0.736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Looky",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "here,",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "raw": "said",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "Queequeg",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "raw": "shaking",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "raw": "himself.",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "raw": "Go",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "away.",
+          "start": 3.13,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "\"Lookee",
+        "here,\"",
+        "said",
+        "Queequeg,",
+        "shaking",
+        "himself,",
+        "\"go",
+        "'way!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Looky",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "looky",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 0.69,
+          "end": 1.03,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queequeg",
+          "start": 1.37,
+          "end": 1.79,
+          "key": "queequeg",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shaking",
+          "start": 1.79,
+          "end": 2.09,
+          "key": "shaking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 2.09,
+          "end": 2.55,
+          "key": "himself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 3.13,
+          "end": 3.45,
+          "key": "away",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Lookee",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "here,\"",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "text": "said",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "Queequeg,",
+          "start": 1.37,
+          "end": 1.79
+        },
+        {
+          "text": "shaking",
+          "start": 1.79,
+          "end": 2.09
+        },
+        {
+          "text": "himself,",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "text": "\"go",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "'way!\"",
+          "start": 3.13,
+          "end": 3.29
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18495075590908527
+    },
+    {
+      "asr_seconds": 0.19626059383153915,
+      "alignment_seconds": 0.0005182339809834957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Looky here, said Queekwag, shaking himself. Go away.",
+          "start": 0.05,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " Looky",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.39837646484375
+            },
+            {
+              "text": " here,",
+              "start": 0.69,
+              "end": 1.03,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " said",
+              "start": 1.27,
+              "end": 1.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Queekwag,",
+              "start": 1.37,
+              "end": 1.83,
+              "probability": 0.65533447265625
+            },
+            {
+              "text": " shaking",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " himself.",
+              "start": 2.09,
+              "end": 2.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Go",
+              "start": 3.03,
+              "end": 3.13,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " away.",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Looky",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "here,",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "raw": "said",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "raw": "Queekwag,",
+          "start": 1.37,
+          "end": 1.83
+        },
+        {
+          "raw": "shaking",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "himself.",
+          "start": 2.09,
+          "end": 2.53
+        },
+        {
+          "raw": "Go",
+          "start": 3.03,
+          "end": 3.13
+        },
+        {
+          "raw": "away.",
+          "start": 3.13,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "\"Lookee",
+        "here,\"",
+        "said",
+        "Queequeg,",
+        "shaking",
+        "himself,",
+        "\"go",
+        "'way!\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Looky",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "looky",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 0.69,
+          "end": 1.03,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.27,
+          "end": 1.37,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Queekwag,",
+          "start": 1.37,
+          "end": 1.83,
+          "key": "queekwag",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shaking",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "shaking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 2.09,
+          "end": 2.53,
+          "key": "himself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 3.03,
+          "end": 3.13,
+          "key": "go",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "away",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Lookee",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "here,\"",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "text": "said",
+          "start": 1.27,
+          "end": 1.37
+        },
+        {
+          "text": "Queequeg,",
+          "start": 1.37,
+          "end": 1.62
+        },
+        {
+          "text": "shaking",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "himself,",
+          "start": 2.09,
+          "end": 2.53
+        },
+        {
+          "text": "\"go",
+          "start": 3.03,
+          "end": 3.13
+        },
+        {
+          "text": "'way!\"",
+          "start": 3.13,
+          "end": 3.28
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19694421719759703
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a93da023f18640c615a47ba41d895a0fe73ee737740711bdc267ef579c6b87e8",
+  "selected_reasons": []
+}

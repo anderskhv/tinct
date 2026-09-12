@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "dd2e5ea42390e7221fa0d356d7a67c0d6e9c89570721278032affb3f67de3fb8",
+  "attempts": [
+    {
+      "asr_seconds": 0.13743098080158234,
+      "alignment_seconds": 0.0003644954413175583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. Who wouldst thou serve?",
+        "hotwords": "Lear, Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, Who wouldst thou serve?",
+          "start": 0.02,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.677734375
+            },
+            {
+              "text": " Who",
+              "start": 1.0,
+              "end": 1.1,
+              "probability": 0.07159423828125
+            },
+            {
+              "text": " wouldst",
+              "start": 1.1,
+              "end": 1.3,
+              "probability": 0.56573486328125
+            },
+            {
+              "text": " thou",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " serve?",
+              "start": 1.42,
+              "end": 1.76,
+              "probability": 0.94580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Who",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "raw": "thou",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "serve?",
+          "start": 1.42,
+          "end": 1.76
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Who",
+        "wouldst",
+        "thou",
+        "serve?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 1.0,
+          "end": 1.1,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wouldst",
+          "start": 1.1,
+          "end": 1.3,
+          "key": "wouldst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "serve?",
+          "start": 1.42,
+          "end": 1.76,
+          "key": "serve",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Who",
+          "start": 1.0,
+          "end": 1.1
+        },
+        {
+          "text": "wouldst",
+          "start": 1.1,
+          "end": 1.3
+        },
+        {
+          "text": "thou",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "serve?",
+          "start": 1.42,
+          "end": 1.76
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13792314380407333
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e827c43908263806183f52e5d0a143a154d0e2cc00727d6bce3c41139a85674",
+  "selected_reasons": []
+}

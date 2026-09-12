@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "c0de952439f36c0e472c302eb4010e109e112cbdb0bbc931d4423840a1e3e653",
+  "attempts": [
+    {
+      "asr_seconds": 0.1065765917301178,
+      "alignment_seconds": 0.0001561976969242096,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Oswald. Good dawning to thee, friend: art of this house?",
+        "hotwords": "Oswald, Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oswald, Good dawning to thee, friend, art of this house?",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Oswald,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " Good",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.01543426513671875
+            },
+            {
+              "text": " dawning",
+              "start": 1.37,
+              "end": 1.71,
+              "probability": 0.720947265625
+            },
+            {
+              "text": " to",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thee,",
+              "start": 1.85,
+              "end": 2.05,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " friend,",
+              "start": 2.11,
+              "end": 2.41,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " art",
+              "start": 2.89,
+              "end": 2.95,
+              "probability": 0.68701171875
+            },
+            {
+              "text": " of",
+              "start": 2.95,
+              "end": 3.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 3.09,
+              "end": 3.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " house?",
+              "start": 3.23,
+              "end": 3.53,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Good",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "dawning",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "raw": "to",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "thee,",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "raw": "friend,",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "raw": "art",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "raw": "of",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "raw": "this",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "raw": "house?",
+          "start": 3.23,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Oswald.",
+        "Good",
+        "dawning",
+        "to",
+        "thee,",
+        "friend:",
+        "art",
+        "of",
+        "this",
+        "house?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oswald,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "oswald",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Good",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "good",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "dawning",
+          "start": 1.37,
+          "end": 1.71,
+          "key": "dawning",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 1.85,
+          "end": 2.05,
+          "key": "thee",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 2.11,
+          "end": 2.41,
+          "key": "friend",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.89,
+          "end": 2.95,
+          "key": "art",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.95,
+          "end": 3.09,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.09,
+          "end": 3.23,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "house?",
+          "start": 3.23,
+          "end": 3.53,
+          "key": "house",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Oswald.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Good",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "dawning",
+          "start": 1.37,
+          "end": 1.71
+        },
+        {
+          "text": "to",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "thee,",
+          "start": 1.85,
+          "end": 2.05
+        },
+        {
+          "text": "friend:",
+          "start": 2.11,
+          "end": 2.41
+        },
+        {
+          "text": "art",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "text": "of",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "text": "this",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "text": "house?",
+          "start": 3.23,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10679028555750847
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "79d6049a9f7567b8a6f947f3ef35e44e03c78d00e1140197a12b6cccaf5ab12c",
+  "selected_reasons": []
+}

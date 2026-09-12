@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "ccd8dad735a0e7b07de9e26d13db43105b2478f05d139946dfe062c0a3f1f557",
+  "attempts": [
+    {
+      "asr_seconds": 0.28163698595017195,
+      "alignment_seconds": 0.000355403870344162,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Yes, Captain; but with this acknowledgment, That God fought for us.",
+        "hotwords": "King, Henry, Yes, Captain, That, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry, Yes, Captain, But with this acknowledgment, That God fought for us.",
+          "start": 0.05,
+          "end": 5.09,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " Henry,",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Yes,",
+              "start": 1.47,
+              "end": 1.79,
+              "probability": 0.029327392578125
+            },
+            {
+              "text": " Captain,",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.58349609375
+            },
+            {
+              "text": " But",
+              "start": 2.73,
+              "end": 2.81,
+              "probability": 0.0283660888671875
+            },
+            {
+              "text": " with",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " this",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.9765625
+            },
+            {
+              "text": " acknowledgment,",
+              "start": 3.15,
+              "end": 3.65,
+              "probability": 0.1536865234375
+            },
+            {
+              "text": " That",
+              "start": 3.87,
+              "end": 4.11,
+              "probability": 0.6513671875
+            },
+            {
+              "text": " God",
+              "start": 4.11,
+              "end": 4.35,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " fought",
+              "start": 4.35,
+              "end": 4.61,
+              "probability": 0.990234375
+            },
+            {
+              "text": " for",
+              "start": 4.61,
+              "end": 4.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us.",
+              "start": 4.83,
+              "end": 5.09,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "raw": "Captain,",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "But",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "raw": "with",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "this",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "acknowledgment,",
+          "start": 3.15,
+          "end": 3.65
+        },
+        {
+          "raw": "That",
+          "start": 3.87,
+          "end": 4.11
+        },
+        {
+          "raw": "God",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "raw": "fought",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "raw": "for",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "raw": "us.",
+          "start": 4.83,
+          "end": 5.09
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Yes,",
+        "Captain;",
+        "but",
+        "with",
+        "this",
+        "acknowledgment,",
+        "That",
+        "God",
+        "fought",
+        "for",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.47,
+          "end": 1.79,
+          "key": "yes",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Captain,",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "captain",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 2.73,
+          "end": 2.81,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "with",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "acknowledgment,",
+          "start": 3.15,
+          "end": 3.65,
+          "key": "acknowledgment",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.87,
+          "end": 4.11,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 4.11,
+          "end": 4.35,
+          "key": "god",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fought",
+          "start": 4.35,
+          "end": 4.61,
+          "key": "fought",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.61,
+          "end": 4.83,
+          "key": "for",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "us.",
+          "start": 4.83,
+          "end": 5.09,
+          "key": "us",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Henry.",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "Yes,",
+          "start": 1.47,
+          "end": 1.79
+        },
+        {
+          "text": "Captain;",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "but",
+          "start": 2.73,
+          "end": 2.81
+        },
+        {
+          "text": "with",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "this",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "acknowledgment,",
+          "start": 3.15,
+          "end": 3.65
+        },
+        {
+          "text": "That",
+          "start": 3.87,
+          "end": 4.11
+        },
+        {
+          "text": "God",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "text": "fought",
+          "start": 4.35,
+          "end": 4.61
+        },
+        {
+          "text": "for",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "text": "us.",
+          "start": 4.83,
+          "end": 5.09
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28212182805873454
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "981ca06685f4ee0ac460819b19b8dd18f71534a99660e35252e7b8f4e6aebcc7",
+  "selected_reasons": []
+}

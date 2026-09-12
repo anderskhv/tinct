@@ -1,0 +1,604 @@
+{
+  "complete": true,
+  "signature": "d03fbfada6409fa614f08fad506c232b5e58ae18d1d4360d5f8aaa693087d691",
+  "attempts": [
+    {
+      "asr_seconds": 0.2993356820079498,
+      "alignment_seconds": 0.0004962790117133409,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casca, he doth, for he did bid Antonius send word to you he would be there tomorrow.",
+          "start": 0.05,
+          "end": 5.43,
+          "words": [
+            {
+              "text": " Casca,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.712158203125
+            },
+            {
+              "text": " he",
+              "start": 1.25,
+              "end": 1.43,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " doth,",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " for",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " he",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " did",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bid",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Antonius",
+              "start": 2.85,
+              "end": 3.53,
+              "probability": 0.771484375
+            },
+            {
+              "text": " send",
+              "start": 3.53,
+              "end": 3.85,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " word",
+              "start": 3.85,
+              "end": 4.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.09,
+              "end": 4.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 4.31,
+              "end": 4.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 4.43,
+              "end": 4.61,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " would",
+              "start": 4.61,
+              "end": 4.75,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 4.75,
+              "end": 4.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " there",
+              "start": 4.89,
+              "end": 5.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " tomorrow.",
+              "start": 5.09,
+              "end": 5.43,
+              "probability": 0.337158203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "raw": "doth,",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "for",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "he",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "did",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "bid",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "raw": "Antonius",
+          "start": 2.85,
+          "end": 3.53
+        },
+        {
+          "raw": "send",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "raw": "word",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "raw": "to",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "raw": "you",
+          "start": 4.31,
+          "end": 4.43
+        },
+        {
+          "raw": "he",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "raw": "would",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "raw": "be",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "raw": "there",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 5.09,
+          "end": 5.43
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "He",
+        "doth,",
+        "for",
+        "he",
+        "did",
+        "bid",
+        "Antonius",
+        "Send",
+        "word",
+        "to",
+        "you",
+        "he",
+        "would",
+        "be",
+        "there",
+        "tomorrow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "casca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.25,
+          "end": 1.43,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "doth,",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "doth",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 2.45,
+          "end": 2.61,
+          "key": "did",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 2.61,
+          "end": 2.85,
+          "key": "bid",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Antonius",
+          "start": 2.85,
+          "end": 3.53,
+          "key": "antonius",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "send",
+          "start": 3.53,
+          "end": 3.85,
+          "key": "send",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "word",
+          "start": 3.85,
+          "end": 4.09,
+          "key": "word",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.09,
+          "end": 4.31,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.31,
+          "end": 4.43,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.43,
+          "end": 4.61,
+          "key": "he",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.61,
+          "end": 4.75,
+          "key": "would",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.75,
+          "end": 4.89,
+          "key": "be",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.89,
+          "end": 5.09,
+          "key": "there",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tomorrow.",
+          "start": 5.09,
+          "end": 5.43,
+          "key": "tomorrow",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "He",
+          "start": 1.25,
+          "end": 1.43
+        },
+        {
+          "text": "doth,",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "for",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "he",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "did",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "bid",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "Antonius",
+          "start": 2.85,
+          "end": 3.53
+        },
+        {
+          "text": "Send",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "text": "word",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "text": "to",
+          "start": 4.09,
+          "end": 4.31
+        },
+        {
+          "text": "you",
+          "start": 4.31,
+          "end": 4.43
+        },
+        {
+          "text": "he",
+          "start": 4.43,
+          "end": 4.61
+        },
+        {
+          "text": "would",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "text": "be",
+          "start": 4.75,
+          "end": 4.89
+        },
+        {
+          "text": "there",
+          "start": 4.89,
+          "end": 5.09
+        },
+        {
+          "text": "tomorrow.",
+          "start": 5.09,
+          "end": 5.43
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3000413679983467
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7aba1e81f504845351ab71caa2f21b5b565a981a6d1c08507cf3a449fdb403e8",
+  "selected_reasons": []
+}

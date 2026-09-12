@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "8f9511b566d78863b566783b694db43250e1f797e5142979af6f2c114c2a847b",
+  "attempts": [
+    {
+      "asr_seconds": 0.10837104899110273,
+      "alignment_seconds": 0.00025175599148496985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Know that book.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Know",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " that",
+              "start": 0.69,
+              "end": 1.09,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " book.",
+              "start": 1.09,
+              "end": 1.35,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Know",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "that",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "raw": "book.",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "—No:",
+        "that",
+        "book."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Know",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "know",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.69,
+          "end": 1.09,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 1.09,
+          "end": 1.35,
+          "key": "book",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—No:",
+          "start": 0.0,
+          "end": 0.345
+        },
+        {
+          "text": "that",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "text": "book.",
+          "start": 1.09,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10869330598507077
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ddbcb566d18a2e8e0a8688e6ee1965dc29257b6ab3c93cc78822cf9b50a7e0c",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

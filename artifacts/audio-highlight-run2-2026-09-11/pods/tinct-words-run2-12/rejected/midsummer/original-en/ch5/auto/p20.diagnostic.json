@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "2f2fbaac2e43c2688db18e218b0a670d2397ee63371f390ee1422bf26a6f270c",
+  "attempts": [
+    {
+      "asr_seconds": 0.22239879984408617,
+      "alignment_seconds": 0.0003717038780450821,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Quince. Yes, it doth shine that night.",
+        "hotwords": "Quince, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quince, Yes, it doth shine that night.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Quince,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.768798828125
+            },
+            {
+              "text": " Yes,",
+              "start": 1.07,
+              "end": 1.31,
+              "probability": 0.034210205078125
+            },
+            {
+              "text": " it",
+              "start": 1.49,
+              "end": 1.49,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " doth",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " shine",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " night.",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quince,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.07,
+          "end": 1.31
+        },
+        {
+          "raw": "it",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "raw": "doth",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "shine",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "that",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "night.",
+          "start": 2.07,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Quince.",
+        "Yes,",
+        "it",
+        "doth",
+        "shine",
+        "that",
+        "night."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quince,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "quince",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.07,
+          "end": 1.31,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.49,
+          "end": 1.49,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "doth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "shine",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "shine",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "night.",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "night",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Quince.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Yes,",
+          "start": 1.07,
+          "end": 1.31
+        },
+        {
+          "text": "it",
+          "start": 1.49,
+          "end": 1.49
+        },
+        {
+          "text": "doth",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "shine",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "that",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "night.",
+          "start": 2.07,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2229137998074293
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3a916c7dda058b019488995ae63c360a9d62a2e0218fe56b3b1a2b83424fb75a",
+  "selected_reasons": []
+}

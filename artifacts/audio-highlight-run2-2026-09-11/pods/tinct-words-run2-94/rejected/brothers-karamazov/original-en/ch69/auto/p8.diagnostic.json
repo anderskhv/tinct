@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "46b46fadc9fc7a28a0009720cc420a19ab11d665827ff2a6dd28ca50222db504",
+  "attempts": [
+    {
+      "asr_seconds": 0.29021659679710865,
+      "alignment_seconds": 0.0005805082619190216,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Syracuse is in Sicily,\" Kolya jerked out suddenly in explanation. The doctor looked at him.",
+        "hotwords": "Syracuse, Sicily, Kolya, The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Syracuse is in Sicily. Kolya jerked out suddenly in explanation. The doctor looked at him.",
+          "start": 0.11,
+          "end": 6.25,
+          "words": [
+            {
+              "text": " Syracuse",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.0606689453125
+            },
+            {
+              "text": " is",
+              "start": 0.85,
+              "end": 1.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " in",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Sicily.",
+              "start": 1.43,
+              "end": 1.83,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Kolya",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.3737211227416992
+            },
+            {
+              "text": " jerked",
+              "start": 2.73,
+              "end": 2.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " out",
+              "start": 2.97,
+              "end": 3.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " suddenly",
+              "start": 3.13,
+              "end": 3.49,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 3.49,
+              "end": 3.81,
+              "probability": 0.74609375
+            },
+            {
+              "text": " explanation.",
+              "start": 3.81,
+              "end": 4.35,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " The",
+              "start": 5.15,
+              "end": 5.25,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " doctor",
+              "start": 5.25,
+              "end": 5.53,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " looked",
+              "start": 5.53,
+              "end": 5.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " at",
+              "start": 5.81,
+              "end": 5.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " him.",
+              "start": 5.99,
+              "end": 6.25,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Syracuse",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "is",
+          "start": 0.85,
+          "end": 1.21
+        },
+        {
+          "raw": "in",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "Sicily.",
+          "start": 1.43,
+          "end": 1.83
+        },
+        {
+          "raw": "Kolya",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "raw": "jerked",
+          "start": 2.73,
+          "end": 2.97
+        },
+        {
+          "raw": "out",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.13,
+          "end": 3.49
+        },
+        {
+          "raw": "in",
+          "start": 3.49,
+          "end": 3.81
+        },
+        {
+          "raw": "explanation.",
+          "start": 3.81,
+          "end": 4.35
+        },
+        {
+          "raw": "The",
+          "start": 5.15,
+          "end": 5.25
+        },
+        {
+          "raw": "doctor",
+          "start": 5.25,
+          "end": 5.53
+        },
+        {
+          "raw": "looked",
+          "start": 5.53,
+          "end": 5.81
+        },
+        {
+          "raw": "at",
+          "start": 5.81,
+          "end": 5.99
+        },
+        {
+          "raw": "him.",
+          "start": 5.99,
+          "end": 6.25
+        }
+      ],
+      "expected_tokens": [
+        "\"Syracuse",
+        "is",
+        "in",
+        "Sicily,\"",
+        "Kolya",
+        "jerked",
+        "out",
+        "suddenly",
+        "in",
+        "explanation.",
+        "The",
+        "doctor",
+        "looked",
+        "at",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Syracuse",
+          "start": 0.11,
+          "end": 0.85,
+          "key": "syracuse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.85,
+          "end": 1.21,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sicily.",
+          "start": 1.43,
+          "end": 1.83,
+          "key": "sicily",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Kolya",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "kolya",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "jerked",
+          "start": 2.73,
+          "end": 2.97,
+          "key": "jerked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.97,
+          "end": 3.13,
+          "key": "out",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 3.13,
+          "end": 3.49,
+          "key": "suddenly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.49,
+          "end": 3.81,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "explanation.",
+          "start": 3.81,
+          "end": 4.35,
+          "key": "explanation",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 5.15,
+          "end": 5.25,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "doctor",
+          "start": 5.25,
+          "end": 5.53,
+          "key": "doctor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 5.53,
+          "end": 5.81,
+          "key": "looked",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.81,
+          "end": 5.99,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 5.99,
+          "end": 6.25,
+          "key": "him",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Syracuse",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "is",
+          "start": 0.85,
+          "end": 1.21
+        },
+        {
+          "text": "in",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "Sicily,\"",
+          "start": 1.43,
+          "end": 1.83
+        },
+        {
+          "text": "Kolya",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "jerked",
+          "start": 2.73,
+          "end": 2.97
+        },
+        {
+          "text": "out",
+          "start": 2.97,
+          "end": 3.13
+        },
+        {
+          "text": "suddenly",
+          "start": 3.13,
+          "end": 3.49
+        },
+        {
+          "text": "in",
+          "start": 3.49,
+          "end": 3.81
+        },
+        {
+          "text": "explanation.",
+          "start": 3.81,
+          "end": 4.35
+        },
+        {
+          "text": "The",
+          "start": 5.15,
+          "end": 5.25
+        },
+        {
+          "text": "doctor",
+          "start": 5.25,
+          "end": 5.53
+        },
+        {
+          "text": "looked",
+          "start": 5.53,
+          "end": 5.81
+        },
+        {
+          "text": "at",
+          "start": 5.81,
+          "end": 5.99
+        },
+        {
+          "text": "him.",
+          "start": 5.99,
+          "end": 6.25
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2910336088389158
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c7da0bb37c629e13c407418ade9c033223e234142f9c6c6c9fe8496f8be66c2d",
+  "selected_reasons": []
+}

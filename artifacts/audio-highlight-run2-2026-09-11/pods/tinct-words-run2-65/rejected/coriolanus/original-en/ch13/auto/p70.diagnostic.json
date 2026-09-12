@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8f0bc9de2cfe33c0a27f52a8f2343aa6ee19b03b3d3d55dbb410b9dea4705d68",
+  "attempts": [
+    {
+      "asr_seconds": 0.11400221986696124,
+      "alignment_seconds": 0.00019758613780140877,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. Fare you well.",
+        "hotwords": "Sicinius, Fare"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, Fare you well.",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.5027516682942709
+            },
+            {
+              "text": " Fare",
+              "start": 1.48,
+              "end": 1.5,
+              "probability": 0.007373809814453125
+            },
+            {
+              "text": " you",
+              "start": 1.5,
+              "end": 1.68,
+              "probability": 0.71923828125
+            },
+            {
+              "text": " well.",
+              "start": 1.68,
+              "end": 1.92,
+              "probability": 0.94970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Fare",
+          "start": 1.48,
+          "end": 1.5
+        },
+        {
+          "raw": "you",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "raw": "well.",
+          "start": 1.68,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Fare",
+        "you",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fare",
+          "start": 1.48,
+          "end": 1.5,
+          "key": "fare",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.5,
+          "end": 1.68,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.68,
+          "end": 1.92,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "Fare",
+          "start": 1.48,
+          "end": 1.5
+        },
+        {
+          "text": "you",
+          "start": 1.5,
+          "end": 1.68
+        },
+        {
+          "text": "well.",
+          "start": 1.68,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11426597787067294
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a7f6e5db334f18a374656f170b28a99f2dbad7e7baaacc2b1323cf7f5c6bdefe",
+  "selected_reasons": []
+}

@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "39105cacbf04abe44479b4c950e777c22ede49904af06cac3c41be67d30b9979",
+  "attempts": [
+    {
+      "asr_seconds": 0.15519594599027187,
+      "alignment_seconds": 0.000348360015777871,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your fond daughter Millie",
+          "start": 0.02,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " fond",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " daughter",
+              "start": 0.82,
+              "end": 1.12,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Millie",
+              "start": 1.12,
+              "end": 1.52,
+              "probability": 0.767822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "fond",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "daughter",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "raw": "Millie",
+          "start": 1.12,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "Your",
+        "fond",
+        "daughter",
+        "Milly"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fond",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "fond",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 0.82,
+          "end": 1.12,
+          "key": "daughter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Millie",
+          "start": 1.12,
+          "end": 1.52,
+          "key": "millie",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "fond",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "daughter",
+          "start": 0.82,
+          "end": 1.12
+        },
+        {
+          "text": "Milly",
+          "start": 1.12,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15566930899512954
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ff5bd2f41233a76becc87184b5f3cf7760caa5a163a4c066d0ff61dc1973a16",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "f767d4da856b9db92890c8c73e7b8f71462d5330517d00f2b1d4c8c151960c6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.20800207927823067,
+      "alignment_seconds": 0.00038925930857658386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messenger. My lord, he doth deny to come.",
+        "hotwords": "Messenger, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messenger, My Lord, he doth deny to come.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Messenger,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " My",
+              "start": 1.29,
+              "end": 1.43,
+              "probability": 0.06463623046875
+            },
+            {
+              "text": " Lord,",
+              "start": 1.43,
+              "end": 1.69,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " he",
+              "start": 1.93,
+              "end": 1.99,
+              "probability": 0.580078125
+            },
+            {
+              "text": " doth",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " deny",
+              "start": 2.19,
+              "end": 2.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 2.45,
+              "end": 2.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " come.",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "My",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "raw": "Lord,",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "raw": "he",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "raw": "doth",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "deny",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "raw": "come.",
+          "start": 2.61,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "Messenger.",
+        "My",
+        "lord,",
+        "he",
+        "doth",
+        "deny",
+        "to",
+        "come."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messenger,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "messenger",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.29,
+          "end": 1.43,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord,",
+          "start": 1.43,
+          "end": 1.69,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.93,
+          "end": 1.99,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "doth",
+          "start": 1.99,
+          "end": 2.19,
+          "key": "doth",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "deny",
+          "start": 2.19,
+          "end": 2.45,
+          "key": "deny",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.61,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come.",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messenger.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "My",
+          "start": 1.29,
+          "end": 1.43
+        },
+        {
+          "text": "lord,",
+          "start": 1.43,
+          "end": 1.69
+        },
+        {
+          "text": "he",
+          "start": 1.93,
+          "end": 1.99
+        },
+        {
+          "text": "doth",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "deny",
+          "start": 2.19,
+          "end": 2.45
+        },
+        {
+          "text": "to",
+          "start": 2.45,
+          "end": 2.61
+        },
+        {
+          "text": "come.",
+          "start": 2.61,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20853571221232414
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2bc7a61acf35d3f2dd6e7aed79d5751e605c10be0e02218756435f4aa5fa92b",
+  "selected_reasons": []
+}

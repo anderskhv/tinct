@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "6d9578d3403dff3986cbd592594b235c59445b10a9f5df60ff28259f2ed6a511",
+  "attempts": [
+    {
+      "asr_seconds": 0.08659569500014186,
+      "alignment_seconds": 0.0001607610029168427,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Interview with the editor.",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Interview",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.638671875
+            },
+            {
+              "text": " with",
+              "start": 0.72,
+              "end": 1.1,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " editor.",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.6982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Interview",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "with",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "editor.",
+          "start": 1.26,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "Interview",
+        "With",
+        "The",
+        "Editor"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Interview",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "interview",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.72,
+          "end": 1.1,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "editor.",
+          "start": 1.26,
+          "end": 1.5,
+          "key": "editor",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Interview",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "With",
+          "start": 0.72,
+          "end": 1.1
+        },
+        {
+          "text": "The",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "Editor",
+          "start": 1.26,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08680921600898728
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "128d3f3629f824fb5bcba7ea6858d28f2842d635a91fafe33144d96e105d9330",
+  "selected_reasons": []
+}

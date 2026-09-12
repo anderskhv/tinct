@@ -1,0 +1,636 @@
+{
+  "complete": true,
+  "signature": "a5757440c071bd318da05bf494f4944813f5e4bf2093750a048cda8322bf6fcb",
+  "attempts": [
+    {
+      "asr_seconds": 0.37707992270588875,
+      "alignment_seconds": 0.0006739282980561256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They have been playing but they've left off. They've been drinking tea. The official gentleman asked for liqueurs",
+          "start": 0.05,
+          "end": 6.45,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " have",
+              "start": 0.55,
+              "end": 0.65,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " been",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " playing",
+              "start": 0.81,
+              "end": 1.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " but",
+              "start": 1.25,
+              "end": 1.63,
+              "probability": 0.3583984375
+            },
+            {
+              "text": " they've",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " left",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " off.",
+              "start": 2.09,
+              "end": 2.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " They've",
+              "start": 2.97,
+              "end": 3.21,
+              "probability": 0.979248046875
+            },
+            {
+              "text": " been",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " drinking",
+              "start": 3.35,
+              "end": 3.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " tea.",
+              "start": 3.63,
+              "end": 4.05,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " The",
+              "start": 4.39,
+              "end": 4.47,
+              "probability": 0.9765625
+            },
+            {
+              "text": " official",
+              "start": 4.47,
+              "end": 4.81,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " gentleman",
+              "start": 4.81,
+              "end": 5.27,
+              "probability": 0.71435546875
+            },
+            {
+              "text": " asked",
+              "start": 5.27,
+              "end": 5.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 5.67,
+              "end": 5.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " liqueurs",
+              "start": 5.91,
+              "end": 6.45,
+              "probability": 0.7403157552083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "have",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "raw": "been",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "playing",
+          "start": 0.81,
+          "end": 1.25
+        },
+        {
+          "raw": "but",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "raw": "they've",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "raw": "left",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "raw": "off.",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "raw": "They've",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "raw": "been",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "drinking",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "raw": "tea.",
+          "start": 3.63,
+          "end": 4.05
+        },
+        {
+          "raw": "The",
+          "start": 4.39,
+          "end": 4.47
+        },
+        {
+          "raw": "official",
+          "start": 4.47,
+          "end": 4.81
+        },
+        {
+          "raw": "gentleman",
+          "start": 4.81,
+          "end": 5.27
+        },
+        {
+          "raw": "asked",
+          "start": 5.27,
+          "end": 5.67
+        },
+        {
+          "raw": "for",
+          "start": 5.67,
+          "end": 5.91
+        },
+        {
+          "raw": "liqueurs",
+          "start": 5.91,
+          "end": 6.45
+        }
+      ],
+      "expected_tokens": [
+        "\"They",
+        "have",
+        "been",
+        "playing,",
+        "but",
+        "they've",
+        "left",
+        "off.",
+        "They've",
+        "been",
+        "drinking",
+        "tea,",
+        "the",
+        "official",
+        "gentleman",
+        "asked",
+        "for",
+        "liqueurs.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.55,
+          "end": 0.65,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 0.65,
+          "end": 0.81,
+          "key": "been",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "playing",
+          "start": 0.81,
+          "end": 1.25,
+          "key": "playing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.25,
+          "end": 1.63,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "they've",
+          "start": 1.63,
+          "end": 1.91,
+          "key": "theyve",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "left",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "left",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 2.09,
+          "end": 2.55,
+          "key": "off",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "They've",
+          "start": 2.97,
+          "end": 3.21,
+          "key": "theyve",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 3.21,
+          "end": 3.35,
+          "key": "been",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "drinking",
+          "start": 3.35,
+          "end": 3.63,
+          "key": "drinking",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "tea.",
+          "start": 3.63,
+          "end": 4.05,
+          "key": "tea",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.39,
+          "end": 4.47,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "official",
+          "start": 4.47,
+          "end": 4.81,
+          "key": "official",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "gentleman",
+          "start": 4.81,
+          "end": 5.27,
+          "key": "gentleman",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 5.27,
+          "end": 5.67,
+          "key": "asked",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.67,
+          "end": 5.91,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "liqueurs",
+          "start": 5.91,
+          "end": 6.45,
+          "key": "liqueurs",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"They",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "have",
+          "start": 0.55,
+          "end": 0.65
+        },
+        {
+          "text": "been",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "playing,",
+          "start": 0.81,
+          "end": 1.25
+        },
+        {
+          "text": "but",
+          "start": 1.25,
+          "end": 1.63
+        },
+        {
+          "text": "they've",
+          "start": 1.63,
+          "end": 1.91
+        },
+        {
+          "text": "left",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "text": "off.",
+          "start": 2.09,
+          "end": 2.55
+        },
+        {
+          "text": "They've",
+          "start": 2.97,
+          "end": 3.21
+        },
+        {
+          "text": "been",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "text": "drinking",
+          "start": 3.35,
+          "end": 3.63
+        },
+        {
+          "text": "tea,",
+          "start": 3.63,
+          "end": 4.05
+        },
+        {
+          "text": "the",
+          "start": 4.39,
+          "end": 4.47
+        },
+        {
+          "text": "official",
+          "start": 4.47,
+          "end": 4.81
+        },
+        {
+          "text": "gentleman",
+          "start": 4.81,
+          "end": 5.27
+        },
+        {
+          "text": "asked",
+          "start": 5.27,
+          "end": 5.67
+        },
+        {
+          "text": "for",
+          "start": 5.67,
+          "end": 5.91
+        },
+        {
+          "text": "liqueurs.\"",
+          "start": 5.91,
+          "end": 6.45
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37803488969802856
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d670e46056c8e6bef27c5db8d59f26e9bb720cbcb6ead610f89fb048f1c4a66b",
+  "selected_reasons": []
+}

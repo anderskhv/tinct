@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "de01e63274f857bb8de0a7ea0fd1a6801e3a83f95844e03ecf1849c3769b7fb2",
+  "attempts": [
+    {
+      "asr_seconds": 0.19002944184467196,
+      "alignment_seconds": 0.0004884027875959873,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The finest man, says he, sniveling the finest purest character.",
+          "start": 0.05,
+          "end": 4.29,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.36376953125
+            },
+            {
+              "text": " finest",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " man,",
+              "start": 0.81,
+              "end": 1.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " says",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he,",
+              "start": 1.65,
+              "end": 1.93,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sniveling",
+              "start": 2.37,
+              "end": 2.81,
+              "probability": 0.8048502604166666
+            },
+            {
+              "text": " the",
+              "start": 2.81,
+              "end": 3.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " finest",
+              "start": 3.05,
+              "end": 3.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " purest",
+              "start": 3.39,
+              "end": 3.95,
+              "probability": 0.742431640625
+            },
+            {
+              "text": " character.",
+              "start": 3.95,
+              "end": 4.29,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "finest",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "raw": "man,",
+          "start": 0.81,
+          "end": 1.21
+        },
+        {
+          "raw": "says",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "he,",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "raw": "sniveling",
+          "start": 2.37,
+          "end": 2.81
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "raw": "finest",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "raw": "purest",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "raw": "character.",
+          "start": 3.95,
+          "end": 4.29
+        }
+      ],
+      "expected_tokens": [
+        "—The",
+        "finest",
+        "man,",
+        "says",
+        "he,",
+        "snivelling,",
+        "the",
+        "finest",
+        "purest",
+        "character."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          10,
+          6,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "finest",
+          "start": 0.51,
+          "end": 0.81,
+          "key": "finest",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 0.81,
+          "end": 1.21,
+          "key": "man",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.47,
+          "end": 1.65,
+          "key": "says",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he,",
+          "start": 1.65,
+          "end": 1.93,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sniveling",
+          "start": 2.37,
+          "end": 2.81,
+          "key": "sniveling",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 3.05,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "finest",
+          "start": 3.05,
+          "end": 3.39,
+          "key": "finest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "purest",
+          "start": 3.39,
+          "end": 3.95,
+          "key": "purest",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "character.",
+          "start": 3.95,
+          "end": 4.29,
+          "key": "character",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "finest",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "text": "man,",
+          "start": 0.81,
+          "end": 1.21
+        },
+        {
+          "text": "says",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "he,",
+          "start": 1.65,
+          "end": 1.93
+        },
+        {
+          "text": "snivelling,",
+          "start": 1.93,
+          "end": 2.37
+        },
+        {
+          "text": "the",
+          "start": 2.81,
+          "end": 3.05
+        },
+        {
+          "text": "finest",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "text": "purest",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "text": "character.",
+          "start": 3.95,
+          "end": 4.29
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.19065346010029316
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "51b1227f5c793922a5514e077ddb46507fdbb7f5ec865ce4ed8855d1f69f9d93",
+  "selected_reasons": []
+}

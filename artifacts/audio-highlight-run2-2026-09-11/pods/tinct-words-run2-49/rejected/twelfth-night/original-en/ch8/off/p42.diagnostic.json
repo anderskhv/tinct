@@ -1,0 +1,331 @@
+{
+  "complete": true,
+  "signature": "1973866dcf0534b050b2bfd9bf07471f62d0dae4f68e2d995a7e96932f919be4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1905195489525795,
+      "alignment_seconds": 0.0005184300243854523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sings oh the 12th day of December",
+          "start": 0.11,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " Sings",
+              "start": 0.11,
+              "end": 0.85,
+              "probability": 0.786865234375
+            },
+            {
+              "text": " oh",
+              "start": 0.85,
+              "end": 1.33,
+              "probability": 0.06439208984375
+            },
+            {
+              "text": " the",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " 12th",
+              "start": 1.49,
+              "end": 1.85,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " day",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " of",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " December",
+              "start": 2.09,
+              "end": 2.43,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sings",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "raw": "oh",
+          "start": 0.85,
+          "end": 1.33
+        },
+        {
+          "raw": "the",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "12th",
+          "start": 1.49,
+          "end": 1.85
+        },
+        {
+          "raw": "day",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "of",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "December",
+          "start": 2.09,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "[_Sings._]",
+        "_O'",
+        "the",
+        "twelfth",
+        "day",
+        "of",
+        "December—_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sings",
+          "start": 0.11,
+          "end": 0.85,
+          "key": "sings",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 0.85,
+          "end": 1.33,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "12th",
+          "start": 1.49,
+          "end": 1.85,
+          "key": "12th",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "day",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "December",
+          "start": 2.09,
+          "end": 2.43,
+          "key": "december",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Sings._]",
+          "start": 0.11,
+          "end": 0.85
+        },
+        {
+          "text": "_O'",
+          "start": 0.85,
+          "end": 1.09
+        },
+        {
+          "text": "the",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "twelfth",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "day",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "of",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "December—_",
+          "start": 2.09,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19122181087732315
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d3fa1da439090d208300e2be06c80725c681661fe9126a54e8ac8c35d528e107",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

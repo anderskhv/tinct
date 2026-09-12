@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "cc8162b77ab5fca20dd964abe9ec2e52d71e08247a4618f73a8b232fb3878dbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.12055920506827533,
+      "alignment_seconds": 0.00029009883292019367,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Day, Mr. Byan.",
+          "start": 0.08,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Day,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.482177734375
+            },
+            {
+              "text": " Mr.",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.93359375
+            },
+            {
+              "text": " Byan.",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.54931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Day,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "Byan.",
+          "start": 1.28,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "—Day,",
+        "Mr",
+        "Byrne."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Day,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "day",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 0.9,
+          "end": 1.04,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Byan.",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "byan",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Day,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Mr",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "Byrne.",
+          "start": 1.04,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12094143102876842
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c4ab676ce778de2e3b6120eb7ffcb1db3d0db74df7e1b53fe96501530160cff2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

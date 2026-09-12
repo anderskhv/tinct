@@ -1,0 +1,654 @@
+{
+  "complete": true,
+  "signature": "ff8203d8d7ee6138dc8ce507fd28459dc70cce1c3d3a4056ece7383aae46241c",
+  "attempts": [
+    {
+      "asr_seconds": 0.44673701003193855,
+      "alignment_seconds": 0.0007961317896842957,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The harpoon,\" said Ahab, halfway rising and",
+          "start": 0.02,
+          "end": 3.6,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.423828125
+            },
+            {
+              "text": " harpoon,\"",
+              "start": 0.5,
+              "end": 1.34,
+              "probability": 0.7799479166666666
+            },
+            {
+              "text": " said",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Ahab,",
+              "start": 1.56,
+              "end": 1.96,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " halfway",
+              "start": 2.4,
+              "end": 2.64,
+              "probability": 0.880859375
+            },
+            {
+              "text": " rising",
+              "start": 2.64,
+              "end": 3.14,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 3.14,
+              "end": 3.6,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " jokingly leaning on one bended arm.",
+          "start": 3.6,
+          "end": 5.26,
+          "words": [
+            {
+              "text": " jokingly",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.10381317138671875
+            },
+            {
+              "text": " leaning",
+              "start": 3.8,
+              "end": 4.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " on",
+              "start": 4.1,
+              "end": 4.34,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " one",
+              "start": 4.34,
+              "end": 4.6,
+              "probability": 0.9921875
+            },
+            {
+              "text": " bended",
+              "start": 4.6,
+              "end": 4.94,
+              "probability": 0.917724609375
+            },
+            {
+              "text": " arm.",
+              "start": 4.94,
+              "end": 5.26,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Is it safe?",
+          "start": 5.88,
+          "end": 6.36,
+          "words": [
+            {
+              "text": " Is",
+              "start": 5.88,
+              "end": 5.96,
+              "probability": 0.982421875
+            },
+            {
+              "text": " it",
+              "start": 5.96,
+              "end": 6.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " safe?",
+              "start": 6.1,
+              "end": 6.36,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "harpoon,\"",
+          "start": 0.5,
+          "end": 1.34
+        },
+        {
+          "raw": "said",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "Ahab,",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "raw": "halfway",
+          "start": 2.4,
+          "end": 2.64
+        },
+        {
+          "raw": "rising",
+          "start": 2.64,
+          "end": 3.14
+        },
+        {
+          "raw": "and",
+          "start": 3.14,
+          "end": 3.6
+        },
+        {
+          "raw": "jokingly",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "leaning",
+          "start": 3.8,
+          "end": 4.1
+        },
+        {
+          "raw": "on",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "raw": "one",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "raw": "bended",
+          "start": 4.6,
+          "end": 4.94
+        },
+        {
+          "raw": "arm.",
+          "start": 4.94,
+          "end": 5.26
+        },
+        {
+          "raw": "Is",
+          "start": 5.88,
+          "end": 5.96
+        },
+        {
+          "raw": "it",
+          "start": 5.96,
+          "end": 6.1
+        },
+        {
+          "raw": "safe?",
+          "start": 6.1,
+          "end": 6.36
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "harpoon,\"",
+        "said",
+        "Ahab,",
+        "half",
+        "way",
+        "rising,",
+        "and",
+        "draggingly",
+        "leaning",
+        "on",
+        "one",
+        "bended",
+        "arm—\"is",
+        "it",
+        "safe?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ],
+        [
+          "equal",
+          6,
+          8,
+          5,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          8
+        ],
+        [
+          "equal",
+          9,
+          13,
+          8,
+          12
+        ],
+        [
+          "replace",
+          13,
+          14,
+          12,
+          14
+        ],
+        [
+          "equal",
+          14,
+          16,
+          14,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          6,
+          4,
+          5
+        ],
+        [
+          "replace",
+          8,
+          9,
+          7,
+          8
+        ],
+        [
+          "replace",
+          13,
+          14,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "harpoon,\"",
+          "start": 0.5,
+          "end": 1.34,
+          "key": "harpoon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ahab,",
+          "start": 1.56,
+          "end": 1.96,
+          "key": "ahab",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "halfway",
+          "start": 2.4,
+          "end": 2.64,
+          "key": "halfway",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "rising",
+          "start": 2.64,
+          "end": 3.14,
+          "key": "rising",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.14,
+          "end": 3.6,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "jokingly",
+          "start": 3.6,
+          "end": 3.8,
+          "key": "jokingly",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "leaning",
+          "start": 3.8,
+          "end": 4.1,
+          "key": "leaning",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.1,
+          "end": 4.34,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 4.34,
+          "end": 4.6,
+          "key": "one",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "bended",
+          "start": 4.6,
+          "end": 4.94,
+          "key": "bended",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "arm.",
+          "start": 4.94,
+          "end": 5.26,
+          "key": "arm",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 5.88,
+          "end": 5.96,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.96,
+          "end": 6.1,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "safe?",
+          "start": 6.1,
+          "end": 6.36,
+          "key": "safe",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "harpoon,\"",
+          "start": 0.5,
+          "end": 1.34
+        },
+        {
+          "text": "said",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "Ahab,",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "text": "half",
+          "start": 1.96,
+          "end": 2.3
+        },
+        {
+          "text": "way",
+          "start": 2.3,
+          "end": 2.47
+        },
+        {
+          "text": "rising,",
+          "start": 2.64,
+          "end": 3.14
+        },
+        {
+          "text": "and",
+          "start": 3.14,
+          "end": 3.6
+        },
+        {
+          "text": "draggingly",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "text": "leaning",
+          "start": 3.8,
+          "end": 4.1
+        },
+        {
+          "text": "on",
+          "start": 4.1,
+          "end": 4.34
+        },
+        {
+          "text": "one",
+          "start": 4.34,
+          "end": 4.6
+        },
+        {
+          "text": "bended",
+          "start": 4.6,
+          "end": 4.94
+        },
+        {
+          "text": "arm—\"is",
+          "start": 4.94,
+          "end": 5.45
+        },
+        {
+          "text": "it",
+          "start": 5.96,
+          "end": 6.1
+        },
+        {
+          "text": "safe?\"",
+          "start": 6.1,
+          "end": 6.36
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.44780564680695534
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "42b7a47b7a0802fab274216c20d35d1c6a86e6a96615ae30c975c30466c43847",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

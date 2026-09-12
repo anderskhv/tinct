@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "e1307d9b18eaf2b8363ab12bad95a11317907230a1b784078b8cae374b3d01ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.29715410247445107,
+      "alignment_seconds": 0.0004638219252228737,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Portia. What ring gave you, my lord? Not that, I hope, which you receiv'd of me.",
+        "hotwords": "Portia, What, Not, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Portia, What ring gave you, my lord? Not that, I hope, which you receiv'd of me.",
+          "start": 0.05,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.61175537109375
+            },
+            {
+              "text": " What",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.00803375244140625
+            },
+            {
+              "text": " ring",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.671875
+            },
+            {
+              "text": " gave",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you,",
+              "start": 1.87,
+              "end": 2.07,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " my",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.9609375
+            },
+            {
+              "text": " lord?",
+              "start": 2.23,
+              "end": 2.47,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " Not",
+              "start": 3.13,
+              "end": 3.27,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " that,",
+              "start": 3.27,
+              "end": 3.47,
+              "probability": 0.990234375
+            },
+            {
+              "text": " I",
+              "start": 3.57,
+              "end": 3.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " hope,",
+              "start": 3.65,
+              "end": 3.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 4.07,
+              "end": 4.11,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " you",
+              "start": 4.11,
+              "end": 4.29,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " receiv'd",
+              "start": 4.29,
+              "end": 4.75,
+              "probability": 0.35341115792592365
+            },
+            {
+              "text": " of",
+              "start": 4.75,
+              "end": 4.83,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me.",
+              "start": 4.83,
+              "end": 5.03,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "What",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "ring",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "gave",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "you,",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "raw": "my",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "lord?",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "raw": "Not",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "raw": "that,",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "raw": "I",
+          "start": 3.57,
+          "end": 3.65
+        },
+        {
+          "raw": "hope,",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "raw": "which",
+          "start": 4.07,
+          "end": 4.11
+        },
+        {
+          "raw": "you",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "raw": "receiv'd",
+          "start": 4.29,
+          "end": 4.75
+        },
+        {
+          "raw": "of",
+          "start": 4.75,
+          "end": 4.83
+        },
+        {
+          "raw": "me.",
+          "start": 4.83,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "What",
+        "ring",
+        "gave",
+        "you,",
+        "my",
+        "lord?",
+        "Not",
+        "that,",
+        "I",
+        "hope,",
+        "which",
+        "you",
+        "receiv'd",
+        "of",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.17,
+          "end": 1.41,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ring",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "ring",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gave",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "gave",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.87,
+          "end": 2.07,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.11,
+          "end": 2.23,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 2.23,
+          "end": 2.47,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 3.13,
+          "end": 3.27,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that,",
+          "start": 3.27,
+          "end": 3.47,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.57,
+          "end": 3.65,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hope,",
+          "start": 3.65,
+          "end": 3.87,
+          "key": "hope",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 4.07,
+          "end": 4.11,
+          "key": "which",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.11,
+          "end": 4.29,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "receiv'd",
+          "start": 4.29,
+          "end": 4.75,
+          "key": "receivd",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.75,
+          "end": 4.83,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 4.83,
+          "end": 5.03,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "What",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "ring",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "gave",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "you,",
+          "start": 1.87,
+          "end": 2.07
+        },
+        {
+          "text": "my",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "lord?",
+          "start": 2.23,
+          "end": 2.47
+        },
+        {
+          "text": "Not",
+          "start": 3.13,
+          "end": 3.27
+        },
+        {
+          "text": "that,",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "text": "I",
+          "start": 3.57,
+          "end": 3.65
+        },
+        {
+          "text": "hope,",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "text": "which",
+          "start": 4.07,
+          "end": 4.11
+        },
+        {
+          "text": "you",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "text": "receiv'd",
+          "start": 4.29,
+          "end": 4.75
+        },
+        {
+          "text": "of",
+          "start": 4.75,
+          "end": 4.83
+        },
+        {
+          "text": "me.",
+          "start": 4.83,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2978078620508313
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1f74a109f21bf6070738885057554fab6bca639bbb670eaa1235cd2f21142ec",
+  "selected_reasons": []
+}

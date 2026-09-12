@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "f74897efcb771834cee99ecd0b21c10d00e0bee048f2a2e947f53872394aec82",
+  "attempts": [
+    {
+      "asr_seconds": 0.3177167475223541,
+      "alignment_seconds": 0.0004781857132911682,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth what good is covered with the face of heaven to be discovered that can do me good",
+          "start": 0.08,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " Elizabeth",
+              "start": 0.62,
+              "end": 1.18,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " what",
+              "start": 1.18,
+              "end": 1.94,
+              "probability": 0.2890625
+            },
+            {
+              "text": " good",
+              "start": 1.94,
+              "end": 2.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " covered",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.6,
+              "end": 2.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.78,
+              "end": 2.92,
+              "probability": 0.9921875
+            },
+            {
+              "text": " face",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " of",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " heaven",
+              "start": 3.3,
+              "end": 3.54,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " to",
+              "start": 3.54,
+              "end": 3.88,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " be",
+              "start": 3.88,
+              "end": 4.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " discovered",
+              "start": 4.0,
+              "end": 4.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 4.5,
+              "end": 5.04,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " can",
+              "start": 5.04,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " do",
+              "start": 5.22,
+              "end": 5.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 5.34,
+              "end": 5.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 5.5,
+              "end": 5.82,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "Elizabeth",
+          "start": 0.62,
+          "end": 1.18
+        },
+        {
+          "raw": "what",
+          "start": 1.18,
+          "end": 1.94
+        },
+        {
+          "raw": "good",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "raw": "is",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "raw": "covered",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "with",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "raw": "the",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "raw": "face",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "of",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "heaven",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "raw": "to",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "raw": "be",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "raw": "discovered",
+          "start": 4.0,
+          "end": 4.5
+        },
+        {
+          "raw": "that",
+          "start": 4.5,
+          "end": 5.04
+        },
+        {
+          "raw": "can",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "raw": "do",
+          "start": 5.22,
+          "end": 5.34
+        },
+        {
+          "raw": "me",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "raw": "good",
+          "start": 5.5,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "What",
+        "good",
+        "is",
+        "covered",
+        "with",
+        "the",
+        "face",
+        "of",
+        "heaven,",
+        "To",
+        "be",
+        "discovered,",
+        "that",
+        "can",
+        "do",
+        "me",
+        "good?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth",
+          "start": 0.62,
+          "end": 1.18,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.18,
+          "end": 1.94,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.94,
+          "end": 2.12,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.12,
+          "end": 2.28,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "covered",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "covered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.6,
+          "end": 2.78,
+          "key": "with",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.78,
+          "end": 2.92,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "face",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "face",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "heaven",
+          "start": 3.3,
+          "end": 3.54,
+          "key": "heaven",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.54,
+          "end": 3.88,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.88,
+          "end": 4.0,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "discovered",
+          "start": 4.0,
+          "end": 4.5,
+          "key": "discovered",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.5,
+          "end": 5.04,
+          "key": "that",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 5.04,
+          "end": 5.22,
+          "key": "can",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 5.22,
+          "end": 5.34,
+          "key": "do",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.34,
+          "end": 5.5,
+          "key": "me",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 5.5,
+          "end": 5.82,
+          "key": "good",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.62,
+          "end": 1.18
+        },
+        {
+          "text": "What",
+          "start": 1.18,
+          "end": 1.94
+        },
+        {
+          "text": "good",
+          "start": 1.94,
+          "end": 2.12
+        },
+        {
+          "text": "is",
+          "start": 2.12,
+          "end": 2.28
+        },
+        {
+          "text": "covered",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "with",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "text": "the",
+          "start": 2.78,
+          "end": 2.92
+        },
+        {
+          "text": "face",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "of",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "heaven,",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "text": "To",
+          "start": 3.54,
+          "end": 3.88
+        },
+        {
+          "text": "be",
+          "start": 3.88,
+          "end": 4.0
+        },
+        {
+          "text": "discovered,",
+          "start": 4.0,
+          "end": 4.5
+        },
+        {
+          "text": "that",
+          "start": 4.5,
+          "end": 5.04
+        },
+        {
+          "text": "can",
+          "start": 5.04,
+          "end": 5.22
+        },
+        {
+          "text": "do",
+          "start": 5.22,
+          "end": 5.34
+        },
+        {
+          "text": "me",
+          "start": 5.34,
+          "end": 5.5
+        },
+        {
+          "text": "good?",
+          "start": 5.5,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3184036985039711
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "27861f9e6b2a168886297532980ca871a4547c85d308e290e551c23b53b5a105",
+  "selected_reasons": []
+}

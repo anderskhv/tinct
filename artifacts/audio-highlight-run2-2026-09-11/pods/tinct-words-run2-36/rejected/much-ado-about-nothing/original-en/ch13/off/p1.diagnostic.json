@@ -1,0 +1,299 @@
+{
+  "complete": true,
+  "signature": "29149d6263a02af8dbd696fedf940edf66a44bafab7bebbab86b3ab8a8c2c7d2",
+  "attempts": [
+    {
+      "asr_seconds": 0.1488415189087391,
+      "alignment_seconds": 0.000350266695022583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dogberry as our hold assembly appeared",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " Dogberry",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.732666015625
+            },
+            {
+              "text": " as",
+              "start": 0.89,
+              "end": 1.41,
+              "probability": 0.307373046875
+            },
+            {
+              "text": " our",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " hold",
+              "start": 1.53,
+              "end": 1.73,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " assembly",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " appeared",
+              "start": 2.07,
+              "end": 2.55,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dogberry",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "as",
+          "start": 0.89,
+          "end": 1.41
+        },
+        {
+          "raw": "our",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "hold",
+          "start": 1.53,
+          "end": 1.73
+        },
+        {
+          "raw": "assembly",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "raw": "appeared",
+          "start": 2.07,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "Dogberry.",
+        "Is",
+        "our",
+        "whole",
+        "dissembly",
+        "appeared?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dogberry",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "dogberry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 0.89,
+          "end": 1.41,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 1.41,
+          "end": 1.53,
+          "key": "our",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.53,
+          "end": 1.73,
+          "key": "hold",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "assembly",
+          "start": 1.73,
+          "end": 2.07,
+          "key": "assembly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "appeared",
+          "start": 2.07,
+          "end": 2.55,
+          "key": "appeared",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dogberry.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Is",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "text": "our",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "whole",
+          "start": 1.53,
+          "end": 1.8
+        },
+        {
+          "text": "dissembly",
+          "start": 1.8,
+          "end": 1.935
+        },
+        {
+          "text": "appeared?",
+          "start": 2.07,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14931157231330872
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c595c2445c4a530e9774e3d6b38b1ace84a8adb049b3c13c5cfc0fb2433e1c1d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

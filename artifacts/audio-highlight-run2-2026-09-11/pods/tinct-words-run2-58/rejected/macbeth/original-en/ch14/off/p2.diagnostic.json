@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "f951dc682188107ec7fca5461b178764dce27bd5b3be7f207ab1657afc38d211",
+  "attempts": [
+    {
+      "asr_seconds": 0.1325441775843501,
+      "alignment_seconds": 0.0002881409600377083,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third murderer, Macbeth.",
+          "start": 0.08,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.77587890625
+            },
+            {
+              "text": " murderer,",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.783203125
+            },
+            {
+              "text": " Macbeth.",
+              "start": 1.44,
+              "end": 1.82,
+              "probability": 0.8308919270833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "murderer,",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 1.44,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Murderer.",
+        "Macbeth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "murderer,",
+          "start": 0.64,
+          "end": 1.08,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Macbeth.",
+          "start": 1.44,
+          "end": 1.82,
+          "key": "macbeth",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.64,
+          "end": 1.08
+        },
+        {
+          "text": "Macbeth.",
+          "start": 1.44,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13293330557644367
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9214f171ce4ef85d81541458473da9f327f8a9db7601c50dc4c3989dfaea1efe",
+  "selected_reasons": []
+}

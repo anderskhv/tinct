@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "834bd436529874abaf4cbe141f36b3ba73b71fa35f61b8cdb6331f80646043fa",
+  "attempts": [
+    {
+      "asr_seconds": 0.12898167502135038,
+      "alignment_seconds": 0.00021340104285627604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Unless I'm greatly mistaken. What do you think, Martin?",
+        "hotwords": "Unless, I'm, What, Martin"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Unless I'm greatly mistaken. What do you think, Martin?",
+          "start": 0.08,
+          "end": 3.12,
+          "words": [
+            {
+              "text": " Unless",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.68359375
+            },
+            {
+              "text": " I'm",
+              "start": 0.7,
+              "end": 1.12,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " greatly",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " mistaken.",
+              "start": 1.34,
+              "end": 1.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " What",
+              "start": 2.48,
+              "end": 2.54,
+              "probability": 0.990234375
+            },
+            {
+              "text": " do",
+              "start": 2.54,
+              "end": 2.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 2.62,
+              "end": 2.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " think,",
+              "start": 2.74,
+              "end": 2.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Martin?",
+              "start": 3.06,
+              "end": 3.12,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Unless",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "I'm",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "raw": "greatly",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "mistaken.",
+          "start": 1.34,
+          "end": 1.88
+        },
+        {
+          "raw": "What",
+          "start": 2.48,
+          "end": 2.54
+        },
+        {
+          "raw": "do",
+          "start": 2.54,
+          "end": 2.62
+        },
+        {
+          "raw": "you",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "raw": "think,",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "raw": "Martin?",
+          "start": 3.06,
+          "end": 3.12
+        }
+      ],
+      "expected_tokens": [
+        "—Unless",
+        "I'm",
+        "greatly",
+        "mistaken.",
+        "What",
+        "do",
+        "you",
+        "think,",
+        "Martin?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Unless",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "unless",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 0.7,
+          "end": 1.12,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "greatly",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "greatly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mistaken.",
+          "start": 1.34,
+          "end": 1.88,
+          "key": "mistaken",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.48,
+          "end": 2.54,
+          "key": "what",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 2.54,
+          "end": 2.62,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.62,
+          "end": 2.74,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 2.74,
+          "end": 2.9,
+          "key": "think",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Martin?",
+          "start": 3.06,
+          "end": 3.12,
+          "key": "martin",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Unless",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "I'm",
+          "start": 0.7,
+          "end": 1.12
+        },
+        {
+          "text": "greatly",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "mistaken.",
+          "start": 1.34,
+          "end": 1.88
+        },
+        {
+          "text": "What",
+          "start": 2.48,
+          "end": 2.54
+        },
+        {
+          "text": "do",
+          "start": 2.54,
+          "end": 2.62
+        },
+        {
+          "text": "you",
+          "start": 2.62,
+          "end": 2.74
+        },
+        {
+          "text": "think,",
+          "start": 2.74,
+          "end": 2.9
+        },
+        {
+          "text": "Martin?",
+          "start": 3.06,
+          "end": 3.12
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12928672699490562
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0bb9cbd5bfe1e69494e97344ac4a7a3919a969434747452a17f91d99716bdf8e",
+  "selected_reasons": []
+}

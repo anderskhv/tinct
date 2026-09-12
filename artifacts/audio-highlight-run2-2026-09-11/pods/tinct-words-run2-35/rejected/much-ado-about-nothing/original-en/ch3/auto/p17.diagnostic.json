@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "35cc99936ede5fcb11a7e993a682acfac7d7b8ddbc540778e23a933e490e7282",
+  "attempts": [
+    {
+      "asr_seconds": 0.13364234752953053,
+      "alignment_seconds": 0.00028631649911403656,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Borachio. Even he.",
+        "hotwords": "Borachio, Even"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Borachio, Even he.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Borachio,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.6448974609375
+            },
+            {
+              "text": " Even",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.040069580078125
+            },
+            {
+              "text": " he.",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.375244140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Borachio,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Even",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "he.",
+          "start": 1.37,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Borachio.",
+        "Even",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Borachio,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "borachio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Even",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "even",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Borachio.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Even",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "he.",
+          "start": 1.37,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1340352427214384
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c27b72b45df4155e2c5f9f22c979649f59ef8a25487c5c4fcd71bfda588c651",
+  "selected_reasons": []
+}

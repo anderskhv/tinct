@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "8742a06625a189a3ecdcff124cc0f5a80f57a71997442dbdf997bf5b33f9c39d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1801738515496254,
+      "alignment_seconds": 0.000323684886097908,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. [Within.] Mother, mother, mother.",
+        "hotwords": "Hamlet, Within"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, Within Mother, mother, mother.",
+          "start": 0.49,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.49,
+              "end": 0.81,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " Within",
+              "start": 0.91,
+              "end": 1.15,
+              "probability": 0.07513427734375
+            },
+            {
+              "text": " Mother,",
+              "start": 1.15,
+              "end": 1.89,
+              "probability": 0.15576171875
+            },
+            {
+              "text": " mother,",
+              "start": 2.05,
+              "end": 2.19,
+              "probability": 0.0648193359375
+            },
+            {
+              "text": " mother.",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.49,
+          "end": 0.81
+        },
+        {
+          "raw": "Within",
+          "start": 0.91,
+          "end": 1.15
+        },
+        {
+          "raw": "Mother,",
+          "start": 1.15,
+          "end": 1.89
+        },
+        {
+          "raw": "mother,",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "raw": "mother.",
+          "start": 2.35,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "[Within.]",
+        "Mother,",
+        "mother,",
+        "mother."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.49,
+          "end": 0.81,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Within",
+          "start": 0.91,
+          "end": 1.15,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mother,",
+          "start": 1.15,
+          "end": 1.89,
+          "key": "mother",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "mother,",
+          "start": 2.05,
+          "end": 2.19,
+          "key": "mother",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mother.",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "mother",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.49,
+          "end": 0.81
+        },
+        {
+          "text": "[Within.]",
+          "start": 0.91,
+          "end": 1.15
+        },
+        {
+          "text": "Mother,",
+          "start": 1.15,
+          "end": 1.89
+        },
+        {
+          "text": "mother,",
+          "start": 2.05,
+          "end": 2.19
+        },
+        {
+          "text": "mother.",
+          "start": 2.35,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18062619306147099
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e6341d70af1afd05bb7f8fa004fa3faf357df16b145b650e2b4dd1f927aa626a",
+  "selected_reasons": []
+}

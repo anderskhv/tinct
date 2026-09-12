@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "4b7c2796a613b6e33200aa4322de7564d6c3fb2b1ef16ec39650c1c41a5b9368",
+  "attempts": [
+    {
+      "asr_seconds": 0.3548620920628309,
+      "alignment_seconds": 0.0005541648715734482,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mitya awaited an answer with assurance. He had no doubts. An expression of extraordinary resolution passed over the Pole's face.",
+        "hotwords": "Mitya, He, Pole's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mitya awaited an answer with assurance. He had no doubts. An expression of extraordinary resolution passed over the Pole's face.",
+          "start": 0.02,
+          "end": 8.2,
+          "words": [
+            {
+              "text": " Mitya",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.39361572265625
+            },
+            {
+              "text": " awaited",
+              "start": 0.78,
+              "end": 1.14,
+              "probability": 0.9609375
+            },
+            {
+              "text": " an",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " answer",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " assurance.",
+              "start": 1.9,
+              "end": 2.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " He",
+              "start": 3.08,
+              "end": 3.14,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " had",
+              "start": 3.14,
+              "end": 3.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " no",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " doubts.",
+              "start": 3.5,
+              "end": 3.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " An",
+              "start": 4.48,
+              "end": 4.58,
+              "probability": 0.9921875
+            },
+            {
+              "text": " expression",
+              "start": 4.58,
+              "end": 5.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 5.0,
+              "end": 5.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " extraordinary",
+              "start": 5.28,
+              "end": 5.94,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " resolution",
+              "start": 5.94,
+              "end": 6.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " passed",
+              "start": 6.7,
+              "end": 7.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " over",
+              "start": 7.12,
+              "end": 7.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 7.42,
+              "end": 7.56,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Pole's",
+              "start": 7.56,
+              "end": 7.96,
+              "probability": 0.5655517578125
+            },
+            {
+              "text": " face.",
+              "start": 7.96,
+              "end": 8.2,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mitya",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "awaited",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "raw": "an",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "raw": "answer",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "with",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "raw": "assurance.",
+          "start": 1.9,
+          "end": 2.34
+        },
+        {
+          "raw": "He",
+          "start": 3.08,
+          "end": 3.14
+        },
+        {
+          "raw": "had",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "raw": "no",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "doubts.",
+          "start": 3.5,
+          "end": 3.84
+        },
+        {
+          "raw": "An",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "raw": "expression",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.28
+        },
+        {
+          "raw": "extraordinary",
+          "start": 5.28,
+          "end": 5.94
+        },
+        {
+          "raw": "resolution",
+          "start": 5.94,
+          "end": 6.7
+        },
+        {
+          "raw": "passed",
+          "start": 6.7,
+          "end": 7.12
+        },
+        {
+          "raw": "over",
+          "start": 7.12,
+          "end": 7.42
+        },
+        {
+          "raw": "the",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "raw": "Pole's",
+          "start": 7.56,
+          "end": 7.96
+        },
+        {
+          "raw": "face.",
+          "start": 7.96,
+          "end": 8.2
+        }
+      ],
+      "expected_tokens": [
+        "Mitya",
+        "awaited",
+        "an",
+        "answer",
+        "with",
+        "assurance.",
+        "He",
+        "had",
+        "no",
+        "doubts.",
+        "An",
+        "expression",
+        "of",
+        "extraordinary",
+        "resolution",
+        "passed",
+        "over",
+        "the",
+        "Pole's",
+        "face."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mitya",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "mitya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "awaited",
+          "start": 0.78,
+          "end": 1.14,
+          "key": "awaited",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.14,
+          "end": 1.38,
+          "key": "an",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "answer",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "answer",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "assurance.",
+          "start": 1.9,
+          "end": 2.34,
+          "key": "assurance",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.08,
+          "end": 3.14,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.14,
+          "end": 3.28,
+          "key": "had",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "doubts.",
+          "start": 3.5,
+          "end": 3.84,
+          "key": "doubts",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "An",
+          "start": 4.48,
+          "end": 4.58,
+          "key": "an",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "expression",
+          "start": 4.58,
+          "end": 5.0,
+          "key": "expression",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.0,
+          "end": 5.28,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "extraordinary",
+          "start": 5.28,
+          "end": 5.94,
+          "key": "extraordinary",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "resolution",
+          "start": 5.94,
+          "end": 6.7,
+          "key": "resolution",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "passed",
+          "start": 6.7,
+          "end": 7.12,
+          "key": "passed",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 7.12,
+          "end": 7.42,
+          "key": "over",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.42,
+          "end": 7.56,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Pole's",
+          "start": 7.56,
+          "end": 7.96,
+          "key": "poles",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "face.",
+          "start": 7.96,
+          "end": 8.2,
+          "key": "face",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mitya",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "awaited",
+          "start": 0.78,
+          "end": 1.14
+        },
+        {
+          "text": "an",
+          "start": 1.14,
+          "end": 1.38
+        },
+        {
+          "text": "answer",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "with",
+          "start": 1.64,
+          "end": 1.9
+        },
+        {
+          "text": "assurance.",
+          "start": 1.9,
+          "end": 2.34
+        },
+        {
+          "text": "He",
+          "start": 3.08,
+          "end": 3.14
+        },
+        {
+          "text": "had",
+          "start": 3.14,
+          "end": 3.28
+        },
+        {
+          "text": "no",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "doubts.",
+          "start": 3.5,
+          "end": 3.84
+        },
+        {
+          "text": "An",
+          "start": 4.48,
+          "end": 4.58
+        },
+        {
+          "text": "expression",
+          "start": 4.58,
+          "end": 5.0
+        },
+        {
+          "text": "of",
+          "start": 5.0,
+          "end": 5.28
+        },
+        {
+          "text": "extraordinary",
+          "start": 5.28,
+          "end": 5.94
+        },
+        {
+          "text": "resolution",
+          "start": 5.94,
+          "end": 6.7
+        },
+        {
+          "text": "passed",
+          "start": 6.7,
+          "end": 7.12
+        },
+        {
+          "text": "over",
+          "start": 7.12,
+          "end": 7.42
+        },
+        {
+          "text": "the",
+          "start": 7.42,
+          "end": 7.56
+        },
+        {
+          "text": "Pole's",
+          "start": 7.56,
+          "end": 7.96
+        },
+        {
+          "text": "face.",
+          "start": 7.96,
+          "end": 8.2
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35563328210264444
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "381822b05dbfb258b62dbf26dd1bc35d5bfb336e3d969b6b10a7b26dab49c567",
+  "selected_reasons": []
+}

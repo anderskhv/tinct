@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "482cd1313c44c5617b9ba83ffd07b461ca6eadff678b9d1e84bc55314de31a9c",
+  "attempts": [
+    {
+      "asr_seconds": 0.07611702382564545,
+      "alignment_seconds": 8.88630747795105e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gentleman. Why, good sir?",
+        "hotwords": "Gentleman, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gentleman, Why, good sir?",
+          "start": 0.02,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Gentleman,",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.019775390625
+            },
+            {
+              "text": " Why,",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.0823974609375
+            },
+            {
+              "text": " good",
+              "start": 1.54,
+              "end": 1.66,
+              "probability": 0.27001953125
+            },
+            {
+              "text": " sir?",
+              "start": 1.66,
+              "end": 1.92,
+              "probability": 0.751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gentleman,",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "Why,",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "good",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "raw": "sir?",
+          "start": 1.66,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Gentleman.",
+        "Why,",
+        "good",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gentleman,",
+          "start": 0.02,
+          "end": 0.82,
+          "key": "gentleman",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.54,
+          "end": 1.66,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.66,
+          "end": 1.92,
+          "key": "sir",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gentleman.",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "Why,",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "good",
+          "start": 1.54,
+          "end": 1.66
+        },
+        {
+          "text": "sir?",
+          "start": 1.66,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07623809948563576
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "69a778f54176f0a01e539df6dccf95d772cd5f50741ece76e6f70399f2d36ce3",
+  "selected_reasons": []
+}

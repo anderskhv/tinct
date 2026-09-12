@@ -1,0 +1,1125 @@
+{
+  "complete": true,
+  "signature": "1892c9ce12c75bff26caa91365ca913f08802a91fde686217bbf6d2d95950270",
+  "attempts": [
+    {
+      "asr_seconds": 0.44122372567653656,
+      "alignment_seconds": 0.0009062830358743668,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No, I haven't yet, but I certainly shall. You must explain a great deal to me, my man; and let me tell you, I am not going to let you play with me!\"",
+        "hotwords": "No, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, I haven't yet, but I certainly shall. You must explain a great deal to me, my man,",
+          "start": 0.05,
+          "end": 5.67,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.78076171875
+            },
+            {
+              "text": " I",
+              "start": 0.83,
+              "end": 0.99,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " haven't",
+              "start": 0.99,
+              "end": 1.35,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " yet,",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 1.69,
+              "end": 1.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " certainly",
+              "start": 1.97,
+              "end": 2.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shall.",
+              "start": 2.29,
+              "end": 2.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " You",
+              "start": 3.35,
+              "end": 3.45,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " must",
+              "start": 3.45,
+              "end": 3.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " explain",
+              "start": 3.61,
+              "end": 4.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.05,
+              "end": 4.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " great",
+              "start": 4.23,
+              "end": 4.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " deal",
+              "start": 4.45,
+              "end": 4.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 4.69,
+              "end": 4.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me,",
+              "start": 4.89,
+              "end": 5.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 5.25,
+              "end": 5.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " man,",
+              "start": 5.35,
+              "end": 5.67,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " and let me tell you, I am not going to let you play with me.",
+          "start": 6.11,
+          "end": 8.81,
+          "words": [
+            {
+              "text": " and",
+              "start": 6.11,
+              "end": 6.21,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " let",
+              "start": 6.21,
+              "end": 6.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me",
+              "start": 6.37,
+              "end": 6.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " tell",
+              "start": 6.49,
+              "end": 6.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you,",
+              "start": 6.71,
+              "end": 6.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 7.13,
+              "end": 7.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " am",
+              "start": 7.29,
+              "end": 7.41,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " not",
+              "start": 7.41,
+              "end": 7.61,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " going",
+              "start": 7.61,
+              "end": 7.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 7.79,
+              "end": 7.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " let",
+              "start": 7.93,
+              "end": 8.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 8.03,
+              "end": 8.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " play",
+              "start": 8.19,
+              "end": 8.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 8.39,
+              "end": 8.55,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " me.",
+              "start": 8.55,
+              "end": 8.81,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "raw": "haven't",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "raw": "yet,",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "but",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "certainly",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "raw": "shall.",
+          "start": 2.29,
+          "end": 2.69
+        },
+        {
+          "raw": "You",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "raw": "must",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "raw": "explain",
+          "start": 3.61,
+          "end": 4.05
+        },
+        {
+          "raw": "a",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "raw": "great",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "raw": "deal",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "raw": "to",
+          "start": 4.69,
+          "end": 4.89
+        },
+        {
+          "raw": "me,",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "raw": "my",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "raw": "man,",
+          "start": 5.35,
+          "end": 5.67
+        },
+        {
+          "raw": "and",
+          "start": 6.11,
+          "end": 6.21
+        },
+        {
+          "raw": "let",
+          "start": 6.21,
+          "end": 6.37
+        },
+        {
+          "raw": "me",
+          "start": 6.37,
+          "end": 6.49
+        },
+        {
+          "raw": "tell",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "raw": "you,",
+          "start": 6.71,
+          "end": 6.95
+        },
+        {
+          "raw": "I",
+          "start": 7.13,
+          "end": 7.29
+        },
+        {
+          "raw": "am",
+          "start": 7.29,
+          "end": 7.41
+        },
+        {
+          "raw": "not",
+          "start": 7.41,
+          "end": 7.61
+        },
+        {
+          "raw": "going",
+          "start": 7.61,
+          "end": 7.79
+        },
+        {
+          "raw": "to",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "raw": "let",
+          "start": 7.93,
+          "end": 8.03
+        },
+        {
+          "raw": "you",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "raw": "play",
+          "start": 8.19,
+          "end": 8.39
+        },
+        {
+          "raw": "with",
+          "start": 8.39,
+          "end": 8.55
+        },
+        {
+          "raw": "me.",
+          "start": 8.55,
+          "end": 8.81
+        }
+      ],
+      "expected_tokens": [
+        "\"No,",
+        "I",
+        "haven't",
+        "yet,",
+        "but",
+        "I",
+        "certainly",
+        "shall.",
+        "You",
+        "must",
+        "explain",
+        "a",
+        "great",
+        "deal",
+        "to",
+        "me,",
+        "my",
+        "man;",
+        "and",
+        "let",
+        "me",
+        "tell",
+        "you,",
+        "I",
+        "am",
+        "not",
+        "going",
+        "to",
+        "let",
+        "you",
+        "play",
+        "with",
+        "me!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          33,
+          0,
+          33
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.83,
+          "end": 0.99,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "haven't",
+          "start": 0.99,
+          "end": 1.35,
+          "key": "havent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "yet,",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "yet",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.69,
+          "end": 1.79,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.79,
+          "end": 1.97,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "certainly",
+          "start": 1.97,
+          "end": 2.29,
+          "key": "certainly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shall.",
+          "start": 2.29,
+          "end": 2.69,
+          "key": "shall",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.35,
+          "end": 3.45,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.45,
+          "end": 3.61,
+          "key": "must",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "explain",
+          "start": 3.61,
+          "end": 4.05,
+          "key": "explain",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.05,
+          "end": 4.23,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "great",
+          "start": 4.23,
+          "end": 4.45,
+          "key": "great",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 4.45,
+          "end": 4.69,
+          "key": "deal",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.69,
+          "end": 4.89,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 4.89,
+          "end": 5.11,
+          "key": "me",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.25,
+          "end": 5.35,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 5.35,
+          "end": 5.67,
+          "key": "man",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.11,
+          "end": 6.21,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 6.21,
+          "end": 6.37,
+          "key": "let",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.37,
+          "end": 6.49,
+          "key": "me",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 6.49,
+          "end": 6.71,
+          "key": "tell",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 6.71,
+          "end": 6.95,
+          "key": "you",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.13,
+          "end": 7.29,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 7.29,
+          "end": 7.41,
+          "key": "am",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.41,
+          "end": 7.61,
+          "key": "not",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 7.61,
+          "end": 7.79,
+          "key": "going",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 7.79,
+          "end": 7.93,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 7.93,
+          "end": 8.03,
+          "key": "let",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.03,
+          "end": 8.19,
+          "key": "you",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 8.19,
+          "end": 8.39,
+          "key": "play",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.39,
+          "end": 8.55,
+          "key": "with",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 8.55,
+          "end": 8.81,
+          "key": "me",
+          "pieces": [
+            32
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "I",
+          "start": 0.83,
+          "end": 0.99
+        },
+        {
+          "text": "haven't",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "text": "yet,",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "but",
+          "start": 1.69,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "certainly",
+          "start": 1.97,
+          "end": 2.29
+        },
+        {
+          "text": "shall.",
+          "start": 2.29,
+          "end": 2.69
+        },
+        {
+          "text": "You",
+          "start": 3.35,
+          "end": 3.45
+        },
+        {
+          "text": "must",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "text": "explain",
+          "start": 3.61,
+          "end": 4.05
+        },
+        {
+          "text": "a",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "text": "great",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "text": "deal",
+          "start": 4.45,
+          "end": 4.69
+        },
+        {
+          "text": "to",
+          "start": 4.69,
+          "end": 4.89
+        },
+        {
+          "text": "me,",
+          "start": 4.89,
+          "end": 5.11
+        },
+        {
+          "text": "my",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "text": "man;",
+          "start": 5.35,
+          "end": 5.67
+        },
+        {
+          "text": "and",
+          "start": 6.11,
+          "end": 6.21
+        },
+        {
+          "text": "let",
+          "start": 6.21,
+          "end": 6.37
+        },
+        {
+          "text": "me",
+          "start": 6.37,
+          "end": 6.49
+        },
+        {
+          "text": "tell",
+          "start": 6.49,
+          "end": 6.71
+        },
+        {
+          "text": "you,",
+          "start": 6.71,
+          "end": 6.95
+        },
+        {
+          "text": "I",
+          "start": 7.13,
+          "end": 7.29
+        },
+        {
+          "text": "am",
+          "start": 7.29,
+          "end": 7.41
+        },
+        {
+          "text": "not",
+          "start": 7.41,
+          "end": 7.61
+        },
+        {
+          "text": "going",
+          "start": 7.61,
+          "end": 7.79
+        },
+        {
+          "text": "to",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "text": "let",
+          "start": 7.93,
+          "end": 8.03
+        },
+        {
+          "text": "you",
+          "start": 8.03,
+          "end": 8.19
+        },
+        {
+          "text": "play",
+          "start": 8.19,
+          "end": 8.39
+        },
+        {
+          "text": "with",
+          "start": 8.39,
+          "end": 8.55
+        },
+        {
+          "text": "me!\"",
+          "start": 8.55,
+          "end": 8.81
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 33,
+        "matched_words": 33
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.442543463781476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3ca73a9909f716467a01125e52727c354d59b4a2c63d827178c63787fb535e4b",
+  "selected_reasons": []
+}

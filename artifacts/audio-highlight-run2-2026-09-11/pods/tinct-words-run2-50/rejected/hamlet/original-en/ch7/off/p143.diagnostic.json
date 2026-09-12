@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "78dd3ef9015aa410c3111b604ce2c8e6b7decc5176e9154375b70614cb066797",
+  "attempts": [
+    {
+      "asr_seconds": 0.17504781670868397,
+      "alignment_seconds": 0.0002614762634038925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Guildenstern, in what, my dear Lord?",
+          "start": 0.71,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Guildenstern,",
+              "start": 0.71,
+              "end": 1.15,
+              "probability": 0.8984375
+            },
+            {
+              "text": " in",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.84326171875
+            },
+            {
+              "text": " what,",
+              "start": 1.61,
+              "end": 1.73,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " my",
+              "start": 1.89,
+              "end": 1.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " dear",
+              "start": 1.89,
+              "end": 2.07,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Lord?",
+              "start": 2.07,
+              "end": 2.33,
+              "probability": 0.52392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.71,
+          "end": 1.15
+        },
+        {
+          "raw": "in",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "what,",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "raw": "my",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "raw": "dear",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "raw": "Lord?",
+          "start": 2.07,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Guildenstern.",
+        "In",
+        "what,",
+        "my",
+        "dear",
+        "lord?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Guildenstern,",
+          "start": 0.71,
+          "end": 1.15,
+          "key": "guildenstern",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.53,
+          "end": 1.61,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what,",
+          "start": 1.61,
+          "end": 1.73,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.89,
+          "end": 1.89,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 1.89,
+          "end": 2.07,
+          "key": "dear",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lord?",
+          "start": 2.07,
+          "end": 2.33,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Guildenstern.",
+          "start": 0.71,
+          "end": 1.15
+        },
+        {
+          "text": "In",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "what,",
+          "start": 1.61,
+          "end": 1.73
+        },
+        {
+          "text": "my",
+          "start": 1.89,
+          "end": 1.89
+        },
+        {
+          "text": "dear",
+          "start": 1.89,
+          "end": 2.07
+        },
+        {
+          "text": "lord?",
+          "start": 2.07,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17541052401065826
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e4f5b2b07fd43e2d5ff231cec79c0394506d14dbd21990440b205460b11c1f1c",
+  "selected_reasons": []
+}

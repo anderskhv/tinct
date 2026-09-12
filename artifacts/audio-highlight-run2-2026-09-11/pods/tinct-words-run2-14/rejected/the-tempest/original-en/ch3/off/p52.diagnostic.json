@@ -1,0 +1,462 @@
+{
+  "complete": true,
+  "signature": "3cf530db2c6abd829d5c40c7795d79a880705cfef066c23d094d91640cab6f82",
+  "attempts": [
+    {
+      "asr_seconds": 0.24451875686645508,
+      "alignment_seconds": 0.0006162188947200775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, widow, apoxo, that. How came that widow in, widow, dido?",
+          "start": 0.08,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " widow,",
+              "start": 1.34,
+              "end": 1.34,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " apoxo,",
+              "start": 1.5,
+              "end": 2.0,
+              "probability": 0.7452799479166666
+            },
+            {
+              "text": " that.",
+              "start": 2.16,
+              "end": 2.2,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " How",
+              "start": 2.52,
+              "end": 2.54,
+              "probability": 0.974609375
+            },
+            {
+              "text": " came",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " that",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " widow",
+              "start": 2.88,
+              "end": 3.1,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " in,",
+              "start": 3.1,
+              "end": 3.36,
+              "probability": 0.984375
+            },
+            {
+              "text": " widow,",
+              "start": 3.62,
+              "end": 3.74,
+              "probability": 0.904296875
+            },
+            {
+              "text": " dido?",
+              "start": 3.98,
+              "end": 4.12,
+              "probability": 0.4552001953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "widow,",
+          "start": 1.34,
+          "end": 1.34
+        },
+        {
+          "raw": "apoxo,",
+          "start": 1.5,
+          "end": 2.0
+        },
+        {
+          "raw": "that.",
+          "start": 2.16,
+          "end": 2.2
+        },
+        {
+          "raw": "How",
+          "start": 2.52,
+          "end": 2.54
+        },
+        {
+          "raw": "came",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "that",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "widow",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "raw": "in,",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "raw": "widow,",
+          "start": 3.62,
+          "end": 3.74
+        },
+        {
+          "raw": "dido?",
+          "start": 3.98,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Widow!",
+        "a",
+        "pox",
+        "o'",
+        "that!",
+        "How",
+        "came",
+        "that",
+        "widow",
+        "in?",
+        "widow",
+        "Dido!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          5,
+          2,
+          3
+        ],
+        [
+          "equal",
+          5,
+          13,
+          3,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          5,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "widow,",
+          "start": 1.34,
+          "end": 1.34,
+          "key": "widow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "apoxo,",
+          "start": 1.5,
+          "end": 2.0,
+          "key": "apoxo",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 2.16,
+          "end": 2.2,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 2.52,
+          "end": 2.54,
+          "key": "how",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "came",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "widow",
+          "start": 2.88,
+          "end": 3.1,
+          "key": "widow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in,",
+          "start": 3.1,
+          "end": 3.36,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "widow,",
+          "start": 3.62,
+          "end": 3.74,
+          "key": "widow",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dido?",
+          "start": 3.98,
+          "end": 4.12,
+          "key": "dido",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "Widow!",
+          "start": 1.34,
+          "end": 1.34
+        },
+        {
+          "text": "a",
+          "start": 1.34,
+          "end": 1.75
+        },
+        {
+          "text": "pox",
+          "start": 1.75,
+          "end": 1.955
+        },
+        {
+          "text": "o'",
+          "start": 1.955,
+          "end": 2.058
+        },
+        {
+          "text": "that!",
+          "start": 2.16,
+          "end": 2.2
+        },
+        {
+          "text": "How",
+          "start": 2.52,
+          "end": 2.54
+        },
+        {
+          "text": "came",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "that",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "widow",
+          "start": 2.88,
+          "end": 3.1
+        },
+        {
+          "text": "in?",
+          "start": 3.1,
+          "end": 3.36
+        },
+        {
+          "text": "widow",
+          "start": 3.62,
+          "end": 3.74
+        },
+        {
+          "text": "Dido!",
+          "start": 3.98,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.7692307692307693,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24534383788704872
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ac2c3568e49290eacb4a7aba7380b67f17d8711e977d9954fc969770e6464386",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

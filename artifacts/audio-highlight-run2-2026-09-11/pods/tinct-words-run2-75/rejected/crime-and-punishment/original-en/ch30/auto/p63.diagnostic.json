@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a6881877a23102e85edbd993701de5e6f1cc1b6850ede9bdbafe1247b57c33c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.12927472218871117,
+      "alignment_seconds": 0.0003212466835975647,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Take a good look.\"",
+        "hotwords": "Take"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Take a good look.",
+          "start": 0.05,
+          "end": 1.15,
+          "words": [
+            {
+              "text": " Take",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " a",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " good",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " look.",
+              "start": 0.83,
+              "end": 1.15,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "good",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "look.",
+          "start": 0.83,
+          "end": 1.15
+        }
+      ],
+      "expected_tokens": [
+        "\"Take",
+        "a",
+        "good",
+        "look.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Take",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "take",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "look.",
+          "start": 0.83,
+          "end": 1.15,
+          "key": "look",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Take",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "a",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "good",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "look.\"",
+          "start": 0.83,
+          "end": 1.15
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1297043412923813
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b70cda51f9e05c3509b81916ff6c4bbfbe5ca784bf996c33ad09462914c32e31",
+  "selected_reasons": []
+}

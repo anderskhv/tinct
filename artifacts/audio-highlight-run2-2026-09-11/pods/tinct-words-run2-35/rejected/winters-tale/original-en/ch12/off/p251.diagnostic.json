@@ -1,0 +1,704 @@
+{
+  "complete": true,
+  "signature": "0938043376e1767fce01389fc4e6e5838557fc8024706f867377b91a06507aa9",
+  "attempts": [
+    {
+      "asr_seconds": 0.30907866545021534,
+      "alignment_seconds": 0.0007292553782463074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown your worship had liked to have given us one if you had not taken yourself with the manor",
+          "start": 0.05,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " Clown",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " your",
+              "start": 0.67,
+              "end": 1.45,
+              "probability": 0.2291259765625
+            },
+            {
+              "text": " worship",
+              "start": 1.45,
+              "end": 1.81,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " had",
+              "start": 1.81,
+              "end": 1.97,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " liked",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.4482421875
+            },
+            {
+              "text": " to",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " have",
+              "start": 2.31,
+              "end": 2.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " given",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " us",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " one",
+              "start": 2.81,
+              "end": 3.11,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " if",
+              "start": 3.11,
+              "end": 3.57,
+              "probability": 0.958984375
+            },
+            {
+              "text": " you",
+              "start": 3.57,
+              "end": 3.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " had",
+              "start": 3.67,
+              "end": 3.77,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " not",
+              "start": 3.77,
+              "end": 3.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " taken",
+              "start": 3.97,
+              "end": 4.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " yourself",
+              "start": 4.23,
+              "end": 4.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 4.59,
+              "end": 4.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.81,
+              "end": 4.93,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " manor",
+              "start": 4.93,
+              "end": 5.35,
+              "probability": 0.80810546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "your",
+          "start": 0.67,
+          "end": 1.45
+        },
+        {
+          "raw": "worship",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "raw": "had",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "raw": "liked",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "to",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "have",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "raw": "given",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "us",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "raw": "one",
+          "start": 2.81,
+          "end": 3.11
+        },
+        {
+          "raw": "if",
+          "start": 3.11,
+          "end": 3.57
+        },
+        {
+          "raw": "you",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "raw": "had",
+          "start": 3.67,
+          "end": 3.77
+        },
+        {
+          "raw": "not",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "raw": "taken",
+          "start": 3.97,
+          "end": 4.23
+        },
+        {
+          "raw": "yourself",
+          "start": 4.23,
+          "end": 4.59
+        },
+        {
+          "raw": "with",
+          "start": 4.59,
+          "end": 4.81
+        },
+        {
+          "raw": "the",
+          "start": 4.81,
+          "end": 4.93
+        },
+        {
+          "raw": "manor",
+          "start": 4.93,
+          "end": 5.35
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Your",
+        "worship",
+        "had",
+        "like",
+        "to",
+        "have",
+        "given",
+        "us",
+        "one,",
+        "if",
+        "you",
+        "had",
+        "not",
+        "taken",
+        "yourself",
+        "with",
+        "the",
+        "manner."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          18,
+          5,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.67,
+          "end": 1.45,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "worship",
+          "start": 1.45,
+          "end": 1.81,
+          "key": "worship",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.81,
+          "end": 1.97,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "liked",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "liked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.31,
+          "end": 2.41,
+          "key": "have",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "given",
+          "start": 2.41,
+          "end": 2.61,
+          "key": "given",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 2.61,
+          "end": 2.81,
+          "key": "us",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.81,
+          "end": 3.11,
+          "key": "one",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.11,
+          "end": 3.57,
+          "key": "if",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.57,
+          "end": 3.67,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 3.67,
+          "end": 3.77,
+          "key": "had",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.77,
+          "end": 3.97,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 3.97,
+          "end": 4.23,
+          "key": "taken",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 4.23,
+          "end": 4.59,
+          "key": "yourself",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.59,
+          "end": 4.81,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.81,
+          "end": 4.93,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "manor",
+          "start": 4.93,
+          "end": 5.35,
+          "key": "manor",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Your",
+          "start": 0.67,
+          "end": 1.45
+        },
+        {
+          "text": "worship",
+          "start": 1.45,
+          "end": 1.81
+        },
+        {
+          "text": "had",
+          "start": 1.81,
+          "end": 1.97
+        },
+        {
+          "text": "like",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "to",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "have",
+          "start": 2.31,
+          "end": 2.41
+        },
+        {
+          "text": "given",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "us",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "text": "one,",
+          "start": 2.81,
+          "end": 3.11
+        },
+        {
+          "text": "if",
+          "start": 3.11,
+          "end": 3.57
+        },
+        {
+          "text": "you",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "text": "had",
+          "start": 3.67,
+          "end": 3.77
+        },
+        {
+          "text": "not",
+          "start": 3.77,
+          "end": 3.97
+        },
+        {
+          "text": "taken",
+          "start": 3.97,
+          "end": 4.23
+        },
+        {
+          "text": "yourself",
+          "start": 4.23,
+          "end": 4.59
+        },
+        {
+          "text": "with",
+          "start": 4.59,
+          "end": 4.81
+        },
+        {
+          "text": "the",
+          "start": 4.81,
+          "end": 4.93
+        },
+        {
+          "text": "manner.",
+          "start": 4.93,
+          "end": 5.14
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8947368421052632,
+      "rejection_reasons": [],
+      "seconds": 0.31009299121797085
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c963cf2ca1e8818ef0e8dad90aa49dcea9822293ad8923cb7f3c0ac7a86b7e18",
+  "selected_reasons": []
+}

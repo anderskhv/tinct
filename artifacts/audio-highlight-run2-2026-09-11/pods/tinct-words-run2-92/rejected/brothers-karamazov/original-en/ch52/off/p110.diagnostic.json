@@ -1,0 +1,502 @@
+{
+  "complete": true,
+  "signature": "d673b1db2c9bf0e15b7632d8f6da79221f6a93f3bd1555a00de8f507b45cbc1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.31119170039892197,
+      "alignment_seconds": 0.0005477229133248329,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It's light, Panove. The pole on the sofa responded as it were unwillingly.",
+          "start": 0.05,
+          "end": 4.73,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " light,",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Panove.",
+              "start": 1.11,
+              "end": 1.33,
+              "probability": 0.439453125
+            },
+            {
+              "text": " The",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " pole",
+              "start": 2.07,
+              "end": 2.29,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " on",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sofa",
+              "start": 2.59,
+              "end": 2.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " responded",
+              "start": 2.87,
+              "end": 3.45,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " as",
+              "start": 3.45,
+              "end": 3.85,
+              "probability": 0.810546875
+            },
+            {
+              "text": " it",
+              "start": 3.85,
+              "end": 3.95,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " were",
+              "start": 3.95,
+              "end": 4.05,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " unwillingly.",
+              "start": 4.05,
+              "end": 4.73,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "light,",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "Panove.",
+          "start": 1.11,
+          "end": 1.33
+        },
+        {
+          "raw": "The",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "raw": "pole",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "raw": "on",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "raw": "sofa",
+          "start": 2.59,
+          "end": 2.87
+        },
+        {
+          "raw": "responded",
+          "start": 2.87,
+          "end": 3.45
+        },
+        {
+          "raw": "as",
+          "start": 3.45,
+          "end": 3.85
+        },
+        {
+          "raw": "it",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "raw": "were",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "raw": "unwillingly.",
+          "start": 4.05,
+          "end": 4.73
+        }
+      ],
+      "expected_tokens": [
+        "\"It's",
+        "lite,",
+        "_panovie_,\"",
+        "the",
+        "Pole",
+        "on",
+        "the",
+        "sofa",
+        "responded,",
+        "as",
+        "it",
+        "were",
+        "unwillingly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          13,
+          3,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "light,",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "light",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Panove.",
+          "start": 1.11,
+          "end": 1.33,
+          "key": "panove",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.73,
+          "end": 2.07,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pole",
+          "start": 2.07,
+          "end": 2.29,
+          "key": "pole",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.59,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sofa",
+          "start": 2.59,
+          "end": 2.87,
+          "key": "sofa",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "responded",
+          "start": 2.87,
+          "end": 3.45,
+          "key": "responded",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.45,
+          "end": 3.85,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.85,
+          "end": 3.95,
+          "key": "it",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.95,
+          "end": 4.05,
+          "key": "were",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "unwillingly.",
+          "start": 4.05,
+          "end": 4.73,
+          "key": "unwillingly",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It's",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "lite,",
+          "start": 0.65,
+          "end": 1.19
+        },
+        {
+          "text": "_panovie_,\"",
+          "start": 1.19,
+          "end": 1.46
+        },
+        {
+          "text": "the",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "text": "Pole",
+          "start": 2.07,
+          "end": 2.29
+        },
+        {
+          "text": "on",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.59
+        },
+        {
+          "text": "sofa",
+          "start": 2.59,
+          "end": 2.87
+        },
+        {
+          "text": "responded,",
+          "start": 2.87,
+          "end": 3.45
+        },
+        {
+          "text": "as",
+          "start": 3.45,
+          "end": 3.85
+        },
+        {
+          "text": "it",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "text": "were",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "text": "unwillingly.",
+          "start": 4.05,
+          "end": 4.73
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3119226507842541
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "513d5f00e57367900a13af1b6351914173de6206a6b89af40410d3c872e5f211",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

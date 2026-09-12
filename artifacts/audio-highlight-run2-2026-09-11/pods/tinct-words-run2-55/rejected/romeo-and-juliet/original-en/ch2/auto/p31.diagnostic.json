@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "ed18cd63fa0105536922350fa8ab07c4e991171c67154d54a0813d55da417a42",
+  "attempts": [
+    {
+      "asr_seconds": 0.13831167295575142,
+      "alignment_seconds": 0.00010789278894662857,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gregory. No.",
+        "hotwords": "Gregory, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gregory, No.",
+          "start": 0.08,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Gregory,",
+              "start": 0.08,
+              "end": 0.74,
+              "probability": 0.931640625
+            },
+            {
+              "text": " No.",
+              "start": 1.08,
+              "end": 1.42,
+              "probability": 0.08966064453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gregory,",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "raw": "No.",
+          "start": 1.08,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "Gregory.",
+        "No."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gregory,",
+          "start": 0.08,
+          "end": 0.74,
+          "key": "gregory",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No.",
+          "start": 1.08,
+          "end": 1.42,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gregory.",
+          "start": 0.08,
+          "end": 0.74
+        },
+        {
+          "text": "No.",
+          "start": 1.08,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13845045119524002
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "75fbba3dd7868b19bbbdd08768c57dfb9dccf76b7bb603ee7b29484f974f4fef",
+  "selected_reasons": []
+}

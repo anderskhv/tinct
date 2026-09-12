@@ -1,0 +1,236 @@
+{
+  "complete": true,
+  "signature": "a76cd1db06fa58ad6397b4290245d6e1247e2d71ec077daf0fce49ce366d5876",
+  "attempts": [
+    {
+      "asr_seconds": 3.641208281973377,
+      "alignment_seconds": 0.00012951099779456854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We.",
+        "hotwords": "We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We",
+          "start": 0.02,
+          "end": 0.56,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.176025390625
+            }
+          ]
+        },
+        {
+          "text": " We. we. We. We. We. W",
+          "start": 0.56,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " We.",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.0038776397705078125
+            },
+            {
+              "text": " we.",
+              "start": 1.12,
+              "end": 1.2,
+              "probability": 0.00035691261291503906
+            },
+            {
+              "text": " We.",
+              "start": 1.2,
+              "end": 1.2,
+              "probability": 0.303955078125
+            },
+            {
+              "text": " We.",
+              "start": 1.2,
+              "end": 1.2,
+              "probability": 0.5947265625
+            },
+            {
+              "text": " We.",
+              "start": 1.2,
+              "end": 1.2,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " W",
+              "start": 1.2,
+              "end": 1.2,
+              "probability": 0.0008215904235839844
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "We.",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "we.",
+          "start": 1.12,
+          "end": 1.2
+        },
+        {
+          "raw": "We.",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "raw": "We.",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "raw": "We.",
+          "start": 1.2,
+          "end": 1.2
+        },
+        {
+          "raw": "W",
+          "start": 1.2,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "We."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We.",
+          "start": 0.56,
+          "end": 0.68,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we.",
+          "start": 1.12,
+          "end": 1.2,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "We.",
+          "start": 1.2,
+          "end": 1.2,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "We.",
+          "start": 1.2,
+          "end": 1.2,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "We.",
+          "start": 1.2,
+          "end": 1.2,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "W",
+          "start": 1.2,
+          "end": 1.2,
+          "key": "w",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "We.",
+          "start": 0.02,
+          "end": 0.56
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 7,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 3.641404132999014
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b6d831ce92c8ba7e844d2b1aaf993f753b6181a63d0cdc964e5c569c2cf44085",
+  "selected_reasons": []
+}

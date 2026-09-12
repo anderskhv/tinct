@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "b94229364dd75a605b74f0699b1164c365cf8803b7a650dee186c67d2616be1d",
+  "attempts": [
+    {
+      "asr_seconds": 0.18551564123481512,
+      "alignment_seconds": 0.00025881174951791763,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gratiano. O learned judge! Mark, Jew, a learned judge!",
+        "hotwords": "Gratiano, O, Mark, Jew"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gratiano, O learned judge! Mark, Jew, a learned judge!",
+          "start": 0.05,
+          "end": 3.77,
+          "words": [
+            {
+              "text": " Gratiano,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.382568359375
+            },
+            {
+              "text": " O",
+              "start": 1.59,
+              "end": 1.59,
+              "probability": 0.73095703125
+            },
+            {
+              "text": " learned",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.049468994140625
+            },
+            {
+              "text": " judge!",
+              "start": 1.79,
+              "end": 2.19,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " Mark,",
+              "start": 2.69,
+              "end": 2.77,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Jew,",
+              "start": 2.77,
+              "end": 3.07,
+              "probability": 0.341796875
+            },
+            {
+              "text": " a",
+              "start": 3.21,
+              "end": 3.25,
+              "probability": 0.61376953125
+            },
+            {
+              "text": " learned",
+              "start": 3.25,
+              "end": 3.47,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " judge!",
+              "start": 3.47,
+              "end": 3.77,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "O",
+          "start": 1.59,
+          "end": 1.59
+        },
+        {
+          "raw": "learned",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "judge!",
+          "start": 1.79,
+          "end": 2.19
+        },
+        {
+          "raw": "Mark,",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "raw": "Jew,",
+          "start": 2.77,
+          "end": 3.07
+        },
+        {
+          "raw": "a",
+          "start": 3.21,
+          "end": 3.25
+        },
+        {
+          "raw": "learned",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "raw": "judge!",
+          "start": 3.47,
+          "end": 3.77
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano.",
+        "O",
+        "learned",
+        "judge!",
+        "Mark,",
+        "Jew,",
+        "a",
+        "learned",
+        "judge!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gratiano,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "gratiano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.59,
+          "end": 1.59,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "learned",
+          "start": 1.59,
+          "end": 1.79,
+          "key": "learned",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "judge!",
+          "start": 1.79,
+          "end": 2.19,
+          "key": "judge",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Mark,",
+          "start": 2.69,
+          "end": 2.77,
+          "key": "mark",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Jew,",
+          "start": 2.77,
+          "end": 3.07,
+          "key": "jew",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.21,
+          "end": 3.25,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "learned",
+          "start": 3.25,
+          "end": 3.47,
+          "key": "learned",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "judge!",
+          "start": 3.47,
+          "end": 3.77,
+          "key": "judge",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "O",
+          "start": 1.59,
+          "end": 1.59
+        },
+        {
+          "text": "learned",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "judge!",
+          "start": 1.79,
+          "end": 2.19
+        },
+        {
+          "text": "Mark,",
+          "start": 2.69,
+          "end": 2.77
+        },
+        {
+          "text": "Jew,",
+          "start": 2.77,
+          "end": 3.07
+        },
+        {
+          "text": "a",
+          "start": 3.21,
+          "end": 3.25
+        },
+        {
+          "text": "learned",
+          "start": 3.25,
+          "end": 3.47
+        },
+        {
+          "text": "judge!",
+          "start": 3.47,
+          "end": 3.77
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18587165232747793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df90f6fe5a6bd0baa6346907e5133f8d9e86fda9c72416e8bf9478d8bd4a0351",
+  "selected_reasons": []
+}

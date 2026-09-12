@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "561ebc290ddcb4d8d4b43d6ffe3a266dede2481efb5ee0dfac908f9896ea284b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2768127378076315,
+      "alignment_seconds": 0.0004797929432243109,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Murderer. Why, then he'll say we stabbed him sleeping.",
+        "hotwords": "First, Murderer, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Murderer, Why, then he'll say we stabbed him sleeping.",
+          "start": 0.05,
+          "end": 3.29,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.67,
+              "end": 1.13,
+              "probability": 0.5090255737304688
+            },
+            {
+              "text": " Why,",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.0831298828125
+            },
+            {
+              "text": " then",
+              "start": 1.99,
+              "end": 2.01,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " he'll",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " say",
+              "start": 2.21,
+              "end": 2.35,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " we",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.80859375
+            },
+            {
+              "text": " stabbed",
+              "start": 2.51,
+              "end": 2.77,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " him",
+              "start": 2.77,
+              "end": 2.99,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " sleeping.",
+              "start": 2.99,
+              "end": 3.29,
+              "probability": 0.9423828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "raw": "Why,",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "then",
+          "start": 1.99,
+          "end": 2.01
+        },
+        {
+          "raw": "he'll",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "say",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "raw": "we",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "stabbed",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "raw": "him",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "raw": "sleeping.",
+          "start": 2.99,
+          "end": 3.29
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Murderer.",
+        "Why,",
+        "then",
+        "he'll",
+        "say",
+        "we",
+        "stabbed",
+        "him",
+        "sleeping."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.67,
+          "end": 1.13,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "why",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.99,
+          "end": 2.01,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he'll",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "hell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.21,
+          "end": 2.35,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.35,
+          "end": 2.51,
+          "key": "we",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stabbed",
+          "start": 2.51,
+          "end": 2.77,
+          "key": "stabbed",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 2.77,
+          "end": 2.99,
+          "key": "him",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sleeping.",
+          "start": 2.99,
+          "end": 3.29,
+          "key": "sleeping",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.67,
+          "end": 1.13
+        },
+        {
+          "text": "Why,",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "then",
+          "start": 1.99,
+          "end": 2.01
+        },
+        {
+          "text": "he'll",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "say",
+          "start": 2.21,
+          "end": 2.35
+        },
+        {
+          "text": "we",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "stabbed",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "text": "him",
+          "start": 2.77,
+          "end": 2.99
+        },
+        {
+          "text": "sleeping.",
+          "start": 2.99,
+          "end": 3.29
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2774978408124298
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "078dc784564a8d977ef22885633ba07ed3e12f3b781641ff413e5f3f41fb833f",
+  "selected_reasons": []
+}

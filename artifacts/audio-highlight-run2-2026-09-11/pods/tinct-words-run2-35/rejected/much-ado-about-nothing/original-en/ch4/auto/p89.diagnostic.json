@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "4502fa375a18397c53bfcf85fe312c60f7fdcb4c181d0c00886d6486b34a2b04",
+  "attempts": [
+    {
+      "asr_seconds": 0.20702858082950115,
+      "alignment_seconds": 0.00040240585803985596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Claudio. I pray you, leave me.",
+        "hotwords": "Claudio, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Claudio, I pray you, leave me.",
+          "start": 0.0,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " Claudio,",
+              "start": 0.0,
+              "end": 0.76,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " I",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pray",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you,",
+              "start": 1.4,
+              "end": 1.6,
+              "probability": 0.984375
+            },
+            {
+              "text": " leave",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.990234375
+            },
+            {
+              "text": " me.",
+              "start": 1.8,
+              "end": 2.04,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio,",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "pray",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "you,",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "raw": "leave",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "me.",
+          "start": 1.8,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "Claudio.",
+        "I",
+        "pray",
+        "you,",
+        "leave",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio,",
+          "start": 0.0,
+          "end": 0.76,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "pray",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.4,
+          "end": 1.6,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "leave",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 1.8,
+          "end": 2.04,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "pray",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "you,",
+          "start": 1.4,
+          "end": 1.6
+        },
+        {
+          "text": "leave",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "me.",
+          "start": 1.8,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20756873860955238
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c17784a1b5b861cc48920105558ae83716c37e197dbd070d6cbce25f2efea63d",
+  "selected_reasons": []
+}

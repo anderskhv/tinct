@@ -1,0 +1,731 @@
+{
+  "complete": true,
+  "signature": "9f06da7f49ad39a575288b0fcd83b0f474a5842d134be04557f2715d75786fdf",
+  "attempts": [
+    {
+      "asr_seconds": 0.26752301864326,
+      "alignment_seconds": 0.0005441512912511826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"_I_ got here, Flopson?\" asked Mrs. Pocket.",
+        "hotwords": "Flopson, Mrs, Pocket"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " \"_I got here, Flopson,\" asked Mrs. Pocket. \"_I got here, Flopson,\" asked Mrs. Pocket.",
+          "start": 0.02,
+          "end": 3.38,
+          "words": [
+            {
+              "text": " \"_I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.42773497104644775
+            },
+            {
+              "text": " got",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.896484375
+            },
+            {
+              "text": " here,",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Flopson,\"",
+              "start": 0.96,
+              "end": 1.62,
+              "probability": 0.3441314697265625
+            },
+            {
+              "text": " asked",
+              "start": 1.62,
+              "end": 1.98,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " Pocket.",
+              "start": 2.54,
+              "end": 2.64,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " \"_I",
+              "start": 3.18,
+              "end": 3.38,
+              "probability": 0.0917816162109375
+            },
+            {
+              "text": " got",
+              "start": 3.38,
+              "end": 3.38,
+              "probability": 0.7548828125
+            },
+            {
+              "text": " here,",
+              "start": 3.38,
+              "end": 3.38,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Flopson,\"",
+              "start": 3.38,
+              "end": 3.38,
+              "probability": 0.9713134765625
+            },
+            {
+              "text": " asked",
+              "start": 3.38,
+              "end": 3.38,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Mrs.",
+              "start": 3.38,
+              "end": 3.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Pocket.",
+              "start": 3.38,
+              "end": 3.38,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "\"_I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "got",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "here,",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "Flopson,\"",
+          "start": 0.96,
+          "end": 1.62
+        },
+        {
+          "raw": "asked",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "Pocket.",
+          "start": 2.54,
+          "end": 2.64
+        },
+        {
+          "raw": "\"_I",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "raw": "got",
+          "start": 3.38,
+          "end": 3.38
+        },
+        {
+          "raw": "here,",
+          "start": 3.38,
+          "end": 3.38
+        },
+        {
+          "raw": "Flopson,\"",
+          "start": 3.38,
+          "end": 3.38
+        },
+        {
+          "raw": "asked",
+          "start": 3.38,
+          "end": 3.38
+        },
+        {
+          "raw": "Mrs.",
+          "start": 3.38,
+          "end": 3.38
+        },
+        {
+          "raw": "Pocket.",
+          "start": 3.38,
+          "end": 3.38
+        }
+      ],
+      "expected_tokens": [
+        "\"_I_",
+        "got",
+        "here,",
+        "Flopson?\"",
+        "asked",
+        "Mrs.",
+        "Pocket."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          7,
+          1,
+          7
+        ],
+        [
+          "insert",
+          7,
+          7,
+          7,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          7,
+          7,
+          7,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "\"_I",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "_i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "got",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 0.68,
+          "end": 0.9,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Flopson,\"",
+          "start": 0.96,
+          "end": 1.62,
+          "key": "flopson",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.62,
+          "end": 1.98,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "mrs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Pocket.",
+          "start": 2.54,
+          "end": 2.64,
+          "key": "pocket",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "\"_I",
+          "start": 3.18,
+          "end": 3.38,
+          "key": "_i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 3.38,
+          "end": 3.38,
+          "key": "got",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 3.38,
+          "end": 3.38,
+          "key": "here",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Flopson,\"",
+          "start": 3.38,
+          "end": 3.38,
+          "key": "flopson",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 3.38,
+          "end": 3.38,
+          "key": "asked",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 3.38,
+          "end": 3.38,
+          "key": "mrs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Pocket.",
+          "start": 3.38,
+          "end": 3.38,
+          "key": "pocket",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_I_",
+          "start": 0.0,
+          "end": 0.26
+        },
+        {
+          "text": "got",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "here,",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "Flopson?\"",
+          "start": 0.96,
+          "end": 1.62
+        },
+        {
+          "text": "asked",
+          "start": 1.62,
+          "end": 1.98
+        },
+        {
+          "text": "Mrs.",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "Pocket.",
+          "start": 2.54,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 14,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.26833236403763294
+    },
+    {
+      "asr_seconds": 0.23975948058068752,
+      "alignment_seconds": 0.0004334989935159683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Flopson, Mrs, Pocket"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I got here, Flopson, asked Mrs. Pocket.",
+          "start": 0.02,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.169189453125
+            },
+            {
+              "text": " got",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " here,",
+              "start": 0.68,
+              "end": 0.9,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Flopson,",
+              "start": 0.96,
+              "end": 1.34,
+              "probability": 0.4444580078125
+            },
+            {
+              "text": " asked",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " Pocket.",
+              "start": 2.54,
+              "end": 2.62,
+              "probability": 0.92431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "got",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "here,",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "raw": "Flopson,",
+          "start": 0.96,
+          "end": 1.34
+        },
+        {
+          "raw": "asked",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "Pocket.",
+          "start": 2.54,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "\"_I_",
+        "got",
+        "here,",
+        "Flopson?\"",
+        "asked",
+        "Mrs.",
+        "Pocket."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "got",
+          "start": 0.54,
+          "end": 0.68,
+          "key": "got",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 0.68,
+          "end": 0.9,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Flopson,",
+          "start": 0.96,
+          "end": 1.34,
+          "key": "flopson",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "mrs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Pocket.",
+          "start": 2.54,
+          "end": 2.62,
+          "key": "pocket",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_I_",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "got",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "here,",
+          "start": 0.68,
+          "end": 0.9
+        },
+        {
+          "text": "Flopson?\"",
+          "start": 0.96,
+          "end": 1.34
+        },
+        {
+          "text": "asked",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "Mrs.",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "Pocket.",
+          "start": 2.54,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24034622125327587
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "4f8d187d96f997bcc348009adddc9733fb1a53a175aaae1d8c4114daa1c2c042",
+  "selected_reasons": []
+}

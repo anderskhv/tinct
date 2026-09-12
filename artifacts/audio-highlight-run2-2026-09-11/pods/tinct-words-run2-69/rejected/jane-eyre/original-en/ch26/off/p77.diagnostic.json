@@ -1,0 +1,353 @@
+{
+  "complete": true,
+  "signature": "5d61b64891f3c697dcc58eea668128d37caa282bf29fdf813cf9a3b1d0a82666",
+  "attempts": [
+    {
+      "asr_seconds": 0.23558030650019646,
+      "alignment_seconds": 0.00022821221500635147,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Go to the devil was his brother-in-law's recommendation",
+          "start": 0.05,
+          "end": 3.25,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.453369140625
+            },
+            {
+              "text": " to",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " the",
+              "start": 0.71,
+              "end": 0.83,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " devil",
+              "start": 0.83,
+              "end": 1.17,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " was",
+              "start": 1.17,
+              "end": 1.77,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " his",
+              "start": 1.77,
+              "end": 1.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " brother",
+              "start": 1.95,
+              "end": 2.25,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-in",
+              "start": 2.25,
+              "end": 2.43,
+              "probability": 0.939697265625
+            },
+            {
+              "text": "-law's",
+              "start": 2.43,
+              "end": 2.75,
+              "probability": 0.9718424479166666
+            },
+            {
+              "text": " recommendation",
+              "start": 2.75,
+              "end": 3.25,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "to",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "raw": "devil",
+          "start": 0.83,
+          "end": 1.17
+        },
+        {
+          "raw": "was",
+          "start": 1.17,
+          "end": 1.77
+        },
+        {
+          "raw": "his",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "raw": "brother",
+          "start": 1.95,
+          "end": 2.25
+        },
+        {
+          "raw": "-in",
+          "start": 2.25,
+          "end": 2.43
+        },
+        {
+          "raw": "-law's",
+          "start": 2.43,
+          "end": 2.75
+        },
+        {
+          "raw": "recommendation",
+          "start": 2.75,
+          "end": 3.25
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "to",
+        "the",
+        "devil!\"",
+        "was",
+        "his",
+        "brother-in-law's",
+        "recommendation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.83,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "devil",
+          "start": 0.83,
+          "end": 1.17,
+          "key": "devil",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.17,
+          "end": 1.77,
+          "key": "was",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.77,
+          "end": 1.95,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "brother -in -law's",
+          "start": 1.95,
+          "end": 2.75,
+          "key": "brotherinlaws",
+          "pieces": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "recommendation",
+          "start": 2.75,
+          "end": 3.25,
+          "key": "recommendation",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 6,
+          "text": "brother-in-law's",
+          "heard": "brother -in -law's",
+          "heard_indexes": [
+            6,
+            7,
+            8
+          ],
+          "start": 1.95,
+          "end": 2.75
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "to",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "the",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "text": "devil!\"",
+          "start": 0.83,
+          "end": 1.17
+        },
+        {
+          "text": "was",
+          "start": 1.17,
+          "end": 1.77
+        },
+        {
+          "text": "his",
+          "start": 1.77,
+          "end": 1.95
+        },
+        {
+          "text": "brother-in-law's",
+          "start": 1.95,
+          "end": 2.75
+        },
+        {
+          "text": "recommendation.",
+          "start": 2.75,
+          "end": 3.25
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23588341660797596
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2088309030bdb728c93076a527a85e5b025679437e8304773904bd3c73cc738c",
+  "selected_reasons": []
+}

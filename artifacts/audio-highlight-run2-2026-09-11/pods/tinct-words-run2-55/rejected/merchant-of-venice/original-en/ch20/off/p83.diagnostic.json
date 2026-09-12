@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "388815c73a3983f54ac26471f96e4baf5091ea478ac04ee4ad530cc6581c8123",
+  "attempts": [
+    {
+      "asr_seconds": 0.20758920535445213,
+      "alignment_seconds": 0.0003802469000220299,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio, I am T.H., unhappy subject of these quarrels.",
+          "start": 0.11,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Antonio,",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.662109375
+            },
+            {
+              "text": " I",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " am",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " T",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.2432861328125
+            },
+            {
+              "text": ".H.,",
+              "start": 1.95,
+              "end": 2.53,
+              "probability": 0.8849283854166666
+            },
+            {
+              "text": " unhappy",
+              "start": 2.53,
+              "end": 2.83,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " subject",
+              "start": 2.83,
+              "end": 3.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.37,
+              "end": 3.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " these",
+              "start": 3.59,
+              "end": 3.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " quarrels.",
+              "start": 3.75,
+              "end": 4.47,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "am",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "T",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": ".H.,",
+          "start": 1.95,
+          "end": 2.53
+        },
+        {
+          "raw": "unhappy",
+          "start": 2.53,
+          "end": 2.83
+        },
+        {
+          "raw": "subject",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "raw": "of",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "raw": "these",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "raw": "quarrels.",
+          "start": 3.75,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "I",
+        "am",
+        "th'",
+        "unhappy",
+        "subject",
+        "of",
+        "these",
+        "quarrels."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          9,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio,",
+          "start": 0.11,
+          "end": 0.77,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "T",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "t",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": ".H.,",
+          "start": 1.95,
+          "end": 2.53,
+          "key": "h",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 2.53,
+          "end": 2.83,
+          "key": "unhappy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "subject",
+          "start": 2.83,
+          "end": 3.37,
+          "key": "subject",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.37,
+          "end": 3.59,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.59,
+          "end": 3.75,
+          "key": "these",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "quarrels.",
+          "start": 3.75,
+          "end": 4.47,
+          "key": "quarrels",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.11,
+          "end": 0.77
+        },
+        {
+          "text": "I",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "am",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "th'",
+          "start": 1.75,
+          "end": 2.14
+        },
+        {
+          "text": "unhappy",
+          "start": 2.53,
+          "end": 2.83
+        },
+        {
+          "text": "subject",
+          "start": 2.83,
+          "end": 3.37
+        },
+        {
+          "text": "of",
+          "start": 3.37,
+          "end": 3.59
+        },
+        {
+          "text": "these",
+          "start": 3.59,
+          "end": 3.75
+        },
+        {
+          "text": "quarrels.",
+          "start": 3.75,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.20811896584928036
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca52c7d211d24eb6d56378bdd7489d741321e5d36770e75a84575d54a71245c8",
+  "selected_reasons": []
+}

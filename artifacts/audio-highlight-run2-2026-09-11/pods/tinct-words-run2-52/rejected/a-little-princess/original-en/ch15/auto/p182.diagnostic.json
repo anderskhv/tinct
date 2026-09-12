@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "6fc8b1ac4049392865bbc16e7654672fac0ee1f0c73b867606df318159db1fec",
+  "attempts": [
+    {
+      "asr_seconds": 0.19326409697532654,
+      "alignment_seconds": 0.0004506893455982208,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It's like a queen's table,\" sighed Becky.",
+        "hotwords": "It's, Becky"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It's like a queen's table, sighed Becky.",
+          "start": 0.02,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " It's",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " like",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.99609375
+            },
+            {
+              "text": " queen's",
+              "start": 0.76,
+              "end": 1.14,
+              "probability": 0.690673828125
+            },
+            {
+              "text": " table,",
+              "start": 1.14,
+              "end": 1.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sighed",
+              "start": 1.9,
+              "end": 2.0,
+              "probability": 0.046417236328125
+            },
+            {
+              "text": " Becky.",
+              "start": 2.0,
+              "end": 2.28,
+              "probability": 0.966796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "like",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "a",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "queen's",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "raw": "table,",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "raw": "sighed",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "raw": "Becky.",
+          "start": 2.0,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "\"It's",
+        "like",
+        "a",
+        "queen's",
+        "table,\"",
+        "sighed",
+        "Becky."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It's",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "its",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "like",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.64,
+          "end": 0.76,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "queen's",
+          "start": 0.76,
+          "end": 1.14,
+          "key": "queens",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "table,",
+          "start": 1.14,
+          "end": 1.48,
+          "key": "table",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sighed",
+          "start": 1.9,
+          "end": 2.0,
+          "key": "sighed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Becky.",
+          "start": 2.0,
+          "end": 2.28,
+          "key": "becky",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It's",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "like",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "a",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "text": "queen's",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "text": "table,\"",
+          "start": 1.14,
+          "end": 1.48
+        },
+        {
+          "text": "sighed",
+          "start": 1.9,
+          "end": 2.0
+        },
+        {
+          "text": "Becky.",
+          "start": 2.0,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19388793781399727
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e0d0e460a352fdfb93fe525df01532d111d8755dce200a4eeeec1a9034f8a5c9",
+  "selected_reasons": []
+}

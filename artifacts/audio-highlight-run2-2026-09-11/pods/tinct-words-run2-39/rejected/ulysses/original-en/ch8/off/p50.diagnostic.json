@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "210b5800133328a5ff4ad971c9eb1fa99a2053d5a3cc5c7f594bcbc94e6fffeb",
+  "attempts": [
+    {
+      "asr_seconds": 0.20176141685806215,
+      "alignment_seconds": 0.00042973202653229237,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How many has she no other in sight?",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " many",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " she",
+              "start": 0.95,
+              "end": 1.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " no",
+              "start": 1.21,
+              "end": 1.71,
+              "probability": 0.360595703125
+            },
+            {
+              "text": " other",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " in",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.744140625
+            },
+            {
+              "text": " sight?",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "many",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "has",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "she",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "raw": "no",
+          "start": 1.21,
+          "end": 1.71
+        },
+        {
+          "raw": "other",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "in",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "sight?",
+          "start": 2.01,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "How",
+        "many",
+        "has",
+        "she?",
+        "No",
+        "other",
+        "in",
+        "sight."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 0.55,
+          "end": 0.71,
+          "key": "many",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 0.95,
+          "end": 1.21,
+          "key": "she",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 1.21,
+          "end": 1.71,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "other",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sight?",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "sight",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "How",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "many",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "has",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "text": "she?",
+          "start": 0.95,
+          "end": 1.21
+        },
+        {
+          "text": "No",
+          "start": 1.21,
+          "end": 1.71
+        },
+        {
+          "text": "other",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "in",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "sight.",
+          "start": 2.01,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20235533290542662
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "38519e05f5754ab848421e4e6eda22c2b76d8848f974587597e9ec3215e7a545",
+  "selected_reasons": []
+}

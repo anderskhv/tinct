@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "225638dcc7fe7aa59a8d1a0c66e9dc61eca7ad549919b57514a44567af0abed0",
+  "attempts": [
+    {
+      "asr_seconds": 0.11735651642084122,
+      "alignment_seconds": 0.00012638047337532043,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Most true, he said.",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Most",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.6328125
+            },
+            {
+              "text": " true,",
+              "start": 0.62,
+              "end": 0.9,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " he",
+              "start": 1.04,
+              "end": 1.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said.",
+              "start": 1.14,
+              "end": 1.4,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "true,",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "raw": "he",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "raw": "said.",
+          "start": 1.14,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Most",
+        "true,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Most",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "most",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 0.62,
+          "end": 0.9,
+          "key": "true",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.04,
+          "end": 1.14,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 1.14,
+          "end": 1.4,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Most",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "true,",
+          "start": 0.62,
+          "end": 0.9
+        },
+        {
+          "text": "he",
+          "start": 1.04,
+          "end": 1.14
+        },
+        {
+          "text": "said.",
+          "start": 1.14,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11752169579267502
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ebbc372adb557aadd64c2f1aca7a9bea7a34111cf1fd3c439341438e7ea2f240",
+  "selected_reasons": []
+}

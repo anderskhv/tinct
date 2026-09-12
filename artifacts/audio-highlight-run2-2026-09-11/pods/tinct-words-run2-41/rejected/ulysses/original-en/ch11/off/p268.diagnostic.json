@@ -1,0 +1,497 @@
+{
+  "complete": true,
+  "signature": "1647d5f836af9272fad03175cbf67a5be635162a53581b40139a82c9ba7b430b",
+  "attempts": [
+    {
+      "asr_seconds": 0.31401551701128483,
+      "alignment_seconds": 0.0005567949265241623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, now urged Lenihan.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.5146484375
+            },
+            {
+              "text": " now",
+              "start": 0.85,
+              "end": 0.87,
+              "probability": 0.833984375
+            },
+            {
+              "text": " urged",
+              "start": 0.87,
+              "end": 1.23,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " Lenihan.",
+              "start": 1.23,
+              "end": 1.79,
+              "probability": 0.7103678385416666
+            }
+          ]
+        },
+        {
+          "text": " Sanas la cloche.",
+          "start": 2.29,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Sanas",
+              "start": 2.29,
+              "end": 2.49,
+              "probability": 0.475341796875
+            },
+            {
+              "text": " la",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.1292724609375
+            },
+            {
+              "text": " cloche.",
+              "start": 2.61,
+              "end": 2.95,
+              "probability": 0.76123046875
+            }
+          ]
+        },
+        {
+          "text": " Oh, do, there's no one.",
+          "start": 3.29,
+          "end": 4.47,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 3.29,
+              "end": 3.37,
+              "probability": 0.5341796875
+            },
+            {
+              "text": " do,",
+              "start": 3.51,
+              "end": 3.55,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " there's",
+              "start": 3.77,
+              "end": 4.03,
+              "probability": 0.984375
+            },
+            {
+              "text": " no",
+              "start": 4.03,
+              "end": 4.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one.",
+              "start": 4.19,
+              "end": 4.47,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "now",
+          "start": 0.85,
+          "end": 0.87
+        },
+        {
+          "raw": "urged",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "raw": "Lenihan.",
+          "start": 1.23,
+          "end": 1.79
+        },
+        {
+          "raw": "Sanas",
+          "start": 2.29,
+          "end": 2.49
+        },
+        {
+          "raw": "la",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "cloche.",
+          "start": 2.61,
+          "end": 2.95
+        },
+        {
+          "raw": "Oh,",
+          "start": 3.29,
+          "end": 3.37
+        },
+        {
+          "raw": "do,",
+          "start": 3.51,
+          "end": 3.55
+        },
+        {
+          "raw": "there's",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "raw": "no",
+          "start": 4.03,
+          "end": 4.19
+        },
+        {
+          "raw": "one.",
+          "start": 4.19,
+          "end": 4.47
+        }
+      ],
+      "expected_tokens": [
+        "—No,",
+        "now,",
+        "urged",
+        "Lenehan.",
+        "_Sonnez",
+        "la",
+        "cloche!_",
+        "O",
+        "do!",
+        "There's",
+        "no-one."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          11,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.85,
+          "end": 0.87,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "urged",
+          "start": 0.87,
+          "end": 1.23,
+          "key": "urged",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lenihan.",
+          "start": 1.23,
+          "end": 1.79,
+          "key": "lenihan",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Sanas",
+          "start": 2.29,
+          "end": 2.49,
+          "key": "sanas",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "la",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "la",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cloche.",
+          "start": 2.61,
+          "end": 2.95,
+          "key": "cloche",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 3.29,
+          "end": 3.37,
+          "key": "oh",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 3.51,
+          "end": 3.55,
+          "key": "do",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "there's",
+          "start": 3.77,
+          "end": 4.03,
+          "key": "theres",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "no one.",
+          "start": 4.03,
+          "end": 4.47,
+          "key": "noone",
+          "pieces": [
+            10,
+            11
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "no-one.",
+          "heard": "no one.",
+          "heard_indexes": [
+            10,
+            11
+          ],
+          "start": 4.03,
+          "end": 4.47
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "—No,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "now,",
+          "start": 0.85,
+          "end": 0.87
+        },
+        {
+          "text": "urged",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "text": "Lenehan.",
+          "start": 1.23,
+          "end": 1.86
+        },
+        {
+          "text": "_Sonnez",
+          "start": 1.86,
+          "end": 2.175
+        },
+        {
+          "text": "la",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "cloche!_",
+          "start": 2.61,
+          "end": 2.95
+        },
+        {
+          "text": "O",
+          "start": 2.95,
+          "end": 3.23
+        },
+        {
+          "text": "do!",
+          "start": 3.51,
+          "end": 3.55
+        },
+        {
+          "text": "There's",
+          "start": 3.77,
+          "end": 4.03
+        },
+        {
+          "text": "no-one.",
+          "start": 4.03,
+          "end": 4.47
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.7272727272727273,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3147364389151335
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "26cb0fc546023d02f923ffd205acbfe3d75959acab83fe2eb4dc845222a9f3ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

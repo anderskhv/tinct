@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "cbafc0e824780377f10d606a9b5edbf1f77f9b54c4a760955ff0ac9e7a6e33d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.18712981045246124,
+      "alignment_seconds": 0.0003022812306880951,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Borachio. Master Constable,—",
+        "hotwords": "Borachio, Master, Constable"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Borachio, Master, Constable",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Borachio,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.6265869140625
+            },
+            {
+              "text": " Master,",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " Constable",
+              "start": 1.69,
+              "end": 2.05,
+              "probability": 0.744140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Borachio,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Master,",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "Constable",
+          "start": 1.69,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Borachio.",
+        "Master",
+        "Constable,—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Borachio,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "borachio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Master,",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "master",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Constable",
+          "start": 1.69,
+          "end": 2.05,
+          "key": "constable",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Borachio.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Master",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "Constable,—",
+          "start": 1.69,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18754033371806145
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "aa58425b74250099fe60ef739930d3edb832e0172940a4e606a654a3830e107a",
+  "selected_reasons": []
+}

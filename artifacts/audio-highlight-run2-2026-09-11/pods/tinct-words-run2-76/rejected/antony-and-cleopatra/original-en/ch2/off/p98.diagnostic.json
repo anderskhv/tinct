@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "40884528367e29b6c86a5380f0733957264ac373ff35d44e7fb9e5cb345cc32c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19605987193062901,
+      "alignment_seconds": 0.00030085816979408264,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antony, Fulvia is dead.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.829345703125
+            },
+            {
+              "text": " Fulvia",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.5875244140625
+            },
+            {
+              "text": " is",
+              "start": 1.49,
+              "end": 1.67,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " dead.",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Fulvia",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "raw": "dead.",
+          "start": 1.67,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "Fulvia",
+        "is",
+        "dead."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fulvia",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "fulvia",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.49,
+          "end": 1.67,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dead.",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "dead",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Fulvia",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "is",
+          "start": 1.49,
+          "end": 1.67
+        },
+        {
+          "text": "dead.",
+          "start": 1.67,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1964711151085794
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "08e0e8661e1c26d61275947ff570b38878b5e7d77da80591501fae3c4cd48756",
+  "selected_reasons": []
+}

@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "5f2a2e9740c92fcd69b57c22ad2aaa87ec4be363efc9e433e2656ca80bbf4a36",
+  "attempts": [
+    {
+      "asr_seconds": 0.13755116239190102,
+      "alignment_seconds": 0.00039205607026815414,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Thank you my boy. I do",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Thank",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.908203125
+            },
+            {
+              "text": " you",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " my",
+              "start": 0.73,
+              "end": 0.87,
+              "probability": 0.53173828125
+            },
+            {
+              "text": " boy.",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " I",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " do",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thank",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "my",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "raw": "boy.",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "do",
+          "start": 1.47,
+          "end": 1.69
+        }
+      ],
+      "expected_tokens": [
+        "\"Thankee,",
+        "my",
+        "boy.",
+        "I",
+        "do.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thank",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "thank",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.57,
+          "end": 0.73,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.73,
+          "end": 0.87,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "boy.",
+          "start": 0.87,
+          "end": 1.09,
+          "key": "boy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Thankee,",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "my",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "text": "boy.",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "I",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "do.\"",
+          "start": 1.47,
+          "end": 1.69
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1380842486396432
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dd96c9cf66209f376f0c7d84e3eecce364bed58cb34f13de47b1035ef1f64c51",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

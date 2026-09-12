@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a825f2d32924a045d6607bd2e6cfc9974cf6113ea452397768ba224fa891f600",
+  "attempts": [
+    {
+      "asr_seconds": 0.12329556327313185,
+      "alignment_seconds": 0.0001685144379734993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " to be sure.",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " to",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.509765625
+            },
+            {
+              "text": " be",
+              "start": 0.48,
+              "end": 0.58,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sure.",
+              "start": 0.58,
+              "end": 0.86,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "be",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "raw": "sure.",
+          "start": 0.58,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "be",
+        "sure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.48,
+          "end": 0.58,
+          "key": "be",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sure.",
+          "start": 0.58,
+          "end": 0.86,
+          "key": "sure",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "be",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "text": "sure.",
+          "start": 0.58,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12351853027939796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5d880e75d185f09ec5873d24582dc16b13e561b798dc2a3d997ff3cc8fa4043c",
+  "selected_reasons": []
+}

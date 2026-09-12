@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "b95e7c37fbdb124fbfdec6f2e0db71afc8bc2a4a631ef508e91f8b3260061d1d",
+  "attempts": [
+    {
+      "asr_seconds": 0.09183320216834545,
+      "alignment_seconds": 0.00015773018822073936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "For men.",
+        "hotwords": "For"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " For men.",
+          "start": 0.05,
+          "end": 0.75,
+          "words": [
+            {
+              "text": " For",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.541015625
+            },
+            {
+              "text": " men.",
+              "start": 0.53,
+              "end": 0.75,
+              "probability": 0.7119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "For",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "men.",
+          "start": 0.53,
+          "end": 0.75
+        }
+      ],
+      "expected_tokens": [
+        "For",
+        "men."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "For",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "for",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 0.53,
+          "end": 0.75,
+          "key": "men",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "For",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "men.",
+          "start": 0.53,
+          "end": 0.75
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09204525407403708
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3329d6699b7779cd0bb84fac8082245325cc4ae11113aeee2731ebd9538cd945",
+  "selected_reasons": []
+}

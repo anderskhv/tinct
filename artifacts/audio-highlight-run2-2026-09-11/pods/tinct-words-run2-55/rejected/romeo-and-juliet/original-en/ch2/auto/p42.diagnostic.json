@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "95093065869e94989686f100a49e79c1c1d963f8278005a3776287f377dfc16c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2704978212714195,
+      "alignment_seconds": 0.0004493268206715584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sampson. Draw, if you be men. Gregory, remember thy washing blow.",
+        "hotwords": "Sampson, Draw, Gregory"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sampson, Draw, if you be men. Gregory, remember thy washing blow.",
+          "start": 0.08,
+          "end": 4.44,
+          "words": [
+            {
+              "text": " Sampson,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.737548828125
+            },
+            {
+              "text": " Draw,",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.07550048828125
+            },
+            {
+              "text": " if",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " you",
+              "start": 1.7,
+              "end": 1.78,
+              "probability": 0.374755859375
+            },
+            {
+              "text": " be",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " men.",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " Gregory,",
+              "start": 3.04,
+              "end": 3.04,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " remember",
+              "start": 3.54,
+              "end": 3.56,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " thy",
+              "start": 3.56,
+              "end": 3.76,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " washing",
+              "start": 3.76,
+              "end": 4.14,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " blow.",
+              "start": 4.14,
+              "end": 4.44,
+              "probability": 0.96923828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sampson,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "Draw,",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "if",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "you",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "raw": "be",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "men.",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "Gregory,",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "raw": "remember",
+          "start": 3.54,
+          "end": 3.56
+        },
+        {
+          "raw": "thy",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "raw": "washing",
+          "start": 3.76,
+          "end": 4.14
+        },
+        {
+          "raw": "blow.",
+          "start": 4.14,
+          "end": 4.44
+        }
+      ],
+      "expected_tokens": [
+        "Sampson.",
+        "Draw,",
+        "if",
+        "you",
+        "be",
+        "men.",
+        "Gregory,",
+        "remember",
+        "thy",
+        "washing",
+        "blow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sampson,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "sampson",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Draw,",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "draw",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "if",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.7,
+          "end": 1.78,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "men.",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "men",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Gregory,",
+          "start": 3.04,
+          "end": 3.04,
+          "key": "gregory",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 3.54,
+          "end": 3.56,
+          "key": "remember",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 3.56,
+          "end": 3.76,
+          "key": "thy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "washing",
+          "start": 3.76,
+          "end": 4.14,
+          "key": "washing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "blow.",
+          "start": 4.14,
+          "end": 4.44,
+          "key": "blow",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sampson.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Draw,",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "text": "if",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "you",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "text": "be",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "men.",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "text": "Gregory,",
+          "start": 3.04,
+          "end": 3.04
+        },
+        {
+          "text": "remember",
+          "start": 3.54,
+          "end": 3.56
+        },
+        {
+          "text": "thy",
+          "start": 3.56,
+          "end": 3.76
+        },
+        {
+          "text": "washing",
+          "start": 3.76,
+          "end": 4.14
+        },
+        {
+          "text": "blow.",
+          "start": 4.14,
+          "end": 4.44
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27108561899513006
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a2d391f46b35bbd1307e19906cba06ad51a67400308cb06f50b6027105aa7c90",
+  "selected_reasons": []
+}

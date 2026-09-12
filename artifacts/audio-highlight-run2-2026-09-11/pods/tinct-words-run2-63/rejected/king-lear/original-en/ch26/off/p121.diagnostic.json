@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "523c27a47371f3c1c174a401010c4e77eaed97924ba2ea9804d5b6a088610283",
+  "attempts": [
+    {
+      "asr_seconds": 0.1295528318732977,
+      "alignment_seconds": 0.0003225822001695633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lear, Prithee away.",
+          "start": 0.02,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.6103515625
+            },
+            {
+              "text": " Prithee",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.53167724609375
+            },
+            {
+              "text": " away.",
+              "start": 1.22,
+              "end": 1.5,
+              "probability": 0.57958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Prithee",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "away.",
+          "start": 1.22,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "Prythee,",
+        "away!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Prithee",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "prithee",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "away.",
+          "start": 1.22,
+          "end": 1.5,
+          "key": "away",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Prythee,",
+          "start": 0.68,
+          "end": 0.95
+        },
+        {
+          "text": "away!",
+          "start": 1.22,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1299731396138668
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "127b368257dddc864b631a2775376694cf4a390a65105f4101ab2317a33c38b9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

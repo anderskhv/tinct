@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "6b0fb9357c7446e961a14c878d60963028fcafb34f97b8b63d1afeeee640f4b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.133583283983171,
+      "alignment_seconds": 0.000286296010017395,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The Pretensions of Poverty",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.517578125
+            },
+            {
+              "text": " Pretensions",
+              "start": 0.48,
+              "end": 0.98,
+              "probability": 0.867919921875
+            },
+            {
+              "text": " of",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Poverty",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "Pretensions",
+          "start": 0.48,
+          "end": 0.98
+        },
+        {
+          "raw": "of",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "raw": "Poverty",
+          "start": 1.22,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "Pretensions",
+        "of",
+        "Poverty"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pretensions",
+          "start": 0.48,
+          "end": 0.98,
+          "key": "pretensions",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.98,
+          "end": 1.22,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Poverty",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "poverty",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "Pretensions",
+          "start": 0.48,
+          "end": 0.98
+        },
+        {
+          "text": "of",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "text": "Poverty",
+          "start": 1.22,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13398168003186584
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1f2107fd54fd06a4af79f419a1a5f35edc1792e8faba61ef0bf89ac5d23d94f4",
+  "selected_reasons": []
+}

@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "f7eba486b9392f59b1f759b362ddb60eb7f445c614d040ca2a9ba5364f47ca1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1610525700089056,
+      "alignment_seconds": 0.00022293798974715173,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, thy vile lady, she has robbed me of my sword.",
+          "start": 0.21,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.21,
+              "end": 0.59,
+              "probability": 0.470947265625
+            },
+            {
+              "text": " thy",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " vile",
+              "start": 0.77,
+              "end": 1.07,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " lady,",
+              "start": 1.07,
+              "end": 1.37,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " she",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " has",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " robbed",
+              "start": 2.07,
+              "end": 2.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 2.31,
+              "end": 2.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.47,
+              "end": 2.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sword.",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.21,
+          "end": 0.59
+        },
+        {
+          "raw": "thy",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "vile",
+          "start": 0.77,
+          "end": 1.07
+        },
+        {
+          "raw": "lady,",
+          "start": 1.07,
+          "end": 1.37
+        },
+        {
+          "raw": "she",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "has",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "robbed",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "raw": "me",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "raw": "of",
+          "start": 2.47,
+          "end": 2.55
+        },
+        {
+          "raw": "my",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "sword.",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "O,",
+        "thy",
+        "vile",
+        "lady!",
+        "She",
+        "has",
+        "robbed",
+        "me",
+        "of",
+        "my",
+        "sword."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.21,
+          "end": 0.59,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 0.61,
+          "end": 0.77,
+          "key": "thy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "vile",
+          "start": 0.77,
+          "end": 1.07,
+          "key": "vile",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 1.07,
+          "end": 1.37,
+          "key": "lady",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.79,
+          "end": 1.95,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "has",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "robbed",
+          "start": 2.07,
+          "end": 2.31,
+          "key": "robbed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.31,
+          "end": 2.47,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.47,
+          "end": 2.55,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sword.",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "sword",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "O,",
+          "start": 0.0,
+          "end": 0.305
+        },
+        {
+          "text": "thy",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "vile",
+          "start": 0.77,
+          "end": 1.07
+        },
+        {
+          "text": "lady!",
+          "start": 1.07,
+          "end": 1.37
+        },
+        {
+          "text": "She",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "has",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "robbed",
+          "start": 2.07,
+          "end": 2.31
+        },
+        {
+          "text": "me",
+          "start": 2.31,
+          "end": 2.47
+        },
+        {
+          "text": "of",
+          "start": 2.47,
+          "end": 2.55
+        },
+        {
+          "text": "my",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "sword.",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.16136409100727178
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "33a27c2e7ca14e04fc679935540a2194221ee329da0ad0462a0a6ecea236db28",
+  "selected_reasons": []
+}

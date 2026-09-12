@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "d1b8e9687eda4dabc02c5c0e1b8d9dc0b22f53b8cd00b94a7f06aa479857024c",
+  "attempts": [
+    {
+      "asr_seconds": 0.12943284213542938,
+      "alignment_seconds": 0.000245414674282074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Of course.",
+        "hotwords": "Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Of course.",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " Of",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.763671875
+            },
+            {
+              "text": " course.",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "course.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "Of",
+        "course."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Of",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "of",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "course.",
+          "start": 0.53,
+          "end": 0.81,
+          "key": "course",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Of",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "course.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12976646050810814
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "caa4006ace0abeac2dc9143621731121699e67bb28a676e399700931e19d1893",
+  "selected_reasons": []
+}

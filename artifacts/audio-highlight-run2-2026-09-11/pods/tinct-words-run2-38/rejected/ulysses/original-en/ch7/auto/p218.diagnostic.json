@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "bcbf7f46aaeb5e15030577fb3fab7dd53c72fa88437bf582ab0fa545f0535961",
+  "attempts": [
+    {
+      "asr_seconds": 0.14291712897829711,
+      "alignment_seconds": 0.0003406719770282507,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We are the boys of Wexford Who fought with heart and hand.",
+        "hotwords": "We, Wexford, Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We are the boys of Wexford Who fought with heart and hand.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " are",
+              "start": 0.57,
+              "end": 0.69,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 0.69,
+              "end": 0.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " boys",
+              "start": 0.79,
+              "end": 1.03,
+              "probability": 0.9765625
+            },
+            {
+              "text": " of",
+              "start": 1.03,
+              "end": 1.21,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " Wexford",
+              "start": 1.21,
+              "end": 1.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Who",
+              "start": 1.59,
+              "end": 1.77,
+              "probability": 0.00136566162109375
+            },
+            {
+              "text": " fought",
+              "start": 1.77,
+              "end": 1.97,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " with",
+              "start": 1.97,
+              "end": 2.15,
+              "probability": 0.951171875
+            },
+            {
+              "text": " heart",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.9140625
+            },
+            {
+              "text": " and",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.931640625
+            },
+            {
+              "text": " hand.",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "are",
+          "start": 0.57,
+          "end": 0.69
+        },
+        {
+          "raw": "the",
+          "start": 0.69,
+          "end": 0.79
+        },
+        {
+          "raw": "boys",
+          "start": 0.79,
+          "end": 1.03
+        },
+        {
+          "raw": "of",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "raw": "Wexford",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "raw": "Who",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "raw": "fought",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "raw": "with",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "raw": "heart",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "hand.",
+          "start": 2.65,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "are",
+        "the",
+        "boys",
+        "of",
+        "Wexford",
+        "Who",
+        "fought",
+        "with",
+        "heart",
+        "and",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "we",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.57,
+          "end": 0.69,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.69,
+          "end": 0.79,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "boys",
+          "start": 0.79,
+          "end": 1.03,
+          "key": "boys",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.03,
+          "end": 1.21,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Wexford",
+          "start": 1.21,
+          "end": 1.59,
+          "key": "wexford",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 1.59,
+          "end": 1.77,
+          "key": "who",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "fought",
+          "start": 1.77,
+          "end": 1.97,
+          "key": "fought",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.97,
+          "end": 2.15,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "heart",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 2.65,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 2.65,
+          "end": 2.93,
+          "key": "hand",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "are",
+          "start": 0.57,
+          "end": 0.69
+        },
+        {
+          "text": "the",
+          "start": 0.69,
+          "end": 0.79
+        },
+        {
+          "text": "boys",
+          "start": 0.79,
+          "end": 1.03
+        },
+        {
+          "text": "of",
+          "start": 1.03,
+          "end": 1.21
+        },
+        {
+          "text": "Wexford",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "text": "Who",
+          "start": 1.59,
+          "end": 1.77
+        },
+        {
+          "text": "fought",
+          "start": 1.77,
+          "end": 1.97
+        },
+        {
+          "text": "with",
+          "start": 1.97,
+          "end": 2.15
+        },
+        {
+          "text": "heart",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "and",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "hand.",
+          "start": 2.65,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14337689202511683
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b6c1636b3c221d33a3294e2492af30d9d1487c6af9f8ccca288472af3f37563d",
+  "selected_reasons": []
+}

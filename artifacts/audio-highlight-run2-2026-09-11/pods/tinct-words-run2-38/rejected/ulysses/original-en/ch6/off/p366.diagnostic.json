@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "3a7ffc7f1cc7c296bbd40a46c3e0e497be4e6a0402833fd0a03a71d6227b146f",
+  "attempts": [
+    {
+      "asr_seconds": 0.09724994900170714,
+      "alignment_seconds": 0.000135901034809649,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He stepped aside nimbly.",
+          "start": 0.05,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.904296875
+            },
+            {
+              "text": " stepped",
+              "start": 0.49,
+              "end": 0.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " aside",
+              "start": 0.75,
+              "end": 1.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nimbly.",
+              "start": 1.09,
+              "end": 1.53,
+              "probability": 0.9606119791666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "stepped",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "raw": "aside",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "raw": "nimbly.",
+          "start": 1.09,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "stepped",
+        "aside",
+        "nimbly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stepped",
+          "start": 0.49,
+          "end": 0.75,
+          "key": "stepped",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "aside",
+          "start": 0.75,
+          "end": 1.09,
+          "key": "aside",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nimbly.",
+          "start": 1.09,
+          "end": 1.53,
+          "key": "nimbly",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "stepped",
+          "start": 0.49,
+          "end": 0.75
+        },
+        {
+          "text": "aside",
+          "start": 0.75,
+          "end": 1.09
+        },
+        {
+          "text": "nimbly.",
+          "start": 1.09,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09743096999591216
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e48fa07db0168d1b44ab7a9647c742fdbe00b2073b2c66d3fd0e85ba8b60066d",
+  "selected_reasons": []
+}

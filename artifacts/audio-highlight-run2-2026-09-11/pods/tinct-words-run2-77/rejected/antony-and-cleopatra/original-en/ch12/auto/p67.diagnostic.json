@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "6ecc850047d265c21533dae4ec9059867606cd96cdde06555493ab2fe7060b74",
+  "attempts": [
+    {
+      "asr_seconds": 0.11252092799986713,
+      "alignment_seconds": 0.00011935399379581213,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Menas. Enobarbus, welcome!",
+        "hotwords": "Menas, Enobarbus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Menas, Enobarbus, welcome!",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Menas,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.58953857421875
+            },
+            {
+              "text": " Enobarbus,",
+              "start": 1.25,
+              "end": 1.77,
+              "probability": 0.38839562733968097
+            },
+            {
+              "text": " welcome!",
+              "start": 1.91,
+              "end": 2.15,
+              "probability": 0.7470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menas,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Enobarbus,",
+          "start": 1.25,
+          "end": 1.77
+        },
+        {
+          "raw": "welcome!",
+          "start": 1.91,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Menas.",
+        "Enobarbus,",
+        "welcome!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menas,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "menas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Enobarbus,",
+          "start": 1.25,
+          "end": 1.77,
+          "key": "enobarbus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "welcome!",
+          "start": 1.91,
+          "end": 2.15,
+          "key": "welcome",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menas.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Enobarbus,",
+          "start": 1.25,
+          "end": 1.77
+        },
+        {
+          "text": "welcome!",
+          "start": 1.91,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11267953299102373
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f3d9a00ef1d75d9eebb40054ba92834643cd60560d88969eac26675dbeaab483",
+  "selected_reasons": []
+}

@@ -1,0 +1,484 @@
+{
+  "complete": true,
+  "signature": "00401704680b39778d9d220009b95eacfc9a79fecd2b78981d9637f58574a024",
+  "attempts": [
+    {
+      "asr_seconds": 0.24520056694746017,
+      "alignment_seconds": 0.00045372825115919113,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Passapartout entered and asked for Mr. Battlecar who straightway appeared in person",
+          "start": 0.05,
+          "end": 5.27,
+          "words": [
+            {
+              "text": " Passapartout",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " entered",
+              "start": 1.09,
+              "end": 1.49,
+              "probability": 0.953125
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " asked",
+              "start": 1.75,
+              "end": 2.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 2.11,
+              "end": 2.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mr.",
+              "start": 2.33,
+              "end": 2.61,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " Battlecar",
+              "start": 2.89,
+              "end": 3.19,
+              "probability": 0.915771484375
+            },
+            {
+              "text": " who",
+              "start": 3.19,
+              "end": 3.79,
+              "probability": 0.1474609375
+            },
+            {
+              "text": " straightway",
+              "start": 3.79,
+              "end": 4.31,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " appeared",
+              "start": 4.31,
+              "end": 4.69,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " in",
+              "start": 4.69,
+              "end": 4.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " person",
+              "start": 4.91,
+              "end": 5.27,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Passapartout",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "entered",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "raw": "asked",
+          "start": 1.75,
+          "end": 2.11
+        },
+        {
+          "raw": "for",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "raw": "Battlecar",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "raw": "who",
+          "start": 3.19,
+          "end": 3.79
+        },
+        {
+          "raw": "straightway",
+          "start": 3.79,
+          "end": 4.31
+        },
+        {
+          "raw": "appeared",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "raw": "in",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "raw": "person",
+          "start": 4.91,
+          "end": 5.27
+        }
+      ],
+      "expected_tokens": [
+        "Passepartout",
+        "entered",
+        "and",
+        "asked",
+        "for",
+        "Mr.",
+        "Batulcar,",
+        "who",
+        "straightway",
+        "appeared",
+        "in",
+        "person."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          12,
+          7,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Passapartout",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "passapartout",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "entered",
+          "start": 1.09,
+          "end": 1.49,
+          "key": "entered",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.75,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.75,
+          "end": 2.11,
+          "key": "asked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.11,
+          "end": 2.33,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 2.33,
+          "end": 2.61,
+          "key": "mr",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Battlecar",
+          "start": 2.89,
+          "end": 3.19,
+          "key": "battlecar",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.19,
+          "end": 3.79,
+          "key": "who",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "straightway",
+          "start": 3.79,
+          "end": 4.31,
+          "key": "straightway",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "appeared",
+          "start": 4.31,
+          "end": 4.69,
+          "key": "appeared",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.69,
+          "end": 4.91,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "person",
+          "start": 4.91,
+          "end": 5.27,
+          "key": "person",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Passepartout",
+          "start": 0.0,
+          "end": 0.545
+        },
+        {
+          "text": "entered",
+          "start": 1.09,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.75
+        },
+        {
+          "text": "asked",
+          "start": 1.75,
+          "end": 2.11
+        },
+        {
+          "text": "for",
+          "start": 2.11,
+          "end": 2.33
+        },
+        {
+          "text": "Mr.",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "text": "Batulcar,",
+          "start": 2.61,
+          "end": 2.9
+        },
+        {
+          "text": "who",
+          "start": 3.19,
+          "end": 3.79
+        },
+        {
+          "text": "straightway",
+          "start": 3.79,
+          "end": 4.31
+        },
+        {
+          "text": "appeared",
+          "start": 4.31,
+          "end": 4.69
+        },
+        {
+          "text": "in",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "text": "person.",
+          "start": 4.91,
+          "end": 5.27
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24583299923688173
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "891902d7936ef758881da6b65d556adbc3d4acf3dfdd4d315f9a0de445fabb8b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

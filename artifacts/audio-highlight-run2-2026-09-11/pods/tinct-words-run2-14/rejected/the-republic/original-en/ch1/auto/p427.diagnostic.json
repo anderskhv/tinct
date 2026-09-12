@@ -1,0 +1,2478 @@
+{
+  "complete": true,
+  "signature": "8b09fe299878fc916fef7d654a79601462df4a8a07bda9ea29f698c8740f35db",
+  "attempts": [
+    {
+      "asr_seconds": 0.4596642144024372,
+      "alignment_seconds": 0.0013916119933128357,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And is not injustice equally fatal when existing in a single person; in the first place rendering him incapable of action because he is not at unity with himself, and in the second place making him an enemy to himself and the just? Is not that true, Thrasymachus?",
+        "hotwords": "Thrasymachus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Is not that true, Thrasymachus?",
+          "start": 8.11,
+          "end": 16.35,
+          "words": [
+            {
+              "text": " Is",
+              "start": 8.11,
+              "end": 9.51,
+              "probability": 0.01200103759765625
+            },
+            {
+              "text": " not",
+              "start": 9.51,
+              "end": 10.91,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " that",
+              "start": 10.91,
+              "end": 10.91,
+              "probability": 0.00013506412506103516
+            },
+            {
+              "text": " true,",
+              "start": 10.91,
+              "end": 15.29,
+              "probability": 0.87890625
+            },
+            {
+              "text": " Thrasymachus?",
+              "start": 15.85,
+              "end": 16.35,
+              "probability": 0.214508056640625
+            }
+          ]
+        },
+        {
+          "text": " Is not that true, Thrasymachus?",
+          "start": 16.35,
+          "end": 16.55,
+          "words": [
+            {
+              "text": " Is",
+              "start": 16.35,
+              "end": 16.35,
+              "probability": 0.0011615753173828125
+            },
+            {
+              "text": " not",
+              "start": 16.35,
+              "end": 16.35,
+              "probability": 0.0006976127624511719
+            },
+            {
+              "text": " that",
+              "start": 16.35,
+              "end": 16.35,
+              "probability": 0.0159454345703125
+            },
+            {
+              "text": " true,",
+              "start": 16.35,
+              "end": 16.35,
+              "probability": 0.004459381103515625
+            },
+            {
+              "text": " Thrasymachus?",
+              "start": 16.35,
+              "end": 16.55,
+              "probability": 0.0026891231536865234
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Is",
+          "start": 8.11,
+          "end": 9.51
+        },
+        {
+          "raw": "not",
+          "start": 9.51,
+          "end": 10.91
+        },
+        {
+          "raw": "that",
+          "start": 10.91,
+          "end": 10.91
+        },
+        {
+          "raw": "true,",
+          "start": 10.91,
+          "end": 15.29
+        },
+        {
+          "raw": "Thrasymachus?",
+          "start": 15.85,
+          "end": 16.35
+        },
+        {
+          "raw": "Is",
+          "start": 16.35,
+          "end": 16.35
+        },
+        {
+          "raw": "not",
+          "start": 16.35,
+          "end": 16.35
+        },
+        {
+          "raw": "that",
+          "start": 16.35,
+          "end": 16.35
+        },
+        {
+          "raw": "true,",
+          "start": 16.35,
+          "end": 16.35
+        },
+        {
+          "raw": "Thrasymachus?",
+          "start": 16.35,
+          "end": 16.55
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "is",
+        "not",
+        "injustice",
+        "equally",
+        "fatal",
+        "when",
+        "existing",
+        "in",
+        "a",
+        "single",
+        "person;",
+        "in",
+        "the",
+        "first",
+        "place",
+        "rendering",
+        "him",
+        "incapable",
+        "of",
+        "action",
+        "because",
+        "he",
+        "is",
+        "not",
+        "at",
+        "unity",
+        "with",
+        "himself,",
+        "and",
+        "in",
+        "the",
+        "second",
+        "place",
+        "making",
+        "him",
+        "an",
+        "enemy",
+        "to",
+        "himself",
+        "and",
+        "the",
+        "just?",
+        "Is",
+        "not",
+        "that",
+        "true,",
+        "Thrasymachus?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          43,
+          0,
+          0
+        ],
+        [
+          "equal",
+          43,
+          48,
+          0,
+          5
+        ],
+        [
+          "insert",
+          48,
+          48,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          43,
+          0,
+          0
+        ],
+        [
+          "insert",
+          48,
+          48,
+          5,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Is",
+          "start": 8.11,
+          "end": 9.51,
+          "key": "is",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 9.51,
+          "end": 10.91,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 10.91,
+          "end": 10.91,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 10.91,
+          "end": 15.29,
+          "key": "true",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Thrasymachus?",
+          "start": 15.85,
+          "end": 16.35,
+          "key": "thrasymachus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 16.35,
+          "end": 16.35,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 16.35,
+          "end": 16.35,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 16.35,
+          "end": 16.35,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 16.35,
+          "end": 16.35,
+          "key": "true",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Thrasymachus?",
+          "start": 16.35,
+          "end": 16.55,
+          "key": "thrasymachus",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.0,
+          "end": 4.055
+        },
+        {
+          "text": "is",
+          "start": 4.055,
+          "end": 6.082
+        },
+        {
+          "text": "not",
+          "start": 6.082,
+          "end": 7.096
+        },
+        {
+          "text": "injustice",
+          "start": 7.096,
+          "end": 7.603
+        },
+        {
+          "text": "equally",
+          "start": 7.603,
+          "end": 7.856
+        },
+        {
+          "text": "fatal",
+          "start": 7.856,
+          "end": 7.983
+        },
+        {
+          "text": "when",
+          "start": 7.983,
+          "end": 8.046
+        },
+        {
+          "text": "existing",
+          "start": 8.046,
+          "end": 8.078
+        },
+        {
+          "text": "in",
+          "start": 8.078,
+          "end": 8.094
+        },
+        {
+          "text": "a",
+          "start": 8.094,
+          "end": 8.102
+        },
+        {
+          "text": "single",
+          "start": 8.102,
+          "end": 8.106
+        },
+        {
+          "text": "person;",
+          "start": 8.106,
+          "end": 8.108
+        },
+        {
+          "text": "in",
+          "start": 8.108,
+          "end": 8.109
+        },
+        {
+          "text": "the",
+          "start": 8.109,
+          "end": 8.11
+        },
+        {
+          "text": "first",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "place",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "rendering",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "him",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "incapable",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "of",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "action",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "because",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "he",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "is",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "not",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "at",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "unity",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "with",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "himself,",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "and",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "in",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "the",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "second",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "place",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "making",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "him",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "an",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "enemy",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "to",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "himself",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "and",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "the",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "just?",
+          "start": 8.11,
+          "end": 8.11
+        },
+        {
+          "text": "Is",
+          "start": 8.11,
+          "end": 9.51
+        },
+        {
+          "text": "not",
+          "start": 9.51,
+          "end": 10.91
+        },
+        {
+          "text": "that",
+          "start": 10.91,
+          "end": 10.91
+        },
+        {
+          "text": "true,",
+          "start": 10.91,
+          "end": 15.29
+        },
+        {
+          "text": "Thrasymachus?",
+          "start": 15.85,
+          "end": 16.35
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 0.10416666666666667,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4612497575581074
+    },
+    {
+      "asr_seconds": 0.5622703619301319,
+      "alignment_seconds": 0.0007544718682765961,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Thrasymachus"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " and is not injustice equally fatal when existing in a single person in the first place rendering him incapable of action",
+          "start": 0.05,
+          "end": 7.69,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.4111328125
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.953125
+            },
+            {
+              "text": " not",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " injustice",
+              "start": 0.85,
+              "end": 1.47,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " equally",
+              "start": 1.47,
+              "end": 1.93,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " fatal",
+              "start": 1.93,
+              "end": 2.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " when",
+              "start": 2.35,
+              "end": 2.61,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " existing",
+              "start": 2.61,
+              "end": 3.01,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 3.01,
+              "end": 3.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.33,
+              "end": 3.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " single",
+              "start": 3.49,
+              "end": 3.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " person",
+              "start": 3.75,
+              "end": 4.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 4.29,
+              "end": 5.01,
+              "probability": 0.20849609375
+            },
+            {
+              "text": " the",
+              "start": 5.01,
+              "end": 5.13,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " first",
+              "start": 5.13,
+              "end": 5.37,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " place",
+              "start": 5.37,
+              "end": 5.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rendering",
+              "start": 5.71,
+              "end": 6.11,
+              "probability": 0.8310546875
+            },
+            {
+              "text": " him",
+              "start": 6.11,
+              "end": 6.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " incapable",
+              "start": 6.49,
+              "end": 6.91,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " of",
+              "start": 6.91,
+              "end": 7.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " action",
+              "start": 7.27,
+              "end": 7.69,
+              "probability": 0.9755859375
+            }
+          ]
+        },
+        {
+          "text": " because he is not at unity with himself and in the second place making him an enemy to himself and the just is",
+          "start": 7.69,
+          "end": 13.97,
+          "words": [
+            {
+              "text": " because",
+              "start": 7.69,
+              "end": 8.17,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " he",
+              "start": 8.17,
+              "end": 8.39,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 8.39,
+              "end": 8.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 8.51,
+              "end": 8.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " at",
+              "start": 8.73,
+              "end": 8.85,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " unity",
+              "start": 8.85,
+              "end": 9.13,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " with",
+              "start": 9.13,
+              "end": 9.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " himself",
+              "start": 9.39,
+              "end": 9.81,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 9.81,
+              "end": 10.49,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " in",
+              "start": 10.49,
+              "end": 10.57,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " the",
+              "start": 10.57,
+              "end": 10.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " second",
+              "start": 10.71,
+              "end": 10.91,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " place",
+              "start": 10.91,
+              "end": 11.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " making",
+              "start": 11.29,
+              "end": 11.65,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " him",
+              "start": 11.65,
+              "end": 11.91,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " an",
+              "start": 11.91,
+              "end": 12.05,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " enemy",
+              "start": 12.05,
+              "end": 12.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 12.29,
+              "end": 12.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 12.55,
+              "end": 12.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 12.95,
+              "end": 13.21,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " the",
+              "start": 13.21,
+              "end": 13.33,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " just",
+              "start": 13.33,
+              "end": 13.67,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " is",
+              "start": 13.67,
+              "end": 13.97,
+              "probability": 0.71630859375
+            }
+          ]
+        },
+        {
+          "text": " Not that true Thrasymachus",
+          "start": 14.45,
+          "end": 16.35,
+          "words": [
+            {
+              "text": " Not",
+              "start": 14.45,
+              "end": 14.65,
+              "probability": 0.0672607421875
+            },
+            {
+              "text": " that",
+              "start": 14.65,
+              "end": 14.87,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " true",
+              "start": 14.87,
+              "end": 15.33,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Thrasymachus",
+              "start": 15.33,
+              "end": 16.35,
+              "probability": 0.20801544189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "not",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "injustice",
+          "start": 0.85,
+          "end": 1.47
+        },
+        {
+          "raw": "equally",
+          "start": 1.47,
+          "end": 1.93
+        },
+        {
+          "raw": "fatal",
+          "start": 1.93,
+          "end": 2.35
+        },
+        {
+          "raw": "when",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "raw": "existing",
+          "start": 2.61,
+          "end": 3.01
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "raw": "a",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "raw": "single",
+          "start": 3.49,
+          "end": 3.75
+        },
+        {
+          "raw": "person",
+          "start": 3.75,
+          "end": 4.29
+        },
+        {
+          "raw": "in",
+          "start": 4.29,
+          "end": 5.01
+        },
+        {
+          "raw": "the",
+          "start": 5.01,
+          "end": 5.13
+        },
+        {
+          "raw": "first",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "raw": "place",
+          "start": 5.37,
+          "end": 5.71
+        },
+        {
+          "raw": "rendering",
+          "start": 5.71,
+          "end": 6.11
+        },
+        {
+          "raw": "him",
+          "start": 6.11,
+          "end": 6.49
+        },
+        {
+          "raw": "incapable",
+          "start": 6.49,
+          "end": 6.91
+        },
+        {
+          "raw": "of",
+          "start": 6.91,
+          "end": 7.27
+        },
+        {
+          "raw": "action",
+          "start": 7.27,
+          "end": 7.69
+        },
+        {
+          "raw": "because",
+          "start": 7.69,
+          "end": 8.17
+        },
+        {
+          "raw": "he",
+          "start": 8.17,
+          "end": 8.39
+        },
+        {
+          "raw": "is",
+          "start": 8.39,
+          "end": 8.51
+        },
+        {
+          "raw": "not",
+          "start": 8.51,
+          "end": 8.73
+        },
+        {
+          "raw": "at",
+          "start": 8.73,
+          "end": 8.85
+        },
+        {
+          "raw": "unity",
+          "start": 8.85,
+          "end": 9.13
+        },
+        {
+          "raw": "with",
+          "start": 9.13,
+          "end": 9.39
+        },
+        {
+          "raw": "himself",
+          "start": 9.39,
+          "end": 9.81
+        },
+        {
+          "raw": "and",
+          "start": 9.81,
+          "end": 10.49
+        },
+        {
+          "raw": "in",
+          "start": 10.49,
+          "end": 10.57
+        },
+        {
+          "raw": "the",
+          "start": 10.57,
+          "end": 10.71
+        },
+        {
+          "raw": "second",
+          "start": 10.71,
+          "end": 10.91
+        },
+        {
+          "raw": "place",
+          "start": 10.91,
+          "end": 11.29
+        },
+        {
+          "raw": "making",
+          "start": 11.29,
+          "end": 11.65
+        },
+        {
+          "raw": "him",
+          "start": 11.65,
+          "end": 11.91
+        },
+        {
+          "raw": "an",
+          "start": 11.91,
+          "end": 12.05
+        },
+        {
+          "raw": "enemy",
+          "start": 12.05,
+          "end": 12.29
+        },
+        {
+          "raw": "to",
+          "start": 12.29,
+          "end": 12.55
+        },
+        {
+          "raw": "himself",
+          "start": 12.55,
+          "end": 12.95
+        },
+        {
+          "raw": "and",
+          "start": 12.95,
+          "end": 13.21
+        },
+        {
+          "raw": "the",
+          "start": 13.21,
+          "end": 13.33
+        },
+        {
+          "raw": "just",
+          "start": 13.33,
+          "end": 13.67
+        },
+        {
+          "raw": "is",
+          "start": 13.67,
+          "end": 13.97
+        },
+        {
+          "raw": "Not",
+          "start": 14.45,
+          "end": 14.65
+        },
+        {
+          "raw": "that",
+          "start": 14.65,
+          "end": 14.87
+        },
+        {
+          "raw": "true",
+          "start": 14.87,
+          "end": 15.33
+        },
+        {
+          "raw": "Thrasymachus",
+          "start": 15.33,
+          "end": 16.35
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "is",
+        "not",
+        "injustice",
+        "equally",
+        "fatal",
+        "when",
+        "existing",
+        "in",
+        "a",
+        "single",
+        "person;",
+        "in",
+        "the",
+        "first",
+        "place",
+        "rendering",
+        "him",
+        "incapable",
+        "of",
+        "action",
+        "because",
+        "he",
+        "is",
+        "not",
+        "at",
+        "unity",
+        "with",
+        "himself,",
+        "and",
+        "in",
+        "the",
+        "second",
+        "place",
+        "making",
+        "him",
+        "an",
+        "enemy",
+        "to",
+        "himself",
+        "and",
+        "the",
+        "just?",
+        "Is",
+        "not",
+        "that",
+        "true,",
+        "Thrasymachus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.61,
+          "end": 0.85,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "injustice",
+          "start": 0.85,
+          "end": 1.47,
+          "key": "injustice",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "equally",
+          "start": 1.47,
+          "end": 1.93,
+          "key": "equally",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fatal",
+          "start": 1.93,
+          "end": 2.35,
+          "key": "fatal",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.35,
+          "end": 2.61,
+          "key": "when",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "existing",
+          "start": 2.61,
+          "end": 3.01,
+          "key": "existing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.33,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.33,
+          "end": 3.49,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "single",
+          "start": 3.49,
+          "end": 3.75,
+          "key": "single",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "person",
+          "start": 3.75,
+          "end": 4.29,
+          "key": "person",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.29,
+          "end": 5.01,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.01,
+          "end": 5.13,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "first",
+          "start": 5.13,
+          "end": 5.37,
+          "key": "first",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 5.37,
+          "end": 5.71,
+          "key": "place",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "rendering",
+          "start": 5.71,
+          "end": 6.11,
+          "key": "rendering",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 6.11,
+          "end": 6.49,
+          "key": "him",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "incapable",
+          "start": 6.49,
+          "end": 6.91,
+          "key": "incapable",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 6.91,
+          "end": 7.27,
+          "key": "of",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "action",
+          "start": 7.27,
+          "end": 7.69,
+          "key": "action",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 7.69,
+          "end": 8.17,
+          "key": "because",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.17,
+          "end": 8.39,
+          "key": "he",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.39,
+          "end": 8.51,
+          "key": "is",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.51,
+          "end": 8.73,
+          "key": "not",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 8.73,
+          "end": 8.85,
+          "key": "at",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "unity",
+          "start": 8.85,
+          "end": 9.13,
+          "key": "unity",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 9.13,
+          "end": 9.39,
+          "key": "with",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 9.39,
+          "end": 9.81,
+          "key": "himself",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 9.81,
+          "end": 10.49,
+          "key": "and",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.49,
+          "end": 10.57,
+          "key": "in",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.57,
+          "end": 10.71,
+          "key": "the",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 10.71,
+          "end": 10.91,
+          "key": "second",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 10.91,
+          "end": 11.29,
+          "key": "place",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "making",
+          "start": 11.29,
+          "end": 11.65,
+          "key": "making",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 11.65,
+          "end": 11.91,
+          "key": "him",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 11.91,
+          "end": 12.05,
+          "key": "an",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 12.05,
+          "end": 12.29,
+          "key": "enemy",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 12.29,
+          "end": 12.55,
+          "key": "to",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 12.55,
+          "end": 12.95,
+          "key": "himself",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 12.95,
+          "end": 13.21,
+          "key": "and",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 13.21,
+          "end": 13.33,
+          "key": "the",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 13.33,
+          "end": 13.67,
+          "key": "just",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 13.67,
+          "end": 13.97,
+          "key": "is",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "Not",
+          "start": 14.45,
+          "end": 14.65,
+          "key": "not",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 14.65,
+          "end": 14.87,
+          "key": "that",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "true",
+          "start": 14.87,
+          "end": 15.33,
+          "key": "true",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "Thrasymachus",
+          "start": 15.33,
+          "end": 16.35,
+          "key": "thrasymachus",
+          "pieces": [
+            47
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "not",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "injustice",
+          "start": 0.85,
+          "end": 1.47
+        },
+        {
+          "text": "equally",
+          "start": 1.47,
+          "end": 1.93
+        },
+        {
+          "text": "fatal",
+          "start": 1.93,
+          "end": 2.35
+        },
+        {
+          "text": "when",
+          "start": 2.35,
+          "end": 2.61
+        },
+        {
+          "text": "existing",
+          "start": 2.61,
+          "end": 3.01
+        },
+        {
+          "text": "in",
+          "start": 3.01,
+          "end": 3.33
+        },
+        {
+          "text": "a",
+          "start": 3.33,
+          "end": 3.49
+        },
+        {
+          "text": "single",
+          "start": 3.49,
+          "end": 3.75
+        },
+        {
+          "text": "person;",
+          "start": 3.75,
+          "end": 4.29
+        },
+        {
+          "text": "in",
+          "start": 4.29,
+          "end": 5.01
+        },
+        {
+          "text": "the",
+          "start": 5.01,
+          "end": 5.13
+        },
+        {
+          "text": "first",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "text": "place",
+          "start": 5.37,
+          "end": 5.71
+        },
+        {
+          "text": "rendering",
+          "start": 5.71,
+          "end": 6.11
+        },
+        {
+          "text": "him",
+          "start": 6.11,
+          "end": 6.49
+        },
+        {
+          "text": "incapable",
+          "start": 6.49,
+          "end": 6.91
+        },
+        {
+          "text": "of",
+          "start": 6.91,
+          "end": 7.27
+        },
+        {
+          "text": "action",
+          "start": 7.27,
+          "end": 7.69
+        },
+        {
+          "text": "because",
+          "start": 7.69,
+          "end": 8.17
+        },
+        {
+          "text": "he",
+          "start": 8.17,
+          "end": 8.39
+        },
+        {
+          "text": "is",
+          "start": 8.39,
+          "end": 8.51
+        },
+        {
+          "text": "not",
+          "start": 8.51,
+          "end": 8.73
+        },
+        {
+          "text": "at",
+          "start": 8.73,
+          "end": 8.85
+        },
+        {
+          "text": "unity",
+          "start": 8.85,
+          "end": 9.13
+        },
+        {
+          "text": "with",
+          "start": 9.13,
+          "end": 9.39
+        },
+        {
+          "text": "himself,",
+          "start": 9.39,
+          "end": 9.81
+        },
+        {
+          "text": "and",
+          "start": 9.81,
+          "end": 10.49
+        },
+        {
+          "text": "in",
+          "start": 10.49,
+          "end": 10.57
+        },
+        {
+          "text": "the",
+          "start": 10.57,
+          "end": 10.71
+        },
+        {
+          "text": "second",
+          "start": 10.71,
+          "end": 10.91
+        },
+        {
+          "text": "place",
+          "start": 10.91,
+          "end": 11.29
+        },
+        {
+          "text": "making",
+          "start": 11.29,
+          "end": 11.65
+        },
+        {
+          "text": "him",
+          "start": 11.65,
+          "end": 11.91
+        },
+        {
+          "text": "an",
+          "start": 11.91,
+          "end": 12.05
+        },
+        {
+          "text": "enemy",
+          "start": 12.05,
+          "end": 12.29
+        },
+        {
+          "text": "to",
+          "start": 12.29,
+          "end": 12.55
+        },
+        {
+          "text": "himself",
+          "start": 12.55,
+          "end": 12.95
+        },
+        {
+          "text": "and",
+          "start": 12.95,
+          "end": 13.21
+        },
+        {
+          "text": "the",
+          "start": 13.21,
+          "end": 13.33
+        },
+        {
+          "text": "just?",
+          "start": 13.33,
+          "end": 13.67
+        },
+        {
+          "text": "Is",
+          "start": 13.67,
+          "end": 13.97
+        },
+        {
+          "text": "not",
+          "start": 14.45,
+          "end": 14.65
+        },
+        {
+          "text": "that",
+          "start": 14.65,
+          "end": 14.87
+        },
+        {
+          "text": "true,",
+          "start": 14.87,
+          "end": 15.33
+        },
+        {
+          "text": "Thrasymachus?",
+          "start": 15.33,
+          "end": 16.35
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 48,
+        "matched_words": 48
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5633604526519775
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "ae6b53e4f53e92b85782978bba40444db7824cfe089469832267aa4ff9c2fb6f",
+  "selected_reasons": []
+}

@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "4919ad0aa621fabf7245b209a319b2c83d62ee36d1730e1dbe7d83ed77da5efc",
+  "attempts": [
+    {
+      "asr_seconds": 0.2731633922085166,
+      "alignment_seconds": 0.00049551110714674,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fluellen. God-den to your worship, good Captain James.",
+        "hotwords": "Fluellen, God-den, Captain, James"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fluellen, God-den to your worship, good Captain James.",
+          "start": 0.08,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " Fluellen,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.5414729118347168
+            },
+            {
+              "text": " God",
+              "start": 1.2,
+              "end": 1.5,
+              "probability": 0.70703125
+            },
+            {
+              "text": "-den",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.312042236328125
+            },
+            {
+              "text": " to",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " your",
+              "start": 1.88,
+              "end": 1.98,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " worship,",
+              "start": 1.98,
+              "end": 2.32,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " good",
+              "start": 2.58,
+              "end": 2.64,
+              "probability": 0.83984375
+            },
+            {
+              "text": " Captain",
+              "start": 2.64,
+              "end": 3.0,
+              "probability": 0.787109375
+            },
+            {
+              "text": " James.",
+              "start": 3.0,
+              "end": 3.36,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "God",
+          "start": 1.2,
+          "end": 1.5
+        },
+        {
+          "raw": "-den",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "your",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "raw": "worship,",
+          "start": 1.98,
+          "end": 2.32
+        },
+        {
+          "raw": "good",
+          "start": 2.58,
+          "end": 2.64
+        },
+        {
+          "raw": "Captain",
+          "start": 2.64,
+          "end": 3.0
+        },
+        {
+          "raw": "James.",
+          "start": 3.0,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "Fluellen.",
+        "God-den",
+        "to",
+        "your",
+        "worship,",
+        "good",
+        "Captain",
+        "James."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fluellen,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "fluellen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God -den",
+          "start": 1.2,
+          "end": 1.7,
+          "key": "godden",
+          "pieces": [
+            1,
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.88,
+          "end": 1.98,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "worship,",
+          "start": 1.98,
+          "end": 2.32,
+          "key": "worship",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.58,
+          "end": 2.64,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Captain",
+          "start": 2.64,
+          "end": 3.0,
+          "key": "captain",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "James.",
+          "start": 3.0,
+          "end": 3.36,
+          "key": "james",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 1,
+          "text": "God-den",
+          "heard": "God -den",
+          "heard_indexes": [
+            1,
+            2
+          ],
+          "start": 1.2,
+          "end": 1.7
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Fluellen.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "God-den",
+          "start": 1.2,
+          "end": 1.7
+        },
+        {
+          "text": "to",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "your",
+          "start": 1.88,
+          "end": 1.98
+        },
+        {
+          "text": "worship,",
+          "start": 1.98,
+          "end": 2.32
+        },
+        {
+          "text": "good",
+          "start": 2.58,
+          "end": 2.64
+        },
+        {
+          "text": "Captain",
+          "start": 2.64,
+          "end": 3.0
+        },
+        {
+          "text": "James.",
+          "start": 3.0,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27382454834878445
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe0d21ba39e1b0b304f902d26c693fec86754a152541940dd657b11a38ad0c45",
+  "selected_reasons": []
+}

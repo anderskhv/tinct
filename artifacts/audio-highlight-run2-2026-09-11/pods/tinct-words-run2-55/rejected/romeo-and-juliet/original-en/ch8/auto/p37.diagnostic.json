@@ -1,0 +1,1507 @@
+{
+  "complete": true,
+  "signature": "3997ea09a85fc9dc980685c354e053e15b5d11d3ca9f24a1b32cc9a56657133c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3552877325564623,
+      "alignment_seconds": 0.0004068780690431595,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Juliet. Anon, good Nurse!—Sweet Montague be true. Stay but a little, I will come again.",
+        "hotwords": "Juliet, Anon, Nurse!—Sweet, Montague, Stay, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Juliet, Anon, good Nurse!—Sweet Montague be true. Stay but a little, I will come again.",
+          "start": 0.05,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.802734375
+            },
+            {
+              "text": " Anon,",
+              "start": 1.21,
+              "end": 1.41,
+              "probability": 0.0221099853515625
+            },
+            {
+              "text": " good",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.765625
+            },
+            {
+              "text": " Nurse",
+              "start": 1.79,
+              "end": 2.13,
+              "probability": 0.2340087890625
+            },
+            {
+              "text": "!—Sweet",
+              "start": 2.13,
+              "end": 2.85,
+              "probability": 0.24251282215118408
+            },
+            {
+              "text": " Montague",
+              "start": 2.85,
+              "end": 3.27,
+              "probability": 0.922607421875
+            },
+            {
+              "text": " be",
+              "start": 3.27,
+              "end": 3.47,
+              "probability": 0.62841796875
+            },
+            {
+              "text": " true.",
+              "start": 3.47,
+              "end": 3.75,
+              "probability": 0.943359375
+            },
+            {
+              "text": " Stay",
+              "start": 4.23,
+              "end": 4.45,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " but",
+              "start": 4.45,
+              "end": 4.61,
+              "probability": 0.828125
+            },
+            {
+              "text": " a",
+              "start": 4.61,
+              "end": 4.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " little,",
+              "start": 4.71,
+              "end": 4.85,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " I",
+              "start": 5.01,
+              "end": 5.11,
+              "probability": 0.990234375
+            },
+            {
+              "text": " will",
+              "start": 5.11,
+              "end": 5.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " come",
+              "start": 5.25,
+              "end": 5.43,
+              "probability": 0.9921875
+            },
+            {
+              "text": " again.",
+              "start": 5.43,
+              "end": 5.71,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Anon,",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "raw": "good",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "Nurse",
+          "start": 1.79,
+          "end": 2.13
+        },
+        {
+          "raw": "!—Sweet",
+          "start": 2.13,
+          "end": 2.85
+        },
+        {
+          "raw": "Montague",
+          "start": 2.85,
+          "end": 3.27
+        },
+        {
+          "raw": "be",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "raw": "true.",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "raw": "Stay",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "raw": "but",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "raw": "a",
+          "start": 4.61,
+          "end": 4.71
+        },
+        {
+          "raw": "little,",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "raw": "I",
+          "start": 5.01,
+          "end": 5.11
+        },
+        {
+          "raw": "will",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "raw": "come",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "raw": "again.",
+          "start": 5.43,
+          "end": 5.71
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Anon,",
+        "good",
+        "Nurse!—Sweet",
+        "Montague",
+        "be",
+        "true.",
+        "Stay",
+        "but",
+        "a",
+        "little,",
+        "I",
+        "will",
+        "come",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          15,
+          5,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Anon,",
+          "start": 1.21,
+          "end": 1.41,
+          "key": "anon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.71,
+          "end": 1.79,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nurse",
+          "start": 1.79,
+          "end": 2.13,
+          "key": "nurse",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!—Sweet",
+          "start": 2.13,
+          "end": 2.85,
+          "key": "sweet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Montague",
+          "start": 2.85,
+          "end": 3.27,
+          "key": "montague",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.27,
+          "end": 3.47,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "true.",
+          "start": 3.47,
+          "end": 3.75,
+          "key": "true",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Stay",
+          "start": 4.23,
+          "end": 4.45,
+          "key": "stay",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.45,
+          "end": 4.61,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.61,
+          "end": 4.71,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "little,",
+          "start": 4.71,
+          "end": 4.85,
+          "key": "little",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.01,
+          "end": 5.11,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.11,
+          "end": 5.25,
+          "key": "will",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 5.25,
+          "end": 5.43,
+          "key": "come",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 5.43,
+          "end": 5.71,
+          "key": "again",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Anon,",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "text": "good",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "text": "Nurse!—Sweet",
+          "start": 1.79,
+          "end": 2.32
+        },
+        {
+          "text": "Montague",
+          "start": 2.85,
+          "end": 3.27
+        },
+        {
+          "text": "be",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "text": "true.",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "text": "Stay",
+          "start": 4.23,
+          "end": 4.45
+        },
+        {
+          "text": "but",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "text": "a",
+          "start": 4.61,
+          "end": 4.71
+        },
+        {
+          "text": "little,",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "text": "I",
+          "start": 5.01,
+          "end": 5.11
+        },
+        {
+          "text": "will",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "text": "come",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "text": "again.",
+          "start": 5.43,
+          "end": 5.71
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.3558620782569051
+    },
+    {
+      "asr_seconds": 0.2149340221658349,
+      "alignment_seconds": 0.0005254959687590599,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Juliet, Anon, Nurse!—Sweet, Montague, Stay, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " will come again.",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " will",
+              "start": 0.05,
+              "end": 1.31,
+              "probability": 2.682209014892578e-06
+            },
+            {
+              "text": " come",
+              "start": 1.31,
+              "end": 5.41,
+              "probability": 0.461181640625
+            },
+            {
+              "text": " again.",
+              "start": 5.41,
+              "end": 5.73,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "will",
+          "start": 0.05,
+          "end": 1.31
+        },
+        {
+          "raw": "come",
+          "start": 1.31,
+          "end": 5.41
+        },
+        {
+          "raw": "again.",
+          "start": 5.41,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Anon,",
+        "good",
+        "Nurse!—Sweet",
+        "Montague",
+        "be",
+        "true.",
+        "Stay",
+        "but",
+        "a",
+        "little,",
+        "I",
+        "will",
+        "come",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          12,
+          0,
+          0
+        ],
+        [
+          "equal",
+          12,
+          15,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          12,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "will",
+          "start": 0.05,
+          "end": 1.31,
+          "key": "will",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.31,
+          "end": 5.41,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 5.41,
+          "end": 5.73,
+          "key": "again",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Anon,",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "good",
+          "start": 0.038,
+          "end": 0.044
+        },
+        {
+          "text": "Nurse!—Sweet",
+          "start": 0.044,
+          "end": 0.047
+        },
+        {
+          "text": "Montague",
+          "start": 0.047,
+          "end": 0.049
+        },
+        {
+          "text": "be",
+          "start": 0.049,
+          "end": 0.05
+        },
+        {
+          "text": "true.",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "Stay",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "but",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "a",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "little,",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.05
+        },
+        {
+          "text": "will",
+          "start": 0.05,
+          "end": 1.31
+        },
+        {
+          "text": "come",
+          "start": 1.31,
+          "end": 5.41
+        },
+        {
+          "text": "again.",
+          "start": 5.41,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 0.2,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21554415579885244
+    },
+    {
+      "asr_seconds": 0.3740478092804551,
+      "alignment_seconds": 0.0004015127196907997,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Juliet, a non-good nurse, sweet Montague be true, stay but a little I will come again.",
+          "start": 0.05,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.802734375
+            },
+            {
+              "text": " a",
+              "start": 1.21,
+              "end": 1.27,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " non",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.85986328125
+            },
+            {
+              "text": "-good",
+              "start": 1.51,
+              "end": 1.79,
+              "probability": 0.789794921875
+            },
+            {
+              "text": " nurse,",
+              "start": 1.79,
+              "end": 2.15,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " sweet",
+              "start": 2.87,
+              "end": 2.87,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " Montague",
+              "start": 2.87,
+              "end": 3.27,
+              "probability": 0.858642578125
+            },
+            {
+              "text": " be",
+              "start": 3.27,
+              "end": 3.47,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " true,",
+              "start": 3.47,
+              "end": 3.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stay",
+              "start": 4.25,
+              "end": 4.45,
+              "probability": 0.89111328125
+            },
+            {
+              "text": " but",
+              "start": 4.45,
+              "end": 4.61,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " a",
+              "start": 4.61,
+              "end": 4.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " little",
+              "start": 4.71,
+              "end": 4.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " I",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.65625
+            },
+            {
+              "text": " will",
+              "start": 5.11,
+              "end": 5.25,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " come",
+              "start": 5.25,
+              "end": 5.43,
+              "probability": 0.99609375
+            },
+            {
+              "text": " again.",
+              "start": 5.43,
+              "end": 5.75,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "a",
+          "start": 1.21,
+          "end": 1.27
+        },
+        {
+          "raw": "non",
+          "start": 1.27,
+          "end": 1.51
+        },
+        {
+          "raw": "-good",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "raw": "nurse,",
+          "start": 1.79,
+          "end": 2.15
+        },
+        {
+          "raw": "sweet",
+          "start": 2.87,
+          "end": 2.87
+        },
+        {
+          "raw": "Montague",
+          "start": 2.87,
+          "end": 3.27
+        },
+        {
+          "raw": "be",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "raw": "true,",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "raw": "stay",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "raw": "but",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "raw": "a",
+          "start": 4.61,
+          "end": 4.71
+        },
+        {
+          "raw": "little",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "raw": "I",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "will",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "raw": "come",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "raw": "again.",
+          "start": 5.43,
+          "end": 5.75
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Anon,",
+        "good",
+        "Nurse!—Sweet",
+        "Montague",
+        "be",
+        "true.",
+        "Stay",
+        "but",
+        "a",
+        "little,",
+        "I",
+        "will",
+        "come",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "replace",
+          3,
+          4,
+          4,
+          6
+        ],
+        [
+          "equal",
+          4,
+          15,
+          6,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.21,
+          "end": 1.27,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "non",
+          "start": 1.27,
+          "end": 1.51,
+          "key": "non",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "-good",
+          "start": 1.51,
+          "end": 1.79,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nurse,",
+          "start": 1.79,
+          "end": 2.15,
+          "key": "nurse",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 2.87,
+          "end": 2.87,
+          "key": "sweet",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Montague",
+          "start": 2.87,
+          "end": 3.27,
+          "key": "montague",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.27,
+          "end": 3.47,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 3.47,
+          "end": 3.77,
+          "key": "true",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stay",
+          "start": 4.25,
+          "end": 4.45,
+          "key": "stay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 4.45,
+          "end": 4.61,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.61,
+          "end": 4.71,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 4.71,
+          "end": 4.85,
+          "key": "little",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.85,
+          "end": 5.11,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 5.11,
+          "end": 5.25,
+          "key": "will",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 5.25,
+          "end": 5.43,
+          "key": "come",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 5.43,
+          "end": 5.75,
+          "key": "again",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Anon,",
+          "start": 0.79,
+          "end": 1.15
+        },
+        {
+          "text": "good",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "text": "Nurse!—Sweet",
+          "start": 1.79,
+          "end": 2.33
+        },
+        {
+          "text": "Montague",
+          "start": 2.87,
+          "end": 3.27
+        },
+        {
+          "text": "be",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "text": "true.",
+          "start": 3.47,
+          "end": 3.77
+        },
+        {
+          "text": "Stay",
+          "start": 4.25,
+          "end": 4.45
+        },
+        {
+          "text": "but",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "text": "a",
+          "start": 4.61,
+          "end": 4.71
+        },
+        {
+          "text": "little,",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "text": "I",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "will",
+          "start": 5.11,
+          "end": 5.25
+        },
+        {
+          "text": "come",
+          "start": 5.25,
+          "end": 5.43
+        },
+        {
+          "text": "again.",
+          "start": 5.43,
+          "end": 5.75
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 17,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3746010223403573
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4932a7659dc9b56776c82a4f7452e518de0baa119b87b5ca155224b01e62e14b",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b879d74ce701b2809fa8c5db2856c1ca3e1784f33b95d5e60a00ba027727a400",
+  "attempts": [
+    {
+      "asr_seconds": 0.11065855401102453,
+      "alignment_seconds": 0.00015951498062349856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. And fair words to them.",
+        "hotwords": "Antony, And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, And fair words to them.",
+          "start": 0.05,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " And",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.003635406494140625
+            },
+            {
+              "text": " fair",
+              "start": 1.35,
+              "end": 1.53,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " words",
+              "start": 1.53,
+              "end": 1.79,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " them.",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "And",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "fair",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "raw": "words",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "raw": "to",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "them.",
+          "start": 2.01,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "And",
+        "fair",
+        "words",
+        "to",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fair",
+          "start": 1.35,
+          "end": 1.53,
+          "key": "fair",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 1.53,
+          "end": 1.79,
+          "key": "words",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "them",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "And",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "fair",
+          "start": 1.35,
+          "end": 1.53
+        },
+        {
+          "text": "words",
+          "start": 1.53,
+          "end": 1.79
+        },
+        {
+          "text": "to",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "text": "them.",
+          "start": 2.01,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11087628098903224
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "df3d446f6843caaf76ba988d80c241270de82b1553ee29259a8359460412fed4",
+  "selected_reasons": []
+}

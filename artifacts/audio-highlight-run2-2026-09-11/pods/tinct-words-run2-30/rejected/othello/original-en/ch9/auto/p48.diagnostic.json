@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "872afc448f0723644da5b51c2091709bdd779d990887e7610a1efaefc2ffcdc3",
+  "attempts": [
+    {
+      "asr_seconds": 0.13144512381404638,
+      "alignment_seconds": 0.00022543780505657196,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. I did not think he had been acquainted with her.",
+        "hotwords": "Iago, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, I Iago. I did not think he had been acquainted with her.",
+          "start": 0.08,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.0646820068359375
+            },
+            {
+              "text": " I",
+              "start": 1.12,
+              "end": 1.36,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Iago.",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 3.293156623840332e-05
+            },
+            {
+              "text": " I",
+              "start": 1.46,
+              "end": 1.46,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " did",
+              "start": 1.46,
+              "end": 1.46,
+              "probability": 0.572265625
+            },
+            {
+              "text": " not",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " think",
+              "start": 1.62,
+              "end": 1.84,
+              "probability": 0.826171875
+            },
+            {
+              "text": " he",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.8984375
+            },
+            {
+              "text": " had",
+              "start": 1.98,
+              "end": 2.04,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " been",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " acquainted",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " with",
+              "start": 2.44,
+              "end": 2.68,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " her.",
+              "start": 2.68,
+              "end": 2.88,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.36
+        },
+        {
+          "raw": "Iago.",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "raw": "did",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "think",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "raw": "he",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "had",
+          "start": 1.98,
+          "end": 2.04
+        },
+        {
+          "raw": "been",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "acquainted",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "raw": "with",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "raw": "her.",
+          "start": 2.68,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "I",
+        "did",
+        "not",
+        "think",
+        "he",
+        "had",
+        "been",
+        "acquainted",
+        "with",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          "equal",
+          0,
+          11,
+          2,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.36,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Iago.",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "iago",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.46,
+          "end": 1.46,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.46,
+          "end": 1.46,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 1.62,
+          "end": 1.84,
+          "key": "think",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.98,
+          "end": 2.04,
+          "key": "had",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "been",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "acquainted",
+          "start": 2.14,
+          "end": 2.44,
+          "key": "acquainted",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.44,
+          "end": 2.68,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 2.68,
+          "end": 2.88,
+          "key": "her",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "I",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "text": "did",
+          "start": 1.46,
+          "end": 1.46
+        },
+        {
+          "text": "not",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "text": "think",
+          "start": 1.62,
+          "end": 1.84
+        },
+        {
+          "text": "he",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "had",
+          "start": 1.98,
+          "end": 2.04
+        },
+        {
+          "text": "been",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "acquainted",
+          "start": 2.14,
+          "end": 2.44
+        },
+        {
+          "text": "with",
+          "start": 2.44,
+          "end": 2.68
+        },
+        {
+          "text": "her.",
+          "start": 2.68,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1317576328292489
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9bb33632258c0c6f51bce4e1260db3e0109fa44199f1f9bfc3674fc357019702",
+  "selected_reasons": []
+}

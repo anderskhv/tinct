@@ -1,0 +1,2268 @@
+{
+  "complete": true,
+  "signature": "3e755c87f3c64635a1137d2a0f9f791a7eaa36e4ecc0e219a512bb956ec691aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.3895529480651021,
+      "alignment_seconds": 0.0008334415033459663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I shall be delighted, _panie_,\" said the Pole on the sofa, with dignity and affable condescension, and he took his glass.",
+        "hotwords": "I, Pole"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I shall be delighted, paini,\" said the Pole on the sofa, with dignity and affable condescension,",
+          "start": 0.02,
+          "end": 5.86,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.3486328125
+            },
+            {
+              "text": " shall",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " be",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " delighted,",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " paini,\"",
+              "start": 1.48,
+              "end": 2.16,
+              "probability": 0.34222412109375
+            },
+            {
+              "text": " said",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Pole",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " on",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " the",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sofa,",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " with",
+              "start": 3.86,
+              "end": 3.96,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " dignity",
+              "start": 3.96,
+              "end": 4.36,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 4.36,
+              "end": 4.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " affable",
+              "start": 4.7,
+              "end": 5.12,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " condescension,",
+              "start": 5.12,
+              "end": 5.86,
+              "probability": 0.98583984375
+            }
+          ]
+        },
+        {
+          "text": " and he took his glass.",
+          "start": 6.28,
+          "end": 7.14,
+          "words": [
+            {
+              "text": " and",
+              "start": 6.28,
+              "end": 6.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 6.4,
+              "end": 6.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " took",
+              "start": 6.5,
+              "end": 6.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 6.64,
+              "end": 6.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " glass.",
+              "start": 6.82,
+              "end": 7.14,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "shall",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "be",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "delighted,",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "paini,\"",
+          "start": 1.48,
+          "end": 2.16
+        },
+        {
+          "raw": "said",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "Pole",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "on",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "sofa,",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "raw": "with",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "raw": "dignity",
+          "start": 3.96,
+          "end": 4.36
+        },
+        {
+          "raw": "and",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "raw": "affable",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "raw": "condescension,",
+          "start": 5.12,
+          "end": 5.86
+        },
+        {
+          "raw": "and",
+          "start": 6.28,
+          "end": 6.4
+        },
+        {
+          "raw": "he",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "raw": "took",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "raw": "his",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "raw": "glass.",
+          "start": 6.82,
+          "end": 7.14
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "shall",
+        "be",
+        "delighted,",
+        "_panie_,\"",
+        "said",
+        "the",
+        "Pole",
+        "on",
+        "the",
+        "sofa,",
+        "with",
+        "dignity",
+        "and",
+        "affable",
+        "condescension,",
+        "and",
+        "he",
+        "took",
+        "his",
+        "glass."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          21,
+          5,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "delighted,",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "delighted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "paini,\"",
+          "start": 1.48,
+          "end": 2.16,
+          "key": "paini",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.16,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Pole",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "pole",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sofa,",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "sofa",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.86,
+          "end": 3.96,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dignity",
+          "start": 3.96,
+          "end": 4.36,
+          "key": "dignity",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.36,
+          "end": 4.7,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "affable",
+          "start": 4.7,
+          "end": 5.12,
+          "key": "affable",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "condescension,",
+          "start": 5.12,
+          "end": 5.86,
+          "key": "condescension",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.28,
+          "end": 6.4,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.4,
+          "end": 6.5,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 6.5,
+          "end": 6.64,
+          "key": "took",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.64,
+          "end": 6.82,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "glass.",
+          "start": 6.82,
+          "end": 7.14,
+          "key": "glass",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "shall",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "be",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "delighted,",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "_panie_,\"",
+          "start": 1.26,
+          "end": 1.71
+        },
+        {
+          "text": "said",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "the",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "Pole",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "on",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "the",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "sofa,",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "text": "with",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "text": "dignity",
+          "start": 3.96,
+          "end": 4.36
+        },
+        {
+          "text": "and",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "text": "affable",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "text": "condescension,",
+          "start": 5.12,
+          "end": 5.86
+        },
+        {
+          "text": "and",
+          "start": 6.28,
+          "end": 6.4
+        },
+        {
+          "text": "he",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "text": "took",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "text": "his",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "text": "glass.",
+          "start": 6.82,
+          "end": 7.14
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.39069733768701553
+    },
+    {
+      "asr_seconds": 0.4202426616102457,
+      "alignment_seconds": 0.0007678698748350143,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Pole"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " I shall be delighted, Painy,\" said the Pole on the sofa, with dignity and affable condescension,",
+          "start": 0.02,
+          "end": 5.86,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.348876953125
+            },
+            {
+              "text": " shall",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.982421875
+            },
+            {
+              "text": " be",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " delighted,",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Painy,\"",
+              "start": 1.5,
+              "end": 2.16,
+              "probability": 0.560546875
+            },
+            {
+              "text": " said",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Pole",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " on",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " the",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sofa,",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " with",
+              "start": 3.86,
+              "end": 3.96,
+              "probability": 0.96875
+            },
+            {
+              "text": " dignity",
+              "start": 3.96,
+              "end": 4.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 4.36,
+              "end": 4.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " affable",
+              "start": 4.7,
+              "end": 5.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " condescension,",
+              "start": 5.12,
+              "end": 5.86,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " and he took his glass.",
+          "start": 6.28,
+          "end": 7.14,
+          "words": [
+            {
+              "text": " and",
+              "start": 6.28,
+              "end": 6.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 6.4,
+              "end": 6.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " took",
+              "start": 6.5,
+              "end": 6.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 6.64,
+              "end": 6.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " glass.",
+              "start": 6.82,
+              "end": 7.14,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "shall",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "be",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "delighted,",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "Painy,\"",
+          "start": 1.5,
+          "end": 2.16
+        },
+        {
+          "raw": "said",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "Pole",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "on",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "sofa,",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "raw": "with",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "raw": "dignity",
+          "start": 3.96,
+          "end": 4.36
+        },
+        {
+          "raw": "and",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "raw": "affable",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "raw": "condescension,",
+          "start": 5.12,
+          "end": 5.86
+        },
+        {
+          "raw": "and",
+          "start": 6.28,
+          "end": 6.4
+        },
+        {
+          "raw": "he",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "raw": "took",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "raw": "his",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "raw": "glass.",
+          "start": 6.82,
+          "end": 7.14
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "shall",
+        "be",
+        "delighted,",
+        "_panie_,\"",
+        "said",
+        "the",
+        "Pole",
+        "on",
+        "the",
+        "sofa,",
+        "with",
+        "dignity",
+        "and",
+        "affable",
+        "condescension,",
+        "and",
+        "he",
+        "took",
+        "his",
+        "glass."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          21,
+          5,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "delighted,",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "delighted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Painy,\"",
+          "start": 1.5,
+          "end": 2.16,
+          "key": "painy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.16,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Pole",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "pole",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sofa,",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "sofa",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.86,
+          "end": 3.96,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dignity",
+          "start": 3.96,
+          "end": 4.36,
+          "key": "dignity",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.36,
+          "end": 4.7,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "affable",
+          "start": 4.7,
+          "end": 5.12,
+          "key": "affable",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "condescension,",
+          "start": 5.12,
+          "end": 5.86,
+          "key": "condescension",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.28,
+          "end": 6.4,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.4,
+          "end": 6.5,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 6.5,
+          "end": 6.64,
+          "key": "took",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.64,
+          "end": 6.82,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "glass.",
+          "start": 6.82,
+          "end": 7.14,
+          "key": "glass",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "shall",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "be",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "delighted,",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "_panie_,\"",
+          "start": 1.26,
+          "end": 1.71
+        },
+        {
+          "text": "said",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "the",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "Pole",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "on",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "the",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "sofa,",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "text": "with",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "text": "dignity",
+          "start": 3.96,
+          "end": 4.36
+        },
+        {
+          "text": "and",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "text": "affable",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "text": "condescension,",
+          "start": 5.12,
+          "end": 5.86
+        },
+        {
+          "text": "and",
+          "start": 6.28,
+          "end": 6.4
+        },
+        {
+          "text": "he",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "text": "took",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "text": "his",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "text": "glass.",
+          "start": 6.82,
+          "end": 7.14
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.421305856667459
+    },
+    {
+      "asr_seconds": 0.37153106555342674,
+      "alignment_seconds": 0.0007434636354446411,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I shall be delighted, Painy,\" said the Pole on the sofa, with dignity and affable condescension,",
+          "start": 0.02,
+          "end": 5.86,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.348876953125
+            },
+            {
+              "text": " shall",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.982421875
+            },
+            {
+              "text": " be",
+              "start": 0.7,
+              "end": 0.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " delighted,",
+              "start": 0.84,
+              "end": 1.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Painy,\"",
+              "start": 1.5,
+              "end": 2.16,
+              "probability": 0.560546875
+            },
+            {
+              "text": " said",
+              "start": 2.16,
+              "end": 2.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Pole",
+              "start": 2.54,
+              "end": 2.72,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " on",
+              "start": 2.72,
+              "end": 2.92,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " the",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sofa,",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " with",
+              "start": 3.86,
+              "end": 3.96,
+              "probability": 0.96875
+            },
+            {
+              "text": " dignity",
+              "start": 3.96,
+              "end": 4.36,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 4.36,
+              "end": 4.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " affable",
+              "start": 4.7,
+              "end": 5.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " condescension,",
+              "start": 5.12,
+              "end": 5.86,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " and he took his glass.",
+          "start": 6.28,
+          "end": 7.14,
+          "words": [
+            {
+              "text": " and",
+              "start": 6.28,
+              "end": 6.4,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 6.4,
+              "end": 6.5,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " took",
+              "start": 6.5,
+              "end": 6.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 6.64,
+              "end": 6.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " glass.",
+              "start": 6.82,
+              "end": 7.14,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "shall",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "be",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "raw": "delighted,",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "raw": "Painy,\"",
+          "start": 1.5,
+          "end": 2.16
+        },
+        {
+          "raw": "said",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "Pole",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "raw": "on",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "sofa,",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "raw": "with",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "raw": "dignity",
+          "start": 3.96,
+          "end": 4.36
+        },
+        {
+          "raw": "and",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "raw": "affable",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "raw": "condescension,",
+          "start": 5.12,
+          "end": 5.86
+        },
+        {
+          "raw": "and",
+          "start": 6.28,
+          "end": 6.4
+        },
+        {
+          "raw": "he",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "raw": "took",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "raw": "his",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "raw": "glass.",
+          "start": 6.82,
+          "end": 7.14
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "shall",
+        "be",
+        "delighted,",
+        "_panie_,\"",
+        "said",
+        "the",
+        "Pole",
+        "on",
+        "the",
+        "sofa,",
+        "with",
+        "dignity",
+        "and",
+        "affable",
+        "condescension,",
+        "and",
+        "he",
+        "took",
+        "his",
+        "glass."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          21,
+          5,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 0.54,
+          "end": 0.7,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.7,
+          "end": 0.84,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "delighted,",
+          "start": 0.84,
+          "end": 1.26,
+          "key": "delighted",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Painy,\"",
+          "start": 1.5,
+          "end": 2.16,
+          "key": "painy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.16,
+          "end": 2.38,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.38,
+          "end": 2.54,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Pole",
+          "start": 2.54,
+          "end": 2.72,
+          "key": "pole",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.72,
+          "end": 2.92,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sofa,",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "sofa",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.86,
+          "end": 3.96,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dignity",
+          "start": 3.96,
+          "end": 4.36,
+          "key": "dignity",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.36,
+          "end": 4.7,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "affable",
+          "start": 4.7,
+          "end": 5.12,
+          "key": "affable",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "condescension,",
+          "start": 5.12,
+          "end": 5.86,
+          "key": "condescension",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.28,
+          "end": 6.4,
+          "key": "and",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.4,
+          "end": 6.5,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 6.5,
+          "end": 6.64,
+          "key": "took",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.64,
+          "end": 6.82,
+          "key": "his",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "glass.",
+          "start": 6.82,
+          "end": 7.14,
+          "key": "glass",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "shall",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "be",
+          "start": 0.7,
+          "end": 0.84
+        },
+        {
+          "text": "delighted,",
+          "start": 0.84,
+          "end": 1.26
+        },
+        {
+          "text": "_panie_,\"",
+          "start": 1.26,
+          "end": 1.71
+        },
+        {
+          "text": "said",
+          "start": 2.16,
+          "end": 2.38
+        },
+        {
+          "text": "the",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "Pole",
+          "start": 2.54,
+          "end": 2.72
+        },
+        {
+          "text": "on",
+          "start": 2.72,
+          "end": 2.92
+        },
+        {
+          "text": "the",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "sofa,",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "text": "with",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "text": "dignity",
+          "start": 3.96,
+          "end": 4.36
+        },
+        {
+          "text": "and",
+          "start": 4.36,
+          "end": 4.7
+        },
+        {
+          "text": "affable",
+          "start": 4.7,
+          "end": 5.12
+        },
+        {
+          "text": "condescension,",
+          "start": 5.12,
+          "end": 5.86
+        },
+        {
+          "text": "and",
+          "start": 6.28,
+          "end": 6.4
+        },
+        {
+          "text": "he",
+          "start": 6.4,
+          "end": 6.5
+        },
+        {
+          "text": "took",
+          "start": 6.5,
+          "end": 6.64
+        },
+        {
+          "text": "his",
+          "start": 6.64,
+          "end": 6.82
+        },
+        {
+          "text": "glass.",
+          "start": 6.82,
+          "end": 7.14
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.3725619176402688
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d54b22ec90703cdab262dd1ee6ae802597806c368b912b795222fe1feb4a28bb",
+  "selected_reasons": []
+}

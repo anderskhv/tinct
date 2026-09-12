@@ -1,0 +1,511 @@
+{
+  "complete": true,
+  "signature": "51597a60fdbfd53a01179689ce4f272db616534769ad40f87428cd93868c5203",
+  "attempts": [
+    {
+      "asr_seconds": 0.2698497027158737,
+      "alignment_seconds": 0.00034930557012557983,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Asterisk, the emancipation of the serfs in 1861, is meant.",
+          "start": 0.18,
+          "end": 4.66,
+          "words": [
+            {
+              "text": " Asterisk,",
+              "start": 0.18,
+              "end": 1.06,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.26,
+              "probability": 0.880859375
+            },
+            {
+              "text": " emancipation",
+              "start": 1.26,
+              "end": 1.7,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " of",
+              "start": 1.7,
+              "end": 2.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 2.24,
+              "end": 2.42,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " serfs",
+              "start": 2.42,
+              "end": 2.76,
+              "probability": 0.900146484375
+            },
+            {
+              "text": " in",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " 1861,",
+              "start": 2.9,
+              "end": 3.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " is",
+              "start": 4.26,
+              "end": 4.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " meant.",
+              "start": 4.32,
+              "end": 4.66,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " Translator S. Note.",
+          "start": 5.4,
+          "end": 6.36,
+          "words": [
+            {
+              "text": " Translator",
+              "start": 5.4,
+              "end": 5.84,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " S.",
+              "start": 5.84,
+              "end": 6.08,
+              "probability": 0.333740234375
+            },
+            {
+              "text": " Note.",
+              "start": 6.16,
+              "end": 6.36,
+              "probability": 0.70166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Asterisk,",
+          "start": 0.18,
+          "end": 1.06
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "raw": "emancipation",
+          "start": 1.26,
+          "end": 1.7
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 2.24
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "raw": "serfs",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "raw": "in",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "1861,",
+          "start": 2.9,
+          "end": 3.66
+        },
+        {
+          "raw": "is",
+          "start": 4.26,
+          "end": 4.32
+        },
+        {
+          "raw": "meant.",
+          "start": 4.32,
+          "end": 4.66
+        },
+        {
+          "raw": "Translator",
+          "start": 5.4,
+          "end": 5.84
+        },
+        {
+          "raw": "S.",
+          "start": 5.84,
+          "end": 6.08
+        },
+        {
+          "raw": "Note.",
+          "start": 6.16,
+          "end": 6.36
+        }
+      ],
+      "expected_tokens": [
+        "[*]",
+        "The",
+        "emancipation",
+        "of",
+        "the",
+        "serfs",
+        "in",
+        "1861",
+        "is",
+        "meant.",
+        "--Translator'S",
+        "Note."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ],
+        [
+          "equal",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Asterisk,",
+          "start": 0.18,
+          "end": 1.06,
+          "key": "asterisk",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.26,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "emancipation",
+          "start": 1.26,
+          "end": 1.7,
+          "key": "emancipation",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.7,
+          "end": 2.24,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.24,
+          "end": 2.42,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "serfs",
+          "start": 2.42,
+          "end": 2.76,
+          "key": "serfs",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "1861,",
+          "start": 2.9,
+          "end": 3.66,
+          "key": "1861",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.26,
+          "end": 4.32,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "meant.",
+          "start": 4.32,
+          "end": 4.66,
+          "key": "meant",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Translator",
+          "start": 5.4,
+          "end": 5.84,
+          "key": "translator",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "S.",
+          "start": 5.84,
+          "end": 6.08,
+          "key": "s",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Note.",
+          "start": 6.16,
+          "end": 6.36,
+          "key": "note",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[*]",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "The",
+          "start": 1.22,
+          "end": 1.26
+        },
+        {
+          "text": "emancipation",
+          "start": 1.26,
+          "end": 1.7
+        },
+        {
+          "text": "of",
+          "start": 1.7,
+          "end": 2.24
+        },
+        {
+          "text": "the",
+          "start": 2.24,
+          "end": 2.42
+        },
+        {
+          "text": "serfs",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "text": "in",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "1861",
+          "start": 2.9,
+          "end": 3.66
+        },
+        {
+          "text": "is",
+          "start": 4.26,
+          "end": 4.32
+        },
+        {
+          "text": "meant.",
+          "start": 4.32,
+          "end": 4.66
+        },
+        {
+          "text": "--Translator'S",
+          "start": 4.66,
+          "end": 5.41
+        },
+        {
+          "text": "Note.",
+          "start": 6.16,
+          "end": 6.36
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.27032264694571495
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "574ff2b5908787fbb18254c986ddc81dc22017a32441d0940d47ef419114e076",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

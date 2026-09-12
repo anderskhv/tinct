@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "b8221a235e346c6edad0833232062a1b1166f8d94e1efff9e1d3fd4ef341641b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2082937320228666,
+      "alignment_seconds": 0.0004116040072403848,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Who was the letter from? he asked.",
+        "hotwords": "Who"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Who was the letter from? he asked.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Who",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.45068359375
+            },
+            {
+              "text": " was",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9609375
+            },
+            {
+              "text": " the",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " letter",
+              "start": 0.77,
+              "end": 0.97,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " from?",
+              "start": 0.97,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 1.61,
+              "end": 1.69,
+              "probability": 0.3359375
+            },
+            {
+              "text": " asked.",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "letter",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "raw": "from?",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "raw": "he",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "raw": "asked.",
+          "start": 1.69,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "—Who",
+        "was",
+        "the",
+        "letter",
+        "from?",
+        "he",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "who",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "was",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 0.77,
+          "end": 0.97,
+          "key": "letter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from?",
+          "start": 0.97,
+          "end": 1.33,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.61,
+          "end": 1.69,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "asked",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Who",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "was",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "letter",
+          "start": 0.77,
+          "end": 0.97
+        },
+        {
+          "text": "from?",
+          "start": 0.97,
+          "end": 1.33
+        },
+        {
+          "text": "he",
+          "start": 1.61,
+          "end": 1.69
+        },
+        {
+          "text": "asked.",
+          "start": 1.69,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20884611899964511
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b7e05218824148142a34edc36223ee4c1c387e1428d6d30a1c70ae516fc5ee0f",
+  "selected_reasons": []
+}

@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "27d3f1e346a687f26d704d26847b7d32aac32443ff5dcdb555d1be0ac4b35413",
+  "attempts": [
+    {
+      "asr_seconds": 0.22160116909071803,
+      "alignment_seconds": 0.0002159331925213337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Last Rose Castile of Summer Left Bloom, I feel so sad alone.",
+          "start": 0.05,
+          "end": 4.01,
+          "words": [
+            {
+              "text": " Last",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " Rose",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.2366943359375
+            },
+            {
+              "text": " Castile",
+              "start": 0.97,
+              "end": 1.49,
+              "probability": 0.830810546875
+            },
+            {
+              "text": " of",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Summer",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " Left",
+              "start": 1.87,
+              "end": 2.09,
+              "probability": 0.87890625
+            },
+            {
+              "text": " Bloom,",
+              "start": 2.09,
+              "end": 2.45,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " I",
+              "start": 2.87,
+              "end": 2.95,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " feel",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " so",
+              "start": 3.15,
+              "end": 3.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sad",
+              "start": 3.41,
+              "end": 3.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " alone.",
+              "start": 3.69,
+              "end": 4.01,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Last",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Rose",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "raw": "Castile",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "raw": "of",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "Summer",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "Left",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "raw": "Bloom,",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "raw": "I",
+          "start": 2.87,
+          "end": 2.95
+        },
+        {
+          "raw": "feel",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "so",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "raw": "sad",
+          "start": 3.41,
+          "end": 3.69
+        },
+        {
+          "raw": "alone.",
+          "start": 3.69,
+          "end": 4.01
+        }
+      ],
+      "expected_tokens": [
+        "Last",
+        "rose",
+        "Castile",
+        "of",
+        "summer",
+        "left",
+        "bloom",
+        "I",
+        "feel",
+        "so",
+        "sad",
+        "alone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Last",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "last",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Rose",
+          "start": 0.71,
+          "end": 0.97,
+          "key": "rose",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Castile",
+          "start": 0.97,
+          "end": 1.49,
+          "key": "castile",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Summer",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "summer",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Left",
+          "start": 1.87,
+          "end": 2.09,
+          "key": "left",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Bloom,",
+          "start": 2.09,
+          "end": 2.45,
+          "key": "bloom",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.87,
+          "end": 2.95,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "feel",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "feel",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.15,
+          "end": 3.41,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sad",
+          "start": 3.41,
+          "end": 3.69,
+          "key": "sad",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "alone.",
+          "start": 3.69,
+          "end": 4.01,
+          "key": "alone",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Last",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "rose",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "text": "Castile",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "text": "of",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "summer",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "left",
+          "start": 1.87,
+          "end": 2.09
+        },
+        {
+          "text": "bloom",
+          "start": 2.09,
+          "end": 2.45
+        },
+        {
+          "text": "I",
+          "start": 2.87,
+          "end": 2.95
+        },
+        {
+          "text": "feel",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "so",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "text": "sad",
+          "start": 3.41,
+          "end": 3.69
+        },
+        {
+          "text": "alone.",
+          "start": 3.69,
+          "end": 4.01
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22189232986420393
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "756e8416b81294fd12e2a76b28d6a7ef75cf0c0872f22f8a3b72b62500862731",
+  "selected_reasons": []
+}

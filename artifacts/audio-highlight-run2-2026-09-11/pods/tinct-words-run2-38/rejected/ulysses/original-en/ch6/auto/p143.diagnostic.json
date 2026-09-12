@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "c747b3e646d28a6065fff561c098003c4c1a86d6c051e831099aa42f6f5365c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.18514051201054826,
+      "alignment_seconds": 0.0003580820048227906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Ah then indeed, he said, poor little Paddy wouldn't grudge us a laugh. Many a good one he told himself.",
+        "hotwords": "Ah, Paddy, Many"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah then indeed, he said, poor little Paddy wouldn't grudge us a laugh. Many a good one he told himself.",
+          "start": 0.08,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " Ah",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.2073974609375
+            },
+            {
+              "text": " then",
+              "start": 0.6,
+              "end": 0.8,
+              "probability": 0.20068359375
+            },
+            {
+              "text": " indeed,",
+              "start": 0.8,
+              "end": 1.22,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " he",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said,",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " poor",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.9609375
+            },
+            {
+              "text": " little",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " Paddy",
+              "start": 2.74,
+              "end": 3.04,
+              "probability": 0.5148162841796875
+            },
+            {
+              "text": " wouldn't",
+              "start": 3.04,
+              "end": 3.36,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " grudge",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " us",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " laugh.",
+              "start": 3.82,
+              "end": 4.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Many",
+              "start": 4.68,
+              "end": 4.84,
+              "probability": 0.984375
+            },
+            {
+              "text": " a",
+              "start": 4.84,
+              "end": 4.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " good",
+              "start": 4.98,
+              "end": 5.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " one",
+              "start": 5.1,
+              "end": 5.26,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " he",
+              "start": 5.26,
+              "end": 5.4,
+              "probability": 0.498046875
+            },
+            {
+              "text": " told",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself.",
+              "start": 5.6,
+              "end": 6.02,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "then",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.8,
+          "end": 1.22
+        },
+        {
+          "raw": "he",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "raw": "said,",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "poor",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "little",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "Paddy",
+          "start": 2.74,
+          "end": 3.04
+        },
+        {
+          "raw": "wouldn't",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "raw": "grudge",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "us",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "a",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "raw": "laugh.",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "raw": "Many",
+          "start": 4.68,
+          "end": 4.84
+        },
+        {
+          "raw": "a",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "raw": "good",
+          "start": 4.98,
+          "end": 5.1
+        },
+        {
+          "raw": "one",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "raw": "he",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "raw": "told",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "himself.",
+          "start": 5.6,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "—Ah",
+        "then",
+        "indeed,",
+        "he",
+        "said,",
+        "poor",
+        "little",
+        "Paddy",
+        "wouldn't",
+        "grudge",
+        "us",
+        "a",
+        "laugh.",
+        "Many",
+        "a",
+        "good",
+        "one",
+        "he",
+        "told",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 0.6,
+          "end": 0.8,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.8,
+          "end": 1.22,
+          "key": "indeed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 2.38,
+          "end": 2.5,
+          "key": "poor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "little",
+          "start": 2.5,
+          "end": 2.74,
+          "key": "little",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Paddy",
+          "start": 2.74,
+          "end": 3.04,
+          "key": "paddy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wouldn't",
+          "start": 3.04,
+          "end": 3.36,
+          "key": "wouldnt",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "grudge",
+          "start": 3.36,
+          "end": 3.54,
+          "key": "grudge",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.54,
+          "end": 3.7,
+          "key": "us",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.7,
+          "end": 3.82,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "laugh.",
+          "start": 3.82,
+          "end": 4.1,
+          "key": "laugh",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Many",
+          "start": 4.68,
+          "end": 4.84,
+          "key": "many",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.84,
+          "end": 4.98,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.98,
+          "end": 5.1,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 5.1,
+          "end": 5.26,
+          "key": "one",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.26,
+          "end": 5.4,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 5.4,
+          "end": 5.6,
+          "key": "told",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 5.6,
+          "end": 6.02,
+          "key": "himself",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ah",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "then",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "text": "indeed,",
+          "start": 0.8,
+          "end": 1.22
+        },
+        {
+          "text": "he",
+          "start": 1.52,
+          "end": 1.6
+        },
+        {
+          "text": "said,",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "poor",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "little",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "Paddy",
+          "start": 2.74,
+          "end": 3.04
+        },
+        {
+          "text": "wouldn't",
+          "start": 3.04,
+          "end": 3.36
+        },
+        {
+          "text": "grudge",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "text": "us",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "a",
+          "start": 3.7,
+          "end": 3.82
+        },
+        {
+          "text": "laugh.",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "text": "Many",
+          "start": 4.68,
+          "end": 4.84
+        },
+        {
+          "text": "a",
+          "start": 4.84,
+          "end": 4.98
+        },
+        {
+          "text": "good",
+          "start": 4.98,
+          "end": 5.1
+        },
+        {
+          "text": "one",
+          "start": 5.1,
+          "end": 5.26
+        },
+        {
+          "text": "he",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "text": "told",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "himself.",
+          "start": 5.6,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18566233501769602
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5214e4ddf1ed306536db421237e7d6329c4bee4c0492921d2cffdc51641b4bef",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "cc34c182d7346f6d66118ab90dbae5a1a4c7460ce5928eb3d0905eee111084f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1053559931460768,
+      "alignment_seconds": 0.00023946398869156837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Compose yourself,\" said I.",
+        "hotwords": "Compose, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Compose yourself, said I.",
+          "start": 0.05,
+          "end": 1.91,
+          "words": [
+            {
+              "text": " Compose",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.5653076171875
+            },
+            {
+              "text": " yourself,",
+              "start": 0.79,
+              "end": 1.17,
+              "probability": 0.986328125
+            },
+            {
+              "text": " said",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I.",
+              "start": 1.63,
+              "end": 1.91,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Compose",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "yourself,",
+          "start": 0.79,
+          "end": 1.17
+        },
+        {
+          "raw": "said",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "I.",
+          "start": 1.63,
+          "end": 1.91
+        }
+      ],
+      "expected_tokens": [
+        "\"Compose",
+        "yourself,\"",
+        "said",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Compose",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "compose",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yourself,",
+          "start": 0.79,
+          "end": 1.17,
+          "key": "yourself",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.63,
+          "end": 1.91,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Compose",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "yourself,\"",
+          "start": 0.79,
+          "end": 1.17
+        },
+        {
+          "text": "said",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "I.",
+          "start": 1.63,
+          "end": 1.91
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10569791705347598
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4442199126b225cfc44ea7fadc0027b0e74a47450bbdedeeeeefa58141b7846",
+  "selected_reasons": []
+}

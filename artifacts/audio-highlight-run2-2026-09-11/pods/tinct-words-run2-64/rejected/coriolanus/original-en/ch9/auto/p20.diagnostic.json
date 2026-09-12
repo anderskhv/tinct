@@ -1,0 +1,734 @@
+{
+  "complete": true,
+  "signature": "6cd52f2fd2e3dfa64c899ecfb3b12fadd589a43c3fd08ec3a5296d9bff01ad3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.3124857861548662,
+      "alignment_seconds": 0.0006571421399712563,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cominius. O, well begged! Were he the butcher of my son, he should Be free as is the wind.—Deliver him, Titus.",
+        "hotwords": "Cominius, O, Were, Be, Titus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cominius. O, well begged! Were he the butcher of my son, he should Be free as is the wind.—Deliver him, Titus.",
+          "start": 0.6,
+          "end": 7.02,
+          "words": [
+            {
+              "text": " Cominius.",
+              "start": 0.6,
+              "end": 0.96,
+              "probability": 0.4973958333333333
+            },
+            {
+              "text": " O,",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.2020263671875
+            },
+            {
+              "text": " well",
+              "start": 1.7,
+              "end": 1.82,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " begged!",
+              "start": 1.82,
+              "end": 2.22,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " Were",
+              "start": 2.7,
+              "end": 2.76,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " he",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " butcher",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.888671875
+            },
+            {
+              "text": " of",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 3.38,
+              "end": 3.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " son,",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.93359375
+            },
+            {
+              "text": " he",
+              "start": 3.96,
+              "end": 4.02,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " should",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Be",
+              "start": 4.16,
+              "end": 4.28,
+              "probability": 2.7060508728027344e-05
+            },
+            {
+              "text": " free",
+              "start": 4.28,
+              "end": 4.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " as",
+              "start": 4.58,
+              "end": 4.76,
+              "probability": 0.5654296875
+            },
+            {
+              "text": " is",
+              "start": 4.76,
+              "end": 4.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 4.92,
+              "end": 5.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " wind.—Deliver",
+              "start": 5.1,
+              "end": 6.42,
+              "probability": 0.6975162029266357
+            },
+            {
+              "text": " him,",
+              "start": 6.42,
+              "end": 6.68,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Titus.",
+              "start": 6.88,
+              "end": 7.02,
+              "probability": 0.83642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cominius.",
+          "start": 0.6,
+          "end": 0.96
+        },
+        {
+          "raw": "O,",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "well",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "raw": "begged!",
+          "start": 1.82,
+          "end": 2.22
+        },
+        {
+          "raw": "Were",
+          "start": 2.7,
+          "end": 2.76
+        },
+        {
+          "raw": "he",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "butcher",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "of",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "my",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "raw": "son,",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "he",
+          "start": 3.96,
+          "end": 4.02
+        },
+        {
+          "raw": "should",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "Be",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "raw": "free",
+          "start": 4.28,
+          "end": 4.58
+        },
+        {
+          "raw": "as",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "raw": "is",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "raw": "the",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "raw": "wind.—Deliver",
+          "start": 5.1,
+          "end": 6.42
+        },
+        {
+          "raw": "him,",
+          "start": 6.42,
+          "end": 6.68
+        },
+        {
+          "raw": "Titus.",
+          "start": 6.88,
+          "end": 7.02
+        }
+      ],
+      "expected_tokens": [
+        "Cominius.",
+        "O,",
+        "well",
+        "begged!",
+        "Were",
+        "he",
+        "the",
+        "butcher",
+        "of",
+        "my",
+        "son,",
+        "he",
+        "should",
+        "Be",
+        "free",
+        "as",
+        "is",
+        "the",
+        "wind.—Deliver",
+        "him,",
+        "Titus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cominius.",
+          "start": 0.6,
+          "end": 0.96,
+          "key": "cominius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.7,
+          "end": 1.82,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "begged!",
+          "start": 1.82,
+          "end": 2.22,
+          "key": "begged",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Were",
+          "start": 2.7,
+          "end": 2.76,
+          "key": "were",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "butcher",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "butcher",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.2,
+          "end": 3.38,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.38,
+          "end": 3.52,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "son,",
+          "start": 3.52,
+          "end": 3.78,
+          "key": "son",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.96,
+          "end": 4.02,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 4.02,
+          "end": 4.16,
+          "key": "should",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 4.16,
+          "end": 4.28,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "free",
+          "start": 4.28,
+          "end": 4.58,
+          "key": "free",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 4.58,
+          "end": 4.76,
+          "key": "as",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.76,
+          "end": 4.92,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.92,
+          "end": 5.1,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "wind.—Deliver",
+          "start": 5.1,
+          "end": 6.42,
+          "key": "winddeliver",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 6.42,
+          "end": 6.68,
+          "key": "him",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Titus.",
+          "start": 6.88,
+          "end": 7.02,
+          "key": "titus",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cominius.",
+          "start": 0.6,
+          "end": 0.96
+        },
+        {
+          "text": "O,",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "well",
+          "start": 1.7,
+          "end": 1.82
+        },
+        {
+          "text": "begged!",
+          "start": 1.82,
+          "end": 2.22
+        },
+        {
+          "text": "Were",
+          "start": 2.7,
+          "end": 2.76
+        },
+        {
+          "text": "he",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "butcher",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "of",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "my",
+          "start": 3.38,
+          "end": 3.52
+        },
+        {
+          "text": "son,",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "he",
+          "start": 3.96,
+          "end": 4.02
+        },
+        {
+          "text": "should",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "Be",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "text": "free",
+          "start": 4.28,
+          "end": 4.58
+        },
+        {
+          "text": "as",
+          "start": 4.58,
+          "end": 4.76
+        },
+        {
+          "text": "is",
+          "start": 4.76,
+          "end": 4.92
+        },
+        {
+          "text": "the",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "text": "wind.—Deliver",
+          "start": 5.1,
+          "end": 6.42
+        },
+        {
+          "text": "him,",
+          "start": 6.42,
+          "end": 6.68
+        },
+        {
+          "text": "Titus.",
+          "start": 6.88,
+          "end": 7.02
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3133722683414817
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d2b10c525de1a2d56bf7c2030591b885eb232b43ab629ee3c6f7393f29043e7f",
+  "selected_reasons": []
+}

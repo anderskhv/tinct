@@ -1,0 +1,379 @@
+{
+  "complete": true,
+  "signature": "e9f5ca13053b3c910426b25cdcc0534d234b6384930e32ff4ae69a63e65ffad9",
+  "attempts": [
+    {
+      "asr_seconds": 0.22055169567465782,
+      "alignment_seconds": 0.00030631013214588165,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bouquet of the nature accumulation and employment of stock",
+          "start": 0.05,
+          "end": 4.05,
+          "words": [
+            {
+              "text": " Bouquet",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.445953369140625
+            },
+            {
+              "text": " of",
+              "start": 0.83,
+              "end": 1.49,
+              "probability": 0.4794921875
+            },
+            {
+              "text": " the",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " nature",
+              "start": 1.59,
+              "end": 1.95,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " accumulation",
+              "start": 1.95,
+              "end": 2.65,
+              "probability": 0.8544921875
+            },
+            {
+              "text": " and",
+              "start": 2.65,
+              "end": 3.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " employment",
+              "start": 3.11,
+              "end": 3.49,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " of",
+              "start": 3.49,
+              "end": 3.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stock",
+              "start": 3.71,
+              "end": 4.05,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bouquet",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 1.49
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "nature",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "raw": "accumulation",
+          "start": 1.95,
+          "end": 2.65
+        },
+        {
+          "raw": "and",
+          "start": 2.65,
+          "end": 3.11
+        },
+        {
+          "raw": "employment",
+          "start": 3.11,
+          "end": 3.49
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "raw": "stock",
+          "start": 3.71,
+          "end": 4.05
+        }
+      ],
+      "expected_tokens": [
+        "Book",
+        "Ii.",
+        "Of",
+        "The",
+        "Nature,",
+        "Accumulation,",
+        "And",
+        "Employment",
+        "Of",
+        "Stock."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          10,
+          1,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bouquet",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "bouquet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.83,
+          "end": 1.49,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "nature",
+          "start": 1.59,
+          "end": 1.95,
+          "key": "nature",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "accumulation",
+          "start": 1.95,
+          "end": 2.65,
+          "key": "accumulation",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.65,
+          "end": 3.11,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "employment",
+          "start": 3.11,
+          "end": 3.49,
+          "key": "employment",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.71,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stock",
+          "start": 3.71,
+          "end": 4.05,
+          "key": "stock",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Book",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "Ii.",
+          "start": 0.415,
+          "end": 0.622
+        },
+        {
+          "text": "Of",
+          "start": 0.83,
+          "end": 1.49
+        },
+        {
+          "text": "The",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "Nature,",
+          "start": 1.59,
+          "end": 1.95
+        },
+        {
+          "text": "Accumulation,",
+          "start": 1.95,
+          "end": 2.65
+        },
+        {
+          "text": "And",
+          "start": 2.65,
+          "end": 3.11
+        },
+        {
+          "text": "Employment",
+          "start": 3.11,
+          "end": 3.49
+        },
+        {
+          "text": "Of",
+          "start": 3.49,
+          "end": 3.71
+        },
+        {
+          "text": "Stock.",
+          "start": 3.71,
+          "end": 4.05
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22096236050128937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8da624dddd1ad37c013b3cebfb779e3ed4268a727390857bb5a7149caf4fe3b5",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

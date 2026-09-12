@@ -1,0 +1,711 @@
+{
+  "complete": true,
+  "signature": "abf8299c3ef83a975bd643b4baf6d07c3efc93251065c39327ef2e6424fbc11b",
+  "attempts": [
+    {
+      "asr_seconds": 0.32528115063905716,
+      "alignment_seconds": 0.000698678195476532,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The sharks! the sharks!\" cried a voice from the low cabin-window there; \"O master, my master, come back!\"",
+        "hotwords": "O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The sharks! the sharks!\" cried a voice from the low cabin-window there.",
+          "start": 0.02,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.10504150390625
+            },
+            {
+              "text": " sharks!",
+              "start": 0.52,
+              "end": 0.84,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " the",
+              "start": 1.24,
+              "end": 1.28,
+              "probability": 0.444580078125
+            },
+            {
+              "text": " sharks",
+              "start": 1.28,
+              "end": 1.66,
+              "probability": 0.990234375
+            },
+            {
+              "text": "!\"",
+              "start": 1.66,
+              "end": 2.16,
+              "probability": 0.2734375
+            },
+            {
+              "text": " cried",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " a",
+              "start": 2.4,
+              "end": 2.56,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " voice",
+              "start": 2.56,
+              "end": 2.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " from",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " low",
+              "start": 3.1,
+              "end": 3.3,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " cabin",
+              "start": 3.3,
+              "end": 3.58,
+              "probability": 0.97802734375
+            },
+            {
+              "text": "-window",
+              "start": 3.58,
+              "end": 3.88,
+              "probability": 0.49227142333984375
+            },
+            {
+              "text": " there.",
+              "start": 3.88,
+              "end": 4.14,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " O master, my master, come back!",
+          "start": 4.7,
+          "end": 6.44,
+          "words": [
+            {
+              "text": " O",
+              "start": 4.7,
+              "end": 4.84,
+              "probability": 0.0017709732055664062
+            },
+            {
+              "text": " master,",
+              "start": 4.84,
+              "end": 5.2,
+              "probability": 0.388671875
+            },
+            {
+              "text": " my",
+              "start": 5.4,
+              "end": 5.46,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " master,",
+              "start": 5.46,
+              "end": 5.82,
+              "probability": 0.984375
+            },
+            {
+              "text": " come",
+              "start": 5.92,
+              "end": 6.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " back!",
+              "start": 6.08,
+              "end": 6.44,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "sharks!",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.28
+        },
+        {
+          "raw": "sharks",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "raw": "!\"",
+          "start": 1.66,
+          "end": 2.16
+        },
+        {
+          "raw": "cried",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "raw": "a",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "raw": "voice",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "raw": "from",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "the",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "low",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "raw": "cabin",
+          "start": 3.3,
+          "end": 3.58
+        },
+        {
+          "raw": "-window",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "raw": "there.",
+          "start": 3.88,
+          "end": 4.14
+        },
+        {
+          "raw": "O",
+          "start": 4.7,
+          "end": 4.84
+        },
+        {
+          "raw": "master,",
+          "start": 4.84,
+          "end": 5.2
+        },
+        {
+          "raw": "my",
+          "start": 5.4,
+          "end": 5.46
+        },
+        {
+          "raw": "master,",
+          "start": 5.46,
+          "end": 5.82
+        },
+        {
+          "raw": "come",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "raw": "back!",
+          "start": 6.08,
+          "end": 6.44
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "sharks!",
+        "the",
+        "sharks!\"",
+        "cried",
+        "a",
+        "voice",
+        "from",
+        "the",
+        "low",
+        "cabin-window",
+        "there;",
+        "\"O",
+        "master,",
+        "my",
+        "master,",
+        "come",
+        "back!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ],
+        [
+          "equal",
+          4,
+          18,
+          5,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sharks!",
+          "start": 0.52,
+          "end": 0.84,
+          "key": "sharks",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.28,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sharks",
+          "start": 1.28,
+          "end": 1.66,
+          "key": "sharks",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.66,
+          "end": 2.16,
+          "key": "",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.16,
+          "end": 2.4,
+          "key": "cried",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.4,
+          "end": 2.56,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 2.56,
+          "end": 2.76,
+          "key": "voice",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "from",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.98,
+          "end": 3.1,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "low",
+          "start": 3.1,
+          "end": 3.3,
+          "key": "low",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "cabin -window",
+          "start": 3.3,
+          "end": 3.88,
+          "key": "cabinwindow",
+          "pieces": [
+            11,
+            12
+          ]
+        },
+        {
+          "raw": "there.",
+          "start": 3.88,
+          "end": 4.14,
+          "key": "there",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 4.7,
+          "end": 4.84,
+          "key": "o",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "master,",
+          "start": 4.84,
+          "end": 5.2,
+          "key": "master",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.4,
+          "end": 5.46,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "master,",
+          "start": 5.46,
+          "end": 5.82,
+          "key": "master",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 5.92,
+          "end": 6.08,
+          "key": "come",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "back!",
+          "start": 6.08,
+          "end": 6.44,
+          "key": "back",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 10,
+          "text": "cabin-window",
+          "heard": "cabin -window",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 3.3,
+          "end": 3.88
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "sharks!",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "text": "the",
+          "start": 1.24,
+          "end": 1.28
+        },
+        {
+          "text": "sharks!\"",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "text": "cried",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "text": "a",
+          "start": 2.4,
+          "end": 2.56
+        },
+        {
+          "text": "voice",
+          "start": 2.56,
+          "end": 2.76
+        },
+        {
+          "text": "from",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "the",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "low",
+          "start": 3.1,
+          "end": 3.3
+        },
+        {
+          "text": "cabin-window",
+          "start": 3.3,
+          "end": 3.88
+        },
+        {
+          "text": "there;",
+          "start": 3.88,
+          "end": 4.14
+        },
+        {
+          "text": "\"O",
+          "start": 4.7,
+          "end": 4.84
+        },
+        {
+          "text": "master,",
+          "start": 4.84,
+          "end": 5.2
+        },
+        {
+          "text": "my",
+          "start": 5.4,
+          "end": 5.46
+        },
+        {
+          "text": "master,",
+          "start": 5.46,
+          "end": 5.82
+        },
+        {
+          "text": "come",
+          "start": 5.92,
+          "end": 6.08
+        },
+        {
+          "text": "back!\"",
+          "start": 6.08,
+          "end": 6.44
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32625891640782356
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "423418c8a5f042b520c0a108edaf82eff537bb4a2c4868c2afa7e741999f6512",
+  "selected_reasons": []
+}

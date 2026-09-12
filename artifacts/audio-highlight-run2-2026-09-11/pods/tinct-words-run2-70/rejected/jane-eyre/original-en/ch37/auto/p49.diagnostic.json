@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "79af8e97efc88769fbf26d2e11091d0af32c095ebd613949c2de6286edb0e03b",
+  "attempts": [
+    {
+      "asr_seconds": 0.11802544887177646,
+      "alignment_seconds": 0.00031548505648970604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"There, sir—and there!\"'"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There, sir—and there!",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " There,",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " sir—and",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.6078847249348959
+            },
+            {
+              "text": " there!",
+              "start": 1.08,
+              "end": 1.32,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "sir—and",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "raw": "there!",
+          "start": 1.08,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"There,",
+        "sir—and",
+        "there!\"'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There,",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir—and",
+          "start": 0.74,
+          "end": 1.08,
+          "key": "sirand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there!",
+          "start": 1.08,
+          "end": 1.32,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"There,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "sir—and",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "text": "there!\"'",
+          "start": 1.08,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1184482448734343
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c15870c78bef5d6ee315bb3697f8ec3d62c5517c2d26556a4f6137bf23b70fa3",
+  "selected_reasons": []
+}

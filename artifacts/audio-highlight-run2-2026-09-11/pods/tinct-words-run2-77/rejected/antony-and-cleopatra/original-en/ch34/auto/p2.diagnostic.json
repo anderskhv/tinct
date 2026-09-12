@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "b205faba9bc711308275b8148ba11fc328cee6dfb9749233b299f8bfa41d127f",
+  "attempts": [
+    {
+      "asr_seconds": 0.20158398200874217,
+      "alignment_seconds": 0.00017792600556276739,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Watch. This last day was a shrewd one to's.",
+        "hotwords": "First, Watch, This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Watch, This Last Day Was a Shrewd One To's.",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " Watch,",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.0082550048828125
+            },
+            {
+              "text": " This",
+              "start": 1.55,
+              "end": 1.67,
+              "probability": 0.2059326171875
+            },
+            {
+              "text": " Last",
+              "start": 1.67,
+              "end": 1.91,
+              "probability": 0.4248046875
+            },
+            {
+              "text": " Day",
+              "start": 1.91,
+              "end": 2.15,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Was",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " a",
+              "start": 2.29,
+              "end": 2.43,
+              "probability": 0.390380859375
+            },
+            {
+              "text": " Shrewd",
+              "start": 2.43,
+              "end": 2.83,
+              "probability": 0.7184244791666666
+            },
+            {
+              "text": " One",
+              "start": 2.83,
+              "end": 2.97,
+              "probability": 0.328369140625
+            },
+            {
+              "text": " To's.",
+              "start": 2.97,
+              "end": 3.35,
+              "probability": 0.24251556396484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Watch,",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "This",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "raw": "Last",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "raw": "Day",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "raw": "Was",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "raw": "Shrewd",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "raw": "One",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "raw": "To's.",
+          "start": 2.97,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Watch.",
+        "This",
+        "last",
+        "day",
+        "was",
+        "a",
+        "shrewd",
+        "one",
+        "to's."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Watch,",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "watch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.55,
+          "end": 1.67,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Last",
+          "start": 1.67,
+          "end": 1.91,
+          "key": "last",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Day",
+          "start": 1.91,
+          "end": 2.15,
+          "key": "day",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Was",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "was",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.29,
+          "end": 2.43,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Shrewd",
+          "start": 2.43,
+          "end": 2.83,
+          "key": "shrewd",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "One",
+          "start": 2.83,
+          "end": 2.97,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "To's.",
+          "start": 2.97,
+          "end": 3.35,
+          "key": "tos",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Watch.",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "This",
+          "start": 1.55,
+          "end": 1.67
+        },
+        {
+          "text": "last",
+          "start": 1.67,
+          "end": 1.91
+        },
+        {
+          "text": "day",
+          "start": 1.91,
+          "end": 2.15
+        },
+        {
+          "text": "was",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "a",
+          "start": 2.29,
+          "end": 2.43
+        },
+        {
+          "text": "shrewd",
+          "start": 2.43,
+          "end": 2.83
+        },
+        {
+          "text": "one",
+          "start": 2.83,
+          "end": 2.97
+        },
+        {
+          "text": "to's.",
+          "start": 2.97,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2018217500008177
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "04c0ee23946bbca003effc6be275df72ad9984d5bfc6de9d91a38fd05650931e",
+  "selected_reasons": []
+}

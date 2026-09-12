@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "155a43a09b190493d487ff77421c57d2d9b17205190bf48078d1075f31df27ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.18819663114845753,
+      "alignment_seconds": 0.00044353026896715164,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Soothsayer, I Caesar but not gone",
+          "start": 0.08,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " Soothsayer,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.8575846354166666
+            },
+            {
+              "text": " I",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.8671875
+            },
+            {
+              "text": " Caesar",
+              "start": 1.5,
+              "end": 1.8,
+              "probability": 0.525390625
+            },
+            {
+              "text": " but",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.473388671875
+            },
+            {
+              "text": " not",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gone",
+              "start": 2.28,
+              "end": 2.58,
+              "probability": 0.96728515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "raw": "but",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "raw": "not",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "gone",
+          "start": 2.28,
+          "end": 2.58
+        }
+      ],
+      "expected_tokens": [
+        "Soothsayer.",
+        "Ay,",
+        "Caesar;",
+        "but",
+        "not",
+        "gone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Soothsayer,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "soothsayer",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Caesar",
+          "start": 1.5,
+          "end": 1.8,
+          "key": "caesar",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gone",
+          "start": 2.28,
+          "end": 2.58,
+          "key": "gone",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Soothsayer.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "Ay,",
+          "start": 0.98,
+          "end": 1.24
+        },
+        {
+          "text": "Caesar;",
+          "start": 1.5,
+          "end": 1.8
+        },
+        {
+          "text": "but",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "text": "not",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "gone.",
+          "start": 2.28,
+          "end": 2.58
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18878482468426228
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "90c4e61fcfaef9b48e324c285e3f4cf58fae11d046908f17c48f36f1e4f6a64b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

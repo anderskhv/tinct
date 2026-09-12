@@ -1,0 +1,633 @@
+{
+  "complete": true,
+  "signature": "2afb387e38377cf94e2e949023a9019d379a5f4fccd9be317eb5073c354ec138",
+  "attempts": [
+    {
+      "asr_seconds": 0.2068555570440367,
+      "alignment_seconds": 0.00029118097154423594,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Two Dublin Vestals, Stephen said, elderly and pious, have lived 50 and 53 years in Fumbly's",
+          "start": 0.02,
+          "end": 7.04,
+          "words": [
+            {
+              "text": " Two",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.421875
+            },
+            {
+              "text": " Dublin",
+              "start": 0.62,
+              "end": 1.02,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Vestals,",
+              "start": 1.02,
+              "end": 1.66,
+              "probability": 0.686279296875
+            },
+            {
+              "text": " Stephen",
+              "start": 2.06,
+              "end": 2.2,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " said,",
+              "start": 2.2,
+              "end": 2.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " elderly",
+              "start": 3.14,
+              "end": 3.3,
+              "probability": 0.68212890625
+            },
+            {
+              "text": " and",
+              "start": 3.3,
+              "end": 3.66,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " pious,",
+              "start": 3.66,
+              "end": 4.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 4.52,
+              "end": 4.6,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " lived",
+              "start": 4.6,
+              "end": 4.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " 50",
+              "start": 4.86,
+              "end": 5.3,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " and",
+              "start": 5.3,
+              "end": 5.48,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " 53",
+              "start": 5.48,
+              "end": 5.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " years",
+              "start": 5.86,
+              "end": 6.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 6.26,
+              "end": 6.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Fumbly's",
+              "start": 6.5,
+              "end": 7.04,
+              "probability": 0.845703125
+            }
+          ]
+        },
+        {
+          "text": " Lane.",
+          "start": 7.04,
+          "end": 7.26,
+          "words": [
+            {
+              "text": " Lane.",
+              "start": 7.04,
+              "end": 7.26,
+              "probability": 0.88916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Two",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "Dublin",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "raw": "Vestals,",
+          "start": 1.02,
+          "end": 1.66
+        },
+        {
+          "raw": "Stephen",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "raw": "said,",
+          "start": 2.2,
+          "end": 2.6
+        },
+        {
+          "raw": "elderly",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.66
+        },
+        {
+          "raw": "pious,",
+          "start": 3.66,
+          "end": 4.04
+        },
+        {
+          "raw": "have",
+          "start": 4.52,
+          "end": 4.6
+        },
+        {
+          "raw": "lived",
+          "start": 4.6,
+          "end": 4.86
+        },
+        {
+          "raw": "50",
+          "start": 4.86,
+          "end": 5.3
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.48
+        },
+        {
+          "raw": "53",
+          "start": 5.48,
+          "end": 5.86
+        },
+        {
+          "raw": "years",
+          "start": 5.86,
+          "end": 6.26
+        },
+        {
+          "raw": "in",
+          "start": 6.26,
+          "end": 6.5
+        },
+        {
+          "raw": "Fumbly's",
+          "start": 6.5,
+          "end": 7.04
+        },
+        {
+          "raw": "Lane.",
+          "start": 7.04,
+          "end": 7.26
+        }
+      ],
+      "expected_tokens": [
+        "—Two",
+        "Dublin",
+        "vestals,",
+        "Stephen",
+        "said,",
+        "elderly",
+        "and",
+        "pious,",
+        "have",
+        "lived",
+        "fifty",
+        "and",
+        "fiftythree",
+        "years",
+        "in",
+        "Fumbally's",
+        "lane."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          17,
+          16,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Two",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dublin",
+          "start": 0.62,
+          "end": 1.02,
+          "key": "dublin",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Vestals,",
+          "start": 1.02,
+          "end": 1.66,
+          "key": "vestals",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Stephen",
+          "start": 2.06,
+          "end": 2.2,
+          "key": "stephen",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 2.2,
+          "end": 2.6,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "elderly",
+          "start": 3.14,
+          "end": 3.3,
+          "key": "elderly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.66,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pious,",
+          "start": 3.66,
+          "end": 4.04,
+          "key": "pious",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 4.52,
+          "end": 4.6,
+          "key": "have",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lived",
+          "start": 4.6,
+          "end": 4.86,
+          "key": "lived",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "50",
+          "start": 4.86,
+          "end": 5.3,
+          "key": "fifty",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.48,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "53",
+          "start": 5.48,
+          "end": 5.86,
+          "key": "fiftythree",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "years",
+          "start": 5.86,
+          "end": 6.26,
+          "key": "years",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 6.26,
+          "end": 6.5,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Fumbly's",
+          "start": 6.5,
+          "end": 7.04,
+          "key": "fumblys",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Lane.",
+          "start": 7.04,
+          "end": 7.26,
+          "key": "lane",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Two",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "Dublin",
+          "start": 0.62,
+          "end": 1.02
+        },
+        {
+          "text": "vestals,",
+          "start": 1.02,
+          "end": 1.66
+        },
+        {
+          "text": "Stephen",
+          "start": 2.06,
+          "end": 2.2
+        },
+        {
+          "text": "said,",
+          "start": 2.2,
+          "end": 2.6
+        },
+        {
+          "text": "elderly",
+          "start": 3.14,
+          "end": 3.3
+        },
+        {
+          "text": "and",
+          "start": 3.3,
+          "end": 3.66
+        },
+        {
+          "text": "pious,",
+          "start": 3.66,
+          "end": 4.04
+        },
+        {
+          "text": "have",
+          "start": 4.52,
+          "end": 4.6
+        },
+        {
+          "text": "lived",
+          "start": 4.6,
+          "end": 4.86
+        },
+        {
+          "text": "fifty",
+          "start": 4.86,
+          "end": 5.3
+        },
+        {
+          "text": "and",
+          "start": 5.3,
+          "end": 5.48
+        },
+        {
+          "text": "fiftythree",
+          "start": 5.48,
+          "end": 5.86
+        },
+        {
+          "text": "years",
+          "start": 5.86,
+          "end": 6.26
+        },
+        {
+          "text": "in",
+          "start": 6.26,
+          "end": 6.5
+        },
+        {
+          "text": "Fumbally's",
+          "start": 6.5,
+          "end": 6.77
+        },
+        {
+          "text": "lane.",
+          "start": 7.04,
+          "end": 7.26
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.20726734900381416
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5edfb88bbb5d936994fc38fe54a7fab2e55e439faf85fafb4d4b07ceca7d4e4d",
+  "selected_reasons": []
+}

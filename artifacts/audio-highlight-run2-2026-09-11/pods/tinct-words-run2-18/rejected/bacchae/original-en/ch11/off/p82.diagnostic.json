@@ -1,0 +1,259 @@
+{
+  "complete": true,
+  "signature": "f5258cf3caf9882ed924c74ed5d14ec5925dfb0e7c42ede125415748c4ff4436",
+  "attempts": [
+    {
+      "asr_seconds": 0.11533386795781553,
+      "alignment_seconds": 0.00019837100990116596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A Gavi laid in due state.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.59326171875
+            },
+            {
+              "text": " Gavi",
+              "start": 0.51,
+              "end": 0.83,
+              "probability": 0.5447998046875
+            },
+            {
+              "text": " laid",
+              "start": 0.83,
+              "end": 1.33,
+              "probability": 0.252685546875
+            },
+            {
+              "text": " in",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " due",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " state.",
+              "start": 1.61,
+              "end": 1.95,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "Gavi",
+          "start": 0.51,
+          "end": 0.83
+        },
+        {
+          "raw": "laid",
+          "start": 0.83,
+          "end": 1.33
+        },
+        {
+          "raw": "in",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "due",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "state.",
+          "start": 1.61,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "Laid",
+        "in",
+        "due",
+        "state?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gavi",
+          "start": 0.51,
+          "end": 0.83,
+          "key": "gavi",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "laid",
+          "start": 0.83,
+          "end": 1.33,
+          "key": "laid",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "due",
+          "start": 1.49,
+          "end": 1.61,
+          "key": "due",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "state.",
+          "start": 1.61,
+          "end": 1.95,
+          "key": "state",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.415
+        },
+        {
+          "text": "Laid",
+          "start": 0.83,
+          "end": 1.33
+        },
+        {
+          "text": "in",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "due",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "state?",
+          "start": 1.61,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11560788901988417
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a1e3b9f1cf8f391c7141f778278bba5005107d9caf7422a5aa457e99603a9414",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

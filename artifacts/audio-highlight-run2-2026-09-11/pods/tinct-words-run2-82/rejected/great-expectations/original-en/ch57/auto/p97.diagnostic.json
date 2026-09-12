@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "934231bd4d271b9b2c39cbabef306a88d1a1e0fac4ab75c30874da4967c75b5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14901837334036827,
+      "alignment_seconds": 0.0003389590419828892,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Yes, dear Joe, steadily.\"",
+        "hotwords": "Yes, Joe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, dear Joe steadily.",
+          "start": 0.05,
+          "end": 1.59,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " dear",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " Joe",
+              "start": 0.99,
+              "end": 1.21,
+              "probability": 0.814453125
+            },
+            {
+              "text": " steadily.",
+              "start": 1.21,
+              "end": 1.59,
+              "probability": 0.91259765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "dear",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "Joe",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "raw": "steadily.",
+          "start": 1.21,
+          "end": 1.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "dear",
+        "Joe,",
+        "steadily.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 0.99,
+          "end": 1.21,
+          "key": "joe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "steadily.",
+          "start": 1.21,
+          "end": 1.59,
+          "key": "steadily",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "dear",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "text": "Joe,",
+          "start": 0.99,
+          "end": 1.21
+        },
+        {
+          "text": "steadily.\"",
+          "start": 1.21,
+          "end": 1.59
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1494763232767582
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2311e3e35cd6ed88c9e7825069fcb1c6a08b240a7d421edf36dc5785e17da911",
+  "selected_reasons": []
+}

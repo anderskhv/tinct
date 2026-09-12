@@ -1,0 +1,764 @@
+{
+  "complete": true,
+  "signature": "1b5e5ccf79b9d0b433c163298dfa5725613653d57855082c7ceda1a2125f8982",
+  "attempts": [
+    {
+      "asr_seconds": 0.36364712566137314,
+      "alignment_seconds": 0.0002897605299949646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And if our youth are to do their work in life, must they not make these graces and harmonies their perpetual aim?",
+          "start": 0.05,
+          "end": 6.25,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " if",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9765625
+            },
+            {
+              "text": " our",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " youth",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " are",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " do",
+              "start": 1.35,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " their",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " work",
+              "start": 1.67,
+              "end": 1.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " life,",
+              "start": 2.11,
+              "end": 2.45,
+              "probability": 0.994140625
+            },
+            {
+              "text": " must",
+              "start": 2.99,
+              "end": 3.09,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " they",
+              "start": 3.09,
+              "end": 3.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 3.29,
+              "end": 3.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " make",
+              "start": 3.47,
+              "end": 3.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " these",
+              "start": 3.69,
+              "end": 3.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " graces",
+              "start": 3.97,
+              "end": 4.43,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " and",
+              "start": 4.43,
+              "end": 4.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " harmonies",
+              "start": 4.71,
+              "end": 5.15,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " their",
+              "start": 5.15,
+              "end": 5.41,
+              "probability": 0.990234375
+            },
+            {
+              "text": " perpetual",
+              "start": 5.41,
+              "end": 5.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " aim?",
+              "start": 5.83,
+              "end": 6.25,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "our",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "youth",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "are",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "to",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "do",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "raw": "their",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "work",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "raw": "in",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "life,",
+          "start": 2.11,
+          "end": 2.45
+        },
+        {
+          "raw": "must",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "raw": "they",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "raw": "not",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "raw": "make",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "raw": "these",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "raw": "graces",
+          "start": 3.97,
+          "end": 4.43
+        },
+        {
+          "raw": "and",
+          "start": 4.43,
+          "end": 4.71
+        },
+        {
+          "raw": "harmonies",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "raw": "their",
+          "start": 5.15,
+          "end": 5.41
+        },
+        {
+          "raw": "perpetual",
+          "start": 5.41,
+          "end": 5.83
+        },
+        {
+          "raw": "aim?",
+          "start": 5.83,
+          "end": 6.25
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "if",
+        "our",
+        "youth",
+        "are",
+        "to",
+        "do",
+        "their",
+        "work",
+        "in",
+        "life,",
+        "must",
+        "they",
+        "not",
+        "make",
+        "these",
+        "graces",
+        "and",
+        "harmonies",
+        "their",
+        "perpetual",
+        "aim?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "our",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "youth",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "youth",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.05,
+          "end": 1.23,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.35,
+          "end": 1.51,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "their",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "work",
+          "start": 1.67,
+          "end": 1.93,
+          "key": "work",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "life,",
+          "start": 2.11,
+          "end": 2.45,
+          "key": "life",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.99,
+          "end": 3.09,
+          "key": "must",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.09,
+          "end": 3.29,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.29,
+          "end": 3.47,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 3.47,
+          "end": 3.69,
+          "key": "make",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 3.69,
+          "end": 3.97,
+          "key": "these",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "graces",
+          "start": 3.97,
+          "end": 4.43,
+          "key": "graces",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.43,
+          "end": 4.71,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "harmonies",
+          "start": 4.71,
+          "end": 5.15,
+          "key": "harmonies",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.15,
+          "end": 5.41,
+          "key": "their",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "perpetual",
+          "start": 5.41,
+          "end": 5.83,
+          "key": "perpetual",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "aim?",
+          "start": 5.83,
+          "end": 6.25,
+          "key": "aim",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "if",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "our",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "youth",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "are",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "to",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "do",
+          "start": 1.35,
+          "end": 1.51
+        },
+        {
+          "text": "their",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "work",
+          "start": 1.67,
+          "end": 1.93
+        },
+        {
+          "text": "in",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "life,",
+          "start": 2.11,
+          "end": 2.45
+        },
+        {
+          "text": "must",
+          "start": 2.99,
+          "end": 3.09
+        },
+        {
+          "text": "they",
+          "start": 3.09,
+          "end": 3.29
+        },
+        {
+          "text": "not",
+          "start": 3.29,
+          "end": 3.47
+        },
+        {
+          "text": "make",
+          "start": 3.47,
+          "end": 3.69
+        },
+        {
+          "text": "these",
+          "start": 3.69,
+          "end": 3.97
+        },
+        {
+          "text": "graces",
+          "start": 3.97,
+          "end": 4.43
+        },
+        {
+          "text": "and",
+          "start": 4.43,
+          "end": 4.71
+        },
+        {
+          "text": "harmonies",
+          "start": 4.71,
+          "end": 5.15
+        },
+        {
+          "text": "their",
+          "start": 5.15,
+          "end": 5.41
+        },
+        {
+          "text": "perpetual",
+          "start": 5.41,
+          "end": 5.83
+        },
+        {
+          "text": "aim?",
+          "start": 5.83,
+          "end": 6.25
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36407754197716713
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "58def0c140f25fdf9ba71ed45b9e3ead161ea32f40b64f637c00d571b7f3dd59",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f71c1e48f57b321cd2379db2ee9154e2d9015f4e48394b3e229ad9a7ab46a30b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1481370460242033,
+      "alignment_seconds": 0.00021646730601787567,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Pray, chuck, come hither.",
+        "hotwords": "Othello, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Pray, chuck, come hither.",
+          "start": 0.53,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.7281901041666666
+            },
+            {
+              "text": " Pray,",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.498779296875
+            },
+            {
+              "text": " chuck,",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.0247650146484375
+            },
+            {
+              "text": " come",
+              "start": 1.85,
+              "end": 1.91,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " hither.",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.97998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "chuck,",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "come",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "raw": "hither.",
+          "start": 1.91,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Pray,",
+        "chuck,",
+        "come",
+        "hither."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pray,",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "chuck,",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "chuck",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.85,
+          "end": 1.91,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "hither",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "Pray,",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "text": "chuck,",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "come",
+          "start": 1.85,
+          "end": 1.91
+        },
+        {
+          "text": "hither.",
+          "start": 1.91,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14843208296224475
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b8ff452aa8d5603e0000f41714e6210fe27b4cc81de3718ac936e3cef9218a15",
+  "selected_reasons": []
+}

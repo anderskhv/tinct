@@ -1,0 +1,749 @@
+{
+  "complete": true,
+  "signature": "d4cc9d7155fbe330828e7d0b2da3dc694bfe381dfc651acfaba5a037dd8fbc35",
+  "attempts": [
+    {
+      "asr_seconds": 0.3328880276530981,
+      "alignment_seconds": 0.0006345398724079132,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Are you apprehensive of the new sphere you are about to enter, of the new life into which",
+          "start": 0.08,
+          "end": 5.26,
+          "words": [
+            {
+              "text": " Are",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " you",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " apprehensive",
+              "start": 0.66,
+              "end": 1.34,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " of",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 1.44,
+              "end": 1.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " new",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.978515625
+            },
+            {
+              "text": " sphere",
+              "start": 1.78,
+              "end": 2.12,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " you",
+              "start": 2.12,
+              "end": 2.4,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " are",
+              "start": 2.4,
+              "end": 2.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " about",
+              "start": 2.52,
+              "end": 2.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " enter,",
+              "start": 2.98,
+              "end": 3.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.86,
+              "end": 4.06,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 4.06,
+              "end": 4.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " new",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " life",
+              "start": 4.34,
+              "end": 4.62,
+              "probability": 0.990234375
+            },
+            {
+              "text": " into",
+              "start": 4.62,
+              "end": 5.06,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " which",
+              "start": 5.06,
+              "end": 5.26,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " you are passing?",
+          "start": 5.26,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " you",
+              "start": 5.26,
+              "end": 5.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 5.46,
+              "end": 5.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " passing?",
+              "start": 5.58,
+              "end": 5.94,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "apprehensive",
+          "start": 0.66,
+          "end": 1.34
+        },
+        {
+          "raw": "of",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "raw": "new",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "sphere",
+          "start": 1.78,
+          "end": 2.12
+        },
+        {
+          "raw": "you",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "raw": "are",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "raw": "about",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "enter,",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "raw": "of",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "raw": "the",
+          "start": 4.06,
+          "end": 4.18
+        },
+        {
+          "raw": "new",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "life",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "raw": "into",
+          "start": 4.62,
+          "end": 5.06
+        },
+        {
+          "raw": "which",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "raw": "you",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "raw": "are",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "raw": "passing?",
+          "start": 5.58,
+          "end": 5.94
+        }
+      ],
+      "expected_tokens": [
+        "\"Are",
+        "you",
+        "apprehensive",
+        "of",
+        "the",
+        "new",
+        "sphere",
+        "you",
+        "are",
+        "about",
+        "to",
+        "enter?—of",
+        "the",
+        "new",
+        "life",
+        "into",
+        "which",
+        "you",
+        "are",
+        "passing?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          20,
+          13,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Are",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "are",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "apprehensive",
+          "start": 0.66,
+          "end": 1.34,
+          "key": "apprehensive",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.44,
+          "end": 1.58,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "new",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sphere",
+          "start": 1.78,
+          "end": 2.12,
+          "key": "sphere",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.12,
+          "end": 2.4,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.4,
+          "end": 2.52,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.52,
+          "end": 2.76,
+          "key": "about",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "enter,",
+          "start": 2.98,
+          "end": 3.34,
+          "key": "enter",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.86,
+          "end": 4.06,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.06,
+          "end": 4.18,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "new",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "new",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 4.34,
+          "end": 4.62,
+          "key": "life",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 4.62,
+          "end": 5.06,
+          "key": "into",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.06,
+          "end": 5.26,
+          "key": "which",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.26,
+          "end": 5.46,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.46,
+          "end": 5.58,
+          "key": "are",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "passing?",
+          "start": 5.58,
+          "end": 5.94,
+          "key": "passing",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Are",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "you",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "apprehensive",
+          "start": 0.66,
+          "end": 1.34
+        },
+        {
+          "text": "of",
+          "start": 1.34,
+          "end": 1.44
+        },
+        {
+          "text": "the",
+          "start": 1.44,
+          "end": 1.58
+        },
+        {
+          "text": "new",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "sphere",
+          "start": 1.78,
+          "end": 2.12
+        },
+        {
+          "text": "you",
+          "start": 2.12,
+          "end": 2.4
+        },
+        {
+          "text": "are",
+          "start": 2.4,
+          "end": 2.52
+        },
+        {
+          "text": "about",
+          "start": 2.52,
+          "end": 2.76
+        },
+        {
+          "text": "to",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "enter?—of",
+          "start": 2.98,
+          "end": 3.52
+        },
+        {
+          "text": "the",
+          "start": 4.06,
+          "end": 4.18
+        },
+        {
+          "text": "new",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "life",
+          "start": 4.34,
+          "end": 4.62
+        },
+        {
+          "text": "into",
+          "start": 4.62,
+          "end": 5.06
+        },
+        {
+          "text": "which",
+          "start": 5.06,
+          "end": 5.26
+        },
+        {
+          "text": "you",
+          "start": 5.26,
+          "end": 5.46
+        },
+        {
+          "text": "are",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "text": "passing?\"",
+          "start": 5.58,
+          "end": 5.94
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 21,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.33378637954592705
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c059646579ff89c81f818e990da2a1c1a47b98e40c3d8334bce1724c85a9bba6",
+  "selected_reasons": []
+}

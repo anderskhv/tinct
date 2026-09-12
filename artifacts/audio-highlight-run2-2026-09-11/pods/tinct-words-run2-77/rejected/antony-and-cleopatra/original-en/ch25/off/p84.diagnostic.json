@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "74bae6a38cbeeea7556e84e86927c23e2dc746a9da50612554776d426e483225",
+  "attempts": [
+    {
+      "asr_seconds": 0.16806941200047731,
+      "alignment_seconds": 0.00015188599354587495,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, call all his noble captains to my lord.",
+          "start": 0.05,
+          "end": 3.33,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.9427083333333334
+            },
+            {
+              "text": " call",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " all",
+              "start": 1.67,
+              "end": 1.87,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " his",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " noble",
+              "start": 2.03,
+              "end": 2.31,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " captains",
+              "start": 2.31,
+              "end": 2.69,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " to",
+              "start": 2.69,
+              "end": 2.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 2.95,
+              "end": 3.11,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " lord.",
+              "start": 3.11,
+              "end": 3.33,
+              "probability": 0.81298828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "call",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "all",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "raw": "his",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "noble",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "raw": "captains",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 2.95
+        },
+        {
+          "raw": "my",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "raw": "lord.",
+          "start": 3.11,
+          "end": 3.33
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Call",
+        "all",
+        "his",
+        "noble",
+        "captains",
+        "to",
+        "my",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "call",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.67,
+          "end": 1.87,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 2.03,
+          "end": 2.31,
+          "key": "noble",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "captains",
+          "start": 2.31,
+          "end": 2.69,
+          "key": "captains",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.69,
+          "end": 2.95,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.95,
+          "end": 3.11,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 3.11,
+          "end": 3.33,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Call",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "all",
+          "start": 1.67,
+          "end": 1.87
+        },
+        {
+          "text": "his",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "noble",
+          "start": 2.03,
+          "end": 2.31
+        },
+        {
+          "text": "captains",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "text": "to",
+          "start": 2.69,
+          "end": 2.95
+        },
+        {
+          "text": "my",
+          "start": 2.95,
+          "end": 3.11
+        },
+        {
+          "text": "lord.",
+          "start": 3.11,
+          "end": 3.33
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1682786300079897
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "374c447a83f891dc7313be8a2c6d85223e920cb2502e9dcab2ef8e3bd503d6c9",
+  "selected_reasons": []
+}

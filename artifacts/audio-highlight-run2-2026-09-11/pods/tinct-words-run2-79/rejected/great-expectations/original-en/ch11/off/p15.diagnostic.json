@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "7ad3b0300444a130600a128590766effc17a942abe9268efc3c72b18b42ee475",
+  "attempts": [
+    {
+      "asr_seconds": 0.21279652789235115,
+      "alignment_seconds": 0.0004359572194516659,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He paid for them, did he not?\" asked Estella.",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.74169921875
+            },
+            {
+              "text": " paid",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " for",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " them,",
+              "start": 0.95,
+              "end": 1.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " did",
+              "start": 1.19,
+              "end": 1.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " he",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not?\"",
+              "start": 1.33,
+              "end": 2.07,
+              "probability": 0.60980224609375
+            },
+            {
+              "text": " asked",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " Estella.",
+              "start": 2.27,
+              "end": 2.65,
+              "probability": 0.959716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "paid",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "for",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "them,",
+          "start": 0.95,
+          "end": 1.09
+        },
+        {
+          "raw": "did",
+          "start": 1.19,
+          "end": 1.21
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "not?\"",
+          "start": 1.33,
+          "end": 2.07
+        },
+        {
+          "raw": "asked",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "Estella.",
+          "start": 2.27,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "\"_He_",
+        "paid",
+        "for",
+        "them,",
+        "did",
+        "he",
+        "not?\"",
+        "asked",
+        "Estella."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "paid",
+          "start": 0.51,
+          "end": 0.77,
+          "key": "paid",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.77,
+          "end": 0.95,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 0.95,
+          "end": 1.09,
+          "key": "them",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.19,
+          "end": 1.21,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not?\"",
+          "start": 1.33,
+          "end": 2.07,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.07,
+          "end": 2.27,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Estella.",
+          "start": 2.27,
+          "end": 2.65,
+          "key": "estella",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"_He_",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "paid",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "for",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "them,",
+          "start": 0.95,
+          "end": 1.09
+        },
+        {
+          "text": "did",
+          "start": 1.19,
+          "end": 1.21
+        },
+        {
+          "text": "he",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "not?\"",
+          "start": 1.33,
+          "end": 2.07
+        },
+        {
+          "text": "asked",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "Estella.",
+          "start": 2.27,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21338341804221272
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7f5945f60a0f283f4ffad43ceb949ac3a45d852036e7d9a8f657c54eb55ba88a",
+  "selected_reasons": []
+}

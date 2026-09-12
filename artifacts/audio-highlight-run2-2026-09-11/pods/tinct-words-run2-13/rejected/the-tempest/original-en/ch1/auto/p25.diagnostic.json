@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "4d38b3b2032fe9a688a364b2f7119383e203ea4d11bbabc1b2ca5c7338ce7886",
+  "attempts": [
+    {
+      "asr_seconds": 0.247707886621356,
+      "alignment_seconds": 0.00035798270255327225,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sebastian. A pox o' your throat, you bawling, blasphemous, incharitable dog!",
+        "hotwords": "Sebastian, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sebastian, A pox o' your throat, you bawling, blasphemous, incharitable dog!",
+          "start": 0.08,
+          "end": 4.96,
+          "words": [
+            {
+              "text": " Sebastian,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " A",
+              "start": 1.52,
+              "end": 1.54,
+              "probability": 0.003932952880859375
+            },
+            {
+              "text": " pox",
+              "start": 1.54,
+              "end": 1.82,
+              "probability": 0.49188232421875
+            },
+            {
+              "text": " o'",
+              "start": 1.82,
+              "end": 1.98,
+              "probability": 0.01715087890625
+            },
+            {
+              "text": " your",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.85595703125
+            },
+            {
+              "text": " throat,",
+              "start": 2.16,
+              "end": 2.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you",
+              "start": 2.78,
+              "end": 2.84,
+              "probability": 0.82763671875
+            },
+            {
+              "text": " bawling,",
+              "start": 2.84,
+              "end": 3.22,
+              "probability": 0.9039713541666666
+            },
+            {
+              "text": " blasphemous,",
+              "start": 3.38,
+              "end": 4.06,
+              "probability": 0.9957682291666666
+            },
+            {
+              "text": " incharitable",
+              "start": 4.22,
+              "end": 4.56,
+              "probability": 0.2882773081461589
+            },
+            {
+              "text": " dog!",
+              "start": 4.56,
+              "end": 4.96,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "A",
+          "start": 1.52,
+          "end": 1.54
+        },
+        {
+          "raw": "pox",
+          "start": 1.54,
+          "end": 1.82
+        },
+        {
+          "raw": "o'",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "raw": "your",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "throat,",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "raw": "you",
+          "start": 2.78,
+          "end": 2.84
+        },
+        {
+          "raw": "bawling,",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "raw": "blasphemous,",
+          "start": 3.38,
+          "end": 4.06
+        },
+        {
+          "raw": "incharitable",
+          "start": 4.22,
+          "end": 4.56
+        },
+        {
+          "raw": "dog!",
+          "start": 4.56,
+          "end": 4.96
+        }
+      ],
+      "expected_tokens": [
+        "Sebastian.",
+        "A",
+        "pox",
+        "o'",
+        "your",
+        "throat,",
+        "you",
+        "bawling,",
+        "blasphemous,",
+        "incharitable",
+        "dog!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sebastian,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "sebastian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.52,
+          "end": 1.54,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pox",
+          "start": 1.54,
+          "end": 1.82,
+          "key": "pox",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 1.82,
+          "end": 1.98,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.06,
+          "end": 2.16,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "throat,",
+          "start": 2.16,
+          "end": 2.46,
+          "key": "throat",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.78,
+          "end": 2.84,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bawling,",
+          "start": 2.84,
+          "end": 3.22,
+          "key": "bawling",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "blasphemous,",
+          "start": 3.38,
+          "end": 4.06,
+          "key": "blasphemous",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "incharitable",
+          "start": 4.22,
+          "end": 4.56,
+          "key": "incharitable",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dog!",
+          "start": 4.56,
+          "end": 4.96,
+          "key": "dog",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sebastian.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "A",
+          "start": 1.52,
+          "end": 1.54
+        },
+        {
+          "text": "pox",
+          "start": 1.54,
+          "end": 1.82
+        },
+        {
+          "text": "o'",
+          "start": 1.82,
+          "end": 1.98
+        },
+        {
+          "text": "your",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "throat,",
+          "start": 2.16,
+          "end": 2.46
+        },
+        {
+          "text": "you",
+          "start": 2.78,
+          "end": 2.84
+        },
+        {
+          "text": "bawling,",
+          "start": 2.84,
+          "end": 3.22
+        },
+        {
+          "text": "blasphemous,",
+          "start": 3.38,
+          "end": 4.06
+        },
+        {
+          "text": "incharitable",
+          "start": 4.22,
+          "end": 4.56
+        },
+        {
+          "text": "dog!",
+          "start": 4.56,
+          "end": 4.96
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24819548800587654
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f86676d3f079a2d5212e67e657dd37e2c6b07c5cc0c91a8614f5a4ef7b9f5fc6",
+  "selected_reasons": []
+}

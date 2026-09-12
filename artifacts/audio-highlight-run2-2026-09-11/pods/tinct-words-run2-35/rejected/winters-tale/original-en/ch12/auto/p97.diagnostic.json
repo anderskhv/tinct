@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "27068fa37849c639fe619d3bfb6f5097a41defdb45a4de967289b6b72a1bb869",
+  "attempts": [
+    {
+      "asr_seconds": 0.11504449509084225,
+      "alignment_seconds": 0.0002905596047639847,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Dorcas. _What, neither?_",
+        "hotwords": "Dorcas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dorcas. What, neither?",
+          "start": 0.08,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Dorcas.",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.488311767578125
+            },
+            {
+              "text": " What,",
+              "start": 1.24,
+              "end": 1.28,
+              "probability": 0.96484375
+            },
+            {
+              "text": " neither?",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dorcas.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "What,",
+          "start": 1.24,
+          "end": 1.28
+        },
+        {
+          "raw": "neither?",
+          "start": 1.34,
+          "end": 1.5
+        }
+      ],
+      "expected_tokens": [
+        "Dorcas.",
+        "_What,",
+        "neither?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dorcas.",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "dorcas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What,",
+          "start": 1.24,
+          "end": 1.28,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "neither?",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "neither",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Dorcas.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "_What,",
+          "start": 1.24,
+          "end": 1.28
+        },
+        {
+          "text": "neither?_",
+          "start": 1.34,
+          "end": 1.5
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11544239148497581
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0afa20d92d456ce567332be66c8e7bfc7eb8affbbd2b0ff5f7b951f804370c6b",
+  "selected_reasons": []
+}

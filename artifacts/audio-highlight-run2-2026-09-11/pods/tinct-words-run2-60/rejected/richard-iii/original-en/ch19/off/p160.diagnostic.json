@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "ff56bb1bc91ed3fbc17d66c2a95f4640446b1dc3114343226f25a2f5375a7c50",
+  "attempts": [
+    {
+      "asr_seconds": 0.12287035956978798,
+      "alignment_seconds": 0.0002853758633136749,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Radcliffe.",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Radcliffe.",
+              "start": 0.66,
+              "end": 1.14,
+              "probability": 0.6943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Radcliffe.",
+          "start": 0.66,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Ratcliffe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Radcliffe.",
+          "start": 0.66,
+          "end": 1.14,
+          "key": "radcliffe",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Ratcliffe.",
+          "start": 0.66,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12324459850788116
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "94e37999642f652ed6c8fa8e9491da656b5e4678f82bc28b8ce7ab815143e1bd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

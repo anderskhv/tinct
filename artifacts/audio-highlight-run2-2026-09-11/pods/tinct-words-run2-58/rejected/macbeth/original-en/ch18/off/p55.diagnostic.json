@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "f64d2a9168cd24c0e9975ef16b537af56544a1ede4d5ced02d422b19123dec0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11956677865236998,
+      "alignment_seconds": 0.00020856969058513641,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Music, the witches dance and vanish.",
+          "start": 0.02,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " Music,",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.72705078125
+            },
+            {
+              "text": " the",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.74267578125
+            },
+            {
+              "text": " witches",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " dance",
+              "start": 1.44,
+              "end": 1.8,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " vanish.",
+              "start": 2.1,
+              "end": 2.44,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Music,",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "witches",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "dance",
+          "start": 1.44,
+          "end": 1.8
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "raw": "vanish.",
+          "start": 2.1,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "[Music.",
+        "The",
+        "Witches",
+        "dance,",
+        "and",
+        "vanish.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Music,",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "music",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.14,
+          "end": 1.24,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "witches",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "witches",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dance",
+          "start": 1.44,
+          "end": 1.8,
+          "key": "dance",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "vanish.",
+          "start": 2.1,
+          "end": 2.44,
+          "key": "vanish",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Music.",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "The",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "Witches",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "dance,",
+          "start": 1.44,
+          "end": 1.8
+        },
+        {
+          "text": "and",
+          "start": 1.8,
+          "end": 2.1
+        },
+        {
+          "text": "vanish.]",
+          "start": 2.1,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11985853966325521
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "539869412e8738d7a355fc2150e63a0d4ac170f4621c052dfa1f791722178d71",
+  "selected_reasons": []
+}

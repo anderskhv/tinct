@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "e3e922d1ce887944ba6c40c16ddd5f00889eb3fa903af6cc3c8832bfbe72d329",
+  "attempts": [
+    {
+      "asr_seconds": 0.20654893619939685,
+      "alignment_seconds": 0.00023612705990672112,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Courtesan, sir, I must have that diamond from you.",
+          "start": 0.05,
+          "end": 3.35,
+          "words": [
+            {
+              "text": " Courtesan,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.45513916015625
+            },
+            {
+              "text": " sir,",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.66015625
+            },
+            {
+              "text": " I",
+              "start": 1.83,
+              "end": 1.87,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " must",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 1.99,
+              "end": 2.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " diamond",
+              "start": 2.49,
+              "end": 2.85,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " from",
+              "start": 2.85,
+              "end": 3.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you.",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Courtesan,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "sir,",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.87
+        },
+        {
+          "raw": "must",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "have",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "raw": "that",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "diamond",
+          "start": 2.49,
+          "end": 2.85
+        },
+        {
+          "raw": "from",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "raw": "you.",
+          "start": 3.11,
+          "end": 3.35
+        }
+      ],
+      "expected_tokens": [
+        "Courtesan.",
+        "Sir,",
+        "I",
+        "must",
+        "have",
+        "that",
+        "diamond",
+        "from",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Courtesan,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "courtesan",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.83,
+          "end": 1.87,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.99,
+          "end": 2.25,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "diamond",
+          "start": 2.49,
+          "end": 2.85,
+          "key": "diamond",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.85,
+          "end": 3.11,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.11,
+          "end": 3.35,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Courtesan.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Sir,",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "I",
+          "start": 1.83,
+          "end": 1.87
+        },
+        {
+          "text": "must",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "text": "have",
+          "start": 1.99,
+          "end": 2.25
+        },
+        {
+          "text": "that",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "text": "diamond",
+          "start": 2.49,
+          "end": 2.85
+        },
+        {
+          "text": "from",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "text": "you.",
+          "start": 3.11,
+          "end": 3.35
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.206869310233742
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f6cd4567ccdb84fb5747f65c4401cb058aac0e037f649d03d624bf754155b8d6",
+  "selected_reasons": []
+}

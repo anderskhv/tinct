@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "61e6e8c729d3ee16b386b91290b87204a34892deb526205e965d73933369b3e6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1533188046887517,
+      "alignment_seconds": 0.00023720692843198776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Servingman. But, more of thy news?",
+        "hotwords": "First, Servingman, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Servingman, But, more of thy news?",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " Servingman,",
+              "start": 0.89,
+              "end": 1.19,
+              "probability": 0.1676025390625
+            },
+            {
+              "text": " But,",
+              "start": 1.49,
+              "end": 1.59,
+              "probability": 0.0258026123046875
+            },
+            {
+              "text": " more",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.912109375
+            },
+            {
+              "text": " of",
+              "start": 1.77,
+              "end": 1.91,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " thy",
+              "start": 1.91,
+              "end": 2.01,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " news?",
+              "start": 2.01,
+              "end": 2.27,
+              "probability": 0.740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "raw": "But,",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "raw": "more",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "of",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "raw": "thy",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "raw": "news?",
+          "start": 2.01,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Servingman.",
+        "But,",
+        "more",
+        "of",
+        "thy",
+        "news?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.89,
+          "end": 1.19,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 1.49,
+          "end": 1.59,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "more",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.77,
+          "end": 1.91,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.91,
+          "end": 2.01,
+          "key": "thy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "news?",
+          "start": 2.01,
+          "end": 2.27,
+          "key": "news",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.89,
+          "end": 1.19
+        },
+        {
+          "text": "But,",
+          "start": 1.49,
+          "end": 1.59
+        },
+        {
+          "text": "more",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "of",
+          "start": 1.77,
+          "end": 1.91
+        },
+        {
+          "text": "thy",
+          "start": 1.91,
+          "end": 2.01
+        },
+        {
+          "text": "news?",
+          "start": 2.01,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15364631498232484
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a9bedf229dd1289f4a2fbfc06b8f8fc2e6ddf31abda9c65a2f4b9b8977a76384",
+  "selected_reasons": []
+}

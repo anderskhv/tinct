@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "1ecb1d65a8015cff55f4e2d10349384d64517fb57dea4c5f7a410ecc89184d27",
+  "attempts": [
+    {
+      "asr_seconds": 0.25625595450401306,
+      "alignment_seconds": 0.0005212724208831787,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I went; sought the repository he had mentioned, found the articles named, and returned with them.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I went. Sought the repository he had mentioned, found the articles named, and returned with them.",
+          "start": 0.08,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " went.",
+              "start": 0.56,
+              "end": 0.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Sought",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.858642578125
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " repository",
+              "start": 1.74,
+              "end": 2.3,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " he",
+              "start": 2.3,
+              "end": 2.62,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " had",
+              "start": 2.62,
+              "end": 2.7,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " mentioned,",
+              "start": 2.7,
+              "end": 3.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " found",
+              "start": 3.68,
+              "end": 3.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.84,
+              "end": 4.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " articles",
+              "start": 4.04,
+              "end": 4.44,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " named,",
+              "start": 4.44,
+              "end": 4.82,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 5.14,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " returned",
+              "start": 5.22,
+              "end": 5.56,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 5.56,
+              "end": 5.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them.",
+              "start": 5.8,
+              "end": 6.04,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "went.",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "raw": "Sought",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "repository",
+          "start": 1.74,
+          "end": 2.3
+        },
+        {
+          "raw": "he",
+          "start": 2.3,
+          "end": 2.62
+        },
+        {
+          "raw": "had",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "raw": "mentioned,",
+          "start": 2.7,
+          "end": 3.12
+        },
+        {
+          "raw": "found",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "raw": "the",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "raw": "articles",
+          "start": 4.04,
+          "end": 4.44
+        },
+        {
+          "raw": "named,",
+          "start": 4.44,
+          "end": 4.82
+        },
+        {
+          "raw": "and",
+          "start": 5.14,
+          "end": 5.22
+        },
+        {
+          "raw": "returned",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "raw": "with",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "raw": "them.",
+          "start": 5.8,
+          "end": 6.04
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "went;",
+        "sought",
+        "the",
+        "repository",
+        "he",
+        "had",
+        "mentioned,",
+        "found",
+        "the",
+        "articles",
+        "named,",
+        "and",
+        "returned",
+        "with",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "went.",
+          "start": 0.56,
+          "end": 0.86,
+          "key": "went",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sought",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "sought",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "repository",
+          "start": 1.74,
+          "end": 2.3,
+          "key": "repository",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.3,
+          "end": 2.62,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.62,
+          "end": 2.7,
+          "key": "had",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mentioned,",
+          "start": 2.7,
+          "end": 3.12,
+          "key": "mentioned",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "found",
+          "start": 3.68,
+          "end": 3.84,
+          "key": "found",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.84,
+          "end": 4.04,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "articles",
+          "start": 4.04,
+          "end": 4.44,
+          "key": "articles",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "named,",
+          "start": 4.44,
+          "end": 4.82,
+          "key": "named",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.14,
+          "end": 5.22,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "returned",
+          "start": 5.22,
+          "end": 5.56,
+          "key": "returned",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.56,
+          "end": 5.8,
+          "key": "with",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 5.8,
+          "end": 6.04,
+          "key": "them",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "went;",
+          "start": 0.56,
+          "end": 0.86
+        },
+        {
+          "text": "sought",
+          "start": 1.4,
+          "end": 1.62
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "repository",
+          "start": 1.74,
+          "end": 2.3
+        },
+        {
+          "text": "he",
+          "start": 2.3,
+          "end": 2.62
+        },
+        {
+          "text": "had",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "text": "mentioned,",
+          "start": 2.7,
+          "end": 3.12
+        },
+        {
+          "text": "found",
+          "start": 3.68,
+          "end": 3.84
+        },
+        {
+          "text": "the",
+          "start": 3.84,
+          "end": 4.04
+        },
+        {
+          "text": "articles",
+          "start": 4.04,
+          "end": 4.44
+        },
+        {
+          "text": "named,",
+          "start": 4.44,
+          "end": 4.82
+        },
+        {
+          "text": "and",
+          "start": 5.14,
+          "end": 5.22
+        },
+        {
+          "text": "returned",
+          "start": 5.22,
+          "end": 5.56
+        },
+        {
+          "text": "with",
+          "start": 5.56,
+          "end": 5.8
+        },
+        {
+          "text": "them.",
+          "start": 5.8,
+          "end": 6.04
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25699757412075996
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "483c03fa3997a35ee198be1be15090fc493175eddaf5275cd14844250db357d7",
+  "selected_reasons": []
+}

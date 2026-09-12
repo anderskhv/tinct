@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "d9039908213a992b68a3ab1af6bb7ce8eb0575a14bf0a0233e74a65d4e07992b",
+  "attempts": [
+    {
+      "asr_seconds": 0.09112954884767532,
+      "alignment_seconds": 0.0001318715512752533,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " O Regan, wilt thou take her by the hand?",
+          "start": 0.08,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.480224609375
+            },
+            {
+              "text": " Regan,",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.6710205078125
+            },
+            {
+              "text": " wilt",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.956298828125
+            },
+            {
+              "text": " thou",
+              "start": 1.56,
+              "end": 1.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " take",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " her",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " by",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.22,
+              "end": 2.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hand?",
+              "start": 2.34,
+              "end": 2.62,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Regan,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "wilt",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "thou",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "raw": "take",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "her",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "by",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "raw": "hand?",
+          "start": 2.34,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "O",
+        "Regan,",
+        "wilt",
+        "thou",
+        "take",
+        "her",
+        "by",
+        "the",
+        "hand?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Regan,",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "regan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "wilt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.56,
+          "end": 1.72,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "take",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.08,
+          "end": 2.22,
+          "key": "by",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.22,
+          "end": 2.34,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hand?",
+          "start": 2.34,
+          "end": 2.62,
+          "key": "hand",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "O",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Regan,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "wilt",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "thou",
+          "start": 1.56,
+          "end": 1.72
+        },
+        {
+          "text": "take",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "her",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "by",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "the",
+          "start": 2.22,
+          "end": 2.34
+        },
+        {
+          "text": "hand?",
+          "start": 2.34,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09131379798054695
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e03863f1c1ce91a3199754dd41a92f1536865b21e33bd47b0437662d4218e6c4",
+  "selected_reasons": []
+}

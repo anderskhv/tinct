@@ -1,0 +1,1651 @@
+{
+  "complete": true,
+  "signature": "1216c72bebdaf1d1fb2c51dfee4b1f583e4a89bef84756196f07f126485e7906",
+  "attempts": [
+    {
+      "asr_seconds": 0.4590967879630625,
+      "alignment_seconds": 0.0008722003549337387,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Abbess. Hath he not lost much wealth by wreck of sea? Buried some dear friend? Hath not else his eye Stray'd his affection in unlawful love? A sin prevailing much in youthful men Who give their eyes the liberty of gazing? Which of these sorrows is he subject to?",
+        "hotwords": "Abbess, Hath, Buried, Stray'd, A, Who, Which"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Abbess, Hath he not lost much wealth by wreck of sea? Buried some dear friend?",
+          "start": 0.14,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Abbess,",
+              "start": 0.14,
+              "end": 0.84,
+              "probability": 0.6483561197916666
+            },
+            {
+              "text": " Hath",
+              "start": 1.06,
+              "end": 1.12,
+              "probability": 0.025421142578125
+            },
+            {
+              "text": " he",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.52197265625
+            },
+            {
+              "text": " not",
+              "start": 1.24,
+              "end": 1.44,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " lost",
+              "start": 1.44,
+              "end": 1.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " much",
+              "start": 1.74,
+              "end": 2.0,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " wealth",
+              "start": 2.0,
+              "end": 2.24,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " by",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " wreck",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " of",
+              "start": 2.64,
+              "end": 2.8,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sea?",
+              "start": 2.8,
+              "end": 3.1,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Buried",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.899658203125
+            },
+            {
+              "text": " some",
+              "start": 3.94,
+              "end": 4.18,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " dear",
+              "start": 4.18,
+              "end": 4.36,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " friend?",
+              "start": 4.36,
+              "end": 4.8,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " Hath not else his eye Stray'd his affection in unlawful love? A sin prevailing much in",
+          "start": 4.8,
+          "end": 10.48,
+          "words": [
+            {
+              "text": " Hath",
+              "start": 4.8,
+              "end": 5.42,
+              "probability": 0.0276336669921875
+            },
+            {
+              "text": " not",
+              "start": 5.42,
+              "end": 5.62,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " else",
+              "start": 5.62,
+              "end": 5.82,
+              "probability": 0.970703125
+            },
+            {
+              "text": " his",
+              "start": 5.82,
+              "end": 5.98,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " eye",
+              "start": 5.98,
+              "end": 6.22,
+              "probability": 0.1888427734375
+            },
+            {
+              "text": " Stray'd",
+              "start": 6.22,
+              "end": 6.66,
+              "probability": 0.32858022054036456
+            },
+            {
+              "text": " his",
+              "start": 6.66,
+              "end": 6.74,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " affection",
+              "start": 6.74,
+              "end": 7.16,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " in",
+              "start": 7.16,
+              "end": 7.44,
+              "probability": 0.77734375
+            },
+            {
+              "text": " unlawful",
+              "start": 7.44,
+              "end": 7.86,
+              "probability": 0.9140625
+            },
+            {
+              "text": " love?",
+              "start": 7.86,
+              "end": 8.38,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " A",
+              "start": 8.94,
+              "end": 9.06,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " sin",
+              "start": 9.06,
+              "end": 9.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " prevailing",
+              "start": 9.38,
+              "end": 9.92,
+              "probability": 0.62255859375
+            },
+            {
+              "text": " much",
+              "start": 9.92,
+              "end": 10.28,
+              "probability": 0.947265625
+            },
+            {
+              "text": " in",
+              "start": 10.28,
+              "end": 10.48,
+              "probability": 0.95068359375
+            }
+          ]
+        },
+        {
+          "text": " youthful men Who give their eyes the liberty of gazing? Which of these sorrows is he subject",
+          "start": 10.48,
+          "end": 15.54,
+          "words": [
+            {
+              "text": " youthful",
+              "start": 10.48,
+              "end": 10.76,
+              "probability": 0.953125
+            },
+            {
+              "text": " men",
+              "start": 10.76,
+              "end": 11.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Who",
+              "start": 11.12,
+              "end": 11.34,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " give",
+              "start": 11.34,
+              "end": 11.5,
+              "probability": 0.951171875
+            },
+            {
+              "text": " their",
+              "start": 11.5,
+              "end": 11.74,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " eyes",
+              "start": 11.74,
+              "end": 12.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 12.02,
+              "end": 12.3,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " liberty",
+              "start": 12.3,
+              "end": 12.56,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 12.56,
+              "end": 12.88,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " gazing?",
+              "start": 12.88,
+              "end": 13.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Which",
+              "start": 13.92,
+              "end": 14.06,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " of",
+              "start": 14.06,
+              "end": 14.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " these",
+              "start": 14.2,
+              "end": 14.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sorrows",
+              "start": 14.4,
+              "end": 15.06,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 15.06,
+              "end": 15.14,
+              "probability": 0.947265625
+            },
+            {
+              "text": " he",
+              "start": 15.14,
+              "end": 15.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " subject",
+              "start": 15.32,
+              "end": 15.54,
+              "probability": 0.9765625
+            }
+          ]
+        },
+        {
+          "text": " to?",
+          "start": 15.54,
+          "end": 16.02,
+          "words": [
+            {
+              "text": " to?",
+              "start": 15.54,
+              "end": 16.02,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Abbess,",
+          "start": 0.14,
+          "end": 0.84
+        },
+        {
+          "raw": "Hath",
+          "start": 1.06,
+          "end": 1.12
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "not",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "raw": "lost",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "raw": "much",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "raw": "wealth",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "raw": "by",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "raw": "wreck",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "raw": "sea?",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "raw": "Buried",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "some",
+          "start": 3.94,
+          "end": 4.18
+        },
+        {
+          "raw": "dear",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "raw": "friend?",
+          "start": 4.36,
+          "end": 4.8
+        },
+        {
+          "raw": "Hath",
+          "start": 4.8,
+          "end": 5.42
+        },
+        {
+          "raw": "not",
+          "start": 5.42,
+          "end": 5.62
+        },
+        {
+          "raw": "else",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "raw": "his",
+          "start": 5.82,
+          "end": 5.98
+        },
+        {
+          "raw": "eye",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "raw": "Stray'd",
+          "start": 6.22,
+          "end": 6.66
+        },
+        {
+          "raw": "his",
+          "start": 6.66,
+          "end": 6.74
+        },
+        {
+          "raw": "affection",
+          "start": 6.74,
+          "end": 7.16
+        },
+        {
+          "raw": "in",
+          "start": 7.16,
+          "end": 7.44
+        },
+        {
+          "raw": "unlawful",
+          "start": 7.44,
+          "end": 7.86
+        },
+        {
+          "raw": "love?",
+          "start": 7.86,
+          "end": 8.38
+        },
+        {
+          "raw": "A",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "raw": "sin",
+          "start": 9.06,
+          "end": 9.38
+        },
+        {
+          "raw": "prevailing",
+          "start": 9.38,
+          "end": 9.92
+        },
+        {
+          "raw": "much",
+          "start": 9.92,
+          "end": 10.28
+        },
+        {
+          "raw": "in",
+          "start": 10.28,
+          "end": 10.48
+        },
+        {
+          "raw": "youthful",
+          "start": 10.48,
+          "end": 10.76
+        },
+        {
+          "raw": "men",
+          "start": 10.76,
+          "end": 11.12
+        },
+        {
+          "raw": "Who",
+          "start": 11.12,
+          "end": 11.34
+        },
+        {
+          "raw": "give",
+          "start": 11.34,
+          "end": 11.5
+        },
+        {
+          "raw": "their",
+          "start": 11.5,
+          "end": 11.74
+        },
+        {
+          "raw": "eyes",
+          "start": 11.74,
+          "end": 12.02
+        },
+        {
+          "raw": "the",
+          "start": 12.02,
+          "end": 12.3
+        },
+        {
+          "raw": "liberty",
+          "start": 12.3,
+          "end": 12.56
+        },
+        {
+          "raw": "of",
+          "start": 12.56,
+          "end": 12.88
+        },
+        {
+          "raw": "gazing?",
+          "start": 12.88,
+          "end": 13.2
+        },
+        {
+          "raw": "Which",
+          "start": 13.92,
+          "end": 14.06
+        },
+        {
+          "raw": "of",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "raw": "these",
+          "start": 14.2,
+          "end": 14.4
+        },
+        {
+          "raw": "sorrows",
+          "start": 14.4,
+          "end": 15.06
+        },
+        {
+          "raw": "is",
+          "start": 15.06,
+          "end": 15.14
+        },
+        {
+          "raw": "he",
+          "start": 15.14,
+          "end": 15.32
+        },
+        {
+          "raw": "subject",
+          "start": 15.32,
+          "end": 15.54
+        },
+        {
+          "raw": "to?",
+          "start": 15.54,
+          "end": 16.02
+        }
+      ],
+      "expected_tokens": [
+        "Abbess.",
+        "Hath",
+        "he",
+        "not",
+        "lost",
+        "much",
+        "wealth",
+        "by",
+        "wreck",
+        "of",
+        "sea?",
+        "Buried",
+        "some",
+        "dear",
+        "friend?",
+        "Hath",
+        "not",
+        "else",
+        "his",
+        "eye",
+        "Stray'd",
+        "his",
+        "affection",
+        "in",
+        "unlawful",
+        "love?",
+        "A",
+        "sin",
+        "prevailing",
+        "much",
+        "in",
+        "youthful",
+        "men",
+        "Who",
+        "give",
+        "their",
+        "eyes",
+        "the",
+        "liberty",
+        "of",
+        "gazing?",
+        "Which",
+        "of",
+        "these",
+        "sorrows",
+        "is",
+        "he",
+        "subject",
+        "to?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          49,
+          0,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Abbess,",
+          "start": 0.14,
+          "end": 0.84,
+          "key": "abbess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Hath",
+          "start": 1.06,
+          "end": 1.12,
+          "key": "hath",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.24,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.24,
+          "end": 1.44,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 1.44,
+          "end": 1.74,
+          "key": "lost",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 1.74,
+          "end": 2.0,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wealth",
+          "start": 2.0,
+          "end": 2.24,
+          "key": "wealth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "by",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wreck",
+          "start": 2.48,
+          "end": 2.64,
+          "key": "wreck",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.64,
+          "end": 2.8,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sea?",
+          "start": 2.8,
+          "end": 3.1,
+          "key": "sea",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Buried",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "buried",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 3.94,
+          "end": 4.18,
+          "key": "some",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 4.18,
+          "end": 4.36,
+          "key": "dear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "friend?",
+          "start": 4.36,
+          "end": 4.8,
+          "key": "friend",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Hath",
+          "start": 4.8,
+          "end": 5.42,
+          "key": "hath",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.42,
+          "end": 5.62,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "else",
+          "start": 5.62,
+          "end": 5.82,
+          "key": "else",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.82,
+          "end": 5.98,
+          "key": "his",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "eye",
+          "start": 5.98,
+          "end": 6.22,
+          "key": "eye",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Stray'd",
+          "start": 6.22,
+          "end": 6.66,
+          "key": "strayd",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.66,
+          "end": 6.74,
+          "key": "his",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "affection",
+          "start": 6.74,
+          "end": 7.16,
+          "key": "affection",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.16,
+          "end": 7.44,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "unlawful",
+          "start": 7.44,
+          "end": 7.86,
+          "key": "unlawful",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "love?",
+          "start": 7.86,
+          "end": 8.38,
+          "key": "love",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 8.94,
+          "end": 9.06,
+          "key": "a",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "sin",
+          "start": 9.06,
+          "end": 9.38,
+          "key": "sin",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "prevailing",
+          "start": 9.38,
+          "end": 9.92,
+          "key": "prevailing",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 9.92,
+          "end": 10.28,
+          "key": "much",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 10.28,
+          "end": 10.48,
+          "key": "in",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "youthful",
+          "start": 10.48,
+          "end": 10.76,
+          "key": "youthful",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 10.76,
+          "end": 11.12,
+          "key": "men",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "Who",
+          "start": 11.12,
+          "end": 11.34,
+          "key": "who",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 11.34,
+          "end": 11.5,
+          "key": "give",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 11.5,
+          "end": 11.74,
+          "key": "their",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 11.74,
+          "end": 12.02,
+          "key": "eyes",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 12.02,
+          "end": 12.3,
+          "key": "the",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "liberty",
+          "start": 12.3,
+          "end": 12.56,
+          "key": "liberty",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.56,
+          "end": 12.88,
+          "key": "of",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "gazing?",
+          "start": 12.88,
+          "end": 13.2,
+          "key": "gazing",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Which",
+          "start": 13.92,
+          "end": 14.06,
+          "key": "which",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 14.06,
+          "end": 14.2,
+          "key": "of",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 14.2,
+          "end": 14.4,
+          "key": "these",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "sorrows",
+          "start": 14.4,
+          "end": 15.06,
+          "key": "sorrows",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 15.06,
+          "end": 15.14,
+          "key": "is",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 15.14,
+          "end": 15.32,
+          "key": "he",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "subject",
+          "start": 15.32,
+          "end": 15.54,
+          "key": "subject",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "to?",
+          "start": 15.54,
+          "end": 16.02,
+          "key": "to",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Abbess.",
+          "start": 0.14,
+          "end": 0.84
+        },
+        {
+          "text": "Hath",
+          "start": 1.06,
+          "end": 1.12
+        },
+        {
+          "text": "he",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "text": "not",
+          "start": 1.24,
+          "end": 1.44
+        },
+        {
+          "text": "lost",
+          "start": 1.44,
+          "end": 1.74
+        },
+        {
+          "text": "much",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "text": "wealth",
+          "start": 2.0,
+          "end": 2.24
+        },
+        {
+          "text": "by",
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "text": "wreck",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "of",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "text": "sea?",
+          "start": 2.8,
+          "end": 3.1
+        },
+        {
+          "text": "Buried",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "some",
+          "start": 3.94,
+          "end": 4.18
+        },
+        {
+          "text": "dear",
+          "start": 4.18,
+          "end": 4.36
+        },
+        {
+          "text": "friend?",
+          "start": 4.36,
+          "end": 4.8
+        },
+        {
+          "text": "Hath",
+          "start": 4.8,
+          "end": 5.42
+        },
+        {
+          "text": "not",
+          "start": 5.42,
+          "end": 5.62
+        },
+        {
+          "text": "else",
+          "start": 5.62,
+          "end": 5.82
+        },
+        {
+          "text": "his",
+          "start": 5.82,
+          "end": 5.98
+        },
+        {
+          "text": "eye",
+          "start": 5.98,
+          "end": 6.22
+        },
+        {
+          "text": "Stray'd",
+          "start": 6.22,
+          "end": 6.66
+        },
+        {
+          "text": "his",
+          "start": 6.66,
+          "end": 6.74
+        },
+        {
+          "text": "affection",
+          "start": 6.74,
+          "end": 7.16
+        },
+        {
+          "text": "in",
+          "start": 7.16,
+          "end": 7.44
+        },
+        {
+          "text": "unlawful",
+          "start": 7.44,
+          "end": 7.86
+        },
+        {
+          "text": "love?",
+          "start": 7.86,
+          "end": 8.38
+        },
+        {
+          "text": "A",
+          "start": 8.94,
+          "end": 9.06
+        },
+        {
+          "text": "sin",
+          "start": 9.06,
+          "end": 9.38
+        },
+        {
+          "text": "prevailing",
+          "start": 9.38,
+          "end": 9.92
+        },
+        {
+          "text": "much",
+          "start": 9.92,
+          "end": 10.28
+        },
+        {
+          "text": "in",
+          "start": 10.28,
+          "end": 10.48
+        },
+        {
+          "text": "youthful",
+          "start": 10.48,
+          "end": 10.76
+        },
+        {
+          "text": "men",
+          "start": 10.76,
+          "end": 11.12
+        },
+        {
+          "text": "Who",
+          "start": 11.12,
+          "end": 11.34
+        },
+        {
+          "text": "give",
+          "start": 11.34,
+          "end": 11.5
+        },
+        {
+          "text": "their",
+          "start": 11.5,
+          "end": 11.74
+        },
+        {
+          "text": "eyes",
+          "start": 11.74,
+          "end": 12.02
+        },
+        {
+          "text": "the",
+          "start": 12.02,
+          "end": 12.3
+        },
+        {
+          "text": "liberty",
+          "start": 12.3,
+          "end": 12.56
+        },
+        {
+          "text": "of",
+          "start": 12.56,
+          "end": 12.88
+        },
+        {
+          "text": "gazing?",
+          "start": 12.88,
+          "end": 13.2
+        },
+        {
+          "text": "Which",
+          "start": 13.92,
+          "end": 14.06
+        },
+        {
+          "text": "of",
+          "start": 14.06,
+          "end": 14.2
+        },
+        {
+          "text": "these",
+          "start": 14.2,
+          "end": 14.4
+        },
+        {
+          "text": "sorrows",
+          "start": 14.4,
+          "end": 15.06
+        },
+        {
+          "text": "is",
+          "start": 15.06,
+          "end": 15.14
+        },
+        {
+          "text": "he",
+          "start": 15.14,
+          "end": 15.32
+        },
+        {
+          "text": "subject",
+          "start": 15.32,
+          "end": 15.54
+        },
+        {
+          "text": "to?",
+          "start": 15.54,
+          "end": 16.02
+        }
+      ],
+      "stats": {
+        "expected_words": 49,
+        "heard_words": 49,
+        "matched_words": 49
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46034815115854144
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9ec3f5eb2df3e4b7ff11525a7fa117a6427e29763e673eb65bf233faea6a5ac7",
+  "selected_reasons": []
+}

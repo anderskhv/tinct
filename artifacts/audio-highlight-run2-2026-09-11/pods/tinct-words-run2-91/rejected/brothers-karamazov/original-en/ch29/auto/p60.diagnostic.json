@@ -1,0 +1,447 @@
+{
+  "complete": true,
+  "signature": "898959366d1646ac99abb55e331d99e8e2561f80c3dcefcdc3da1279b0633f0a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3211369616910815,
+      "alignment_seconds": 0.00022846553474664688,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"For an awful piece of stupidity, Lise! Good-by!\"",
+        "hotwords": "For, Lise, Good-by"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " For an awful piece of stupidity, Lise! Good-by",
+          "start": 0.05,
+          "end": 2.97,
+          "words": [
+            {
+              "text": " For",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.73779296875
+            },
+            {
+              "text": " an",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " awful",
+              "start": 0.61,
+              "end": 0.87,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " piece",
+              "start": 0.87,
+              "end": 1.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stupidity,",
+              "start": 1.29,
+              "end": 1.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Lise!",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.02907276153564453
+            },
+            {
+              "text": " Good",
+              "start": 2.63,
+              "end": 2.71,
+              "probability": 0.2152099609375
+            },
+            {
+              "text": "-by",
+              "start": 2.71,
+              "end": 2.97,
+              "probability": 0.342559814453125
+            }
+          ]
+        },
+        {
+          "text": " For, Lise! Good-by",
+          "start": 2.97,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " For,",
+              "start": 2.97,
+              "end": 2.97,
+              "probability": 0.00030732154846191406
+            },
+            {
+              "text": " Lise!",
+              "start": 2.97,
+              "end": 2.97,
+              "probability": 0.0003077983856201172
+            },
+            {
+              "text": " Good",
+              "start": 2.97,
+              "end": 2.97,
+              "probability": 0.0035991668701171875
+            },
+            {
+              "text": "-by",
+              "start": 2.97,
+              "end": 3.09,
+              "probability": 0.0319671630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "For",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "an",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "awful",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "raw": "piece",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "raw": "of",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "stupidity,",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "raw": "Lise!",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "Good",
+          "start": 2.63,
+          "end": 2.71
+        },
+        {
+          "raw": "-by",
+          "start": 2.71,
+          "end": 2.97
+        },
+        {
+          "raw": "For,",
+          "start": 2.97,
+          "end": 2.97
+        },
+        {
+          "raw": "Lise!",
+          "start": 2.97,
+          "end": 2.97
+        },
+        {
+          "raw": "Good",
+          "start": 2.97,
+          "end": 2.97
+        },
+        {
+          "raw": "-by",
+          "start": 2.97,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "\"For",
+        "an",
+        "awful",
+        "piece",
+        "of",
+        "stupidity,",
+        "Lise!",
+        "Good-by!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "insert",
+          8,
+          8,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          8,
+          8,
+          8,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "For",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "for",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.51,
+          "end": 0.61,
+          "key": "an",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "awful",
+          "start": 0.61,
+          "end": 0.87,
+          "key": "awful",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 0.87,
+          "end": 1.13,
+          "key": "piece",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "stupidity,",
+          "start": 1.29,
+          "end": 1.61,
+          "key": "stupidity",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Lise!",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "lise",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Good -by",
+          "start": 2.63,
+          "end": 2.97,
+          "key": "goodby",
+          "pieces": [
+            7,
+            8
+          ]
+        },
+        {
+          "raw": "For,",
+          "start": 2.97,
+          "end": 2.97,
+          "key": "for",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Lise!",
+          "start": 2.97,
+          "end": 2.97,
+          "key": "lise",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Good -by",
+          "start": 2.97,
+          "end": 3.09,
+          "key": "goodby",
+          "pieces": [
+            11,
+            12
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 7,
+          "text": "Good-by!\"",
+          "heard": "Good -by",
+          "heard_indexes": [
+            7,
+            8
+          ],
+          "start": 2.63,
+          "end": 2.97
+        },
+        {
+          "expected_index": 7,
+          "text": "Good-by!\"",
+          "heard": "Good -by",
+          "heard_indexes": [
+            11,
+            12
+          ],
+          "start": 2.97,
+          "end": 3.09
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"For",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "an",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "awful",
+          "start": 0.61,
+          "end": 0.87
+        },
+        {
+          "text": "piece",
+          "start": 0.87,
+          "end": 1.13
+        },
+        {
+          "text": "of",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "stupidity,",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "text": "Lise!",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "Good-by!\"",
+          "start": 2.63,
+          "end": 2.97
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3214441193267703
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "644459f8e481a187bd38fd0a2e1822567f4e8580d001471119ba0ddd4fa5ad80",
+  "selected_reasons": []
+}

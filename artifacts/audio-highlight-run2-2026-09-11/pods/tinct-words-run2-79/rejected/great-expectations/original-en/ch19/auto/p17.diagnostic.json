@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "f0d494c6eada667f17fd20b18d9cc0fb30e56b4a764e921373d7b61f0e9f0202",
+  "attempts": [
+    {
+      "asr_seconds": 0.3084316491149366,
+      "alignment_seconds": 0.00042812200263142586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"And it is, Biddy,\" said I, \"that you will not omit any opportunity of helping Joe on, a little.\"",
+        "hotwords": "And, Biddy, I, Joe"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And it is, Biddy, said I, that you will not omit any opportunity of helping Joe on, a little.",
+          "start": 0.08,
+          "end": 5.74,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.248046875
+            },
+            {
+              "text": " it",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " is,",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Biddy,",
+              "start": 1.06,
+              "end": 1.38,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " said",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I,",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " you",
+              "start": 2.84,
+              "end": 2.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 2.98,
+              "end": 3.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 3.12,
+              "end": 3.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " omit",
+              "start": 3.28,
+              "end": 3.56,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " any",
+              "start": 3.56,
+              "end": 3.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " opportunity",
+              "start": 3.78,
+              "end": 4.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 4.2,
+              "end": 4.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " helping",
+              "start": 4.52,
+              "end": 4.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Joe",
+              "start": 4.82,
+              "end": 5.06,
+              "probability": 0.222412109375
+            },
+            {
+              "text": " on,",
+              "start": 5.06,
+              "end": 5.38,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " a",
+              "start": 5.48,
+              "end": 5.56,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " little.",
+              "start": 5.56,
+              "end": 5.74,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "it",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "is,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "Biddy,",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "I,",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "that",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "you",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "raw": "will",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "raw": "omit",
+          "start": 3.28,
+          "end": 3.56
+        },
+        {
+          "raw": "any",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "raw": "opportunity",
+          "start": 3.78,
+          "end": 4.2
+        },
+        {
+          "raw": "of",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "raw": "helping",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "raw": "Joe",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "raw": "on,",
+          "start": 5.06,
+          "end": 5.38
+        },
+        {
+          "raw": "a",
+          "start": 5.48,
+          "end": 5.56
+        },
+        {
+          "raw": "little.",
+          "start": 5.56,
+          "end": 5.74
+        }
+      ],
+      "expected_tokens": [
+        "\"And",
+        "it",
+        "is,",
+        "Biddy,\"",
+        "said",
+        "I,",
+        "\"that",
+        "you",
+        "will",
+        "not",
+        "omit",
+        "any",
+        "opportunity",
+        "of",
+        "helping",
+        "Joe",
+        "on,",
+        "a",
+        "little.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "it",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is,",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Biddy,",
+          "start": 1.06,
+          "end": 1.38,
+          "key": "biddy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.98,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I,",
+          "start": 1.98,
+          "end": 2.26,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.84,
+          "end": 2.98,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.98,
+          "end": 3.12,
+          "key": "will",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.12,
+          "end": 3.28,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "omit",
+          "start": 3.28,
+          "end": 3.56,
+          "key": "omit",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 3.56,
+          "end": 3.78,
+          "key": "any",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "opportunity",
+          "start": 3.78,
+          "end": 4.2,
+          "key": "opportunity",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.2,
+          "end": 4.52,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "helping",
+          "start": 4.52,
+          "end": 4.82,
+          "key": "helping",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Joe",
+          "start": 4.82,
+          "end": 5.06,
+          "key": "joe",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on,",
+          "start": 5.06,
+          "end": 5.38,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.48,
+          "end": 5.56,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "little.",
+          "start": 5.56,
+          "end": 5.74,
+          "key": "little",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "it",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "is,",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "Biddy,\"",
+          "start": 1.06,
+          "end": 1.38
+        },
+        {
+          "text": "said",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "I,",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "\"that",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "you",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "text": "will",
+          "start": 2.98,
+          "end": 3.12
+        },
+        {
+          "text": "not",
+          "start": 3.12,
+          "end": 3.28
+        },
+        {
+          "text": "omit",
+          "start": 3.28,
+          "end": 3.56
+        },
+        {
+          "text": "any",
+          "start": 3.56,
+          "end": 3.78
+        },
+        {
+          "text": "opportunity",
+          "start": 3.78,
+          "end": 4.2
+        },
+        {
+          "text": "of",
+          "start": 4.2,
+          "end": 4.52
+        },
+        {
+          "text": "helping",
+          "start": 4.52,
+          "end": 4.82
+        },
+        {
+          "text": "Joe",
+          "start": 4.82,
+          "end": 5.06
+        },
+        {
+          "text": "on,",
+          "start": 5.06,
+          "end": 5.38
+        },
+        {
+          "text": "a",
+          "start": 5.48,
+          "end": 5.56
+        },
+        {
+          "text": "little.\"",
+          "start": 5.56,
+          "end": 5.74
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3090397701598704
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "806529cf0015e75176e8feb680525a47630bdd4bbe6640f846b1862af2802ef5",
+  "selected_reasons": []
+}

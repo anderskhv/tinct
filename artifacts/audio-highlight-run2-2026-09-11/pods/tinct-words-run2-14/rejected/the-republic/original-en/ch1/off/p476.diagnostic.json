@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "8a92b4c09bde614b356e598663321a39d7ed6db0fd010b8bc47d4fa365e529ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.11702493205666542,
+      "alignment_seconds": 0.00026645883917808533,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She cannot.",
+          "start": 0.02,
+          "end": 0.76,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " cannot.",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "cannot.",
+          "start": 0.54,
+          "end": 0.76
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "cannot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cannot.",
+          "start": 0.54,
+          "end": 0.76,
+          "key": "cannot",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "cannot.",
+          "start": 0.54,
+          "end": 0.76
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11740073189139366
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8254eff5a5cbdb8b36f4a2d24d2e44c60ad638365254dc6e854f16b59f0af412",
+  "selected_reasons": []
+}

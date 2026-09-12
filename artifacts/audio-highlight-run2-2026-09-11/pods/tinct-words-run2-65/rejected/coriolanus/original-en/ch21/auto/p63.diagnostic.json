@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "3feed54f4c1e68be59db6eacf01fd901734b1d8b26024a64ae34acdd9e00ccc0",
+  "attempts": [
+    {
+      "asr_seconds": 0.14490330684930086,
+      "alignment_seconds": 0.00013763410970568657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Servingman. Here's a strange alteration!",
+        "hotwords": "First, Servingman, Here's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Servingman, Here's a strange alteration!",
+          "start": 0.05,
+          "end": 2.73,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " Servingman,",
+              "start": 0.61,
+              "end": 1.19,
+              "probability": 0.45098876953125
+            },
+            {
+              "text": " Here's",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.5127410888671875
+            },
+            {
+              "text": " a",
+              "start": 1.71,
+              "end": 1.83,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " strange",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " alteration!",
+              "start": 2.09,
+              "end": 2.73,
+              "probability": 0.9140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.61,
+          "end": 1.19
+        },
+        {
+          "raw": "Here's",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "raw": "a",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "raw": "strange",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "alteration!",
+          "start": 2.09,
+          "end": 2.73
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Servingman.",
+        "Here's",
+        "a",
+        "strange",
+        "alteration!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servingman,",
+          "start": 0.61,
+          "end": 1.19,
+          "key": "servingman",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Here's",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "heres",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.71,
+          "end": 1.83,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "strange",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "alteration!",
+          "start": 2.09,
+          "end": 2.73,
+          "key": "alteration",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Servingman.",
+          "start": 0.61,
+          "end": 1.19
+        },
+        {
+          "text": "Here's",
+          "start": 1.55,
+          "end": 1.71
+        },
+        {
+          "text": "a",
+          "start": 1.71,
+          "end": 1.83
+        },
+        {
+          "text": "strange",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "alteration!",
+          "start": 2.09,
+          "end": 2.73
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1450870418921113
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0938c317cfc9c2e7fc1b473e0b263fab5d32d8e92cd91b069b450805761bbca8",
+  "selected_reasons": []
+}

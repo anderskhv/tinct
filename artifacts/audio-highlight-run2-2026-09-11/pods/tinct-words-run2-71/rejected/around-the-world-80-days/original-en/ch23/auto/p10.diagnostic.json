@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "b1c72845c98e05b5d8fd274fc217897adf0d4465296d3eefa0181b681edc664f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2214351138100028,
+      "alignment_seconds": 0.0004551457241177559,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The United States!\" said Passepartout; \"that's just what I want!\"",
+        "hotwords": "The, United, States, Passepartout, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The United States, said Passepartout, that's just what I want!",
+          "start": 0.02,
+          "end": 4.1,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.460693359375
+            },
+            {
+              "text": " United",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " States,",
+              "start": 0.78,
+              "end": 1.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " said",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Passepartout,",
+              "start": 1.86,
+              "end": 2.64,
+              "probability": 0.5447430610656738
+            },
+            {
+              "text": " that's",
+              "start": 3.02,
+              "end": 3.36,
+              "probability": 0.814208984375
+            },
+            {
+              "text": " just",
+              "start": 3.36,
+              "end": 3.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 3.48,
+              "end": 3.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 3.68,
+              "end": 3.82,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " want!",
+              "start": 3.82,
+              "end": 4.1,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "United",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "States,",
+          "start": 0.78,
+          "end": 1.38
+        },
+        {
+          "raw": "said",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 1.86,
+          "end": 2.64
+        },
+        {
+          "raw": "that's",
+          "start": 3.02,
+          "end": 3.36
+        },
+        {
+          "raw": "just",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "raw": "what",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "raw": "I",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "raw": "want!",
+          "start": 3.82,
+          "end": 4.1
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "United",
+        "States!\"",
+        "said",
+        "Passepartout;",
+        "\"that's",
+        "just",
+        "what",
+        "I",
+        "want!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "United",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "united",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "States,",
+          "start": 0.78,
+          "end": 1.38,
+          "key": "states",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Passepartout,",
+          "start": 1.86,
+          "end": 2.64,
+          "key": "passepartout",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 3.02,
+          "end": 3.36,
+          "key": "thats",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 3.36,
+          "end": 3.48,
+          "key": "just",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.48,
+          "end": 3.68,
+          "key": "what",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.68,
+          "end": 3.82,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "want!",
+          "start": 3.82,
+          "end": 4.1,
+          "key": "want",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "United",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "States!\"",
+          "start": 0.78,
+          "end": 1.38
+        },
+        {
+          "text": "said",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "Passepartout;",
+          "start": 1.86,
+          "end": 2.64
+        },
+        {
+          "text": "\"that's",
+          "start": 3.02,
+          "end": 3.36
+        },
+        {
+          "text": "just",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "text": "what",
+          "start": 3.48,
+          "end": 3.68
+        },
+        {
+          "text": "I",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "text": "want!\"",
+          "start": 3.82,
+          "end": 4.1
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2220620671287179
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "22bde7864da3866a6b9d2afd3f6358294c5a9061c90daf9a04a549dac4f0eeae",
+  "selected_reasons": []
+}

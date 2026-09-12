@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "4cc7d255fddfce2f095961b0a4fbccc06a1e6597ef7083daa4aa92568934f721",
+  "attempts": [
+    {
+      "asr_seconds": 0.11131053697317839,
+      "alignment_seconds": 0.000136679969727993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Bianca, save your friend Casio.",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Bianca,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " save",
+              "start": 1.31,
+              "end": 1.39,
+              "probability": 0.974609375
+            },
+            {
+              "text": " your",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.461181640625
+            },
+            {
+              "text": " friend",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Casio.",
+              "start": 1.77,
+              "end": 2.29,
+              "probability": 0.7083740234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bianca,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "save",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "raw": "your",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "friend",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "Casio.",
+          "start": 1.77,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Bianca.",
+        "Save",
+        "you,",
+        "friend",
+        "Cassio!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bianca,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "bianca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 1.31,
+          "end": 1.39,
+          "key": "save",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "friend",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "friend",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Casio.",
+          "start": 1.77,
+          "end": 2.29,
+          "key": "casio",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bianca.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Save",
+          "start": 1.31,
+          "end": 1.39
+        },
+        {
+          "text": "you,",
+          "start": 1.39,
+          "end": 1.48
+        },
+        {
+          "text": "friend",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "Cassio!",
+          "start": 1.77,
+          "end": 2.03
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11149019608274102
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d4b57020ce8f4b712fe20f72a02503e3afe7bd5d85b8313c278cf44bf0f88ea3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

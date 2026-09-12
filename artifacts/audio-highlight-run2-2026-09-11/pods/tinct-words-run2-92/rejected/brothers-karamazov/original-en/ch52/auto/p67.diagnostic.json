@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "a76303a515edc10cf82b0c1f0806866e61cb9dbdac2191e6a1d05709161ba089",
+  "attempts": [
+    {
+      "asr_seconds": 0.18152812030166388,
+      "alignment_seconds": 0.00036857742816209793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"For Piron!\" answered Maximov.",
+        "hotwords": "For, Piron, Maximov"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " For Piron, answered Maximov.",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " For",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.80859375
+            },
+            {
+              "text": " Piron,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.034759521484375
+            },
+            {
+              "text": " answered",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Maximov.",
+              "start": 1.61,
+              "end": 2.25,
+              "probability": 0.972412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "For",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Piron,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "answered",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "Maximov.",
+          "start": 1.61,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "\"For",
+        "Piron!\"",
+        "answered",
+        "Maximov."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "For",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "for",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Piron,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "piron",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "answered",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "answered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Maximov.",
+          "start": 1.61,
+          "end": 2.25,
+          "key": "maximov",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"For",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Piron!\"",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "answered",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "Maximov.",
+          "start": 1.61,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18201771657913923
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2c7d39d7d9bed306e60f117b29aa9d43198fb3fb0efcd5afe1ad159e40f5564a",
+  "selected_reasons": []
+}

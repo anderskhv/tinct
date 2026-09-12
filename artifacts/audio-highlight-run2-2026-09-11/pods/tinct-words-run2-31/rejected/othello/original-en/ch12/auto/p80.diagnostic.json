@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "14f90499a3d3d3feac0382cbaf2679e0ce288fdbdc83e15d095a4f12424aca51",
+  "attempts": [
+    {
+      "asr_seconds": 0.12323548272252083,
+      "alignment_seconds": 0.00020859763026237488,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Speak within door.",
+        "hotwords": "Iago, Speak"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago, Speak within door.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Iago,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.2232036590576172
+            },
+            {
+              "text": " Speak",
+              "start": 1.21,
+              "end": 1.29,
+              "probability": 0.057830810546875
+            },
+            {
+              "text": " within",
+              "start": 1.29,
+              "end": 1.57,
+              "probability": 0.056304931640625
+            },
+            {
+              "text": " door.",
+              "start": 1.57,
+              "end": 1.89,
+              "probability": 0.5400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Speak",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "raw": "within",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "raw": "door.",
+          "start": 1.57,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Speak",
+        "within",
+        "door."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Speak",
+          "start": 1.21,
+          "end": 1.29,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 1.29,
+          "end": 1.57,
+          "key": "within",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "door.",
+          "start": 1.57,
+          "end": 1.89,
+          "key": "door",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Speak",
+          "start": 1.21,
+          "end": 1.29
+        },
+        {
+          "text": "within",
+          "start": 1.29,
+          "end": 1.57
+        },
+        {
+          "text": "door.",
+          "start": 1.57,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12368613807484508
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "14e31f90817c1de3a1d44b4de0c3a7522e71ec7dbf032592eaf973099117cf32",
+  "selected_reasons": []
+}

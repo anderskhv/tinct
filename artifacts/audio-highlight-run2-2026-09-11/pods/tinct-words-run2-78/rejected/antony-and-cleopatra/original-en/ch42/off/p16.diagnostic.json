@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "7607df6587827a79deaf5667880156b50e7ccd3104cff80440656e06c3cd9e30",
+  "attempts": [
+    {
+      "asr_seconds": 0.21422655321657658,
+      "alignment_seconds": 0.00039700884371995926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Prokuleus, hold worthy lady, hold.",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Prokuleus,",
+              "start": 0.05,
+              "end": 1.11,
+              "probability": 0.581756591796875
+            },
+            {
+              "text": " hold",
+              "start": 1.55,
+              "end": 1.61,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " worthy",
+              "start": 1.61,
+              "end": 1.87,
+              "probability": 0.8125
+            },
+            {
+              "text": " lady,",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " hold.",
+              "start": 2.33,
+              "end": 2.51,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Prokuleus,",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "raw": "hold",
+          "start": 1.55,
+          "end": 1.61
+        },
+        {
+          "raw": "worthy",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "raw": "lady,",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "hold.",
+          "start": 2.33,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Proculeius.",
+        "Hold,",
+        "worthy",
+        "lady,",
+        "hold!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Prokuleus,",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "prokuleus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 1.55,
+          "end": 1.61,
+          "key": "hold",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "worthy",
+          "start": 1.61,
+          "end": 1.87,
+          "key": "worthy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "lady",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold.",
+          "start": 2.33,
+          "end": 2.51,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Proculeius.",
+          "start": 0.0,
+          "end": 0.775
+        },
+        {
+          "text": "Hold,",
+          "start": 1.55,
+          "end": 1.61
+        },
+        {
+          "text": "worthy",
+          "start": 1.61,
+          "end": 1.87
+        },
+        {
+          "text": "lady,",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "hold!",
+          "start": 2.33,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21476621739566326
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "839c5caf1895eaebfb047d3104be4fe2db66a51ca6be94349970d48829760e22",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

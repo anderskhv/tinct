@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "9e87ef25919f3a00547de5bda044af79c03758501c0fbb7011c4a00600a7b7cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.16075706854462624,
+      "alignment_seconds": 0.0002602655440568924,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Portia, what mercy can you render him, Antonio?",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Portia,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.7047119140625
+            },
+            {
+              "text": " what",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " mercy",
+              "start": 1.37,
+              "end": 1.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can",
+              "start": 1.63,
+              "end": 1.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 1.85,
+              "end": 1.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " render",
+              "start": 1.95,
+              "end": 2.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " him,",
+              "start": 2.15,
+              "end": 2.41,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Antonio?",
+              "start": 2.55,
+              "end": 2.83,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "mercy",
+          "start": 1.37,
+          "end": 1.63
+        },
+        {
+          "raw": "can",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "raw": "you",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "raw": "render",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "raw": "him,",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "raw": "Antonio?",
+          "start": 2.55,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Portia.",
+        "What",
+        "mercy",
+        "can",
+        "you",
+        "render",
+        "him,",
+        "Antonio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Portia,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "portia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mercy",
+          "start": 1.37,
+          "end": 1.63,
+          "key": "mercy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.63,
+          "end": 1.85,
+          "key": "can",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.85,
+          "end": 1.95,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "render",
+          "start": 1.95,
+          "end": 2.15,
+          "key": "render",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 2.15,
+          "end": 2.41,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Antonio?",
+          "start": 2.55,
+          "end": 2.83,
+          "key": "antonio",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Portia.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "What",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "mercy",
+          "start": 1.37,
+          "end": 1.63
+        },
+        {
+          "text": "can",
+          "start": 1.63,
+          "end": 1.85
+        },
+        {
+          "text": "you",
+          "start": 1.85,
+          "end": 1.95
+        },
+        {
+          "text": "render",
+          "start": 1.95,
+          "end": 2.15
+        },
+        {
+          "text": "him,",
+          "start": 2.15,
+          "end": 2.41
+        },
+        {
+          "text": "Antonio?",
+          "start": 2.55,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.161119076423347
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d4146d04cf5c568b8216598a30b167db389e568b9c9676e846bd4e76fb503dd2",
+  "selected_reasons": []
+}

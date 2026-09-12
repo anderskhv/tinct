@@ -1,0 +1,300 @@
+{
+  "complete": true,
+  "signature": "3c8b52f9724d7946f02888f30d0ffdd68f7a7900f951aef0449bbcc92c9e9dc3",
+  "attempts": [
+    {
+      "asr_seconds": 2.2035522432997823,
+      "alignment_seconds": 0.0003439076244831085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Witch. Show!",
+        "hotwords": "Second, Witch, Show"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Witch, Show",
+          "start": 0.08,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.51318359375
+            },
+            {
+              "text": " Witch,",
+              "start": 0.68,
+              "end": 0.98,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " Show",
+              "start": 1.44,
+              "end": 1.52,
+              "probability": 0.263671875
+            }
+          ]
+        },
+        {
+          "text": " Second Witch, Show Second Witch. Show!",
+          "start": 1.52,
+          "end": 1.6,
+          "words": [
+            {
+              "text": " Second",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 1.5616416931152344e-05
+            },
+            {
+              "text": " Witch,",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 1.3530254364013672e-05
+            },
+            {
+              "text": " Show",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 0.00014257431030273438
+            },
+            {
+              "text": " Second",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 3.343820571899414e-05
+            },
+            {
+              "text": " Witch.",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 0.65380859375
+            },
+            {
+              "text": " Show!",
+              "start": 1.52,
+              "end": 1.6,
+              "probability": 0.035491943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "raw": "Show",
+          "start": 1.44,
+          "end": 1.52
+        },
+        {
+          "raw": "Second",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "Witch,",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "Show",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "Second",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "Witch.",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "Show!",
+          "start": 1.52,
+          "end": 1.6
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Witch.",
+        "Show!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "insert",
+          3,
+          3,
+          3,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          3,
+          3,
+          3,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.68,
+          "end": 0.98,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Show",
+          "start": 1.44,
+          "end": 1.52,
+          "key": "show",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "second",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "witch",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Show",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "show",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Second",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "second",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Witch.",
+          "start": 1.52,
+          "end": 1.52,
+          "key": "witch",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Show!",
+          "start": 1.52,
+          "end": 1.6,
+          "key": "show",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Witch.",
+          "start": 0.68,
+          "end": 0.98
+        },
+        {
+          "text": "Show!",
+          "start": 1.44,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 9,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.204079445451498
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "068febf2235e10af1081287440cdc90bbae287658307def49f46548c799dc2a0",
+  "selected_reasons": []
+}

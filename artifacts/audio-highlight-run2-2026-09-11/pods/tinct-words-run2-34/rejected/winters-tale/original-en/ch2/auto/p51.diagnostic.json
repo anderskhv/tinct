@@ -1,0 +1,1637 @@
+{
+  "complete": true,
+  "signature": "db57fc8b23c5352b6743933e2b781574a7ddf30b1525ec4e35a74697cbedb328",
+  "attempts": [
+    {
+      "asr_seconds": 0.4772049617022276,
+      "alignment_seconds": 0.0005993843078613281,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Polixenes. If at home, sir, He's all my exercise, my mirth, my matter: Now my sworn friend, and then mine enemy; My parasite, my soldier, statesman, all. He makes a July's day short as December; And with his varying childness cures in me Thoughts that would thick my blood.",
+        "hotwords": "Polixenes, If, He's, Now, He, July's, December, Thoughts"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Polixenes, If at home, sir, He's all my exercise, my mirth, my matter, Now my sworn friend, and then mine enemy, My parasite, my soldier, statesman, all.",
+          "start": 0.54,
+          "end": 10.82,
+          "words": [
+            {
+              "text": " Polixenes,",
+              "start": 0.54,
+              "end": 1.02,
+              "probability": 0.3310139973958333
+            },
+            {
+              "text": " If",
+              "start": 1.4,
+              "end": 1.58,
+              "probability": 0.0958251953125
+            },
+            {
+              "text": " at",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.97265625
+            },
+            {
+              "text": " home,",
+              "start": 1.7,
+              "end": 1.96,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " sir,",
+              "start": 2.04,
+              "end": 2.24,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " He's",
+              "start": 2.64,
+              "end": 2.8,
+              "probability": 0.561279296875
+            },
+            {
+              "text": " all",
+              "start": 2.8,
+              "end": 2.98,
+              "probability": 0.974609375
+            },
+            {
+              "text": " my",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " exercise,",
+              "start": 3.16,
+              "end": 3.72,
+              "probability": 0.85205078125
+            },
+            {
+              "text": " my",
+              "start": 4.08,
+              "end": 4.14,
+              "probability": 0.424072265625
+            },
+            {
+              "text": " mirth,",
+              "start": 4.14,
+              "end": 4.4,
+              "probability": 0.9609375
+            },
+            {
+              "text": " my",
+              "start": 4.6,
+              "end": 4.68,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " matter,",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " Now",
+              "start": 5.54,
+              "end": 5.7,
+              "probability": 0.97265625
+            },
+            {
+              "text": " my",
+              "start": 5.7,
+              "end": 5.92,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " sworn",
+              "start": 5.92,
+              "end": 6.26,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " friend,",
+              "start": 6.26,
+              "end": 6.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 7.0,
+              "end": 7.14,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " then",
+              "start": 7.14,
+              "end": 7.28,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mine",
+              "start": 7.28,
+              "end": 7.52,
+              "probability": 0.916015625
+            },
+            {
+              "text": " enemy,",
+              "start": 7.52,
+              "end": 7.82,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " My",
+              "start": 8.38,
+              "end": 8.52,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " parasite,",
+              "start": 8.52,
+              "end": 8.96,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " my",
+              "start": 9.2,
+              "end": 9.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " soldier,",
+              "start": 9.32,
+              "end": 9.74,
+              "probability": 0.970703125
+            },
+            {
+              "text": " statesman,",
+              "start": 9.98,
+              "end": 10.5,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " all.",
+              "start": 10.6,
+              "end": 10.82,
+              "probability": 0.8720703125
+            }
+          ]
+        },
+        {
+          "text": " He makes a July's day short as December, And with his varying childness cures in me Thoughts that would thick my blood.",
+          "start": 11.54,
+          "end": 17.58,
+          "words": [
+            {
+              "text": " He",
+              "start": 11.54,
+              "end": 11.66,
+              "probability": 0.966796875
+            },
+            {
+              "text": " makes",
+              "start": 11.66,
+              "end": 11.82,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " a",
+              "start": 11.82,
+              "end": 11.98,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " July's",
+              "start": 11.98,
+              "end": 12.48,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " day",
+              "start": 12.48,
+              "end": 12.62,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " short",
+              "start": 12.62,
+              "end": 12.9,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " as",
+              "start": 12.9,
+              "end": 13.14,
+              "probability": 0.974609375
+            },
+            {
+              "text": " December,",
+              "start": 13.14,
+              "end": 13.52,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " And",
+              "start": 14.06,
+              "end": 14.24,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " with",
+              "start": 14.24,
+              "end": 14.36,
+              "probability": 0.92578125
+            },
+            {
+              "text": " his",
+              "start": 14.36,
+              "end": 14.5,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " varying",
+              "start": 14.5,
+              "end": 14.88,
+              "probability": 0.99609375
+            },
+            {
+              "text": " childness",
+              "start": 14.88,
+              "end": 15.5,
+              "probability": 0.699951171875
+            },
+            {
+              "text": " cures",
+              "start": 15.5,
+              "end": 15.78,
+              "probability": 0.9765625
+            },
+            {
+              "text": " in",
+              "start": 15.78,
+              "end": 16.02,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " me",
+              "start": 16.02,
+              "end": 16.2,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Thoughts",
+              "start": 16.2,
+              "end": 16.42,
+              "probability": 0.072998046875
+            },
+            {
+              "text": " that",
+              "start": 16.42,
+              "end": 16.72,
+              "probability": 0.990234375
+            },
+            {
+              "text": " would",
+              "start": 16.72,
+              "end": 16.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " thick",
+              "start": 16.82,
+              "end": 17.06,
+              "probability": 0.45849609375
+            },
+            {
+              "text": " my",
+              "start": 17.06,
+              "end": 17.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " blood.",
+              "start": 17.3,
+              "end": 17.58,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.54,
+          "end": 1.02
+        },
+        {
+          "raw": "If",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "raw": "at",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "home,",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "raw": "sir,",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "raw": "He's",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "raw": "all",
+          "start": 2.8,
+          "end": 2.98
+        },
+        {
+          "raw": "my",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "exercise,",
+          "start": 3.16,
+          "end": 3.72
+        },
+        {
+          "raw": "my",
+          "start": 4.08,
+          "end": 4.14
+        },
+        {
+          "raw": "mirth,",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "raw": "my",
+          "start": 4.6,
+          "end": 4.68
+        },
+        {
+          "raw": "matter,",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "Now",
+          "start": 5.54,
+          "end": 5.7
+        },
+        {
+          "raw": "my",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "raw": "sworn",
+          "start": 5.92,
+          "end": 6.26
+        },
+        {
+          "raw": "friend,",
+          "start": 6.26,
+          "end": 6.66
+        },
+        {
+          "raw": "and",
+          "start": 7.0,
+          "end": 7.14
+        },
+        {
+          "raw": "then",
+          "start": 7.14,
+          "end": 7.28
+        },
+        {
+          "raw": "mine",
+          "start": 7.28,
+          "end": 7.52
+        },
+        {
+          "raw": "enemy,",
+          "start": 7.52,
+          "end": 7.82
+        },
+        {
+          "raw": "My",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "raw": "parasite,",
+          "start": 8.52,
+          "end": 8.96
+        },
+        {
+          "raw": "my",
+          "start": 9.2,
+          "end": 9.32
+        },
+        {
+          "raw": "soldier,",
+          "start": 9.32,
+          "end": 9.74
+        },
+        {
+          "raw": "statesman,",
+          "start": 9.98,
+          "end": 10.5
+        },
+        {
+          "raw": "all.",
+          "start": 10.6,
+          "end": 10.82
+        },
+        {
+          "raw": "He",
+          "start": 11.54,
+          "end": 11.66
+        },
+        {
+          "raw": "makes",
+          "start": 11.66,
+          "end": 11.82
+        },
+        {
+          "raw": "a",
+          "start": 11.82,
+          "end": 11.98
+        },
+        {
+          "raw": "July's",
+          "start": 11.98,
+          "end": 12.48
+        },
+        {
+          "raw": "day",
+          "start": 12.48,
+          "end": 12.62
+        },
+        {
+          "raw": "short",
+          "start": 12.62,
+          "end": 12.9
+        },
+        {
+          "raw": "as",
+          "start": 12.9,
+          "end": 13.14
+        },
+        {
+          "raw": "December,",
+          "start": 13.14,
+          "end": 13.52
+        },
+        {
+          "raw": "And",
+          "start": 14.06,
+          "end": 14.24
+        },
+        {
+          "raw": "with",
+          "start": 14.24,
+          "end": 14.36
+        },
+        {
+          "raw": "his",
+          "start": 14.36,
+          "end": 14.5
+        },
+        {
+          "raw": "varying",
+          "start": 14.5,
+          "end": 14.88
+        },
+        {
+          "raw": "childness",
+          "start": 14.88,
+          "end": 15.5
+        },
+        {
+          "raw": "cures",
+          "start": 15.5,
+          "end": 15.78
+        },
+        {
+          "raw": "in",
+          "start": 15.78,
+          "end": 16.02
+        },
+        {
+          "raw": "me",
+          "start": 16.02,
+          "end": 16.2
+        },
+        {
+          "raw": "Thoughts",
+          "start": 16.2,
+          "end": 16.42
+        },
+        {
+          "raw": "that",
+          "start": 16.42,
+          "end": 16.72
+        },
+        {
+          "raw": "would",
+          "start": 16.72,
+          "end": 16.82
+        },
+        {
+          "raw": "thick",
+          "start": 16.82,
+          "end": 17.06
+        },
+        {
+          "raw": "my",
+          "start": 17.06,
+          "end": 17.3
+        },
+        {
+          "raw": "blood.",
+          "start": 17.3,
+          "end": 17.58
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "If",
+        "at",
+        "home,",
+        "sir,",
+        "He's",
+        "all",
+        "my",
+        "exercise,",
+        "my",
+        "mirth,",
+        "my",
+        "matter:",
+        "Now",
+        "my",
+        "sworn",
+        "friend,",
+        "and",
+        "then",
+        "mine",
+        "enemy;",
+        "My",
+        "parasite,",
+        "my",
+        "soldier,",
+        "statesman,",
+        "all.",
+        "He",
+        "makes",
+        "a",
+        "July's",
+        "day",
+        "short",
+        "as",
+        "December;",
+        "And",
+        "with",
+        "his",
+        "varying",
+        "childness",
+        "cures",
+        "in",
+        "me",
+        "Thoughts",
+        "that",
+        "would",
+        "thick",
+        "my",
+        "blood."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          49,
+          0,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polixenes,",
+          "start": 0.54,
+          "end": 1.02,
+          "key": "polixenes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.4,
+          "end": 1.58,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.58,
+          "end": 1.7,
+          "key": "at",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "home,",
+          "start": 1.7,
+          "end": 1.96,
+          "key": "home",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.04,
+          "end": 2.24,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 2.64,
+          "end": 2.8,
+          "key": "hes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.8,
+          "end": 2.98,
+          "key": "all",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.98,
+          "end": 3.16,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "exercise,",
+          "start": 3.16,
+          "end": 3.72,
+          "key": "exercise",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.08,
+          "end": 4.14,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "mirth,",
+          "start": 4.14,
+          "end": 4.4,
+          "key": "mirth",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.6,
+          "end": 4.68,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "matter,",
+          "start": 4.68,
+          "end": 4.96,
+          "key": "matter",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 5.54,
+          "end": 5.7,
+          "key": "now",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.7,
+          "end": 5.92,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sworn",
+          "start": 5.92,
+          "end": 6.26,
+          "key": "sworn",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "friend,",
+          "start": 6.26,
+          "end": 6.66,
+          "key": "friend",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.0,
+          "end": 7.14,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 7.14,
+          "end": 7.28,
+          "key": "then",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "mine",
+          "start": 7.28,
+          "end": 7.52,
+          "key": "mine",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "enemy,",
+          "start": 7.52,
+          "end": 7.82,
+          "key": "enemy",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 8.38,
+          "end": 8.52,
+          "key": "my",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "parasite,",
+          "start": 8.52,
+          "end": 8.96,
+          "key": "parasite",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 9.2,
+          "end": 9.32,
+          "key": "my",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 9.32,
+          "end": 9.74,
+          "key": "soldier",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "statesman,",
+          "start": 9.98,
+          "end": 10.5,
+          "key": "statesman",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 10.6,
+          "end": 10.82,
+          "key": "all",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 11.54,
+          "end": 11.66,
+          "key": "he",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 11.66,
+          "end": 11.82,
+          "key": "makes",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 11.82,
+          "end": 11.98,
+          "key": "a",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "July's",
+          "start": 11.98,
+          "end": 12.48,
+          "key": "julys",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 12.48,
+          "end": 12.62,
+          "key": "day",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "short",
+          "start": 12.62,
+          "end": 12.9,
+          "key": "short",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 12.9,
+          "end": 13.14,
+          "key": "as",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "December,",
+          "start": 13.14,
+          "end": 13.52,
+          "key": "december",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 14.06,
+          "end": 14.24,
+          "key": "and",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 14.24,
+          "end": 14.36,
+          "key": "with",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 14.36,
+          "end": 14.5,
+          "key": "his",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "varying",
+          "start": 14.5,
+          "end": 14.88,
+          "key": "varying",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "childness",
+          "start": 14.88,
+          "end": 15.5,
+          "key": "childness",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "cures",
+          "start": 15.5,
+          "end": 15.78,
+          "key": "cures",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.78,
+          "end": 16.02,
+          "key": "in",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 16.02,
+          "end": 16.2,
+          "key": "me",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "Thoughts",
+          "start": 16.2,
+          "end": 16.42,
+          "key": "thoughts",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 16.42,
+          "end": 16.72,
+          "key": "that",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 16.72,
+          "end": 16.82,
+          "key": "would",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "thick",
+          "start": 16.82,
+          "end": 17.06,
+          "key": "thick",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 17.06,
+          "end": 17.3,
+          "key": "my",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "blood.",
+          "start": 17.3,
+          "end": 17.58,
+          "key": "blood",
+          "pieces": [
+            48
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.54,
+          "end": 1.02
+        },
+        {
+          "text": "If",
+          "start": 1.4,
+          "end": 1.58
+        },
+        {
+          "text": "at",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "home,",
+          "start": 1.7,
+          "end": 1.96
+        },
+        {
+          "text": "sir,",
+          "start": 2.04,
+          "end": 2.24
+        },
+        {
+          "text": "He's",
+          "start": 2.64,
+          "end": 2.8
+        },
+        {
+          "text": "all",
+          "start": 2.8,
+          "end": 2.98
+        },
+        {
+          "text": "my",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "exercise,",
+          "start": 3.16,
+          "end": 3.72
+        },
+        {
+          "text": "my",
+          "start": 4.08,
+          "end": 4.14
+        },
+        {
+          "text": "mirth,",
+          "start": 4.14,
+          "end": 4.4
+        },
+        {
+          "text": "my",
+          "start": 4.6,
+          "end": 4.68
+        },
+        {
+          "text": "matter:",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "text": "Now",
+          "start": 5.54,
+          "end": 5.7
+        },
+        {
+          "text": "my",
+          "start": 5.7,
+          "end": 5.92
+        },
+        {
+          "text": "sworn",
+          "start": 5.92,
+          "end": 6.26
+        },
+        {
+          "text": "friend,",
+          "start": 6.26,
+          "end": 6.66
+        },
+        {
+          "text": "and",
+          "start": 7.0,
+          "end": 7.14
+        },
+        {
+          "text": "then",
+          "start": 7.14,
+          "end": 7.28
+        },
+        {
+          "text": "mine",
+          "start": 7.28,
+          "end": 7.52
+        },
+        {
+          "text": "enemy;",
+          "start": 7.52,
+          "end": 7.82
+        },
+        {
+          "text": "My",
+          "start": 8.38,
+          "end": 8.52
+        },
+        {
+          "text": "parasite,",
+          "start": 8.52,
+          "end": 8.96
+        },
+        {
+          "text": "my",
+          "start": 9.2,
+          "end": 9.32
+        },
+        {
+          "text": "soldier,",
+          "start": 9.32,
+          "end": 9.74
+        },
+        {
+          "text": "statesman,",
+          "start": 9.98,
+          "end": 10.5
+        },
+        {
+          "text": "all.",
+          "start": 10.6,
+          "end": 10.82
+        },
+        {
+          "text": "He",
+          "start": 11.54,
+          "end": 11.66
+        },
+        {
+          "text": "makes",
+          "start": 11.66,
+          "end": 11.82
+        },
+        {
+          "text": "a",
+          "start": 11.82,
+          "end": 11.98
+        },
+        {
+          "text": "July's",
+          "start": 11.98,
+          "end": 12.48
+        },
+        {
+          "text": "day",
+          "start": 12.48,
+          "end": 12.62
+        },
+        {
+          "text": "short",
+          "start": 12.62,
+          "end": 12.9
+        },
+        {
+          "text": "as",
+          "start": 12.9,
+          "end": 13.14
+        },
+        {
+          "text": "December;",
+          "start": 13.14,
+          "end": 13.52
+        },
+        {
+          "text": "And",
+          "start": 14.06,
+          "end": 14.24
+        },
+        {
+          "text": "with",
+          "start": 14.24,
+          "end": 14.36
+        },
+        {
+          "text": "his",
+          "start": 14.36,
+          "end": 14.5
+        },
+        {
+          "text": "varying",
+          "start": 14.5,
+          "end": 14.88
+        },
+        {
+          "text": "childness",
+          "start": 14.88,
+          "end": 15.5
+        },
+        {
+          "text": "cures",
+          "start": 15.5,
+          "end": 15.78
+        },
+        {
+          "text": "in",
+          "start": 15.78,
+          "end": 16.02
+        },
+        {
+          "text": "me",
+          "start": 16.02,
+          "end": 16.2
+        },
+        {
+          "text": "Thoughts",
+          "start": 16.2,
+          "end": 16.42
+        },
+        {
+          "text": "that",
+          "start": 16.42,
+          "end": 16.72
+        },
+        {
+          "text": "would",
+          "start": 16.72,
+          "end": 16.82
+        },
+        {
+          "text": "thick",
+          "start": 16.82,
+          "end": 17.06
+        },
+        {
+          "text": "my",
+          "start": 17.06,
+          "end": 17.3
+        },
+        {
+          "text": "blood.",
+          "start": 17.3,
+          "end": 17.58
+        }
+      ],
+      "stats": {
+        "expected_words": 49,
+        "heard_words": 49,
+        "matched_words": 49
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.478045167401433
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2e45d939f7f4dde7736e5fa0ebe295dd3d18c867f84c0b7460170fa42194fc75",
+  "selected_reasons": []
+}

@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "676cfb1416e2f1047353906cec3037ee4d2d61d815b54db6efce9eaa2822b956",
+  "attempts": [
+    {
+      "asr_seconds": 0.12668138928711414,
+      "alignment_seconds": 0.0003075692802667618,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exit Servant._]",
+        "hotwords": "Servant._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exit Servant._",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " Servant._",
+              "start": 0.65,
+              "end": 1.75,
+              "probability": 0.3809814651807149
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Servant._",
+          "start": 0.65,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Servant._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servant._",
+          "start": 0.65,
+          "end": 1.75,
+          "key": "servant_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Servant._]",
+          "start": 0.65,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12708414532244205
+    },
+    {
+      "asr_seconds": 0.12514792010188103,
+      "alignment_seconds": 0.0003643576055765152,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Servant._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exit Servant._",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " Servant._",
+              "start": 0.65,
+              "end": 1.75,
+              "probability": 0.3809814651807149
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "Servant._",
+          "start": 0.65,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Servant._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servant._",
+          "start": 0.65,
+          "end": 1.75,
+          "key": "servant_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Servant._]",
+          "start": 0.65,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12560500763356686
+    },
+    {
+      "asr_seconds": 0.14435593597590923,
+      "alignment_seconds": 0.00039623863995075226,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit servant.",
+          "start": 0.05,
+          "end": 1.03,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " servant.",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.81005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "servant.",
+          "start": 0.65,
+          "end": 1.03
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Servant._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "servant.",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "servant",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "Servant._]",
+          "start": 0.65,
+          "end": 1.03
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14484797231853008
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "53a88b55b7339f706e2ddf31190005a39a89b7871a11994b2972fcb5d0d1899c",
+  "selected_reasons": []
+}

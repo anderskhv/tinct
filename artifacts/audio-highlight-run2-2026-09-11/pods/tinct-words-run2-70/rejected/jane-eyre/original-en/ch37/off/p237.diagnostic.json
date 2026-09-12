@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "c8c3022ec73d8cde2f8b472810861146335ec905f05a7c6b144b2abf2694ff19",
+  "attempts": [
+    {
+      "asr_seconds": 0.28732680599205196,
+      "alignment_seconds": 0.0005822591483592987,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The case being so, we have nothing in the world to wait for.",
+          "start": 0.05,
+          "end": 3.47,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " case",
+              "start": 0.51,
+              "end": 0.75,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " being",
+              "start": 0.75,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so,",
+              "start": 1.03,
+              "end": 1.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " we",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " have",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " nothing",
+              "start": 2.01,
+              "end": 2.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.31,
+              "end": 2.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.49,
+              "end": 2.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " world",
+              "start": 2.57,
+              "end": 2.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.75,
+              "end": 2.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wait",
+              "start": 2.99,
+              "end": 3.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for.",
+              "start": 3.17,
+              "end": 3.47,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " We must be married instantly.",
+          "start": 3.95,
+          "end": 5.35,
+          "words": [
+            {
+              "text": " We",
+              "start": 3.95,
+              "end": 4.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " must",
+              "start": 4.05,
+              "end": 4.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 4.23,
+              "end": 4.47,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " married",
+              "start": 4.47,
+              "end": 4.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " instantly.",
+              "start": 4.83,
+              "end": 5.35,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "case",
+          "start": 0.51,
+          "end": 0.75
+        },
+        {
+          "raw": "being",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "raw": "so,",
+          "start": 1.03,
+          "end": 1.37
+        },
+        {
+          "raw": "we",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "have",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "nothing",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "raw": "in",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "raw": "the",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "raw": "world",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "raw": "to",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "raw": "wait",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "raw": "for.",
+          "start": 3.17,
+          "end": 3.47
+        },
+        {
+          "raw": "We",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "raw": "must",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "raw": "be",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "raw": "married",
+          "start": 4.47,
+          "end": 4.83
+        },
+        {
+          "raw": "instantly.",
+          "start": 4.83,
+          "end": 5.35
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "case",
+        "being",
+        "so,",
+        "we",
+        "have",
+        "nothing",
+        "in",
+        "the",
+        "world",
+        "to",
+        "wait",
+        "for:",
+        "we",
+        "must",
+        "be",
+        "married",
+        "instantly.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 0.51,
+          "end": 0.75,
+          "key": "case",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "being",
+          "start": 0.75,
+          "end": 1.03,
+          "key": "being",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.03,
+          "end": 1.37,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "we",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.87,
+          "end": 2.01,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 2.01,
+          "end": 2.31,
+          "key": "nothing",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.31,
+          "end": 2.49,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.49,
+          "end": 2.57,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "world",
+          "start": 2.57,
+          "end": 2.75,
+          "key": "world",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.75,
+          "end": 2.99,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 2.99,
+          "end": 3.17,
+          "key": "wait",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for.",
+          "start": 3.17,
+          "end": 3.47,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 3.95,
+          "end": 4.05,
+          "key": "we",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 4.05,
+          "end": 4.23,
+          "key": "must",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.23,
+          "end": 4.47,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "married",
+          "start": 4.47,
+          "end": 4.83,
+          "key": "married",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "instantly.",
+          "start": 4.83,
+          "end": 5.35,
+          "key": "instantly",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "case",
+          "start": 0.51,
+          "end": 0.75
+        },
+        {
+          "text": "being",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "text": "so,",
+          "start": 1.03,
+          "end": 1.37
+        },
+        {
+          "text": "we",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "have",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "nothing",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "text": "in",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "text": "the",
+          "start": 2.49,
+          "end": 2.57
+        },
+        {
+          "text": "world",
+          "start": 2.57,
+          "end": 2.75
+        },
+        {
+          "text": "to",
+          "start": 2.75,
+          "end": 2.99
+        },
+        {
+          "text": "wait",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "text": "for:",
+          "start": 3.17,
+          "end": 3.47
+        },
+        {
+          "text": "we",
+          "start": 3.95,
+          "end": 4.05
+        },
+        {
+          "text": "must",
+          "start": 4.05,
+          "end": 4.23
+        },
+        {
+          "text": "be",
+          "start": 4.23,
+          "end": 4.47
+        },
+        {
+          "text": "married",
+          "start": 4.47,
+          "end": 4.83
+        },
+        {
+          "text": "instantly.\"",
+          "start": 4.83,
+          "end": 5.35
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2881564998533577
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6c2bc1cde22f8285b99e24970a1d906e558edeb15b2c8dc985ca6b5d378b958a",
+  "selected_reasons": []
+}

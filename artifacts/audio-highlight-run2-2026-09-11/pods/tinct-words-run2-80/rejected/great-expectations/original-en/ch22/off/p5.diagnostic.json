@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "c5b045ba1033f73b2836f63361c981b7ed4b477db33863ed0ced3ddc1d175a29",
+  "attempts": [
+    {
+      "asr_seconds": 0.09617901220917702,
+      "alignment_seconds": 0.00021418370306491852,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Indeed.",
+          "start": 0.02,
+          "end": 0.76,
+          "words": [
+            {
+              "text": " Indeed.",
+              "start": 0.02,
+              "end": 0.76,
+              "probability": 0.8125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Indeed.",
+          "start": 0.02,
+          "end": 0.76
+        }
+      ],
+      "expected_tokens": [
+        "\"Indeed?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Indeed.",
+          "start": 0.02,
+          "end": 0.76,
+          "key": "indeed",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Indeed?\"",
+          "start": 0.02,
+          "end": 0.76
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09647376649081707
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "513e5aa7fde1986e62888d2dc4bce57b530a46b272b70a421a4050fb4e37e8d4",
+  "selected_reasons": []
+}

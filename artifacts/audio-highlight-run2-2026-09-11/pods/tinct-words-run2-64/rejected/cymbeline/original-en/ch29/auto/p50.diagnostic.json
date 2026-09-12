@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "653f39ed3268b025739a1967143e86c5765080b858cfe4d8fd167169dd0b8328",
+  "attempts": [
+    {
+      "asr_seconds": 0.12168228905647993,
+      "alignment_seconds": 0.0003273012116551399,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Posthumus.",
+        "hotwords": "Posthumus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Posthumus.",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " Posthumus.",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.5411783854166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Posthumus.",
+          "start": 0.05,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "Posthumus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Posthumus.",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "posthumus",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Posthumus.",
+          "start": 0.05,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12210331484675407
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2ea54a9818c0d6e868073671601ef97b786ddeb79a5f6c1053ee075c5b36a92e",
+  "selected_reasons": []
+}

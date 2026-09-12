@@ -1,0 +1,1071 @@
+{
+  "complete": true,
+  "signature": "7098f90e7bcdda59b7cf7e07b2350b96ff501e250faa6dd8cf96b04bce811788",
+  "attempts": [
+    {
+      "asr_seconds": 0.22757794708013535,
+      "alignment_seconds": 0.0001219138503074646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leontes. Go play, Mamillius; thou'rt an honest man.",
+        "hotwords": "Leontes, Go, Mamillius"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leontes, Go play, Mamillius, thou'rt an honest man.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Leontes,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.14790852864583334
+            },
+            {
+              "text": " Go",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.07403564453125
+            },
+            {
+              "text": " play,",
+              "start": 1.35,
+              "end": 1.59,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " Mamillius,",
+              "start": 1.63,
+              "end": 2.13,
+              "probability": 0.3568878173828125
+            },
+            {
+              "text": " thou",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.37451171875
+            },
+            {
+              "text": "'rt",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.06757354736328125
+            },
+            {
+              "text": " an",
+              "start": 2.61,
+              "end": 2.75,
+              "probability": 0.97265625
+            },
+            {
+              "text": " honest",
+              "start": 2.75,
+              "end": 3.01,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " man.",
+              "start": 3.01,
+              "end": 3.41,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leontes,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "Go",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "play,",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "raw": "Mamillius,",
+          "start": 1.63,
+          "end": 2.13
+        },
+        {
+          "raw": "thou",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "'rt",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "an",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "raw": "honest",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "raw": "man.",
+          "start": 3.01,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Go",
+        "play,",
+        "Mamillius;",
+        "thou'rt",
+        "an",
+        "honest",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leontes,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "leontes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "play,",
+          "start": 1.35,
+          "end": 1.59,
+          "key": "play",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mamillius,",
+          "start": 1.63,
+          "end": 2.13,
+          "key": "mamillius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "'rt",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "rt",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.61,
+          "end": 2.75,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "honest",
+          "start": 2.75,
+          "end": 3.01,
+          "key": "honest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 3.01,
+          "end": 3.41,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "Go",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "play,",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "Mamillius;",
+          "start": 1.63,
+          "end": 2.13
+        },
+        {
+          "text": "thou'rt",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "an",
+          "start": 2.61,
+          "end": 2.75
+        },
+        {
+          "text": "honest",
+          "start": 2.75,
+          "end": 3.01
+        },
+        {
+          "text": "man.",
+          "start": 3.01,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2277401015162468
+    },
+    {
+      "asr_seconds": 0.22017963975667953,
+      "alignment_seconds": 0.0002388209104537964,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Leontes, Go, Mamillius"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Go play, Mamillius, Thou art an honest man.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.0012645721435546875
+            },
+            {
+              "text": " play,",
+              "start": 0.67,
+              "end": 1.57,
+              "probability": 0.947265625
+            },
+            {
+              "text": " Mamillius,",
+              "start": 1.67,
+              "end": 2.13,
+              "probability": 0.3775736490885417
+            },
+            {
+              "text": " Thou",
+              "start": 2.49,
+              "end": 2.49,
+              "probability": 0.03204345703125
+            },
+            {
+              "text": " art",
+              "start": 2.49,
+              "end": 2.63,
+              "probability": 0.254150390625
+            },
+            {
+              "text": " an",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.966796875
+            },
+            {
+              "text": " honest",
+              "start": 2.79,
+              "end": 3.01,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " man.",
+              "start": 3.01,
+              "end": 3.39,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "play,",
+          "start": 0.67,
+          "end": 1.57
+        },
+        {
+          "raw": "Mamillius,",
+          "start": 1.67,
+          "end": 2.13
+        },
+        {
+          "raw": "Thou",
+          "start": 2.49,
+          "end": 2.49
+        },
+        {
+          "raw": "art",
+          "start": 2.49,
+          "end": 2.63
+        },
+        {
+          "raw": "an",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "honest",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "raw": "man.",
+          "start": 3.01,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Go",
+        "play,",
+        "Mamillius;",
+        "thou'rt",
+        "an",
+        "honest",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          4,
+          0,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          8,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "replace",
+          4,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "play,",
+          "start": 0.67,
+          "end": 1.57,
+          "key": "play",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Mamillius,",
+          "start": 1.67,
+          "end": 2.13,
+          "key": "mamillius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 2.49,
+          "end": 2.49,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.49,
+          "end": 2.63,
+          "key": "art",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "an",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "honest",
+          "start": 2.79,
+          "end": 3.01,
+          "key": "honest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 3.01,
+          "end": 3.39,
+          "key": "man",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Go",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "play,",
+          "start": 0.67,
+          "end": 1.57
+        },
+        {
+          "text": "Mamillius;",
+          "start": 1.67,
+          "end": 2.13
+        },
+        {
+          "text": "thou'rt",
+          "start": 2.13,
+          "end": 2.38
+        },
+        {
+          "text": "an",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "honest",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "text": "man.",
+          "start": 3.01,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22049623727798462
+    },
+    {
+      "asr_seconds": 0.22254463657736778,
+      "alignment_seconds": 0.00024428777396678925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leance, go play Mamilius, thou art an honest man.",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " Leance,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.41082763671875
+            },
+            {
+              "text": " go",
+              "start": 1.09,
+              "end": 1.33,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " play",
+              "start": 1.33,
+              "end": 1.59,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Mamilius,",
+              "start": 1.59,
+              "end": 2.15,
+              "probability": 0.5893147786458334
+            },
+            {
+              "text": " thou",
+              "start": 2.49,
+              "end": 2.51,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " art",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.321044921875
+            },
+            {
+              "text": " an",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " honest",
+              "start": 2.79,
+              "end": 3.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man.",
+              "start": 3.01,
+              "end": 3.41,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leance,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "go",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "raw": "play",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "raw": "Mamilius,",
+          "start": 1.59,
+          "end": 2.15
+        },
+        {
+          "raw": "thou",
+          "start": 2.49,
+          "end": 2.51
+        },
+        {
+          "raw": "art",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "an",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "honest",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "raw": "man.",
+          "start": 3.01,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "Leontes.",
+        "Go",
+        "play,",
+        "Mamillius;",
+        "thou'rt",
+        "an",
+        "honest",
+        "man."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          6
+        ],
+        [
+          "equal",
+          5,
+          8,
+          6,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leance,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "leance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.09,
+          "end": 1.33,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "play",
+          "start": 1.33,
+          "end": 1.59,
+          "key": "play",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mamilius,",
+          "start": 1.59,
+          "end": 2.15,
+          "key": "mamilius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.49,
+          "end": 2.51,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "art",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "art",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "honest",
+          "start": 2.79,
+          "end": 3.01,
+          "key": "honest",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 3.01,
+          "end": 3.41,
+          "key": "man",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leontes.",
+          "start": 0.0,
+          "end": 0.545
+        },
+        {
+          "text": "Go",
+          "start": 1.09,
+          "end": 1.33
+        },
+        {
+          "text": "play,",
+          "start": 1.33,
+          "end": 1.59
+        },
+        {
+          "text": "Mamillius;",
+          "start": 1.59,
+          "end": 2.11
+        },
+        {
+          "text": "thou'rt",
+          "start": 2.11,
+          "end": 2.37
+        },
+        {
+          "text": "an",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "honest",
+          "start": 2.79,
+          "end": 3.01
+        },
+        {
+          "text": "man.",
+          "start": 3.01,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 9,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22287286259233952
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8e828cbdc1aa01c66dca862ef55c41417d543d9f66b3fa99cc5c522ad1e6057f",
+  "selected_reasons": []
+}

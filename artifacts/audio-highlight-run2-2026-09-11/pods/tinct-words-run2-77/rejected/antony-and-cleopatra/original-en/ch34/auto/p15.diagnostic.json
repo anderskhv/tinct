@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "acd51939c8f9154092039bec1c1c65f528f25b1173b91ece97db4adde7ee3dfe",
+  "attempts": [
+    {
+      "asr_seconds": 0.11091276601655409,
+      "alignment_seconds": 0.0001547450083307922,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Watch. Go we to him.",
+        "hotwords": "First, Watch, Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First, Watch, Go we to him.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " First,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " Watch,",
+              "start": 0.84,
+              "end": 1.04,
+              "probability": 0.014312744140625
+            },
+            {
+              "text": " Go",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.541015625
+            },
+            {
+              "text": " we",
+              "start": 1.54,
+              "end": 1.68,
+              "probability": 0.05523681640625
+            },
+            {
+              "text": " to",
+              "start": 1.68,
+              "end": 1.8,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " him.",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.8642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Watch,",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "raw": "Go",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "we",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "raw": "to",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "raw": "him.",
+          "start": 1.8,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Watch.",
+        "Go",
+        "we",
+        "to",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "First,",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "first",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Watch,",
+          "start": 0.84,
+          "end": 1.04,
+          "key": "watch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.54,
+          "end": 1.68,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.68,
+          "end": 1.8,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "him",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Watch.",
+          "start": 0.84,
+          "end": 1.04
+        },
+        {
+          "text": "Go",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "we",
+          "start": 1.54,
+          "end": 1.68
+        },
+        {
+          "text": "to",
+          "start": 1.68,
+          "end": 1.8
+        },
+        {
+          "text": "him.",
+          "start": 1.8,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11112382300780155
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1eda7f84dfbdbce130b0dc20f57d4b2f1f0318a9fea9de52331fca0a5ea4d3b7",
+  "selected_reasons": []
+}

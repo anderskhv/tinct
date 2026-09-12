@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "33a7a3a33e95d58ed3981516892a768740fff4b0a6e628d42f5278b63c3b4b61",
+  "attempts": [
+    {
+      "asr_seconds": 0.20191467553377151,
+      "alignment_seconds": 0.0005307979881763458,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Night, he says, my lord, your daughter is not well.",
+          "start": 0.02,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " Night,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.47119140625
+            },
+            {
+              "text": " he",
+              "start": 1.16,
+              "end": 1.22,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " says,",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 1.54,
+              "end": 1.62,
+              "probability": 0.68359375
+            },
+            {
+              "text": " lord,",
+              "start": 1.62,
+              "end": 1.86,
+              "probability": 0.65625
+            },
+            {
+              "text": " your",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " daughter",
+              "start": 2.16,
+              "end": 2.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 2.42,
+              "end": 2.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 2.62,
+              "end": 2.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " well.",
+              "start": 2.82,
+              "end": 3.1,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Night,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "he",
+          "start": 1.16,
+          "end": 1.22
+        },
+        {
+          "raw": "says,",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "my",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "raw": "lord,",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "raw": "your",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "daughter",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "raw": "is",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "raw": "not",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "raw": "well.",
+          "start": 2.82,
+          "end": 3.1
+        }
+      ],
+      "expected_tokens": [
+        "Knight.",
+        "He",
+        "says,",
+        "my",
+        "lord,",
+        "your",
+        "daughter",
+        "is",
+        "not",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Night,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "night",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.16,
+          "end": 1.22,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says,",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.54,
+          "end": 1.62,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.62,
+          "end": 1.86,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.06,
+          "end": 2.16,
+          "key": "your",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 2.16,
+          "end": 2.42,
+          "key": "daughter",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.42,
+          "end": 2.62,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.62,
+          "end": 2.82,
+          "key": "not",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 2.82,
+          "end": 3.1,
+          "key": "well",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Knight.",
+          "start": 0.0,
+          "end": 0.58
+        },
+        {
+          "text": "He",
+          "start": 1.16,
+          "end": 1.22
+        },
+        {
+          "text": "says,",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "my",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "text": "lord,",
+          "start": 1.62,
+          "end": 1.86
+        },
+        {
+          "text": "your",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "daughter",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "text": "is",
+          "start": 2.42,
+          "end": 2.62
+        },
+        {
+          "text": "not",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "text": "well.",
+          "start": 2.82,
+          "end": 3.1
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.20264354720711708
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e1b7e4fdbbfee6ca6992e8cc84daa63de3e9840203541ad3dd3405eb5f629224",
+  "selected_reasons": []
+}

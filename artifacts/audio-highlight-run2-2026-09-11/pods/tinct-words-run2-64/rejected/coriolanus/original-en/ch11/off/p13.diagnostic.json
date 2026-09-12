@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "8cfb525951a95361d248f70a5f5defa7cd57e90df214f84b70708b02c097b5b1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19327280949801207,
+      "alignment_seconds": 0.0003283936530351639,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, especially in pride.",
+          "start": 0.08,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.524078369140625
+            },
+            {
+              "text": " especially",
+              "start": 1.56,
+              "end": 1.62,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " in",
+              "start": 1.62,
+              "end": 1.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pride.",
+              "start": 1.92,
+              "end": 2.22,
+              "probability": 0.6201171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "especially",
+          "start": 1.56,
+          "end": 1.62
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "raw": "pride.",
+          "start": 1.92,
+          "end": 2.22
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Especially",
+        "in",
+        "pride."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "especially",
+          "start": 1.56,
+          "end": 1.62,
+          "key": "especially",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.92,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "pride.",
+          "start": 1.92,
+          "end": 2.22,
+          "key": "pride",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.78
+        },
+        {
+          "text": "Especially",
+          "start": 1.56,
+          "end": 1.62
+        },
+        {
+          "text": "in",
+          "start": 1.62,
+          "end": 1.92
+        },
+        {
+          "text": "pride.",
+          "start": 1.92,
+          "end": 2.22
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19371164217591286
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ce516037535c84806708823ebc7701f05ca0cc5e4ff877087db672894424c45",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

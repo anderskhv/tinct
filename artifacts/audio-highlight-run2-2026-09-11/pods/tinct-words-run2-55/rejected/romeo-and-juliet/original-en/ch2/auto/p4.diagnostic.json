@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "0b3bc8b367d67fd9c9016010b61ec16bf9ffda90e0b3b2dbfad3397239d33fdf",
+  "attempts": [
+    {
+      "asr_seconds": 0.22617443464696407,
+      "alignment_seconds": 0.00019135139882564545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gregory. Ay, while you live, draw your neck out o' the collar.",
+        "hotwords": "Gregory, Ay"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gregory, Ay, while you live, draw your neck out o' the collar.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Gregory,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " Ay,",
+              "start": 1.19,
+              "end": 1.49,
+              "probability": 0.0188140869140625
+            },
+            {
+              "text": " while",
+              "start": 1.65,
+              "end": 1.71,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " you",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " live,",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " draw",
+              "start": 2.41,
+              "end": 2.43,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " your",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.93359375
+            },
+            {
+              "text": " neck",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " out",
+              "start": 2.77,
+              "end": 2.93,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " o'",
+              "start": 2.93,
+              "end": 3.09,
+              "probability": 0.1070556640625
+            },
+            {
+              "text": " the",
+              "start": 3.09,
+              "end": 3.23,
+              "probability": 0.953125
+            },
+            {
+              "text": " collar.",
+              "start": 3.23,
+              "end": 3.53,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gregory,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "raw": "while",
+          "start": 1.65,
+          "end": 1.71
+        },
+        {
+          "raw": "you",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "raw": "live,",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "draw",
+          "start": 2.41,
+          "end": 2.43
+        },
+        {
+          "raw": "your",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "neck",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "out",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "raw": "o'",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "raw": "the",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "raw": "collar.",
+          "start": 3.23,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Gregory.",
+        "Ay,",
+        "while",
+        "you",
+        "live,",
+        "draw",
+        "your",
+        "neck",
+        "out",
+        "o'",
+        "the",
+        "collar."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gregory,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "gregory",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.19,
+          "end": 1.49,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "while",
+          "start": 1.65,
+          "end": 1.71,
+          "key": "while",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "live,",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "live",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "draw",
+          "start": 2.41,
+          "end": 2.43,
+          "key": "draw",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "your",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "neck",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "neck",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.77,
+          "end": 2.93,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "o'",
+          "start": 2.93,
+          "end": 3.09,
+          "key": "o",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.09,
+          "end": 3.23,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "collar.",
+          "start": 3.23,
+          "end": 3.53,
+          "key": "collar",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gregory.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Ay,",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "text": "while",
+          "start": 1.65,
+          "end": 1.71
+        },
+        {
+          "text": "you",
+          "start": 1.71,
+          "end": 1.89
+        },
+        {
+          "text": "live,",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "draw",
+          "start": 2.41,
+          "end": 2.43
+        },
+        {
+          "text": "your",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "neck",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "out",
+          "start": 2.77,
+          "end": 2.93
+        },
+        {
+          "text": "o'",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "text": "the",
+          "start": 3.09,
+          "end": 3.23
+        },
+        {
+          "text": "collar.",
+          "start": 3.23,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22643622383475304
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "44d5a63f8747067c911e9bda9b7578f780757ec41d969aa3f05d8d6196e383cb",
+  "selected_reasons": []
+}

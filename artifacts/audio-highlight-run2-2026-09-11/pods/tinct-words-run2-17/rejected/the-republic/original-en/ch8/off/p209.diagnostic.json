@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "71d69b0e4c164d66f64b3367311703eef53e439cbc3b080eb5dd968df51a7b39",
+  "attempts": [
+    {
+      "asr_seconds": 0.12481721211224794,
+      "alignment_seconds": 0.0001603197306394577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Their will",
+          "start": 0.05,
+          "end": 0.79,
+          "words": [
+            {
+              "text": " Their",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.56298828125
+            },
+            {
+              "text": " will",
+              "start": 0.55,
+              "end": 0.79,
+              "probability": 0.818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Their",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "will",
+          "start": 0.55,
+          "end": 0.79
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Their",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "their",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.55,
+          "end": 0.79,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.0,
+          "end": 0.275
+        },
+        {
+          "text": "will.",
+          "start": 0.55,
+          "end": 0.79
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12502632476389408
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2a8604eaf6c40ca977c1e0f7e8b47f4a89bf4fcd3fe99eb2efc65514f1dd24ea",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

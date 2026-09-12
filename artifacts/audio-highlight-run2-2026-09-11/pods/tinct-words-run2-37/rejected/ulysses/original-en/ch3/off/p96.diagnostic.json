@@ -1,0 +1,490 @@
+{
+  "complete": true,
+  "signature": "b31634133b3a76fc69b3fb785722c41909edc5c8ad9cf2b9337ff39588f5ae51",
+  "attempts": [
+    {
+      "asr_seconds": 0.3599494209920522,
+      "alignment_seconds": 0.0004010419943369925,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " His hand groped vainly in his pockets.",
+          "start": 0.02,
+          "end": 2.22,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " hand",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " groped",
+              "start": 0.82,
+              "end": 1.24,
+              "probability": 0.997314453125
+            },
+            {
+              "text": " vainly",
+              "start": 1.24,
+              "end": 1.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 1.62,
+              "end": 1.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pockets.",
+              "start": 1.84,
+              "end": 2.22,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " No, I didn't.",
+          "start": 2.92,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " No,",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.2430419921875
+            },
+            {
+              "text": " I",
+              "start": 3.14,
+              "end": 3.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " didn't.",
+              "start": 3.2,
+              "end": 3.66,
+              "probability": 0.997802734375
+            }
+          ]
+        },
+        {
+          "text": " Better buy one.",
+          "start": 3.98,
+          "end": 4.64,
+          "words": [
+            {
+              "text": " Better",
+              "start": 3.98,
+              "end": 4.02,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " buy",
+              "start": 4.02,
+              "end": 4.28,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " one.",
+              "start": 4.28,
+              "end": 4.64,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "hand",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "groped",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "raw": "vainly",
+          "start": 1.24,
+          "end": 1.62
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "raw": "his",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "pockets.",
+          "start": 1.84,
+          "end": 2.22
+        },
+        {
+          "raw": "No,",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "I",
+          "start": 3.14,
+          "end": 3.2
+        },
+        {
+          "raw": "didn't.",
+          "start": 3.2,
+          "end": 3.66
+        },
+        {
+          "raw": "Better",
+          "start": 3.98,
+          "end": 4.02
+        },
+        {
+          "raw": "buy",
+          "start": 4.02,
+          "end": 4.28
+        },
+        {
+          "raw": "one.",
+          "start": 4.28,
+          "end": 4.64
+        }
+      ],
+      "expected_tokens": [
+        "His",
+        "hand",
+        "groped",
+        "vainly",
+        "in",
+        "his",
+        "pockets.",
+        "No,",
+        "I",
+        "didn't.",
+        "Better",
+        "buy",
+        "one."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "hand",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "groped",
+          "start": 0.82,
+          "end": 1.24,
+          "key": "groped",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "vainly",
+          "start": 1.24,
+          "end": 1.62,
+          "key": "vainly",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.62,
+          "end": 1.72,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pockets.",
+          "start": 1.84,
+          "end": 2.22,
+          "key": "pockets",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "no",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.14,
+          "end": 3.2,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "didn't.",
+          "start": 3.2,
+          "end": 3.66,
+          "key": "didnt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Better",
+          "start": 3.98,
+          "end": 4.02,
+          "key": "better",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "buy",
+          "start": 4.02,
+          "end": 4.28,
+          "key": "buy",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 4.28,
+          "end": 4.64,
+          "key": "one",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "His",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "hand",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "groped",
+          "start": 0.82,
+          "end": 1.24
+        },
+        {
+          "text": "vainly",
+          "start": 1.24,
+          "end": 1.62
+        },
+        {
+          "text": "in",
+          "start": 1.62,
+          "end": 1.72
+        },
+        {
+          "text": "his",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "pockets.",
+          "start": 1.84,
+          "end": 2.22
+        },
+        {
+          "text": "No,",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "I",
+          "start": 3.14,
+          "end": 3.2
+        },
+        {
+          "text": "didn't.",
+          "start": 3.2,
+          "end": 3.66
+        },
+        {
+          "text": "Better",
+          "start": 3.98,
+          "end": 4.02
+        },
+        {
+          "text": "buy",
+          "start": 4.02,
+          "end": 4.28
+        },
+        {
+          "text": "one.",
+          "start": 4.28,
+          "end": 4.64
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.360497210000176
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b2335d76acd9a7417944104bacafe637163fc9fad127d77041edef66c2b63661",
+  "selected_reasons": []
+}

@@ -1,0 +1,3036 @@
+{
+  "complete": true,
+  "signature": "96b93854e8803f8ddb40fe94bbb2e36b129691931b31e61b4d2853201b54dbd3",
+  "attempts": [
+    {
+      "asr_seconds": 0.42784268874675035,
+      "alignment_seconds": 0.0006523774936795235,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I ... I'm not crying.... Well, good evening!\" He instantly turned round in his chair, and suddenly laughed, not his abrupt wooden laugh, but a long, quivering, inaudible nervous laugh.",
+        "hotwords": "I, I'm, Well, He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I, I'm, Well, He instantly turned round in his chair, and suddenly laughed, not his abrupt wooden laugh, but a long, quivering, inaudible nervous laugh.",
+          "start": 0.08,
+          "end": 11.36,
+          "words": [
+            {
+              "text": " I,",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.05657958984375
+            },
+            {
+              "text": " I'm,",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.755126953125
+            },
+            {
+              "text": " Well,",
+              "start": 1.5,
+              "end": 2.0,
+              "probability": 7.659196853637695e-05
+            },
+            {
+              "text": " He",
+              "start": 2.54,
+              "end": 3.04,
+              "probability": 9.012222290039062e-05
+            },
+            {
+              "text": " instantly",
+              "start": 3.04,
+              "end": 4.3,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " turned",
+              "start": 4.3,
+              "end": 4.74,
+              "probability": 0.9765625
+            },
+            {
+              "text": " round",
+              "start": 4.74,
+              "end": 5.2,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " in",
+              "start": 5.2,
+              "end": 5.34,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " his",
+              "start": 5.34,
+              "end": 5.46,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " chair,",
+              "start": 5.46,
+              "end": 5.78,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " and",
+              "start": 6.2,
+              "end": 6.22,
+              "probability": 0.70166015625
+            },
+            {
+              "text": " suddenly",
+              "start": 6.22,
+              "end": 6.52,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " laughed,",
+              "start": 6.52,
+              "end": 6.98,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " not",
+              "start": 7.28,
+              "end": 7.28,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " his",
+              "start": 7.28,
+              "end": 7.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " abrupt",
+              "start": 7.46,
+              "end": 7.78,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " wooden",
+              "start": 7.78,
+              "end": 8.14,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " laugh,",
+              "start": 8.14,
+              "end": 8.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " but",
+              "start": 8.78,
+              "end": 8.78,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " a",
+              "start": 8.78,
+              "end": 8.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " long,",
+              "start": 8.94,
+              "end": 9.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " quivering,",
+              "start": 9.62,
+              "end": 9.88,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " inaudible",
+              "start": 10.18,
+              "end": 10.62,
+              "probability": 0.98046875
+            },
+            {
+              "text": " nervous",
+              "start": 10.62,
+              "end": 10.96,
+              "probability": 0.325927734375
+            },
+            {
+              "text": " laugh.",
+              "start": 10.96,
+              "end": 11.36,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I,",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "I'm,",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "Well,",
+          "start": 1.5,
+          "end": 2.0
+        },
+        {
+          "raw": "He",
+          "start": 2.54,
+          "end": 3.04
+        },
+        {
+          "raw": "instantly",
+          "start": 3.04,
+          "end": 4.3
+        },
+        {
+          "raw": "turned",
+          "start": 4.3,
+          "end": 4.74
+        },
+        {
+          "raw": "round",
+          "start": 4.74,
+          "end": 5.2
+        },
+        {
+          "raw": "in",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "raw": "his",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "raw": "chair,",
+          "start": 5.46,
+          "end": 5.78
+        },
+        {
+          "raw": "and",
+          "start": 6.2,
+          "end": 6.22
+        },
+        {
+          "raw": "suddenly",
+          "start": 6.22,
+          "end": 6.52
+        },
+        {
+          "raw": "laughed,",
+          "start": 6.52,
+          "end": 6.98
+        },
+        {
+          "raw": "not",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "raw": "his",
+          "start": 7.28,
+          "end": 7.46
+        },
+        {
+          "raw": "abrupt",
+          "start": 7.46,
+          "end": 7.78
+        },
+        {
+          "raw": "wooden",
+          "start": 7.78,
+          "end": 8.14
+        },
+        {
+          "raw": "laugh,",
+          "start": 8.14,
+          "end": 8.5
+        },
+        {
+          "raw": "but",
+          "start": 8.78,
+          "end": 8.78
+        },
+        {
+          "raw": "a",
+          "start": 8.78,
+          "end": 8.94
+        },
+        {
+          "raw": "long,",
+          "start": 8.94,
+          "end": 9.24
+        },
+        {
+          "raw": "quivering,",
+          "start": 9.62,
+          "end": 9.88
+        },
+        {
+          "raw": "inaudible",
+          "start": 10.18,
+          "end": 10.62
+        },
+        {
+          "raw": "nervous",
+          "start": 10.62,
+          "end": 10.96
+        },
+        {
+          "raw": "laugh.",
+          "start": 10.96,
+          "end": 11.36
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "...",
+        "I'm",
+        "not",
+        "crying....",
+        "Well,",
+        "good",
+        "evening!\"",
+        "He",
+        "instantly",
+        "turned",
+        "round",
+        "in",
+        "his",
+        "chair,",
+        "and",
+        "suddenly",
+        "laughed,",
+        "not",
+        "his",
+        "abrupt",
+        "wooden",
+        "laugh,",
+        "but",
+        "a",
+        "long,",
+        "quivering,",
+        "inaudible",
+        "nervous",
+        "laugh."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "delete",
+          3,
+          5,
+          2,
+          2
+        ],
+        [
+          "equal",
+          5,
+          6,
+          2,
+          3
+        ],
+        [
+          "delete",
+          6,
+          8,
+          3,
+          3
+        ],
+        [
+          "equal",
+          8,
+          30,
+          3,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "delete",
+          3,
+          5,
+          2,
+          2
+        ],
+        [
+          "delete",
+          6,
+          8,
+          3,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I,",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm,",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.5,
+          "end": 2.0,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 2.54,
+          "end": 3.04,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "instantly",
+          "start": 3.04,
+          "end": 4.3,
+          "key": "instantly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 4.3,
+          "end": 4.74,
+          "key": "turned",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 4.74,
+          "end": 5.2,
+          "key": "round",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.2,
+          "end": 5.34,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.34,
+          "end": 5.46,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "chair,",
+          "start": 5.46,
+          "end": 5.78,
+          "key": "chair",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.2,
+          "end": 6.22,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 6.22,
+          "end": 6.52,
+          "key": "suddenly",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "laughed,",
+          "start": 6.52,
+          "end": 6.98,
+          "key": "laughed",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.28,
+          "end": 7.28,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.28,
+          "end": 7.46,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "abrupt",
+          "start": 7.46,
+          "end": 7.78,
+          "key": "abrupt",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wooden",
+          "start": 7.78,
+          "end": 8.14,
+          "key": "wooden",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "laugh,",
+          "start": 8.14,
+          "end": 8.5,
+          "key": "laugh",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 8.78,
+          "end": 8.78,
+          "key": "but",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.78,
+          "end": 8.94,
+          "key": "a",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "long,",
+          "start": 8.94,
+          "end": 9.24,
+          "key": "long",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "quivering,",
+          "start": 9.62,
+          "end": 9.88,
+          "key": "quivering",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "inaudible",
+          "start": 10.18,
+          "end": 10.62,
+          "key": "inaudible",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "nervous",
+          "start": 10.62,
+          "end": 10.96,
+          "key": "nervous",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "laugh.",
+          "start": 10.96,
+          "end": 11.36,
+          "key": "laugh",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "...",
+          "start": 0.54,
+          "end": 0.59
+        },
+        {
+          "text": "I'm",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "text": "not",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "text": "crying....",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "Well,",
+          "start": 1.5,
+          "end": 2.0
+        },
+        {
+          "text": "good",
+          "start": 2.0,
+          "end": 2.27
+        },
+        {
+          "text": "evening!\"",
+          "start": 2.27,
+          "end": 2.405
+        },
+        {
+          "text": "He",
+          "start": 2.54,
+          "end": 3.04
+        },
+        {
+          "text": "instantly",
+          "start": 3.04,
+          "end": 4.3
+        },
+        {
+          "text": "turned",
+          "start": 4.3,
+          "end": 4.74
+        },
+        {
+          "text": "round",
+          "start": 4.74,
+          "end": 5.2
+        },
+        {
+          "text": "in",
+          "start": 5.2,
+          "end": 5.34
+        },
+        {
+          "text": "his",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "text": "chair,",
+          "start": 5.46,
+          "end": 5.78
+        },
+        {
+          "text": "and",
+          "start": 6.2,
+          "end": 6.22
+        },
+        {
+          "text": "suddenly",
+          "start": 6.22,
+          "end": 6.52
+        },
+        {
+          "text": "laughed,",
+          "start": 6.52,
+          "end": 6.98
+        },
+        {
+          "text": "not",
+          "start": 7.28,
+          "end": 7.28
+        },
+        {
+          "text": "his",
+          "start": 7.28,
+          "end": 7.46
+        },
+        {
+          "text": "abrupt",
+          "start": 7.46,
+          "end": 7.78
+        },
+        {
+          "text": "wooden",
+          "start": 7.78,
+          "end": 8.14
+        },
+        {
+          "text": "laugh,",
+          "start": 8.14,
+          "end": 8.5
+        },
+        {
+          "text": "but",
+          "start": 8.78,
+          "end": 8.78
+        },
+        {
+          "text": "a",
+          "start": 8.78,
+          "end": 8.94
+        },
+        {
+          "text": "long,",
+          "start": 8.94,
+          "end": 9.24
+        },
+        {
+          "text": "quivering,",
+          "start": 9.62,
+          "end": 9.88
+        },
+        {
+          "text": "inaudible",
+          "start": 10.18,
+          "end": 10.62
+        },
+        {
+          "text": "nervous",
+          "start": 10.62,
+          "end": 10.96
+        },
+        {
+          "text": "laugh.",
+          "start": 10.96,
+          "end": 11.36
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.42872907128185034
+    },
+    {
+      "asr_seconds": 0.4632181879132986,
+      "alignment_seconds": 0.0007940111681818962,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, I'm, Well, He"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ice, I'm not crying. Well, good evening. He instantly turned round in his chair and",
+          "start": 0.08,
+          "end": 6.24,
+          "words": [
+            {
+              "text": " Ice,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.227294921875
+            },
+            {
+              "text": " I'm",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " not",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " crying.",
+              "start": 1.04,
+              "end": 1.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Well,",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.96484375
+            },
+            {
+              "text": " good",
+              "start": 2.56,
+              "end": 2.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " evening.",
+              "start": 2.64,
+              "end": 3.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " He",
+              "start": 3.82,
+              "end": 3.94,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " instantly",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " turned",
+              "start": 4.34,
+              "end": 4.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " round",
+              "start": 4.74,
+              "end": 5.14,
+              "probability": 0.943359375
+            },
+            {
+              "text": " in",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 5.34,
+              "end": 5.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " chair",
+              "start": 5.46,
+              "end": 5.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 5.76,
+              "end": 6.24,
+              "probability": 0.5751953125
+            }
+          ]
+        },
+        {
+          "text": " suddenly laughed, not his abrupt wooden laugh, but a long, quivering, inaudible, nervous",
+          "start": 6.24,
+          "end": 10.92,
+          "words": [
+            {
+              "text": " suddenly",
+              "start": 6.24,
+              "end": 6.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " laughed,",
+              "start": 6.54,
+              "end": 6.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 7.26,
+              "end": 7.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " his",
+              "start": 7.3,
+              "end": 7.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " abrupt",
+              "start": 7.46,
+              "end": 7.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wooden",
+              "start": 7.76,
+              "end": 8.12,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " laugh,",
+              "start": 8.12,
+              "end": 8.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 8.76,
+              "end": 8.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 8.8,
+              "end": 8.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " long,",
+              "start": 8.94,
+              "end": 9.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " quivering,",
+              "start": 9.62,
+              "end": 9.84,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " inaudible,",
+              "start": 10.18,
+              "end": 10.6,
+              "probability": 0.9938151041666666
+            },
+            {
+              "text": " nervous",
+              "start": 10.64,
+              "end": 10.92,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " laugh.",
+          "start": 10.92,
+          "end": 11.34,
+          "words": [
+            {
+              "text": " laugh.",
+              "start": 10.92,
+              "end": 11.34,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ice,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "I'm",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "not",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "crying.",
+          "start": 1.04,
+          "end": 1.5
+        },
+        {
+          "raw": "Well,",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "good",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "raw": "evening.",
+          "start": 2.64,
+          "end": 3.04
+        },
+        {
+          "raw": "He",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "raw": "instantly",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "turned",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "raw": "round",
+          "start": 4.74,
+          "end": 5.14
+        },
+        {
+          "raw": "in",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "his",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "raw": "chair",
+          "start": 5.46,
+          "end": 5.76
+        },
+        {
+          "raw": "and",
+          "start": 5.76,
+          "end": 6.24
+        },
+        {
+          "raw": "suddenly",
+          "start": 6.24,
+          "end": 6.54
+        },
+        {
+          "raw": "laughed,",
+          "start": 6.54,
+          "end": 6.94
+        },
+        {
+          "raw": "not",
+          "start": 7.26,
+          "end": 7.3
+        },
+        {
+          "raw": "his",
+          "start": 7.3,
+          "end": 7.46
+        },
+        {
+          "raw": "abrupt",
+          "start": 7.46,
+          "end": 7.76
+        },
+        {
+          "raw": "wooden",
+          "start": 7.76,
+          "end": 8.12
+        },
+        {
+          "raw": "laugh,",
+          "start": 8.12,
+          "end": 8.5
+        },
+        {
+          "raw": "but",
+          "start": 8.76,
+          "end": 8.8
+        },
+        {
+          "raw": "a",
+          "start": 8.8,
+          "end": 8.94
+        },
+        {
+          "raw": "long,",
+          "start": 8.94,
+          "end": 9.24
+        },
+        {
+          "raw": "quivering,",
+          "start": 9.62,
+          "end": 9.84
+        },
+        {
+          "raw": "inaudible,",
+          "start": 10.18,
+          "end": 10.6
+        },
+        {
+          "raw": "nervous",
+          "start": 10.64,
+          "end": 10.92
+        },
+        {
+          "raw": "laugh.",
+          "start": 10.92,
+          "end": 11.34
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "...",
+        "I'm",
+        "not",
+        "crying....",
+        "Well,",
+        "good",
+        "evening!\"",
+        "He",
+        "instantly",
+        "turned",
+        "round",
+        "in",
+        "his",
+        "chair,",
+        "and",
+        "suddenly",
+        "laughed,",
+        "not",
+        "his",
+        "abrupt",
+        "wooden",
+        "laugh,",
+        "but",
+        "a",
+        "long,",
+        "quivering,",
+        "inaudible",
+        "nervous",
+        "laugh."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          30,
+          1,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ice,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "ice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 0.74,
+          "end": 0.88,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "crying.",
+          "start": 1.04,
+          "end": 1.5,
+          "key": "crying",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.56,
+          "end": 2.64,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "evening.",
+          "start": 2.64,
+          "end": 3.04,
+          "key": "evening",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.82,
+          "end": 3.94,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "instantly",
+          "start": 3.94,
+          "end": 4.34,
+          "key": "instantly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 4.34,
+          "end": 4.74,
+          "key": "turned",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 4.74,
+          "end": 5.14,
+          "key": "round",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.34,
+          "end": 5.46,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "chair",
+          "start": 5.46,
+          "end": 5.76,
+          "key": "chair",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.76,
+          "end": 6.24,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 6.24,
+          "end": 6.54,
+          "key": "suddenly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "laughed,",
+          "start": 6.54,
+          "end": 6.94,
+          "key": "laughed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.26,
+          "end": 7.3,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.3,
+          "end": 7.46,
+          "key": "his",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "abrupt",
+          "start": 7.46,
+          "end": 7.76,
+          "key": "abrupt",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "wooden",
+          "start": 7.76,
+          "end": 8.12,
+          "key": "wooden",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "laugh,",
+          "start": 8.12,
+          "end": 8.5,
+          "key": "laugh",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 8.76,
+          "end": 8.8,
+          "key": "but",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.8,
+          "end": 8.94,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "long,",
+          "start": 8.94,
+          "end": 9.24,
+          "key": "long",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "quivering,",
+          "start": 9.62,
+          "end": 9.84,
+          "key": "quivering",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "inaudible,",
+          "start": 10.18,
+          "end": 10.6,
+          "key": "inaudible",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "nervous",
+          "start": 10.64,
+          "end": 10.92,
+          "key": "nervous",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "laugh.",
+          "start": 10.92,
+          "end": 11.34,
+          "key": "laugh",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "...",
+          "start": 0.37,
+          "end": 0.555
+        },
+        {
+          "text": "I'm",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "not",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "crying....",
+          "start": 1.04,
+          "end": 1.5
+        },
+        {
+          "text": "Well,",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "good",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "evening!\"",
+          "start": 2.64,
+          "end": 3.04
+        },
+        {
+          "text": "He",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "text": "instantly",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "turned",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "text": "round",
+          "start": 4.74,
+          "end": 5.14
+        },
+        {
+          "text": "in",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "his",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "text": "chair,",
+          "start": 5.46,
+          "end": 5.76
+        },
+        {
+          "text": "and",
+          "start": 5.76,
+          "end": 6.24
+        },
+        {
+          "text": "suddenly",
+          "start": 6.24,
+          "end": 6.54
+        },
+        {
+          "text": "laughed,",
+          "start": 6.54,
+          "end": 6.94
+        },
+        {
+          "text": "not",
+          "start": 7.26,
+          "end": 7.3
+        },
+        {
+          "text": "his",
+          "start": 7.3,
+          "end": 7.46
+        },
+        {
+          "text": "abrupt",
+          "start": 7.46,
+          "end": 7.76
+        },
+        {
+          "text": "wooden",
+          "start": 7.76,
+          "end": 8.12
+        },
+        {
+          "text": "laugh,",
+          "start": 8.12,
+          "end": 8.5
+        },
+        {
+          "text": "but",
+          "start": 8.76,
+          "end": 8.8
+        },
+        {
+          "text": "a",
+          "start": 8.8,
+          "end": 8.94
+        },
+        {
+          "text": "long,",
+          "start": 8.94,
+          "end": 9.24
+        },
+        {
+          "text": "quivering,",
+          "start": 9.62,
+          "end": 9.84
+        },
+        {
+          "text": "inaudible",
+          "start": 10.18,
+          "end": 10.6
+        },
+        {
+          "text": "nervous",
+          "start": 10.64,
+          "end": 10.92
+        },
+        {
+          "text": "laugh.",
+          "start": 10.92,
+          "end": 11.34
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 29,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.4643215425312519
+    },
+    {
+      "asr_seconds": 0.5420774081721902,
+      "alignment_seconds": 0.0007696570828557014,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ice, I'm not crying.",
+          "start": 0.08,
+          "end": 1.5,
+          "words": [
+            {
+              "text": " Ice,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.227294921875
+            },
+            {
+              "text": " I'm",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " not",
+              "start": 0.88,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " crying.",
+              "start": 1.04,
+              "end": 1.5,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Well, good evening.\"",
+          "start": 2.16,
+          "end": 3.76,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 2.16,
+              "end": 2.34,
+              "probability": 0.96484375
+            },
+            {
+              "text": " good",
+              "start": 2.56,
+              "end": 2.64,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " evening.\"",
+              "start": 2.64,
+              "end": 3.76,
+              "probability": 0.7393798828125
+            }
+          ]
+        },
+        {
+          "text": " He instantly turned round in his chair and suddenly laughed, not his abrupt wooden laugh,",
+          "start": 3.76,
+          "end": 8.5,
+          "words": [
+            {
+              "text": " He",
+              "start": 3.76,
+              "end": 3.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " instantly",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " turned",
+              "start": 4.34,
+              "end": 4.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " round",
+              "start": 4.74,
+              "end": 5.14,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " in",
+              "start": 5.14,
+              "end": 5.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 5.34,
+              "end": 5.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " chair",
+              "start": 5.46,
+              "end": 5.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 5.76,
+              "end": 6.24,
+              "probability": 0.59521484375
+            },
+            {
+              "text": " suddenly",
+              "start": 6.24,
+              "end": 6.54,
+              "probability": 0.994140625
+            },
+            {
+              "text": " laughed,",
+              "start": 6.54,
+              "end": 6.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not",
+              "start": 7.26,
+              "end": 7.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 7.3,
+              "end": 7.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " abrupt",
+              "start": 7.46,
+              "end": 7.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wooden",
+              "start": 7.76,
+              "end": 8.12,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " laugh,",
+              "start": 8.12,
+              "end": 8.5,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " but a long, quivering, inaudible nervous laugh.",
+          "start": 8.72,
+          "end": 11.34,
+          "words": [
+            {
+              "text": " but",
+              "start": 8.72,
+              "end": 8.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 8.8,
+              "end": 8.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " long,",
+              "start": 8.94,
+              "end": 9.24,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " quivering,",
+              "start": 9.62,
+              "end": 9.84,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " inaudible",
+              "start": 10.18,
+              "end": 10.6,
+              "probability": 0.9939778645833334
+            },
+            {
+              "text": " nervous",
+              "start": 10.6,
+              "end": 10.92,
+              "probability": 0.463623046875
+            },
+            {
+              "text": " laugh.",
+              "start": 10.92,
+              "end": 11.34,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ice,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "I'm",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "not",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "raw": "crying.",
+          "start": 1.04,
+          "end": 1.5
+        },
+        {
+          "raw": "Well,",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "raw": "good",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "raw": "evening.\"",
+          "start": 2.64,
+          "end": 3.76
+        },
+        {
+          "raw": "He",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "raw": "instantly",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "turned",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "raw": "round",
+          "start": 4.74,
+          "end": 5.14
+        },
+        {
+          "raw": "in",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "raw": "his",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "raw": "chair",
+          "start": 5.46,
+          "end": 5.76
+        },
+        {
+          "raw": "and",
+          "start": 5.76,
+          "end": 6.24
+        },
+        {
+          "raw": "suddenly",
+          "start": 6.24,
+          "end": 6.54
+        },
+        {
+          "raw": "laughed,",
+          "start": 6.54,
+          "end": 6.94
+        },
+        {
+          "raw": "not",
+          "start": 7.26,
+          "end": 7.3
+        },
+        {
+          "raw": "his",
+          "start": 7.3,
+          "end": 7.46
+        },
+        {
+          "raw": "abrupt",
+          "start": 7.46,
+          "end": 7.76
+        },
+        {
+          "raw": "wooden",
+          "start": 7.76,
+          "end": 8.12
+        },
+        {
+          "raw": "laugh,",
+          "start": 8.12,
+          "end": 8.5
+        },
+        {
+          "raw": "but",
+          "start": 8.72,
+          "end": 8.8
+        },
+        {
+          "raw": "a",
+          "start": 8.8,
+          "end": 8.94
+        },
+        {
+          "raw": "long,",
+          "start": 8.94,
+          "end": 9.24
+        },
+        {
+          "raw": "quivering,",
+          "start": 9.62,
+          "end": 9.84
+        },
+        {
+          "raw": "inaudible",
+          "start": 10.18,
+          "end": 10.6
+        },
+        {
+          "raw": "nervous",
+          "start": 10.6,
+          "end": 10.92
+        },
+        {
+          "raw": "laugh.",
+          "start": 10.92,
+          "end": 11.34
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "...",
+        "I'm",
+        "not",
+        "crying....",
+        "Well,",
+        "good",
+        "evening!\"",
+        "He",
+        "instantly",
+        "turned",
+        "round",
+        "in",
+        "his",
+        "chair,",
+        "and",
+        "suddenly",
+        "laughed,",
+        "not",
+        "his",
+        "abrupt",
+        "wooden",
+        "laugh,",
+        "but",
+        "a",
+        "long,",
+        "quivering,",
+        "inaudible",
+        "nervous",
+        "laugh."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          "equal",
+          2,
+          30,
+          1,
+          29
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 28
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ice,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "ice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 0.74,
+          "end": 0.88,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.88,
+          "end": 1.04,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "crying.",
+          "start": 1.04,
+          "end": 1.5,
+          "key": "crying",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 2.16,
+          "end": 2.34,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.56,
+          "end": 2.64,
+          "key": "good",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "evening.\"",
+          "start": 2.64,
+          "end": 3.76,
+          "key": "evening",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 3.76,
+          "end": 3.94,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "instantly",
+          "start": 3.94,
+          "end": 4.34,
+          "key": "instantly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 4.34,
+          "end": 4.74,
+          "key": "turned",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "round",
+          "start": 4.74,
+          "end": 5.14,
+          "key": "round",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.14,
+          "end": 5.34,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 5.34,
+          "end": 5.46,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "chair",
+          "start": 5.46,
+          "end": 5.76,
+          "key": "chair",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.76,
+          "end": 6.24,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 6.24,
+          "end": 6.54,
+          "key": "suddenly",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "laughed,",
+          "start": 6.54,
+          "end": 6.94,
+          "key": "laughed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.26,
+          "end": 7.3,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.3,
+          "end": 7.46,
+          "key": "his",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "abrupt",
+          "start": 7.46,
+          "end": 7.76,
+          "key": "abrupt",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "wooden",
+          "start": 7.76,
+          "end": 8.12,
+          "key": "wooden",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "laugh,",
+          "start": 8.12,
+          "end": 8.5,
+          "key": "laugh",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 8.72,
+          "end": 8.8,
+          "key": "but",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 8.8,
+          "end": 8.94,
+          "key": "a",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "long,",
+          "start": 8.94,
+          "end": 9.24,
+          "key": "long",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "quivering,",
+          "start": 9.62,
+          "end": 9.84,
+          "key": "quivering",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "inaudible",
+          "start": 10.18,
+          "end": 10.6,
+          "key": "inaudible",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "nervous",
+          "start": 10.6,
+          "end": 10.92,
+          "key": "nervous",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "laugh.",
+          "start": 10.92,
+          "end": 11.34,
+          "key": "laugh",
+          "pieces": [
+            28
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.0,
+          "end": 0.37
+        },
+        {
+          "text": "...",
+          "start": 0.37,
+          "end": 0.555
+        },
+        {
+          "text": "I'm",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "not",
+          "start": 0.88,
+          "end": 1.04
+        },
+        {
+          "text": "crying....",
+          "start": 1.04,
+          "end": 1.5
+        },
+        {
+          "text": "Well,",
+          "start": 2.16,
+          "end": 2.34
+        },
+        {
+          "text": "good",
+          "start": 2.56,
+          "end": 2.64
+        },
+        {
+          "text": "evening!\"",
+          "start": 2.64,
+          "end": 3.76
+        },
+        {
+          "text": "He",
+          "start": 3.76,
+          "end": 3.94
+        },
+        {
+          "text": "instantly",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "turned",
+          "start": 4.34,
+          "end": 4.74
+        },
+        {
+          "text": "round",
+          "start": 4.74,
+          "end": 5.14
+        },
+        {
+          "text": "in",
+          "start": 5.14,
+          "end": 5.34
+        },
+        {
+          "text": "his",
+          "start": 5.34,
+          "end": 5.46
+        },
+        {
+          "text": "chair,",
+          "start": 5.46,
+          "end": 5.76
+        },
+        {
+          "text": "and",
+          "start": 5.76,
+          "end": 6.24
+        },
+        {
+          "text": "suddenly",
+          "start": 6.24,
+          "end": 6.54
+        },
+        {
+          "text": "laughed,",
+          "start": 6.54,
+          "end": 6.94
+        },
+        {
+          "text": "not",
+          "start": 7.26,
+          "end": 7.3
+        },
+        {
+          "text": "his",
+          "start": 7.3,
+          "end": 7.46
+        },
+        {
+          "text": "abrupt",
+          "start": 7.46,
+          "end": 7.76
+        },
+        {
+          "text": "wooden",
+          "start": 7.76,
+          "end": 8.12
+        },
+        {
+          "text": "laugh,",
+          "start": 8.12,
+          "end": 8.5
+        },
+        {
+          "text": "but",
+          "start": 8.72,
+          "end": 8.8
+        },
+        {
+          "text": "a",
+          "start": 8.8,
+          "end": 8.94
+        },
+        {
+          "text": "long,",
+          "start": 8.94,
+          "end": 9.24
+        },
+        {
+          "text": "quivering,",
+          "start": 9.62,
+          "end": 9.84
+        },
+        {
+          "text": "inaudible",
+          "start": 10.18,
+          "end": 10.6
+        },
+        {
+          "text": "nervous",
+          "start": 10.6,
+          "end": 10.92
+        },
+        {
+          "text": "laugh.",
+          "start": 10.92,
+          "end": 11.34
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 29,
+        "matched_words": 28
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.5431447234004736
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "d13df41470d23fd94ba61cab0d61fc0358e3c0b977edc3edc02c71ee5b7f9eeb",
+  "selected_reasons": []
+}

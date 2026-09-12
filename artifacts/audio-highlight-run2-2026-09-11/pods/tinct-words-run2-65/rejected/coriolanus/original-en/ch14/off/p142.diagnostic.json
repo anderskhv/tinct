@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "11fc4495e7035e4174423b3c860e9625e49d025acd9fa21b50e1a98eb08c85fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.24441157095134258,
+      "alignment_seconds": 0.00037623103708028793,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sesinius, where is this viper that would depopulate the city and be every man himself?",
+          "start": 0.08,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " Sesinius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.533538818359375
+            },
+            {
+              "text": " where",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " is",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " this",
+              "start": 1.92,
+              "end": 2.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " viper",
+              "start": 2.12,
+              "end": 2.52,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " that",
+              "start": 2.52,
+              "end": 2.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " would",
+              "start": 2.7,
+              "end": 2.84,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " depopulate",
+              "start": 2.84,
+              "end": 3.5,
+              "probability": 0.9908854166666666
+            },
+            {
+              "text": " the",
+              "start": 3.5,
+              "end": 3.66,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " city",
+              "start": 3.66,
+              "end": 3.92,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 3.92,
+              "end": 4.22,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " be",
+              "start": 4.22,
+              "end": 4.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " every",
+              "start": 4.34,
+              "end": 4.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man",
+              "start": 4.68,
+              "end": 4.96,
+              "probability": 0.986328125
+            },
+            {
+              "text": " himself?",
+              "start": 4.96,
+              "end": 5.38,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "where",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "this",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "raw": "viper",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "raw": "that",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "raw": "would",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "raw": "depopulate",
+          "start": 2.84,
+          "end": 3.5
+        },
+        {
+          "raw": "the",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "raw": "city",
+          "start": 3.66,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "raw": "be",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "raw": "every",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "raw": "man",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "raw": "himself?",
+          "start": 4.96,
+          "end": 5.38
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Where",
+        "is",
+        "this",
+        "viper",
+        "That",
+        "would",
+        "depopulate",
+        "the",
+        "city",
+        "and",
+        "Be",
+        "every",
+        "man",
+        "himself?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sesinius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "sesinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.92,
+          "end": 2.12,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "viper",
+          "start": 2.12,
+          "end": 2.52,
+          "key": "viper",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.52,
+          "end": 2.7,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.7,
+          "end": 2.84,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "depopulate",
+          "start": 2.84,
+          "end": 3.5,
+          "key": "depopulate",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.5,
+          "end": 3.66,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "city",
+          "start": 3.66,
+          "end": 3.92,
+          "key": "city",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.92,
+          "end": 4.22,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.22,
+          "end": 4.34,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "every",
+          "start": 4.34,
+          "end": 4.68,
+          "key": "every",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.68,
+          "end": 4.96,
+          "key": "man",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "himself?",
+          "start": 4.96,
+          "end": 5.38,
+          "key": "himself",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.79
+        },
+        {
+          "text": "Where",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "is",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "this",
+          "start": 1.92,
+          "end": 2.12
+        },
+        {
+          "text": "viper",
+          "start": 2.12,
+          "end": 2.52
+        },
+        {
+          "text": "That",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "text": "would",
+          "start": 2.7,
+          "end": 2.84
+        },
+        {
+          "text": "depopulate",
+          "start": 2.84,
+          "end": 3.5
+        },
+        {
+          "text": "the",
+          "start": 3.5,
+          "end": 3.66
+        },
+        {
+          "text": "city",
+          "start": 3.66,
+          "end": 3.92
+        },
+        {
+          "text": "and",
+          "start": 3.92,
+          "end": 4.22
+        },
+        {
+          "text": "Be",
+          "start": 4.22,
+          "end": 4.34
+        },
+        {
+          "text": "every",
+          "start": 4.34,
+          "end": 4.68
+        },
+        {
+          "text": "man",
+          "start": 4.68,
+          "end": 4.96
+        },
+        {
+          "text": "himself?",
+          "start": 4.96,
+          "end": 5.38
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.2449418269097805
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d60e1289d52335e11526419a71ce7c13a3c59c61f97a706c00eec05417b52763",
+  "selected_reasons": []
+}

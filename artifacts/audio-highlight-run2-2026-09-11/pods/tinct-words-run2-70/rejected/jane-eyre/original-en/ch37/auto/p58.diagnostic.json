@@ -1,0 +1,1342 @@
+{
+  "complete": true,
+  "signature": "2a88bbed676125e2609c3e17d788aae0245b32aba1912e9c02dfcc48892ce018",
+  "attempts": [
+    {
+      "asr_seconds": 0.4414832768961787,
+      "alignment_seconds": 0.0004713209345936775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Quite rich, sir. If you won't let me live with you, I can build a house of my own close up to your door, and you may come and sit in my parlour when you want company of an evening.\"",
+        "hotwords": "Quite, If, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quite rich, sir. If you won't let me live with you, I can build a house of my own close up to your door, and you may come and sit in my parlour when you want company of an evening.",
+          "start": 0.08,
+          "end": 9.56,
+          "words": [
+            {
+              "text": " Quite",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.45166015625
+            },
+            {
+              "text": " rich,",
+              "start": 0.62,
+              "end": 0.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sir.",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " If",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.982421875
+            },
+            {
+              "text": " you",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " won't",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " let",
+              "start": 2.3,
+              "end": 2.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me",
+              "start": 2.44,
+              "end": 2.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " live",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 2.92,
+              "end": 3.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 3.4,
+              "end": 3.54,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " can",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " build",
+              "start": 3.7,
+              "end": 3.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.9,
+              "end": 4.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " house",
+              "start": 4.08,
+              "end": 4.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 4.28,
+              "end": 4.48,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 4.48,
+              "end": 4.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " own",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " close",
+              "start": 4.88,
+              "end": 5.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " up",
+              "start": 5.2,
+              "end": 5.36,
+              "probability": 0.27294921875
+            },
+            {
+              "text": " to",
+              "start": 5.36,
+              "end": 5.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 5.52,
+              "end": 5.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " door,",
+              "start": 5.64,
+              "end": 5.92,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 6.4,
+              "end": 6.48,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 6.48,
+              "end": 6.58,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " may",
+              "start": 6.58,
+              "end": 6.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " come",
+              "start": 6.74,
+              "end": 6.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 6.96,
+              "end": 7.12,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " sit",
+              "start": 7.12,
+              "end": 7.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 7.28,
+              "end": 7.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 7.4,
+              "end": 7.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " parlour",
+              "start": 7.54,
+              "end": 7.98,
+              "probability": 0.69097900390625
+            },
+            {
+              "text": " when",
+              "start": 7.98,
+              "end": 8.14,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 8.14,
+              "end": 8.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " want",
+              "start": 8.26,
+              "end": 8.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " company",
+              "start": 8.48,
+              "end": 8.92,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " of",
+              "start": 8.92,
+              "end": 9.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " an",
+              "start": 9.16,
+              "end": 9.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " evening.",
+              "start": 9.28,
+              "end": 9.56,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quite",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "rich,",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "raw": "sir.",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "If",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "you",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "won't",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "let",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "raw": "me",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "raw": "live",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "with",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "you,",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "raw": "I",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "raw": "can",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "build",
+          "start": 3.7,
+          "end": 3.9
+        },
+        {
+          "raw": "a",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "raw": "house",
+          "start": 4.08,
+          "end": 4.28
+        },
+        {
+          "raw": "of",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "raw": "my",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "raw": "own",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "raw": "close",
+          "start": 4.88,
+          "end": 5.2
+        },
+        {
+          "raw": "up",
+          "start": 5.2,
+          "end": 5.36
+        },
+        {
+          "raw": "to",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "raw": "your",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "raw": "door,",
+          "start": 5.64,
+          "end": 5.92
+        },
+        {
+          "raw": "and",
+          "start": 6.4,
+          "end": 6.48
+        },
+        {
+          "raw": "you",
+          "start": 6.48,
+          "end": 6.58
+        },
+        {
+          "raw": "may",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "raw": "come",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "raw": "and",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "raw": "sit",
+          "start": 7.12,
+          "end": 7.28
+        },
+        {
+          "raw": "in",
+          "start": 7.28,
+          "end": 7.4
+        },
+        {
+          "raw": "my",
+          "start": 7.4,
+          "end": 7.54
+        },
+        {
+          "raw": "parlour",
+          "start": 7.54,
+          "end": 7.98
+        },
+        {
+          "raw": "when",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "raw": "you",
+          "start": 8.14,
+          "end": 8.26
+        },
+        {
+          "raw": "want",
+          "start": 8.26,
+          "end": 8.48
+        },
+        {
+          "raw": "company",
+          "start": 8.48,
+          "end": 8.92
+        },
+        {
+          "raw": "of",
+          "start": 8.92,
+          "end": 9.16
+        },
+        {
+          "raw": "an",
+          "start": 9.16,
+          "end": 9.28
+        },
+        {
+          "raw": "evening.",
+          "start": 9.28,
+          "end": 9.56
+        }
+      ],
+      "expected_tokens": [
+        "\"Quite",
+        "rich,",
+        "sir.",
+        "If",
+        "you",
+        "won't",
+        "let",
+        "me",
+        "live",
+        "with",
+        "you,",
+        "I",
+        "can",
+        "build",
+        "a",
+        "house",
+        "of",
+        "my",
+        "own",
+        "close",
+        "up",
+        "to",
+        "your",
+        "door,",
+        "and",
+        "you",
+        "may",
+        "come",
+        "and",
+        "sit",
+        "in",
+        "my",
+        "parlour",
+        "when",
+        "you",
+        "want",
+        "company",
+        "of",
+        "an",
+        "evening.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          40,
+          0,
+          40
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quite",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "quite",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "rich,",
+          "start": 0.62,
+          "end": 0.96,
+          "key": "rich",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.96,
+          "end": 1.32,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "won't",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "wont",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.3,
+          "end": 2.44,
+          "key": "let",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.44,
+          "end": 2.6,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "live",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 2.92,
+          "end": 3.16,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.4,
+          "end": 3.54,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 3.54,
+          "end": 3.7,
+          "key": "can",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "build",
+          "start": 3.7,
+          "end": 3.9,
+          "key": "build",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.9,
+          "end": 4.08,
+          "key": "a",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 4.08,
+          "end": 4.28,
+          "key": "house",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.28,
+          "end": 4.48,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.48,
+          "end": 4.64,
+          "key": "my",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 4.64,
+          "end": 4.88,
+          "key": "own",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "close",
+          "start": 4.88,
+          "end": 5.2,
+          "key": "close",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 5.2,
+          "end": 5.36,
+          "key": "up",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.36,
+          "end": 5.52,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.52,
+          "end": 5.64,
+          "key": "your",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "door,",
+          "start": 5.64,
+          "end": 5.92,
+          "key": "door",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.4,
+          "end": 6.48,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.48,
+          "end": 6.58,
+          "key": "you",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 6.58,
+          "end": 6.74,
+          "key": "may",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 6.74,
+          "end": 6.96,
+          "key": "come",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.96,
+          "end": 7.12,
+          "key": "and",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 7.12,
+          "end": 7.28,
+          "key": "sit",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.28,
+          "end": 7.4,
+          "key": "in",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.4,
+          "end": 7.54,
+          "key": "my",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "parlour",
+          "start": 7.54,
+          "end": 7.98,
+          "key": "parlour",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 7.98,
+          "end": 8.14,
+          "key": "when",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 8.14,
+          "end": 8.26,
+          "key": "you",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "want",
+          "start": 8.26,
+          "end": 8.48,
+          "key": "want",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "company",
+          "start": 8.48,
+          "end": 8.92,
+          "key": "company",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 8.92,
+          "end": 9.16,
+          "key": "of",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 9.16,
+          "end": 9.28,
+          "key": "an",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "evening.",
+          "start": 9.28,
+          "end": 9.56,
+          "key": "evening",
+          "pieces": [
+            39
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Quite",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "rich,",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "text": "sir.",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "If",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "you",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "won't",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "let",
+          "start": 2.3,
+          "end": 2.44
+        },
+        {
+          "text": "me",
+          "start": 2.44,
+          "end": 2.6
+        },
+        {
+          "text": "live",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "with",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "you,",
+          "start": 2.92,
+          "end": 3.16
+        },
+        {
+          "text": "I",
+          "start": 3.4,
+          "end": 3.54
+        },
+        {
+          "text": "can",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "build",
+          "start": 3.7,
+          "end": 3.9
+        },
+        {
+          "text": "a",
+          "start": 3.9,
+          "end": 4.08
+        },
+        {
+          "text": "house",
+          "start": 4.08,
+          "end": 4.28
+        },
+        {
+          "text": "of",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "text": "my",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "text": "own",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "text": "close",
+          "start": 4.88,
+          "end": 5.2
+        },
+        {
+          "text": "up",
+          "start": 5.2,
+          "end": 5.36
+        },
+        {
+          "text": "to",
+          "start": 5.36,
+          "end": 5.52
+        },
+        {
+          "text": "your",
+          "start": 5.52,
+          "end": 5.64
+        },
+        {
+          "text": "door,",
+          "start": 5.64,
+          "end": 5.92
+        },
+        {
+          "text": "and",
+          "start": 6.4,
+          "end": 6.48
+        },
+        {
+          "text": "you",
+          "start": 6.48,
+          "end": 6.58
+        },
+        {
+          "text": "may",
+          "start": 6.58,
+          "end": 6.74
+        },
+        {
+          "text": "come",
+          "start": 6.74,
+          "end": 6.96
+        },
+        {
+          "text": "and",
+          "start": 6.96,
+          "end": 7.12
+        },
+        {
+          "text": "sit",
+          "start": 7.12,
+          "end": 7.28
+        },
+        {
+          "text": "in",
+          "start": 7.28,
+          "end": 7.4
+        },
+        {
+          "text": "my",
+          "start": 7.4,
+          "end": 7.54
+        },
+        {
+          "text": "parlour",
+          "start": 7.54,
+          "end": 7.98
+        },
+        {
+          "text": "when",
+          "start": 7.98,
+          "end": 8.14
+        },
+        {
+          "text": "you",
+          "start": 8.14,
+          "end": 8.26
+        },
+        {
+          "text": "want",
+          "start": 8.26,
+          "end": 8.48
+        },
+        {
+          "text": "company",
+          "start": 8.48,
+          "end": 8.92
+        },
+        {
+          "text": "of",
+          "start": 8.92,
+          "end": 9.16
+        },
+        {
+          "text": "an",
+          "start": 9.16,
+          "end": 9.28
+        },
+        {
+          "text": "evening.\"",
+          "start": 9.28,
+          "end": 9.56
+        }
+      ],
+      "stats": {
+        "expected_words": 40,
+        "heard_words": 40,
+        "matched_words": 40
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.44216244597919285
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e41d811c05353561146c327f648311fdef44bcbf4e87ac2866a7145f531c6625",
+  "selected_reasons": []
+}

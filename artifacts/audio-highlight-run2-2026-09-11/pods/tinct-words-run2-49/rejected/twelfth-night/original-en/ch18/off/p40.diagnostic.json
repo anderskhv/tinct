@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "2fceaf187baf7204f2fc6884629c9b821368c14ba60631a95f5744114f78737b",
+  "attempts": [
+    {
+      "asr_seconds": 0.13265212252736092,
+      "alignment_seconds": 0.0003359951078891754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Duke, Gracious Olivia.",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " Duke,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " Gracious",
+              "start": 1.21,
+              "end": 1.47,
+              "probability": 0.724853515625
+            },
+            {
+              "text": " Olivia.",
+              "start": 1.47,
+              "end": 1.79,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Gracious",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "raw": "Olivia.",
+          "start": 1.47,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Duke.",
+        "Gracious",
+        "Olivia—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duke,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "duke",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gracious",
+          "start": 1.21,
+          "end": 1.47,
+          "key": "gracious",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Olivia.",
+          "start": 1.47,
+          "end": 1.79,
+          "key": "olivia",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duke.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Gracious",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "text": "Olivia—",
+          "start": 1.47,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13311003893613815
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bd40f9daad59de683e1980ab2323dbf3c1bc5b8d5be8b7593fd01e8542cd0811",
+  "selected_reasons": []
+}

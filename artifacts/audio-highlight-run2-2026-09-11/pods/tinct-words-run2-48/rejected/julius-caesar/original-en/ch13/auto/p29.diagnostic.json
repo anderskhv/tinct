@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "0b73de6b60ca467731827a73217c4142e1bb2859ee7fee01647861587ad5aa70",
+  "attempts": [
+    {
+      "asr_seconds": 0.25252819154411554,
+      "alignment_seconds": 0.00020570959895849228,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cassius. Do not presume too much upon my love. I may do that I shall be sorry for.",
+        "hotwords": "Cassius, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cassius, do not presume too much upon my love. I may do that I shall be sorry for.",
+          "start": 0.53,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " Cassius,",
+              "start": 0.53,
+              "end": 0.89,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " do",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.962890625
+            },
+            {
+              "text": " not",
+              "start": 1.45,
+              "end": 1.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " presume",
+              "start": 1.63,
+              "end": 1.97,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " too",
+              "start": 1.97,
+              "end": 2.17,
+              "probability": 0.986328125
+            },
+            {
+              "text": " much",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " upon",
+              "start": 2.35,
+              "end": 2.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " love.",
+              "start": 2.77,
+              "end": 3.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " may",
+              "start": 3.65,
+              "end": 3.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 3.97,
+              "end": 4.11,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 4.11,
+              "end": 4.25,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " shall",
+              "start": 4.25,
+              "end": 4.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 4.39,
+              "end": 4.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sorry",
+              "start": 4.51,
+              "end": 4.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for.",
+              "start": 4.81,
+              "end": 5.19,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cassius,",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "raw": "do",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "not",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "raw": "presume",
+          "start": 1.63,
+          "end": 1.97
+        },
+        {
+          "raw": "too",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "raw": "much",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "upon",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "raw": "my",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "love.",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "raw": "I",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "may",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "raw": "do",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "that",
+          "start": 3.97,
+          "end": 4.11
+        },
+        {
+          "raw": "I",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "raw": "shall",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "raw": "be",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "raw": "sorry",
+          "start": 4.51,
+          "end": 4.81
+        },
+        {
+          "raw": "for.",
+          "start": 4.81,
+          "end": 5.19
+        }
+      ],
+      "expected_tokens": [
+        "Cassius.",
+        "Do",
+        "not",
+        "presume",
+        "too",
+        "much",
+        "upon",
+        "my",
+        "love.",
+        "I",
+        "may",
+        "do",
+        "that",
+        "I",
+        "shall",
+        "be",
+        "sorry",
+        "for."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cassius,",
+          "start": 0.53,
+          "end": 0.89,
+          "key": "cassius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.45,
+          "end": 1.63,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "presume",
+          "start": 1.63,
+          "end": 1.97,
+          "key": "presume",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.97,
+          "end": 2.17,
+          "key": "too",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "much",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.35,
+          "end": 2.59,
+          "key": "upon",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "love.",
+          "start": 2.77,
+          "end": 3.03,
+          "key": "love",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 3.65,
+          "end": 3.79,
+          "key": "may",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.97,
+          "end": 4.11,
+          "key": "that",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.11,
+          "end": 4.25,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.25,
+          "end": 4.39,
+          "key": "shall",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.39,
+          "end": 4.51,
+          "key": "be",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sorry",
+          "start": 4.51,
+          "end": 4.81,
+          "key": "sorry",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "for.",
+          "start": 4.81,
+          "end": 5.19,
+          "key": "for",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassius.",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "text": "Do",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "not",
+          "start": 1.45,
+          "end": 1.63
+        },
+        {
+          "text": "presume",
+          "start": 1.63,
+          "end": 1.97
+        },
+        {
+          "text": "too",
+          "start": 1.97,
+          "end": 2.17
+        },
+        {
+          "text": "much",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "upon",
+          "start": 2.35,
+          "end": 2.59
+        },
+        {
+          "text": "my",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "love.",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "text": "I",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "may",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "text": "do",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "that",
+          "start": 3.97,
+          "end": 4.11
+        },
+        {
+          "text": "I",
+          "start": 4.11,
+          "end": 4.25
+        },
+        {
+          "text": "shall",
+          "start": 4.25,
+          "end": 4.39
+        },
+        {
+          "text": "be",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "text": "sorry",
+          "start": 4.51,
+          "end": 4.81
+        },
+        {
+          "text": "for.",
+          "start": 4.81,
+          "end": 5.19
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25282535143196583
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13d908de5928c2d23f5f11f0f1d2159fa8efa4a4ebcfad26af199b4935191d26",
+  "selected_reasons": []
+}

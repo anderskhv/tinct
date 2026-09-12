@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "e87d7a57da5eb1c3b67db29d7505b2e7f5276d0194cee9b1d255b94a3dfa16ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.25323475524783134,
+      "alignment_seconds": 0.00039172545075416565,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen Elizabeth. No, to their lives ill friends were contrary.",
+        "hotwords": "Queen, Elizabeth, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen Elizabeth, No, to their lives ill friends were contrary.",
+          "start": 0.05,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Queen",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " Elizabeth,",
+              "start": 0.57,
+              "end": 1.07,
+              "probability": 0.978515625
+            },
+            {
+              "text": " No,",
+              "start": 1.47,
+              "end": 1.87,
+              "probability": 0.0267486572265625
+            },
+            {
+              "text": " to",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " their",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " lives",
+              "start": 2.29,
+              "end": 2.61,
+              "probability": 0.90234375
+            },
+            {
+              "text": " ill",
+              "start": 2.61,
+              "end": 2.89,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " friends",
+              "start": 2.89,
+              "end": 3.23,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " were",
+              "start": 3.23,
+              "end": 3.41,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " contrary.",
+              "start": 3.41,
+              "end": 3.91,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.57,
+          "end": 1.07
+        },
+        {
+          "raw": "No,",
+          "start": 1.47,
+          "end": 1.87
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "their",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "lives",
+          "start": 2.29,
+          "end": 2.61
+        },
+        {
+          "raw": "ill",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "raw": "friends",
+          "start": 2.89,
+          "end": 3.23
+        },
+        {
+          "raw": "were",
+          "start": 3.23,
+          "end": 3.41
+        },
+        {
+          "raw": "contrary.",
+          "start": 3.41,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "Queen",
+        "Elizabeth.",
+        "No,",
+        "to",
+        "their",
+        "lives",
+        "ill",
+        "friends",
+        "were",
+        "contrary."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Elizabeth,",
+          "start": 0.57,
+          "end": 1.07,
+          "key": "elizabeth",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.47,
+          "end": 1.87,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "their",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 2.29,
+          "end": 2.61,
+          "key": "lives",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 2.61,
+          "end": 2.89,
+          "key": "ill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "friends",
+          "start": 2.89,
+          "end": 3.23,
+          "key": "friends",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.23,
+          "end": 3.41,
+          "key": "were",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "contrary.",
+          "start": 3.41,
+          "end": 3.91,
+          "key": "contrary",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Elizabeth.",
+          "start": 0.57,
+          "end": 1.07
+        },
+        {
+          "text": "No,",
+          "start": 1.47,
+          "end": 1.87
+        },
+        {
+          "text": "to",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "their",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "text": "lives",
+          "start": 2.29,
+          "end": 2.61
+        },
+        {
+          "text": "ill",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "text": "friends",
+          "start": 2.89,
+          "end": 3.23
+        },
+        {
+          "text": "were",
+          "start": 3.23,
+          "end": 3.41
+        },
+        {
+          "text": "contrary.",
+          "start": 3.41,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25378161668777466
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c682b05157a416c8a538f2f55c2d0dfe1d6c5bac654f676ed84154f814ecf3fe",
+  "selected_reasons": []
+}

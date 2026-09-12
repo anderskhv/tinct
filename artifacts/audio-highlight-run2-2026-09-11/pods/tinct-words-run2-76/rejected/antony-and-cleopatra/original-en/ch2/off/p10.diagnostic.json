@@ -1,0 +1,312 @@
+{
+  "complete": true,
+  "signature": "6213f897af2a282dd2c06b989bdd500b99c55a5924afa10eb009de5d6b950401",
+  "attempts": [
+    {
+      "asr_seconds": 0.22069006226956844,
+      "alignment_seconds": 0.00031685689464211464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Charmeon, pray then for see me one.",
+          "start": 0.05,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " Charmeon,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " pray",
+              "start": 1.31,
+              "end": 1.33,
+              "probability": 0.904296875
+            },
+            {
+              "text": " then",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " for",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " see",
+              "start": 1.79,
+              "end": 2.01,
+              "probability": 0.151123046875
+            },
+            {
+              "text": " me",
+              "start": 2.01,
+              "end": 2.13,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " one.",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.92333984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmeon,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "pray",
+          "start": 1.31,
+          "end": 1.33
+        },
+        {
+          "raw": "then",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "for",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "see",
+          "start": 1.79,
+          "end": 2.01
+        },
+        {
+          "raw": "me",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "raw": "one.",
+          "start": 2.13,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Pray,",
+        "then,",
+        "foresee",
+        "me",
+        "one."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmeon,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "charmeon",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pray",
+          "start": 1.31,
+          "end": 1.33,
+          "key": "pray",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.57,
+          "end": 1.79,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.79,
+          "end": 2.01,
+          "key": "see",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.01,
+          "end": 2.13,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "one",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.0,
+          "end": 0.655
+        },
+        {
+          "text": "Pray,",
+          "start": 1.31,
+          "end": 1.33
+        },
+        {
+          "text": "then,",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "foresee",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "text": "me",
+          "start": 2.01,
+          "end": 2.13
+        },
+        {
+          "text": "one.",
+          "start": 2.13,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22112060291692615
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a58a269ad41b7df193267fefdf10f5641d598ba7a2f49260a320727c3dff4afa",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

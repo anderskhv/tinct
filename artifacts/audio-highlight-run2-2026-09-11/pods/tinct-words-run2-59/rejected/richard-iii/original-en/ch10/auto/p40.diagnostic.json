@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "492c364472fad6bcd97cecc246f70e6b37bff517dad323856282c0a3b92410cd",
+  "attempts": [
+    {
+      "asr_seconds": 0.13314198306761682,
+      "alignment_seconds": 0.0002963228616863489,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter a Pursuivant.",
+        "hotwords": "Enter, Pursuivant"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter a Pursuivant.",
+          "start": 0.02,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " a",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Pursuivant.",
+              "start": 0.8,
+              "end": 1.4,
+              "probability": 0.33862876892089844
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "Pursuivant.",
+          "start": 0.8,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "a",
+        "Pursuivant."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pursuivant.",
+          "start": 0.8,
+          "end": 1.4,
+          "key": "pursuivant",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "a",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "Pursuivant.",
+          "start": 0.8,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13354767998680472
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ea96a5d1506b11d4d4dd01a788f47ed2d001f5bb555fc03a92220bd57029ced9",
+  "selected_reasons": []
+}

@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "aa1e777204e503868470cc34ce680d7dd5ebc2d537a1354ac9d1b1c0aac9cd23",
+  "attempts": [
+    {
+      "asr_seconds": 0.11636456102132797,
+      "alignment_seconds": 0.00016476958990097046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Inevitably.",
+        "hotwords": "Inevitably"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Inevitably.",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " Inevitably.",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.7814127604166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Inevitably.",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "Inevitably."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Inevitably.",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "inevitably",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Inevitably.",
+          "start": 0.02,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11658175475895405
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f0a7d236f01906019ad11412bc49be6c26010e3dfaf824d2020a0655e747f98",
+  "selected_reasons": []
+}

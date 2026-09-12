@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "90c1309a3f5e6619b6ed527d481472b78eba72818367c0c5a3a98e525e8c632d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1326829290483147,
+      "alignment_seconds": 0.00030444003641605377,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " knows I'm a man. Voice.",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " knows",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " I'm",
+              "start": 0.63,
+              "end": 0.81,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 0.81,
+              "end": 0.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man.",
+              "start": 0.91,
+              "end": 1.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Voice.",
+              "start": 1.55,
+              "end": 1.71,
+              "probability": 0.927734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "knows",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "I'm",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "raw": "a",
+          "start": 0.81,
+          "end": 0.91
+        },
+        {
+          "raw": "man.",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "raw": "Voice.",
+          "start": 1.55,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "Knows",
+        "I'm",
+        "a",
+        "man.",
+        "Voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "knows",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "knows",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 0.63,
+          "end": 0.81,
+          "key": "im",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.81,
+          "end": 0.91,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man.",
+          "start": 0.91,
+          "end": 1.13,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Voice.",
+          "start": 1.55,
+          "end": 1.71,
+          "key": "voice",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Knows",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "I'm",
+          "start": 0.63,
+          "end": 0.81
+        },
+        {
+          "text": "a",
+          "start": 0.81,
+          "end": 0.91
+        },
+        {
+          "text": "man.",
+          "start": 0.91,
+          "end": 1.13
+        },
+        {
+          "text": "Voice.",
+          "start": 1.55,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13310496602207422
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6fe3f0231a53d0a6b06eac0c0b90102095167ec7a9dbb4ba1a7c6bafec2ed3c7",
+  "selected_reasons": []
+}

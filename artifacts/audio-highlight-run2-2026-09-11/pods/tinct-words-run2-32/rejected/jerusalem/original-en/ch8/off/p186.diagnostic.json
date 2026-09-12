@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "6bb3739584c8402c2707f6676db2fb47fe1759e9fceb2cb059ad1c869120fd71",
+  "attempts": [
+    {
+      "asr_seconds": 0.07200266793370247,
+      "alignment_seconds": 9.03196632862091e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ingmar sank down, and the man ran off with a taunting laugh.",
+          "start": 0.05,
+          "end": 3.89,
+          "words": [
+            {
+              "text": " Ingmar",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.852783203125
+            },
+            {
+              "text": " sank",
+              "start": 0.83,
+              "end": 1.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " down,",
+              "start": 1.09,
+              "end": 1.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 1.97,
+              "end": 2.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " man",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " ran",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " off",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " a",
+              "start": 3.07,
+              "end": 3.17,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " taunting",
+              "start": 3.17,
+              "end": 3.57,
+              "probability": 0.972900390625
+            },
+            {
+              "text": " laugh.",
+              "start": 3.57,
+              "end": 3.89,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ingmar",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "sank",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "raw": "down,",
+          "start": 1.09,
+          "end": 1.51
+        },
+        {
+          "raw": "and",
+          "start": 1.97,
+          "end": 2.03
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "man",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "ran",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "off",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "with",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "a",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "raw": "taunting",
+          "start": 3.17,
+          "end": 3.57
+        },
+        {
+          "raw": "laugh.",
+          "start": 3.57,
+          "end": 3.89
+        }
+      ],
+      "expected_tokens": [
+        "Ingmar",
+        "sank",
+        "down,",
+        "and",
+        "the",
+        "man",
+        "ran",
+        "off,",
+        "with",
+        "a",
+        "taunting",
+        "laugh."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ingmar",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "ingmar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sank",
+          "start": 0.83,
+          "end": 1.09,
+          "key": "sank",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 1.09,
+          "end": 1.51,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.97,
+          "end": 2.03,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "man",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "ran",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 2.57,
+          "end": 2.87,
+          "key": "off",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.87,
+          "end": 3.07,
+          "key": "with",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.07,
+          "end": 3.17,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "taunting",
+          "start": 3.17,
+          "end": 3.57,
+          "key": "taunting",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "laugh.",
+          "start": 3.57,
+          "end": 3.89,
+          "key": "laugh",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ingmar",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "sank",
+          "start": 0.83,
+          "end": 1.09
+        },
+        {
+          "text": "down,",
+          "start": 1.09,
+          "end": 1.51
+        },
+        {
+          "text": "and",
+          "start": 1.97,
+          "end": 2.03
+        },
+        {
+          "text": "the",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "man",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "ran",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "off,",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "text": "with",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "a",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "text": "taunting",
+          "start": 3.17,
+          "end": 3.57
+        },
+        {
+          "text": "laugh.",
+          "start": 3.57,
+          "end": 3.89
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07212839089334011
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bbdd1be20cca2378dda896de30a4ac7a20a1f023199dc654e7cc6fc4999e2fdb",
+  "selected_reasons": []
+}

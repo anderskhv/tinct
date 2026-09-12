@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "e21fb00933410cb62491653cc2439e8041fdc93849bae417ebba036b10b77b92",
+  "attempts": [
+    {
+      "asr_seconds": 0.19766117678955197,
+      "alignment_seconds": 0.0001958259381353855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenius, all's well and might have been much better if he could have temporized.",
+          "start": 0.58,
+          "end": 4.46,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.58,
+              "end": 1.0,
+              "probability": 0.6608072916666666
+            },
+            {
+              "text": " all's",
+              "start": 1.44,
+              "end": 1.84,
+              "probability": 0.883544921875
+            },
+            {
+              "text": " well",
+              "start": 1.84,
+              "end": 2.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.04,
+              "end": 2.36,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " might",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " been",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " much",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " better",
+              "start": 2.96,
+              "end": 3.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " if",
+              "start": 3.28,
+              "end": 3.5,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " he",
+              "start": 3.5,
+              "end": 3.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " could",
+              "start": 3.62,
+              "end": 3.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 3.72,
+              "end": 3.84,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " temporized.",
+              "start": 3.84,
+              "end": 4.46,
+              "probability": 0.782470703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.58,
+          "end": 1.0
+        },
+        {
+          "raw": "all's",
+          "start": 1.44,
+          "end": 1.84
+        },
+        {
+          "raw": "well",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "raw": "and",
+          "start": 2.04,
+          "end": 2.36
+        },
+        {
+          "raw": "might",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "have",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "been",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "much",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "better",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "raw": "if",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "raw": "he",
+          "start": 3.5,
+          "end": 3.62
+        },
+        {
+          "raw": "could",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "raw": "have",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "raw": "temporized.",
+          "start": 3.84,
+          "end": 4.46
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "All's",
+        "well,",
+        "and",
+        "might",
+        "have",
+        "been",
+        "much",
+        "better",
+        "if",
+        "He",
+        "could",
+        "have",
+        "temporized."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.58,
+          "end": 1.0,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "all's",
+          "start": 1.44,
+          "end": 1.84,
+          "key": "alls",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 1.84,
+          "end": 2.04,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.04,
+          "end": 2.36,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "might",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "been",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "much",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 2.96,
+          "end": 3.28,
+          "key": "better",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.28,
+          "end": 3.5,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.5,
+          "end": 3.62,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 3.62,
+          "end": 3.72,
+          "key": "could",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.72,
+          "end": 3.84,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "temporized.",
+          "start": 3.84,
+          "end": 4.46,
+          "key": "temporized",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.58,
+          "end": 1.0
+        },
+        {
+          "text": "All's",
+          "start": 1.44,
+          "end": 1.84
+        },
+        {
+          "text": "well,",
+          "start": 1.84,
+          "end": 2.04
+        },
+        {
+          "text": "and",
+          "start": 2.04,
+          "end": 2.36
+        },
+        {
+          "text": "might",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "have",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "been",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "much",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "text": "better",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "text": "if",
+          "start": 3.28,
+          "end": 3.5
+        },
+        {
+          "text": "He",
+          "start": 3.5,
+          "end": 3.62
+        },
+        {
+          "text": "could",
+          "start": 3.62,
+          "end": 3.72
+        },
+        {
+          "text": "have",
+          "start": 3.72,
+          "end": 3.84
+        },
+        {
+          "text": "temporized.",
+          "start": 3.84,
+          "end": 4.46
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19792794482782483
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bc1cce90e8c9c2cf3b142ddcb078ac34cf6ea22fa146f9d3982127f4cd212c51",
+  "selected_reasons": []
+}

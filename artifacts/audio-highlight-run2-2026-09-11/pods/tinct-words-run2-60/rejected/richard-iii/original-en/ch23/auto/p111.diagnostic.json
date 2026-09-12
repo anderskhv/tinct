@@ -1,0 +1,894 @@
+{
+  "complete": true,
+  "signature": "2d2debe49f06a9f67e47364238ed79007d9ae886c7e2e24e12627e940b87e724",
+  "attempts": [
+    {
+      "asr_seconds": 0.36504337191581726,
+      "alignment_seconds": 0.0005912408232688904,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But cheer thy heart, and be thou not dismayed. God and good angels fight on Richmond's side; And Richard fall in height of all his pride.",
+        "hotwords": "But, God, Richmond's, Richard"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But cheer thy heart, and be thou not dismayed. God and good angels fight on Richmond's side. And Richard fall in height of all his pride.",
+          "start": 0.02,
+          "end": 8.32,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " cheer",
+              "start": 0.48,
+              "end": 0.74,
+              "probability": 0.89794921875
+            },
+            {
+              "text": " thy",
+              "start": 0.74,
+              "end": 0.96,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " heart,",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " and",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " be",
+              "start": 1.84,
+              "end": 2.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thou",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 2.2,
+              "end": 2.48,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dismayed.",
+              "start": 2.48,
+              "end": 3.36,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " God",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " and",
+              "start": 3.96,
+              "end": 4.14,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " good",
+              "start": 4.14,
+              "end": 4.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " angels",
+              "start": 4.34,
+              "end": 4.76,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " fight",
+              "start": 4.76,
+              "end": 5.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on",
+              "start": 5.08,
+              "end": 5.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Richmond's",
+              "start": 5.26,
+              "end": 5.76,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " side.",
+              "start": 5.76,
+              "end": 6.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " And",
+              "start": 6.54,
+              "end": 6.62,
+              "probability": 0.955078125
+            },
+            {
+              "text": " Richard",
+              "start": 6.62,
+              "end": 6.88,
+              "probability": 0.9921875
+            },
+            {
+              "text": " fall",
+              "start": 6.88,
+              "end": 7.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 7.16,
+              "end": 7.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " height",
+              "start": 7.36,
+              "end": 7.54,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " of",
+              "start": 7.54,
+              "end": 7.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " all",
+              "start": 7.68,
+              "end": 7.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 7.82,
+              "end": 7.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " pride.",
+              "start": 7.98,
+              "end": 8.32,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "cheer",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "raw": "thy",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "raw": "heart,",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "be",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "raw": "thou",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "not",
+          "start": 2.2,
+          "end": 2.48
+        },
+        {
+          "raw": "dismayed.",
+          "start": 2.48,
+          "end": 3.36
+        },
+        {
+          "raw": "God",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "raw": "good",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "raw": "angels",
+          "start": 4.34,
+          "end": 4.76
+        },
+        {
+          "raw": "fight",
+          "start": 4.76,
+          "end": 5.08
+        },
+        {
+          "raw": "on",
+          "start": 5.08,
+          "end": 5.26
+        },
+        {
+          "raw": "Richmond's",
+          "start": 5.26,
+          "end": 5.76
+        },
+        {
+          "raw": "side.",
+          "start": 5.76,
+          "end": 6.06
+        },
+        {
+          "raw": "And",
+          "start": 6.54,
+          "end": 6.62
+        },
+        {
+          "raw": "Richard",
+          "start": 6.62,
+          "end": 6.88
+        },
+        {
+          "raw": "fall",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "raw": "in",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "raw": "height",
+          "start": 7.36,
+          "end": 7.54
+        },
+        {
+          "raw": "of",
+          "start": 7.54,
+          "end": 7.68
+        },
+        {
+          "raw": "all",
+          "start": 7.68,
+          "end": 7.82
+        },
+        {
+          "raw": "his",
+          "start": 7.82,
+          "end": 7.98
+        },
+        {
+          "raw": "pride.",
+          "start": 7.98,
+          "end": 8.32
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "cheer",
+        "thy",
+        "heart,",
+        "and",
+        "be",
+        "thou",
+        "not",
+        "dismayed.",
+        "God",
+        "and",
+        "good",
+        "angels",
+        "fight",
+        "on",
+        "Richmond's",
+        "side;",
+        "And",
+        "Richard",
+        "fall",
+        "in",
+        "height",
+        "of",
+        "all",
+        "his",
+        "pride."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          26,
+          0,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "cheer",
+          "start": 0.48,
+          "end": 0.74,
+          "key": "cheer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 0.74,
+          "end": 0.96,
+          "key": "thy",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heart,",
+          "start": 0.96,
+          "end": 1.32,
+          "key": "heart",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.84,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.84,
+          "end": 2.0,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.2,
+          "end": 2.48,
+          "key": "not",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "dismayed.",
+          "start": 2.48,
+          "end": 3.36,
+          "key": "dismayed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "god",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.96,
+          "end": 4.14,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.14,
+          "end": 4.34,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "angels",
+          "start": 4.34,
+          "end": 4.76,
+          "key": "angels",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "fight",
+          "start": 4.76,
+          "end": 5.08,
+          "key": "fight",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.08,
+          "end": 5.26,
+          "key": "on",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Richmond's",
+          "start": 5.26,
+          "end": 5.76,
+          "key": "richmonds",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "side.",
+          "start": 5.76,
+          "end": 6.06,
+          "key": "side",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 6.54,
+          "end": 6.62,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Richard",
+          "start": 6.62,
+          "end": 6.88,
+          "key": "richard",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 6.88,
+          "end": 7.16,
+          "key": "fall",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 7.16,
+          "end": 7.36,
+          "key": "in",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "height",
+          "start": 7.36,
+          "end": 7.54,
+          "key": "height",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.54,
+          "end": 7.68,
+          "key": "of",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 7.68,
+          "end": 7.82,
+          "key": "all",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 7.82,
+          "end": 7.98,
+          "key": "his",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "pride.",
+          "start": 7.98,
+          "end": 8.32,
+          "key": "pride",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "cheer",
+          "start": 0.48,
+          "end": 0.74
+        },
+        {
+          "text": "thy",
+          "start": 0.74,
+          "end": 0.96
+        },
+        {
+          "text": "heart,",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "and",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "be",
+          "start": 1.84,
+          "end": 2.0
+        },
+        {
+          "text": "thou",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "not",
+          "start": 2.2,
+          "end": 2.48
+        },
+        {
+          "text": "dismayed.",
+          "start": 2.48,
+          "end": 3.36
+        },
+        {
+          "text": "God",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "and",
+          "start": 3.96,
+          "end": 4.14
+        },
+        {
+          "text": "good",
+          "start": 4.14,
+          "end": 4.34
+        },
+        {
+          "text": "angels",
+          "start": 4.34,
+          "end": 4.76
+        },
+        {
+          "text": "fight",
+          "start": 4.76,
+          "end": 5.08
+        },
+        {
+          "text": "on",
+          "start": 5.08,
+          "end": 5.26
+        },
+        {
+          "text": "Richmond's",
+          "start": 5.26,
+          "end": 5.76
+        },
+        {
+          "text": "side;",
+          "start": 5.76,
+          "end": 6.06
+        },
+        {
+          "text": "And",
+          "start": 6.54,
+          "end": 6.62
+        },
+        {
+          "text": "Richard",
+          "start": 6.62,
+          "end": 6.88
+        },
+        {
+          "text": "fall",
+          "start": 6.88,
+          "end": 7.16
+        },
+        {
+          "text": "in",
+          "start": 7.16,
+          "end": 7.36
+        },
+        {
+          "text": "height",
+          "start": 7.36,
+          "end": 7.54
+        },
+        {
+          "text": "of",
+          "start": 7.54,
+          "end": 7.68
+        },
+        {
+          "text": "all",
+          "start": 7.68,
+          "end": 7.82
+        },
+        {
+          "text": "his",
+          "start": 7.82,
+          "end": 7.98
+        },
+        {
+          "text": "pride.",
+          "start": 7.98,
+          "end": 8.32
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 26,
+        "matched_words": 26
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3658887855708599
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "870d0c24fa7162a0e1fe24906fd8f1578a6fc5cc61b821e2c4334f875d15521b",
+  "selected_reasons": []
+}

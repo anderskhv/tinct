@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "c890b7183cd5cd34a686ae7ee868c7b40b49ec6ed8dc30227557bb4a48a138b8",
+  "attempts": [
+    {
+      "asr_seconds": 0.0969797745347023,
+      "alignment_seconds": 0.00017093494534492493,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. What's he that hath so much thy place mistook To set thee here?",
+        "hotwords": "Lear, What's, To"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, What's he that hath so much thy place mistook To set thee here?",
+          "start": 0.05,
+          "end": 3.99,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.265625
+            },
+            {
+              "text": " What's",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.490081787109375
+            },
+            {
+              "text": " he",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " that",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " hath",
+              "start": 1.63,
+              "end": 1.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " so",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.970703125
+            },
+            {
+              "text": " much",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thy",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.92578125
+            },
+            {
+              "text": " place",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " mistook",
+              "start": 2.83,
+              "end": 3.25,
+              "probability": 0.625244140625
+            },
+            {
+              "text": " To",
+              "start": 3.25,
+              "end": 3.43,
+              "probability": 0.019287109375
+            },
+            {
+              "text": " set",
+              "start": 3.43,
+              "end": 3.59,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thee",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " here?",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "What's",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "he",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "that",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "hath",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "raw": "so",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "much",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "thy",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "place",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "raw": "mistook",
+          "start": 2.83,
+          "end": 3.25
+        },
+        {
+          "raw": "To",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "raw": "set",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "raw": "thee",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "here?",
+          "start": 3.73,
+          "end": 3.99
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "What's",
+        "he",
+        "that",
+        "hath",
+        "so",
+        "much",
+        "thy",
+        "place",
+        "mistook",
+        "To",
+        "set",
+        "thee",
+        "here?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What's",
+          "start": 1.17,
+          "end": 1.39,
+          "key": "whats",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.39,
+          "end": 1.49,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.49,
+          "end": 1.63,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 1.63,
+          "end": 1.83,
+          "key": "hath",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.83,
+          "end": 2.09,
+          "key": "so",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "much",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "thy",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 2.51,
+          "end": 2.83,
+          "key": "place",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "mistook",
+          "start": 2.83,
+          "end": 3.25,
+          "key": "mistook",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 3.25,
+          "end": 3.43,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "set",
+          "start": 3.43,
+          "end": 3.59,
+          "key": "set",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 3.59,
+          "end": 3.73,
+          "key": "thee",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 3.73,
+          "end": 3.99,
+          "key": "here",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "What's",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "he",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "that",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "hath",
+          "start": 1.63,
+          "end": 1.83
+        },
+        {
+          "text": "so",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "much",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "text": "thy",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "place",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "text": "mistook",
+          "start": 2.83,
+          "end": 3.25
+        },
+        {
+          "text": "To",
+          "start": 3.25,
+          "end": 3.43
+        },
+        {
+          "text": "set",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "text": "thee",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "here?",
+          "start": 3.73,
+          "end": 3.99
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0972180999815464
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e41cbbbc9bdc85fe32271735eb1316116a56ddc0992bfb4509f839ffad3a17a9",
+  "selected_reasons": []
+}

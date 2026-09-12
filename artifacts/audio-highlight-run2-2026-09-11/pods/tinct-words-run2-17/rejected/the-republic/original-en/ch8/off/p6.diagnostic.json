@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "edd210cb9c9d95b741aabedd27797a4deba335b06be011215b51ce815b4a7688",
+  "attempts": [
+    {
+      "asr_seconds": 0.19752683397382498,
+      "alignment_seconds": 0.00026854779571294785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Your recollection, I said, is most exact.",
+          "start": 0.02,
+          "end": 2.72,
+          "words": [
+            {
+              "text": " Your",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.444580078125
+            },
+            {
+              "text": " recollection,",
+              "start": 0.52,
+              "end": 1.02,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " said,",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " most",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " exact.",
+              "start": 2.28,
+              "end": 2.72,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "recollection,",
+          "start": 0.52,
+          "end": 1.02
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "said,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "most",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "exact.",
+          "start": 2.28,
+          "end": 2.72
+        }
+      ],
+      "expected_tokens": [
+        "Your",
+        "recollection,",
+        "I",
+        "said,",
+        "is",
+        "most",
+        "exact."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Your",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "your",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "recollection,",
+          "start": 0.52,
+          "end": 1.02,
+          "key": "recollection",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.12,
+          "end": 1.34,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "most",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "exact.",
+          "start": 2.28,
+          "end": 2.72,
+          "key": "exact",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Your",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "recollection,",
+          "start": 0.52,
+          "end": 1.02
+        },
+        {
+          "text": "I",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "said,",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "is",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "most",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "exact.",
+          "start": 2.28,
+          "end": 2.72
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19789551757276058
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "85016c889cab5be8c4eec0e9ebb71258135fddc43b3f20695ec81e42427fca5c",
+  "selected_reasons": []
+}

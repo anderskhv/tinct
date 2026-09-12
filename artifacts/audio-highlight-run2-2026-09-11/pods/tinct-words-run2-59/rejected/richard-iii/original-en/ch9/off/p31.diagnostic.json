@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "bad7639347b1cf721ca36cdbba3c084575bfb49b34eff6437967ed488a124e54",
+  "attempts": [
+    {
+      "asr_seconds": 0.2055054260417819,
+      "alignment_seconds": 0.0004681539721786976,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Richard, I say without characters, fame lives long.",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.72607421875
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.33,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " say",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " without",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " characters,",
+              "start": 1.75,
+              "end": 2.31,
+              "probability": 0.98828125
+            },
+            {
+              "text": " fame",
+              "start": 2.61,
+              "end": 2.71,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " lives",
+              "start": 2.71,
+              "end": 3.03,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " long.",
+              "start": 3.03,
+              "end": 3.37,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "raw": "say",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "without",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "characters,",
+          "start": 1.75,
+          "end": 2.31
+        },
+        {
+          "raw": "fame",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "raw": "lives",
+          "start": 2.71,
+          "end": 3.03
+        },
+        {
+          "raw": "long.",
+          "start": 3.03,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "I",
+        "say,",
+        "without",
+        "characters,",
+        "fame",
+        "lives",
+        "long."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.33,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 1.51,
+          "end": 1.75,
+          "key": "without",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "characters,",
+          "start": 1.75,
+          "end": 2.31,
+          "key": "characters",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fame",
+          "start": 2.61,
+          "end": 2.71,
+          "key": "fame",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lives",
+          "start": 2.71,
+          "end": 3.03,
+          "key": "lives",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "long.",
+          "start": 3.03,
+          "end": 3.37,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "I",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "text": "say,",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "without",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "characters,",
+          "start": 1.75,
+          "end": 2.31
+        },
+        {
+          "text": "fame",
+          "start": 2.61,
+          "end": 2.71
+        },
+        {
+          "text": "lives",
+          "start": 2.71,
+          "end": 3.03
+        },
+        {
+          "text": "long.",
+          "start": 3.03,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20614580903202295
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "66772e3ed9e6bc755f1c48eee2228f172380ebebf0b435d6774d9f6dde240043",
+  "selected_reasons": []
+}

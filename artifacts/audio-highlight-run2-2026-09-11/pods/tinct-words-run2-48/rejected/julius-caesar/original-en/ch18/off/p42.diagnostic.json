@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "1a098b7cdde0690b8e5678a80c3783cddadd63466c0802295f6abe418482d1d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.15025824215263128,
+      "alignment_seconds": 0.0003789979964494705,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Octavius, do so good, Missala.",
+          "start": 0.64,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Octavius,",
+              "start": 0.64,
+              "end": 1.1,
+              "probability": 0.9324544270833334
+            },
+            {
+              "text": " do",
+              "start": 1.42,
+              "end": 1.48,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " so",
+              "start": 1.48,
+              "end": 1.7,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " good,",
+              "start": 1.7,
+              "end": 1.88,
+              "probability": 0.54443359375
+            },
+            {
+              "text": " Missala.",
+              "start": 2.02,
+              "end": 2.26,
+              "probability": 0.475830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Octavius,",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "raw": "do",
+          "start": 1.42,
+          "end": 1.48
+        },
+        {
+          "raw": "so",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "raw": "good,",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "raw": "Missala.",
+          "start": 2.02,
+          "end": 2.26
+        }
+      ],
+      "expected_tokens": [
+        "Octavius.",
+        "Do",
+        "so,",
+        "good",
+        "Messala."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Octavius,",
+          "start": 0.64,
+          "end": 1.1,
+          "key": "octavius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.42,
+          "end": 1.48,
+          "key": "do",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.48,
+          "end": 1.7,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "good,",
+          "start": 1.7,
+          "end": 1.88,
+          "key": "good",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Missala.",
+          "start": 2.02,
+          "end": 2.26,
+          "key": "missala",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Octavius.",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "text": "Do",
+          "start": 1.42,
+          "end": 1.48
+        },
+        {
+          "text": "so,",
+          "start": 1.48,
+          "end": 1.7
+        },
+        {
+          "text": "good",
+          "start": 1.7,
+          "end": 1.88
+        },
+        {
+          "text": "Messala.",
+          "start": 1.88,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15076357312500477
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf0e779d7b9459cba05fb5ec6faa0169a243a42fb5dbec7e7555a26c13784e40",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

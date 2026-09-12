@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "30f441cc176f260b2a4f8069d654cefe2ba0ca08b083ff2a26875087a13c57d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.10810614097863436,
+      "alignment_seconds": 0.00015702936798334122,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Lady Capulet.",
+          "start": 0.08,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Lady",
+              "start": 0.64,
+              "end": 0.94,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " Capulet.",
+              "start": 0.94,
+              "end": 1.52,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "Lady",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "raw": "Capulet.",
+          "start": 0.94,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Lady",
+        "Capulet.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 0.64,
+          "end": 0.94,
+          "key": "lady",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Capulet.",
+          "start": 0.94,
+          "end": 1.52,
+          "key": "capulet",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Lady",
+          "start": 0.64,
+          "end": 0.94
+        },
+        {
+          "text": "Capulet.]",
+          "start": 0.94,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10831708647310734
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6df94607af5b0ae4e00af5f8f8a377c59cd063a5d2a94e5ab025b5133ab0617e",
+  "selected_reasons": []
+}

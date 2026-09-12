@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "f3b2c9092730e4dd92bc12d94ac3bd9e4208921e5c61deb3c351503688b1b6c3",
+  "attempts": [
+    {
+      "asr_seconds": 0.4919440485537052,
+      "alignment_seconds": 0.0005862358957529068,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You are wrong to make such comparisons ...\" began Nikolay Parfenovitch, with extraordinary softness.",
+        "hotwords": "You, Nikolay, Parfenovitch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You are wrong to make such comparisons ...\" began Nikolay Parfenovitch, with extraordinary softness.",
+          "start": 0.02,
+          "end": 6.16,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.39697265625
+            },
+            {
+              "text": " are",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " wrong",
+              "start": 0.66,
+              "end": 0.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 0.970703125
+            },
+            {
+              "text": " make",
+              "start": 1.12,
+              "end": 1.26,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " such",
+              "start": 1.26,
+              "end": 1.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " comparisons",
+              "start": 1.52,
+              "end": 2.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ...\"",
+              "start": 2.16,
+              "end": 3.04,
+              "probability": 2.205371856689453e-06
+            },
+            {
+              "text": " began",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.52392578125
+            },
+            {
+              "text": " Nikolay",
+              "start": 3.22,
+              "end": 3.72,
+              "probability": 0.6507568359375
+            },
+            {
+              "text": " Parfenovitch,",
+              "start": 3.72,
+              "end": 4.42,
+              "probability": 0.4906005859375
+            },
+            {
+              "text": " with",
+              "start": 4.68,
+              "end": 4.78,
+              "probability": 0.96484375
+            },
+            {
+              "text": " extraordinary",
+              "start": 4.78,
+              "end": 5.44,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " softness.",
+              "start": 5.44,
+              "end": 6.16,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "are",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "wrong",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "raw": "to",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "raw": "make",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "raw": "such",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "raw": "comparisons",
+          "start": 1.52,
+          "end": 2.16
+        },
+        {
+          "raw": "...\"",
+          "start": 2.16,
+          "end": 3.04
+        },
+        {
+          "raw": "began",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "Nikolay",
+          "start": 3.22,
+          "end": 3.72
+        },
+        {
+          "raw": "Parfenovitch,",
+          "start": 3.72,
+          "end": 4.42
+        },
+        {
+          "raw": "with",
+          "start": 4.68,
+          "end": 4.78
+        },
+        {
+          "raw": "extraordinary",
+          "start": 4.78,
+          "end": 5.44
+        },
+        {
+          "raw": "softness.",
+          "start": 5.44,
+          "end": 6.16
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "are",
+        "wrong",
+        "to",
+        "make",
+        "such",
+        "comparisons",
+        "...\"",
+        "began",
+        "Nikolay",
+        "Parfenovitch,",
+        "with",
+        "extraordinary",
+        "softness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.5,
+          "end": 0.66,
+          "key": "are",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wrong",
+          "start": 0.66,
+          "end": 0.92,
+          "key": "wrong",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.92,
+          "end": 1.12,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.12,
+          "end": 1.26,
+          "key": "make",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 1.26,
+          "end": 1.52,
+          "key": "such",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "comparisons",
+          "start": 1.52,
+          "end": 2.16,
+          "key": "comparisons",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "...\"",
+          "start": 2.16,
+          "end": 3.04,
+          "key": "",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "began",
+          "start": 3.04,
+          "end": 3.22,
+          "key": "began",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Nikolay",
+          "start": 3.22,
+          "end": 3.72,
+          "key": "nikolay",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Parfenovitch,",
+          "start": 3.72,
+          "end": 4.42,
+          "key": "parfenovitch",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.68,
+          "end": 4.78,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "extraordinary",
+          "start": 4.78,
+          "end": 5.44,
+          "key": "extraordinary",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "softness.",
+          "start": 5.44,
+          "end": 6.16,
+          "key": "softness",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "are",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "wrong",
+          "start": 0.66,
+          "end": 0.92
+        },
+        {
+          "text": "to",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "text": "make",
+          "start": 1.12,
+          "end": 1.26
+        },
+        {
+          "text": "such",
+          "start": 1.26,
+          "end": 1.52
+        },
+        {
+          "text": "comparisons",
+          "start": 1.52,
+          "end": 2.16
+        },
+        {
+          "text": "...\"",
+          "start": 2.16,
+          "end": 3.04
+        },
+        {
+          "text": "began",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "Nikolay",
+          "start": 3.22,
+          "end": 3.72
+        },
+        {
+          "text": "Parfenovitch,",
+          "start": 3.72,
+          "end": 4.42
+        },
+        {
+          "text": "with",
+          "start": 4.68,
+          "end": 4.78
+        },
+        {
+          "text": "extraordinary",
+          "start": 4.78,
+          "end": 5.44
+        },
+        {
+          "text": "softness.",
+          "start": 5.44,
+          "end": 6.16
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4927807729691267
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5cf6c2aafd1de7d64e28b6ed7d7594f2450e16ff98178cd3c2c43423687b00f1",
+  "selected_reasons": []
+}

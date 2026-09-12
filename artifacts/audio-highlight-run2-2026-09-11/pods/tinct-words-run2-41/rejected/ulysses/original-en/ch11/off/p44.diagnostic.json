@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "83ec81810503fc6530398ef29182546a6b83d7cba4c071205c805c42fe005dde",
+  "attempts": [
+    {
+      "asr_seconds": 0.23260248731821775,
+      "alignment_seconds": 0.0004228963516652584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Fro to fro a baton cool protruding",
+          "start": 0.08,
+          "end": 3.06,
+          "words": [
+            {
+              "text": " Fro",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.56640625
+            },
+            {
+              "text": " to",
+              "start": 0.64,
+              "end": 1.06,
+              "probability": 0.82421875
+            },
+            {
+              "text": " fro",
+              "start": 1.06,
+              "end": 1.34,
+              "probability": 0.212890625
+            },
+            {
+              "text": " a",
+              "start": 1.34,
+              "end": 1.84,
+              "probability": 0.330078125
+            },
+            {
+              "text": " baton",
+              "start": 1.84,
+              "end": 2.18,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " cool",
+              "start": 2.18,
+              "end": 2.42,
+              "probability": 0.8984375
+            },
+            {
+              "text": " protruding",
+              "start": 2.42,
+              "end": 3.06,
+              "probability": 0.996826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fro",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "to",
+          "start": 0.64,
+          "end": 1.06
+        },
+        {
+          "raw": "fro",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.84
+        },
+        {
+          "raw": "baton",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "raw": "cool",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "raw": "protruding",
+          "start": 2.42,
+          "end": 3.06
+        }
+      ],
+      "expected_tokens": [
+        "Fro.",
+        "To,",
+        "fro.",
+        "A",
+        "baton",
+        "cool",
+        "protruding."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fro",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "fro",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.64,
+          "end": 1.06,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fro",
+          "start": 1.06,
+          "end": 1.34,
+          "key": "fro",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.84,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "baton",
+          "start": 1.84,
+          "end": 2.18,
+          "key": "baton",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "cool",
+          "start": 2.18,
+          "end": 2.42,
+          "key": "cool",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "protruding",
+          "start": 2.42,
+          "end": 3.06,
+          "key": "protruding",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fro.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "To,",
+          "start": 0.64,
+          "end": 1.06
+        },
+        {
+          "text": "fro.",
+          "start": 1.06,
+          "end": 1.34
+        },
+        {
+          "text": "A",
+          "start": 1.34,
+          "end": 1.84
+        },
+        {
+          "text": "baton",
+          "start": 1.84,
+          "end": 2.18
+        },
+        {
+          "text": "cool",
+          "start": 2.18,
+          "end": 2.42
+        },
+        {
+          "text": "protruding.",
+          "start": 2.42,
+          "end": 3.06
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23318726290017366
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "daec02f97ca98dcd52ca9d05aa615f8f14bfbe595041e5b441047a132ca47c0d",
+  "selected_reasons": []
+}

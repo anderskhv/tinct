@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "13e66c1eff2b03c2542ade23160028e02a1fdabdd227d8cbb3e94694a78535e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2144500412978232,
+      "alignment_seconds": 0.00012539001181721687,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Merchant. How is the man esteem'd here in the city?",
+        "hotwords": "Merchant, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Merchant, How is the man esteem'd here in the city?",
+          "start": 0.5,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Merchant,",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " How",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.0310516357421875
+            },
+            {
+              "text": " is",
+              "start": 1.52,
+              "end": 1.64,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " the",
+              "start": 1.64,
+              "end": 1.76,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " man",
+              "start": 1.76,
+              "end": 1.98,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " esteem'd",
+              "start": 1.98,
+              "end": 2.52,
+              "probability": 0.06388092041015625
+            },
+            {
+              "text": " here",
+              "start": 2.52,
+              "end": 2.64,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " in",
+              "start": 2.64,
+              "end": 2.78,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " city?",
+              "start": 2.9,
+              "end": 3.08,
+              "probability": 0.947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Merchant,",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "How",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "raw": "the",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "raw": "man",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "raw": "esteem'd",
+          "start": 1.98,
+          "end": 2.52
+        },
+        {
+          "raw": "here",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "raw": "in",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "raw": "the",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "city?",
+          "start": 2.9,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "Merchant.",
+        "How",
+        "is",
+        "the",
+        "man",
+        "esteem'd",
+        "here",
+        "in",
+        "the",
+        "city?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Merchant,",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "merchant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.52,
+          "end": 1.64,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.64,
+          "end": 1.76,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.76,
+          "end": 1.98,
+          "key": "man",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "esteem'd",
+          "start": 1.98,
+          "end": 2.52,
+          "key": "esteemd",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.52,
+          "end": 2.64,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.64,
+          "end": 2.78,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "city?",
+          "start": 2.9,
+          "end": 3.08,
+          "key": "city",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Merchant.",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "How",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "is",
+          "start": 1.52,
+          "end": 1.64
+        },
+        {
+          "text": "the",
+          "start": 1.64,
+          "end": 1.76
+        },
+        {
+          "text": "man",
+          "start": 1.76,
+          "end": 1.98
+        },
+        {
+          "text": "esteem'd",
+          "start": 1.98,
+          "end": 2.52
+        },
+        {
+          "text": "here",
+          "start": 2.52,
+          "end": 2.64
+        },
+        {
+          "text": "in",
+          "start": 2.64,
+          "end": 2.78
+        },
+        {
+          "text": "the",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "city?",
+          "start": 2.9,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21462037786841393
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8111bb3f5ad0254315706f2864bd69688be4228c1bbc27940ff7be572e622b74",
+  "selected_reasons": []
+}

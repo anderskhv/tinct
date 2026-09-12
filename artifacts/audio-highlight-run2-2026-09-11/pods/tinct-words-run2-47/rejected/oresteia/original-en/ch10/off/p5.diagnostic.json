@@ -1,0 +1,480 @@
+{
+  "complete": true,
+  "signature": "beaecdb9a364c47285e8e2c04635fbab923d793bfb3d27bcaf4ec0b8fc823e35",
+  "attempts": [
+    {
+      "asr_seconds": 0.2246161880029831,
+      "alignment_seconds": 0.0004973700270056725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Voice of Agamemnon. Oh, I am sped a deep immortal blow",
+          "start": 0.08,
+          "end": 4.26,
+          "words": [
+            {
+              "text": " Voice",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.6416015625
+            },
+            {
+              "text": " of",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Agamemnon.",
+              "start": 0.82,
+              "end": 1.46,
+              "probability": 0.9542236328125
+            },
+            {
+              "text": " Oh,",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " I",
+              "start": 2.14,
+              "end": 2.18,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " am",
+              "start": 2.18,
+              "end": 2.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sped",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " a",
+              "start": 2.6,
+              "end": 3.1,
+              "probability": 0.485107421875
+            },
+            {
+              "text": " deep",
+              "start": 3.1,
+              "end": 3.38,
+              "probability": 0.99609375
+            },
+            {
+              "text": " immortal",
+              "start": 3.38,
+              "end": 3.8,
+              "probability": 0.7158203125
+            },
+            {
+              "text": " blow",
+              "start": 3.8,
+              "end": 4.26,
+              "probability": 0.95361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Voice",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "of",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "Agamemnon.",
+          "start": 0.82,
+          "end": 1.46
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "I",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "raw": "am",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "raw": "sped",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "a",
+          "start": 2.6,
+          "end": 3.1
+        },
+        {
+          "raw": "deep",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "raw": "immortal",
+          "start": 3.38,
+          "end": 3.8
+        },
+        {
+          "raw": "blow",
+          "start": 3.8,
+          "end": 4.26
+        }
+      ],
+      "expected_tokens": [
+        "Voice",
+        "Of",
+        "Agamemnon.",
+        "O",
+        "I",
+        "am",
+        "sped—a",
+        "deep,",
+        "a",
+        "mortal",
+        "blow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "replace",
+          8,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          8,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Voice",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "voice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.66,
+          "end": 0.82,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Agamemnon.",
+          "start": 0.82,
+          "end": 1.46,
+          "key": "agamemnon",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.14,
+          "end": 2.18,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.18,
+          "end": 2.28,
+          "key": "am",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sped",
+          "start": 2.28,
+          "end": 2.6,
+          "key": "sped",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.6,
+          "end": 3.1,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "deep",
+          "start": 3.1,
+          "end": 3.38,
+          "key": "deep",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "immortal",
+          "start": 3.38,
+          "end": 3.8,
+          "key": "immortal",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "blow",
+          "start": 3.8,
+          "end": 4.26,
+          "key": "blow",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Voice",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "Of",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "Agamemnon.",
+          "start": 0.82,
+          "end": 1.46
+        },
+        {
+          "text": "O",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "text": "I",
+          "start": 2.14,
+          "end": 2.18
+        },
+        {
+          "text": "am",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "sped—a",
+          "start": 2.28,
+          "end": 2.69
+        },
+        {
+          "text": "deep,",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "text": "a",
+          "start": 3.38,
+          "end": 3.59
+        },
+        {
+          "text": "mortal",
+          "start": 3.59,
+          "end": 3.695
+        },
+        {
+          "text": "blow.",
+          "start": 3.8,
+          "end": 4.26
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 7
+      },
+      "match_ratio": 0.6363636363636364,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22530310400179587
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dfbab02b9cb42562695ba49d4416dbd2cbeeef662a9b0c2dfb2aca71d84d977b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

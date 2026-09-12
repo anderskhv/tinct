@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "e0d36ea59636559d09584af00f23f6fb1e12bfea195a0507b94f2055e595c750",
+  "attempts": [
+    {
+      "asr_seconds": 0.18367957114242017,
+      "alignment_seconds": 0.000409852946177125,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Cicero de Finibus_. Lib. v.",
+        "hotwords": "Finibus_, Lib"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cicero de Finibus_. Lib. v.",
+          "start": 0.08,
+          "end": 2.4,
+          "words": [
+            {
+              "text": " Cicero",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.3351580301920573
+            },
+            {
+              "text": " de",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.461181640625
+            },
+            {
+              "text": " Finibus_.",
+              "start": 0.9,
+              "end": 1.82,
+              "probability": 0.27221683661142987
+            },
+            {
+              "text": " Lib.",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.4248046875
+            },
+            {
+              "text": " v.",
+              "start": 2.2,
+              "end": 2.4,
+              "probability": 0.2269287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cicero",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "de",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "Finibus_.",
+          "start": 0.9,
+          "end": 1.82
+        },
+        {
+          "raw": "Lib.",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "v.",
+          "start": 2.2,
+          "end": 2.4
+        }
+      ],
+      "expected_tokens": [
+        "_Cicero",
+        "de",
+        "Finibus_.",
+        "Lib.",
+        "v."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cicero",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "cicero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "de",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Finibus_.",
+          "start": 0.9,
+          "end": 1.82,
+          "key": "finibus_",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lib.",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "lib",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "v.",
+          "start": 2.2,
+          "end": 2.4,
+          "key": "v",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Cicero",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "de",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "Finibus_.",
+          "start": 0.9,
+          "end": 1.36
+        },
+        {
+          "text": "Lib.",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "v.",
+          "start": 2.2,
+          "end": 2.4
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18418350908905268
+    },
+    {
+      "asr_seconds": 0.18798846192657948,
+      "alignment_seconds": 0.00034352997317910194,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Finibus_, Lib"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Cicerodifinibus, Lib V.",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Cicerodifinibus,",
+              "start": 0.08,
+              "end": 1.34,
+              "probability": 0.5692227681477865
+            },
+            {
+              "text": " Lib",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " V.",
+              "start": 1.92,
+              "end": 2.38,
+              "probability": 0.2310791015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cicerodifinibus,",
+          "start": 0.08,
+          "end": 1.34
+        },
+        {
+          "raw": "Lib",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "V.",
+          "start": 1.92,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "_Cicero",
+        "de",
+        "Finibus_.",
+        "Lib.",
+        "v."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "equal",
+          3,
+          5,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cicerodifinibus,",
+          "start": 0.08,
+          "end": 1.34,
+          "key": "cicerodifinibus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lib",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "lib",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "V.",
+          "start": 1.92,
+          "end": 2.38,
+          "key": "v",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Cicero",
+          "start": 0.0,
+          "end": 0.91
+        },
+        {
+          "text": "de",
+          "start": 0.91,
+          "end": 1.365
+        },
+        {
+          "text": "Finibus_.",
+          "start": 1.365,
+          "end": 1.593
+        },
+        {
+          "text": "Lib.",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "v.",
+          "start": 1.92,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1884296559728682
+    },
+    {
+      "asr_seconds": 0.19451888394542038,
+      "alignment_seconds": 0.0003981799818575382,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cicero de Finibas, Lib V.",
+          "start": 0.08,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Cicero",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " de",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.39111328125
+            },
+            {
+              "text": " Finibas,",
+              "start": 0.9,
+              "end": 1.4,
+              "probability": 0.6148274739583334
+            },
+            {
+              "text": " Lib",
+              "start": 1.84,
+              "end": 1.92,
+              "probability": 0.546875
+            },
+            {
+              "text": " V.",
+              "start": 1.92,
+              "end": 2.38,
+              "probability": 0.387451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cicero",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "de",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "Finibas,",
+          "start": 0.9,
+          "end": 1.4
+        },
+        {
+          "raw": "Lib",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "raw": "V.",
+          "start": 1.92,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "_Cicero",
+        "de",
+        "Finibus_.",
+        "Lib.",
+        "v."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cicero",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "cicero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "de",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Finibas,",
+          "start": 0.9,
+          "end": 1.4,
+          "key": "finibas",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Lib",
+          "start": 1.84,
+          "end": 1.92,
+          "key": "lib",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "V.",
+          "start": 1.92,
+          "end": 2.38,
+          "key": "v",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Cicero",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "de",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "Finibus_.",
+          "start": 0.9,
+          "end": 1.37
+        },
+        {
+          "text": "Lib.",
+          "start": 1.84,
+          "end": 1.92
+        },
+        {
+          "text": "v.",
+          "start": 1.92,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19506154605187476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c4c0fe6a69b017cddbe74e24840f7102a19234218f1c496906d36ab81baede93",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

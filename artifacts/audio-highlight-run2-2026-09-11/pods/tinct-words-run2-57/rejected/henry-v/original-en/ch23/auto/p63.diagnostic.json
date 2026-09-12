@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "2a276471c3bc0c3293a8461488dcd3b04270810d6bbeed9519db44af69d39c67",
+  "attempts": [
+    {
+      "asr_seconds": 0.24551501590758562,
+      "alignment_seconds": 0.00044259196147322655,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Burgundy. They are then excus'd, my lord, when they see not what they do.",
+        "hotwords": "Burgundy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Burgundy. They are then excus'd, my lord, when they see not what they do.",
+          "start": 0.53,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " Burgundy.",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.891357421875
+            },
+            {
+              "text": " They",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " are",
+              "start": 1.49,
+              "end": 1.57,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " then",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " excus'd,",
+              "start": 1.69,
+              "end": 2.33,
+              "probability": 0.6379852294921875
+            },
+            {
+              "text": " my",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.97265625
+            },
+            {
+              "text": " lord,",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " when",
+              "start": 3.13,
+              "end": 3.21,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " they",
+              "start": 3.21,
+              "end": 3.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " see",
+              "start": 3.37,
+              "end": 3.55,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " not",
+              "start": 3.55,
+              "end": 3.73,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " what",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " they",
+              "start": 3.89,
+              "end": 4.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " do.",
+              "start": 4.03,
+              "end": 4.27,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Burgundy.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "They",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "are",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "raw": "then",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "excus'd,",
+          "start": 1.69,
+          "end": 2.33
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "lord,",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "when",
+          "start": 3.13,
+          "end": 3.21
+        },
+        {
+          "raw": "they",
+          "start": 3.21,
+          "end": 3.37
+        },
+        {
+          "raw": "see",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "raw": "not",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "raw": "what",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "they",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "raw": "do.",
+          "start": 4.03,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "Burgundy.",
+        "They",
+        "are",
+        "then",
+        "excus'd,",
+        "my",
+        "lord,",
+        "when",
+        "they",
+        "see",
+        "not",
+        "what",
+        "they",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Burgundy.",
+          "start": 0.53,
+          "end": 0.87,
+          "key": "burgundy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.49,
+          "end": 1.57,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "excus'd,",
+          "start": 1.69,
+          "end": 2.33,
+          "key": "excusd",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.47,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "lord",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.13,
+          "end": 3.21,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.21,
+          "end": 3.37,
+          "key": "they",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.37,
+          "end": 3.55,
+          "key": "see",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.55,
+          "end": 3.73,
+          "key": "not",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "what",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.89,
+          "end": 4.03,
+          "key": "they",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 4.03,
+          "end": 4.27,
+          "key": "do",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Burgundy.",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "They",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "are",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "text": "then",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "excus'd,",
+          "start": 1.69,
+          "end": 2.33
+        },
+        {
+          "text": "my",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "lord,",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "when",
+          "start": 3.13,
+          "end": 3.21
+        },
+        {
+          "text": "they",
+          "start": 3.21,
+          "end": 3.37
+        },
+        {
+          "text": "see",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "text": "not",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "text": "what",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "they",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "text": "do.",
+          "start": 4.03,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2461525108665228
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fd27186bb93f4f17bfc81e6f5d53576f84c00e54527756b7adfbcf9ad560a161",
+  "selected_reasons": []
+}

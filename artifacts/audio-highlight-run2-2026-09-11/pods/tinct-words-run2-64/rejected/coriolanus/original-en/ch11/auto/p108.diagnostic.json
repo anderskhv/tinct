@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "478b70b0c86fd5ce9cd2d31746bf7e26c414cf90440dc8a3eff67999d2377a2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.14857865404337645,
+      "alignment_seconds": 0.00015087425708770752,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. Have with you.",
+        "hotwords": "Sicinius, Have"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, Have with you.",
+          "start": 0.08,
+          "end": 1.82,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.08,
+              "end": 0.98,
+              "probability": 0.4704691569010417
+            },
+            {
+              "text": " Have",
+              "start": 1.36,
+              "end": 1.42,
+              "probability": 0.0276031494140625
+            },
+            {
+              "text": " with",
+              "start": 1.42,
+              "end": 1.54,
+              "probability": 0.7109375
+            },
+            {
+              "text": " you.",
+              "start": 1.54,
+              "end": 1.82,
+              "probability": 0.845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "raw": "Have",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "raw": "with",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "raw": "you.",
+          "start": 1.54,
+          "end": 1.82
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "Have",
+        "with",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.08,
+          "end": 0.98,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 1.36,
+          "end": 1.42,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.42,
+          "end": 1.54,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.54,
+          "end": 1.82,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.08,
+          "end": 0.98
+        },
+        {
+          "text": "Have",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "text": "with",
+          "start": 1.42,
+          "end": 1.54
+        },
+        {
+          "text": "you.",
+          "start": 1.54,
+          "end": 1.82
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14878499321639538
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d028df9f124dbe19f8ca8712a262eb843d350e8d465962125f975cbcf7aa1dfb",
+  "selected_reasons": []
+}

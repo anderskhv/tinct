@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "662966743f3e3a547da09acee113343c62a393700b2b3405e23f400687748699",
+  "attempts": [
+    {
+      "asr_seconds": 0.2962629250250757,
+      "alignment_seconds": 0.0006296909414231777,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"That is saying too much: such hazardous affirmations are a proof of the excitement under which you labour.\"",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is saying too much. Such hazardous affirmations are a proof of the excitement under which you labour.",
+          "start": 0.02,
+          "end": 5.86,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " is",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " saying",
+              "start": 0.76,
+              "end": 1.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " too",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " much.",
+              "start": 1.32,
+              "end": 1.74,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Such",
+              "start": 2.32,
+              "end": 2.38,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hazardous",
+              "start": 2.38,
+              "end": 2.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " affirmations",
+              "start": 2.86,
+              "end": 3.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 3.66,
+              "end": 3.82,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 3.82,
+              "end": 3.94,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " proof",
+              "start": 3.94,
+              "end": 4.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 4.12,
+              "end": 4.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " excitement",
+              "start": 4.42,
+              "end": 4.86,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " under",
+              "start": 4.86,
+              "end": 5.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 5.24,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 5.4,
+              "end": 5.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " labour.",
+              "start": 5.6,
+              "end": 5.86,
+              "probability": 0.0115814208984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "is",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "saying",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "raw": "too",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "much.",
+          "start": 1.32,
+          "end": 1.74
+        },
+        {
+          "raw": "Such",
+          "start": 2.32,
+          "end": 2.38
+        },
+        {
+          "raw": "hazardous",
+          "start": 2.38,
+          "end": 2.86
+        },
+        {
+          "raw": "affirmations",
+          "start": 2.86,
+          "end": 3.66
+        },
+        {
+          "raw": "are",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "raw": "proof",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "raw": "of",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "raw": "the",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "excitement",
+          "start": 4.42,
+          "end": 4.86
+        },
+        {
+          "raw": "under",
+          "start": 4.86,
+          "end": 5.24
+        },
+        {
+          "raw": "which",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "raw": "you",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "raw": "labour.",
+          "start": 5.6,
+          "end": 5.86
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "is",
+        "saying",
+        "too",
+        "much:",
+        "such",
+        "hazardous",
+        "affirmations",
+        "are",
+        "a",
+        "proof",
+        "of",
+        "the",
+        "excitement",
+        "under",
+        "which",
+        "you",
+        "labour.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.6,
+          "end": 0.76,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "saying",
+          "start": 0.76,
+          "end": 1.04,
+          "key": "saying",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "too",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "much.",
+          "start": 1.32,
+          "end": 1.74,
+          "key": "much",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Such",
+          "start": 2.32,
+          "end": 2.38,
+          "key": "such",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hazardous",
+          "start": 2.38,
+          "end": 2.86,
+          "key": "hazardous",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "affirmations",
+          "start": 2.86,
+          "end": 3.66,
+          "key": "affirmations",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.66,
+          "end": 3.82,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.82,
+          "end": 3.94,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "proof",
+          "start": 3.94,
+          "end": 4.12,
+          "key": "proof",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.12,
+          "end": 4.3,
+          "key": "of",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.3,
+          "end": 4.42,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "excitement",
+          "start": 4.42,
+          "end": 4.86,
+          "key": "excitement",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "under",
+          "start": 4.86,
+          "end": 5.24,
+          "key": "under",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 5.24,
+          "end": 5.4,
+          "key": "which",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.4,
+          "end": 5.6,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "labour.",
+          "start": 5.6,
+          "end": 5.86,
+          "key": "labour",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "is",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "saying",
+          "start": 0.76,
+          "end": 1.04
+        },
+        {
+          "text": "too",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "much:",
+          "start": 1.32,
+          "end": 1.74
+        },
+        {
+          "text": "such",
+          "start": 2.32,
+          "end": 2.38
+        },
+        {
+          "text": "hazardous",
+          "start": 2.38,
+          "end": 2.86
+        },
+        {
+          "text": "affirmations",
+          "start": 2.86,
+          "end": 3.66
+        },
+        {
+          "text": "are",
+          "start": 3.66,
+          "end": 3.82
+        },
+        {
+          "text": "a",
+          "start": 3.82,
+          "end": 3.94
+        },
+        {
+          "text": "proof",
+          "start": 3.94,
+          "end": 4.12
+        },
+        {
+          "text": "of",
+          "start": 4.12,
+          "end": 4.3
+        },
+        {
+          "text": "the",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "excitement",
+          "start": 4.42,
+          "end": 4.86
+        },
+        {
+          "text": "under",
+          "start": 4.86,
+          "end": 5.24
+        },
+        {
+          "text": "which",
+          "start": 5.24,
+          "end": 5.4
+        },
+        {
+          "text": "you",
+          "start": 5.4,
+          "end": 5.6
+        },
+        {
+          "text": "labour.\"",
+          "start": 5.6,
+          "end": 5.86
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2971642140764743
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "588bf21b914abf790c65f6977083d22718bff2843978b2d8517c1c9e34f876b4",
+  "selected_reasons": []
+}

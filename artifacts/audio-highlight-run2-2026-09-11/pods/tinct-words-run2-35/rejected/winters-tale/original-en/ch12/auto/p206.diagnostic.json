@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "96daab724c6a12070c6e55af89850708f7157e63f426653460fdb1d311486b23",
+  "attempts": [
+    {
+      "asr_seconds": 0.23710493370890617,
+      "alignment_seconds": 0.0005253329873085022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Autolycus. I am a poor fellow, sir: [_Aside._] I know ye well enough.",
+        "hotwords": "Autolycus, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Autolycus, I am a poor fellow, sir. Aside. I know ye well enough.",
+          "start": 0.63,
+          "end": 4.21,
+          "words": [
+            {
+              "text": " Autolycus,",
+              "start": 0.63,
+              "end": 1.01,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " I",
+              "start": 1.39,
+              "end": 1.47,
+              "probability": 0.982421875
+            },
+            {
+              "text": " am",
+              "start": 1.47,
+              "end": 1.51,
+              "probability": 0.221435546875
+            },
+            {
+              "text": " a",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.9921875
+            },
+            {
+              "text": " poor",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " fellow,",
+              "start": 1.81,
+              "end": 2.11,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sir.",
+              "start": 2.31,
+              "end": 2.33,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " Aside.",
+              "start": 2.63,
+              "end": 2.75,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " I",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ye",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.0032634735107421875
+            },
+            {
+              "text": " well",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " enough.",
+              "start": 3.97,
+              "end": 4.21,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.63,
+          "end": 1.01
+        },
+        {
+          "raw": "I",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "raw": "am",
+          "start": 1.47,
+          "end": 1.51
+        },
+        {
+          "raw": "a",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "poor",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "fellow,",
+          "start": 1.81,
+          "end": 2.11
+        },
+        {
+          "raw": "sir.",
+          "start": 2.31,
+          "end": 2.33
+        },
+        {
+          "raw": "Aside.",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "raw": "I",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "raw": "know",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "ye",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "well",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "enough.",
+          "start": 3.97,
+          "end": 4.21
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "I",
+        "am",
+        "a",
+        "poor",
+        "fellow,",
+        "sir:",
+        "[_Aside._]",
+        "I",
+        "know",
+        "ye",
+        "well",
+        "enough."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.63,
+          "end": 1.01,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.39,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.47,
+          "end": 1.51,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "poor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fellow,",
+          "start": 1.81,
+          "end": 2.11,
+          "key": "fellow",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.31,
+          "end": 2.33,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Aside.",
+          "start": 2.63,
+          "end": 2.75,
+          "key": "aside",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.37,
+          "end": 3.47,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "know",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ye",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "ye",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "well",
+          "start": 3.79,
+          "end": 3.97,
+          "key": "well",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "enough.",
+          "start": 3.97,
+          "end": 4.21,
+          "key": "enough",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.63,
+          "end": 1.01
+        },
+        {
+          "text": "I",
+          "start": 1.39,
+          "end": 1.47
+        },
+        {
+          "text": "am",
+          "start": 1.47,
+          "end": 1.51
+        },
+        {
+          "text": "a",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "poor",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "fellow,",
+          "start": 1.81,
+          "end": 2.11
+        },
+        {
+          "text": "sir:",
+          "start": 2.31,
+          "end": 2.33
+        },
+        {
+          "text": "[_Aside._]",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "text": "I",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "text": "know",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "text": "ye",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "well",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "enough.",
+          "start": 3.97,
+          "end": 4.21
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23785820044577122
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "659ea798c503bb718eb72084404734afc1da927ab213114008551524f0072d1e",
+  "selected_reasons": []
+}

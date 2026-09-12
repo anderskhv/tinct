@@ -1,0 +1,271 @@
+{
+  "complete": true,
+  "signature": "b39151ad828447013c8dfe8e95444d93b101cb527d79c6703a1623ba9ee3b989",
+  "attempts": [
+    {
+      "asr_seconds": 0.1943772602826357,
+      "alignment_seconds": 0.00040494464337825775,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Florizol, he neither does nor shall.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Florizol,",
+              "start": 0.08,
+              "end": 0.96,
+              "probability": 0.4167887369791667
+            },
+            {
+              "text": " he",
+              "start": 1.26,
+              "end": 1.34,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " neither",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " does",
+              "start": 1.5,
+              "end": 1.74,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " nor",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " shall.",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Florizol,",
+          "start": 0.08,
+          "end": 0.96
+        },
+        {
+          "raw": "he",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "raw": "neither",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "does",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "raw": "nor",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "shall.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "He",
+        "neither",
+        "does",
+        "nor",
+        "shall."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          6,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Florizol,",
+          "start": 0.08,
+          "end": 0.96,
+          "key": "florizol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.26,
+          "end": 1.34,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "neither",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.5,
+          "end": 1.74,
+          "key": "does",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "nor",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall.",
+          "start": 1.94,
+          "end": 2.24,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.0,
+          "end": 0.63
+        },
+        {
+          "text": "He",
+          "start": 1.26,
+          "end": 1.34
+        },
+        {
+          "text": "neither",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "does",
+          "start": 1.5,
+          "end": 1.74
+        },
+        {
+          "text": "nor",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "shall.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19494006410241127
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a6348346e03da60f203b2e39d5eba31c3272ffdfd79c8337c2a09b5ec21c8a37",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "50c784b66b77bb0e097e8c75f55c5be99df431387d45693faa2479dfc413ae5c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1525522479787469,
+      "alignment_seconds": 0.00022804690524935722,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. \"This fail you not to do, as you will—\"",
+        "hotwords": "Othello, This"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, This fail you not to do, as you will—\"",
+          "start": 0.24,
+          "end": 3.66,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.24,
+              "end": 0.92,
+              "probability": 0.9405924479166666
+            },
+            {
+              "text": " This",
+              "start": 1.3,
+              "end": 1.48,
+              "probability": 0.0300750732421875
+            },
+            {
+              "text": " fail",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.68505859375
+            },
+            {
+              "text": " you",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " not",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " to",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " do,",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " as",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " you",
+              "start": 2.56,
+              "end": 2.72,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will—\"",
+              "start": 2.72,
+              "end": 3.66,
+              "probability": 0.49585169553756714
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.92
+        },
+        {
+          "raw": "This",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "raw": "fail",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "raw": "you",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "not",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "do,",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "as",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "you",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "raw": "will—\"",
+          "start": 2.72,
+          "end": 3.66
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "\"This",
+        "fail",
+        "you",
+        "not",
+        "to",
+        "do,",
+        "as",
+        "you",
+        "will—\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.24,
+          "end": 0.92,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.3,
+          "end": 1.48,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fail",
+          "start": 1.48,
+          "end": 1.68,
+          "key": "fail",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.84,
+          "end": 1.94,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do,",
+          "start": 2.08,
+          "end": 2.28,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.56,
+          "end": 2.72,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "will—\"",
+          "start": 2.72,
+          "end": 3.66,
+          "key": "will",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.24,
+          "end": 0.92
+        },
+        {
+          "text": "\"This",
+          "start": 1.3,
+          "end": 1.48
+        },
+        {
+          "text": "fail",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "text": "you",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "not",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "to",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "do,",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "as",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "you",
+          "start": 2.56,
+          "end": 2.72
+        },
+        {
+          "text": "will—\"",
+          "start": 2.72,
+          "end": 3.66
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15286787366494536
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e53de38053b968480ae83ef8e2f015c1f829d4a8d4d6e676ab464e19c1cca9a1",
+  "selected_reasons": []
+}

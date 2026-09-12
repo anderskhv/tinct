@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "dd2145ab7bcc79d8c5ee17bb4ba3353a227a3fae5d6b7327f2c656bdc0e67db0",
+  "attempts": [
+    {
+      "asr_seconds": 0.33120432309806347,
+      "alignment_seconds": 0.0005940506234765053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ayachimo, Felt torture me to leave unspoken that which to be spoke would torture thee",
+          "start": 0.11,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " Ayachimo,",
+              "start": 0.11,
+              "end": 0.97,
+              "probability": 0.5376790364583334
+            },
+            {
+              "text": " Felt",
+              "start": 1.49,
+              "end": 1.81,
+              "probability": 0.37286376953125
+            },
+            {
+              "text": " torture",
+              "start": 1.81,
+              "end": 2.13,
+              "probability": 0.98046875
+            },
+            {
+              "text": " me",
+              "start": 2.13,
+              "end": 2.33,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 2.33,
+              "end": 2.47,
+              "probability": 0.955078125
+            },
+            {
+              "text": " leave",
+              "start": 2.47,
+              "end": 2.69,
+              "probability": 0.994140625
+            },
+            {
+              "text": " unspoken",
+              "start": 2.69,
+              "end": 3.29,
+              "probability": 0.955322265625
+            },
+            {
+              "text": " that",
+              "start": 3.29,
+              "end": 3.57,
+              "probability": 0.443603515625
+            },
+            {
+              "text": " which",
+              "start": 3.57,
+              "end": 3.75,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " to",
+              "start": 3.75,
+              "end": 3.91,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " be",
+              "start": 3.91,
+              "end": 4.03,
+              "probability": 0.7421875
+            },
+            {
+              "text": " spoke",
+              "start": 4.03,
+              "end": 4.35,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " would",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.912109375
+            },
+            {
+              "text": " torture",
+              "start": 4.57,
+              "end": 4.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " thee",
+              "start": 4.91,
+              "end": 5.23,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ayachimo,",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "raw": "Felt",
+          "start": 1.49,
+          "end": 1.81
+        },
+        {
+          "raw": "torture",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "raw": "me",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "raw": "to",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "raw": "leave",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "raw": "unspoken",
+          "start": 2.69,
+          "end": 3.29
+        },
+        {
+          "raw": "that",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "raw": "which",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "raw": "to",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "raw": "be",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "raw": "spoke",
+          "start": 4.03,
+          "end": 4.35
+        },
+        {
+          "raw": "would",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "torture",
+          "start": 4.57,
+          "end": 4.91
+        },
+        {
+          "raw": "thee",
+          "start": 4.91,
+          "end": 5.23
+        }
+      ],
+      "expected_tokens": [
+        "Iachimo.",
+        "Thou'lt",
+        "torture",
+        "me",
+        "to",
+        "leave",
+        "unspoken",
+        "that",
+        "Which",
+        "to",
+        "be",
+        "spoke",
+        "would",
+        "torture",
+        "thee."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          15,
+          2,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ayachimo,",
+          "start": 0.11,
+          "end": 0.97,
+          "key": "ayachimo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Felt",
+          "start": 1.49,
+          "end": 1.81,
+          "key": "felt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "torture",
+          "start": 1.81,
+          "end": 2.13,
+          "key": "torture",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.13,
+          "end": 2.33,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.33,
+          "end": 2.47,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 2.47,
+          "end": 2.69,
+          "key": "leave",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "unspoken",
+          "start": 2.69,
+          "end": 3.29,
+          "key": "unspoken",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.29,
+          "end": 3.57,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 3.57,
+          "end": 3.75,
+          "key": "which",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.75,
+          "end": 3.91,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.91,
+          "end": 4.03,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 4.03,
+          "end": 4.35,
+          "key": "spoke",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.35,
+          "end": 4.57,
+          "key": "would",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "torture",
+          "start": 4.57,
+          "end": 4.91,
+          "key": "torture",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.91,
+          "end": 5.23,
+          "key": "thee",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iachimo.",
+          "start": 0.0,
+          "end": 0.905
+        },
+        {
+          "text": "Thou'lt",
+          "start": 0.905,
+          "end": 1.357
+        },
+        {
+          "text": "torture",
+          "start": 1.81,
+          "end": 2.13
+        },
+        {
+          "text": "me",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "text": "to",
+          "start": 2.33,
+          "end": 2.47
+        },
+        {
+          "text": "leave",
+          "start": 2.47,
+          "end": 2.69
+        },
+        {
+          "text": "unspoken",
+          "start": 2.69,
+          "end": 3.29
+        },
+        {
+          "text": "that",
+          "start": 3.29,
+          "end": 3.57
+        },
+        {
+          "text": "Which",
+          "start": 3.57,
+          "end": 3.75
+        },
+        {
+          "text": "to",
+          "start": 3.75,
+          "end": 3.91
+        },
+        {
+          "text": "be",
+          "start": 3.91,
+          "end": 4.03
+        },
+        {
+          "text": "spoke",
+          "start": 4.03,
+          "end": 4.35
+        },
+        {
+          "text": "would",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "text": "torture",
+          "start": 4.57,
+          "end": 4.91
+        },
+        {
+          "text": "thee.",
+          "start": 4.91,
+          "end": 5.23
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.3320368453860283
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3ce43bbe574200611b1920414e63e7d498fc61992cb3fd80b2df4c97a8df0ca4",
+  "selected_reasons": []
+}

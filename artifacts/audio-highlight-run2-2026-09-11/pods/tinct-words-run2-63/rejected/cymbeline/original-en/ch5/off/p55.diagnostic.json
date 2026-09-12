@@ -1,0 +1,504 @@
+{
+  "complete": true,
+  "signature": "3283de1d056808ccc7a401851eaf2576122c93a6381434cd7541a0a725c23f10",
+  "attempts": [
+    {
+      "asr_seconds": 0.24625209346413612,
+      "alignment_seconds": 0.0005989037454128265,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Philario, Signor I. Chimo will not from it. Pray let us follow him.",
+          "start": 0.49,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " Philario,",
+              "start": 0.49,
+              "end": 0.89,
+              "probability": 0.4149169921875
+            },
+            {
+              "text": " Signor",
+              "start": 1.39,
+              "end": 1.73,
+              "probability": 0.580078125
+            },
+            {
+              "text": " I.",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.7265625
+            },
+            {
+              "text": " Chimo",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.6707763671875
+            },
+            {
+              "text": " will",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " not",
+              "start": 2.41,
+              "end": 2.57,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " from",
+              "start": 2.57,
+              "end": 2.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " it.",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Pray",
+              "start": 3.27,
+              "end": 3.49,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " let",
+              "start": 3.49,
+              "end": 3.63,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " us",
+              "start": 3.63,
+              "end": 3.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " follow",
+              "start": 3.79,
+              "end": 4.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him.",
+              "start": 4.01,
+              "end": 4.27,
+              "probability": 0.8896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Philario,",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "raw": "Signor",
+          "start": 1.39,
+          "end": 1.73
+        },
+        {
+          "raw": "I.",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "Chimo",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "will",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "raw": "from",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "raw": "it.",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "Pray",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "raw": "let",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "raw": "us",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "raw": "follow",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "raw": "him.",
+          "start": 4.01,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "Philario.",
+        "Signior",
+        "Iachimo",
+        "will",
+        "not",
+        "from",
+        "it.",
+        "Pray",
+        "let",
+        "us",
+        "follow",
+        "'em."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ],
+        [
+          "equal",
+          3,
+          11,
+          4,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          4
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Philario,",
+          "start": 0.49,
+          "end": 0.89,
+          "key": "philario",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Signor",
+          "start": 1.39,
+          "end": 1.73,
+          "key": "signor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Chimo",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "chimo",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.23,
+          "end": 2.41,
+          "key": "will",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.57,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.57,
+          "end": 2.77,
+          "key": "from",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "it",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 3.27,
+          "end": 3.49,
+          "key": "pray",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.49,
+          "end": 3.63,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 3.63,
+          "end": 3.79,
+          "key": "us",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 3.79,
+          "end": 4.01,
+          "key": "follow",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 4.01,
+          "end": 4.27,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Philario.",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "text": "Signior",
+          "start": 0.89,
+          "end": 1.56
+        },
+        {
+          "text": "Iachimo",
+          "start": 1.56,
+          "end": 1.895
+        },
+        {
+          "text": "will",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "not",
+          "start": 2.41,
+          "end": 2.57
+        },
+        {
+          "text": "from",
+          "start": 2.57,
+          "end": 2.77
+        },
+        {
+          "text": "it.",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "Pray",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "text": "let",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "text": "us",
+          "start": 3.63,
+          "end": 3.79
+        },
+        {
+          "text": "follow",
+          "start": 3.79,
+          "end": 4.01
+        },
+        {
+          "text": "'em.",
+          "start": 4.01,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 9
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24708573333919048
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6f15e1581633d58eaa93b7be5b6a2f4a05d2e6f8503f9d5b2957971a3d5410b1",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

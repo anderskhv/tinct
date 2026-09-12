@@ -1,0 +1,881 @@
+{
+  "complete": true,
+  "signature": "23fe17bdd73815fd93d26fcdfaf492b5826255d40b4cadc4f31f4cebbb803686",
+  "attempts": [
+    {
+      "asr_seconds": 0.19229889661073685,
+      "alignment_seconds": 0.00042442698031663895,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. Call 'em, let me see 'em.",
+        "hotwords": "Macbeth, Call"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth, Call'em, let me see him.",
+          "start": 0.62,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.62,
+              "end": 0.96,
+              "probability": 0.7980143229166666
+            },
+            {
+              "text": " Call",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.07537841796875
+            },
+            {
+              "text": "'em,",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.48028564453125
+            },
+            {
+              "text": " let",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.46875
+            },
+            {
+              "text": " me",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.982421875
+            },
+            {
+              "text": " see",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " him.",
+              "start": 1.96,
+              "end": 2.14,
+              "probability": 0.1358642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "raw": "Call",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "'em,",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "let",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "me",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "see",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Call",
+        "'em,",
+        "let",
+        "me",
+        "see",
+        "'em."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.62,
+          "end": 0.96,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Call",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "call",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'em,",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "em",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "let",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.14,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.62,
+          "end": 0.96
+        },
+        {
+          "text": "Call",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "'em,",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "let",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "me",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "see",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "text": "'em.",
+          "start": 1.96,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.1928858682513237
+    },
+    {
+      "asr_seconds": 0.18565780110657215,
+      "alignment_seconds": 0.00044071488082408905,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Macbeth, Call"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " him. Let me see him.",
+          "start": 0.02,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " him.",
+              "start": 0.02,
+              "end": 1.0,
+              "probability": 2.3484230041503906e-05
+            },
+            {
+              "text": " Let",
+              "start": 1.6,
+              "end": 1.6,
+              "probability": 0.038909912109375
+            },
+            {
+              "text": " me",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.96875
+            },
+            {
+              "text": " see",
+              "start": 1.72,
+              "end": 1.96,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " him.",
+              "start": 1.96,
+              "end": 2.18,
+              "probability": 0.8974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "him.",
+          "start": 0.02,
+          "end": 1.0
+        },
+        {
+          "raw": "Let",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "raw": "me",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "see",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Call",
+        "'em,",
+        "let",
+        "me",
+        "see",
+        "'em."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "equal",
+          3,
+          6,
+          1,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          "replace",
+          6,
+          7,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "him.",
+          "start": 0.02,
+          "end": 1.0,
+          "key": "him",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 1.6,
+          "end": 1.6,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.6,
+          "end": 1.72,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.72,
+          "end": 1.96,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.18,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.0,
+          "end": 0.8
+        },
+        {
+          "text": "Call",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "text": "'em,",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "let",
+          "start": 1.6,
+          "end": 1.6
+        },
+        {
+          "text": "me",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "see",
+          "start": 1.72,
+          "end": 1.96
+        },
+        {
+          "text": "'em.",
+          "start": 1.96,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.42857142857142855,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18622663617134094
+    },
+    {
+      "asr_seconds": 0.19813685305416584,
+      "alignment_seconds": 0.00044856779277324677,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Macbeth, call him, let me see him.",
+          "start": 0.58,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.7980143229166666
+            },
+            {
+              "text": " call",
+              "start": 1.08,
+              "end": 1.28,
+              "probability": 0.904296875
+            },
+            {
+              "text": " him,",
+              "start": 1.28,
+              "end": 1.46,
+              "probability": 0.66259765625
+            },
+            {
+              "text": " let",
+              "start": 1.54,
+              "end": 1.62,
+              "probability": 0.986328125
+            },
+            {
+              "text": " me",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.97119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "call",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "raw": "him,",
+          "start": 1.28,
+          "end": 1.46
+        },
+        {
+          "raw": "let",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "raw": "me",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "see",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Call",
+        "'em,",
+        "let",
+        "me",
+        "see",
+        "'em."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          6,
+          3,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 1.08,
+          "end": 1.28,
+          "key": "call",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 1.28,
+          "end": 1.46,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.54,
+          "end": 1.62,
+          "key": "let",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.74,
+          "end": 1.96,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.96,
+          "end": 2.16,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "Call",
+          "start": 1.08,
+          "end": 1.28
+        },
+        {
+          "text": "'em,",
+          "start": 1.28,
+          "end": 1.41
+        },
+        {
+          "text": "let",
+          "start": 1.54,
+          "end": 1.62
+        },
+        {
+          "text": "me",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "see",
+          "start": 1.74,
+          "end": 1.96
+        },
+        {
+          "text": "'em.",
+          "start": 1.96,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19873511511832476
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d78f10369f4e05856fb5e55834766e4f6f41336bdacfbb8045cb159b5a3b7283",
+  "selected_reasons": []
+}

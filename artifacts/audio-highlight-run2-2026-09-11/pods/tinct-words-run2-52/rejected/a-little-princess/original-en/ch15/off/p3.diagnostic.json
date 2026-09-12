@@ -1,0 +1,402 @@
+{
+  "complete": true,
+  "signature": "d67aea3faa723bb484b12255295a4b120bc5ece1242845f169d8cb8052954b88",
+  "attempts": [
+    {
+      "asr_seconds": 0.16373339295387268,
+      "alignment_seconds": 0.0004085265100002289,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Poor man said Sarah. I wonder what you are supposing",
+          "start": 0.08,
+          "end": 3.56,
+          "words": [
+            {
+              "text": " Poor",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " man",
+              "start": 0.58,
+              "end": 0.98,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " said",
+              "start": 0.98,
+              "end": 1.44,
+              "probability": 0.56201171875
+            },
+            {
+              "text": " Sarah.",
+              "start": 1.44,
+              "end": 1.82,
+              "probability": 0.75
+            },
+            {
+              "text": " I",
+              "start": 1.82,
+              "end": 2.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wonder",
+              "start": 2.36,
+              "end": 2.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 2.5,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 2.68,
+              "end": 2.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 2.8,
+              "end": 2.9,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " supposing",
+              "start": 2.9,
+              "end": 3.56,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Poor",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "man",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "raw": "said",
+          "start": 0.98,
+          "end": 1.44
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.44,
+          "end": 1.82
+        },
+        {
+          "raw": "I",
+          "start": 1.82,
+          "end": 2.36
+        },
+        {
+          "raw": "wonder",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "raw": "what",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "raw": "you",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "raw": "are",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "raw": "supposing",
+          "start": 2.9,
+          "end": 3.56
+        }
+      ],
+      "expected_tokens": [
+        "\"Poor",
+        "man!\"",
+        "said",
+        "Sara.",
+        "\"I",
+        "wonder",
+        "what",
+        "you",
+        "are",
+        "supposing.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          10,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Poor",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "poor",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 0.58,
+          "end": 0.98,
+          "key": "man",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 0.98,
+          "end": 1.44,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Sarah.",
+          "start": 1.44,
+          "end": 1.82,
+          "key": "sarah",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.82,
+          "end": 2.36,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wonder",
+          "start": 2.36,
+          "end": 2.5,
+          "key": "wonder",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.5,
+          "end": 2.68,
+          "key": "what",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.68,
+          "end": 2.8,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.8,
+          "end": 2.9,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "supposing",
+          "start": 2.9,
+          "end": 3.56,
+          "key": "supposing",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Poor",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "man!\"",
+          "start": 0.58,
+          "end": 0.98
+        },
+        {
+          "text": "said",
+          "start": 0.98,
+          "end": 1.44
+        },
+        {
+          "text": "Sara.",
+          "start": 1.44,
+          "end": 1.63
+        },
+        {
+          "text": "\"I",
+          "start": 1.82,
+          "end": 2.36
+        },
+        {
+          "text": "wonder",
+          "start": 2.36,
+          "end": 2.5
+        },
+        {
+          "text": "what",
+          "start": 2.5,
+          "end": 2.68
+        },
+        {
+          "text": "you",
+          "start": 2.68,
+          "end": 2.8
+        },
+        {
+          "text": "are",
+          "start": 2.8,
+          "end": 2.9
+        },
+        {
+          "text": "supposing.\"",
+          "start": 2.9,
+          "end": 3.56
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.1642816849052906
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "952ec77289fca098a30593a9a34c753d9c43b627541f453f81159c69c161dc39",
+  "selected_reasons": []
+}

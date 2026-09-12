@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "908fd1c69223b64d124aeb2da7f174e8169471bdc365c459a9d1e3e6ec146f5e",
+  "attempts": [
+    {
+      "asr_seconds": 0.12195560894906521,
+      "alignment_seconds": 0.0002618711441755295,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter musicians.",
+          "start": 0.08,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " musicians.",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.8486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "musicians.",
+          "start": 0.64,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Musicians."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "musicians.",
+          "start": 0.64,
+          "end": 1.08,
+          "key": "musicians",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "Musicians.",
+          "start": 0.64,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12230781093239784
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b874a4fd441f0a5e4c405718cba24e689c60cf07c2fd20a4293d53f500587374",
+  "selected_reasons": []
+}

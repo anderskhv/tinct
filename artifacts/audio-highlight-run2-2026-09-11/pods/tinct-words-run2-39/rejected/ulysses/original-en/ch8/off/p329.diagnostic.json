@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "eaecac3f23e23d6e9052af912621253c247971e94401d66b307e56ad1ab4839b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1904850760474801,
+      "alignment_seconds": 0.0004090478178113699,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What does that tico mean tonight perhaps?",
+          "start": 0.02,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " does",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " that",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " tico",
+              "start": 0.8,
+              "end": 1.12,
+              "probability": 0.370849609375
+            },
+            {
+              "text": " mean",
+              "start": 1.12,
+              "end": 1.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " tonight",
+              "start": 1.4,
+              "end": 1.94,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " perhaps?",
+              "start": 1.94,
+              "end": 2.38,
+              "probability": 0.84765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "does",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "that",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "tico",
+          "start": 0.8,
+          "end": 1.12
+        },
+        {
+          "raw": "mean",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "raw": "tonight",
+          "start": 1.4,
+          "end": 1.94
+        },
+        {
+          "raw": "perhaps?",
+          "start": 1.94,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "does",
+        "that",
+        "_teco_",
+        "mean?",
+        "Tonight",
+        "perhaps."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "does",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tico",
+          "start": 0.8,
+          "end": 1.12,
+          "key": "tico",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 1.12,
+          "end": 1.4,
+          "key": "mean",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tonight",
+          "start": 1.4,
+          "end": 1.94,
+          "key": "tonight",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "perhaps?",
+          "start": 1.94,
+          "end": 2.38,
+          "key": "perhaps",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "does",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "that",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "_teco_",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "mean?",
+          "start": 1.12,
+          "end": 1.4
+        },
+        {
+          "text": "Tonight",
+          "start": 1.4,
+          "end": 1.94
+        },
+        {
+          "text": "perhaps.",
+          "start": 1.94,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.19102786807343364
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "09442dc9b2b6339b90d3ab6bbc2d97e3a62291ccdc41868c09bf5cc89eaef861",
+  "selected_reasons": []
+}

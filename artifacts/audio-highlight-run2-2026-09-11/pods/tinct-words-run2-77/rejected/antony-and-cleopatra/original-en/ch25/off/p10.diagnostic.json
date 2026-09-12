@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "537c06106845282153e18cecbaa7627b03f6d7ce269d02de4a49b02a7b75e803",
+  "attempts": [
+    {
+      "asr_seconds": 0.10616749798646197,
+      "alignment_seconds": 0.00017579601262696087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ambassador, he says so.",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " Ambassador,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.853515625
+            },
+            {
+              "text": " he",
+              "start": 1.4,
+              "end": 1.42,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " says",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " so.",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ambassador,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.42
+        },
+        {
+          "raw": "says",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "so.",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "Ambassador.",
+        "He",
+        "says",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ambassador,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "ambassador",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.42,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "says",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 1.6,
+          "end": 1.94,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ambassador.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "He",
+          "start": 1.4,
+          "end": 1.42
+        },
+        {
+          "text": "says",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "so.",
+          "start": 1.6,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10640775601495989
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a1e9e271e0ed4448546362d0f9aaf8a6dd6e4b76144090f279116561349576c2",
+  "selected_reasons": []
+}

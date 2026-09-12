@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "f0094cd6566d7e645c90ca043107ec7ccb5f0bdfc436f41fb8d0f78d86e3b5b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.22417800594121218,
+      "alignment_seconds": 0.0003903987817466259,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Miss Havisham sent for me, sir, I explained.",
+          "start": 0.02,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " Miss",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.112060546875
+            },
+            {
+              "text": " Havisham",
+              "start": 0.58,
+              "end": 1.1,
+              "probability": 0.9752604166666666
+            },
+            {
+              "text": " sent",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " for",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.974609375
+            },
+            {
+              "text": " me,",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sir,",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " I",
+              "start": 2.32,
+              "end": 2.42,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " explained.",
+              "start": 2.42,
+              "end": 2.88,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Miss",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "Havisham",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "raw": "sent",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "raw": "for",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "me,",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "sir,",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "I",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "raw": "explained.",
+          "start": 2.42,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "\"Miss",
+        "Havisham",
+        "sent",
+        "for",
+        "me,",
+        "sir,\"",
+        "I",
+        "explained."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Miss",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "miss",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Havisham",
+          "start": 0.58,
+          "end": 1.1,
+          "key": "havisham",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.1,
+          "end": 1.34,
+          "key": "sent",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.32,
+          "end": 2.42,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "explained.",
+          "start": 2.42,
+          "end": 2.88,
+          "key": "explained",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Miss",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "Havisham",
+          "start": 0.58,
+          "end": 1.1
+        },
+        {
+          "text": "sent",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "text": "for",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "me,",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "sir,\"",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "I",
+          "start": 2.32,
+          "end": 2.42
+        },
+        {
+          "text": "explained.",
+          "start": 2.42,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22471338231116533
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c5d90471a5929250e4141e6911b4f726781ae0ec14ee14674c75a4415f593b01",
+  "selected_reasons": []
+}

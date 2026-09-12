@@ -1,0 +1,515 @@
+{
+  "complete": true,
+  "signature": "e705b38fcb09586d436afd96cb3be5798763bc8fb932c361afaf204a881da3c7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2783500850200653,
+      "alignment_seconds": 0.0006099864840507507,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Maria, he's coming, madam, but in very strange manner.",
+          "start": 0.05,
+          "end": 3.69,
+          "words": [
+            {
+              "text": " Maria,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.088623046875
+            },
+            {
+              "text": " he's",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.94140625
+            },
+            {
+              "text": " coming,",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " madam,",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.769287109375
+            },
+            {
+              "text": " but",
+              "start": 2.43,
+              "end": 2.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " very",
+              "start": 2.61,
+              "end": 2.83,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " strange",
+              "start": 2.83,
+              "end": 3.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " manner.",
+              "start": 3.23,
+              "end": 3.69,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " He is sure possessed, madam.",
+          "start": 4.15,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " He",
+              "start": 4.15,
+              "end": 4.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 4.25,
+              "end": 4.35,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " sure",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.951171875
+            },
+            {
+              "text": " possessed,",
+              "start": 4.57,
+              "end": 4.91,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " madam.",
+              "start": 5.23,
+              "end": 5.51,
+              "probability": 0.977783203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Maria,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "he's",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "coming,",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "raw": "madam,",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "raw": "but",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "raw": "in",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "very",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "raw": "strange",
+          "start": 2.83,
+          "end": 3.23
+        },
+        {
+          "raw": "manner.",
+          "start": 3.23,
+          "end": 3.69
+        },
+        {
+          "raw": "He",
+          "start": 4.15,
+          "end": 4.25
+        },
+        {
+          "raw": "is",
+          "start": 4.25,
+          "end": 4.35
+        },
+        {
+          "raw": "sure",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "possessed,",
+          "start": 4.57,
+          "end": 4.91
+        },
+        {
+          "raw": "madam.",
+          "start": 5.23,
+          "end": 5.51
+        }
+      ],
+      "expected_tokens": [
+        "Maria.",
+        "He's",
+        "coming,",
+        "madam:",
+        "But",
+        "in",
+        "very",
+        "strange",
+        "manner.",
+        "He",
+        "is",
+        "sure",
+        "possessed,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Maria,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "maria",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he's",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "hes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "coming,",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "coming",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.43,
+          "end": 2.51,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.51,
+          "end": 2.61,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 2.61,
+          "end": 2.83,
+          "key": "very",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "strange",
+          "start": 2.83,
+          "end": 3.23,
+          "key": "strange",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "manner.",
+          "start": 3.23,
+          "end": 3.69,
+          "key": "manner",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 4.15,
+          "end": 4.25,
+          "key": "he",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.25,
+          "end": 4.35,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 4.35,
+          "end": 4.57,
+          "key": "sure",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "possessed,",
+          "start": 4.57,
+          "end": 4.91,
+          "key": "possessed",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 5.23,
+          "end": 5.51,
+          "key": "madam",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Maria.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "He's",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "coming,",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "text": "madam:",
+          "start": 1.87,
+          "end": 2.15
+        },
+        {
+          "text": "But",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "text": "in",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "very",
+          "start": 2.61,
+          "end": 2.83
+        },
+        {
+          "text": "strange",
+          "start": 2.83,
+          "end": 3.23
+        },
+        {
+          "text": "manner.",
+          "start": 3.23,
+          "end": 3.69
+        },
+        {
+          "text": "He",
+          "start": 4.15,
+          "end": 4.25
+        },
+        {
+          "text": "is",
+          "start": 4.25,
+          "end": 4.35
+        },
+        {
+          "text": "sure",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "text": "possessed,",
+          "start": 4.57,
+          "end": 4.91
+        },
+        {
+          "text": "madam.",
+          "start": 5.23,
+          "end": 5.51
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2791956923902035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "63f84bbf5f4b924fcfda27d3daf3673d5ac3800ece11762b8846b932ea94e013",
+  "selected_reasons": []
+}

@@ -1,0 +1,395 @@
+{
+  "complete": true,
+  "signature": "769a82400f2cb2f73fdc44fb04a04297d30d589fa4dbed024a213fd0925c82fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.2322080060839653,
+      "alignment_seconds": 0.0003448277711868286,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, I thank thee for thy care and honest pains.",
+          "start": 0.08,
+          "end": 3.08,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.454833984375
+            },
+            {
+              "text": " I",
+              "start": 1.28,
+              "end": 1.48,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " thank",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thee",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " for",
+              "start": 1.74,
+              "end": 1.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thy",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " care",
+              "start": 2.04,
+              "end": 2.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 2.26,
+              "end": 2.46,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " honest",
+              "start": 2.46,
+              "end": 2.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " pains.",
+              "start": 2.74,
+              "end": 3.08,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "raw": "thank",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "thee",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "for",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "raw": "thy",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "care",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "raw": "honest",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "raw": "pains.",
+          "start": 2.74,
+          "end": 3.08
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "I",
+        "thank",
+        "thee",
+        "for",
+        "thy",
+        "care",
+        "and",
+        "honest",
+        "pains."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.28,
+          "end": 1.48,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thank",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "thank",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "thee",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.74,
+          "end": 1.86,
+          "key": "for",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.86,
+          "end": 2.04,
+          "key": "thy",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 2.04,
+          "end": 2.26,
+          "key": "care",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.26,
+          "end": 2.46,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "honest",
+          "start": 2.46,
+          "end": 2.74,
+          "key": "honest",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "pains.",
+          "start": 2.74,
+          "end": 3.08,
+          "key": "pains",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 1.28,
+          "end": 1.48
+        },
+        {
+          "text": "thank",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "thee",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "for",
+          "start": 1.74,
+          "end": 1.86
+        },
+        {
+          "text": "thy",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "care",
+          "start": 2.04,
+          "end": 2.26
+        },
+        {
+          "text": "and",
+          "start": 2.26,
+          "end": 2.46
+        },
+        {
+          "text": "honest",
+          "start": 2.46,
+          "end": 2.74
+        },
+        {
+          "text": "pains.",
+          "start": 2.74,
+          "end": 3.08
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.23268865421414375
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb197ba6aa1ff3983c29dabc01c1517c9b21962f3a6c0ad918c049888b07a30a",
+  "selected_reasons": []
+}

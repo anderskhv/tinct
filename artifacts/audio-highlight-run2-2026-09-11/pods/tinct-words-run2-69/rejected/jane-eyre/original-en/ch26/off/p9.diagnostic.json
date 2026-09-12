@@ -1,0 +1,700 @@
+{
+  "complete": true,
+  "signature": "923c008458bc2c54c3a19356d45633409ea937bc4814e7be53c0070d1999b5f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.3626946536824107,
+      "alignment_seconds": 0.0006769904866814613,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Go you to the church see if mr. Wood the clergyman and the clerk are there return and tell me",
+          "start": 0.02,
+          "end": 5.82,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " you",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.96484375
+            },
+            {
+              "text": " to",
+              "start": 0.68,
+              "end": 0.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 0.8,
+              "end": 0.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " church",
+              "start": 0.94,
+              "end": 1.28,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " see",
+              "start": 1.28,
+              "end": 1.88,
+              "probability": 0.509765625
+            },
+            {
+              "text": " if",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " mr.",
+              "start": 2.04,
+              "end": 2.38,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " Wood",
+              "start": 2.44,
+              "end": 2.62,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " the",
+              "start": 2.62,
+              "end": 2.86,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " clergyman",
+              "start": 2.86,
+              "end": 3.36,
+              "probability": 0.912841796875
+            },
+            {
+              "text": " and",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 3.54,
+              "end": 3.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " clerk",
+              "start": 3.68,
+              "end": 3.92,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " are",
+              "start": 3.92,
+              "end": 4.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " there",
+              "start": 4.08,
+              "end": 4.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " return",
+              "start": 4.48,
+              "end": 5.08,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 5.08,
+              "end": 5.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " tell",
+              "start": 5.32,
+              "end": 5.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 5.54,
+              "end": 5.82,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "to",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "raw": "church",
+          "start": 0.94,
+          "end": 1.28
+        },
+        {
+          "raw": "see",
+          "start": 1.28,
+          "end": 1.88
+        },
+        {
+          "raw": "if",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "mr.",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "raw": "Wood",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "raw": "clergyman",
+          "start": 2.86,
+          "end": 3.36
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "raw": "clerk",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "raw": "are",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "raw": "there",
+          "start": 4.08,
+          "end": 4.48
+        },
+        {
+          "raw": "return",
+          "start": 4.48,
+          "end": 5.08
+        },
+        {
+          "raw": "and",
+          "start": 5.08,
+          "end": 5.32
+        },
+        {
+          "raw": "tell",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "raw": "me",
+          "start": 5.54,
+          "end": 5.82
+        }
+      ],
+      "expected_tokens": [
+        "\"Go",
+        "you",
+        "to",
+        "the",
+        "church:",
+        "see",
+        "if",
+        "Mr.",
+        "Wood",
+        "(the",
+        "clergyman)",
+        "and",
+        "the",
+        "clerk",
+        "are",
+        "there:",
+        "return",
+        "and",
+        "tell",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Go",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "go",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.68,
+          "end": 0.8,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.8,
+          "end": 0.94,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "church",
+          "start": 0.94,
+          "end": 1.28,
+          "key": "church",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.28,
+          "end": 1.88,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mr.",
+          "start": 2.04,
+          "end": 2.38,
+          "key": "mr",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Wood",
+          "start": 2.44,
+          "end": 2.62,
+          "key": "wood",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.62,
+          "end": 2.86,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "clergyman",
+          "start": 2.86,
+          "end": 3.36,
+          "key": "clergyman",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.36,
+          "end": 3.54,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.54,
+          "end": 3.68,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "clerk",
+          "start": 3.68,
+          "end": 3.92,
+          "key": "clerk",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.92,
+          "end": 4.08,
+          "key": "are",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 4.08,
+          "end": 4.48,
+          "key": "there",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "return",
+          "start": 4.48,
+          "end": 5.08,
+          "key": "return",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.08,
+          "end": 5.32,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 5.32,
+          "end": 5.54,
+          "key": "tell",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 5.54,
+          "end": 5.82,
+          "key": "me",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Go",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "you",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "to",
+          "start": 0.68,
+          "end": 0.8
+        },
+        {
+          "text": "the",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "text": "church:",
+          "start": 0.94,
+          "end": 1.28
+        },
+        {
+          "text": "see",
+          "start": 1.28,
+          "end": 1.88
+        },
+        {
+          "text": "if",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "Mr.",
+          "start": 2.04,
+          "end": 2.38
+        },
+        {
+          "text": "Wood",
+          "start": 2.44,
+          "end": 2.62
+        },
+        {
+          "text": "(the",
+          "start": 2.62,
+          "end": 2.86
+        },
+        {
+          "text": "clergyman)",
+          "start": 2.86,
+          "end": 3.36
+        },
+        {
+          "text": "and",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "text": "the",
+          "start": 3.54,
+          "end": 3.68
+        },
+        {
+          "text": "clerk",
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "text": "are",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "there:",
+          "start": 4.08,
+          "end": 4.48
+        },
+        {
+          "text": "return",
+          "start": 4.48,
+          "end": 5.08
+        },
+        {
+          "text": "and",
+          "start": 5.08,
+          "end": 5.32
+        },
+        {
+          "text": "tell",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "text": "me.\"",
+          "start": 5.54,
+          "end": 5.82
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.36367276031523943
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eed59fdbc409c891e6da674b907862e713ef8c4bcafe98ca198f44c41fbbc424",
+  "selected_reasons": []
+}

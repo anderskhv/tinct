@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "c482c3579cd413bbc8c1ff094246cf5f944f5f66f6ad5afdd8c300ae7d932e95",
+  "attempts": [
+    {
+      "asr_seconds": 0.15751347690820694,
+      "alignment_seconds": 0.0003891764208674431,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. How came he mad?",
+        "hotwords": "Hamlet, How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, How came he mad?",
+          "start": 0.08,
+          "end": 1.8,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " How",
+              "start": 1.1,
+              "end": 1.22,
+              "probability": 0.04180908203125
+            },
+            {
+              "text": " came",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.5166015625
+            },
+            {
+              "text": " he",
+              "start": 1.4,
+              "end": 1.56,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " mad?",
+              "start": 1.56,
+              "end": 1.8,
+              "probability": 0.8369140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "How",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "raw": "came",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "raw": "mad?",
+          "start": 1.56,
+          "end": 1.8
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "How",
+        "came",
+        "he",
+        "mad?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 1.1,
+          "end": 1.22,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "came",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.4,
+          "end": 1.56,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mad?",
+          "start": 1.56,
+          "end": 1.8,
+          "key": "mad",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "How",
+          "start": 1.1,
+          "end": 1.22
+        },
+        {
+          "text": "came",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "he",
+          "start": 1.4,
+          "end": 1.56
+        },
+        {
+          "text": "mad?",
+          "start": 1.56,
+          "end": 1.8
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15802717953920364
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c617cd289af7f3b90c9228a8920bdbdf49955a85878e22ca609bc8a7a88f9660",
+  "selected_reasons": []
+}

@@ -1,0 +1,542 @@
+{
+  "complete": true,
+  "signature": "9c56fd4e7d34a0d352a588b21d44f9efef3a2c4a59fb723e20ccf98618619e80",
+  "attempts": [
+    {
+      "asr_seconds": 0.23299642800702713,
+      "alignment_seconds": 0.000213576975511387,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Eros. Why, there then! [_kills himself_] Thus do I escape the sorrow Of Antony's death.",
+        "hotwords": "Eros, Why, Thus, I, Of, Antony's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Eros, Why, there then! Kills himself. Thus do I escape the sorrow Of Antony's death.",
+          "start": 0.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Eros,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.876953125
+            },
+            {
+              "text": " Why,",
+              "start": 1.21,
+              "end": 1.47,
+              "probability": 0.035888671875
+            },
+            {
+              "text": " there",
+              "start": 1.59,
+              "end": 1.65,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " then!",
+              "start": 1.65,
+              "end": 1.97,
+              "probability": 0.54833984375
+            },
+            {
+              "text": " Kills",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.3046875
+            },
+            {
+              "text": " himself.",
+              "start": 2.43,
+              "end": 2.91,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " Thus",
+              "start": 3.59,
+              "end": 3.73,
+              "probability": 0.986328125
+            },
+            {
+              "text": " do",
+              "start": 3.73,
+              "end": 3.89,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " I",
+              "start": 3.89,
+              "end": 3.99,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " escape",
+              "start": 3.99,
+              "end": 4.27,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 4.27,
+              "end": 4.47,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " sorrow",
+              "start": 4.47,
+              "end": 4.73,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " Of",
+              "start": 4.73,
+              "end": 4.99,
+              "probability": 0.0029277801513671875
+            },
+            {
+              "text": " Antony's",
+              "start": 4.99,
+              "end": 5.47,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " death.",
+              "start": 5.47,
+              "end": 5.69,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Why,",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "raw": "there",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "raw": "then!",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "raw": "Kills",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "himself.",
+          "start": 2.43,
+          "end": 2.91
+        },
+        {
+          "raw": "Thus",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "raw": "do",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "raw": "I",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "raw": "escape",
+          "start": 3.99,
+          "end": 4.27
+        },
+        {
+          "raw": "the",
+          "start": 4.27,
+          "end": 4.47
+        },
+        {
+          "raw": "sorrow",
+          "start": 4.47,
+          "end": 4.73
+        },
+        {
+          "raw": "Of",
+          "start": 4.73,
+          "end": 4.99
+        },
+        {
+          "raw": "Antony's",
+          "start": 4.99,
+          "end": 5.47
+        },
+        {
+          "raw": "death.",
+          "start": 5.47,
+          "end": 5.69
+        }
+      ],
+      "expected_tokens": [
+        "Eros.",
+        "Why,",
+        "there",
+        "then!",
+        "[_kills",
+        "himself_]",
+        "Thus",
+        "do",
+        "I",
+        "escape",
+        "the",
+        "sorrow",
+        "Of",
+        "Antony's",
+        "death."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Eros,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "eros",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 1.21,
+          "end": 1.47,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.59,
+          "end": 1.65,
+          "key": "there",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then!",
+          "start": 1.65,
+          "end": 1.97,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Kills",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "kills",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "himself.",
+          "start": 2.43,
+          "end": 2.91,
+          "key": "himself",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Thus",
+          "start": 3.59,
+          "end": 3.73,
+          "key": "thus",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.73,
+          "end": 3.89,
+          "key": "do",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.89,
+          "end": 3.99,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "escape",
+          "start": 3.99,
+          "end": 4.27,
+          "key": "escape",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.27,
+          "end": 4.47,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sorrow",
+          "start": 4.47,
+          "end": 4.73,
+          "key": "sorrow",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 4.73,
+          "end": 4.99,
+          "key": "of",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Antony's",
+          "start": 4.99,
+          "end": 5.47,
+          "key": "antonys",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "death.",
+          "start": 5.47,
+          "end": 5.69,
+          "key": "death",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Eros.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Why,",
+          "start": 1.21,
+          "end": 1.47
+        },
+        {
+          "text": "there",
+          "start": 1.59,
+          "end": 1.65
+        },
+        {
+          "text": "then!",
+          "start": 1.65,
+          "end": 1.97
+        },
+        {
+          "text": "[_kills",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "himself_]",
+          "start": 2.43,
+          "end": 2.91
+        },
+        {
+          "text": "Thus",
+          "start": 3.59,
+          "end": 3.73
+        },
+        {
+          "text": "do",
+          "start": 3.73,
+          "end": 3.89
+        },
+        {
+          "text": "I",
+          "start": 3.89,
+          "end": 3.99
+        },
+        {
+          "text": "escape",
+          "start": 3.99,
+          "end": 4.27
+        },
+        {
+          "text": "the",
+          "start": 4.27,
+          "end": 4.47
+        },
+        {
+          "text": "sorrow",
+          "start": 4.47,
+          "end": 4.73
+        },
+        {
+          "text": "Of",
+          "start": 4.73,
+          "end": 4.99
+        },
+        {
+          "text": "Antony's",
+          "start": 4.99,
+          "end": 5.47
+        },
+        {
+          "text": "death.",
+          "start": 5.47,
+          "end": 5.69
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23328885799855925
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3cf9026ce09ec93b57b5c74e2585525848276124e2f5e127b81745c1eefd9766",
+  "selected_reasons": []
+}

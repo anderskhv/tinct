@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "6ed3ab3214d46fe858a89e1a1231566170ba405f32db4db83c1174b39e927699",
+  "attempts": [
+    {
+      "asr_seconds": 0.24117160635069013,
+      "alignment_seconds": 0.00036120088770985603,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Coriolanus. Shall I be charged no further than this present? Must all determine here?",
+        "hotwords": "Coriolanus, Shall, I, Must"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Coriolanus, Shall I be charged no further than this present? Must all determine here?",
+          "start": 0.0,
+          "end": 5.16,
+          "words": [
+            {
+              "text": " Coriolanus,",
+              "start": 0.0,
+              "end": 1.1,
+              "probability": 0.80078125
+            },
+            {
+              "text": " Shall",
+              "start": 1.76,
+              "end": 1.78,
+              "probability": 0.018798828125
+            },
+            {
+              "text": " I",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " be",
+              "start": 1.9,
+              "end": 2.02,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " charged",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " no",
+              "start": 2.32,
+              "end": 2.64,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " further",
+              "start": 2.64,
+              "end": 2.84,
+              "probability": 0.9765625
+            },
+            {
+              "text": " than",
+              "start": 2.84,
+              "end": 3.04,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " this",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " present?",
+              "start": 3.2,
+              "end": 3.56,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " Must",
+              "start": 4.02,
+              "end": 4.1,
+              "probability": 0.77685546875
+            },
+            {
+              "text": " all",
+              "start": 4.1,
+              "end": 4.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " determine",
+              "start": 4.38,
+              "end": 4.78,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " here?",
+              "start": 4.78,
+              "end": 5.16,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.0,
+          "end": 1.1
+        },
+        {
+          "raw": "Shall",
+          "start": 1.76,
+          "end": 1.78
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "be",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "raw": "charged",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "no",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "raw": "further",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "raw": "than",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "raw": "this",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "present?",
+          "start": 3.2,
+          "end": 3.56
+        },
+        {
+          "raw": "Must",
+          "start": 4.02,
+          "end": 4.1
+        },
+        {
+          "raw": "all",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "raw": "determine",
+          "start": 4.38,
+          "end": 4.78
+        },
+        {
+          "raw": "here?",
+          "start": 4.78,
+          "end": 5.16
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "Shall",
+        "I",
+        "be",
+        "charged",
+        "no",
+        "further",
+        "than",
+        "this",
+        "present?",
+        "Must",
+        "all",
+        "determine",
+        "here?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus,",
+          "start": 0.0,
+          "end": 1.1,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 1.76,
+          "end": 1.78,
+          "key": "shall",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.9,
+          "end": 2.02,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "charged",
+          "start": 2.02,
+          "end": 2.32,
+          "key": "charged",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.32,
+          "end": 2.64,
+          "key": "no",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "further",
+          "start": 2.64,
+          "end": 2.84,
+          "key": "further",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.84,
+          "end": 3.04,
+          "key": "than",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "this",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "present?",
+          "start": 3.2,
+          "end": 3.56,
+          "key": "present",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Must",
+          "start": 4.02,
+          "end": 4.1,
+          "key": "must",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 4.1,
+          "end": 4.38,
+          "key": "all",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "determine",
+          "start": 4.38,
+          "end": 4.78,
+          "key": "determine",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 4.78,
+          "end": 5.16,
+          "key": "here",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.0,
+          "end": 1.1
+        },
+        {
+          "text": "Shall",
+          "start": 1.76,
+          "end": 1.78
+        },
+        {
+          "text": "I",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "be",
+          "start": 1.9,
+          "end": 2.02
+        },
+        {
+          "text": "charged",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "no",
+          "start": 2.32,
+          "end": 2.64
+        },
+        {
+          "text": "further",
+          "start": 2.64,
+          "end": 2.84
+        },
+        {
+          "text": "than",
+          "start": 2.84,
+          "end": 3.04
+        },
+        {
+          "text": "this",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "present?",
+          "start": 3.2,
+          "end": 3.56
+        },
+        {
+          "text": "Must",
+          "start": 4.02,
+          "end": 4.1
+        },
+        {
+          "text": "all",
+          "start": 4.1,
+          "end": 4.38
+        },
+        {
+          "text": "determine",
+          "start": 4.38,
+          "end": 4.78
+        },
+        {
+          "text": "here?",
+          "start": 4.78,
+          "end": 5.16
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24167571123689413
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a6a69c729e8624ff45f949e8e377c3644d04161858936570280b3cccd875a727",
+  "selected_reasons": []
+}

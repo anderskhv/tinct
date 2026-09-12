@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "22601d87bbd1a19c2f0966753075a6a72314c92691912743676e0f1ba607272e",
+  "attempts": [
+    {
+      "asr_seconds": 0.21293732710182667,
+      "alignment_seconds": 0.00045179203152656555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Edgar, tease Noble Kent, your friend.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Edgar,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " tease",
+              "start": 1.32,
+              "end": 1.36,
+              "probability": 0.984375
+            },
+            {
+              "text": " Noble",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " Kent,",
+              "start": 1.68,
+              "end": 1.96,
+              "probability": 0.6728515625
+            },
+            {
+              "text": " your",
+              "start": 2.08,
+              "end": 2.16,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " friend.",
+              "start": 2.16,
+              "end": 2.42,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Edgar,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "tease",
+          "start": 1.32,
+          "end": 1.36
+        },
+        {
+          "raw": "Noble",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "Kent,",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "raw": "your",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "raw": "friend.",
+          "start": 2.16,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Edgar.",
+        "'Tis",
+        "noble",
+        "Kent,",
+        "your",
+        "friend."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Edgar,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "edgar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 1.32,
+          "end": 1.36,
+          "key": "tease",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Noble",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "noble",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Kent,",
+          "start": 1.68,
+          "end": 1.96,
+          "key": "kent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.08,
+          "end": 2.16,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "friend.",
+          "start": 2.16,
+          "end": 2.42,
+          "key": "friend",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Edgar.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "'Tis",
+          "start": 0.7,
+          "end": 1.03
+        },
+        {
+          "text": "noble",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "Kent,",
+          "start": 1.68,
+          "end": 1.96
+        },
+        {
+          "text": "your",
+          "start": 2.08,
+          "end": 2.16
+        },
+        {
+          "text": "friend.",
+          "start": 2.16,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21353083662688732
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "460bf0c49472543d3c9874d3da8be082ad5f7ff63097b6a83a2608582fd57c2d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

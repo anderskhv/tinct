@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "f84a666471609a563a319dfe46cb56f008d61682206a1016d05ba496447d31d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.29732227697968483,
+      "alignment_seconds": 0.0004541948437690735,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sonya sat down in painful suspense. Raskolnikov was silent, gazing at the floor and deliberating.",
+          "start": 0.08,
+          "end": 6.7,
+          "words": [
+            {
+              "text": " Sonya",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.6292724609375
+            },
+            {
+              "text": " sat",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " down",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 1.34,
+              "end": 1.56,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " painful",
+              "start": 1.56,
+              "end": 1.96,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " suspense.",
+              "start": 1.96,
+              "end": 2.52,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Raskolnikov",
+              "start": 3.34,
+              "end": 3.9,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " was",
+              "start": 3.9,
+              "end": 4.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " silent,",
+              "start": 4.06,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " gazing",
+              "start": 5.06,
+              "end": 5.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " at",
+              "start": 5.2,
+              "end": 5.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.46,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " floor",
+              "start": 5.58,
+              "end": 5.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 5.88,
+              "end": 6.12,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " deliberating.",
+              "start": 6.12,
+              "end": 6.7,
+              "probability": 0.994384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sonya",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "sat",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "down",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "raw": "in",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "raw": "painful",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "raw": "suspense.",
+          "start": 1.96,
+          "end": 2.52
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 3.34,
+          "end": 3.9
+        },
+        {
+          "raw": "was",
+          "start": 3.9,
+          "end": 4.06
+        },
+        {
+          "raw": "silent,",
+          "start": 4.06,
+          "end": 4.48
+        },
+        {
+          "raw": "gazing",
+          "start": 5.06,
+          "end": 5.2
+        },
+        {
+          "raw": "at",
+          "start": 5.2,
+          "end": 5.46
+        },
+        {
+          "raw": "the",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "raw": "floor",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 6.12
+        },
+        {
+          "raw": "deliberating.",
+          "start": 6.12,
+          "end": 6.7
+        }
+      ],
+      "expected_tokens": [
+        "Sonia",
+        "sat",
+        "down",
+        "in",
+        "painful",
+        "suspense.",
+        "Raskolnikov",
+        "was",
+        "silent,",
+        "gazing",
+        "at",
+        "the",
+        "floor",
+        "and",
+        "deliberating."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          15,
+          1,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sonya",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "sonya",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 0.82,
+          "end": 0.98,
+          "key": "sat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.98,
+          "end": 1.34,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.34,
+          "end": 1.56,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "painful",
+          "start": 1.56,
+          "end": 1.96,
+          "key": "painful",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "suspense.",
+          "start": 1.96,
+          "end": 2.52,
+          "key": "suspense",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Raskolnikov",
+          "start": 3.34,
+          "end": 3.9,
+          "key": "raskolnikov",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.9,
+          "end": 4.06,
+          "key": "was",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "silent,",
+          "start": 4.06,
+          "end": 4.48,
+          "key": "silent",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gazing",
+          "start": 5.06,
+          "end": 5.2,
+          "key": "gazing",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 5.2,
+          "end": 5.46,
+          "key": "at",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.46,
+          "end": 5.58,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "floor",
+          "start": 5.58,
+          "end": 5.88,
+          "key": "floor",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.88,
+          "end": 6.12,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "deliberating.",
+          "start": 6.12,
+          "end": 6.7,
+          "key": "deliberating",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sonia",
+          "start": 0.0,
+          "end": 0.41
+        },
+        {
+          "text": "sat",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "down",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "text": "in",
+          "start": 1.34,
+          "end": 1.56
+        },
+        {
+          "text": "painful",
+          "start": 1.56,
+          "end": 1.96
+        },
+        {
+          "text": "suspense.",
+          "start": 1.96,
+          "end": 2.52
+        },
+        {
+          "text": "Raskolnikov",
+          "start": 3.34,
+          "end": 3.9
+        },
+        {
+          "text": "was",
+          "start": 3.9,
+          "end": 4.06
+        },
+        {
+          "text": "silent,",
+          "start": 4.06,
+          "end": 4.48
+        },
+        {
+          "text": "gazing",
+          "start": 5.06,
+          "end": 5.2
+        },
+        {
+          "text": "at",
+          "start": 5.2,
+          "end": 5.46
+        },
+        {
+          "text": "the",
+          "start": 5.46,
+          "end": 5.58
+        },
+        {
+          "text": "floor",
+          "start": 5.58,
+          "end": 5.88
+        },
+        {
+          "text": "and",
+          "start": 5.88,
+          "end": 6.12
+        },
+        {
+          "text": "deliberating.",
+          "start": 6.12,
+          "end": 6.7
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.297952763736248
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bfb781e39ab4e94ceeb193028c9766b15b8169797bc3e46e16437e37de5a659a",
+  "selected_reasons": []
+}

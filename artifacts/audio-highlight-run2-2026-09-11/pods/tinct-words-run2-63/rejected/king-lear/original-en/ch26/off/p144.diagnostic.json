@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "da9f949eec4771a207859a0e59e77eab2db84701090b9b7fd7b5867ea3f2437c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1006146352738142,
+      "alignment_seconds": 0.00025179237127304077,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He dies.",
+          "start": 0.05,
+          "end": 0.79,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " dies.",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "dies.",
+          "start": 0.53,
+          "end": 0.79
+        }
+      ],
+      "expected_tokens": [
+        "[_He",
+        "dies._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dies.",
+          "start": 0.53,
+          "end": 0.79,
+          "key": "dies",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "dies._]",
+          "start": 0.53,
+          "end": 0.79
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10095430538058281
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf9e4221534efc9a61e426eddc223ba57780381f891e63557e8d4d6c666a5e50",
+  "selected_reasons": []
+}

@@ -1,0 +1,1443 @@
+{
+  "complete": true,
+  "signature": "7a1ddfd2b245f534d683ae9a4dc6be0cfb5bd1598306b084de2e9b057c6e05ad",
+  "attempts": [
+    {
+      "asr_seconds": 0.2775320461951196,
+      "alignment_seconds": 0.00045603979378938675,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Pip. Jinglers, you say?—there goes another, dropped off; I pound it so.",
+        "hotwords": "Pip, Jinglers, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Pip, Jinglers, you say?—there goes another, dropped off, I pound it so.",
+          "start": 0.05,
+          "end": 4.31,
+          "words": [
+            {
+              "text": " Pip,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.67822265625
+            },
+            {
+              "text": " Jinglers,",
+              "start": 0.87,
+              "end": 1.23,
+              "probability": 0.4799346923828125
+            },
+            {
+              "text": " you",
+              "start": 1.39,
+              "end": 1.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " say",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": "?—there",
+              "start": 1.69,
+              "end": 2.29,
+              "probability": 0.1664649248123169
+            },
+            {
+              "text": " goes",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " another,",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.9921875
+            },
+            {
+              "text": " dropped",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " off,",
+              "start": 3.11,
+              "end": 3.41,
+              "probability": 0.978515625
+            },
+            {
+              "text": " I",
+              "start": 3.55,
+              "end": 3.65,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " pound",
+              "start": 3.65,
+              "end": 3.87,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " it",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so.",
+              "start": 4.03,
+              "end": 4.31,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pip,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Jinglers,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.41
+        },
+        {
+          "raw": "say",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "?—there",
+          "start": 1.69,
+          "end": 2.29
+        },
+        {
+          "raw": "goes",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "another,",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "dropped",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "off,",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "raw": "I",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "raw": "pound",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "raw": "it",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "so.",
+          "start": 4.03,
+          "end": 4.31
+        }
+      ],
+      "expected_tokens": [
+        "Pip.",
+        "Jinglers,",
+        "you",
+        "say?—there",
+        "goes",
+        "another,",
+        "dropped",
+        "off;",
+        "I",
+        "pound",
+        "it",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pip,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "pip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jinglers,",
+          "start": 0.87,
+          "end": 1.23,
+          "key": "jinglers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.41,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "?—there",
+          "start": 1.69,
+          "end": 2.29,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "goes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "another,",
+          "start": 2.47,
+          "end": 2.73,
+          "key": "another",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dropped",
+          "start": 2.91,
+          "end": 3.11,
+          "key": "dropped",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "off,",
+          "start": 3.11,
+          "end": 3.41,
+          "key": "off",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.55,
+          "end": 3.65,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pound",
+          "start": 3.65,
+          "end": 3.87,
+          "key": "pound",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.87,
+          "end": 4.03,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 4.03,
+          "end": 4.31,
+          "key": "so",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pip.",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Jinglers,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "text": "you",
+          "start": 1.39,
+          "end": 1.41
+        },
+        {
+          "text": "say?—there",
+          "start": 1.41,
+          "end": 1.85
+        },
+        {
+          "text": "goes",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "another,",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "dropped",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "off;",
+          "start": 3.11,
+          "end": 3.41
+        },
+        {
+          "text": "I",
+          "start": 3.55,
+          "end": 3.65
+        },
+        {
+          "text": "pound",
+          "start": 3.65,
+          "end": 3.87
+        },
+        {
+          "text": "it",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "so.",
+          "start": 4.03,
+          "end": 4.31
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.278161465190351
+    },
+    {
+      "asr_seconds": 0.2078681611455977,
+      "alignment_seconds": 0.0005994532257318497,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Pip, Jinglers, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Pip, Jinglers, you say. There goes another dropped off. I pound it so",
+          "start": 0.05,
+          "end": 4.33,
+          "words": [
+            {
+              "text": " Pip,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.6796875
+            },
+            {
+              "text": " Jinglers,",
+              "start": 0.87,
+              "end": 1.23,
+              "probability": 0.4801025390625
+            },
+            {
+              "text": " you",
+              "start": 1.39,
+              "end": 1.41,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " say.",
+              "start": 1.41,
+              "end": 1.69,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " There",
+              "start": 2.15,
+              "end": 2.29,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " goes",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.99609375
+            },
+            {
+              "text": " another",
+              "start": 2.47,
+              "end": 2.73,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " dropped",
+              "start": 2.73,
+              "end": 3.13,
+              "probability": 0.2391357421875
+            },
+            {
+              "text": " off.",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.90625
+            },
+            {
+              "text": " I",
+              "start": 3.57,
+              "end": 3.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " pound",
+              "start": 3.63,
+              "end": 3.87,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " it",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " so",
+              "start": 4.03,
+              "end": 4.33,
+              "probability": 0.83056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pip,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "Jinglers,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.41
+        },
+        {
+          "raw": "say.",
+          "start": 1.41,
+          "end": 1.69
+        },
+        {
+          "raw": "There",
+          "start": 2.15,
+          "end": 2.29
+        },
+        {
+          "raw": "goes",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "another",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "raw": "dropped",
+          "start": 2.73,
+          "end": 3.13
+        },
+        {
+          "raw": "off.",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "raw": "I",
+          "start": 3.57,
+          "end": 3.63
+        },
+        {
+          "raw": "pound",
+          "start": 3.63,
+          "end": 3.87
+        },
+        {
+          "raw": "it",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "so",
+          "start": 4.03,
+          "end": 4.33
+        }
+      ],
+      "expected_tokens": [
+        "Pip.",
+        "Jinglers,",
+        "you",
+        "say?—there",
+        "goes",
+        "another,",
+        "dropped",
+        "off;",
+        "I",
+        "pound",
+        "it",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pip,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "pip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jinglers,",
+          "start": 0.87,
+          "end": 1.23,
+          "key": "jinglers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.39,
+          "end": 1.41,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say.",
+          "start": 1.41,
+          "end": 1.69,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.15,
+          "end": 2.29,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "goes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 2.47,
+          "end": 2.73,
+          "key": "another",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dropped",
+          "start": 2.73,
+          "end": 3.13,
+          "key": "dropped",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "off",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.57,
+          "end": 3.63,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pound",
+          "start": 3.63,
+          "end": 3.87,
+          "key": "pound",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.87,
+          "end": 4.03,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.03,
+          "end": 4.33,
+          "key": "so",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pip.",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Jinglers,",
+          "start": 0.87,
+          "end": 1.23
+        },
+        {
+          "text": "you",
+          "start": 1.39,
+          "end": 1.41
+        },
+        {
+          "text": "say?—there",
+          "start": 1.41,
+          "end": 1.85
+        },
+        {
+          "text": "goes",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "another,",
+          "start": 2.47,
+          "end": 2.73
+        },
+        {
+          "text": "dropped",
+          "start": 2.73,
+          "end": 3.13
+        },
+        {
+          "text": "off;",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "text": "I",
+          "start": 3.57,
+          "end": 3.63
+        },
+        {
+          "text": "pound",
+          "start": 3.63,
+          "end": 3.87
+        },
+        {
+          "text": "it",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "so.",
+          "start": 4.03,
+          "end": 4.33
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2087070201523602
+    },
+    {
+      "asr_seconds": 0.25662035308778286,
+      "alignment_seconds": 0.000616101548075676,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pip jinglers you say there goes another dropped off. I pound it so",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Pip",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.6796875
+            },
+            {
+              "text": " jinglers",
+              "start": 0.57,
+              "end": 1.23,
+              "probability": 0.7383626302083334
+            },
+            {
+              "text": " you",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " say",
+              "start": 1.41,
+              "end": 1.71,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " there",
+              "start": 1.71,
+              "end": 2.29,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " goes",
+              "start": 2.29,
+              "end": 2.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " another",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dropped",
+              "start": 2.71,
+              "end": 3.13,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " off.",
+              "start": 3.13,
+              "end": 3.45,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " I",
+              "start": 3.45,
+              "end": 3.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " pound",
+              "start": 3.65,
+              "end": 3.89,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " it",
+              "start": 3.89,
+              "end": 4.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " so",
+              "start": 4.03,
+              "end": 4.37,
+              "probability": 0.64306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pip",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "jinglers",
+          "start": 0.57,
+          "end": 1.23
+        },
+        {
+          "raw": "you",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "say",
+          "start": 1.41,
+          "end": 1.71
+        },
+        {
+          "raw": "there",
+          "start": 1.71,
+          "end": 2.29
+        },
+        {
+          "raw": "goes",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "raw": "another",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "raw": "dropped",
+          "start": 2.71,
+          "end": 3.13
+        },
+        {
+          "raw": "off.",
+          "start": 3.13,
+          "end": 3.45
+        },
+        {
+          "raw": "I",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "raw": "pound",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "raw": "it",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "raw": "so",
+          "start": 4.03,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "Pip.",
+        "Jinglers,",
+        "you",
+        "say?—there",
+        "goes",
+        "another,",
+        "dropped",
+        "off;",
+        "I",
+        "pound",
+        "it",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pip",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "pip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "jinglers",
+          "start": 0.57,
+          "end": 1.23,
+          "key": "jinglers",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.23,
+          "end": 1.41,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.41,
+          "end": 1.71,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "there",
+          "start": 1.71,
+          "end": 2.29,
+          "key": "there",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 2.29,
+          "end": 2.47,
+          "key": "goes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "another",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "another",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dropped",
+          "start": 2.71,
+          "end": 3.13,
+          "key": "dropped",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "off.",
+          "start": 3.13,
+          "end": 3.45,
+          "key": "off",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.45,
+          "end": 3.65,
+          "key": "i",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "pound",
+          "start": 3.65,
+          "end": 3.89,
+          "key": "pound",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.89,
+          "end": 4.03,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.03,
+          "end": 4.37,
+          "key": "so",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pip.",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "Jinglers,",
+          "start": 0.57,
+          "end": 1.23
+        },
+        {
+          "text": "you",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "say?—there",
+          "start": 1.41,
+          "end": 1.85
+        },
+        {
+          "text": "goes",
+          "start": 2.29,
+          "end": 2.47
+        },
+        {
+          "text": "another,",
+          "start": 2.47,
+          "end": 2.71
+        },
+        {
+          "text": "dropped",
+          "start": 2.71,
+          "end": 3.13
+        },
+        {
+          "text": "off;",
+          "start": 3.13,
+          "end": 3.45
+        },
+        {
+          "text": "I",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "text": "pound",
+          "start": 3.65,
+          "end": 3.89
+        },
+        {
+          "text": "it",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "text": "so.",
+          "start": 4.03,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2574719022959471
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "742d0b864f2eb46782ed3d30b02fadcc3a190300b0e6c19283e32de0e1fd014a",
+  "selected_reasons": []
+}

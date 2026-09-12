@@ -1,0 +1,374 @@
+{
+  "complete": true,
+  "signature": "09d6e4273b3ed81ad12af0d95a5a1a84bd0b0f02c33de29ce9c46b0b0289a373",
+  "attempts": [
+    {
+      "asr_seconds": 0.22201568260788918,
+      "alignment_seconds": 0.0005079489201307297,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Nor Jiv, know when the office to follow you.",
+          "start": 0.05,
+          "end": 2.69,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.564453125
+            },
+            {
+              "text": " Jiv,",
+              "start": 0.61,
+              "end": 0.99,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " know",
+              "start": 1.27,
+              "end": 1.45,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " when",
+              "start": 1.45,
+              "end": 1.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.59,
+              "end": 1.69,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " office",
+              "start": 1.69,
+              "end": 1.91,
+              "probability": 0.7412109375
+            },
+            {
+              "text": " to",
+              "start": 1.91,
+              "end": 2.13,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " follow",
+              "start": 2.13,
+              "end": 2.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you.",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nor",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Jiv,",
+          "start": 0.61,
+          "end": 0.99
+        },
+        {
+          "raw": "know",
+          "start": 1.27,
+          "end": 1.45
+        },
+        {
+          "raw": "when",
+          "start": 1.45,
+          "end": 1.59
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "raw": "office",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "raw": "to",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "raw": "follow",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "raw": "you.",
+          "start": 2.37,
+          "end": 2.69
+        }
+      ],
+      "expected_tokens": [
+        "\"Nor",
+        "giv'",
+        "no",
+        "one",
+        "the",
+        "office",
+        "to",
+        "follow",
+        "you?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "equal",
+          4,
+          9,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nor",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "nor",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Jiv,",
+          "start": 0.61,
+          "end": 0.99,
+          "key": "jiv",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.27,
+          "end": 1.45,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.45,
+          "end": 1.59,
+          "key": "when",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.59,
+          "end": 1.69,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "office",
+          "start": 1.69,
+          "end": 1.91,
+          "key": "office",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.91,
+          "end": 2.13,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "follow",
+          "start": 2.13,
+          "end": 2.37,
+          "key": "follow",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.37,
+          "end": 2.69,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Nor",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "giv'",
+          "start": 0.61,
+          "end": 1.1
+        },
+        {
+          "text": "no",
+          "start": 1.1,
+          "end": 1.345
+        },
+        {
+          "text": "one",
+          "start": 1.345,
+          "end": 1.468
+        },
+        {
+          "text": "the",
+          "start": 1.59,
+          "end": 1.69
+        },
+        {
+          "text": "office",
+          "start": 1.69,
+          "end": 1.91
+        },
+        {
+          "text": "to",
+          "start": 1.91,
+          "end": 2.13
+        },
+        {
+          "text": "follow",
+          "start": 2.13,
+          "end": 2.37
+        },
+        {
+          "text": "you?\"",
+          "start": 2.37,
+          "end": 2.69
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 6
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22270829789340496
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c72d67d12a595fd9f6aff8d8b93b12302bcc442bef4e05c39790795c1056f6b8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

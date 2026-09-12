@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "42fb168e38f18c26022d8f837ac6a00e6b22dfaf6070e9b23921db46300e9ebd",
+  "attempts": [
+    {
+      "asr_seconds": 0.3345911279320717,
+      "alignment_seconds": 0.000630207359790802,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Duchess. O Harry's wife, triumph not in my woes! God witness with me, I have wept for thine.",
+        "hotwords": "Duchess, O, Harry's, God, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Duchess, O Harry's wife, triumph not in my woes! God witness with me, I have wept for thine.",
+          "start": 0.08,
+          "end": 6.2,
+          "words": [
+            {
+              "text": " Duchess,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.243896484375
+            },
+            {
+              "text": " O",
+              "start": 1.3,
+              "end": 1.52,
+              "probability": 0.693359375
+            },
+            {
+              "text": " Harry's",
+              "start": 1.52,
+              "end": 1.92,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " wife,",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.9375
+            },
+            {
+              "text": " triumph",
+              "start": 2.64,
+              "end": 2.64,
+              "probability": 0.798828125
+            },
+            {
+              "text": " not",
+              "start": 2.64,
+              "end": 2.94,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " in",
+              "start": 2.94,
+              "end": 3.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " woes!",
+              "start": 3.2,
+              "end": 3.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " God",
+              "start": 4.26,
+              "end": 4.36,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " witness",
+              "start": 4.36,
+              "end": 4.64,
+              "probability": 0.744140625
+            },
+            {
+              "text": " with",
+              "start": 4.64,
+              "end": 4.9,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " me,",
+              "start": 4.9,
+              "end": 5.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 5.24,
+              "end": 5.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 5.3,
+              "end": 5.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wept",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " for",
+              "start": 5.64,
+              "end": 5.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " thine.",
+              "start": 5.78,
+              "end": 6.2,
+              "probability": 0.9677734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Duchess,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "O",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "raw": "Harry's",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "raw": "wife,",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "raw": "triumph",
+          "start": 2.64,
+          "end": 2.64
+        },
+        {
+          "raw": "not",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "raw": "in",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "raw": "my",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "woes!",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "raw": "God",
+          "start": 4.26,
+          "end": 4.36
+        },
+        {
+          "raw": "witness",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "raw": "with",
+          "start": 4.64,
+          "end": 4.9
+        },
+        {
+          "raw": "me,",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "raw": "I",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "raw": "have",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "raw": "wept",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "raw": "for",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "raw": "thine.",
+          "start": 5.78,
+          "end": 6.2
+        }
+      ],
+      "expected_tokens": [
+        "Duchess.",
+        "O",
+        "Harry's",
+        "wife,",
+        "triumph",
+        "not",
+        "in",
+        "my",
+        "woes!",
+        "God",
+        "witness",
+        "with",
+        "me,",
+        "I",
+        "have",
+        "wept",
+        "for",
+        "thine."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Duchess,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "duchess",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.3,
+          "end": 1.52,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Harry's",
+          "start": 1.52,
+          "end": 1.92,
+          "key": "harrys",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wife,",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "wife",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "triumph",
+          "start": 2.64,
+          "end": 2.64,
+          "key": "triumph",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.64,
+          "end": 2.94,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.94,
+          "end": 3.04,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.04,
+          "end": 3.2,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "woes!",
+          "start": 3.2,
+          "end": 3.46,
+          "key": "woes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 4.26,
+          "end": 4.36,
+          "key": "god",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "witness",
+          "start": 4.36,
+          "end": 4.64,
+          "key": "witness",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.64,
+          "end": 4.9,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 4.9,
+          "end": 5.1,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.24,
+          "end": 5.3,
+          "key": "i",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 5.3,
+          "end": 5.4,
+          "key": "have",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "wept",
+          "start": 5.4,
+          "end": 5.64,
+          "key": "wept",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.64,
+          "end": 5.78,
+          "key": "for",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "thine.",
+          "start": 5.78,
+          "end": 6.2,
+          "key": "thine",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Duchess.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "O",
+          "start": 1.3,
+          "end": 1.52
+        },
+        {
+          "text": "Harry's",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "text": "wife,",
+          "start": 1.92,
+          "end": 2.16
+        },
+        {
+          "text": "triumph",
+          "start": 2.64,
+          "end": 2.64
+        },
+        {
+          "text": "not",
+          "start": 2.64,
+          "end": 2.94
+        },
+        {
+          "text": "in",
+          "start": 2.94,
+          "end": 3.04
+        },
+        {
+          "text": "my",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "woes!",
+          "start": 3.2,
+          "end": 3.46
+        },
+        {
+          "text": "God",
+          "start": 4.26,
+          "end": 4.36
+        },
+        {
+          "text": "witness",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "text": "with",
+          "start": 4.64,
+          "end": 4.9
+        },
+        {
+          "text": "me,",
+          "start": 4.9,
+          "end": 5.1
+        },
+        {
+          "text": "I",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "text": "have",
+          "start": 5.3,
+          "end": 5.4
+        },
+        {
+          "text": "wept",
+          "start": 5.4,
+          "end": 5.64
+        },
+        {
+          "text": "for",
+          "start": 5.64,
+          "end": 5.78
+        },
+        {
+          "text": "thine.",
+          "start": 5.78,
+          "end": 6.2
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3355080708861351
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9d8bc7d5a156ac2cabc64ce7fd1c31ce4dd5b8f40f375c5530c011d34b861c32",
+  "selected_reasons": []
+}

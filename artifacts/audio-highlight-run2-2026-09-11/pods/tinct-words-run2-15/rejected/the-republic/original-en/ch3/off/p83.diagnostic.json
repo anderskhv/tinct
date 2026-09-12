@@ -1,0 +1,619 @@
+{
+  "complete": true,
+  "signature": "3376a3f98ab028e8449b5ade6f6860fa891a41e5bf63984b52039ece73697ccb",
+  "attempts": [
+    {
+      "asr_seconds": 0.26125518232584,
+      "alignment_seconds": 0.00045834481716156006,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, heavy with wine, who hast the eyes of a dog and the heart of a stag.",
+          "start": 0.08,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.252197265625
+            },
+            {
+              "text": " heavy",
+              "start": 0.64,
+              "end": 0.76,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " with",
+              "start": 0.76,
+              "end": 1.02,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " wine,",
+              "start": 1.02,
+              "end": 1.36,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " who",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " hast",
+              "start": 1.9,
+              "end": 2.1,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " the",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " eyes",
+              "start": 2.3,
+              "end": 2.52,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 2.66,
+              "end": 2.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " dog",
+              "start": 2.78,
+              "end": 3.04,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 3.04,
+              "end": 3.26,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " the",
+              "start": 3.26,
+              "end": 3.36,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " heart",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 3.54,
+              "end": 3.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.66,
+              "end": 3.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " stag.",
+              "start": 3.76,
+              "end": 4.08,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "heavy",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "raw": "with",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "raw": "wine,",
+          "start": 1.02,
+          "end": 1.36
+        },
+        {
+          "raw": "who",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "hast",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "eyes",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "a",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "raw": "dog",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "raw": "heart",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "of",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "raw": "a",
+          "start": 3.66,
+          "end": 3.76
+        },
+        {
+          "raw": "stag.",
+          "start": 3.76,
+          "end": 4.08
+        }
+      ],
+      "expected_tokens": [
+        "'O",
+        "heavy",
+        "with",
+        "wine,",
+        "who",
+        "hast",
+        "the",
+        "eyes",
+        "of",
+        "a",
+        "dog",
+        "and",
+        "the",
+        "heart",
+        "of",
+        "a",
+        "stag,'"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heavy",
+          "start": 0.64,
+          "end": 0.76,
+          "key": "heavy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 0.76,
+          "end": 1.02,
+          "key": "with",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wine,",
+          "start": 1.02,
+          "end": 1.36,
+          "key": "wine",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.8,
+          "end": 1.9,
+          "key": "who",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.9,
+          "end": 2.1,
+          "key": "hast",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 2.3,
+          "end": 2.52,
+          "key": "eyes",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.66,
+          "end": 2.78,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dog",
+          "start": 2.78,
+          "end": 3.04,
+          "key": "dog",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.04,
+          "end": 3.26,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.36,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "heart",
+          "start": 3.36,
+          "end": 3.54,
+          "key": "heart",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.54,
+          "end": 3.66,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.66,
+          "end": 3.76,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "stag.",
+          "start": 3.76,
+          "end": 4.08,
+          "key": "stag",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "'O",
+          "start": 0.0,
+          "end": 0.32
+        },
+        {
+          "text": "heavy",
+          "start": 0.64,
+          "end": 0.76
+        },
+        {
+          "text": "with",
+          "start": 0.76,
+          "end": 1.02
+        },
+        {
+          "text": "wine,",
+          "start": 1.02,
+          "end": 1.36
+        },
+        {
+          "text": "who",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "hast",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "text": "the",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "eyes",
+          "start": 2.3,
+          "end": 2.52
+        },
+        {
+          "text": "of",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "a",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "text": "dog",
+          "start": 2.78,
+          "end": 3.04
+        },
+        {
+          "text": "and",
+          "start": 3.04,
+          "end": 3.26
+        },
+        {
+          "text": "the",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "text": "heart",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "text": "of",
+          "start": 3.54,
+          "end": 3.66
+        },
+        {
+          "text": "a",
+          "start": 3.66,
+          "end": 3.76
+        },
+        {
+          "text": "stag,'",
+          "start": 3.76,
+          "end": 4.08
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.26189983636140823
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e3f3029d39bc70476826eb99340326fa70abca937bce66b34841ee60feb99898",
+  "selected_reasons": []
+}

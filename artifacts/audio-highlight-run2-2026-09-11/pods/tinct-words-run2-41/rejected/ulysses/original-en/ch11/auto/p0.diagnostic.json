@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "e856d660a7dba9584ef63be5ab600c1d58db9b3c9027668656c287e2ca5e453f",
+  "attempts": [
+    {
+      "asr_seconds": 0.204877823125571,
+      "alignment_seconds": 0.00013608625158667564,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Bronze by gold heard the hoofirons, steelyringing.",
+        "hotwords": "Bronze"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Bronze by gold heard the hoofirons, steelyringing.",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Bronze",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.833984375
+            },
+            {
+              "text": " by",
+              "start": 0.67,
+              "end": 0.93,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " gold",
+              "start": 0.93,
+              "end": 1.19,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " heard",
+              "start": 1.19,
+              "end": 1.41,
+              "probability": 0.845703125
+            },
+            {
+              "text": " the",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " hoofirons,",
+              "start": 1.57,
+              "end": 2.13,
+              "probability": 0.4192613363265991
+            },
+            {
+              "text": " steelyringing.",
+              "start": 2.49,
+              "end": 3.07,
+              "probability": 0.2847747802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Bronze",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "by",
+          "start": 0.67,
+          "end": 0.93
+        },
+        {
+          "raw": "gold",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "raw": "heard",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "hoofirons,",
+          "start": 1.57,
+          "end": 2.13
+        },
+        {
+          "raw": "steelyringing.",
+          "start": 2.49,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "Bronze",
+        "by",
+        "gold",
+        "heard",
+        "the",
+        "hoofirons,",
+        "steelyringing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Bronze",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "bronze",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.67,
+          "end": 0.93,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "gold",
+          "start": 0.93,
+          "end": 1.19,
+          "key": "gold",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 1.19,
+          "end": 1.41,
+          "key": "heard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.41,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "hoofirons,",
+          "start": 1.57,
+          "end": 2.13,
+          "key": "hoofirons",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "steelyringing.",
+          "start": 2.49,
+          "end": 3.07,
+          "key": "steelyringing",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Bronze",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "by",
+          "start": 0.67,
+          "end": 0.93
+        },
+        {
+          "text": "gold",
+          "start": 0.93,
+          "end": 1.19
+        },
+        {
+          "text": "heard",
+          "start": 1.19,
+          "end": 1.41
+        },
+        {
+          "text": "the",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "hoofirons,",
+          "start": 1.57,
+          "end": 2.13
+        },
+        {
+          "text": "steelyringing.",
+          "start": 2.49,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20506416400894523
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "20215c6424f1e2079e4f74f6400a4fd66814ee616a8d1b1b6354f453b103344d",
+  "selected_reasons": []
+}

@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "7ce1d06e78cc542a9f8cd51759f48a2f28188a770a2eedad54bb50060c7d38ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.10084297508001328,
+      "alignment_seconds": 0.0001955963671207428,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown.",
+        "hotwords": "Clown"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown.",
+          "start": 0.08,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " Clown.",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.354736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown.",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "Clown."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown.",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.66
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10110469534993172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f1b92184f44c9e453b172a4a9781756b404af9c1e937f04df68e4d491dd272d9",
+  "selected_reasons": []
+}

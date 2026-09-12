@@ -1,0 +1,476 @@
+{
+  "complete": true,
+  "signature": "5f81004ae5e3228ab628a01619fd556d6589a11eaa83811e0a459dca17b5cd38",
+  "attempts": [
+    {
+      "asr_seconds": 0.30608654604293406,
+      "alignment_seconds": 0.00044157099910080433,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Burgundy, God save your majesty. My royal cousin teach you our princess English.",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Burgundy,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.940185546875
+            },
+            {
+              "text": " God",
+              "start": 1.23,
+              "end": 1.47,
+              "probability": 0.919921875
+            },
+            {
+              "text": " save",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.8671875
+            },
+            {
+              "text": " your",
+              "start": 1.69,
+              "end": 1.89,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " majesty.",
+              "start": 1.89,
+              "end": 2.25,
+              "probability": 0.875
+            },
+            {
+              "text": " My",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " royal",
+              "start": 3.05,
+              "end": 3.29,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " cousin",
+              "start": 3.29,
+              "end": 3.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " teach",
+              "start": 3.65,
+              "end": 4.01,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " you",
+              "start": 4.01,
+              "end": 4.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " our",
+              "start": 4.21,
+              "end": 4.35,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " princess",
+              "start": 4.35,
+              "end": 4.67,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " English.",
+              "start": 4.67,
+              "end": 5.05,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Burgundy,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "God",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "raw": "save",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "your",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "raw": "majesty.",
+          "start": 1.89,
+          "end": 2.25
+        },
+        {
+          "raw": "My",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "royal",
+          "start": 3.05,
+          "end": 3.29
+        },
+        {
+          "raw": "cousin",
+          "start": 3.29,
+          "end": 3.65
+        },
+        {
+          "raw": "teach",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "raw": "you",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "raw": "our",
+          "start": 4.21,
+          "end": 4.35
+        },
+        {
+          "raw": "princess",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "raw": "English.",
+          "start": 4.67,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "Burgundy.",
+        "God",
+        "save",
+        "your",
+        "Majesty!",
+        "My",
+        "royal",
+        "cousin,",
+        "teach",
+        "you",
+        "our",
+        "princess",
+        "English?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Burgundy,",
+          "start": 0.05,
+          "end": 0.87,
+          "key": "burgundy",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 1.23,
+          "end": 1.47,
+          "key": "god",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "save",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.69,
+          "end": 1.89,
+          "key": "your",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "majesty.",
+          "start": 1.89,
+          "end": 2.25,
+          "key": "majesty",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.93,
+          "end": 3.05,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "royal",
+          "start": 3.05,
+          "end": 3.29,
+          "key": "royal",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cousin",
+          "start": 3.29,
+          "end": 3.65,
+          "key": "cousin",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "teach",
+          "start": 3.65,
+          "end": 4.01,
+          "key": "teach",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.01,
+          "end": 4.21,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.21,
+          "end": 4.35,
+          "key": "our",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "princess",
+          "start": 4.35,
+          "end": 4.67,
+          "key": "princess",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "English.",
+          "start": 4.67,
+          "end": 5.05,
+          "key": "english",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Burgundy.",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "God",
+          "start": 1.23,
+          "end": 1.47
+        },
+        {
+          "text": "save",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "your",
+          "start": 1.69,
+          "end": 1.89
+        },
+        {
+          "text": "Majesty!",
+          "start": 1.89,
+          "end": 2.25
+        },
+        {
+          "text": "My",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "royal",
+          "start": 3.05,
+          "end": 3.29
+        },
+        {
+          "text": "cousin,",
+          "start": 3.29,
+          "end": 3.65
+        },
+        {
+          "text": "teach",
+          "start": 3.65,
+          "end": 4.01
+        },
+        {
+          "text": "you",
+          "start": 4.01,
+          "end": 4.21
+        },
+        {
+          "text": "our",
+          "start": 4.21,
+          "end": 4.35
+        },
+        {
+          "text": "princess",
+          "start": 4.35,
+          "end": 4.67
+        },
+        {
+          "text": "English?",
+          "start": 4.67,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.306701596127823
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0f6c2acbae0ad668ba582ef001c6c288b45477d241ad60a065ebb6298a473eb2",
+  "selected_reasons": []
+}

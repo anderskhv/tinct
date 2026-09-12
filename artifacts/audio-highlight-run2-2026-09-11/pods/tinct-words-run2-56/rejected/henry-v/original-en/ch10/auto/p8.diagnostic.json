@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "6e9e1828ca5965fbd60e8d3c7277898e575c2bb21c0c52763ca2ffecd57e51b8",
+  "attempts": [
+    {
+      "asr_seconds": 0.21359282080084085,
+      "alignment_seconds": 0.00043177884072065353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Alice. _Les ongles? Nous les appelons_ de nails.",
+        "hotwords": "Alice, Nous"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alice, Les ongles. Nous les appelons de nails.",
+          "start": 0.18,
+          "end": 3.2,
+          "words": [
+            {
+              "text": " Alice,",
+              "start": 0.18,
+              "end": 0.78,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " Les",
+              "start": 1.06,
+              "end": 1.1,
+              "probability": 0.184326171875
+            },
+            {
+              "text": " ongles.",
+              "start": 1.1,
+              "end": 1.58,
+              "probability": 0.5241804122924805
+            },
+            {
+              "text": " Nous",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.10321044921875
+            },
+            {
+              "text": " les",
+              "start": 2.2,
+              "end": 2.34,
+              "probability": 0.2117919921875
+            },
+            {
+              "text": " appelons",
+              "start": 2.34,
+              "end": 2.78,
+              "probability": 0.3634847005208333
+            },
+            {
+              "text": " de",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " nails.",
+              "start": 2.9,
+              "end": 3.2,
+              "probability": 0.68798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "raw": "Les",
+          "start": 1.06,
+          "end": 1.1
+        },
+        {
+          "raw": "ongles.",
+          "start": 1.1,
+          "end": 1.58
+        },
+        {
+          "raw": "Nous",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "les",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "raw": "appelons",
+          "start": 2.34,
+          "end": 2.78
+        },
+        {
+          "raw": "de",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "nails.",
+          "start": 2.9,
+          "end": 3.2
+        }
+      ],
+      "expected_tokens": [
+        "Alice.",
+        "_Les",
+        "ongles?",
+        "Nous",
+        "les",
+        "appelons_",
+        "de",
+        "nails."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alice,",
+          "start": 0.18,
+          "end": 0.78,
+          "key": "alice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Les",
+          "start": 1.06,
+          "end": 1.1,
+          "key": "les",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ongles.",
+          "start": 1.1,
+          "end": 1.58,
+          "key": "ongles",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Nous",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "nous",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "les",
+          "start": 2.2,
+          "end": 2.34,
+          "key": "les",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "appelons",
+          "start": 2.34,
+          "end": 2.78,
+          "key": "appelons",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "de",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "nails.",
+          "start": 2.9,
+          "end": 3.2,
+          "key": "nails",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Alice.",
+          "start": 0.18,
+          "end": 0.78
+        },
+        {
+          "text": "_Les",
+          "start": 1.06,
+          "end": 1.1
+        },
+        {
+          "text": "ongles?",
+          "start": 1.1,
+          "end": 1.58
+        },
+        {
+          "text": "Nous",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "les",
+          "start": 2.2,
+          "end": 2.34
+        },
+        {
+          "text": "appelons_",
+          "start": 2.34,
+          "end": 2.78
+        },
+        {
+          "text": "de",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "nails.",
+          "start": 2.9,
+          "end": 3.2
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21419405844062567
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c8ce708ad2f2d9e7d79661726d3ccab464d916dfbea7516cb97da8811c29d10e",
+  "selected_reasons": []
+}

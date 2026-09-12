@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "40ca959c0757521f7fdb41cde4e2740d4235511fa59405d94fcc62caef3b55f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.319954339414835,
+      "alignment_seconds": 0.00041151978075504303,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. I am come To bid my King and master aye good night: Is he not here?",
+        "hotwords": "Kent, I, To, King, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, I am come To bid my King and master aye good night. Is he not here?",
+          "start": 0.08,
+          "end": 4.62,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " I",
+              "start": 1.1,
+              "end": 1.28,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " am",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " come",
+              "start": 1.36,
+              "end": 1.48,
+              "probability": 0.962890625
+            },
+            {
+              "text": " To",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.00010520219802856445
+            },
+            {
+              "text": " bid",
+              "start": 1.62,
+              "end": 1.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " King",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.135986328125
+            },
+            {
+              "text": " and",
+              "start": 2.12,
+              "end": 2.38,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " master",
+              "start": 2.38,
+              "end": 2.74,
+              "probability": 0.337158203125
+            },
+            {
+              "text": " aye",
+              "start": 2.74,
+              "end": 3.02,
+              "probability": 0.3346977233886719
+            },
+            {
+              "text": " good",
+              "start": 3.02,
+              "end": 3.16,
+              "probability": 0.69921875
+            },
+            {
+              "text": " night.",
+              "start": 3.16,
+              "end": 3.46,
+              "probability": 0.552734375
+            },
+            {
+              "text": " Is",
+              "start": 3.92,
+              "end": 4.0,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " he",
+              "start": 4.0,
+              "end": 4.12,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " not",
+              "start": 4.12,
+              "end": 4.26,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " here?",
+              "start": 4.26,
+              "end": 4.62,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "I",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "raw": "am",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "come",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "raw": "To",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "bid",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "raw": "my",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "King",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "raw": "master",
+          "start": 2.38,
+          "end": 2.74
+        },
+        {
+          "raw": "aye",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "raw": "good",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "raw": "night.",
+          "start": 3.16,
+          "end": 3.46
+        },
+        {
+          "raw": "Is",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "raw": "he",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "raw": "not",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "raw": "here?",
+          "start": 4.26,
+          "end": 4.62
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "I",
+        "am",
+        "come",
+        "To",
+        "bid",
+        "my",
+        "King",
+        "and",
+        "master",
+        "aye",
+        "good",
+        "night:",
+        "Is",
+        "he",
+        "not",
+        "here?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.1,
+          "end": 1.28,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.28,
+          "end": 1.36,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.36,
+          "end": 1.48,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 1.62,
+          "end": 1.7,
+          "key": "bid",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "my",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "King",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "king",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.12,
+          "end": 2.38,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 2.38,
+          "end": 2.74,
+          "key": "master",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "aye",
+          "start": 2.74,
+          "end": 3.02,
+          "key": "aye",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 3.02,
+          "end": 3.16,
+          "key": "good",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "night.",
+          "start": 3.16,
+          "end": 3.46,
+          "key": "night",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 3.92,
+          "end": 4.0,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.0,
+          "end": 4.12,
+          "key": "he",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.12,
+          "end": 4.26,
+          "key": "not",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "here?",
+          "start": 4.26,
+          "end": 4.62,
+          "key": "here",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "I",
+          "start": 1.1,
+          "end": 1.28
+        },
+        {
+          "text": "am",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "come",
+          "start": 1.36,
+          "end": 1.48
+        },
+        {
+          "text": "To",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "bid",
+          "start": 1.62,
+          "end": 1.7
+        },
+        {
+          "text": "my",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "King",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "and",
+          "start": 2.12,
+          "end": 2.38
+        },
+        {
+          "text": "master",
+          "start": 2.38,
+          "end": 2.74
+        },
+        {
+          "text": "aye",
+          "start": 2.74,
+          "end": 3.02
+        },
+        {
+          "text": "good",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "text": "night:",
+          "start": 3.16,
+          "end": 3.46
+        },
+        {
+          "text": "Is",
+          "start": 3.92,
+          "end": 4.0
+        },
+        {
+          "text": "he",
+          "start": 4.0,
+          "end": 4.12
+        },
+        {
+          "text": "not",
+          "start": 4.12,
+          "end": 4.26
+        },
+        {
+          "text": "here?",
+          "start": 4.26,
+          "end": 4.62
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32052265852689743
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2503a9dfc4398c84ae77dc563208abc63cfcc1ed949df22990879e196d67759d",
+  "selected_reasons": []
+}

@@ -1,0 +1,1909 @@
+{
+  "complete": true,
+  "signature": "33146091dd5a80b01f422802ba871b8e6726a3684ee0d9285e03f21e11569d2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.32617724407464266,
+      "alignment_seconds": 0.000398893840610981,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"No: but night will come again before long: and besides,—I am unhappy,—very unhappy, for other things.\"",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, but night will come again before long. And besides, I am unhappy—very unhappy, for other things.",
+          "start": 0.05,
+          "end": 6.53,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " but",
+              "start": 0.87,
+              "end": 0.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " night",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " will",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " long.",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " And",
+              "start": 2.95,
+              "end": 2.97,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " besides,",
+              "start": 2.97,
+              "end": 3.35,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " I",
+              "start": 3.97,
+              "end": 4.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " am",
+              "start": 4.11,
+              "end": 4.23,
+              "probability": 0.98828125
+            },
+            {
+              "text": " unhappy—very",
+              "start": 4.23,
+              "end": 5.25,
+              "probability": 0.6368509928385416
+            },
+            {
+              "text": " unhappy,",
+              "start": 5.25,
+              "end": 5.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 5.87,
+              "end": 6.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " other",
+              "start": 6.01,
+              "end": 6.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " things.",
+              "start": 6.21,
+              "end": 6.53,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "but",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "raw": "night",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "will",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "come",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "again",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "before",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "long.",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "And",
+          "start": 2.95,
+          "end": 2.97
+        },
+        {
+          "raw": "besides,",
+          "start": 2.97,
+          "end": 3.35
+        },
+        {
+          "raw": "I",
+          "start": 3.97,
+          "end": 4.11
+        },
+        {
+          "raw": "am",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "raw": "unhappy—very",
+          "start": 4.23,
+          "end": 5.25
+        },
+        {
+          "raw": "unhappy,",
+          "start": 5.25,
+          "end": 5.71
+        },
+        {
+          "raw": "for",
+          "start": 5.87,
+          "end": 6.01
+        },
+        {
+          "raw": "other",
+          "start": 6.01,
+          "end": 6.21
+        },
+        {
+          "raw": "things.",
+          "start": 6.21,
+          "end": 6.53
+        }
+      ],
+      "expected_tokens": [
+        "\"No:",
+        "but",
+        "night",
+        "will",
+        "come",
+        "again",
+        "before",
+        "long:",
+        "and",
+        "besides,—I",
+        "am",
+        "unhappy,—very",
+        "unhappy,",
+        "for",
+        "other",
+        "things.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          16,
+          11,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.87,
+          "end": 0.95,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "before",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "long.",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.95,
+          "end": 2.97,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "besides,",
+          "start": 2.97,
+          "end": 3.35,
+          "key": "besides",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.97,
+          "end": 4.11,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.11,
+          "end": 4.23,
+          "key": "am",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "unhappy—very",
+          "start": 4.23,
+          "end": 5.25,
+          "key": "unhappyvery",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "unhappy,",
+          "start": 5.25,
+          "end": 5.71,
+          "key": "unhappy",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.87,
+          "end": 6.01,
+          "key": "for",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 6.01,
+          "end": 6.21,
+          "key": "other",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "things.",
+          "start": 6.21,
+          "end": 6.53,
+          "key": "things",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No:",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "but",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "text": "night",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "will",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "come",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "again",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "before",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "long:",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "text": "and",
+          "start": 2.95,
+          "end": 2.97
+        },
+        {
+          "text": "besides,—I",
+          "start": 2.97,
+          "end": 3.54
+        },
+        {
+          "text": "am",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "text": "unhappy,—very",
+          "start": 4.23,
+          "end": 5.25
+        },
+        {
+          "text": "unhappy,",
+          "start": 5.25,
+          "end": 5.71
+        },
+        {
+          "text": "for",
+          "start": 5.87,
+          "end": 6.01
+        },
+        {
+          "text": "other",
+          "start": 6.01,
+          "end": 6.21
+        },
+        {
+          "text": "things.\"",
+          "start": 6.21,
+          "end": 6.53
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.3267395803704858
+    },
+    {
+      "asr_seconds": 0.2619638005271554,
+      "alignment_seconds": 0.0004712417721748352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "No"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " No, but night will come again before long and besides I am unhappy very unhappy for other things",
+          "start": 0.05,
+          "end": 6.65,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " but",
+              "start": 0.87,
+              "end": 0.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " night",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " will",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " long",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.39,
+              "end": 2.97,
+              "probability": 0.228759765625
+            },
+            {
+              "text": " besides",
+              "start": 2.97,
+              "end": 3.37,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 3.37,
+              "end": 4.11,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " am",
+              "start": 4.11,
+              "end": 4.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " unhappy",
+              "start": 4.23,
+              "end": 4.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 4.63,
+              "end": 5.23,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " unhappy",
+              "start": 5.23,
+              "end": 5.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 5.69,
+              "end": 6.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other",
+              "start": 6.03,
+              "end": 6.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " things",
+              "start": 6.21,
+              "end": 6.65,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "but",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "raw": "night",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "will",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "come",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "again",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "before",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "long",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "and",
+          "start": 2.39,
+          "end": 2.97
+        },
+        {
+          "raw": "besides",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "raw": "I",
+          "start": 3.37,
+          "end": 4.11
+        },
+        {
+          "raw": "am",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "raw": "unhappy",
+          "start": 4.23,
+          "end": 4.63
+        },
+        {
+          "raw": "very",
+          "start": 4.63,
+          "end": 5.23
+        },
+        {
+          "raw": "unhappy",
+          "start": 5.23,
+          "end": 5.69
+        },
+        {
+          "raw": "for",
+          "start": 5.69,
+          "end": 6.03
+        },
+        {
+          "raw": "other",
+          "start": 6.03,
+          "end": 6.21
+        },
+        {
+          "raw": "things",
+          "start": 6.21,
+          "end": 6.65
+        }
+      ],
+      "expected_tokens": [
+        "\"No:",
+        "but",
+        "night",
+        "will",
+        "come",
+        "again",
+        "before",
+        "long:",
+        "and",
+        "besides,—I",
+        "am",
+        "unhappy,—very",
+        "unhappy,",
+        "for",
+        "other",
+        "things.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          14
+        ],
+        [
+          "equal",
+          12,
+          16,
+          14,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.87,
+          "end": 0.95,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "before",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.39,
+          "end": 2.97,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "besides",
+          "start": 2.97,
+          "end": 3.37,
+          "key": "besides",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.37,
+          "end": 4.11,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.11,
+          "end": 4.23,
+          "key": "am",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 4.23,
+          "end": 4.63,
+          "key": "unhappy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 4.63,
+          "end": 5.23,
+          "key": "very",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 5.23,
+          "end": 5.69,
+          "key": "unhappy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.69,
+          "end": 6.03,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 6.03,
+          "end": 6.21,
+          "key": "other",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 6.21,
+          "end": 6.65,
+          "key": "things",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No:",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "but",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "text": "night",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "will",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "come",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "again",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "before",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "long:",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "text": "and",
+          "start": 2.39,
+          "end": 2.97
+        },
+        {
+          "text": "besides,—I",
+          "start": 2.97,
+          "end": 3.54
+        },
+        {
+          "text": "am",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "text": "unhappy,—very",
+          "start": 4.23,
+          "end": 4.73
+        },
+        {
+          "text": "unhappy,",
+          "start": 5.23,
+          "end": 5.69
+        },
+        {
+          "text": "for",
+          "start": 5.69,
+          "end": 6.03
+        },
+        {
+          "text": "other",
+          "start": 6.03,
+          "end": 6.21
+        },
+        {
+          "text": "things.\"",
+          "start": 6.21,
+          "end": 6.65
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.2626199061051011
+    },
+    {
+      "asr_seconds": 0.332203577272594,
+      "alignment_seconds": 0.0005279155448079109,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No, but night will come again before long and besides I am unhappy very unhappy for other things",
+          "start": 0.05,
+          "end": 6.65,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " but",
+              "start": 0.87,
+              "end": 0.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " night",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " will",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " come",
+              "start": 1.31,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " before",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " long",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 2.39,
+              "end": 2.97,
+              "probability": 0.228759765625
+            },
+            {
+              "text": " besides",
+              "start": 2.97,
+              "end": 3.37,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 3.37,
+              "end": 4.11,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " am",
+              "start": 4.11,
+              "end": 4.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " unhappy",
+              "start": 4.23,
+              "end": 4.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " very",
+              "start": 4.63,
+              "end": 5.23,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " unhappy",
+              "start": 5.23,
+              "end": 5.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 5.69,
+              "end": 6.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other",
+              "start": 6.03,
+              "end": 6.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " things",
+              "start": 6.21,
+              "end": 6.65,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "but",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "raw": "night",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "will",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "come",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "raw": "again",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "before",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "long",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "and",
+          "start": 2.39,
+          "end": 2.97
+        },
+        {
+          "raw": "besides",
+          "start": 2.97,
+          "end": 3.37
+        },
+        {
+          "raw": "I",
+          "start": 3.37,
+          "end": 4.11
+        },
+        {
+          "raw": "am",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "raw": "unhappy",
+          "start": 4.23,
+          "end": 4.63
+        },
+        {
+          "raw": "very",
+          "start": 4.63,
+          "end": 5.23
+        },
+        {
+          "raw": "unhappy",
+          "start": 5.23,
+          "end": 5.69
+        },
+        {
+          "raw": "for",
+          "start": 5.69,
+          "end": 6.03
+        },
+        {
+          "raw": "other",
+          "start": 6.03,
+          "end": 6.21
+        },
+        {
+          "raw": "things",
+          "start": 6.21,
+          "end": 6.65
+        }
+      ],
+      "expected_tokens": [
+        "\"No:",
+        "but",
+        "night",
+        "will",
+        "come",
+        "again",
+        "before",
+        "long:",
+        "and",
+        "besides,—I",
+        "am",
+        "unhappy,—very",
+        "unhappy,",
+        "for",
+        "other",
+        "things.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "equal",
+          10,
+          11,
+          11,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          14
+        ],
+        [
+          "equal",
+          12,
+          16,
+          14,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.87,
+          "end": 0.95,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "night",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.31,
+          "end": 1.43,
+          "key": "come",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "again",
+          "start": 1.43,
+          "end": 1.67,
+          "key": "again",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "before",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "long",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.39,
+          "end": 2.97,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "besides",
+          "start": 2.97,
+          "end": 3.37,
+          "key": "besides",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.37,
+          "end": 4.11,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 4.11,
+          "end": 4.23,
+          "key": "am",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 4.23,
+          "end": 4.63,
+          "key": "unhappy",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 4.63,
+          "end": 5.23,
+          "key": "very",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "unhappy",
+          "start": 5.23,
+          "end": 5.69,
+          "key": "unhappy",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 5.69,
+          "end": 6.03,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 6.03,
+          "end": 6.21,
+          "key": "other",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "things",
+          "start": 6.21,
+          "end": 6.65,
+          "key": "things",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"No:",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "but",
+          "start": 0.87,
+          "end": 0.95
+        },
+        {
+          "text": "night",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "text": "will",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "come",
+          "start": 1.31,
+          "end": 1.43
+        },
+        {
+          "text": "again",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "before",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "long:",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "text": "and",
+          "start": 2.39,
+          "end": 2.97
+        },
+        {
+          "text": "besides,—I",
+          "start": 2.97,
+          "end": 3.54
+        },
+        {
+          "text": "am",
+          "start": 4.11,
+          "end": 4.23
+        },
+        {
+          "text": "unhappy,—very",
+          "start": 4.23,
+          "end": 4.73
+        },
+        {
+          "text": "unhappy,",
+          "start": 5.23,
+          "end": 5.69
+        },
+        {
+          "text": "for",
+          "start": 5.69,
+          "end": 6.03
+        },
+        {
+          "text": "other",
+          "start": 6.03,
+          "end": 6.21
+        },
+        {
+          "text": "things.\"",
+          "start": 6.21,
+          "end": 6.65
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 18,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.3329347651451826
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ff951a7d981fd396a33ddd8f4bdae375ad9cb06d7518d289bc35933aedca9db",
+  "selected_reasons": []
+}

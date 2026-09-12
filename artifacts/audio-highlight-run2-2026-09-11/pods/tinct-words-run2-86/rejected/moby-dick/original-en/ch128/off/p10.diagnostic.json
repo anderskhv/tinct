@@ -1,0 +1,898 @@
+{
+  "complete": true,
+  "signature": "9021fd687e52f7ff63c1da4d8f7ecdac268b7a965e4a1c51bb52f75d0afcc8c5",
+  "attempts": [
+    {
+      "asr_seconds": 0.29692450538277626,
+      "alignment_seconds": 0.0005321651697158813,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " His son cried stub. Oh, it's his son. He's lost. I take back the coat and watch what says ahab",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.04278564453125
+            },
+            {
+              "text": " son",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " cried",
+              "start": 0.93,
+              "end": 1.49,
+              "probability": 0.43017578125
+            },
+            {
+              "text": " stub.",
+              "start": 1.49,
+              "end": 1.85,
+              "probability": 0.8828125
+            },
+            {
+              "text": " Oh,",
+              "start": 2.27,
+              "end": 2.45,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " it's",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.998779296875
+            },
+            {
+              "text": " his",
+              "start": 2.63,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " son.",
+              "start": 2.73,
+              "end": 2.89,
+              "probability": 0.9375
+            },
+            {
+              "text": " He's",
+              "start": 2.97,
+              "end": 3.07,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " lost.",
+              "start": 3.07,
+              "end": 3.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 3.77,
+              "end": 3.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " take",
+              "start": 3.85,
+              "end": 4.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " back",
+              "start": 4.01,
+              "end": 4.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 4.23,
+              "end": 4.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " coat",
+              "start": 4.39,
+              "end": 4.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 4.63,
+              "end": 4.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " watch",
+              "start": 4.83,
+              "end": 5.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.90234375
+            },
+            {
+              "text": " says",
+              "start": 5.39,
+              "end": 5.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " ahab",
+              "start": 5.61,
+              "end": 6.05,
+              "probability": 0.657470703125
+            }
+          ]
+        },
+        {
+          "text": " We must save that boy",
+          "start": 6.05,
+          "end": 7.51,
+          "words": [
+            {
+              "text": " We",
+              "start": 6.05,
+              "end": 6.51,
+              "probability": 0.281982421875
+            },
+            {
+              "text": " must",
+              "start": 6.51,
+              "end": 6.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " save",
+              "start": 6.65,
+              "end": 6.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 6.95,
+              "end": 7.19,
+              "probability": 1.0
+            },
+            {
+              "text": " boy",
+              "start": 7.19,
+              "end": 7.51,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "son",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "cried",
+          "start": 0.93,
+          "end": 1.49
+        },
+        {
+          "raw": "stub.",
+          "start": 1.49,
+          "end": 1.85
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "raw": "it's",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "his",
+          "start": 2.63,
+          "end": 2.73
+        },
+        {
+          "raw": "son.",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "raw": "He's",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "raw": "lost.",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "raw": "I",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "raw": "take",
+          "start": 3.85,
+          "end": 4.01
+        },
+        {
+          "raw": "back",
+          "start": 4.01,
+          "end": 4.23
+        },
+        {
+          "raw": "the",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "raw": "coat",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "raw": "and",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "raw": "watch",
+          "start": 4.83,
+          "end": 5.15
+        },
+        {
+          "raw": "what",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "says",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "raw": "ahab",
+          "start": 5.61,
+          "end": 6.05
+        },
+        {
+          "raw": "We",
+          "start": 6.05,
+          "end": 6.51
+        },
+        {
+          "raw": "must",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "raw": "save",
+          "start": 6.65,
+          "end": 6.95
+        },
+        {
+          "raw": "that",
+          "start": 6.95,
+          "end": 7.19
+        },
+        {
+          "raw": "boy",
+          "start": 7.19,
+          "end": 7.51
+        }
+      ],
+      "expected_tokens": [
+        "\"His",
+        "son!\"",
+        "cried",
+        "Stubb,",
+        "\"oh,",
+        "it's",
+        "his",
+        "son",
+        "he's",
+        "lost!",
+        "I",
+        "take",
+        "back",
+        "the",
+        "coat",
+        "and",
+        "watch—what",
+        "says",
+        "Ahab?",
+        "We",
+        "must",
+        "save",
+        "that",
+        "boy.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          16,
+          4,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          24,
+          18,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "His",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "son",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "son",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 0.93,
+          "end": 1.49,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "stub.",
+          "start": 1.49,
+          "end": 1.85,
+          "key": "stub",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.27,
+          "end": 2.45,
+          "key": "oh",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it's",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "its",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.63,
+          "end": 2.73,
+          "key": "his",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "son.",
+          "start": 2.73,
+          "end": 2.89,
+          "key": "son",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "He's",
+          "start": 2.97,
+          "end": 3.07,
+          "key": "hes",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lost.",
+          "start": 3.07,
+          "end": 3.39,
+          "key": "lost",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.77,
+          "end": 3.85,
+          "key": "i",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 3.85,
+          "end": 4.01,
+          "key": "take",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "back",
+          "start": 4.01,
+          "end": 4.23,
+          "key": "back",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.23,
+          "end": 4.39,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "coat",
+          "start": 4.39,
+          "end": 4.63,
+          "key": "coat",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.63,
+          "end": 4.83,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 4.83,
+          "end": 5.15,
+          "key": "watch",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.15,
+          "end": 5.39,
+          "key": "what",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 5.39,
+          "end": 5.61,
+          "key": "says",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "ahab",
+          "start": 5.61,
+          "end": 6.05,
+          "key": "ahab",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 6.05,
+          "end": 6.51,
+          "key": "we",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 6.51,
+          "end": 6.65,
+          "key": "must",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "save",
+          "start": 6.65,
+          "end": 6.95,
+          "key": "save",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 6.95,
+          "end": 7.19,
+          "key": "that",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 7.19,
+          "end": 7.51,
+          "key": "boy",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"His",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "son!\"",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "text": "cried",
+          "start": 0.93,
+          "end": 1.49
+        },
+        {
+          "text": "Stubb,",
+          "start": 1.49,
+          "end": 1.88
+        },
+        {
+          "text": "\"oh,",
+          "start": 2.27,
+          "end": 2.45
+        },
+        {
+          "text": "it's",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "his",
+          "start": 2.63,
+          "end": 2.73
+        },
+        {
+          "text": "son",
+          "start": 2.73,
+          "end": 2.89
+        },
+        {
+          "text": "he's",
+          "start": 2.97,
+          "end": 3.07
+        },
+        {
+          "text": "lost!",
+          "start": 3.07,
+          "end": 3.39
+        },
+        {
+          "text": "I",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "text": "take",
+          "start": 3.85,
+          "end": 4.01
+        },
+        {
+          "text": "back",
+          "start": 4.01,
+          "end": 4.23
+        },
+        {
+          "text": "the",
+          "start": 4.23,
+          "end": 4.39
+        },
+        {
+          "text": "coat",
+          "start": 4.39,
+          "end": 4.63
+        },
+        {
+          "text": "and",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "text": "watch—what",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "text": "says",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "text": "Ahab?",
+          "start": 5.61,
+          "end": 6.05
+        },
+        {
+          "text": "We",
+          "start": 6.05,
+          "end": 6.51
+        },
+        {
+          "text": "must",
+          "start": 6.51,
+          "end": 6.65
+        },
+        {
+          "text": "save",
+          "start": 6.65,
+          "end": 6.95
+        },
+        {
+          "text": "that",
+          "start": 6.95,
+          "end": 7.19
+        },
+        {
+          "text": "boy.\"",
+          "start": 7.19,
+          "end": 7.51
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 25,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.2976812943816185
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eb8f80fcbd79a7ed0077b07127822a1195733a8dbfbb5077e359c3f3e58a77d2",
+  "selected_reasons": []
+}

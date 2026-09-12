@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "dab046d904aae20abb3e8902668157121137d7ab72cbd0986ed23d3031db6e9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1492813630029559,
+      "alignment_seconds": 0.00022744014859199524,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gold pinnacled hair",
+          "start": 0.08,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " Gold",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.45361328125
+            },
+            {
+              "text": " pinnacled",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.77947998046875
+            },
+            {
+              "text": " hair",
+              "start": 1.04,
+              "end": 1.34,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gold",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "pinnacled",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "raw": "hair",
+          "start": 1.04,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "Goldpinnacled",
+        "hair."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          2,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gold",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "gold",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "pinnacled",
+          "start": 0.64,
+          "end": 1.04,
+          "key": "pinnacled",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hair",
+          "start": 1.04,
+          "end": 1.34,
+          "key": "hair",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Goldpinnacled",
+          "start": 0.0,
+          "end": 0.52
+        },
+        {
+          "text": "hair.",
+          "start": 1.04,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14958578208461404
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "33510390be6ccbc6ec8418abbcf0807513927f9940d5a2a388582c41cc5aa747",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

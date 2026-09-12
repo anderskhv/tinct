@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "100b661f6f263902a7300f705419224f640713e85aa2fd358a33c4a5f8dfeb41",
+  "attempts": [
+    {
+      "asr_seconds": 0.2642737375572324,
+      "alignment_seconds": 0.00031247083097696304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This, I said, is he who begins to make a party against the rich.",
+          "start": 0.02,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " This,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.080078125
+            },
+            {
+              "text": " I",
+              "start": 0.84,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " said,",
+              "start": 1.02,
+              "end": 1.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 1.64,
+              "end": 1.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " who",
+              "start": 2.04,
+              "end": 2.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " begins",
+              "start": 2.14,
+              "end": 2.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 2.38,
+              "end": 2.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " make",
+              "start": 2.6,
+              "end": 2.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " party",
+              "start": 2.88,
+              "end": 3.14,
+              "probability": 0.98828125
+            },
+            {
+              "text": " against",
+              "start": 3.14,
+              "end": 3.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.46,
+              "end": 3.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rich.",
+              "start": 3.64,
+              "end": 3.84,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "raw": "said,",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "who",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "raw": "begins",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "raw": "make",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "raw": "a",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "party",
+          "start": 2.88,
+          "end": 3.14
+        },
+        {
+          "raw": "against",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "raw": "the",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "raw": "rich.",
+          "start": 3.64,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "This,",
+        "I",
+        "said,",
+        "is",
+        "he",
+        "who",
+        "begins",
+        "to",
+        "make",
+        "a",
+        "party",
+        "against",
+        "the",
+        "rich?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "This,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "this",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.84,
+          "end": 1.02,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.02,
+          "end": 1.32,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.64,
+          "end": 1.88,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.88,
+          "end": 2.04,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 2.04,
+          "end": 2.14,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "begins",
+          "start": 2.14,
+          "end": 2.38,
+          "key": "begins",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.38,
+          "end": 2.6,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 2.6,
+          "end": 2.72,
+          "key": "make",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "party",
+          "start": 2.88,
+          "end": 3.14,
+          "key": "party",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 3.14,
+          "end": 3.46,
+          "key": "against",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.46,
+          "end": 3.64,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "rich.",
+          "start": 3.64,
+          "end": 3.84,
+          "key": "rich",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "This,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "I",
+          "start": 0.84,
+          "end": 1.02
+        },
+        {
+          "text": "said,",
+          "start": 1.02,
+          "end": 1.32
+        },
+        {
+          "text": "is",
+          "start": 1.64,
+          "end": 1.88
+        },
+        {
+          "text": "he",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "who",
+          "start": 2.04,
+          "end": 2.14
+        },
+        {
+          "text": "begins",
+          "start": 2.14,
+          "end": 2.38
+        },
+        {
+          "text": "to",
+          "start": 2.38,
+          "end": 2.6
+        },
+        {
+          "text": "make",
+          "start": 2.6,
+          "end": 2.72
+        },
+        {
+          "text": "a",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "party",
+          "start": 2.88,
+          "end": 3.14
+        },
+        {
+          "text": "against",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "the",
+          "start": 3.46,
+          "end": 3.64
+        },
+        {
+          "text": "rich?",
+          "start": 3.64,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26472877338528633
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "15de566b68233b0a932e27087e17a176e4039675417e1d4faad481d99ec0cf15",
+  "selected_reasons": []
+}

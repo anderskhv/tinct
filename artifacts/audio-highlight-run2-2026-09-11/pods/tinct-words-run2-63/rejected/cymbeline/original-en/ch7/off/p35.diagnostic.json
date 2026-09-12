@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "9db91a600fe52d2903f46eab0351648d8382f42424fbe8c7942c2d9399499150",
+  "attempts": [
+    {
+      "asr_seconds": 0.19907592609524727,
+      "alignment_seconds": 0.0003930218517780304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I. Chimo, two creatures heartily.",
+          "start": 0.11,
+          "end": 2.37,
+          "words": [
+            {
+              "text": " I.",
+              "start": 0.11,
+              "end": 0.57,
+              "probability": 0.285400390625
+            },
+            {
+              "text": " Chimo,",
+              "start": 0.75,
+              "end": 0.95,
+              "probability": 0.6490478515625
+            },
+            {
+              "text": " two",
+              "start": 1.25,
+              "end": 1.47,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " creatures",
+              "start": 1.47,
+              "end": 1.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heartily.",
+              "start": 1.83,
+              "end": 2.37,
+              "probability": 0.944580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I.",
+          "start": 0.11,
+          "end": 0.57
+        },
+        {
+          "raw": "Chimo,",
+          "start": 0.75,
+          "end": 0.95
+        },
+        {
+          "raw": "two",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "raw": "creatures",
+          "start": 1.47,
+          "end": 1.83
+        },
+        {
+          "raw": "heartily.",
+          "start": 1.83,
+          "end": 2.37
+        }
+      ],
+      "expected_tokens": [
+        "Iachimo.",
+        "Two",
+        "creatures",
+        "heartily."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I.",
+          "start": 0.11,
+          "end": 0.57,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Chimo,",
+          "start": 0.75,
+          "end": 0.95,
+          "key": "chimo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.25,
+          "end": 1.47,
+          "key": "two",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "creatures",
+          "start": 1.47,
+          "end": 1.83,
+          "key": "creatures",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heartily.",
+          "start": 1.83,
+          "end": 2.37,
+          "key": "heartily",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iachimo.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "Two",
+          "start": 1.25,
+          "end": 1.47
+        },
+        {
+          "text": "creatures",
+          "start": 1.47,
+          "end": 1.83
+        },
+        {
+          "text": "heartily.",
+          "start": 1.83,
+          "end": 2.37
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1995979491621256
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "affe13bf6bfd1016f34fc38d652d1b426f61fb0058a1870106feb1c193e41b7a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

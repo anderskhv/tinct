@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "798cdd1f42088ae15be8cbf3da93e2e31e03141d7356cb9a0439622f768a32fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.3331418130546808,
+      "alignment_seconds": 0.0004526658449321985,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quince, oh monstrous, oh strange, we are haunted.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Quince,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.6524658203125
+            },
+            {
+              "text": " oh",
+              "start": 0.87,
+              "end": 0.93,
+              "probability": 0.464599609375
+            },
+            {
+              "text": " monstrous,",
+              "start": 0.93,
+              "end": 1.37,
+              "probability": 0.802734375
+            },
+            {
+              "text": " oh",
+              "start": 1.87,
+              "end": 1.99,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " strange,",
+              "start": 1.99,
+              "end": 2.33,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " we",
+              "start": 2.61,
+              "end": 2.65,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " are",
+              "start": 2.65,
+              "end": 2.73,
+              "probability": 0.9921875
+            },
+            {
+              "text": " haunted.",
+              "start": 2.73,
+              "end": 3.09,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Pray masters fly masters help.",
+          "start": 3.79,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Pray",
+              "start": 3.79,
+              "end": 4.03,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " masters",
+              "start": 4.03,
+              "end": 4.45,
+              "probability": 0.8056640625
+            },
+            {
+              "text": " fly",
+              "start": 4.45,
+              "end": 4.93,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " masters",
+              "start": 4.93,
+              "end": 5.47,
+              "probability": 0.904296875
+            },
+            {
+              "text": " help.",
+              "start": 5.47,
+              "end": 5.91,
+              "probability": 0.8056640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quince,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "oh",
+          "start": 0.87,
+          "end": 0.93
+        },
+        {
+          "raw": "monstrous,",
+          "start": 0.93,
+          "end": 1.37
+        },
+        {
+          "raw": "oh",
+          "start": 1.87,
+          "end": 1.99
+        },
+        {
+          "raw": "strange,",
+          "start": 1.99,
+          "end": 2.33
+        },
+        {
+          "raw": "we",
+          "start": 2.61,
+          "end": 2.65
+        },
+        {
+          "raw": "are",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "raw": "haunted.",
+          "start": 2.73,
+          "end": 3.09
+        },
+        {
+          "raw": "Pray",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "raw": "masters",
+          "start": 4.03,
+          "end": 4.45
+        },
+        {
+          "raw": "fly",
+          "start": 4.45,
+          "end": 4.93
+        },
+        {
+          "raw": "masters",
+          "start": 4.93,
+          "end": 5.47
+        },
+        {
+          "raw": "help.",
+          "start": 5.47,
+          "end": 5.91
+        }
+      ],
+      "expected_tokens": [
+        "Quince.",
+        "O",
+        "monstrous!",
+        "O",
+        "strange!",
+        "We",
+        "are",
+        "haunted.",
+        "Pray,",
+        "masters,",
+        "fly,",
+        "masters!",
+        "Help!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          13,
+          4,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quince,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "quince",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 0.87,
+          "end": 0.93,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "monstrous,",
+          "start": 0.93,
+          "end": 1.37,
+          "key": "monstrous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 1.87,
+          "end": 1.99,
+          "key": "oh",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "strange,",
+          "start": 1.99,
+          "end": 2.33,
+          "key": "strange",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.61,
+          "end": 2.65,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.65,
+          "end": 2.73,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "haunted.",
+          "start": 2.73,
+          "end": 3.09,
+          "key": "haunted",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 3.79,
+          "end": 4.03,
+          "key": "pray",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "masters",
+          "start": 4.03,
+          "end": 4.45,
+          "key": "masters",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fly",
+          "start": 4.45,
+          "end": 4.93,
+          "key": "fly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "masters",
+          "start": 4.93,
+          "end": 5.47,
+          "key": "masters",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "help.",
+          "start": 5.47,
+          "end": 5.91,
+          "key": "help",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Quince.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "O",
+          "start": 0.73,
+          "end": 0.83
+        },
+        {
+          "text": "monstrous!",
+          "start": 0.93,
+          "end": 1.37
+        },
+        {
+          "text": "O",
+          "start": 1.37,
+          "end": 1.68
+        },
+        {
+          "text": "strange!",
+          "start": 1.99,
+          "end": 2.33
+        },
+        {
+          "text": "We",
+          "start": 2.61,
+          "end": 2.65
+        },
+        {
+          "text": "are",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "text": "haunted.",
+          "start": 2.73,
+          "end": 3.09
+        },
+        {
+          "text": "Pray,",
+          "start": 3.79,
+          "end": 4.03
+        },
+        {
+          "text": "masters,",
+          "start": 4.03,
+          "end": 4.45
+        },
+        {
+          "text": "fly,",
+          "start": 4.45,
+          "end": 4.93
+        },
+        {
+          "text": "masters!",
+          "start": 4.93,
+          "end": 5.47
+        },
+        {
+          "text": "Help!",
+          "start": 5.47,
+          "end": 5.91
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.33375478303059936
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e0fa58e868b30e973f402e269714c5c2b8f755e5f762c1366ea93a49cb792e9e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "98cd06a8261b313a54150bcc1bcc07742a29663a2c965a89dbc9fe14fba53cb4",
+  "attempts": [
+    {
+      "asr_seconds": 0.148536566644907,
+      "alignment_seconds": 0.0002873772755265236,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " King Henry, yes.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " Henry,",
+              "start": 0.53,
+              "end": 0.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " yes.",
+              "start": 1.19,
+              "end": 1.49,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "raw": "yes.",
+          "start": 1.19,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Yes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.53,
+          "end": 0.91,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yes.",
+          "start": 1.19,
+          "end": 1.49,
+          "key": "yes",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "Henry.",
+          "start": 0.53,
+          "end": 0.91
+        },
+        {
+          "text": "Yes.",
+          "start": 1.19,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1489249598234892
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "69d11375739b383336dabac817850dc3ee357c9d3ee91794e7f4a56c4e98c3d1",
+  "selected_reasons": []
+}

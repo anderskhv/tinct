@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "c01aaa6c558f954db02ecf0e783117d4d013a2f70776b8d7535c85f111936ff0",
+  "attempts": [
+    {
+      "asr_seconds": 0.29816820099949837,
+      "alignment_seconds": 0.0006335731595754623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lardius, O general, here is the steed we the comparison.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Lardius,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.69189453125
+            },
+            {
+              "text": " O",
+              "start": 1.43,
+              "end": 1.55,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " general,",
+              "start": 1.55,
+              "end": 1.87,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " here",
+              "start": 2.15,
+              "end": 2.19,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " is",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " steed",
+              "start": 2.49,
+              "end": 2.81,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " we",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.435302734375
+            },
+            {
+              "text": " the",
+              "start": 2.95,
+              "end": 3.07,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " comparison.",
+              "start": 3.07,
+              "end": 3.53,
+              "probability": 0.5361328125
+            }
+          ]
+        },
+        {
+          "text": " Hadst thou beheld?",
+          "start": 4.25,
+          "end": 5.07,
+          "words": [
+            {
+              "text": " Hadst",
+              "start": 4.25,
+              "end": 4.47,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " thou",
+              "start": 4.47,
+              "end": 4.67,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " beheld?",
+              "start": 4.67,
+              "end": 5.07,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lardius,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "O",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "raw": "general,",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "raw": "here",
+          "start": 2.15,
+          "end": 2.19
+        },
+        {
+          "raw": "is",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "raw": "steed",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "raw": "we",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "raw": "comparison.",
+          "start": 3.07,
+          "end": 3.53
+        },
+        {
+          "raw": "Hadst",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "raw": "thou",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "raw": "beheld?",
+          "start": 4.67,
+          "end": 5.07
+        }
+      ],
+      "expected_tokens": [
+        "Lartius.",
+        "O",
+        "general,",
+        "Here",
+        "is",
+        "the",
+        "steed,",
+        "we",
+        "the",
+        "caparison.",
+        "Hadst",
+        "thou",
+        "beheld—"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          9,
+          1,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          13,
+          10,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lardius,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "lardius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.43,
+          "end": 1.55,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "general,",
+          "start": 1.55,
+          "end": 1.87,
+          "key": "general",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.15,
+          "end": 2.19,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.19,
+          "end": 2.31,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "steed",
+          "start": 2.49,
+          "end": 2.81,
+          "key": "steed",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "we",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.95,
+          "end": 3.07,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "comparison.",
+          "start": 3.07,
+          "end": 3.53,
+          "key": "comparison",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Hadst",
+          "start": 4.25,
+          "end": 4.47,
+          "key": "hadst",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 4.47,
+          "end": 4.67,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "beheld?",
+          "start": 4.67,
+          "end": 5.07,
+          "key": "beheld",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lartius.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "O",
+          "start": 1.43,
+          "end": 1.55
+        },
+        {
+          "text": "general,",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "Here",
+          "start": 2.15,
+          "end": 2.19
+        },
+        {
+          "text": "is",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "text": "steed,",
+          "start": 2.49,
+          "end": 2.81
+        },
+        {
+          "text": "we",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "the",
+          "start": 2.95,
+          "end": 3.07
+        },
+        {
+          "text": "caparison.",
+          "start": 3.07,
+          "end": 3.66
+        },
+        {
+          "text": "Hadst",
+          "start": 4.25,
+          "end": 4.47
+        },
+        {
+          "text": "thou",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "text": "beheld—",
+          "start": 4.67,
+          "end": 5.07
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2990508256480098
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "11432e555b030a8bd239e8c343779e0266526e0c79564ee1b960d41e577a9958",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

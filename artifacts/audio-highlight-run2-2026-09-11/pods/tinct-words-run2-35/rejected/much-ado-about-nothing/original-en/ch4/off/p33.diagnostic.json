@@ -1,0 +1,615 @@
+{
+  "complete": true,
+  "signature": "89aade7435f5fb836f2e36c18e49ab88e70c01e2417d81dee9fc03633f6ba083",
+  "attempts": [
+    {
+      "asr_seconds": 0.23161512799561024,
+      "alignment_seconds": 0.00037409551441669464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hero, when I like your favor, for God defend the loot should be like the case",
+          "start": 0.05,
+          "end": 4.53,
+          "words": [
+            {
+              "text": " Hero,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.7724609375
+            },
+            {
+              "text": " when",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " I",
+              "start": 1.27,
+              "end": 1.39,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " like",
+              "start": 1.39,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " favor,",
+              "start": 1.75,
+              "end": 2.09,
+              "probability": 0.951171875
+            },
+            {
+              "text": " for",
+              "start": 2.59,
+              "end": 2.69,
+              "probability": 0.90234375
+            },
+            {
+              "text": " God",
+              "start": 2.69,
+              "end": 2.97,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " defend",
+              "start": 2.97,
+              "end": 3.31,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " the",
+              "start": 3.31,
+              "end": 3.47,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " loot",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.75048828125
+            },
+            {
+              "text": " should",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " be",
+              "start": 3.79,
+              "end": 3.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " like",
+              "start": 3.95,
+              "end": 4.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.13,
+              "end": 4.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " case",
+              "start": 4.27,
+              "end": 4.53,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "when",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "raw": "like",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "raw": "your",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "favor,",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "raw": "for",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "raw": "God",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "raw": "defend",
+          "start": 2.97,
+          "end": 3.31
+        },
+        {
+          "raw": "the",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "raw": "loot",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "should",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "be",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "raw": "like",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "raw": "the",
+          "start": 4.13,
+          "end": 4.27
+        },
+        {
+          "raw": "case",
+          "start": 4.27,
+          "end": 4.53
+        }
+      ],
+      "expected_tokens": [
+        "Hero.",
+        "When",
+        "I",
+        "like",
+        "your",
+        "favour;",
+        "for",
+        "God",
+        "defend",
+        "the",
+        "lute",
+        "should",
+        "be",
+        "like",
+        "the",
+        "case!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          10,
+          6,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          16,
+          11,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "hero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.09,
+          "end": 1.27,
+          "key": "when",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.27,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.39,
+          "end": 1.59,
+          "key": "like",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "favor,",
+          "start": 1.75,
+          "end": 2.09,
+          "key": "favor",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.59,
+          "end": 2.69,
+          "key": "for",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "God",
+          "start": 2.69,
+          "end": 2.97,
+          "key": "god",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "defend",
+          "start": 2.97,
+          "end": 3.31,
+          "key": "defend",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.31,
+          "end": 3.47,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "loot",
+          "start": 3.47,
+          "end": 3.61,
+          "key": "loot",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 3.61,
+          "end": 3.79,
+          "key": "should",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.79,
+          "end": 3.95,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 3.95,
+          "end": 4.13,
+          "key": "like",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.13,
+          "end": 4.27,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 4.27,
+          "end": 4.53,
+          "key": "case",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hero.",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "When",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "text": "I",
+          "start": 1.27,
+          "end": 1.39
+        },
+        {
+          "text": "like",
+          "start": 1.39,
+          "end": 1.59
+        },
+        {
+          "text": "your",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "favour;",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "text": "for",
+          "start": 2.59,
+          "end": 2.69
+        },
+        {
+          "text": "God",
+          "start": 2.69,
+          "end": 2.97
+        },
+        {
+          "text": "defend",
+          "start": 2.97,
+          "end": 3.31
+        },
+        {
+          "text": "the",
+          "start": 3.31,
+          "end": 3.47
+        },
+        {
+          "text": "lute",
+          "start": 3.47,
+          "end": 3.54
+        },
+        {
+          "text": "should",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "be",
+          "start": 3.79,
+          "end": 3.95
+        },
+        {
+          "text": "like",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "text": "the",
+          "start": 4.13,
+          "end": 4.27
+        },
+        {
+          "text": "case!",
+          "start": 4.27,
+          "end": 4.53
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 14
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.23212403617799282
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "55128d0ac78b5ebfa74436f9e541c33fda105ad553c935838e5f67af75f1aeb8",
+  "selected_reasons": []
+}

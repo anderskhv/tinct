@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "01e86ccf9a6f9ed495546eedc3f004c661161b168e1c9d89a17bb9f7d75012da",
+  "attempts": [
+    {
+      "asr_seconds": 0.21328171202912927,
+      "alignment_seconds": 0.0002298378385603428,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antipholus Of Ephesus. I never saw you in my life till now.",
+        "hotwords": "Antipholus, Of, Ephesus, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antipholus Of Ephesus, I Never Saw You In My Life Till Now.",
+          "start": 0.65,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Antipholus",
+              "start": 0.65,
+              "end": 1.09,
+              "probability": 0.5825843811035156
+            },
+            {
+              "text": " Of",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.0022449493408203125
+            },
+            {
+              "text": " Ephesus,",
+              "start": 1.21,
+              "end": 1.79,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " I",
+              "start": 2.19,
+              "end": 2.29,
+              "probability": 0.896484375
+            },
+            {
+              "text": " Never",
+              "start": 2.29,
+              "end": 2.45,
+              "probability": 0.12481689453125
+            },
+            {
+              "text": " Saw",
+              "start": 2.45,
+              "end": 2.71,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " You",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " In",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " My",
+              "start": 2.99,
+              "end": 3.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Life",
+              "start": 3.15,
+              "end": 3.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Till",
+              "start": 3.41,
+              "end": 3.59,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " Now.",
+              "start": 3.59,
+              "end": 3.91,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antipholus",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "raw": "Of",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "Ephesus,",
+          "start": 1.21,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "raw": "Never",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "raw": "Saw",
+          "start": 2.45,
+          "end": 2.71
+        },
+        {
+          "raw": "You",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "In",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "My",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "raw": "Life",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "raw": "Till",
+          "start": 3.41,
+          "end": 3.59
+        },
+        {
+          "raw": "Now.",
+          "start": 3.59,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "Antipholus",
+        "Of",
+        "Ephesus.",
+        "I",
+        "never",
+        "saw",
+        "you",
+        "in",
+        "my",
+        "life",
+        "till",
+        "now."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antipholus",
+          "start": 0.65,
+          "end": 1.09,
+          "key": "antipholus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.09,
+          "end": 1.21,
+          "key": "of",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ephesus,",
+          "start": 1.21,
+          "end": 1.79,
+          "key": "ephesus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.29,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Never",
+          "start": 2.29,
+          "end": 2.45,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Saw",
+          "start": 2.45,
+          "end": 2.71,
+          "key": "saw",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 2.89,
+          "end": 2.99,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 2.99,
+          "end": 3.15,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Life",
+          "start": 3.15,
+          "end": 3.41,
+          "key": "life",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Till",
+          "start": 3.41,
+          "end": 3.59,
+          "key": "till",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Now.",
+          "start": 3.59,
+          "end": 3.91,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antipholus",
+          "start": 0.65,
+          "end": 1.09
+        },
+        {
+          "text": "Of",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "text": "Ephesus.",
+          "start": 1.21,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 2.19,
+          "end": 2.29
+        },
+        {
+          "text": "never",
+          "start": 2.29,
+          "end": 2.45
+        },
+        {
+          "text": "saw",
+          "start": 2.45,
+          "end": 2.71
+        },
+        {
+          "text": "you",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "in",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "my",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "text": "life",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "text": "till",
+          "start": 3.41,
+          "end": 3.59
+        },
+        {
+          "text": "now.",
+          "start": 3.59,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2136066840030253
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "22678ed7e99d41cd007d2b750e6aade82153351de2f0eb84a3c1bb3d38a3c9ea",
+  "selected_reasons": []
+}

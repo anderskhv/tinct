@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "00102eb77f60804063646e9ad321ca4b7823ee781bf7fdaf19dd942070b0cae2",
+  "attempts": [
+    {
+      "asr_seconds": 0.12101173598784953,
+      "alignment_seconds": 0.00017157098045572639,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Dunphy's, Mr Power announced as the carriage turned right.",
+        "hotwords": "Dunphy's, Mr, Power"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Dunphy's, Mr, Power announced as the carriage turned right.",
+          "start": 0.05,
+          "end": 3.59,
+          "words": [
+            {
+              "text": " Dunphy's,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.4872029622395833
+            },
+            {
+              "text": " Mr,",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " Power",
+              "start": 1.73,
+              "end": 1.77,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " announced",
+              "start": 1.77,
+              "end": 2.17,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " as",
+              "start": 2.17,
+              "end": 2.47,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " carriage",
+              "start": 2.61,
+              "end": 2.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " turned",
+              "start": 2.87,
+              "end": 3.25,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " right.",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.94482421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dunphy's,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Mr,",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "Power",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "raw": "announced",
+          "start": 1.77,
+          "end": 2.17
+        },
+        {
+          "raw": "as",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "carriage",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "raw": "turned",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "raw": "right.",
+          "start": 3.25,
+          "end": 3.59
+        }
+      ],
+      "expected_tokens": [
+        "—Dunphy's,",
+        "Mr",
+        "Power",
+        "announced",
+        "as",
+        "the",
+        "carriage",
+        "turned",
+        "right."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dunphy's,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "dunphys",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mr,",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "mr",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 1.73,
+          "end": 1.77,
+          "key": "power",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "announced",
+          "start": 1.77,
+          "end": 2.17,
+          "key": "announced",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.17,
+          "end": 2.47,
+          "key": "as",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.61,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "carriage",
+          "start": 2.61,
+          "end": 2.87,
+          "key": "carriage",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "turned",
+          "start": 2.87,
+          "end": 3.25,
+          "key": "turned",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "right.",
+          "start": 3.25,
+          "end": 3.59,
+          "key": "right",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Dunphy's,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Mr",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "Power",
+          "start": 1.73,
+          "end": 1.77
+        },
+        {
+          "text": "announced",
+          "start": 1.77,
+          "end": 2.17
+        },
+        {
+          "text": "as",
+          "start": 2.17,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "carriage",
+          "start": 2.61,
+          "end": 2.87
+        },
+        {
+          "text": "turned",
+          "start": 2.87,
+          "end": 3.25
+        },
+        {
+          "text": "right.",
+          "start": 3.25,
+          "end": 3.59
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12125065695727244
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a45ba35ceae607e427e066bd324f2f5d5caae2000557de8d2341f65faf333a16",
+  "selected_reasons": []
+}

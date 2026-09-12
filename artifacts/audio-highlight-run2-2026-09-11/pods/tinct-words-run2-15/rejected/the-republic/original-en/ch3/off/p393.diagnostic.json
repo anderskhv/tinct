@@ -1,0 +1,643 @@
+{
+  "complete": true,
+  "signature": "8e31ee7c438b4f51733969da0bfabce4dc965bb4ddbdaefab1e9fe9b5ec117fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.3574981279671192,
+      "alignment_seconds": 0.0005168989300727844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I believe, I said, that the teachers of both have in view chiefly the improvement of the",
+          "start": 0.11,
+          "end": 5.31,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.3759765625
+            },
+            {
+              "text": " believe,",
+              "start": 0.55,
+              "end": 0.91,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.39,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " said,",
+              "start": 1.39,
+              "end": 1.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 2.13,
+              "end": 2.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " teachers",
+              "start": 2.41,
+              "end": 2.69,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " of",
+              "start": 2.69,
+              "end": 2.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " both",
+              "start": 2.91,
+              "end": 3.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " have",
+              "start": 3.15,
+              "end": 3.41,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " in",
+              "start": 3.41,
+              "end": 3.53,
+              "probability": 0.900390625
+            },
+            {
+              "text": " view",
+              "start": 3.53,
+              "end": 3.79,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " chiefly",
+              "start": 3.79,
+              "end": 4.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 4.23,
+              "end": 4.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " improvement",
+              "start": 4.49,
+              "end": 4.87,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " of",
+              "start": 4.87,
+              "end": 5.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.21,
+              "end": 5.31,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " soul.",
+          "start": 5.31,
+          "end": 5.57,
+          "words": [
+            {
+              "text": " soul.",
+              "start": 5.31,
+              "end": 5.57,
+              "probability": 0.94921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "believe,",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "raw": "said,",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "raw": "that",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "teachers",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "raw": "both",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "raw": "have",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "raw": "in",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "raw": "view",
+          "start": 3.53,
+          "end": 3.79
+        },
+        {
+          "raw": "chiefly",
+          "start": 3.79,
+          "end": 4.23
+        },
+        {
+          "raw": "the",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "raw": "improvement",
+          "start": 4.49,
+          "end": 4.87
+        },
+        {
+          "raw": "of",
+          "start": 4.87,
+          "end": 5.21
+        },
+        {
+          "raw": "the",
+          "start": 5.21,
+          "end": 5.31
+        },
+        {
+          "raw": "soul.",
+          "start": 5.31,
+          "end": 5.57
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "believe,",
+        "I",
+        "said,",
+        "that",
+        "the",
+        "teachers",
+        "of",
+        "both",
+        "have",
+        "in",
+        "view",
+        "chiefly",
+        "the",
+        "improvement",
+        "of",
+        "the",
+        "soul."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.11,
+          "end": 0.55,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "believe,",
+          "start": 0.55,
+          "end": 0.91,
+          "key": "believe",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.39,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.39,
+          "end": 1.69,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.13,
+          "end": 2.29,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.29,
+          "end": 2.41,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "teachers",
+          "start": 2.41,
+          "end": 2.69,
+          "key": "teachers",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.69,
+          "end": 2.91,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 2.91,
+          "end": 3.15,
+          "key": "both",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.15,
+          "end": 3.41,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.41,
+          "end": 3.53,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "view",
+          "start": 3.53,
+          "end": 3.79,
+          "key": "view",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "chiefly",
+          "start": 3.79,
+          "end": 4.23,
+          "key": "chiefly",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.23,
+          "end": 4.49,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "improvement",
+          "start": 4.49,
+          "end": 4.87,
+          "key": "improvement",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.87,
+          "end": 5.21,
+          "key": "of",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.21,
+          "end": 5.31,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "soul.",
+          "start": 5.31,
+          "end": 5.57,
+          "key": "soul",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "believe,",
+          "start": 0.55,
+          "end": 0.91
+        },
+        {
+          "text": "I",
+          "start": 1.13,
+          "end": 1.39
+        },
+        {
+          "text": "said,",
+          "start": 1.39,
+          "end": 1.69
+        },
+        {
+          "text": "that",
+          "start": 2.13,
+          "end": 2.29
+        },
+        {
+          "text": "the",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "teachers",
+          "start": 2.41,
+          "end": 2.69
+        },
+        {
+          "text": "of",
+          "start": 2.69,
+          "end": 2.91
+        },
+        {
+          "text": "both",
+          "start": 2.91,
+          "end": 3.15
+        },
+        {
+          "text": "have",
+          "start": 3.15,
+          "end": 3.41
+        },
+        {
+          "text": "in",
+          "start": 3.41,
+          "end": 3.53
+        },
+        {
+          "text": "view",
+          "start": 3.53,
+          "end": 3.79
+        },
+        {
+          "text": "chiefly",
+          "start": 3.79,
+          "end": 4.23
+        },
+        {
+          "text": "the",
+          "start": 4.23,
+          "end": 4.49
+        },
+        {
+          "text": "improvement",
+          "start": 4.49,
+          "end": 4.87
+        },
+        {
+          "text": "of",
+          "start": 4.87,
+          "end": 5.21
+        },
+        {
+          "text": "the",
+          "start": 5.21,
+          "end": 5.31
+        },
+        {
+          "text": "soul.",
+          "start": 5.31,
+          "end": 5.57
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35824989527463913
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1a969f00d0171910d5e1d6cf781000157299fb1d248eab02b7977b2e9061fd7f",
+  "selected_reasons": []
+}

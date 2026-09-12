@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "0efada4cea45efe374b55a9729d3cc0aede34f763358780d992158e0c468f748",
+  "attempts": [
+    {
+      "asr_seconds": 0.3019584082067013,
+      "alignment_seconds": 0.0007066391408443451,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then on me be the onus of bringing it forward Cigna Eduardo, are you in voice tonight?",
+          "start": 0.05,
+          "end": 5.47,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.828125
+            },
+            {
+              "text": " on",
+              "start": 0.55,
+              "end": 0.73,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " me",
+              "start": 0.73,
+              "end": 0.91,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " be",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " onus",
+              "start": 1.21,
+              "end": 1.59,
+              "probability": 0.977294921875
+            },
+            {
+              "text": " of",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " bringing",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " it",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " forward",
+              "start": 2.19,
+              "end": 2.61,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Cigna",
+              "start": 2.61,
+              "end": 3.55,
+              "probability": 0.4417928059895833
+            },
+            {
+              "text": " Eduardo,",
+              "start": 3.55,
+              "end": 4.19,
+              "probability": 0.884033203125
+            },
+            {
+              "text": " are",
+              "start": 4.23,
+              "end": 4.55,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " you",
+              "start": 4.55,
+              "end": 4.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 4.71,
+              "end": 4.85,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " voice",
+              "start": 4.85,
+              "end": 5.11,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " tonight?",
+              "start": 5.11,
+              "end": 5.47,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "on",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "raw": "me",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "raw": "be",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "onus",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "bringing",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "it",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "raw": "forward",
+          "start": 2.19,
+          "end": 2.61
+        },
+        {
+          "raw": "Cigna",
+          "start": 2.61,
+          "end": 3.55
+        },
+        {
+          "raw": "Eduardo,",
+          "start": 3.55,
+          "end": 4.19
+        },
+        {
+          "raw": "are",
+          "start": 4.23,
+          "end": 4.55
+        },
+        {
+          "raw": "you",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "raw": "in",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "raw": "voice",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "raw": "tonight?",
+          "start": 5.11,
+          "end": 5.47
+        }
+      ],
+      "expected_tokens": [
+        "\"Then",
+        "on",
+        "me",
+        "be",
+        "the",
+        "onus",
+        "of",
+        "bringing",
+        "it",
+        "forward.",
+        "Signior",
+        "Eduardo,",
+        "are",
+        "you",
+        "in",
+        "voice",
+        "to-night?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          17,
+          11,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "then",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 0.55,
+          "end": 0.73,
+          "key": "on",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.73,
+          "end": 0.91,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "be",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "onus",
+          "start": 1.21,
+          "end": 1.59,
+          "key": "onus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.59,
+          "end": 1.75,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bringing",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "bringing",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.95,
+          "end": 2.19,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "forward",
+          "start": 2.19,
+          "end": 2.61,
+          "key": "forward",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Cigna",
+          "start": 2.61,
+          "end": 3.55,
+          "key": "cigna",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Eduardo,",
+          "start": 3.55,
+          "end": 4.19,
+          "key": "eduardo",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.23,
+          "end": 4.55,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.55,
+          "end": 4.71,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.71,
+          "end": 4.85,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 4.85,
+          "end": 5.11,
+          "key": "voice",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "tonight?",
+          "start": 5.11,
+          "end": 5.47,
+          "key": "tonight",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Then",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "on",
+          "start": 0.55,
+          "end": 0.73
+        },
+        {
+          "text": "me",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "text": "be",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "the",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "onus",
+          "start": 1.21,
+          "end": 1.59
+        },
+        {
+          "text": "of",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "bringing",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "it",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "forward.",
+          "start": 2.19,
+          "end": 2.61
+        },
+        {
+          "text": "Signior",
+          "start": 2.61,
+          "end": 3.08
+        },
+        {
+          "text": "Eduardo,",
+          "start": 3.55,
+          "end": 4.19
+        },
+        {
+          "text": "are",
+          "start": 4.23,
+          "end": 4.55
+        },
+        {
+          "text": "you",
+          "start": 4.55,
+          "end": 4.71
+        },
+        {
+          "text": "in",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "text": "voice",
+          "start": 4.85,
+          "end": 5.11
+        },
+        {
+          "text": "to-night?\"",
+          "start": 5.11,
+          "end": 5.47
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.3029215596616268
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "16e837a7f58a35383aa44cde67d8336041f28804b7d69306e2008a531d68b7c6",
+  "selected_reasons": []
+}

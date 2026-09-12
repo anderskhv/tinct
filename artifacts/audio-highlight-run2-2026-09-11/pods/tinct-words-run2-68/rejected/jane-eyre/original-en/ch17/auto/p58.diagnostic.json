@@ -1,0 +1,701 @@
+{
+  "complete": true,
+  "signature": "f22e47f225d0b4f9d2e56486f2895dd9bf25feccb84c398aa3be2a6becc527a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.39739909023046494,
+      "alignment_seconds": 0.00043765828013420105,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Est-ce que je ne puis pas prendre une seule de ces fleurs magnifiques, mademoiselle? Seulement pour completer ma toilette.\"",
+        "hotwords": "Est-ce, Seulement"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Est-ce que je ne puis pas prendre une seule de ces fleurs magnifiques, mademoiselle? Seulement",
+          "start": 0.05,
+          "end": 7.33,
+          "words": [
+            {
+              "text": " Est",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.0138092041015625
+            },
+            {
+              "text": "-ce",
+              "start": 0.65,
+              "end": 1.11,
+              "probability": 0.04118537902832031
+            },
+            {
+              "text": " que",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " je",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.0435791015625
+            },
+            {
+              "text": " ne",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.51416015625
+            },
+            {
+              "text": " puis",
+              "start": 1.59,
+              "end": 2.11,
+              "probability": 0.43776702880859375
+            },
+            {
+              "text": " pas",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.037445068359375
+            },
+            {
+              "text": " prendre",
+              "start": 2.43,
+              "end": 2.81,
+              "probability": 0.72265625
+            },
+            {
+              "text": " une",
+              "start": 2.81,
+              "end": 3.03,
+              "probability": 0.66162109375
+            },
+            {
+              "text": " seule",
+              "start": 3.03,
+              "end": 3.41,
+              "probability": 0.1151123046875
+            },
+            {
+              "text": " de",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.7001953125
+            },
+            {
+              "text": " ces",
+              "start": 3.57,
+              "end": 4.01,
+              "probability": 0.49591064453125
+            },
+            {
+              "text": " fleurs",
+              "start": 4.01,
+              "end": 4.45,
+              "probability": 0.673095703125
+            },
+            {
+              "text": " magnifiques,",
+              "start": 4.45,
+              "end": 5.25,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " mademoiselle?",
+              "start": 5.71,
+              "end": 6.31,
+              "probability": 0.6750946044921875
+            },
+            {
+              "text": " Seulement",
+              "start": 7.07,
+              "end": 7.33,
+              "probability": 0.3825276692708333
+            }
+          ]
+        },
+        {
+          "text": " pour completer ma toilette.",
+          "start": 7.33,
+          "end": 9.03,
+          "words": [
+            {
+              "text": " pour",
+              "start": 7.33,
+              "end": 7.59,
+              "probability": 0.962890625
+            },
+            {
+              "text": " completer",
+              "start": 7.59,
+              "end": 8.11,
+              "probability": 0.504150390625
+            },
+            {
+              "text": " ma",
+              "start": 8.11,
+              "end": 8.29,
+              "probability": 0.0906982421875
+            },
+            {
+              "text": " toilette.",
+              "start": 8.29,
+              "end": 9.03,
+              "probability": 0.3690185546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Est",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "-ce",
+          "start": 0.65,
+          "end": 1.11
+        },
+        {
+          "raw": "que",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "je",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "ne",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "puis",
+          "start": 1.59,
+          "end": 2.11
+        },
+        {
+          "raw": "pas",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "raw": "prendre",
+          "start": 2.43,
+          "end": 2.81
+        },
+        {
+          "raw": "une",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "raw": "seule",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "raw": "de",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "ces",
+          "start": 3.57,
+          "end": 4.01
+        },
+        {
+          "raw": "fleurs",
+          "start": 4.01,
+          "end": 4.45
+        },
+        {
+          "raw": "magnifiques,",
+          "start": 4.45,
+          "end": 5.25
+        },
+        {
+          "raw": "mademoiselle?",
+          "start": 5.71,
+          "end": 6.31
+        },
+        {
+          "raw": "Seulement",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "raw": "pour",
+          "start": 7.33,
+          "end": 7.59
+        },
+        {
+          "raw": "completer",
+          "start": 7.59,
+          "end": 8.11
+        },
+        {
+          "raw": "ma",
+          "start": 8.11,
+          "end": 8.29
+        },
+        {
+          "raw": "toilette.",
+          "start": 8.29,
+          "end": 9.03
+        }
+      ],
+      "expected_tokens": [
+        "\"Est-ce",
+        "que",
+        "je",
+        "ne",
+        "puis",
+        "pas",
+        "prendre",
+        "une",
+        "seule",
+        "de",
+        "ces",
+        "fleurs",
+        "magnifiques,",
+        "mademoiselle?",
+        "Seulement",
+        "pour",
+        "completer",
+        "ma",
+        "toilette.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Est -ce",
+          "start": 0.05,
+          "end": 1.11,
+          "key": "estce",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "que",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "que",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "je",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "je",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ne",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "ne",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "puis",
+          "start": 1.59,
+          "end": 2.11,
+          "key": "puis",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pas",
+          "start": 2.11,
+          "end": 2.43,
+          "key": "pas",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "prendre",
+          "start": 2.43,
+          "end": 2.81,
+          "key": "prendre",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "une",
+          "start": 2.81,
+          "end": 3.03,
+          "key": "une",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "seule",
+          "start": 3.03,
+          "end": 3.41,
+          "key": "seule",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "de",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ces",
+          "start": 3.57,
+          "end": 4.01,
+          "key": "ces",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fleurs",
+          "start": 4.01,
+          "end": 4.45,
+          "key": "fleurs",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "magnifiques,",
+          "start": 4.45,
+          "end": 5.25,
+          "key": "magnifiques",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "mademoiselle?",
+          "start": 5.71,
+          "end": 6.31,
+          "key": "mademoiselle",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Seulement",
+          "start": 7.07,
+          "end": 7.33,
+          "key": "seulement",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "pour",
+          "start": 7.33,
+          "end": 7.59,
+          "key": "pour",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "completer",
+          "start": 7.59,
+          "end": 8.11,
+          "key": "completer",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "ma",
+          "start": 8.11,
+          "end": 8.29,
+          "key": "ma",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "toilette.",
+          "start": 8.29,
+          "end": 9.03,
+          "key": "toilette",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "\"Est-ce",
+          "heard": "Est -ce",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.05,
+          "end": 1.11
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Est-ce",
+          "start": 0.05,
+          "end": 1.11
+        },
+        {
+          "text": "que",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "je",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "ne",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "puis",
+          "start": 1.59,
+          "end": 2.11
+        },
+        {
+          "text": "pas",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "text": "prendre",
+          "start": 2.43,
+          "end": 2.81
+        },
+        {
+          "text": "une",
+          "start": 2.81,
+          "end": 3.03
+        },
+        {
+          "text": "seule",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "text": "de",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "ces",
+          "start": 3.57,
+          "end": 4.01
+        },
+        {
+          "text": "fleurs",
+          "start": 4.01,
+          "end": 4.45
+        },
+        {
+          "text": "magnifiques,",
+          "start": 4.45,
+          "end": 5.25
+        },
+        {
+          "text": "mademoiselle?",
+          "start": 5.71,
+          "end": 6.31
+        },
+        {
+          "text": "Seulement",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "text": "pour",
+          "start": 7.33,
+          "end": 7.59
+        },
+        {
+          "text": "completer",
+          "start": 7.59,
+          "end": 8.11
+        },
+        {
+          "text": "ma",
+          "start": 8.11,
+          "end": 8.29
+        },
+        {
+          "text": "toilette.\"",
+          "start": 8.29,
+          "end": 9.03
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3979948163032532
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c2ad25f11ec5c1991aa4c9e848f167586cb7903204a8416fce3707478276f020",
+  "selected_reasons": []
+}

@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "071efcdd2aecea99e22bf2ea12bcc5a2ab6adaaab4496debf948b5edf49c9284",
+  "attempts": [
+    {
+      "asr_seconds": 0.14818575902609155,
+      "alignment_seconds": 0.0002156920381821692,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A poor lookout for corny, Mr. Power added.",
+          "start": 0.02,
+          "end": 2.8,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " poor",
+              "start": 0.5,
+              "end": 0.68,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " lookout",
+              "start": 0.68,
+              "end": 0.94,
+              "probability": 0.79833984375
+            },
+            {
+              "text": " for",
+              "start": 0.94,
+              "end": 1.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " corny,",
+              "start": 1.2,
+              "end": 1.6,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " Mr.",
+              "start": 1.98,
+              "end": 2.1,
+              "probability": 0.921875
+            },
+            {
+              "text": " Power",
+              "start": 2.32,
+              "end": 2.34,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " added.",
+              "start": 2.34,
+              "end": 2.8,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "poor",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "raw": "lookout",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "raw": "for",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "raw": "corny,",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "raw": "Power",
+          "start": 2.32,
+          "end": 2.34
+        },
+        {
+          "raw": "added.",
+          "start": 2.34,
+          "end": 2.8
+        }
+      ],
+      "expected_tokens": [
+        "—A",
+        "poor",
+        "lookout",
+        "for",
+        "Corny,",
+        "Mr",
+        "Power",
+        "added."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "a",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 0.5,
+          "end": 0.68,
+          "key": "poor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lookout",
+          "start": 0.68,
+          "end": 0.94,
+          "key": "lookout",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.94,
+          "end": 1.2,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "corny,",
+          "start": 1.2,
+          "end": 1.6,
+          "key": "corny",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Mr.",
+          "start": 1.98,
+          "end": 2.1,
+          "key": "mr",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Power",
+          "start": 2.32,
+          "end": 2.34,
+          "key": "power",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "added.",
+          "start": 2.34,
+          "end": 2.8,
+          "key": "added",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—A",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "poor",
+          "start": 0.5,
+          "end": 0.68
+        },
+        {
+          "text": "lookout",
+          "start": 0.68,
+          "end": 0.94
+        },
+        {
+          "text": "for",
+          "start": 0.94,
+          "end": 1.2
+        },
+        {
+          "text": "Corny,",
+          "start": 1.2,
+          "end": 1.6
+        },
+        {
+          "text": "Mr",
+          "start": 1.98,
+          "end": 2.1
+        },
+        {
+          "text": "Power",
+          "start": 2.32,
+          "end": 2.34
+        },
+        {
+          "text": "added.",
+          "start": 2.34,
+          "end": 2.8
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14847631100565195
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cdc353a189558bab800f5087e74cd9a275f12229e5d8955f648641abef178ad4",
+  "selected_reasons": []
+}

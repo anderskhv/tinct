@@ -1,0 +1,795 @@
+{
+  "complete": true,
+  "signature": "164f95d0173bb599d325676faebe3cfeebb29eedd0a61fdf9d38401db77e2d24",
+  "attempts": [
+    {
+      "asr_seconds": 0.31088297395035625,
+      "alignment_seconds": 0.0006517828442156315,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " It is nine o'clock. What are you about, Miss Eyre, to let Adele sit up so long? Take her to bed.",
+          "start": 0.05,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " nine",
+              "start": 0.65,
+              "end": 0.87,
+              "probability": 0.67333984375
+            },
+            {
+              "text": " o",
+              "start": 0.87,
+              "end": 0.99,
+              "probability": 0.9853515625
+            },
+            {
+              "text": "'clock.",
+              "start": 0.99,
+              "end": 1.35,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " What",
+              "start": 1.91,
+              "end": 1.97,
+              "probability": 0.9921875
+            },
+            {
+              "text": " are",
+              "start": 1.97,
+              "end": 2.05,
+              "probability": 0.974609375
+            },
+            {
+              "text": " you",
+              "start": 2.05,
+              "end": 2.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " about,",
+              "start": 2.13,
+              "end": 2.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Miss",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " Eyre,",
+              "start": 2.61,
+              "end": 2.85,
+              "probability": 0.6903076171875
+            },
+            {
+              "text": " to",
+              "start": 2.95,
+              "end": 3.01,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " let",
+              "start": 3.01,
+              "end": 3.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Adele",
+              "start": 3.13,
+              "end": 3.43,
+              "probability": 0.96875
+            },
+            {
+              "text": " sit",
+              "start": 3.43,
+              "end": 3.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " up",
+              "start": 3.67,
+              "end": 3.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so",
+              "start": 3.83,
+              "end": 4.03,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " long?",
+              "start": 4.03,
+              "end": 4.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Take",
+              "start": 4.81,
+              "end": 4.91,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " her",
+              "start": 4.91,
+              "end": 5.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.09,
+              "end": 5.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bed.",
+              "start": 5.19,
+              "end": 5.41,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "nine",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "raw": "o",
+          "start": 0.87,
+          "end": 0.99
+        },
+        {
+          "raw": "'clock.",
+          "start": 0.99,
+          "end": 1.35
+        },
+        {
+          "raw": "What",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "raw": "are",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "raw": "about,",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "raw": "Miss",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "Eyre,",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "raw": "to",
+          "start": 2.95,
+          "end": 3.01
+        },
+        {
+          "raw": "let",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "raw": "Adele",
+          "start": 3.13,
+          "end": 3.43
+        },
+        {
+          "raw": "sit",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "raw": "up",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "raw": "so",
+          "start": 3.83,
+          "end": 4.03
+        },
+        {
+          "raw": "long?",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "raw": "Take",
+          "start": 4.81,
+          "end": 4.91
+        },
+        {
+          "raw": "her",
+          "start": 4.91,
+          "end": 5.09
+        },
+        {
+          "raw": "to",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "raw": "bed.",
+          "start": 5.19,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "is",
+        "nine",
+        "o'clock:",
+        "what",
+        "are",
+        "you",
+        "about,",
+        "Miss",
+        "Eyre,",
+        "to",
+        "let",
+        "Adèle",
+        "sit",
+        "up",
+        "so",
+        "long?",
+        "Take",
+        "her",
+        "to",
+        "bed.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          12,
+          5,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          21,
+          14,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nine",
+          "start": 0.65,
+          "end": 0.87,
+          "key": "nine",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 0.87,
+          "end": 0.99,
+          "key": "o",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "'clock.",
+          "start": 0.99,
+          "end": 1.35,
+          "key": "clock",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.91,
+          "end": 1.97,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.97,
+          "end": 2.05,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.05,
+          "end": 2.13,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "about,",
+          "start": 2.13,
+          "end": 2.39,
+          "key": "about",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Miss",
+          "start": 2.49,
+          "end": 2.61,
+          "key": "miss",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Eyre,",
+          "start": 2.61,
+          "end": 2.85,
+          "key": "eyre",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.95,
+          "end": 3.01,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.01,
+          "end": 3.13,
+          "key": "let",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Adele",
+          "start": 3.13,
+          "end": 3.43,
+          "key": "adele",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 3.43,
+          "end": 3.67,
+          "key": "sit",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 3.67,
+          "end": 3.83,
+          "key": "up",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.83,
+          "end": 4.03,
+          "key": "so",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "long?",
+          "start": 4.03,
+          "end": 4.37,
+          "key": "long",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 4.81,
+          "end": 4.91,
+          "key": "take",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.91,
+          "end": 5.09,
+          "key": "her",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.09,
+          "end": 5.19,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "bed.",
+          "start": 5.19,
+          "end": 5.41,
+          "key": "bed",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "nine",
+          "start": 0.65,
+          "end": 0.87
+        },
+        {
+          "text": "o'clock:",
+          "start": 0.87,
+          "end": 1.39
+        },
+        {
+          "text": "what",
+          "start": 1.91,
+          "end": 1.97
+        },
+        {
+          "text": "are",
+          "start": 1.97,
+          "end": 2.05
+        },
+        {
+          "text": "you",
+          "start": 2.05,
+          "end": 2.13
+        },
+        {
+          "text": "about,",
+          "start": 2.13,
+          "end": 2.39
+        },
+        {
+          "text": "Miss",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "Eyre,",
+          "start": 2.61,
+          "end": 2.85
+        },
+        {
+          "text": "to",
+          "start": 2.95,
+          "end": 3.01
+        },
+        {
+          "text": "let",
+          "start": 3.01,
+          "end": 3.13
+        },
+        {
+          "text": "Adèle",
+          "start": 3.13,
+          "end": 3.28
+        },
+        {
+          "text": "sit",
+          "start": 3.43,
+          "end": 3.67
+        },
+        {
+          "text": "up",
+          "start": 3.67,
+          "end": 3.83
+        },
+        {
+          "text": "so",
+          "start": 3.83,
+          "end": 4.03
+        },
+        {
+          "text": "long?",
+          "start": 4.03,
+          "end": 4.37
+        },
+        {
+          "text": "Take",
+          "start": 4.81,
+          "end": 4.91
+        },
+        {
+          "text": "her",
+          "start": 4.91,
+          "end": 5.09
+        },
+        {
+          "text": "to",
+          "start": 5.09,
+          "end": 5.19
+        },
+        {
+          "text": "bed.\"",
+          "start": 5.19,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.31183622498065233
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "63d724792a89d49f0d00faafccc8d9b455ae78784c510d85b11c78e45349567a",
+  "selected_reasons": []
+}

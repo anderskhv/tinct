@@ -1,0 +1,427 @@
+{
+  "complete": true,
+  "signature": "14e77ca5681946576ba053a97fe2932736a672b5f30d17a48f8dceef9f691358",
+  "attempts": [
+    {
+      "asr_seconds": 0.2621609605848789,
+      "alignment_seconds": 0.0007106587290763855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shepard, his garments are rich, but he wears them not handsomely.",
+          "start": 0.08,
+          "end": 4.08,
+          "words": [
+            {
+              "text": " Shepard,",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.282470703125
+            },
+            {
+              "text": " his",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " garments",
+              "start": 1.36,
+              "end": 1.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 1.68,
+              "end": 1.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rich,",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " but",
+              "start": 2.62,
+              "end": 2.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " he",
+              "start": 2.7,
+              "end": 2.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " wears",
+              "start": 2.82,
+              "end": 2.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 2.98,
+              "end": 3.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not",
+              "start": 3.26,
+              "end": 3.46,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " handsomely.",
+              "start": 3.46,
+              "end": 4.08,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shepard,",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "his",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "garments",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "raw": "are",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "raw": "rich,",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "but",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "raw": "he",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "raw": "wears",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "raw": "them",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "raw": "not",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "raw": "handsomely.",
+          "start": 3.46,
+          "end": 4.08
+        }
+      ],
+      "expected_tokens": [
+        "Shepherd.",
+        "His",
+        "garments",
+        "are",
+        "rich,",
+        "but",
+        "he",
+        "wears",
+        "them",
+        "not",
+        "handsomely."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          11,
+          1,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shepard,",
+          "start": 0.08,
+          "end": 0.72,
+          "key": "shepard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "his",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "garments",
+          "start": 1.36,
+          "end": 1.68,
+          "key": "garments",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.68,
+          "end": 1.98,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rich,",
+          "start": 1.98,
+          "end": 2.24,
+          "key": "rich",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.62,
+          "end": 2.7,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.7,
+          "end": 2.82,
+          "key": "he",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "wears",
+          "start": 2.82,
+          "end": 2.98,
+          "key": "wears",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 2.98,
+          "end": 3.26,
+          "key": "them",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.26,
+          "end": 3.46,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "handsomely.",
+          "start": 3.46,
+          "end": 4.08,
+          "key": "handsomely",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shepherd.",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "His",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "garments",
+          "start": 1.36,
+          "end": 1.68
+        },
+        {
+          "text": "are",
+          "start": 1.68,
+          "end": 1.98
+        },
+        {
+          "text": "rich,",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "but",
+          "start": 2.62,
+          "end": 2.7
+        },
+        {
+          "text": "he",
+          "start": 2.7,
+          "end": 2.82
+        },
+        {
+          "text": "wears",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "them",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "text": "not",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "text": "handsomely.",
+          "start": 3.46,
+          "end": 4.08
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.26308160834014416
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "808a2df3465985edfc89d0e7f923f15e305df9a9672baa9c355911b099a879fd",
+  "selected_reasons": []
+}

@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "5ce36cb566b4eafad5304a66661014df7b62d8bfb6c93e8e902e25f4675c435c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1748131439089775,
+      "alignment_seconds": 0.0004316791892051697,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sir Andrew. Here comes the fool, i' faith.",
+        "hotwords": "Sir, Andrew, Here"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew, Here comes the fool, i' faith.",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " Andrew,",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.953125
+            },
+            {
+              "text": " Here",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.0235748291015625
+            },
+            {
+              "text": " comes",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.896484375
+            },
+            {
+              "text": " the",
+              "start": 1.72,
+              "end": 1.9,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " fool,",
+              "start": 1.9,
+              "end": 2.12,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " i'",
+              "start": 2.34,
+              "end": 2.36,
+              "probability": 0.00897216796875
+            },
+            {
+              "text": " faith.",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.44970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "Here",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "raw": "comes",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "raw": "fool,",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "raw": "i'",
+          "start": 2.34,
+          "end": 2.36
+        },
+        {
+          "raw": "faith.",
+          "start": 2.36,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "Here",
+        "comes",
+        "the",
+        "fool,",
+        "i'",
+        "faith."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew,",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Here",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "comes",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "comes",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.72,
+          "end": 1.9,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fool,",
+          "start": 1.9,
+          "end": 2.12,
+          "key": "fool",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "i'",
+          "start": 2.34,
+          "end": 2.36,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "faith.",
+          "start": 2.36,
+          "end": 2.64,
+          "key": "faith",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "Here",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "comes",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "the",
+          "start": 1.72,
+          "end": 1.9
+        },
+        {
+          "text": "fool,",
+          "start": 1.9,
+          "end": 2.12
+        },
+        {
+          "text": "i'",
+          "start": 2.34,
+          "end": 2.36
+        },
+        {
+          "text": "faith.",
+          "start": 2.36,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1754106767475605
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dc5712ef19b1e0cd64408dd4c1eb12b5f61a832a35480c0963fb7f380604a147",
+  "selected_reasons": []
+}

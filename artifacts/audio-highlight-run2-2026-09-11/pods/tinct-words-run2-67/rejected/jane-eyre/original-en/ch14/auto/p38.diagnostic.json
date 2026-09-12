@@ -1,0 +1,1150 @@
+{
+  "complete": true,
+  "signature": "2cef0f2706801986e086502748713c4be58f1fdcbff0cbda216d7c2c3d25507e",
+  "attempts": [
+    {
+      "asr_seconds": 0.4301343788392842,
+      "alignment_seconds": 0.0008491943590342999,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Accordingly I sat and said nothing: \"If he expects me to talk for the mere sake of talking and showing off, he will find he has addressed himself to the wrong person,\" I thought.",
+        "hotwords": "Accordingly, I, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Accordingly I sat and said nothing. If he expects me to talk for the mere sake of talking and showing off, he will find he has addressed himself to the wrong person, I thought.",
+          "start": 0.02,
+          "end": 10.52,
+          "words": [
+            {
+              "text": " Accordingly",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.8828125
+            },
+            {
+              "text": " I",
+              "start": 0.78,
+              "end": 1.16,
+              "probability": 0.08746337890625
+            },
+            {
+              "text": " sat",
+              "start": 1.16,
+              "end": 1.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 1.48,
+              "end": 1.74,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " said",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " nothing.",
+              "start": 1.94,
+              "end": 2.28,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " If",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " he",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " expects",
+              "start": 3.22,
+              "end": 3.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " me",
+              "start": 3.58,
+              "end": 3.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.8,
+              "end": 3.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " talk",
+              "start": 3.92,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " for",
+              "start": 4.16,
+              "end": 4.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.34,
+              "end": 4.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " mere",
+              "start": 4.46,
+              "end": 4.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sake",
+              "start": 4.62,
+              "end": 4.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 4.92,
+              "end": 5.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " talking",
+              "start": 5.1,
+              "end": 5.48,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 5.48,
+              "end": 5.76,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " showing",
+              "start": 5.76,
+              "end": 6.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " off,",
+              "start": 6.06,
+              "end": 6.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 6.78,
+              "end": 6.98,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " will",
+              "start": 6.98,
+              "end": 7.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " find",
+              "start": 7.14,
+              "end": 7.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 7.4,
+              "end": 7.6,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " has",
+              "start": 7.6,
+              "end": 7.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " addressed",
+              "start": 7.7,
+              "end": 8.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " himself",
+              "start": 8.08,
+              "end": 8.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.5,
+              "end": 8.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 8.72,
+              "end": 8.88,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wrong",
+              "start": 8.88,
+              "end": 9.08,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " person,",
+              "start": 9.08,
+              "end": 9.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 9.96,
+              "end": 10.22,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " thought.",
+              "start": 10.22,
+              "end": 10.52,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Accordingly",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "I",
+          "start": 0.78,
+          "end": 1.16
+        },
+        {
+          "raw": "sat",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "raw": "and",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "nothing.",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "raw": "If",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "he",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "raw": "expects",
+          "start": 3.22,
+          "end": 3.58
+        },
+        {
+          "raw": "me",
+          "start": 3.58,
+          "end": 3.8
+        },
+        {
+          "raw": "to",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "raw": "talk",
+          "start": 3.92,
+          "end": 4.16
+        },
+        {
+          "raw": "for",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "raw": "the",
+          "start": 4.34,
+          "end": 4.46
+        },
+        {
+          "raw": "mere",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "raw": "sake",
+          "start": 4.62,
+          "end": 4.92
+        },
+        {
+          "raw": "of",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "raw": "talking",
+          "start": 5.1,
+          "end": 5.48
+        },
+        {
+          "raw": "and",
+          "start": 5.48,
+          "end": 5.76
+        },
+        {
+          "raw": "showing",
+          "start": 5.76,
+          "end": 6.06
+        },
+        {
+          "raw": "off,",
+          "start": 6.06,
+          "end": 6.4
+        },
+        {
+          "raw": "he",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "raw": "will",
+          "start": 6.98,
+          "end": 7.14
+        },
+        {
+          "raw": "find",
+          "start": 7.14,
+          "end": 7.4
+        },
+        {
+          "raw": "he",
+          "start": 7.4,
+          "end": 7.6
+        },
+        {
+          "raw": "has",
+          "start": 7.6,
+          "end": 7.7
+        },
+        {
+          "raw": "addressed",
+          "start": 7.7,
+          "end": 8.08
+        },
+        {
+          "raw": "himself",
+          "start": 8.08,
+          "end": 8.5
+        },
+        {
+          "raw": "to",
+          "start": 8.5,
+          "end": 8.72
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.88
+        },
+        {
+          "raw": "wrong",
+          "start": 8.88,
+          "end": 9.08
+        },
+        {
+          "raw": "person,",
+          "start": 9.08,
+          "end": 9.62
+        },
+        {
+          "raw": "I",
+          "start": 9.96,
+          "end": 10.22
+        },
+        {
+          "raw": "thought.",
+          "start": 10.22,
+          "end": 10.52
+        }
+      ],
+      "expected_tokens": [
+        "Accordingly",
+        "I",
+        "sat",
+        "and",
+        "said",
+        "nothing:",
+        "\"If",
+        "he",
+        "expects",
+        "me",
+        "to",
+        "talk",
+        "for",
+        "the",
+        "mere",
+        "sake",
+        "of",
+        "talking",
+        "and",
+        "showing",
+        "off,",
+        "he",
+        "will",
+        "find",
+        "he",
+        "has",
+        "addressed",
+        "himself",
+        "to",
+        "the",
+        "wrong",
+        "person,\"",
+        "I",
+        "thought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          34,
+          0,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Accordingly",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "accordingly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.78,
+          "end": 1.16,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sat",
+          "start": 1.16,
+          "end": 1.48,
+          "key": "sat",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.48,
+          "end": 1.74,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nothing.",
+          "start": 1.94,
+          "end": 2.28,
+          "key": "nothing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "expects",
+          "start": 3.22,
+          "end": 3.58,
+          "key": "expects",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.58,
+          "end": 3.8,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.8,
+          "end": 3.92,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 3.92,
+          "end": 4.16,
+          "key": "talk",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 4.16,
+          "end": 4.34,
+          "key": "for",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.34,
+          "end": 4.46,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "mere",
+          "start": 4.46,
+          "end": 4.62,
+          "key": "mere",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sake",
+          "start": 4.62,
+          "end": 4.92,
+          "key": "sake",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.92,
+          "end": 5.1,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "talking",
+          "start": 5.1,
+          "end": 5.48,
+          "key": "talking",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.48,
+          "end": 5.76,
+          "key": "and",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "showing",
+          "start": 5.76,
+          "end": 6.06,
+          "key": "showing",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "off,",
+          "start": 6.06,
+          "end": 6.4,
+          "key": "off",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 6.78,
+          "end": 6.98,
+          "key": "he",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 6.98,
+          "end": 7.14,
+          "key": "will",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "find",
+          "start": 7.14,
+          "end": 7.4,
+          "key": "find",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 7.4,
+          "end": 7.6,
+          "key": "he",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 7.6,
+          "end": 7.7,
+          "key": "has",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "addressed",
+          "start": 7.7,
+          "end": 8.08,
+          "key": "addressed",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 8.08,
+          "end": 8.5,
+          "key": "himself",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 8.5,
+          "end": 8.72,
+          "key": "to",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 8.72,
+          "end": 8.88,
+          "key": "the",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "wrong",
+          "start": 8.88,
+          "end": 9.08,
+          "key": "wrong",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "person,",
+          "start": 9.08,
+          "end": 9.62,
+          "key": "person",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 9.96,
+          "end": 10.22,
+          "key": "i",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thought.",
+          "start": 10.22,
+          "end": 10.52,
+          "key": "thought",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Accordingly",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "I",
+          "start": 0.78,
+          "end": 1.16
+        },
+        {
+          "text": "sat",
+          "start": 1.16,
+          "end": 1.48
+        },
+        {
+          "text": "and",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "text": "said",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "nothing:",
+          "start": 1.94,
+          "end": 2.28
+        },
+        {
+          "text": "\"If",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "he",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "text": "expects",
+          "start": 3.22,
+          "end": 3.58
+        },
+        {
+          "text": "me",
+          "start": 3.58,
+          "end": 3.8
+        },
+        {
+          "text": "to",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "text": "talk",
+          "start": 3.92,
+          "end": 4.16
+        },
+        {
+          "text": "for",
+          "start": 4.16,
+          "end": 4.34
+        },
+        {
+          "text": "the",
+          "start": 4.34,
+          "end": 4.46
+        },
+        {
+          "text": "mere",
+          "start": 4.46,
+          "end": 4.62
+        },
+        {
+          "text": "sake",
+          "start": 4.62,
+          "end": 4.92
+        },
+        {
+          "text": "of",
+          "start": 4.92,
+          "end": 5.1
+        },
+        {
+          "text": "talking",
+          "start": 5.1,
+          "end": 5.48
+        },
+        {
+          "text": "and",
+          "start": 5.48,
+          "end": 5.76
+        },
+        {
+          "text": "showing",
+          "start": 5.76,
+          "end": 6.06
+        },
+        {
+          "text": "off,",
+          "start": 6.06,
+          "end": 6.4
+        },
+        {
+          "text": "he",
+          "start": 6.78,
+          "end": 6.98
+        },
+        {
+          "text": "will",
+          "start": 6.98,
+          "end": 7.14
+        },
+        {
+          "text": "find",
+          "start": 7.14,
+          "end": 7.4
+        },
+        {
+          "text": "he",
+          "start": 7.4,
+          "end": 7.6
+        },
+        {
+          "text": "has",
+          "start": 7.6,
+          "end": 7.7
+        },
+        {
+          "text": "addressed",
+          "start": 7.7,
+          "end": 8.08
+        },
+        {
+          "text": "himself",
+          "start": 8.08,
+          "end": 8.5
+        },
+        {
+          "text": "to",
+          "start": 8.5,
+          "end": 8.72
+        },
+        {
+          "text": "the",
+          "start": 8.72,
+          "end": 8.88
+        },
+        {
+          "text": "wrong",
+          "start": 8.88,
+          "end": 9.08
+        },
+        {
+          "text": "person,\"",
+          "start": 9.08,
+          "end": 9.62
+        },
+        {
+          "text": "I",
+          "start": 9.96,
+          "end": 10.22
+        },
+        {
+          "text": "thought.",
+          "start": 10.22,
+          "end": 10.52
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 34
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4313618359155953
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9a8ce76c6ce97e36a267b43676d93a4e8096b7b174e310b6f68bbb6d2655d1c6",
+  "selected_reasons": []
+}

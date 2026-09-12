@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "d40505a63a370948f6018b2386438081731e3e0ccf074f7e02eae1964f537412",
+  "attempts": [
+    {
+      "asr_seconds": 0.3250338602811098,
+      "alignment_seconds": 0.0005649738013744354,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He has murdered his father murdered why scream silly run fetch someone",
+          "start": 0.05,
+          "end": 4.89,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " has",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " murdered",
+              "start": 0.71,
+              "end": 1.07,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " his",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.59130859375
+            },
+            {
+              "text": " father",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " murdered",
+              "start": 1.71,
+              "end": 2.25,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " why",
+              "start": 2.25,
+              "end": 2.75,
+              "probability": 0.62890625
+            },
+            {
+              "text": " scream",
+              "start": 2.75,
+              "end": 3.17,
+              "probability": 0.921875
+            },
+            {
+              "text": " silly",
+              "start": 3.17,
+              "end": 3.55,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " run",
+              "start": 3.55,
+              "end": 4.03,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " fetch",
+              "start": 4.03,
+              "end": 4.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " someone",
+              "start": 4.47,
+              "end": 4.89,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "has",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "murdered",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "raw": "his",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "raw": "father",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "murdered",
+          "start": 1.71,
+          "end": 2.25
+        },
+        {
+          "raw": "why",
+          "start": 2.25,
+          "end": 2.75
+        },
+        {
+          "raw": "scream",
+          "start": 2.75,
+          "end": 3.17
+        },
+        {
+          "raw": "silly",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "raw": "run",
+          "start": 3.55,
+          "end": 4.03
+        },
+        {
+          "raw": "fetch",
+          "start": 4.03,
+          "end": 4.47
+        },
+        {
+          "raw": "someone",
+          "start": 4.47,
+          "end": 4.89
+        }
+      ],
+      "expected_tokens": [
+        "\"He",
+        "has",
+        "murdered",
+        "...",
+        "his",
+        "father",
+        "murdered....",
+        "Why",
+        "scream,",
+        "silly",
+        "...",
+        "run",
+        "...",
+        "fetch",
+        "some",
+        "one....\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "equal",
+          4,
+          10,
+          3,
+          9
+        ],
+        [
+          "delete",
+          10,
+          11,
+          9,
+          9
+        ],
+        [
+          "equal",
+          11,
+          12,
+          9,
+          10
+        ],
+        [
+          "delete",
+          12,
+          13,
+          10,
+          10
+        ],
+        [
+          "equal",
+          13,
+          14,
+          10,
+          11
+        ],
+        [
+          "replace",
+          14,
+          16,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          3,
+          4,
+          3,
+          3
+        ],
+        [
+          "delete",
+          10,
+          11,
+          9,
+          9
+        ],
+        [
+          "delete",
+          12,
+          13,
+          10,
+          10
+        ],
+        [
+          "replace",
+          14,
+          16,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "murdered",
+          "start": 0.71,
+          "end": 1.07,
+          "key": "murdered",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.07,
+          "end": 1.43,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "father",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "murdered",
+          "start": 1.71,
+          "end": 2.25,
+          "key": "murdered",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 2.25,
+          "end": 2.75,
+          "key": "why",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "scream",
+          "start": 2.75,
+          "end": 3.17,
+          "key": "scream",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "silly",
+          "start": 3.17,
+          "end": 3.55,
+          "key": "silly",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "run",
+          "start": 3.55,
+          "end": 4.03,
+          "key": "run",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fetch",
+          "start": 4.03,
+          "end": 4.47,
+          "key": "fetch",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "someone",
+          "start": 4.47,
+          "end": 4.89,
+          "key": "someone",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"He",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "has",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "murdered",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "text": "...",
+          "start": 1.07,
+          "end": 1.07
+        },
+        {
+          "text": "his",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "text": "father",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "murdered....",
+          "start": 1.71,
+          "end": 2.25
+        },
+        {
+          "text": "Why",
+          "start": 2.25,
+          "end": 2.75
+        },
+        {
+          "text": "scream,",
+          "start": 2.75,
+          "end": 3.17
+        },
+        {
+          "text": "silly",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "text": "...",
+          "start": 3.55,
+          "end": 3.55
+        },
+        {
+          "text": "run",
+          "start": 3.55,
+          "end": 4.03
+        },
+        {
+          "text": "...",
+          "start": 4.03,
+          "end": 4.03
+        },
+        {
+          "text": "fetch",
+          "start": 4.03,
+          "end": 4.47
+        },
+        {
+          "text": "some",
+          "start": 4.47,
+          "end": 4.68
+        },
+        {
+          "text": "one....\"",
+          "start": 4.68,
+          "end": 4.785
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.6875,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.32576260156929493
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ebb8d1e5c5fb52d4ffb0266c5631d0799ba377ea3a6e2c7398d655dd2cd8edf2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

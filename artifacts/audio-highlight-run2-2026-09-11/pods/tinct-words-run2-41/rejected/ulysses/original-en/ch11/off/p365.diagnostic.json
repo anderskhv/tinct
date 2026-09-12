@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "1b3304c6863c531cd29edb0c14f645cd1b1f26bbdafff836bb7c73e00c6bcced",
+  "attempts": [
+    {
+      "asr_seconds": 0.1939608259126544,
+      "alignment_seconds": 0.0004147542640566826,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ah, sure, my dancing days are done, Ben. Well.",
+          "start": 0.02,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " sure,",
+              "start": 0.78,
+              "end": 0.82,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " my",
+              "start": 1.02,
+              "end": 1.02,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " dancing",
+              "start": 1.02,
+              "end": 1.34,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " days",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " are",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " done,",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Ben.",
+              "start": 2.26,
+              "end": 2.26,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Well.",
+              "start": 3.0,
+              "end": 3.0,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "sure,",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "raw": "my",
+          "start": 1.02,
+          "end": 1.02
+        },
+        {
+          "raw": "dancing",
+          "start": 1.02,
+          "end": 1.34
+        },
+        {
+          "raw": "days",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "are",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "done,",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "Ben.",
+          "start": 2.26,
+          "end": 2.26
+        },
+        {
+          "raw": "Well.",
+          "start": 3.0,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "—Ah,",
+        "sure,",
+        "my",
+        "dancing",
+        "days",
+        "are",
+        "done,",
+        "Ben...",
+        "Well..."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sure,",
+          "start": 0.78,
+          "end": 0.82,
+          "key": "sure",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.02,
+          "end": 1.02,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dancing",
+          "start": 1.02,
+          "end": 1.34,
+          "key": "dancing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "days",
+          "start": 1.34,
+          "end": 1.6,
+          "key": "days",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.6,
+          "end": 1.78,
+          "key": "are",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 1.78,
+          "end": 1.94,
+          "key": "done",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ben.",
+          "start": 2.26,
+          "end": 2.26,
+          "key": "ben",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Well.",
+          "start": 3.0,
+          "end": 3.0,
+          "key": "well",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Ah,",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "sure,",
+          "start": 0.78,
+          "end": 0.82
+        },
+        {
+          "text": "my",
+          "start": 1.02,
+          "end": 1.02
+        },
+        {
+          "text": "dancing",
+          "start": 1.02,
+          "end": 1.34
+        },
+        {
+          "text": "days",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "are",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "done,",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "Ben...",
+          "start": 2.26,
+          "end": 2.26
+        },
+        {
+          "text": "Well...",
+          "start": 3.0,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19452631194144487
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fef002fa974627c8dd1f40d6eabdebdaaa7479cba59414c9186ce4f6e6bbf33c",
+  "selected_reasons": []
+}

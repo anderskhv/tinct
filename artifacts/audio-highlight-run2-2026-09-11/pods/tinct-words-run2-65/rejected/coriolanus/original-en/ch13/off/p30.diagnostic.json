@@ -1,0 +1,537 @@
+{
+  "complete": true,
+  "signature": "7e828ccf393f0ca3863b8853a2f437da11634ebce26e0fd037beb851024ad0b4",
+  "attempts": [
+    {
+      "asr_seconds": 0.266280943993479,
+      "alignment_seconds": 0.00040658190846443176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Coriolanus? No, sir.",
+          "start": 0.62,
+          "end": 2.2,
+          "words": [
+            {
+              "text": " Coriolanus?",
+              "start": 0.62,
+              "end": 1.08,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " No,",
+              "start": 1.6,
+              "end": 1.88,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " sir.",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.8984375
+            }
+          ]
+        },
+        {
+          "text": " Toi's never my desire yet to trouble the poor with begging.",
+          "start": 2.7,
+          "end": 5.24,
+          "words": [
+            {
+              "text": " Toi's",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.6003824869791666
+            },
+            {
+              "text": " never",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " my",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " desire",
+              "start": 3.32,
+              "end": 3.7,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " yet",
+              "start": 3.7,
+              "end": 4.0,
+              "probability": 0.97265625
+            },
+            {
+              "text": " to",
+              "start": 4.0,
+              "end": 4.16,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " trouble",
+              "start": 4.16,
+              "end": 4.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 4.4,
+              "end": 4.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " poor",
+              "start": 4.56,
+              "end": 4.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 4.78,
+              "end": 4.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " begging.",
+              "start": 4.96,
+              "end": 5.24,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Coriolanus?",
+          "start": 0.62,
+          "end": 1.08
+        },
+        {
+          "raw": "No,",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "raw": "sir.",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "Toi's",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "never",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "my",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "desire",
+          "start": 3.32,
+          "end": 3.7
+        },
+        {
+          "raw": "yet",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "raw": "to",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "raw": "trouble",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "raw": "the",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "raw": "poor",
+          "start": 4.56,
+          "end": 4.78
+        },
+        {
+          "raw": "with",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "raw": "begging.",
+          "start": 4.96,
+          "end": 5.24
+        }
+      ],
+      "expected_tokens": [
+        "Coriolanus.",
+        "No,",
+        "sir,",
+        "'twas",
+        "never",
+        "my",
+        "desire",
+        "yet",
+        "to",
+        "trouble",
+        "the",
+        "poor",
+        "with",
+        "begging."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          14,
+          4,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Coriolanus?",
+          "start": 0.62,
+          "end": 1.08,
+          "key": "coriolanus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.6,
+          "end": 1.88,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.0,
+          "end": 2.2,
+          "key": "sir",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Toi's",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "tois",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 2.92,
+          "end": 3.1,
+          "key": "never",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 3.32,
+          "end": 3.7,
+          "key": "desire",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "yet",
+          "start": 3.7,
+          "end": 4.0,
+          "key": "yet",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.0,
+          "end": 4.16,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "trouble",
+          "start": 4.16,
+          "end": 4.4,
+          "key": "trouble",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.4,
+          "end": 4.56,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 4.56,
+          "end": 4.78,
+          "key": "poor",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.78,
+          "end": 4.96,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "begging.",
+          "start": 4.96,
+          "end": 5.24,
+          "key": "begging",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Coriolanus.",
+          "start": 0.62,
+          "end": 1.08
+        },
+        {
+          "text": "No,",
+          "start": 1.6,
+          "end": 1.88
+        },
+        {
+          "text": "sir,",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "'twas",
+          "start": 2.2,
+          "end": 2.56
+        },
+        {
+          "text": "never",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "my",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "desire",
+          "start": 3.32,
+          "end": 3.7
+        },
+        {
+          "text": "yet",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "text": "to",
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "text": "trouble",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "text": "the",
+          "start": 4.4,
+          "end": 4.56
+        },
+        {
+          "text": "poor",
+          "start": 4.56,
+          "end": 4.78
+        },
+        {
+          "text": "with",
+          "start": 4.78,
+          "end": 4.96
+        },
+        {
+          "text": "begging.",
+          "start": 4.96,
+          "end": 5.24
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.26684245001524687
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a26cb7208369c326216899f0279bb0ccc64d2d8106c96b53a4f35fa86198b11c",
+  "selected_reasons": []
+}

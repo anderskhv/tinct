@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "41f5d1e38d8fe85a0e4282553b73543b234b8e3366e4169c238757d925da8427",
+  "attempts": [
+    {
+      "asr_seconds": 0.2109054047614336,
+      "alignment_seconds": 0.0004278607666492462,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Autolycus. What advocate hast thou to him?",
+        "hotwords": "Autolycus, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Autolycus, What Advocate hast thou to him?",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Autolycus,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.8318684895833334
+            },
+            {
+              "text": " What",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.037811279296875
+            },
+            {
+              "text": " Advocate",
+              "start": 1.55,
+              "end": 1.87,
+              "probability": 0.45068359375
+            },
+            {
+              "text": " hast",
+              "start": 1.87,
+              "end": 2.17,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " thou",
+              "start": 2.17,
+              "end": 2.45,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " to",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " him?",
+              "start": 2.63,
+              "end": 2.83,
+              "probability": 0.94580078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "What",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "Advocate",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "raw": "hast",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "raw": "thou",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "him?",
+          "start": 2.63,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "What",
+        "advocate",
+        "hast",
+        "thou",
+        "to",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Advocate",
+          "start": 1.55,
+          "end": 1.87,
+          "key": "advocate",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.87,
+          "end": 2.17,
+          "key": "hast",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.17,
+          "end": 2.45,
+          "key": "thou",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.45,
+          "end": 2.63,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 2.63,
+          "end": 2.83,
+          "key": "him",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "What",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "advocate",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "hast",
+          "start": 1.87,
+          "end": 2.17
+        },
+        {
+          "text": "thou",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "text": "to",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "him?",
+          "start": 2.63,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21149001084268093
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ef26f062eacf35e73ec356aadae383b98d1db7284f18df52131355907443278",
+  "selected_reasons": []
+}

@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "a5d498ab6d47ae207af701196cc17a7beb8088d1085ba50c6b7c3e06092eaa04",
+  "attempts": [
+    {
+      "asr_seconds": 0.3557671830058098,
+      "alignment_seconds": 0.0007443204522132874,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"You can't guess, then?\" he asked suddenly, feeling as though he were flinging himself down from a steeple.",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You can't guess, then?\" he asked suddenly, feeling as though he were flinging himself down from a steeple.",
+          "start": 0.02,
+          "end": 5.94,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.099609375
+            },
+            {
+              "text": " can't",
+              "start": 0.5,
+              "end": 0.82,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " guess,",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " then?\"",
+              "start": 1.12,
+              "end": 1.84,
+              "probability": 0.545989990234375
+            },
+            {
+              "text": " he",
+              "start": 1.84,
+              "end": 2.06,
+              "probability": 0.853515625
+            },
+            {
+              "text": " asked",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " suddenly,",
+              "start": 2.36,
+              "end": 2.88,
+              "probability": 0.95703125
+            },
+            {
+              "text": " feeling",
+              "start": 3.34,
+              "end": 3.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " though",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " were",
+              "start": 4.1,
+              "end": 4.2,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " flinging",
+              "start": 4.2,
+              "end": 4.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " himself",
+              "start": 4.48,
+              "end": 4.88,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " down",
+              "start": 4.88,
+              "end": 5.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 5.2,
+              "end": 5.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.46,
+              "end": 5.56,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " steeple.",
+              "start": 5.56,
+              "end": 5.94,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "can't",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "raw": "guess,",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "then?\"",
+          "start": 1.12,
+          "end": 1.84
+        },
+        {
+          "raw": "he",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "raw": "asked",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "suddenly,",
+          "start": 2.36,
+          "end": 2.88
+        },
+        {
+          "raw": "feeling",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "raw": "as",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "raw": "though",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "he",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "were",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "raw": "flinging",
+          "start": 4.2,
+          "end": 4.48
+        },
+        {
+          "raw": "himself",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "raw": "down",
+          "start": 4.88,
+          "end": 5.2
+        },
+        {
+          "raw": "from",
+          "start": 5.2,
+          "end": 5.46
+        },
+        {
+          "raw": "a",
+          "start": 5.46,
+          "end": 5.56
+        },
+        {
+          "raw": "steeple.",
+          "start": 5.56,
+          "end": 5.94
+        }
+      ],
+      "expected_tokens": [
+        "\"You",
+        "can't",
+        "guess,",
+        "then?\"",
+        "he",
+        "asked",
+        "suddenly,",
+        "feeling",
+        "as",
+        "though",
+        "he",
+        "were",
+        "flinging",
+        "himself",
+        "down",
+        "from",
+        "a",
+        "steeple."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "you",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "can't",
+          "start": 0.5,
+          "end": 0.82,
+          "key": "cant",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "guess,",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "guess",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "then?\"",
+          "start": 1.12,
+          "end": 1.84,
+          "key": "then",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.84,
+          "end": 2.06,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "asked",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "suddenly,",
+          "start": 2.36,
+          "end": 2.88,
+          "key": "suddenly",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "feeling",
+          "start": 3.34,
+          "end": 3.54,
+          "key": "feeling",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 3.54,
+          "end": 3.8,
+          "key": "as",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "though",
+          "start": 3.8,
+          "end": 3.98,
+          "key": "though",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 3.98,
+          "end": 4.1,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 4.1,
+          "end": 4.2,
+          "key": "were",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "flinging",
+          "start": 4.2,
+          "end": 4.48,
+          "key": "flinging",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "himself",
+          "start": 4.48,
+          "end": 4.88,
+          "key": "himself",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 4.88,
+          "end": 5.2,
+          "key": "down",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 5.2,
+          "end": 5.46,
+          "key": "from",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.46,
+          "end": 5.56,
+          "key": "a",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "steeple.",
+          "start": 5.56,
+          "end": 5.94,
+          "key": "steeple",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "can't",
+          "start": 0.5,
+          "end": 0.82
+        },
+        {
+          "text": "guess,",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "then?\"",
+          "start": 1.12,
+          "end": 1.84
+        },
+        {
+          "text": "he",
+          "start": 1.84,
+          "end": 2.06
+        },
+        {
+          "text": "asked",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "suddenly,",
+          "start": 2.36,
+          "end": 2.88
+        },
+        {
+          "text": "feeling",
+          "start": 3.34,
+          "end": 3.54
+        },
+        {
+          "text": "as",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "text": "though",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "he",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "were",
+          "start": 4.1,
+          "end": 4.2
+        },
+        {
+          "text": "flinging",
+          "start": 4.2,
+          "end": 4.48
+        },
+        {
+          "text": "himself",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "text": "down",
+          "start": 4.88,
+          "end": 5.2
+        },
+        {
+          "text": "from",
+          "start": 5.2,
+          "end": 5.46
+        },
+        {
+          "text": "a",
+          "start": 5.46,
+          "end": 5.56
+        },
+        {
+          "text": "steeple.",
+          "start": 5.56,
+          "end": 5.94
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35685062780976295
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "33d7165a9173521a115f4ba2854c9c37c63b2216d3ca560f154656eeb401f007",
+  "selected_reasons": []
+}

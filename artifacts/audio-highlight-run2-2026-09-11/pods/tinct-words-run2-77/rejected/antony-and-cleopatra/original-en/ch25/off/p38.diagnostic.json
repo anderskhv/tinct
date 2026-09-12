@@ -1,0 +1,163 @@
+{
+  "complete": true,
+  "signature": "1b50574676b776c8ec220e6dc008a57a9497fc24f1b211277219bed914c40387",
+  "attempts": [
+    {
+      "asr_seconds": 0.11710139599745162,
+      "alignment_seconds": 0.00011967497994191945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exit in Albarbus.",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Exit",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " in",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.62548828125
+            },
+            {
+              "text": " Albarbus.",
+              "start": 0.84,
+              "end": 1.36,
+              "probability": 0.4756876627604167
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "in",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "Albarbus.",
+          "start": 0.84,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "[_Exit",
+        "Enobarbus._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exit",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "exit",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Albarbus.",
+          "start": 0.84,
+          "end": 1.36,
+          "key": "albarbus",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exit",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Enobarbus._]",
+          "start": 0.68,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11726302199531347
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9943b4bd8d233af14de3436dc88f147b2ac8ba9f7bf79bb4381c3ffcfd3b6f4a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

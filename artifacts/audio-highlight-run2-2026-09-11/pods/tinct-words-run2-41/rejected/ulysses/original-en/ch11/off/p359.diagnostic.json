@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "3a0e68ddee3ac92fb0067c1a30ca3063ba642ef19fab83ad02bb194172bc70c1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1978376330807805,
+      "alignment_seconds": 0.00042034685611724854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Amapri, Simon, Father Cowley said.",
+          "start": 0.02,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Amapri,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.38360595703125
+            },
+            {
+              "text": " Simon,",
+              "start": 1.06,
+              "end": 1.36,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Father",
+              "start": 1.68,
+              "end": 1.84,
+              "probability": 0.921875
+            },
+            {
+              "text": " Cowley",
+              "start": 1.84,
+              "end": 2.24,
+              "probability": 0.7125244140625
+            },
+            {
+              "text": " said.",
+              "start": 2.24,
+              "end": 2.48,
+              "probability": 0.94140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Amapri,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "Simon,",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "raw": "Father",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "raw": "Cowley",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "raw": "said.",
+          "start": 2.24,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "—_M'appari,_",
+        "Simon,",
+        "Father",
+        "Cowley",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Amapri,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "amapri",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Simon,",
+          "start": 1.06,
+          "end": 1.36,
+          "key": "simon",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Father",
+          "start": 1.68,
+          "end": 1.84,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Cowley",
+          "start": 1.84,
+          "end": 2.24,
+          "key": "cowley",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.24,
+          "end": 2.48,
+          "key": "said",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—_M'appari,_",
+          "start": 0.0,
+          "end": 0.53
+        },
+        {
+          "text": "Simon,",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "text": "Father",
+          "start": 1.68,
+          "end": 1.84
+        },
+        {
+          "text": "Cowley",
+          "start": 1.84,
+          "end": 2.24
+        },
+        {
+          "text": "said.",
+          "start": 2.24,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19838570710271597
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e6f34571b92dfb634b4cb4d65c859e90263d9ace9345bfce403d99c1eaf7ae9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

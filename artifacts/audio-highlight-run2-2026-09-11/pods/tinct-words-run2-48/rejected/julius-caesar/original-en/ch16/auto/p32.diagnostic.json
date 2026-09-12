@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "b6b3154c8753465adc6196d5c69e4ba53f04471c34d68fe2dace4b74de6af3f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1792255286127329,
+      "alignment_seconds": 0.0004199650138616562,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Messala. Is not that he that lies upon the ground?",
+        "hotwords": "Messala, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Messala, Is not that he that lies upon the ground?",
+          "start": 0.05,
+          "end": 3.07,
+          "words": [
+            {
+              "text": " Messala,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.4940185546875
+            },
+            {
+              "text": " Is",
+              "start": 1.29,
+              "end": 1.49,
+              "probability": 0.0215301513671875
+            },
+            {
+              "text": " not",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 1.65,
+              "end": 1.79,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " he",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " that",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.986328125
+            },
+            {
+              "text": " lies",
+              "start": 2.11,
+              "end": 2.35,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " upon",
+              "start": 2.35,
+              "end": 2.63,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ground?",
+              "start": 2.79,
+              "end": 3.07,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Is",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "that",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "raw": "he",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "that",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "lies",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "raw": "upon",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "raw": "the",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "ground?",
+          "start": 2.79,
+          "end": 3.07
+        }
+      ],
+      "expected_tokens": [
+        "Messala.",
+        "Is",
+        "not",
+        "that",
+        "he",
+        "that",
+        "lies",
+        "upon",
+        "the",
+        "ground?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Messala,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "messala",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.29,
+          "end": 1.49,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.65,
+          "end": 1.79,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 2.11,
+          "end": 2.35,
+          "key": "lies",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.35,
+          "end": 2.63,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ground?",
+          "start": 2.79,
+          "end": 3.07,
+          "key": "ground",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Messala.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Is",
+          "start": 1.29,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "that",
+          "start": 1.65,
+          "end": 1.79
+        },
+        {
+          "text": "he",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "that",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "lies",
+          "start": 2.11,
+          "end": 2.35
+        },
+        {
+          "text": "upon",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "text": "the",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "ground?",
+          "start": 2.79,
+          "end": 3.07
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1798303322866559
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e11321b443493123c8a9572037a6f9b1dea3cc265c6e86ee744464a2daca39e4",
+  "selected_reasons": []
+}

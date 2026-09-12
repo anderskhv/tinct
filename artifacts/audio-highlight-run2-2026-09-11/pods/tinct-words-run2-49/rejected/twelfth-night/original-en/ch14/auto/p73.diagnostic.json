@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "cde6ba04ee214540d5d5a33cf238e1d12fc3320cb41db2059010d7a777fde5fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.17492910847067833,
+      "alignment_seconds": 0.0004205964505672455,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Fabian. More matter for a May morning.",
+        "hotwords": "Fabian, More, May"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Fabian, More matter for a May morning.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " Fabian,",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.983154296875
+            },
+            {
+              "text": " More",
+              "start": 1.2,
+              "end": 1.44,
+              "probability": 0.0728759765625
+            },
+            {
+              "text": " matter",
+              "start": 1.44,
+              "end": 1.72,
+              "probability": 0.0931396484375
+            },
+            {
+              "text": " for",
+              "start": 1.72,
+              "end": 1.98,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " a",
+              "start": 1.98,
+              "end": 2.06,
+              "probability": 0.5712890625
+            },
+            {
+              "text": " May",
+              "start": 2.06,
+              "end": 2.14,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " morning.",
+              "start": 2.14,
+              "end": 2.42,
+              "probability": 0.86328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "More",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "raw": "matter",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "raw": "for",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "raw": "a",
+          "start": 1.98,
+          "end": 2.06
+        },
+        {
+          "raw": "May",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "raw": "morning.",
+          "start": 2.14,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "Fabian.",
+        "More",
+        "matter",
+        "for",
+        "a",
+        "May",
+        "morning."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Fabian,",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "fabian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "More",
+          "start": 1.2,
+          "end": 1.44,
+          "key": "more",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "matter",
+          "start": 1.44,
+          "end": 1.72,
+          "key": "matter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.72,
+          "end": 1.98,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.98,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "May",
+          "start": 2.06,
+          "end": 2.14,
+          "key": "may",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "morning.",
+          "start": 2.14,
+          "end": 2.42,
+          "key": "morning",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Fabian.",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "More",
+          "start": 1.2,
+          "end": 1.44
+        },
+        {
+          "text": "matter",
+          "start": 1.44,
+          "end": 1.72
+        },
+        {
+          "text": "for",
+          "start": 1.72,
+          "end": 1.98
+        },
+        {
+          "text": "a",
+          "start": 1.98,
+          "end": 2.06
+        },
+        {
+          "text": "May",
+          "start": 2.06,
+          "end": 2.14
+        },
+        {
+          "text": "morning.",
+          "start": 2.14,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17550095915794373
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "16ef25228312abac8d956c2f4172b1b38e82d40c72d669aad8ee4fa7c96ec51c",
+  "selected_reasons": []
+}

@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "392c948acd4075b52de86aa750a922367b56c49f025b3f97434eb1682399b2ab",
+  "attempts": [
+    {
+      "asr_seconds": 0.09525487665086985,
+      "alignment_seconds": 0.00019654585048556328,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Going Aboard",
+          "start": 0.02,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " Going",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " Aboard",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.5675048828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Going",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Aboard",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "\"Going",
+        "aboard?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Going",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "going",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Aboard",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "aboard",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Going",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "aboard?\"",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09551739599555731
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c815fa579a82097321f26cc48269ec44e424618ffafc447738dd1e12c76bce74",
+  "selected_reasons": []
+}

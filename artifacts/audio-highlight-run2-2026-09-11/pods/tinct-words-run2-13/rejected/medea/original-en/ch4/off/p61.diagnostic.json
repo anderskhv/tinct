@@ -1,0 +1,426 @@
+{
+  "complete": true,
+  "signature": "035b759098fb7654be3b793438d95ab31b10a3b1d213dfa980c3db8d000b040a",
+  "attempts": [
+    {
+      "asr_seconds": 0.23064762353897095,
+      "alignment_seconds": 0.00045918580144643784,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Medea, teas ruin and they have cast me out as well.",
+          "start": 0.47,
+          "end": 3.23,
+          "words": [
+            {
+              "text": " Medea,",
+              "start": 0.47,
+              "end": 0.87,
+              "probability": 0.6981201171875
+            },
+            {
+              "text": " teas",
+              "start": 1.43,
+              "end": 1.57,
+              "probability": 0.48486328125
+            },
+            {
+              "text": " ruin",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.8984375
+            },
+            {
+              "text": " and",
+              "start": 1.75,
+              "end": 1.99,
+              "probability": 0.603515625
+            },
+            {
+              "text": " they",
+              "start": 1.99,
+              "end": 2.11,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " have",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " cast",
+              "start": 2.23,
+              "end": 2.43,
+              "probability": 0.986328125
+            },
+            {
+              "text": " me",
+              "start": 2.43,
+              "end": 2.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " out",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.984375
+            },
+            {
+              "text": " well.",
+              "start": 2.93,
+              "end": 3.23,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Medea,",
+          "start": 0.47,
+          "end": 0.87
+        },
+        {
+          "raw": "teas",
+          "start": 1.43,
+          "end": 1.57
+        },
+        {
+          "raw": "ruin",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "and",
+          "start": 1.75,
+          "end": 1.99
+        },
+        {
+          "raw": "they",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "raw": "have",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "cast",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "raw": "me",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "raw": "out",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "as",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "well.",
+          "start": 2.93,
+          "end": 3.23
+        }
+      ],
+      "expected_tokens": [
+        "Medea.",
+        "'Tis",
+        "ruin.--And",
+        "they",
+        "have",
+        "cast",
+        "me",
+        "out",
+        "as",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          10,
+          2,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Medea,",
+          "start": 0.47,
+          "end": 0.87,
+          "key": "medea",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "teas",
+          "start": 1.43,
+          "end": 1.57,
+          "key": "teas",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ruin and",
+          "start": 1.57,
+          "end": 1.99,
+          "key": "ruinand",
+          "pieces": [
+            2,
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.99,
+          "end": 2.11,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.11,
+          "end": 2.23,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cast",
+          "start": 2.23,
+          "end": 2.43,
+          "key": "cast",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.43,
+          "end": 2.63,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "out",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.79,
+          "end": 2.93,
+          "key": "as",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 2.93,
+          "end": 3.23,
+          "key": "well",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 2,
+          "text": "ruin.--And",
+          "heard": "ruin and",
+          "heard_indexes": [
+            2,
+            3
+          ],
+          "start": 1.57,
+          "end": 1.99
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Medea.",
+          "start": 0.47,
+          "end": 0.87
+        },
+        {
+          "text": "'Tis",
+          "start": 0.87,
+          "end": 1.22
+        },
+        {
+          "text": "ruin.--And",
+          "start": 1.57,
+          "end": 1.99
+        },
+        {
+          "text": "they",
+          "start": 1.99,
+          "end": 2.11
+        },
+        {
+          "text": "have",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "cast",
+          "start": 2.23,
+          "end": 2.43
+        },
+        {
+          "text": "me",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "text": "out",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "as",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "well.",
+          "start": 2.93,
+          "end": 3.23
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.23124456964433193
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "498e94e30c541101180db00c40a707a58a6a46b5c2cb3874717165bf4692b0ab",
+  "selected_reasons": []
+}

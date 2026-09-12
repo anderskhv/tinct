@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "fd993f76a942421cd1101fedcde6939da446deba4bb95520fd5a953a14904575",
+  "attempts": [
+    {
+      "asr_seconds": 0.11172610800713301,
+      "alignment_seconds": 0.000173268374055624,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Casio, no.",
+          "start": 0.05,
+          "end": 1.21,
+          "words": [
+            {
+              "text": " Casio,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " no.",
+              "start": 0.97,
+              "end": 1.21,
+              "probability": 0.93603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "no.",
+          "start": 0.97,
+          "end": 1.21
+        }
+      ],
+      "expected_tokens": [
+        "Cassio.",
+        "No."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casio,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "casio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 0.97,
+          "end": 1.21,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cassio.",
+          "start": 0.0,
+          "end": 0.485
+        },
+        {
+          "text": "No.",
+          "start": 0.97,
+          "end": 1.21
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11195416515693069
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "48c57d41b5c94e0e846147ef0e653cd9af7b53f3a88de776d6b6d0c6706ac7c9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

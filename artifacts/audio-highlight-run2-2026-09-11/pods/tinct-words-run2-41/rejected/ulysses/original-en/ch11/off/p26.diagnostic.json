@@ -1,0 +1,248 @@
+{
+  "complete": true,
+  "signature": "0b511be93b86a689046f66f7a72c7e2b06cc40e8589d4d7c5669752959c6735b",
+  "attempts": [
+    {
+      "asr_seconds": 0.2472359100356698,
+      "alignment_seconds": 0.0003118840977549553,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clap lap clip lap clap a clap",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Clap",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " lap",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " clip",
+              "start": 0.83,
+              "end": 1.19,
+              "probability": 0.1212158203125
+            },
+            {
+              "text": " lap",
+              "start": 1.19,
+              "end": 1.53,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " clap",
+              "start": 1.53,
+              "end": 1.89,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " a",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " clap",
+              "start": 2.01,
+              "end": 2.63,
+              "probability": 0.972900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clap",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "lap",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "clip",
+          "start": 0.83,
+          "end": 1.19
+        },
+        {
+          "raw": "lap",
+          "start": 1.19,
+          "end": 1.53
+        },
+        {
+          "raw": "clap",
+          "start": 1.53,
+          "end": 1.89
+        },
+        {
+          "raw": "a",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "clap",
+          "start": 2.01,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Clapclap.",
+        "Clipclap.",
+        "Clappyclap."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clap",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "clap",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "lap",
+          "start": 0.67,
+          "end": 0.83,
+          "key": "lap",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "clip",
+          "start": 0.83,
+          "end": 1.19,
+          "key": "clip",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lap",
+          "start": 1.19,
+          "end": 1.53,
+          "key": "lap",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "clap",
+          "start": 1.53,
+          "end": 1.89,
+          "key": "clap",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "clap",
+          "start": 2.01,
+          "end": 2.63,
+          "key": "clap",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clapclap.",
+          "start": 0.0,
+          "end": 1.315
+        },
+        {
+          "text": "Clipclap.",
+          "start": 1.315,
+          "end": 1.972
+        },
+        {
+          "text": "Clappyclap.",
+          "start": 1.972,
+          "end": 2.301
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 7,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.24768134905025363
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c9898344ebba3462661eee1e618f36d65fa2589752e852b30c7b9352b4119e0e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

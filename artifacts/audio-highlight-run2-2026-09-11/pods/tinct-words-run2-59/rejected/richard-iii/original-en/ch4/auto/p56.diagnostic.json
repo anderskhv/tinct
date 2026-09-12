@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "a3f685db37152f25af1944df7fe5980bbea6ec3426071e0a286dc33edd35dff2",
+  "attempts": [
+    {
+      "asr_seconds": 0.23823715187609196,
+      "alignment_seconds": 0.0004982331302016973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Murderer. You shall have wine enough, my lord, anon.",
+        "hotwords": "Second, Murderer, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second Murderer, You shall have wine enough, my lord, anon.",
+          "start": 0.08,
+          "end": 3.32,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.662109375
+            },
+            {
+              "text": " Murderer,",
+              "start": 0.68,
+              "end": 1.12,
+              "probability": 0.60687255859375
+            },
+            {
+              "text": " You",
+              "start": 1.6,
+              "end": 1.66,
+              "probability": 0.1585693359375
+            },
+            {
+              "text": " shall",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " have",
+              "start": 1.78,
+              "end": 1.9,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wine",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.469482421875
+            },
+            {
+              "text": " enough,",
+              "start": 2.06,
+              "end": 2.32,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " my",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " lord,",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " anon.",
+              "start": 3.02,
+              "end": 3.32,
+              "probability": 0.59747314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "raw": "You",
+          "start": 1.6,
+          "end": 1.66
+        },
+        {
+          "raw": "shall",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "have",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "raw": "wine",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "raw": "enough,",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "raw": "my",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "lord,",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "anon.",
+          "start": 3.02,
+          "end": 3.32
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Murderer.",
+        "You",
+        "shall",
+        "have",
+        "wine",
+        "enough,",
+        "my",
+        "lord,",
+        "anon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Murderer,",
+          "start": 0.68,
+          "end": 1.12,
+          "key": "murderer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.6,
+          "end": 1.66,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "shall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.78,
+          "end": 1.9,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "wine",
+          "start": 1.9,
+          "end": 2.06,
+          "key": "wine",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "enough,",
+          "start": 2.06,
+          "end": 2.32,
+          "key": "enough",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.6,
+          "end": 2.86,
+          "key": "lord",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "anon.",
+          "start": 3.02,
+          "end": 3.32,
+          "key": "anon",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Murderer.",
+          "start": 0.68,
+          "end": 1.12
+        },
+        {
+          "text": "You",
+          "start": 1.6,
+          "end": 1.66
+        },
+        {
+          "text": "shall",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "have",
+          "start": 1.78,
+          "end": 1.9
+        },
+        {
+          "text": "wine",
+          "start": 1.9,
+          "end": 2.06
+        },
+        {
+          "text": "enough,",
+          "start": 2.06,
+          "end": 2.32
+        },
+        {
+          "text": "my",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "lord,",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "anon.",
+          "start": 3.02,
+          "end": 3.32
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23892842698842287
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "12358cd86fb86fddad589a9eea9cdbdcd3b8b9acd5deafc7100a9693c81bbb39",
+  "selected_reasons": []
+}

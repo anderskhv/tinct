@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "e60518b8f5afd0e698e390f1bb083caa0ee7caca6bc3fb48d088a3f3939ff5f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.35311161633580923,
+      "alignment_seconds": 0.0006600460037589073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enobarbus. Bring in the banquet quickly; wine enough Cleopatra's health to drink.",
+        "hotwords": "Enobarbus, Bring, Cleopatra's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enobarbus, Bring in the banquet quickly, wine enough Cleopatra's health to drink.",
+          "start": 0.05,
+          "end": 4.95,
+          "words": [
+            {
+              "text": " Enobarbus,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.3381449381510417
+            },
+            {
+              "text": " Bring",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.0210723876953125
+            },
+            {
+              "text": " in",
+              "start": 1.75,
+              "end": 1.89,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " banquet",
+              "start": 2.01,
+              "end": 2.31,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " quickly,",
+              "start": 2.31,
+              "end": 2.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " wine",
+              "start": 3.29,
+              "end": 3.33,
+              "probability": 0.5361328125
+            },
+            {
+              "text": " enough",
+              "start": 3.33,
+              "end": 3.59,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Cleopatra's",
+              "start": 3.59,
+              "end": 4.33,
+              "probability": 0.9876708984375
+            },
+            {
+              "text": " health",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " to",
+              "start": 4.49,
+              "end": 4.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " drink.",
+              "start": 4.71,
+              "end": 4.95,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Bring",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "in",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "banquet",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "raw": "quickly,",
+          "start": 2.31,
+          "end": 2.79
+        },
+        {
+          "raw": "wine",
+          "start": 3.29,
+          "end": 3.33
+        },
+        {
+          "raw": "enough",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "raw": "Cleopatra's",
+          "start": 3.59,
+          "end": 4.33
+        },
+        {
+          "raw": "health",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "to",
+          "start": 4.49,
+          "end": 4.71
+        },
+        {
+          "raw": "drink.",
+          "start": 4.71,
+          "end": 4.95
+        }
+      ],
+      "expected_tokens": [
+        "Enobarbus.",
+        "Bring",
+        "in",
+        "the",
+        "banquet",
+        "quickly;",
+        "wine",
+        "enough",
+        "Cleopatra's",
+        "health",
+        "to",
+        "drink."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enobarbus,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "enobarbus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bring",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "bring",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.75,
+          "end": 1.89,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "banquet",
+          "start": 2.01,
+          "end": 2.31,
+          "key": "banquet",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "quickly,",
+          "start": 2.31,
+          "end": 2.79,
+          "key": "quickly",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wine",
+          "start": 3.29,
+          "end": 3.33,
+          "key": "wine",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "enough",
+          "start": 3.33,
+          "end": 3.59,
+          "key": "enough",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Cleopatra's",
+          "start": 3.59,
+          "end": 4.33,
+          "key": "cleopatras",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "health",
+          "start": 4.33,
+          "end": 4.49,
+          "key": "health",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.49,
+          "end": 4.71,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "drink.",
+          "start": 4.71,
+          "end": 4.95,
+          "key": "drink",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enobarbus.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "Bring",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "in",
+          "start": 1.75,
+          "end": 1.89
+        },
+        {
+          "text": "the",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "text": "banquet",
+          "start": 2.01,
+          "end": 2.31
+        },
+        {
+          "text": "quickly;",
+          "start": 2.31,
+          "end": 2.79
+        },
+        {
+          "text": "wine",
+          "start": 3.29,
+          "end": 3.33
+        },
+        {
+          "text": "enough",
+          "start": 3.33,
+          "end": 3.59
+        },
+        {
+          "text": "Cleopatra's",
+          "start": 3.59,
+          "end": 4.33
+        },
+        {
+          "text": "health",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "to",
+          "start": 4.49,
+          "end": 4.71
+        },
+        {
+          "text": "drink.",
+          "start": 4.71,
+          "end": 4.95
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3539981320500374
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e6948cc7b4906e23422168c32a76267b5c1aa9499c31d43146d21c7a27fa703a",
+  "selected_reasons": []
+}

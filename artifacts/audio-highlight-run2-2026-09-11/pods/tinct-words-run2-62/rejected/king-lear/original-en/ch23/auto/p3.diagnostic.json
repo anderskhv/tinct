@@ -1,0 +1,2422 @@
+{
+  "complete": true,
+  "signature": "350e9e55b5299aa6d86ecc004379efc8dd0654f7b8f69069ffce34be97eb69bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.2571745924651623,
+      "alignment_seconds": 0.0002520158886909485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Kent. To be acknowledg'd, madam, is o'erpaid. All my reports go with the modest truth; Nor more, nor clipp'd, but so.",
+        "hotwords": "Kent, To, All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Kent, To be acknowledged, madam, is o'erpaid. All my reports go with the modest truth, Nor",
+          "start": 0.05,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " To",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.06280517578125
+            },
+            {
+              "text": " be",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " acknowledged,",
+              "start": 1.35,
+              "end": 1.99,
+              "probability": 0.47477269172668457
+            },
+            {
+              "text": " madam,",
+              "start": 2.09,
+              "end": 2.37,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " is",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.88671875
+            },
+            {
+              "text": " o",
+              "start": 2.51,
+              "end": 2.71,
+              "probability": 0.00778961181640625
+            },
+            {
+              "text": "'erpaid.",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.3413594563802083
+            },
+            {
+              "text": " All",
+              "start": 3.49,
+              "end": 3.63,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " my",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.974609375
+            },
+            {
+              "text": " reports",
+              "start": 3.77,
+              "end": 4.15,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " go",
+              "start": 4.15,
+              "end": 4.39,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " with",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.8828125
+            },
+            {
+              "text": " the",
+              "start": 4.53,
+              "end": 4.63,
+              "probability": 0.202880859375
+            },
+            {
+              "text": " modest",
+              "start": 4.63,
+              "end": 4.87,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " truth,",
+              "start": 4.87,
+              "end": 5.35,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " Nor",
+              "start": 5.85,
+              "end": 5.89,
+              "probability": 0.456787109375
+            }
+          ]
+        },
+        {
+          "text": " more, nor clipp'd, but so.",
+          "start": 5.89,
+          "end": 7.17,
+          "words": [
+            {
+              "text": " more,",
+              "start": 5.89,
+              "end": 6.15,
+              "probability": 0.50390625
+            },
+            {
+              "text": " nor",
+              "start": 6.25,
+              "end": 6.33,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " clipp'd,",
+              "start": 6.33,
+              "end": 6.79,
+              "probability": 0.39539337158203125
+            },
+            {
+              "text": " but",
+              "start": 6.83,
+              "end": 6.93,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " so.",
+              "start": 6.93,
+              "end": 7.17,
+              "probability": 0.9658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "To",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "be",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "acknowledged,",
+          "start": 1.35,
+          "end": 1.99
+        },
+        {
+          "raw": "madam,",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "raw": "is",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "o",
+          "start": 2.51,
+          "end": 2.71
+        },
+        {
+          "raw": "'erpaid.",
+          "start": 2.71,
+          "end": 2.93
+        },
+        {
+          "raw": "All",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "raw": "my",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "reports",
+          "start": 3.77,
+          "end": 4.15
+        },
+        {
+          "raw": "go",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "raw": "with",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "the",
+          "start": 4.53,
+          "end": 4.63
+        },
+        {
+          "raw": "modest",
+          "start": 4.63,
+          "end": 4.87
+        },
+        {
+          "raw": "truth,",
+          "start": 4.87,
+          "end": 5.35
+        },
+        {
+          "raw": "Nor",
+          "start": 5.85,
+          "end": 5.89
+        },
+        {
+          "raw": "more,",
+          "start": 5.89,
+          "end": 6.15
+        },
+        {
+          "raw": "nor",
+          "start": 6.25,
+          "end": 6.33
+        },
+        {
+          "raw": "clipp'd,",
+          "start": 6.33,
+          "end": 6.79
+        },
+        {
+          "raw": "but",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "raw": "so.",
+          "start": 6.93,
+          "end": 7.17
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "To",
+        "be",
+        "acknowledg'd,",
+        "madam,",
+        "is",
+        "o'erpaid.",
+        "All",
+        "my",
+        "reports",
+        "go",
+        "with",
+        "the",
+        "modest",
+        "truth;",
+        "Nor",
+        "more,",
+        "nor",
+        "clipp'd,",
+        "but",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          21,
+          8,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "acknowledged,",
+          "start": 1.35,
+          "end": 1.99,
+          "key": "acknowledged",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "madam,",
+          "start": 2.09,
+          "end": 2.37,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.41,
+          "end": 2.51,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 2.51,
+          "end": 2.71,
+          "key": "o",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "'erpaid.",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "erpaid",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 3.49,
+          "end": 3.63,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "reports",
+          "start": 3.77,
+          "end": 4.15,
+          "key": "reports",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 4.15,
+          "end": 4.39,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.39,
+          "end": 4.53,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.53,
+          "end": 4.63,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "modest",
+          "start": 4.63,
+          "end": 4.87,
+          "key": "modest",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "truth,",
+          "start": 4.87,
+          "end": 5.35,
+          "key": "truth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 5.85,
+          "end": 5.89,
+          "key": "nor",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "more,",
+          "start": 5.89,
+          "end": 6.15,
+          "key": "more",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 6.25,
+          "end": 6.33,
+          "key": "nor",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "clipp'd,",
+          "start": 6.33,
+          "end": 6.79,
+          "key": "clippd",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.83,
+          "end": 6.93,
+          "key": "but",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 6.93,
+          "end": 7.17,
+          "key": "so",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "To",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "be",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "acknowledg'd,",
+          "start": 1.35,
+          "end": 1.72
+        },
+        {
+          "text": "madam,",
+          "start": 2.09,
+          "end": 2.37
+        },
+        {
+          "text": "is",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "o'erpaid.",
+          "start": 2.51,
+          "end": 3.0
+        },
+        {
+          "text": "All",
+          "start": 3.49,
+          "end": 3.63
+        },
+        {
+          "text": "my",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "reports",
+          "start": 3.77,
+          "end": 4.15
+        },
+        {
+          "text": "go",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "text": "with",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "the",
+          "start": 4.53,
+          "end": 4.63
+        },
+        {
+          "text": "modest",
+          "start": 4.63,
+          "end": 4.87
+        },
+        {
+          "text": "truth;",
+          "start": 4.87,
+          "end": 5.35
+        },
+        {
+          "text": "Nor",
+          "start": 5.85,
+          "end": 5.89
+        },
+        {
+          "text": "more,",
+          "start": 5.89,
+          "end": 6.15
+        },
+        {
+          "text": "nor",
+          "start": 6.25,
+          "end": 6.33
+        },
+        {
+          "text": "clipp'd,",
+          "start": 6.33,
+          "end": 6.79
+        },
+        {
+          "text": "but",
+          "start": 6.83,
+          "end": 6.93
+        },
+        {
+          "text": "so.",
+          "start": 6.93,
+          "end": 7.17
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.2575076222419739
+    },
+    {
+      "asr_seconds": 0.21209683641791344,
+      "alignment_seconds": 0.00039909034967422485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Kent, To, All"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Kent, To Be Acknowledged, Madam, Is Orpaid. All My Reports Go With The Modest Truth, Nor More Nor Clipped, But So",
+          "start": 0.05,
+          "end": 7.23,
+          "words": [
+            {
+              "text": " Kent,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " To",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.06280517578125
+            },
+            {
+              "text": " Be",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.03521728515625
+            },
+            {
+              "text": " Acknowledged,",
+              "start": 1.35,
+              "end": 1.99,
+              "probability": 0.9480794270833334
+            },
+            {
+              "text": " Madam,",
+              "start": 2.07,
+              "end": 2.35,
+              "probability": 0.813720703125
+            },
+            {
+              "text": " Is",
+              "start": 2.41,
+              "end": 2.53,
+              "probability": 0.383056640625
+            },
+            {
+              "text": " Orpaid.",
+              "start": 2.53,
+              "end": 2.93,
+              "probability": 0.7569986979166666
+            },
+            {
+              "text": " All",
+              "start": 3.47,
+              "end": 3.63,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " My",
+              "start": 3.63,
+              "end": 3.77,
+              "probability": 0.76904296875
+            },
+            {
+              "text": " Reports",
+              "start": 3.77,
+              "end": 4.11,
+              "probability": 0.974609375
+            },
+            {
+              "text": " Go",
+              "start": 4.11,
+              "end": 4.39,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " With",
+              "start": 4.39,
+              "end": 4.51,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " The",
+              "start": 4.51,
+              "end": 4.65,
+              "probability": 0.6259765625
+            },
+            {
+              "text": " Modest",
+              "start": 4.65,
+              "end": 4.85,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " Truth,",
+              "start": 4.85,
+              "end": 5.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Nor",
+              "start": 5.87,
+              "end": 5.89,
+              "probability": 0.947265625
+            },
+            {
+              "text": " More",
+              "start": 5.89,
+              "end": 6.15,
+              "probability": 0.30517578125
+            },
+            {
+              "text": " Nor",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.759765625
+            },
+            {
+              "text": " Clipped,",
+              "start": 6.35,
+              "end": 6.75,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " But",
+              "start": 6.83,
+              "end": 6.91,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " So",
+              "start": 6.91,
+              "end": 7.23,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "To",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "Be",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "Acknowledged,",
+          "start": 1.35,
+          "end": 1.99
+        },
+        {
+          "raw": "Madam,",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "raw": "Is",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "raw": "Orpaid.",
+          "start": 2.53,
+          "end": 2.93
+        },
+        {
+          "raw": "All",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "raw": "My",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "raw": "Reports",
+          "start": 3.77,
+          "end": 4.11
+        },
+        {
+          "raw": "Go",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "raw": "With",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "raw": "The",
+          "start": 4.51,
+          "end": 4.65
+        },
+        {
+          "raw": "Modest",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "raw": "Truth,",
+          "start": 4.85,
+          "end": 5.31
+        },
+        {
+          "raw": "Nor",
+          "start": 5.87,
+          "end": 5.89
+        },
+        {
+          "raw": "More",
+          "start": 5.89,
+          "end": 6.15
+        },
+        {
+          "raw": "Nor",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "Clipped,",
+          "start": 6.35,
+          "end": 6.75
+        },
+        {
+          "raw": "But",
+          "start": 6.83,
+          "end": 6.91
+        },
+        {
+          "raw": "So",
+          "start": 6.91,
+          "end": 7.23
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "To",
+        "be",
+        "acknowledg'd,",
+        "madam,",
+        "is",
+        "o'erpaid.",
+        "All",
+        "my",
+        "reports",
+        "go",
+        "with",
+        "the",
+        "modest",
+        "truth;",
+        "Nor",
+        "more,",
+        "nor",
+        "clipp'd,",
+        "but",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          18,
+          7,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          21,
+          19,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Acknowledged,",
+          "start": 1.35,
+          "end": 1.99,
+          "key": "acknowledged",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Madam,",
+          "start": 2.07,
+          "end": 2.35,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.41,
+          "end": 2.53,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Orpaid.",
+          "start": 2.53,
+          "end": 2.93,
+          "key": "orpaid",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 3.47,
+          "end": 3.63,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 3.63,
+          "end": 3.77,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Reports",
+          "start": 3.77,
+          "end": 4.11,
+          "key": "reports",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 4.11,
+          "end": 4.39,
+          "key": "go",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "With",
+          "start": 4.39,
+          "end": 4.51,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 4.51,
+          "end": 4.65,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Modest",
+          "start": 4.65,
+          "end": 4.85,
+          "key": "modest",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Truth,",
+          "start": 4.85,
+          "end": 5.31,
+          "key": "truth",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 5.87,
+          "end": 5.89,
+          "key": "nor",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "More",
+          "start": 5.89,
+          "end": 6.15,
+          "key": "more",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Nor",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "nor",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Clipped,",
+          "start": 6.35,
+          "end": 6.75,
+          "key": "clipped",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 6.83,
+          "end": 6.91,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 6.91,
+          "end": 7.23,
+          "key": "so",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "To",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "be",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "acknowledg'd,",
+          "start": 1.35,
+          "end": 1.71
+        },
+        {
+          "text": "madam,",
+          "start": 2.07,
+          "end": 2.35
+        },
+        {
+          "text": "is",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "o'erpaid.",
+          "start": 2.53,
+          "end": 3.0
+        },
+        {
+          "text": "All",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "text": "my",
+          "start": 3.63,
+          "end": 3.77
+        },
+        {
+          "text": "reports",
+          "start": 3.77,
+          "end": 4.11
+        },
+        {
+          "text": "go",
+          "start": 4.11,
+          "end": 4.39
+        },
+        {
+          "text": "with",
+          "start": 4.39,
+          "end": 4.51
+        },
+        {
+          "text": "the",
+          "start": 4.51,
+          "end": 4.65
+        },
+        {
+          "text": "modest",
+          "start": 4.65,
+          "end": 4.85
+        },
+        {
+          "text": "truth;",
+          "start": 4.85,
+          "end": 5.31
+        },
+        {
+          "text": "Nor",
+          "start": 5.87,
+          "end": 5.89
+        },
+        {
+          "text": "more,",
+          "start": 5.89,
+          "end": 6.15
+        },
+        {
+          "text": "nor",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "clipp'd,",
+          "start": 6.35,
+          "end": 6.59
+        },
+        {
+          "text": "but",
+          "start": 6.83,
+          "end": 6.91
+        },
+        {
+          "text": "so.",
+          "start": 6.91,
+          "end": 7.23
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 18
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.21263545006513596
+    },
+    {
+      "asr_seconds": 0.2101496309041977,
+      "alignment_seconds": 0.00034995749592781067,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Kent to be acknowledged madam is or paid all my reports go with a modest truth nor more nor clipped, but so",
+          "start": 0.05,
+          "end": 7.27,
+          "words": [
+            {
+              "text": " Kent",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8251953125
+            },
+            {
+              "text": " to",
+              "start": 0.61,
+              "end": 1.21,
+              "probability": 0.262939453125
+            },
+            {
+              "text": " be",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " acknowledged",
+              "start": 1.35,
+              "end": 1.83,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " madam",
+              "start": 1.83,
+              "end": 2.35,
+              "probability": 0.68359375
+            },
+            {
+              "text": " is",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.990234375
+            },
+            {
+              "text": " or",
+              "start": 2.53,
+              "end": 2.71,
+              "probability": 0.5068359375
+            },
+            {
+              "text": " paid",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " all",
+              "start": 2.95,
+              "end": 3.61,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " my",
+              "start": 3.61,
+              "end": 3.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " reports",
+              "start": 3.77,
+              "end": 4.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " go",
+              "start": 4.15,
+              "end": 4.39,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " with",
+              "start": 4.39,
+              "end": 4.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.53,
+              "end": 4.63,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " modest",
+              "start": 4.63,
+              "end": 4.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " truth",
+              "start": 4.87,
+              "end": 5.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " nor",
+              "start": 5.43,
+              "end": 5.89,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " more",
+              "start": 5.89,
+              "end": 6.15,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " nor",
+              "start": 6.15,
+              "end": 6.35,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " clipped,",
+              "start": 6.35,
+              "end": 6.65,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " but",
+              "start": 6.65,
+              "end": 6.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so",
+              "start": 6.93,
+              "end": 7.27,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Kent",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "to",
+          "start": 0.61,
+          "end": 1.21
+        },
+        {
+          "raw": "be",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "acknowledged",
+          "start": 1.35,
+          "end": 1.83
+        },
+        {
+          "raw": "madam",
+          "start": 1.83,
+          "end": 2.35
+        },
+        {
+          "raw": "is",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "or",
+          "start": 2.53,
+          "end": 2.71
+        },
+        {
+          "raw": "paid",
+          "start": 2.71,
+          "end": 2.95
+        },
+        {
+          "raw": "all",
+          "start": 2.95,
+          "end": 3.61
+        },
+        {
+          "raw": "my",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "raw": "reports",
+          "start": 3.77,
+          "end": 4.15
+        },
+        {
+          "raw": "go",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "raw": "with",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "raw": "a",
+          "start": 4.53,
+          "end": 4.63
+        },
+        {
+          "raw": "modest",
+          "start": 4.63,
+          "end": 4.87
+        },
+        {
+          "raw": "truth",
+          "start": 4.87,
+          "end": 5.43
+        },
+        {
+          "raw": "nor",
+          "start": 5.43,
+          "end": 5.89
+        },
+        {
+          "raw": "more",
+          "start": 5.89,
+          "end": 6.15
+        },
+        {
+          "raw": "nor",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "raw": "clipped,",
+          "start": 6.35,
+          "end": 6.65
+        },
+        {
+          "raw": "but",
+          "start": 6.65,
+          "end": 6.93
+        },
+        {
+          "raw": "so",
+          "start": 6.93,
+          "end": 7.27
+        }
+      ],
+      "expected_tokens": [
+        "Kent.",
+        "To",
+        "be",
+        "acknowledg'd,",
+        "madam,",
+        "is",
+        "o'erpaid.",
+        "All",
+        "my",
+        "reports",
+        "go",
+        "with",
+        "the",
+        "modest",
+        "truth;",
+        "Nor",
+        "more,",
+        "nor",
+        "clipp'd,",
+        "but",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          12,
+          8,
+          13
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "equal",
+          13,
+          18,
+          14,
+          19
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ],
+        [
+          "equal",
+          19,
+          21,
+          20,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "replace",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "replace",
+          18,
+          19,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Kent",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "kent",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.61,
+          "end": 1.21,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "acknowledged",
+          "start": 1.35,
+          "end": 1.83,
+          "key": "acknowledged",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "madam",
+          "start": 1.83,
+          "end": 2.35,
+          "key": "madam",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.53,
+          "end": 2.71,
+          "key": "or",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "paid",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "paid",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 2.95,
+          "end": 3.61,
+          "key": "all",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.61,
+          "end": 3.77,
+          "key": "my",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "reports",
+          "start": 3.77,
+          "end": 4.15,
+          "key": "reports",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 4.15,
+          "end": 4.39,
+          "key": "go",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.39,
+          "end": 4.53,
+          "key": "with",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.53,
+          "end": 4.63,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "modest",
+          "start": 4.63,
+          "end": 4.87,
+          "key": "modest",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 4.87,
+          "end": 5.43,
+          "key": "truth",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 5.43,
+          "end": 5.89,
+          "key": "nor",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 5.89,
+          "end": 6.15,
+          "key": "more",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "nor",
+          "start": 6.15,
+          "end": 6.35,
+          "key": "nor",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "clipped,",
+          "start": 6.35,
+          "end": 6.65,
+          "key": "clipped",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 6.65,
+          "end": 6.93,
+          "key": "but",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 6.93,
+          "end": 7.27,
+          "key": "so",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Kent.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "To",
+          "start": 0.61,
+          "end": 1.21
+        },
+        {
+          "text": "be",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "acknowledg'd,",
+          "start": 1.35,
+          "end": 1.59
+        },
+        {
+          "text": "madam,",
+          "start": 1.83,
+          "end": 2.35
+        },
+        {
+          "text": "is",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "o'erpaid.",
+          "start": 2.53,
+          "end": 2.74
+        },
+        {
+          "text": "All",
+          "start": 2.95,
+          "end": 3.61
+        },
+        {
+          "text": "my",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "text": "reports",
+          "start": 3.77,
+          "end": 4.15
+        },
+        {
+          "text": "go",
+          "start": 4.15,
+          "end": 4.39
+        },
+        {
+          "text": "with",
+          "start": 4.39,
+          "end": 4.53
+        },
+        {
+          "text": "the",
+          "start": 4.53,
+          "end": 4.58
+        },
+        {
+          "text": "modest",
+          "start": 4.63,
+          "end": 4.87
+        },
+        {
+          "text": "truth;",
+          "start": 4.87,
+          "end": 5.43
+        },
+        {
+          "text": "Nor",
+          "start": 5.43,
+          "end": 5.89
+        },
+        {
+          "text": "more,",
+          "start": 5.89,
+          "end": 6.15
+        },
+        {
+          "text": "nor",
+          "start": 6.15,
+          "end": 6.35
+        },
+        {
+          "text": "clipp'd,",
+          "start": 6.35,
+          "end": 6.5
+        },
+        {
+          "text": "but",
+          "start": 6.65,
+          "end": 6.93
+        },
+        {
+          "text": "so.",
+          "start": 6.93,
+          "end": 7.27
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 17
+      },
+      "match_ratio": 0.8095238095238095,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21062522381544113
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6e7cf962543243c04c8ac06f1c49251573f9ce5f4fa9e2eda11e44044e595d83",
+  "selected_reasons": []
+}

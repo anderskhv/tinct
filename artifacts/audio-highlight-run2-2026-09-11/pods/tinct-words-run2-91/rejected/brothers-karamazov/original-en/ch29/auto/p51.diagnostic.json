@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "6c22dd5335da9e7f635f90b26e474e81803cd72258000b5d70b26da64bed2ac9",
+  "attempts": [
+    {
+      "asr_seconds": 0.26765012834221125,
+      "alignment_seconds": 0.00043302588164806366,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Mamma, how has he behaved like an angel?\" Lise's voice was heard again.",
+        "hotwords": "Mamma, Lise's"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mamma, how has he behaved like an angel? Lise's voice was heard again.",
+          "start": 0.05,
+          "end": 4.59,
+          "words": [
+            {
+              "text": " Mamma,",
+              "start": 0.05,
+              "end": 0.85,
+              "probability": 0.45868492126464844
+            },
+            {
+              "text": " how",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " has",
+              "start": 1.21,
+              "end": 1.35,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " he",
+              "start": 1.35,
+              "end": 1.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " behaved",
+              "start": 1.45,
+              "end": 1.77,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " like",
+              "start": 1.77,
+              "end": 2.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " an",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " angel?",
+              "start": 2.17,
+              "end": 2.57,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " Lise's",
+              "start": 3.35,
+              "end": 3.61,
+              "probability": 0.6128711700439453
+            },
+            {
+              "text": " voice",
+              "start": 3.61,
+              "end": 3.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 3.85,
+              "end": 4.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " heard",
+              "start": 4.09,
+              "end": 4.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " again.",
+              "start": 4.27,
+              "end": 4.59,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mamma,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "raw": "how",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "has",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "raw": "he",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "raw": "behaved",
+          "start": 1.45,
+          "end": 1.77
+        },
+        {
+          "raw": "like",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "raw": "an",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "angel?",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "raw": "Lise's",
+          "start": 3.35,
+          "end": 3.61
+        },
+        {
+          "raw": "voice",
+          "start": 3.61,
+          "end": 3.85
+        },
+        {
+          "raw": "was",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "raw": "heard",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "raw": "again.",
+          "start": 4.27,
+          "end": 4.59
+        }
+      ],
+      "expected_tokens": [
+        "\"Mamma,",
+        "how",
+        "has",
+        "he",
+        "behaved",
+        "like",
+        "an",
+        "angel?\"",
+        "Lise's",
+        "voice",
+        "was",
+        "heard",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mamma,",
+          "start": 0.05,
+          "end": 0.85,
+          "key": "mamma",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 1.05,
+          "end": 1.21,
+          "key": "how",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.21,
+          "end": 1.35,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.35,
+          "end": 1.45,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "behaved",
+          "start": 1.45,
+          "end": 1.77,
+          "key": "behaved",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.77,
+          "end": 2.05,
+          "key": "like",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 2.05,
+          "end": 2.17,
+          "key": "an",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "angel?",
+          "start": 2.17,
+          "end": 2.57,
+          "key": "angel",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Lise's",
+          "start": 3.35,
+          "end": 3.61,
+          "key": "lises",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 3.61,
+          "end": 3.85,
+          "key": "voice",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.85,
+          "end": 4.09,
+          "key": "was",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 4.09,
+          "end": 4.27,
+          "key": "heard",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 4.27,
+          "end": 4.59,
+          "key": "again",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Mamma,",
+          "start": 0.05,
+          "end": 0.85
+        },
+        {
+          "text": "how",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "has",
+          "start": 1.21,
+          "end": 1.35
+        },
+        {
+          "text": "he",
+          "start": 1.35,
+          "end": 1.45
+        },
+        {
+          "text": "behaved",
+          "start": 1.45,
+          "end": 1.77
+        },
+        {
+          "text": "like",
+          "start": 1.77,
+          "end": 2.05
+        },
+        {
+          "text": "an",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "angel?\"",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "text": "Lise's",
+          "start": 3.35,
+          "end": 3.61
+        },
+        {
+          "text": "voice",
+          "start": 3.61,
+          "end": 3.85
+        },
+        {
+          "text": "was",
+          "start": 3.85,
+          "end": 4.09
+        },
+        {
+          "text": "heard",
+          "start": 4.09,
+          "end": 4.27
+        },
+        {
+          "text": "again.",
+          "start": 4.27,
+          "end": 4.59
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26827386394143105
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a7d3ddb921ef6a32039c6ddc23b63164909bf4d06ac85ecf7f404d0e06d9b3b",
+  "selected_reasons": []
+}

@@ -1,0 +1,291 @@
+{
+  "complete": true,
+  "signature": "8eef3e863a629d623a16a943efedc669b111e70d10dad4beb8559037aa4df025",
+  "attempts": [
+    {
+      "asr_seconds": 0.2789660496637225,
+      "alignment_seconds": 0.00041921064257621765,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " K.S. Clappertyclaw, that is DAT, 60.",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " K",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.283447265625
+            },
+            {
+              "text": ".S.",
+              "start": 0.57,
+              "end": 0.77,
+              "probability": 0.644287109375
+            },
+            {
+              "text": " Clappertyclaw,",
+              "start": 0.97,
+              "end": 1.49,
+              "probability": 0.3998291015625
+            },
+            {
+              "text": " that",
+              "start": 1.67,
+              "end": 1.73,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " is",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.99609375
+            },
+            {
+              "text": " DAT,",
+              "start": 1.89,
+              "end": 2.17,
+              "probability": 0.5672607421875
+            },
+            {
+              "text": " 60.",
+              "start": 2.45,
+              "end": 2.85,
+              "probability": 0.890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "K",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": ".S.",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "raw": "Clappertyclaw,",
+          "start": 0.97,
+          "end": 1.49
+        },
+        {
+          "raw": "that",
+          "start": 1.67,
+          "end": 1.73
+        },
+        {
+          "raw": "is",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "DAT,",
+          "start": 1.89,
+          "end": 2.17
+        },
+        {
+          "raw": "60.",
+          "start": 2.45,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "_Ford._",
+        "And",
+        "sped",
+        "you,",
+        "sir?",
+        "60"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          6
+        ],
+        [
+          "equal",
+          5,
+          6,
+          6,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          5,
+          0,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "K",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "k",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 0.57,
+          "end": 0.77,
+          "key": "s",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Clappertyclaw,",
+          "start": 0.97,
+          "end": 1.49,
+          "key": "clappertyclaw",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.67,
+          "end": 1.73,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "DAT,",
+          "start": 1.89,
+          "end": 2.17,
+          "key": "dat",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "60.",
+          "start": 2.45,
+          "end": 2.85,
+          "key": "sixty",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Ford._",
+          "start": 0.0,
+          "end": 1.225
+        },
+        {
+          "text": "And",
+          "start": 1.225,
+          "end": 1.838
+        },
+        {
+          "text": "sped",
+          "start": 1.838,
+          "end": 2.144
+        },
+        {
+          "text": "you,",
+          "start": 2.144,
+          "end": 2.297
+        },
+        {
+          "text": "sir?",
+          "start": 2.297,
+          "end": 2.373
+        },
+        {
+          "text": "60",
+          "start": 2.45,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 1
+      },
+      "match_ratio": 0.16666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2795236688107252
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10d4e0243b9fafbdf2d226bc336ee402cf63b3dbcb11e521275010b23c577248",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

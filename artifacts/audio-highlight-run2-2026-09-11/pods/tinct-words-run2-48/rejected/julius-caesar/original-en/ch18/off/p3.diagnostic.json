@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "c237896a4c8dfd1731c1aa107a848c3d29f26e67579501c960c3d81d3256e4ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.27237322460860014,
+      "alignment_seconds": 0.00021577998995780945,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, sit thee down, clittis. Slaying is the word, it is a deed in fashion. Hark thee, clittis.",
+          "start": 0.53,
+          "end": 6.33,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " sit",
+              "start": 1.21,
+              "end": 1.33,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " thee",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " down,",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " clittis.",
+              "start": 1.95,
+              "end": 2.25,
+              "probability": 0.5244954427083334
+            },
+            {
+              "text": " Slaying",
+              "start": 2.79,
+              "end": 2.97,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " is",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 3.17,
+              "end": 3.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " word,",
+              "start": 3.31,
+              "end": 3.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " it",
+              "start": 3.69,
+              "end": 3.77,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " is",
+              "start": 3.77,
+              "end": 3.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.982421875
+            },
+            {
+              "text": " deed",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " fashion.",
+              "start": 4.35,
+              "end": 4.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Hark",
+              "start": 5.45,
+              "end": 5.53,
+              "probability": 0.937255859375
+            },
+            {
+              "text": " thee,",
+              "start": 5.53,
+              "end": 5.75,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " clittis.",
+              "start": 6.01,
+              "end": 6.33,
+              "probability": 0.9690755208333334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "sit",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "raw": "thee",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "down,",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "clittis.",
+          "start": 1.95,
+          "end": 2.25
+        },
+        {
+          "raw": "Slaying",
+          "start": 2.79,
+          "end": 2.97
+        },
+        {
+          "raw": "is",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "raw": "word,",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "raw": "it",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "raw": "is",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "raw": "a",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "deed",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "in",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "fashion.",
+          "start": 4.35,
+          "end": 4.75
+        },
+        {
+          "raw": "Hark",
+          "start": 5.45,
+          "end": 5.53
+        },
+        {
+          "raw": "thee,",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "raw": "clittis.",
+          "start": 6.01,
+          "end": 6.33
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Sit",
+        "thee",
+        "down,",
+        "Clitus.",
+        "Slaying",
+        "is",
+        "the",
+        "word;",
+        "It",
+        "is",
+        "a",
+        "deed",
+        "in",
+        "fashion.",
+        "Hark",
+        "thee,",
+        "Clitus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          17,
+          5,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 1.21,
+          "end": 1.33,
+          "key": "sit",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "thee",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "down,",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "down",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "clittis.",
+          "start": 1.95,
+          "end": 2.25,
+          "key": "clittis",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Slaying",
+          "start": 2.79,
+          "end": 2.97,
+          "key": "slaying",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.31,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "word,",
+          "start": 3.31,
+          "end": 3.55,
+          "key": "word",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.69,
+          "end": 3.77,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.77,
+          "end": 3.87,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "deed",
+          "start": 3.99,
+          "end": 4.17,
+          "key": "deed",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "fashion.",
+          "start": 4.35,
+          "end": 4.75,
+          "key": "fashion",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 5.45,
+          "end": 5.53,
+          "key": "hark",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 5.53,
+          "end": 5.75,
+          "key": "thee",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "clittis.",
+          "start": 6.01,
+          "end": 6.33,
+          "key": "clittis",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "Sit",
+          "start": 1.21,
+          "end": 1.33
+        },
+        {
+          "text": "thee",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "down,",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "Clitus.",
+          "start": 1.77,
+          "end": 2.28
+        },
+        {
+          "text": "Slaying",
+          "start": 2.79,
+          "end": 2.97
+        },
+        {
+          "text": "is",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "the",
+          "start": 3.17,
+          "end": 3.31
+        },
+        {
+          "text": "word;",
+          "start": 3.31,
+          "end": 3.55
+        },
+        {
+          "text": "It",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "text": "is",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "text": "a",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "deed",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "in",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "fashion.",
+          "start": 4.35,
+          "end": 4.75
+        },
+        {
+          "text": "Hark",
+          "start": 5.45,
+          "end": 5.53
+        },
+        {
+          "text": "thee,",
+          "start": 5.53,
+          "end": 5.75
+        },
+        {
+          "text": "Clitus.",
+          "start": 5.75,
+          "end": 6.04
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.2726814327761531
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bba897e3dc8917af8003376d73b9b28d4f87d81cf4b162c420b36dae2c1ce341",
+  "selected_reasons": []
+}

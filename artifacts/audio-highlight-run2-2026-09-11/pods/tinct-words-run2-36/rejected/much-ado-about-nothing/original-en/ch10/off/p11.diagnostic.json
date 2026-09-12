@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "89f4f1fb882bff0fc1dc2a1ec4cb48ddc86b8b786efa89b05c2a759c0923254c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1880955696105957,
+      "alignment_seconds": 0.00043777376413345337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hero, oh that exceeds they say",
+          "start": 0.05,
+          "end": 2.25,
+          "words": [
+            {
+              "text": " Hero,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.59423828125
+            },
+            {
+              "text": " oh",
+              "start": 0.95,
+              "end": 1.15,
+              "probability": 0.890625
+            },
+            {
+              "text": " that",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " exceeds",
+              "start": 1.37,
+              "end": 1.67,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " they",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.8203125
+            },
+            {
+              "text": " say",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "oh",
+          "start": 0.95,
+          "end": 1.15
+        },
+        {
+          "raw": "that",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "exceeds",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "raw": "they",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "say",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "expected_tokens": [
+        "Hero.",
+        "O!",
+        "that",
+        "exceeds,",
+        "they",
+        "say."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hero,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "hero",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "oh",
+          "start": 0.95,
+          "end": 1.15,
+          "key": "oh",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "exceeds",
+          "start": 1.37,
+          "end": 1.67,
+          "key": "exceeds",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.67,
+          "end": 1.97,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.97,
+          "end": 2.25,
+          "key": "say",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hero.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "O!",
+          "start": 0.65,
+          "end": 0.9
+        },
+        {
+          "text": "that",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "exceeds,",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "text": "they",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "say.",
+          "start": 1.97,
+          "end": 2.25
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18867436796426773
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f26413d73d777d2dee79e02a33cc2f7320583a7d4f1322ce9619bb08b80cc7dc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

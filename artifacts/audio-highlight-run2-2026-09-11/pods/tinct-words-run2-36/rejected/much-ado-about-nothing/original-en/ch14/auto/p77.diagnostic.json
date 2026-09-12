@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "4ad0e18cb223c9ed7a0e12edd32b4f65fe4dcdfb1071d8ac59b7d51a0da7ab30",
+  "attempts": [
+    {
+      "asr_seconds": 0.14883072674274445,
+      "alignment_seconds": 9.888783097267151e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Claudio. Most sincerely.",
+        "hotwords": "Claudio, Most"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Claudio, Most Sincerely.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Claudio,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Most",
+              "start": 1.09,
+              "end": 1.29,
+              "probability": 0.0677490234375
+            },
+            {
+              "text": " Sincerely.",
+              "start": 1.29,
+              "end": 1.89,
+              "probability": 0.885009765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Most",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "raw": "Sincerely.",
+          "start": 1.29,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Claudio.",
+        "Most",
+        "sincerely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Most",
+          "start": 1.09,
+          "end": 1.29,
+          "key": "most",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Sincerely.",
+          "start": 1.29,
+          "end": 1.89,
+          "key": "sincerely",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Most",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "sincerely.",
+          "start": 1.29,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14896295219659805
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82505dd8ec1239b0fda3297a5b9bdeae315c61d82b23b8535ef2f4539f45829e",
+  "selected_reasons": []
+}

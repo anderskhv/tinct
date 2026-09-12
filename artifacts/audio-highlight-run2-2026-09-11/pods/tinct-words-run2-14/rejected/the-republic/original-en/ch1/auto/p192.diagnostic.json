@@ -1,0 +1,2389 @@
+{
+  "complete": true,
+  "signature": "181f7d9db0ed3d223e17e7ead87ebec12ab5c78b45ce4c7f94392efabba28da9",
+  "attempts": [
+    {
+      "asr_seconds": 0.36513936147093773,
+      "alignment_seconds": 0.000616174191236496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Done to me!—as becomes the ignorant, I must learn from the wise—that is what I deserve to have done to me.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Done to me!—as becomes the ignorant, I must learn from the wise—that is what I deserve to have done to me.",
+          "start": 0.05,
+          "end": 6.77,
+          "words": [
+            {
+              "text": " Done",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " to",
+              "start": 0.59,
+              "end": 0.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me",
+              "start": 0.79,
+              "end": 1.11,
+              "probability": 0.98779296875
+            },
+            {
+              "text": "!—as",
+              "start": 1.11,
+              "end": 1.83,
+              "probability": 0.29301611582438153
+            },
+            {
+              "text": " becomes",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " the",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " ignorant,",
+              "start": 2.43,
+              "end": 2.85,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " I",
+              "start": 3.15,
+              "end": 3.21,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " must",
+              "start": 3.21,
+              "end": 3.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " learn",
+              "start": 3.41,
+              "end": 3.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 3.71,
+              "end": 3.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.95,
+              "end": 4.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " wise—that",
+              "start": 4.09,
+              "end": 5.05,
+              "probability": 0.6708780924479166
+            },
+            {
+              "text": " is",
+              "start": 5.05,
+              "end": 5.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 5.17,
+              "end": 5.33,
+              "probability": 0.98046875
+            },
+            {
+              "text": " I",
+              "start": 5.33,
+              "end": 5.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " deserve",
+              "start": 5.49,
+              "end": 5.79,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 5.79,
+              "end": 6.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 6.05,
+              "end": 6.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " done",
+              "start": 6.19,
+              "end": 6.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 6.39,
+              "end": 6.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me.",
+              "start": 6.53,
+              "end": 6.77,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Done",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "to",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "raw": "me",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "raw": "!—as",
+          "start": 1.11,
+          "end": 1.83
+        },
+        {
+          "raw": "becomes",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "ignorant,",
+          "start": 2.43,
+          "end": 2.85
+        },
+        {
+          "raw": "I",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "raw": "must",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "raw": "learn",
+          "start": 3.41,
+          "end": 3.71
+        },
+        {
+          "raw": "from",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "raw": "the",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "raw": "wise—that",
+          "start": 4.09,
+          "end": 5.05
+        },
+        {
+          "raw": "is",
+          "start": 5.05,
+          "end": 5.17
+        },
+        {
+          "raw": "what",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "raw": "I",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "raw": "deserve",
+          "start": 5.49,
+          "end": 5.79
+        },
+        {
+          "raw": "to",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "raw": "have",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "raw": "done",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "raw": "to",
+          "start": 6.39,
+          "end": 6.53
+        },
+        {
+          "raw": "me.",
+          "start": 6.53,
+          "end": 6.77
+        }
+      ],
+      "expected_tokens": [
+        "Done",
+        "to",
+        "me!—as",
+        "becomes",
+        "the",
+        "ignorant,",
+        "I",
+        "must",
+        "learn",
+        "from",
+        "the",
+        "wise—that",
+        "is",
+        "what",
+        "I",
+        "deserve",
+        "to",
+        "have",
+        "done",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          21,
+          4,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Done",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "done",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.59,
+          "end": 0.79,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.79,
+          "end": 1.11,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "!—as",
+          "start": 1.11,
+          "end": 1.83,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "becomes",
+          "start": 1.83,
+          "end": 2.17,
+          "key": "becomes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ignorant,",
+          "start": 2.43,
+          "end": 2.85,
+          "key": "ignorant",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.15,
+          "end": 3.21,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.21,
+          "end": 3.41,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "learn",
+          "start": 3.41,
+          "end": 3.71,
+          "key": "learn",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.71,
+          "end": 3.95,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.95,
+          "end": 4.09,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wise—that",
+          "start": 4.09,
+          "end": 5.05,
+          "key": "wisethat",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.05,
+          "end": 5.17,
+          "key": "is",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.17,
+          "end": 5.33,
+          "key": "what",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.33,
+          "end": 5.49,
+          "key": "i",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "deserve",
+          "start": 5.49,
+          "end": 5.79,
+          "key": "deserve",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.79,
+          "end": 6.05,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.05,
+          "end": 6.19,
+          "key": "have",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 6.19,
+          "end": 6.39,
+          "key": "done",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.39,
+          "end": 6.53,
+          "key": "to",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 6.53,
+          "end": 6.77,
+          "key": "me",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Done",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "to",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "text": "me!—as",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "text": "becomes",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "text": "the",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "ignorant,",
+          "start": 2.43,
+          "end": 2.85
+        },
+        {
+          "text": "I",
+          "start": 3.15,
+          "end": 3.21
+        },
+        {
+          "text": "must",
+          "start": 3.21,
+          "end": 3.41
+        },
+        {
+          "text": "learn",
+          "start": 3.41,
+          "end": 3.71
+        },
+        {
+          "text": "from",
+          "start": 3.71,
+          "end": 3.95
+        },
+        {
+          "text": "the",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "text": "wise—that",
+          "start": 4.09,
+          "end": 5.05
+        },
+        {
+          "text": "is",
+          "start": 5.05,
+          "end": 5.17
+        },
+        {
+          "text": "what",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "text": "I",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "text": "deserve",
+          "start": 5.49,
+          "end": 5.79
+        },
+        {
+          "text": "to",
+          "start": 5.79,
+          "end": 6.05
+        },
+        {
+          "text": "have",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "text": "done",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "text": "to",
+          "start": 6.39,
+          "end": 6.53
+        },
+        {
+          "text": "me.",
+          "start": 6.53,
+          "end": 6.77
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 22,
+        "matched_words": 20
+      },
+      "match_ratio": 0.9523809523809523,
+      "rejection_reasons": [],
+      "seconds": 0.36599790304899216
+    },
+    {
+      "asr_seconds": 0.2793930247426033,
+      "alignment_seconds": 0.0006300806999206543,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Done to me as becomes the ignorant. I must learn from the wise that is what I deserve to have done to me",
+          "start": 0.05,
+          "end": 6.83,
+          "words": [
+            {
+              "text": " Done",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " to",
+              "start": 0.59,
+              "end": 0.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me",
+              "start": 0.79,
+              "end": 1.11,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " as",
+              "start": 1.11,
+              "end": 1.83,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " becomes",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " the",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ignorant.",
+              "start": 2.43,
+              "end": 2.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 2.91,
+              "end": 3.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " must",
+              "start": 3.21,
+              "end": 3.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " learn",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 3.73,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.95,
+              "end": 4.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wise",
+              "start": 4.09,
+              "end": 4.37,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that",
+              "start": 4.37,
+              "end": 5.03,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " is",
+              "start": 5.03,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 5.17,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 5.33,
+              "end": 5.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " deserve",
+              "start": 5.49,
+              "end": 5.81,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 5.81,
+              "end": 6.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 6.05,
+              "end": 6.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " done",
+              "start": 6.19,
+              "end": 6.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 6.39,
+              "end": 6.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 6.53,
+              "end": 6.83,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Done",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "to",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "raw": "me",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "raw": "as",
+          "start": 1.11,
+          "end": 1.83
+        },
+        {
+          "raw": "becomes",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "ignorant.",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.21
+        },
+        {
+          "raw": "must",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "raw": "learn",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "from",
+          "start": 3.73,
+          "end": 3.95
+        },
+        {
+          "raw": "the",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "raw": "wise",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "raw": "that",
+          "start": 4.37,
+          "end": 5.03
+        },
+        {
+          "raw": "is",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "raw": "what",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "raw": "I",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "raw": "deserve",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "raw": "to",
+          "start": 5.81,
+          "end": 6.05
+        },
+        {
+          "raw": "have",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "raw": "done",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "raw": "to",
+          "start": 6.39,
+          "end": 6.53
+        },
+        {
+          "raw": "me",
+          "start": 6.53,
+          "end": 6.83
+        }
+      ],
+      "expected_tokens": [
+        "Done",
+        "to",
+        "me!—as",
+        "becomes",
+        "the",
+        "ignorant,",
+        "I",
+        "must",
+        "learn",
+        "from",
+        "the",
+        "wise—that",
+        "is",
+        "what",
+        "I",
+        "deserve",
+        "to",
+        "have",
+        "done",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          11,
+          4,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          14
+        ],
+        [
+          "equal",
+          12,
+          21,
+          14,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Done",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "done",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.59,
+          "end": 0.79,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.79,
+          "end": 1.11,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.11,
+          "end": 1.83,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "becomes",
+          "start": 1.83,
+          "end": 2.17,
+          "key": "becomes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ignorant.",
+          "start": 2.43,
+          "end": 2.87,
+          "key": "ignorant",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.21,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.21,
+          "end": 3.43,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "learn",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "learn",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.73,
+          "end": 3.95,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.95,
+          "end": 4.09,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wise",
+          "start": 4.09,
+          "end": 4.37,
+          "key": "wise",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.37,
+          "end": 5.03,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.03,
+          "end": 5.17,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.17,
+          "end": 5.33,
+          "key": "what",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.33,
+          "end": 5.49,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "deserve",
+          "start": 5.49,
+          "end": 5.81,
+          "key": "deserve",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.81,
+          "end": 6.05,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.05,
+          "end": 6.19,
+          "key": "have",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 6.19,
+          "end": 6.39,
+          "key": "done",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.39,
+          "end": 6.53,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.53,
+          "end": 6.83,
+          "key": "me",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Done",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "to",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "text": "me!—as",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "text": "becomes",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "text": "the",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "ignorant,",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "text": "I",
+          "start": 2.91,
+          "end": 3.21
+        },
+        {
+          "text": "must",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "text": "learn",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "from",
+          "start": 3.73,
+          "end": 3.95
+        },
+        {
+          "text": "the",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "text": "wise—that",
+          "start": 4.09,
+          "end": 4.56
+        },
+        {
+          "text": "is",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "text": "what",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "text": "I",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "text": "deserve",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "text": "to",
+          "start": 5.81,
+          "end": 6.05
+        },
+        {
+          "text": "have",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "text": "done",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "text": "to",
+          "start": 6.39,
+          "end": 6.53
+        },
+        {
+          "text": "me.",
+          "start": 6.53,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 23,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.28028320893645287
+    },
+    {
+      "asr_seconds": 0.2856406085193157,
+      "alignment_seconds": 0.0007596462965011597,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Done to me as becomes the ignorant. I must learn from the wise that is what I deserve to have done to me",
+          "start": 0.05,
+          "end": 6.83,
+          "words": [
+            {
+              "text": " Done",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " to",
+              "start": 0.59,
+              "end": 0.79,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " me",
+              "start": 0.79,
+              "end": 1.11,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " as",
+              "start": 1.11,
+              "end": 1.83,
+              "probability": 0.6005859375
+            },
+            {
+              "text": " becomes",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " the",
+              "start": 2.17,
+              "end": 2.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ignorant.",
+              "start": 2.43,
+              "end": 2.87,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " I",
+              "start": 2.91,
+              "end": 3.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " must",
+              "start": 3.21,
+              "end": 3.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " learn",
+              "start": 3.43,
+              "end": 3.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " from",
+              "start": 3.73,
+              "end": 3.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.95,
+              "end": 4.09,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wise",
+              "start": 4.09,
+              "end": 4.37,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " that",
+              "start": 4.37,
+              "end": 5.03,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " is",
+              "start": 5.03,
+              "end": 5.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 5.17,
+              "end": 5.33,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 5.33,
+              "end": 5.49,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " deserve",
+              "start": 5.49,
+              "end": 5.81,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 5.81,
+              "end": 6.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 6.05,
+              "end": 6.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " done",
+              "start": 6.19,
+              "end": 6.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 6.39,
+              "end": 6.53,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 6.53,
+              "end": 6.83,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Done",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "to",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "raw": "me",
+          "start": 0.79,
+          "end": 1.11
+        },
+        {
+          "raw": "as",
+          "start": 1.11,
+          "end": 1.83
+        },
+        {
+          "raw": "becomes",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "raw": "ignorant.",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.21
+        },
+        {
+          "raw": "must",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "raw": "learn",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "raw": "from",
+          "start": 3.73,
+          "end": 3.95
+        },
+        {
+          "raw": "the",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "raw": "wise",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "raw": "that",
+          "start": 4.37,
+          "end": 5.03
+        },
+        {
+          "raw": "is",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "raw": "what",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "raw": "I",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "raw": "deserve",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "raw": "to",
+          "start": 5.81,
+          "end": 6.05
+        },
+        {
+          "raw": "have",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "raw": "done",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "raw": "to",
+          "start": 6.39,
+          "end": 6.53
+        },
+        {
+          "raw": "me",
+          "start": 6.53,
+          "end": 6.83
+        }
+      ],
+      "expected_tokens": [
+        "Done",
+        "to",
+        "me!—as",
+        "becomes",
+        "the",
+        "ignorant,",
+        "I",
+        "must",
+        "learn",
+        "from",
+        "the",
+        "wise—that",
+        "is",
+        "what",
+        "I",
+        "deserve",
+        "to",
+        "have",
+        "done",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          11,
+          4,
+          12
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          14
+        ],
+        [
+          "equal",
+          12,
+          21,
+          14,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          11,
+          12,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Done",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "done",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.59,
+          "end": 0.79,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 0.79,
+          "end": 1.11,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.11,
+          "end": 1.83,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "becomes",
+          "start": 1.83,
+          "end": 2.17,
+          "key": "becomes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.17,
+          "end": 2.43,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ignorant.",
+          "start": 2.43,
+          "end": 2.87,
+          "key": "ignorant",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.91,
+          "end": 3.21,
+          "key": "i",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 3.21,
+          "end": 3.43,
+          "key": "must",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "learn",
+          "start": 3.43,
+          "end": 3.73,
+          "key": "learn",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.73,
+          "end": 3.95,
+          "key": "from",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.95,
+          "end": 4.09,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "wise",
+          "start": 4.09,
+          "end": 4.37,
+          "key": "wise",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.37,
+          "end": 5.03,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.03,
+          "end": 5.17,
+          "key": "is",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 5.17,
+          "end": 5.33,
+          "key": "what",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.33,
+          "end": 5.49,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "deserve",
+          "start": 5.49,
+          "end": 5.81,
+          "key": "deserve",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.81,
+          "end": 6.05,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 6.05,
+          "end": 6.19,
+          "key": "have",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "done",
+          "start": 6.19,
+          "end": 6.39,
+          "key": "done",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 6.39,
+          "end": 6.53,
+          "key": "to",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.53,
+          "end": 6.83,
+          "key": "me",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Done",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "to",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "text": "me!—as",
+          "start": 0.79,
+          "end": 1.31
+        },
+        {
+          "text": "becomes",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "text": "the",
+          "start": 2.17,
+          "end": 2.43
+        },
+        {
+          "text": "ignorant,",
+          "start": 2.43,
+          "end": 2.87
+        },
+        {
+          "text": "I",
+          "start": 2.91,
+          "end": 3.21
+        },
+        {
+          "text": "must",
+          "start": 3.21,
+          "end": 3.43
+        },
+        {
+          "text": "learn",
+          "start": 3.43,
+          "end": 3.73
+        },
+        {
+          "text": "from",
+          "start": 3.73,
+          "end": 3.95
+        },
+        {
+          "text": "the",
+          "start": 3.95,
+          "end": 4.09
+        },
+        {
+          "text": "wise—that",
+          "start": 4.09,
+          "end": 4.56
+        },
+        {
+          "text": "is",
+          "start": 5.03,
+          "end": 5.17
+        },
+        {
+          "text": "what",
+          "start": 5.17,
+          "end": 5.33
+        },
+        {
+          "text": "I",
+          "start": 5.33,
+          "end": 5.49
+        },
+        {
+          "text": "deserve",
+          "start": 5.49,
+          "end": 5.81
+        },
+        {
+          "text": "to",
+          "start": 5.81,
+          "end": 6.05
+        },
+        {
+          "text": "have",
+          "start": 6.05,
+          "end": 6.19
+        },
+        {
+          "text": "done",
+          "start": 6.19,
+          "end": 6.39
+        },
+        {
+          "text": "to",
+          "start": 6.39,
+          "end": 6.53
+        },
+        {
+          "text": "me.",
+          "start": 6.53,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 23,
+        "matched_words": 19
+      },
+      "match_ratio": 0.9047619047619048,
+      "rejection_reasons": [],
+      "seconds": 0.28669796884059906
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c54d1ca91f5073a999148d02876c54d57479b4e3adcc5e8297c5e0555747da77",
+  "selected_reasons": []
+}

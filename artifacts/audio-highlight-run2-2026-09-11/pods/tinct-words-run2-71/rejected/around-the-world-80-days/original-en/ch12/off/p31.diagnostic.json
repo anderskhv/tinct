@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "86adc2f782329f11404e69d14e026c21e1c0671e52ad4f4bff58fce7ba92c7f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.17727901507169008,
+      "alignment_seconds": 0.0004826327785849571,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The poor wretch exclaimed Passapart out to be burned alive.",
+          "start": 0.02,
+          "end": 3.68,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " poor",
+              "start": 0.5,
+              "end": 0.7,
+              "probability": 0.943359375
+            },
+            {
+              "text": " wretch",
+              "start": 0.7,
+              "end": 1.16,
+              "probability": 0.932861328125
+            },
+            {
+              "text": " exclaimed",
+              "start": 1.16,
+              "end": 1.86,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " Passapart",
+              "start": 1.86,
+              "end": 2.52,
+              "probability": 0.8440755208333334
+            },
+            {
+              "text": " out",
+              "start": 2.52,
+              "end": 2.72,
+              "probability": 0.89453125
+            },
+            {
+              "text": " to",
+              "start": 2.72,
+              "end": 2.94,
+              "probability": 0.986328125
+            },
+            {
+              "text": " be",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " burned",
+              "start": 3.06,
+              "end": 3.3,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " alive.",
+              "start": 3.3,
+              "end": 3.68,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "poor",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "raw": "wretch",
+          "start": 0.7,
+          "end": 1.16
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.16,
+          "end": 1.86
+        },
+        {
+          "raw": "Passapart",
+          "start": 1.86,
+          "end": 2.52
+        },
+        {
+          "raw": "out",
+          "start": 2.52,
+          "end": 2.72
+        },
+        {
+          "raw": "to",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "raw": "be",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "burned",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "raw": "alive.",
+          "start": 3.3,
+          "end": 3.68
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "poor",
+        "wretch!\"",
+        "exclaimed",
+        "Passepartout,",
+        "\"to",
+        "be",
+        "burned",
+        "alive!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ],
+        [
+          "equal",
+          5,
+          9,
+          6,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 0.5,
+          "end": 0.7,
+          "key": "poor",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wretch",
+          "start": 0.7,
+          "end": 1.16,
+          "key": "wretch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "exclaimed",
+          "start": 1.16,
+          "end": 1.86,
+          "key": "exclaimed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Passapart",
+          "start": 1.86,
+          "end": 2.52,
+          "key": "passapart",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.52,
+          "end": 2.72,
+          "key": "out",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.72,
+          "end": 2.94,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.94,
+          "end": 3.06,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "burned",
+          "start": 3.06,
+          "end": 3.3,
+          "key": "burned",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "alive.",
+          "start": 3.3,
+          "end": 3.68,
+          "key": "alive",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "poor",
+          "start": 0.5,
+          "end": 0.7
+        },
+        {
+          "text": "wretch!\"",
+          "start": 0.7,
+          "end": 1.16
+        },
+        {
+          "text": "exclaimed",
+          "start": 1.16,
+          "end": 1.86
+        },
+        {
+          "text": "Passepartout,",
+          "start": 1.86,
+          "end": 2.29
+        },
+        {
+          "text": "\"to",
+          "start": 2.72,
+          "end": 2.94
+        },
+        {
+          "text": "be",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "burned",
+          "start": 3.06,
+          "end": 3.3
+        },
+        {
+          "text": "alive!\"",
+          "start": 3.3,
+          "end": 3.68
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.17793476581573486
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4951dae4b2ccc779e77d42df0c936cc4ba56e21b1c85436a97a851fc86496e1f",
+  "selected_reasons": []
+}

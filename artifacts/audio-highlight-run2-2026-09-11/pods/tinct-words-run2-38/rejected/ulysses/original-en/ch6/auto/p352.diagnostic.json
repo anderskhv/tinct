@@ -1,0 +1,1207 @@
+{
+  "complete": true,
+  "signature": "80c4b93b57c7d680d1d6aeaa79dcc76a1c7434ca66d5d0d95f0ceb7462a82875",
+  "attempts": [
+    {
+      "asr_seconds": 0.1427638889872469,
+      "alignment_seconds": 0.0002813310129567981,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hynes jotting down something in his notebook. Ah, the names. But he knows them all. No: coming to me.",
+        "hotwords": "Hynes, Ah, But, No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, the names. But he knows them all. No, coming to me.",
+          "start": 1.41,
+          "end": 6.39,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 1.41,
+              "end": 1.85,
+              "probability": 2.849102020263672e-05
+            },
+            {
+              "text": " the",
+              "start": 3.19,
+              "end": 3.25,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " names.",
+              "start": 3.25,
+              "end": 3.57,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " But",
+              "start": 3.99,
+              "end": 4.03,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " he",
+              "start": 4.03,
+              "end": 4.17,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " knows",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.998046875
+            },
+            {
+              "text": " them",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all.",
+              "start": 4.57,
+              "end": 4.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " No,",
+              "start": 5.51,
+              "end": 5.61,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " coming",
+              "start": 5.79,
+              "end": 5.99,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 5.99,
+              "end": 6.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me.",
+              "start": 6.21,
+              "end": 6.39,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 1.41,
+          "end": 1.85
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.25
+        },
+        {
+          "raw": "names.",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "raw": "But",
+          "start": 3.99,
+          "end": 4.03
+        },
+        {
+          "raw": "he",
+          "start": 4.03,
+          "end": 4.17
+        },
+        {
+          "raw": "knows",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "them",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "all.",
+          "start": 4.57,
+          "end": 4.83
+        },
+        {
+          "raw": "No,",
+          "start": 5.51,
+          "end": 5.61
+        },
+        {
+          "raw": "coming",
+          "start": 5.79,
+          "end": 5.99
+        },
+        {
+          "raw": "to",
+          "start": 5.99,
+          "end": 6.21
+        },
+        {
+          "raw": "me.",
+          "start": 6.21,
+          "end": 6.39
+        }
+      ],
+      "expected_tokens": [
+        "Hynes",
+        "jotting",
+        "down",
+        "something",
+        "in",
+        "his",
+        "notebook.",
+        "Ah,",
+        "the",
+        "names.",
+        "But",
+        "he",
+        "knows",
+        "them",
+        "all.",
+        "No:",
+        "coming",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          7,
+          0,
+          0
+        ],
+        [
+          "equal",
+          7,
+          19,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          7,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 1.41,
+          "end": 1.85,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.19,
+          "end": 3.25,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "names.",
+          "start": 3.25,
+          "end": 3.57,
+          "key": "names",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 3.99,
+          "end": 4.03,
+          "key": "but",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.03,
+          "end": 4.17,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "knows",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.35,
+          "end": 4.57,
+          "key": "them",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 4.57,
+          "end": 4.83,
+          "key": "all",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 5.51,
+          "end": 5.61,
+          "key": "no",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 5.79,
+          "end": 5.99,
+          "key": "coming",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.99,
+          "end": 6.21,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 6.21,
+          "end": 6.39,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hynes",
+          "start": 0.0,
+          "end": 0.705
+        },
+        {
+          "text": "jotting",
+          "start": 0.705,
+          "end": 1.057
+        },
+        {
+          "text": "down",
+          "start": 1.057,
+          "end": 1.233
+        },
+        {
+          "text": "something",
+          "start": 1.233,
+          "end": 1.321
+        },
+        {
+          "text": "in",
+          "start": 1.321,
+          "end": 1.365
+        },
+        {
+          "text": "his",
+          "start": 1.365,
+          "end": 1.387
+        },
+        {
+          "text": "notebook.",
+          "start": 1.387,
+          "end": 1.398
+        },
+        {
+          "text": "Ah,",
+          "start": 1.41,
+          "end": 1.85
+        },
+        {
+          "text": "the",
+          "start": 3.19,
+          "end": 3.25
+        },
+        {
+          "text": "names.",
+          "start": 3.25,
+          "end": 3.57
+        },
+        {
+          "text": "But",
+          "start": 3.99,
+          "end": 4.03
+        },
+        {
+          "text": "he",
+          "start": 4.03,
+          "end": 4.17
+        },
+        {
+          "text": "knows",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "them",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "text": "all.",
+          "start": 4.57,
+          "end": 4.83
+        },
+        {
+          "text": "No:",
+          "start": 5.51,
+          "end": 5.61
+        },
+        {
+          "text": "coming",
+          "start": 5.79,
+          "end": 5.99
+        },
+        {
+          "text": "to",
+          "start": 5.99,
+          "end": 6.21
+        },
+        {
+          "text": "me.",
+          "start": 6.21,
+          "end": 6.39
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 0.631578947368421,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14312806096859276
+    },
+    {
+      "asr_seconds": 0.16471670096507296,
+      "alignment_seconds": 0.0002489010221324861,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Hynes, Ah, But, No"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Hynes jotting down something in his notebook. Ah the names, but he knows them all. No coming to me",
+          "start": 0.05,
+          "end": 6.41,
+          "words": [
+            {
+              "text": " Hynes",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.1053619384765625
+            },
+            {
+              "text": " jotting",
+              "start": 0.71,
+              "end": 1.17,
+              "probability": 0.9876302083333334
+            },
+            {
+              "text": " down",
+              "start": 1.17,
+              "end": 1.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " something",
+              "start": 1.37,
+              "end": 1.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 1.67,
+              "end": 1.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " his",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " notebook.",
+              "start": 1.95,
+              "end": 2.37,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Ah",
+              "start": 2.95,
+              "end": 3.09,
+              "probability": 0.52587890625
+            },
+            {
+              "text": " the",
+              "start": 3.09,
+              "end": 3.25,
+              "probability": 0.311279296875
+            },
+            {
+              "text": " names,",
+              "start": 3.25,
+              "end": 3.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " but",
+              "start": 3.91,
+              "end": 4.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 4.05,
+              "end": 4.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " knows",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " all.",
+              "start": 4.57,
+              "end": 4.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " No",
+              "start": 5.51,
+              "end": 5.61,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " coming",
+              "start": 5.61,
+              "end": 5.97,
+              "probability": 0.60888671875
+            },
+            {
+              "text": " to",
+              "start": 5.97,
+              "end": 6.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 6.19,
+              "end": 6.41,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hynes",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "jotting",
+          "start": 0.71,
+          "end": 1.17
+        },
+        {
+          "raw": "down",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "raw": "something",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "raw": "in",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "raw": "his",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "notebook.",
+          "start": 1.95,
+          "end": 2.37
+        },
+        {
+          "raw": "Ah",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "raw": "the",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "raw": "names,",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "raw": "but",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "raw": "he",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "raw": "knows",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "them",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "all.",
+          "start": 4.57,
+          "end": 4.83
+        },
+        {
+          "raw": "No",
+          "start": 5.51,
+          "end": 5.61
+        },
+        {
+          "raw": "coming",
+          "start": 5.61,
+          "end": 5.97
+        },
+        {
+          "raw": "to",
+          "start": 5.97,
+          "end": 6.19
+        },
+        {
+          "raw": "me",
+          "start": 6.19,
+          "end": 6.41
+        }
+      ],
+      "expected_tokens": [
+        "Hynes",
+        "jotting",
+        "down",
+        "something",
+        "in",
+        "his",
+        "notebook.",
+        "Ah,",
+        "the",
+        "names.",
+        "But",
+        "he",
+        "knows",
+        "them",
+        "all.",
+        "No:",
+        "coming",
+        "to",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hynes",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "hynes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "jotting",
+          "start": 0.71,
+          "end": 1.17,
+          "key": "jotting",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 1.17,
+          "end": 1.37,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "something",
+          "start": 1.37,
+          "end": 1.67,
+          "key": "something",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.67,
+          "end": 1.83,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "his",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "notebook.",
+          "start": 1.95,
+          "end": 2.37,
+          "key": "notebook",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Ah",
+          "start": 2.95,
+          "end": 3.09,
+          "key": "ah",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.09,
+          "end": 3.25,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "names,",
+          "start": 3.25,
+          "end": 3.59,
+          "key": "names",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.91,
+          "end": 4.05,
+          "key": "but",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 4.05,
+          "end": 4.17,
+          "key": "he",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 4.17,
+          "end": 4.35,
+          "key": "knows",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.35,
+          "end": 4.57,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "all.",
+          "start": 4.57,
+          "end": 4.83,
+          "key": "all",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 5.51,
+          "end": 5.61,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "coming",
+          "start": 5.61,
+          "end": 5.97,
+          "key": "coming",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.97,
+          "end": 6.19,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 6.19,
+          "end": 6.41,
+          "key": "me",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hynes",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "jotting",
+          "start": 0.71,
+          "end": 1.17
+        },
+        {
+          "text": "down",
+          "start": 1.17,
+          "end": 1.37
+        },
+        {
+          "text": "something",
+          "start": 1.37,
+          "end": 1.67
+        },
+        {
+          "text": "in",
+          "start": 1.67,
+          "end": 1.83
+        },
+        {
+          "text": "his",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "notebook.",
+          "start": 1.95,
+          "end": 2.37
+        },
+        {
+          "text": "Ah,",
+          "start": 2.95,
+          "end": 3.09
+        },
+        {
+          "text": "the",
+          "start": 3.09,
+          "end": 3.25
+        },
+        {
+          "text": "names.",
+          "start": 3.25,
+          "end": 3.59
+        },
+        {
+          "text": "But",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "text": "he",
+          "start": 4.05,
+          "end": 4.17
+        },
+        {
+          "text": "knows",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "them",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "text": "all.",
+          "start": 4.57,
+          "end": 4.83
+        },
+        {
+          "text": "No:",
+          "start": 5.51,
+          "end": 5.61
+        },
+        {
+          "text": "coming",
+          "start": 5.61,
+          "end": 5.97
+        },
+        {
+          "text": "to",
+          "start": 5.97,
+          "end": 6.19
+        },
+        {
+          "text": "me.",
+          "start": 6.19,
+          "end": 6.41
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16507427295437083
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "5446c49486fb439753c1cd4e832a0f095437bbd0a335390ddad9512b3849c4da",
+  "selected_reasons": []
+}

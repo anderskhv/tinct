@@ -1,0 +1,594 @@
+{
+  "complete": true,
+  "signature": "0fce4a3cd42350c5175399d07c5f7ebd571fbdbbfe948462178d9f8c59bc9adf",
+  "attempts": [
+    {
+      "asr_seconds": 0.2769709387794137,
+      "alignment_seconds": 0.00029330700635910034,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Roadrego. Faith, I have heard too much, for your words and performances are no",
+          "start": 0.56,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " Roadrego.",
+              "start": 0.56,
+              "end": 1.04,
+              "probability": 0.4838460286458333
+            },
+            {
+              "text": " Faith,",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " I",
+              "start": 2.2,
+              "end": 2.26,
+              "probability": 0.990234375
+            },
+            {
+              "text": " have",
+              "start": 2.26,
+              "end": 2.34,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " heard",
+              "start": 2.34,
+              "end": 2.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too",
+              "start": 2.54,
+              "end": 2.78,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " much,",
+              "start": 2.78,
+              "end": 3.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 3.28,
+              "end": 3.42,
+              "probability": 0.986328125
+            },
+            {
+              "text": " your",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.9921875
+            },
+            {
+              "text": " words",
+              "start": 3.58,
+              "end": 3.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 3.88,
+              "end": 4.04,
+              "probability": 0.99609375
+            },
+            {
+              "text": " performances",
+              "start": 4.04,
+              "end": 4.54,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " are",
+              "start": 4.54,
+              "end": 4.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " no",
+              "start": 4.84,
+              "end": 5.06,
+              "probability": 0.9560546875
+            }
+          ]
+        },
+        {
+          "text": " kin together.",
+          "start": 5.06,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " kin",
+              "start": 5.06,
+              "end": 5.28,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " together.",
+              "start": 5.28,
+              "end": 5.66,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roadrego.",
+          "start": 0.56,
+          "end": 1.04
+        },
+        {
+          "raw": "Faith,",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "I",
+          "start": 2.2,
+          "end": 2.26
+        },
+        {
+          "raw": "have",
+          "start": 2.26,
+          "end": 2.34
+        },
+        {
+          "raw": "heard",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "raw": "too",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "raw": "much,",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "raw": "for",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "raw": "your",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "words",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "raw": "performances",
+          "start": 4.04,
+          "end": 4.54
+        },
+        {
+          "raw": "are",
+          "start": 4.54,
+          "end": 4.84
+        },
+        {
+          "raw": "no",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "raw": "kin",
+          "start": 5.06,
+          "end": 5.28
+        },
+        {
+          "raw": "together.",
+          "start": 5.28,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "Faith,",
+        "I",
+        "have",
+        "heard",
+        "too",
+        "much,",
+        "for",
+        "your",
+        "words",
+        "and",
+        "performances",
+        "are",
+        "no",
+        "kin",
+        "together."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          16,
+          1,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roadrego.",
+          "start": 0.56,
+          "end": 1.04,
+          "key": "roadrego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Faith,",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "faith",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.2,
+          "end": 2.26,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.26,
+          "end": 2.34,
+          "key": "have",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 2.34,
+          "end": 2.54,
+          "key": "heard",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 2.54,
+          "end": 2.78,
+          "key": "too",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "much,",
+          "start": 2.78,
+          "end": 3.08,
+          "key": "much",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 3.28,
+          "end": 3.42,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 3.58,
+          "end": 3.88,
+          "key": "words",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 4.04,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "performances",
+          "start": 4.04,
+          "end": 4.54,
+          "key": "performances",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.54,
+          "end": 4.84,
+          "key": "are",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.84,
+          "end": 5.06,
+          "key": "no",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "kin",
+          "start": 5.06,
+          "end": 5.28,
+          "key": "kin",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "together.",
+          "start": 5.28,
+          "end": 5.66,
+          "key": "together",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.0,
+          "end": 0.77
+        },
+        {
+          "text": "Faith,",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "I",
+          "start": 2.2,
+          "end": 2.26
+        },
+        {
+          "text": "have",
+          "start": 2.26,
+          "end": 2.34
+        },
+        {
+          "text": "heard",
+          "start": 2.34,
+          "end": 2.54
+        },
+        {
+          "text": "too",
+          "start": 2.54,
+          "end": 2.78
+        },
+        {
+          "text": "much,",
+          "start": 2.78,
+          "end": 3.08
+        },
+        {
+          "text": "for",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "text": "your",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "words",
+          "start": 3.58,
+          "end": 3.88
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "text": "performances",
+          "start": 4.04,
+          "end": 4.54
+        },
+        {
+          "text": "are",
+          "start": 4.54,
+          "end": 4.84
+        },
+        {
+          "text": "no",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "text": "kin",
+          "start": 5.06,
+          "end": 5.28
+        },
+        {
+          "text": "together.",
+          "start": 5.28,
+          "end": 5.66
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.27737782383337617
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4b47fa6ac7715c978ee6087a201d84acf2f4bcfbb05c4a31606e811d25c3b5d2",
+  "selected_reasons": []
+}

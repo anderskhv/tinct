@@ -1,0 +1,406 @@
+{
+  "complete": true,
+  "signature": "9f472b133e459145678b13a798250f5dde9b754451164bc27966229618fc111f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2029268518090248,
+      "alignment_seconds": 0.0005247369408607483,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sir Andrew I I I care not for good life",
+          "start": 0.08,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " Sir",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.892578125
+            },
+            {
+              "text": " Andrew",
+              "start": 0.58,
+              "end": 0.94,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " I",
+              "start": 0.94,
+              "end": 1.52,
+              "probability": 0.058319091796875
+            },
+            {
+              "text": " I",
+              "start": 1.52,
+              "end": 1.82,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " I",
+              "start": 1.82,
+              "end": 2.1,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " care",
+              "start": 2.1,
+              "end": 2.28,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " not",
+              "start": 2.28,
+              "end": 2.48,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " for",
+              "start": 2.48,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 2.66,
+              "end": 2.8,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " life",
+              "start": 2.8,
+              "end": 3.16,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "Andrew",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.52
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.82
+        },
+        {
+          "raw": "I",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "raw": "care",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "raw": "not",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "raw": "for",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "raw": "good",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "raw": "life",
+          "start": 2.8,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "Sir",
+        "Andrew.",
+        "Ay,",
+        "ay.",
+        "I",
+        "care",
+        "not",
+        "for",
+        "good",
+        "life."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "equal",
+          4,
+          10,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sir",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "sir",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Andrew",
+          "start": 0.58,
+          "end": 0.94,
+          "key": "andrew",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.94,
+          "end": 1.52,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.82,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.82,
+          "end": 2.1,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "care",
+          "start": 2.1,
+          "end": 2.28,
+          "key": "care",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.28,
+          "end": 2.48,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.48,
+          "end": 2.66,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.66,
+          "end": 2.8,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "life",
+          "start": 2.8,
+          "end": 3.16,
+          "key": "life",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sir",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "Andrew.",
+          "start": 0.58,
+          "end": 0.94
+        },
+        {
+          "text": "Ay,",
+          "start": 0.94,
+          "end": 1.38
+        },
+        {
+          "text": "ay.",
+          "start": 1.38,
+          "end": 1.6
+        },
+        {
+          "text": "I",
+          "start": 1.82,
+          "end": 2.1
+        },
+        {
+          "text": "care",
+          "start": 2.1,
+          "end": 2.28
+        },
+        {
+          "text": "not",
+          "start": 2.28,
+          "end": 2.48
+        },
+        {
+          "text": "for",
+          "start": 2.48,
+          "end": 2.66
+        },
+        {
+          "text": "good",
+          "start": 2.66,
+          "end": 2.8
+        },
+        {
+          "text": "life.",
+          "start": 2.8,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20364715531468391
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f2b1538df0c0006f61463617694d5b5bccf885897cb34d3277ad86233af74518",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "9c50b937bf3cc5d7edee0351ce25feed41d55b1348066769f4fc7b435ef9246d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2735324241220951,
+      "alignment_seconds": 0.0003745798021554947,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter the Duke, the Magnificoes, Antonio, Bassanio, Gratiano, Salerio and others.",
+        "hotwords": "Enter, Duke, Magnificoes, Antonio, Bassanio, Gratiano, Salerio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter the Duke, the Magnificoes, Antonio, Bassanio, Gratiano, Salerio and others.",
+          "start": 0.11,
+          "end": 5.71,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.61,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " Duke,",
+              "start": 0.75,
+              "end": 1.05,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " the",
+              "start": 1.53,
+              "end": 1.57,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " Magnificoes,",
+              "start": 1.57,
+              "end": 2.29,
+              "probability": 0.56878662109375
+            },
+            {
+              "text": " Antonio,",
+              "start": 2.45,
+              "end": 2.81,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " Bassanio,",
+              "start": 3.19,
+              "end": 3.65,
+              "probability": 0.8225911458333334
+            },
+            {
+              "text": " Gratiano,",
+              "start": 3.91,
+              "end": 4.29,
+              "probability": 0.5936686197916666
+            },
+            {
+              "text": " Salerio",
+              "start": 4.85,
+              "end": 5.23,
+              "probability": 0.47882080078125
+            },
+            {
+              "text": " and",
+              "start": 5.23,
+              "end": 5.41,
+              "probability": 0.451416015625
+            },
+            {
+              "text": " others.",
+              "start": 5.41,
+              "end": 5.71,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "Duke,",
+          "start": 0.75,
+          "end": 1.05
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "raw": "Magnificoes,",
+          "start": 1.57,
+          "end": 2.29
+        },
+        {
+          "raw": "Antonio,",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 3.19,
+          "end": 3.65
+        },
+        {
+          "raw": "Gratiano,",
+          "start": 3.91,
+          "end": 4.29
+        },
+        {
+          "raw": "Salerio",
+          "start": 4.85,
+          "end": 5.23
+        },
+        {
+          "raw": "and",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "raw": "others.",
+          "start": 5.41,
+          "end": 5.71
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Duke,",
+        "the",
+        "Magnificoes,",
+        "Antonio,",
+        "Bassanio,",
+        "Gratiano,",
+        "Salerio",
+        "and",
+        "others."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.61,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.75,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Duke,",
+          "start": 0.75,
+          "end": 1.05,
+          "key": "duke",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.57,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Magnificoes,",
+          "start": 1.57,
+          "end": 2.29,
+          "key": "magnificoes",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Antonio,",
+          "start": 2.45,
+          "end": 2.81,
+          "key": "antonio",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Bassanio,",
+          "start": 3.19,
+          "end": 3.65,
+          "key": "bassanio",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Gratiano,",
+          "start": 3.91,
+          "end": 4.29,
+          "key": "gratiano",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Salerio",
+          "start": 4.85,
+          "end": 5.23,
+          "key": "salerio",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.23,
+          "end": 5.41,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "others.",
+          "start": 5.41,
+          "end": 5.71,
+          "key": "others",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "Duke,",
+          "start": 0.75,
+          "end": 1.05
+        },
+        {
+          "text": "the",
+          "start": 1.53,
+          "end": 1.57
+        },
+        {
+          "text": "Magnificoes,",
+          "start": 1.57,
+          "end": 2.29
+        },
+        {
+          "text": "Antonio,",
+          "start": 2.45,
+          "end": 2.81
+        },
+        {
+          "text": "Bassanio,",
+          "start": 3.19,
+          "end": 3.65
+        },
+        {
+          "text": "Gratiano,",
+          "start": 3.91,
+          "end": 4.29
+        },
+        {
+          "text": "Salerio",
+          "start": 4.85,
+          "end": 5.23
+        },
+        {
+          "text": "and",
+          "start": 5.23,
+          "end": 5.41
+        },
+        {
+          "text": "others.",
+          "start": 5.41,
+          "end": 5.71
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2740307170897722
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6c755195d5cdbaa99595acf39e4ce3a17830b859347b83f078408527ecf54506",
+  "selected_reasons": []
+}

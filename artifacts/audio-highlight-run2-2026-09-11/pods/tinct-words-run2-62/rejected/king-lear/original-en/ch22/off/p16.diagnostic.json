@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "aae6d08c98428921987c2db41e2130a33e00bd5bd0f4657028a6baa216bedc3f",
+  "attempts": [
+    {
+      "asr_seconds": 0.07349579781293869,
+      "alignment_seconds": 0.00010304898023605347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Gloucester, with all my heart.",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Gloucester,",
+              "start": 0.02,
+              "end": 0.9,
+              "probability": 0.806884765625
+            },
+            {
+              "text": " with",
+              "start": 1.18,
+              "end": 1.28,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " all",
+              "start": 1.28,
+              "end": 1.4,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 1.4,
+              "end": 1.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " heart.",
+              "start": 1.54,
+              "end": 1.84,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "raw": "with",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "raw": "my",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "raw": "heart.",
+          "start": 1.54,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "Gloucester.",
+        "With",
+        "all",
+        "my",
+        "heart."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gloucester,",
+          "start": 0.02,
+          "end": 0.9,
+          "key": "gloucester",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.18,
+          "end": 1.28,
+          "key": "with",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.28,
+          "end": 1.4,
+          "key": "all",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.4,
+          "end": 1.54,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "heart.",
+          "start": 1.54,
+          "end": 1.84,
+          "key": "heart",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gloucester.",
+          "start": 0.02,
+          "end": 0.9
+        },
+        {
+          "text": "With",
+          "start": 1.18,
+          "end": 1.28
+        },
+        {
+          "text": "all",
+          "start": 1.28,
+          "end": 1.4
+        },
+        {
+          "text": "my",
+          "start": 1.4,
+          "end": 1.54
+        },
+        {
+          "text": "heart.",
+          "start": 1.54,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0736381784081459
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "62786cf99367b58f4ab387e6f26d8a29d60298fb32d529c5f81575c2f7373961",
+  "selected_reasons": []
+}

@@ -1,0 +1,726 @@
+{
+  "complete": true,
+  "signature": "f990f984a204f292ace000a2795848cfa96f466dd07f017f3b83206b01320d38",
+  "attempts": [
+    {
+      "asr_seconds": 0.3673705719411373,
+      "alignment_seconds": 0.0005192579701542854,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"As to yesterday, I believe you, but as for to-day, it is difficult to agree with your opinion,\" said he.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " As to yesterday, I believe you, but as for to-day, it is difficult to agree with your opinion,\" said he.",
+          "start": 0.02,
+          "end": 6.6,
+          "words": [
+            {
+              "text": " As",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.2379150390625
+            },
+            {
+              "text": " to",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " yesterday,",
+              "start": 0.74,
+              "end": 1.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " believe",
+              "start": 1.6,
+              "end": 1.9,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you,",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.99609375
+            },
+            {
+              "text": " but",
+              "start": 2.58,
+              "end": 2.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " as",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.9765625
+            },
+            {
+              "text": " for",
+              "start": 2.96,
+              "end": 3.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.14,
+              "end": 3.26,
+              "probability": 0.01470947265625
+            },
+            {
+              "text": "-day,",
+              "start": 3.26,
+              "end": 3.46,
+              "probability": 0.882568359375
+            },
+            {
+              "text": " it",
+              "start": 3.82,
+              "end": 3.88,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " is",
+              "start": 3.88,
+              "end": 4.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " difficult",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 4.3,
+              "end": 4.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " agree",
+              "start": 4.62,
+              "end": 4.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 4.88,
+              "end": 5.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 5.08,
+              "end": 5.22,
+              "probability": 0.99609375
+            },
+            {
+              "text": " opinion,\"",
+              "start": 5.22,
+              "end": 6.04,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " said",
+              "start": 6.04,
+              "end": 6.32,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he.",
+              "start": 6.32,
+              "end": 6.6,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "As",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "to",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "yesterday,",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "raw": "I",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "believe",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "raw": "you,",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "but",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "raw": "as",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "for",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "raw": "to",
+          "start": 3.14,
+          "end": 3.26
+        },
+        {
+          "raw": "-day,",
+          "start": 3.26,
+          "end": 3.46
+        },
+        {
+          "raw": "it",
+          "start": 3.82,
+          "end": 3.88
+        },
+        {
+          "raw": "is",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "raw": "difficult",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "raw": "to",
+          "start": 4.3,
+          "end": 4.62
+        },
+        {
+          "raw": "agree",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "raw": "with",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "raw": "your",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "raw": "opinion,\"",
+          "start": 5.22,
+          "end": 6.04
+        },
+        {
+          "raw": "said",
+          "start": 6.04,
+          "end": 6.32
+        },
+        {
+          "raw": "he.",
+          "start": 6.32,
+          "end": 6.6
+        }
+      ],
+      "expected_tokens": [
+        "\"As",
+        "to",
+        "yesterday,",
+        "I",
+        "believe",
+        "you,",
+        "but",
+        "as",
+        "for",
+        "to-day,",
+        "it",
+        "is",
+        "difficult",
+        "to",
+        "agree",
+        "with",
+        "your",
+        "opinion,\"",
+        "said",
+        "he."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "As",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "as",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 0.58,
+          "end": 0.74,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "yesterday,",
+          "start": 0.74,
+          "end": 1.14,
+          "key": "yesterday",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 1.6,
+          "end": 1.9,
+          "key": "believe",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.9,
+          "end": 2.2,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.58,
+          "end": 2.74,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.74,
+          "end": 2.96,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.96,
+          "end": 3.14,
+          "key": "for",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to -day,",
+          "start": 3.14,
+          "end": 3.46,
+          "key": "today",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.82,
+          "end": 3.88,
+          "key": "it",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.88,
+          "end": 4.04,
+          "key": "is",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "difficult",
+          "start": 4.04,
+          "end": 4.3,
+          "key": "difficult",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.3,
+          "end": 4.62,
+          "key": "to",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "agree",
+          "start": 4.62,
+          "end": 4.88,
+          "key": "agree",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.88,
+          "end": 5.08,
+          "key": "with",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 5.08,
+          "end": 5.22,
+          "key": "your",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "opinion,\"",
+          "start": 5.22,
+          "end": 6.04,
+          "key": "opinion",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 6.04,
+          "end": 6.32,
+          "key": "said",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 6.32,
+          "end": 6.6,
+          "key": "he",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "to-day,",
+          "heard": "to -day,",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 3.14,
+          "end": 3.46
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"As",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "to",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "yesterday,",
+          "start": 0.74,
+          "end": 1.14
+        },
+        {
+          "text": "I",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "believe",
+          "start": 1.6,
+          "end": 1.9
+        },
+        {
+          "text": "you,",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "but",
+          "start": 2.58,
+          "end": 2.74
+        },
+        {
+          "text": "as",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "for",
+          "start": 2.96,
+          "end": 3.14
+        },
+        {
+          "text": "to-day,",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "it",
+          "start": 3.82,
+          "end": 3.88
+        },
+        {
+          "text": "is",
+          "start": 3.88,
+          "end": 4.04
+        },
+        {
+          "text": "difficult",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "text": "to",
+          "start": 4.3,
+          "end": 4.62
+        },
+        {
+          "text": "agree",
+          "start": 4.62,
+          "end": 4.88
+        },
+        {
+          "text": "with",
+          "start": 4.88,
+          "end": 5.08
+        },
+        {
+          "text": "your",
+          "start": 5.08,
+          "end": 5.22
+        },
+        {
+          "text": "opinion,\"",
+          "start": 5.22,
+          "end": 6.04
+        },
+        {
+          "text": "said",
+          "start": 6.04,
+          "end": 6.32
+        },
+        {
+          "text": "he.",
+          "start": 6.32,
+          "end": 6.6
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3680900866165757
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2cf5e3b53eda3d67a504cd8032c925fa65a4cb255bb62818bd2224eb4e0062af",
+  "selected_reasons": []
+}

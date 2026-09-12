@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "93e0b1d4a05987fbbf33d9ba373996b8e884a1a1f0719e39aee60fb846421867",
+  "attempts": [
+    {
+      "asr_seconds": 0.24672747403383255,
+      "alignment_seconds": 0.00037752697244286537,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pentheus, wait, what garb wilt thou bestow about me?",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Pentheus,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.9215494791666666
+            },
+            {
+              "text": " wait,",
+              "start": 1.31,
+              "end": 1.59,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " what",
+              "start": 2.01,
+              "end": 2.11,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " garb",
+              "start": 2.11,
+              "end": 2.43,
+              "probability": 0.939208984375
+            },
+            {
+              "text": " wilt",
+              "start": 2.43,
+              "end": 2.59,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " thou",
+              "start": 2.59,
+              "end": 2.77,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " bestow",
+              "start": 2.77,
+              "end": 3.17,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " about",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " me?",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pentheus,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "wait,",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "raw": "what",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "raw": "garb",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "raw": "wilt",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "raw": "thou",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "raw": "bestow",
+          "start": 2.77,
+          "end": 3.17
+        },
+        {
+          "raw": "about",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "raw": "me?",
+          "start": 3.39,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "Pentheus.",
+        "Wait!",
+        "What",
+        "garb",
+        "wilt",
+        "thou",
+        "bestow",
+        "About",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pentheus,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "pentheus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wait,",
+          "start": 1.31,
+          "end": 1.59,
+          "key": "wait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.01,
+          "end": 2.11,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "garb",
+          "start": 2.11,
+          "end": 2.43,
+          "key": "garb",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 2.43,
+          "end": 2.59,
+          "key": "wilt",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.59,
+          "end": 2.77,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "bestow",
+          "start": 2.77,
+          "end": 3.17,
+          "key": "bestow",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 3.17,
+          "end": 3.39,
+          "key": "about",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pentheus.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Wait!",
+          "start": 1.31,
+          "end": 1.59
+        },
+        {
+          "text": "What",
+          "start": 2.01,
+          "end": 2.11
+        },
+        {
+          "text": "garb",
+          "start": 2.11,
+          "end": 2.43
+        },
+        {
+          "text": "wilt",
+          "start": 2.43,
+          "end": 2.59
+        },
+        {
+          "text": "thou",
+          "start": 2.59,
+          "end": 2.77
+        },
+        {
+          "text": "bestow",
+          "start": 2.77,
+          "end": 3.17
+        },
+        {
+          "text": "About",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "text": "me?",
+          "start": 3.39,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24725659098476171
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5268832b8c160b33f3f26491dd2f2d9cce032e06b430a7610524f1b1496697db",
+  "selected_reasons": []
+}

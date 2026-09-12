@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "55031c2c080f7680faa5086e3897415a04f67a65ae96814b368fd53d04c1b8dc",
+  "attempts": [
+    {
+      "asr_seconds": 0.17421630956232548,
+      "alignment_seconds": 0.00021103769540786743,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, what said Papillius Lena?",
+          "start": 0.08,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.962646484375
+            },
+            {
+              "text": " what",
+              "start": 1.14,
+              "end": 1.28,
+              "probability": 0.91015625
+            },
+            {
+              "text": " said",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Papillius",
+              "start": 1.44,
+              "end": 1.94,
+              "probability": 0.7819010416666666
+            },
+            {
+              "text": " Lena?",
+              "start": 1.94,
+              "end": 2.18,
+              "probability": 0.229736328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "what",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "Papillius",
+          "start": 1.44,
+          "end": 1.94
+        },
+        {
+          "raw": "Lena?",
+          "start": 1.94,
+          "end": 2.18
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "What",
+        "said",
+        "Popilius",
+        "Lena?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.14,
+          "end": 1.28,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.28,
+          "end": 1.44,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Papillius",
+          "start": 1.44,
+          "end": 1.94,
+          "key": "papillius",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lena?",
+          "start": 1.94,
+          "end": 2.18,
+          "key": "lena",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "What",
+          "start": 1.14,
+          "end": 1.28
+        },
+        {
+          "text": "said",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "Popilius",
+          "start": 1.44,
+          "end": 1.69
+        },
+        {
+          "text": "Lena?",
+          "start": 1.94,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17449952010065317
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "df9bad199bdc44d011da0195e53780480f1152d01b01cafeac3db17c53e638d0",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,773 @@
+{
+  "complete": true,
+  "signature": "4c81e2e48f1e45b119d79df5ab8284e7251b89df3e354fb378acaf55e8f6acfb",
+  "attempts": [
+    {
+      "asr_seconds": 0.339014844968915,
+      "alignment_seconds": 0.0006495043635368347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Oh, I am ready to approve of you now,\" said he; \"will you shake hands? for I believe you are genuinely sincere.\"",
+        "hotwords": "Oh, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Oh, I am ready to approve of you now, said he. Will you shake hands? For I believe you",
+          "start": 0.02,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.0286712646484375
+            },
+            {
+              "text": " I",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " am",
+              "start": 0.86,
+              "end": 1.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " ready",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " approve",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 1.66,
+              "end": 1.82,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " you",
+              "start": 1.82,
+              "end": 1.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " now,",
+              "start": 1.96,
+              "end": 2.34,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " said",
+              "start": 2.42,
+              "end": 2.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " he.",
+              "start": 2.68,
+              "end": 2.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Will",
+              "start": 3.46,
+              "end": 3.54,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " you",
+              "start": 3.54,
+              "end": 3.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shake",
+              "start": 3.72,
+              "end": 3.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hands?",
+              "start": 3.96,
+              "end": 4.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " For",
+              "start": 4.94,
+              "end": 5.02,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " I",
+              "start": 5.02,
+              "end": 5.18,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " believe",
+              "start": 5.18,
+              "end": 5.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 5.42,
+              "end": 5.64,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " are genuinely sincere.",
+          "start": 5.64,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " are",
+              "start": 5.64,
+              "end": 5.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " genuinely",
+              "start": 5.76,
+              "end": 6.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sincere.",
+              "start": 6.16,
+              "end": 6.74,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "am",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "raw": "ready",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "to",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "approve",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "raw": "of",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "raw": "now,",
+          "start": 1.96,
+          "end": 2.34
+        },
+        {
+          "raw": "said",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "raw": "he.",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "raw": "Will",
+          "start": 3.46,
+          "end": 3.54
+        },
+        {
+          "raw": "you",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "raw": "shake",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "raw": "hands?",
+          "start": 3.96,
+          "end": 4.48
+        },
+        {
+          "raw": "For",
+          "start": 4.94,
+          "end": 5.02
+        },
+        {
+          "raw": "I",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "raw": "believe",
+          "start": 5.18,
+          "end": 5.42
+        },
+        {
+          "raw": "you",
+          "start": 5.42,
+          "end": 5.64
+        },
+        {
+          "raw": "are",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "raw": "genuinely",
+          "start": 5.76,
+          "end": 6.16
+        },
+        {
+          "raw": "sincere.",
+          "start": 6.16,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "\"Oh,",
+        "I",
+        "am",
+        "ready",
+        "to",
+        "approve",
+        "of",
+        "you",
+        "now,\"",
+        "said",
+        "he;",
+        "\"will",
+        "you",
+        "shake",
+        "hands?",
+        "for",
+        "I",
+        "believe",
+        "you",
+        "are",
+        "genuinely",
+        "sincere.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.86,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.86,
+          "end": 1.0,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 1.0,
+          "end": 1.14,
+          "key": "ready",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "approve",
+          "start": 1.36,
+          "end": 1.66,
+          "key": "approve",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.66,
+          "end": 1.82,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.82,
+          "end": 1.96,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.96,
+          "end": 2.34,
+          "key": "now",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.42,
+          "end": 2.68,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he.",
+          "start": 2.68,
+          "end": 2.96,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 3.46,
+          "end": 3.54,
+          "key": "will",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.54,
+          "end": 3.72,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "shake",
+          "start": 3.72,
+          "end": 3.96,
+          "key": "shake",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "hands?",
+          "start": 3.96,
+          "end": 4.48,
+          "key": "hands",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "For",
+          "start": 4.94,
+          "end": 5.02,
+          "key": "for",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.02,
+          "end": 5.18,
+          "key": "i",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "believe",
+          "start": 5.18,
+          "end": 5.42,
+          "key": "believe",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.42,
+          "end": 5.64,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.64,
+          "end": 5.76,
+          "key": "are",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "genuinely",
+          "start": 5.76,
+          "end": 6.16,
+          "key": "genuinely",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "sincere.",
+          "start": 6.16,
+          "end": 6.74,
+          "key": "sincere",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Oh,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "I",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "am",
+          "start": 0.86,
+          "end": 1.0
+        },
+        {
+          "text": "ready",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "to",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "approve",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "text": "of",
+          "start": 1.66,
+          "end": 1.82
+        },
+        {
+          "text": "you",
+          "start": 1.82,
+          "end": 1.96
+        },
+        {
+          "text": "now,\"",
+          "start": 1.96,
+          "end": 2.34
+        },
+        {
+          "text": "said",
+          "start": 2.42,
+          "end": 2.68
+        },
+        {
+          "text": "he;",
+          "start": 2.68,
+          "end": 2.96
+        },
+        {
+          "text": "\"will",
+          "start": 3.46,
+          "end": 3.54
+        },
+        {
+          "text": "you",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "text": "shake",
+          "start": 3.72,
+          "end": 3.96
+        },
+        {
+          "text": "hands?",
+          "start": 3.96,
+          "end": 4.48
+        },
+        {
+          "text": "for",
+          "start": 4.94,
+          "end": 5.02
+        },
+        {
+          "text": "I",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "text": "believe",
+          "start": 5.18,
+          "end": 5.42
+        },
+        {
+          "text": "you",
+          "start": 5.42,
+          "end": 5.64
+        },
+        {
+          "text": "are",
+          "start": 5.64,
+          "end": 5.76
+        },
+        {
+          "text": "genuinely",
+          "start": 5.76,
+          "end": 6.16
+        },
+        {
+          "text": "sincere.\"",
+          "start": 6.16,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33992473781108856
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ee44b8cdbdd79b7a8d775f1535e9a85006ca7dfa7de4cfa423e3871b25af7ce",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "85c74b458e4e19d2bfbf98e84b19fb59dcf3be2a64867acd769fb7a9a331b6ac",
+  "attempts": [
+    {
+      "asr_seconds": 0.10879952181130648,
+      "alignment_seconds": 9.606312960386276e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What say the augurers?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What say the augurers?",
+          "start": 0.02,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.859375
+            },
+            {
+              "text": " say",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " the",
+              "start": 0.7,
+              "end": 0.86,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " augurers?",
+              "start": 0.86,
+              "end": 1.24,
+              "probability": 0.457489013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "say",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "raw": "augurers?",
+          "start": 0.86,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "say",
+        "the",
+        "augurers?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.52,
+          "end": 0.7,
+          "key": "say",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.7,
+          "end": 0.86,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "augurers?",
+          "start": 0.86,
+          "end": 1.24,
+          "key": "augurers",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "say",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "the",
+          "start": 0.7,
+          "end": 0.86
+        },
+        {
+          "text": "augurers?",
+          "start": 0.86,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10892744455486536
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e5458a95428ba11c4a7ca14584d541802869a72135c2793169672bb3172229d5",
+  "selected_reasons": []
+}

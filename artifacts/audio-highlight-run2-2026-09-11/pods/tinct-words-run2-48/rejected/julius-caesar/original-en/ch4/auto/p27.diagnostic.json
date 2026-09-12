@@ -1,0 +1,550 @@
+{
+  "complete": true,
+  "signature": "12d9511e10a4c37176f45e800c7f103e4877161e6976da1c28146dcfd3a540b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.10949143581092358,
+      "alignment_seconds": 0.00011632498353719711,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Is he alone?",
+        "hotwords": "Brutus, Is"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Is Brutus alone?",
+          "start": 0.55,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.55,
+              "end": 0.93,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " Is",
+              "start": 1.15,
+              "end": 1.23,
+              "probability": 0.007801055908203125
+            },
+            {
+              "text": " Brutus",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.4990234673023224
+            },
+            {
+              "text": " alone?",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.67822265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "raw": "Is",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "alone?",
+          "start": 1.37,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Is",
+        "he",
+        "alone?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.55,
+          "end": 0.93,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 1.15,
+          "end": 1.23,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "brutus",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "alone?",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "alone",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.55,
+          "end": 0.93
+        },
+        {
+          "text": "Is",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "text": "he",
+          "start": 1.23,
+          "end": 1.3
+        },
+        {
+          "text": "alone?",
+          "start": 1.37,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1096434285864234
+    },
+    {
+      "asr_seconds": 0.092370486818254,
+      "alignment_seconds": 0.00032514892518520355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Brutus, Is"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " He Alone?",
+          "start": 0.05,
+          "end": 1.27,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 3.975629806518555e-05
+            },
+            {
+              "text": " Alone?",
+              "start": 0.61,
+              "end": 1.27,
+              "probability": 1.1920928955078125e-06
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Alone?",
+          "start": 0.61,
+          "end": 1.27
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Is",
+        "he",
+        "alone?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          4,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Alone?",
+          "start": 0.61,
+          "end": 1.27,
+          "key": "alone",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Is",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "he",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "alone?",
+          "start": 0.61,
+          "end": 1.27
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0927922734990716
+    },
+    {
+      "asr_seconds": 0.11710964515805244,
+      "alignment_seconds": 0.0003354512155056,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus, is he alone?",
+          "start": 0.05,
+          "end": 1.63,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.984130859375
+            },
+            {
+              "text": " is",
+              "start": 1.15,
+              "end": 1.23,
+              "probability": 0.990234375
+            },
+            {
+              "text": " he",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " alone?",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "is",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "raw": "he",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "alone?",
+          "start": 1.35,
+          "end": 1.63
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Is",
+        "he",
+        "alone?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.15,
+          "end": 1.23,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "alone?",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "alone",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Is",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "text": "he",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "alone?",
+          "start": 1.35,
+          "end": 1.63
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11757391598075628
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab444f481c1f770fc4b1c1cabd39caf76cd189296868cd43250793d65377222f",
+  "selected_reasons": []
+}

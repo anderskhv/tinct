@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "0c07b148422049891afb4556e529989f10ca664c09ac3088691496ad9131ce09",
+  "attempts": [
+    {
+      "asr_seconds": 0.13311780290678144,
+      "alignment_seconds": 0.0002585886977612972,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. I have sent to bid Cassio come speak with you.",
+        "hotwords": "Desdemona, I, Cassio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, I have sent to bid Cassio come speak with you.",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.05,
+              "end": 1.01,
+              "probability": 0.6571553548177084
+            },
+            {
+              "text": " I",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " have",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " sent",
+              "start": 1.73,
+              "end": 1.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.236083984375
+            },
+            {
+              "text": " bid",
+              "start": 2.07,
+              "end": 2.21,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " Cassio",
+              "start": 2.21,
+              "end": 2.67,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " come",
+              "start": 2.67,
+              "end": 2.91,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " speak",
+              "start": 2.91,
+              "end": 3.19,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " with",
+              "start": 3.19,
+              "end": 3.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 3.39,
+              "end": 3.65,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "have",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "sent",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "bid",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "raw": "Cassio",
+          "start": 2.21,
+          "end": 2.67
+        },
+        {
+          "raw": "come",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "raw": "speak",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "raw": "with",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "raw": "you.",
+          "start": 3.39,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "have",
+        "sent",
+        "to",
+        "bid",
+        "Cassio",
+        "come",
+        "speak",
+        "with",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.05,
+          "end": 1.01,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sent",
+          "start": 1.73,
+          "end": 1.93,
+          "key": "sent",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 2.07,
+          "end": 2.21,
+          "key": "bid",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Cassio",
+          "start": 2.21,
+          "end": 2.67,
+          "key": "cassio",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.67,
+          "end": 2.91,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 2.91,
+          "end": 3.19,
+          "key": "speak",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.19,
+          "end": 3.39,
+          "key": "with",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 3.39,
+          "end": 3.65,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.05,
+          "end": 1.01
+        },
+        {
+          "text": "I",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "text": "have",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "sent",
+          "start": 1.73,
+          "end": 1.93
+        },
+        {
+          "text": "to",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "bid",
+          "start": 2.07,
+          "end": 2.21
+        },
+        {
+          "text": "Cassio",
+          "start": 2.21,
+          "end": 2.67
+        },
+        {
+          "text": "come",
+          "start": 2.67,
+          "end": 2.91
+        },
+        {
+          "text": "speak",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "text": "with",
+          "start": 3.19,
+          "end": 3.39
+        },
+        {
+          "text": "you.",
+          "start": 3.39,
+          "end": 3.65
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13347977120429277
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e97c4e7541db4e90a5246c99f4c78048a856cda438dd8f604821cb316784ff02",
+  "selected_reasons": []
+}

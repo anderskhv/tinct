@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "b218dfcfc3bf5f3fcea9650baa7212039f417f0b8c5aca05023ef4bb44099d10",
+  "attempts": [
+    {
+      "asr_seconds": 0.3581918701529503,
+      "alignment_seconds": 0.0006753653287887573,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The deuce he was! You never told me that before: you always said you had no relations.\"",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The deuce he was! You never told me that before. You always said you had no relations.",
+          "start": 0.02,
+          "end": 5.02,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " deuce",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.880126953125
+            },
+            {
+              "text": " he",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " was!",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " You",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " never",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " told",
+              "start": 2.08,
+              "end": 2.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 2.3,
+              "end": 2.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " before.",
+              "start": 2.64,
+              "end": 2.98,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " You",
+              "start": 3.44,
+              "end": 3.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " always",
+              "start": 3.54,
+              "end": 3.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said",
+              "start": 3.84,
+              "end": 4.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 4.06,
+              "end": 4.18,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " had",
+              "start": 4.18,
+              "end": 4.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " no",
+              "start": 4.34,
+              "end": 4.54,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " relations.",
+              "start": 4.54,
+              "end": 5.02,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "deuce",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "he",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "was!",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "You",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "never",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "told",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "raw": "me",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "raw": "that",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "before.",
+          "start": 2.64,
+          "end": 2.98
+        },
+        {
+          "raw": "You",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "raw": "always",
+          "start": 3.54,
+          "end": 3.84
+        },
+        {
+          "raw": "said",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "raw": "you",
+          "start": 4.06,
+          "end": 4.18
+        },
+        {
+          "raw": "had",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "raw": "no",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "raw": "relations.",
+          "start": 4.54,
+          "end": 5.02
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "deuce",
+        "he",
+        "was!",
+        "You",
+        "never",
+        "told",
+        "me",
+        "that",
+        "before:",
+        "you",
+        "always",
+        "said",
+        "you",
+        "had",
+        "no",
+        "relations.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "deuce",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "deuce",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.82,
+          "end": 0.96,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was!",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "never",
+          "start": 1.9,
+          "end": 2.08,
+          "key": "never",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 2.08,
+          "end": 2.3,
+          "key": "told",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.3,
+          "end": 2.48,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.48,
+          "end": 2.64,
+          "key": "that",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "before.",
+          "start": 2.64,
+          "end": 2.98,
+          "key": "before",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.44,
+          "end": 3.54,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "always",
+          "start": 3.54,
+          "end": 3.84,
+          "key": "always",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 3.84,
+          "end": 4.06,
+          "key": "said",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.06,
+          "end": 4.18,
+          "key": "you",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.18,
+          "end": 4.34,
+          "key": "had",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 4.34,
+          "end": 4.54,
+          "key": "no",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "relations.",
+          "start": 4.54,
+          "end": 5.02,
+          "key": "relations",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "deuce",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "he",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "was!",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "text": "You",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "never",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "told",
+          "start": 2.08,
+          "end": 2.3
+        },
+        {
+          "text": "me",
+          "start": 2.3,
+          "end": 2.48
+        },
+        {
+          "text": "that",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "before:",
+          "start": 2.64,
+          "end": 2.98
+        },
+        {
+          "text": "you",
+          "start": 3.44,
+          "end": 3.54
+        },
+        {
+          "text": "always",
+          "start": 3.54,
+          "end": 3.84
+        },
+        {
+          "text": "said",
+          "start": 3.84,
+          "end": 4.06
+        },
+        {
+          "text": "you",
+          "start": 4.06,
+          "end": 4.18
+        },
+        {
+          "text": "had",
+          "start": 4.18,
+          "end": 4.34
+        },
+        {
+          "text": "no",
+          "start": 4.34,
+          "end": 4.54
+        },
+        {
+          "text": "relations.\"",
+          "start": 4.54,
+          "end": 5.02
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3591761253774166
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b4a8c965b57df10c9627ad156a9b32f6e870cbc14dc296b0800a8d177039c03",
+  "selected_reasons": []
+}

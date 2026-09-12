@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "c63aada977ee7262dfd7452da64cb95546abbba1a4fa11dee2fce5ab70ad31c4",
+  "attempts": [
+    {
+      "asr_seconds": 0.23087943717837334,
+      "alignment_seconds": 0.0002242308109998703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro, and when please you to say so",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.9765625
+            },
+            {
+              "text": " and",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " when",
+              "start": 1.55,
+              "end": 1.65,
+              "probability": 0.6201171875
+            },
+            {
+              "text": " please",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.438232421875
+            },
+            {
+              "text": " you",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.974609375
+            },
+            {
+              "text": " to",
+              "start": 2.03,
+              "end": 2.11,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " say",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " so",
+              "start": 2.29,
+              "end": 2.87,
+              "probability": 0.9775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "and",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "when",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "raw": "please",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "you",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "to",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "raw": "say",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "so",
+          "start": 2.29,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "And",
+        "when",
+        "please",
+        "you",
+        "to",
+        "say",
+        "so?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.45,
+          "end": 1.55,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 1.55,
+          "end": 1.65,
+          "key": "when",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "please",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "please",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.03,
+          "end": 2.11,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 2.11,
+          "end": 2.29,
+          "key": "say",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 2.29,
+          "end": 2.87,
+          "key": "so",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "And",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "when",
+          "start": 1.55,
+          "end": 1.65
+        },
+        {
+          "text": "please",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "you",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "to",
+          "start": 2.03,
+          "end": 2.11
+        },
+        {
+          "text": "say",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "so?",
+          "start": 2.29,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23119219578802586
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dcb31089662622c9e30af963154b42d267280c574c8d75ceb69256d04cc157e2",
+  "selected_reasons": []
+}

@@ -1,0 +1,390 @@
+{
+  "complete": true,
+  "signature": "3b8312dcf20a6108f0be25d8e4670d2cec88ac01ea35174fcf0930fa406d82db",
+  "attempts": [
+    {
+      "asr_seconds": 0.26862824195995927,
+      "alignment_seconds": 0.0005589139182120562,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is a fiction an impudent invention to vex me",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " is",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.98828125
+            },
+            {
+              "text": " a",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " fiction",
+              "start": 0.85,
+              "end": 1.19,
+              "probability": 0.99609375
+            },
+            {
+              "text": " an",
+              "start": 1.19,
+              "end": 1.75,
+              "probability": 0.1715087890625
+            },
+            {
+              "text": " impudent",
+              "start": 1.75,
+              "end": 2.27,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " invention",
+              "start": 2.27,
+              "end": 2.77,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 2.77,
+              "end": 3.01,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " vex",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.63037109375
+            },
+            {
+              "text": " me",
+              "start": 3.23,
+              "end": 3.55,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "is",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "a",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "fiction",
+          "start": 0.85,
+          "end": 1.19
+        },
+        {
+          "raw": "an",
+          "start": 1.19,
+          "end": 1.75
+        },
+        {
+          "raw": "impudent",
+          "start": 1.75,
+          "end": 2.27
+        },
+        {
+          "raw": "invention",
+          "start": 2.27,
+          "end": 2.77
+        },
+        {
+          "raw": "to",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "raw": "vex",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "me",
+          "start": 3.23,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "\"That",
+        "is",
+        "a",
+        "fiction—an",
+        "impudent",
+        "invention",
+        "to",
+        "vex",
+        "me.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          9,
+          5,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fiction",
+          "start": 0.85,
+          "end": 1.19,
+          "key": "fiction",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.19,
+          "end": 1.75,
+          "key": "an",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "impudent",
+          "start": 1.75,
+          "end": 2.27,
+          "key": "impudent",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "invention",
+          "start": 2.27,
+          "end": 2.77,
+          "key": "invention",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.77,
+          "end": 3.01,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "vex",
+          "start": 3.01,
+          "end": 3.23,
+          "key": "vex",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.23,
+          "end": 3.55,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"That",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "is",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "a",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "fiction—an",
+          "start": 0.85,
+          "end": 1.3
+        },
+        {
+          "text": "impudent",
+          "start": 1.75,
+          "end": 2.27
+        },
+        {
+          "text": "invention",
+          "start": 2.27,
+          "end": 2.77
+        },
+        {
+          "text": "to",
+          "start": 2.77,
+          "end": 3.01
+        },
+        {
+          "text": "vex",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "me.\"",
+          "start": 3.23,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.26938536297529936
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9aff99d39db12198b44fb8b852bb2840a15bedb08c0f32ed6d41b78b8ced6d09",
+  "selected_reasons": []
+}

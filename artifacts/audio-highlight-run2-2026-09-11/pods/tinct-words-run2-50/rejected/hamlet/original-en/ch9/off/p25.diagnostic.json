@@ -1,0 +1,699 @@
+{
+  "complete": true,
+  "signature": "ebae552d62ea3983a70c794fe650321447175296791332626cdbee77bd8dc328",
+  "attempts": [
+    {
+      "asr_seconds": 0.39331681467592716,
+      "alignment_seconds": 0.0005059055984020233,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet.",
+          "start": 0.05,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " Hamlet.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.75341796875
+            }
+          ]
+        },
+        {
+          "text": " Excellent, I faith, of the chameleon's dish.",
+          "start": 1.29,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Excellent,",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " I",
+              "start": 1.91,
+              "end": 1.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " faith,",
+              "start": 1.93,
+              "end": 2.21,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " of",
+              "start": 2.37,
+              "end": 2.47,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " the",
+              "start": 2.47,
+              "end": 2.61,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " chameleon's",
+              "start": 2.61,
+              "end": 3.17,
+              "probability": 0.864013671875
+            },
+            {
+              "text": " dish.",
+              "start": 3.17,
+              "end": 3.39,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " I eat the air, promise-grammed.",
+          "start": 3.91,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " I",
+              "start": 3.91,
+              "end": 3.99,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " eat",
+              "start": 3.99,
+              "end": 4.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 4.15,
+              "end": 4.33,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " air,",
+              "start": 4.33,
+              "end": 4.57,
+              "probability": 0.962890625
+            },
+            {
+              "text": " promise",
+              "start": 4.85,
+              "end": 4.97,
+              "probability": 0.84375
+            },
+            {
+              "text": "-grammed.",
+              "start": 4.97,
+              "end": 5.51,
+              "probability": 0.6812337239583334
+            }
+          ]
+        },
+        {
+          "text": " You cannot feed capons so.",
+          "start": 5.81,
+          "end": 7.27,
+          "words": [
+            {
+              "text": " You",
+              "start": 5.81,
+              "end": 5.89,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " cannot",
+              "start": 5.89,
+              "end": 6.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " feed",
+              "start": 6.15,
+              "end": 6.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " capons",
+              "start": 6.45,
+              "end": 6.97,
+              "probability": 0.4970703125
+            },
+            {
+              "text": " so.",
+              "start": 6.97,
+              "end": 7.27,
+              "probability": 0.60498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Excellent,",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 1.93
+        },
+        {
+          "raw": "faith,",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "raw": "of",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "raw": "chameleon's",
+          "start": 2.61,
+          "end": 3.17
+        },
+        {
+          "raw": "dish.",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "raw": "I",
+          "start": 3.91,
+          "end": 3.99
+        },
+        {
+          "raw": "eat",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "raw": "air,",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "raw": "promise",
+          "start": 4.85,
+          "end": 4.97
+        },
+        {
+          "raw": "-grammed.",
+          "start": 4.97,
+          "end": 5.51
+        },
+        {
+          "raw": "You",
+          "start": 5.81,
+          "end": 5.89
+        },
+        {
+          "raw": "cannot",
+          "start": 5.89,
+          "end": 6.15
+        },
+        {
+          "raw": "feed",
+          "start": 6.15,
+          "end": 6.45
+        },
+        {
+          "raw": "capons",
+          "start": 6.45,
+          "end": 6.97
+        },
+        {
+          "raw": "so.",
+          "start": 6.97,
+          "end": 7.27
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "Excellent,",
+        "i'",
+        "faith;",
+        "of",
+        "the",
+        "chameleon's",
+        "dish:",
+        "I",
+        "eat",
+        "the",
+        "air,",
+        "promise-crammed:",
+        "you",
+        "cannot",
+        "feed",
+        "capons",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          18,
+          14,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Excellent,",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "excellent",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.91,
+          "end": 1.93,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "faith,",
+          "start": 1.93,
+          "end": 2.21,
+          "key": "faith",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.37,
+          "end": 2.47,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.47,
+          "end": 2.61,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "chameleon's",
+          "start": 2.61,
+          "end": 3.17,
+          "key": "chameleons",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dish.",
+          "start": 3.17,
+          "end": 3.39,
+          "key": "dish",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.91,
+          "end": 3.99,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "eat",
+          "start": 3.99,
+          "end": 4.15,
+          "key": "eat",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.33,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "air,",
+          "start": 4.33,
+          "end": 4.57,
+          "key": "air",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "promise",
+          "start": 4.85,
+          "end": 4.97,
+          "key": "promise",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "-grammed.",
+          "start": 4.97,
+          "end": 5.51,
+          "key": "grammed",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 5.81,
+          "end": 5.89,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 5.89,
+          "end": 6.15,
+          "key": "cannot",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "feed",
+          "start": 6.15,
+          "end": 6.45,
+          "key": "feed",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "capons",
+          "start": 6.45,
+          "end": 6.97,
+          "key": "capons",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 6.97,
+          "end": 7.27,
+          "key": "so",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Excellent,",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "text": "i'",
+          "start": 1.91,
+          "end": 1.93
+        },
+        {
+          "text": "faith;",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "text": "of",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "text": "the",
+          "start": 2.47,
+          "end": 2.61
+        },
+        {
+          "text": "chameleon's",
+          "start": 2.61,
+          "end": 3.17
+        },
+        {
+          "text": "dish:",
+          "start": 3.17,
+          "end": 3.39
+        },
+        {
+          "text": "I",
+          "start": 3.91,
+          "end": 3.99
+        },
+        {
+          "text": "eat",
+          "start": 3.99,
+          "end": 4.15
+        },
+        {
+          "text": "the",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "text": "air,",
+          "start": 4.33,
+          "end": 4.57
+        },
+        {
+          "text": "promise-crammed:",
+          "start": 4.57,
+          "end": 5.19
+        },
+        {
+          "text": "you",
+          "start": 5.81,
+          "end": 5.89
+        },
+        {
+          "text": "cannot",
+          "start": 5.89,
+          "end": 6.15
+        },
+        {
+          "text": "feed",
+          "start": 6.15,
+          "end": 6.45
+        },
+        {
+          "text": "capons",
+          "start": 6.45,
+          "end": 6.97
+        },
+        {
+          "text": "so.",
+          "start": 6.97,
+          "end": 7.27
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.39400779642164707
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "68503752f349e7ccab40d7446fd1b6a06828ecddaf4b4b4b81d883e635fb1173",
+  "selected_reasons": []
+}

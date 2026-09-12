@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "fc0db84ed3c5b39630a6576e7e4143c4125531d9f5d035bd5d1defc878506e82",
+  "attempts": [
+    {
+      "asr_seconds": 0.3916065408848226,
+      "alignment_seconds": 0.0005485608708113432,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Our heralds go with him; Bring me just notice of the numbers dead On both our parts. Call yonder fellow hither.",
+        "hotwords": "Bring, On, Call"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Our heralds go with him. Bring me just notice of the numbers dead On both our parts. Call",
+          "start": 0.08,
+          "end": 5.6,
+          "words": [
+            {
+              "text": " Our",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " heralds",
+              "start": 0.54,
+              "end": 0.98,
+              "probability": 0.634033203125
+            },
+            {
+              "text": " go",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.994140625
+            },
+            {
+              "text": " with",
+              "start": 1.12,
+              "end": 1.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " Bring",
+              "start": 2.0,
+              "end": 2.06,
+              "probability": 0.98046875
+            },
+            {
+              "text": " me",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " just",
+              "start": 2.22,
+              "end": 2.42,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " notice",
+              "start": 2.42,
+              "end": 2.76,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " of",
+              "start": 2.76,
+              "end": 3.02,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.02,
+              "end": 3.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " numbers",
+              "start": 3.12,
+              "end": 3.42,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " dead",
+              "start": 3.42,
+              "end": 3.76,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " On",
+              "start": 3.76,
+              "end": 3.96,
+              "probability": 0.00030875205993652344
+            },
+            {
+              "text": " both",
+              "start": 3.96,
+              "end": 4.16,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 4.16,
+              "end": 4.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " parts.",
+              "start": 4.36,
+              "end": 4.74,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Call",
+              "start": 5.42,
+              "end": 5.6,
+              "probability": 0.96435546875
+            }
+          ]
+        },
+        {
+          "text": " yonder fellow hither.",
+          "start": 5.6,
+          "end": 6.6,
+          "words": [
+            {
+              "text": " yonder",
+              "start": 5.6,
+              "end": 6.0,
+              "probability": 0.87890625
+            },
+            {
+              "text": " fellow",
+              "start": 6.0,
+              "end": 6.3,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " hither.",
+              "start": 6.3,
+              "end": 6.6,
+              "probability": 0.8603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Our",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "heralds",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "raw": "go",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "raw": "with",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "raw": "him.",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "Bring",
+          "start": 2.0,
+          "end": 2.06
+        },
+        {
+          "raw": "me",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "just",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "raw": "notice",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "raw": "of",
+          "start": 2.76,
+          "end": 3.02
+        },
+        {
+          "raw": "the",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "raw": "numbers",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "raw": "dead",
+          "start": 3.42,
+          "end": 3.76
+        },
+        {
+          "raw": "On",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "raw": "both",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "raw": "our",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "raw": "parts.",
+          "start": 4.36,
+          "end": 4.74
+        },
+        {
+          "raw": "Call",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "raw": "yonder",
+          "start": 5.6,
+          "end": 6.0
+        },
+        {
+          "raw": "fellow",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "raw": "hither.",
+          "start": 6.3,
+          "end": 6.6
+        }
+      ],
+      "expected_tokens": [
+        "Our",
+        "heralds",
+        "go",
+        "with",
+        "him;",
+        "Bring",
+        "me",
+        "just",
+        "notice",
+        "of",
+        "the",
+        "numbers",
+        "dead",
+        "On",
+        "both",
+        "our",
+        "parts.",
+        "Call",
+        "yonder",
+        "fellow",
+        "hither."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Our",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "our",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heralds",
+          "start": 0.54,
+          "end": 0.98,
+          "key": "heralds",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 0.98,
+          "end": 1.12,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.12,
+          "end": 1.3,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Bring",
+          "start": 2.0,
+          "end": 2.06,
+          "key": "bring",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.06,
+          "end": 2.22,
+          "key": "me",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.22,
+          "end": 2.42,
+          "key": "just",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "notice",
+          "start": 2.42,
+          "end": 2.76,
+          "key": "notice",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.76,
+          "end": 3.02,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.02,
+          "end": 3.12,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "numbers",
+          "start": 3.12,
+          "end": 3.42,
+          "key": "numbers",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "dead",
+          "start": 3.42,
+          "end": 3.76,
+          "key": "dead",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "On",
+          "start": 3.76,
+          "end": 3.96,
+          "key": "on",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 3.96,
+          "end": 4.16,
+          "key": "both",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "our",
+          "start": 4.16,
+          "end": 4.36,
+          "key": "our",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "parts.",
+          "start": 4.36,
+          "end": 4.74,
+          "key": "parts",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Call",
+          "start": 5.42,
+          "end": 5.6,
+          "key": "call",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "yonder",
+          "start": 5.6,
+          "end": 6.0,
+          "key": "yonder",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 6.0,
+          "end": 6.3,
+          "key": "fellow",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "hither.",
+          "start": 6.3,
+          "end": 6.6,
+          "key": "hither",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Our",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "heralds",
+          "start": 0.54,
+          "end": 0.98
+        },
+        {
+          "text": "go",
+          "start": 0.98,
+          "end": 1.12
+        },
+        {
+          "text": "with",
+          "start": 1.12,
+          "end": 1.3
+        },
+        {
+          "text": "him;",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "Bring",
+          "start": 2.0,
+          "end": 2.06
+        },
+        {
+          "text": "me",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "just",
+          "start": 2.22,
+          "end": 2.42
+        },
+        {
+          "text": "notice",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "text": "of",
+          "start": 2.76,
+          "end": 3.02
+        },
+        {
+          "text": "the",
+          "start": 3.02,
+          "end": 3.12
+        },
+        {
+          "text": "numbers",
+          "start": 3.12,
+          "end": 3.42
+        },
+        {
+          "text": "dead",
+          "start": 3.42,
+          "end": 3.76
+        },
+        {
+          "text": "On",
+          "start": 3.76,
+          "end": 3.96
+        },
+        {
+          "text": "both",
+          "start": 3.96,
+          "end": 4.16
+        },
+        {
+          "text": "our",
+          "start": 4.16,
+          "end": 4.36
+        },
+        {
+          "text": "parts.",
+          "start": 4.36,
+          "end": 4.74
+        },
+        {
+          "text": "Call",
+          "start": 5.42,
+          "end": 5.6
+        },
+        {
+          "text": "yonder",
+          "start": 5.6,
+          "end": 6.0
+        },
+        {
+          "text": "fellow",
+          "start": 6.0,
+          "end": 6.3
+        },
+        {
+          "text": "hither.",
+          "start": 6.3,
+          "end": 6.6
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39241679199039936
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4e8ffc9a7023c38742cd0cf5626b273b8133f81d5bfdaf9f8088eb04085834e1",
+  "selected_reasons": []
+}

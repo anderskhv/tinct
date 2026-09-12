@@ -1,0 +1,412 @@
+{
+  "complete": true,
+  "signature": "e82f1a113945029984abbdc442c8fd7a1e1fe61065c32b5cb0dad1320a766e58",
+  "attempts": [
+    {
+      "asr_seconds": 0.22546566277742386,
+      "alignment_seconds": 0.000522129237651825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Clown not so neither, but I am resolved on two points",
+          "start": 0.08,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " Clown",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " not",
+              "start": 0.7,
+              "end": 1.36,
+              "probability": 0.172119140625
+            },
+            {
+              "text": " so",
+              "start": 1.36,
+              "end": 1.6,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " neither,",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " but",
+              "start": 1.82,
+              "end": 2.12,
+              "probability": 1.0
+            },
+            {
+              "text": " I",
+              "start": 2.12,
+              "end": 2.22,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " am",
+              "start": 2.22,
+              "end": 2.3,
+              "probability": 0.9921875
+            },
+            {
+              "text": " resolved",
+              "start": 2.3,
+              "end": 2.66,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " two",
+              "start": 2.88,
+              "end": 3.08,
+              "probability": 0.96875
+            },
+            {
+              "text": " points",
+              "start": 3.08,
+              "end": 3.5,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 1.36
+        },
+        {
+          "raw": "so",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "raw": "neither,",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "but",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "raw": "am",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "raw": "resolved",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "raw": "on",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "two",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "raw": "points",
+          "start": 3.08,
+          "end": 3.5
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Not",
+        "so,",
+        "neither,",
+        "but",
+        "I",
+        "am",
+        "resolved",
+        "on",
+        "two",
+        "points."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.7,
+          "end": 1.36,
+          "key": "not",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.36,
+          "end": 1.6,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "neither,",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "neither",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 1.82,
+          "end": 2.12,
+          "key": "but",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.12,
+          "end": 2.22,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 2.22,
+          "end": 2.3,
+          "key": "am",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "resolved",
+          "start": 2.3,
+          "end": 2.66,
+          "key": "resolved",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.66,
+          "end": 2.88,
+          "key": "on",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 2.88,
+          "end": 3.08,
+          "key": "two",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "points",
+          "start": 3.08,
+          "end": 3.5,
+          "key": "points",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Not",
+          "start": 0.7,
+          "end": 1.36
+        },
+        {
+          "text": "so,",
+          "start": 1.36,
+          "end": 1.6
+        },
+        {
+          "text": "neither,",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "but",
+          "start": 1.82,
+          "end": 2.12
+        },
+        {
+          "text": "I",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "text": "am",
+          "start": 2.22,
+          "end": 2.3
+        },
+        {
+          "text": "resolved",
+          "start": 2.3,
+          "end": 2.66
+        },
+        {
+          "text": "on",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "two",
+          "start": 2.88,
+          "end": 3.08
+        },
+        {
+          "text": "points.",
+          "start": 3.08,
+          "end": 3.5
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2261953353881836
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5a3d14617530238529ef16ad2cf8b2b0ed10c0fdc769f122e29d44369d2532c7",
+  "selected_reasons": []
+}

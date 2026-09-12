@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "9381ba2ad9f01614f3a2cfdeac911739118e924b98acdb633d566a9597b54cc9",
+  "attempts": [
+    {
+      "asr_seconds": 0.19354311795905232,
+      "alignment_seconds": 0.00034312903881073,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King Henry. Madame my interpreter, what says she?",
+        "hotwords": "King, Henry, Madame"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King Henry, Madame my interpreter, what says she?",
+          "start": 0.02,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " King",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.7998046875
+            },
+            {
+              "text": " Henry,",
+              "start": 0.54,
+              "end": 0.92,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " Madame",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.130859375
+            },
+            {
+              "text": " my",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.58349609375
+            },
+            {
+              "text": " interpreter,",
+              "start": 1.86,
+              "end": 2.24,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " what",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " says",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " she?",
+              "start": 2.74,
+              "end": 3.0,
+              "probability": 0.986328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "raw": "Madame",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "my",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "interpreter,",
+          "start": 1.86,
+          "end": 2.24
+        },
+        {
+          "raw": "what",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "says",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "she?",
+          "start": 2.74,
+          "end": 3.0
+        }
+      ],
+      "expected_tokens": [
+        "King",
+        "Henry.",
+        "Madame",
+        "my",
+        "interpreter,",
+        "what",
+        "says",
+        "she?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Henry,",
+          "start": 0.54,
+          "end": 0.92,
+          "key": "henry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Madame",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "madame",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.66,
+          "end": 1.86,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "interpreter,",
+          "start": 1.86,
+          "end": 2.24,
+          "key": "interpreter",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.44,
+          "end": 2.52,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "says",
+          "start": 2.52,
+          "end": 2.74,
+          "key": "says",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she?",
+          "start": 2.74,
+          "end": 3.0,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "Henry.",
+          "start": 0.54,
+          "end": 0.92
+        },
+        {
+          "text": "Madame",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "my",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "interpreter,",
+          "start": 1.86,
+          "end": 2.24
+        },
+        {
+          "text": "what",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "says",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "she?",
+          "start": 2.74,
+          "end": 3.0
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19401123886927962
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e6e73d3e4efe18a113cedc73e260b76360bcb9b17d085da951feebcea411ef3",
+  "selected_reasons": []
+}

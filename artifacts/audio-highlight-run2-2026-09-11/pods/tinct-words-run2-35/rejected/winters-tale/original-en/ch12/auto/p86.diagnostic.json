@@ -1,0 +1,1839 @@
+{
+  "complete": true,
+  "signature": "fd311f566d9f5e85ec3ba46aae8fbe482d7029a4ac63e59b493347e163e08df6",
+  "attempts": [
+    {
+      "asr_seconds": 0.3483149353414774,
+      "alignment_seconds": 0.0007404182106256485,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Autolycus. I can bear my part; you must know 'tis my occupation: have at it with you.",
+        "hotwords": "Autolycus, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Autolycus, I can bear my part. You must know, tease my occupation. Have at it with you.",
+          "start": 0.61,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Autolycus,",
+              "start": 0.61,
+              "end": 1.03,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.71,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " can",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bear",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " my",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " part.",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " You",
+              "start": 2.71,
+              "end": 2.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " must",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know,",
+              "start": 2.91,
+              "end": 3.19,
+              "probability": 0.859375
+            },
+            {
+              "text": " tease",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " my",
+              "start": 3.47,
+              "end": 3.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " occupation.",
+              "start": 3.73,
+              "end": 4.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Have",
+              "start": 4.79,
+              "end": 4.95,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " at",
+              "start": 4.95,
+              "end": 5.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 5.13,
+              "end": 5.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 5.25,
+              "end": 5.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 5.37,
+              "end": 5.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "raw": "can",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "bear",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "my",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "part.",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "You",
+          "start": 2.71,
+          "end": 2.77
+        },
+        {
+          "raw": "must",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "know,",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "raw": "tease",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "my",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "raw": "occupation.",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "raw": "Have",
+          "start": 4.79,
+          "end": 4.95
+        },
+        {
+          "raw": "at",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "raw": "it",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "raw": "with",
+          "start": 5.25,
+          "end": 5.37
+        },
+        {
+          "raw": "you.",
+          "start": 5.37,
+          "end": 5.63
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "I",
+        "can",
+        "bear",
+        "my",
+        "part;",
+        "you",
+        "must",
+        "know",
+        "'tis",
+        "my",
+        "occupation:",
+        "have",
+        "at",
+        "it",
+        "with",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          17,
+          10,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.61,
+          "end": 1.03,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "bear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "part.",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "part",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.71,
+          "end": 2.77,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "must",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 2.91,
+          "end": 3.19,
+          "key": "know",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "tease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.47,
+          "end": 3.73,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "occupation.",
+          "start": 3.73,
+          "end": 4.23,
+          "key": "occupation",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 4.79,
+          "end": 4.95,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.95,
+          "end": 5.13,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.13,
+          "end": 5.25,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.25,
+          "end": 5.37,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.37,
+          "end": 5.63,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "text": "I",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "can",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "bear",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "my",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "part;",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "you",
+          "start": 2.71,
+          "end": 2.77
+        },
+        {
+          "text": "must",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "know",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "text": "'tis",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "text": "my",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "text": "occupation:",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "text": "have",
+          "start": 4.79,
+          "end": 4.95
+        },
+        {
+          "text": "at",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "text": "it",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "text": "with",
+          "start": 5.25,
+          "end": 5.37
+        },
+        {
+          "text": "you.",
+          "start": 5.37,
+          "end": 5.63
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.34934469126164913
+    },
+    {
+      "asr_seconds": 0.3040781859308481,
+      "alignment_seconds": 0.0006682835519313812,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Autolycus, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " can bear my part. You must know, tease my occupation. Have at it with you.",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " can",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 1.33514404296875e-05
+            },
+            {
+              "text": " bear",
+              "start": 0.95,
+              "end": 2.01,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " my",
+              "start": 2.01,
+              "end": 2.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " part.",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " You",
+              "start": 2.75,
+              "end": 2.77,
+              "probability": 0.966796875
+            },
+            {
+              "text": " must",
+              "start": 2.77,
+              "end": 2.89,
+              "probability": 0.970703125
+            },
+            {
+              "text": " know,",
+              "start": 2.89,
+              "end": 3.19,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " tease",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.947265625
+            },
+            {
+              "text": " my",
+              "start": 3.47,
+              "end": 3.73,
+              "probability": 0.984375
+            },
+            {
+              "text": " occupation.",
+              "start": 3.73,
+              "end": 4.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Have",
+              "start": 4.77,
+              "end": 4.95,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " at",
+              "start": 4.95,
+              "end": 5.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it",
+              "start": 5.13,
+              "end": 5.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 5.25,
+              "end": 5.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you.",
+              "start": 5.35,
+              "end": 5.61,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "can",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "bear",
+          "start": 0.95,
+          "end": 2.01
+        },
+        {
+          "raw": "my",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "raw": "part.",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "You",
+          "start": 2.75,
+          "end": 2.77
+        },
+        {
+          "raw": "must",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "raw": "know,",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "raw": "tease",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "my",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "raw": "occupation.",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "raw": "Have",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "raw": "at",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "raw": "it",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "raw": "with",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "raw": "you.",
+          "start": 5.35,
+          "end": 5.61
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "I",
+        "can",
+        "bear",
+        "my",
+        "part;",
+        "you",
+        "must",
+        "know",
+        "'tis",
+        "my",
+        "occupation:",
+        "have",
+        "at",
+        "it",
+        "with",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          9,
+          0,
+          7
+        ],
+        [
+          "replace",
+          9,
+          10,
+          7,
+          8
+        ],
+        [
+          "equal",
+          10,
+          17,
+          8,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          9,
+          10,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "can",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "can",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 0.95,
+          "end": 2.01,
+          "key": "bear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.01,
+          "end": 2.23,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "part.",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "part",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.75,
+          "end": 2.77,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.77,
+          "end": 2.89,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 2.89,
+          "end": 3.19,
+          "key": "know",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "tease",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.47,
+          "end": 3.73,
+          "key": "my",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "occupation.",
+          "start": 3.73,
+          "end": 4.23,
+          "key": "occupation",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 4.77,
+          "end": 4.95,
+          "key": "have",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.95,
+          "end": 5.13,
+          "key": "at",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.13,
+          "end": 5.25,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.25,
+          "end": 5.35,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.35,
+          "end": 5.61,
+          "key": "you",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "I",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "can",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "bear",
+          "start": 0.95,
+          "end": 2.01
+        },
+        {
+          "text": "my",
+          "start": 2.01,
+          "end": 2.23
+        },
+        {
+          "text": "part;",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "you",
+          "start": 2.75,
+          "end": 2.77
+        },
+        {
+          "text": "must",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "text": "know",
+          "start": 2.89,
+          "end": 3.19
+        },
+        {
+          "text": "'tis",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "text": "my",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "text": "occupation:",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "text": "have",
+          "start": 4.77,
+          "end": 4.95
+        },
+        {
+          "text": "at",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "text": "it",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "text": "with",
+          "start": 5.25,
+          "end": 5.35
+        },
+        {
+          "text": "you.",
+          "start": 5.35,
+          "end": 5.61
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3049838487058878
+    },
+    {
+      "asr_seconds": 0.3009074665606022,
+      "alignment_seconds": 0.0006547756493091583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Autolycus, I can bear my part. You must know, tease my occupation. Have at it with you.",
+          "start": 0.61,
+          "end": 5.63,
+          "words": [
+            {
+              "text": " Autolycus,",
+              "start": 0.61,
+              "end": 1.03,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " I",
+              "start": 1.47,
+              "end": 1.71,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " can",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bear",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " my",
+              "start": 2.03,
+              "end": 2.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " part.",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " You",
+              "start": 2.71,
+              "end": 2.77,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " must",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know,",
+              "start": 2.91,
+              "end": 3.19,
+              "probability": 0.859375
+            },
+            {
+              "text": " tease",
+              "start": 3.35,
+              "end": 3.47,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " my",
+              "start": 3.47,
+              "end": 3.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " occupation.",
+              "start": 3.73,
+              "end": 4.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Have",
+              "start": 4.79,
+              "end": 4.95,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " at",
+              "start": 4.95,
+              "end": 5.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it",
+              "start": 5.13,
+              "end": 5.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 5.25,
+              "end": 5.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you.",
+              "start": 5.37,
+              "end": 5.63,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "raw": "can",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "bear",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "my",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "raw": "part.",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "You",
+          "start": 2.71,
+          "end": 2.77
+        },
+        {
+          "raw": "must",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "know,",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "raw": "tease",
+          "start": 3.35,
+          "end": 3.47
+        },
+        {
+          "raw": "my",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "raw": "occupation.",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "raw": "Have",
+          "start": 4.79,
+          "end": 4.95
+        },
+        {
+          "raw": "at",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "raw": "it",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "raw": "with",
+          "start": 5.25,
+          "end": 5.37
+        },
+        {
+          "raw": "you.",
+          "start": 5.37,
+          "end": 5.63
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "I",
+        "can",
+        "bear",
+        "my",
+        "part;",
+        "you",
+        "must",
+        "know",
+        "'tis",
+        "my",
+        "occupation:",
+        "have",
+        "at",
+        "it",
+        "with",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          17,
+          10,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.61,
+          "end": 1.03,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.47,
+          "end": 1.71,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 1.85,
+          "end": 2.03,
+          "key": "bear",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.03,
+          "end": 2.23,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "part.",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "part",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 2.71,
+          "end": 2.77,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "must",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 2.91,
+          "end": 3.19,
+          "key": "know",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tease",
+          "start": 3.35,
+          "end": 3.47,
+          "key": "tease",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.47,
+          "end": 3.73,
+          "key": "my",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "occupation.",
+          "start": 3.73,
+          "end": 4.23,
+          "key": "occupation",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 4.79,
+          "end": 4.95,
+          "key": "have",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 4.95,
+          "end": 5.13,
+          "key": "at",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.13,
+          "end": 5.25,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 5.25,
+          "end": 5.37,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.37,
+          "end": 5.63,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.61,
+          "end": 1.03
+        },
+        {
+          "text": "I",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "can",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "bear",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "my",
+          "start": 2.03,
+          "end": 2.23
+        },
+        {
+          "text": "part;",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "you",
+          "start": 2.71,
+          "end": 2.77
+        },
+        {
+          "text": "must",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "know",
+          "start": 2.91,
+          "end": 3.19
+        },
+        {
+          "text": "'tis",
+          "start": 3.19,
+          "end": 3.33
+        },
+        {
+          "text": "my",
+          "start": 3.47,
+          "end": 3.73
+        },
+        {
+          "text": "occupation:",
+          "start": 3.73,
+          "end": 4.23
+        },
+        {
+          "text": "have",
+          "start": 4.79,
+          "end": 4.95
+        },
+        {
+          "text": "at",
+          "start": 4.95,
+          "end": 5.13
+        },
+        {
+          "text": "it",
+          "start": 5.13,
+          "end": 5.25
+        },
+        {
+          "text": "with",
+          "start": 5.25,
+          "end": 5.37
+        },
+        {
+          "text": "you.",
+          "start": 5.37,
+          "end": 5.63
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.3018230516463518
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a29bfd03e6914c36fe0af213e41bd62cb343df9c4e790de742cc589144085ccc",
+  "selected_reasons": []
+}

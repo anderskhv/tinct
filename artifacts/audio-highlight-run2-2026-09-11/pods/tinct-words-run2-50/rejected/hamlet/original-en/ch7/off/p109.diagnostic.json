@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "signature": "3bfc30155bfe5926e704649803347cdc54582b4d142583699cb26e1fb0421ffd",
+  "attempts": [
+    {
+      "asr_seconds": 0.3695553373545408,
+      "alignment_seconds": 0.0005132928490638733,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Rosencrantz, truly, and I hold ambition of so airy and light a quality that it is but",
+          "start": 1.17,
+          "end": 5.89,
+          "words": [
+            {
+              "text": " Rosencrantz,",
+              "start": 1.17,
+              "end": 1.65,
+              "probability": 0.6567230224609375
+            },
+            {
+              "text": " truly,",
+              "start": 1.83,
+              "end": 2.25,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " and",
+              "start": 2.73,
+              "end": 2.79,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " I",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hold",
+              "start": 2.91,
+              "end": 3.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ambition",
+              "start": 3.09,
+              "end": 3.49,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 3.49,
+              "end": 3.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " airy",
+              "start": 3.99,
+              "end": 4.41,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " and",
+              "start": 4.41,
+              "end": 4.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " light",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " a",
+              "start": 4.71,
+              "end": 4.83,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " quality",
+              "start": 4.83,
+              "end": 5.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 5.15,
+              "end": 5.39,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " it",
+              "start": 5.39,
+              "end": 5.49,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " is",
+              "start": 5.49,
+              "end": 5.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 5.67,
+              "end": 5.89,
+              "probability": 0.96630859375
+            }
+          ]
+        },
+        {
+          "text": " a shadow's shadow.",
+          "start": 5.89,
+          "end": 6.77,
+          "words": [
+            {
+              "text": " a",
+              "start": 5.89,
+              "end": 6.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " shadow's",
+              "start": 6.05,
+              "end": 6.49,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " shadow.",
+              "start": 6.49,
+              "end": 6.77,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "raw": "truly,",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.79
+        },
+        {
+          "raw": "I",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "hold",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "raw": "ambition",
+          "start": 3.09,
+          "end": 3.49
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.73
+        },
+        {
+          "raw": "so",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "raw": "airy",
+          "start": 3.99,
+          "end": 4.41
+        },
+        {
+          "raw": "and",
+          "start": 4.41,
+          "end": 4.53
+        },
+        {
+          "raw": "light",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "a",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "raw": "quality",
+          "start": 4.83,
+          "end": 5.15
+        },
+        {
+          "raw": "that",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "raw": "it",
+          "start": 5.39,
+          "end": 5.49
+        },
+        {
+          "raw": "is",
+          "start": 5.49,
+          "end": 5.67
+        },
+        {
+          "raw": "but",
+          "start": 5.67,
+          "end": 5.89
+        },
+        {
+          "raw": "a",
+          "start": 5.89,
+          "end": 6.05
+        },
+        {
+          "raw": "shadow's",
+          "start": 6.05,
+          "end": 6.49
+        },
+        {
+          "raw": "shadow.",
+          "start": 6.49,
+          "end": 6.77
+        }
+      ],
+      "expected_tokens": [
+        "Rosencrantz.",
+        "Truly,",
+        "and",
+        "I",
+        "hold",
+        "ambition",
+        "of",
+        "so",
+        "airy",
+        "and",
+        "light",
+        "a",
+        "quality",
+        "that",
+        "it",
+        "is",
+        "but",
+        "a",
+        "shadow's",
+        "shadow."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Rosencrantz,",
+          "start": 1.17,
+          "end": 1.65,
+          "key": "rosencrantz",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "truly,",
+          "start": 1.83,
+          "end": 2.25,
+          "key": "truly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.73,
+          "end": 2.79,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.79,
+          "end": 2.91,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hold",
+          "start": 2.91,
+          "end": 3.09,
+          "key": "hold",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ambition",
+          "start": 3.09,
+          "end": 3.49,
+          "key": "ambition",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.73,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 3.73,
+          "end": 3.99,
+          "key": "so",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "airy",
+          "start": 3.99,
+          "end": 4.41,
+          "key": "airy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.41,
+          "end": 4.53,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 4.53,
+          "end": 4.71,
+          "key": "light",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.71,
+          "end": 4.83,
+          "key": "a",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "quality",
+          "start": 4.83,
+          "end": 5.15,
+          "key": "quality",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.15,
+          "end": 5.39,
+          "key": "that",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 5.39,
+          "end": 5.49,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.49,
+          "end": 5.67,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 5.67,
+          "end": 5.89,
+          "key": "but",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.89,
+          "end": 6.05,
+          "key": "a",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "shadow's",
+          "start": 6.05,
+          "end": 6.49,
+          "key": "shadows",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "shadow.",
+          "start": 6.49,
+          "end": 6.77,
+          "key": "shadow",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Rosencrantz.",
+          "start": 1.17,
+          "end": 1.65
+        },
+        {
+          "text": "Truly,",
+          "start": 1.83,
+          "end": 2.25
+        },
+        {
+          "text": "and",
+          "start": 2.73,
+          "end": 2.79
+        },
+        {
+          "text": "I",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "hold",
+          "start": 2.91,
+          "end": 3.09
+        },
+        {
+          "text": "ambition",
+          "start": 3.09,
+          "end": 3.49
+        },
+        {
+          "text": "of",
+          "start": 3.49,
+          "end": 3.73
+        },
+        {
+          "text": "so",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "text": "airy",
+          "start": 3.99,
+          "end": 4.41
+        },
+        {
+          "text": "and",
+          "start": 4.41,
+          "end": 4.53
+        },
+        {
+          "text": "light",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "a",
+          "start": 4.71,
+          "end": 4.83
+        },
+        {
+          "text": "quality",
+          "start": 4.83,
+          "end": 5.15
+        },
+        {
+          "text": "that",
+          "start": 5.15,
+          "end": 5.39
+        },
+        {
+          "text": "it",
+          "start": 5.39,
+          "end": 5.49
+        },
+        {
+          "text": "is",
+          "start": 5.49,
+          "end": 5.67
+        },
+        {
+          "text": "but",
+          "start": 5.67,
+          "end": 5.89
+        },
+        {
+          "text": "a",
+          "start": 5.89,
+          "end": 6.05
+        },
+        {
+          "text": "shadow's",
+          "start": 6.05,
+          "end": 6.49
+        },
+        {
+          "text": "shadow.",
+          "start": 6.49,
+          "end": 6.77
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37033240497112274
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e581832047c9cf7c1056110a96039f36d5e12cd3a107f5a8b09c38529a46337",
+  "selected_reasons": []
+}

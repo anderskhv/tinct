@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "0cbe52f2c731c3d584a937a9ad991c963356f69657e2527e4696a79610bbe54f",
+  "attempts": [
+    {
+      "asr_seconds": 0.17225451860576868,
+      "alignment_seconds": 0.0003286488354206085,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Brutus. Why com'st thou?",
+        "hotwords": "Brutus, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Brutus, Why com'st thou?",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Brutus,",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.981689453125
+            },
+            {
+              "text": " Why",
+              "start": 1.17,
+              "end": 1.27,
+              "probability": 0.05267333984375
+            },
+            {
+              "text": " com'st",
+              "start": 1.27,
+              "end": 1.63,
+              "probability": 0.4404296875
+            },
+            {
+              "text": " thou?",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.1988525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "Why",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "raw": "com'st",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "raw": "thou?",
+          "start": 1.63,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Why",
+        "com'st",
+        "thou?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus,",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Why",
+          "start": 1.17,
+          "end": 1.27,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "com'st",
+          "start": 1.27,
+          "end": 1.63,
+          "key": "comst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou?",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "Why",
+          "start": 1.17,
+          "end": 1.27
+        },
+        {
+          "text": "com'st",
+          "start": 1.27,
+          "end": 1.63
+        },
+        {
+          "text": "thou?",
+          "start": 1.63,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17270846012979746
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "65f05dd434294bf46dec865c3e8e5f3b924837f877bf098d967b333accc1acd4",
+  "selected_reasons": []
+}

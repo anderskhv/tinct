@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "72f9311f6db7c578c6f3dbcdd3cc538fde6fd2aedd5952e86d384a1b9a2b046c",
+  "attempts": [
+    {
+      "asr_seconds": 0.16111873695626855,
+      "alignment_seconds": 0.0001693693920969963,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. I cannot speak of this. Come now, your promise.",
+        "hotwords": "Desdemona, I, Come"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, I cannot speak of this. Come now, your promise.",
+          "start": 0.51,
+          "end": 3.43,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.51,
+              "end": 0.97,
+              "probability": 0.6636199951171875
+            },
+            {
+              "text": " I",
+              "start": 1.25,
+              "end": 1.31,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cannot",
+              "start": 1.31,
+              "end": 1.47,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " speak",
+              "start": 1.47,
+              "end": 1.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this.",
+              "start": 1.99,
+              "end": 2.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Come",
+              "start": 2.67,
+              "end": 2.73,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " now,",
+              "start": 2.73,
+              "end": 2.95,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " your",
+              "start": 3.03,
+              "end": 3.11,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " promise.",
+              "start": 3.11,
+              "end": 3.43,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.51,
+          "end": 0.97
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.31
+        },
+        {
+          "raw": "cannot",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "raw": "speak",
+          "start": 1.47,
+          "end": 1.83
+        },
+        {
+          "raw": "of",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "this.",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "raw": "Come",
+          "start": 2.67,
+          "end": 2.73
+        },
+        {
+          "raw": "now,",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "raw": "your",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "raw": "promise.",
+          "start": 3.11,
+          "end": 3.43
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "I",
+        "cannot",
+        "speak",
+        "of",
+        "this.",
+        "Come",
+        "now,",
+        "your",
+        "promise."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.51,
+          "end": 0.97,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.25,
+          "end": 1.31,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 1.31,
+          "end": 1.47,
+          "key": "cannot",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 1.47,
+          "end": 1.83,
+          "key": "speak",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 1.99,
+          "end": 2.23,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Come",
+          "start": 2.67,
+          "end": 2.73,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 2.73,
+          "end": 2.95,
+          "key": "now",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.03,
+          "end": 3.11,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "promise.",
+          "start": 3.11,
+          "end": 3.43,
+          "key": "promise",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.51,
+          "end": 0.97
+        },
+        {
+          "text": "I",
+          "start": 1.25,
+          "end": 1.31
+        },
+        {
+          "text": "cannot",
+          "start": 1.31,
+          "end": 1.47
+        },
+        {
+          "text": "speak",
+          "start": 1.47,
+          "end": 1.83
+        },
+        {
+          "text": "of",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "this.",
+          "start": 1.99,
+          "end": 2.23
+        },
+        {
+          "text": "Come",
+          "start": 2.67,
+          "end": 2.73
+        },
+        {
+          "text": "now,",
+          "start": 2.73,
+          "end": 2.95
+        },
+        {
+          "text": "your",
+          "start": 3.03,
+          "end": 3.11
+        },
+        {
+          "text": "promise.",
+          "start": 3.11,
+          "end": 3.43
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16135268611833453
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ab3b240babf9b05e4f7ee1bfafd658979d433b72d31a15b88aead36197fb0b50",
+  "selected_reasons": []
+}

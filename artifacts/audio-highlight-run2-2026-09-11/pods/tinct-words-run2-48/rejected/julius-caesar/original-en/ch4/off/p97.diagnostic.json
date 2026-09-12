@@ -1,0 +1,207 @@
+{
+  "complete": true,
+  "signature": "6d9412d461664a5cf08c4cdeb5ad5678832d35e9c82b0849e88462e0150d946c",
+  "attempts": [
+    {
+      "asr_seconds": 0.1290046749636531,
+      "alignment_seconds": 0.00016435235738754272,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Lucius, who's that Knox?",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " Lucius,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.888671875
+            },
+            {
+              "text": " who's",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.948974609375
+            },
+            {
+              "text": " that",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Knox?",
+              "start": 1.4,
+              "end": 1.62,
+              "probability": 0.50439453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lucius,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "who's",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "Knox?",
+          "start": 1.4,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "Lucius,",
+        "who's",
+        "that",
+        "knocks?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lucius,",
+          "start": 0.02,
+          "end": 0.72,
+          "key": "lucius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who's",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "whos",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Knox?",
+          "start": 1.4,
+          "end": 1.62,
+          "key": "knox",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lucius,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "who's",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "that",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "knocks?",
+          "start": 1.4,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.12922462448477745
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eea1cfc6052db62b1d15bc4ff4d0368a89291a06117b809e5f21e048547f26b4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

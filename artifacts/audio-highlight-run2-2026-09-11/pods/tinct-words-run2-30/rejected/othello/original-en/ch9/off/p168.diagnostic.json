@@ -1,0 +1,187 @@
+{
+  "complete": true,
+  "signature": "f596b9f34b4c93d0d418cde0319c5589368a89f4b501135c580657254ec85a0f",
+  "attempts": [
+    {
+      "asr_seconds": 0.09229574911296368,
+      "alignment_seconds": 0.00014935992658138275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " LEGO, yepi content",
+          "start": 0.05,
+          "end": 1.79,
+          "words": [
+            {
+              "text": " LEGO,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.1527099609375
+            },
+            {
+              "text": " yepi",
+              "start": 1.19,
+              "end": 1.43,
+              "probability": 0.560302734375
+            },
+            {
+              "text": " content",
+              "start": 1.43,
+              "end": 1.79,
+              "probability": 0.89404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "LEGO,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "yepi",
+          "start": 1.19,
+          "end": 1.43
+        },
+        {
+          "raw": "content",
+          "start": 1.43,
+          "end": 1.79
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Yet",
+        "be",
+        "content."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ],
+        [
+          "equal",
+          3,
+          4,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "LEGO,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "lego",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "yepi",
+          "start": 1.19,
+          "end": 1.43,
+          "key": "yepi",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "content",
+          "start": 1.43,
+          "end": 1.79,
+          "key": "content",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.0,
+          "end": 0.715
+        },
+        {
+          "text": "Yet",
+          "start": 0.715,
+          "end": 1.073
+        },
+        {
+          "text": "be",
+          "start": 1.073,
+          "end": 1.252
+        },
+        {
+          "text": "content.",
+          "start": 1.43,
+          "end": 1.79
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09249160811305046
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "470a0950f4eaa0a3f926a381b3ab35c7f392bcc7c53a76a6074241dac45a9623",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

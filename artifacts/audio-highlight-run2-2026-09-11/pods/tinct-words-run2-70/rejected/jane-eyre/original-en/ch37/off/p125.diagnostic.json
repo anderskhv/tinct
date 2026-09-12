@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "076ad51c02b9e2efb9f1df07ff60d038a1d9c0882b4eb8758c48bc8f7f2841b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.23197708721272647,
+      "alignment_seconds": 0.00042534107342362404,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " St. John was only 29, sir.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " St.",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.51953125
+            },
+            {
+              "text": " John",
+              "start": 0.8,
+              "end": 0.8,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " was",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " only",
+              "start": 0.96,
+              "end": 1.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " 29,",
+              "start": 1.24,
+              "end": 1.7,
+              "probability": 0.78125
+            },
+            {
+              "text": " sir.",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.86279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "St.",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "John",
+          "start": 0.8,
+          "end": 0.8
+        },
+        {
+          "raw": "was",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "only",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "raw": "29,",
+          "start": 1.24,
+          "end": 1.7
+        },
+        {
+          "raw": "sir.",
+          "start": 1.88,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "\"St",
+        "John",
+        "was",
+        "only",
+        "twenty-nine,",
+        "sir.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "St.",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "st",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 0.8,
+          "end": 0.8,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "was",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "only",
+          "start": 0.96,
+          "end": 1.24,
+          "key": "only",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "29,",
+          "start": 1.24,
+          "end": 1.7,
+          "key": "twentynine",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 1.88,
+          "end": 2.0,
+          "key": "sir",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"St",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "John",
+          "start": 0.8,
+          "end": 0.8
+        },
+        {
+          "text": "was",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "only",
+          "start": 0.96,
+          "end": 1.24
+        },
+        {
+          "text": "twenty-nine,",
+          "start": 1.24,
+          "end": 1.7
+        },
+        {
+          "text": "sir.\"",
+          "start": 1.88,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23254613811150193
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f0dd5644b97a6496342bd6f31a2c77fa2c35b58326953d2b10077b6ec42ef981",
+  "selected_reasons": []
+}

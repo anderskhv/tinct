@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "6de43423af2d7447b5244d700ec68051f97d72dc2568785efccc3ad09e73d3ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.1330939419567585,
+      "alignment_seconds": 0.0002954453229904175,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " How now, Malvolio.",
+          "start": 0.08,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.87060546875
+            },
+            {
+              "text": " now,",
+              "start": 0.54,
+              "end": 0.72,
+              "probability": 0.880859375
+            },
+            {
+              "text": " Malvolio.",
+              "start": 0.8,
+              "end": 1.28,
+              "probability": 0.8504231770833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "now,",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "raw": "Malvolio.",
+          "start": 0.8,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "How",
+        "now,",
+        "Malvolio?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "How",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "how",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 0.54,
+          "end": 0.72,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Malvolio.",
+          "start": 0.8,
+          "end": 1.28,
+          "key": "malvolio",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "How",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "now,",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "text": "Malvolio?",
+          "start": 0.8,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1334979087114334
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "033273fb74091799375ec221077227b5bb25d7fdeb9d02e5b7d9539a46d445ca",
+  "selected_reasons": []
+}

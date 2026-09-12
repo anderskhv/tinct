@@ -1,0 +1,665 @@
+{
+  "complete": true,
+  "signature": "da18eb6153a21c1981b209f74d87e91ad99eca82273c8847a1e49db61d1fe4b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.09878021525219083,
+      "alignment_seconds": 0.00012346869334578514,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Cry within: \"Help! help!\"]",
+        "hotwords": "Cry"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cry within. Help's help.",
+          "start": 0.0,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Cry",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.6640625
+            },
+            {
+              "text": " within.",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " Help's",
+              "start": 1.28,
+              "end": 1.64,
+              "probability": 0.56396484375
+            },
+            {
+              "text": " help.",
+              "start": 1.64,
+              "end": 1.84,
+              "probability": 0.900390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cry",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "within.",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "Help's",
+          "start": 1.28,
+          "end": 1.64
+        },
+        {
+          "raw": "help.",
+          "start": 1.64,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "[Cry",
+        "within:",
+        "\"Help!",
+        "help!\"]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "delete",
+          3,
+          4,
+          4,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          4,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cry",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "cry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within.",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Help's",
+          "start": 1.28,
+          "end": 1.64,
+          "key": "helps",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help.",
+          "start": 1.64,
+          "end": 1.84,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Cry",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "within:",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "\"Help!",
+          "start": 1.64,
+          "end": 1.84
+        },
+        {
+          "text": "help!\"]",
+          "start": 1.84,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0989443939179182
+    },
+    {
+      "asr_seconds": 0.09132220409810543,
+      "alignment_seconds": 0.00012542866170406342,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Cry"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Cry within, helps help.",
+          "start": 0.0,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Cry",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.6640625
+            },
+            {
+              "text": " within,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " helps",
+              "start": 1.22,
+              "end": 1.52,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " help.",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.95947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cry",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "within,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "helps",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "raw": "help.",
+          "start": 1.52,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "[Cry",
+        "within:",
+        "\"Help!",
+        "help!\"]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "delete",
+          3,
+          4,
+          4,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          4,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cry",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "cry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "helps",
+          "start": 1.22,
+          "end": 1.52,
+          "key": "helps",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help.",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Cry",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "within:",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "\"Help!",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "help!\"]",
+          "start": 1.84,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09150743298232555
+    },
+    {
+      "asr_seconds": 0.09744420228525996,
+      "alignment_seconds": 0.00012409919872879982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cry within, helps help.",
+          "start": 0.0,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Cry",
+              "start": 0.0,
+              "end": 0.56,
+              "probability": 0.6640625
+            },
+            {
+              "text": " within,",
+              "start": 0.56,
+              "end": 0.92,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " helps",
+              "start": 1.22,
+              "end": 1.52,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " help.",
+              "start": 1.52,
+              "end": 1.84,
+              "probability": 0.95947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cry",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "raw": "within,",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "raw": "helps",
+          "start": 1.22,
+          "end": 1.52
+        },
+        {
+          "raw": "help.",
+          "start": 1.52,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "[Cry",
+        "within:",
+        "\"Help!",
+        "help!\"]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "equal",
+          2,
+          3,
+          3,
+          4
+        ],
+        [
+          "delete",
+          3,
+          4,
+          4,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          3
+        ],
+        [
+          "delete",
+          3,
+          4,
+          4,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cry",
+          "start": 0.0,
+          "end": 0.56,
+          "key": "cry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "within,",
+          "start": 0.56,
+          "end": 0.92,
+          "key": "within",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "helps",
+          "start": 1.22,
+          "end": 1.52,
+          "key": "helps",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "help.",
+          "start": 1.52,
+          "end": 1.84,
+          "key": "help",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Cry",
+          "start": 0.0,
+          "end": 0.56
+        },
+        {
+          "text": "within:",
+          "start": 0.56,
+          "end": 0.92
+        },
+        {
+          "text": "\"Help!",
+          "start": 1.52,
+          "end": 1.84
+        },
+        {
+          "text": "help!\"]",
+          "start": 1.84,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 3
+      },
+      "match_ratio": 0.75,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.09760778117924929
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc7ecef08a33bf2ad36e16ab3e6e34016e53e451236de9e592b5896d3997461a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

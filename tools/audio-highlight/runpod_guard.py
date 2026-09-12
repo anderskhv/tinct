@@ -111,15 +111,26 @@ def list_pods(key: str) -> list[dict]:
         # deadline check and the spend estimate. Fall back to the pod's own start
         # timestamp, and mark the uptime unmeasured when neither is available, so
         # an unenforceable pod is never mistaken for a compliant one.
+        status = pod.get("desiredStatus") or pod.get("status")
         uptime = runtime.get("uptimeInSeconds")
         source = "runtime"
         if not uptime:
-            uptime = _age_seconds(pod)
-            source = "timestamp" if uptime is not None else "unknown"
+            # Only a RUNNING pod may be dated from its start timestamp. An EXITED pod
+            # keeps that timestamp for as long as it is retained, so dating it counts
+            # days of stopped time as live billing: on 2026-09-11 the nine old
+            # volume-holding pods made the envelope read $242.63 of $25.00 and the
+            # guard stopped every live pod mid-batch (run 34612790906). A pod that is
+            # not running is not billing compute, so its running uptime is 0.
+            if status == "RUNNING":
+                uptime = _age_seconds(pod)
+                source = "timestamp" if uptime is not None else "unknown"
+            else:
+                uptime = 0
+                source = "not-running"
         rows.append({
             "id": pod.get("id"),
             "name": pod.get("name") or "",
-            "status": pod.get("desiredStatus") or pod.get("status"),
+            "status": status,
             "costPerHr": pod.get("costPerHr"),
             "uptimeSeconds": uptime,
             "uptimeSource": source,
@@ -156,7 +167,10 @@ def main() -> int:
     owned = [p for p in pods if p["name"].startswith(args.owner_prefix)]
     foreign = [p for p in pods if not p["name"].startswith(args.owner_prefix)]
 
-    live = [p for p in owned if (p["uptimeSeconds"] or 0) > 0 or p["status"] == "RUNNING"]
+    # Spend in this envelope is what is billing compute now; pods that have already
+    # finished are carried in by --spent, so counting a retained EXITED pod here
+    # would both double-count this run and import days of unrelated stopped time.
+    live = [p for p in owned if p["status"] == "RUNNING"]
     running_cost = sum((p["costPerHr"] or 0) * (p["uptimeSeconds"] or 0) / 3600 for p in live)
     total_spend = args.spent + running_cost
 

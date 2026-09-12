@@ -1,0 +1,260 @@
+{
+  "complete": true,
+  "signature": "e5ef83ee5696b9a36537db1b4bf6d5b1a90cedcccc1a12e2ea1628e5f1339ea5",
+  "attempts": [
+    {
+      "asr_seconds": 0.21417110413312912,
+      "alignment_seconds": 0.00041181687265634537,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " French soldier, au seigneur, dia.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " French",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.89013671875
+            },
+            {
+              "text": " soldier,",
+              "start": 0.63,
+              "end": 1.07,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " au",
+              "start": 1.51,
+              "end": 1.57,
+              "probability": 0.12646484375
+            },
+            {
+              "text": " seigneur,",
+              "start": 1.57,
+              "end": 2.03,
+              "probability": 0.7928059895833334
+            },
+            {
+              "text": " dia.",
+              "start": 2.15,
+              "end": 2.33,
+              "probability": 0.5556640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "raw": "au",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "raw": "seigneur,",
+          "start": 1.57,
+          "end": 2.03
+        },
+        {
+          "raw": "dia.",
+          "start": 2.15,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "Soldier.",
+        "_O",
+        "Seigneur",
+        "Dieu!_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "soldier,",
+          "start": 0.63,
+          "end": 1.07,
+          "key": "soldier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "au",
+          "start": 1.51,
+          "end": 1.57,
+          "key": "au",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "seigneur,",
+          "start": 1.57,
+          "end": 2.03,
+          "key": "seigneur",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "dia.",
+          "start": 2.15,
+          "end": 2.33,
+          "key": "dia",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Soldier.",
+          "start": 0.63,
+          "end": 1.07
+        },
+        {
+          "text": "_O",
+          "start": 1.07,
+          "end": 1.32
+        },
+        {
+          "text": "Seigneur",
+          "start": 1.57,
+          "end": 2.03
+        },
+        {
+          "text": "Dieu!_",
+          "start": 2.03,
+          "end": 2.18
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21472208015620708
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7a2e8e169b168ce9837356fa6dc9476c1073c9457d5ce51e6c5e696a185dade9",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

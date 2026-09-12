@@ -1,0 +1,306 @@
+{
+  "complete": true,
+  "signature": "42653cec326ade4a4ea2ff5bbf8ff7fc1124f1a0944d0d21112dc04c49bdf9ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.12456294987350702,
+      "alignment_seconds": 0.00026413798332214355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Menenius, and so I like to do.",
+          "start": 0.56,
+          "end": 2.38,
+          "words": [
+            {
+              "text": " Menenius,",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.6077473958333334
+            },
+            {
+              "text": " and",
+              "start": 1.32,
+              "end": 1.44,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " so",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.998046875
+            },
+            {
+              "text": " I",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.5087890625
+            },
+            {
+              "text": " like",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do.",
+              "start": 2.08,
+              "end": 2.38,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Menenius,",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "and",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "raw": "so",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "I",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "like",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "do.",
+          "start": 2.08,
+          "end": 2.38
+        }
+      ],
+      "expected_tokens": [
+        "Menenius.",
+        "And",
+        "so",
+        "are",
+        "like",
+        "to",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          7,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Menenius,",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "menenius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.32,
+          "end": 1.44,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 1.44,
+          "end": 1.62,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "like",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "do.",
+          "start": 2.08,
+          "end": 2.38,
+          "key": "do",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Menenius.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "And",
+          "start": 1.32,
+          "end": 1.44
+        },
+        {
+          "text": "so",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "are",
+          "start": 1.62,
+          "end": 1.68
+        },
+        {
+          "text": "like",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "to",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "do.",
+          "start": 2.08,
+          "end": 2.38
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.12491974979639053
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9d0c4a6464938df8e5c5ecabde6a3a9c4fd44a1de363dc1a5c5a0933676a4a48",
+  "selected_reasons": []
+}

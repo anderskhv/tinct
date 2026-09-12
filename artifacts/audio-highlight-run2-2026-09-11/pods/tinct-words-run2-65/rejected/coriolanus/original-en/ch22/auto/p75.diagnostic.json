@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "244af28b4a9c13c7c8bd83c189546633d82b006449af3bcf22a1635099ac7e64",
+  "attempts": [
+    {
+      "asr_seconds": 0.16476194094866514,
+      "alignment_seconds": 0.00021172594279050827,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cominius. O, ay, what else?",
+        "hotwords": "Cominius, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cominius, O, ay, what else?",
+          "start": 0.71,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Cominius,",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.545166015625
+            },
+            {
+              "text": " O,",
+              "start": 1.39,
+              "end": 1.45,
+              "probability": 0.293212890625
+            },
+            {
+              "text": " ay,",
+              "start": 1.51,
+              "end": 1.57,
+              "probability": 5.364418029785156e-06
+            },
+            {
+              "text": " what",
+              "start": 1.69,
+              "end": 1.71,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " else?",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.91845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cominius,",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "O,",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "raw": "ay,",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "raw": "what",
+          "start": 1.69,
+          "end": 1.71
+        },
+        {
+          "raw": "else?",
+          "start": 1.71,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Cominius.",
+        "O,",
+        "ay,",
+        "what",
+        "else?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cominius,",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "cominius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.39,
+          "end": 1.45,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ay,",
+          "start": 1.51,
+          "end": 1.57,
+          "key": "ay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.69,
+          "end": 1.71,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "else?",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "else",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cominius.",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "text": "O,",
+          "start": 1.39,
+          "end": 1.45
+        },
+        {
+          "text": "ay,",
+          "start": 1.51,
+          "end": 1.57
+        },
+        {
+          "text": "what",
+          "start": 1.69,
+          "end": 1.71
+        },
+        {
+          "text": "else?",
+          "start": 1.71,
+          "end": 1.95
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16505118878558278
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "874373347128908dcd79e9dd705f34a1b03e78d86ec4ed39f5fa8dde609b9397",
+  "selected_reasons": []
+}

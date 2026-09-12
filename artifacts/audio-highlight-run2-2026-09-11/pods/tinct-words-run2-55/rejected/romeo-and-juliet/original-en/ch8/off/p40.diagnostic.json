@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "f2e25125bb0c52f5de05e75a5992b9808a41eb7e2817f87d6cae5182a76ac461",
+  "attempts": [
+    {
+      "asr_seconds": 0.118313311599195,
+      "alignment_seconds": 0.00011548027396202087,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Juliet above.",
+          "start": 0.08,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Juliet",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " above.",
+              "start": 1.06,
+              "end": 1.36,
+              "probability": 0.8955078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "Juliet",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "above.",
+          "start": 1.06,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "[Enter",
+        "Juliet",
+        "above.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Juliet",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "juliet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "above.",
+          "start": 1.06,
+          "end": 1.36,
+          "key": "above",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Enter",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Juliet",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "above.]",
+          "start": 1.06,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1184636540710926
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "067e93d6aa6f177235c3795b7b331dd128db90f0e0060b77035be19f7a50e864",
+  "selected_reasons": []
+}

@@ -1,0 +1,827 @@
+{
+  "complete": true,
+  "signature": "70b4f17fc9ff0cdcc57af7605cb0548b07e3e4523f405aa4a65b2ec5de4218a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.35905106738209724,
+      "alignment_seconds": 0.0005417540669441223,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What became of the white whale?",
+          "start": 0.02,
+          "end": 1.76,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.19775390625
+            },
+            {
+              "text": " became",
+              "start": 0.54,
+              "end": 0.86,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " of",
+              "start": 0.86,
+              "end": 1.04,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 1.04,
+              "end": 1.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " white",
+              "start": 1.16,
+              "end": 1.38,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " whale?",
+              "start": 1.38,
+              "end": 1.76,
+              "probability": 0.93115234375
+            }
+          ]
+        },
+        {
+          "text": " Now cried Ahab, who thus far had been impatiently listening to this by play between the two Englishmen.",
+          "start": 2.38,
+          "end": 8.12,
+          "words": [
+            {
+              "text": " Now",
+              "start": 2.38,
+              "end": 2.64,
+              "probability": 0.60546875
+            },
+            {
+              "text": " cried",
+              "start": 2.64,
+              "end": 2.88,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " Ahab,",
+              "start": 2.88,
+              "end": 3.32,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " who",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thus",
+              "start": 3.92,
+              "end": 4.12,
+              "probability": 0.998046875
+            },
+            {
+              "text": " far",
+              "start": 4.12,
+              "end": 4.46,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " had",
+              "start": 4.46,
+              "end": 4.64,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " been",
+              "start": 4.64,
+              "end": 4.76,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " impatiently",
+              "start": 4.76,
+              "end": 5.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " listening",
+              "start": 5.56,
+              "end": 5.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 5.86,
+              "end": 6.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 6.14,
+              "end": 6.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 6.32,
+              "end": 6.5,
+              "probability": 0.947265625
+            },
+            {
+              "text": " play",
+              "start": 6.5,
+              "end": 6.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " between",
+              "start": 6.8,
+              "end": 7.14,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 7.14,
+              "end": 7.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " two",
+              "start": 7.3,
+              "end": 7.48,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Englishmen.",
+              "start": 7.48,
+              "end": 8.12,
+              "probability": 0.943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "became",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "raw": "of",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "raw": "white",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "raw": "whale?",
+          "start": 1.38,
+          "end": 1.76
+        },
+        {
+          "raw": "Now",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "raw": "cried",
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "raw": "Ahab,",
+          "start": 2.88,
+          "end": 3.32
+        },
+        {
+          "raw": "who",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "raw": "thus",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "raw": "far",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "raw": "had",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "raw": "been",
+          "start": 4.64,
+          "end": 4.76
+        },
+        {
+          "raw": "impatiently",
+          "start": 4.76,
+          "end": 5.56
+        },
+        {
+          "raw": "listening",
+          "start": 5.56,
+          "end": 5.86
+        },
+        {
+          "raw": "to",
+          "start": 5.86,
+          "end": 6.14
+        },
+        {
+          "raw": "this",
+          "start": 6.14,
+          "end": 6.32
+        },
+        {
+          "raw": "by",
+          "start": 6.32,
+          "end": 6.5
+        },
+        {
+          "raw": "play",
+          "start": 6.5,
+          "end": 6.8
+        },
+        {
+          "raw": "between",
+          "start": 6.8,
+          "end": 7.14
+        },
+        {
+          "raw": "the",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "raw": "two",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "raw": "Englishmen.",
+          "start": 7.48,
+          "end": 8.12
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "became",
+        "of",
+        "the",
+        "White",
+        "Whale?\"",
+        "now",
+        "cried",
+        "Ahab,",
+        "who",
+        "thus",
+        "far",
+        "had",
+        "been",
+        "impatiently",
+        "listening",
+        "to",
+        "this",
+        "by-play",
+        "between",
+        "the",
+        "two",
+        "Englishmen."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "became",
+          "start": 0.54,
+          "end": 0.86,
+          "key": "became",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.86,
+          "end": 1.04,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.04,
+          "end": 1.16,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "white",
+          "start": 1.16,
+          "end": 1.38,
+          "key": "white",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whale?",
+          "start": 1.38,
+          "end": 1.76,
+          "key": "whale",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Now",
+          "start": 2.38,
+          "end": 2.64,
+          "key": "now",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.64,
+          "end": 2.88,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ahab,",
+          "start": 2.88,
+          "end": 3.32,
+          "key": "ahab",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 3.62,
+          "end": 3.92,
+          "key": "who",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 3.92,
+          "end": 4.12,
+          "key": "thus",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "far",
+          "start": 4.12,
+          "end": 4.46,
+          "key": "far",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 4.46,
+          "end": 4.64,
+          "key": "had",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 4.64,
+          "end": 4.76,
+          "key": "been",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "impatiently",
+          "start": 4.76,
+          "end": 5.56,
+          "key": "impatiently",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "listening",
+          "start": 5.56,
+          "end": 5.86,
+          "key": "listening",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.86,
+          "end": 6.14,
+          "key": "to",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 6.14,
+          "end": 6.32,
+          "key": "this",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "by play",
+          "start": 6.32,
+          "end": 6.8,
+          "key": "byplay",
+          "pieces": [
+            18,
+            19
+          ]
+        },
+        {
+          "raw": "between",
+          "start": 6.8,
+          "end": 7.14,
+          "key": "between",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 7.14,
+          "end": 7.3,
+          "key": "the",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 7.3,
+          "end": 7.48,
+          "key": "two",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Englishmen.",
+          "start": 7.48,
+          "end": 8.12,
+          "key": "englishmen",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 18,
+          "text": "by-play",
+          "heard": "by play",
+          "heard_indexes": [
+            18,
+            19
+          ],
+          "start": 6.32,
+          "end": 6.8
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "became",
+          "start": 0.54,
+          "end": 0.86
+        },
+        {
+          "text": "of",
+          "start": 0.86,
+          "end": 1.04
+        },
+        {
+          "text": "the",
+          "start": 1.04,
+          "end": 1.16
+        },
+        {
+          "text": "White",
+          "start": 1.16,
+          "end": 1.38
+        },
+        {
+          "text": "Whale?\"",
+          "start": 1.38,
+          "end": 1.76
+        },
+        {
+          "text": "now",
+          "start": 2.38,
+          "end": 2.64
+        },
+        {
+          "text": "cried",
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "text": "Ahab,",
+          "start": 2.88,
+          "end": 3.32
+        },
+        {
+          "text": "who",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "text": "thus",
+          "start": 3.92,
+          "end": 4.12
+        },
+        {
+          "text": "far",
+          "start": 4.12,
+          "end": 4.46
+        },
+        {
+          "text": "had",
+          "start": 4.46,
+          "end": 4.64
+        },
+        {
+          "text": "been",
+          "start": 4.64,
+          "end": 4.76
+        },
+        {
+          "text": "impatiently",
+          "start": 4.76,
+          "end": 5.56
+        },
+        {
+          "text": "listening",
+          "start": 5.56,
+          "end": 5.86
+        },
+        {
+          "text": "to",
+          "start": 5.86,
+          "end": 6.14
+        },
+        {
+          "text": "this",
+          "start": 6.14,
+          "end": 6.32
+        },
+        {
+          "text": "by-play",
+          "start": 6.32,
+          "end": 6.8
+        },
+        {
+          "text": "between",
+          "start": 6.8,
+          "end": 7.14
+        },
+        {
+          "text": "the",
+          "start": 7.14,
+          "end": 7.3
+        },
+        {
+          "text": "two",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "Englishmen.",
+          "start": 7.48,
+          "end": 8.12
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 23,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35976459085941315
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a5cc5ec3d07303513bd05a8c525a06fdd3591534c97cf9459c3a45d54408a876",
+  "selected_reasons": []
+}

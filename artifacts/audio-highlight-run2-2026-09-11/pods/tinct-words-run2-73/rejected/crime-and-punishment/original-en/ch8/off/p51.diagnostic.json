@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "6e759569a969d7dd4225b7755b86418a5ca25b869fb6a2ed933895f2d6f09b4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1360883228480816,
+      "alignment_seconds": 0.0002983156591653824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I'll go.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.88671875
+            },
+            {
+              "text": " I'll",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.986572265625
+            },
+            {
+              "text": " go.",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "I'll",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "go.",
+          "start": 0.88,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "\"Yes,",
+        "I'll",
+        "go.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 0.76,
+          "end": 0.88,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go.",
+          "start": 0.88,
+          "end": 1.1,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "I'll",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "go.\"",
+          "start": 0.88,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1364894537255168
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3310ff67711f4df537c3780702c339aa0cc5f6788dd12984adf9304564260588",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "e415a80e4d2a695092aa8669e620ccd28a19a51bb204c518e704ea27f9aeea73",
+  "attempts": [
+    {
+      "asr_seconds": 0.09866649750620127,
+      "alignment_seconds": 0.00021585822105407715,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He looked down and sank into thought.",
+          "start": 0.02,
+          "end": 1.88,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " looked",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " down",
+              "start": 0.64,
+              "end": 0.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 0.92,
+              "end": 1.1,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sank",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " into",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thought.",
+              "start": 1.54,
+              "end": 1.88,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "looked",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "down",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "raw": "and",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "raw": "sank",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "into",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "raw": "thought.",
+          "start": 1.54,
+          "end": 1.88
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "looked",
+        "down",
+        "and",
+        "sank",
+        "into",
+        "thought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "looked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 0.64,
+          "end": 0.92,
+          "key": "down",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.92,
+          "end": 1.1,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sank",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "sank",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "into",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thought.",
+          "start": 1.54,
+          "end": 1.88,
+          "key": "thought",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "looked",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "down",
+          "start": 0.64,
+          "end": 0.92
+        },
+        {
+          "text": "and",
+          "start": 0.92,
+          "end": 1.1
+        },
+        {
+          "text": "sank",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "into",
+          "start": 1.32,
+          "end": 1.54
+        },
+        {
+          "text": "thought.",
+          "start": 1.54,
+          "end": 1.88
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09895740821957588
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3d58637047ad7d7ad104ed15fb4c158952b81e0f7e7b452861be600bf9fda7db",
+  "selected_reasons": []
+}

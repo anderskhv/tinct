@@ -1,0 +1,157 @@
+{
+  "complete": true,
+  "signature": "128a2a49ed41579018f69ad8f73f38fdbc6750a97695640e139cb9b880ddee1b",
+  "attempts": [
+    {
+      "asr_seconds": 0.12130541726946831,
+      "alignment_seconds": 0.00027517788112163544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_They talk aside._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They talk aside.",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.78369140625
+            },
+            {
+              "text": " talk",
+              "start": 0.5,
+              "end": 0.72,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " aside.",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "talk",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "raw": "aside.",
+          "start": 0.72,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "[_They",
+        "talk",
+        "aside._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "talk",
+          "start": 0.5,
+          "end": 0.72,
+          "key": "talk",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "aside.",
+          "start": 0.72,
+          "end": 1.08,
+          "key": "aside",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_They",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "talk",
+          "start": 0.5,
+          "end": 0.72
+        },
+        {
+          "text": "aside._]",
+          "start": 0.72,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12167508900165558
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "19e02a6a9850aa6b8b17cc526eaef0ee41f7338518319eb11d1b40ccdbfe4c47",
+  "selected_reasons": []
+}

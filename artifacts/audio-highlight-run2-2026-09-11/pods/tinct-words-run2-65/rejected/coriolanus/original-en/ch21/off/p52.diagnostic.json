@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "ae5df7fbc47ff5a42a641d72c49104bd7185ae4f2822bf5d7ed9169f7694d2d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.1366025642491877,
+      "alignment_seconds": 0.00022157607600092888,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ophidias, what is thy name?",
+          "start": 0.02,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Ophidias,",
+              "start": 0.02,
+              "end": 0.96,
+              "probability": 0.669189453125
+            },
+            {
+              "text": " what",
+              "start": 1.32,
+              "end": 1.38,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " is",
+              "start": 1.38,
+              "end": 1.5,
+              "probability": 0.99609375
+            },
+            {
+              "text": " thy",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " name?",
+              "start": 1.64,
+              "end": 1.9,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ophidias,",
+          "start": 0.02,
+          "end": 0.96
+        },
+        {
+          "raw": "what",
+          "start": 1.32,
+          "end": 1.38
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "raw": "thy",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "name?",
+          "start": 1.64,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "Aufidius.",
+        "What",
+        "is",
+        "thy",
+        "name?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          5,
+          1,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ophidias,",
+          "start": 0.02,
+          "end": 0.96,
+          "key": "ophidias",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.32,
+          "end": 1.38,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.38,
+          "end": 1.5,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thy",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "thy",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "name?",
+          "start": 1.64,
+          "end": 1.9,
+          "key": "name",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aufidius.",
+          "start": 0.0,
+          "end": 0.66
+        },
+        {
+          "text": "What",
+          "start": 1.32,
+          "end": 1.38
+        },
+        {
+          "text": "is",
+          "start": 1.38,
+          "end": 1.5
+        },
+        {
+          "text": "thy",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "name?",
+          "start": 1.64,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.136902233120054
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "64552ecbf391b096dc24415534c379e96af9d886075c666b951855ace8bfcd5e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

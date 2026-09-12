@@ -1,0 +1,227 @@
+{
+  "complete": true,
+  "signature": "81b87f35052d7089a04c69a1de3372f548f3f40d937ea71d0527b5be76561e56",
+  "attempts": [
+    {
+      "asr_seconds": 0.12259256999823265,
+      "alignment_seconds": 0.0001651250058785081,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Second watch peace.",
+          "start": 0.08,
+          "end": 1.56,
+          "words": [
+            {
+              "text": " Second",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.71875
+            },
+            {
+              "text": " watch",
+              "start": 0.68,
+              "end": 1.04,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " peace.",
+              "start": 1.04,
+              "end": 1.56,
+              "probability": 0.324951171875
+            }
+          ]
+        },
+        {
+          "text": " Hark further.",
+          "start": 1.9,
+          "end": 2.36,
+          "words": [
+            {
+              "text": " Hark",
+              "start": 1.9,
+              "end": 1.98,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " further.",
+              "start": 1.98,
+              "end": 2.36,
+              "probability": 0.81005859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "watch",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "raw": "peace.",
+          "start": 1.04,
+          "end": 1.56
+        },
+        {
+          "raw": "Hark",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "raw": "further.",
+          "start": 1.98,
+          "end": 2.36
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Watch.",
+        "Peace!",
+        "Hark",
+        "further."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second",
+          "start": 0.08,
+          "end": 0.68,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "watch",
+          "start": 0.68,
+          "end": 1.04,
+          "key": "watch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "peace.",
+          "start": 1.04,
+          "end": 1.56,
+          "key": "peace",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Hark",
+          "start": 1.9,
+          "end": 1.98,
+          "key": "hark",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "further.",
+          "start": 1.98,
+          "end": 2.36,
+          "key": "further",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "Watch.",
+          "start": 0.68,
+          "end": 1.04
+        },
+        {
+          "text": "Peace!",
+          "start": 1.04,
+          "end": 1.56
+        },
+        {
+          "text": "Hark",
+          "start": 1.9,
+          "end": 1.98
+        },
+        {
+          "text": "further.",
+          "start": 1.98,
+          "end": 2.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12281211698427796
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a13d7311ff05cccdfd0a5ece940858849d5b61c85f1dccaf8bd6a11f3b5e7346",
+  "selected_reasons": []
+}

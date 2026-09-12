@@ -1,0 +1,168 @@
+{
+  "complete": true,
+  "signature": "13104e4add83f21590d8e44e118a7156523dabdafef939f3b54740bb1fb9b14f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1187328799860552,
+      "alignment_seconds": 0.0003193099983036518,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mone Pier Way",
+          "start": 0.02,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " Mone",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.4566650390625
+            },
+            {
+              "text": " Pier",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.382080078125
+            },
+            {
+              "text": " Way",
+              "start": 0.86,
+              "end": 1.14,
+              "probability": 0.49169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mone",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "Pier",
+          "start": 0.64,
+          "end": 0.86
+        },
+        {
+          "raw": "Way",
+          "start": 0.86,
+          "end": 1.14
+        }
+      ],
+      "expected_tokens": [
+        "_—Mon",
+        "père,",
+        "oui._"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mone",
+          "start": 0.02,
+          "end": 0.64,
+          "key": "mone",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pier",
+          "start": 0.64,
+          "end": 0.86,
+          "key": "pier",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Way",
+          "start": 0.86,
+          "end": 1.14,
+          "key": "way",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_—Mon",
+          "start": 0.0,
+          "end": 0.57
+        },
+        {
+          "text": "père,",
+          "start": 0.57,
+          "end": 0.855
+        },
+        {
+          "text": "oui._",
+          "start": 0.855,
+          "end": 0.997
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11916152999037877
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "018c018898c903a50105134c6f3192ec526ffea819c26b4472491972d327b04b",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

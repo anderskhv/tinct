@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "e9cdef1a69d251fbaa2a5a954e55713000a22fcd12f4171a533836e1643c5c3e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3317439937964082,
+      "alignment_seconds": 0.0004806350916624069,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Richard. Fairer than tongue can name thee, let me have Some patient leisure to excuse myself.",
+        "hotwords": "Richard, Fairer, Some"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Richard, Fairer than tongue can name thee, let me have Some patient leisure to excuse myself.",
+          "start": 0.05,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " Richard,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " Fairer",
+              "start": 1.43,
+              "end": 1.71,
+              "probability": 0.5546677907307943
+            },
+            {
+              "text": " than",
+              "start": 1.71,
+              "end": 1.85,
+              "probability": 0.767578125
+            },
+            {
+              "text": " tongue",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " can",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " name",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " thee,",
+              "start": 2.55,
+              "end": 2.87,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " let",
+              "start": 3.29,
+              "end": 3.37,
+              "probability": 0.705078125
+            },
+            {
+              "text": " me",
+              "start": 3.37,
+              "end": 3.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Some",
+              "start": 3.65,
+              "end": 3.83,
+              "probability": 0.0026416778564453125
+            },
+            {
+              "text": " patient",
+              "start": 3.83,
+              "end": 4.23,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " leisure",
+              "start": 4.23,
+              "end": 4.57,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " to",
+              "start": 4.57,
+              "end": 4.85,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " excuse",
+              "start": 4.85,
+              "end": 5.21,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " myself.",
+              "start": 5.21,
+              "end": 5.73,
+              "probability": 0.84765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Fairer",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "raw": "than",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "raw": "tongue",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "can",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "name",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "thee,",
+          "start": 2.55,
+          "end": 2.87
+        },
+        {
+          "raw": "let",
+          "start": 3.29,
+          "end": 3.37
+        },
+        {
+          "raw": "me",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "raw": "have",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "Some",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "raw": "patient",
+          "start": 3.83,
+          "end": 4.23
+        },
+        {
+          "raw": "leisure",
+          "start": 4.23,
+          "end": 4.57
+        },
+        {
+          "raw": "to",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "raw": "excuse",
+          "start": 4.85,
+          "end": 5.21
+        },
+        {
+          "raw": "myself.",
+          "start": 5.21,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Richard.",
+        "Fairer",
+        "than",
+        "tongue",
+        "can",
+        "name",
+        "thee,",
+        "let",
+        "me",
+        "have",
+        "Some",
+        "patient",
+        "leisure",
+        "to",
+        "excuse",
+        "myself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Richard,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "richard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Fairer",
+          "start": 1.43,
+          "end": 1.71,
+          "key": "fairer",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.71,
+          "end": 1.85,
+          "key": "than",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 1.85,
+          "end": 2.09,
+          "key": "tongue",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "can",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "name",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thee,",
+          "start": 2.55,
+          "end": 2.87,
+          "key": "thee",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 3.29,
+          "end": 3.37,
+          "key": "let",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.37,
+          "end": 3.47,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 3.47,
+          "end": 3.65,
+          "key": "have",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Some",
+          "start": 3.65,
+          "end": 3.83,
+          "key": "some",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "patient",
+          "start": 3.83,
+          "end": 4.23,
+          "key": "patient",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "leisure",
+          "start": 4.23,
+          "end": 4.57,
+          "key": "leisure",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.57,
+          "end": 4.85,
+          "key": "to",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "excuse",
+          "start": 4.85,
+          "end": 5.21,
+          "key": "excuse",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "myself.",
+          "start": 5.21,
+          "end": 5.73,
+          "key": "myself",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Richard.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Fairer",
+          "start": 1.43,
+          "end": 1.71
+        },
+        {
+          "text": "than",
+          "start": 1.71,
+          "end": 1.85
+        },
+        {
+          "text": "tongue",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "can",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "text": "name",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "text": "thee,",
+          "start": 2.55,
+          "end": 2.87
+        },
+        {
+          "text": "let",
+          "start": 3.29,
+          "end": 3.37
+        },
+        {
+          "text": "me",
+          "start": 3.37,
+          "end": 3.47
+        },
+        {
+          "text": "have",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "Some",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "text": "patient",
+          "start": 3.83,
+          "end": 4.23
+        },
+        {
+          "text": "leisure",
+          "start": 4.23,
+          "end": 4.57
+        },
+        {
+          "text": "to",
+          "start": 4.57,
+          "end": 4.85
+        },
+        {
+          "text": "excuse",
+          "start": 4.85,
+          "end": 5.21
+        },
+        {
+          "text": "myself.",
+          "start": 5.21,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3324290066957474
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e0bcf2bbd9c5739e390bb826631d65ede00f3824d6cada04228568f52646bd71",
+  "selected_reasons": []
+}

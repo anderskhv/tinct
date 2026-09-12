@@ -1,0 +1,182 @@
+{
+  "complete": true,
+  "signature": "a3074e155fbcc842af32e4b86dfe7eaffebca52036e4b154b9379ff73696ba03",
+  "attempts": [
+    {
+      "asr_seconds": 0.11641846597194672,
+      "alignment_seconds": 0.0001704399473965168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not Particular Pip.",
+          "start": 0.02,
+          "end": 1.32,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.609375
+            },
+            {
+              "text": " Particular",
+              "start": 0.58,
+              "end": 1.06,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " Pip.",
+              "start": 1.06,
+              "end": 1.32,
+              "probability": 0.61279296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "Particular",
+          "start": 0.58,
+          "end": 1.06
+        },
+        {
+          "raw": "Pip.",
+          "start": 1.06,
+          "end": 1.32
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "partickler,",
+        "Pip.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.58,
+          "key": "not",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Particular",
+          "start": 0.58,
+          "end": 1.06,
+          "key": "particular",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Pip.",
+          "start": 1.06,
+          "end": 1.32,
+          "key": "pip",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "partickler,",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "text": "Pip.\"",
+          "start": 1.06,
+          "end": 1.32
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.116640186868608
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "902890c28df765c4bfddb417aac69916b10d095511bcfb594e52699603666f99",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

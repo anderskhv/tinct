@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "793bfba54ddaf1b0c9702f0cb44d83e26d9d152c0428c053d7a59aee0cb82eeb",
+  "attempts": [
+    {
+      "asr_seconds": 0.10001952003221959,
+      "alignment_seconds": 0.00015136098954826593,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Start, Palmerston Park!",
+        "hotwords": "Start, Palmerston, Park"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Start, Palmerston Park!",
+          "start": 0.11,
+          "end": 1.53,
+          "words": [
+            {
+              "text": " Start,",
+              "start": 0.11,
+              "end": 0.69,
+              "probability": 0.8994140625
+            },
+            {
+              "text": " Palmerston",
+              "start": 0.85,
+              "end": 1.23,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " Park!",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Start,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "raw": "Palmerston",
+          "start": 0.85,
+          "end": 1.23
+        },
+        {
+          "raw": "Park!",
+          "start": 1.23,
+          "end": 1.53
+        }
+      ],
+      "expected_tokens": [
+        "—Start,",
+        "Palmerston",
+        "Park!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Start,",
+          "start": 0.11,
+          "end": 0.69,
+          "key": "start",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Palmerston",
+          "start": 0.85,
+          "end": 1.23,
+          "key": "palmerston",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Park!",
+          "start": 1.23,
+          "end": 1.53,
+          "key": "park",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Start,",
+          "start": 0.11,
+          "end": 0.69
+        },
+        {
+          "text": "Palmerston",
+          "start": 0.85,
+          "end": 1.23
+        },
+        {
+          "text": "Park!",
+          "start": 1.23,
+          "end": 1.53
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10024645103840157
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a69a80d0d3bc1c7c93f4ad56a939c6f0b2b993327861767de7d4ae9a9331ac92",
+  "selected_reasons": []
+}

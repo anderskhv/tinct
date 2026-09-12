@@ -1,0 +1,555 @@
+{
+  "complete": true,
+  "signature": "cf8cd4adda52110d01c970b95cb1d496895788145e13b005cb5d5dd12112e7a2",
+  "attempts": [
+    {
+      "asr_seconds": 0.23197657242417336,
+      "alignment_seconds": 0.0003927983343601227,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Hamlet. [Aside.] Wormwood, wormwood.",
+        "hotwords": "Hamlet, Aside"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Hamlet, aside. Wormhood, wormhood.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Hamlet,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " aside.",
+              "start": 0.91,
+              "end": 1.27,
+              "probability": 0.94921875
+            },
+            {
+              "text": " Wormhood,",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " wormhood.",
+              "start": 2.23,
+              "end": 2.57,
+              "probability": 0.989501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "aside.",
+          "start": 0.91,
+          "end": 1.27
+        },
+        {
+          "raw": "Wormhood,",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": "wormhood.",
+          "start": 2.23,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "[Aside.]",
+        "Wormwood,",
+        "wormwood."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aside.",
+          "start": 0.91,
+          "end": 1.27,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Wormhood,",
+          "start": 1.91,
+          "end": 2.11,
+          "key": "wormhood",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wormhood.",
+          "start": 2.23,
+          "end": 2.57,
+          "key": "wormhood",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "[Aside.]",
+          "start": 0.91,
+          "end": 1.27
+        },
+        {
+          "text": "Wormwood,",
+          "start": 1.27,
+          "end": 1.92
+        },
+        {
+          "text": "wormwood.",
+          "start": 1.92,
+          "end": 2.245
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.232482036575675
+    },
+    {
+      "asr_seconds": 0.2007930912077427,
+      "alignment_seconds": 0.0003342684358358383,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Hamlet, Aside"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Wormhood, Wormhood",
+          "start": 1.31,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Wormhood,",
+              "start": 1.31,
+              "end": 2.11,
+              "probability": 0.3583986461162567
+            },
+            {
+              "text": " Wormhood",
+              "start": 2.23,
+              "end": 2.63,
+              "probability": 0.510498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Wormhood,",
+          "start": 1.31,
+          "end": 2.11
+        },
+        {
+          "raw": "Wormhood",
+          "start": 2.23,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "[Aside.]",
+        "Wormwood,",
+        "wormwood."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          4,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Wormhood,",
+          "start": 1.31,
+          "end": 2.11,
+          "key": "wormhood",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wormhood",
+          "start": 2.23,
+          "end": 2.63,
+          "key": "wormhood",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.0,
+          "end": 1.315
+        },
+        {
+          "text": "[Aside.]",
+          "start": 1.315,
+          "end": 1.972
+        },
+        {
+          "text": "Wormwood,",
+          "start": 1.972,
+          "end": 2.301
+        },
+        {
+          "text": "wormwood.",
+          "start": 2.301,
+          "end": 2.466
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20122348703444004
+    },
+    {
+      "asr_seconds": 0.22542752884328365,
+      "alignment_seconds": 0.000123489648103714,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet aside wormhood wormhood",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Hamlet",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " aside",
+              "start": 0.83,
+              "end": 1.29,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " wormhood",
+              "start": 1.29,
+              "end": 2.11,
+              "probability": 0.46905517578125
+            },
+            {
+              "text": " wormhood",
+              "start": 2.11,
+              "end": 2.63,
+              "probability": 0.943359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "aside",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "raw": "wormhood",
+          "start": 1.29,
+          "end": 2.11
+        },
+        {
+          "raw": "wormhood",
+          "start": 2.11,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "[Aside.]",
+        "Wormwood,",
+        "wormwood."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "aside",
+          "start": 0.83,
+          "end": 1.29,
+          "key": "aside",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wormhood",
+          "start": 1.29,
+          "end": 2.11,
+          "key": "wormhood",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wormhood",
+          "start": 2.11,
+          "end": 2.63,
+          "key": "wormhood",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "[Aside.]",
+          "start": 0.83,
+          "end": 1.29
+        },
+        {
+          "text": "Wormwood,",
+          "start": 1.29,
+          "end": 1.96
+        },
+        {
+          "text": "wormwood.",
+          "start": 1.96,
+          "end": 2.295
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2255983967334032
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "43338d9e6c17d999d8ea13c1be7ef1f52e14e02e1831dd0215129ef034aaccc3",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

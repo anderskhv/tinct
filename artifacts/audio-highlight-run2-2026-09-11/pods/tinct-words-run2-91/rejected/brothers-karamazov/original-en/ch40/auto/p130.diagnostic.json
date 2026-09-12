@@ -1,0 +1,593 @@
+{
+  "complete": true,
+  "signature": "a4c6454920fd8bfef474f73d376ef26ea5368468a0af3945b2a80c06148f334d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3100616727024317,
+      "alignment_seconds": 0.0005525816231966019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"The Holy Spirit wrote them,\" said I.",
+        "hotwords": "The, Holy, Spirit, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The, Holy, Spirit, I",
+          "start": 0.05,
+          "end": 1.47,
+          "words": [
+            {
+              "text": " The,",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " Holy,",
+              "start": 0.61,
+              "end": 0.69,
+              "probability": 0.35107421875
+            },
+            {
+              "text": " Spirit,",
+              "start": 0.69,
+              "end": 1.03,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " I",
+              "start": 1.45,
+              "end": 1.47,
+              "probability": 7.3909759521484375e-06
+            }
+          ]
+        },
+        {
+          "text": " Am,\" said I.",
+          "start": 1.47,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " Am,\"",
+              "start": 1.47,
+              "end": 1.83,
+              "probability": 0.08457636833190918
+            },
+            {
+              "text": " said",
+              "start": 1.83,
+              "end": 2.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " I.",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The,",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "Holy,",
+          "start": 0.61,
+          "end": 0.69
+        },
+        {
+          "raw": "Spirit,",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.47
+        },
+        {
+          "raw": "Am,\"",
+          "start": 1.47,
+          "end": 1.83
+        },
+        {
+          "raw": "said",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "raw": "I.",
+          "start": 2.05,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "Holy",
+        "Spirit",
+        "wrote",
+        "them,\"",
+        "said",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ],
+        [
+          "equal",
+          5,
+          7,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The,",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Holy,",
+          "start": 0.61,
+          "end": 0.69,
+          "key": "holy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Spirit,",
+          "start": 0.69,
+          "end": 1.03,
+          "key": "spirit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.45,
+          "end": 1.47,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Am,\"",
+          "start": 1.47,
+          "end": 1.83,
+          "key": "am",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.83,
+          "end": 2.05,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "Holy",
+          "start": 0.61,
+          "end": 0.69
+        },
+        {
+          "text": "Spirit",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "text": "wrote",
+          "start": 1.03,
+          "end": 1.43
+        },
+        {
+          "text": "them,\"",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "said",
+          "start": 1.83,
+          "end": 2.05
+        },
+        {
+          "text": "I.",
+          "start": 2.05,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.7142857142857143,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.31076887901872396
+    },
+    {
+      "asr_seconds": 0.24542962852865458,
+      "alignment_seconds": 0.0003882376477122307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "The, Holy, Spirit, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The, Holy, Spirit, wrote them, said I.",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " The,",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " Holy,",
+              "start": 0.61,
+              "end": 0.69,
+              "probability": 0.35107421875
+            },
+            {
+              "text": " Spirit,",
+              "start": 0.69,
+              "end": 1.03,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " wrote",
+              "start": 1.27,
+              "end": 1.29,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " them,",
+              "start": 1.29,
+              "end": 1.67,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " said",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " I.",
+              "start": 2.03,
+              "end": 2.27,
+              "probability": 0.72119140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The,",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "Holy,",
+          "start": 0.61,
+          "end": 0.69
+        },
+        {
+          "raw": "Spirit,",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "raw": "wrote",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "raw": "them,",
+          "start": 1.29,
+          "end": 1.67
+        },
+        {
+          "raw": "said",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "I.",
+          "start": 2.03,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "\"The",
+        "Holy",
+        "Spirit",
+        "wrote",
+        "them,\"",
+        "said",
+        "I."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The,",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Holy,",
+          "start": 0.61,
+          "end": 0.69,
+          "key": "holy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Spirit,",
+          "start": 0.69,
+          "end": 1.03,
+          "key": "spirit",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "wrote",
+          "start": 1.27,
+          "end": 1.29,
+          "key": "wrote",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them,",
+          "start": 1.29,
+          "end": 1.67,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 1.73,
+          "end": 2.03,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I.",
+          "start": 2.03,
+          "end": 2.27,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "Holy",
+          "start": 0.61,
+          "end": 0.69
+        },
+        {
+          "text": "Spirit",
+          "start": 0.69,
+          "end": 1.03
+        },
+        {
+          "text": "wrote",
+          "start": 1.27,
+          "end": 1.29
+        },
+        {
+          "text": "them,\"",
+          "start": 1.29,
+          "end": 1.67
+        },
+        {
+          "text": "said",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "I.",
+          "start": 2.03,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24598134495317936
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "63b4c8d8163d462b7b14618a1e02a864885ba551b56dd883f10699397c82ac82",
+  "selected_reasons": []
+}

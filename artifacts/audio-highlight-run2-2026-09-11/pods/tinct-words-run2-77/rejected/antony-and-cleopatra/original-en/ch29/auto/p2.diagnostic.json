@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "571696f3f94a172f99aaf4b26723d9eeaef52d323db4bdbd6a0724978e0cedc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.11886127799516544,
+      "alignment_seconds": 0.00020171701908111572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cleopatra. Sleep a little.",
+        "hotwords": "Cleopatra, Sleep"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cleopatra, Sleep a little.",
+          "start": 0.05,
+          "end": 1.89,
+          "words": [
+            {
+              "text": " Cleopatra,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.9767252604166666
+            },
+            {
+              "text": " Sleep",
+              "start": 1.49,
+              "end": 1.57,
+              "probability": 0.038848876953125
+            },
+            {
+              "text": " a",
+              "start": 1.57,
+              "end": 1.71,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " little.",
+              "start": 1.71,
+              "end": 1.89,
+              "probability": 0.2763671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "Sleep",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "raw": "little.",
+          "start": 1.71,
+          "end": 1.89
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Sleep",
+        "a",
+        "little."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sleep",
+          "start": 1.49,
+          "end": 1.57,
+          "key": "sleep",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.57,
+          "end": 1.71,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "little.",
+          "start": 1.71,
+          "end": 1.89,
+          "key": "little",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "text": "Sleep",
+          "start": 1.49,
+          "end": 1.57
+        },
+        {
+          "text": "a",
+          "start": 1.57,
+          "end": 1.71
+        },
+        {
+          "text": "little.",
+          "start": 1.71,
+          "end": 1.89
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11913511698367074
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0ddf4cbc8c4231acd71b87231ff81330f782cfd8b9a4624833167ed1729597c5",
+  "selected_reasons": []
+}

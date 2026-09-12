@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "053c5940e65057c9791bad5126c9f46fe522d7311dc12fe7885831970b569853",
+  "attempts": [
+    {
+      "asr_seconds": 0.19417100958526134,
+      "alignment_seconds": 0.0002616625279188156,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Cleopatra let him come in",
+          "start": 0.05,
+          "end": 2.29,
+          "words": [
+            {
+              "text": " Cleopatra",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.9798177083333334
+            },
+            {
+              "text": " let",
+              "start": 1.05,
+              "end": 1.53,
+              "probability": 0.25390625
+            },
+            {
+              "text": " him",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " come",
+              "start": 1.69,
+              "end": 1.83,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 1.83,
+              "end": 2.29,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cleopatra",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "let",
+          "start": 1.05,
+          "end": 1.53
+        },
+        {
+          "raw": "him",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "come",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "raw": "in",
+          "start": 1.83,
+          "end": 2.29
+        }
+      ],
+      "expected_tokens": [
+        "Cleopatra.",
+        "Let",
+        "him",
+        "come",
+        "in."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cleopatra",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "cleopatra",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.05,
+          "end": 1.53,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 1.69,
+          "end": 1.83,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.83,
+          "end": 2.29,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cleopatra.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "text": "Let",
+          "start": 1.05,
+          "end": 1.53
+        },
+        {
+          "text": "him",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "text": "come",
+          "start": 1.69,
+          "end": 1.83
+        },
+        {
+          "text": "in.",
+          "start": 1.83,
+          "end": 2.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.194558909162879
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8b6a6201569563743ac3f95d35bd9042cf541225adc375e55cc257394b76ff24",
+  "selected_reasons": []
+}

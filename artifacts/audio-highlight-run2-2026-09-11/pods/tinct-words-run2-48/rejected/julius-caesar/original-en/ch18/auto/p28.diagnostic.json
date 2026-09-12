@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "a290bf3890a34409abd7a912766c3a029c4b3dddd47eb501b9c643e386be711c",
+  "attempts": [
+    {
+      "asr_seconds": 0.18353249598294497,
+      "alignment_seconds": 0.00016419123858213425,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clitus. Fly, my lord, fly!",
+        "hotwords": "Clitus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clitus, fly, my lord, fly!",
+          "start": 0.05,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Clitus,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.553466796875
+            },
+            {
+              "text": " fly,",
+              "start": 1.07,
+              "end": 1.29,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " my",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " lord,",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " fly!",
+              "start": 1.99,
+              "end": 2.05,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clitus,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "fly,",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "lord,",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "fly!",
+          "start": 1.99,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Clitus.",
+        "Fly,",
+        "my",
+        "lord,",
+        "fly!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clitus,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "clitus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fly,",
+          "start": 1.07,
+          "end": 1.29,
+          "key": "fly",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.41,
+          "end": 1.49,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "lord",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fly!",
+          "start": 1.99,
+          "end": 2.05,
+          "key": "fly",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clitus.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Fly,",
+          "start": 1.07,
+          "end": 1.29
+        },
+        {
+          "text": "my",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "lord,",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "text": "fly!",
+          "start": 1.99,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18375308346003294
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b937346baadb90f3888c7b00f5cc308cf38ae6524f5a909cc93774c06cddfdf",
+  "selected_reasons": []
+}

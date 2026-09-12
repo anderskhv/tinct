@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "91b7e467b5ccff1daf92a467f426b8226a24787e813d9ebfa868bc7fc591214c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10106144845485687,
+      "alignment_seconds": 7.725320756435394e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But, Gertrude--\"",
+        "hotwords": "But, Gertrude"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But, Gertrude",
+          "start": 0.08,
+          "end": 1.14,
+          "words": [
+            {
+              "text": " But,",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " Gertrude",
+              "start": 0.76,
+              "end": 1.14,
+              "probability": 0.9769287109375
+            }
+          ]
+        },
+        {
+          "text": " But, Gertrude",
+          "start": 1.14,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " But,",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.00032258033752441406
+            },
+            {
+              "text": " Gertrude",
+              "start": 1.34,
+              "end": 1.44,
+              "probability": 0.3747897148132324
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But,",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "Gertrude",
+          "start": 0.76,
+          "end": 1.14
+        },
+        {
+          "raw": "But,",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "Gertrude",
+          "start": 1.34,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "\"But,",
+        "Gertrude--\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          2,
+          2,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But,",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gertrude",
+          "start": 0.76,
+          "end": 1.14,
+          "key": "gertrude",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "But,",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "but",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Gertrude",
+          "start": 1.34,
+          "end": 1.44,
+          "key": "gertrude",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"But,",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "Gertrude--\"",
+          "start": 0.76,
+          "end": 1.14
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10116744786500931
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "02a32c88f7ebd99407e4564bd7f17c91f46d3889b9612b38def087c90b9e14bb",
+  "selected_reasons": []
+}

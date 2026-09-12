@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "1cad4b2f33e451a9a0c92663f8a04eb992c140566d37cd84c040e4da205652f4",
+  "attempts": [
+    {
+      "asr_seconds": 0.12929319869726896,
+      "alignment_seconds": 0.0001220880076289177,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Othello. Ay, Desdemona.",
+        "hotwords": "Othello, Ay, Desdemona"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Othello, Ay, Desdemona.",
+          "start": 0.08,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " Othello,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.6885579427083334
+            },
+            {
+              "text": " Ay,",
+              "start": 1.36,
+              "end": 1.42,
+              "probability": 0.0009102821350097656
+            },
+            {
+              "text": " Desdemona.",
+              "start": 1.54,
+              "end": 2.0,
+              "probability": 0.6508620580037435
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.54,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "Othello.",
+        "Ay,",
+        "Desdemona."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Othello,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "othello",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.36,
+          "end": 1.42,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Desdemona.",
+          "start": 1.54,
+          "end": 2.0,
+          "key": "desdemona",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Othello.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Ay,",
+          "start": 1.36,
+          "end": 1.42
+        },
+        {
+          "text": "Desdemona.",
+          "start": 1.54,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12945343693718314
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4393c47948633418851ccf823c117b6ae7e1729f6ad56dd5d2ce2fa5adfa97ef",
+  "selected_reasons": []
+}

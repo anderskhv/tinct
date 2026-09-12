@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "dbe0b0c51733a7289c9acf3d9afc314f4479185c9cae7c1513045f2be83d966d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11780400201678276,
+      "alignment_seconds": 0.0001783408224582672,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. I will forget my nature. So kind a father! Be my horses ready?",
+        "hotwords": "Lear, I, So, Be"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear, I will forget my nature. So kind a father! Be my horses ready?",
+          "start": 0.05,
+          "end": 4.21,
+          "words": [
+            {
+              "text": " Lear,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.463623046875
+            },
+            {
+              "text": " I",
+              "start": 0.93,
+              "end": 0.97,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " will",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " forget",
+              "start": 1.07,
+              "end": 1.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 1.33,
+              "end": 1.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " nature.",
+              "start": 1.49,
+              "end": 1.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " So",
+              "start": 2.43,
+              "end": 2.51,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " kind",
+              "start": 2.51,
+              "end": 2.75,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " a",
+              "start": 2.75,
+              "end": 2.89,
+              "probability": 0.0687255859375
+            },
+            {
+              "text": " father!",
+              "start": 2.89,
+              "end": 3.17,
+              "probability": 0.7509765625
+            },
+            {
+              "text": " Be",
+              "start": 3.41,
+              "end": 3.43,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " my",
+              "start": 3.43,
+              "end": 3.59,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " horses",
+              "start": 3.59,
+              "end": 3.87,
+              "probability": 0.419677734375
+            },
+            {
+              "text": " ready?",
+              "start": 3.87,
+              "end": 4.21,
+              "probability": 0.75390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 0.97
+        },
+        {
+          "raw": "will",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "forget",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "raw": "my",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "raw": "nature.",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "raw": "So",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "raw": "kind",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "raw": "a",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "raw": "father!",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "raw": "Be",
+          "start": 3.41,
+          "end": 3.43
+        },
+        {
+          "raw": "my",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "raw": "horses",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "raw": "ready?",
+          "start": 3.87,
+          "end": 4.21
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "I",
+        "will",
+        "forget",
+        "my",
+        "nature.",
+        "So",
+        "kind",
+        "a",
+        "father!",
+        "Be",
+        "my",
+        "horses",
+        "ready?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 0.97,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.97,
+          "end": 1.07,
+          "key": "will",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "forget",
+          "start": 1.07,
+          "end": 1.33,
+          "key": "forget",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.33,
+          "end": 1.49,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "nature.",
+          "start": 1.49,
+          "end": 1.83,
+          "key": "nature",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "So",
+          "start": 2.43,
+          "end": 2.51,
+          "key": "so",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kind",
+          "start": 2.51,
+          "end": 2.75,
+          "key": "kind",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.75,
+          "end": 2.89,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "father!",
+          "start": 2.89,
+          "end": 3.17,
+          "key": "father",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Be",
+          "start": 3.41,
+          "end": 3.43,
+          "key": "be",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.43,
+          "end": 3.59,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "horses",
+          "start": 3.59,
+          "end": 3.87,
+          "key": "horses",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ready?",
+          "start": 3.87,
+          "end": 4.21,
+          "key": "ready",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 0.97
+        },
+        {
+          "text": "will",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "forget",
+          "start": 1.07,
+          "end": 1.33
+        },
+        {
+          "text": "my",
+          "start": 1.33,
+          "end": 1.49
+        },
+        {
+          "text": "nature.",
+          "start": 1.49,
+          "end": 1.83
+        },
+        {
+          "text": "So",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "text": "kind",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "text": "a",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "text": "father!",
+          "start": 2.89,
+          "end": 3.17
+        },
+        {
+          "text": "Be",
+          "start": 3.41,
+          "end": 3.43
+        },
+        {
+          "text": "my",
+          "start": 3.43,
+          "end": 3.59
+        },
+        {
+          "text": "horses",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "text": "ready?",
+          "start": 3.87,
+          "end": 4.21
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11805237084627151
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "afa696c47d0ed6bbf1640c04819440f6cbb438d49d97ebc3426520fc4ac31c99",
+  "selected_reasons": []
+}

@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "ecd9405ad5beaa710655c3d831384f29454f692f5559ad337a196e973f473c99",
+  "attempts": [
+    {
+      "asr_seconds": 0.10399782285094261,
+      "alignment_seconds": 0.0002214871346950531,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who's",
+          "start": 0.05,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " Who's",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.654052734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who's",
+          "start": 0.05,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "Whose?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who's",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "whos",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Whose?",
+          "start": 0.0,
+          "end": 0.415
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.10429082438349724
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "08bee9e165d39adf5950bbc8f06cf27f46724a861a947e01cce9eb7ea5abda57",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

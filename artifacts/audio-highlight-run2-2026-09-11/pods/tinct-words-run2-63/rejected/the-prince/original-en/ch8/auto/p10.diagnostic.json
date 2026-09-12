@@ -1,0 +1,759 @@
+{
+  "complete": true,
+  "signature": "5b813255eb9b577274d64945453fd39a66625c8189541cae8c418f583be6ef4e",
+  "attempts": [
+    {
+      "asr_seconds": 0.14814389497041702,
+      "alignment_seconds": 0.000271407887339592,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ramiro d'Orco. Ramiro de Lorqua.",
+        "hotwords": "Ramiro, Lorqua"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ramiro d'Orco. Ramiro de Lorqua.",
+          "start": 0.08,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Ramiro",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.7248128255208334
+            },
+            {
+              "text": " d",
+              "start": 0.86,
+              "end": 0.98,
+              "probability": 0.48974609375
+            },
+            {
+              "text": "'Orco.",
+              "start": 0.98,
+              "end": 1.28,
+              "probability": 0.6813151041666666
+            },
+            {
+              "text": " Ramiro",
+              "start": 1.74,
+              "end": 2.0,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " de",
+              "start": 2.0,
+              "end": 2.12,
+              "probability": 0.5341796875
+            },
+            {
+              "text": " Lorqua.",
+              "start": 2.12,
+              "end": 2.48,
+              "probability": 0.658935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ramiro",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "d",
+          "start": 0.86,
+          "end": 0.98
+        },
+        {
+          "raw": "'Orco.",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "raw": "Ramiro",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "raw": "de",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "raw": "Lorqua.",
+          "start": 2.12,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "Ramiro",
+        "d'Orco.",
+        "Ramiro",
+        "de",
+        "Lorqua."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ramiro",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "ramiro",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 0.86,
+          "end": 0.98,
+          "key": "d",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'Orco.",
+          "start": 0.98,
+          "end": 1.28,
+          "key": "orco",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ramiro",
+          "start": 1.74,
+          "end": 2.0,
+          "key": "ramiro",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.0,
+          "end": 2.12,
+          "key": "de",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lorqua.",
+          "start": 2.12,
+          "end": 2.48,
+          "key": "lorqua",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ramiro",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "d'Orco.",
+          "start": 0.86,
+          "end": 1.3
+        },
+        {
+          "text": "Ramiro",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "text": "de",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "text": "Lorqua.",
+          "start": 2.12,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14851730316877365
+    },
+    {
+      "asr_seconds": 0.1995674278587103,
+      "alignment_seconds": 0.0004017893224954605,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ramiro, Lorqua"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Ramiro Dorko, Ramiro de Lorqua",
+          "start": 0.08,
+          "end": 2.48,
+          "words": [
+            {
+              "text": " Ramiro",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.7245279947916666
+            },
+            {
+              "text": " Dorko,",
+              "start": 0.86,
+              "end": 1.28,
+              "probability": 0.649658203125
+            },
+            {
+              "text": " Ramiro",
+              "start": 1.72,
+              "end": 2.0,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " de",
+              "start": 2.0,
+              "end": 2.12,
+              "probability": 0.342529296875
+            },
+            {
+              "text": " Lorqua",
+              "start": 2.12,
+              "end": 2.48,
+              "probability": 0.73046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ramiro",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "Dorko,",
+          "start": 0.86,
+          "end": 1.28
+        },
+        {
+          "raw": "Ramiro",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "raw": "de",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "raw": "Lorqua",
+          "start": 2.12,
+          "end": 2.48
+        }
+      ],
+      "expected_tokens": [
+        "Ramiro",
+        "d'Orco.",
+        "Ramiro",
+        "de",
+        "Lorqua."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ramiro",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "ramiro",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dorko,",
+          "start": 0.86,
+          "end": 1.28,
+          "key": "dorko",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ramiro",
+          "start": 1.72,
+          "end": 2.0,
+          "key": "ramiro",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.0,
+          "end": 2.12,
+          "key": "de",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lorqua",
+          "start": 2.12,
+          "end": 2.48,
+          "key": "lorqua",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ramiro",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "d'Orco.",
+          "start": 0.86,
+          "end": 1.29
+        },
+        {
+          "text": "Ramiro",
+          "start": 1.72,
+          "end": 2.0
+        },
+        {
+          "text": "de",
+          "start": 2.0,
+          "end": 2.12
+        },
+        {
+          "text": "Lorqua.",
+          "start": 2.12,
+          "end": 2.48
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20011816546320915
+    },
+    {
+      "asr_seconds": 0.22430636174976826,
+      "alignment_seconds": 0.0004190448671579361,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ramiro d'Orco, Ramiro de Lorqua",
+          "start": 0.08,
+          "end": 2.5,
+          "words": [
+            {
+              "text": " Ramiro",
+              "start": 0.08,
+              "end": 0.86,
+              "probability": 0.7248128255208334
+            },
+            {
+              "text": " d",
+              "start": 0.86,
+              "end": 0.98,
+              "probability": 0.48974609375
+            },
+            {
+              "text": "'Orco,",
+              "start": 0.98,
+              "end": 1.28,
+              "probability": 0.6813151041666666
+            },
+            {
+              "text": " Ramiro",
+              "start": 1.74,
+              "end": 2.0,
+              "probability": 0.9235026041666666
+            },
+            {
+              "text": " de",
+              "start": 2.0,
+              "end": 2.14,
+              "probability": 0.489013671875
+            },
+            {
+              "text": " Lorqua",
+              "start": 2.14,
+              "end": 2.5,
+              "probability": 0.670166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ramiro",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "raw": "d",
+          "start": 0.86,
+          "end": 0.98
+        },
+        {
+          "raw": "'Orco,",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "raw": "Ramiro",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "raw": "de",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "raw": "Lorqua",
+          "start": 2.14,
+          "end": 2.5
+        }
+      ],
+      "expected_tokens": [
+        "Ramiro",
+        "d'Orco.",
+        "Ramiro",
+        "de",
+        "Lorqua."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          5,
+          3,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ramiro",
+          "start": 0.08,
+          "end": 0.86,
+          "key": "ramiro",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 0.86,
+          "end": 0.98,
+          "key": "d",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "'Orco,",
+          "start": 0.98,
+          "end": 1.28,
+          "key": "orco",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Ramiro",
+          "start": 1.74,
+          "end": 2.0,
+          "key": "ramiro",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 2.0,
+          "end": 2.14,
+          "key": "de",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lorqua",
+          "start": 2.14,
+          "end": 2.5,
+          "key": "lorqua",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ramiro",
+          "start": 0.08,
+          "end": 0.86
+        },
+        {
+          "text": "d'Orco.",
+          "start": 0.86,
+          "end": 1.3
+        },
+        {
+          "text": "Ramiro",
+          "start": 1.74,
+          "end": 2.0
+        },
+        {
+          "text": "de",
+          "start": 2.0,
+          "end": 2.14
+        },
+        {
+          "text": "Lorqua.",
+          "start": 2.14,
+          "end": 2.5
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 6,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22486880607903004
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5451f306dc50459e5c294c4ec13ae507e37c0b66c42960357ba5e9b24556b56e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

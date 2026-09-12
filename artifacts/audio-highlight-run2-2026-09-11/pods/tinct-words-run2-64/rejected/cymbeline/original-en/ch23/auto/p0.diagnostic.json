@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "621380c1461c2ad4e9fecfef745441c5eab6cf1ab468f35b7ba3d2eef8bf8ce6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2205135552212596,
+      "alignment_seconds": 0.0003588460385799408,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter Cymbeline, Lords, Pisanio and Attendants.",
+        "hotwords": "Enter, Cymbeline, Lords, Pisanio, Attendants"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter Cymbeline, Lords, Pisanio and Attendants.",
+          "start": 0.11,
+          "end": 3.31,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " Cymbeline,",
+              "start": 0.65,
+              "end": 1.15,
+              "probability": 0.6870930989583334
+            },
+            {
+              "text": " Lords,",
+              "start": 1.87,
+              "end": 1.87,
+              "probability": 0.62353515625
+            },
+            {
+              "text": " Pisanio",
+              "start": 2.17,
+              "end": 2.61,
+              "probability": 0.6875
+            },
+            {
+              "text": " and",
+              "start": 2.61,
+              "end": 2.81,
+              "probability": 0.426513671875
+            },
+            {
+              "text": " Attendants.",
+              "start": 2.81,
+              "end": 3.31,
+              "probability": 0.60711669921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "Cymbeline,",
+          "start": 0.65,
+          "end": 1.15
+        },
+        {
+          "raw": "Lords,",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "raw": "Pisanio",
+          "start": 2.17,
+          "end": 2.61
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "raw": "Attendants.",
+          "start": 2.81,
+          "end": 3.31
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "Cymbeline,",
+        "Lords,",
+        "Pisanio",
+        "and",
+        "Attendants."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.11,
+          "end": 0.65,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Cymbeline,",
+          "start": 0.65,
+          "end": 1.15,
+          "key": "cymbeline",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lords,",
+          "start": 1.87,
+          "end": 1.87,
+          "key": "lords",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Pisanio",
+          "start": 2.17,
+          "end": 2.61,
+          "key": "pisanio",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.61,
+          "end": 2.81,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Attendants.",
+          "start": 2.81,
+          "end": 3.31,
+          "key": "attendants",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "Cymbeline,",
+          "start": 0.65,
+          "end": 1.15
+        },
+        {
+          "text": "Lords,",
+          "start": 1.87,
+          "end": 1.87
+        },
+        {
+          "text": "Pisanio",
+          "start": 2.17,
+          "end": 2.61
+        },
+        {
+          "text": "and",
+          "start": 2.61,
+          "end": 2.81
+        },
+        {
+          "text": "Attendants.",
+          "start": 2.81,
+          "end": 3.31
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22100778110325336
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "340dbeb50a6f49eb23429ba68f096f6ade2bd37ddf4bc687d6d29cc7093d26cf",
+  "selected_reasons": []
+}

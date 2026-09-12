@@ -1,0 +1,377 @@
+{
+  "complete": true,
+  "signature": "aa83badc009daca44504619acb03e56fcf3fda36e64eea3a99dad4e067f004a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.22457997128367424,
+      "alignment_seconds": 0.000392962247133255,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Do you understand what he says?",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " Do",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " understand",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " what",
+              "start": 1.03,
+              "end": 1.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 1.23,
+              "end": 1.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " says?",
+              "start": 1.35,
+              "end": 1.69,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " Steven asked her.",
+          "start": 2.29,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " Steven",
+              "start": 2.29,
+              "end": 2.29,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " asked",
+              "start": 2.29,
+              "end": 2.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " her.",
+              "start": 2.71,
+              "end": 2.93,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "understand",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "what",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "raw": "he",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "raw": "says?",
+          "start": 1.35,
+          "end": 1.69
+        },
+        {
+          "raw": "Steven",
+          "start": 2.29,
+          "end": 2.29
+        },
+        {
+          "raw": "asked",
+          "start": 2.29,
+          "end": 2.71
+        },
+        {
+          "raw": "her.",
+          "start": 2.71,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "—Do",
+        "you",
+        "understand",
+        "what",
+        "he",
+        "says?",
+        "Stephen",
+        "asked",
+        "her."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          9,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Do",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "do",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.63,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "understand",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "understand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.03,
+          "end": 1.23,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.23,
+          "end": 1.35,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "says?",
+          "start": 1.35,
+          "end": 1.69,
+          "key": "says",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Steven",
+          "start": 2.29,
+          "end": 2.29,
+          "key": "steven",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.29,
+          "end": 2.71,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 2.71,
+          "end": 2.93,
+          "key": "her",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Do",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "understand",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "what",
+          "start": 1.03,
+          "end": 1.23
+        },
+        {
+          "text": "he",
+          "start": 1.23,
+          "end": 1.35
+        },
+        {
+          "text": "says?",
+          "start": 1.35,
+          "end": 1.69
+        },
+        {
+          "text": "Stephen",
+          "start": 1.69,
+          "end": 1.99
+        },
+        {
+          "text": "asked",
+          "start": 2.29,
+          "end": 2.71
+        },
+        {
+          "text": "her.",
+          "start": 2.71,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.225105918943882
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d069f0db4476f76a686bef3dc80279724671537adf1765d1be0476f437fbc27a",
+  "selected_reasons": []
+}

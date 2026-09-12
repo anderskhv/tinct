@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "19188f84ae77ee4b89400c2f31633f43c94a0ed29a4d40dc42ce2b3547a4c3a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.1356646716594696,
+      "alignment_seconds": 0.00036301184445619583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exhume Banquo and Fleens.",
+          "start": 0.05,
+          "end": 1.73,
+          "words": [
+            {
+              "text": " Exhume",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.4414876302083333
+            },
+            {
+              "text": " Banquo",
+              "start": 0.73,
+              "end": 1.13,
+              "probability": 0.7685546875
+            },
+            {
+              "text": " and",
+              "start": 1.13,
+              "end": 1.25,
+              "probability": 0.84765625
+            },
+            {
+              "text": " Fleens.",
+              "start": 1.25,
+              "end": 1.73,
+              "probability": 0.880859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exhume",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Banquo",
+          "start": 0.73,
+          "end": 1.13
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "raw": "Fleens.",
+          "start": 1.25,
+          "end": 1.73
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Banquo",
+        "and",
+        "Fleance.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exhume",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "exhume",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Banquo",
+          "start": 0.73,
+          "end": 1.13,
+          "key": "banquo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.25,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fleens.",
+          "start": 1.25,
+          "end": 1.73,
+          "key": "fleens",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "Banquo",
+          "start": 0.73,
+          "end": 1.13
+        },
+        {
+          "text": "and",
+          "start": 1.13,
+          "end": 1.25
+        },
+        {
+          "text": "Fleance.]",
+          "start": 1.25,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 2
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1361438361927867
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5b97f662b54de0efaffcb375dd4e1a2d3437b8b8d44bee39da08ecb37b3b405f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

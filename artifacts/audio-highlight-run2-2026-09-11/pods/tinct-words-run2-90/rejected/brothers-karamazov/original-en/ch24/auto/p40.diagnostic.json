@@ -1,0 +1,916 @@
+{
+  "complete": true,
+  "signature": "1c7d96319814e0257c5371c249537e7439cdaed97b17c8858d6f141c75a6bac8",
+  "attempts": [
+    {
+      "asr_seconds": 0.16748120449483395,
+      "alignment_seconds": 0.00014457572251558304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"P.S.—Alyosha! You must, must, must come!—Lise.\"",
+        "hotwords": "P.S.—Alyosha, You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " P.S.—Alyosha, You must, must, must come!—Lise.",
+          "start": 0.05,
+          "end": 3.81,
+          "words": [
+            {
+              "text": " P",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.6748046875
+            },
+            {
+              "text": ".S.—Alyosha,",
+              "start": 0.57,
+              "end": 1.85,
+              "probability": 0.6276591164725167
+            },
+            {
+              "text": " You",
+              "start": 1.93,
+              "end": 2.01,
+              "probability": 0.1015625
+            },
+            {
+              "text": " must,",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.2509765625
+            },
+            {
+              "text": " must,",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " must",
+              "start": 2.47,
+              "end": 2.63,
+              "probability": 0.994140625
+            },
+            {
+              "text": " come",
+              "start": 2.63,
+              "end": 2.97,
+              "probability": 0.8984375
+            },
+            {
+              "text": "!—Lise.",
+              "start": 2.97,
+              "end": 3.81,
+              "probability": 0.045512616634368896
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": ".S.—Alyosha,",
+          "start": 0.57,
+          "end": 1.85
+        },
+        {
+          "raw": "You",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "raw": "must,",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "must,",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "must",
+          "start": 2.47,
+          "end": 2.63
+        },
+        {
+          "raw": "come",
+          "start": 2.63,
+          "end": 2.97
+        },
+        {
+          "raw": "!—Lise.",
+          "start": 2.97,
+          "end": 3.81
+        }
+      ],
+      "expected_tokens": [
+        "\"P.S.—Alyosha!",
+        "You",
+        "must,",
+        "must,",
+        "must",
+        "come!—Lise.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          5,
+          2,
+          6
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          6,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "p",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".S.—Alyosha,",
+          "start": 0.57,
+          "end": 1.85,
+          "key": "salyosha",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.93,
+          "end": 2.01,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "must,",
+          "start": 2.01,
+          "end": 2.19,
+          "key": "must",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must,",
+          "start": 2.23,
+          "end": 2.41,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.47,
+          "end": 2.63,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.63,
+          "end": 2.97,
+          "key": "come",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "!—Lise.",
+          "start": 2.97,
+          "end": 3.81,
+          "key": "lise",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"P.S.—Alyosha!",
+          "start": 0.0,
+          "end": 0.965
+        },
+        {
+          "text": "You",
+          "start": 1.93,
+          "end": 2.01
+        },
+        {
+          "text": "must,",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "must,",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "must",
+          "start": 2.47,
+          "end": 2.63
+        },
+        {
+          "text": "come!—Lise.\"",
+          "start": 2.63,
+          "end": 3.22
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 8,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16767555102705956
+    },
+    {
+      "asr_seconds": 0.1562643786892295,
+      "alignment_seconds": 0.00013379473239183426,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "P.S.—Alyosha, You"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Must, Must, Must Come. Lies.",
+          "start": 0.05,
+          "end": 3.63,
+          "words": [
+            {
+              "text": " Must,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 6.556510925292969e-07
+            },
+            {
+              "text": " Must,",
+              "start": 2.37,
+              "end": 2.37,
+              "probability": 0.2227783203125
+            },
+            {
+              "text": " Must",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " Come.",
+              "start": 2.63,
+              "end": 2.97,
+              "probability": 0.2012939453125
+            },
+            {
+              "text": " Lies.",
+              "start": 3.49,
+              "end": 3.63,
+              "probability": 0.95166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Must,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Must,",
+          "start": 2.37,
+          "end": 2.37
+        },
+        {
+          "raw": "Must",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "Come.",
+          "start": 2.63,
+          "end": 2.97
+        },
+        {
+          "raw": "Lies.",
+          "start": 3.49,
+          "end": 3.63
+        }
+      ],
+      "expected_tokens": [
+        "\"P.S.—Alyosha!",
+        "You",
+        "must,",
+        "must,",
+        "must",
+        "come!—Lise.\""
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          5,
+          0,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          5,
+          6,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Must,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "must",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Must,",
+          "start": 2.37,
+          "end": 2.37,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Must",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "must",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Come.",
+          "start": 2.63,
+          "end": 2.97,
+          "key": "come",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Lies.",
+          "start": 3.49,
+          "end": 3.63,
+          "key": "lies",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"P.S.—Alyosha!",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "You",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "must,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "must,",
+          "start": 2.37,
+          "end": 2.37
+        },
+        {
+          "text": "must",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "come!—Lise.\"",
+          "start": 2.63,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.15643786452710629
+    },
+    {
+      "asr_seconds": 0.12341069988906384,
+      "alignment_seconds": 0.00014799460768699646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " P.S. Alyosha you must must must come lies",
+          "start": 0.05,
+          "end": 3.65,
+          "words": [
+            {
+              "text": " P",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.67529296875
+            },
+            {
+              "text": ".S.",
+              "start": 0.57,
+              "end": 0.93,
+              "probability": 0.923095703125
+            },
+            {
+              "text": " Alyosha",
+              "start": 1.33,
+              "end": 1.85,
+              "probability": 0.809814453125
+            },
+            {
+              "text": " you",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.5439453125
+            },
+            {
+              "text": " must",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.98828125
+            },
+            {
+              "text": " must",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " must",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " come",
+              "start": 2.63,
+              "end": 2.99,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " lies",
+              "start": 2.99,
+              "end": 3.65,
+              "probability": 0.33935546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": ".S.",
+          "start": 0.57,
+          "end": 0.93
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.33,
+          "end": 1.85
+        },
+        {
+          "raw": "you",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "must",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "must",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "must",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "come",
+          "start": 2.63,
+          "end": 2.99
+        },
+        {
+          "raw": "lies",
+          "start": 2.99,
+          "end": 3.65
+        }
+      ],
+      "expected_tokens": [
+        "\"P.S.—Alyosha!",
+        "You",
+        "must,",
+        "must,",
+        "must",
+        "come!—Lise.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          5,
+          3,
+          7
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "p",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 0.57,
+          "end": 0.93,
+          "key": "s",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 1.33,
+          "end": 1.85,
+          "key": "alyosha",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.99,
+          "end": 2.21,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.21,
+          "end": 2.41,
+          "key": "must",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "must",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 2.63,
+          "end": 2.99,
+          "key": "come",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 2.99,
+          "end": 3.65,
+          "key": "lies",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"P.S.—Alyosha!",
+          "start": 0.0,
+          "end": 0.925
+        },
+        {
+          "text": "You",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "must,",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "must,",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "must",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "come!—Lise.\"",
+          "start": 2.63,
+          "end": 3.14
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 9,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1236135670915246
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0cb810e5e676958a3f97f06274928adc5b85b4b99639cc7b2c954da0d60f0e23",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

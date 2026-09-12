@@ -1,0 +1,3612 @@
+{
+  "complete": true,
+  "signature": "21f34997b133cf066dc2b25fab08715cbf7ce73c10d6f2ac2868a7404979356f",
+  "attempts": [
+    {
+      "asr_seconds": 0.4185160109773278,
+      "alignment_seconds": 0.0008331900462508202,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ev'n should I fall o'er the broken bridge passing, Or stray in the marshes, by false lights beguiled, Still will my Father, with promise and blessing, Take to His bosom the poor orphan child.",
+        "hotwords": "Ev'n, I, Or, Still, Father, Take, His"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ev'n should I fall o'er the broken bridge passing, Or stray in the marshes, by false lights beguiled, Still will my Father, with promise and blessing, Take to His bosom the poor orphan child.",
+          "start": 0.02,
+          "end": 11.88,
+          "words": [
+            {
+              "text": " Ev",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.01392364501953125
+            },
+            {
+              "text": "'n",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.536224365234375
+            },
+            {
+              "text": " should",
+              "start": 0.66,
+              "end": 0.8,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " I",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " fall",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " o",
+              "start": 1.2,
+              "end": 1.42,
+              "probability": 0.208251953125
+            },
+            {
+              "text": "'er",
+              "start": 1.42,
+              "end": 1.5,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " broken",
+              "start": 1.64,
+              "end": 1.94,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " bridge",
+              "start": 1.94,
+              "end": 2.3,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " passing,",
+              "start": 2.3,
+              "end": 2.84,
+              "probability": 0.8984375
+            },
+            {
+              "text": " Or",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " stray",
+              "start": 3.44,
+              "end": 3.78,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " in",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 3.94,
+              "end": 4.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " marshes,",
+              "start": 4.04,
+              "end": 4.54,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " by",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.9296875
+            },
+            {
+              "text": " false",
+              "start": 5.1,
+              "end": 5.44,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " lights",
+              "start": 5.44,
+              "end": 5.82,
+              "probability": 0.935546875
+            },
+            {
+              "text": " beguiled,",
+              "start": 5.82,
+              "end": 6.48,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Still",
+              "start": 7.0,
+              "end": 7.22,
+              "probability": 0.9765625
+            },
+            {
+              "text": " will",
+              "start": 7.22,
+              "end": 7.4,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " my",
+              "start": 7.4,
+              "end": 7.56,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Father,",
+              "start": 7.56,
+              "end": 7.92,
+              "probability": 0.2015380859375
+            },
+            {
+              "text": " with",
+              "start": 8.04,
+              "end": 8.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " promise",
+              "start": 8.2,
+              "end": 8.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 8.52,
+              "end": 8.88,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " blessing,",
+              "start": 8.88,
+              "end": 9.24,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Take",
+              "start": 9.78,
+              "end": 9.84,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " to",
+              "start": 9.84,
+              "end": 10.04,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " His",
+              "start": 10.04,
+              "end": 10.18,
+              "probability": 0.27783203125
+            },
+            {
+              "text": " bosom",
+              "start": 10.18,
+              "end": 10.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 10.58,
+              "end": 10.76,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " poor",
+              "start": 10.76,
+              "end": 11.02,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " orphan",
+              "start": 11.02,
+              "end": 11.4,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " child.",
+              "start": 11.4,
+              "end": 11.88,
+              "probability": 0.47314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ev",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "'n",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "should",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "fall",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "raw": "o",
+          "start": 1.2,
+          "end": 1.42
+        },
+        {
+          "raw": "'er",
+          "start": 1.42,
+          "end": 1.5
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "broken",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "raw": "bridge",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "raw": "passing,",
+          "start": 2.3,
+          "end": 2.84
+        },
+        {
+          "raw": "Or",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "stray",
+          "start": 3.44,
+          "end": 3.78
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "raw": "marshes,",
+          "start": 4.04,
+          "end": 4.54
+        },
+        {
+          "raw": "by",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "false",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "raw": "lights",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "raw": "beguiled,",
+          "start": 5.82,
+          "end": 6.48
+        },
+        {
+          "raw": "Still",
+          "start": 7.0,
+          "end": 7.22
+        },
+        {
+          "raw": "will",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "raw": "my",
+          "start": 7.4,
+          "end": 7.56
+        },
+        {
+          "raw": "Father,",
+          "start": 7.56,
+          "end": 7.92
+        },
+        {
+          "raw": "with",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "raw": "promise",
+          "start": 8.2,
+          "end": 8.52
+        },
+        {
+          "raw": "and",
+          "start": 8.52,
+          "end": 8.88
+        },
+        {
+          "raw": "blessing,",
+          "start": 8.88,
+          "end": 9.24
+        },
+        {
+          "raw": "Take",
+          "start": 9.78,
+          "end": 9.84
+        },
+        {
+          "raw": "to",
+          "start": 9.84,
+          "end": 10.04
+        },
+        {
+          "raw": "His",
+          "start": 10.04,
+          "end": 10.18
+        },
+        {
+          "raw": "bosom",
+          "start": 10.18,
+          "end": 10.58
+        },
+        {
+          "raw": "the",
+          "start": 10.58,
+          "end": 10.76
+        },
+        {
+          "raw": "poor",
+          "start": 10.76,
+          "end": 11.02
+        },
+        {
+          "raw": "orphan",
+          "start": 11.02,
+          "end": 11.4
+        },
+        {
+          "raw": "child.",
+          "start": 11.4,
+          "end": 11.88
+        }
+      ],
+      "expected_tokens": [
+        "Ev'n",
+        "should",
+        "I",
+        "fall",
+        "o'er",
+        "the",
+        "broken",
+        "bridge",
+        "passing,",
+        "Or",
+        "stray",
+        "in",
+        "the",
+        "marshes,",
+        "by",
+        "false",
+        "lights",
+        "beguiled,",
+        "Still",
+        "will",
+        "my",
+        "Father,",
+        "with",
+        "promise",
+        "and",
+        "blessing,",
+        "Take",
+        "to",
+        "His",
+        "bosom",
+        "the",
+        "poor",
+        "orphan",
+        "child."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          4,
+          2,
+          5
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ],
+        [
+          "equal",
+          5,
+          34,
+          7,
+          36
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ev",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "ev",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "'n",
+          "start": 0.52,
+          "end": 0.66,
+          "key": "n",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.66,
+          "end": 0.8,
+          "key": "should",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "fall",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "o",
+          "start": 1.2,
+          "end": 1.42,
+          "key": "o",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 1.42,
+          "end": 1.5,
+          "key": "er",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "broken",
+          "start": 1.64,
+          "end": 1.94,
+          "key": "broken",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bridge",
+          "start": 1.94,
+          "end": 2.3,
+          "key": "bridge",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "passing,",
+          "start": 2.3,
+          "end": 2.84,
+          "key": "passing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "or",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "stray",
+          "start": 3.44,
+          "end": 3.78,
+          "key": "stray",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.04,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "marshes,",
+          "start": 4.04,
+          "end": 4.54,
+          "key": "marshes",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "by",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 5.1,
+          "end": 5.44,
+          "key": "false",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "lights",
+          "start": 5.44,
+          "end": 5.82,
+          "key": "lights",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "beguiled,",
+          "start": 5.82,
+          "end": 6.48,
+          "key": "beguiled",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Still",
+          "start": 7.0,
+          "end": 7.22,
+          "key": "still",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.22,
+          "end": 7.4,
+          "key": "will",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.4,
+          "end": 7.56,
+          "key": "my",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "Father,",
+          "start": 7.56,
+          "end": 7.92,
+          "key": "father",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.04,
+          "end": 8.2,
+          "key": "with",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "promise",
+          "start": 8.2,
+          "end": 8.52,
+          "key": "promise",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.52,
+          "end": 8.88,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "blessing,",
+          "start": 8.88,
+          "end": 9.24,
+          "key": "blessing",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 9.78,
+          "end": 9.84,
+          "key": "take",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.84,
+          "end": 10.04,
+          "key": "to",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 10.04,
+          "end": 10.18,
+          "key": "his",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "bosom",
+          "start": 10.18,
+          "end": 10.58,
+          "key": "bosom",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.58,
+          "end": 10.76,
+          "key": "the",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 10.76,
+          "end": 11.02,
+          "key": "poor",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "orphan",
+          "start": 11.02,
+          "end": 11.4,
+          "key": "orphan",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "child.",
+          "start": 11.4,
+          "end": 11.88,
+          "key": "child",
+          "pieces": [
+            35
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ev'n",
+          "start": 0.0,
+          "end": 0.33
+        },
+        {
+          "text": "should",
+          "start": 0.66,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "fall",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "text": "o'er",
+          "start": 1.2,
+          "end": 1.35
+        },
+        {
+          "text": "the",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "broken",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "text": "bridge",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "text": "passing,",
+          "start": 2.3,
+          "end": 2.84
+        },
+        {
+          "text": "Or",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "text": "stray",
+          "start": 3.44,
+          "end": 3.78
+        },
+        {
+          "text": "in",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "the",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "text": "marshes,",
+          "start": 4.04,
+          "end": 4.54
+        },
+        {
+          "text": "by",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "false",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "text": "lights",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "text": "beguiled,",
+          "start": 5.82,
+          "end": 6.48
+        },
+        {
+          "text": "Still",
+          "start": 7.0,
+          "end": 7.22
+        },
+        {
+          "text": "will",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "text": "my",
+          "start": 7.4,
+          "end": 7.56
+        },
+        {
+          "text": "Father,",
+          "start": 7.56,
+          "end": 7.92
+        },
+        {
+          "text": "with",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "text": "promise",
+          "start": 8.2,
+          "end": 8.52
+        },
+        {
+          "text": "and",
+          "start": 8.52,
+          "end": 8.88
+        },
+        {
+          "text": "blessing,",
+          "start": 8.88,
+          "end": 9.24
+        },
+        {
+          "text": "Take",
+          "start": 9.78,
+          "end": 9.84
+        },
+        {
+          "text": "to",
+          "start": 9.84,
+          "end": 10.04
+        },
+        {
+          "text": "His",
+          "start": 10.04,
+          "end": 10.18
+        },
+        {
+          "text": "bosom",
+          "start": 10.18,
+          "end": 10.58
+        },
+        {
+          "text": "the",
+          "start": 10.58,
+          "end": 10.76
+        },
+        {
+          "text": "poor",
+          "start": 10.76,
+          "end": 11.02
+        },
+        {
+          "text": "orphan",
+          "start": 11.02,
+          "end": 11.4
+        },
+        {
+          "text": "child.",
+          "start": 11.4,
+          "end": 11.88
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 36,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.4197107795625925
+    },
+    {
+      "asr_seconds": 0.49136307649314404,
+      "alignment_seconds": 0.000818643718957901,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Ev'n, I, Or, Still, Father, Take, His"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Even should I fall over the broken bridge passing, Or stray in the marshes, by false",
+          "start": 0.02,
+          "end": 5.44,
+          "words": [
+            {
+              "text": " Even",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.275634765625
+            },
+            {
+              "text": " should",
+              "start": 0.6,
+              "end": 0.8,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " I",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fall",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " over",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " broken",
+              "start": 1.64,
+              "end": 1.94,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " bridge",
+              "start": 1.94,
+              "end": 2.3,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " passing,",
+              "start": 2.3,
+              "end": 2.84,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " Or",
+              "start": 3.34,
+              "end": 3.44,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " stray",
+              "start": 3.44,
+              "end": 3.78,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.94,
+              "end": 4.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " marshes,",
+              "start": 4.04,
+              "end": 4.54,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " by",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.923828125
+            },
+            {
+              "text": " false",
+              "start": 5.1,
+              "end": 5.44,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " lights beguiled. Still will my father, with promise and blessing, Take to his bosom the",
+          "start": 5.44,
+          "end": 10.76,
+          "words": [
+            {
+              "text": " lights",
+              "start": 5.44,
+              "end": 5.82,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " beguiled.",
+              "start": 5.82,
+              "end": 6.48,
+              "probability": 0.9879557291666666
+            },
+            {
+              "text": " Still",
+              "start": 7.02,
+              "end": 7.22,
+              "probability": 0.984375
+            },
+            {
+              "text": " will",
+              "start": 7.22,
+              "end": 7.4,
+              "probability": 0.984375
+            },
+            {
+              "text": " my",
+              "start": 7.4,
+              "end": 7.58,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " father,",
+              "start": 7.58,
+              "end": 7.92,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " with",
+              "start": 8.04,
+              "end": 8.2,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " promise",
+              "start": 8.2,
+              "end": 8.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 8.54,
+              "end": 8.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " blessing,",
+              "start": 8.9,
+              "end": 9.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Take",
+              "start": 9.76,
+              "end": 9.84,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " to",
+              "start": 9.84,
+              "end": 10.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 10.04,
+              "end": 10.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " bosom",
+              "start": 10.2,
+              "end": 10.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 10.58,
+              "end": 10.76,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " poor orphan child.",
+          "start": 10.76,
+          "end": 11.88,
+          "words": [
+            {
+              "text": " poor",
+              "start": 10.76,
+              "end": 11.02,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " orphan",
+              "start": 11.02,
+              "end": 11.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " child.",
+              "start": 11.4,
+              "end": 11.88,
+              "probability": 0.587890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Even",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "should",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "fall",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "raw": "over",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "broken",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "raw": "bridge",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "raw": "passing,",
+          "start": 2.3,
+          "end": 2.84
+        },
+        {
+          "raw": "Or",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "raw": "stray",
+          "start": 3.44,
+          "end": 3.78
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "raw": "marshes,",
+          "start": 4.04,
+          "end": 4.54
+        },
+        {
+          "raw": "by",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "false",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "raw": "lights",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "raw": "beguiled.",
+          "start": 5.82,
+          "end": 6.48
+        },
+        {
+          "raw": "Still",
+          "start": 7.02,
+          "end": 7.22
+        },
+        {
+          "raw": "will",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "raw": "my",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "raw": "father,",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "raw": "with",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "raw": "promise",
+          "start": 8.2,
+          "end": 8.54
+        },
+        {
+          "raw": "and",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "raw": "blessing,",
+          "start": 8.9,
+          "end": 9.26
+        },
+        {
+          "raw": "Take",
+          "start": 9.76,
+          "end": 9.84
+        },
+        {
+          "raw": "to",
+          "start": 9.84,
+          "end": 10.04
+        },
+        {
+          "raw": "his",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "raw": "bosom",
+          "start": 10.2,
+          "end": 10.58
+        },
+        {
+          "raw": "the",
+          "start": 10.58,
+          "end": 10.76
+        },
+        {
+          "raw": "poor",
+          "start": 10.76,
+          "end": 11.02
+        },
+        {
+          "raw": "orphan",
+          "start": 11.02,
+          "end": 11.4
+        },
+        {
+          "raw": "child.",
+          "start": 11.4,
+          "end": 11.88
+        }
+      ],
+      "expected_tokens": [
+        "Ev'n",
+        "should",
+        "I",
+        "fall",
+        "o'er",
+        "the",
+        "broken",
+        "bridge",
+        "passing,",
+        "Or",
+        "stray",
+        "in",
+        "the",
+        "marshes,",
+        "by",
+        "false",
+        "lights",
+        "beguiled,",
+        "Still",
+        "will",
+        "my",
+        "Father,",
+        "with",
+        "promise",
+        "and",
+        "blessing,",
+        "Take",
+        "to",
+        "His",
+        "bosom",
+        "the",
+        "poor",
+        "orphan",
+        "child."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          34,
+          5,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Even",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "even",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.6,
+          "end": 0.8,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "fall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "over",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "broken",
+          "start": 1.64,
+          "end": 1.94,
+          "key": "broken",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bridge",
+          "start": 1.94,
+          "end": 2.3,
+          "key": "bridge",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "passing,",
+          "start": 2.3,
+          "end": 2.84,
+          "key": "passing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 3.34,
+          "end": 3.44,
+          "key": "or",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stray",
+          "start": 3.44,
+          "end": 3.78,
+          "key": "stray",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.04,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "marshes,",
+          "start": 4.04,
+          "end": 4.54,
+          "key": "marshes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "by",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 5.1,
+          "end": 5.44,
+          "key": "false",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lights",
+          "start": 5.44,
+          "end": 5.82,
+          "key": "lights",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "beguiled.",
+          "start": 5.82,
+          "end": 6.48,
+          "key": "beguiled",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Still",
+          "start": 7.02,
+          "end": 7.22,
+          "key": "still",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.22,
+          "end": 7.4,
+          "key": "will",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.4,
+          "end": 7.58,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "father,",
+          "start": 7.58,
+          "end": 7.92,
+          "key": "father",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.04,
+          "end": 8.2,
+          "key": "with",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "promise",
+          "start": 8.2,
+          "end": 8.54,
+          "key": "promise",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.54,
+          "end": 8.9,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "blessing,",
+          "start": 8.9,
+          "end": 9.26,
+          "key": "blessing",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 9.76,
+          "end": 9.84,
+          "key": "take",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.84,
+          "end": 10.04,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.04,
+          "end": 10.2,
+          "key": "his",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bosom",
+          "start": 10.2,
+          "end": 10.58,
+          "key": "bosom",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.58,
+          "end": 10.76,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 10.76,
+          "end": 11.02,
+          "key": "poor",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "orphan",
+          "start": 11.02,
+          "end": 11.4,
+          "key": "orphan",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "child.",
+          "start": 11.4,
+          "end": 11.88,
+          "key": "child",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ev'n",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "should",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "fall",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "text": "o'er",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "broken",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "text": "bridge",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "text": "passing,",
+          "start": 2.3,
+          "end": 2.84
+        },
+        {
+          "text": "Or",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "text": "stray",
+          "start": 3.44,
+          "end": 3.78
+        },
+        {
+          "text": "in",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "the",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "text": "marshes,",
+          "start": 4.04,
+          "end": 4.54
+        },
+        {
+          "text": "by",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "false",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "text": "lights",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "text": "beguiled,",
+          "start": 5.82,
+          "end": 6.48
+        },
+        {
+          "text": "Still",
+          "start": 7.02,
+          "end": 7.22
+        },
+        {
+          "text": "will",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "text": "my",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "text": "Father,",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "text": "with",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "text": "promise",
+          "start": 8.2,
+          "end": 8.54
+        },
+        {
+          "text": "and",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "text": "blessing,",
+          "start": 8.9,
+          "end": 9.26
+        },
+        {
+          "text": "Take",
+          "start": 9.76,
+          "end": 9.84
+        },
+        {
+          "text": "to",
+          "start": 9.84,
+          "end": 10.04
+        },
+        {
+          "text": "His",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "text": "bosom",
+          "start": 10.2,
+          "end": 10.58
+        },
+        {
+          "text": "the",
+          "start": 10.58,
+          "end": 10.76
+        },
+        {
+          "text": "poor",
+          "start": 10.76,
+          "end": 11.02
+        },
+        {
+          "text": "orphan",
+          "start": 11.02,
+          "end": 11.4
+        },
+        {
+          "text": "child.",
+          "start": 11.4,
+          "end": 11.88
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.49253145698457956
+    },
+    {
+      "asr_seconds": 0.49744622968137264,
+      "alignment_seconds": 0.0006612967699766159,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Even should I fall over the broken bridge passing,",
+          "start": 0.02,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " Even",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.275634765625
+            },
+            {
+              "text": " should",
+              "start": 0.6,
+              "end": 0.8,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " I",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " fall",
+              "start": 0.98,
+              "end": 1.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " over",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " broken",
+              "start": 1.64,
+              "end": 1.94,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " bridge",
+              "start": 1.94,
+              "end": 2.3,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " passing,",
+              "start": 2.3,
+              "end": 2.84,
+              "probability": 0.93701171875
+            }
+          ]
+        },
+        {
+          "text": " Or stray in the marshes, by false lights beguiled.",
+          "start": 3.34,
+          "end": 6.48,
+          "words": [
+            {
+              "text": " Or",
+              "start": 3.34,
+              "end": 3.44,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " stray",
+              "start": 3.44,
+              "end": 3.78,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " in",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.94,
+              "end": 4.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " marshes,",
+              "start": 4.04,
+              "end": 4.54,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " by",
+              "start": 4.96,
+              "end": 5.1,
+              "probability": 0.923828125
+            },
+            {
+              "text": " false",
+              "start": 5.1,
+              "end": 5.44,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " lights",
+              "start": 5.44,
+              "end": 5.82,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " beguiled.",
+              "start": 5.82,
+              "end": 6.48,
+              "probability": 0.9879557291666666
+            }
+          ]
+        },
+        {
+          "text": " Still will my father, with promise and blessing,",
+          "start": 7.02,
+          "end": 9.26,
+          "words": [
+            {
+              "text": " Still",
+              "start": 7.02,
+              "end": 7.22,
+              "probability": 0.984375
+            },
+            {
+              "text": " will",
+              "start": 7.22,
+              "end": 7.4,
+              "probability": 0.984375
+            },
+            {
+              "text": " my",
+              "start": 7.4,
+              "end": 7.58,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " father,",
+              "start": 7.58,
+              "end": 7.92,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " with",
+              "start": 8.04,
+              "end": 8.2,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " promise",
+              "start": 8.2,
+              "end": 8.54,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 8.54,
+              "end": 8.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " blessing,",
+              "start": 8.9,
+              "end": 9.26,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " Take to his bosom the poor orphan child.",
+          "start": 9.76,
+          "end": 11.88,
+          "words": [
+            {
+              "text": " Take",
+              "start": 9.76,
+              "end": 9.84,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " to",
+              "start": 9.84,
+              "end": 10.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 10.04,
+              "end": 10.2,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " bosom",
+              "start": 10.2,
+              "end": 10.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 10.58,
+              "end": 10.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " poor",
+              "start": 10.76,
+              "end": 11.02,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " orphan",
+              "start": 11.02,
+              "end": 11.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " child.",
+              "start": 11.4,
+              "end": 11.88,
+              "probability": 0.587890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Even",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "should",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "raw": "fall",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "raw": "over",
+          "start": 1.2,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "broken",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "raw": "bridge",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "raw": "passing,",
+          "start": 2.3,
+          "end": 2.84
+        },
+        {
+          "raw": "Or",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "raw": "stray",
+          "start": 3.44,
+          "end": 3.78
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "raw": "marshes,",
+          "start": 4.04,
+          "end": 4.54
+        },
+        {
+          "raw": "by",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "raw": "false",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "raw": "lights",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "raw": "beguiled.",
+          "start": 5.82,
+          "end": 6.48
+        },
+        {
+          "raw": "Still",
+          "start": 7.02,
+          "end": 7.22
+        },
+        {
+          "raw": "will",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "raw": "my",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "raw": "father,",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "raw": "with",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "raw": "promise",
+          "start": 8.2,
+          "end": 8.54
+        },
+        {
+          "raw": "and",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "raw": "blessing,",
+          "start": 8.9,
+          "end": 9.26
+        },
+        {
+          "raw": "Take",
+          "start": 9.76,
+          "end": 9.84
+        },
+        {
+          "raw": "to",
+          "start": 9.84,
+          "end": 10.04
+        },
+        {
+          "raw": "his",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "raw": "bosom",
+          "start": 10.2,
+          "end": 10.58
+        },
+        {
+          "raw": "the",
+          "start": 10.58,
+          "end": 10.76
+        },
+        {
+          "raw": "poor",
+          "start": 10.76,
+          "end": 11.02
+        },
+        {
+          "raw": "orphan",
+          "start": 11.02,
+          "end": 11.4
+        },
+        {
+          "raw": "child.",
+          "start": 11.4,
+          "end": 11.88
+        }
+      ],
+      "expected_tokens": [
+        "Ev'n",
+        "should",
+        "I",
+        "fall",
+        "o'er",
+        "the",
+        "broken",
+        "bridge",
+        "passing,",
+        "Or",
+        "stray",
+        "in",
+        "the",
+        "marshes,",
+        "by",
+        "false",
+        "lights",
+        "beguiled,",
+        "Still",
+        "will",
+        "my",
+        "Father,",
+        "with",
+        "promise",
+        "and",
+        "blessing,",
+        "Take",
+        "to",
+        "His",
+        "bosom",
+        "the",
+        "poor",
+        "orphan",
+        "child."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          4,
+          1,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          34,
+          5,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Even",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "even",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "should",
+          "start": 0.6,
+          "end": 0.8,
+          "key": "should",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.98,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fall",
+          "start": 0.98,
+          "end": 1.2,
+          "key": "fall",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 1.2,
+          "end": 1.48,
+          "key": "over",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.64,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "broken",
+          "start": 1.64,
+          "end": 1.94,
+          "key": "broken",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "bridge",
+          "start": 1.94,
+          "end": 2.3,
+          "key": "bridge",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "passing,",
+          "start": 2.3,
+          "end": 2.84,
+          "key": "passing",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 3.34,
+          "end": 3.44,
+          "key": "or",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stray",
+          "start": 3.44,
+          "end": 3.78,
+          "key": "stray",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.78,
+          "end": 3.94,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.94,
+          "end": 4.04,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "marshes,",
+          "start": 4.04,
+          "end": 4.54,
+          "key": "marshes",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 4.96,
+          "end": 5.1,
+          "key": "by",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "false",
+          "start": 5.1,
+          "end": 5.44,
+          "key": "false",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lights",
+          "start": 5.44,
+          "end": 5.82,
+          "key": "lights",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "beguiled.",
+          "start": 5.82,
+          "end": 6.48,
+          "key": "beguiled",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Still",
+          "start": 7.02,
+          "end": 7.22,
+          "key": "still",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 7.22,
+          "end": 7.4,
+          "key": "will",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 7.4,
+          "end": 7.58,
+          "key": "my",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "father,",
+          "start": 7.58,
+          "end": 7.92,
+          "key": "father",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 8.04,
+          "end": 8.2,
+          "key": "with",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "promise",
+          "start": 8.2,
+          "end": 8.54,
+          "key": "promise",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 8.54,
+          "end": 8.9,
+          "key": "and",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "blessing,",
+          "start": 8.9,
+          "end": 9.26,
+          "key": "blessing",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "Take",
+          "start": 9.76,
+          "end": 9.84,
+          "key": "take",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.84,
+          "end": 10.04,
+          "key": "to",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 10.04,
+          "end": 10.2,
+          "key": "his",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "bosom",
+          "start": 10.2,
+          "end": 10.58,
+          "key": "bosom",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 10.58,
+          "end": 10.76,
+          "key": "the",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "poor",
+          "start": 10.76,
+          "end": 11.02,
+          "key": "poor",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "orphan",
+          "start": 11.02,
+          "end": 11.4,
+          "key": "orphan",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "child.",
+          "start": 11.4,
+          "end": 11.88,
+          "key": "child",
+          "pieces": [
+            33
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ev'n",
+          "start": 0.0,
+          "end": 0.3
+        },
+        {
+          "text": "should",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "text": "I",
+          "start": 0.8,
+          "end": 0.98
+        },
+        {
+          "text": "fall",
+          "start": 0.98,
+          "end": 1.2
+        },
+        {
+          "text": "o'er",
+          "start": 1.2,
+          "end": 1.34
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "broken",
+          "start": 1.64,
+          "end": 1.94
+        },
+        {
+          "text": "bridge",
+          "start": 1.94,
+          "end": 2.3
+        },
+        {
+          "text": "passing,",
+          "start": 2.3,
+          "end": 2.84
+        },
+        {
+          "text": "Or",
+          "start": 3.34,
+          "end": 3.44
+        },
+        {
+          "text": "stray",
+          "start": 3.44,
+          "end": 3.78
+        },
+        {
+          "text": "in",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "the",
+          "start": 3.94,
+          "end": 4.04
+        },
+        {
+          "text": "marshes,",
+          "start": 4.04,
+          "end": 4.54
+        },
+        {
+          "text": "by",
+          "start": 4.96,
+          "end": 5.1
+        },
+        {
+          "text": "false",
+          "start": 5.1,
+          "end": 5.44
+        },
+        {
+          "text": "lights",
+          "start": 5.44,
+          "end": 5.82
+        },
+        {
+          "text": "beguiled,",
+          "start": 5.82,
+          "end": 6.48
+        },
+        {
+          "text": "Still",
+          "start": 7.02,
+          "end": 7.22
+        },
+        {
+          "text": "will",
+          "start": 7.22,
+          "end": 7.4
+        },
+        {
+          "text": "my",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "text": "Father,",
+          "start": 7.58,
+          "end": 7.92
+        },
+        {
+          "text": "with",
+          "start": 8.04,
+          "end": 8.2
+        },
+        {
+          "text": "promise",
+          "start": 8.2,
+          "end": 8.54
+        },
+        {
+          "text": "and",
+          "start": 8.54,
+          "end": 8.9
+        },
+        {
+          "text": "blessing,",
+          "start": 8.9,
+          "end": 9.26
+        },
+        {
+          "text": "Take",
+          "start": 9.76,
+          "end": 9.84
+        },
+        {
+          "text": "to",
+          "start": 9.84,
+          "end": 10.04
+        },
+        {
+          "text": "His",
+          "start": 10.04,
+          "end": 10.2
+        },
+        {
+          "text": "bosom",
+          "start": 10.2,
+          "end": 10.58
+        },
+        {
+          "text": "the",
+          "start": 10.58,
+          "end": 10.76
+        },
+        {
+          "text": "poor",
+          "start": 10.76,
+          "end": 11.02
+        },
+        {
+          "text": "orphan",
+          "start": 11.02,
+          "end": 11.4
+        },
+        {
+          "text": "child.",
+          "start": 11.4,
+          "end": 11.88
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 34,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.4983820263296366
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "75f67826a11167c2c6cec7b7ce5f49a9f71a00c3e8d260d36b8714c4e9f46130",
+  "selected_reasons": []
+}

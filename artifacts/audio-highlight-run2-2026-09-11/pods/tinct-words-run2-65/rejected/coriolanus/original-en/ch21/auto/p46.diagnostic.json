@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "f9e43bc09c816f73c21d1732ea31115b9f1644f4330f4f367b7cc8eb9d7415d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.1596677410416305,
+      "alignment_seconds": 0.0002141459845006466,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Aufidius. Where is this fellow?",
+        "hotwords": "Aufidius, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aufidius, Where is this fellow?",
+          "start": 0.52,
+          "end": 1.9,
+          "words": [
+            {
+              "text": " Aufidius,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.563720703125
+            },
+            {
+              "text": " Where",
+              "start": 1.34,
+              "end": 1.42,
+              "probability": 0.035919189453125
+            },
+            {
+              "text": " is",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.21630859375
+            },
+            {
+              "text": " this",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " fellow?",
+              "start": 1.68,
+              "end": 1.9,
+              "probability": 0.86328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aufidius,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "Where",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "raw": "is",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "this",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "fellow?",
+          "start": 1.68,
+          "end": 1.9
+        }
+      ],
+      "expected_tokens": [
+        "Aufidius.",
+        "Where",
+        "is",
+        "this",
+        "fellow?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aufidius,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "aufidius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.34,
+          "end": 1.42,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.56,
+          "end": 1.68,
+          "key": "this",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "fellow?",
+          "start": 1.68,
+          "end": 1.9,
+          "key": "fellow",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Aufidius.",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "text": "Where",
+          "start": 1.34,
+          "end": 1.42
+        },
+        {
+          "text": "is",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "this",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "fellow?",
+          "start": 1.68,
+          "end": 1.9
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15996039984747767
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bec62a818e9303c2b76897f8c6cfd1f599e763050efc323e831314ae5c957f5e",
+  "selected_reasons": []
+}

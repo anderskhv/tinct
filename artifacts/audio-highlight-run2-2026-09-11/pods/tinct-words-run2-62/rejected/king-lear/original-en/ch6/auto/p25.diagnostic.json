@@ -1,0 +1,391 @@
+{
+  "complete": true,
+  "signature": "af8ff3c65f374ef6479609e0590381f7b47f310b5f0b0ae395c4e7daee6d0dc1",
+  "attempts": [
+    {
+      "asr_seconds": 0.0663861334323883,
+      "alignment_seconds": 9.262561798095703e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Exeunt Servants._]",
+        "hotwords": "Servants._"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt Servants._",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.5899251302083334
+            },
+            {
+              "text": " Servants._",
+              "start": 0.78,
+              "end": 1.84,
+              "probability": 0.431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Servants._",
+          "start": 0.78,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Servants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servants._",
+          "start": 0.78,
+          "end": 1.84,
+          "key": "servants_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Servants._]",
+          "start": 0.78,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.06651995703577995
+    },
+    {
+      "asr_seconds": 0.0684746541082859,
+      "alignment_seconds": 8.362531661987305e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Servants._"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Exeunt Servants._",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.5899251302083334
+            },
+            {
+              "text": " Servants._",
+              "start": 0.78,
+              "end": 1.84,
+              "probability": 0.431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Servants._",
+          "start": 0.78,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Servants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Servants._",
+          "start": 0.78,
+          "end": 1.84,
+          "key": "servants_",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Servants._]",
+          "start": 0.78,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0685826912522316
+    },
+    {
+      "asr_seconds": 0.061125170439481735,
+      "alignment_seconds": 8.367002010345459e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exeunt servants.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Exeunt",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.5899251302083334
+            },
+            {
+              "text": " servants.",
+              "start": 0.78,
+              "end": 1.12,
+              "probability": 0.60595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "servants.",
+          "start": 0.78,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "Servants._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "servants.",
+          "start": 0.78,
+          "end": 1.12,
+          "key": "servants",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "text": "Servants._]",
+          "start": 0.78,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06123438850045204
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8df92d6d6534aee31bf4638e3df191df23b1604fac5dd49550a0353a4561a7dc",
+  "selected_reasons": []
+}

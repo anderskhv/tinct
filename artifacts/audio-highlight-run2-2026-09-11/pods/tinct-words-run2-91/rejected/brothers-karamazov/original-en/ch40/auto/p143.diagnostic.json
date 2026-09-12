@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "16934b07affb5c7d6b853be1222372347046ef75794379d4d30d3194bac568ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.2610443877056241,
+      "alignment_seconds": 0.0007205810397863388,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Remember,\" he said, \"how I came to you a second time. Do you hear, remember it!\"",
+        "hotwords": "I, Do"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Remember, he said, how I came to you a second time. Do you hear, remember it!",
+          "start": 0.44,
+          "end": 4.92,
+          "words": [
+            {
+              "text": " Remember,",
+              "start": 0.44,
+              "end": 0.84,
+              "probability": 0.2259521484375
+            },
+            {
+              "text": " he",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.98046875
+            },
+            {
+              "text": " said,",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " how",
+              "start": 2.0,
+              "end": 2.18,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " I",
+              "start": 2.18,
+              "end": 2.32,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " came",
+              "start": 2.32,
+              "end": 2.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 2.76,
+              "end": 2.92,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " second",
+              "start": 2.92,
+              "end": 3.12,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " time.",
+              "start": 3.12,
+              "end": 3.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Do",
+              "start": 3.9,
+              "end": 3.96,
+              "probability": 0.9921875
+            },
+            {
+              "text": " you",
+              "start": 3.96,
+              "end": 4.06,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hear,",
+              "start": 4.06,
+              "end": 4.28,
+              "probability": 0.5009765625
+            },
+            {
+              "text": " remember",
+              "start": 4.36,
+              "end": 4.64,
+              "probability": 0.701171875
+            },
+            {
+              "text": " it!",
+              "start": 4.64,
+              "end": 4.92,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Remember,",
+          "start": 0.44,
+          "end": 0.84
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "said,",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "how",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "raw": "I",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "raw": "came",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "raw": "to",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "you",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "a",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "raw": "second",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "raw": "time.",
+          "start": 3.12,
+          "end": 3.54
+        },
+        {
+          "raw": "Do",
+          "start": 3.9,
+          "end": 3.96
+        },
+        {
+          "raw": "you",
+          "start": 3.96,
+          "end": 4.06
+        },
+        {
+          "raw": "hear,",
+          "start": 4.06,
+          "end": 4.28
+        },
+        {
+          "raw": "remember",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "raw": "it!",
+          "start": 4.64,
+          "end": 4.92
+        }
+      ],
+      "expected_tokens": [
+        "\"Remember,\"",
+        "he",
+        "said,",
+        "\"how",
+        "I",
+        "came",
+        "to",
+        "you",
+        "a",
+        "second",
+        "time.",
+        "Do",
+        "you",
+        "hear,",
+        "remember",
+        "it!\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Remember,",
+          "start": 0.44,
+          "end": 0.84,
+          "key": "remember",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.32,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.32,
+          "end": 1.58,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 2.0,
+          "end": 2.18,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.18,
+          "end": 2.32,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 2.32,
+          "end": 2.48,
+          "key": "came",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.48,
+          "end": 2.64,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.76,
+          "end": 2.92,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "second",
+          "start": 2.92,
+          "end": 3.12,
+          "key": "second",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "time.",
+          "start": 3.12,
+          "end": 3.54,
+          "key": "time",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Do",
+          "start": 3.9,
+          "end": 3.96,
+          "key": "do",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.96,
+          "end": 4.06,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hear,",
+          "start": 4.06,
+          "end": 4.28,
+          "key": "hear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "remember",
+          "start": 4.36,
+          "end": 4.64,
+          "key": "remember",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "it!",
+          "start": 4.64,
+          "end": 4.92,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Remember,\"",
+          "start": 0.44,
+          "end": 0.84
+        },
+        {
+          "text": "he",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "said,",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "\"how",
+          "start": 2.0,
+          "end": 2.18
+        },
+        {
+          "text": "I",
+          "start": 2.18,
+          "end": 2.32
+        },
+        {
+          "text": "came",
+          "start": 2.32,
+          "end": 2.48
+        },
+        {
+          "text": "to",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "you",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "a",
+          "start": 2.76,
+          "end": 2.92
+        },
+        {
+          "text": "second",
+          "start": 2.92,
+          "end": 3.12
+        },
+        {
+          "text": "time.",
+          "start": 3.12,
+          "end": 3.54
+        },
+        {
+          "text": "Do",
+          "start": 3.9,
+          "end": 3.96
+        },
+        {
+          "text": "you",
+          "start": 3.96,
+          "end": 4.06
+        },
+        {
+          "text": "hear,",
+          "start": 4.06,
+          "end": 4.28
+        },
+        {
+          "text": "remember",
+          "start": 4.36,
+          "end": 4.64
+        },
+        {
+          "text": "it!\"",
+          "start": 4.64,
+          "end": 4.92
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2619423698633909
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e9793dba02fd67965f9ee0de10944dcb6b722ac20ba1d42060a82c35dfa9fc34",
+  "selected_reasons": []
+}

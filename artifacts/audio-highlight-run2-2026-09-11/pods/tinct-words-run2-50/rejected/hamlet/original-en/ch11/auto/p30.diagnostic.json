@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "49208b6bbb46a1a6f9e3d9e837c1bc026497dcd9ebad7ce11f00293f2354f3b2",
+  "attempts": [
+    {
+      "asr_seconds": 0.3149768281728029,
+      "alignment_seconds": 0.0006146691739559174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen. What have I done, that thou dar'st wag thy tongue In noise so rude against me?",
+        "hotwords": "Queen, What, I, In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen, What have I done, that thou dar'st wag Thy tongue In noise so rude against me?",
+          "start": 0.08,
+          "end": 5.28,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.623046875
+            },
+            {
+              "text": " What",
+              "start": 1.12,
+              "end": 1.42,
+              "probability": 0.0286712646484375
+            },
+            {
+              "text": " have",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " I",
+              "start": 1.52,
+              "end": 1.66,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " done,",
+              "start": 1.66,
+              "end": 1.9,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 2.12,
+              "end": 2.22,
+              "probability": 0.75732421875
+            },
+            {
+              "text": " thou",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " dar'st",
+              "start": 2.4,
+              "end": 2.82,
+              "probability": 0.5445480346679688
+            },
+            {
+              "text": " wag",
+              "start": 2.82,
+              "end": 3.16,
+              "probability": 0.939453125
+            },
+            {
+              "text": " Thy",
+              "start": 3.16,
+              "end": 3.34,
+              "probability": 0.0293121337890625
+            },
+            {
+              "text": " tongue",
+              "start": 3.34,
+              "end": 3.58,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " In",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.000446319580078125
+            },
+            {
+              "text": " noise",
+              "start": 3.72,
+              "end": 4.02,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " so",
+              "start": 4.02,
+              "end": 4.46,
+              "probability": 0.853515625
+            },
+            {
+              "text": " rude",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " against",
+              "start": 4.7,
+              "end": 4.96,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " me?",
+              "start": 4.96,
+              "end": 5.28,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "What",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "raw": "have",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "raw": "done,",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "raw": "that",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "raw": "thou",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "dar'st",
+          "start": 2.4,
+          "end": 2.82
+        },
+        {
+          "raw": "wag",
+          "start": 2.82,
+          "end": 3.16
+        },
+        {
+          "raw": "Thy",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "raw": "tongue",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "raw": "In",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": "noise",
+          "start": 3.72,
+          "end": 4.02
+        },
+        {
+          "raw": "so",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "raw": "rude",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "raw": "against",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "raw": "me?",
+          "start": 4.96,
+          "end": 5.28
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "What",
+        "have",
+        "I",
+        "done,",
+        "that",
+        "thou",
+        "dar'st",
+        "wag",
+        "thy",
+        "tongue",
+        "In",
+        "noise",
+        "so",
+        "rude",
+        "against",
+        "me?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.12,
+          "end": 1.42,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.52,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 1.66,
+          "end": 1.9,
+          "key": "done",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.12,
+          "end": 2.22,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.22,
+          "end": 2.4,
+          "key": "thou",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "dar'st",
+          "start": 2.4,
+          "end": 2.82,
+          "key": "darst",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "wag",
+          "start": 2.82,
+          "end": 3.16,
+          "key": "wag",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Thy",
+          "start": 3.16,
+          "end": 3.34,
+          "key": "thy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 3.34,
+          "end": 3.58,
+          "key": "tongue",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 3.58,
+          "end": 3.72,
+          "key": "in",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "noise",
+          "start": 3.72,
+          "end": 4.02,
+          "key": "noise",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 4.02,
+          "end": 4.46,
+          "key": "so",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "rude",
+          "start": 4.46,
+          "end": 4.7,
+          "key": "rude",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "against",
+          "start": 4.7,
+          "end": 4.96,
+          "key": "against",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "me?",
+          "start": 4.96,
+          "end": 5.28,
+          "key": "me",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "What",
+          "start": 1.12,
+          "end": 1.42
+        },
+        {
+          "text": "have",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "I",
+          "start": 1.52,
+          "end": 1.66
+        },
+        {
+          "text": "done,",
+          "start": 1.66,
+          "end": 1.9
+        },
+        {
+          "text": "that",
+          "start": 2.12,
+          "end": 2.22
+        },
+        {
+          "text": "thou",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "dar'st",
+          "start": 2.4,
+          "end": 2.82
+        },
+        {
+          "text": "wag",
+          "start": 2.82,
+          "end": 3.16
+        },
+        {
+          "text": "thy",
+          "start": 3.16,
+          "end": 3.34
+        },
+        {
+          "text": "tongue",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "text": "In",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "text": "noise",
+          "start": 3.72,
+          "end": 4.02
+        },
+        {
+          "text": "so",
+          "start": 4.02,
+          "end": 4.46
+        },
+        {
+          "text": "rude",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "text": "against",
+          "start": 4.7,
+          "end": 4.96
+        },
+        {
+          "text": "me?",
+          "start": 4.96,
+          "end": 5.28
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.31585234589874744
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "50f88a7cd35590b7a1c58ade88ff2b59ef80dddf0e7660ba8f6f2c3c8c5c7cea",
+  "selected_reasons": []
+}

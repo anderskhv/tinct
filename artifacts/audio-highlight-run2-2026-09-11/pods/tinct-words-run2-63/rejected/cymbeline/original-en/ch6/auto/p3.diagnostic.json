@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "signature": "33b78d4507b2862258e8b553f9aaf39c6e35cead20e25f01fb3d21278e4619a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12220123037695885,
+      "alignment_seconds": 0.00024391710758209229,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Queen. Dispatch.",
+        "hotwords": "Queen, Dispatch"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Queen, Dispatch.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " Queen,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.82275390625
+            },
+            {
+              "text": " Dispatch.",
+              "start": 0.97,
+              "end": 1.25,
+              "probability": 0.07647705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Queen,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Dispatch.",
+          "start": 0.97,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "Queen.",
+        "Dispatch."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Queen,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "queen",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dispatch.",
+          "start": 0.97,
+          "end": 1.25,
+          "key": "dispatch",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Queen.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Dispatch.",
+          "start": 0.97,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12253182008862495
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db8a35d9686a7aebdd4c8a94007dc3716668753b3fd5da407379d72d279e8cbc",
+  "selected_reasons": []
+}

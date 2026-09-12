@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "ab76427964aef161d927da906b5b0cef2b1c0ce0647edce1a609b1e9e3df784a",
+  "attempts": [
+    {
+      "asr_seconds": 0.5334283076226711,
+      "alignment_seconds": 0.0005893148481845856,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Excuse me. How's that? Why, when you were here a month ago you spent three thousand, not fifteen hundred, everybody knows that.\"",
+        "hotwords": "Excuse, How's, Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Excuse me. How's that? Why, when you were here a month ago you spent three thousand, not fifteen hundred, everybody knows that.",
+          "start": 0.05,
+          "end": 7.89,
+          "words": [
+            {
+              "text": " Excuse",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.722900390625
+            },
+            {
+              "text": " me.",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " How's",
+              "start": 1.61,
+              "end": 1.81,
+              "probability": 0.98828125
+            },
+            {
+              "text": " that?",
+              "start": 1.81,
+              "end": 2.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Why,",
+              "start": 2.75,
+              "end": 2.89,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " when",
+              "start": 3.03,
+              "end": 3.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 3.19,
+              "end": 3.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " were",
+              "start": 3.31,
+              "end": 3.41,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " here",
+              "start": 3.41,
+              "end": 3.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 3.57,
+              "end": 3.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " month",
+              "start": 3.71,
+              "end": 3.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ago",
+              "start": 3.85,
+              "end": 4.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 4.11,
+              "end": 4.29,
+              "probability": 0.386474609375
+            },
+            {
+              "text": " spent",
+              "start": 4.29,
+              "end": 4.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " three",
+              "start": 4.53,
+              "end": 4.87,
+              "probability": 0.37255859375
+            },
+            {
+              "text": " thousand,",
+              "start": 4.87,
+              "end": 5.43,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " not",
+              "start": 5.69,
+              "end": 5.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fifteen",
+              "start": 5.75,
+              "end": 6.11,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " hundred,",
+              "start": 6.11,
+              "end": 6.53,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " everybody",
+              "start": 6.89,
+              "end": 7.15,
+              "probability": 0.962890625
+            },
+            {
+              "text": " knows",
+              "start": 7.15,
+              "end": 7.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that.",
+              "start": 7.49,
+              "end": 7.89,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Excuse",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "raw": "me.",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "How's",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "raw": "that?",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "raw": "Why,",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "raw": "when",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "raw": "you",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "raw": "were",
+          "start": 3.31,
+          "end": 3.41
+        },
+        {
+          "raw": "here",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "raw": "a",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "raw": "month",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "raw": "ago",
+          "start": 3.85,
+          "end": 4.11
+        },
+        {
+          "raw": "you",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "raw": "spent",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "raw": "three",
+          "start": 4.53,
+          "end": 4.87
+        },
+        {
+          "raw": "thousand,",
+          "start": 4.87,
+          "end": 5.43
+        },
+        {
+          "raw": "not",
+          "start": 5.69,
+          "end": 5.75
+        },
+        {
+          "raw": "fifteen",
+          "start": 5.75,
+          "end": 6.11
+        },
+        {
+          "raw": "hundred,",
+          "start": 6.11,
+          "end": 6.53
+        },
+        {
+          "raw": "everybody",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "raw": "knows",
+          "start": 7.15,
+          "end": 7.49
+        },
+        {
+          "raw": "that.",
+          "start": 7.49,
+          "end": 7.89
+        }
+      ],
+      "expected_tokens": [
+        "\"Excuse",
+        "me.",
+        "How's",
+        "that?",
+        "Why,",
+        "when",
+        "you",
+        "were",
+        "here",
+        "a",
+        "month",
+        "ago",
+        "you",
+        "spent",
+        "three",
+        "thousand,",
+        "not",
+        "fifteen",
+        "hundred,",
+        "everybody",
+        "knows",
+        "that.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Excuse",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "excuse",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 0.95,
+          "end": 1.23,
+          "key": "me",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "How's",
+          "start": 1.61,
+          "end": 1.81,
+          "key": "hows",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that?",
+          "start": 1.81,
+          "end": 2.09,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Why,",
+          "start": 2.75,
+          "end": 2.89,
+          "key": "why",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.03,
+          "end": 3.19,
+          "key": "when",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.19,
+          "end": 3.31,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 3.31,
+          "end": 3.41,
+          "key": "were",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 3.41,
+          "end": 3.57,
+          "key": "here",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.57,
+          "end": 3.71,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "month",
+          "start": 3.71,
+          "end": 3.85,
+          "key": "month",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ago",
+          "start": 3.85,
+          "end": 4.11,
+          "key": "ago",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.11,
+          "end": 4.29,
+          "key": "you",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "spent",
+          "start": 4.29,
+          "end": 4.53,
+          "key": "spent",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 4.53,
+          "end": 4.87,
+          "key": "three",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "thousand,",
+          "start": 4.87,
+          "end": 5.43,
+          "key": "thousand",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 5.69,
+          "end": 5.75,
+          "key": "not",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fifteen",
+          "start": 5.75,
+          "end": 6.11,
+          "key": "fifteen",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "hundred,",
+          "start": 6.11,
+          "end": 6.53,
+          "key": "hundred",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "everybody",
+          "start": 6.89,
+          "end": 7.15,
+          "key": "everybody",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "knows",
+          "start": 7.15,
+          "end": 7.49,
+          "key": "knows",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "that.",
+          "start": 7.49,
+          "end": 7.89,
+          "key": "that",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Excuse",
+          "start": 0.05,
+          "end": 0.95
+        },
+        {
+          "text": "me.",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "How's",
+          "start": 1.61,
+          "end": 1.81
+        },
+        {
+          "text": "that?",
+          "start": 1.81,
+          "end": 2.09
+        },
+        {
+          "text": "Why,",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "text": "when",
+          "start": 3.03,
+          "end": 3.19
+        },
+        {
+          "text": "you",
+          "start": 3.19,
+          "end": 3.31
+        },
+        {
+          "text": "were",
+          "start": 3.31,
+          "end": 3.41
+        },
+        {
+          "text": "here",
+          "start": 3.41,
+          "end": 3.57
+        },
+        {
+          "text": "a",
+          "start": 3.57,
+          "end": 3.71
+        },
+        {
+          "text": "month",
+          "start": 3.71,
+          "end": 3.85
+        },
+        {
+          "text": "ago",
+          "start": 3.85,
+          "end": 4.11
+        },
+        {
+          "text": "you",
+          "start": 4.11,
+          "end": 4.29
+        },
+        {
+          "text": "spent",
+          "start": 4.29,
+          "end": 4.53
+        },
+        {
+          "text": "three",
+          "start": 4.53,
+          "end": 4.87
+        },
+        {
+          "text": "thousand,",
+          "start": 4.87,
+          "end": 5.43
+        },
+        {
+          "text": "not",
+          "start": 5.69,
+          "end": 5.75
+        },
+        {
+          "text": "fifteen",
+          "start": 5.75,
+          "end": 6.11
+        },
+        {
+          "text": "hundred,",
+          "start": 6.11,
+          "end": 6.53
+        },
+        {
+          "text": "everybody",
+          "start": 6.89,
+          "end": 7.15
+        },
+        {
+          "text": "knows",
+          "start": 7.15,
+          "end": 7.49
+        },
+        {
+          "text": "that.\"",
+          "start": 7.49,
+          "end": 7.89
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5342672094702721
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "902538af2c84606cbc7e8cb07bd0383a3cfe1881b2428caad2cfc37494df2d87",
+  "selected_reasons": []
+}

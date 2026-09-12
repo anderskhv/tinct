@@ -1,0 +1,447 @@
+{
+  "complete": true,
+  "signature": "a0928635f4d9a0208e04f5a7b48d473a3025814ecbd90da9cf091709652faea8",
+  "attempts": [
+    {
+      "asr_seconds": 0.19563987106084824,
+      "alignment_seconds": 0.00012701191008090973,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And Gilo, that is the chain, sir, which you had of me.",
+          "start": 0.18,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.18,
+              "end": 0.6,
+              "probability": 0.461181640625
+            },
+            {
+              "text": " Gilo,",
+              "start": 0.6,
+              "end": 0.9,
+              "probability": 0.521728515625
+            },
+            {
+              "text": " that",
+              "start": 1.24,
+              "end": 1.5,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " is",
+              "start": 1.5,
+              "end": 1.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " chain,",
+              "start": 1.76,
+              "end": 2.0,
+              "probability": 0.85498046875
+            },
+            {
+              "text": " sir,",
+              "start": 2.28,
+              "end": 2.28,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " which",
+              "start": 2.48,
+              "end": 2.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " you",
+              "start": 2.52,
+              "end": 2.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 2.7,
+              "end": 2.86,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 2.86,
+              "end": 2.98,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me.",
+              "start": 2.98,
+              "end": 3.18,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.18,
+          "end": 0.6
+        },
+        {
+          "raw": "Gilo,",
+          "start": 0.6,
+          "end": 0.9
+        },
+        {
+          "raw": "that",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "raw": "is",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "raw": "chain,",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "raw": "sir,",
+          "start": 2.28,
+          "end": 2.28
+        },
+        {
+          "raw": "which",
+          "start": 2.48,
+          "end": 2.52
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "raw": "had",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "raw": "me.",
+          "start": 2.98,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "Angelo.",
+        "That",
+        "is",
+        "the",
+        "chain,",
+        "sir,",
+        "which",
+        "you",
+        "had",
+        "of",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          11,
+          2,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.18,
+          "end": 0.6,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Gilo,",
+          "start": 0.6,
+          "end": 0.9,
+          "key": "gilo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.24,
+          "end": 1.5,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.5,
+          "end": 1.62,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.76,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "chain,",
+          "start": 1.76,
+          "end": 2.0,
+          "key": "chain",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 2.28,
+          "end": 2.28,
+          "key": "sir",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 2.48,
+          "end": 2.52,
+          "key": "which",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.7,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 2.7,
+          "end": 2.86,
+          "key": "had",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 2.98,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.98,
+          "end": 3.18,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Angelo.",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "That",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "text": "is",
+          "start": 1.5,
+          "end": 1.62
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.76
+        },
+        {
+          "text": "chain,",
+          "start": 1.76,
+          "end": 2.0
+        },
+        {
+          "text": "sir,",
+          "start": 2.28,
+          "end": 2.28
+        },
+        {
+          "text": "which",
+          "start": 2.48,
+          "end": 2.52
+        },
+        {
+          "text": "you",
+          "start": 2.52,
+          "end": 2.7
+        },
+        {
+          "text": "had",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "text": "of",
+          "start": 2.86,
+          "end": 2.98
+        },
+        {
+          "text": "me.",
+          "start": 2.98,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 12,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19581215176731348
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "171e625834e8e1f57263a9bad76e73e978132b7166c60da560dbfbf967534c60",
+  "selected_reasons": []
+}

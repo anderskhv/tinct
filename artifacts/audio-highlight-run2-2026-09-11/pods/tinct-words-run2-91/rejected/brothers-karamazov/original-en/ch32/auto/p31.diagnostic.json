@@ -1,0 +1,719 @@
+{
+  "complete": true,
+  "signature": "f0a49383cf232be55057261f1094540f3f7a076f42969721b395a07125a9a4ca",
+  "attempts": [
+    {
+      "asr_seconds": 0.39276699908077717,
+      "alignment_seconds": 0.0003063194453716278,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Ah, Lise, what a good thing!\" cried Alyosha joyfully. \"You know, I was perfectly sure you were in earnest.\"",
+        "hotwords": "Ah, Lise, Alyosha, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ah, Lise, what a good thing!\" cried Alyosha joyfully.",
+          "start": 0.21,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Ah,",
+              "start": 0.21,
+              "end": 0.65,
+              "probability": 0.0697021484375
+            },
+            {
+              "text": " Lise,",
+              "start": 0.87,
+              "end": 1.07,
+              "probability": 0.115234375
+            },
+            {
+              "text": " what",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.9921875
+            },
+            {
+              "text": " a",
+              "start": 1.37,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thing",
+              "start": 1.59,
+              "end": 1.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "!\"",
+              "start": 1.97,
+              "end": 2.41,
+              "probability": 0.09503173828125
+            },
+            {
+              "text": " cried",
+              "start": 2.41,
+              "end": 2.59,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Alyosha",
+              "start": 2.59,
+              "end": 3.15,
+              "probability": 0.8766276041666666
+            },
+            {
+              "text": " joyfully.",
+              "start": 3.15,
+              "end": 3.53,
+              "probability": 0.96240234375
+            }
+          ]
+        },
+        {
+          "text": " You know, I was perfectly sure you were in earnest.",
+          "start": 3.95,
+          "end": 6.13,
+          "words": [
+            {
+              "text": " You",
+              "start": 3.95,
+              "end": 4.31,
+              "probability": 0.56494140625
+            },
+            {
+              "text": " know,",
+              "start": 4.31,
+              "end": 4.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 4.61,
+              "end": 4.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 4.63,
+              "end": 4.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " perfectly",
+              "start": 4.75,
+              "end": 5.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sure",
+              "start": 5.05,
+              "end": 5.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 5.37,
+              "end": 5.57,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 5.57,
+              "end": 5.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 5.69,
+              "end": 5.81,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " earnest.",
+              "start": 5.81,
+              "end": 6.13,
+              "probability": 0.97021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ah,",
+          "start": 0.21,
+          "end": 0.65
+        },
+        {
+          "raw": "Lise,",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "a",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "raw": "good",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "thing",
+          "start": 1.59,
+          "end": 1.97
+        },
+        {
+          "raw": "!\"",
+          "start": 1.97,
+          "end": 2.41
+        },
+        {
+          "raw": "cried",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.59,
+          "end": 3.15
+        },
+        {
+          "raw": "joyfully.",
+          "start": 3.15,
+          "end": 3.53
+        },
+        {
+          "raw": "You",
+          "start": 3.95,
+          "end": 4.31
+        },
+        {
+          "raw": "know,",
+          "start": 4.31,
+          "end": 4.47
+        },
+        {
+          "raw": "I",
+          "start": 4.61,
+          "end": 4.63
+        },
+        {
+          "raw": "was",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "raw": "perfectly",
+          "start": 4.75,
+          "end": 5.05
+        },
+        {
+          "raw": "sure",
+          "start": 5.05,
+          "end": 5.37
+        },
+        {
+          "raw": "you",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "raw": "were",
+          "start": 5.57,
+          "end": 5.69
+        },
+        {
+          "raw": "in",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "raw": "earnest.",
+          "start": 5.81,
+          "end": 6.13
+        }
+      ],
+      "expected_tokens": [
+        "\"Ah,",
+        "Lise,",
+        "what",
+        "a",
+        "good",
+        "thing!\"",
+        "cried",
+        "Alyosha",
+        "joyfully.",
+        "\"You",
+        "know,",
+        "I",
+        "was",
+        "perfectly",
+        "sure",
+        "you",
+        "were",
+        "in",
+        "earnest.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ],
+        [
+          "equal",
+          6,
+          19,
+          7,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          6,
+          6,
+          6,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ah,",
+          "start": 0.21,
+          "end": 0.65,
+          "key": "ah",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Lise,",
+          "start": 0.87,
+          "end": 1.07,
+          "key": "lise",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.23,
+          "end": 1.37,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.37,
+          "end": 1.47,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "good",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thing",
+          "start": 1.59,
+          "end": 1.97,
+          "key": "thing",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "!\"",
+          "start": 1.97,
+          "end": 2.41,
+          "key": "",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 2.41,
+          "end": 2.59,
+          "key": "cried",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Alyosha",
+          "start": 2.59,
+          "end": 3.15,
+          "key": "alyosha",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "joyfully.",
+          "start": 3.15,
+          "end": 3.53,
+          "key": "joyfully",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 3.95,
+          "end": 4.31,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 4.31,
+          "end": 4.47,
+          "key": "know",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.61,
+          "end": 4.63,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 4.63,
+          "end": 4.75,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "perfectly",
+          "start": 4.75,
+          "end": 5.05,
+          "key": "perfectly",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "sure",
+          "start": 5.05,
+          "end": 5.37,
+          "key": "sure",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.37,
+          "end": 5.57,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 5.57,
+          "end": 5.69,
+          "key": "were",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.69,
+          "end": 5.81,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "earnest.",
+          "start": 5.81,
+          "end": 6.13,
+          "key": "earnest",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ah,",
+          "start": 0.21,
+          "end": 0.65
+        },
+        {
+          "text": "Lise,",
+          "start": 0.87,
+          "end": 1.07
+        },
+        {
+          "text": "what",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "a",
+          "start": 1.37,
+          "end": 1.47
+        },
+        {
+          "text": "good",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "thing!\"",
+          "start": 1.59,
+          "end": 1.97
+        },
+        {
+          "text": "cried",
+          "start": 2.41,
+          "end": 2.59
+        },
+        {
+          "text": "Alyosha",
+          "start": 2.59,
+          "end": 3.15
+        },
+        {
+          "text": "joyfully.",
+          "start": 3.15,
+          "end": 3.53
+        },
+        {
+          "text": "\"You",
+          "start": 3.95,
+          "end": 4.31
+        },
+        {
+          "text": "know,",
+          "start": 4.31,
+          "end": 4.47
+        },
+        {
+          "text": "I",
+          "start": 4.61,
+          "end": 4.63
+        },
+        {
+          "text": "was",
+          "start": 4.63,
+          "end": 4.75
+        },
+        {
+          "text": "perfectly",
+          "start": 4.75,
+          "end": 5.05
+        },
+        {
+          "text": "sure",
+          "start": 5.05,
+          "end": 5.37
+        },
+        {
+          "text": "you",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "text": "were",
+          "start": 5.57,
+          "end": 5.69
+        },
+        {
+          "text": "in",
+          "start": 5.69,
+          "end": 5.81
+        },
+        {
+          "text": "earnest.\"",
+          "start": 5.81,
+          "end": 6.13
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3931898530572653
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8092611a1f42e5bbe602b34f960a72c96bb9fc392fbe4f718843dc41cab96bdc",
+  "selected_reasons": []
+}

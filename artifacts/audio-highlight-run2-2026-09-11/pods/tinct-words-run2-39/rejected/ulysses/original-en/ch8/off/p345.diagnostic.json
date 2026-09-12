@@ -1,0 +1,572 @@
+{
+  "complete": true,
+  "signature": "1d396958e9917b445cde4fc3fef9d3498c6cb4d4fee153b4face43172183275d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2990870987996459,
+      "alignment_seconds": 0.0005715221632272005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He touched the thin elbow gently, then took the limp seeing hand to guide it forward.",
+          "start": 0.05,
+          "end": 4.99,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8828125
+            },
+            {
+              "text": " touched",
+              "start": 0.49,
+              "end": 0.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 0.77,
+              "end": 1.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thin",
+              "start": 1.03,
+              "end": 1.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " elbow",
+              "start": 1.31,
+              "end": 1.69,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " gently,",
+              "start": 1.69,
+              "end": 2.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " then",
+              "start": 2.75,
+              "end": 2.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " took",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 3.11,
+              "end": 3.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " limp",
+              "start": 3.29,
+              "end": 3.53,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " seeing",
+              "start": 3.53,
+              "end": 3.83,
+              "probability": 0.61328125
+            },
+            {
+              "text": " hand",
+              "start": 3.83,
+              "end": 4.19,
+              "probability": 0.9453125
+            },
+            {
+              "text": " to",
+              "start": 4.19,
+              "end": 4.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " guide",
+              "start": 4.39,
+              "end": 4.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it",
+              "start": 4.57,
+              "end": 4.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " forward.",
+              "start": 4.75,
+              "end": 4.99,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "touched",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "raw": "the",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "raw": "thin",
+          "start": 1.03,
+          "end": 1.31
+        },
+        {
+          "raw": "elbow",
+          "start": 1.31,
+          "end": 1.69
+        },
+        {
+          "raw": "gently,",
+          "start": 1.69,
+          "end": 2.15
+        },
+        {
+          "raw": "then",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "raw": "took",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "the",
+          "start": 3.11,
+          "end": 3.29
+        },
+        {
+          "raw": "limp",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "raw": "seeing",
+          "start": 3.53,
+          "end": 3.83
+        },
+        {
+          "raw": "hand",
+          "start": 3.83,
+          "end": 4.19
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "raw": "guide",
+          "start": 4.39,
+          "end": 4.57
+        },
+        {
+          "raw": "it",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "raw": "forward.",
+          "start": 4.75,
+          "end": 4.99
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "touched",
+        "the",
+        "thin",
+        "elbow",
+        "gently:",
+        "then",
+        "took",
+        "the",
+        "limp",
+        "seeing",
+        "hand",
+        "to",
+        "guide",
+        "it",
+        "forward."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "touched",
+          "start": 0.49,
+          "end": 0.77,
+          "key": "touched",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.77,
+          "end": 1.03,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thin",
+          "start": 1.03,
+          "end": 1.31,
+          "key": "thin",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "elbow",
+          "start": 1.31,
+          "end": 1.69,
+          "key": "elbow",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "gently,",
+          "start": 1.69,
+          "end": 2.15,
+          "key": "gently",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 2.75,
+          "end": 2.93,
+          "key": "then",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "took",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.11,
+          "end": 3.29,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "limp",
+          "start": 3.29,
+          "end": 3.53,
+          "key": "limp",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "seeing",
+          "start": 3.53,
+          "end": 3.83,
+          "key": "seeing",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 3.83,
+          "end": 4.19,
+          "key": "hand",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.19,
+          "end": 4.39,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "guide",
+          "start": 4.39,
+          "end": 4.57,
+          "key": "guide",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 4.57,
+          "end": 4.75,
+          "key": "it",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "forward.",
+          "start": 4.75,
+          "end": 4.99,
+          "key": "forward",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "touched",
+          "start": 0.49,
+          "end": 0.77
+        },
+        {
+          "text": "the",
+          "start": 0.77,
+          "end": 1.03
+        },
+        {
+          "text": "thin",
+          "start": 1.03,
+          "end": 1.31
+        },
+        {
+          "text": "elbow",
+          "start": 1.31,
+          "end": 1.69
+        },
+        {
+          "text": "gently:",
+          "start": 1.69,
+          "end": 2.15
+        },
+        {
+          "text": "then",
+          "start": 2.75,
+          "end": 2.93
+        },
+        {
+          "text": "took",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "the",
+          "start": 3.11,
+          "end": 3.29
+        },
+        {
+          "text": "limp",
+          "start": 3.29,
+          "end": 3.53
+        },
+        {
+          "text": "seeing",
+          "start": 3.53,
+          "end": 3.83
+        },
+        {
+          "text": "hand",
+          "start": 3.83,
+          "end": 4.19
+        },
+        {
+          "text": "to",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "text": "guide",
+          "start": 4.39,
+          "end": 4.57
+        },
+        {
+          "text": "it",
+          "start": 4.57,
+          "end": 4.75
+        },
+        {
+          "text": "forward.",
+          "start": 4.75,
+          "end": 4.99
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29989920486696064
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "50734a68856fafa081ab2aeda01d3dc2162e582b8548c46284a27a6e240279b6",
+  "selected_reasons": []
+}

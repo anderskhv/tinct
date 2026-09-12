@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "9649f605ae57f116c6bd7ecbb11dd7e70dc262cba5ffcf12f1dffeb9b2282c03",
+  "attempts": [
+    {
+      "asr_seconds": 0.1700164396315813,
+      "alignment_seconds": 0.0003273673355579376,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Desdemona. O, banish me, my lord, but kill me not!",
+        "hotwords": "Desdemona, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Desdemona, O, banish me, my lord, but kill me not!",
+          "start": 0.63,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Desdemona,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.6566638946533203
+            },
+            {
+              "text": " O,",
+              "start": 1.45,
+              "end": 1.65,
+              "probability": 0.28466796875
+            },
+            {
+              "text": " banish",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " me,",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 2.35,
+              "end": 2.43,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " lord,",
+              "start": 2.43,
+              "end": 2.63,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " but",
+              "start": 2.83,
+              "end": 2.89,
+              "probability": 0.982421875
+            },
+            {
+              "text": " kill",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " me",
+              "start": 3.07,
+              "end": 3.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not!",
+              "start": 3.23,
+              "end": 3.53,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "O,",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "raw": "banish",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "me,",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "raw": "lord,",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "raw": "but",
+          "start": 2.83,
+          "end": 2.89
+        },
+        {
+          "raw": "kill",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "me",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "raw": "not!",
+          "start": 3.23,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Desdemona.",
+        "O,",
+        "banish",
+        "me,",
+        "my",
+        "lord,",
+        "but",
+        "kill",
+        "me",
+        "not!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Desdemona,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "desdemona",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.45,
+          "end": 1.65,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "banish",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "banish",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.07,
+          "end": 2.25,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.35,
+          "end": 2.43,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lord,",
+          "start": 2.43,
+          "end": 2.63,
+          "key": "lord",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.83,
+          "end": 2.89,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "kill",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "kill",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.07,
+          "end": 3.23,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not!",
+          "start": 3.23,
+          "end": 3.53,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Desdemona.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "O,",
+          "start": 1.45,
+          "end": 1.65
+        },
+        {
+          "text": "banish",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "me,",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "text": "my",
+          "start": 2.35,
+          "end": 2.43
+        },
+        {
+          "text": "lord,",
+          "start": 2.43,
+          "end": 2.63
+        },
+        {
+          "text": "but",
+          "start": 2.83,
+          "end": 2.89
+        },
+        {
+          "text": "kill",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "me",
+          "start": 3.07,
+          "end": 3.23
+        },
+        {
+          "text": "not!",
+          "start": 3.23,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17046895483508706
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bfebe218bf5f0b57c463f5fdfc4fb0ed17570a4d02525ea15e88e15e11734855",
+  "selected_reasons": []
+}

@@ -1,0 +1,3451 @@
+{
+  "complete": true,
+  "signature": "0a1be3f3371658b79c842cf4688ccf08b2e61edce80082f4ee1b18a8595b9931",
+  "attempts": [
+    {
+      "asr_seconds": 4.37437001708895,
+      "alignment_seconds": 0.0012092969845980406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "_Enter_ Pentheus _in fury_. Pentheus. It is too much! This Eastern knave hath slipped His prison, whom I held but now, hard gripped In bondage.--Ha! 'Tis he!--What, sirrah, how Show'st thou before my portals?",
+        "hotwords": "Pentheus, It, This, Eastern, His, I, In, Tis, Show'st"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Tis he!--What, sirrah, how Show'st thou before my portals?",
+          "start": 9.96,
+          "end": 13.36,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 9.96,
+              "end": 10.56,
+              "probability": 0.05636882781982422
+            },
+            {
+              "text": " he!--What,",
+              "start": 10.56,
+              "end": 11.16,
+              "probability": 0.35507198174794513
+            },
+            {
+              "text": " sirrah,",
+              "start": 11.3,
+              "end": 11.6,
+              "probability": 0.413360595703125
+            },
+            {
+              "text": " how",
+              "start": 11.76,
+              "end": 11.8,
+              "probability": 0.5830078125
+            },
+            {
+              "text": " Show'st",
+              "start": 11.8,
+              "end": 12.3,
+              "probability": 0.282024621963501
+            },
+            {
+              "text": " thou",
+              "start": 12.3,
+              "end": 12.48,
+              "probability": 0.08489990234375
+            },
+            {
+              "text": " before",
+              "start": 12.48,
+              "end": 12.8,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " my",
+              "start": 12.8,
+              "end": 13.1,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " portals?",
+              "start": 13.1,
+              "end": 13.36,
+              "probability": 0.84716796875
+            }
+          ]
+        },
+        {
+          "text": " Tis he!--What, sirrah, how Show'st thou before my portals?",
+          "start": 13.36,
+          "end": 13.64,
+          "words": [
+            {
+              "text": " Tis",
+              "start": 13.36,
+              "end": 13.36,
+              "probability": 0.00018590688705444336
+            },
+            {
+              "text": " he!--What,",
+              "start": 13.36,
+              "end": 13.36,
+              "probability": 0.00013051430384318033
+            },
+            {
+              "text": " sirrah,",
+              "start": 13.36,
+              "end": 13.36,
+              "probability": 0.0004019439220428467
+            },
+            {
+              "text": " how",
+              "start": 13.36,
+              "end": 13.42,
+              "probability": 0.01201629638671875
+            },
+            {
+              "text": " Show'st",
+              "start": 13.42,
+              "end": 13.64,
+              "probability": 0.006159881750742595
+            },
+            {
+              "text": " thou",
+              "start": 13.64,
+              "end": 13.64,
+              "probability": 8.52346420288086e-05
+            },
+            {
+              "text": " before",
+              "start": 13.64,
+              "end": 13.64,
+              "probability": 0.00029778480529785156
+            },
+            {
+              "text": " my",
+              "start": 13.64,
+              "end": 13.64,
+              "probability": 0.0160675048828125
+            },
+            {
+              "text": " portals?",
+              "start": 13.64,
+              "end": 13.64,
+              "probability": 8.58306884765625e-06
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tis",
+          "start": 9.96,
+          "end": 10.56
+        },
+        {
+          "raw": "he!--What,",
+          "start": 10.56,
+          "end": 11.16
+        },
+        {
+          "raw": "sirrah,",
+          "start": 11.3,
+          "end": 11.6
+        },
+        {
+          "raw": "how",
+          "start": 11.76,
+          "end": 11.8
+        },
+        {
+          "raw": "Show'st",
+          "start": 11.8,
+          "end": 12.3
+        },
+        {
+          "raw": "thou",
+          "start": 12.3,
+          "end": 12.48
+        },
+        {
+          "raw": "before",
+          "start": 12.48,
+          "end": 12.8
+        },
+        {
+          "raw": "my",
+          "start": 12.8,
+          "end": 13.1
+        },
+        {
+          "raw": "portals?",
+          "start": 13.1,
+          "end": 13.36
+        },
+        {
+          "raw": "Tis",
+          "start": 13.36,
+          "end": 13.36
+        },
+        {
+          "raw": "he!--What,",
+          "start": 13.36,
+          "end": 13.36
+        },
+        {
+          "raw": "sirrah,",
+          "start": 13.36,
+          "end": 13.36
+        },
+        {
+          "raw": "how",
+          "start": 13.36,
+          "end": 13.42
+        },
+        {
+          "raw": "Show'st",
+          "start": 13.42,
+          "end": 13.64
+        },
+        {
+          "raw": "thou",
+          "start": 13.64,
+          "end": 13.64
+        },
+        {
+          "raw": "before",
+          "start": 13.64,
+          "end": 13.64
+        },
+        {
+          "raw": "my",
+          "start": 13.64,
+          "end": 13.64
+        },
+        {
+          "raw": "portals?",
+          "start": 13.64,
+          "end": 13.64
+        }
+      ],
+      "expected_tokens": [
+        "_Enter_",
+        "Pentheus",
+        "_in",
+        "fury_.",
+        "Pentheus.",
+        "It",
+        "is",
+        "too",
+        "much!",
+        "This",
+        "Eastern",
+        "knave",
+        "hath",
+        "slipped",
+        "His",
+        "prison,",
+        "whom",
+        "I",
+        "held",
+        "but",
+        "now,",
+        "hard",
+        "gripped",
+        "In",
+        "bondage.--Ha!",
+        "'Tis",
+        "he!--What,",
+        "sirrah,",
+        "how",
+        "Show'st",
+        "thou",
+        "before",
+        "my",
+        "portals?"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          25,
+          0,
+          0
+        ],
+        [
+          "equal",
+          25,
+          34,
+          0,
+          9
+        ],
+        [
+          "insert",
+          34,
+          34,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          25,
+          0,
+          0
+        ],
+        [
+          "insert",
+          34,
+          34,
+          9,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tis",
+          "start": 9.96,
+          "end": 10.56,
+          "key": "tis",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he!--What,",
+          "start": 10.56,
+          "end": 11.16,
+          "key": "hewhat",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sirrah,",
+          "start": 11.3,
+          "end": 11.6,
+          "key": "sirrah",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 11.76,
+          "end": 11.8,
+          "key": "how",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Show'st",
+          "start": 11.8,
+          "end": 12.3,
+          "key": "showst",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 12.3,
+          "end": 12.48,
+          "key": "thou",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 12.48,
+          "end": 12.8,
+          "key": "before",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.8,
+          "end": 13.1,
+          "key": "my",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "portals?",
+          "start": 13.1,
+          "end": 13.36,
+          "key": "portals",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 13.36,
+          "end": 13.36,
+          "key": "tis",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he!--What,",
+          "start": 13.36,
+          "end": 13.36,
+          "key": "hewhat",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "sirrah,",
+          "start": 13.36,
+          "end": 13.36,
+          "key": "sirrah",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 13.36,
+          "end": 13.42,
+          "key": "how",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Show'st",
+          "start": 13.42,
+          "end": 13.64,
+          "key": "showst",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 13.64,
+          "end": 13.64,
+          "key": "thou",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 13.64,
+          "end": 13.64,
+          "key": "before",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.64,
+          "end": 13.64,
+          "key": "my",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "portals?",
+          "start": 13.64,
+          "end": 13.64,
+          "key": "portals",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "_Enter_",
+          "start": 0.0,
+          "end": 4.98
+        },
+        {
+          "text": "Pentheus",
+          "start": 4.98,
+          "end": 7.47
+        },
+        {
+          "text": "_in",
+          "start": 7.47,
+          "end": 8.715
+        },
+        {
+          "text": "fury_.",
+          "start": 8.715,
+          "end": 9.338
+        },
+        {
+          "text": "Pentheus.",
+          "start": 9.338,
+          "end": 9.649
+        },
+        {
+          "text": "It",
+          "start": 9.649,
+          "end": 9.805
+        },
+        {
+          "text": "is",
+          "start": 9.805,
+          "end": 9.883
+        },
+        {
+          "text": "too",
+          "start": 9.883,
+          "end": 9.921
+        },
+        {
+          "text": "much!",
+          "start": 9.921,
+          "end": 9.941
+        },
+        {
+          "text": "This",
+          "start": 9.941,
+          "end": 9.951
+        },
+        {
+          "text": "Eastern",
+          "start": 9.951,
+          "end": 9.956
+        },
+        {
+          "text": "knave",
+          "start": 9.956,
+          "end": 9.958
+        },
+        {
+          "text": "hath",
+          "start": 9.958,
+          "end": 9.959
+        },
+        {
+          "text": "slipped",
+          "start": 9.959,
+          "end": 9.96
+        },
+        {
+          "text": "His",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "prison,",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "whom",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "I",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "held",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "but",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "now,",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "hard",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "gripped",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "In",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "bondage.--Ha!",
+          "start": 9.96,
+          "end": 9.96
+        },
+        {
+          "text": "'Tis",
+          "start": 9.96,
+          "end": 10.56
+        },
+        {
+          "text": "he!--What,",
+          "start": 10.56,
+          "end": 11.16
+        },
+        {
+          "text": "sirrah,",
+          "start": 11.3,
+          "end": 11.6
+        },
+        {
+          "text": "how",
+          "start": 11.76,
+          "end": 11.8
+        },
+        {
+          "text": "Show'st",
+          "start": 11.8,
+          "end": 12.3
+        },
+        {
+          "text": "thou",
+          "start": 12.3,
+          "end": 12.48
+        },
+        {
+          "text": "before",
+          "start": 12.48,
+          "end": 12.8
+        },
+        {
+          "text": "my",
+          "start": 12.8,
+          "end": 13.1
+        },
+        {
+          "text": "portals?",
+          "start": 13.1,
+          "end": 13.36
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 18,
+        "matched_words": 9
+      },
+      "match_ratio": 0.2647058823529412,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.3759369070176035
+    },
+    {
+      "asr_seconds": 0.5874574850313365,
+      "alignment_seconds": 0.0006027760682627559,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Pentheus, It, This, Eastern, His, I, In, Tis, Show'st"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Enter Pentheus in fury. Pentheus, It is too much. This Eastern knave hath slipped",
+          "start": 0.02,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.73046875
+            },
+            {
+              "text": " Pentheus",
+              "start": 0.68,
+              "end": 1.3,
+              "probability": 0.94140625
+            },
+            {
+              "text": " in",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " fury.",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " Pentheus,",
+              "start": 2.44,
+              "end": 3.0,
+              "probability": 0.9161783854166666
+            },
+            {
+              "text": " It",
+              "start": 3.36,
+              "end": 3.48,
+              "probability": 0.032867431640625
+            },
+            {
+              "text": " is",
+              "start": 3.48,
+              "end": 3.62,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " too",
+              "start": 3.62,
+              "end": 3.8,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " much.",
+              "start": 3.8,
+              "end": 4.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " This",
+              "start": 4.66,
+              "end": 4.84,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Eastern",
+              "start": 4.84,
+              "end": 5.28,
+              "probability": 0.298828125
+            },
+            {
+              "text": " knave",
+              "start": 5.28,
+              "end": 5.66,
+              "probability": 0.6934814453125
+            },
+            {
+              "text": " hath",
+              "start": 5.66,
+              "end": 5.78,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " slipped",
+              "start": 5.78,
+              "end": 6.08,
+              "probability": 0.94677734375
+            }
+          ]
+        },
+        {
+          "text": " his prison, whom I held but now hard-gripped in bondage ha. Tis he, what, Sirah, how shows",
+          "start": 6.08,
+          "end": 12.18,
+          "words": [
+            {
+              "text": " his",
+              "start": 6.08,
+              "end": 6.32,
+              "probability": 0.94921875
+            },
+            {
+              "text": " prison,",
+              "start": 6.32,
+              "end": 6.68,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " whom",
+              "start": 6.96,
+              "end": 7.04,
+              "probability": 0.404541015625
+            },
+            {
+              "text": " I",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " held",
+              "start": 7.18,
+              "end": 7.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " but",
+              "start": 7.44,
+              "end": 7.62,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " now",
+              "start": 7.62,
+              "end": 7.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " hard",
+              "start": 7.96,
+              "end": 8.38,
+              "probability": 0.88720703125
+            },
+            {
+              "text": "-gripped",
+              "start": 8.38,
+              "end": 8.78,
+              "probability": 0.77490234375
+            },
+            {
+              "text": " in",
+              "start": 8.78,
+              "end": 8.92,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " bondage",
+              "start": 8.92,
+              "end": 9.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " ha.",
+              "start": 9.24,
+              "end": 9.58,
+              "probability": 0.297607421875
+            },
+            {
+              "text": " Tis",
+              "start": 10.24,
+              "end": 10.48,
+              "probability": 0.070404052734375
+            },
+            {
+              "text": " he,",
+              "start": 10.48,
+              "end": 10.72,
+              "probability": 0.951171875
+            },
+            {
+              "text": " what,",
+              "start": 10.96,
+              "end": 11.18,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " Sirah,",
+              "start": 11.3,
+              "end": 11.6,
+              "probability": 0.33740234375
+            },
+            {
+              "text": " how",
+              "start": 11.76,
+              "end": 11.8,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " shows",
+              "start": 11.8,
+              "end": 12.18,
+              "probability": 0.43212890625
+            }
+          ]
+        },
+        {
+          "text": " de thou before my portals?",
+          "start": 12.18,
+          "end": 13.38,
+          "words": [
+            {
+              "text": " de",
+              "start": 12.18,
+              "end": 12.38,
+              "probability": 0.1566162109375
+            },
+            {
+              "text": " thou",
+              "start": 12.38,
+              "end": 12.58,
+              "probability": 0.802734375
+            },
+            {
+              "text": " before",
+              "start": 12.58,
+              "end": 12.82,
+              "probability": 0.970703125
+            },
+            {
+              "text": " my",
+              "start": 12.82,
+              "end": 13.1,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " portals?",
+              "start": 13.1,
+              "end": 13.38,
+              "probability": 0.9794921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Pentheus",
+          "start": 0.68,
+          "end": 1.3
+        },
+        {
+          "raw": "in",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "fury.",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "raw": "Pentheus,",
+          "start": 2.44,
+          "end": 3.0
+        },
+        {
+          "raw": "It",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "raw": "is",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "raw": "too",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "raw": "much.",
+          "start": 3.8,
+          "end": 4.14
+        },
+        {
+          "raw": "This",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "raw": "Eastern",
+          "start": 4.84,
+          "end": 5.28
+        },
+        {
+          "raw": "knave",
+          "start": 5.28,
+          "end": 5.66
+        },
+        {
+          "raw": "hath",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "raw": "slipped",
+          "start": 5.78,
+          "end": 6.08
+        },
+        {
+          "raw": "his",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "raw": "prison,",
+          "start": 6.32,
+          "end": 6.68
+        },
+        {
+          "raw": "whom",
+          "start": 6.96,
+          "end": 7.04
+        },
+        {
+          "raw": "I",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "held",
+          "start": 7.18,
+          "end": 7.44
+        },
+        {
+          "raw": "but",
+          "start": 7.44,
+          "end": 7.62
+        },
+        {
+          "raw": "now",
+          "start": 7.62,
+          "end": 7.96
+        },
+        {
+          "raw": "hard",
+          "start": 7.96,
+          "end": 8.38
+        },
+        {
+          "raw": "-gripped",
+          "start": 8.38,
+          "end": 8.78
+        },
+        {
+          "raw": "in",
+          "start": 8.78,
+          "end": 8.92
+        },
+        {
+          "raw": "bondage",
+          "start": 8.92,
+          "end": 9.24
+        },
+        {
+          "raw": "ha.",
+          "start": 9.24,
+          "end": 9.58
+        },
+        {
+          "raw": "Tis",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "raw": "he,",
+          "start": 10.48,
+          "end": 10.72
+        },
+        {
+          "raw": "what,",
+          "start": 10.96,
+          "end": 11.18
+        },
+        {
+          "raw": "Sirah,",
+          "start": 11.3,
+          "end": 11.6
+        },
+        {
+          "raw": "how",
+          "start": 11.76,
+          "end": 11.8
+        },
+        {
+          "raw": "shows",
+          "start": 11.8,
+          "end": 12.18
+        },
+        {
+          "raw": "de",
+          "start": 12.18,
+          "end": 12.38
+        },
+        {
+          "raw": "thou",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "raw": "before",
+          "start": 12.58,
+          "end": 12.82
+        },
+        {
+          "raw": "my",
+          "start": 12.82,
+          "end": 13.1
+        },
+        {
+          "raw": "portals?",
+          "start": 13.1,
+          "end": 13.38
+        }
+      ],
+      "expected_tokens": [
+        "_Enter_",
+        "Pentheus",
+        "_in",
+        "fury_.",
+        "Pentheus.",
+        "It",
+        "is",
+        "too",
+        "much!",
+        "This",
+        "Eastern",
+        "knave",
+        "hath",
+        "slipped",
+        "His",
+        "prison,",
+        "whom",
+        "I",
+        "held",
+        "but",
+        "now,",
+        "hard",
+        "gripped",
+        "In",
+        "bondage.--Ha!",
+        "'Tis",
+        "he!--What,",
+        "sirrah,",
+        "how",
+        "Show'st",
+        "thou",
+        "before",
+        "my",
+        "portals?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ],
+        [
+          "replace",
+          27,
+          28,
+          27,
+          28
+        ],
+        [
+          "equal",
+          28,
+          29,
+          28,
+          29
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ],
+        [
+          "equal",
+          30,
+          34,
+          31,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          27,
+          28,
+          27,
+          28
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pentheus",
+          "start": 0.68,
+          "end": 1.3,
+          "key": "pentheus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fury.",
+          "start": 1.5,
+          "end": 1.78,
+          "key": "fury",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pentheus,",
+          "start": 2.44,
+          "end": 3.0,
+          "key": "pentheus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.36,
+          "end": 3.48,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.48,
+          "end": 3.62,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 3.62,
+          "end": 3.8,
+          "key": "too",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "much.",
+          "start": 3.8,
+          "end": 4.14,
+          "key": "much",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.66,
+          "end": 4.84,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Eastern",
+          "start": 4.84,
+          "end": 5.28,
+          "key": "eastern",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "knave",
+          "start": 5.28,
+          "end": 5.66,
+          "key": "knave",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 5.66,
+          "end": 5.78,
+          "key": "hath",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "slipped",
+          "start": 5.78,
+          "end": 6.08,
+          "key": "slipped",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.08,
+          "end": 6.32,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "prison,",
+          "start": 6.32,
+          "end": 6.68,
+          "key": "prison",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 6.96,
+          "end": 7.04,
+          "key": "whom",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.04,
+          "end": 7.18,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 7.18,
+          "end": 7.44,
+          "key": "held",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.44,
+          "end": 7.62,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 7.62,
+          "end": 7.96,
+          "key": "now",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 7.96,
+          "end": 8.38,
+          "key": "hard",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "-gripped",
+          "start": 8.38,
+          "end": 8.78,
+          "key": "gripped",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.78,
+          "end": 8.92,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bondage ha.",
+          "start": 8.92,
+          "end": 9.58,
+          "key": "bondageha",
+          "pieces": [
+            24,
+            25
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 10.24,
+          "end": 10.48,
+          "key": "tis",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he, what,",
+          "start": 10.48,
+          "end": 11.18,
+          "key": "hewhat",
+          "pieces": [
+            27,
+            28
+          ]
+        },
+        {
+          "raw": "Sirah,",
+          "start": 11.3,
+          "end": 11.6,
+          "key": "sirah",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "how",
+          "start": 11.76,
+          "end": 11.8,
+          "key": "how",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "shows",
+          "start": 11.8,
+          "end": 12.18,
+          "key": "shows",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "de",
+          "start": 12.18,
+          "end": 12.38,
+          "key": "de",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 12.38,
+          "end": 12.58,
+          "key": "thou",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 12.58,
+          "end": 12.82,
+          "key": "before",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.82,
+          "end": 13.1,
+          "key": "my",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "portals?",
+          "start": 13.1,
+          "end": 13.38,
+          "key": "portals",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 24,
+          "text": "bondage.--Ha!",
+          "heard": "bondage ha.",
+          "heard_indexes": [
+            24,
+            25
+          ],
+          "start": 8.92,
+          "end": 9.58
+        },
+        {
+          "expected_index": 26,
+          "text": "he!--What,",
+          "heard": "he, what,",
+          "heard_indexes": [
+            27,
+            28
+          ],
+          "start": 10.48,
+          "end": 11.18
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "_Enter_",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Pentheus",
+          "start": 0.68,
+          "end": 1.3
+        },
+        {
+          "text": "_in",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "fury_.",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "text": "Pentheus.",
+          "start": 2.44,
+          "end": 3.0
+        },
+        {
+          "text": "It",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "text": "is",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "text": "too",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "text": "much!",
+          "start": 3.8,
+          "end": 4.14
+        },
+        {
+          "text": "This",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "text": "Eastern",
+          "start": 4.84,
+          "end": 5.28
+        },
+        {
+          "text": "knave",
+          "start": 5.28,
+          "end": 5.66
+        },
+        {
+          "text": "hath",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "text": "slipped",
+          "start": 5.78,
+          "end": 6.08
+        },
+        {
+          "text": "His",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "text": "prison,",
+          "start": 6.32,
+          "end": 6.68
+        },
+        {
+          "text": "whom",
+          "start": 6.96,
+          "end": 7.04
+        },
+        {
+          "text": "I",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "text": "held",
+          "start": 7.18,
+          "end": 7.44
+        },
+        {
+          "text": "but",
+          "start": 7.44,
+          "end": 7.62
+        },
+        {
+          "text": "now,",
+          "start": 7.62,
+          "end": 7.96
+        },
+        {
+          "text": "hard",
+          "start": 7.96,
+          "end": 8.38
+        },
+        {
+          "text": "gripped",
+          "start": 8.38,
+          "end": 8.78
+        },
+        {
+          "text": "In",
+          "start": 8.78,
+          "end": 8.92
+        },
+        {
+          "text": "bondage.--Ha!",
+          "start": 8.92,
+          "end": 9.58
+        },
+        {
+          "text": "'Tis",
+          "start": 10.24,
+          "end": 10.48
+        },
+        {
+          "text": "he!--What,",
+          "start": 10.48,
+          "end": 11.18
+        },
+        {
+          "text": "sirrah,",
+          "start": 11.18,
+          "end": 11.47
+        },
+        {
+          "text": "how",
+          "start": 11.76,
+          "end": 11.8
+        },
+        {
+          "text": "Show'st",
+          "start": 11.8,
+          "end": 12.09
+        },
+        {
+          "text": "thou",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "text": "before",
+          "start": 12.58,
+          "end": 12.82
+        },
+        {
+          "text": "my",
+          "start": 12.82,
+          "end": 13.1
+        },
+        {
+          "text": "portals?",
+          "start": 13.1,
+          "end": 13.38
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 35,
+        "matched_words": 32
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.5882896580733359
+    },
+    {
+      "asr_seconds": 0.7366667059250176,
+      "alignment_seconds": 0.0015786499716341496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Enter Pentheus in fury.",
+          "start": 0.02,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.73046875
+            },
+            {
+              "text": " Pentheus",
+              "start": 0.68,
+              "end": 1.3,
+              "probability": 0.9410807291666666
+            },
+            {
+              "text": " in",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " fury.",
+              "start": 1.5,
+              "end": 1.78,
+              "probability": 0.9130859375
+            }
+          ]
+        },
+        {
+          "text": " Pentheus!",
+          "start": 2.42,
+          "end": 3.0,
+          "words": [
+            {
+              "text": " Pentheus!",
+              "start": 2.42,
+              "end": 3.0,
+              "probability": 0.9163411458333334
+            }
+          ]
+        },
+        {
+          "text": " It is too much.",
+          "start": 3.42,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " It",
+              "start": 3.42,
+              "end": 3.48,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " is",
+              "start": 3.48,
+              "end": 3.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " too",
+              "start": 3.62,
+              "end": 3.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " much.",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " This eastern nave hath slipped his prison, whom I held but now hard-gripped in bondage",
+          "start": 4.66,
+          "end": 9.24,
+          "words": [
+            {
+              "text": " This",
+              "start": 4.66,
+              "end": 4.84,
+              "probability": 0.98046875
+            },
+            {
+              "text": " eastern",
+              "start": 4.84,
+              "end": 5.28,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " nave",
+              "start": 5.28,
+              "end": 5.66,
+              "probability": 0.810546875
+            },
+            {
+              "text": " hath",
+              "start": 5.66,
+              "end": 5.78,
+              "probability": 0.990234375
+            },
+            {
+              "text": " slipped",
+              "start": 5.78,
+              "end": 6.08,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " his",
+              "start": 6.08,
+              "end": 6.32,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " prison,",
+              "start": 6.32,
+              "end": 6.68,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " whom",
+              "start": 6.96,
+              "end": 7.04,
+              "probability": 0.69140625
+            },
+            {
+              "text": " I",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " held",
+              "start": 7.18,
+              "end": 7.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " but",
+              "start": 7.44,
+              "end": 7.62,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " now",
+              "start": 7.62,
+              "end": 7.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " hard",
+              "start": 7.96,
+              "end": 8.38,
+              "probability": 0.935546875
+            },
+            {
+              "text": "-gripped",
+              "start": 8.38,
+              "end": 8.78,
+              "probability": 0.7838134765625
+            },
+            {
+              "text": " in",
+              "start": 8.78,
+              "end": 8.92,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " bondage",
+              "start": 8.92,
+              "end": 9.24,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " ha.",
+          "start": 9.24,
+          "end": 9.58,
+          "words": [
+            {
+              "text": " ha.",
+              "start": 9.24,
+              "end": 9.58,
+              "probability": 0.296142578125
+            }
+          ]
+        },
+        {
+          "text": " Tease he!",
+          "start": 10.18,
+          "end": 10.72,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 10.18,
+              "end": 10.52,
+              "probability": 0.4354248046875
+            },
+            {
+              "text": " he!",
+              "start": 10.52,
+              "end": 10.72,
+              "probability": 0.7900390625
+            }
+          ]
+        },
+        {
+          "text": " What, Sirrah?",
+          "start": 10.94,
+          "end": 11.6,
+          "words": [
+            {
+              "text": " What,",
+              "start": 10.94,
+              "end": 11.18,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " Sirrah?",
+              "start": 11.3,
+              "end": 11.6,
+              "probability": 0.42333984375
+            }
+          ]
+        },
+        {
+          "text": " How shows d'thou before my portals?",
+          "start": 11.76,
+          "end": 13.36,
+          "words": [
+            {
+              "text": " How",
+              "start": 11.76,
+              "end": 11.8,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " shows",
+              "start": 11.8,
+              "end": 12.2,
+              "probability": 0.572265625
+            },
+            {
+              "text": " d",
+              "start": 12.2,
+              "end": 12.36,
+              "probability": 0.449462890625
+            },
+            {
+              "text": "'thou",
+              "start": 12.36,
+              "end": 12.6,
+              "probability": 0.6497395833333334
+            },
+            {
+              "text": " before",
+              "start": 12.6,
+              "end": 12.84,
+              "probability": 0.9609375
+            },
+            {
+              "text": " my",
+              "start": 12.84,
+              "end": 13.08,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " portals?",
+              "start": 13.08,
+              "end": 13.36,
+              "probability": 0.95849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "Pentheus",
+          "start": 0.68,
+          "end": 1.3
+        },
+        {
+          "raw": "in",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "fury.",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "raw": "Pentheus!",
+          "start": 2.42,
+          "end": 3.0
+        },
+        {
+          "raw": "It",
+          "start": 3.42,
+          "end": 3.48
+        },
+        {
+          "raw": "is",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "raw": "too",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "raw": "much.",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "raw": "This",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "raw": "eastern",
+          "start": 4.84,
+          "end": 5.28
+        },
+        {
+          "raw": "nave",
+          "start": 5.28,
+          "end": 5.66
+        },
+        {
+          "raw": "hath",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "raw": "slipped",
+          "start": 5.78,
+          "end": 6.08
+        },
+        {
+          "raw": "his",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "raw": "prison,",
+          "start": 6.32,
+          "end": 6.68
+        },
+        {
+          "raw": "whom",
+          "start": 6.96,
+          "end": 7.04
+        },
+        {
+          "raw": "I",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "held",
+          "start": 7.18,
+          "end": 7.44
+        },
+        {
+          "raw": "but",
+          "start": 7.44,
+          "end": 7.62
+        },
+        {
+          "raw": "now",
+          "start": 7.62,
+          "end": 7.96
+        },
+        {
+          "raw": "hard",
+          "start": 7.96,
+          "end": 8.38
+        },
+        {
+          "raw": "-gripped",
+          "start": 8.38,
+          "end": 8.78
+        },
+        {
+          "raw": "in",
+          "start": 8.78,
+          "end": 8.92
+        },
+        {
+          "raw": "bondage",
+          "start": 8.92,
+          "end": 9.24
+        },
+        {
+          "raw": "ha.",
+          "start": 9.24,
+          "end": 9.58
+        },
+        {
+          "raw": "Tease",
+          "start": 10.18,
+          "end": 10.52
+        },
+        {
+          "raw": "he!",
+          "start": 10.52,
+          "end": 10.72
+        },
+        {
+          "raw": "What,",
+          "start": 10.94,
+          "end": 11.18
+        },
+        {
+          "raw": "Sirrah?",
+          "start": 11.3,
+          "end": 11.6
+        },
+        {
+          "raw": "How",
+          "start": 11.76,
+          "end": 11.8
+        },
+        {
+          "raw": "shows",
+          "start": 11.8,
+          "end": 12.2
+        },
+        {
+          "raw": "d",
+          "start": 12.2,
+          "end": 12.36
+        },
+        {
+          "raw": "'thou",
+          "start": 12.36,
+          "end": 12.6
+        },
+        {
+          "raw": "before",
+          "start": 12.6,
+          "end": 12.84
+        },
+        {
+          "raw": "my",
+          "start": 12.84,
+          "end": 13.08
+        },
+        {
+          "raw": "portals?",
+          "start": 13.08,
+          "end": 13.36
+        }
+      ],
+      "expected_tokens": [
+        "_Enter_",
+        "Pentheus",
+        "_in",
+        "fury_.",
+        "Pentheus.",
+        "It",
+        "is",
+        "too",
+        "much!",
+        "This",
+        "Eastern",
+        "knave",
+        "hath",
+        "slipped",
+        "His",
+        "prison,",
+        "whom",
+        "I",
+        "held",
+        "but",
+        "now,",
+        "hard",
+        "gripped",
+        "In",
+        "bondage.--Ha!",
+        "'Tis",
+        "he!--What,",
+        "sirrah,",
+        "how",
+        "Show'st",
+        "thou",
+        "before",
+        "my",
+        "portals?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          25,
+          12,
+          25
+        ],
+        [
+          "replace",
+          25,
+          26,
+          25,
+          26
+        ],
+        [
+          "equal",
+          26,
+          29,
+          26,
+          29
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ],
+        [
+          "equal",
+          30,
+          34,
+          31,
+          35
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          25,
+          26,
+          25,
+          26
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pentheus",
+          "start": 0.68,
+          "end": 1.3,
+          "key": "pentheus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "in",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fury.",
+          "start": 1.5,
+          "end": 1.78,
+          "key": "fury",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Pentheus!",
+          "start": 2.42,
+          "end": 3.0,
+          "key": "pentheus",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.42,
+          "end": 3.48,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.48,
+          "end": 3.62,
+          "key": "is",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 3.62,
+          "end": 3.8,
+          "key": "too",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "much.",
+          "start": 3.8,
+          "end": 4.12,
+          "key": "much",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 4.66,
+          "end": 4.84,
+          "key": "this",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "eastern",
+          "start": 4.84,
+          "end": 5.28,
+          "key": "eastern",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nave",
+          "start": 5.28,
+          "end": 5.66,
+          "key": "nave",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "hath",
+          "start": 5.66,
+          "end": 5.78,
+          "key": "hath",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "slipped",
+          "start": 5.78,
+          "end": 6.08,
+          "key": "slipped",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 6.08,
+          "end": 6.32,
+          "key": "his",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "prison,",
+          "start": 6.32,
+          "end": 6.68,
+          "key": "prison",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "whom",
+          "start": 6.96,
+          "end": 7.04,
+          "key": "whom",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.04,
+          "end": 7.18,
+          "key": "i",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "held",
+          "start": 7.18,
+          "end": 7.44,
+          "key": "held",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 7.44,
+          "end": 7.62,
+          "key": "but",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 7.62,
+          "end": 7.96,
+          "key": "now",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "hard",
+          "start": 7.96,
+          "end": 8.38,
+          "key": "hard",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "-gripped",
+          "start": 8.38,
+          "end": 8.78,
+          "key": "gripped",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 8.78,
+          "end": 8.92,
+          "key": "in",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "bondage ha.",
+          "start": 8.92,
+          "end": 9.58,
+          "key": "bondageha",
+          "pieces": [
+            24,
+            25
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 10.18,
+          "end": 10.52,
+          "key": "tease",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "he! What,",
+          "start": 10.52,
+          "end": 11.18,
+          "key": "hewhat",
+          "pieces": [
+            27,
+            28
+          ]
+        },
+        {
+          "raw": "Sirrah?",
+          "start": 11.3,
+          "end": 11.6,
+          "key": "sirrah",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "How",
+          "start": 11.76,
+          "end": 11.8,
+          "key": "how",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "shows",
+          "start": 11.8,
+          "end": 12.2,
+          "key": "shows",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "d",
+          "start": 12.2,
+          "end": 12.36,
+          "key": "d",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "'thou",
+          "start": 12.36,
+          "end": 12.6,
+          "key": "thou",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "before",
+          "start": 12.6,
+          "end": 12.84,
+          "key": "before",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 12.84,
+          "end": 13.08,
+          "key": "my",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "portals?",
+          "start": 13.08,
+          "end": 13.36,
+          "key": "portals",
+          "pieces": [
+            36
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 24,
+          "text": "bondage.--Ha!",
+          "heard": "bondage ha.",
+          "heard_indexes": [
+            24,
+            25
+          ],
+          "start": 8.92,
+          "end": 9.58
+        },
+        {
+          "expected_index": 26,
+          "text": "he!--What,",
+          "heard": "he! What,",
+          "heard_indexes": [
+            27,
+            28
+          ],
+          "start": 10.52,
+          "end": 11.18
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "_Enter_",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Pentheus",
+          "start": 0.68,
+          "end": 1.3
+        },
+        {
+          "text": "_in",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "fury_.",
+          "start": 1.5,
+          "end": 1.78
+        },
+        {
+          "text": "Pentheus.",
+          "start": 2.42,
+          "end": 3.0
+        },
+        {
+          "text": "It",
+          "start": 3.42,
+          "end": 3.48
+        },
+        {
+          "text": "is",
+          "start": 3.48,
+          "end": 3.62
+        },
+        {
+          "text": "too",
+          "start": 3.62,
+          "end": 3.8
+        },
+        {
+          "text": "much!",
+          "start": 3.8,
+          "end": 4.12
+        },
+        {
+          "text": "This",
+          "start": 4.66,
+          "end": 4.84
+        },
+        {
+          "text": "Eastern",
+          "start": 4.84,
+          "end": 5.28
+        },
+        {
+          "text": "knave",
+          "start": 5.28,
+          "end": 5.47
+        },
+        {
+          "text": "hath",
+          "start": 5.66,
+          "end": 5.78
+        },
+        {
+          "text": "slipped",
+          "start": 5.78,
+          "end": 6.08
+        },
+        {
+          "text": "His",
+          "start": 6.08,
+          "end": 6.32
+        },
+        {
+          "text": "prison,",
+          "start": 6.32,
+          "end": 6.68
+        },
+        {
+          "text": "whom",
+          "start": 6.96,
+          "end": 7.04
+        },
+        {
+          "text": "I",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "text": "held",
+          "start": 7.18,
+          "end": 7.44
+        },
+        {
+          "text": "but",
+          "start": 7.44,
+          "end": 7.62
+        },
+        {
+          "text": "now,",
+          "start": 7.62,
+          "end": 7.96
+        },
+        {
+          "text": "hard",
+          "start": 7.96,
+          "end": 8.38
+        },
+        {
+          "text": "gripped",
+          "start": 8.38,
+          "end": 8.78
+        },
+        {
+          "text": "In",
+          "start": 8.78,
+          "end": 8.92
+        },
+        {
+          "text": "bondage.--Ha!",
+          "start": 8.92,
+          "end": 9.58
+        },
+        {
+          "text": "'Tis",
+          "start": 9.58,
+          "end": 10.05
+        },
+        {
+          "text": "he!--What,",
+          "start": 10.52,
+          "end": 11.18
+        },
+        {
+          "text": "sirrah,",
+          "start": 11.3,
+          "end": 11.6
+        },
+        {
+          "text": "how",
+          "start": 11.76,
+          "end": 11.8
+        },
+        {
+          "text": "Show'st",
+          "start": 11.8,
+          "end": 12.08
+        },
+        {
+          "text": "thou",
+          "start": 12.36,
+          "end": 12.6
+        },
+        {
+          "text": "before",
+          "start": 12.6,
+          "end": 12.84
+        },
+        {
+          "text": "my",
+          "start": 12.84,
+          "end": 13.08
+        },
+        {
+          "text": "portals?",
+          "start": 13.08,
+          "end": 13.36
+        }
+      ],
+      "stats": {
+        "expected_words": 34,
+        "heard_words": 35,
+        "matched_words": 31
+      },
+      "match_ratio": 0.9117647058823529,
+      "rejection_reasons": [],
+      "seconds": 0.738803505897522
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "9d796e1d27a4ed8d2342cd7395fdb52cbf35f915e00769d37508a3759e092269",
+  "selected_reasons": []
+}

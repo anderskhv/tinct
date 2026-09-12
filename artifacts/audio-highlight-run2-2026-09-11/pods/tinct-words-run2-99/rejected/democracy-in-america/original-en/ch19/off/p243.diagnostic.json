@@ -1,0 +1,839 @@
+{
+  "complete": true,
+  "signature": "6f85c1b3e1cbac636d8062b649ccd1e0ebecc3eb26f6160914a1ec5897c62ef6",
+  "attempts": [
+    {
+      "asr_seconds": 0.5570350252091885,
+      "alignment_seconds": 0.0005738958716392517,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " E, census of 1790, 3,929,328, 1830, 12,856,165, 1860, 31,443,321, 1870, 38,555,983, 1890,",
+          "start": 0.05,
+          "end": 22.65,
+          "words": [
+            {
+              "text": " E,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.1419677734375
+            },
+            {
+              "text": " census",
+              "start": 1.19,
+              "end": 1.19,
+              "probability": 0.6796875
+            },
+            {
+              "text": " of",
+              "start": 1.19,
+              "end": 1.49,
+              "probability": 0.96875
+            },
+            {
+              "text": " 1790,",
+              "start": 1.49,
+              "end": 2.35,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " 3",
+              "start": 2.87,
+              "end": 2.97,
+              "probability": 0.6474609375
+            },
+            {
+              "text": ",929",
+              "start": 2.97,
+              "end": 4.17,
+              "probability": 0.9716796875
+            },
+            {
+              "text": ",328,",
+              "start": 4.17,
+              "end": 5.27,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " 1830,",
+              "start": 6.11,
+              "end": 6.67,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " 12",
+              "start": 7.51,
+              "end": 7.69,
+              "probability": 0.97021484375
+            },
+            {
+              "text": ",856",
+              "start": 7.69,
+              "end": 8.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": ",165,",
+              "start": 8.91,
+              "end": 10.09,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " 1860,",
+              "start": 11.07,
+              "end": 11.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " 31",
+              "start": 12.53,
+              "end": 12.91,
+              "probability": 0.5537109375
+            },
+            {
+              "text": ",443",
+              "start": 12.91,
+              "end": 13.77,
+              "probability": 0.9677734375
+            },
+            {
+              "text": ",321,",
+              "start": 13.77,
+              "end": 15.37,
+              "probability": 0.991943359375
+            },
+            {
+              "text": " 1870,",
+              "start": 16.29,
+              "end": 16.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " 38",
+              "start": 17.73,
+              "end": 18.17,
+              "probability": 0.94677734375
+            },
+            {
+              "text": ",555",
+              "start": 18.17,
+              "end": 18.99,
+              "probability": 0.825927734375
+            },
+            {
+              "text": ",983,",
+              "start": 18.99,
+              "end": 21.53,
+              "probability": 0.9666341145833334
+            },
+            {
+              "text": " 1890,",
+              "start": 21.91,
+              "end": 22.65,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " 1690, 62830, 1,900.",
+          "start": 22.65,
+          "end": 26.01,
+          "words": [
+            {
+              "text": " 1690,",
+              "start": 22.65,
+              "end": 22.93,
+              "probability": 0.010080099105834961
+            },
+            {
+              "text": " 62830,",
+              "start": 23.27,
+              "end": 24.97,
+              "probability": 0.5941569010416666
+            },
+            {
+              "text": " 1",
+              "start": 25.21,
+              "end": 25.29,
+              "probability": 0.10418701171875
+            },
+            {
+              "text": ",900.",
+              "start": 25.29,
+              "end": 26.01,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "E,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "census",
+          "start": 1.19,
+          "end": 1.19
+        },
+        {
+          "raw": "of",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "raw": "1790,",
+          "start": 1.49,
+          "end": 2.35
+        },
+        {
+          "raw": "3",
+          "start": 2.87,
+          "end": 2.97
+        },
+        {
+          "raw": ",929",
+          "start": 2.97,
+          "end": 4.17
+        },
+        {
+          "raw": ",328,",
+          "start": 4.17,
+          "end": 5.27
+        },
+        {
+          "raw": "1830,",
+          "start": 6.11,
+          "end": 6.67
+        },
+        {
+          "raw": "12",
+          "start": 7.51,
+          "end": 7.69
+        },
+        {
+          "raw": ",856",
+          "start": 7.69,
+          "end": 8.91
+        },
+        {
+          "raw": ",165,",
+          "start": 8.91,
+          "end": 10.09
+        },
+        {
+          "raw": "1860,",
+          "start": 11.07,
+          "end": 11.71
+        },
+        {
+          "raw": "31",
+          "start": 12.53,
+          "end": 12.91
+        },
+        {
+          "raw": ",443",
+          "start": 12.91,
+          "end": 13.77
+        },
+        {
+          "raw": ",321,",
+          "start": 13.77,
+          "end": 15.37
+        },
+        {
+          "raw": "1870,",
+          "start": 16.29,
+          "end": 16.93
+        },
+        {
+          "raw": "38",
+          "start": 17.73,
+          "end": 18.17
+        },
+        {
+          "raw": ",555",
+          "start": 18.17,
+          "end": 18.99
+        },
+        {
+          "raw": ",983,",
+          "start": 18.99,
+          "end": 21.53
+        },
+        {
+          "raw": "1890,",
+          "start": 21.91,
+          "end": 22.65
+        },
+        {
+          "raw": "1690,",
+          "start": 22.65,
+          "end": 22.93
+        },
+        {
+          "raw": "62830,",
+          "start": 23.27,
+          "end": 24.97
+        },
+        {
+          "raw": "1",
+          "start": 25.21,
+          "end": 25.29
+        },
+        {
+          "raw": ",900.",
+          "start": 25.29,
+          "end": 26.01
+        }
+      ],
+      "expected_tokens": [
+        "e",
+        "[",
+        "Census",
+        "of",
+        "1790,",
+        "3,929,328;",
+        "1830,",
+        "12,856,165;",
+        "1860,",
+        "31,443,321;",
+        "1870,",
+        "38,555,983;",
+        "1890,",
+        "62,831,900.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          5,
+          1,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          7
+        ],
+        [
+          "equal",
+          6,
+          7,
+          7,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          11
+        ],
+        [
+          "equal",
+          8,
+          9,
+          11,
+          12
+        ],
+        [
+          "replace",
+          9,
+          10,
+          12,
+          15
+        ],
+        [
+          "equal",
+          10,
+          11,
+          15,
+          16
+        ],
+        [
+          "replace",
+          11,
+          12,
+          16,
+          19
+        ],
+        [
+          "equal",
+          12,
+          13,
+          19,
+          20
+        ],
+        [
+          "replace",
+          13,
+          14,
+          20,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "replace",
+          5,
+          6,
+          4,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          11
+        ],
+        [
+          "replace",
+          9,
+          10,
+          12,
+          15
+        ],
+        [
+          "replace",
+          11,
+          12,
+          16,
+          19
+        ],
+        [
+          "replace",
+          13,
+          14,
+          20,
+          24
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "E,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "e",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "census",
+          "start": 1.19,
+          "end": 1.19,
+          "key": "census",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.19,
+          "end": 1.49,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "1790,",
+          "start": 1.49,
+          "end": 2.35,
+          "key": "1790",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "3",
+          "start": 2.87,
+          "end": 2.97,
+          "key": "three",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": ",929",
+          "start": 2.97,
+          "end": 4.17,
+          "key": "929",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": ",328,",
+          "start": 4.17,
+          "end": 5.27,
+          "key": "328",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "1830,",
+          "start": 6.11,
+          "end": 6.67,
+          "key": "1830",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "12",
+          "start": 7.51,
+          "end": 7.69,
+          "key": "twelve",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": ",856",
+          "start": 7.69,
+          "end": 8.91,
+          "key": "856",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": ",165,",
+          "start": 8.91,
+          "end": 10.09,
+          "key": "165",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "1860,",
+          "start": 11.07,
+          "end": 11.71,
+          "key": "1860",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "31",
+          "start": 12.53,
+          "end": 12.91,
+          "key": "thirtyone",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": ",443",
+          "start": 12.91,
+          "end": 13.77,
+          "key": "443",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": ",321,",
+          "start": 13.77,
+          "end": 15.37,
+          "key": "321",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "1870,",
+          "start": 16.29,
+          "end": 16.93,
+          "key": "1870",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "38",
+          "start": 17.73,
+          "end": 18.17,
+          "key": "thirtyeight",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": ",555",
+          "start": 18.17,
+          "end": 18.99,
+          "key": "555",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": ",983,",
+          "start": 18.99,
+          "end": 21.53,
+          "key": "983",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "1890,",
+          "start": 21.91,
+          "end": 22.65,
+          "key": "1890",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "1690,",
+          "start": 22.65,
+          "end": 22.93,
+          "key": "1690",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "62830,",
+          "start": 23.27,
+          "end": 24.97,
+          "key": "62830",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "1",
+          "start": 25.21,
+          "end": 25.29,
+          "key": "one",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": ",900.",
+          "start": 25.29,
+          "end": 26.01,
+          "key": "900",
+          "pieces": [
+            23
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "e",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "[",
+          "start": 0.65,
+          "end": 0.92
+        },
+        {
+          "text": "Census",
+          "start": 1.19,
+          "end": 1.19
+        },
+        {
+          "text": "of",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "text": "1790,",
+          "start": 1.49,
+          "end": 2.35
+        },
+        {
+          "text": "3,929,328;",
+          "start": 2.35,
+          "end": 4.23
+        },
+        {
+          "text": "1830,",
+          "start": 6.11,
+          "end": 6.67
+        },
+        {
+          "text": "12,856,165;",
+          "start": 6.67,
+          "end": 8.87
+        },
+        {
+          "text": "1860,",
+          "start": 11.07,
+          "end": 11.71
+        },
+        {
+          "text": "31,443,321;",
+          "start": 11.71,
+          "end": 14.0
+        },
+        {
+          "text": "1870,",
+          "start": 16.29,
+          "end": 16.93
+        },
+        {
+          "text": "38,555,983;",
+          "start": 16.93,
+          "end": 19.42
+        },
+        {
+          "text": "1890,",
+          "start": 21.91,
+          "end": 22.65
+        },
+        {
+          "text": "62,831,900.]",
+          "start": 22.65,
+          "end": 24.33
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 24,
+        "matched_words": 8
+      },
+      "match_ratio": 0.5714285714285714,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.557842206209898
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ef6bb1808b25d2e94d1d1d09216a4b52aff492f60af0c4a542e09903b2052830",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

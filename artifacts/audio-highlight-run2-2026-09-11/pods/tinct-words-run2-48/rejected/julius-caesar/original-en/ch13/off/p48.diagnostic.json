@@ -1,0 +1,795 @@
+{
+  "complete": true,
+  "signature": "64b3818b36ba853aac7ec60dc774f816c19207a36d157981eea39dad5ddbc48c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4149460131302476,
+      "alignment_seconds": 0.0004973849281668663,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Brutus? Yes, Cassius, and from henceforth, when you are over-earnest with your Brutus,",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Brutus?",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.836669921875
+            },
+            {
+              "text": " Yes,",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.91064453125
+            },
+            {
+              "text": " Cassius,",
+              "start": 2.01,
+              "end": 2.35,
+              "probability": 0.959716796875
+            },
+            {
+              "text": " and",
+              "start": 2.69,
+              "end": 2.87,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " from",
+              "start": 2.87,
+              "end": 3.01,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " henceforth,",
+              "start": 3.01,
+              "end": 3.57,
+              "probability": 0.937744140625
+            },
+            {
+              "text": " when",
+              "start": 3.81,
+              "end": 3.89,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 3.89,
+              "end": 4.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 4.01,
+              "end": 4.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " over",
+              "start": 4.09,
+              "end": 4.37,
+              "probability": 0.95849609375
+            },
+            {
+              "text": "-earnest",
+              "start": 4.37,
+              "end": 4.73,
+              "probability": 0.836181640625
+            },
+            {
+              "text": " with",
+              "start": 4.73,
+              "end": 4.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " your",
+              "start": 4.87,
+              "end": 5.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Brutus,",
+              "start": 5.01,
+              "end": 5.49,
+              "probability": 0.990966796875
+            }
+          ]
+        },
+        {
+          "text": " he'll think your mother chides and leave you so.",
+          "start": 5.79,
+          "end": 7.83,
+          "words": [
+            {
+              "text": " he'll",
+              "start": 5.79,
+              "end": 5.91,
+              "probability": 0.973388671875
+            },
+            {
+              "text": " think",
+              "start": 5.91,
+              "end": 6.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 6.07,
+              "end": 6.23,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " mother",
+              "start": 6.23,
+              "end": 6.47,
+              "probability": 0.9609375
+            },
+            {
+              "text": " chides",
+              "start": 6.47,
+              "end": 6.93,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " and",
+              "start": 6.93,
+              "end": 7.17,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " leave",
+              "start": 7.17,
+              "end": 7.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 7.37,
+              "end": 7.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so.",
+              "start": 7.59,
+              "end": 7.83,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Brutus?",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "raw": "Cassius,",
+          "start": 2.01,
+          "end": 2.35
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "raw": "from",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "raw": "henceforth,",
+          "start": 3.01,
+          "end": 3.57
+        },
+        {
+          "raw": "when",
+          "start": 3.81,
+          "end": 3.89
+        },
+        {
+          "raw": "you",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "raw": "are",
+          "start": 4.01,
+          "end": 4.09
+        },
+        {
+          "raw": "over",
+          "start": 4.09,
+          "end": 4.37
+        },
+        {
+          "raw": "-earnest",
+          "start": 4.37,
+          "end": 4.73
+        },
+        {
+          "raw": "with",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "raw": "your",
+          "start": 4.87,
+          "end": 5.01
+        },
+        {
+          "raw": "Brutus,",
+          "start": 5.01,
+          "end": 5.49
+        },
+        {
+          "raw": "he'll",
+          "start": 5.79,
+          "end": 5.91
+        },
+        {
+          "raw": "think",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "raw": "your",
+          "start": 6.07,
+          "end": 6.23
+        },
+        {
+          "raw": "mother",
+          "start": 6.23,
+          "end": 6.47
+        },
+        {
+          "raw": "chides",
+          "start": 6.47,
+          "end": 6.93
+        },
+        {
+          "raw": "and",
+          "start": 6.93,
+          "end": 7.17
+        },
+        {
+          "raw": "leave",
+          "start": 7.17,
+          "end": 7.37
+        },
+        {
+          "raw": "you",
+          "start": 7.37,
+          "end": 7.59
+        },
+        {
+          "raw": "so.",
+          "start": 7.59,
+          "end": 7.83
+        }
+      ],
+      "expected_tokens": [
+        "Brutus.",
+        "Yes,",
+        "Cassius;",
+        "and",
+        "from",
+        "henceforth,",
+        "When",
+        "you",
+        "are",
+        "over-earnest",
+        "with",
+        "your",
+        "Brutus,",
+        "He'll",
+        "think",
+        "your",
+        "mother",
+        "chides,",
+        "and",
+        "leave",
+        "you",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Brutus?",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "brutus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Yes,",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "yes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Cassius,",
+          "start": 2.01,
+          "end": 2.35,
+          "key": "cassius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.69,
+          "end": 2.87,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 2.87,
+          "end": 3.01,
+          "key": "from",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "henceforth,",
+          "start": 3.01,
+          "end": 3.57,
+          "key": "henceforth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.81,
+          "end": 3.89,
+          "key": "when",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.89,
+          "end": 4.01,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.01,
+          "end": 4.09,
+          "key": "are",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "over -earnest",
+          "start": 4.09,
+          "end": 4.73,
+          "key": "overearnest",
+          "pieces": [
+            9,
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.73,
+          "end": 4.87,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.87,
+          "end": 5.01,
+          "key": "your",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Brutus,",
+          "start": 5.01,
+          "end": 5.49,
+          "key": "brutus",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "he'll",
+          "start": 5.79,
+          "end": 5.91,
+          "key": "hell",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "think",
+          "start": 5.91,
+          "end": 6.07,
+          "key": "think",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 6.07,
+          "end": 6.23,
+          "key": "your",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "mother",
+          "start": 6.23,
+          "end": 6.47,
+          "key": "mother",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "chides",
+          "start": 6.47,
+          "end": 6.93,
+          "key": "chides",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.93,
+          "end": 7.17,
+          "key": "and",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 7.17,
+          "end": 7.37,
+          "key": "leave",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 7.37,
+          "end": 7.59,
+          "key": "you",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "so.",
+          "start": 7.59,
+          "end": 7.83,
+          "key": "so",
+          "pieces": [
+            22
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 9,
+          "text": "over-earnest",
+          "heard": "over -earnest",
+          "heard_indexes": [
+            9,
+            10
+          ],
+          "start": 4.09,
+          "end": 4.73
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Brutus.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Yes,",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "text": "Cassius;",
+          "start": 2.01,
+          "end": 2.35
+        },
+        {
+          "text": "and",
+          "start": 2.69,
+          "end": 2.87
+        },
+        {
+          "text": "from",
+          "start": 2.87,
+          "end": 3.01
+        },
+        {
+          "text": "henceforth,",
+          "start": 3.01,
+          "end": 3.57
+        },
+        {
+          "text": "When",
+          "start": 3.81,
+          "end": 3.89
+        },
+        {
+          "text": "you",
+          "start": 3.89,
+          "end": 4.01
+        },
+        {
+          "text": "are",
+          "start": 4.01,
+          "end": 4.09
+        },
+        {
+          "text": "over-earnest",
+          "start": 4.09,
+          "end": 4.73
+        },
+        {
+          "text": "with",
+          "start": 4.73,
+          "end": 4.87
+        },
+        {
+          "text": "your",
+          "start": 4.87,
+          "end": 5.01
+        },
+        {
+          "text": "Brutus,",
+          "start": 5.01,
+          "end": 5.49
+        },
+        {
+          "text": "He'll",
+          "start": 5.79,
+          "end": 5.91
+        },
+        {
+          "text": "think",
+          "start": 5.91,
+          "end": 6.07
+        },
+        {
+          "text": "your",
+          "start": 6.07,
+          "end": 6.23
+        },
+        {
+          "text": "mother",
+          "start": 6.23,
+          "end": 6.47
+        },
+        {
+          "text": "chides,",
+          "start": 6.47,
+          "end": 6.93
+        },
+        {
+          "text": "and",
+          "start": 6.93,
+          "end": 7.17
+        },
+        {
+          "text": "leave",
+          "start": 7.17,
+          "end": 7.37
+        },
+        {
+          "text": "you",
+          "start": 7.37,
+          "end": 7.59
+        },
+        {
+          "text": "so.",
+          "start": 7.59,
+          "end": 7.83
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.41561512649059296
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3f7816021eef3005f4a6d365cf337ebeaa6b9633624dfec4de171c99f1ca2fbe",
+  "selected_reasons": []
+}

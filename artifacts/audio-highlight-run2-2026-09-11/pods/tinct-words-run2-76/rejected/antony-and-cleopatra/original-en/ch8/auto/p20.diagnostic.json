@@ -1,0 +1,549 @@
+{
+  "complete": true,
+  "signature": "48270806457260a47727cc23b934d029b485bc29126bb778953aa3ed28b92b4a",
+  "attempts": [
+    {
+      "asr_seconds": 0.3556238920427859,
+      "alignment_seconds": 0.0006318227387964725,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "O, come, Ventidius, You must to Parthia. Your commission's ready. Follow me and receive 't.",
+        "hotwords": "O, Ventidius, You, Parthia, Your, Follow"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O, come, Ventidius, You must to Parthia. Your commission's ready. Follow me and receive",
+          "start": 0.08,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " O,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.33203125
+            },
+            {
+              "text": " come,",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " Ventidius,",
+              "start": 1.06,
+              "end": 1.54,
+              "probability": 0.8352864583333334
+            },
+            {
+              "text": " You",
+              "start": 1.68,
+              "end": 1.72,
+              "probability": 0.00722503662109375
+            },
+            {
+              "text": " must",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.958984375
+            },
+            {
+              "text": " to",
+              "start": 1.92,
+              "end": 2.04,
+              "probability": 0.0220489501953125
+            },
+            {
+              "text": " Parthia.",
+              "start": 2.04,
+              "end": 2.42,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " Your",
+              "start": 2.96,
+              "end": 3.06,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " commission's",
+              "start": 3.06,
+              "end": 3.58,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " ready.",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Follow",
+              "start": 4.34,
+              "end": 4.48,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " me",
+              "start": 4.48,
+              "end": 4.72,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 4.72,
+              "end": 4.86,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " receive",
+              "start": 4.86,
+              "end": 5.2,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " t.",
+          "start": 5.2,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " t.",
+              "start": 5.2,
+              "end": 5.5,
+              "probability": 0.00016927719116210938
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "come,",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "Ventidius,",
+          "start": 1.06,
+          "end": 1.54
+        },
+        {
+          "raw": "You",
+          "start": 1.68,
+          "end": 1.72
+        },
+        {
+          "raw": "must",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "raw": "Parthia.",
+          "start": 2.04,
+          "end": 2.42
+        },
+        {
+          "raw": "Your",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "raw": "commission's",
+          "start": 3.06,
+          "end": 3.58
+        },
+        {
+          "raw": "ready.",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": "Follow",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "raw": "me",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "raw": "and",
+          "start": 4.72,
+          "end": 4.86
+        },
+        {
+          "raw": "receive",
+          "start": 4.86,
+          "end": 5.2
+        },
+        {
+          "raw": "t.",
+          "start": 5.2,
+          "end": 5.5
+        }
+      ],
+      "expected_tokens": [
+        "O,",
+        "come,",
+        "Ventidius,",
+        "You",
+        "must",
+        "to",
+        "Parthia.",
+        "Your",
+        "commission's",
+        "ready.",
+        "Follow",
+        "me",
+        "and",
+        "receive",
+        "'t."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "come,",
+          "start": 0.7,
+          "end": 0.9,
+          "key": "come",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Ventidius,",
+          "start": 1.06,
+          "end": 1.54,
+          "key": "ventidius",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.68,
+          "end": 1.72,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 1.72,
+          "end": 1.92,
+          "key": "must",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.92,
+          "end": 2.04,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Parthia.",
+          "start": 2.04,
+          "end": 2.42,
+          "key": "parthia",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Your",
+          "start": 2.96,
+          "end": 3.06,
+          "key": "your",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "commission's",
+          "start": 3.06,
+          "end": 3.58,
+          "key": "commissions",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "ready.",
+          "start": 3.58,
+          "end": 3.72,
+          "key": "ready",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Follow",
+          "start": 4.34,
+          "end": 4.48,
+          "key": "follow",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.48,
+          "end": 4.72,
+          "key": "me",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.72,
+          "end": 4.86,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "receive",
+          "start": 4.86,
+          "end": 5.2,
+          "key": "receive",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "t.",
+          "start": 5.2,
+          "end": 5.5,
+          "key": "t",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "O,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "come,",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "Ventidius,",
+          "start": 1.06,
+          "end": 1.54
+        },
+        {
+          "text": "You",
+          "start": 1.68,
+          "end": 1.72
+        },
+        {
+          "text": "must",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "to",
+          "start": 1.92,
+          "end": 2.04
+        },
+        {
+          "text": "Parthia.",
+          "start": 2.04,
+          "end": 2.42
+        },
+        {
+          "text": "Your",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "text": "commission's",
+          "start": 3.06,
+          "end": 3.58
+        },
+        {
+          "text": "ready.",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "text": "Follow",
+          "start": 4.34,
+          "end": 4.48
+        },
+        {
+          "text": "me",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "text": "and",
+          "start": 4.72,
+          "end": 4.86
+        },
+        {
+          "text": "receive",
+          "start": 4.86,
+          "end": 5.2
+        },
+        {
+          "text": "'t.",
+          "start": 5.2,
+          "end": 5.5
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35653527081012726
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0332f8f18d67cfbd7994bb1fa5c62f198e4dcf1df66a0ea20d58aca9400555f3",
+  "selected_reasons": []
+}

@@ -1,0 +1,312 @@
+{
+  "complete": true,
+  "signature": "5f5cf9e984b0a9427d5e11896e0895b8f6ef49fbe2d6bdfcda798a61b9a1d35a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13611753704026341,
+      "alignment_seconds": 0.00012450618669390678,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Tiny, her tremulous fernfuls of maiden hair.",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Tiny,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " her",
+              "start": 1.09,
+              "end": 1.19,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " tremulous",
+              "start": 1.19,
+              "end": 1.59,
+              "probability": 0.958984375
+            },
+            {
+              "text": " fernfuls",
+              "start": 1.59,
+              "end": 2.15,
+              "probability": 0.888916015625
+            },
+            {
+              "text": " of",
+              "start": 2.15,
+              "end": 2.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " maiden",
+              "start": 2.25,
+              "end": 2.49,
+              "probability": 0.939453125
+            },
+            {
+              "text": " hair.",
+              "start": 2.49,
+              "end": 2.85,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Tiny,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "her",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "raw": "tremulous",
+          "start": 1.19,
+          "end": 1.59
+        },
+        {
+          "raw": "fernfuls",
+          "start": 1.59,
+          "end": 2.15
+        },
+        {
+          "raw": "of",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "raw": "maiden",
+          "start": 2.25,
+          "end": 2.49
+        },
+        {
+          "raw": "hair.",
+          "start": 2.49,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "Tiny,",
+        "her",
+        "tremulous",
+        "fernfoils",
+        "of",
+        "maidenhair."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Tiny,",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "tiny",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.09,
+          "end": 1.19,
+          "key": "her",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "tremulous",
+          "start": 1.19,
+          "end": 1.59,
+          "key": "tremulous",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "fernfuls",
+          "start": 1.59,
+          "end": 2.15,
+          "key": "fernfuls",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.15,
+          "end": 2.25,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "maiden",
+          "start": 2.25,
+          "end": 2.49,
+          "key": "maiden",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hair.",
+          "start": 2.49,
+          "end": 2.85,
+          "key": "hair",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Tiny,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "her",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "text": "tremulous",
+          "start": 1.19,
+          "end": 1.59
+        },
+        {
+          "text": "fernfoils",
+          "start": 1.59,
+          "end": 1.87
+        },
+        {
+          "text": "of",
+          "start": 2.15,
+          "end": 2.25
+        },
+        {
+          "text": "maidenhair.",
+          "start": 2.25,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13628495624288917
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d5d98a42baebcace5f5ab8d0e3f87a1e6125411ee410bc023d8f10028b307e41",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "f1757306004447751918411cd9fadc5691d7441abcc67eb5d5b927ef9558ac7b",
+  "attempts": [
+    {
+      "asr_seconds": 0.19222706370055676,
+      "alignment_seconds": 0.00035232119262218475,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Alarums they fight, Edmund falls.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Alarums",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.4143880208333333
+            },
+            {
+              "text": " they",
+              "start": 0.91,
+              "end": 1.07,
+              "probability": 0.74755859375
+            },
+            {
+              "text": " fight,",
+              "start": 1.07,
+              "end": 1.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Edmund",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " falls.",
+              "start": 1.95,
+              "end": 2.39,
+              "probability": 0.71630859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alarums",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "they",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "raw": "fight,",
+          "start": 1.07,
+          "end": 1.39
+        },
+        {
+          "raw": "Edmund",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "falls.",
+          "start": 1.95,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "[_Alarums.",
+        "They",
+        "fight.",
+        "Edmund",
+        "falls._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Alarums",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "alarums",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.91,
+          "end": 1.07,
+          "key": "they",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "fight,",
+          "start": 1.07,
+          "end": 1.39,
+          "key": "fight",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Edmund",
+          "start": 1.81,
+          "end": 1.95,
+          "key": "edmund",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "falls.",
+          "start": 1.95,
+          "end": 2.39,
+          "key": "falls",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Alarums.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "They",
+          "start": 0.91,
+          "end": 1.07
+        },
+        {
+          "text": "fight.",
+          "start": 1.07,
+          "end": 1.39
+        },
+        {
+          "text": "Edmund",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "falls._]",
+          "start": 1.95,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19269678555428982
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b333a61cadf62b20f37d2e1ea8f42d963501966d27e044d0cd1db81b6666cd6c",
+  "selected_reasons": []
+}

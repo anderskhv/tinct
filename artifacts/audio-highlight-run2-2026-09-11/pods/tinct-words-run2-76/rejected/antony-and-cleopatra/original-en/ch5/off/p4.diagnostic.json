@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "bc7b72e0ef5dbd28e4c5d7ac21f68578799a495def8d1295e86b53bcd1757386",
+  "attempts": [
+    {
+      "asr_seconds": 0.14604809414595366,
+      "alignment_seconds": 0.0002746270038187504,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Charmian, why madam?",
+          "start": 0.05,
+          "end": 1.77,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.77880859375
+            },
+            {
+              "text": " why",
+              "start": 1.13,
+              "end": 1.33,
+              "probability": 0.759765625
+            },
+            {
+              "text": " madam?",
+              "start": 1.33,
+              "end": 1.77,
+              "probability": 0.8037109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "why",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "raw": "madam?",
+          "start": 1.33,
+          "end": 1.77
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Why,",
+        "madam?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "why",
+          "start": 1.13,
+          "end": 1.33,
+          "key": "why",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "madam?",
+          "start": 1.33,
+          "end": 1.77,
+          "key": "madam",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "Why,",
+          "start": 1.13,
+          "end": 1.33
+        },
+        {
+          "text": "madam?",
+          "start": 1.33,
+          "end": 1.77
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14642987120896578
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "deb5f6077872901df7776b8c06b2a973e54fc77811ed38f12d43b394000d5ef4",
+  "selected_reasons": []
+}

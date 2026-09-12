@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e258a26a319065702b0c80a61009a75beb4b59d92cce417a9bef8a033c9aa916",
+  "attempts": [
+    {
+      "asr_seconds": 0.14762911945581436,
+      "alignment_seconds": 0.0002701506018638611,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Antonio Long live Gonzalo",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " Antonio",
+              "start": 0.08,
+              "end": 0.88,
+              "probability": 0.91796875
+            },
+            {
+              "text": " Long",
+              "start": 0.88,
+              "end": 1.54,
+              "probability": 0.69921875
+            },
+            {
+              "text": " live",
+              "start": 1.54,
+              "end": 1.72,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " Gonzalo",
+              "start": 1.72,
+              "end": 2.3,
+              "probability": 0.8974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "raw": "Long",
+          "start": 0.88,
+          "end": 1.54
+        },
+        {
+          "raw": "live",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "raw": "Gonzalo",
+          "start": 1.72,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "Antonio.",
+        "Long",
+        "live",
+        "Gonzalo!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio",
+          "start": 0.08,
+          "end": 0.88,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Long",
+          "start": 0.88,
+          "end": 1.54,
+          "key": "long",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "live",
+          "start": 1.54,
+          "end": 1.72,
+          "key": "live",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Gonzalo",
+          "start": 1.72,
+          "end": 2.3,
+          "key": "gonzalo",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.08,
+          "end": 0.88
+        },
+        {
+          "text": "Long",
+          "start": 0.88,
+          "end": 1.54
+        },
+        {
+          "text": "live",
+          "start": 1.54,
+          "end": 1.72
+        },
+        {
+          "text": "Gonzalo!",
+          "start": 1.72,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14800047129392624
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a37f57c413300f2847f6329bd71a13bf6d40c7e1669b2fa2d53f1938afb780ac",
+  "selected_reasons": []
+}

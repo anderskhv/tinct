@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "9b7c86de6fb6d826c8d6594bf6472a5fa741ad8a3c91af30f0ee1b92821bedcf",
+  "attempts": [
+    {
+      "asr_seconds": 0.20988796651363373,
+      "alignment_seconds": 0.00037090107798576355,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Malvolio. Sweet lady, ho, ho!",
+        "hotwords": "Malvolio, Sweet"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Malvolio, Sweet lady, ho, ho!",
+          "start": 0.72,
+          "end": 2.32,
+          "words": [
+            {
+              "text": " Malvolio,",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.811767578125
+            },
+            {
+              "text": " Sweet",
+              "start": 1.48,
+              "end": 1.54,
+              "probability": 0.1455078125
+            },
+            {
+              "text": " lady,",
+              "start": 1.54,
+              "end": 1.78,
+              "probability": 0.06689453125
+            },
+            {
+              "text": " ho,",
+              "start": 1.96,
+              "end": 2.06,
+              "probability": 0.6474609375
+            },
+            {
+              "text": " ho!",
+              "start": 2.16,
+              "end": 2.32,
+              "probability": 0.9873046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "Sweet",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "raw": "lady,",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "raw": "ho,",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "raw": "ho!",
+          "start": 2.16,
+          "end": 2.32
+        }
+      ],
+      "expected_tokens": [
+        "Malvolio.",
+        "Sweet",
+        "lady,",
+        "ho,",
+        "ho!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Malvolio,",
+          "start": 0.72,
+          "end": 1.08,
+          "key": "malvolio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sweet",
+          "start": 1.48,
+          "end": 1.54,
+          "key": "sweet",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 1.54,
+          "end": 1.78,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ho,",
+          "start": 1.96,
+          "end": 2.06,
+          "key": "ho",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ho!",
+          "start": 2.16,
+          "end": 2.32,
+          "key": "ho",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Malvolio.",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "Sweet",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "text": "lady,",
+          "start": 1.54,
+          "end": 1.78
+        },
+        {
+          "text": "ho,",
+          "start": 1.96,
+          "end": 2.06
+        },
+        {
+          "text": "ho!",
+          "start": 2.16,
+          "end": 2.32
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2103874459862709
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef4b1f254b5daabfec0a492ee5e57dea6333227206dd5e503345b16c98029c49",
+  "selected_reasons": []
+}

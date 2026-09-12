@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "c994b8d14e506313887b9c7d338892569dec7e1291263d7a7df2548ed59c2c04",
+  "attempts": [
+    {
+      "asr_seconds": 0.0957039799541235,
+      "alignment_seconds": 0.00020727189257740974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Done",
+          "start": 0.05,
+          "end": 0.59,
+          "words": [
+            {
+              "text": " Done",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.83837890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Done",
+          "start": 0.05,
+          "end": 0.59
+        }
+      ],
+      "expected_tokens": [
+        "Done."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Done",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "done",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Done.",
+          "start": 0.05,
+          "end": 0.59
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09597873222082853
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "57a3ef111a86d891f88a3898c738ecde8051a669ef29d30ef891422c36c96bc1",
+  "selected_reasons": []
+}

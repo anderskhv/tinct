@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "075e0e2a4df96175065e2e71f22c4120fad51d56ac69dc2dd0788e2440a47850",
+  "attempts": [
+    {
+      "asr_seconds": 0.17024768888950348,
+      "alignment_seconds": 0.0003187372349202633,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Charmian. Many times, madam.",
+        "hotwords": "Charmian, Many"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Charmian, Many times, madam.",
+          "start": 0.08,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Charmian,",
+              "start": 0.08,
+              "end": 0.94,
+              "probability": 0.71533203125
+            },
+            {
+              "text": " Many",
+              "start": 1.18,
+              "end": 1.4,
+              "probability": 0.09722900390625
+            },
+            {
+              "text": " times,",
+              "start": 1.4,
+              "end": 1.8,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " madam.",
+              "start": 1.94,
+              "end": 2.24,
+              "probability": 0.6739501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Charmian,",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "raw": "Many",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "raw": "times,",
+          "start": 1.4,
+          "end": 1.8
+        },
+        {
+          "raw": "madam.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Charmian.",
+        "Many",
+        "times,",
+        "madam."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Charmian,",
+          "start": 0.08,
+          "end": 0.94,
+          "key": "charmian",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Many",
+          "start": 1.18,
+          "end": 1.4,
+          "key": "many",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "times,",
+          "start": 1.4,
+          "end": 1.8,
+          "key": "times",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "madam.",
+          "start": 1.94,
+          "end": 2.24,
+          "key": "madam",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Charmian.",
+          "start": 0.08,
+          "end": 0.94
+        },
+        {
+          "text": "Many",
+          "start": 1.18,
+          "end": 1.4
+        },
+        {
+          "text": "times,",
+          "start": 1.4,
+          "end": 1.8
+        },
+        {
+          "text": "madam.",
+          "start": 1.94,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17068813601508737
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a69061bd267bd54b73fcf1d2626174245dddd4eedeb4af9bca9370d0c5bd8136",
+  "selected_reasons": []
+}

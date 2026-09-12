@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "10aa8e9ea778bf9b64c3cb8843baefe64fc3c69626fe86b8b56deea8510e1d68",
+  "attempts": [
+    {
+      "asr_seconds": 0.1883319988846779,
+      "alignment_seconds": 0.00019364524632692337,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clitus. What ill request did Brutus make to thee?",
+        "hotwords": "Clitus, What, Brutus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clitus, What ill request did Brutus make to thee?",
+          "start": 0.0,
+          "end": 3.2,
+          "words": [
+            {
+              "text": " Clitus,",
+              "start": 0.0,
+              "end": 0.76,
+              "probability": 0.5908203125
+            },
+            {
+              "text": " What",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.3486328125
+            },
+            {
+              "text": " ill",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.78125
+            },
+            {
+              "text": " request",
+              "start": 1.52,
+              "end": 1.9,
+              "probability": 0.83349609375
+            },
+            {
+              "text": " did",
+              "start": 1.9,
+              "end": 2.22,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " Brutus",
+              "start": 2.22,
+              "end": 2.6,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " make",
+              "start": 2.6,
+              "end": 2.8,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 2.8,
+              "end": 2.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " thee?",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clitus,",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "raw": "What",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "ill",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "request",
+          "start": 1.52,
+          "end": 1.9
+        },
+        {
+          "raw": "did",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "raw": "Brutus",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "raw": "make",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "raw": "to",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "raw": "thee?",
+          "start": 2.96,
+          "end": 3.2
+        }
+      ],
+      "expected_tokens": [
+        "Clitus.",
+        "What",
+        "ill",
+        "request",
+        "did",
+        "Brutus",
+        "make",
+        "to",
+        "thee?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clitus,",
+          "start": 0.0,
+          "end": 0.76,
+          "key": "clitus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "ill",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "ill",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "request",
+          "start": 1.52,
+          "end": 1.9,
+          "key": "request",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 1.9,
+          "end": 2.22,
+          "key": "did",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Brutus",
+          "start": 2.22,
+          "end": 2.6,
+          "key": "brutus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 2.6,
+          "end": 2.8,
+          "key": "make",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.8,
+          "end": 2.96,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "thee?",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "thee",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clitus.",
+          "start": 0.0,
+          "end": 0.76
+        },
+        {
+          "text": "What",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "ill",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "request",
+          "start": 1.52,
+          "end": 1.9
+        },
+        {
+          "text": "did",
+          "start": 1.9,
+          "end": 2.22
+        },
+        {
+          "text": "Brutus",
+          "start": 2.22,
+          "end": 2.6
+        },
+        {
+          "text": "make",
+          "start": 2.6,
+          "end": 2.8
+        },
+        {
+          "text": "to",
+          "start": 2.8,
+          "end": 2.96
+        },
+        {
+          "text": "thee?",
+          "start": 2.96,
+          "end": 3.2
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1885946812108159
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "32545605fd8b2356d36d3cfb0f96bb72f8a6b769d98390ca10bebfc7b9a21f88",
+  "selected_reasons": []
+}

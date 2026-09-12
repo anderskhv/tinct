@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "cbdf23c14fb7f21857fe73287897007db8aa4cb61ed43ceb1d6919e501f9029e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13426049519330263,
+      "alignment_seconds": 0.00029786955565214157,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Third witch show",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " witch",
+              "start": 0.63,
+              "end": 0.99,
+              "probability": 0.2027587890625
+            },
+            {
+              "text": " show",
+              "start": 0.99,
+              "end": 1.51,
+              "probability": 0.55908203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "witch",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "raw": "show",
+          "start": 0.99,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Witch.",
+        "Show!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "third",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "witch",
+          "start": 0.63,
+          "end": 0.99,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "show",
+          "start": 0.99,
+          "end": 1.51,
+          "key": "show",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Witch.",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "text": "Show!",
+          "start": 0.99,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1346648521721363
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bae49f15f29ae2e18cbeced46a9ad90918b9f52346929abd2a8041e878d2f5a5",
+  "selected_reasons": []
+}

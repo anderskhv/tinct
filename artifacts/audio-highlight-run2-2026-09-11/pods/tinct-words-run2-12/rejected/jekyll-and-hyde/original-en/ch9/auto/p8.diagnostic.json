@@ -1,0 +1,9102 @@
+{
+  "complete": true,
+  "signature": "926d1474c11c1b24e4ae158490dd8f090c1a1c09ee7e36473bf1bdc9fcfe67ba",
+  "attempts": [
+    {
+      "asr_seconds": 0.8736625779420137,
+      "alignment_seconds": 0.0012527690269052982,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"P.S.—I had already sealed this up when a fresh terror struck upon my soul. It is possible that the post-office may fail me, and this letter not come into your hands until to-morrow morning. In that case, dear Lanyon, do my errand when it shall be most convenient for you in the course of the day; and once more expect my messenger at midnight. It may then already be too late; and if that night passes without event, you will know that you have seen the last of Henry Jekyll.\"",
+        "hotwords": "P.S.—I, Lanyon, Henry, Jekyll"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " P.S.—I had already sealed this up when a fresh terror struck upon my soul. It is possible",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " P",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.4755859375
+            },
+            {
+              "text": ".S.—I",
+              "start": 0.55,
+              "end": 1.63,
+              "probability": 0.5850906372070312
+            },
+            {
+              "text": " had",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " already",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sealed",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " a",
+              "start": 2.85,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fresh",
+              "start": 2.99,
+              "end": 3.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " terror",
+              "start": 3.19,
+              "end": 3.59,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " struck",
+              "start": 3.59,
+              "end": 3.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " upon",
+              "start": 3.87,
+              "end": 4.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 4.13,
+              "end": 4.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " soul.",
+              "start": 4.33,
+              "end": 4.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " It",
+              "start": 5.21,
+              "end": 5.41,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " is",
+              "start": 5.41,
+              "end": 5.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " possible",
+              "start": 5.55,
+              "end": 5.91,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " that the post-office may fail me, and this letter not come into your hands until to-morrow",
+          "start": 5.91,
+          "end": 10.15,
+          "words": [
+            {
+              "text": " that",
+              "start": 5.91,
+              "end": 6.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.15,
+              "end": 6.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " post",
+              "start": 6.25,
+              "end": 6.49,
+              "probability": 0.79931640625
+            },
+            {
+              "text": "-office",
+              "start": 6.49,
+              "end": 6.79,
+              "probability": 0.546875
+            },
+            {
+              "text": " may",
+              "start": 6.79,
+              "end": 7.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fail",
+              "start": 7.07,
+              "end": 7.33,
+              "probability": 0.9921875
+            },
+            {
+              "text": " me,",
+              "start": 7.33,
+              "end": 7.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 7.87,
+              "end": 8.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 8.11,
+              "end": 8.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " letter",
+              "start": 8.25,
+              "end": 8.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 8.49,
+              "end": 8.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " come",
+              "start": 8.71,
+              "end": 8.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " into",
+              "start": 8.89,
+              "end": 9.05,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " your",
+              "start": 9.05,
+              "end": 9.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hands",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " until",
+              "start": 9.47,
+              "end": 9.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 9.79,
+              "end": 9.95,
+              "probability": 0.2305908203125
+            },
+            {
+              "text": "-morrow",
+              "start": 9.95,
+              "end": 10.15,
+              "probability": 0.946533203125
+            }
+          ]
+        },
+        {
+          "text": " morning. In that case, dear Lanyon, do my errand when it shall be most convenient for",
+          "start": 10.15,
+          "end": 15.69,
+          "words": [
+            {
+              "text": " morning.",
+              "start": 10.15,
+              "end": 10.59,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " In",
+              "start": 11.19,
+              "end": 11.41,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " that",
+              "start": 11.41,
+              "end": 11.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " case,",
+              "start": 11.59,
+              "end": 11.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " dear",
+              "start": 12.45,
+              "end": 12.59,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " Lanyon,",
+              "start": 12.59,
+              "end": 12.91,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " do",
+              "start": 13.47,
+              "end": 13.57,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " my",
+              "start": 13.57,
+              "end": 13.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " errand",
+              "start": 13.77,
+              "end": 14.21,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " when",
+              "start": 14.21,
+              "end": 14.35,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it",
+              "start": 14.35,
+              "end": 14.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shall",
+              "start": 14.45,
+              "end": 14.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 14.57,
+              "end": 14.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 14.71,
+              "end": 14.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " convenient",
+              "start": 14.95,
+              "end": 15.37,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " for",
+              "start": 15.37,
+              "end": 15.69,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " you in the course of the day, and once more expect my messenger at midnight. It may then",
+          "start": 15.69,
+          "end": 20.43,
+          "words": [
+            {
+              "text": " you",
+              "start": 15.69,
+              "end": 15.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 15.83,
+              "end": 15.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 15.95,
+              "end": 16.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " course",
+              "start": 16.05,
+              "end": 16.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 16.23,
+              "end": 16.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 16.43,
+              "end": 16.53,
+              "probability": 0.99609375
+            },
+            {
+              "text": " day,",
+              "start": 16.53,
+              "end": 16.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 17.11,
+              "end": 17.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 17.31,
+              "end": 17.51,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " more",
+              "start": 17.51,
+              "end": 17.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " expect",
+              "start": 17.73,
+              "end": 18.11,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " my",
+              "start": 18.11,
+              "end": 18.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " messenger",
+              "start": 18.37,
+              "end": 18.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " at",
+              "start": 18.71,
+              "end": 18.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " midnight.",
+              "start": 18.97,
+              "end": 19.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " It",
+              "start": 19.97,
+              "end": 20.13,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " may",
+              "start": 20.13,
+              "end": 20.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " then",
+              "start": 20.27,
+              "end": 20.43,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " already be too late, and if that night passes without event, you will know that you have",
+          "start": 20.43,
+          "end": 24.83,
+          "words": [
+            {
+              "text": " already",
+              "start": 20.43,
+              "end": 20.69,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " be",
+              "start": 20.69,
+              "end": 20.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too",
+              "start": 20.93,
+              "end": 21.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " late,",
+              "start": 21.13,
+              "end": 21.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 21.73,
+              "end": 21.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " if",
+              "start": 21.97,
+              "end": 22.11,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " that",
+              "start": 22.11,
+              "end": 22.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " night",
+              "start": 22.31,
+              "end": 22.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " passes",
+              "start": 22.53,
+              "end": 23.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " without",
+              "start": 23.01,
+              "end": 23.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " event,",
+              "start": 23.33,
+              "end": 23.69,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " you",
+              "start": 24.03,
+              "end": 24.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 24.15,
+              "end": 24.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know",
+              "start": 24.25,
+              "end": 24.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 24.43,
+              "end": 24.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 24.59,
+              "end": 24.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 24.71,
+              "end": 24.83,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " seen the last of Henry Jekyll.\"",
+          "start": 24.83,
+          "end": 26.93,
+          "words": [
+            {
+              "text": " seen",
+              "start": 24.83,
+              "end": 25.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 25.03,
+              "end": 25.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " last",
+              "start": 25.19,
+              "end": 25.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 25.45,
+              "end": 25.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Henry",
+              "start": 25.67,
+              "end": 25.97,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Jekyll.\"",
+              "start": 25.97,
+              "end": 26.93,
+              "probability": 0.7764892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": ".S.—I",
+          "start": 0.55,
+          "end": 1.63
+        },
+        {
+          "raw": "had",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "already",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "raw": "sealed",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "this",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "up",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "when",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "a",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "raw": "fresh",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "raw": "terror",
+          "start": 3.19,
+          "end": 3.59
+        },
+        {
+          "raw": "struck",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "raw": "upon",
+          "start": 3.87,
+          "end": 4.13
+        },
+        {
+          "raw": "my",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "raw": "soul.",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "raw": "It",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "raw": "is",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "raw": "possible",
+          "start": 5.55,
+          "end": 5.91
+        },
+        {
+          "raw": "that",
+          "start": 5.91,
+          "end": 6.15
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "raw": "post",
+          "start": 6.25,
+          "end": 6.49
+        },
+        {
+          "raw": "-office",
+          "start": 6.49,
+          "end": 6.79
+        },
+        {
+          "raw": "may",
+          "start": 6.79,
+          "end": 7.07
+        },
+        {
+          "raw": "fail",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "raw": "me,",
+          "start": 7.33,
+          "end": 7.65
+        },
+        {
+          "raw": "and",
+          "start": 7.87,
+          "end": 8.11
+        },
+        {
+          "raw": "this",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "raw": "letter",
+          "start": 8.25,
+          "end": 8.49
+        },
+        {
+          "raw": "not",
+          "start": 8.49,
+          "end": 8.71
+        },
+        {
+          "raw": "come",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "raw": "into",
+          "start": 8.89,
+          "end": 9.05
+        },
+        {
+          "raw": "your",
+          "start": 9.05,
+          "end": 9.19
+        },
+        {
+          "raw": "hands",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "raw": "until",
+          "start": 9.47,
+          "end": 9.79
+        },
+        {
+          "raw": "to",
+          "start": 9.79,
+          "end": 9.95
+        },
+        {
+          "raw": "-morrow",
+          "start": 9.95,
+          "end": 10.15
+        },
+        {
+          "raw": "morning.",
+          "start": 10.15,
+          "end": 10.59
+        },
+        {
+          "raw": "In",
+          "start": 11.19,
+          "end": 11.41
+        },
+        {
+          "raw": "that",
+          "start": 11.41,
+          "end": 11.59
+        },
+        {
+          "raw": "case,",
+          "start": 11.59,
+          "end": 11.97
+        },
+        {
+          "raw": "dear",
+          "start": 12.45,
+          "end": 12.59
+        },
+        {
+          "raw": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "raw": "do",
+          "start": 13.47,
+          "end": 13.57
+        },
+        {
+          "raw": "my",
+          "start": 13.57,
+          "end": 13.77
+        },
+        {
+          "raw": "errand",
+          "start": 13.77,
+          "end": 14.21
+        },
+        {
+          "raw": "when",
+          "start": 14.21,
+          "end": 14.35
+        },
+        {
+          "raw": "it",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "raw": "shall",
+          "start": 14.45,
+          "end": 14.57
+        },
+        {
+          "raw": "be",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "raw": "most",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "raw": "convenient",
+          "start": 14.95,
+          "end": 15.37
+        },
+        {
+          "raw": "for",
+          "start": 15.37,
+          "end": 15.69
+        },
+        {
+          "raw": "you",
+          "start": 15.69,
+          "end": 15.83
+        },
+        {
+          "raw": "in",
+          "start": 15.83,
+          "end": 15.95
+        },
+        {
+          "raw": "the",
+          "start": 15.95,
+          "end": 16.05
+        },
+        {
+          "raw": "course",
+          "start": 16.05,
+          "end": 16.23
+        },
+        {
+          "raw": "of",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "raw": "the",
+          "start": 16.43,
+          "end": 16.53
+        },
+        {
+          "raw": "day,",
+          "start": 16.53,
+          "end": 16.73
+        },
+        {
+          "raw": "and",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "raw": "once",
+          "start": 17.31,
+          "end": 17.51
+        },
+        {
+          "raw": "more",
+          "start": 17.51,
+          "end": 17.73
+        },
+        {
+          "raw": "expect",
+          "start": 17.73,
+          "end": 18.11
+        },
+        {
+          "raw": "my",
+          "start": 18.11,
+          "end": 18.37
+        },
+        {
+          "raw": "messenger",
+          "start": 18.37,
+          "end": 18.71
+        },
+        {
+          "raw": "at",
+          "start": 18.71,
+          "end": 18.97
+        },
+        {
+          "raw": "midnight.",
+          "start": 18.97,
+          "end": 19.31
+        },
+        {
+          "raw": "It",
+          "start": 19.97,
+          "end": 20.13
+        },
+        {
+          "raw": "may",
+          "start": 20.13,
+          "end": 20.27
+        },
+        {
+          "raw": "then",
+          "start": 20.27,
+          "end": 20.43
+        },
+        {
+          "raw": "already",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "raw": "be",
+          "start": 20.69,
+          "end": 20.93
+        },
+        {
+          "raw": "too",
+          "start": 20.93,
+          "end": 21.13
+        },
+        {
+          "raw": "late,",
+          "start": 21.13,
+          "end": 21.41
+        },
+        {
+          "raw": "and",
+          "start": 21.73,
+          "end": 21.97
+        },
+        {
+          "raw": "if",
+          "start": 21.97,
+          "end": 22.11
+        },
+        {
+          "raw": "that",
+          "start": 22.11,
+          "end": 22.31
+        },
+        {
+          "raw": "night",
+          "start": 22.31,
+          "end": 22.53
+        },
+        {
+          "raw": "passes",
+          "start": 22.53,
+          "end": 23.01
+        },
+        {
+          "raw": "without",
+          "start": 23.01,
+          "end": 23.33
+        },
+        {
+          "raw": "event,",
+          "start": 23.33,
+          "end": 23.69
+        },
+        {
+          "raw": "you",
+          "start": 24.03,
+          "end": 24.15
+        },
+        {
+          "raw": "will",
+          "start": 24.15,
+          "end": 24.25
+        },
+        {
+          "raw": "know",
+          "start": 24.25,
+          "end": 24.43
+        },
+        {
+          "raw": "that",
+          "start": 24.43,
+          "end": 24.59
+        },
+        {
+          "raw": "you",
+          "start": 24.59,
+          "end": 24.71
+        },
+        {
+          "raw": "have",
+          "start": 24.71,
+          "end": 24.83
+        },
+        {
+          "raw": "seen",
+          "start": 24.83,
+          "end": 25.03
+        },
+        {
+          "raw": "the",
+          "start": 25.03,
+          "end": 25.19
+        },
+        {
+          "raw": "last",
+          "start": 25.19,
+          "end": 25.45
+        },
+        {
+          "raw": "of",
+          "start": 25.45,
+          "end": 25.67
+        },
+        {
+          "raw": "Henry",
+          "start": 25.67,
+          "end": 25.97
+        },
+        {
+          "raw": "Jekyll.\"",
+          "start": 25.97,
+          "end": 26.93
+        }
+      ],
+      "expected_tokens": [
+        "\"P.S.—I",
+        "had",
+        "already",
+        "sealed",
+        "this",
+        "up",
+        "when",
+        "a",
+        "fresh",
+        "terror",
+        "struck",
+        "upon",
+        "my",
+        "soul.",
+        "It",
+        "is",
+        "possible",
+        "that",
+        "the",
+        "post-office",
+        "may",
+        "fail",
+        "me,",
+        "and",
+        "this",
+        "letter",
+        "not",
+        "come",
+        "into",
+        "your",
+        "hands",
+        "until",
+        "to-morrow",
+        "morning.",
+        "In",
+        "that",
+        "case,",
+        "dear",
+        "Lanyon,",
+        "do",
+        "my",
+        "errand",
+        "when",
+        "it",
+        "shall",
+        "be",
+        "most",
+        "convenient",
+        "for",
+        "you",
+        "in",
+        "the",
+        "course",
+        "of",
+        "the",
+        "day;",
+        "and",
+        "once",
+        "more",
+        "expect",
+        "my",
+        "messenger",
+        "at",
+        "midnight.",
+        "It",
+        "may",
+        "then",
+        "already",
+        "be",
+        "too",
+        "late;",
+        "and",
+        "if",
+        "that",
+        "night",
+        "passes",
+        "without",
+        "event,",
+        "you",
+        "will",
+        "know",
+        "that",
+        "you",
+        "have",
+        "seen",
+        "the",
+        "last",
+        "of",
+        "Henry",
+        "Jekyll.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          90,
+          2,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "p",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".S.—I",
+          "start": 0.55,
+          "end": 1.63,
+          "key": "si",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "already",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sealed",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "sealed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "up",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.85,
+          "end": 2.99,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 2.99,
+          "end": 3.19,
+          "key": "fresh",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "terror",
+          "start": 3.19,
+          "end": 3.59,
+          "key": "terror",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 3.59,
+          "end": 3.87,
+          "key": "struck",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.87,
+          "end": 4.13,
+          "key": "upon",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.13,
+          "end": 4.33,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "soul.",
+          "start": 4.33,
+          "end": 4.65,
+          "key": "soul",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.21,
+          "end": 5.41,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.41,
+          "end": 5.55,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "possible",
+          "start": 5.55,
+          "end": 5.91,
+          "key": "possible",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.91,
+          "end": 6.15,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.25,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "post -office",
+          "start": 6.25,
+          "end": 6.79,
+          "key": "postoffice",
+          "pieces": [
+            20,
+            21
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 6.79,
+          "end": 7.07,
+          "key": "may",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "fail",
+          "start": 7.07,
+          "end": 7.33,
+          "key": "fail",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 7.33,
+          "end": 7.65,
+          "key": "me",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.87,
+          "end": 8.11,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.11,
+          "end": 8.25,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 8.25,
+          "end": 8.49,
+          "key": "letter",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.49,
+          "end": 8.71,
+          "key": "not",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.71,
+          "end": 8.89,
+          "key": "come",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 8.89,
+          "end": 9.05,
+          "key": "into",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 9.05,
+          "end": 9.19,
+          "key": "your",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 9.19,
+          "end": 9.47,
+          "key": "hands",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "until",
+          "start": 9.47,
+          "end": 9.79,
+          "key": "until",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "to -morrow",
+          "start": 9.79,
+          "end": 10.15,
+          "key": "tomorrow",
+          "pieces": [
+            34,
+            35
+          ]
+        },
+        {
+          "raw": "morning.",
+          "start": 10.15,
+          "end": 10.59,
+          "key": "morning",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 11.19,
+          "end": 11.41,
+          "key": "in",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.41,
+          "end": 11.59,
+          "key": "that",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "case,",
+          "start": 11.59,
+          "end": 11.97,
+          "key": "case",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 12.45,
+          "end": 12.59,
+          "key": "dear",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91,
+          "key": "lanyon",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 13.47,
+          "end": 13.57,
+          "key": "do",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.57,
+          "end": 13.77,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "errand",
+          "start": 13.77,
+          "end": 14.21,
+          "key": "errand",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 14.21,
+          "end": 14.35,
+          "key": "when",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 14.35,
+          "end": 14.45,
+          "key": "it",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 14.45,
+          "end": 14.57,
+          "key": "shall",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 14.57,
+          "end": 14.71,
+          "key": "be",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 14.71,
+          "end": 14.95,
+          "key": "most",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "convenient",
+          "start": 14.95,
+          "end": 15.37,
+          "key": "convenient",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 15.37,
+          "end": 15.69,
+          "key": "for",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 15.69,
+          "end": 15.83,
+          "key": "you",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.83,
+          "end": 15.95,
+          "key": "in",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.95,
+          "end": 16.05,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 16.05,
+          "end": 16.23,
+          "key": "course",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.23,
+          "end": 16.43,
+          "key": "of",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.43,
+          "end": 16.53,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 16.53,
+          "end": 16.73,
+          "key": "day",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.11,
+          "end": 17.31,
+          "key": "and",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 17.31,
+          "end": 17.51,
+          "key": "once",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 17.51,
+          "end": 17.73,
+          "key": "more",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 17.73,
+          "end": 18.11,
+          "key": "expect",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 18.11,
+          "end": 18.37,
+          "key": "my",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "messenger",
+          "start": 18.37,
+          "end": 18.71,
+          "key": "messenger",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.71,
+          "end": 18.97,
+          "key": "at",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "midnight.",
+          "start": 18.97,
+          "end": 19.31,
+          "key": "midnight",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 19.97,
+          "end": 20.13,
+          "key": "it",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 20.13,
+          "end": 20.27,
+          "key": "may",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 20.27,
+          "end": 20.43,
+          "key": "then",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 20.43,
+          "end": 20.69,
+          "key": "already",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.69,
+          "end": 20.93,
+          "key": "be",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 20.93,
+          "end": 21.13,
+          "key": "too",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "late,",
+          "start": 21.13,
+          "end": 21.41,
+          "key": "late",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.73,
+          "end": 21.97,
+          "key": "and",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 21.97,
+          "end": 22.11,
+          "key": "if",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 22.11,
+          "end": 22.31,
+          "key": "that",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 22.31,
+          "end": 22.53,
+          "key": "night",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "passes",
+          "start": 22.53,
+          "end": 23.01,
+          "key": "passes",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 23.01,
+          "end": 23.33,
+          "key": "without",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "event,",
+          "start": 23.33,
+          "end": 23.69,
+          "key": "event",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 24.03,
+          "end": 24.15,
+          "key": "you",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 24.15,
+          "end": 24.25,
+          "key": "will",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 24.25,
+          "end": 24.43,
+          "key": "know",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 24.43,
+          "end": 24.59,
+          "key": "that",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 24.59,
+          "end": 24.71,
+          "key": "you",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 24.71,
+          "end": 24.83,
+          "key": "have",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 24.83,
+          "end": 25.03,
+          "key": "seen",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.03,
+          "end": 25.19,
+          "key": "the",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 25.19,
+          "end": 25.45,
+          "key": "last",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.45,
+          "end": 25.67,
+          "key": "of",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "Henry",
+          "start": 25.67,
+          "end": 25.97,
+          "key": "henry",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "Jekyll.\"",
+          "start": 25.97,
+          "end": 26.93,
+          "key": "jekyll",
+          "pieces": [
+            92
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 19,
+          "text": "post-office",
+          "heard": "post -office",
+          "heard_indexes": [
+            20,
+            21
+          ],
+          "start": 6.25,
+          "end": 6.79
+        },
+        {
+          "expected_index": 32,
+          "text": "to-morrow",
+          "heard": "to -morrow",
+          "heard_indexes": [
+            34,
+            35
+          ],
+          "start": 9.79,
+          "end": 10.15
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"P.S.—I",
+          "start": 0.0,
+          "end": 0.815
+        },
+        {
+          "text": "had",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "already",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "text": "sealed",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "this",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "text": "up",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "when",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "a",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "text": "fresh",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "text": "terror",
+          "start": 3.19,
+          "end": 3.59
+        },
+        {
+          "text": "struck",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "text": "upon",
+          "start": 3.87,
+          "end": 4.13
+        },
+        {
+          "text": "my",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "text": "soul.",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "text": "It",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "text": "is",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "text": "possible",
+          "start": 5.55,
+          "end": 5.91
+        },
+        {
+          "text": "that",
+          "start": 5.91,
+          "end": 6.15
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "text": "post-office",
+          "start": 6.25,
+          "end": 6.79
+        },
+        {
+          "text": "may",
+          "start": 6.79,
+          "end": 7.07
+        },
+        {
+          "text": "fail",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "text": "me,",
+          "start": 7.33,
+          "end": 7.65
+        },
+        {
+          "text": "and",
+          "start": 7.87,
+          "end": 8.11
+        },
+        {
+          "text": "this",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "text": "letter",
+          "start": 8.25,
+          "end": 8.49
+        },
+        {
+          "text": "not",
+          "start": 8.49,
+          "end": 8.71
+        },
+        {
+          "text": "come",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "text": "into",
+          "start": 8.89,
+          "end": 9.05
+        },
+        {
+          "text": "your",
+          "start": 9.05,
+          "end": 9.19
+        },
+        {
+          "text": "hands",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "text": "until",
+          "start": 9.47,
+          "end": 9.79
+        },
+        {
+          "text": "to-morrow",
+          "start": 9.79,
+          "end": 10.15
+        },
+        {
+          "text": "morning.",
+          "start": 10.15,
+          "end": 10.59
+        },
+        {
+          "text": "In",
+          "start": 11.19,
+          "end": 11.41
+        },
+        {
+          "text": "that",
+          "start": 11.41,
+          "end": 11.59
+        },
+        {
+          "text": "case,",
+          "start": 11.59,
+          "end": 11.97
+        },
+        {
+          "text": "dear",
+          "start": 12.45,
+          "end": 12.59
+        },
+        {
+          "text": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "text": "do",
+          "start": 13.47,
+          "end": 13.57
+        },
+        {
+          "text": "my",
+          "start": 13.57,
+          "end": 13.77
+        },
+        {
+          "text": "errand",
+          "start": 13.77,
+          "end": 14.21
+        },
+        {
+          "text": "when",
+          "start": 14.21,
+          "end": 14.35
+        },
+        {
+          "text": "it",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "text": "shall",
+          "start": 14.45,
+          "end": 14.57
+        },
+        {
+          "text": "be",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "text": "most",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "text": "convenient",
+          "start": 14.95,
+          "end": 15.37
+        },
+        {
+          "text": "for",
+          "start": 15.37,
+          "end": 15.69
+        },
+        {
+          "text": "you",
+          "start": 15.69,
+          "end": 15.83
+        },
+        {
+          "text": "in",
+          "start": 15.83,
+          "end": 15.95
+        },
+        {
+          "text": "the",
+          "start": 15.95,
+          "end": 16.05
+        },
+        {
+          "text": "course",
+          "start": 16.05,
+          "end": 16.23
+        },
+        {
+          "text": "of",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "text": "the",
+          "start": 16.43,
+          "end": 16.53
+        },
+        {
+          "text": "day;",
+          "start": 16.53,
+          "end": 16.73
+        },
+        {
+          "text": "and",
+          "start": 17.11,
+          "end": 17.31
+        },
+        {
+          "text": "once",
+          "start": 17.31,
+          "end": 17.51
+        },
+        {
+          "text": "more",
+          "start": 17.51,
+          "end": 17.73
+        },
+        {
+          "text": "expect",
+          "start": 17.73,
+          "end": 18.11
+        },
+        {
+          "text": "my",
+          "start": 18.11,
+          "end": 18.37
+        },
+        {
+          "text": "messenger",
+          "start": 18.37,
+          "end": 18.71
+        },
+        {
+          "text": "at",
+          "start": 18.71,
+          "end": 18.97
+        },
+        {
+          "text": "midnight.",
+          "start": 18.97,
+          "end": 19.31
+        },
+        {
+          "text": "It",
+          "start": 19.97,
+          "end": 20.13
+        },
+        {
+          "text": "may",
+          "start": 20.13,
+          "end": 20.27
+        },
+        {
+          "text": "then",
+          "start": 20.27,
+          "end": 20.43
+        },
+        {
+          "text": "already",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "text": "be",
+          "start": 20.69,
+          "end": 20.93
+        },
+        {
+          "text": "too",
+          "start": 20.93,
+          "end": 21.13
+        },
+        {
+          "text": "late;",
+          "start": 21.13,
+          "end": 21.41
+        },
+        {
+          "text": "and",
+          "start": 21.73,
+          "end": 21.97
+        },
+        {
+          "text": "if",
+          "start": 21.97,
+          "end": 22.11
+        },
+        {
+          "text": "that",
+          "start": 22.11,
+          "end": 22.31
+        },
+        {
+          "text": "night",
+          "start": 22.31,
+          "end": 22.53
+        },
+        {
+          "text": "passes",
+          "start": 22.53,
+          "end": 23.01
+        },
+        {
+          "text": "without",
+          "start": 23.01,
+          "end": 23.33
+        },
+        {
+          "text": "event,",
+          "start": 23.33,
+          "end": 23.69
+        },
+        {
+          "text": "you",
+          "start": 24.03,
+          "end": 24.15
+        },
+        {
+          "text": "will",
+          "start": 24.15,
+          "end": 24.25
+        },
+        {
+          "text": "know",
+          "start": 24.25,
+          "end": 24.43
+        },
+        {
+          "text": "that",
+          "start": 24.43,
+          "end": 24.59
+        },
+        {
+          "text": "you",
+          "start": 24.59,
+          "end": 24.71
+        },
+        {
+          "text": "have",
+          "start": 24.71,
+          "end": 24.83
+        },
+        {
+          "text": "seen",
+          "start": 24.83,
+          "end": 25.03
+        },
+        {
+          "text": "the",
+          "start": 25.03,
+          "end": 25.19
+        },
+        {
+          "text": "last",
+          "start": 25.19,
+          "end": 25.45
+        },
+        {
+          "text": "of",
+          "start": 25.45,
+          "end": 25.67
+        },
+        {
+          "text": "Henry",
+          "start": 25.67,
+          "end": 25.97
+        },
+        {
+          "text": "Jekyll.\"",
+          "start": 25.97,
+          "end": 26.93
+        }
+      ],
+      "stats": {
+        "expected_words": 90,
+        "heard_words": 91,
+        "matched_words": 89
+      },
+      "match_ratio": 0.9888888888888889,
+      "rejection_reasons": [],
+      "seconds": 0.8754279860295355
+    },
+    {
+      "asr_seconds": 0.7108859592117369,
+      "alignment_seconds": 0.0011295320000499487,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "P.S.—I, Lanyon, Henry, Jekyll"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " P.S.—I had already sealed this up when a fresh terror struck upon my soul. It is possible that the post office may fail me, and this letter not come into your hands until tomorrow morning. In that case, dear Lanyon, do my errand when it shall be most convenient for you in the course of the day, and once more expect my messenger at midnight. It may then already be too late, and if that night passes without event, you will know that you have seen the last of Henry Jekyll.",
+          "start": 0.05,
+          "end": 26.39,
+          "words": [
+            {
+              "text": " P",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.4755859375
+            },
+            {
+              "text": ".S.—I",
+              "start": 0.55,
+              "end": 1.63,
+              "probability": 0.5850906372070312
+            },
+            {
+              "text": " had",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " already",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sealed",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " a",
+              "start": 2.85,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " fresh",
+              "start": 2.99,
+              "end": 3.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " terror",
+              "start": 3.19,
+              "end": 3.59,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " struck",
+              "start": 3.59,
+              "end": 3.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " upon",
+              "start": 3.87,
+              "end": 4.13,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 4.13,
+              "end": 4.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " soul.",
+              "start": 4.33,
+              "end": 4.65,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " It",
+              "start": 5.21,
+              "end": 5.41,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " is",
+              "start": 5.41,
+              "end": 5.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " possible",
+              "start": 5.55,
+              "end": 5.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 5.91,
+              "end": 6.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 6.15,
+              "end": 6.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " post",
+              "start": 6.25,
+              "end": 6.49,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " office",
+              "start": 6.49,
+              "end": 6.81,
+              "probability": 0.876953125
+            },
+            {
+              "text": " may",
+              "start": 6.81,
+              "end": 7.07,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fail",
+              "start": 7.07,
+              "end": 7.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me,",
+              "start": 7.33,
+              "end": 7.65,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 7.87,
+              "end": 8.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " this",
+              "start": 8.11,
+              "end": 8.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " letter",
+              "start": 8.25,
+              "end": 8.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 8.49,
+              "end": 8.71,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " come",
+              "start": 8.71,
+              "end": 8.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " into",
+              "start": 8.89,
+              "end": 9.05,
+              "probability": 0.982421875
+            },
+            {
+              "text": " your",
+              "start": 9.05,
+              "end": 9.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hands",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " until",
+              "start": 9.47,
+              "end": 9.79,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " tomorrow",
+              "start": 9.79,
+              "end": 10.11,
+              "probability": 0.75390625
+            },
+            {
+              "text": " morning.",
+              "start": 10.11,
+              "end": 10.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " In",
+              "start": 11.19,
+              "end": 11.41,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 11.41,
+              "end": 11.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " case,",
+              "start": 11.59,
+              "end": 11.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dear",
+              "start": 12.47,
+              "end": 12.59,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Lanyon,",
+              "start": 12.59,
+              "end": 12.91,
+              "probability": 0.841552734375
+            },
+            {
+              "text": " do",
+              "start": 13.47,
+              "end": 13.57,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " my",
+              "start": 13.57,
+              "end": 13.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " errand",
+              "start": 13.77,
+              "end": 14.21,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " when",
+              "start": 14.21,
+              "end": 14.35,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it",
+              "start": 14.35,
+              "end": 14.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " shall",
+              "start": 14.45,
+              "end": 14.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 14.57,
+              "end": 14.71,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " most",
+              "start": 14.71,
+              "end": 14.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " convenient",
+              "start": 14.95,
+              "end": 15.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 15.39,
+              "end": 15.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 15.69,
+              "end": 15.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 15.83,
+              "end": 15.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 15.95,
+              "end": 16.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " course",
+              "start": 16.05,
+              "end": 16.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 16.23,
+              "end": 16.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 16.43,
+              "end": 16.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " day,",
+              "start": 16.53,
+              "end": 16.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 17.09,
+              "end": 17.29,
+              "probability": 0.998046875
+            },
+            {
+              "text": " once",
+              "start": 17.29,
+              "end": 17.51,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " more",
+              "start": 17.51,
+              "end": 17.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " expect",
+              "start": 17.73,
+              "end": 18.11,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " my",
+              "start": 18.11,
+              "end": 18.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " messenger",
+              "start": 18.37,
+              "end": 18.69,
+              "probability": 0.98828125
+            },
+            {
+              "text": " at",
+              "start": 18.69,
+              "end": 18.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " midnight.",
+              "start": 18.97,
+              "end": 19.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " It",
+              "start": 19.97,
+              "end": 20.13,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " may",
+              "start": 20.13,
+              "end": 20.27,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " then",
+              "start": 20.27,
+              "end": 20.43,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " already",
+              "start": 20.43,
+              "end": 20.69,
+              "probability": 0.982421875
+            },
+            {
+              "text": " be",
+              "start": 20.69,
+              "end": 20.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too",
+              "start": 20.93,
+              "end": 21.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " late,",
+              "start": 21.13,
+              "end": 21.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 21.75,
+              "end": 21.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " if",
+              "start": 21.97,
+              "end": 22.11,
+              "probability": 0.982421875
+            },
+            {
+              "text": " that",
+              "start": 22.11,
+              "end": 22.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " night",
+              "start": 22.31,
+              "end": 22.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " passes",
+              "start": 22.53,
+              "end": 23.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " without",
+              "start": 23.01,
+              "end": 23.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " event,",
+              "start": 23.33,
+              "end": 23.69,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " you",
+              "start": 24.01,
+              "end": 24.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " will",
+              "start": 24.15,
+              "end": 24.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know",
+              "start": 24.25,
+              "end": 24.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 24.43,
+              "end": 24.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 24.59,
+              "end": 24.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 24.71,
+              "end": 24.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " seen",
+              "start": 24.83,
+              "end": 25.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 25.03,
+              "end": 25.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " last",
+              "start": 25.19,
+              "end": 25.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 25.45,
+              "end": 25.67,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Henry",
+              "start": 25.67,
+              "end": 25.97,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Jekyll.",
+              "start": 25.97,
+              "end": 26.39,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": ".S.—I",
+          "start": 0.55,
+          "end": 1.63
+        },
+        {
+          "raw": "had",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "already",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "raw": "sealed",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "this",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "up",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "when",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "a",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "raw": "fresh",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "raw": "terror",
+          "start": 3.19,
+          "end": 3.59
+        },
+        {
+          "raw": "struck",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "raw": "upon",
+          "start": 3.87,
+          "end": 4.13
+        },
+        {
+          "raw": "my",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "raw": "soul.",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "raw": "It",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "raw": "is",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "raw": "possible",
+          "start": 5.55,
+          "end": 5.91
+        },
+        {
+          "raw": "that",
+          "start": 5.91,
+          "end": 6.15
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "raw": "post",
+          "start": 6.25,
+          "end": 6.49
+        },
+        {
+          "raw": "office",
+          "start": 6.49,
+          "end": 6.81
+        },
+        {
+          "raw": "may",
+          "start": 6.81,
+          "end": 7.07
+        },
+        {
+          "raw": "fail",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "raw": "me,",
+          "start": 7.33,
+          "end": 7.65
+        },
+        {
+          "raw": "and",
+          "start": 7.87,
+          "end": 8.11
+        },
+        {
+          "raw": "this",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "raw": "letter",
+          "start": 8.25,
+          "end": 8.49
+        },
+        {
+          "raw": "not",
+          "start": 8.49,
+          "end": 8.71
+        },
+        {
+          "raw": "come",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "raw": "into",
+          "start": 8.89,
+          "end": 9.05
+        },
+        {
+          "raw": "your",
+          "start": 9.05,
+          "end": 9.19
+        },
+        {
+          "raw": "hands",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "raw": "until",
+          "start": 9.47,
+          "end": 9.79
+        },
+        {
+          "raw": "tomorrow",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "raw": "morning.",
+          "start": 10.11,
+          "end": 10.57
+        },
+        {
+          "raw": "In",
+          "start": 11.19,
+          "end": 11.41
+        },
+        {
+          "raw": "that",
+          "start": 11.41,
+          "end": 11.59
+        },
+        {
+          "raw": "case,",
+          "start": 11.59,
+          "end": 11.97
+        },
+        {
+          "raw": "dear",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "raw": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "raw": "do",
+          "start": 13.47,
+          "end": 13.57
+        },
+        {
+          "raw": "my",
+          "start": 13.57,
+          "end": 13.77
+        },
+        {
+          "raw": "errand",
+          "start": 13.77,
+          "end": 14.21
+        },
+        {
+          "raw": "when",
+          "start": 14.21,
+          "end": 14.35
+        },
+        {
+          "raw": "it",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "raw": "shall",
+          "start": 14.45,
+          "end": 14.57
+        },
+        {
+          "raw": "be",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "raw": "most",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "raw": "convenient",
+          "start": 14.95,
+          "end": 15.39
+        },
+        {
+          "raw": "for",
+          "start": 15.39,
+          "end": 15.69
+        },
+        {
+          "raw": "you",
+          "start": 15.69,
+          "end": 15.83
+        },
+        {
+          "raw": "in",
+          "start": 15.83,
+          "end": 15.95
+        },
+        {
+          "raw": "the",
+          "start": 15.95,
+          "end": 16.05
+        },
+        {
+          "raw": "course",
+          "start": 16.05,
+          "end": 16.23
+        },
+        {
+          "raw": "of",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "raw": "the",
+          "start": 16.43,
+          "end": 16.53
+        },
+        {
+          "raw": "day,",
+          "start": 16.53,
+          "end": 16.73
+        },
+        {
+          "raw": "and",
+          "start": 17.09,
+          "end": 17.29
+        },
+        {
+          "raw": "once",
+          "start": 17.29,
+          "end": 17.51
+        },
+        {
+          "raw": "more",
+          "start": 17.51,
+          "end": 17.73
+        },
+        {
+          "raw": "expect",
+          "start": 17.73,
+          "end": 18.11
+        },
+        {
+          "raw": "my",
+          "start": 18.11,
+          "end": 18.37
+        },
+        {
+          "raw": "messenger",
+          "start": 18.37,
+          "end": 18.69
+        },
+        {
+          "raw": "at",
+          "start": 18.69,
+          "end": 18.97
+        },
+        {
+          "raw": "midnight.",
+          "start": 18.97,
+          "end": 19.31
+        },
+        {
+          "raw": "It",
+          "start": 19.97,
+          "end": 20.13
+        },
+        {
+          "raw": "may",
+          "start": 20.13,
+          "end": 20.27
+        },
+        {
+          "raw": "then",
+          "start": 20.27,
+          "end": 20.43
+        },
+        {
+          "raw": "already",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "raw": "be",
+          "start": 20.69,
+          "end": 20.93
+        },
+        {
+          "raw": "too",
+          "start": 20.93,
+          "end": 21.13
+        },
+        {
+          "raw": "late,",
+          "start": 21.13,
+          "end": 21.43
+        },
+        {
+          "raw": "and",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "raw": "if",
+          "start": 21.97,
+          "end": 22.11
+        },
+        {
+          "raw": "that",
+          "start": 22.11,
+          "end": 22.31
+        },
+        {
+          "raw": "night",
+          "start": 22.31,
+          "end": 22.53
+        },
+        {
+          "raw": "passes",
+          "start": 22.53,
+          "end": 23.01
+        },
+        {
+          "raw": "without",
+          "start": 23.01,
+          "end": 23.33
+        },
+        {
+          "raw": "event,",
+          "start": 23.33,
+          "end": 23.69
+        },
+        {
+          "raw": "you",
+          "start": 24.01,
+          "end": 24.15
+        },
+        {
+          "raw": "will",
+          "start": 24.15,
+          "end": 24.25
+        },
+        {
+          "raw": "know",
+          "start": 24.25,
+          "end": 24.43
+        },
+        {
+          "raw": "that",
+          "start": 24.43,
+          "end": 24.59
+        },
+        {
+          "raw": "you",
+          "start": 24.59,
+          "end": 24.71
+        },
+        {
+          "raw": "have",
+          "start": 24.71,
+          "end": 24.83
+        },
+        {
+          "raw": "seen",
+          "start": 24.83,
+          "end": 25.03
+        },
+        {
+          "raw": "the",
+          "start": 25.03,
+          "end": 25.19
+        },
+        {
+          "raw": "last",
+          "start": 25.19,
+          "end": 25.45
+        },
+        {
+          "raw": "of",
+          "start": 25.45,
+          "end": 25.67
+        },
+        {
+          "raw": "Henry",
+          "start": 25.67,
+          "end": 25.97
+        },
+        {
+          "raw": "Jekyll.",
+          "start": 25.97,
+          "end": 26.39
+        }
+      ],
+      "expected_tokens": [
+        "\"P.S.—I",
+        "had",
+        "already",
+        "sealed",
+        "this",
+        "up",
+        "when",
+        "a",
+        "fresh",
+        "terror",
+        "struck",
+        "upon",
+        "my",
+        "soul.",
+        "It",
+        "is",
+        "possible",
+        "that",
+        "the",
+        "post-office",
+        "may",
+        "fail",
+        "me,",
+        "and",
+        "this",
+        "letter",
+        "not",
+        "come",
+        "into",
+        "your",
+        "hands",
+        "until",
+        "to-morrow",
+        "morning.",
+        "In",
+        "that",
+        "case,",
+        "dear",
+        "Lanyon,",
+        "do",
+        "my",
+        "errand",
+        "when",
+        "it",
+        "shall",
+        "be",
+        "most",
+        "convenient",
+        "for",
+        "you",
+        "in",
+        "the",
+        "course",
+        "of",
+        "the",
+        "day;",
+        "and",
+        "once",
+        "more",
+        "expect",
+        "my",
+        "messenger",
+        "at",
+        "midnight.",
+        "It",
+        "may",
+        "then",
+        "already",
+        "be",
+        "too",
+        "late;",
+        "and",
+        "if",
+        "that",
+        "night",
+        "passes",
+        "without",
+        "event,",
+        "you",
+        "will",
+        "know",
+        "that",
+        "you",
+        "have",
+        "seen",
+        "the",
+        "last",
+        "of",
+        "Henry",
+        "Jekyll.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          90,
+          2,
+          91
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "p",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".S.—I",
+          "start": 0.55,
+          "end": 1.63,
+          "key": "si",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "had",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "already",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sealed",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "sealed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "up",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "when",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.85,
+          "end": 2.99,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 2.99,
+          "end": 3.19,
+          "key": "fresh",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "terror",
+          "start": 3.19,
+          "end": 3.59,
+          "key": "terror",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 3.59,
+          "end": 3.87,
+          "key": "struck",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.87,
+          "end": 4.13,
+          "key": "upon",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.13,
+          "end": 4.33,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "soul.",
+          "start": 4.33,
+          "end": 4.65,
+          "key": "soul",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.21,
+          "end": 5.41,
+          "key": "it",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.41,
+          "end": 5.55,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "possible",
+          "start": 5.55,
+          "end": 5.91,
+          "key": "possible",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.91,
+          "end": 6.15,
+          "key": "that",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.25,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "post office",
+          "start": 6.25,
+          "end": 6.81,
+          "key": "postoffice",
+          "pieces": [
+            20,
+            21
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 6.81,
+          "end": 7.07,
+          "key": "may",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "fail",
+          "start": 7.07,
+          "end": 7.33,
+          "key": "fail",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 7.33,
+          "end": 7.65,
+          "key": "me",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.87,
+          "end": 8.11,
+          "key": "and",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.11,
+          "end": 8.25,
+          "key": "this",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 8.25,
+          "end": 8.49,
+          "key": "letter",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.49,
+          "end": 8.71,
+          "key": "not",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.71,
+          "end": 8.89,
+          "key": "come",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 8.89,
+          "end": 9.05,
+          "key": "into",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 9.05,
+          "end": 9.19,
+          "key": "your",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 9.19,
+          "end": 9.47,
+          "key": "hands",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "until",
+          "start": 9.47,
+          "end": 9.79,
+          "key": "until",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 9.79,
+          "end": 10.11,
+          "key": "tomorrow",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "morning.",
+          "start": 10.11,
+          "end": 10.57,
+          "key": "morning",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 11.19,
+          "end": 11.41,
+          "key": "in",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.41,
+          "end": 11.59,
+          "key": "that",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "case,",
+          "start": 11.59,
+          "end": 11.97,
+          "key": "case",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 12.47,
+          "end": 12.59,
+          "key": "dear",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91,
+          "key": "lanyon",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 13.47,
+          "end": 13.57,
+          "key": "do",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.57,
+          "end": 13.77,
+          "key": "my",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "errand",
+          "start": 13.77,
+          "end": 14.21,
+          "key": "errand",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 14.21,
+          "end": 14.35,
+          "key": "when",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 14.35,
+          "end": 14.45,
+          "key": "it",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 14.45,
+          "end": 14.57,
+          "key": "shall",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 14.57,
+          "end": 14.71,
+          "key": "be",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 14.71,
+          "end": 14.95,
+          "key": "most",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "convenient",
+          "start": 14.95,
+          "end": 15.39,
+          "key": "convenient",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 15.39,
+          "end": 15.69,
+          "key": "for",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 15.69,
+          "end": 15.83,
+          "key": "you",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.83,
+          "end": 15.95,
+          "key": "in",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.95,
+          "end": 16.05,
+          "key": "the",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 16.05,
+          "end": 16.23,
+          "key": "course",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.23,
+          "end": 16.43,
+          "key": "of",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.43,
+          "end": 16.53,
+          "key": "the",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 16.53,
+          "end": 16.73,
+          "key": "day",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.09,
+          "end": 17.29,
+          "key": "and",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 17.29,
+          "end": 17.51,
+          "key": "once",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 17.51,
+          "end": 17.73,
+          "key": "more",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 17.73,
+          "end": 18.11,
+          "key": "expect",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 18.11,
+          "end": 18.37,
+          "key": "my",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "messenger",
+          "start": 18.37,
+          "end": 18.69,
+          "key": "messenger",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.69,
+          "end": 18.97,
+          "key": "at",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "midnight.",
+          "start": 18.97,
+          "end": 19.31,
+          "key": "midnight",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 19.97,
+          "end": 20.13,
+          "key": "it",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 20.13,
+          "end": 20.27,
+          "key": "may",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 20.27,
+          "end": 20.43,
+          "key": "then",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 20.43,
+          "end": 20.69,
+          "key": "already",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.69,
+          "end": 20.93,
+          "key": "be",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 20.93,
+          "end": 21.13,
+          "key": "too",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "late,",
+          "start": 21.13,
+          "end": 21.43,
+          "key": "late",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.75,
+          "end": 21.97,
+          "key": "and",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 21.97,
+          "end": 22.11,
+          "key": "if",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 22.11,
+          "end": 22.31,
+          "key": "that",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 22.31,
+          "end": 22.53,
+          "key": "night",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "passes",
+          "start": 22.53,
+          "end": 23.01,
+          "key": "passes",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 23.01,
+          "end": 23.33,
+          "key": "without",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "event,",
+          "start": 23.33,
+          "end": 23.69,
+          "key": "event",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 24.01,
+          "end": 24.15,
+          "key": "you",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 24.15,
+          "end": 24.25,
+          "key": "will",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 24.25,
+          "end": 24.43,
+          "key": "know",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 24.43,
+          "end": 24.59,
+          "key": "that",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 24.59,
+          "end": 24.71,
+          "key": "you",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 24.71,
+          "end": 24.83,
+          "key": "have",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 24.83,
+          "end": 25.03,
+          "key": "seen",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.03,
+          "end": 25.19,
+          "key": "the",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 25.19,
+          "end": 25.45,
+          "key": "last",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.45,
+          "end": 25.67,
+          "key": "of",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "Henry",
+          "start": 25.67,
+          "end": 25.97,
+          "key": "henry",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "Jekyll.",
+          "start": 25.97,
+          "end": 26.39,
+          "key": "jekyll",
+          "pieces": [
+            91
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 19,
+          "text": "post-office",
+          "heard": "post office",
+          "heard_indexes": [
+            20,
+            21
+          ],
+          "start": 6.25,
+          "end": 6.81
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"P.S.—I",
+          "start": 0.0,
+          "end": 0.815
+        },
+        {
+          "text": "had",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "already",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "text": "sealed",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "this",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "text": "up",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "when",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "a",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "text": "fresh",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "text": "terror",
+          "start": 3.19,
+          "end": 3.59
+        },
+        {
+          "text": "struck",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "text": "upon",
+          "start": 3.87,
+          "end": 4.13
+        },
+        {
+          "text": "my",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "text": "soul.",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "text": "It",
+          "start": 5.21,
+          "end": 5.41
+        },
+        {
+          "text": "is",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "text": "possible",
+          "start": 5.55,
+          "end": 5.91
+        },
+        {
+          "text": "that",
+          "start": 5.91,
+          "end": 6.15
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.25
+        },
+        {
+          "text": "post-office",
+          "start": 6.25,
+          "end": 6.81
+        },
+        {
+          "text": "may",
+          "start": 6.81,
+          "end": 7.07
+        },
+        {
+          "text": "fail",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "text": "me,",
+          "start": 7.33,
+          "end": 7.65
+        },
+        {
+          "text": "and",
+          "start": 7.87,
+          "end": 8.11
+        },
+        {
+          "text": "this",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "text": "letter",
+          "start": 8.25,
+          "end": 8.49
+        },
+        {
+          "text": "not",
+          "start": 8.49,
+          "end": 8.71
+        },
+        {
+          "text": "come",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "text": "into",
+          "start": 8.89,
+          "end": 9.05
+        },
+        {
+          "text": "your",
+          "start": 9.05,
+          "end": 9.19
+        },
+        {
+          "text": "hands",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "text": "until",
+          "start": 9.47,
+          "end": 9.79
+        },
+        {
+          "text": "to-morrow",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "text": "morning.",
+          "start": 10.11,
+          "end": 10.57
+        },
+        {
+          "text": "In",
+          "start": 11.19,
+          "end": 11.41
+        },
+        {
+          "text": "that",
+          "start": 11.41,
+          "end": 11.59
+        },
+        {
+          "text": "case,",
+          "start": 11.59,
+          "end": 11.97
+        },
+        {
+          "text": "dear",
+          "start": 12.47,
+          "end": 12.59
+        },
+        {
+          "text": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "text": "do",
+          "start": 13.47,
+          "end": 13.57
+        },
+        {
+          "text": "my",
+          "start": 13.57,
+          "end": 13.77
+        },
+        {
+          "text": "errand",
+          "start": 13.77,
+          "end": 14.21
+        },
+        {
+          "text": "when",
+          "start": 14.21,
+          "end": 14.35
+        },
+        {
+          "text": "it",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "text": "shall",
+          "start": 14.45,
+          "end": 14.57
+        },
+        {
+          "text": "be",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "text": "most",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "text": "convenient",
+          "start": 14.95,
+          "end": 15.39
+        },
+        {
+          "text": "for",
+          "start": 15.39,
+          "end": 15.69
+        },
+        {
+          "text": "you",
+          "start": 15.69,
+          "end": 15.83
+        },
+        {
+          "text": "in",
+          "start": 15.83,
+          "end": 15.95
+        },
+        {
+          "text": "the",
+          "start": 15.95,
+          "end": 16.05
+        },
+        {
+          "text": "course",
+          "start": 16.05,
+          "end": 16.23
+        },
+        {
+          "text": "of",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "text": "the",
+          "start": 16.43,
+          "end": 16.53
+        },
+        {
+          "text": "day;",
+          "start": 16.53,
+          "end": 16.73
+        },
+        {
+          "text": "and",
+          "start": 17.09,
+          "end": 17.29
+        },
+        {
+          "text": "once",
+          "start": 17.29,
+          "end": 17.51
+        },
+        {
+          "text": "more",
+          "start": 17.51,
+          "end": 17.73
+        },
+        {
+          "text": "expect",
+          "start": 17.73,
+          "end": 18.11
+        },
+        {
+          "text": "my",
+          "start": 18.11,
+          "end": 18.37
+        },
+        {
+          "text": "messenger",
+          "start": 18.37,
+          "end": 18.69
+        },
+        {
+          "text": "at",
+          "start": 18.69,
+          "end": 18.97
+        },
+        {
+          "text": "midnight.",
+          "start": 18.97,
+          "end": 19.31
+        },
+        {
+          "text": "It",
+          "start": 19.97,
+          "end": 20.13
+        },
+        {
+          "text": "may",
+          "start": 20.13,
+          "end": 20.27
+        },
+        {
+          "text": "then",
+          "start": 20.27,
+          "end": 20.43
+        },
+        {
+          "text": "already",
+          "start": 20.43,
+          "end": 20.69
+        },
+        {
+          "text": "be",
+          "start": 20.69,
+          "end": 20.93
+        },
+        {
+          "text": "too",
+          "start": 20.93,
+          "end": 21.13
+        },
+        {
+          "text": "late;",
+          "start": 21.13,
+          "end": 21.43
+        },
+        {
+          "text": "and",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "text": "if",
+          "start": 21.97,
+          "end": 22.11
+        },
+        {
+          "text": "that",
+          "start": 22.11,
+          "end": 22.31
+        },
+        {
+          "text": "night",
+          "start": 22.31,
+          "end": 22.53
+        },
+        {
+          "text": "passes",
+          "start": 22.53,
+          "end": 23.01
+        },
+        {
+          "text": "without",
+          "start": 23.01,
+          "end": 23.33
+        },
+        {
+          "text": "event,",
+          "start": 23.33,
+          "end": 23.69
+        },
+        {
+          "text": "you",
+          "start": 24.01,
+          "end": 24.15
+        },
+        {
+          "text": "will",
+          "start": 24.15,
+          "end": 24.25
+        },
+        {
+          "text": "know",
+          "start": 24.25,
+          "end": 24.43
+        },
+        {
+          "text": "that",
+          "start": 24.43,
+          "end": 24.59
+        },
+        {
+          "text": "you",
+          "start": 24.59,
+          "end": 24.71
+        },
+        {
+          "text": "have",
+          "start": 24.71,
+          "end": 24.83
+        },
+        {
+          "text": "seen",
+          "start": 24.83,
+          "end": 25.03
+        },
+        {
+          "text": "the",
+          "start": 25.03,
+          "end": 25.19
+        },
+        {
+          "text": "last",
+          "start": 25.19,
+          "end": 25.45
+        },
+        {
+          "text": "of",
+          "start": 25.45,
+          "end": 25.67
+        },
+        {
+          "text": "Henry",
+          "start": 25.67,
+          "end": 25.97
+        },
+        {
+          "text": "Jekyll.\"",
+          "start": 25.97,
+          "end": 26.39
+        }
+      ],
+      "stats": {
+        "expected_words": 90,
+        "heard_words": 91,
+        "matched_words": 89
+      },
+      "match_ratio": 0.9888888888888889,
+      "rejection_reasons": [],
+      "seconds": 0.7124736900441349
+    },
+    {
+      "asr_seconds": 0.8804840529337525,
+      "alignment_seconds": 0.0023341570049524307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " P.S. I had already sealed this up when a fresh terror struck upon my soul.",
+          "start": 0.05,
+          "end": 4.65,
+          "words": [
+            {
+              "text": " P",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.4755859375
+            },
+            {
+              "text": ".S.",
+              "start": 0.55,
+              "end": 0.97,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " I",
+              "start": 1.19,
+              "end": 1.63,
+              "probability": 0.8232421875
+            },
+            {
+              "text": " had",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " already",
+              "start": 1.75,
+              "end": 2.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sealed",
+              "start": 2.05,
+              "end": 2.31,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " up",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " when",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.978515625
+            },
+            {
+              "text": " a",
+              "start": 2.85,
+              "end": 2.99,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fresh",
+              "start": 2.99,
+              "end": 3.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " terror",
+              "start": 3.19,
+              "end": 3.59,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " struck",
+              "start": 3.59,
+              "end": 3.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " upon",
+              "start": 3.87,
+              "end": 4.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 4.13,
+              "end": 4.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " soul.",
+              "start": 4.33,
+              "end": 4.65,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " It is possible that the post office may fail me, and this letter not come into your hands",
+          "start": 5.29,
+          "end": 9.49,
+          "words": [
+            {
+              "text": " It",
+              "start": 5.29,
+              "end": 5.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " is",
+              "start": 5.41,
+              "end": 5.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " possible",
+              "start": 5.55,
+              "end": 5.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 5.91,
+              "end": 6.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.15,
+              "end": 6.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " post",
+              "start": 6.27,
+              "end": 6.49,
+              "probability": 0.79931640625
+            },
+            {
+              "text": " office",
+              "start": 6.49,
+              "end": 6.79,
+              "probability": 0.93359375
+            },
+            {
+              "text": " may",
+              "start": 6.79,
+              "end": 7.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fail",
+              "start": 7.07,
+              "end": 7.33,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me,",
+              "start": 7.33,
+              "end": 7.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 7.89,
+              "end": 8.11,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 8.11,
+              "end": 8.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " letter",
+              "start": 8.25,
+              "end": 8.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 8.49,
+              "end": 8.71,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " come",
+              "start": 8.71,
+              "end": 8.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " into",
+              "start": 8.89,
+              "end": 9.05,
+              "probability": 0.982421875
+            },
+            {
+              "text": " your",
+              "start": 9.05,
+              "end": 9.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hands",
+              "start": 9.19,
+              "end": 9.49,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " until tomorrow morning.",
+          "start": 9.49,
+          "end": 10.55,
+          "words": [
+            {
+              "text": " until",
+              "start": 9.49,
+              "end": 9.79,
+              "probability": 0.9921875
+            },
+            {
+              "text": " tomorrow",
+              "start": 9.79,
+              "end": 10.11,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " morning.",
+              "start": 10.11,
+              "end": 10.55,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " In that case, dear Lanyon, do my errand when it shall be most convenient for you in the",
+          "start": 11.23,
+          "end": 16.05,
+          "words": [
+            {
+              "text": " In",
+              "start": 11.23,
+              "end": 11.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " that",
+              "start": 11.41,
+              "end": 11.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " case,",
+              "start": 11.59,
+              "end": 11.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dear",
+              "start": 12.49,
+              "end": 12.59,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " Lanyon,",
+              "start": 12.59,
+              "end": 12.91,
+              "probability": 0.837890625
+            },
+            {
+              "text": " do",
+              "start": 13.49,
+              "end": 13.57,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " my",
+              "start": 13.57,
+              "end": 13.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " errand",
+              "start": 13.77,
+              "end": 14.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " when",
+              "start": 14.21,
+              "end": 14.35,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " it",
+              "start": 14.35,
+              "end": 14.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " shall",
+              "start": 14.45,
+              "end": 14.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 14.57,
+              "end": 14.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " most",
+              "start": 14.71,
+              "end": 14.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " convenient",
+              "start": 14.95,
+              "end": 15.39,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 15.39,
+              "end": 15.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 15.69,
+              "end": 15.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 15.83,
+              "end": 15.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 15.95,
+              "end": 16.05,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " course of the day, and once more expect my messenger at midnight.",
+          "start": 16.05,
+          "end": 19.31,
+          "words": [
+            {
+              "text": " course",
+              "start": 16.05,
+              "end": 16.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 16.23,
+              "end": 16.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 16.43,
+              "end": 16.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " day,",
+              "start": 16.53,
+              "end": 16.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 17.11,
+              "end": 17.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " once",
+              "start": 17.29,
+              "end": 17.51,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " more",
+              "start": 17.51,
+              "end": 17.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " expect",
+              "start": 17.73,
+              "end": 18.11,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " my",
+              "start": 18.11,
+              "end": 18.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " messenger",
+              "start": 18.37,
+              "end": 18.71,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " at",
+              "start": 18.71,
+              "end": 18.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " midnight.",
+              "start": 18.97,
+              "end": 19.31,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " It may then already be too late, and if that night passes without event, you will know",
+          "start": 19.99,
+          "end": 24.43,
+          "words": [
+            {
+              "text": " It",
+              "start": 19.99,
+              "end": 20.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " may",
+              "start": 20.13,
+              "end": 20.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " then",
+              "start": 20.27,
+              "end": 20.43,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " already",
+              "start": 20.43,
+              "end": 20.71,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " be",
+              "start": 20.71,
+              "end": 20.93,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " too",
+              "start": 20.93,
+              "end": 21.13,
+              "probability": 0.998046875
+            },
+            {
+              "text": " late,",
+              "start": 21.13,
+              "end": 21.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 21.75,
+              "end": 21.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " if",
+              "start": 21.97,
+              "end": 22.09,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " that",
+              "start": 22.09,
+              "end": 22.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " night",
+              "start": 22.31,
+              "end": 22.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " passes",
+              "start": 22.53,
+              "end": 23.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " without",
+              "start": 23.01,
+              "end": 23.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " event,",
+              "start": 23.33,
+              "end": 23.69,
+              "probability": 0.97265625
+            },
+            {
+              "text": " you",
+              "start": 24.01,
+              "end": 24.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " will",
+              "start": 24.15,
+              "end": 24.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " know",
+              "start": 24.25,
+              "end": 24.43,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " that you have seen the last of Henry Jekyll.",
+          "start": 24.43,
+          "end": 26.39,
+          "words": [
+            {
+              "text": " that",
+              "start": 24.43,
+              "end": 24.59,
+              "probability": 0.541015625
+            },
+            {
+              "text": " you",
+              "start": 24.59,
+              "end": 24.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 24.71,
+              "end": 24.81,
+              "probability": 0.986328125
+            },
+            {
+              "text": " seen",
+              "start": 24.81,
+              "end": 25.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 25.03,
+              "end": 25.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " last",
+              "start": 25.19,
+              "end": 25.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 25.49,
+              "end": 25.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Henry",
+              "start": 25.71,
+              "end": 25.93,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Jekyll.",
+              "start": 25.93,
+              "end": 26.39,
+              "probability": 0.9920247395833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": ".S.",
+          "start": 0.55,
+          "end": 0.97
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.63
+        },
+        {
+          "raw": "had",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "already",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "raw": "sealed",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "raw": "this",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "up",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "when",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "a",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "raw": "fresh",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "raw": "terror",
+          "start": 3.19,
+          "end": 3.59
+        },
+        {
+          "raw": "struck",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "raw": "upon",
+          "start": 3.87,
+          "end": 4.13
+        },
+        {
+          "raw": "my",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "raw": "soul.",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "raw": "It",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "raw": "is",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "raw": "possible",
+          "start": 5.55,
+          "end": 5.91
+        },
+        {
+          "raw": "that",
+          "start": 5.91,
+          "end": 6.15
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "raw": "post",
+          "start": 6.27,
+          "end": 6.49
+        },
+        {
+          "raw": "office",
+          "start": 6.49,
+          "end": 6.79
+        },
+        {
+          "raw": "may",
+          "start": 6.79,
+          "end": 7.07
+        },
+        {
+          "raw": "fail",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "raw": "me,",
+          "start": 7.33,
+          "end": 7.65
+        },
+        {
+          "raw": "and",
+          "start": 7.89,
+          "end": 8.11
+        },
+        {
+          "raw": "this",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "raw": "letter",
+          "start": 8.25,
+          "end": 8.49
+        },
+        {
+          "raw": "not",
+          "start": 8.49,
+          "end": 8.71
+        },
+        {
+          "raw": "come",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "raw": "into",
+          "start": 8.89,
+          "end": 9.05
+        },
+        {
+          "raw": "your",
+          "start": 9.05,
+          "end": 9.19
+        },
+        {
+          "raw": "hands",
+          "start": 9.19,
+          "end": 9.49
+        },
+        {
+          "raw": "until",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "raw": "tomorrow",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "raw": "morning.",
+          "start": 10.11,
+          "end": 10.55
+        },
+        {
+          "raw": "In",
+          "start": 11.23,
+          "end": 11.41
+        },
+        {
+          "raw": "that",
+          "start": 11.41,
+          "end": 11.59
+        },
+        {
+          "raw": "case,",
+          "start": 11.59,
+          "end": 11.99
+        },
+        {
+          "raw": "dear",
+          "start": 12.49,
+          "end": 12.59
+        },
+        {
+          "raw": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "raw": "do",
+          "start": 13.49,
+          "end": 13.57
+        },
+        {
+          "raw": "my",
+          "start": 13.57,
+          "end": 13.77
+        },
+        {
+          "raw": "errand",
+          "start": 13.77,
+          "end": 14.21
+        },
+        {
+          "raw": "when",
+          "start": 14.21,
+          "end": 14.35
+        },
+        {
+          "raw": "it",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "raw": "shall",
+          "start": 14.45,
+          "end": 14.57
+        },
+        {
+          "raw": "be",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "raw": "most",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "raw": "convenient",
+          "start": 14.95,
+          "end": 15.39
+        },
+        {
+          "raw": "for",
+          "start": 15.39,
+          "end": 15.69
+        },
+        {
+          "raw": "you",
+          "start": 15.69,
+          "end": 15.83
+        },
+        {
+          "raw": "in",
+          "start": 15.83,
+          "end": 15.95
+        },
+        {
+          "raw": "the",
+          "start": 15.95,
+          "end": 16.05
+        },
+        {
+          "raw": "course",
+          "start": 16.05,
+          "end": 16.23
+        },
+        {
+          "raw": "of",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "raw": "the",
+          "start": 16.43,
+          "end": 16.53
+        },
+        {
+          "raw": "day,",
+          "start": 16.53,
+          "end": 16.73
+        },
+        {
+          "raw": "and",
+          "start": 17.11,
+          "end": 17.29
+        },
+        {
+          "raw": "once",
+          "start": 17.29,
+          "end": 17.51
+        },
+        {
+          "raw": "more",
+          "start": 17.51,
+          "end": 17.73
+        },
+        {
+          "raw": "expect",
+          "start": 17.73,
+          "end": 18.11
+        },
+        {
+          "raw": "my",
+          "start": 18.11,
+          "end": 18.37
+        },
+        {
+          "raw": "messenger",
+          "start": 18.37,
+          "end": 18.71
+        },
+        {
+          "raw": "at",
+          "start": 18.71,
+          "end": 18.97
+        },
+        {
+          "raw": "midnight.",
+          "start": 18.97,
+          "end": 19.31
+        },
+        {
+          "raw": "It",
+          "start": 19.99,
+          "end": 20.13
+        },
+        {
+          "raw": "may",
+          "start": 20.13,
+          "end": 20.27
+        },
+        {
+          "raw": "then",
+          "start": 20.27,
+          "end": 20.43
+        },
+        {
+          "raw": "already",
+          "start": 20.43,
+          "end": 20.71
+        },
+        {
+          "raw": "be",
+          "start": 20.71,
+          "end": 20.93
+        },
+        {
+          "raw": "too",
+          "start": 20.93,
+          "end": 21.13
+        },
+        {
+          "raw": "late,",
+          "start": 21.13,
+          "end": 21.43
+        },
+        {
+          "raw": "and",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "raw": "if",
+          "start": 21.97,
+          "end": 22.09
+        },
+        {
+          "raw": "that",
+          "start": 22.09,
+          "end": 22.31
+        },
+        {
+          "raw": "night",
+          "start": 22.31,
+          "end": 22.53
+        },
+        {
+          "raw": "passes",
+          "start": 22.53,
+          "end": 23.01
+        },
+        {
+          "raw": "without",
+          "start": 23.01,
+          "end": 23.33
+        },
+        {
+          "raw": "event,",
+          "start": 23.33,
+          "end": 23.69
+        },
+        {
+          "raw": "you",
+          "start": 24.01,
+          "end": 24.15
+        },
+        {
+          "raw": "will",
+          "start": 24.15,
+          "end": 24.25
+        },
+        {
+          "raw": "know",
+          "start": 24.25,
+          "end": 24.43
+        },
+        {
+          "raw": "that",
+          "start": 24.43,
+          "end": 24.59
+        },
+        {
+          "raw": "you",
+          "start": 24.59,
+          "end": 24.71
+        },
+        {
+          "raw": "have",
+          "start": 24.71,
+          "end": 24.81
+        },
+        {
+          "raw": "seen",
+          "start": 24.81,
+          "end": 25.03
+        },
+        {
+          "raw": "the",
+          "start": 25.03,
+          "end": 25.19
+        },
+        {
+          "raw": "last",
+          "start": 25.19,
+          "end": 25.49
+        },
+        {
+          "raw": "of",
+          "start": 25.49,
+          "end": 25.71
+        },
+        {
+          "raw": "Henry",
+          "start": 25.71,
+          "end": 25.93
+        },
+        {
+          "raw": "Jekyll.",
+          "start": 25.93,
+          "end": 26.39
+        }
+      ],
+      "expected_tokens": [
+        "\"P.S.—I",
+        "had",
+        "already",
+        "sealed",
+        "this",
+        "up",
+        "when",
+        "a",
+        "fresh",
+        "terror",
+        "struck",
+        "upon",
+        "my",
+        "soul.",
+        "It",
+        "is",
+        "possible",
+        "that",
+        "the",
+        "post-office",
+        "may",
+        "fail",
+        "me,",
+        "and",
+        "this",
+        "letter",
+        "not",
+        "come",
+        "into",
+        "your",
+        "hands",
+        "until",
+        "to-morrow",
+        "morning.",
+        "In",
+        "that",
+        "case,",
+        "dear",
+        "Lanyon,",
+        "do",
+        "my",
+        "errand",
+        "when",
+        "it",
+        "shall",
+        "be",
+        "most",
+        "convenient",
+        "for",
+        "you",
+        "in",
+        "the",
+        "course",
+        "of",
+        "the",
+        "day;",
+        "and",
+        "once",
+        "more",
+        "expect",
+        "my",
+        "messenger",
+        "at",
+        "midnight.",
+        "It",
+        "may",
+        "then",
+        "already",
+        "be",
+        "too",
+        "late;",
+        "and",
+        "if",
+        "that",
+        "night",
+        "passes",
+        "without",
+        "event,",
+        "you",
+        "will",
+        "know",
+        "that",
+        "you",
+        "have",
+        "seen",
+        "the",
+        "last",
+        "of",
+        "Henry",
+        "Jekyll.\""
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          "equal",
+          1,
+          90,
+          3,
+          92
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 91
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "P",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "p",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": ".S.",
+          "start": 0.55,
+          "end": 0.97,
+          "key": "s",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.19,
+          "end": 1.63,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.63,
+          "end": 1.75,
+          "key": "had",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 1.75,
+          "end": 2.05,
+          "key": "already",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "sealed",
+          "start": 2.05,
+          "end": 2.31,
+          "key": "sealed",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.55,
+          "end": 2.73,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "when",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.85,
+          "end": 2.99,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fresh",
+          "start": 2.99,
+          "end": 3.19,
+          "key": "fresh",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "terror",
+          "start": 3.19,
+          "end": 3.59,
+          "key": "terror",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "struck",
+          "start": 3.59,
+          "end": 3.87,
+          "key": "struck",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 3.87,
+          "end": 4.13,
+          "key": "upon",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.13,
+          "end": 4.33,
+          "key": "my",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "soul.",
+          "start": 4.33,
+          "end": 4.65,
+          "key": "soul",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 5.29,
+          "end": 5.41,
+          "key": "it",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.41,
+          "end": 5.55,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "possible",
+          "start": 5.55,
+          "end": 5.91,
+          "key": "possible",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 5.91,
+          "end": 6.15,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.15,
+          "end": 6.27,
+          "key": "the",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "post office",
+          "start": 6.27,
+          "end": 6.79,
+          "key": "postoffice",
+          "pieces": [
+            21,
+            22
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 6.79,
+          "end": 7.07,
+          "key": "may",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "fail",
+          "start": 7.07,
+          "end": 7.33,
+          "key": "fail",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 7.33,
+          "end": 7.65,
+          "key": "me",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 7.89,
+          "end": 8.11,
+          "key": "and",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 8.11,
+          "end": 8.25,
+          "key": "this",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 8.25,
+          "end": 8.49,
+          "key": "letter",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 8.49,
+          "end": 8.71,
+          "key": "not",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "come",
+          "start": 8.71,
+          "end": 8.89,
+          "key": "come",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 8.89,
+          "end": 9.05,
+          "key": "into",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 9.05,
+          "end": 9.19,
+          "key": "your",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "hands",
+          "start": 9.19,
+          "end": 9.49,
+          "key": "hands",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "until",
+          "start": 9.49,
+          "end": 9.79,
+          "key": "until",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "tomorrow",
+          "start": 9.79,
+          "end": 10.11,
+          "key": "tomorrow",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "morning.",
+          "start": 10.11,
+          "end": 10.55,
+          "key": "morning",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 11.23,
+          "end": 11.41,
+          "key": "in",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 11.41,
+          "end": 11.59,
+          "key": "that",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "case,",
+          "start": 11.59,
+          "end": 11.99,
+          "key": "case",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 12.49,
+          "end": 12.59,
+          "key": "dear",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91,
+          "key": "lanyon",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 13.49,
+          "end": 13.57,
+          "key": "do",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 13.57,
+          "end": 13.77,
+          "key": "my",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "errand",
+          "start": 13.77,
+          "end": 14.21,
+          "key": "errand",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 14.21,
+          "end": 14.35,
+          "key": "when",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 14.35,
+          "end": 14.45,
+          "key": "it",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 14.45,
+          "end": 14.57,
+          "key": "shall",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 14.57,
+          "end": 14.71,
+          "key": "be",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 14.71,
+          "end": 14.95,
+          "key": "most",
+          "pieces": [
+            49
+          ]
+        },
+        {
+          "raw": "convenient",
+          "start": 14.95,
+          "end": 15.39,
+          "key": "convenient",
+          "pieces": [
+            50
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 15.39,
+          "end": 15.69,
+          "key": "for",
+          "pieces": [
+            51
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 15.69,
+          "end": 15.83,
+          "key": "you",
+          "pieces": [
+            52
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 15.83,
+          "end": 15.95,
+          "key": "in",
+          "pieces": [
+            53
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 15.95,
+          "end": 16.05,
+          "key": "the",
+          "pieces": [
+            54
+          ]
+        },
+        {
+          "raw": "course",
+          "start": 16.05,
+          "end": 16.23,
+          "key": "course",
+          "pieces": [
+            55
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 16.23,
+          "end": 16.43,
+          "key": "of",
+          "pieces": [
+            56
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 16.43,
+          "end": 16.53,
+          "key": "the",
+          "pieces": [
+            57
+          ]
+        },
+        {
+          "raw": "day,",
+          "start": 16.53,
+          "end": 16.73,
+          "key": "day",
+          "pieces": [
+            58
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 17.11,
+          "end": 17.29,
+          "key": "and",
+          "pieces": [
+            59
+          ]
+        },
+        {
+          "raw": "once",
+          "start": 17.29,
+          "end": 17.51,
+          "key": "once",
+          "pieces": [
+            60
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 17.51,
+          "end": 17.73,
+          "key": "more",
+          "pieces": [
+            61
+          ]
+        },
+        {
+          "raw": "expect",
+          "start": 17.73,
+          "end": 18.11,
+          "key": "expect",
+          "pieces": [
+            62
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 18.11,
+          "end": 18.37,
+          "key": "my",
+          "pieces": [
+            63
+          ]
+        },
+        {
+          "raw": "messenger",
+          "start": 18.37,
+          "end": 18.71,
+          "key": "messenger",
+          "pieces": [
+            64
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 18.71,
+          "end": 18.97,
+          "key": "at",
+          "pieces": [
+            65
+          ]
+        },
+        {
+          "raw": "midnight.",
+          "start": 18.97,
+          "end": 19.31,
+          "key": "midnight",
+          "pieces": [
+            66
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 19.99,
+          "end": 20.13,
+          "key": "it",
+          "pieces": [
+            67
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 20.13,
+          "end": 20.27,
+          "key": "may",
+          "pieces": [
+            68
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 20.27,
+          "end": 20.43,
+          "key": "then",
+          "pieces": [
+            69
+          ]
+        },
+        {
+          "raw": "already",
+          "start": 20.43,
+          "end": 20.71,
+          "key": "already",
+          "pieces": [
+            70
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 20.71,
+          "end": 20.93,
+          "key": "be",
+          "pieces": [
+            71
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 20.93,
+          "end": 21.13,
+          "key": "too",
+          "pieces": [
+            72
+          ]
+        },
+        {
+          "raw": "late,",
+          "start": 21.13,
+          "end": 21.43,
+          "key": "late",
+          "pieces": [
+            73
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 21.75,
+          "end": 21.97,
+          "key": "and",
+          "pieces": [
+            74
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 21.97,
+          "end": 22.09,
+          "key": "if",
+          "pieces": [
+            75
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 22.09,
+          "end": 22.31,
+          "key": "that",
+          "pieces": [
+            76
+          ]
+        },
+        {
+          "raw": "night",
+          "start": 22.31,
+          "end": 22.53,
+          "key": "night",
+          "pieces": [
+            77
+          ]
+        },
+        {
+          "raw": "passes",
+          "start": 22.53,
+          "end": 23.01,
+          "key": "passes",
+          "pieces": [
+            78
+          ]
+        },
+        {
+          "raw": "without",
+          "start": 23.01,
+          "end": 23.33,
+          "key": "without",
+          "pieces": [
+            79
+          ]
+        },
+        {
+          "raw": "event,",
+          "start": 23.33,
+          "end": 23.69,
+          "key": "event",
+          "pieces": [
+            80
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 24.01,
+          "end": 24.15,
+          "key": "you",
+          "pieces": [
+            81
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 24.15,
+          "end": 24.25,
+          "key": "will",
+          "pieces": [
+            82
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 24.25,
+          "end": 24.43,
+          "key": "know",
+          "pieces": [
+            83
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 24.43,
+          "end": 24.59,
+          "key": "that",
+          "pieces": [
+            84
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 24.59,
+          "end": 24.71,
+          "key": "you",
+          "pieces": [
+            85
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 24.71,
+          "end": 24.81,
+          "key": "have",
+          "pieces": [
+            86
+          ]
+        },
+        {
+          "raw": "seen",
+          "start": 24.81,
+          "end": 25.03,
+          "key": "seen",
+          "pieces": [
+            87
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 25.03,
+          "end": 25.19,
+          "key": "the",
+          "pieces": [
+            88
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 25.19,
+          "end": 25.49,
+          "key": "last",
+          "pieces": [
+            89
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 25.49,
+          "end": 25.71,
+          "key": "of",
+          "pieces": [
+            90
+          ]
+        },
+        {
+          "raw": "Henry",
+          "start": 25.71,
+          "end": 25.93,
+          "key": "henry",
+          "pieces": [
+            91
+          ]
+        },
+        {
+          "raw": "Jekyll.",
+          "start": 25.93,
+          "end": 26.39,
+          "key": "jekyll",
+          "pieces": [
+            92
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 19,
+          "text": "post-office",
+          "heard": "post office",
+          "heard_indexes": [
+            21,
+            22
+          ],
+          "start": 6.27,
+          "end": 6.79
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "\"P.S.—I",
+          "start": 0.0,
+          "end": 0.815
+        },
+        {
+          "text": "had",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "already",
+          "start": 1.75,
+          "end": 2.05
+        },
+        {
+          "text": "sealed",
+          "start": 2.05,
+          "end": 2.31
+        },
+        {
+          "text": "this",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "text": "up",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "when",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "a",
+          "start": 2.85,
+          "end": 2.99
+        },
+        {
+          "text": "fresh",
+          "start": 2.99,
+          "end": 3.19
+        },
+        {
+          "text": "terror",
+          "start": 3.19,
+          "end": 3.59
+        },
+        {
+          "text": "struck",
+          "start": 3.59,
+          "end": 3.87
+        },
+        {
+          "text": "upon",
+          "start": 3.87,
+          "end": 4.13
+        },
+        {
+          "text": "my",
+          "start": 4.13,
+          "end": 4.33
+        },
+        {
+          "text": "soul.",
+          "start": 4.33,
+          "end": 4.65
+        },
+        {
+          "text": "It",
+          "start": 5.29,
+          "end": 5.41
+        },
+        {
+          "text": "is",
+          "start": 5.41,
+          "end": 5.55
+        },
+        {
+          "text": "possible",
+          "start": 5.55,
+          "end": 5.91
+        },
+        {
+          "text": "that",
+          "start": 5.91,
+          "end": 6.15
+        },
+        {
+          "text": "the",
+          "start": 6.15,
+          "end": 6.27
+        },
+        {
+          "text": "post-office",
+          "start": 6.27,
+          "end": 6.79
+        },
+        {
+          "text": "may",
+          "start": 6.79,
+          "end": 7.07
+        },
+        {
+          "text": "fail",
+          "start": 7.07,
+          "end": 7.33
+        },
+        {
+          "text": "me,",
+          "start": 7.33,
+          "end": 7.65
+        },
+        {
+          "text": "and",
+          "start": 7.89,
+          "end": 8.11
+        },
+        {
+          "text": "this",
+          "start": 8.11,
+          "end": 8.25
+        },
+        {
+          "text": "letter",
+          "start": 8.25,
+          "end": 8.49
+        },
+        {
+          "text": "not",
+          "start": 8.49,
+          "end": 8.71
+        },
+        {
+          "text": "come",
+          "start": 8.71,
+          "end": 8.89
+        },
+        {
+          "text": "into",
+          "start": 8.89,
+          "end": 9.05
+        },
+        {
+          "text": "your",
+          "start": 9.05,
+          "end": 9.19
+        },
+        {
+          "text": "hands",
+          "start": 9.19,
+          "end": 9.49
+        },
+        {
+          "text": "until",
+          "start": 9.49,
+          "end": 9.79
+        },
+        {
+          "text": "to-morrow",
+          "start": 9.79,
+          "end": 10.11
+        },
+        {
+          "text": "morning.",
+          "start": 10.11,
+          "end": 10.55
+        },
+        {
+          "text": "In",
+          "start": 11.23,
+          "end": 11.41
+        },
+        {
+          "text": "that",
+          "start": 11.41,
+          "end": 11.59
+        },
+        {
+          "text": "case,",
+          "start": 11.59,
+          "end": 11.99
+        },
+        {
+          "text": "dear",
+          "start": 12.49,
+          "end": 12.59
+        },
+        {
+          "text": "Lanyon,",
+          "start": 12.59,
+          "end": 12.91
+        },
+        {
+          "text": "do",
+          "start": 13.49,
+          "end": 13.57
+        },
+        {
+          "text": "my",
+          "start": 13.57,
+          "end": 13.77
+        },
+        {
+          "text": "errand",
+          "start": 13.77,
+          "end": 14.21
+        },
+        {
+          "text": "when",
+          "start": 14.21,
+          "end": 14.35
+        },
+        {
+          "text": "it",
+          "start": 14.35,
+          "end": 14.45
+        },
+        {
+          "text": "shall",
+          "start": 14.45,
+          "end": 14.57
+        },
+        {
+          "text": "be",
+          "start": 14.57,
+          "end": 14.71
+        },
+        {
+          "text": "most",
+          "start": 14.71,
+          "end": 14.95
+        },
+        {
+          "text": "convenient",
+          "start": 14.95,
+          "end": 15.39
+        },
+        {
+          "text": "for",
+          "start": 15.39,
+          "end": 15.69
+        },
+        {
+          "text": "you",
+          "start": 15.69,
+          "end": 15.83
+        },
+        {
+          "text": "in",
+          "start": 15.83,
+          "end": 15.95
+        },
+        {
+          "text": "the",
+          "start": 15.95,
+          "end": 16.05
+        },
+        {
+          "text": "course",
+          "start": 16.05,
+          "end": 16.23
+        },
+        {
+          "text": "of",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "text": "the",
+          "start": 16.43,
+          "end": 16.53
+        },
+        {
+          "text": "day;",
+          "start": 16.53,
+          "end": 16.73
+        },
+        {
+          "text": "and",
+          "start": 17.11,
+          "end": 17.29
+        },
+        {
+          "text": "once",
+          "start": 17.29,
+          "end": 17.51
+        },
+        {
+          "text": "more",
+          "start": 17.51,
+          "end": 17.73
+        },
+        {
+          "text": "expect",
+          "start": 17.73,
+          "end": 18.11
+        },
+        {
+          "text": "my",
+          "start": 18.11,
+          "end": 18.37
+        },
+        {
+          "text": "messenger",
+          "start": 18.37,
+          "end": 18.71
+        },
+        {
+          "text": "at",
+          "start": 18.71,
+          "end": 18.97
+        },
+        {
+          "text": "midnight.",
+          "start": 18.97,
+          "end": 19.31
+        },
+        {
+          "text": "It",
+          "start": 19.99,
+          "end": 20.13
+        },
+        {
+          "text": "may",
+          "start": 20.13,
+          "end": 20.27
+        },
+        {
+          "text": "then",
+          "start": 20.27,
+          "end": 20.43
+        },
+        {
+          "text": "already",
+          "start": 20.43,
+          "end": 20.71
+        },
+        {
+          "text": "be",
+          "start": 20.71,
+          "end": 20.93
+        },
+        {
+          "text": "too",
+          "start": 20.93,
+          "end": 21.13
+        },
+        {
+          "text": "late;",
+          "start": 21.13,
+          "end": 21.43
+        },
+        {
+          "text": "and",
+          "start": 21.75,
+          "end": 21.97
+        },
+        {
+          "text": "if",
+          "start": 21.97,
+          "end": 22.09
+        },
+        {
+          "text": "that",
+          "start": 22.09,
+          "end": 22.31
+        },
+        {
+          "text": "night",
+          "start": 22.31,
+          "end": 22.53
+        },
+        {
+          "text": "passes",
+          "start": 22.53,
+          "end": 23.01
+        },
+        {
+          "text": "without",
+          "start": 23.01,
+          "end": 23.33
+        },
+        {
+          "text": "event,",
+          "start": 23.33,
+          "end": 23.69
+        },
+        {
+          "text": "you",
+          "start": 24.01,
+          "end": 24.15
+        },
+        {
+          "text": "will",
+          "start": 24.15,
+          "end": 24.25
+        },
+        {
+          "text": "know",
+          "start": 24.25,
+          "end": 24.43
+        },
+        {
+          "text": "that",
+          "start": 24.43,
+          "end": 24.59
+        },
+        {
+          "text": "you",
+          "start": 24.59,
+          "end": 24.71
+        },
+        {
+          "text": "have",
+          "start": 24.71,
+          "end": 24.81
+        },
+        {
+          "text": "seen",
+          "start": 24.81,
+          "end": 25.03
+        },
+        {
+          "text": "the",
+          "start": 25.03,
+          "end": 25.19
+        },
+        {
+          "text": "last",
+          "start": 25.19,
+          "end": 25.49
+        },
+        {
+          "text": "of",
+          "start": 25.49,
+          "end": 25.71
+        },
+        {
+          "text": "Henry",
+          "start": 25.71,
+          "end": 25.93
+        },
+        {
+          "text": "Jekyll.\"",
+          "start": 25.93,
+          "end": 26.39
+        }
+      ],
+      "stats": {
+        "expected_words": 90,
+        "heard_words": 92,
+        "matched_words": 89
+      },
+      "match_ratio": 0.9888888888888889,
+      "rejection_reasons": [],
+      "seconds": 0.8837653589434922
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "83c78f85cc60b9f8d14a8a95fac13f3dce33589d577e6e1aabf267d62c1064cb",
+  "selected_reasons": []
+}

@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "3e8d4a3a20c4e7209ae61867e24397831359f41493f75ec7ec779cd9b71d8816",
+  "attempts": [
+    {
+      "asr_seconds": 0.13510392606258392,
+      "alignment_seconds": 0.0003597848117351532,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "King. But where is he?",
+        "hotwords": "King, But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " King, But where is he?",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " King,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " But",
+              "start": 0.93,
+              "end": 1.07,
+              "probability": 0.00432586669921875
+            },
+            {
+              "text": " where",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.6630859375
+            },
+            {
+              "text": " is",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " he?",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "But",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "raw": "where",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "is",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "he?",
+          "start": 1.37,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "King.",
+        "But",
+        "where",
+        "is",
+        "he?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "King,",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "king",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 0.93,
+          "end": 1.07,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.07,
+          "end": 1.21,
+          "key": "where",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.21,
+          "end": 1.37,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he?",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "King.",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "But",
+          "start": 0.93,
+          "end": 1.07
+        },
+        {
+          "text": "where",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "is",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "he?",
+          "start": 1.37,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1356232389807701
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "af02f6a3f65cbacb59fa315311d6b86491a5948e480f7ed9beacce419a2c9a0e",
+  "selected_reasons": []
+}

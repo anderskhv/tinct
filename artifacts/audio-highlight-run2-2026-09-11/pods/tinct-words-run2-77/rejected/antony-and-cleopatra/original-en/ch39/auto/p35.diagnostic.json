@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "5ab5806652c737459b280845fcc6083a471ee65204d74f2c19c0ea8594f151ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.14237255402258597,
+      "alignment_seconds": 0.00015901497681625187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antony. 'Tis said, man, and farewell.",
+        "hotwords": "Antony, Tis"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antony, Tis said, man, and farewell.",
+          "start": 0.05,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Antony,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.725830078125
+            },
+            {
+              "text": " Tis",
+              "start": 1.37,
+              "end": 1.53,
+              "probability": 0.19576692581176758
+            },
+            {
+              "text": " said,",
+              "start": 1.53,
+              "end": 1.71,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " man,",
+              "start": 1.71,
+              "end": 1.95,
+              "probability": 0.09210205078125
+            },
+            {
+              "text": " and",
+              "start": 2.07,
+              "end": 2.15,
+              "probability": 0.986328125
+            },
+            {
+              "text": " farewell.",
+              "start": 2.15,
+              "end": 2.51,
+              "probability": 0.9697265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "Tis",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "raw": "said,",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "raw": "man,",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "raw": "farewell.",
+          "start": 2.15,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Antony.",
+        "'Tis",
+        "said,",
+        "man,",
+        "and",
+        "farewell."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antony,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "antony",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Tis",
+          "start": 1.37,
+          "end": 1.53,
+          "key": "tis",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.53,
+          "end": 1.71,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 1.71,
+          "end": 1.95,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.07,
+          "end": 2.15,
+          "key": "and",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "farewell.",
+          "start": 2.15,
+          "end": 2.51,
+          "key": "farewell",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antony.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "'Tis",
+          "start": 1.37,
+          "end": 1.53
+        },
+        {
+          "text": "said,",
+          "start": 1.53,
+          "end": 1.71
+        },
+        {
+          "text": "man,",
+          "start": 1.71,
+          "end": 1.95
+        },
+        {
+          "text": "and",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "text": "farewell.",
+          "start": 2.15,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1425864310003817
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0be0208994c71c13499374e5572b616972187ba78a0f5bf33e1e1d8615491864",
+  "selected_reasons": []
+}

@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "5f7d0a9e978b534346fd9936fb689fb84e9c61ff96ab25a09381af48139c0305",
+  "attempts": [
+    {
+      "asr_seconds": 0.23349959263578057,
+      "alignment_seconds": 0.0004227221943438053,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " From a long face, a beard, and gaze hung on a chessboard.",
+          "start": 0.05,
+          "end": 3.45,
+          "words": [
+            {
+              "text": " From",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.4013671875
+            },
+            {
+              "text": " a",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " long",
+              "start": 0.61,
+              "end": 0.81,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " face,",
+              "start": 0.81,
+              "end": 1.19,
+              "probability": 0.994140625
+            },
+            {
+              "text": " a",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " beard,",
+              "start": 1.43,
+              "end": 1.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.17,
+              "end": 2.27,
+              "probability": 0.9765625
+            },
+            {
+              "text": " gaze",
+              "start": 2.27,
+              "end": 2.51,
+              "probability": 0.896484375
+            },
+            {
+              "text": " hung",
+              "start": 2.51,
+              "end": 2.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on",
+              "start": 2.77,
+              "end": 2.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 2.91,
+              "end": 3.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " chessboard.",
+              "start": 3.01,
+              "end": 3.45,
+              "probability": 0.86083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "a",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "long",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "raw": "face,",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "raw": "a",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "beard,",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "raw": "gaze",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "raw": "hung",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "raw": "on",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "raw": "a",
+          "start": 2.91,
+          "end": 3.01
+        },
+        {
+          "raw": "chessboard.",
+          "start": 3.01,
+          "end": 3.45
+        }
+      ],
+      "expected_tokens": [
+        "From",
+        "a",
+        "long",
+        "face",
+        "a",
+        "beard",
+        "and",
+        "gaze",
+        "hung",
+        "on",
+        "a",
+        "chessboard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "from",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "long",
+          "start": 0.61,
+          "end": 0.81,
+          "key": "long",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "face,",
+          "start": 0.81,
+          "end": 1.19,
+          "key": "face",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.23,
+          "end": 1.43,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "beard,",
+          "start": 1.43,
+          "end": 1.73,
+          "key": "beard",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.17,
+          "end": 2.27,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "gaze",
+          "start": 2.27,
+          "end": 2.51,
+          "key": "gaze",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hung",
+          "start": 2.51,
+          "end": 2.77,
+          "key": "hung",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 2.77,
+          "end": 2.91,
+          "key": "on",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.91,
+          "end": 3.01,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "chessboard.",
+          "start": 3.01,
+          "end": 3.45,
+          "key": "chessboard",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "From",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "a",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "long",
+          "start": 0.61,
+          "end": 0.81
+        },
+        {
+          "text": "face",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "text": "a",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "beard",
+          "start": 1.43,
+          "end": 1.73
+        },
+        {
+          "text": "and",
+          "start": 2.17,
+          "end": 2.27
+        },
+        {
+          "text": "gaze",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "text": "hung",
+          "start": 2.51,
+          "end": 2.77
+        },
+        {
+          "text": "on",
+          "start": 2.77,
+          "end": 2.91
+        },
+        {
+          "text": "a",
+          "start": 2.91,
+          "end": 3.01
+        },
+        {
+          "text": "chessboard.",
+          "start": 3.01,
+          "end": 3.45
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2340879738330841
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7f1e2a242304f1cbfa0e137b1d3dfa69afeeb8cdfe689a0d79fda0ba28ffc2fc",
+  "selected_reasons": []
+}

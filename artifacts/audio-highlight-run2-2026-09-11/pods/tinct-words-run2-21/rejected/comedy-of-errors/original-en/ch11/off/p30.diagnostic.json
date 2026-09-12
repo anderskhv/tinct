@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "d610ff41420bb0f55e0e2896628dbff36b864a6b0d69151038e9f9e79dd3677d",
+  "attempts": [
+    {
+      "asr_seconds": 0.18451740220189095,
+      "alignment_seconds": 0.00023284228518605232,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Adriana, as roughly as my modesty would let me.",
+          "start": 0.11,
+          "end": 3.29,
+          "words": [
+            {
+              "text": " Adriana,",
+              "start": 0.11,
+              "end": 0.97,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " as",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.990234375
+            },
+            {
+              "text": " roughly",
+              "start": 1.59,
+              "end": 1.85,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 1.85,
+              "end": 2.09,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " my",
+              "start": 2.09,
+              "end": 2.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " modesty",
+              "start": 2.23,
+              "end": 2.59,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " would",
+              "start": 2.59,
+              "end": 2.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " let",
+              "start": 2.89,
+              "end": 3.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 3.07,
+              "end": 3.29,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Adriana,",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "raw": "as",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "roughly",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "raw": "as",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "raw": "my",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "raw": "modesty",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "raw": "would",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "raw": "let",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "raw": "me.",
+          "start": 3.07,
+          "end": 3.29
+        }
+      ],
+      "expected_tokens": [
+        "Adriana.",
+        "As",
+        "roughly",
+        "as",
+        "my",
+        "modesty",
+        "would",
+        "let",
+        "me."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Adriana,",
+          "start": 0.11,
+          "end": 0.97,
+          "key": "adriana",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.43,
+          "end": 1.59,
+          "key": "as",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "roughly",
+          "start": 1.59,
+          "end": 1.85,
+          "key": "roughly",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.85,
+          "end": 2.09,
+          "key": "as",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.09,
+          "end": 2.23,
+          "key": "my",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "modesty",
+          "start": 2.23,
+          "end": 2.59,
+          "key": "modesty",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 2.59,
+          "end": 2.89,
+          "key": "would",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 2.89,
+          "end": 3.07,
+          "key": "let",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 3.07,
+          "end": 3.29,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Adriana.",
+          "start": 0.11,
+          "end": 0.97
+        },
+        {
+          "text": "As",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "roughly",
+          "start": 1.59,
+          "end": 1.85
+        },
+        {
+          "text": "as",
+          "start": 1.85,
+          "end": 2.09
+        },
+        {
+          "text": "my",
+          "start": 2.09,
+          "end": 2.23
+        },
+        {
+          "text": "modesty",
+          "start": 2.23,
+          "end": 2.59
+        },
+        {
+          "text": "would",
+          "start": 2.59,
+          "end": 2.89
+        },
+        {
+          "text": "let",
+          "start": 2.89,
+          "end": 3.07
+        },
+        {
+          "text": "me.",
+          "start": 3.07,
+          "end": 3.29
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1848319279961288
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "104377230a502f4d00333e61f4aa922fcbd1907d976ae1720875073d8255f9bd",
+  "selected_reasons": []
+}

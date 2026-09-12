@@ -1,0 +1,1733 @@
+{
+  "complete": true,
+  "signature": "c2dac206d7fdd72278d896f4a7eaa4e59f7495f2fa73408794f91032d7d3af16",
+  "attempts": [
+    {
+      "asr_seconds": 4.19417708995752,
+      "alignment_seconds": 0.0008564039599150419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Agave. My father, thou canst see the change in me, * * * * * * * * * *",
+        "hotwords": "Agave, My"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Agave, My father, thou canst see the change in me,",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Agave,",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.5302734375
+            },
+            {
+              "text": " My",
+              "start": 1.13,
+              "end": 1.35,
+              "probability": 0.046173095703125
+            },
+            {
+              "text": " father,",
+              "start": 1.35,
+              "end": 1.67,
+              "probability": 0.7333984375
+            },
+            {
+              "text": " thou",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.8046875
+            },
+            {
+              "text": " canst",
+              "start": 1.85,
+              "end": 2.21,
+              "probability": 0.744873046875
+            },
+            {
+              "text": " see",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.990234375
+            },
+            {
+              "text": " change",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me,",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.93701171875
+            }
+          ]
+        },
+        {
+          "text": " and my father, thou canst see the change in me,",
+          "start": 3.17,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " and",
+              "start": 3.17,
+              "end": 3.17,
+              "probability": 0.0038166046142578125
+            },
+            {
+              "text": " my",
+              "start": 3.17,
+              "end": 3.17,
+              "probability": 0.004039764404296875
+            },
+            {
+              "text": " father,",
+              "start": 3.17,
+              "end": 3.17,
+              "probability": 0.002361297607421875
+            },
+            {
+              "text": " thou",
+              "start": 3.17,
+              "end": 3.17,
+              "probability": 2.6226043701171875e-06
+            },
+            {
+              "text": " canst",
+              "start": 3.17,
+              "end": 3.17,
+              "probability": 0.3846454620361328
+            },
+            {
+              "text": " see",
+              "start": 3.17,
+              "end": 3.17,
+              "probability": 0.0223846435546875
+            },
+            {
+              "text": " the",
+              "start": 3.17,
+              "end": 3.19,
+              "probability": 0.122314453125
+            },
+            {
+              "text": " change",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 0.00150299072265625
+            },
+            {
+              "text": " in",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 0.235107421875
+            },
+            {
+              "text": " me,",
+              "start": 3.19,
+              "end": 3.19,
+              "probability": 0.045806884765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "My",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "raw": "father,",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "raw": "thou",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "canst",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "raw": "see",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "change",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "in",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "me,",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "and",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "raw": "my",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "raw": "father,",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "raw": "thou",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "raw": "canst",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "raw": "see",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.19
+        },
+        {
+          "raw": "change",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "raw": "in",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "raw": "me,",
+          "start": 3.19,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "My",
+        "father,",
+        "thou",
+        "canst",
+        "see",
+        "the",
+        "change",
+        "in",
+        "me,",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          20,
+          10,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          20,
+          10,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agave,",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "agave",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "My",
+          "start": 1.13,
+          "end": 1.35,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "father,",
+          "start": 1.35,
+          "end": 1.67,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 1.85,
+          "end": 2.21,
+          "key": "canst",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "change",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.17,
+          "end": 3.17,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 3.17,
+          "end": 3.17,
+          "key": "my",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "father,",
+          "start": 3.17,
+          "end": 3.17,
+          "key": "father",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.17,
+          "end": 3.17,
+          "key": "thou",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 3.17,
+          "end": 3.17,
+          "key": "canst",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.17,
+          "end": 3.17,
+          "key": "see",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.17,
+          "end": 3.19,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "change",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "in",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 3.19,
+          "end": 3.19,
+          "key": "me",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "My",
+          "start": 1.13,
+          "end": 1.35
+        },
+        {
+          "text": "father,",
+          "start": 1.35,
+          "end": 1.67
+        },
+        {
+          "text": "thou",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "canst",
+          "start": 1.85,
+          "end": 2.21
+        },
+        {
+          "text": "see",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "the",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "change",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "in",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "me,",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.18
+        },
+        {
+          "text": "*",
+          "start": 3.18,
+          "end": 3.185
+        },
+        {
+          "text": "*",
+          "start": 3.185,
+          "end": 3.188
+        },
+        {
+          "text": "*",
+          "start": 3.188,
+          "end": 3.189
+        },
+        {
+          "text": "*",
+          "start": 3.189,
+          "end": 3.189
+        },
+        {
+          "text": "*",
+          "start": 3.189,
+          "end": 3.189
+        },
+        {
+          "text": "*",
+          "start": 3.189,
+          "end": 3.189
+        },
+        {
+          "text": "*",
+          "start": 3.189,
+          "end": 3.189
+        },
+        {
+          "text": "*",
+          "start": 3.189,
+          "end": 3.189
+        },
+        {
+          "text": "*",
+          "start": 3.189,
+          "end": 3.189
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 10
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 4.195372743997723
+    },
+    {
+      "asr_seconds": 0.18794704193715006,
+      "alignment_seconds": 0.0007606750587001443,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Agave, My"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Father Thou canst see the change in me.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Father",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 1.6748905181884766e-05
+            },
+            {
+              "text": " Thou",
+              "start": 0.73,
+              "end": 1.83,
+              "probability": 0.0014619827270507812
+            },
+            {
+              "text": " canst",
+              "start": 1.83,
+              "end": 2.19,
+              "probability": 0.686767578125
+            },
+            {
+              "text": " see",
+              "start": 2.19,
+              "end": 2.41,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " the",
+              "start": 2.41,
+              "end": 2.53,
+              "probability": 0.978515625
+            },
+            {
+              "text": " change",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " in",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me.",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Thou",
+          "start": 0.73,
+          "end": 1.83
+        },
+        {
+          "raw": "canst",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "raw": "see",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "raw": "change",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "in",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "me.",
+          "start": 2.97,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "My",
+        "father,",
+        "thou",
+        "canst",
+        "see",
+        "the",
+        "change",
+        "in",
+        "me,",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          10,
+          0,
+          8
+        ],
+        [
+          "delete",
+          10,
+          20,
+          8,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "delete",
+          10,
+          20,
+          8,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Father",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "father",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Thou",
+          "start": 0.73,
+          "end": 1.83,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 1.83,
+          "end": 2.19,
+          "key": "canst",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.19,
+          "end": 2.41,
+          "key": "see",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.41,
+          "end": 2.53,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "change",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.97,
+          "end": 3.17,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "My",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "father,",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "thou",
+          "start": 0.73,
+          "end": 1.83
+        },
+        {
+          "text": "canst",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "text": "see",
+          "start": 2.19,
+          "end": 2.41
+        },
+        {
+          "text": "the",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "change",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "in",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "me,",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        },
+        {
+          "text": "*",
+          "start": 3.17,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 0.4,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18886078393552452
+    },
+    {
+      "asr_seconds": 0.20752663700841367,
+      "alignment_seconds": 0.0007446849485859275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Agavi, my father thou canst see the change in me.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Agavi,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " my",
+              "start": 1.19,
+              "end": 1.37,
+              "probability": 0.9375
+            },
+            {
+              "text": " father",
+              "start": 1.37,
+              "end": 1.65,
+              "probability": 0.9609375
+            },
+            {
+              "text": " thou",
+              "start": 1.65,
+              "end": 1.87,
+              "probability": 0.8291015625
+            },
+            {
+              "text": " canst",
+              "start": 1.87,
+              "end": 2.21,
+              "probability": 0.715087890625
+            },
+            {
+              "text": " see",
+              "start": 2.21,
+              "end": 2.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " change",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 2.77,
+              "end": 2.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 2.97,
+              "end": 3.19,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "my",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "raw": "father",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "raw": "thou",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "raw": "canst",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "raw": "see",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "change",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "in",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "raw": "me.",
+          "start": 2.97,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Agave.",
+        "My",
+        "father,",
+        "thou",
+        "canst",
+        "see",
+        "the",
+        "change",
+        "in",
+        "me,",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*",
+        "*"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          10,
+          1,
+          10
+        ],
+        [
+          "delete",
+          10,
+          20,
+          10,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          10,
+          20,
+          10,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Agavi,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "agavi",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.19,
+          "end": 1.37,
+          "key": "my",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "father",
+          "start": 1.37,
+          "end": 1.65,
+          "key": "father",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.65,
+          "end": 1.87,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "canst",
+          "start": 1.87,
+          "end": 2.21,
+          "key": "canst",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.21,
+          "end": 2.39,
+          "key": "see",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "change",
+          "start": 2.53,
+          "end": 2.77,
+          "key": "change",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.77,
+          "end": 2.97,
+          "key": "in",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.97,
+          "end": 3.19,
+          "key": "me",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Agave.",
+          "start": 0.0,
+          "end": 0.595
+        },
+        {
+          "text": "My",
+          "start": 1.19,
+          "end": 1.37
+        },
+        {
+          "text": "father,",
+          "start": 1.37,
+          "end": 1.65
+        },
+        {
+          "text": "thou",
+          "start": 1.65,
+          "end": 1.87
+        },
+        {
+          "text": "canst",
+          "start": 1.87,
+          "end": 2.21
+        },
+        {
+          "text": "see",
+          "start": 2.21,
+          "end": 2.39
+        },
+        {
+          "text": "the",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "change",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "in",
+          "start": 2.77,
+          "end": 2.97
+        },
+        {
+          "text": "me,",
+          "start": 2.97,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        },
+        {
+          "text": "*",
+          "start": 3.19,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 10,
+        "matched_words": 9
+      },
+      "match_ratio": 0.45,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20846859097946435
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce78ecead9fd9726071e20323326252c1a5d9bb8145ec522bb4ff880f8953e10",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

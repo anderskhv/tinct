@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "a57bbc8b7cd842e9f6ab154da8ab76a03db5468720bbfeea772840aa38aef631",
+  "attempts": [
+    {
+      "asr_seconds": 0.24455432198010385,
+      "alignment_seconds": 0.0004556560015771538,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Caesar no sweet Octavia you shall hear from me still the time shall not outgo my thinking on you",
+          "start": 0.11,
+          "end": 6.37,
+          "words": [
+            {
+              "text": " Caesar",
+              "start": 0.11,
+              "end": 0.73,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " no",
+              "start": 0.73,
+              "end": 1.51,
+              "probability": 0.1829833984375
+            },
+            {
+              "text": " sweet",
+              "start": 1.51,
+              "end": 1.91,
+              "probability": 0.80859375
+            },
+            {
+              "text": " Octavia",
+              "start": 1.91,
+              "end": 2.45,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " you",
+              "start": 2.45,
+              "end": 2.79,
+              "probability": 0.55517578125
+            },
+            {
+              "text": " shall",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hear",
+              "start": 2.93,
+              "end": 3.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " from",
+              "start": 3.11,
+              "end": 3.31,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " me",
+              "start": 3.31,
+              "end": 3.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " still",
+              "start": 3.45,
+              "end": 3.73,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " the",
+              "start": 3.73,
+              "end": 4.43,
+              "probability": 0.962890625
+            },
+            {
+              "text": " time",
+              "start": 4.43,
+              "end": 4.69,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " shall",
+              "start": 4.69,
+              "end": 4.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 4.87,
+              "end": 5.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " outgo",
+              "start": 5.09,
+              "end": 5.43,
+              "probability": 0.906005859375
+            },
+            {
+              "text": " my",
+              "start": 5.43,
+              "end": 5.63,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " thinking",
+              "start": 5.63,
+              "end": 5.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 5.93,
+              "end": 6.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 6.13,
+              "end": 6.37,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Caesar",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "raw": "no",
+          "start": 0.73,
+          "end": 1.51
+        },
+        {
+          "raw": "sweet",
+          "start": 1.51,
+          "end": 1.91
+        },
+        {
+          "raw": "Octavia",
+          "start": 1.91,
+          "end": 2.45
+        },
+        {
+          "raw": "you",
+          "start": 2.45,
+          "end": 2.79
+        },
+        {
+          "raw": "shall",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "hear",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "raw": "from",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "raw": "me",
+          "start": 3.31,
+          "end": 3.45
+        },
+        {
+          "raw": "still",
+          "start": 3.45,
+          "end": 3.73
+        },
+        {
+          "raw": "the",
+          "start": 3.73,
+          "end": 4.43
+        },
+        {
+          "raw": "time",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "raw": "shall",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "raw": "not",
+          "start": 4.87,
+          "end": 5.09
+        },
+        {
+          "raw": "outgo",
+          "start": 5.09,
+          "end": 5.43
+        },
+        {
+          "raw": "my",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "raw": "thinking",
+          "start": 5.63,
+          "end": 5.93
+        },
+        {
+          "raw": "on",
+          "start": 5.93,
+          "end": 6.13
+        },
+        {
+          "raw": "you",
+          "start": 6.13,
+          "end": 6.37
+        }
+      ],
+      "expected_tokens": [
+        "Caesar.",
+        "No,",
+        "sweet",
+        "Octavia,",
+        "You",
+        "shall",
+        "hear",
+        "from",
+        "me",
+        "still.",
+        "The",
+        "time",
+        "shall",
+        "not",
+        "Outgo",
+        "my",
+        "thinking",
+        "on",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Caesar",
+          "start": 0.11,
+          "end": 0.73,
+          "key": "caesar",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.73,
+          "end": 1.51,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sweet",
+          "start": 1.51,
+          "end": 1.91,
+          "key": "sweet",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Octavia",
+          "start": 1.91,
+          "end": 2.45,
+          "key": "octavia",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.45,
+          "end": 2.79,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 2.79,
+          "end": 2.93,
+          "key": "shall",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 2.93,
+          "end": 3.11,
+          "key": "hear",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.11,
+          "end": 3.31,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 3.31,
+          "end": 3.45,
+          "key": "me",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "still",
+          "start": 3.45,
+          "end": 3.73,
+          "key": "still",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.73,
+          "end": 4.43,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 4.43,
+          "end": 4.69,
+          "key": "time",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shall",
+          "start": 4.69,
+          "end": 4.87,
+          "key": "shall",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.87,
+          "end": 5.09,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "outgo",
+          "start": 5.09,
+          "end": 5.43,
+          "key": "outgo",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 5.43,
+          "end": 5.63,
+          "key": "my",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "thinking",
+          "start": 5.63,
+          "end": 5.93,
+          "key": "thinking",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 5.93,
+          "end": 6.13,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 6.13,
+          "end": 6.37,
+          "key": "you",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Caesar.",
+          "start": 0.11,
+          "end": 0.73
+        },
+        {
+          "text": "No,",
+          "start": 0.73,
+          "end": 1.51
+        },
+        {
+          "text": "sweet",
+          "start": 1.51,
+          "end": 1.91
+        },
+        {
+          "text": "Octavia,",
+          "start": 1.91,
+          "end": 2.45
+        },
+        {
+          "text": "You",
+          "start": 2.45,
+          "end": 2.79
+        },
+        {
+          "text": "shall",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "hear",
+          "start": 2.93,
+          "end": 3.11
+        },
+        {
+          "text": "from",
+          "start": 3.11,
+          "end": 3.31
+        },
+        {
+          "text": "me",
+          "start": 3.31,
+          "end": 3.45
+        },
+        {
+          "text": "still.",
+          "start": 3.45,
+          "end": 3.73
+        },
+        {
+          "text": "The",
+          "start": 3.73,
+          "end": 4.43
+        },
+        {
+          "text": "time",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "text": "shall",
+          "start": 4.69,
+          "end": 4.87
+        },
+        {
+          "text": "not",
+          "start": 4.87,
+          "end": 5.09
+        },
+        {
+          "text": "Outgo",
+          "start": 5.09,
+          "end": 5.43
+        },
+        {
+          "text": "my",
+          "start": 5.43,
+          "end": 5.63
+        },
+        {
+          "text": "thinking",
+          "start": 5.63,
+          "end": 5.93
+        },
+        {
+          "text": "on",
+          "start": 5.93,
+          "end": 6.13
+        },
+        {
+          "text": "you.",
+          "start": 6.13,
+          "end": 6.37
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2452022339857649
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7663db1fffc3696e080fff7c10f053879379b7bbceb9d011073e90c315da19b4",
+  "selected_reasons": []
+}

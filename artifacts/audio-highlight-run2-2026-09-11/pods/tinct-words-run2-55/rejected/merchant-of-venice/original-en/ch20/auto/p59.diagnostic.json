@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "9da83318898607fd918ac62e535b5a0c82e1a5d7b23ffde14cb6c9c97a6bfd3a",
+  "attempts": [
+    {
+      "asr_seconds": 0.11192193441092968,
+      "alignment_seconds": 0.00017436500638723373,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Gratiano.",
+        "hotwords": "Gratiano"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Gratiano.",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Gratiano.",
+              "start": 0.02,
+              "end": 0.92,
+              "probability": 0.26322174072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Gratiano.",
+          "start": 0.02,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "Gratiano."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Gratiano.",
+          "start": 0.02,
+          "end": 0.92,
+          "key": "gratiano",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Gratiano.",
+          "start": 0.02,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11215089075267315
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dacccf8234e725c314d6f534fcf2fca9e8b8534425775eb1ab22a592f5a44dbe",
+  "selected_reasons": []
+}

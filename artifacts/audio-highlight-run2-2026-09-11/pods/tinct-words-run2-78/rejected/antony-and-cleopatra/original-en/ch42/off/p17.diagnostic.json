@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "a87ebac3a471d6af2fcdc021a4d31bdebc5487953986bc6df09c37231dccb8ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.14986876491457224,
+      "alignment_seconds": 0.00015316810458898544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Seizes and disarms her.",
+          "start": 0.08,
+          "end": 1.68,
+          "words": [
+            {
+              "text": " Seizes",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.650390625
+            },
+            {
+              "text": " and",
+              "start": 0.78,
+              "end": 1.08,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " disarms",
+              "start": 1.08,
+              "end": 1.48,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " her.",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Seizes",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "raw": "and",
+          "start": 0.78,
+          "end": 1.08
+        },
+        {
+          "raw": "disarms",
+          "start": 1.08,
+          "end": 1.48
+        },
+        {
+          "raw": "her.",
+          "start": 1.48,
+          "end": 1.68
+        }
+      ],
+      "expected_tokens": [
+        "[_Seizes",
+        "and",
+        "disarms",
+        "her._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Seizes",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "seizes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.78,
+          "end": 1.08,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "disarms",
+          "start": 1.08,
+          "end": 1.48,
+          "key": "disarms",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "her.",
+          "start": 1.48,
+          "end": 1.68,
+          "key": "her",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Seizes",
+          "start": 0.08,
+          "end": 0.78
+        },
+        {
+          "text": "and",
+          "start": 0.78,
+          "end": 1.08
+        },
+        {
+          "text": "disarms",
+          "start": 1.08,
+          "end": 1.48
+        },
+        {
+          "text": "her._]",
+          "start": 1.48,
+          "end": 1.68
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15007046051323414
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "64d78ca31d221e5a7e7afc0fafd13f8a32fc6a1df0d1653de97e4a047be02abe",
+  "selected_reasons": []
+}

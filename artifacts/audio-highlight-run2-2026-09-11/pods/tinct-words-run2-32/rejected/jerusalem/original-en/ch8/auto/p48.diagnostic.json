@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "13eb395cc0b79c2fb8aa0157bf0618fbc70da99ea1100cee26ec0081f60c1011",
+  "attempts": [
+    {
+      "asr_seconds": 0.09373964555561543,
+      "alignment_seconds": 0.00010726973414421082,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"I thought you were going to tell me about Gertrude,\" Ingmar reminded him.",
+        "hotwords": "I, Gertrude, Ingmar"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I thought you were going to tell me about Gertrude, Ingmar reminded him.",
+          "start": 0.08,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.279052734375
+            },
+            {
+              "text": " thought",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " were",
+              "start": 0.84,
+              "end": 0.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " going",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.1,
+              "end": 1.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tell",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me",
+              "start": 1.42,
+              "end": 1.56,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " about",
+              "start": 1.56,
+              "end": 1.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Gertrude,",
+              "start": 1.88,
+              "end": 2.5,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " Ingmar",
+              "start": 3.06,
+              "end": 3.38,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " reminded",
+              "start": 3.38,
+              "end": 3.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him.",
+              "start": 3.8,
+              "end": 4.12,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "thought",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "were",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "raw": "going",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "to",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "raw": "tell",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "me",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "raw": "about",
+          "start": 1.56,
+          "end": 1.88
+        },
+        {
+          "raw": "Gertrude,",
+          "start": 1.88,
+          "end": 2.5
+        },
+        {
+          "raw": "Ingmar",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "raw": "reminded",
+          "start": 3.38,
+          "end": 3.8
+        },
+        {
+          "raw": "him.",
+          "start": 3.8,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "thought",
+        "you",
+        "were",
+        "going",
+        "to",
+        "tell",
+        "me",
+        "about",
+        "Gertrude,\"",
+        "Ingmar",
+        "reminded",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "thought",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.84,
+          "end": 0.94,
+          "key": "were",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 0.94,
+          "end": 1.1,
+          "key": "going",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.1,
+          "end": 1.24,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.24,
+          "end": 1.42,
+          "key": "tell",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.42,
+          "end": 1.56,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 1.56,
+          "end": 1.88,
+          "key": "about",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Gertrude,",
+          "start": 1.88,
+          "end": 2.5,
+          "key": "gertrude",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Ingmar",
+          "start": 3.06,
+          "end": 3.38,
+          "key": "ingmar",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "reminded",
+          "start": 3.38,
+          "end": 3.8,
+          "key": "reminded",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 3.8,
+          "end": 4.12,
+          "key": "him",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "thought",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "you",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "were",
+          "start": 0.84,
+          "end": 0.94
+        },
+        {
+          "text": "going",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "to",
+          "start": 1.1,
+          "end": 1.24
+        },
+        {
+          "text": "tell",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "me",
+          "start": 1.42,
+          "end": 1.56
+        },
+        {
+          "text": "about",
+          "start": 1.56,
+          "end": 1.88
+        },
+        {
+          "text": "Gertrude,\"",
+          "start": 1.88,
+          "end": 2.5
+        },
+        {
+          "text": "Ingmar",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "text": "reminded",
+          "start": 3.38,
+          "end": 3.8
+        },
+        {
+          "text": "him.",
+          "start": 3.8,
+          "end": 4.12
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09388605132699013
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "212163e0111ca963d8cb09f8c6659f36902cb8fb5ddc3c673183915eb5dba0ab",
+  "selected_reasons": []
+}

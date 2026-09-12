@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "9ef6e4afbb3c731a4bb1c349d3fc288b44bca22c7dfb4ccdd7576f244f46fe97",
+  "attempts": [
+    {
+      "asr_seconds": 1.157902066130191,
+      "alignment_seconds": 0.00033814599737524986,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Roderigo. Well, what is it? Is it within reason and compass?",
+        "hotwords": "Roderigo, Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Roderigo, Well, what is it? Is it within reason and compass?",
+          "start": 0.52,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Roderigo,",
+              "start": 0.52,
+              "end": 1.0,
+              "probability": 0.3271891276041667
+            },
+            {
+              "text": " Well,",
+              "start": 1.28,
+              "end": 1.52,
+              "probability": 0.0169677734375
+            },
+            {
+              "text": " what",
+              "start": 1.7,
+              "end": 1.74,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " is",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " it?",
+              "start": 1.88,
+              "end": 2.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Is",
+              "start": 2.52,
+              "end": 2.6,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " it",
+              "start": 2.6,
+              "end": 2.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " within",
+              "start": 2.7,
+              "end": 2.92,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " reason",
+              "start": 2.92,
+              "end": 3.22,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " and",
+              "start": 3.22,
+              "end": 3.52,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " compass?",
+              "start": 3.52,
+              "end": 3.86,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "raw": "Well,",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "raw": "what",
+          "start": 1.7,
+          "end": 1.74
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "it?",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "raw": "Is",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "raw": "it",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "raw": "within",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "raw": "reason",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "raw": "and",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "raw": "compass?",
+          "start": 3.52,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "Roderigo.",
+        "Well,",
+        "what",
+        "is",
+        "it?",
+        "Is",
+        "it",
+        "within",
+        "reason",
+        "and",
+        "compass?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roderigo,",
+          "start": 0.52,
+          "end": 1.0,
+          "key": "roderigo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.28,
+          "end": 1.52,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.7,
+          "end": 1.74,
+          "key": "what",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.74,
+          "end": 1.88,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it?",
+          "start": 1.88,
+          "end": 2.12,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 2.52,
+          "end": 2.6,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.6,
+          "end": 2.7,
+          "key": "it",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 2.7,
+          "end": 2.92,
+          "key": "within",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "reason",
+          "start": 2.92,
+          "end": 3.22,
+          "key": "reason",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.22,
+          "end": 3.52,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "compass?",
+          "start": 3.52,
+          "end": 3.86,
+          "key": "compass",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Roderigo.",
+          "start": 0.52,
+          "end": 1.0
+        },
+        {
+          "text": "Well,",
+          "start": 1.28,
+          "end": 1.52
+        },
+        {
+          "text": "what",
+          "start": 1.7,
+          "end": 1.74
+        },
+        {
+          "text": "is",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "it?",
+          "start": 1.88,
+          "end": 2.12
+        },
+        {
+          "text": "Is",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "it",
+          "start": 2.6,
+          "end": 2.7
+        },
+        {
+          "text": "within",
+          "start": 2.7,
+          "end": 2.92
+        },
+        {
+          "text": "reason",
+          "start": 2.92,
+          "end": 3.22
+        },
+        {
+          "text": "and",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "text": "compass?",
+          "start": 3.52,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.1583671909756958
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5dd57068e59f703b59b2976f764c3b4fcf36b10f9525c8fe60cd93ef7b8193d4",
+  "selected_reasons": []
+}

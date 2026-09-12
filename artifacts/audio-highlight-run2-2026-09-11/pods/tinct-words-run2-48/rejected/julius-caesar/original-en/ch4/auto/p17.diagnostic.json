@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "signature": "31665302b76b3abe03f17840128063d7d00e8f385dcf1ea4bce27dbebbaf2308",
+  "attempts": [
+    {
+      "asr_seconds": 0.2713071955367923,
+      "alignment_seconds": 0.00023081433027982712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Opens the letter and reads._]"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Opens the letter and reads.",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Opens",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.54266357421875
+            },
+            {
+              "text": " the",
+              "start": 0.77,
+              "end": 0.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " letter",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 1.09,
+              "end": 1.31,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " reads.",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Opens",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "the",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "raw": "letter",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "raw": "reads.",
+          "start": 1.31,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "[_Opens",
+        "the",
+        "letter",
+        "and",
+        "reads._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Opens",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "opens",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.77,
+          "end": 0.91,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "letter",
+          "start": 0.91,
+          "end": 1.09,
+          "key": "letter",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.09,
+          "end": 1.31,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "reads.",
+          "start": 1.31,
+          "end": 1.57,
+          "key": "reads",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Opens",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "the",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "text": "letter",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "and",
+          "start": 1.09,
+          "end": 1.31
+        },
+        {
+          "text": "reads._]",
+          "start": 1.31,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2716529630124569
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f9c42af146a561d55e99a113506e05cb9b9baccd646590dcb61e792bc93b1d07",
+  "selected_reasons": []
+}

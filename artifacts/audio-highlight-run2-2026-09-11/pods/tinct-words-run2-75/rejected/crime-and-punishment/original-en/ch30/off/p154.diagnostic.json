@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "9bbb490d544c3560224f0e778c20970a9abf327d3689c4e70854ddc5d444bf57",
+  "attempts": [
+    {
+      "asr_seconds": 0.18122703954577446,
+      "alignment_seconds": 0.00039094313979148865,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ugh, Sonya cried in terror.",
+          "start": 0.18,
+          "end": 2.1,
+          "words": [
+            {
+              "text": " Ugh,",
+              "start": 0.18,
+              "end": 0.74,
+              "probability": 0.3858642578125
+            },
+            {
+              "text": " Sonya",
+              "start": 1.04,
+              "end": 1.42,
+              "probability": 0.753662109375
+            },
+            {
+              "text": " cried",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.98828125
+            },
+            {
+              "text": " in",
+              "start": 1.6,
+              "end": 1.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " terror.",
+              "start": 1.8,
+              "end": 2.1,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ugh,",
+          "start": 0.18,
+          "end": 0.74
+        },
+        {
+          "raw": "Sonya",
+          "start": 1.04,
+          "end": 1.42
+        },
+        {
+          "raw": "cried",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "in",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "raw": "terror.",
+          "start": 1.8,
+          "end": 2.1
+        }
+      ],
+      "expected_tokens": [
+        "\"Ach!\"",
+        "Sonia",
+        "cried",
+        "in",
+        "terror."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ugh,",
+          "start": 0.18,
+          "end": 0.74,
+          "key": "ugh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Sonya",
+          "start": 1.04,
+          "end": 1.42,
+          "key": "sonya",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "cried",
+          "start": 1.42,
+          "end": 1.6,
+          "key": "cried",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.6,
+          "end": 1.8,
+          "key": "in",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "terror.",
+          "start": 1.8,
+          "end": 2.1,
+          "key": "terror",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Ach!\"",
+          "start": 0.0,
+          "end": 0.71
+        },
+        {
+          "text": "Sonia",
+          "start": 0.71,
+          "end": 1.065
+        },
+        {
+          "text": "cried",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "text": "in",
+          "start": 1.6,
+          "end": 1.8
+        },
+        {
+          "text": "terror.",
+          "start": 1.8,
+          "end": 2.1
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.6,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18174373731017113
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "28f20e6c9026c55430984aba283c2028f4b1da81320a55f93fc3324b91759fdd",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

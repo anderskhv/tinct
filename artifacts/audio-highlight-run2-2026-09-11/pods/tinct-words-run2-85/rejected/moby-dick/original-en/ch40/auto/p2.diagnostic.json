@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "7a067b17855d4821889430d3010ae3bd3cdf96e3c6c26540040bbc0e8cf2652b",
+  "attempts": [
+    {
+      "asr_seconds": 0.35459186090156436,
+      "alignment_seconds": 0.0006806752644479275,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Farewell and adieu to you, Spanish ladies! Farewell and adieu to you, ladies of Spain! Our captain's commanded.—",
+        "hotwords": "Farewell, Spanish, Spain, Our"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Farewell and adieu to you, Spanish ladies! Farewell and adieu to you, ladies of Spain! Our captain's commanded!",
+          "start": 0.05,
+          "end": 6.85,
+          "words": [
+            {
+              "text": " Farewell",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.7119140625
+            },
+            {
+              "text": " and",
+              "start": 0.81,
+              "end": 0.97,
+              "probability": 0.8408203125
+            },
+            {
+              "text": " adieu",
+              "start": 0.97,
+              "end": 1.25,
+              "probability": 0.76953125
+            },
+            {
+              "text": " to",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you,",
+              "start": 1.37,
+              "end": 1.57,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " Spanish",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ladies!",
+              "start": 1.99,
+              "end": 2.39,
+              "probability": 0.6982421875
+            },
+            {
+              "text": " Farewell",
+              "start": 3.19,
+              "end": 3.49,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " and",
+              "start": 3.49,
+              "end": 3.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " adieu",
+              "start": 3.65,
+              "end": 3.91,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " to",
+              "start": 3.91,
+              "end": 4.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 4.05,
+              "end": 4.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ladies",
+              "start": 4.53,
+              "end": 4.73,
+              "probability": 0.85302734375
+            },
+            {
+              "text": " of",
+              "start": 4.73,
+              "end": 4.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Spain!",
+              "start": 4.97,
+              "end": 5.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " Our",
+              "start": 5.89,
+              "end": 5.95,
+              "probability": 0.53125
+            },
+            {
+              "text": " captain's",
+              "start": 5.95,
+              "end": 6.47,
+              "probability": 0.5045623779296875
+            },
+            {
+              "text": " commanded!",
+              "start": 6.47,
+              "end": 6.85,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Farewell",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "and",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "raw": "adieu",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "raw": "to",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "you,",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "raw": "Spanish",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "ladies!",
+          "start": 1.99,
+          "end": 2.39
+        },
+        {
+          "raw": "Farewell",
+          "start": 3.19,
+          "end": 3.49
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.65
+        },
+        {
+          "raw": "adieu",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "raw": "to",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "raw": "you,",
+          "start": 4.05,
+          "end": 4.29
+        },
+        {
+          "raw": "ladies",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "raw": "of",
+          "start": 4.73,
+          "end": 4.97
+        },
+        {
+          "raw": "Spain!",
+          "start": 4.97,
+          "end": 5.33
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 5.95
+        },
+        {
+          "raw": "captain's",
+          "start": 5.95,
+          "end": 6.47
+        },
+        {
+          "raw": "commanded!",
+          "start": 6.47,
+          "end": 6.85
+        }
+      ],
+      "expected_tokens": [
+        "Farewell",
+        "and",
+        "adieu",
+        "to",
+        "you,",
+        "Spanish",
+        "ladies!",
+        "Farewell",
+        "and",
+        "adieu",
+        "to",
+        "you,",
+        "ladies",
+        "of",
+        "Spain!",
+        "Our",
+        "captain's",
+        "commanded.—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Farewell",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "farewell",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.81,
+          "end": 0.97,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "adieu",
+          "start": 0.97,
+          "end": 1.25,
+          "key": "adieu",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.25,
+          "end": 1.37,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.37,
+          "end": 1.57,
+          "key": "you",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Spanish",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "spanish",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "ladies!",
+          "start": 1.99,
+          "end": 2.39,
+          "key": "ladies",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Farewell",
+          "start": 3.19,
+          "end": 3.49,
+          "key": "farewell",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.49,
+          "end": 3.65,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "adieu",
+          "start": 3.65,
+          "end": 3.91,
+          "key": "adieu",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.91,
+          "end": 4.05,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 4.05,
+          "end": 4.29,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "ladies",
+          "start": 4.53,
+          "end": 4.73,
+          "key": "ladies",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.73,
+          "end": 4.97,
+          "key": "of",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Spain!",
+          "start": 4.97,
+          "end": 5.33,
+          "key": "spain",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Our",
+          "start": 5.89,
+          "end": 5.95,
+          "key": "our",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "captain's",
+          "start": 5.95,
+          "end": 6.47,
+          "key": "captains",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "commanded!",
+          "start": 6.47,
+          "end": 6.85,
+          "key": "commanded",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Farewell",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "and",
+          "start": 0.81,
+          "end": 0.97
+        },
+        {
+          "text": "adieu",
+          "start": 0.97,
+          "end": 1.25
+        },
+        {
+          "text": "to",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "you,",
+          "start": 1.37,
+          "end": 1.57
+        },
+        {
+          "text": "Spanish",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "ladies!",
+          "start": 1.99,
+          "end": 2.39
+        },
+        {
+          "text": "Farewell",
+          "start": 3.19,
+          "end": 3.49
+        },
+        {
+          "text": "and",
+          "start": 3.49,
+          "end": 3.65
+        },
+        {
+          "text": "adieu",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "text": "to",
+          "start": 3.91,
+          "end": 4.05
+        },
+        {
+          "text": "you,",
+          "start": 4.05,
+          "end": 4.29
+        },
+        {
+          "text": "ladies",
+          "start": 4.53,
+          "end": 4.73
+        },
+        {
+          "text": "of",
+          "start": 4.73,
+          "end": 4.97
+        },
+        {
+          "text": "Spain!",
+          "start": 4.97,
+          "end": 5.33
+        },
+        {
+          "text": "Our",
+          "start": 5.89,
+          "end": 5.95
+        },
+        {
+          "text": "captain's",
+          "start": 5.95,
+          "end": 6.47
+        },
+        {
+          "text": "commanded.—",
+          "start": 6.47,
+          "end": 6.85
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3555500116199255
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b883a436e9faa13743d3da3e33c57a1e35f03a848cd8587cca3ee405019f053",
+  "selected_reasons": []
+}

@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "8940844f158592c2fa41e3c26b79678a7bfdfd13977f226782f5887d69da7206",
+  "attempts": [
+    {
+      "asr_seconds": 0.33238156605511904,
+      "alignment_seconds": 0.0002678949385881424,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Juliet. Now, Nurse, what news? What hast thou there? The cords that Romeo bid thee fetch?",
+        "hotwords": "Juliet, Now, Nurse, The, Romeo"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Juliet, Now, Nurse, what news? What hast thou there? The cords that Romeo bid thee fetch?",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " Juliet,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.75
+            },
+            {
+              "text": " Now,",
+              "start": 1.21,
+              "end": 1.41,
+              "probability": 0.0384521484375
+            },
+            {
+              "text": " Nurse,",
+              "start": 1.65,
+              "end": 1.65,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " what",
+              "start": 1.83,
+              "end": 1.91,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " news?",
+              "start": 1.91,
+              "end": 2.17,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " What",
+              "start": 2.65,
+              "end": 2.73,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " hast",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " thou",
+              "start": 2.93,
+              "end": 3.21,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " there?",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " The",
+              "start": 3.73,
+              "end": 3.83,
+              "probability": 0.87109375
+            },
+            {
+              "text": " cords",
+              "start": 3.83,
+              "end": 4.05,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " that",
+              "start": 4.05,
+              "end": 4.25,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " Romeo",
+              "start": 4.25,
+              "end": 4.55,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " bid",
+              "start": 4.55,
+              "end": 4.85,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " thee",
+              "start": 4.85,
+              "end": 5.01,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " fetch?",
+              "start": 5.01,
+              "end": 5.25,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Now,",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "raw": "Nurse,",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "raw": "what",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "raw": "news?",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "raw": "What",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "raw": "hast",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "thou",
+          "start": 2.93,
+          "end": 3.21
+        },
+        {
+          "raw": "there?",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "The",
+          "start": 3.73,
+          "end": 3.83
+        },
+        {
+          "raw": "cords",
+          "start": 3.83,
+          "end": 4.05
+        },
+        {
+          "raw": "that",
+          "start": 4.05,
+          "end": 4.25
+        },
+        {
+          "raw": "Romeo",
+          "start": 4.25,
+          "end": 4.55
+        },
+        {
+          "raw": "bid",
+          "start": 4.55,
+          "end": 4.85
+        },
+        {
+          "raw": "thee",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "raw": "fetch?",
+          "start": 5.01,
+          "end": 5.25
+        }
+      ],
+      "expected_tokens": [
+        "Juliet.",
+        "Now,",
+        "Nurse,",
+        "what",
+        "news?",
+        "What",
+        "hast",
+        "thou",
+        "there?",
+        "The",
+        "cords",
+        "that",
+        "Romeo",
+        "bid",
+        "thee",
+        "fetch?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Juliet,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "juliet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Now,",
+          "start": 1.21,
+          "end": 1.41,
+          "key": "now",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nurse,",
+          "start": 1.65,
+          "end": 1.65,
+          "key": "nurse",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.83,
+          "end": 1.91,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "news?",
+          "start": 1.91,
+          "end": 2.17,
+          "key": "news",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 2.65,
+          "end": 2.73,
+          "key": "what",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "hast",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.93,
+          "end": 3.21,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "there?",
+          "start": 3.21,
+          "end": 3.47,
+          "key": "there",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.73,
+          "end": 3.83,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "cords",
+          "start": 3.83,
+          "end": 4.05,
+          "key": "cords",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 4.05,
+          "end": 4.25,
+          "key": "that",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Romeo",
+          "start": 4.25,
+          "end": 4.55,
+          "key": "romeo",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "bid",
+          "start": 4.55,
+          "end": 4.85,
+          "key": "bid",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "thee",
+          "start": 4.85,
+          "end": 5.01,
+          "key": "thee",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "fetch?",
+          "start": 5.01,
+          "end": 5.25,
+          "key": "fetch",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Juliet.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Now,",
+          "start": 1.21,
+          "end": 1.41
+        },
+        {
+          "text": "Nurse,",
+          "start": 1.65,
+          "end": 1.65
+        },
+        {
+          "text": "what",
+          "start": 1.83,
+          "end": 1.91
+        },
+        {
+          "text": "news?",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "text": "What",
+          "start": 2.65,
+          "end": 2.73
+        },
+        {
+          "text": "hast",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "thou",
+          "start": 2.93,
+          "end": 3.21
+        },
+        {
+          "text": "there?",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "The",
+          "start": 3.73,
+          "end": 3.83
+        },
+        {
+          "text": "cords",
+          "start": 3.83,
+          "end": 4.05
+        },
+        {
+          "text": "that",
+          "start": 4.05,
+          "end": 4.25
+        },
+        {
+          "text": "Romeo",
+          "start": 4.25,
+          "end": 4.55
+        },
+        {
+          "text": "bid",
+          "start": 4.55,
+          "end": 4.85
+        },
+        {
+          "text": "thee",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "text": "fetch?",
+          "start": 5.01,
+          "end": 5.25
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33274891786277294
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0b675eac045e7fa622b6404b930e9124191394e36174836356aa6675daa7d6b0",
+  "selected_reasons": []
+}

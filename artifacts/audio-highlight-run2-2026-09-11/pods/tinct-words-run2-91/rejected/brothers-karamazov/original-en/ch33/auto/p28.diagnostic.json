@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "49f331978a776b882421329ef8a40fbb99c79d27b535c0716d30d99c553370a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.25404166523367167,
+      "alignment_seconds": 0.0003033159300684929,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"It must be lovely, a duel,\" Marya Kondratyevna observed suddenly.",
+        "hotwords": "It, Marya, Kondratyevna"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It must be lovely, a duel,\" Marya Kondratyevna observed suddenly.",
+          "start": 0.05,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " must",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 0.69,
+              "end": 0.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lovely,",
+              "start": 0.95,
+              "end": 1.27,
+              "probability": 0.98828125
+            },
+            {
+              "text": " a",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " duel,\"",
+              "start": 1.75,
+              "end": 2.83,
+              "probability": 0.58001708984375
+            },
+            {
+              "text": " Marya",
+              "start": 2.83,
+              "end": 3.03,
+              "probability": 0.551513671875
+            },
+            {
+              "text": " Kondratyevna",
+              "start": 3.03,
+              "end": 3.75,
+              "probability": 0.6070149739583334
+            },
+            {
+              "text": " observed",
+              "start": 3.75,
+              "end": 4.15,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " suddenly.",
+              "start": 4.15,
+              "end": 4.63,
+              "probability": 0.9892578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "must",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "be",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "raw": "lovely,",
+          "start": 0.95,
+          "end": 1.27
+        },
+        {
+          "raw": "a",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "duel,\"",
+          "start": 1.75,
+          "end": 2.83
+        },
+        {
+          "raw": "Marya",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "raw": "Kondratyevna",
+          "start": 3.03,
+          "end": 3.75
+        },
+        {
+          "raw": "observed",
+          "start": 3.75,
+          "end": 4.15
+        },
+        {
+          "raw": "suddenly.",
+          "start": 4.15,
+          "end": 4.63
+        }
+      ],
+      "expected_tokens": [
+        "\"It",
+        "must",
+        "be",
+        "lovely,",
+        "a",
+        "duel,\"",
+        "Marya",
+        "Kondratyevna",
+        "observed",
+        "suddenly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "it",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "must",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "must",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.69,
+          "end": 0.95,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lovely,",
+          "start": 0.95,
+          "end": 1.27,
+          "key": "lovely",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "duel,\"",
+          "start": 1.75,
+          "end": 2.83,
+          "key": "duel",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Marya",
+          "start": 2.83,
+          "end": 3.03,
+          "key": "marya",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Kondratyevna",
+          "start": 3.03,
+          "end": 3.75,
+          "key": "kondratyevna",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "observed",
+          "start": 3.75,
+          "end": 4.15,
+          "key": "observed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "suddenly.",
+          "start": 4.15,
+          "end": 4.63,
+          "key": "suddenly",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "must",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "be",
+          "start": 0.69,
+          "end": 0.95
+        },
+        {
+          "text": "lovely,",
+          "start": 0.95,
+          "end": 1.27
+        },
+        {
+          "text": "a",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "duel,\"",
+          "start": 1.75,
+          "end": 2.83
+        },
+        {
+          "text": "Marya",
+          "start": 2.83,
+          "end": 3.03
+        },
+        {
+          "text": "Kondratyevna",
+          "start": 3.03,
+          "end": 3.75
+        },
+        {
+          "text": "observed",
+          "start": 3.75,
+          "end": 4.15
+        },
+        {
+          "text": "suddenly.",
+          "start": 4.15,
+          "end": 4.63
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.25443664472550154
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "239b8f77acaf4f739ba476a837666b9c24c44faf32c3656fdff05bae132b66cd",
+  "selected_reasons": []
+}

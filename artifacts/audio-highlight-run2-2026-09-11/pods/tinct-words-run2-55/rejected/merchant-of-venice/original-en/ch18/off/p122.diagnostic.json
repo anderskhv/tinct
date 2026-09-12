@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "61ad646cc165e348ad1ef7788d349c1a793518d13b851d3cbfe014c45062e2b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.14088956080377102,
+      "alignment_seconds": 0.00022955890744924545,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shylock, I am content.",
+          "start": 0.08,
+          "end": 1.52,
+          "words": [
+            {
+              "text": " Shylock,",
+              "start": 0.08,
+              "end": 0.84,
+              "probability": 0.9093424479166666
+            },
+            {
+              "text": " I",
+              "start": 1.04,
+              "end": 1.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " am",
+              "start": 1.06,
+              "end": 1.14,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " content.",
+              "start": 1.14,
+              "end": 1.52,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shylock,",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.06
+        },
+        {
+          "raw": "am",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "raw": "content.",
+          "start": 1.14,
+          "end": 1.52
+        }
+      ],
+      "expected_tokens": [
+        "Shylock.",
+        "I",
+        "am",
+        "content."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shylock,",
+          "start": 0.08,
+          "end": 0.84,
+          "key": "shylock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.04,
+          "end": 1.06,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.06,
+          "end": 1.14,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "content.",
+          "start": 1.14,
+          "end": 1.52,
+          "key": "content",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shylock.",
+          "start": 0.08,
+          "end": 0.84
+        },
+        {
+          "text": "I",
+          "start": 1.04,
+          "end": 1.06
+        },
+        {
+          "text": "am",
+          "start": 1.06,
+          "end": 1.14
+        },
+        {
+          "text": "content.",
+          "start": 1.14,
+          "end": 1.52
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14120567217469215
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4c5260eec2d7490424e4289df912eb7c4741193dce297e7bc1b0b0cbfca8bff4",
+  "selected_reasons": []
+}

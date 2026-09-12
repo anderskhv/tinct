@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "00ecdf50b477c201efa4a6146e9578d3ffbec4f7bedbbd24be000511dab34883",
+  "attempts": [
+    {
+      "asr_seconds": 0.24686004407703876,
+      "alignment_seconds": 0.0005389591678977013,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "French King. We'll give them present audience. Go, and bring them.",
+        "hotwords": "French, King, We'll, Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " French, King, We'll give them present audience. Go, and bring them.",
+          "start": 0.08,
+          "end": 3.84,
+          "words": [
+            {
+              "text": " French,",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.77734375
+            },
+            {
+              "text": " King,",
+              "start": 0.96,
+              "end": 0.96,
+              "probability": 0.591796875
+            },
+            {
+              "text": " We'll",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.4788360595703125
+            },
+            {
+              "text": " give",
+              "start": 1.52,
+              "end": 1.58,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " them",
+              "start": 1.58,
+              "end": 1.78,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " present",
+              "start": 1.78,
+              "end": 2.04,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " audience.",
+              "start": 2.04,
+              "end": 2.48,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Go,",
+              "start": 3.0,
+              "end": 3.18,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " and",
+              "start": 3.3,
+              "end": 3.42,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " bring",
+              "start": 3.42,
+              "end": 3.58,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " them.",
+              "start": 3.58,
+              "end": 3.84,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "French,",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "King,",
+          "start": 0.96,
+          "end": 0.96
+        },
+        {
+          "raw": "We'll",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "give",
+          "start": 1.52,
+          "end": 1.58
+        },
+        {
+          "raw": "them",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "raw": "present",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "raw": "audience.",
+          "start": 2.04,
+          "end": 2.48
+        },
+        {
+          "raw": "Go,",
+          "start": 3.0,
+          "end": 3.18
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "raw": "bring",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "raw": "them.",
+          "start": 3.58,
+          "end": 3.84
+        }
+      ],
+      "expected_tokens": [
+        "French",
+        "King.",
+        "We'll",
+        "give",
+        "them",
+        "present",
+        "audience.",
+        "Go,",
+        "and",
+        "bring",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "French,",
+          "start": 0.08,
+          "end": 0.64,
+          "key": "french",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "King,",
+          "start": 0.96,
+          "end": 0.96,
+          "key": "king",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.52,
+          "end": 1.58,
+          "key": "give",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 1.58,
+          "end": 1.78,
+          "key": "them",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "present",
+          "start": 1.78,
+          "end": 2.04,
+          "key": "present",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "audience.",
+          "start": 2.04,
+          "end": 2.48,
+          "key": "audience",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Go,",
+          "start": 3.0,
+          "end": 3.18,
+          "key": "go",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.42,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "bring",
+          "start": 3.42,
+          "end": 3.58,
+          "key": "bring",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them.",
+          "start": 3.58,
+          "end": 3.84,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "French",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "text": "King.",
+          "start": 0.96,
+          "end": 0.96
+        },
+        {
+          "text": "We'll",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "give",
+          "start": 1.52,
+          "end": 1.58
+        },
+        {
+          "text": "them",
+          "start": 1.58,
+          "end": 1.78
+        },
+        {
+          "text": "present",
+          "start": 1.78,
+          "end": 2.04
+        },
+        {
+          "text": "audience.",
+          "start": 2.04,
+          "end": 2.48
+        },
+        {
+          "text": "Go,",
+          "start": 3.0,
+          "end": 3.18
+        },
+        {
+          "text": "and",
+          "start": 3.3,
+          "end": 3.42
+        },
+        {
+          "text": "bring",
+          "start": 3.42,
+          "end": 3.58
+        },
+        {
+          "text": "them.",
+          "start": 3.58,
+          "end": 3.84
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24761587847024202
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "513a3fe925f3b9851b3cc5aad88ef8fc59ad6ca5997bab27476ac8ca4fb70a58",
+  "selected_reasons": []
+}

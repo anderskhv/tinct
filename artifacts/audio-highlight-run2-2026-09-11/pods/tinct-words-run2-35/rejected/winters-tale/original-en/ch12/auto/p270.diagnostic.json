@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "8fc63a812d80735bc36dda9ecbc3905617d399859caa3b0348fab29103cdec3a",
+  "attempts": [
+    {
+      "asr_seconds": 0.13352078385651112,
+      "alignment_seconds": 0.000367017462849617,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. Think you so, sir?",
+        "hotwords": "Clown, Think"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, Think you so, sir?",
+          "start": 0.0,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " Think",
+              "start": 1.02,
+              "end": 1.08,
+              "probability": 1.2040138244628906e-05
+            },
+            {
+              "text": " you",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " so,",
+              "start": 1.22,
+              "end": 1.4,
+              "probability": 0.88671875
+            },
+            {
+              "text": " sir?",
+              "start": 1.56,
+              "end": 1.58,
+              "probability": 0.67724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "Think",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "raw": "you",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "so,",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "raw": "sir?",
+          "start": 1.56,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "Think",
+        "you",
+        "so,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Think",
+          "start": 1.02,
+          "end": 1.08,
+          "key": "think",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 1.22,
+          "end": 1.4,
+          "key": "so",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir?",
+          "start": 1.56,
+          "end": 1.58,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "Think",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "text": "you",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "so,",
+          "start": 1.22,
+          "end": 1.4
+        },
+        {
+          "text": "sir?",
+          "start": 1.56,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.134011996909976
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0bf0dd221cff9b0325ab398b9d1388aa22bddf6d45e13dfb267b9177a112a483",
+  "selected_reasons": []
+}

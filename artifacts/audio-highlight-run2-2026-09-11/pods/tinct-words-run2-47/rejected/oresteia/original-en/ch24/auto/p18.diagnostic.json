@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "c796f4360a1f8c8a621861b1a30cd3689a891b0ff498e5ac657fb0192567fed1",
+  "attempts": [
+    {
+      "asr_seconds": 0.22385806098463945,
+      "alignment_seconds": 0.0004684800223913044,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Chorus. Go to now, trust the dead, a matricide!",
+        "hotwords": "Chorus, Go"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Chorus, Go to now, trust the dead, a matricide!",
+          "start": 0.08,
+          "end": 3.18,
+          "words": [
+            {
+              "text": " Chorus,",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.7239990234375
+            },
+            {
+              "text": " Go",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.035736083984375
+            },
+            {
+              "text": " to",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " now,",
+              "start": 1.46,
+              "end": 1.64,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " trust",
+              "start": 1.82,
+              "end": 1.9,
+              "probability": 0.51123046875
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " dead,",
+              "start": 2.14,
+              "end": 2.34,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " a",
+              "start": 2.5,
+              "end": 2.54,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " matricide!",
+              "start": 2.54,
+              "end": 3.18,
+              "probability": 0.7499186197916666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus,",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "Go",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "to",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "now,",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "raw": "trust",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "raw": "dead,",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.54
+        },
+        {
+          "raw": "matricide!",
+          "start": 2.54,
+          "end": 3.18
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "Go",
+        "to",
+        "now,",
+        "trust",
+        "the",
+        "dead,",
+        "a",
+        "matricide!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus,",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Go",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "go",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "to",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 1.46,
+          "end": 1.64,
+          "key": "now",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 1.82,
+          "end": 1.9,
+          "key": "trust",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "dead,",
+          "start": 2.14,
+          "end": 2.34,
+          "key": "dead",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.54,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "matricide!",
+          "start": 2.54,
+          "end": 3.18,
+          "key": "matricide",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "Go",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "to",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "now,",
+          "start": 1.46,
+          "end": 1.64
+        },
+        {
+          "text": "trust",
+          "start": 1.82,
+          "end": 1.9
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 2.14
+        },
+        {
+          "text": "dead,",
+          "start": 2.14,
+          "end": 2.34
+        },
+        {
+          "text": "a",
+          "start": 2.5,
+          "end": 2.54
+        },
+        {
+          "text": "matricide!",
+          "start": 2.54,
+          "end": 3.18
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22451170900603756
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ad521831c3e8f4536d86a991929c914f2a1e1cf5c1ddcd286e72e32486e1442f",
+  "selected_reasons": []
+}

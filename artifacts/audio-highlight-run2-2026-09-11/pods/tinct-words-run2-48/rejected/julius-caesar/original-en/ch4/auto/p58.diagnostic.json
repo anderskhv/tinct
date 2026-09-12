@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "3e49bb53c959b7147cb19547b358342c465abc3d8308890262ba659dbb18de2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.19032144453376532,
+      "alignment_seconds": 0.0003295503556728363,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Casca. Indeed, he is not fit.",
+        "hotwords": "Casca, Indeed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Casca, Indeed he is not fit.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " Casca,",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.5673828125
+            },
+            {
+              "text": " Indeed",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.017913818359375
+            },
+            {
+              "text": " he",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " is",
+              "start": 1.63,
+              "end": 1.71,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " not",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.953125
+            },
+            {
+              "text": " fit.",
+              "start": 1.87,
+              "end": 2.15,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "Indeed",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "he",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "raw": "not",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "fit.",
+          "start": 1.87,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "Casca.",
+        "Indeed,",
+        "he",
+        "is",
+        "not",
+        "fit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Casca,",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "casca",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Indeed",
+          "start": 1.21,
+          "end": 1.43,
+          "key": "indeed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.43,
+          "end": 1.63,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.63,
+          "end": 1.71,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "fit.",
+          "start": 1.87,
+          "end": 2.15,
+          "key": "fit",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Casca.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "Indeed,",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "he",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "is",
+          "start": 1.63,
+          "end": 1.71
+        },
+        {
+          "text": "not",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "fit.",
+          "start": 1.87,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1907718051224947
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ae8e5e5dc5bec01939fe552a16d3a3f253c7048b6a1a99ad45ebb0c73bb30e0d",
+  "selected_reasons": []
+}

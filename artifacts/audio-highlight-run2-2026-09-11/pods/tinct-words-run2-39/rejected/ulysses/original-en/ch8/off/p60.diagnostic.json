@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "fe68b341d42a8a3364a4ddb24ec6b32093eed6beded24b0d819fa5865be5bfbc",
+  "attempts": [
+    {
+      "asr_seconds": 0.1398838630411774,
+      "alignment_seconds": 0.0003652588929980993,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and your Lord and Master.",
+          "start": 0.08,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.72412109375
+            },
+            {
+              "text": " your",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " Lord",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.83984375
+            },
+            {
+              "text": " and",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.984375
+            },
+            {
+              "text": " Master.",
+              "start": 1.02,
+              "end": 1.4,
+              "probability": 0.857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "your",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "Lord",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "and",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "Master.",
+          "start": 1.02,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "—And",
+        "your",
+        "lord",
+        "and",
+        "master?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "your",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lord",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "lord",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.86,
+          "end": 1.02,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Master.",
+          "start": 1.02,
+          "end": 1.4,
+          "key": "master",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "your",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "lord",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "and",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "master?",
+          "start": 1.02,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.140370107954368
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2be1c797c608b99c81b7247c0b8a588f8c4858779acf1b6e785ae8b1cf515984",
+  "selected_reasons": []
+}

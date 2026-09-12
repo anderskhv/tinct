@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "8f421eb0d8920c05f265793ac95b4830f8e946fa52fd3925252ec2d87e5d4d60",
+  "attempts": [
+    {
+      "asr_seconds": 0.2283342049922794,
+      "alignment_seconds": 0.0004788299847859889,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Chorus. You longed for us who pined for you again.",
+        "hotwords": "Chorus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Chorus. You longed for us who pined for you again.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Chorus.",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.6597900390625
+            },
+            {
+              "text": " You",
+              "start": 1.22,
+              "end": 1.36,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " longed",
+              "start": 1.36,
+              "end": 1.76,
+              "probability": 0.989013671875
+            },
+            {
+              "text": " for",
+              "start": 1.76,
+              "end": 1.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.99609375
+            },
+            {
+              "text": " who",
+              "start": 1.96,
+              "end": 2.1,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " pined",
+              "start": 2.1,
+              "end": 2.32,
+              "probability": 0.965576171875
+            },
+            {
+              "text": " for",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you",
+              "start": 2.52,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " again.",
+              "start": 2.66,
+              "end": 2.92,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Chorus.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "You",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "raw": "longed",
+          "start": 1.36,
+          "end": 1.76
+        },
+        {
+          "raw": "for",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "raw": "us",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "who",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "raw": "pined",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "raw": "for",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "raw": "again.",
+          "start": 2.66,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "Chorus.",
+        "You",
+        "longed",
+        "for",
+        "us",
+        "who",
+        "pined",
+        "for",
+        "you",
+        "again."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Chorus.",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "chorus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "You",
+          "start": 1.22,
+          "end": 1.36,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "longed",
+          "start": 1.36,
+          "end": 1.76,
+          "key": "longed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.76,
+          "end": 1.84,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "us",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.96,
+          "end": 2.1,
+          "key": "who",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "pined",
+          "start": 2.1,
+          "end": 2.32,
+          "key": "pined",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 2.32,
+          "end": 2.52,
+          "key": "for",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.52,
+          "end": 2.66,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "again.",
+          "start": 2.66,
+          "end": 2.92,
+          "key": "again",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Chorus.",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "You",
+          "start": 1.22,
+          "end": 1.36
+        },
+        {
+          "text": "longed",
+          "start": 1.36,
+          "end": 1.76
+        },
+        {
+          "text": "for",
+          "start": 1.76,
+          "end": 1.84
+        },
+        {
+          "text": "us",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "who",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "text": "pined",
+          "start": 2.1,
+          "end": 2.32
+        },
+        {
+          "text": "for",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "text": "you",
+          "start": 2.52,
+          "end": 2.66
+        },
+        {
+          "text": "again.",
+          "start": 2.66,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2290013349847868
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "eae061768a757e074c81e92a3b952bd67bf46f9ae9d13fc4f2a1f02206d51511",
+  "selected_reasons": []
+}

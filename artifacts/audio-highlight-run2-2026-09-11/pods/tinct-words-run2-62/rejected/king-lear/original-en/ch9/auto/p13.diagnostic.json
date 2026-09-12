@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "37c2628259dda8e5f7d1c4fb11312776b46b8f7d0d529902c30bc56a9e59b7f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.08209527656435966,
+      "alignment_seconds": 0.00020406395196914673,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Lear. No, no; they would not.",
+        "hotwords": "Lear"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Lear. No, no. They would not.",
+          "start": 0.37,
+          "end": 1.85,
+          "words": [
+            {
+              "text": " Lear.",
+              "start": 0.37,
+              "end": 0.65,
+              "probability": 0.462158203125
+            },
+            {
+              "text": " No,",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.9765625
+            },
+            {
+              "text": " no.",
+              "start": 1.29,
+              "end": 1.37,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " They",
+              "start": 1.49,
+              "end": 1.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " would",
+              "start": 1.51,
+              "end": 1.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " not.",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Lear.",
+          "start": 0.37,
+          "end": 0.65
+        },
+        {
+          "raw": "No,",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "no.",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "raw": "They",
+          "start": 1.49,
+          "end": 1.51
+        },
+        {
+          "raw": "would",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "raw": "not.",
+          "start": 1.61,
+          "end": 1.85
+        }
+      ],
+      "expected_tokens": [
+        "Lear.",
+        "No,",
+        "no;",
+        "they",
+        "would",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Lear.",
+          "start": 0.37,
+          "end": 0.65,
+          "key": "lear",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.05,
+          "end": 1.21,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no.",
+          "start": 1.29,
+          "end": 1.37,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "They",
+          "start": 1.49,
+          "end": 1.51,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.51,
+          "end": 1.61,
+          "key": "would",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "not",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Lear.",
+          "start": 0.37,
+          "end": 0.65
+        },
+        {
+          "text": "No,",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "no;",
+          "start": 1.29,
+          "end": 1.37
+        },
+        {
+          "text": "they",
+          "start": 1.49,
+          "end": 1.51
+        },
+        {
+          "text": "would",
+          "start": 1.51,
+          "end": 1.61
+        },
+        {
+          "text": "not.",
+          "start": 1.61,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.082375667989254
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8dd5f816bd14169ecdfd20cc976f7e3c11354ac080a7a9c98f2114ac55f8c3d1",
+  "selected_reasons": []
+}

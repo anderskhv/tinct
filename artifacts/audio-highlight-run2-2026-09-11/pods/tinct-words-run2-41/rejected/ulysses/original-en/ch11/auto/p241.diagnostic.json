@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "077c5c2ce4b2170c49fe0ec96d5b6e3c7d96b923acaac05d686b43351953fb4f",
+  "attempts": [
+    {
+      "asr_seconds": 0.18159847892820835,
+      "alignment_seconds": 0.00029688887298107147,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—Why don't you grow? asked Blazes Boylan.",
+        "hotwords": "Why, Blazes, Boylan"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why don't you grow? asked Blazes Boylan.",
+          "start": 0.02,
+          "end": 2.66,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " don't",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " you",
+              "start": 0.68,
+              "end": 0.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " grow?",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " asked",
+              "start": 1.66,
+              "end": 1.66,
+              "probability": 0.53466796875
+            },
+            {
+              "text": " Blazes",
+              "start": 1.66,
+              "end": 2.2,
+              "probability": 0.5374755859375
+            },
+            {
+              "text": " Boylan.",
+              "start": 2.2,
+              "end": 2.66,
+              "probability": 0.60595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "don't",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "raw": "grow?",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "asked",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "raw": "Blazes",
+          "start": 1.66,
+          "end": 2.2
+        },
+        {
+          "raw": "Boylan.",
+          "start": 2.2,
+          "end": 2.66
+        }
+      ],
+      "expected_tokens": [
+        "—Why",
+        "don't",
+        "you",
+        "grow?",
+        "asked",
+        "Blazes",
+        "Boylan."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "why",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "don't",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "dont",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.78,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "grow?",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "grow",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.66,
+          "end": 1.66,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Blazes",
+          "start": 1.66,
+          "end": 2.2,
+          "key": "blazes",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Boylan.",
+          "start": 2.2,
+          "end": 2.66,
+          "key": "boylan",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Why",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "don't",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "you",
+          "start": 0.68,
+          "end": 0.78
+        },
+        {
+          "text": "grow?",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "text": "asked",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "text": "Blazes",
+          "start": 1.66,
+          "end": 2.2
+        },
+        {
+          "text": "Boylan.",
+          "start": 2.2,
+          "end": 2.66
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18200185289606452
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "dfdc3def0d7a77e31c1df8737971878178e0c9cc6c3ae8d990a1f033eb897e61",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "c86aab8b66f1c47863cbf3d136eac09607fb465bf83f8b0c14e6d068b7358f41",
+  "attempts": [
+    {
+      "asr_seconds": 0.17640627454966307,
+      "alignment_seconds": 0.00027590617537498474,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Macbeth. Came they not by you?",
+        "hotwords": "Macbeth, Came"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Macbeth, Came they not by you?",
+          "start": 0.61,
+          "end": 2.05,
+          "words": [
+            {
+              "text": " Macbeth,",
+              "start": 0.61,
+              "end": 0.97,
+              "probability": 0.87890625
+            },
+            {
+              "text": " Came",
+              "start": 1.13,
+              "end": 1.31,
+              "probability": 0.035308837890625
+            },
+            {
+              "text": " they",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.2568359375
+            },
+            {
+              "text": " not",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " by",
+              "start": 1.61,
+              "end": 1.79,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " you?",
+              "start": 1.79,
+              "end": 2.05,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "raw": "Came",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "raw": "they",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "not",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "by",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "raw": "you?",
+          "start": 1.79,
+          "end": 2.05
+        }
+      ],
+      "expected_tokens": [
+        "Macbeth.",
+        "Came",
+        "they",
+        "not",
+        "by",
+        "you?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Macbeth,",
+          "start": 0.61,
+          "end": 0.97,
+          "key": "macbeth",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Came",
+          "start": 1.13,
+          "end": 1.31,
+          "key": "came",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.61,
+          "end": 1.79,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you?",
+          "start": 1.79,
+          "end": 2.05,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Macbeth.",
+          "start": 0.61,
+          "end": 0.97
+        },
+        {
+          "text": "Came",
+          "start": 1.13,
+          "end": 1.31
+        },
+        {
+          "text": "they",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "not",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "by",
+          "start": 1.61,
+          "end": 1.79
+        },
+        {
+          "text": "you?",
+          "start": 1.79,
+          "end": 2.05
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1767866024747491
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e8fcfcaa7508372df96ee3fb28f48addcf13d2fc823d5ea822a852a59571471",
+  "selected_reasons": []
+}

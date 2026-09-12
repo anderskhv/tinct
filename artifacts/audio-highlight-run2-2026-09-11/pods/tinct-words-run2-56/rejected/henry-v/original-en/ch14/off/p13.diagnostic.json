@@ -1,0 +1,187 @@
+{
+  "complete": true,
+  "signature": "cb518767f864a75cbee4372b85dc9f82ee2b7d15cb676c06d43b7c159640aba1",
+  "attempts": [
+    {
+      "asr_seconds": 0.14506828412413597,
+      "alignment_seconds": 0.00037293601781129837,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pistol, Quivous La",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " Pistol,",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.57763671875
+            },
+            {
+              "text": " Quivous",
+              "start": 1.07,
+              "end": 1.37,
+              "probability": 0.446533203125
+            },
+            {
+              "text": " La",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.486083984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "Quivous",
+          "start": 1.07,
+          "end": 1.37
+        },
+        {
+          "raw": "La",
+          "start": 1.37,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "Pistol.",
+        "_Qui",
+        "vous",
+        "là?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          4,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          4,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pistol,",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "pistol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Quivous",
+          "start": 1.07,
+          "end": 1.37,
+          "key": "quivous",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "La",
+          "start": 1.37,
+          "end": 1.61,
+          "key": "la",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Pistol.",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "text": "_Qui",
+          "start": 0.75,
+          "end": 1.18
+        },
+        {
+          "text": "vous",
+          "start": 1.18,
+          "end": 1.395
+        },
+        {
+          "text": "là?_",
+          "start": 1.395,
+          "end": 1.502
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.25,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.14561104029417038
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0851d38e72c483690059ac436d460a93ff021d2e827f16db3816af20abe81bf2",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

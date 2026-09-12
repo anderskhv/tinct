@@ -1,0 +1,562 @@
+{
+  "complete": true,
+  "signature": "bb6ed43259c4c21ad35a8ca1dda0164124a467f6f2467cad3c0eedf92cc7eb87",
+  "attempts": [
+    {
+      "asr_seconds": 0.25961720384657383,
+      "alignment_seconds": 0.0004538651555776596,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " John Wise Nalen, lagging behind, reading the list, came after them quickly down Cork Hill.",
+          "start": 0.02,
+          "end": 5.86,
+          "words": [
+            {
+              "text": " John",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " Wise",
+              "start": 0.66,
+              "end": 1.0,
+              "probability": 0.716796875
+            },
+            {
+              "text": " Nalen,",
+              "start": 1.0,
+              "end": 1.6,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " lagging",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " behind,",
+              "start": 2.3,
+              "end": 2.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reading",
+              "start": 3.08,
+              "end": 3.16,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 3.16,
+              "end": 3.38,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " list,",
+              "start": 3.38,
+              "end": 3.62,
+              "probability": 0.994140625
+            },
+            {
+              "text": " came",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " after",
+              "start": 4.14,
+              "end": 4.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " quickly",
+              "start": 4.66,
+              "end": 4.9,
+              "probability": 0.978515625
+            },
+            {
+              "text": " down",
+              "start": 4.9,
+              "end": 5.34,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Cork",
+              "start": 5.34,
+              "end": 5.54,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Hill.",
+              "start": 5.54,
+              "end": 5.86,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "John",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Wise",
+          "start": 0.66,
+          "end": 1.0
+        },
+        {
+          "raw": "Nalen,",
+          "start": 1.0,
+          "end": 1.6
+        },
+        {
+          "raw": "lagging",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "behind,",
+          "start": 2.3,
+          "end": 2.76
+        },
+        {
+          "raw": "reading",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "raw": "list,",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "raw": "came",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "after",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "raw": "them",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "quickly",
+          "start": 4.66,
+          "end": 4.9
+        },
+        {
+          "raw": "down",
+          "start": 4.9,
+          "end": 5.34
+        },
+        {
+          "raw": "Cork",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "raw": "Hill.",
+          "start": 5.54,
+          "end": 5.86
+        }
+      ],
+      "expected_tokens": [
+        "John",
+        "Wyse",
+        "Nolan,",
+        "lagging",
+        "behind,",
+        "reading",
+        "the",
+        "list,",
+        "came",
+        "after",
+        "them",
+        "quickly",
+        "down",
+        "Cork",
+        "hill."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "equal",
+          3,
+          15,
+          3,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "John",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "john",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Wise",
+          "start": 0.66,
+          "end": 1.0,
+          "key": "wise",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Nalen,",
+          "start": 1.0,
+          "end": 1.6,
+          "key": "nalen",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "lagging",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "lagging",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "behind,",
+          "start": 2.3,
+          "end": 2.76,
+          "key": "behind",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "reading",
+          "start": 3.08,
+          "end": 3.16,
+          "key": "reading",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.16,
+          "end": 3.38,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "list,",
+          "start": 3.38,
+          "end": 3.62,
+          "key": "list",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "came",
+          "start": 4.0,
+          "end": 4.14,
+          "key": "came",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 4.14,
+          "end": 4.46,
+          "key": "after",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.46,
+          "end": 4.66,
+          "key": "them",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "quickly",
+          "start": 4.66,
+          "end": 4.9,
+          "key": "quickly",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "down",
+          "start": 4.9,
+          "end": 5.34,
+          "key": "down",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Cork",
+          "start": 5.34,
+          "end": 5.54,
+          "key": "cork",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Hill.",
+          "start": 5.54,
+          "end": 5.86,
+          "key": "hill",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "John",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Wyse",
+          "start": 0.66,
+          "end": 1.38
+        },
+        {
+          "text": "Nolan,",
+          "start": 1.38,
+          "end": 1.74
+        },
+        {
+          "text": "lagging",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "behind,",
+          "start": 2.3,
+          "end": 2.76
+        },
+        {
+          "text": "reading",
+          "start": 3.08,
+          "end": 3.16
+        },
+        {
+          "text": "the",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "text": "list,",
+          "start": 3.38,
+          "end": 3.62
+        },
+        {
+          "text": "came",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "after",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "text": "them",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "quickly",
+          "start": 4.66,
+          "end": 4.9
+        },
+        {
+          "text": "down",
+          "start": 4.9,
+          "end": 5.34
+        },
+        {
+          "text": "Cork",
+          "start": 5.34,
+          "end": 5.54
+        },
+        {
+          "text": "hill.",
+          "start": 5.54,
+          "end": 5.86
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 13
+      },
+      "match_ratio": 0.8666666666666667,
+      "rejection_reasons": [],
+      "seconds": 0.2602469208650291
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2de147c4a08741eb943370d01ffe6bcdfb843255f5b216bc47abc5c3be4dea73",
+  "selected_reasons": []
+}

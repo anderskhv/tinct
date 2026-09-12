@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "956ed8be11508aba4041473d0d9f519e77ad7ad3986890ccb6d6a7c17413e063",
+  "attempts": [
+    {
+      "asr_seconds": 0.1399290580302477,
+      "alignment_seconds": 0.00015916908159852028,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Montano. What from the cape can you discern at sea?",
+        "hotwords": "Montano, What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Montano, What from the cape can you discern at sea?",
+          "start": 0.53,
+          "end": 2.95,
+          "words": [
+            {
+              "text": " Montano,",
+              "start": 0.53,
+              "end": 0.95,
+              "probability": 0.803955078125
+            },
+            {
+              "text": " What",
+              "start": 1.33,
+              "end": 1.51,
+              "probability": 0.0146636962890625
+            },
+            {
+              "text": " from",
+              "start": 1.51,
+              "end": 1.65,
+              "probability": 0.900390625
+            },
+            {
+              "text": " the",
+              "start": 1.65,
+              "end": 1.75,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " cape",
+              "start": 1.75,
+              "end": 1.93,
+              "probability": 0.22021484375
+            },
+            {
+              "text": " can",
+              "start": 1.93,
+              "end": 2.13,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " you",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " discern",
+              "start": 2.23,
+              "end": 2.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " at",
+              "start": 2.49,
+              "end": 2.71,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " sea?",
+              "start": 2.71,
+              "end": 2.95,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Montano,",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "raw": "What",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "raw": "from",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "raw": "cape",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "raw": "can",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "raw": "you",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "discern",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "raw": "at",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "raw": "sea?",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "expected_tokens": [
+        "Montano.",
+        "What",
+        "from",
+        "the",
+        "cape",
+        "can",
+        "you",
+        "discern",
+        "at",
+        "sea?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Montano,",
+          "start": 0.53,
+          "end": 0.95,
+          "key": "montano",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.33,
+          "end": 1.51,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 1.51,
+          "end": 1.65,
+          "key": "from",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.65,
+          "end": 1.75,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "cape",
+          "start": 1.75,
+          "end": 1.93,
+          "key": "cape",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.93,
+          "end": 2.13,
+          "key": "can",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.13,
+          "end": 2.23,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "discern",
+          "start": 2.23,
+          "end": 2.49,
+          "key": "discern",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.49,
+          "end": 2.71,
+          "key": "at",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sea?",
+          "start": 2.71,
+          "end": 2.95,
+          "key": "sea",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Montano.",
+          "start": 0.53,
+          "end": 0.95
+        },
+        {
+          "text": "What",
+          "start": 1.33,
+          "end": 1.51
+        },
+        {
+          "text": "from",
+          "start": 1.51,
+          "end": 1.65
+        },
+        {
+          "text": "the",
+          "start": 1.65,
+          "end": 1.75
+        },
+        {
+          "text": "cape",
+          "start": 1.75,
+          "end": 1.93
+        },
+        {
+          "text": "can",
+          "start": 1.93,
+          "end": 2.13
+        },
+        {
+          "text": "you",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "discern",
+          "start": 2.23,
+          "end": 2.49
+        },
+        {
+          "text": "at",
+          "start": 2.49,
+          "end": 2.71
+        },
+        {
+          "text": "sea?",
+          "start": 2.71,
+          "end": 2.95
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1401444273069501
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fde1ba92bb5aac67303bf52979d16e1bf08e9d4d4dba79b15b8c6ee0bb5d9e81",
+  "selected_reasons": []
+}

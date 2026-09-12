@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "3da1c4cd5d718adcf8dcc2484b70e11ed47eb0a16bd1635349252e3c1e0e8154",
+  "attempts": [
+    {
+      "asr_seconds": 0.28455545008182526,
+      "alignment_seconds": 0.0006668120622634888,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. But as well? Then you are mad indeed, if you be no better in your wits than a fool.",
+        "hotwords": "Clown, But, Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, But as well? Then you are mad indeed, if you be no better in your wits than a fool.",
+          "start": 0.0,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.0,
+              "end": 0.7,
+              "probability": 0.654296875
+            },
+            {
+              "text": " But",
+              "start": 1.04,
+              "end": 1.22,
+              "probability": 0.003871917724609375
+            },
+            {
+              "text": " as",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.96484375
+            },
+            {
+              "text": " well?",
+              "start": 1.34,
+              "end": 1.64,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Then",
+              "start": 2.34,
+              "end": 2.5,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " you",
+              "start": 2.5,
+              "end": 2.64,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " are",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " mad",
+              "start": 2.76,
+              "end": 2.98,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " indeed,",
+              "start": 2.98,
+              "end": 3.34,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " if",
+              "start": 3.66,
+              "end": 3.72,
+              "probability": 0.389404296875
+            },
+            {
+              "text": " you",
+              "start": 3.72,
+              "end": 3.8,
+              "probability": 0.9453125
+            },
+            {
+              "text": " be",
+              "start": 3.8,
+              "end": 3.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " no",
+              "start": 3.92,
+              "end": 4.08,
+              "probability": 0.9921875
+            },
+            {
+              "text": " better",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " in",
+              "start": 4.32,
+              "end": 4.52,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " your",
+              "start": 4.52,
+              "end": 4.64,
+              "probability": 0.984375
+            },
+            {
+              "text": " wits",
+              "start": 4.64,
+              "end": 4.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " than",
+              "start": 4.86,
+              "end": 5.04,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " a",
+              "start": 5.04,
+              "end": 5.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " fool.",
+              "start": 5.16,
+              "end": 5.4,
+              "probability": 0.97802734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "raw": "But",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "raw": "as",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "well?",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "raw": "Then",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "raw": "you",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "raw": "are",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "mad",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "raw": "indeed,",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "raw": "if",
+          "start": 3.66,
+          "end": 3.72
+        },
+        {
+          "raw": "you",
+          "start": 3.72,
+          "end": 3.8
+        },
+        {
+          "raw": "be",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "raw": "no",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "raw": "better",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "raw": "in",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "raw": "your",
+          "start": 4.52,
+          "end": 4.64
+        },
+        {
+          "raw": "wits",
+          "start": 4.64,
+          "end": 4.86
+        },
+        {
+          "raw": "than",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "raw": "a",
+          "start": 5.04,
+          "end": 5.16
+        },
+        {
+          "raw": "fool.",
+          "start": 5.16,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "But",
+        "as",
+        "well?",
+        "Then",
+        "you",
+        "are",
+        "mad",
+        "indeed,",
+        "if",
+        "you",
+        "be",
+        "no",
+        "better",
+        "in",
+        "your",
+        "wits",
+        "than",
+        "a",
+        "fool."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.0,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "But",
+          "start": 1.04,
+          "end": 1.22,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "as",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "well?",
+          "start": 1.34,
+          "end": 1.64,
+          "key": "well",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 2.34,
+          "end": 2.5,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.5,
+          "end": 2.64,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "mad",
+          "start": 2.76,
+          "end": 2.98,
+          "key": "mad",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 2.98,
+          "end": 3.34,
+          "key": "indeed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 3.66,
+          "end": 3.72,
+          "key": "if",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.72,
+          "end": 3.8,
+          "key": "you",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.8,
+          "end": 3.92,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 3.92,
+          "end": 4.08,
+          "key": "no",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "better",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.32,
+          "end": 4.52,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 4.52,
+          "end": 4.64,
+          "key": "your",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "wits",
+          "start": 4.64,
+          "end": 4.86,
+          "key": "wits",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 4.86,
+          "end": 5.04,
+          "key": "than",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 5.04,
+          "end": 5.16,
+          "key": "a",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "fool.",
+          "start": 5.16,
+          "end": 5.4,
+          "key": "fool",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.0,
+          "end": 0.7
+        },
+        {
+          "text": "But",
+          "start": 1.04,
+          "end": 1.22
+        },
+        {
+          "text": "as",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "well?",
+          "start": 1.34,
+          "end": 1.64
+        },
+        {
+          "text": "Then",
+          "start": 2.34,
+          "end": 2.5
+        },
+        {
+          "text": "you",
+          "start": 2.5,
+          "end": 2.64
+        },
+        {
+          "text": "are",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "mad",
+          "start": 2.76,
+          "end": 2.98
+        },
+        {
+          "text": "indeed,",
+          "start": 2.98,
+          "end": 3.34
+        },
+        {
+          "text": "if",
+          "start": 3.66,
+          "end": 3.72
+        },
+        {
+          "text": "you",
+          "start": 3.72,
+          "end": 3.8
+        },
+        {
+          "text": "be",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "text": "no",
+          "start": 3.92,
+          "end": 4.08
+        },
+        {
+          "text": "better",
+          "start": 4.08,
+          "end": 4.32
+        },
+        {
+          "text": "in",
+          "start": 4.32,
+          "end": 4.52
+        },
+        {
+          "text": "your",
+          "start": 4.52,
+          "end": 4.64
+        },
+        {
+          "text": "wits",
+          "start": 4.64,
+          "end": 4.86
+        },
+        {
+          "text": "than",
+          "start": 4.86,
+          "end": 5.04
+        },
+        {
+          "text": "a",
+          "start": 5.04,
+          "end": 5.16
+        },
+        {
+          "text": "fool.",
+          "start": 5.16,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.28551337867975235
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b1c4dd65bfa69d920ff2b698d47b266557493ef6c9eacfb63c730c3c86e96e26",
+  "selected_reasons": []
+}

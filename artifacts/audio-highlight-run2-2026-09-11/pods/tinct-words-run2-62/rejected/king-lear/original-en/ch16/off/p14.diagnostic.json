@@ -1,0 +1,175 @@
+{
+  "complete": true,
+  "signature": "8ac24328305a735af05cf0a63c1fc44c8319114e02c0e89ad98907e301afc4eb",
+  "attempts": [
+    {
+      "asr_seconds": 0.06772506609559059,
+      "alignment_seconds": 0.00013881921768188477,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Exune other servants.",
+          "start": 0.05,
+          "end": 1.37,
+          "words": [
+            {
+              "text": " Exune",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " other",
+              "start": 0.75,
+              "end": 0.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " servants.",
+              "start": 0.97,
+              "end": 1.37,
+              "probability": 0.94384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "other",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "raw": "servants.",
+          "start": 0.97,
+          "end": 1.37
+        }
+      ],
+      "expected_tokens": [
+        "[_Exeunt",
+        "other",
+        "Servants._]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exune",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "exune",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 0.75,
+          "end": 0.97,
+          "key": "other",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "servants.",
+          "start": 0.97,
+          "end": 1.37,
+          "key": "servants",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Exeunt",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "other",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "text": "Servants._]",
+          "start": 0.97,
+          "end": 1.37
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 2
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.067927535623312
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dc58c6579f88582aa9a4f38fa3f6308d40bb6bb52d016be941889abd994c2a28",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

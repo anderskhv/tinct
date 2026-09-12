@@ -1,0 +1,628 @@
+{
+  "complete": true,
+  "signature": "62a3fe67f60e37a60ed8bcf6044ec2b8ad95ba6526efff1b071e57a974d2368d",
+  "attempts": [
+    {
+      "asr_seconds": 0.273891257122159,
+      "alignment_seconds": 0.0002986006438732147,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Hamlet. No, no, they do but jest. Poison and jest. No offense, I.T.H. world.",
+          "start": 0.05,
+          "end": 5.45,
+          "words": [
+            {
+              "text": " Hamlet.",
+              "start": 0.05,
+              "end": 0.83,
+              "probability": 0.9453125
+            },
+            {
+              "text": " No,",
+              "start": 1.37,
+              "end": 1.49,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " no,",
+              "start": 1.59,
+              "end": 1.67,
+              "probability": 0.984375
+            },
+            {
+              "text": " they",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " do",
+              "start": 1.85,
+              "end": 2.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 2.01,
+              "end": 2.17,
+              "probability": 0.8076171875
+            },
+            {
+              "text": " jest.",
+              "start": 2.17,
+              "end": 2.57,
+              "probability": 0.944580078125
+            },
+            {
+              "text": " Poison",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " and",
+              "start": 2.91,
+              "end": 3.13,
+              "probability": 0.86279296875
+            },
+            {
+              "text": " jest.",
+              "start": 3.13,
+              "end": 3.49,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " No",
+              "start": 3.87,
+              "end": 4.01,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " offense,",
+              "start": 4.01,
+              "end": 4.33,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " I",
+              "start": 4.61,
+              "end": 4.61,
+              "probability": 0.86376953125
+            },
+            {
+              "text": ".T",
+              "start": 4.61,
+              "end": 4.83,
+              "probability": 0.6279296875
+            },
+            {
+              "text": ".H.",
+              "start": 4.83,
+              "end": 5.15,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " world.",
+              "start": 5.33,
+              "end": 5.45,
+              "probability": 0.63525390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "raw": "No,",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "raw": "no,",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "raw": "they",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "do",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "raw": "but",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "raw": "jest.",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "raw": "Poison",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.13
+        },
+        {
+          "raw": "jest.",
+          "start": 3.13,
+          "end": 3.49
+        },
+        {
+          "raw": "No",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "raw": "offense,",
+          "start": 4.01,
+          "end": 4.33
+        },
+        {
+          "raw": "I",
+          "start": 4.61,
+          "end": 4.61
+        },
+        {
+          "raw": ".T",
+          "start": 4.61,
+          "end": 4.83
+        },
+        {
+          "raw": ".H.",
+          "start": 4.83,
+          "end": 5.15
+        },
+        {
+          "raw": "world.",
+          "start": 5.33,
+          "end": 5.45
+        }
+      ],
+      "expected_tokens": [
+        "Hamlet.",
+        "No,",
+        "no,",
+        "they",
+        "do",
+        "but",
+        "jest,",
+        "poison",
+        "in",
+        "jest;",
+        "no",
+        "offence",
+        "i'",
+        "th'",
+        "world."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          11,
+          9,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ],
+        [
+          "equal",
+          14,
+          15,
+          15,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83,
+          "key": "hamlet",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "No,",
+          "start": 1.37,
+          "end": 1.49,
+          "key": "no",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "no,",
+          "start": 1.59,
+          "end": 1.67,
+          "key": "no",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "they",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.85,
+          "end": 2.01,
+          "key": "do",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.01,
+          "end": 2.17,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "jest.",
+          "start": 2.17,
+          "end": 2.57,
+          "key": "jest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Poison",
+          "start": 2.79,
+          "end": 2.91,
+          "key": "poison",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.13,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "jest.",
+          "start": 3.13,
+          "end": 3.49,
+          "key": "jest",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "No",
+          "start": 3.87,
+          "end": 4.01,
+          "key": "no",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "offense,",
+          "start": 4.01,
+          "end": 4.33,
+          "key": "offense",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 4.61,
+          "end": 4.61,
+          "key": "i",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": ".T",
+          "start": 4.61,
+          "end": 4.83,
+          "key": "t",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": ".H.",
+          "start": 4.83,
+          "end": 5.15,
+          "key": "h",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "world.",
+          "start": 5.33,
+          "end": 5.45,
+          "key": "world",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Hamlet.",
+          "start": 0.05,
+          "end": 0.83
+        },
+        {
+          "text": "No,",
+          "start": 1.37,
+          "end": 1.49
+        },
+        {
+          "text": "no,",
+          "start": 1.59,
+          "end": 1.67
+        },
+        {
+          "text": "they",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "text": "do",
+          "start": 1.85,
+          "end": 2.01
+        },
+        {
+          "text": "but",
+          "start": 2.01,
+          "end": 2.17
+        },
+        {
+          "text": "jest,",
+          "start": 2.17,
+          "end": 2.57
+        },
+        {
+          "text": "poison",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "in",
+          "start": 2.91,
+          "end": 3.02
+        },
+        {
+          "text": "jest;",
+          "start": 3.13,
+          "end": 3.49
+        },
+        {
+          "text": "no",
+          "start": 3.87,
+          "end": 4.01
+        },
+        {
+          "text": "offence",
+          "start": 4.01,
+          "end": 4.31
+        },
+        {
+          "text": "i'",
+          "start": 4.61,
+          "end": 4.61
+        },
+        {
+          "text": "th'",
+          "start": 4.61,
+          "end": 4.97
+        },
+        {
+          "text": "world.",
+          "start": 5.33,
+          "end": 5.45
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 16,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2743078526109457
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7e2d28dbf7e093cc878db1249132ce75419e0a4b69962419a44dcf63535e37a",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

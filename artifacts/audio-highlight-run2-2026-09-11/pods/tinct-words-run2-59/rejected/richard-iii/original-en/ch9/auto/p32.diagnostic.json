@@ -1,0 +1,705 @@
+{
+  "complete": true,
+  "signature": "ceca36ad9e348175074b965be236dfd823dc76aa7ab7b639551ef2a8f129a448",
+  "attempts": [
+    {
+      "asr_seconds": 3.099911947036162,
+      "alignment_seconds": 0.0004964529071003199,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[_Aside_.] Thus, like the formal Vice, Iniquity,",
+        "hotwords": "Thus, Vice, Iniquity"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thus, like the formal Vice, Iniquity,",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Thus,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.00798797607421875
+            },
+            {
+              "text": " like",
+              "start": 1.79,
+              "end": 1.79,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " the",
+              "start": 1.79,
+              "end": 1.91,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " formal",
+              "start": 1.91,
+              "end": 2.19,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " Vice,",
+              "start": 2.19,
+              "end": 2.53,
+              "probability": 0.07208251953125
+            },
+            {
+              "text": " Iniquity,",
+              "start": 2.75,
+              "end": 3.09,
+              "probability": 0.6193033854166666
+            }
+          ]
+        },
+        {
+          "text": " The suppose to be",
+          "start": 3.09,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " The",
+              "start": 3.09,
+              "end": 3.09,
+              "probability": 0.006046295166015625
+            },
+            {
+              "text": " suppose",
+              "start": 3.09,
+              "end": 3.09,
+              "probability": 3.2186508178710938e-06
+            },
+            {
+              "text": " to",
+              "start": 3.09,
+              "end": 3.09,
+              "probability": 0.058013916015625
+            },
+            {
+              "text": " be",
+              "start": 3.09,
+              "end": 3.15,
+              "probability": 0.10888671875
+            }
+          ]
+        },
+        {
+          "text": " Vice, Iniquity",
+          "start": 3.15,
+          "end": 3.75,
+          "words": [
+            {
+              "text": " Vice,",
+              "start": 3.15,
+              "end": 3.75,
+              "probability": 5.0067901611328125e-06
+            },
+            {
+              "text": " Iniquity",
+              "start": 3.75,
+              "end": 3.75,
+              "probability": 0.2649257977803548
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thus,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "like",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "raw": "formal",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "raw": "Vice,",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "raw": "Iniquity,",
+          "start": 2.75,
+          "end": 3.09
+        },
+        {
+          "raw": "The",
+          "start": 3.09,
+          "end": 3.09
+        },
+        {
+          "raw": "suppose",
+          "start": 3.09,
+          "end": 3.09
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.09
+        },
+        {
+          "raw": "be",
+          "start": 3.09,
+          "end": 3.15
+        },
+        {
+          "raw": "Vice,",
+          "start": 3.15,
+          "end": 3.75
+        },
+        {
+          "raw": "Iniquity",
+          "start": 3.75,
+          "end": 3.75
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_.]",
+        "Thus,",
+        "like",
+        "the",
+        "formal",
+        "Vice,",
+        "Iniquity,"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          7,
+          0,
+          6
+        ],
+        [
+          "insert",
+          7,
+          7,
+          6,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "insert",
+          7,
+          7,
+          6,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thus,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "thus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.79,
+          "end": 1.79,
+          "key": "like",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 1.91,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "formal",
+          "start": 1.91,
+          "end": 2.19,
+          "key": "formal",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Vice,",
+          "start": 2.19,
+          "end": 2.53,
+          "key": "vice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Iniquity,",
+          "start": 2.75,
+          "end": 3.09,
+          "key": "iniquity",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 3.09,
+          "end": 3.09,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "suppose",
+          "start": 3.09,
+          "end": 3.09,
+          "key": "suppose",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.09,
+          "end": 3.09,
+          "key": "to",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.09,
+          "end": 3.15,
+          "key": "be",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Vice,",
+          "start": 3.15,
+          "end": 3.75,
+          "key": "vice",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Iniquity",
+          "start": 3.75,
+          "end": 3.75,
+          "key": "iniquity",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_.]",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Thus,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "like",
+          "start": 1.79,
+          "end": 1.79
+        },
+        {
+          "text": "the",
+          "start": 1.79,
+          "end": 1.91
+        },
+        {
+          "text": "formal",
+          "start": 1.91,
+          "end": 2.19
+        },
+        {
+          "text": "Vice,",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "text": "Iniquity,",
+          "start": 2.75,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 12,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 3.100656367139891
+    },
+    {
+      "asr_seconds": 0.2041017150040716,
+      "alignment_seconds": 0.00025304616428911686,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Thus, Vice, Iniquity"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Aside, thus like the formal Vice, Iniquity",
+          "start": 0.05,
+          "end": 3.11,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.2427978515625
+            },
+            {
+              "text": " thus",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " like",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.740234375
+            },
+            {
+              "text": " the",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " formal",
+              "start": 1.93,
+              "end": 2.19,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " Vice,",
+              "start": 2.19,
+              "end": 2.53,
+              "probability": 0.06195068359375
+            },
+            {
+              "text": " Iniquity",
+              "start": 2.71,
+              "end": 3.11,
+              "probability": 0.6929524739583334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "thus",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "like",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "formal",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "raw": "Vice,",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "raw": "Iniquity",
+          "start": 2.71,
+          "end": 3.11
+        }
+      ],
+      "expected_tokens": [
+        "[_Aside_.]",
+        "Thus,",
+        "like",
+        "the",
+        "formal",
+        "Vice,",
+        "Iniquity,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thus",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "thus",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 1.57,
+          "end": 1.81,
+          "key": "like",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.81,
+          "end": 1.93,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "formal",
+          "start": 1.93,
+          "end": 2.19,
+          "key": "formal",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Vice,",
+          "start": 2.19,
+          "end": 2.53,
+          "key": "vice",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Iniquity",
+          "start": 2.71,
+          "end": 3.11,
+          "key": "iniquity",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Aside_.]",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Thus,",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "like",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "the",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "formal",
+          "start": 1.93,
+          "end": 2.19
+        },
+        {
+          "text": "Vice,",
+          "start": 2.19,
+          "end": 2.53
+        },
+        {
+          "text": "Iniquity,",
+          "start": 2.71,
+          "end": 3.11
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20445307018235326
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "e710c0d9416b7a187ab180745f5d4404cfcba4ee657f24ff4c69d741db36f8b5",
+  "selected_reasons": []
+}

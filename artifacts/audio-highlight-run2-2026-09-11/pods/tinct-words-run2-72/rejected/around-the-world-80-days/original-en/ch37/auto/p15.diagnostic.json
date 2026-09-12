@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "4755afbbe907e32da956d0babcf5c6002f6a054565528e7b2d2f8b26fab8278e",
+  "attempts": [
+    {
+      "asr_seconds": 0.37200254295021296,
+      "alignment_seconds": 0.0007153069600462914,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Passepartout had seized his master by the collar, and was dragging him along with irresistible force.",
+        "hotwords": "Passepartout"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Passepartout had seized his master by the collar, and was dragging him along with irresistible force.",
+          "start": 0.05,
+          "end": 6.15,
+          "words": [
+            {
+              "text": " Passepartout",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.49580955505371094
+            },
+            {
+              "text": " had",
+              "start": 1.09,
+              "end": 1.29,
+              "probability": 0.986328125
+            },
+            {
+              "text": " seized",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " master",
+              "start": 1.85,
+              "end": 2.27,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " by",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " collar,",
+              "start": 2.67,
+              "end": 2.97,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " and",
+              "start": 3.31,
+              "end": 3.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " was",
+              "start": 3.63,
+              "end": 3.73,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dragging",
+              "start": 3.73,
+              "end": 4.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " him",
+              "start": 4.07,
+              "end": 4.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " along",
+              "start": 4.37,
+              "end": 4.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 4.69,
+              "end": 4.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " irresistible",
+              "start": 4.95,
+              "end": 5.47,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " force.",
+              "start": 5.47,
+              "end": 6.15,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Passepartout",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "had",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "raw": "seized",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "raw": "his",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "master",
+          "start": 1.85,
+          "end": 2.27
+        },
+        {
+          "raw": "by",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "collar,",
+          "start": 2.67,
+          "end": 2.97
+        },
+        {
+          "raw": "and",
+          "start": 3.31,
+          "end": 3.63
+        },
+        {
+          "raw": "was",
+          "start": 3.63,
+          "end": 3.73
+        },
+        {
+          "raw": "dragging",
+          "start": 3.73,
+          "end": 4.07
+        },
+        {
+          "raw": "him",
+          "start": 4.07,
+          "end": 4.37
+        },
+        {
+          "raw": "along",
+          "start": 4.37,
+          "end": 4.69
+        },
+        {
+          "raw": "with",
+          "start": 4.69,
+          "end": 4.95
+        },
+        {
+          "raw": "irresistible",
+          "start": 4.95,
+          "end": 5.47
+        },
+        {
+          "raw": "force.",
+          "start": 5.47,
+          "end": 6.15
+        }
+      ],
+      "expected_tokens": [
+        "Passepartout",
+        "had",
+        "seized",
+        "his",
+        "master",
+        "by",
+        "the",
+        "collar,",
+        "and",
+        "was",
+        "dragging",
+        "him",
+        "along",
+        "with",
+        "irresistible",
+        "force."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Passepartout",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "passepartout",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "had",
+          "start": 1.09,
+          "end": 1.29,
+          "key": "had",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "seized",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "seized",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.65,
+          "end": 1.85,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "master",
+          "start": 1.85,
+          "end": 2.27,
+          "key": "master",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 2.27,
+          "end": 2.53,
+          "key": "by",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "collar,",
+          "start": 2.67,
+          "end": 2.97,
+          "key": "collar",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.31,
+          "end": 3.63,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 3.63,
+          "end": 3.73,
+          "key": "was",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dragging",
+          "start": 3.73,
+          "end": 4.07,
+          "key": "dragging",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 4.07,
+          "end": 4.37,
+          "key": "him",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "along",
+          "start": 4.37,
+          "end": 4.69,
+          "key": "along",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 4.69,
+          "end": 4.95,
+          "key": "with",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "irresistible",
+          "start": 4.95,
+          "end": 5.47,
+          "key": "irresistible",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "force.",
+          "start": 5.47,
+          "end": 6.15,
+          "key": "force",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Passepartout",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "had",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "seized",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "text": "his",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "master",
+          "start": 1.85,
+          "end": 2.27
+        },
+        {
+          "text": "by",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "the",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "collar,",
+          "start": 2.67,
+          "end": 2.97
+        },
+        {
+          "text": "and",
+          "start": 3.31,
+          "end": 3.63
+        },
+        {
+          "text": "was",
+          "start": 3.63,
+          "end": 3.73
+        },
+        {
+          "text": "dragging",
+          "start": 3.73,
+          "end": 4.07
+        },
+        {
+          "text": "him",
+          "start": 4.07,
+          "end": 4.37
+        },
+        {
+          "text": "along",
+          "start": 4.37,
+          "end": 4.69
+        },
+        {
+          "text": "with",
+          "start": 4.69,
+          "end": 4.95
+        },
+        {
+          "text": "irresistible",
+          "start": 4.95,
+          "end": 5.47
+        },
+        {
+          "text": "force.",
+          "start": 5.47,
+          "end": 6.15
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3728968012146652
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4f2b7935e2f651fd6557e1e688d1000e6ef265ca5b2f058be790c669c05ade25",
+  "selected_reasons": []
+}

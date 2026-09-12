@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "67fa173039cbb291c90b44deb3c86a659248ac5a7e358b2cc7a55814983c2b56",
+  "attempts": [
+    {
+      "asr_seconds": 0.3117601480334997,
+      "alignment_seconds": 0.0004927190020680428,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " His eyes beating looked steadfastly at cream curves of stone Sir Thomas Dean was the Greek architecture",
+          "start": 0.02,
+          "end": 6.44,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " eyes",
+              "start": 0.52,
+              "end": 0.82,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " beating",
+              "start": 0.82,
+              "end": 1.14,
+              "probability": 0.978515625
+            },
+            {
+              "text": " looked",
+              "start": 1.14,
+              "end": 1.46,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " steadfastly",
+              "start": 1.46,
+              "end": 2.34,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " at",
+              "start": 2.34,
+              "end": 2.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " cream",
+              "start": 2.48,
+              "end": 2.74,
+              "probability": 0.841796875
+            },
+            {
+              "text": " curves",
+              "start": 2.74,
+              "end": 3.12,
+              "probability": 0.927734375
+            },
+            {
+              "text": " of",
+              "start": 3.12,
+              "end": 3.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " stone",
+              "start": 3.3,
+              "end": 3.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Sir",
+              "start": 3.64,
+              "end": 4.5,
+              "probability": 0.08270263671875
+            },
+            {
+              "text": " Thomas",
+              "start": 4.5,
+              "end": 4.84,
+              "probability": 0.978515625
+            },
+            {
+              "text": " Dean",
+              "start": 4.84,
+              "end": 5.16,
+              "probability": 0.92724609375
+            },
+            {
+              "text": " was",
+              "start": 5.16,
+              "end": 5.48,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 5.48,
+              "end": 5.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Greek",
+              "start": 5.64,
+              "end": 5.84,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " architecture",
+              "start": 5.84,
+              "end": 6.44,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "eyes",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "raw": "beating",
+          "start": 0.82,
+          "end": 1.14
+        },
+        {
+          "raw": "looked",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "raw": "steadfastly",
+          "start": 1.46,
+          "end": 2.34
+        },
+        {
+          "raw": "at",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "raw": "cream",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "raw": "curves",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "raw": "of",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "raw": "stone",
+          "start": 3.3,
+          "end": 3.64
+        },
+        {
+          "raw": "Sir",
+          "start": 3.64,
+          "end": 4.5
+        },
+        {
+          "raw": "Thomas",
+          "start": 4.5,
+          "end": 4.84
+        },
+        {
+          "raw": "Dean",
+          "start": 4.84,
+          "end": 5.16
+        },
+        {
+          "raw": "was",
+          "start": 5.16,
+          "end": 5.48
+        },
+        {
+          "raw": "the",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "raw": "Greek",
+          "start": 5.64,
+          "end": 5.84
+        },
+        {
+          "raw": "architecture",
+          "start": 5.84,
+          "end": 6.44
+        }
+      ],
+      "expected_tokens": [
+        "His",
+        "eyes",
+        "beating",
+        "looked",
+        "steadfastly",
+        "at",
+        "cream",
+        "curves",
+        "of",
+        "stone.",
+        "Sir",
+        "Thomas",
+        "Deane",
+        "was",
+        "the",
+        "Greek",
+        "architecture."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          17,
+          13,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "eyes",
+          "start": 0.52,
+          "end": 0.82,
+          "key": "eyes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "beating",
+          "start": 0.82,
+          "end": 1.14,
+          "key": "beating",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "looked",
+          "start": 1.14,
+          "end": 1.46,
+          "key": "looked",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "steadfastly",
+          "start": 1.46,
+          "end": 2.34,
+          "key": "steadfastly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.34,
+          "end": 2.48,
+          "key": "at",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cream",
+          "start": 2.48,
+          "end": 2.74,
+          "key": "cream",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "curves",
+          "start": 2.74,
+          "end": 3.12,
+          "key": "curves",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.12,
+          "end": 3.3,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "stone",
+          "start": 3.3,
+          "end": 3.64,
+          "key": "stone",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Sir",
+          "start": 3.64,
+          "end": 4.5,
+          "key": "sir",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Thomas",
+          "start": 4.5,
+          "end": 4.84,
+          "key": "thomas",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "Dean",
+          "start": 4.84,
+          "end": 5.16,
+          "key": "dean",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 5.16,
+          "end": 5.48,
+          "key": "was",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.48,
+          "end": 5.64,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Greek",
+          "start": 5.64,
+          "end": 5.84,
+          "key": "greek",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "architecture",
+          "start": 5.84,
+          "end": 6.44,
+          "key": "architecture",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "His",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "eyes",
+          "start": 0.52,
+          "end": 0.82
+        },
+        {
+          "text": "beating",
+          "start": 0.82,
+          "end": 1.14
+        },
+        {
+          "text": "looked",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "text": "steadfastly",
+          "start": 1.46,
+          "end": 2.34
+        },
+        {
+          "text": "at",
+          "start": 2.34,
+          "end": 2.48
+        },
+        {
+          "text": "cream",
+          "start": 2.48,
+          "end": 2.74
+        },
+        {
+          "text": "curves",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "text": "of",
+          "start": 3.12,
+          "end": 3.3
+        },
+        {
+          "text": "stone.",
+          "start": 3.3,
+          "end": 3.64
+        },
+        {
+          "text": "Sir",
+          "start": 3.64,
+          "end": 4.5
+        },
+        {
+          "text": "Thomas",
+          "start": 4.5,
+          "end": 4.84
+        },
+        {
+          "text": "Deane",
+          "start": 4.84,
+          "end": 5.0
+        },
+        {
+          "text": "was",
+          "start": 5.16,
+          "end": 5.48
+        },
+        {
+          "text": "the",
+          "start": 5.48,
+          "end": 5.64
+        },
+        {
+          "text": "Greek",
+          "start": 5.64,
+          "end": 5.84
+        },
+        {
+          "text": "architecture.",
+          "start": 5.84,
+          "end": 6.44
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.31244566198438406
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1db59daa196aec7852e7f4b04277a26372af812ecb46135b038c97b53fc8e214",
+  "selected_reasons": []
+}

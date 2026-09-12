@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "35d7bf940809b90c8b5c568462c9595999c6b25c573221be27700b0b7ebbeb7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11935486900620162,
+      "alignment_seconds": 0.00021358602680265903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Sorry for whom?",
+          "start": 0.0,
+          "end": 1.04,
+          "words": [
+            {
+              "text": " Sorry",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.82568359375
+            },
+            {
+              "text": " for",
+              "start": 0.62,
+              "end": 0.82,
+              "probability": 0.986328125
+            },
+            {
+              "text": " whom?",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sorry",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "raw": "for",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "raw": "whom?",
+          "start": 0.82,
+          "end": 1.04
+        }
+      ],
+      "expected_tokens": [
+        "\"Sorry",
+        "for",
+        "whom?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sorry",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "sorry",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.62,
+          "end": 0.82,
+          "key": "for",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "whom?",
+          "start": 0.82,
+          "end": 1.04,
+          "key": "whom",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Sorry",
+          "start": 0.0,
+          "end": 0.62
+        },
+        {
+          "text": "for",
+          "start": 0.62,
+          "end": 0.82
+        },
+        {
+          "text": "whom?\"",
+          "start": 0.82,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11964409914799035
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5e3e82a93df349aa9d5f7c753a260caa19b3b20e3f4ff18be0f7cad29edccbe7",
+  "selected_reasons": []
+}

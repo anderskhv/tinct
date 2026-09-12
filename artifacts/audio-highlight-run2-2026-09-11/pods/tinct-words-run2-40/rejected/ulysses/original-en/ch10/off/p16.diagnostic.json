@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "19e43792c6fc20c39e2a97c2a5262ca727d3eb17ba5a04f51192ba38c1ae2942",
+  "attempts": [
+    {
+      "asr_seconds": 0.11763867503032088,
+      "alignment_seconds": 0.00029440876096487045,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Oh, sir.",
+          "start": 0.05,
+          "end": 0.83,
+          "words": [
+            {
+              "text": " Oh,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " sir.",
+              "start": 0.75,
+              "end": 0.83,
+              "probability": 0.85400390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "sir.",
+          "start": 0.75,
+          "end": 0.83
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Oh,",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "oh",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.75,
+          "end": 0.83,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.0,
+          "end": 0.375
+        },
+        {
+          "text": "sir.",
+          "start": 0.75,
+          "end": 0.83
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11802267422899604
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff4399ec62bbe4c7ae38cf3698173596e79cc6d912f59869920c867df8ee4349",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,670 @@
+{
+  "complete": true,
+  "signature": "95f3d54bbdeaeb18c1bbf6828e8e4bfbb728de2b7645cb797f7ba9b7b5defd30",
+  "attempts": [
+    {
+      "asr_seconds": 0.29219056386500597,
+      "alignment_seconds": 0.0004662242718040943,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Sicinius. This is a happier and more comely time Than when these fellows ran about the streets Crying confusion.",
+        "hotwords": "Sicinius, This, Than, Crying"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sicinius, This is a happier and more comely time Than when these fellows ran about the streets Crying confusion.",
+          "start": 0.0,
+          "end": 6.86,
+          "words": [
+            {
+              "text": " Sicinius,",
+              "start": 0.0,
+              "end": 0.96,
+              "probability": 0.5414835611979166
+            },
+            {
+              "text": " This",
+              "start": 1.54,
+              "end": 1.76,
+              "probability": 0.0300140380859375
+            },
+            {
+              "text": " is",
+              "start": 1.76,
+              "end": 1.92,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " a",
+              "start": 1.92,
+              "end": 2.08,
+              "probability": 0.98828125
+            },
+            {
+              "text": " happier",
+              "start": 2.08,
+              "end": 2.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 2.42,
+              "end": 2.72,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " more",
+              "start": 2.72,
+              "end": 2.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " comely",
+              "start": 2.9,
+              "end": 3.38,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " time",
+              "start": 3.38,
+              "end": 3.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Than",
+              "start": 3.74,
+              "end": 4.28,
+              "probability": 0.07952880859375
+            },
+            {
+              "text": " when",
+              "start": 4.28,
+              "end": 4.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " these",
+              "start": 4.4,
+              "end": 4.66,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " fellows",
+              "start": 4.66,
+              "end": 4.96,
+              "probability": 0.98828125
+            },
+            {
+              "text": " ran",
+              "start": 4.96,
+              "end": 5.32,
+              "probability": 0.88671875
+            },
+            {
+              "text": " about",
+              "start": 5.32,
+              "end": 5.54,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " the",
+              "start": 5.54,
+              "end": 5.68,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " streets",
+              "start": 5.68,
+              "end": 5.92,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Crying",
+              "start": 5.92,
+              "end": 6.48,
+              "probability": 0.57843017578125
+            },
+            {
+              "text": " confusion.",
+              "start": 6.48,
+              "end": 6.86,
+              "probability": 0.95556640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.0,
+          "end": 0.96
+        },
+        {
+          "raw": "This",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "raw": "is",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "raw": "happier",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "raw": "and",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "raw": "more",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "raw": "comely",
+          "start": 2.9,
+          "end": 3.38
+        },
+        {
+          "raw": "time",
+          "start": 3.38,
+          "end": 3.74
+        },
+        {
+          "raw": "Than",
+          "start": 3.74,
+          "end": 4.28
+        },
+        {
+          "raw": "when",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "raw": "these",
+          "start": 4.4,
+          "end": 4.66
+        },
+        {
+          "raw": "fellows",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "raw": "ran",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "raw": "about",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "raw": "the",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "raw": "streets",
+          "start": 5.68,
+          "end": 5.92
+        },
+        {
+          "raw": "Crying",
+          "start": 5.92,
+          "end": 6.48
+        },
+        {
+          "raw": "confusion.",
+          "start": 6.48,
+          "end": 6.86
+        }
+      ],
+      "expected_tokens": [
+        "Sicinius.",
+        "This",
+        "is",
+        "a",
+        "happier",
+        "and",
+        "more",
+        "comely",
+        "time",
+        "Than",
+        "when",
+        "these",
+        "fellows",
+        "ran",
+        "about",
+        "the",
+        "streets",
+        "Crying",
+        "confusion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Sicinius,",
+          "start": 0.0,
+          "end": 0.96,
+          "key": "sicinius",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.54,
+          "end": 1.76,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.76,
+          "end": 1.92,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.08,
+          "key": "a",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "happier",
+          "start": 2.08,
+          "end": 2.42,
+          "key": "happier",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.42,
+          "end": 2.72,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 2.72,
+          "end": 2.9,
+          "key": "more",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "comely",
+          "start": 2.9,
+          "end": 3.38,
+          "key": "comely",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "time",
+          "start": 3.38,
+          "end": 3.74,
+          "key": "time",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Than",
+          "start": 3.74,
+          "end": 4.28,
+          "key": "than",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 4.28,
+          "end": 4.4,
+          "key": "when",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 4.4,
+          "end": 4.66,
+          "key": "these",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "fellows",
+          "start": 4.66,
+          "end": 4.96,
+          "key": "fellows",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ran",
+          "start": 4.96,
+          "end": 5.32,
+          "key": "ran",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 5.32,
+          "end": 5.54,
+          "key": "about",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.54,
+          "end": 5.68,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "streets",
+          "start": 5.68,
+          "end": 5.92,
+          "key": "streets",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Crying",
+          "start": 5.92,
+          "end": 6.48,
+          "key": "crying",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "confusion.",
+          "start": 6.48,
+          "end": 6.86,
+          "key": "confusion",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Sicinius.",
+          "start": 0.0,
+          "end": 0.96
+        },
+        {
+          "text": "This",
+          "start": 1.54,
+          "end": 1.76
+        },
+        {
+          "text": "is",
+          "start": 1.76,
+          "end": 1.92
+        },
+        {
+          "text": "a",
+          "start": 1.92,
+          "end": 2.08
+        },
+        {
+          "text": "happier",
+          "start": 2.08,
+          "end": 2.42
+        },
+        {
+          "text": "and",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "text": "more",
+          "start": 2.72,
+          "end": 2.9
+        },
+        {
+          "text": "comely",
+          "start": 2.9,
+          "end": 3.38
+        },
+        {
+          "text": "time",
+          "start": 3.38,
+          "end": 3.74
+        },
+        {
+          "text": "Than",
+          "start": 3.74,
+          "end": 4.28
+        },
+        {
+          "text": "when",
+          "start": 4.28,
+          "end": 4.4
+        },
+        {
+          "text": "these",
+          "start": 4.4,
+          "end": 4.66
+        },
+        {
+          "text": "fellows",
+          "start": 4.66,
+          "end": 4.96
+        },
+        {
+          "text": "ran",
+          "start": 4.96,
+          "end": 5.32
+        },
+        {
+          "text": "about",
+          "start": 5.32,
+          "end": 5.54
+        },
+        {
+          "text": "the",
+          "start": 5.54,
+          "end": 5.68
+        },
+        {
+          "text": "streets",
+          "start": 5.68,
+          "end": 5.92
+        },
+        {
+          "text": "Crying",
+          "start": 5.92,
+          "end": 6.48
+        },
+        {
+          "text": "confusion.",
+          "start": 6.48,
+          "end": 6.86
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2928820550441742
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d3174f06e82a7f621d4ddf291db3ebf2f07b629161050a14ebe7550e8fcb5075",
+  "selected_reasons": []
+}

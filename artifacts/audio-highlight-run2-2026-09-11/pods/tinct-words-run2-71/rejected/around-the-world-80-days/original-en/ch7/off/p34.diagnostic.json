@@ -1,0 +1,383 @@
+{
+  "complete": true,
+  "signature": "d2b98de124ecee5821a0f1ffc7ceec89886e0ff50329c253ee6f4d7bf30cce28",
+  "attempts": [
+    {
+      "asr_seconds": 0.23855656012892723,
+      "alignment_seconds": 0.00030038878321647644,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Arrived at Brindisi, Saturday, October 5th at 4 p.m.",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " Arrived",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6676025390625
+            },
+            {
+              "text": " at",
+              "start": 0.77,
+              "end": 0.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Brindisi,",
+              "start": 0.87,
+              "end": 1.33,
+              "probability": 0.9296875
+            },
+            {
+              "text": " Saturday,",
+              "start": 2.11,
+              "end": 2.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " October",
+              "start": 2.27,
+              "end": 2.51,
+              "probability": 0.81640625
+            },
+            {
+              "text": " 5th",
+              "start": 2.51,
+              "end": 3.07,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " at",
+              "start": 3.07,
+              "end": 3.17,
+              "probability": 0.65625
+            },
+            {
+              "text": " 4",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " p",
+              "start": 3.45,
+              "end": 3.65,
+              "probability": 0.389404296875
+            },
+            {
+              "text": ".m.",
+              "start": 3.65,
+              "end": 3.95,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Arrived",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "at",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "raw": "Brindisi,",
+          "start": 0.87,
+          "end": 1.33
+        },
+        {
+          "raw": "Saturday,",
+          "start": 2.11,
+          "end": 2.11
+        },
+        {
+          "raw": "October",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "raw": "5th",
+          "start": 2.51,
+          "end": 3.07
+        },
+        {
+          "raw": "at",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "raw": "4",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": "p",
+          "start": 3.45,
+          "end": 3.65
+        },
+        {
+          "raw": ".m.",
+          "start": 3.65,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "\"Arrived",
+        "at",
+        "Brindisi,",
+        "Saturday,",
+        "October",
+        "5th,",
+        "at",
+        "4",
+        "p.m."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Arrived",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "arrived",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 0.77,
+          "end": 0.87,
+          "key": "at",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Brindisi,",
+          "start": 0.87,
+          "end": 1.33,
+          "key": "brindisi",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Saturday,",
+          "start": 2.11,
+          "end": 2.11,
+          "key": "saturday",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "October",
+          "start": 2.27,
+          "end": 2.51,
+          "key": "october",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "5th",
+          "start": 2.51,
+          "end": 3.07,
+          "key": "5th",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 3.07,
+          "end": 3.17,
+          "key": "at",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "4",
+          "start": 3.17,
+          "end": 3.45,
+          "key": "four",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "p",
+          "start": 3.45,
+          "end": 3.65,
+          "key": "p",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": ".m.",
+          "start": 3.65,
+          "end": 3.95,
+          "key": "m",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Arrived",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "at",
+          "start": 0.77,
+          "end": 0.87
+        },
+        {
+          "text": "Brindisi,",
+          "start": 0.87,
+          "end": 1.33
+        },
+        {
+          "text": "Saturday,",
+          "start": 2.11,
+          "end": 2.11
+        },
+        {
+          "text": "October",
+          "start": 2.27,
+          "end": 2.51
+        },
+        {
+          "text": "5th,",
+          "start": 2.51,
+          "end": 3.07
+        },
+        {
+          "text": "at",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "text": "4",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "p.m.",
+          "start": 3.45,
+          "end": 3.7
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.23899295553565025
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca96a3530613ff7bcca6f910bed62e7f8250c3fe80b94e0f8526b544e0aea4db",
+  "selected_reasons": []
+}

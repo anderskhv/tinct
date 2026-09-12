@@ -1,0 +1,316 @@
+{
+  "complete": true,
+  "signature": "d257ef06ec37c32b93a000bda10bfbefd3e82e4614907c82ea5b87efddaa713a",
+  "attempts": [
+    {
+      "asr_seconds": 0.1415978567674756,
+      "alignment_seconds": 0.0004547778517007828,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Won't you have some tea now? she asked",
+          "start": 0.02,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " Won't",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.54296875
+            },
+            {
+              "text": " you",
+              "start": 0.6,
+              "end": 0.64,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 0.64,
+              "end": 0.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " some",
+              "start": 0.8,
+              "end": 1.0,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tea",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now?",
+              "start": 1.18,
+              "end": 1.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " she",
+              "start": 1.72,
+              "end": 1.88,
+              "probability": 0.544921875
+            },
+            {
+              "text": " asked",
+              "start": 1.88,
+              "end": 2.28,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Won't",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.64
+        },
+        {
+          "raw": "have",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "raw": "some",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "raw": "tea",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "now?",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "raw": "she",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "raw": "asked",
+          "start": 1.88,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "\"Won't",
+        "you",
+        "have",
+        "some",
+        "tea",
+        "now?\"",
+        "she",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Won't",
+          "start": 0.02,
+          "end": 0.6,
+          "key": "wont",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.64,
+          "key": "you",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 0.64,
+          "end": 0.8,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 0.8,
+          "end": 1.0,
+          "key": "some",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tea",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "tea",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 1.18,
+          "end": 1.52,
+          "key": "now",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.72,
+          "end": 1.88,
+          "key": "she",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 1.88,
+          "end": 2.28,
+          "key": "asked",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Won't",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "you",
+          "start": 0.6,
+          "end": 0.64
+        },
+        {
+          "text": "have",
+          "start": 0.64,
+          "end": 0.8
+        },
+        {
+          "text": "some",
+          "start": 0.8,
+          "end": 1.0
+        },
+        {
+          "text": "tea",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "now?\"",
+          "start": 1.18,
+          "end": 1.52
+        },
+        {
+          "text": "she",
+          "start": 1.72,
+          "end": 1.88
+        },
+        {
+          "text": "asked.",
+          "start": 1.88,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14220475126057863
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ed0a1af2c78993b9416f2fb96235d25b033cf751671edc4e52ad93ef8e87018d",
+  "selected_reasons": []
+}

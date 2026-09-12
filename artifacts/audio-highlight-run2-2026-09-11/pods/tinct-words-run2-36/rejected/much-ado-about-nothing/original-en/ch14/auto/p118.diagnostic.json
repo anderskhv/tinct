@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "027450d57966816fbc3a210ed1df706254a409c31be90d06684e3315f05d94a5",
+  "attempts": [
+    {
+      "asr_seconds": 0.1335156485438347,
+      "alignment_seconds": 0.00025347620248794556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Exeunt Dogberry and Verges.]",
+        "hotwords": "Exeunt, Dogberry, Verges"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exeunt, Dogberry and Verges.",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Exeunt,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.567962646484375
+            },
+            {
+              "text": " Dogberry",
+              "start": 0.89,
+              "end": 1.21,
+              "probability": 0.35986328125
+            },
+            {
+              "text": " and",
+              "start": 1.21,
+              "end": 1.39,
+              "probability": 0.6142578125
+            },
+            {
+              "text": " Verges.",
+              "start": 1.39,
+              "end": 1.83,
+              "probability": 0.5570068359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Dogberry",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "raw": "Verges.",
+          "start": 1.39,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "[Exeunt",
+        "Dogberry",
+        "and",
+        "Verges.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Exeunt,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "exeunt",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Dogberry",
+          "start": 0.89,
+          "end": 1.21,
+          "key": "dogberry",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.21,
+          "end": 1.39,
+          "key": "and",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Verges.",
+          "start": 1.39,
+          "end": 1.83,
+          "key": "verges",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Exeunt",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Dogberry",
+          "start": 0.89,
+          "end": 1.21
+        },
+        {
+          "text": "and",
+          "start": 1.21,
+          "end": 1.39
+        },
+        {
+          "text": "Verges.]",
+          "start": 1.39,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1338644064962864
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "46c0d8515f16f8b9bff0072940213661d2469f67f6cb70a0ed9649f293553294",
+  "selected_reasons": []
+}

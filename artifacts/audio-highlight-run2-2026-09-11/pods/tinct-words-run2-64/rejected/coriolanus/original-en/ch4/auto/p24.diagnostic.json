@@ -1,0 +1,414 @@
+{
+  "complete": true,
+  "signature": "510d6519dca4f05fe15000648c419cd9d630629ac81b8511ceaa36cb29a19cd9",
+  "attempts": [
+    {
+      "asr_seconds": 0.21246886998414993,
+      "alignment_seconds": 0.00034357979893684387,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Enter the Army of the Volsces as through the city gates.",
+        "hotwords": "Enter, Army, Volsces"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Enter the Army of the Volsces as through the city gates.",
+          "start": 0.08,
+          "end": 3.2,
+          "words": [
+            {
+              "text": " Enter",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.869140625
+            },
+            {
+              "text": " the",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Army",
+              "start": 0.78,
+              "end": 1.02,
+              "probability": 0.3642578125
+            },
+            {
+              "text": " of",
+              "start": 1.02,
+              "end": 1.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Volsces",
+              "start": 1.32,
+              "end": 1.84,
+              "probability": 0.1582921346028646
+            },
+            {
+              "text": " as",
+              "start": 1.84,
+              "end": 2.28,
+              "probability": 0.71875
+            },
+            {
+              "text": " through",
+              "start": 2.28,
+              "end": 2.46,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " the",
+              "start": 2.46,
+              "end": 2.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " city",
+              "start": 2.62,
+              "end": 2.82,
+              "probability": 0.71923828125
+            },
+            {
+              "text": " gates.",
+              "start": 2.82,
+              "end": 3.2,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "Army",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "raw": "of",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "Volsces",
+          "start": 1.32,
+          "end": 1.84
+        },
+        {
+          "raw": "as",
+          "start": 1.84,
+          "end": 2.28
+        },
+        {
+          "raw": "through",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "raw": "the",
+          "start": 2.46,
+          "end": 2.62
+        },
+        {
+          "raw": "city",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "raw": "gates.",
+          "start": 2.82,
+          "end": 3.2
+        }
+      ],
+      "expected_tokens": [
+        "Enter",
+        "the",
+        "Army",
+        "of",
+        "the",
+        "Volsces",
+        "as",
+        "through",
+        "the",
+        "city",
+        "gates."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Enter",
+          "start": 0.08,
+          "end": 0.6,
+          "key": "enter",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.6,
+          "end": 0.78,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Army",
+          "start": 0.78,
+          "end": 1.02,
+          "key": "army",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.02,
+          "end": 1.2,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Volsces",
+          "start": 1.32,
+          "end": 1.84,
+          "key": "volsces",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 1.84,
+          "end": 2.28,
+          "key": "as",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "through",
+          "start": 2.28,
+          "end": 2.46,
+          "key": "through",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.46,
+          "end": 2.62,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "city",
+          "start": 2.62,
+          "end": 2.82,
+          "key": "city",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "gates.",
+          "start": 2.82,
+          "end": 3.2,
+          "key": "gates",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Enter",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "the",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "Army",
+          "start": 0.78,
+          "end": 1.02
+        },
+        {
+          "text": "of",
+          "start": 1.02,
+          "end": 1.2
+        },
+        {
+          "text": "the",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "Volsces",
+          "start": 1.32,
+          "end": 1.84
+        },
+        {
+          "text": "as",
+          "start": 1.84,
+          "end": 2.28
+        },
+        {
+          "text": "through",
+          "start": 2.28,
+          "end": 2.46
+        },
+        {
+          "text": "the",
+          "start": 2.46,
+          "end": 2.62
+        },
+        {
+          "text": "city",
+          "start": 2.62,
+          "end": 2.82
+        },
+        {
+          "text": "gates.",
+          "start": 2.82,
+          "end": 3.2
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21295467391610146
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "904dee03e200b0997ac6cad5a1f2af95b0a7acb6fe9819a7dda4c277528f5843",
+  "selected_reasons": []
+}

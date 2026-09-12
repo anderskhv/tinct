@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "54fbc95933328ec340f7a62b00b6d1196b4baa6c6a419ce7502c7bd5d1e1c3ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.3788075791671872,
+      "alignment_seconds": 0.0006461488083004951,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cymbeline. She alone knew this; And but she spoke it dying, I would not Believe her lips in opening it. Proceed.",
+        "hotwords": "Cymbeline, And, I, Believe, Proceed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cymbeline. She alone knew this, And but she spoke it dying, I would not Believe her lips",
+          "start": 0.08,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " Cymbeline.",
+              "start": 0.08,
+              "end": 0.82,
+              "probability": 0.7533365885416666
+            },
+            {
+              "text": " She",
+              "start": 1.3,
+              "end": 1.54,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " alone",
+              "start": 1.54,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " knew",
+              "start": 1.82,
+              "end": 2.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " this,",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " And",
+              "start": 2.66,
+              "end": 2.78,
+              "probability": 0.005245208740234375
+            },
+            {
+              "text": " but",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " she",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " spoke",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 3.32,
+              "end": 3.5,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " dying,",
+              "start": 3.5,
+              "end": 3.76,
+              "probability": 0.953125
+            },
+            {
+              "text": " I",
+              "start": 3.98,
+              "end": 4.04,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " would",
+              "start": 4.04,
+              "end": 4.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " not",
+              "start": 4.14,
+              "end": 4.36,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Believe",
+              "start": 4.36,
+              "end": 4.62,
+              "probability": 0.0240325927734375
+            },
+            {
+              "text": " her",
+              "start": 4.62,
+              "end": 4.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " lips",
+              "start": 4.84,
+              "end": 5.06,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " in opening it. Proceed.",
+          "start": 5.06,
+          "end": 6.74,
+          "words": [
+            {
+              "text": " in",
+              "start": 5.06,
+              "end": 5.3,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " opening",
+              "start": 5.3,
+              "end": 5.58,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " it.",
+              "start": 5.58,
+              "end": 5.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Proceed.",
+              "start": 6.46,
+              "end": 6.74,
+              "probability": 0.73828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "raw": "She",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "raw": "alone",
+          "start": 1.54,
+          "end": 1.82
+        },
+        {
+          "raw": "knew",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "raw": "this,",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "raw": "And",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "raw": "but",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "she",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "spoke",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "it",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "raw": "dying,",
+          "start": 3.5,
+          "end": 3.76
+        },
+        {
+          "raw": "I",
+          "start": 3.98,
+          "end": 4.04
+        },
+        {
+          "raw": "would",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "raw": "not",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "raw": "Believe",
+          "start": 4.36,
+          "end": 4.62
+        },
+        {
+          "raw": "her",
+          "start": 4.62,
+          "end": 4.84
+        },
+        {
+          "raw": "lips",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "raw": "in",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "raw": "opening",
+          "start": 5.3,
+          "end": 5.58
+        },
+        {
+          "raw": "it.",
+          "start": 5.58,
+          "end": 5.96
+        },
+        {
+          "raw": "Proceed.",
+          "start": 6.46,
+          "end": 6.74
+        }
+      ],
+      "expected_tokens": [
+        "Cymbeline.",
+        "She",
+        "alone",
+        "knew",
+        "this;",
+        "And",
+        "but",
+        "she",
+        "spoke",
+        "it",
+        "dying,",
+        "I",
+        "would",
+        "not",
+        "Believe",
+        "her",
+        "lips",
+        "in",
+        "opening",
+        "it.",
+        "Proceed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.82,
+          "key": "cymbeline",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 1.3,
+          "end": 1.54,
+          "key": "she",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "alone",
+          "start": 1.54,
+          "end": 1.82,
+          "key": "alone",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "knew",
+          "start": 1.82,
+          "end": 2.06,
+          "key": "knew",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "this,",
+          "start": 2.06,
+          "end": 2.36,
+          "key": "this",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "And",
+          "start": 2.66,
+          "end": 2.78,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "but",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "she",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "spoke",
+          "start": 3.1,
+          "end": 3.32,
+          "key": "spoke",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.32,
+          "end": 3.5,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "dying,",
+          "start": 3.5,
+          "end": 3.76,
+          "key": "dying",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.98,
+          "end": 4.04,
+          "key": "i",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 4.04,
+          "end": 4.14,
+          "key": "would",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.14,
+          "end": 4.36,
+          "key": "not",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Believe",
+          "start": 4.36,
+          "end": 4.62,
+          "key": "believe",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 4.62,
+          "end": 4.84,
+          "key": "her",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "lips",
+          "start": 4.84,
+          "end": 5.06,
+          "key": "lips",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 5.06,
+          "end": 5.3,
+          "key": "in",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "opening",
+          "start": 5.3,
+          "end": 5.58,
+          "key": "opening",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 5.58,
+          "end": 5.96,
+          "key": "it",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "Proceed.",
+          "start": 6.46,
+          "end": 6.74,
+          "key": "proceed",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cymbeline.",
+          "start": 0.08,
+          "end": 0.82
+        },
+        {
+          "text": "She",
+          "start": 1.3,
+          "end": 1.54
+        },
+        {
+          "text": "alone",
+          "start": 1.54,
+          "end": 1.82
+        },
+        {
+          "text": "knew",
+          "start": 1.82,
+          "end": 2.06
+        },
+        {
+          "text": "this;",
+          "start": 2.06,
+          "end": 2.36
+        },
+        {
+          "text": "And",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "text": "but",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "she",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "spoke",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "it",
+          "start": 3.32,
+          "end": 3.5
+        },
+        {
+          "text": "dying,",
+          "start": 3.5,
+          "end": 3.76
+        },
+        {
+          "text": "I",
+          "start": 3.98,
+          "end": 4.04
+        },
+        {
+          "text": "would",
+          "start": 4.04,
+          "end": 4.14
+        },
+        {
+          "text": "not",
+          "start": 4.14,
+          "end": 4.36
+        },
+        {
+          "text": "Believe",
+          "start": 4.36,
+          "end": 4.62
+        },
+        {
+          "text": "her",
+          "start": 4.62,
+          "end": 4.84
+        },
+        {
+          "text": "lips",
+          "start": 4.84,
+          "end": 5.06
+        },
+        {
+          "text": "in",
+          "start": 5.06,
+          "end": 5.3
+        },
+        {
+          "text": "opening",
+          "start": 5.3,
+          "end": 5.58
+        },
+        {
+          "text": "it.",
+          "start": 5.58,
+          "end": 5.96
+        },
+        {
+          "text": "Proceed.",
+          "start": 6.46,
+          "end": 6.74
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37977623008191586
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b06bf2f27f5bc246f3586f32dcc4c5e08dd7223e8e5135874451febb26a54735",
+  "selected_reasons": []
+}

@@ -1,0 +1,407 @@
+{
+  "complete": true,
+  "signature": "2149577b39c3d5bba5627c1b42ff2d69aa632899a9c122ac819081c8b1036b7e",
+  "attempts": [
+    {
+      "asr_seconds": 0.20095576718449593,
+      "alignment_seconds": 0.0005061645060777664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Where is Yachka? Elisha asked in a broken voice",
+          "start": 0.05,
+          "end": 3.55,
+          "words": [
+            {
+              "text": " Where",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.097900390625
+            },
+            {
+              "text": " is",
+              "start": 0.69,
+              "end": 1.09,
+              "probability": 0.931640625
+            },
+            {
+              "text": " Yachka?",
+              "start": 1.09,
+              "end": 1.61,
+              "probability": 0.5086263020833334
+            },
+            {
+              "text": " Elisha",
+              "start": 2.01,
+              "end": 2.37,
+              "probability": 0.6748046875
+            },
+            {
+              "text": " asked",
+              "start": 2.37,
+              "end": 2.63,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " a",
+              "start": 2.79,
+              "end": 2.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " broken",
+              "start": 2.89,
+              "end": 3.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " voice",
+              "start": 3.11,
+              "end": 3.55,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Where",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "raw": "Yachka?",
+          "start": 1.09,
+          "end": 1.61
+        },
+        {
+          "raw": "Elisha",
+          "start": 2.01,
+          "end": 2.37
+        },
+        {
+          "raw": "asked",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "raw": "in",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "a",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "raw": "broken",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "raw": "voice",
+          "start": 3.11,
+          "end": 3.55
+        }
+      ],
+      "expected_tokens": [
+        "\"Where",
+        "...",
+        "is",
+        "Zhutchka?\"",
+        "Ilusha",
+        "asked",
+        "in",
+        "a",
+        "broken",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "equal",
+          2,
+          3,
+          1,
+          2
+        ],
+        [
+          "replace",
+          3,
+          5,
+          2,
+          4
+        ],
+        [
+          "equal",
+          5,
+          10,
+          4,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          "replace",
+          3,
+          5,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Where",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "where",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 1.09,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Yachka?",
+          "start": 1.09,
+          "end": 1.61,
+          "key": "yachka",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Elisha",
+          "start": 2.01,
+          "end": 2.37,
+          "key": "elisha",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked",
+          "start": 2.37,
+          "end": 2.63,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.79,
+          "end": 2.89,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "broken",
+          "start": 2.89,
+          "end": 3.11,
+          "key": "broken",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "voice",
+          "start": 3.11,
+          "end": 3.55,
+          "key": "voice",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"Where",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "...",
+          "start": 0.69,
+          "end": 0.69
+        },
+        {
+          "text": "is",
+          "start": 0.69,
+          "end": 1.09
+        },
+        {
+          "text": "Zhutchka?\"",
+          "start": 1.09,
+          "end": 1.73
+        },
+        {
+          "text": "Ilusha",
+          "start": 1.73,
+          "end": 2.05
+        },
+        {
+          "text": "asked",
+          "start": 2.37,
+          "end": 2.63
+        },
+        {
+          "text": "in",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "a",
+          "start": 2.79,
+          "end": 2.89
+        },
+        {
+          "text": "broken",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "text": "voice.",
+          "start": 3.11,
+          "end": 3.55
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 9,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20161821320652962
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bdb48e078778b0c446d78b53f08169f748a2560cb100732d8d2fbf5b291dafe4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

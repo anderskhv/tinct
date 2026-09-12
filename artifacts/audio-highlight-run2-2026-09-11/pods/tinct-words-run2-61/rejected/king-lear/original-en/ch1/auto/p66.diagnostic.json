@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "be33a3e479c22d1889431f8210e0c112280628eb2fd0c4610ba78885f282ff74",
+  "attempts": [
+    {
+      "asr_seconds": 0.24488495849072933,
+      "alignment_seconds": 0.0005872529000043869,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Cordelia. Here's France and Burgundy, my noble lord.",
+        "hotwords": "Cordelia, Here's, France, Burgundy"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Cordelia, Here's, France and Burgundy, my noble lord.",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " Cordelia,",
+              "start": 0.05,
+              "end": 0.91,
+              "probability": 0.921875
+            },
+            {
+              "text": " Here's,",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.51177978515625
+            },
+            {
+              "text": " France",
+              "start": 1.71,
+              "end": 1.87,
+              "probability": 0.779296875
+            },
+            {
+              "text": " and",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " Burgundy,",
+              "start": 2.11,
+              "end": 2.57,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " my",
+              "start": 2.75,
+              "end": 2.85,
+              "probability": 0.7109375
+            },
+            {
+              "text": " noble",
+              "start": 2.85,
+              "end": 3.11,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " lord.",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.595703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "raw": "Here's,",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "France",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "raw": "and",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.11,
+          "end": 2.57
+        },
+        {
+          "raw": "my",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "raw": "noble",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "raw": "lord.",
+          "start": 3.11,
+          "end": 3.39
+        }
+      ],
+      "expected_tokens": [
+        "Cordelia.",
+        "Here's",
+        "France",
+        "and",
+        "Burgundy,",
+        "my",
+        "noble",
+        "lord."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Cordelia,",
+          "start": 0.05,
+          "end": 0.91,
+          "key": "cordelia",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Here's,",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "heres",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "France",
+          "start": 1.71,
+          "end": 1.87,
+          "key": "france",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Burgundy,",
+          "start": 2.11,
+          "end": 2.57,
+          "key": "burgundy",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 2.75,
+          "end": 2.85,
+          "key": "my",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "noble",
+          "start": 2.85,
+          "end": 3.11,
+          "key": "noble",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "lord.",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "lord",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Cordelia.",
+          "start": 0.05,
+          "end": 0.91
+        },
+        {
+          "text": "Here's",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "France",
+          "start": 1.71,
+          "end": 1.87
+        },
+        {
+          "text": "and",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "Burgundy,",
+          "start": 2.11,
+          "end": 2.57
+        },
+        {
+          "text": "my",
+          "start": 2.75,
+          "end": 2.85
+        },
+        {
+          "text": "noble",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "text": "lord.",
+          "start": 3.11,
+          "end": 3.39
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24570083618164062
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cb1cb73dd59b75d85c3cb6299c777b336e8b1169f15936c029e195afe6af8db9",
+  "selected_reasons": []
+}

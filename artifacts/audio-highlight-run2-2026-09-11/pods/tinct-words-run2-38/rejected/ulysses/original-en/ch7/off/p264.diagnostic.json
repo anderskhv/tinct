@@ -1,0 +1,429 @@
+{
+  "complete": true,
+  "signature": "cd081b7202c97890c6f81493160c701b48ed3409d0486361fbb59136d0fc23af",
+  "attempts": [
+    {
+      "asr_seconds": 0.19634626799961552,
+      "alignment_seconds": 0.0002957919496111572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Silence. What opera resembles a railway line?",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Silence.",
+              "start": 0.08,
+              "end": 0.8,
+              "probability": 0.8671875
+            },
+            {
+              "text": " What",
+              "start": 1.26,
+              "end": 1.4,
+              "probability": 0.62158203125
+            },
+            {
+              "text": " opera",
+              "start": 1.4,
+              "end": 1.72,
+              "probability": 0.9765625
+            },
+            {
+              "text": " resembles",
+              "start": 1.72,
+              "end": 2.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 2.08,
+              "end": 2.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " railway",
+              "start": 2.32,
+              "end": 2.52,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " line?",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Reflect. Ponder. Excogitate. Reply.",
+          "start": 3.72,
+          "end": 5.58,
+          "words": [
+            {
+              "text": " Reflect.",
+              "start": 3.72,
+              "end": 3.76,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Ponder.",
+              "start": 4.22,
+              "end": 4.36,
+              "probability": 0.980224609375
+            },
+            {
+              "text": " Excogitate.",
+              "start": 4.66,
+              "end": 5.08,
+              "probability": 0.696685791015625
+            },
+            {
+              "text": " Reply.",
+              "start": 5.58,
+              "end": 5.58,
+              "probability": 0.904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silence.",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "raw": "What",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "raw": "opera",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "raw": "resembles",
+          "start": 1.72,
+          "end": 2.08
+        },
+        {
+          "raw": "a",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "raw": "railway",
+          "start": 2.32,
+          "end": 2.52
+        },
+        {
+          "raw": "line?",
+          "start": 2.52,
+          "end": 2.9
+        },
+        {
+          "raw": "Reflect.",
+          "start": 3.72,
+          "end": 3.76
+        },
+        {
+          "raw": "Ponder.",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "raw": "Excogitate.",
+          "start": 4.66,
+          "end": 5.08
+        },
+        {
+          "raw": "Reply.",
+          "start": 5.58,
+          "end": 5.58
+        }
+      ],
+      "expected_tokens": [
+        "—Silence!",
+        "What",
+        "opera",
+        "resembles",
+        "a",
+        "railwayline?",
+        "Reflect,",
+        "ponder,",
+        "excogitate,",
+        "reply."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          10,
+          7,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Silence.",
+          "start": 0.08,
+          "end": 0.8,
+          "key": "silence",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "What",
+          "start": 1.26,
+          "end": 1.4,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "opera",
+          "start": 1.4,
+          "end": 1.72,
+          "key": "opera",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "resembles",
+          "start": 1.72,
+          "end": 2.08,
+          "key": "resembles",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.08,
+          "end": 2.32,
+          "key": "a",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "railway",
+          "start": 2.32,
+          "end": 2.52,
+          "key": "railway",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "line?",
+          "start": 2.52,
+          "end": 2.9,
+          "key": "line",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Reflect.",
+          "start": 3.72,
+          "end": 3.76,
+          "key": "reflect",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Ponder.",
+          "start": 4.22,
+          "end": 4.36,
+          "key": "ponder",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Excogitate.",
+          "start": 4.66,
+          "end": 5.08,
+          "key": "excogitate",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Reply.",
+          "start": 5.58,
+          "end": 5.58,
+          "key": "reply",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Silence!",
+          "start": 0.08,
+          "end": 0.8
+        },
+        {
+          "text": "What",
+          "start": 1.26,
+          "end": 1.4
+        },
+        {
+          "text": "opera",
+          "start": 1.4,
+          "end": 1.72
+        },
+        {
+          "text": "resembles",
+          "start": 1.72,
+          "end": 2.08
+        },
+        {
+          "text": "a",
+          "start": 2.08,
+          "end": 2.32
+        },
+        {
+          "text": "railwayline?",
+          "start": 2.32,
+          "end": 3.02
+        },
+        {
+          "text": "Reflect,",
+          "start": 3.72,
+          "end": 3.76
+        },
+        {
+          "text": "ponder,",
+          "start": 4.22,
+          "end": 4.36
+        },
+        {
+          "text": "excogitate,",
+          "start": 4.66,
+          "end": 5.08
+        },
+        {
+          "text": "reply.",
+          "start": 5.58,
+          "end": 5.58
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.19675192004069686
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5ec04f7d91be08d8ea2f1053252a58f934ebce874a65adf1aa781dce3f621ea3",
+  "selected_reasons": []
+}

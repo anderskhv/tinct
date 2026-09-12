@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "e6dd98faf7b6b3f73dedef08546b2c20da8eb0894637cd9ca5415910df0b5ffe",
+  "attempts": [
+    {
+      "asr_seconds": 0.112118074670434,
+      "alignment_seconds": 9.718351066112518e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Camillo. I may not answer.",
+        "hotwords": "Camillo, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Camillo, I may not answer.",
+          "start": 0.05,
+          "end": 1.83,
+          "words": [
+            {
+              "text": " Camillo,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.7392578125
+            },
+            {
+              "text": " I",
+              "start": 1.11,
+              "end": 1.23,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " may",
+              "start": 1.23,
+              "end": 1.33,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " answer.",
+              "start": 1.47,
+              "end": 1.83,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "raw": "may",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "raw": "not",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "answer.",
+          "start": 1.47,
+          "end": 1.83
+        }
+      ],
+      "expected_tokens": [
+        "Camillo.",
+        "I",
+        "may",
+        "not",
+        "answer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.11,
+          "end": 1.23,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 1.23,
+          "end": 1.33,
+          "key": "may",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.33,
+          "end": 1.47,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "answer.",
+          "start": 1.47,
+          "end": 1.83,
+          "key": "answer",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "I",
+          "start": 1.11,
+          "end": 1.23
+        },
+        {
+          "text": "may",
+          "start": 1.23,
+          "end": 1.33
+        },
+        {
+          "text": "not",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "answer.",
+          "start": 1.47,
+          "end": 1.83
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11224676854908466
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2a7c89bfef44a3d5fbc32eadc1bba3fc1c594e9ea96c314b7ccfd54916fb041f",
+  "selected_reasons": []
+}

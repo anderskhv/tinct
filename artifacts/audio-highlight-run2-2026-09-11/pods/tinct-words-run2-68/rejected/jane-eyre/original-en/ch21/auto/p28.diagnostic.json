@@ -1,0 +1,875 @@
+{
+  "complete": true,
+  "signature": "122cef97deac15c0545a4fefe160dc4b23c5d7b67f1f4ba4bea3070a10be93c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.21487008407711983,
+      "alignment_seconds": 0.0001822933554649353,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"What sick lady?—where does she live?\"",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What sick lady?—where does she live?",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " sick",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.65234375
+            },
+            {
+              "text": " lady",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": "?—where",
+              "start": 1.14,
+              "end": 1.6,
+              "probability": 0.291181743144989
+            },
+            {
+              "text": " does",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " she",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " live?",
+              "start": 1.9,
+              "end": 2.14,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "sick",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "lady",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "?—where",
+          "start": 1.14,
+          "end": 1.6
+        },
+        {
+          "raw": "does",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "she",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "live?",
+          "start": 1.9,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "sick",
+        "lady?—where",
+        "does",
+        "she",
+        "live?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          6,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "sick",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "?—where",
+          "start": 1.14,
+          "end": 1.6,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.6,
+          "end": 1.74,
+          "key": "does",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "live?",
+          "start": 1.9,
+          "end": 2.14,
+          "key": "live",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "sick",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "lady?—where",
+          "start": 0.8,
+          "end": 1.2
+        },
+        {
+          "text": "does",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "she",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "live?\"",
+          "start": 1.9,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21511384844779968
+    },
+    {
+      "asr_seconds": 0.16448432207107544,
+      "alignment_seconds": 0.0003775283694267273,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " What sick lady where does she live?",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " sick",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.65234375
+            },
+            {
+              "text": " lady",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " where",
+              "start": 1.14,
+              "end": 1.62,
+              "probability": 0.232666015625
+            },
+            {
+              "text": " does",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " she",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " live?",
+              "start": 1.92,
+              "end": 2.16,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "sick",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "lady",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "where",
+          "start": 1.14,
+          "end": 1.62
+        },
+        {
+          "raw": "does",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "she",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "live?",
+          "start": 1.92,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "sick",
+        "lady?—where",
+        "does",
+        "she",
+        "live?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          6,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "sick",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.14,
+          "end": 1.62,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "does",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "live?",
+          "start": 1.92,
+          "end": 2.16,
+          "key": "live",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "sick",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "lady?—where",
+          "start": 0.8,
+          "end": 1.21
+        },
+        {
+          "text": "does",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "she",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "live?\"",
+          "start": 1.92,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.16503160819411278
+    },
+    {
+      "asr_seconds": 0.21572378650307655,
+      "alignment_seconds": 0.0004488937556743622,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What sick lady, where does she live?",
+          "start": 0.02,
+          "end": 2.16,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " sick",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.65234375
+            },
+            {
+              "text": " lady,",
+              "start": 0.8,
+              "end": 1.14,
+              "probability": 0.9921875
+            },
+            {
+              "text": " where",
+              "start": 1.46,
+              "end": 1.62,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " does",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " she",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " live?",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "sick",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "raw": "lady,",
+          "start": 0.8,
+          "end": 1.14
+        },
+        {
+          "raw": "where",
+          "start": 1.46,
+          "end": 1.62
+        },
+        {
+          "raw": "does",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "raw": "she",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "raw": "live?",
+          "start": 1.9,
+          "end": 2.16
+        }
+      ],
+      "expected_tokens": [
+        "\"What",
+        "sick",
+        "lady?—where",
+        "does",
+        "she",
+        "live?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          6,
+          4,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sick",
+          "start": 0.56,
+          "end": 0.8,
+          "key": "sick",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady,",
+          "start": 0.8,
+          "end": 1.14,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "where",
+          "start": 1.46,
+          "end": 1.62,
+          "key": "where",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "does",
+          "start": 1.62,
+          "end": 1.74,
+          "key": "does",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.74,
+          "end": 1.9,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "live?",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "live",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "\"What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "sick",
+          "start": 0.56,
+          "end": 0.8
+        },
+        {
+          "text": "lady?—where",
+          "start": 0.8,
+          "end": 1.21
+        },
+        {
+          "text": "does",
+          "start": 1.62,
+          "end": 1.74
+        },
+        {
+          "text": "she",
+          "start": 1.74,
+          "end": 1.9
+        },
+        {
+          "text": "live?\"",
+          "start": 1.9,
+          "end": 2.16
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 7,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21632765606045723
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bdcba15de8f3af596ebf7cc6bf9645673385ae83858ed86b698a45a2a327a196",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "complete": true,
+  "signature": "6d5fd0d18a3a8e1c337285d75109747b99b1627cbd123feb5dd2f70a416fb8e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.11745765479281545,
+      "alignment_seconds": 0.00017867935821413994,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Woonsiego",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Woonsiego",
+              "start": 0.02,
+              "end": 1.22,
+              "probability": 0.38018798828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Woonsiego",
+          "start": 0.02,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "[Wounds",
+        "Iago.]"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Woonsiego",
+          "start": 0.02,
+          "end": 1.22,
+          "key": "woonsiego",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Wounds",
+          "start": 0.0,
+          "end": 0.61
+        },
+        {
+          "text": "Iago.]",
+          "start": 0.61,
+          "end": 0.915
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.11768197314813733
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4299fce8c5f2c7cece3cc1342db2e0bf84e6acfcc27b369ebdbfbaa9a54e2342",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

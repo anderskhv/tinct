@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "21d7f84b717f315293a907a80f29028d86b44e58c9c2c3bb19457d52cb40c333",
+  "attempts": [
+    {
+      "asr_seconds": 0.17224626429378986,
+      "alignment_seconds": 0.0004305317997932434,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Claudio, if it will not be, I'll leave you.",
+          "start": 0.44,
+          "end": 2.62,
+          "words": [
+            {
+              "text": " Claudio,",
+              "start": 0.44,
+              "end": 0.8,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " if",
+              "start": 1.14,
+              "end": 1.36,
+              "probability": 0.974609375
+            },
+            {
+              "text": " it",
+              "start": 1.36,
+              "end": 1.46,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " will",
+              "start": 1.46,
+              "end": 1.54,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " not",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be,",
+              "start": 1.7,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I'll",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.969970703125
+            },
+            {
+              "text": " leave",
+              "start": 2.2,
+              "end": 2.36,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you.",
+              "start": 2.36,
+              "end": 2.62,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio,",
+          "start": 0.44,
+          "end": 0.8
+        },
+        {
+          "raw": "if",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "raw": "it",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "raw": "will",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "raw": "not",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "be,",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "raw": "I'll",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "leave",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "raw": "you.",
+          "start": 2.36,
+          "end": 2.62
+        }
+      ],
+      "expected_tokens": [
+        "Claudio.",
+        "If",
+        "it",
+        "will",
+        "not",
+        "be,",
+        "I'll",
+        "leave",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio,",
+          "start": 0.44,
+          "end": 0.8,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 1.14,
+          "end": 1.36,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.36,
+          "end": 1.46,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.46,
+          "end": 1.54,
+          "key": "will",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.54,
+          "end": 1.7,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be,",
+          "start": 1.7,
+          "end": 1.9,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 2.04,
+          "end": 2.2,
+          "key": "ill",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "leave",
+          "start": 2.2,
+          "end": 2.36,
+          "key": "leave",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 2.36,
+          "end": 2.62,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.44,
+          "end": 0.8
+        },
+        {
+          "text": "If",
+          "start": 1.14,
+          "end": 1.36
+        },
+        {
+          "text": "it",
+          "start": 1.36,
+          "end": 1.46
+        },
+        {
+          "text": "will",
+          "start": 1.46,
+          "end": 1.54
+        },
+        {
+          "text": "not",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "be,",
+          "start": 1.7,
+          "end": 1.9
+        },
+        {
+          "text": "I'll",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "leave",
+          "start": 2.2,
+          "end": 2.36
+        },
+        {
+          "text": "you.",
+          "start": 2.36,
+          "end": 2.62
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1728380210697651
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ff9362570a72185337c2c542cfe34961227eb701aab8a1b807e1c901d510ffca",
+  "selected_reasons": []
+}

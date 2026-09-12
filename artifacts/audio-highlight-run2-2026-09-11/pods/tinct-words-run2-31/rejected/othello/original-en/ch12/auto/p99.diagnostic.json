@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "c14751de87869737d528fb7e805577edaa2a4c7a8a9af19d5e0c6033912ecf82",
+  "attempts": [
+    {
+      "asr_seconds": 0.13817970221862197,
+      "alignment_seconds": 0.00023485766723752022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Iago. Well, go to, very well.",
+        "hotwords": "Iago"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Iago. Well, go to, very well.",
+          "start": 0.45,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Iago.",
+              "start": 0.45,
+              "end": 0.81,
+              "probability": 0.180084228515625
+            },
+            {
+              "text": " Well,",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.463623046875
+            },
+            {
+              "text": " go",
+              "start": 1.39,
+              "end": 1.51,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " to,",
+              "start": 1.51,
+              "end": 1.69,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " very",
+              "start": 1.73,
+              "end": 1.91,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " well.",
+              "start": 1.91,
+              "end": 2.23,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Iago.",
+          "start": 0.45,
+          "end": 0.81
+        },
+        {
+          "raw": "Well,",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "go",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "raw": "to,",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "raw": "very",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "raw": "well.",
+          "start": 1.91,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Iago.",
+        "Well,",
+        "go",
+        "to,",
+        "very",
+        "well."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Iago.",
+          "start": 0.45,
+          "end": 0.81,
+          "key": "iago",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "go",
+          "start": 1.39,
+          "end": 1.51,
+          "key": "go",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to,",
+          "start": 1.51,
+          "end": 1.69,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "very",
+          "start": 1.73,
+          "end": 1.91,
+          "key": "very",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.91,
+          "end": 2.23,
+          "key": "well",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Iago.",
+          "start": 0.45,
+          "end": 0.81
+        },
+        {
+          "text": "Well,",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "go",
+          "start": 1.39,
+          "end": 1.51
+        },
+        {
+          "text": "to,",
+          "start": 1.51,
+          "end": 1.69
+        },
+        {
+          "text": "very",
+          "start": 1.73,
+          "end": 1.91
+        },
+        {
+          "text": "well.",
+          "start": 1.91,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.138501669280231
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9ba246551d8c56f2712e7d49bcf57f20dd6e77aa587304de9697033a10b19ec9",
+  "selected_reasons": []
+}

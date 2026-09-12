@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "3ac5380c9f2ab771ee9abb6545cad2b4d2bff7966609f54332b2c1995c8f6d97",
+  "attempts": [
+    {
+      "asr_seconds": 0.12689486797899008,
+      "alignment_seconds": 0.0002852820325642824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All. Where shall we go?",
+        "hotwords": "All, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All, Where Shall We Go?",
+          "start": 0.02,
+          "end": 1.54,
+          "words": [
+            {
+              "text": " All,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.69482421875
+            },
+            {
+              "text": " Where",
+              "start": 1.06,
+              "end": 1.06,
+              "probability": 0.0430908203125
+            },
+            {
+              "text": " Shall",
+              "start": 1.06,
+              "end": 1.2,
+              "probability": 0.66162109375
+            },
+            {
+              "text": " We",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " Go?",
+              "start": 1.32,
+              "end": 1.54,
+              "probability": 0.970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Where",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "raw": "Shall",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "raw": "We",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "Go?",
+          "start": 1.32,
+          "end": 1.54
+        }
+      ],
+      "expected_tokens": [
+        "All.",
+        "Where",
+        "shall",
+        "we",
+        "go?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All,",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 1.06,
+          "end": 1.06,
+          "key": "where",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Shall",
+          "start": 1.06,
+          "end": 1.2,
+          "key": "shall",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "we",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Go?",
+          "start": 1.32,
+          "end": 1.54,
+          "key": "go",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Where",
+          "start": 1.06,
+          "end": 1.06
+        },
+        {
+          "text": "shall",
+          "start": 1.06,
+          "end": 1.2
+        },
+        {
+          "text": "we",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "go?",
+          "start": 1.32,
+          "end": 1.54
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12732806289568543
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4ac3a06c0721912bafc03b93b543094b9919e9795fee7f70b74791405d651e3d",
+  "selected_reasons": []
+}

@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "56ca55535f93541669837195d07024caae2847ecf04777eef41f93b5b2dac464",
+  "attempts": [
+    {
+      "asr_seconds": 0.09616830304730684,
+      "alignment_seconds": 0.00013231096090748906,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "All walked after.",
+        "hotwords": "All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " All walked after.",
+          "start": 0.05,
+          "end": 1.25,
+          "words": [
+            {
+              "text": " All",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.55810546875
+            },
+            {
+              "text": " walked",
+              "start": 0.59,
+              "end": 0.83,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " after.",
+              "start": 0.83,
+              "end": 1.25,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "walked",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "raw": "after.",
+          "start": 0.83,
+          "end": 1.25
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "walked",
+        "after."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "All",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "all",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "walked",
+          "start": 0.59,
+          "end": 0.83,
+          "key": "walked",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "after.",
+          "start": 0.83,
+          "end": 1.25,
+          "key": "after",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "walked",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "text": "after.",
+          "start": 0.83,
+          "end": 1.25
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09633994405157864
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d9f22945c61d8767cb43986248efda3f08d81ce9743a9f1db93f939e30740c8",
+  "selected_reasons": []
+}
